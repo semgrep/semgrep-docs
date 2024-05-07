@@ -6,7 +6,7 @@ description: >-
   Semgrep supports more than two dozen languages. Learn about generally available, beta, and experimentally supported languages.
 hide_title: true
 tags:
-    - Semgrep Supply Chain 
+    - Semgrep Supply Chain
     - Semgrep OSS Engine
     - Team & Enterprise Tier
 title: Supported languages
@@ -38,7 +38,7 @@ This document provides information about supported languages and language maturi
 
 Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open-source engine.
 
-Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS. 
+Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS.
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
@@ -50,9 +50,9 @@ Use either tool to scan local code or integrate it into your CI/CD pipeline to a
 ### Language maturity levels
 Semgrep Code languages can be classified into four maturity levels:
 
-* Generally available (GA) 
+* Generally available (GA)
 * Beta
-* Experimental 
+* Experimental
 * Community supported\*
 
 \*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
@@ -98,16 +98,16 @@ Their differences are outlined in the following table:
 
 ### Semgrep Code language support
 
-Semgrep Code supports over 30 languages and counting! 🚀 
+Semgrep Code supports over 30 languages and counting! 🚀
 
 <SupportedLanguagesTable />
 
 
 ### Semgrep OSS language support
 
-**All Semgrep OSS languages are community supported.** Community supported languages meet the parse rate and syntax requirements of experimental languages in Semgrep Code. Semgrep OSS uses Semgrep's open source engine.
+**All Semgrep OSS languages are community supported.** Community supported languages must meet the parse rate and syntax requirements of **experimental** support in Semgrep Code to be listed here. Semgrep OSS uses Semgrep's open source engine.
 
-Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
+Community supported languages have varying levels of rule coverage - view the registry and filter out Pro rules to see the level of coverage for OSS.
 
 <details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
@@ -156,7 +156,7 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 Visit the Semgrep public language dashboard to see the parse rates for each language
 * See [Parse rates by language](https://dashboard.semgrep.dev/).
 
-<!-- coupling: If you modify the features in the levels below, change also 
+<!-- coupling: If you modify the features in the levels below, change also
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
 
