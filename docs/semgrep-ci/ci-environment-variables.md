@@ -36,7 +36,7 @@ These environment variables configure various aspects of your CI job, such as a 
 
 :::info Prerequisites
 * You must have a Semgrep AppSec Platform account to use this environment variable.
-* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#creating-a-semgrep_app_token).
+* You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/deployment/add-semgrep-to-other-ci-providers#create-a-semgrep_app_token).
 :::
 
 Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
@@ -53,7 +53,7 @@ Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGR
 
 ### `SEMGREP_BASELINE_REF`
 
-Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
+Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
 
 Example:
 
@@ -235,56 +235,11 @@ jobs:
 
 ### `SEMGREP_REPO_DISPLAY_NAME`
 
-Set `SEMGREP_REPO_DISPLAY_NAME` to define the name used for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name or to scan a monorepo as multiple projects.
+Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in Semgrep AppSec Platform. By default, `SEMGREP_REPO_DISPLAY_NAME` has the same value as `SEMGREP_REPO_NAME`. This allows you to use a different name for your project than the repository name, while retaining hyperlink and PR/MR comment functionality. It can also be used when [scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) to display each part as a separate project in Semgrep AppSec Platform.
 
-#### Scan a monorepo as multiple projects
-
-Create a semgrep scan for each folder you want to scan separately. For each scan, use a different value for `SEMGREP_REPO_DISPLAY_NAME`.
-
-For example, consider a repository with the top level folders `proj1` and `proj2`. You can create separate Semgrep scans for the two folders.
-
-Within a Bash environment:
-
-```bash
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
-```
-
-Within a Github Actions environment:
-
-```yaml
-name: Semgrep
-jobs:
-  semgrep:
-    strategy:
-      matrix:
-        subdir:
-          - proj1
-          - proj2
-    name: semgrep/ci
-    runs-on: ubuntu-20.04
-    env:
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      SEMGREP_REPO_DISPLAY_NAME: corporation/myrepo-${{ matrix.subdir }}
-    container:
-      image: semgrep/semgrep
-    steps:
-    - uses: actions/checkout@v3
-    - run: semgrep ci --include=${{ matrix.subdir }}
-```
-
-You may want to scan a monorepo in parts to manage the projects separately or to improve performance.
-
-If your repository doesn't split cleanly into folders, one strategy is to use `--include` for the main folders and `--exclude` to capture everything else. Returning to the bash example, this would look like:
-
-```bash
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj1" semgrep ci --include proj1
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --include proj2
-
-SEMGREP_REPO_DISPLAY_NAME="corporation/myrepo-proj2" semgrep ci --exclude proj1 --exclude proj2
-```
+:::info
+This environment variable only works with Semgrep versions 1.61.1 and later.
+:::
 
 ### `SEMGREP_REPO_URL`
 
@@ -354,7 +309,7 @@ steps:
 
 ### `BITBUCKET_TOKEN`
 
-Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-cloud-platform/bitbucket-pr-comments) for instructions.
+Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-pr-comments) for instructions.
 
 Example:
 

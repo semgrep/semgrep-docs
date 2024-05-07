@@ -309,7 +309,7 @@ module.exports = {
                 'semgrep-ci/packages-in-semgrep-docker'
             ]
         },
-        {
+       {
             type: 'category',
             label: 'Language-specific features',
             collapsible: true,
@@ -318,8 +318,17 @@ module.exports = {
                 'semgrep-code/java'
             ]
         },
+        {
+            type: 'category',
+            label: 'Glossaries',
+            collapsible: true,
+            link: { type: 'generated-index'},
+            items: [
+                'semgrep-code/glossary',
+                'semgrep-supply-chain/glossary'
+            ]
+        },
         'cli-reference',
-        'semgrep-supply-chain/glossary'
         ]
     }
   ],
@@ -374,6 +383,7 @@ module.exports = {
                     'writing-rules/data-flow/status'
                 ]
             },
+                'writing-rules/glossary'
             ]
         },
   ],
