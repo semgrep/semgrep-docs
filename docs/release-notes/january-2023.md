@@ -35,7 +35,7 @@ toc_max_heading_level: 3
 
 - Display findings grouped together by rules that detected them! Group by rule view helps you to identify patterns in your code and to triage findings easily. Findings grouped by rule are sorted by count from high to low. This enables you to know which rules have fired the most. In comparison, regularly grouped findings are sorted by their recency (most recent findings are at the top of the Findings page).
     ![Group by rule option on Findings page](/img/release-notes-group-by-rule.png)
-- Semgrep API now allows you to add or remove tags to a project. See [Tagging projects](/semgrep-cloud-platform/tags) documentation.
+- Semgrep API now allows you to add or remove tags to a project. See [Tagging projects](/semgrep-appsec-platform/tags) documentation.
 
 ### Changes
 
@@ -90,5 +90,5 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
 - Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-supply-chain/setup-maven).
 - Updated documentation of Semgrep App [Findings](/semgrep-code/findings) with fresh screenshots.
 - Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
-- Updated Semgrep App’s [Tagging](/semgrep-cloud-platform/tags) documentation.
+- Updated Semgrep App’s [Tagging](/semgrep-appsec-platform/tags) documentation.
 - Updated [Getting started with Semgrep CLI](/getting-started/quickstart).

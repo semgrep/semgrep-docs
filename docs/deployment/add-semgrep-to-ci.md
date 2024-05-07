@@ -144,7 +144,7 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 
 <!-- Changes to existing
 
-https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#compatibility-of-environment-variables
+https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#compatibility-of-environment-variables
 -> maybe place these into sample CI configs? or separate thing entirely
 
 -->
