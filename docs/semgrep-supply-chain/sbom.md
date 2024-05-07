@@ -23,7 +23,7 @@ Semgrep Supply Chain supports the following:
 
 :::info Prerequisites
 - **SBOM generation** can be performed only through Semgrep AppSec Platform.
-- You need at least one successful Supply Chain scan on the **trunk** branch of each repository you want to generate an SBOM for. See [<i class="fa-regular fa-file-lines"></i> Core deployment](/deployment/core-deployment) to set up your Semgrep account and Supply Chain scans.
+- The latest successful full scan running Supply Chain must have run on the **trunk** (default) branch of each repository you want to generate an SBOM for, or there can be a mismatch between dependencies and vulnerabilities. See [<i class="fa-regular fa-file-lines"></i> Core deployment](/deployment/core-deployment) to set up your Semgrep account and Supply Chain scans.
 :::
 
 1. In Semgrep AppSec Platform, click **Supply Chain > Dependencies**.
