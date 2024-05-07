@@ -24,10 +24,10 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 
 Cloud scanning requires **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
-The access to your code is facilitated by a private Semgrep GitHub app that you create and register in your GitHub organization.
+The access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization.
 
-- You are in control of the app and can revoke access to any repository at any time.
-- You can limit access to specific repositories.
+- You are in control of the app and can [revoke access to repositories](#remove-the-private-app) at any time.
+- You can [limit access to specific repositories](#limit-access-to-specific-repositories).
 
 <!-- Sara to provide steps on how to do both -->
 
@@ -103,7 +103,7 @@ By default, repositories onboarded to Cloud Scanning are configured with:
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. Search for your repository's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
-1. tk disable the toggle AutoScan diff scans (beta)
+1. tk turn off the toggle for AutoScan diff scans (beta)
 
 ### Remove a repository
 
@@ -112,7 +112,25 @@ By default, repositories onboarded to Cloud Scanning are configured with:
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
 1. Click the dropdown at the header and click **Delete project**.
 
+## Revoke Semgrep's access to your repositories
+
+### Remove the private app
+
+The following steps revoke the code access you previously granted Semgrep for all repositories you selected.
+
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
+1. On the entry of the SCM you want to remove, click **Remove app**.
+1. Click **Remove** to confirm.
+
+### Limit access to specific repositories
+
+tk write out
+
 ## Appendix
+
+### Permissions
+
+Both the public and private Semgrep GitHub app must have access to the repositories you want to scan. You can view
 
 ### Load management
 
