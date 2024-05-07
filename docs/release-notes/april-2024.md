@@ -17,7 +17,7 @@ tags:
 
 ### Added
 
-- The **Teams** feature is now in public beta. This feature enables you to assign members to teams, and then grant those teams access to specific projects (repositories added to Semgrep).
+- The **Teams** feature, which provides project-level role-based access control (RBAC), is now in public beta. This feature enables you to assign **members** to **teams**, and then grant those teams access to specific projects (repositories added to Semgrep).
     - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/team).
 - The Dashboard now displays the Assistant **priority inbox**, a list of essential tasks that Semgrep Assistant prepares for you each time you log in. <!-- 13768 -->
 
@@ -44,7 +44,7 @@ tags:
 
 ### Changed
 
-- Cross-file (interfile) analysis is now the default for Semgrep Code.
+- Cross-function (intrafile) analysis is now the default for Semgrep Code.
 - Updated how Semgrep parses regex; some rules may need to be updated to comply with stricter regex standards.
 
 ### Fixed
