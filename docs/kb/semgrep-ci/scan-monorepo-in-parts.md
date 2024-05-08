@@ -28,7 +28,7 @@ For example, if the monorepo has four main modules and their paths are:
     /src/moduleC
     /src/moduleD
 
-Then splitting its scans into four separate scans, one for each module, would provide a logical separation for findings.
+Then splitting its scans into four separate scans, one for each module, would provide a logical separation for findings. In general, we recommend modules to not exceed ~100,000 lines of code in order to keep optimal scan time and efficiency.
 
 After choosing a logical split, use the `--include` flag ([see CLI reference](/docs/cli-reference)) with the relevant path to only scan files in that module's code path:
 
