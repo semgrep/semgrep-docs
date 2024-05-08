@@ -190,19 +190,28 @@ Once you've written a rule and created comment annotations, you can run your rul
 
 ## Code search (beta)
 
-Code search allows you to test a Semgrep rule by running it against one or more GitHub repositories instead of just a few lines of test code.
+Code search allows you to test a Semgrep rule by running it against one or more GitHub repositories instead of just a few lines of test code. Its results highlight all instances of matching code in your repositories, allowing you to see whether your rule works as intended or not. This rapid feedback can help you develop more accurate and effective rules.
 
 ![Code search in Semgrep Editor](/img/code-search.png)
 ***Figure.*** Code search in Semgrep Editor
 
-To run your rule against your codebases:
+:::info prerequisites
+* Code search is currently available to all paying customers of Semgrep Code.
+* You must have granted Semgrep code access if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories.
+:::
+
+To run your rule against your repositories:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Rules > Editor**, and open up the rule you want to test.
 3. In the **test code** panel, switch to **live code**.
 4. Select the repositories against which you want the rule to run. You can use the search bar to narrow down the list of repositories shown. Semgrep currently supports both public and private repositories. 
-5. Click **Run** to start the search.
-6. When the search completes, you'll see a list of results where the rule generated a finding when run against your codebase. The links, which include filename and line numbers, take you to GitHub, where you can view and remediate the issue.
+5. Optional: If you're running your rule against multiple repositories, select the **Limit to first result per repository** checkbox to see only the first result per repository. This speeds up your search and allows you to receive your results faster.
+6. Click **Run** to start the search.
+7. When the search completes, you'll see a list of results where the rule generated a finding when run against your codebase. The links, which include filenames and line numbers, take you to GitHub, where you can view and remediate the issue.
+
+![Code search results in Semgrep Editor](/img/code-search-results.png)
+***Figure.*** Code search results in Semgrep Editor
 
 ## Set a rule’s visibility and share a rule
 
