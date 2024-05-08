@@ -15,24 +15,24 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.9.1",
-    "@docusaurus/core": "^2.4.1",
-    "@docusaurus/plugin-client-redirects": "^2.4.1",
-    "@docusaurus/preset-classic": "^2.4.1",
-    "@markprompt/docusaurus-theme-search": "^0.12.1",
-    "@mdx-js/react": "^1.6.21",
-    "@svgr/webpack": "^5.5.0",
-    "clsx": "^1.1.1",
-    "docusaurus-plugin-sass": "^0.2.3",
+    "@algolia/client-search": "^4.23.3",
+    "@docusaurus/core": "^3.3.2",
+    "@docusaurus/plugin-client-redirects": "^3.3.2",
+    "@docusaurus/preset-classic": "^3.3.2",
+    "@markprompt/docusaurus-theme-search": "^0.23.1",
+    "@mdx-js/react": "^3.0.1",
+    "@svgr/webpack": "^8.1.0",
+    "clsx": "^2.1.1",
+    "docusaurus-plugin-sass": "^0.2.5",
     "file-loader": "^6.2.0",
-    "prism-react-renderer": "^1.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "prism-react-renderer": "^2.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-loadable": "*",
-    "sass": "^1.57.1",
-    "typescript": "^5.1.6",
+    "sass": "^1.77.0",
+    "typescript": "^5.4.5",
     "url-loader": "^4.1.1",
-    "webpack": "^5.76.0"
+    "webpack": "^5.91.0"
   },
   "browserslist": {
     "production": [
@@ -47,7 +47,8 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.4.1",
-    "@tsconfig/docusaurus": "^2.0.0"
+    "@docusaurus/module-type-aliases": "^3.3.2",
+    "@tsconfig/docusaurus": "^2.0.3",
+    "@types/react": "^18.3.1"
   }
 }
