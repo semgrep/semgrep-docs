@@ -2,7 +2,7 @@
 slug: cloud-scanning
 title: Add repositories to Semgrep in bulk (beta)
 hide_title: true
-description: Semgrep cloud scanning enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
+description: Semgrep cloud scanning provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
 tags:
   - Deployment
   - Semgrep AppSec Platform
@@ -46,17 +46,16 @@ The private app must be installed by a **GitHub organization administrator**. If
 
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
 1. Click **Register App**.
-![DESCRIPTION-tk](/img/scm-create-private-app.png)
+![GitHub entry with public GitHub app connection](/img/scm-create-private-app.png)
 1. Follow the steps to install a private GitHub app in your org. Ensure that you enter your exact GitHub organization name and the correct type of GitHub account, typically **Organization**.
 1. Click **Register GitHub App**.
 1. If you are an admin on the GitHub organization, click **Continue**. Otherwise, share the provided link with your GitHub administrator.
-![DESCRIPTION-tk](/img/scm-confirm-private-app.png#sm-width-noborder)
+![Continue to SCM dialog](/img/scm-confirm-private-app.png#sm-width-noborder)
 1. Follow the prompts in GitHub to install the private app. Ensure that you grant access to the repositories you want to scan.
 
-A complete installation is displayed in the Source Code Manager entry as follows: 
+A complete installation is displayed in the Source Code Manager entry as follows:
 
-![DESCRIPTION-tk](/img/zcs-code-access-enabled.png#md-width)
-
+![GitHub entry with public and private GitHub app connection](/img/zcs-code-access-enabled.png#md-width)
 
 ## Add a repository
 
@@ -75,7 +74,7 @@ Once a repository has been added to Semgrep AppSec Platform, it becomes a **proj
 1. Ensure you have provided access to **both** the private and public Semgrep GitHub to the repositories you want to scan by following the steps in [Permissions and synchronicity](#permissions-and-synchronicity).
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. If the page doesn't display the repository you want to add, click **Can't find your project? > Sync projects**.
-1. If the page doesn't display any repositories, click **Sync projects**. 
+1. If the page doesn't display any repositories, click **Sync projects**.
 1. Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
 
 ### How cloud scanning detects repositories
@@ -104,7 +103,7 @@ By default, repositories onboarded to Cloud Scanning are configured with:
 
 - **Weekly full scans** of the entire repository at a random day and time. <!-- clarify how this randomness works, it's the same time and day every week -->
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
--
+
 ## Scan management and configuration
 
 ### Manually run a full scan
@@ -119,7 +118,7 @@ By default, repositories onboarded to Cloud Scanning are configured with:
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. Search for your repository's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
-1. tk turn off the toggle for AutoScan diff scans (beta)
+1. Click the toggle for diff-aware scans (beta)
 
 ### Remove a repository
 
@@ -127,8 +126,6 @@ By default, repositories onboarded to Cloud Scanning are configured with:
 1. Search for your repository's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
 1. Click the dropdown at the header and click **Delete project**.
-
-Delete project does not delete the `semgrep.yml` file. tk-to confirm
 
 ## Revoke Semgrep's access to your repositories
 
@@ -142,7 +139,10 @@ The following steps revoke the code access you previously granted Semgrep for al
 
 ### Limit access to specific repositories
 
-tk write out
+1. Navigate to your [<i class="fas fa-external-link fa-xs"></i> GitHub settings page](https://github.com/settings/installations/).
+1. On the entry of your private Semgrep GitHub app, click **Configure**.
+![GitHub settings page](/img/zcs-github-apps.png)
+1. Under **Repository access**, de-select the repositories you no longer want to grant Semgrep access to.
 
 ## Appendices
 
@@ -150,7 +150,7 @@ tk write out
 
 Both the public and private Semgrep GitHub app must have access to the repositories you want to scan.
 
-To view the repositories you have granted access to:
+To **view** the repositories you have granted access to:
 
 1. Navigate to your [<i class="fas fa-external-link fa-xs"></i> GitHub settings page](https://github.com/settings/installations/).
 1. On the entry of your public Semgrep GitHub app, typically **semgrep-app**, Click **Configure**.
@@ -163,4 +163,4 @@ When you add a large number of repositories (100+), they are ...
 
 ### Scan logs and statistics
 
-tk
+Scan statistics, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.
