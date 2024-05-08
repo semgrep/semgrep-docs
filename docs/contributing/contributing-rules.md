@@ -160,9 +160,9 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
    <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
    <td>No finite value. Any additional information that gives more context.</td>
    <td>
-    <pre  style="white-space: pre-wrap; word-break: keep-all;">
+    <pre style={{"white-space": "pre-wrap", "word-break": "keep-all"}}>
     <code>references:<br /></code>
-    <code>  - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html</code>
+    <code>  - [OWASP DOM based XSS Prevention Cheat Sheet][OWASP-DOM-based-XSS-prevention]</code>
     </pre>
    </td>
   </tr>
@@ -505,3 +505,5 @@ See a [PR example](https://github.com/semgrep/semgrep-rules/pull/2730).
 There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
 <MoreHelp />
+
+[OWASP-DOM-based-XSS-prevention]: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html

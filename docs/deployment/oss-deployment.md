@@ -9,6 +9,7 @@ tags:
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 
 # Semgrep OSS in CI
 
