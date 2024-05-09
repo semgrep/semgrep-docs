@@ -254,7 +254,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
   </tr>
   <tr>
    <td>Rust</td>
-   <td>Cargo</td>
+   <td>Cargo§</td>
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✔️</td>
@@ -270,7 +270,7 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
 <tr>
    <td rowspan="2">Kotlin</td>
    <td>Gradle</td>
-   <td><code>gradle.lockfile</code></td>
+   <td><code>gradle.lockfile§</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>--</td>
 </tr>
@@ -306,7 +306,8 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
 
 _*Semgrep Supply Chain scans transitive dependencies for **all supported languages** but does **not** perform reachability analysis on transitive dependencies._ <br />
 _**‡Reachability support level** refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which check a package's version against versions with known vulnerabilities._ <br />
-_**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._
+_**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._ <br />
+_**§** Supply Chain does not analyze the transitivity of packages for these language or lockfile combinations. All dependencies are listed as **Unknown** transitivity._
 
 <AdmonitionSotCves />
 
