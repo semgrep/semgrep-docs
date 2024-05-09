@@ -16,9 +16,11 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 
 ## Feature maturity and support
 
-- Cloud scanning is in **public beta**.
+- Cloud scanning is in **public beta** for existing Semgrep customers on a paid plan.
 - Cloud scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
-- Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
+    - This guide provides self-service enablement steps for **hosted GitHub plans**.
+    - For GitHub Enterprise Server users, contact your technical account manager (TAM).
+- Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
 ## Requirements
 
@@ -30,6 +32,13 @@ The access to your code is facilitated by a **private Semgrep GitHub app** that 
 - You can [limit access to specific repositories](#limit-access-to-specific-repositories).
 
 ## Prerequisites
+
+Cloud scanning requires both the public Semgrep GitHub app and a private Semgrep GitHub app that you register and create yourself.
+
+- The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
+- The private Semgrep GitHub app is required to enable cloud scanning.
+
+To view all permissions, see [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information.
 
 ### Install the public Semgrep GitHub app
 
@@ -53,9 +62,17 @@ The private app must be installed by a **GitHub organization administrator**. If
 ![Continue to SCM dialog](/img/scm-confirm-private-app.png#sm-width-noborder)
 1. Follow the prompts in GitHub to install the private app. Ensure that you grant access to the repositories you want to scan.
 
+### Completed installation
+
 A complete installation is displayed in the Source Code Manager entry as follows:
 
 ![GitHub entry with public and private GitHub app connection](/img/zcs-code-access-enabled.png#md-width)
+_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed cloud scanning set-up._
+
+You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
+
+![GitHub settings page](/img/zcs-github-apps.png#bordered)
+_**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. The private Semgrep app follows the convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**_.
 
 ## Add a repository
 
@@ -65,7 +82,7 @@ A complete installation is displayed in the Source Code Manager entry as follows
 1. Select the repositories you want to scan from the list.
 1. Click **Enable Cloud Scanning**.
 
-After enabling cloud scanning, a full scan starts immediately on all the repositories you have added. <!-- may be false, initial scan may start up to 6 days after, will double check -->
+After enabling cloud scanning, a full scan starts **immediately** on all the repositories you have added.
 
 Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings and scan metadata of that repository.
 
@@ -82,26 +99,24 @@ Once a repository has been added to Semgrep AppSec Platform, it becomes a **proj
 - Repositories with **existing** Semgrep CI jobs are **excluded** from the list. See the following section to convert your existing Semgrep CI jobs to cloud scanning.
 - Repositories must be accessible to both the public Semgrep GitHub app and the private Semgrep GitHub app.
 
-<!-- This next section is totally unverified. Sara should probably test this out -->
-
 ### Convert an existing Semgrep CI job
 
 If you'd like to convert a large number of Semgrep CI jobs to cloud scanning, you can reach out to your technical account manager (TAM) for assistance.
 
 1. Delete the project (link-tk)
-1. Follow the steps in [Add a repository](#add-a-repository). The repository should be available on the list.
+1. After deleting the project, the cloud scanning repository list should display the repository you want to convert. Follow the steps in [Add a repository](#add-a-repository).
 
 :::warning
-Deleting a project also deletes all of its associated history, findings and scan metadata. When you re-add the repository, it is treated as a new project.
+Deleting a project also deletes all of its associated history, findings and scan metadata. **This includes triaged findings**. When you re-add the repository, it is treated as a new project.
 :::
 
-<!-- For SME reviewer - is the "treated as a new project" intentional? I tested this functionality out and that's what happened in my case." I think that's to be expected because it's a different way of scanning, right?-->
+<!-- For SME reviewer - is the "treated as a new project" intentional? I tested this functionality out and that's what happened in my case. Answer: yes -->
 
 ## Default configuration
 
-By default, repositories onboarded to Cloud Scanning are configured with:
+By default, projects on cloud scanning are configured with:
 
-- **Weekly full scans** of the entire repository at a random day and time. <!-- clarify how this randomness works, it's the same time and day every week -->
+- **Weekly full scans** of the entire repository. When a project is first added to cloud scanning, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
 
 ## Scan management and configuration
