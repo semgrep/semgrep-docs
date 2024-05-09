@@ -48,14 +48,12 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 
 <!-- The Semgrep ecosystem includes the following products:-->
 
-- [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-- [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions.
-- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - Detects and validates leaked credentials in your codebase.
 - [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+- [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
+- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - Detect and validate leaked credentials in your codebase.
+- [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
 
-:::tip
-Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors.
-:::
+Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
 
 <!-- 
 Support and be supported by the Semgrep community through:
@@ -70,20 +68,18 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://semgre
 </p>
 -->
 
-## Language support
+<h2>Language support</h2>
 
-### Semgrep Code
+| Product | Language support |
+| - | - |
+| Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code)! 🚀 |
+| Semgrep Secrets | Semgrep Secrets can scan repositories using any programming language. |
+| Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, Javascript and Typescript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
 
-Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code)! 🚀 
-
-### Semgrep Supply Chain
-
-Semgrep Supply Chain supports Go, Javascript/Typescript, Python, Ruby, and Java. 🛡️ Visit [Semgrep Supply Chain's supported languages](/docs/supported-languages#semgrep-supply-chain) to see all the package managers and lockfiles supported.
-
-## Environments
+<!--
+<h2>Environments</h2>
 
 The following table lists environments in which you can run various Semgrep products.
-
 
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
@@ -94,6 +90,7 @@ The following table lists environments in which you can run various Semgrep prod
 :::info
 Semgrep AppSec Platform is a hosted web application (SaaS) and as such is excluded from the table.
 :::
+-->
 
 <!--
 ## History
