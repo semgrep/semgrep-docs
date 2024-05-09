@@ -99,15 +99,17 @@ Once a repository has been added to Semgrep AppSec Platform, it becomes a **proj
 - Repositories with **existing** Semgrep CI jobs are **excluded** from the list. See the following section to convert your existing Semgrep CI jobs to cloud scanning.
 - Repositories must be accessible to both the public Semgrep GitHub app and the private Semgrep GitHub app.
 
-### Convert an existing Semgrep CI job
+### Convert or migrate an existing Semgrep CI job
 
-If you'd like to convert a large number of Semgrep CI jobs to cloud scanning, you can reach out to your technical account manager (TAM) for assistance.
+If you'd like to migrate a large number of Semgrep CI jobs to cloud scanning, you can reach out to your technical account manager (TAM) for assistance.
+
+<!-- the process requires deleting the project and is not entirely ideal and i'm not sure if we should just say "talk to a tam" -->
 
 1. Delete the project (link-tk)
 1. After deleting the project, the cloud scanning repository list should display the repository you want to convert. Follow the steps in [Add a repository](#add-a-repository).
 
 :::warning
-Deleting a project also deletes all of its associated history, findings and scan metadata. **This includes triaged findings**. When you re-add the repository, it is treated as a new project.
+- Deleting a project also deletes all of its associated history, findings and scan metadata. **This includes triaged findings**. When you re-add the repository, it is treated as a new project.
 :::
 
 <!-- For SME reviewer - is the "treated as a new project" intentional? I tested this functionality out and that's what happened in my case. Answer: yes -->
@@ -121,6 +123,9 @@ By default, projects on cloud scanning are configured with:
 
 ## Scan management and configuration
 
+<!-- I haven't been able to see ANY of these in my ZCS deployment so there are no screenshots. -->
+
+
 ### Manually run a full scan
 
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -133,7 +138,7 @@ By default, projects on cloud scanning are configured with:
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. Search for your repository's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
-1. Click the toggle for diff-aware scans (beta)
+1. Click the toggle for diff-aware scans.
 
 ### Remove a repository
 
@@ -171,10 +176,6 @@ To **view** the repositories you have granted access to:
 1. On the entry of your public Semgrep GitHub app, typically **semgrep-app**, Click **Configure**.
 1. Review the repositories under repository access.
 1. Perform steps 2 and 3 on the entry of your private Semgrep GitHub app.
-
-### Load management
-
-When you add a large number of repositories (100+), they are ...
 
 ### Scan logs and statistics
 
