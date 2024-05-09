@@ -21,6 +21,14 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
     - This guide provides self-service enablement steps for **hosted GitHub plans**.
     - For GitHub Enterprise Server users, contact your technical account manager (TAM).
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
+- Cloud scanning is available for all Semgrep products you have purchased, including:
+    - Semgrep Code
+    - Semgrep Supply Chain
+    - Semgrep Secrets
+
+:::note
+To receive Supply Chain findings, you must have a supported lockfile in your repository. Cloud scanning does **not** support lockfile generation.
+:::
 
 ## Requirements
 
