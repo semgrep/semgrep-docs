@@ -60,7 +60,7 @@ severity levels for GA languages. That means Semgrep Supply Chain can flag all
 your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability
     definition, the finding is flagged as **reachable**.
-      * A finding is **always reachable** if it's something Semgrep recommends fixing, regardless of what's in the code. In other words, the presence of the dependency is the vulnerability.
+      * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved for these findings.
       * A finding is **conditionally reachable** if Semgrep finds a way to reach it when scanning your code when certain conditions are met.
   * If you don't use the vulnerable piece of code of the library or package
   imported, the finding is flagged as **unreachable**.
