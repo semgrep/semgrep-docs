@@ -67,7 +67,7 @@ Assistant's suggestions to ignore findings are also surfaced in PR or MR comment
 
 ### Autofix Semgrep Code findings
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
+Semgrep Assistant can suggest autofix code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
 
 You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant in Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
 
