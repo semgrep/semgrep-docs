@@ -70,6 +70,10 @@ The private app must be installed by a **GitHub organization administrator**. If
 ![Continue to SCM dialog](/img/scm-confirm-private-app.png#sm-width-noborder)
 1. Follow the prompts in GitHub to install the private app. Ensure that you grant access to the repositories you want to scan.
 
+:::caution Running into a 404?
+If you are brought to a GitHub 404 page, return to your [<i class="fas fa-external-link fa-xs"></i> GitHub Applications](https://github.com/settings/installations) page.
+:::
+
 ### Completed installation
 
 A complete installation is displayed in the Source Code Manager entry as follows:
