@@ -238,18 +238,18 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 </details>
 
 
-##### Permissions when adding repositories into Semgrep AppSec Platform through cloud scanning or using AI features
+##### Permissions when adding repositories into Semgrep AppSec Platform through managed scanning or using AI features
 
 You can optionally create a private GitHub integration app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
-- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Cloud scanning](/deployment/cloud-scanning).
+- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning).
 - To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
 
 :::info
 These features require **read access** to your code.
 :::
 
-<details><summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>cloud scanning</strong>.</summary>
+<details><summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>managed scanning</strong>.</summary>
 
 <dl>
 <dt>Reading metadata of the repositories you select</dt>

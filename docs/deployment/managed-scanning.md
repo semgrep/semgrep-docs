@@ -1,8 +1,8 @@
 ---
-slug: cloud-scanning
+slug: managed-scanning
 title: Add repositories to Semgrep in bulk (beta)
 hide_title: true
-description: Semgrep cloud scanning provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
+description: Semgrep managed scanning provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
 tags:
   - Deployment
   - Semgrep AppSec Platform
@@ -10,29 +10,29 @@ tags:
 
 # Add repositories to Semgrep in bulk
 
-**Semgrep cloud scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your CI workflows.
+**Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your CI workflows.
 
 This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-to-ci). Instead of adding a Semgrep job or workflow to your CI/CD pipeline, repositories are added to Semgrep AppSec Platform.
 
 ## Feature maturity and support
 
-- Cloud scanning is in **public beta** for existing Semgrep customers on a paid plan.
-- Cloud scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
+- Managed scanning is in **public beta** for existing Semgrep customers on a paid plan.
+- Managed scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
     - This guide provides self-service enablement steps for **hosted GitHub plans**.
     - For GitHub Enterprise Server users, contact your technical account manager (TAM).
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
-- Cloud scanning is available for all Semgrep products you have purchased, including:
+- Managed scanning is available for all Semgrep products you have purchased, including:
     - Semgrep Code
     - Semgrep Supply Chain
     - Semgrep Secrets
 
 :::note
-To receive Supply Chain findings, you must have a supported lockfile in your repository. Cloud scanning does **not** support lockfile generation.
+To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
 :::
 
 ## Requirements
 
-Cloud scanning requires **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
+managed scanning requires **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
 The access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization.
 
@@ -41,10 +41,10 @@ The access to your code is facilitated by a **private Semgrep GitHub app** that 
 
 ## Prerequisites
 
-Cloud scanning requires both the public Semgrep GitHub app and a private Semgrep GitHub app that you register and create yourself.
+Managed scanning requires both the public Semgrep GitHub app and a private Semgrep GitHub app that you register and create yourself.
 
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
-- The private Semgrep GitHub app is required to enable cloud scanning.
+- The private Semgrep GitHub app is required to enable code access for managed scanning.
 
 To view all permissions, see [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information.
 
@@ -75,7 +75,7 @@ The private app must be installed by a **GitHub organization administrator**. If
 A complete installation is displayed in the Source Code Manager entry as follows:
 
 ![GitHub entry with public and private GitHub app connection](/img/zcs-code-access-enabled.png#md-width)
-_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed cloud scanning set-up._
+_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed managed scanning set-up._
 
 You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
 
@@ -85,14 +85,14 @@ _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. 
 ## Add a repository
 
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
-1. Click **Scan New Project > Semgrep Cloud Scan**.
+1. Click **Scan New Project > Semgrep Managed Scan**.
 1. Optional: If you can't find the repository you want to add, click **Can't find your project? > Sync projects**.
 1. Select the repositories you want to scan from the list.
-1. Click **Enable Cloud Scanning**.
+1. Click **Enable managed scanning**.
 
-- After enabling cloud scanning, a full scan starts **immediately** on all the repositories you have added.
+- After enabling managed scanning, a full scan starts **immediately** on all the repositories you have added.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through cloud scanning are tagged with `autoscan`.
+- Projects scanned through managed scanning are tagged with `autoscan`.
 
 ### If the page doesn't display any repositories
 
@@ -102,19 +102,19 @@ _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. 
 1. If the page doesn't display any repositories, click **Sync projects**.
 1. Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
 
-### How cloud scanning detects repositories
+### How managed scanning detects repositories
 
-- Repositories with **existing** Semgrep CI jobs are **excluded** from the list. See the following section to convert your existing Semgrep CI jobs to cloud scanning.
+- Repositories with **existing** Semgrep CI jobs are **excluded** from the list. See the following section to convert your existing Semgrep CI jobs to managed scanning.
 - Repositories must be accessible to both the public Semgrep GitHub app and the private Semgrep GitHub app.
 
 ### Convert or migrate an existing Semgrep CI job
 
-If you'd like to migrate a large number of Semgrep CI jobs to cloud scanning, you can reach out to your technical account manager (TAM) for assistance.
+If you'd like to migrate a large number of Semgrep CI jobs to managed scanning, you can reach out to your technical account manager (TAM) for assistance.
 
 <!-- the process requires deleting the project and is not entirely ideal and i'm not sure if we should just say "talk to a tam" -->
 
 1. Delete the project (link-tk)
-1. After deleting the project, the cloud scanning repository list should display the repository you want to convert. Follow the steps in [Add a repository](#add-a-repository).
+1. After deleting the project, the managed scanning repository list should display the repository you want to convert. Follow the steps in [Add a repository](#add-a-repository).
 
 :::warning
 - Deleting a project also deletes all of its associated history, findings and scan metadata. **This includes triaged findings**. When you re-add the repository, it is treated as a new project.
@@ -124,9 +124,9 @@ If you'd like to migrate a large number of Semgrep CI jobs to cloud scanning, yo
 
 ## Default configuration
 
-By default, projects on cloud scanning are configured with:
+By default, projects on managed scanning are configured with:
 
-- **Weekly full scans** of the entire repository. When a project is first added to cloud scanning, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
+- **Weekly full scans** of the entire repository. When a project is first added to managed scanning, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
 
 ## Scan management and configuration

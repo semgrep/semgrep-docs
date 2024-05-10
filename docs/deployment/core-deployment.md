@@ -80,8 +80,8 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Semgrep fully supports many popular CI providers. See <a href="/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
         </tr>
         <tr>
-            <td>Cloud scanning (beta): scanning remote repositories in bulk without CI changes</td>
-            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires code access. See <a href="/deployment/cloud-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
+            <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires code access. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>

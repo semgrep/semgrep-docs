@@ -80,7 +80,7 @@ module.exports = {
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
-                        'deployment/cloud-scanning',
+                        'deployment/managed-scanning',
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
