@@ -67,7 +67,7 @@ Assistant's suggestions to ignore findings are also surfaced in PR or MR comment
 
 ### Autofix Semgrep Code findings
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
+Semgrep Assistant can suggest autofix code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule that recommends a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
 
 You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant in Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
 
@@ -107,7 +107,9 @@ Semgrep uses API permissions to access code on your pre-selected GitHub or GitLa
 * Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which includes source code snippets.
 * Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 10 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains GPT's responses based on these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
+<!-- markdown-link-check-disable -->
 * Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Enterprise privacy at OpenAI](https://openai.com/enterprise-privacy).
+<!-- markdown-link-check-enable -->
 * Semgrep, Inc. takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
   * Semgrep shares code snippets with OpenAI without identifying the customer or repository name.
   * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert.
