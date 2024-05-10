@@ -3,6 +3,7 @@ slug: editor
 append_help_link: true
 title: Write custom rules
 hide_title: true
+toc_max_heading_level: 2
 tags:
     - Semgrep AppSec Platform
     - Team & Enterprise Tier
@@ -195,9 +196,15 @@ Code search allows you to test a Semgrep rule by running it against one or more 
 ![Code search in Semgrep Editor](/img/code-search.png)
 ***Figure.*** Code search in Semgrep Editor
 
-:::info prerequisites
+### Prerequisites
+
 * Code search is currently available to all paying customers of Semgrep Code.
-* You must have granted Semgrep code access if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories.
+* You must grant Semgrep code access if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
+  * You can [grant Semgrep code access by enabling Assistant](/semgrep-assistant/getting-started#enable-assistant).
+
+
+:::info
+Code search currently works with repositories or projects hosted by Github.com.
 :::
 
 To run your rule against selected repositories or projects:
@@ -205,7 +212,7 @@ To run your rule against selected repositories or projects:
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Rules > Editor**, and open up the rule you want to test.
 3. In the **code panel** click **live code**.
-4. Select the repositories against which you want the rule to run. You can use the search bar to narrow down the list of repositories shown. Semgrep currently supports both public and private repositories. 
+4. Select the repositories against which you want the rule to run. You can use the search bar to narrow down the list of repositories shown. Semgrep currently supports both public repositories and private repositories available to your Semgrep organization. 
 5. Optional: If you're running your rule against multiple repositories, select the **Limit to first result per repository** checkbox to see only the first result per repository. This speeds up your search and allows you to receive your results faster.
 6. Click **Run** to start the search.
 7. When the search completes, you'll see a list of results where the rule generated a finding when run against your codebase. The links, which include filenames and line numbers, take you to GitHub, where you can view and remediate the issue.
