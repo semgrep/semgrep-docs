@@ -198,7 +198,7 @@ Code search allows you to test a Semgrep rule by running it against one or more 
 
 ### Prerequisites
 
-* Code search is currently available to all paying customers of Semgrep Code.
+* Code search is in **public beta** for Semgrep customers on a paid plan.
 * You must grant Semgrep code access if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
   * You can [grant Semgrep code access by enabling Assistant](/semgrep-assistant/getting-started#enable-assistant).
 
