@@ -90,9 +90,9 @@ _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. 
 1. Select the repositories you want to scan from the list.
 1. Click **Enable Cloud Scanning**.
 
-After enabling cloud scanning, a full scan starts **immediately** on all the repositories you have added.
-
-Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings and scan metadata of that repository.
+- After enabling cloud scanning, a full scan starts **immediately** on all the repositories you have added.
+- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- Projects scanned through cloud scanning are tagged with `autoscan`.
 
 ### If the page doesn't display any repositories
 
