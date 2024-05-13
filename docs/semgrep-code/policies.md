@@ -94,7 +94,7 @@ To add rules, follow these steps:
 
 ### Adding custom rules to your Policies
 
-To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor/#setting-code-standards-with-the-policies-page).
+To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
 
 ## Disabling rules
 

@@ -11,7 +11,7 @@ First, verify that your repository meets the basic requirements for Semgrep Supp
 
 ### Are the language and ecosystem supported?
 
-Check the [Supported Languages table](/docs/supported-languages/#general-availability) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
+Check the [Supported Languages table](/supported-languages#semgrep-supply-chain) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 

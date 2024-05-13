@@ -120,7 +120,7 @@ The **Other** license category may include copyleft or permissive licenses. Cons
 
 Some packages allow multiple licenses. Semgrep treats packages with multiple licenses as if all licenses apply, and behaves according to the strictest policy. For example, if a package allows use under either an MIT license or a GPL-3.0 license, and the GPL-3.0 license is set to Block, but the MIT license is set to Allow, a PR that adds the package is blocked.
 
-Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
+Add an [exemption for the package](#exempt-dependencies) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
 
 ## Exempt dependencies
 

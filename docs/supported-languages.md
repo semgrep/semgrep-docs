@@ -342,7 +342,7 @@ Their differences are outlined in the following table:
    <td>No commitment for new rules based on the latest security advisories.</td>
   </tr>
   <tr>
-   <td>Semgrep OSS Engine <a href='/docs/supported-languages#semgrep-oss-engine'>language support</a></td>
+   <td>Semgrep OSS Engine <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
    <td>Semgrep OSS Engine support is GA.</td>
    <td>Semgrep OSS Engine support is at least Beta.</td>
   </tr>

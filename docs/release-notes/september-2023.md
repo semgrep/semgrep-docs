@@ -96,7 +96,7 @@ tags:
     * [<i class="fa-regular fa-file-lines"></i> Why isn’t Semgrep reporting all my tainted data flows?](kb/semgrep-code/finding_all_taints)
     * [<i class="fa-regular fa-file-lines"></i> How to scan multiple or nested lock files](kb/semgrep-supply-chain/scanning_multiple_lockfiles)
 * [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant](/semgrep-code/semgrep-assistant-code#enabling-semgrep-assistant): Added a guide to setting up Assistant on GitLab MRs.
-* [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-factors-pro-engine): Added a section on Semgrep Pro Engine language maturity factors. These are the criteria that determine if a language is generally available (GA) or beta.
+* [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-levels): Added a section on Semgrep Pro Engine language maturity factors. These are the criteria that determine if a language is generally available (GA) or beta.
 ### Changed
 
 * Integrated **Ask** (GPT-powered chat) and **Search** functions into one modal.

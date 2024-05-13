@@ -25,7 +25,7 @@ All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-d
 | Method  | Usage    | Examples |
 |:--------|:---------|:---------|
 | To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#defining-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
 ## Understand Semgrep defaults
 
@@ -192,7 +192,7 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 **Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
 * [Ignore findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings)
-* [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments.)
+* [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments)
 
 ## Known issues
 
