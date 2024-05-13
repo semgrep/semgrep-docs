@@ -107,7 +107,7 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 ### Prerequisites
 
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
-- You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+- You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
 
 
 ### Confirm your Semgrep account's connection

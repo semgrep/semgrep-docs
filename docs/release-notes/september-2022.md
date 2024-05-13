@@ -50,7 +50,7 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 
 ## Documentation updates
 
-- New documentation for experimental [Taint labels](/writing-rules/taint-mode#taint-labels-pro-).
+- New documentation for experimental [Taint labels](/writing-rules/data-flow/taint-mode#taint-labels-pro-).
 - New documentation for [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages) and experimental [Displaying propagated value of metavariables](/writing-rules/experiments/display-propagated-metavariable).
 - New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables).
 - Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).

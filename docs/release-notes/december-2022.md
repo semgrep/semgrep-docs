@@ -47,7 +47,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 
 ### Additions
 
-- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Microsoft Entra ID](/semgrep-appsec-platform/sso/#setting-up-saml-sso-with-microsoft-entra-id).
+- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Microsoft Entra ID](/deployment/sso/#setting-up-saml-sso-with-microsoft-entra-id).
 - Added a new document **Learning Semgrep App with a demo project**.
 - Added section [Disabling rules](/semgrep-code/policies/#disabling-rules).
 - Added [Licensing document](/licensing) which provides an overview of licenses used by different Semgrep, Inc products.
