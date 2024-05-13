@@ -17,7 +17,7 @@ The definitions provided here are specific to Semgrep.
 
 Constant propagation is a type of analysis where values known to be constant are substituted in later uses, allowing the value to be used to detect matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
 
-Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
+Constant propagation is applied to all rules unless [it is disabled](/writing-rules/data-flow/constant-propagation#disabling-constant-propagation).
 
 For example, given the following pattern:
 ```yaml

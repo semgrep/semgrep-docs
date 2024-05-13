@@ -65,7 +65,7 @@ In the following screenshot, Semgrep detects the use of a native Python XML libr
 
 #### Enabling autofix for GitHub or GitLab 
 
-Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](#github-pull-request-comments) or [GitLab merge request comments](#gitlab-merge-request-comments) to enable this feature.
+Autofix requires PR or MR comments to be enabled for your repository or organization. Follow the steps in [GitHub pull request comments](/semgrep-appsec-platform/github-pr-comments) or [GitLab merge request comments](/semgrep-appsec-platform/gitlab-mr-comments) to enable this feature.
 
 <EnableAutofix />
 

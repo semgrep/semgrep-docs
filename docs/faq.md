@@ -163,7 +163,7 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 - Both have publicly available rules
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
-See [the Semgrep development philosophy](../contributing/semgrep-philosophy/) for more about what makes Semgrep different.
+See [the Semgrep development philosophy](/contributing/semgrep-philosophy) for more about what makes Semgrep different
 
 ## Privacy and Security
 
@@ -180,7 +180,7 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
 
-If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-code/semgrep-assistant-code/#privacy-and-legal-considerations) section to understand how your code is stored and retained.
+If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/overview#privacy-and-legal-considerations) section to understand how your code is stored and retained.
 
 ### What data is stored?
 

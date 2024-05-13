@@ -18,7 +18,7 @@ tags:
 ### Added
 
 - The **Teams** feature, which provides project-level role-based access control (RBAC), is now in public beta. This feature enables you to assign **members** to **teams**, and then grant those teams access to specific projects (repositories added to Semgrep).
-    - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/team).
+    - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/teams).
 - The Dashboard now displays the Assistant **priority inbox**, a list of essential tasks that Semgrep Assistant prepares for you each time you log in. <!-- 13768 -->
 
 ### Changed

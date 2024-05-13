@@ -7,8 +7,8 @@ module.exports = {
   tagline: 'Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.',
   url: 'https://semgrep.dev',
   baseUrl: '/docs/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
@@ -364,8 +364,6 @@ module.exports = {
           { from: "/semgrep-code/demo-project" , to: "/deployment/core-deployment" },
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/deployment/core-deployment" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment" } ,
-          /* APR  23, 2024  */
-          { from: "/getting-started/" , to: "/getting-started/quickstart" } ,
           /* APR  23, 2024  */
           { from: "/playground/" , to: "/semgrep-code/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,

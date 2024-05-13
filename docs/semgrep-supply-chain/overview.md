@@ -53,7 +53,7 @@ _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and 
 Semgrep Supply Chain generates a **finding** any time it determines that your
 codebase uses or imports a package containing a vulnerability. In addition, Semgrep
 Supply Chain offers two levels of support for reachability analysis, [depending
-on your language](/supported-languages/#maturity-levels-1):
+on your language](/supported-languages#maturity-levels):
 
 * **GA**: Semgrep writes rules for all critical and high CVE
 severity levels for GA languages. That means Semgrep Supply Chain can flag all
