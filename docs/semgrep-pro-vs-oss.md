@@ -112,9 +112,9 @@ The following table lists tools to enable developers to resolve findings in thei
 
 | Feature                                                                                                       | Semgrep OSS | Semgrep Pro |
 | ------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| [Role-based access control (RBAC)](/deployment/user-management) | --          | ✔️                |
-| [Personal and organizational accounts](/deployment/user-management)                              | --          | ✔️                |
-| [SSO, OpenID, or OAuth2 authentication](/semgrep-appsec-platform/sso)                                         | --          | ✔️                |
+| [Role-based access control (RBAC)](/deployment/teams) | --          | ✔️                |
+| [Personal and organizational accounts](/deployment/teams)                              | --          | ✔️                |
+| [SSO, OpenID, or OAuth2 authentication](/deployment/sso)                                         | --          | ✔️                |
 
 ## 🧾 Licenses and tiers
 

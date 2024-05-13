@@ -1,7 +1,7 @@
 ---
-slug: dashboard 
+slug: dashboard
 append_help_link: true
-title: Dashboard 
+title: Dashboard
 description: "The Dashboard is a summary view within Semgrep AppSec Platform to help security teams evaluate their organization's security posture."
 tags:
     - Semgrep AppSec Platform
@@ -110,7 +110,7 @@ Filters mentioned in previous sections [Filtering findings by time](#filtering-f
 ## See also
 
 * [Semgrep Registry](https://semgrep.dev/explore)
-* [Findings](semgrep-code/findings)
+* [Findings](/semgrep-code/findings)
 
 ## Additional references
 
