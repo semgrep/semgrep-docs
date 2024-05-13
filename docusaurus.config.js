@@ -8,7 +8,7 @@ module.exports = {
   url: 'https://semgrep.dev',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
