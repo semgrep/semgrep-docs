@@ -50,7 +50,7 @@ To create private rules through the [Semgrep CLI](/getting-started/quickstart), 
     semgrep publish myrules/
     ```
 
-If the rules are in the directory you publish from, you can use `semgrep publish .` to refer to the current directory. (You cannot omit the directory specification.)
+If the rules are in the directory you publish from, you can use `semgrep publish .` to refer to the current directory. You must provide the directory specification.
 If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](/writing-rules/testing-rules)).
 
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
@@ -71,7 +71,7 @@ To enforce the rule on new scans, add the rule in the [registry](https://semgrep
 
 ## Automatically publishing rules
 
-This section provides examples of how to automatically publish your private rules so they are accessible within your private organization. "Publishing" your private rules in this manner does not make them public. In these examples, the private rules are stored in `private_rule_dir`, which is a subdirectory of the repository root. If your rules are in the root of your repository, you can replace the command with `semgrep publish --visibility=org_private .` to refer to the repository root. You cannot omit the directory specification.
+This section provides examples of how to automatically publish your private rules so they are accessible within your private organization. "Publishing" your private rules in this manner does not make them public. In the following examples, the private rules are stored in `private_rule_dir`, which is a subdirectory of the repository root. If your rules are in the root of your repository, you can replace the command with `semgrep publish --visibility=org_private .` to refer to the repository root. You must provide the directory specification.
 
 The following sample of the GitHub Actions workflow publishes rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches. 
 
