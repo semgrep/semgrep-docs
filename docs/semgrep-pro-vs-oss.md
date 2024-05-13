@@ -146,7 +146,7 @@ The following table lists tools to enable developers to resolve findings in thei
     </tbody>
 </table>
 
-See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing/#semgrep-registry-license) for more details.
+See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing) for more details.
 
 <!-- don't have a good place to put this for now.
 

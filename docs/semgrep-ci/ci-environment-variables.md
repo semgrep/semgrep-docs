@@ -209,7 +209,7 @@ Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI pro
 
 To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job. 
 
-Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp). In this case, there is no need to set the variable.
+Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep AppSec Platform](/deployment/add-semgrep-to-other-ci-providers). In this case, there is no need to set the variable.
 Examples:
 
 Within a Bash environment:

@@ -52,7 +52,7 @@ MR comments appear for the following types of scans under these conditions:
 
 In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 
-### Confirm your Semgrep account's connection to GitLab
+### Confirm your Semgrep account's connection
 
 MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
@@ -97,7 +97,7 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
     1. In your CI provider's interface, define the value of the PAT as a secret. Refer to your CI provider's documentation for steps to do this.
     2. Define the environment variable `GITLAB_TOKEN` and assign the PAT to it.
 
-For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
+For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs#gitlab-cicd).
 
 ### Define environment variables needed for other CI providers
 

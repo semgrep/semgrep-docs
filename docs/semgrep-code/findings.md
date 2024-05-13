@@ -65,7 +65,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | **Branches**           | Filter by findings in different Git branches. |
 | **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with RBAC enabled. |
 | **Tags**               | Filter for findings based on the tags associated with the project. |
-| **Status**             | Filter the triage state of a finding. Refer to the [following table](#triaging-findings) to understand triage states. |
+| **Status**             | Filter the triage state of a finding. Refer to [Triage statuses](/semgrep-code/triage-remediation#triage-statuses) to understand triage states. |
 | **Severity**           | Filter by the severity of a finding. Severity is computed based on the values assigned for [Likelihood](/contributing/contributing-to-semgrep-rules-repository/#likelihood) and [Impact](/contributing/contributing-to-semgrep-rules-repository/#impact) by the rule's author. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 | **Confidence**         | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
 | **Pro findings**       | Filter for findings identified using Semgrep Pro rules. |

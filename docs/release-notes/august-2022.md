@@ -47,7 +47,7 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
   - [Running Semgrep in continuous integration (CI) with Semgrep App](/deployment/core-deployment)
   - [Running Semgrep in continuous integration (CI) without Semgrep App](/deployment/oss-deployment)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Propagators](/writing-rules/data-flow/taint-mode/#propagators) section.
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Propagators](/writing-rules/data-flow/taint-mode#propagators-pro) section.
 - Updated [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
 - Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives) article.

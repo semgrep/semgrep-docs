@@ -44,11 +44,11 @@ would give similar results to `semgrep ci`.
 
 ## Pro analysis
 
-When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-pro-engine), then interfile and interprocedural analysis is performed.
+When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-code-language-support), then interfile and interprocedural analysis is performed.
 
 If Pro Engine is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
 
-To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#installing-semgrep-pro-engine-in-cli), and include `--pro` in your command:
+To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
 ```bash
 semgrep --config auto --pro

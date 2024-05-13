@@ -18,6 +18,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
+import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 
 <ul id="tag__badge-list">
 {
@@ -78,7 +79,7 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for pull requests. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
 1. Add the workspace access token as a workspace variable with the **Secured** option.
 
-To complete the configuration, follow the [Enabling PR comments in Bitbucket Cloud](#enabling-pr-comments-in-bitbucket-cloud) section.
+To complete the configuration, follow the [Enabling PR comments in Bitbucket Cloud](#enable-pr-comments-in-bitbucket) section.
 
 </TabItem>
 
@@ -107,6 +108,14 @@ To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI p
 
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 - You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+
+
+### Confirm your Semgrep account's connection
+
+Confirm that you have the correct connection and access:
+
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
+2. Check that an entry for your GitHub org exists and is correct.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
@@ -177,6 +186,10 @@ pipelines:
 
 </Tabs>
 -->
+
+### Configure comments for Semgrep Code
+
+<PrCommentsInSast name="Bitbucket" comment_type="PR" />
 
 ### Receive comments in your VPN or on-premise SCM
 

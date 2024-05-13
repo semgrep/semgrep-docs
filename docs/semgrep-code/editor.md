@@ -146,7 +146,7 @@ Advanced mode is a YAML editor that allows you to write rules using [Semgrep syn
 :::info Rules syntax
 Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#write-a-new-rule-based-on-an-existing-rule) them.
 :::
 
 To write a rule in advanced mode:

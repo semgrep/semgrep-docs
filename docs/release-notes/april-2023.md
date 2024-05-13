@@ -67,7 +67,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changed
 
-- Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-appsec-platform).
+- Improvements to Slack notifications for Semgrep Code scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
 - Many Semgrep Pro rules now have rewritten messages. These new rule messages help you to better understand the detected vulnerabilities and enable you to mitigate them with ease. Updates cover all rules associated with the following Common Weakness Enumerations (CWE):
     - CWE-22 - Path traversal
     - CWE-78 - Command injection
@@ -135,9 +135,9 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Added
 
-- New section [Semgrep add-on reconciliation of licenses](/usage-and-billing/#semgrep-add-on-reconciliation-of-licenses) and [Example of license reconciliation](/usage-and-billing/#example-of-license-reconciliation).
+- New section [Semgrep add-on reconciliation of licenses](/usage-and-billing#reconciliation-of-licenses-and-usage) and [Example of license reconciliation](/usage-and-billing/#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/contributing/contributing-to-semgrep-rules-repository/#updating-existing-open-source-rules-in-semgrep-registry).
-- Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro/#types-of-semgrep-pro-engine-analysis).
+- Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro#types-of-semgrep-code-analysis).
 - Added [Appendix: Token scopes](/deployment/teams#token-scopes).
 
 ### Changed
@@ -146,7 +146,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
 - Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference).
-- Clarified sections [Disabling rules](/semgrep-code/policies/#disabling-rules) and **Removing rulesets**.
-- [Known limitations of Semgrep Pro Engine](/supported-languages#known-limitations-of-semgrep-pro-engine) section have been expanded and moved to the [Supported languages](/supported-languages) document.
+- Clarified sections [Disabling rules](/semgrep-code/policies#disabling-rules) and **Removing rulesets**.
+- Known limitations of Semgrep Pro Engine section have been expanded and moved to the [Known limitations of cross-file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis) document.
 - Fixed various broken links.
 - Fixed various spelling issues.
