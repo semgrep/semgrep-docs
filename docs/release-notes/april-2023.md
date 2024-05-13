@@ -111,7 +111,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 ### Changes
 
-- Improvements to Slack notifications for Semgrep Supply Chain scans. See [Semgrep Cloud Platform](#semgrep-appsec-platform).
+- Improvements to Slack notifications for Semgrep Supply Chain scans. See [Semgrep Cloud Platform](#semgrep-cloud-platform).
 - Semgrep Supply now parses `go.mod` for a list of dependencies.
 - Semgrep Supply Chain no longer parses `go.sum` for a list of dependencies.
 - The title of Supply Chain findings in the CLI now consists of the package name and CVE, instead of just the rule's UUID.

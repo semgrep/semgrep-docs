@@ -52,7 +52,7 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
 - Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
-- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/ci-environment-variables#SEMGREP_BASELINE_REF) section.
+- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) section.
 - Updated fail open CI documentation in [Configuring blocking findings and errors](/semgrep-ci/configuring-blocking-and-errors-in-ci) section.
 - Added section about [`patterns` operator evaluation strategy](/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
 - Updated adding [Slack notifications section in Notifications](/semgrep-appsec-platform/slack-notifications) article, and updated **Integrating Semgrep App with third-party tools**
