@@ -109,7 +109,8 @@ Semgrep Code supports over 30 languages and counting! 🚀
 
 Community supported languages have varying levels of rule coverage - view the registry and filter out Pro rules to see the level of coverage for OSS.
 
-<details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
+<details>
+ <summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
 - Bash
 - C
@@ -326,36 +327,24 @@ Their differences are outlined in the following table:
 
 <table>
   <tr>
-   <td><strong>Feature</strong>
-   </td>
-   <td><strong>GA</strong>
-   </td>
-   <td><strong>Beta</strong>
-   </td>
+   <td><strong>Feature</strong></td>
+   <td><strong>GA</strong></td>
+   <td><strong>Beta</strong></td>
   </tr>
   <tr>
-   <td>Number of reachability rules
-   </td>
-   <td>10+
-   </td>
-   <td>1+
-   </td>
+   <td>Number of reachability rules</td>
+   <td>10+</td>
+   <td>1+</td>
   </tr>
   <tr>
-   <td>Semgrep, Inc. rule-writing support
-   </td>
-   <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.
-   </td>
-   <td>No commitment for new rules based on the latest security advisories.
-   </td>
+   <td>Semgrep, Inc. rule-writing support</td>
+   <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
+   <td>No commitment for new rules based on the latest security advisories.</td>
   </tr>
   <tr>
-   <td>Semgrep OSS Engine <a href='/docs/supported-languages#semgrep-oss-engine'>language support</a>
-   </td>
-   <td>Semgrep OSS Engine support is GA.
-   </td>
-   <td>Semgrep OSS Engine support is at least Beta.
-   </td>
+   <td>Semgrep OSS Engine <a href='/docs/supported-languages#semgrep-oss-engine'>language support</a></td>
+   <td>Semgrep OSS Engine support is GA.</td>
+   <td>Semgrep OSS Engine support is at least Beta.</td>
   </tr>
 </table>
 

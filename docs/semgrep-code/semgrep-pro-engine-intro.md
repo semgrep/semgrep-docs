@@ -177,10 +177,13 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
     <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
-    <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
-    <li>Semgrep Code scans run cross-function analysis by default.</li>
-    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
-    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
+    <dd>
+        <ul>
+            <li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
+            <li>Semgrep Code scans run cross-function analysis by default.</li>
+            <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
+            <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
+        </ul>
     </dd>
 </dl>
 

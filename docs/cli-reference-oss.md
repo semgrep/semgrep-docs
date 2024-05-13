@@ -61,15 +61,15 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
 
 <pre>
-export HTTP_PROXY="<span className="placeholder">HTTP_PROXY_URL</span>"<br />
-export HTTPS_PROXY="<span className="placeholder">HTTPS_PROXY_URL</span>"
+ export HTTP_PROXY="<span className="placeholder">HTTP_PROXY_URL</span>"<br />
+ export HTTPS_PROXY="<span className="placeholder">HTTPS_PROXY_URL</span>"
 </pre>
 
 For example:
 
 <pre>
-export HTTP_PROXY="http://10.10.1.10:3128" <br />
-export HTTPS_PROXY="http://10.10.1.10:1080"
+ export HTTP_PROXY="http://10.10.1.10:3128" <br />
+ export HTTPS_PROXY="http://10.10.1.10:1080"
 </pre>
 
 ## Exit codes

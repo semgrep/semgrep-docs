@@ -19,7 +19,7 @@ toc_max_heading_level: 3
 ### Fixes
 
 - Fix CFG dummy nodes to always connect to exit node
-- Deep ellipsis <... x ...> now matches sub-expressions of statements
+- Deep ellipsis &lt;... x ...&gt; now matches sub-expressions of statements
 - Ruby: treat 'foo' as a function call when alone on its line ([#3811](https://github.com/semgrep/semgrep/issues/3811))
 - Fixed bug in semgrep-core's -filter_irrelevant_rules causing Semgrep to incorrectly skip a file ([#3755](https://github.com/semgrep/semgrep/issues/3755))
 - PHP: allows more keywords as valid field names ([#3954](https://github.com/semgrep/semgrep/issues/3954))

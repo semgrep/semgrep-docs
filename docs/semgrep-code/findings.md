@@ -89,12 +89,15 @@ A finding can be categorized in two ways:
     Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 2. **Finding categorization based on the validity of the match**:
     <dl>
-        <dt>True positive</dt>
-        <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.</dd>
-        <dt>False positive</dt>
-        <dd>A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.</dd>
-        <dt>False negative</dt>
-        <dd>A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
+       <dt>True positive</dt>
+       <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.</dd>
+       <dt>False positive</dt>
+       <dd>
+        A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.
+       </dd>
+       <dt>False negative</dt>
+       <dd>
+        A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
         <ul>
             <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.</li>
             <li>A bug within Semgrep itself. See the list of <a href="https://github.com/semgrep/semgrep/issues">Semgrep issues</a> to file a bug report.</li>

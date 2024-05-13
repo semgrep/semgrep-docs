@@ -70,7 +70,8 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 
 The following example is a `bitbucket-pipelines.yml` file that adds Semgrep through the Docker image:
 
-<details><summary>Add Semgrep through the Docker image.</summary>
+<details>
+  <summary>Add Semgrep through the Docker image.</summary>
 
 ```yaml
 image: atlassian/default-image:latest
@@ -95,7 +96,8 @@ pipelines:
 
 The next example is a `Jenkinsfile` configuration that adds Semgrep by installing it:
 
-<details><summary>Add Semgrep by installing it.</summary>
+<details>
+  <summary>Add Semgrep by installing it.</summary>
 
 ```javascript
 pipeline {
