@@ -13,7 +13,7 @@ However, the two methods of running Semgrep have somewhat different behavior by 
 
 ## Installation methods and versioning
 
-When comparing Semgrep scans in CI and CLI, please start by ensuring that you are running the same version of Semgrep on the CLI as in CI, and that it is [installed](/docs/getting-started/#installing-and-running-semgrep-locally) in the same way as it is in CI.
+When comparing Semgrep scans in CI and CLI, ensure that you are running the same version of Semgrep on the CLI as in CI, and that it is [installed](/getting-started/cli) in the same way as it is in CI.
 
 If you use Semgrep's Docker image in CI and are running the CLI scan locally, the best options are:
 
