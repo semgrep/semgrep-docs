@@ -49,13 +49,13 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 ![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
 
-Component tags are available in SCP's **Findings** page.
+Component tags are available in Semgrep AppSec Platform's **Findings** page.
 
 ### Auto-triage
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in SCP's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
+Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
 
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
 *Figure*. Semgrep Assistant auto-triage in the Findings page.
@@ -71,7 +71,7 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 #### Guidance
 
-With Assistant enabled, every PR or MR comment pushed by Semgrep contains remediation guidance that contains information on how to fix the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
+With Assistant enabled, every PR or MR comment Semgrep pushes includes remediation guidance with information on fixing the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
 
 ![PR comments with remediation advice](/img/assistant-guidance.png)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
@@ -94,13 +94,13 @@ Autofixes are available in PR and MR comments, so developers can review and veri
 
 Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
 
-![Semgrep Assistant showing a potential fix in SCP](/img/semgrep-assistant-scp-autofix.png)
+![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/semgrep-assistant-scp-autofix.png)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
 
 The finding's details include a link to the PR or MR with the autofix, so you can go directly to the PR or MR to commit the autofix.
 
 :::info 
-If a large number of new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
+If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
 ### Priority inbox
