@@ -19,7 +19,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 - Managed scanning is in **public beta** for all existing Semgrep AppSec Platform users.
 - Managed scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
     - This guide provides self-service enablement steps for **hosted GitHub plans**.
-    - For GitHub Enterprise Server users, contact your technical account manager (TAM).
+    - To enable managed scanning on GitHub Enterprise Server, contact your technical account manager (TAM).
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 - Managed scanning is available for all Semgrep products you have purchased, including:
     - Semgrep Code
