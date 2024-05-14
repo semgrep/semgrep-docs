@@ -32,7 +32,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
 :::
 
-## Requirements
+## Security
 
 Managed scanning requires **read access** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
@@ -40,6 +40,14 @@ The access to your code is facilitated by a **private Semgrep GitHub app** that 
 
 - You are in control of the app and can [revoke access to repositories](#remove-the-private-app) at any time.
 - You can [limit access to specific repositories](#limit-access-to-specific-repositories).
+
+Managed scanning is specifically designed to limit the amount of time that code remains on our infrastructure.
+
+### Life cycle of a managed scan
+
+1. When a scan begins, Semgrep creates an ephemeral container and clones the repository into it.
+1. Semgrep runs the scan from that container. Diff-aware scans typically take seconds, while full scans can take minutes to hours to complete.
+1. The ephemeral container is immediately and automatically destroyed post-scan along with all contents in it.
 
 ## Prerequisites
 
