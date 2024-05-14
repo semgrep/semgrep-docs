@@ -102,7 +102,7 @@ Autofix allows you to receive code snippets to remediate true positives. Perform
 
 ### Enable auto-triage
 
-If [auto-triage](/semgrep-assistant/overview/#autotriage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
+If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Auto-triage for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.

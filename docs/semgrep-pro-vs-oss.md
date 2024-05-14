@@ -22,16 +22,20 @@ This document outlines key differences between the Semgrep OSS and Pro product l
 The terms used in this document are defined as follows:
 
 <dl>
-<dt>Semgrep OSS</dt>
-<dd>Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.</dd>
-<dt>Semgrep Pro</dt>
-<dd>Refers to proprietary product offerings from Semgrep, Inc. These include:<dl>
-<dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
-<dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
-<dt>Semgrep Secrets</dt><dd>A a secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
-<dt>Semgrep AppSec Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
-</dl>
-</dd>
+  <dt>Semgrep OSS</dt>
+  <dd>
+    Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.
+  </dd>
+  <dt>Semgrep Pro</dt>
+  <dd>
+    Refers to proprietary product offerings from Semgrep, Inc. These include:
+    <dl>
+      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
+      <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
+      <dt>Semgrep Secrets</dt><dd>A a secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
+      <dt>Semgrep AppSec Platform</dt><dd>A a web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
+    </dl>
+  </dd>
 </dl>
 
 :::tip
@@ -108,9 +112,9 @@ The following table lists tools to enable developers to resolve findings in thei
 
 | Feature                                                                                                       | Semgrep OSS | Semgrep Pro |
 | ------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| [Role-based access control (RBAC)](/deployment/user-management) | --          | ✔️                |
-| [Personal and organizational accounts](/deployment/user-management)                              | --          | ✔️                |
-| [SSO, OpenID, or OAuth2 authentication](/semgrep-appsec-platform/sso)                                         | --          | ✔️                |
+| [Role-based access control (RBAC)](/deployment/teams) | --          | ✔️                |
+| [Personal and organizational accounts](/deployment/teams)                              | --          | ✔️                |
+| [SSO, OpenID, or OAuth2 authentication](/deployment/sso)                                         | --          | ✔️                |
 
 ## 🧾 Licenses and tiers
 
@@ -142,7 +146,7 @@ The following table lists tools to enable developers to resolve findings in thei
     </tbody>
 </table>
 
-See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing/#semgrep-registry-license) for more details.
+See [<i class="fa-regular fa-file-lines"></i> Licensing](/licensing) for more details.
 
 <!-- don't have a good place to put this for now.
 

@@ -96,6 +96,12 @@
   font-weight: 600;
 }
 
+:where(.MarkpromptSearchResult a) {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+
 /******************************************************************************
  *                                                                            *
  * THEME AND COLORS                                                           *

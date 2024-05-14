@@ -5,6 +5,8 @@ tags:
 description: How to collect logs when running Semgrep on the command line.
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # How to collect logs when running Semgrep in CLI
 
 When troubleshooting Semgrep scans on the command line interface (CLI), collecting and sharing logs can be extremely helpful. By default, Semgrep prints findings from a scan to `stdout`, and other messages, including scan details and progress, to `stderr`. For troubleshooting, it's best to provide both.

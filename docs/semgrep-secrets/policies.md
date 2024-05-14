@@ -64,7 +64,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Fix rate  | The percentage of findings that are fixed through changes to the code.  |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |
-| Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep. Custom:</strong> Rules created within your Semgrep organization. |
+| Source  | Indicates the origin of a rule. <ul><li>**Pro:** Authored by Semgrep.</li><li>**Custom:** Rules created within your Semgrep organization.</li></ul> |
 | Ruleset  | The name of the ruleset the rule belongs to. |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 

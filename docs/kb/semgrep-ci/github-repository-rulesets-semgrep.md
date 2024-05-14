@@ -102,7 +102,7 @@ To create the ruleset:
 6. Click **Add workflow**.
 7. In the **Add required workflow** modal, select the repository where you placed the Semgrep workflow.
 8. Then, select the branch, tag, or commit to use.
-9. In the **Pick a workflow file** field, click and select the Semgrep workflow you created in [Setting up the central Semgrep scan workflow](#setting-up-the-central-semgrep-scan-workflow).
+9. In the **Pick a workflow file** field, click and select the Semgrep workflow you created in [Setting up the central Semgrep scan workflow](#set-up-the-central-semgrep-scan-workflow).
 10. Click **Add workflow**.
     ![Require workflows to pass before merging](/img/kb/semgrep-workflow-require-pass.png)
 11. Click **Create** to create the ruleset.
