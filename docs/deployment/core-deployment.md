@@ -81,7 +81,7 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
-            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires code access. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
