@@ -27,8 +27,9 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
     - Semgrep Secrets
 - Managed scanning performs both full scans and diff-aware scans when a developer creates a pull request.
 
-:::note
-To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
+:::info
+- To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
+- For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use managed scanning. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
 :::
 
 ## Security
