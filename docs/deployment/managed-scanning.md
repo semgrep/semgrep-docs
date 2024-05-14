@@ -68,7 +68,7 @@ If you have already installed the public Semgrep GitHub app, skip this step and 
 
 ### Install the private Semgrep GitHub app
 
-The private app must be installed by a **GitHub organization administrator**. If you are not a GitHub admin, an installation link is provided for you to share with your GitHub admin.
+The private app must be installed by a **GitHub organization administrator**. If you are not an admin, an installation link is provided for you to share with your GitHub admin.
 
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
 1. Click **Register App**.
