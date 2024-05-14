@@ -694,6 +694,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/april-2024',
                 'release-notes/march-2024',
                 'release-notes/february-2024',
                 'release-notes/january-2024'

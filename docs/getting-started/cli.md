@@ -15,8 +15,6 @@ import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
 
-<!-- semgrep ci can run any product, so I removed the reference to Pro Engine -->
-
 Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
 
 ## Prerequisites

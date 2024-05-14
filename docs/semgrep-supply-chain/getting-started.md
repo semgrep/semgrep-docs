@@ -79,28 +79,19 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
 
 <table>
   <tr>
-   <td><strong>Event</strong>
-   </td>
-   <td><strong>Scope of scan</strong>
-   </td>
-   <td><strong>Dependency rule set</strong>
-   </td>
+    <td><strong>Event</strong></td>
+    <td><strong>Scope of scan</strong></td>
+    <td><strong>Dependency rule set</strong></td>
   </tr>
   <tr>
-   <td>Pull or merge request
-   </td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a>
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Pull or merge request</td>
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a></td>
+   <td>All dependency rules</td>
   </tr>
   <tr>
-   <td>Push or scheduled event, such as a cron job
-   </td>
-   <td>Full scan
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Push or scheduled event, such as a cron job</td>
+   <td>Full scan</td>
+   <td>All dependency rules</td>
   </tr>
 </table>
 

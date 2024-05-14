@@ -122,9 +122,9 @@ The following checklist breaks down permissions required by Semgrep features.
 
 | Feature | Permission required |
 | --- | -------  |
-| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Installing GitHub apps.         |
-| Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-github-or-gitlab-orgs).          |
-| GPT-assisted triage and recommendations. | Read access to user-selected repositories. |
+| Create CI jobs in bulk and detect GitHub repositories automatically. | Installing GitHub apps.         |
+| Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-orgs).          |
+| GPT-assisted triage and recommendations. | Code access. |
 
 </TabItem>
 
@@ -193,7 +193,9 @@ This section explains Semgrep AppSec Platform permissions that are requested in 
 
 Semgrep AppSec Platform requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep AppSec Platform.
 
-<details><summary>Click to review how Semgrep AppSec Platform uses permissions when signing in.</summary>
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when signing in.</summary>
 
 <dl>
     <dt>Verify your GitHub identity</dt>
@@ -210,7 +212,9 @@ Semgrep AppSec Platform requests the following standard permissions set by GitHu
 
 The public GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app is used to integrate Semgrep into user-selected GitHub repositories.
 
-<details><summary>Click to review how Semgrep AppSec Platform uses permissions when adding members or repositories.</summary>
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when adding members or repositories.</summary>
 
 <dl>
     <dt>Reading metadata of the repositories you select</dt>
@@ -249,7 +253,9 @@ You can optionally create a private GitHub integration app, which follows the na
 These features require **read access** to your code.
 :::
 
-<details><summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>managed scanning</strong>.</summary>
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>managed scanning</strong>.</summary>
 
 <dl>
 <dt>Reading metadata of the repositories you select</dt>

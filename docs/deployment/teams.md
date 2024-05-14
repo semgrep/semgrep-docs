@@ -30,7 +30,7 @@ Semgrep primarily divides users into two roles:
 Optionally, you can appoint members to a third role: the **manager** role. Managers are a subset of members with some additional capabilities and scopes. In particular, they are able to assign specific projects to members through the creation of [teams](#teams-beta).
 
 :::info
-* Users are assigned a role based on your [organization's default](#setting-a-default-role). New organizations are created with a default role of `admin`.
+* Users are assigned a role based on your [organization's default](#set-a-default-role). New organizations are created with a default role of `admin`.
 :::
 
 ### Member permissions and visibility
@@ -282,7 +282,7 @@ semgrep login
 
 This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep AppSec Platform.
 
-Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#changing-a-users-role).
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#change-a-users-role).
 
 ### Token scopes
 

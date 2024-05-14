@@ -6,6 +6,8 @@ title: Aliengrep
 hide_title: true
 ---
 
+import MoreHelp from "/src/components/MoreHelp"
+
 # Aliengrep
 
 :::caution

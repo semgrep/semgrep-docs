@@ -108,7 +108,8 @@ Semgrep Code supports over 30 languages and counting! 🚀
 
 Community supported languages have varying levels of rule coverage - check the registry and filter out Pro rules to see the level of coverage for OSS.
 
-<details><summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
+<details>
+ <summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
 - Bash      
 - C         
