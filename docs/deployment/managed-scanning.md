@@ -16,7 +16,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 
 ## Feature maturity and support
 
-- Managed scanning is in **public beta** for existing Semgrep customers on a paid plan.
+- Managed scanning is in **public beta** for all existing Semgrep AppSec Platform users.
 - Managed scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
     - This guide provides self-service enablement steps for **hosted GitHub plans**.
     - For GitHub Enterprise Server users, contact your technical account manager (TAM).
@@ -32,7 +32,7 @@ To receive Supply Chain findings, you must have a supported lockfile in your rep
 
 ## Requirements
 
-managed scanning requires **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
+managed scanning requires **read access** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
 The access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization.
 
@@ -94,7 +94,7 @@ _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. 
 1. Select the repositories you want to scan from the list.
 1. Click **Enable managed scanning**.
 
-- After enabling managed scanning, a full scan starts **immediately** on all the repositories you have added.
+- After enabling managed scanning, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects scanned through managed scanning are tagged with `autoscan`.
 
@@ -106,25 +106,18 @@ _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. 
 1. If the page doesn't display any repositories, click **Sync projects**.
 1. Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
 
-### How managed scanning detects repositories
-
-- Repositories with **existing** Semgrep CI jobs are **excluded** from the list. See the following section to convert your existing Semgrep CI jobs to managed scanning.
-- Repositories must be accessible to both the public Semgrep GitHub app and the private Semgrep GitHub app.
+Repositories must be accessible to both the public Semgrep GitHub app and the private Semgrep GitHub app.
 
 ### Convert or migrate an existing Semgrep CI job
 
-If you'd like to migrate a large number of Semgrep CI jobs to managed scanning, you can reach out to your technical account manager (TAM) for assistance.
+You can immediately add any existing project to managed scanning.
 
-<!-- the process requires deleting the project and is not entirely ideal and i'm not sure if we should just say "talk to a tam" -->
+1. Follow the steps in [Add a repository](#add-a-repository).
+1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository.
 
-1. Delete the project (link-tk)
-1. After deleting the project, the managed scanning repository list should display the repository you want to convert. Follow the steps in [Add a repository](#add-a-repository).
-
-:::warning
-- Deleting a project also deletes all of its associated history, findings and scan metadata. **This includes triaged findings**. When you re-add the repository, it is treated as a new project.
+:::tip
+Semgrep preserves your findings, scans, and triage history.
 :::
-
-<!-- For SME reviewer - is the "treated as a new project" intentional? I tested this functionality out and that's what happened in my case. Answer: yes -->
 
 ## Default configuration
 
@@ -134,9 +127,6 @@ By default, projects on managed scanning are configured with:
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
 
 ## Scan management and configuration
-
-<!-- I haven't been able to see ANY of these in my ZCS deployment so there are no screenshots. -->
-
 
 ### Manually run a full scan
 
