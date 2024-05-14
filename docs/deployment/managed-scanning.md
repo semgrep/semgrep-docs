@@ -10,9 +10,10 @@ tags:
 
 # Add repositories to Semgrep in bulk
 
-**Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your CI workflows.
+**Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your existing CI workflows. Similar to Semgrep CI workflows, managed scanning also integrates into developer workflows through PR comments.
 
 This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-to-ci). Instead of adding a Semgrep job or workflow to your CI/CD pipeline, repositories are added to Semgrep AppSec Platform.
+
 
 ## Feature maturity and support
 
@@ -25,6 +26,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
     - Semgrep Code
     - Semgrep Supply Chain
     - Semgrep Secrets
+- Managed scanning performs both full scans and diff-aware scans when a developer creates a pull request.
 
 :::note
 To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
@@ -32,7 +34,7 @@ To receive Supply Chain findings, you must have a supported lockfile in your rep
 
 ## Requirements
 
-managed scanning requires **read access** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
+Managed scanning requires **read access** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
 The access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization.
 
