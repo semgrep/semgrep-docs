@@ -10,7 +10,7 @@ tags:
     - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -169,5 +169,3 @@ If a rule is in multiple policies, then the rule is deduplicated and Semgrep pri
 3. Monitor
 
 For example, if an instance of `Rule A` is set to **Block**, the scan fails for PRs with any findings from that rule, even if the same `Rule A` is set to **Monitor** in another policy applied to that repository.
-
-<MoreHelp />

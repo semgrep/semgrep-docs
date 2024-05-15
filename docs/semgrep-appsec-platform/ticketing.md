@@ -10,7 +10,7 @@ tags:
     - Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 
@@ -24,7 +24,7 @@ Object.entries(frontMatter).filter(
 
 # Ticketing integrations
 
-Send tickets to third-party ticketing systems through Semgrep AppSec Platform. 
+Send tickets to third-party ticketing systems through Semgrep AppSec Platform.
 
 :::note
 These features are in a **closed beta**. To request access:
@@ -37,4 +37,3 @@ Semgrep AppSec Platform can create tickets in the following systems:
 * [Asana](/semgrep-appsec-platform/asana)
 * [Jira](/semgrep-appsec-platform/jira)
 * [Linear](/semgrep-appsec-platform/linear)
-

@@ -9,7 +9,7 @@ tags:
   - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -53,5 +53,3 @@ To set up SSC with Jenkins UI, perform the following steps:
 1. Optional: Click **Build Now** to test that your job can now send findings to Semgrep AppSec Platform.
 
 You have successfully set up your Jenkins UI job to send findings to Semgrep AppSec Platform.
-
-<MoreHelp />

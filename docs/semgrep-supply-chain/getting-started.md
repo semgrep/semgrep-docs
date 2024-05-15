@@ -10,7 +10,7 @@ hide_title: true
 ---
 
 <!-- vale off -->
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
@@ -128,5 +128,3 @@ Alternatively, you can configure your version control system to prevent merging 
 ## Ignore lockfiles and dependencies
 
 See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
-
-<MoreHelp />

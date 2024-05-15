@@ -1,7 +1,7 @@
 ---
-slug: email-notifications 
+slug: email-notifications
 append_help_link: true
-title: Email 
+title: Email
 hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
@@ -9,7 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -35,12 +35,10 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
-   
+
 ![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png#bordered)
 **Figure** Sample of an email sent from Semgrep with findings.
 
 :::note Number of emails
 On each scan that has at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
 :::
-
-<MoreHelp />

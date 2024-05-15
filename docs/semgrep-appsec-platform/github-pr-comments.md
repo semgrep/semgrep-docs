@@ -9,7 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
@@ -144,5 +144,3 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

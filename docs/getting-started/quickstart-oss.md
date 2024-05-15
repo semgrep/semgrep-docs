@@ -9,7 +9,7 @@ tags:
   - CLI
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Install from "/src/components/procedure/_install-cli.mdx";

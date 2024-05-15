@@ -9,7 +9,7 @@ tags:
 
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -68,5 +68,3 @@ Many CI providers have a time limit for how long a job can run. Semgrep CI also 
 Our comments are powered by an external service called [utteranc.es](https://utteranc.es/).
 If you aren't able to authenticate to leave comments,
 please make sure you don't have an ad blocker interrupting requests to their domain.
-
-<MoreHelp />

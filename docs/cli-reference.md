@@ -10,7 +10,7 @@ hide_title: true
 title: CLI reference
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
 
@@ -107,5 +107,3 @@ The output is a single exit code, such as:
 - 11: Semgrep encountered a lexical error when running rule on a file.
 - 12: Semgrep found too many matches.
 -->
-
-<MoreHelp />

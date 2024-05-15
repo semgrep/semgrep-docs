@@ -6,7 +6,7 @@ tags:
 append_help_link: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # My rule with `pattern-not` doesn't work: using `pattern-not-inside`
 
@@ -81,5 +81,3 @@ The rule successfully matches the example code.
 See this video for more information about the difference between `pattern-not` and  `pattern-not-inside`.
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/g_Yrp9_ZK2c" frameborder="0" allowfullscreen></iframe>
-
-<MoreHelp />

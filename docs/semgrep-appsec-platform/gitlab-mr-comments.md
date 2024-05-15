@@ -10,7 +10,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
@@ -145,5 +145,3 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

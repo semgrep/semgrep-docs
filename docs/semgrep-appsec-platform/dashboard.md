@@ -9,7 +9,7 @@ tags:
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import Tags from "/src/components/Tags"
 
 <ul id="tag__badge-list">
@@ -164,5 +164,3 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 ![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
 -->
-
-<MoreHelp />

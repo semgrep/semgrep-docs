@@ -10,7 +10,7 @@ description: >-
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-import MoreHelp from "/src/components/MoreHelp"
+
 import ThemedImage from '@theme/ThemedImage'
 
 <!---

@@ -9,7 +9,7 @@ tags:
   - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
 
 # Semgrep Code overview
@@ -72,6 +72,3 @@ semgrep ci --oss-only
 ## Further reading
 
 - Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
-
-
-<MoreHelp />

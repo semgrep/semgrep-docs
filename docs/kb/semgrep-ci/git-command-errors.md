@@ -4,7 +4,7 @@ tags:
   - Semgrep in CI
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Failed to run a git command during a pull or merge request scan
 
@@ -35,7 +35,7 @@ If a shallow git clone of the repository is used to fetch code, and the branch t
 
 <pre class="language-bash"><code>git merge-base --all <span className="placeholder">SHA</span> FETCH_HEAD</code></pre>
 
-Semgrep uses the merge-base command to compare the tip of the pull or merge request branch with the base branch and determine where it branched off, so that it can accurately scan for changes made in the merge request rather than in the base branch. 
+Semgrep uses the merge-base command to compare the tip of the pull or merge request branch with the base branch and determine where it branched off, so that it can accurately scan for changes made in the merge request rather than in the base branch.
 
 If there isn't enough history to identify the branch point, this comparison can fail. This is most common if the git clone performed is shallow by default, or if the depth has been set to a small value via command line argument `--depth` or environment variable `GIT_DEPTH`.
 
@@ -45,7 +45,7 @@ For GitLab CI, see [Limit the number of changes fetched during clone](https://do
 
 ### GitHub Actions clone behavior
 
-Semgrep has built-in behavior in GitHub Actions to fetch additional commits if the initial clone does not provide sufficient information, so GitHub Actions rarely encounter failures of the `git merge-base` command. 
+Semgrep has built-in behavior in GitHub Actions to fetch additional commits if the initial clone does not provide sufficient information, so GitHub Actions rarely encounter failures of the `git merge-base` command.
 
 However, if Semgrep is showing findings in GitHub pull requests that were not introduced by the pull request, you can set the variable [`SEMGREP_GHA_MIN_FETCH_DEPTH`](https://semgrep.dev/docs/semgrep-ci/ci-environment-variables/#semgrep_gha_min_fetch_depth) to a higher value to improve the accuracy of the merge-base calculation. This value is the starting value used for fetching additional commits. The default is 0.
 
@@ -70,7 +70,3 @@ To run the scan successfully:
 
 * If possible, update your git version.
 * If that's not possible, consider executing the scan using the Semgrep Docker container, which includes a recent version of git.
-
-<MoreHelp />
-
-

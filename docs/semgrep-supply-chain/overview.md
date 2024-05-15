@@ -9,7 +9,7 @@ title: Overview
 hide_title: false
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
@@ -129,5 +129,3 @@ Semgrep Supply Chain automatically scans repositories that you have added to Sem
   hard](https://semgrep.dev/blog/2022/software-supply-chain-security-is-hard/)
 * [The best free, open-source supply-chain security tool? The
   lockfile](https://semgrep.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
-
-<MoreHelp />

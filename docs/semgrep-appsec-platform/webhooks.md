@@ -9,7 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -129,5 +129,3 @@ The following is an example of a `semgrep_scan` object:
   }
 }
 ```
-
-<MoreHelp />

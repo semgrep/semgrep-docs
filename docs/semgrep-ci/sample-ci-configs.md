@@ -17,7 +17,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -456,5 +456,3 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - Travis CI
 
 Is your CI provider missing? Let us know by [filing an issue](https://github.com/semgrep/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
-
-<MoreHelp />

@@ -6,7 +6,7 @@ title: Update Semgrep
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Update Semgrep
 
@@ -33,6 +33,3 @@ python3 -m pip install --upgrade semgrep
 # confirm your Semgrep installation
 semgrep --version
 ```
-
-
-<MoreHelp />

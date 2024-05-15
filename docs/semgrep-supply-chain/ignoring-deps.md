@@ -5,11 +5,11 @@ description: "Prevent unwanted noise when scanning for dependency vulnerabilitie
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Ignoring lockfiles and dependencies 
+title: Ignoring lockfiles and dependencies
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 <ul id="tag__badge-list">
 {
@@ -19,7 +19,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-# Ignoring lockfiles and dependencies 
+# Ignoring lockfiles and dependencies
 
 
 There are several methods to restrict code files or lock files from generating dependency findings.

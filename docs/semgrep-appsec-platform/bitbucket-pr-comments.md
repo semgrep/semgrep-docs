@@ -9,7 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -208,5 +208,3 @@ Only rules set to the **Comment** and **Block** rule modes in the [Policies page
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

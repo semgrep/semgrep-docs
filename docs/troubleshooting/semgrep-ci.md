@@ -12,7 +12,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import RetrieveGhaLogs from "/src/components/procedure/_retrieve-gha-logs.mdx"
 
 <ul id="tag__badge-list">
@@ -165,5 +165,3 @@ Semgrep is made by a small team, and you can directly guide our work by answerin
 ### How to get help
 
 If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com/).
-
-<MoreHelp />

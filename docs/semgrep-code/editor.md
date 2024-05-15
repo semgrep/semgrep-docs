@@ -9,7 +9,7 @@ tags:
 description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 
@@ -261,5 +261,3 @@ To **create a PR** from the Semgrep Editor:
 1. (Optional) Click <i className="fa-solid fa-cloud-arrow-up inline_svg"></i> **Publish to Registry**.
 1. Fill in the required and optional fields.
 1. Click <i className="fa-solid fa-circle-check inline_svg"></i> **Continue**, and then click <i className="fa-solid fa-code-pull-request inline_svg"></i> **Create PR**.
-
-<MoreHelp />

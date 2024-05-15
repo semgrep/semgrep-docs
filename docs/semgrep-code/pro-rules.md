@@ -17,7 +17,7 @@ Object.entries(frontMatter).filter(
 }
 </ul>
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
@@ -110,5 +110,3 @@ For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgr
 ## Losing access to Semgrep Pro rules
 
 You lose access to Semgrep Pro rules and their future improvements if you choose not to renew your Team or Enterprise tier plan.
-
-<MoreHelp />

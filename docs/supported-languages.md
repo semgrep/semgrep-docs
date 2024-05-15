@@ -14,7 +14,7 @@ title: Supported languages
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
@@ -352,5 +352,3 @@ Their differences are outlined in the following table:
 * The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
 * Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
-
-<MoreHelp />

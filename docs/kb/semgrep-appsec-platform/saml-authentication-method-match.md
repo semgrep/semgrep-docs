@@ -6,7 +6,7 @@ tags:
   - SAML
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # SAML SSO Error: Authentication method doesn't match requested
 
@@ -22,5 +22,3 @@ To fix this problem, you must be an `admin` in Semgrep AppSec Platform.
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access > [SSO](https://semgrep.dev/orgs/-/settings/access/sso)**.
 4. Check the box labeled **Check if your SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)**.
 4. Click **Save** to save this setting.
-
-<MoreHelp />
