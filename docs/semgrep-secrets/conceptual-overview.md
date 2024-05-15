@@ -150,7 +150,7 @@ txtPassword1
 
 See [<i class="fa-regular fa-file-lines"></i> Scan for secrets](/semgrep-secrets/getting-started) to learn how to:
 * Enable secrets scanning for your repositories
-* Manage your rules in your [policy](/semgrep-secrets/policies) to have complete control over how
+* Manage the rules in your [policy](/semgrep-secrets/policies) to control how your scan runs.
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
 * Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets

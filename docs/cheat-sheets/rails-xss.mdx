@@ -270,7 +270,7 @@ Ban `raw()`. Alternatively, Prefer `html_safe()` in Ruby code if necessary.
 
 <LinkToRegistryRule ruleId="ruby.rails.security.audit.xss.templates.avoid-raw.avoid-raw" />
 
-### 3.D. Using **<%== ... %>**, which is an alias for **html_safe()**
+### 3.D. Using **&lt;%== ... %&gt;**, which is an alias for **html_safe()**
 
 The double-equals `==` is an ERB alias for `html_safe()`. This will mark the contents as "safe for rendering" and may introduce an XSS vulnerability.
 

@@ -56,7 +56,7 @@ toc_max_heading_level: 3
 
 ### Fixes
 
-- Single field pattern in JSON, allowing $FLD: { ... } pattern
+- Single field pattern in JSON, allowing $FLD: \{ ... \} pattern
 - Config detection in files with many suffix delimiters, like this.that.check.yaml. More concretely: configs end with .yaml, YAML language tests end with .test.yaml, and everything else is handled by its respective language extension (e.g., .py).
 - Single array field in YAML in a pattern is parsed as a field, not a one element array
 
@@ -73,7 +73,7 @@ toc_max_heading_level: 3
 
 ### Changes
 
-- Deep expression matches (<... foo ...>) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (e.g., the Golang go statement)
+- Deep expression matches (&lt;... foo ...&gt;) now match within the bodies of anonymous functions (a.k.a. lambda-expressions) and arbitrary language-specific statements (e.g., the Golang go statement)
 
 ## Version 0.45.0
 

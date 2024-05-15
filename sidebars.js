@@ -74,11 +74,13 @@ module.exports = {
                 {
                     type: 'category',
                     collapsible: true,
-                    label: 'Add Semgrep to CI',
-                    link: {type: 'doc', id: 'deployment/add-semgrep-to-ci'},
+                    label: 'Scan repositories with the AppSec Platform',
+                    link: {type: 'generated-index'},
                     items: [
+                        'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
+                        'deployment/managed-scanning',
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
@@ -692,6 +694,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/april-2024',
                 'release-notes/march-2024',
                 'release-notes/february-2024',
                 'release-notes/january-2024'

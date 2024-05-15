@@ -87,7 +87,7 @@ Structure mode features include:
 - **Match badges**: Match badges are visual indicators paired next to pattern operators. The match badge shows the number of matches associated with each pattern operator.
   ![Sample pattern with match badges](/img/match-badges.png#md-width)
 - **Automatic indentation**: When adding a new pattern to a nested operator such as `patterns` or `pattern-either`, the editor automatically indents sub-patterns correctly.
-- **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable. 
+- **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable.
   ![Sample pattern with pattern constraint](/img/pattern-and-pattern-constraint.png#md-width)
 - **Interoperability with advanced mode**: You can write a rule using structure mode and export it in YAML or you can paste in the YAML for a rule and edit it with structure mode.
 - **Drag and drop**" You can move around the elements of a rule using drag and drop.
@@ -147,7 +147,7 @@ Advanced mode is a YAML editor that allows you to write rules using [Semgrep syn
 :::info Rules syntax
 Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#jumpstart-rule-writing-using-existing-rules) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#write-a-new-rule-based-on-an-existing-rule) them.
 :::
 
 To write a rule in advanced mode:
@@ -163,7 +163,6 @@ To write a rule in advanced mode:
    - **HTTP validators**: Demonstrates how to [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
 2. Modify the template, adding and changing the keys and values needed to finish your rule.
 3. Optional: Click **Metadata** to update and enter additional metadata fields.
-   [Metadata view](/img/rule-metadata.png)
 4. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
 :::warning Syntax issues
@@ -257,7 +256,7 @@ If successful, you'll see a pop-up window indicating that your rule has been add
 
 ### Write a new rule based on an existing rule
 
-One way to create new rules is to fork an existing rule in Semgrep Registry and modify it to meet your software and business requirements. 
+One way to create new rules is to fork an existing rule in Semgrep Registry and modify it to meet your software and business requirements.
 
 For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. However, your organization also prohibits the use of other hash functions as part of its standards or security compliance. The following steps illustrate the process of forking an existing `use-of-sha1` rule and changing it to forbid MD2 hashes.
 
