@@ -1,14 +1,13 @@
 import React from 'react';
+import TagsListInline from '@theme/TagsListInline';
+import {useDoc} from '@docusaurus/theme-common/internal';
 
 export default function Tags({tag}) {
+
+const {metadata} = useDoc();
+  const {editUrl, lastUpdatedAt, lastUpdatedBy, tags} = metadata;
+
   return (
-    <span style={{
-      backgroundColor: '#ffc0cb',
-      borderRadius: '8px',
-      color: '#000',
-      padding: '0.4rem',
-    }}>
-    {tag}
-    </span>
+           <TagsListInline tags={tags} />
   );
 }

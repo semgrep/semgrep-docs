@@ -9,17 +9,6 @@ tags:
 hide_title: true
 ---
 
-
-import Tags from "/src/components/Tags"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
-
 # Evaluating your security posture through the Dashboard
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
