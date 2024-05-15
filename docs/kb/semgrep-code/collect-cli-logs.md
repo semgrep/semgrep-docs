@@ -5,8 +5,6 @@ tags:
 description: How to collect logs when running Semgrep on the command line.
 ---
 
-
-
 # How to collect logs when running Semgrep in CLI
 
 When troubleshooting Semgrep scans on the command line interface (CLI), collecting and sharing logs can be extremely helpful. By default, Semgrep prints findings from a scan to `stdout`, and other messages, including scan details and progress, to `stderr`. For troubleshooting, it's best to provide both.
@@ -76,4 +74,3 @@ Semgrep can also output only findings with its Quiet mode (`-q`). This is not re
 
 See [Semgrep scan troubleshooting](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) for specific troubleshooting suggestions for scans.
 
-<MoreHelp/>

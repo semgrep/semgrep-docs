@@ -9,7 +9,6 @@ tags:
   - CLI
 ---
 
-;
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ExportAs from "/src/components/reference/_export-as.mdx";

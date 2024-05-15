@@ -8,7 +8,7 @@ tags:
   - cli
 ---
 
-;
+
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
