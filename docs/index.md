@@ -35,17 +35,6 @@ The code is kept here for easy maintenance.
 
 Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. <!-- [Get started →](/getting-started/quickstart) --> Its ecosystem includes:
 
-<!-- 
-Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
--->
-
-<!-- 
-Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
-
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
-<br />
--->
-
 <!-- The Semgrep ecosystem includes the following products:-->
 
 - [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
@@ -54,6 +43,13 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 - [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
 
 Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
+
+Semgrep analyzes code locally on your computer or in your build environment: **code is never uploaded**.
+
+Its rules look like the code you already write; no abstract syntax trees, regex wrestling, or painful DSLs. Here's a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
+
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
+<br />
 
 <!-- 
 Support and be supported by the Semgrep community through:
