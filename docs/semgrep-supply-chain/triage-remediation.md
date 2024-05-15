@@ -12,13 +12,7 @@ hide_title: true
 
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Triaging and remediating dependency findings
 

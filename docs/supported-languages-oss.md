@@ -17,13 +17,7 @@ import SscIntro from "/src/components/concept/_ssc-intro.md"
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Supported languages
 

@@ -11,13 +11,7 @@ hide_title: true
 
 import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Continuous integration (CI) environment variables
 

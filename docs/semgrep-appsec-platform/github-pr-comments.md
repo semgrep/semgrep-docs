@@ -21,13 +21,7 @@ import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Set up GitHub pull request comments
 
