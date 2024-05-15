@@ -13,6 +13,8 @@ description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform t
 import MoreHelp from "/src/components/MoreHelp"
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
+import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
+
 
 <ul id="tag__badge-list">
 {
@@ -198,9 +200,11 @@ Code search allows you to test a Semgrep rule by running it against one or more 
 ### Prerequisites
 
 * Code search is currently available to all paying customers of Semgrep Code.
-* You must grant Semgrep code access if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
-  * You can [grant Semgrep code access by enabling Assistant](/semgrep-assistant/getting-started#enable-assistant).
+* You must grant Semgrep code access by [installing the private Semgrep GitHub app](#install-the-private-semgrep-github-app-to-enable-code-access) if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
 
+#### Install the private Semgrep GitHub app to enable code access
+
+<InstallPrivateGitHubApp />
 
 :::info
 Code search currently works with repositories or projects hosted by Github.com.

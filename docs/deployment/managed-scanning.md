@@ -8,6 +8,8 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
+
 # Add repositories to Semgrep in bulk
 
 **Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your existing CI workflows. Similar to Semgrep CI workflows, managed scanning also integrates into developer workflows through PR comments.
@@ -69,20 +71,7 @@ If you have already installed the public Semgrep GitHub app, skip this step and 
 
 ### Install the private Semgrep GitHub app
 
-The private app must be installed by a **GitHub organization administrator**. If you are not an admin, an installation link is provided for you to share with your GitHub admin.
-
-1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
-1. Click **Register App**.
-![GitHub entry with public GitHub app connection](/img/scm-create-private-app.png)
-1. Follow the steps to install a private GitHub app in your org. Ensure that you enter your exact GitHub organization name and the correct type of GitHub account, typically **Organization**.
-1. Click **Register GitHub App**.
-1. If you are an admin on the GitHub organization, click **Continue**. Otherwise, share the provided link with your GitHub administrator.
-![Continue to SCM dialog](/img/scm-confirm-private-app.png#sm-width-noborder)
-1. Follow the prompts in GitHub to install the private app. Ensure that you grant access to the repositories you want to scan.
-
-:::caution Running into a 404?
-If you are brought to a GitHub 404 page, return to your [<i class="fas fa-external-link fa-xs"></i> GitHub Applications](https://github.com/settings/installations) page.
-:::
+<InstallPrivateGitHubApp />
 
 ### Completed installation
 
