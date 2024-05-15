@@ -73,7 +73,7 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://semgre
 | - | - |
 | Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code)! 🚀 |
 | Semgrep Secrets | Semgrep Secrets can scan repositories using any programming language. |
-| Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, Javascript and Typescript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
+| Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and Typescript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
 
 <!--
 <h2>Environments</h2>
