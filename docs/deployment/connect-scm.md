@@ -26,9 +26,11 @@ Linking a source code manager provides the following benefits:
 
 You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
 
-The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single-tenant by the service provider.
+The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single tenant by the service provider.
 
 ## Connect to cloud-hosted orgs
+
+If you opted to scan a GitHub or GitLab repository when you initially signed in, you may have already performed these steps and can skip to [Next steps](#next-steps).
 
 ### GitHub Cloud
 
@@ -43,11 +45,6 @@ The process to connect a source code manager depends on whether your SCM tool is
 1. Click **Install and authorize**.
 1. After a successful link, you are signed out of Semgrep AppSec Platform automatically, as your credentials have changed after linking an organization.
 1. Sign back in to Semgrep AppSec Platform.
-
-<!-- Steps reverted to old flow and checked on Feb 21 2024
-NOTE. As of Feb 21, the SCM steps don't always match what is in the docs. I got both old and new flows as of Feb
-21, 2024, depending on the age of my org. Fortunately the "old" flow successfully went through Install and Authorize.
--->
 
 
 <!-- removed temporarily because we're using the "old flow"
@@ -205,18 +202,4 @@ Connect Semgrep and GitLab Self-Managed by creating a PAT and setting it in Semg
 ## Next steps
 
 - Optional: If you want to set up SSO to manage your users, see [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
-- You are ready to start your first remote scan.
-
-<!--
-
-New workflow steps
-
-1. For GitHub users, click **Connect to GitHub**. You are taken to the connection page. Enter the following information:
-    1. Click the **Install on** drop-down box and select the account type you are connecting to, either a GitHub **personal account** or **organization account**.
-    1. Under **Organization name**, enter the name of the GitHub account to link to. The name must be an exact match.
-    1. Choose to **<i class="fa-regular fa-circle-dot"></i> Leave PR comments and get Assistant recommendations** or **<i class="fa-regular fa-circle-dot"></i> Leave PR comments**.
-    1. Optional: Click Review permissions to view the permissions granted to Semgrep.
-    1. Click **Create GitHub App**.
-    1. Click **Install**.
-
--->
+- You are ready to scan your org's repositories with Semgrep.
