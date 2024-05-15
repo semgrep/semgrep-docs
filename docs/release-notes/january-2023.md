@@ -82,13 +82,13 @@ as well as `True and X` and `False or X`. For example, `cond and "a" or "b"` is 
         - [Code injection prevention for Ruby](/cheat-sheets/ruby-code-injection).
         - [Command injection prevention for Ruby](/cheat-sheets/ruby-command-injection).
         - Many other cheat sheets (such as [Command injection prevention for Go](/cheat-sheets/go-command-injection)) now have updated examples and were enriched by other improvements.
-- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-supply-chain/notifications) scans.
+- Added a new document on how to set up [notifications for Semgrep Supply Chain](/semgrep-appsec-platform/notifications) scans.
 - Added a new section [Transform](/writing-rules/experiments/extract-mode/#transform) to the Extract mode documentation.
 
 ### Changes
 
 - Updated Getting started with Semgrep Supply Chain with additional information on scanning [Maven projects](/semgrep-supply-chain/setup-maven).
 - Updated documentation of Semgrep App [Findings](/semgrep-code/findings) with fresh screenshots.
-- Updated Supported languages with [additional information on transitivity](/supported-languages/#general-availability).
+- Updated Supported languages with [additional information on transitivity](/supported-languages#semgrep-supply-chain).
 - Updated Semgrep App’s [Tagging](/semgrep-appsec-platform/tags) documentation.
 - Updated [Getting started with Semgrep CLI](/getting-started/quickstart).

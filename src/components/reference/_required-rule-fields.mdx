@@ -6,10 +6,10 @@ All required fields must be present at the top-level of a rule, immediately unde
 | `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
 | `severity`    | `string` | One of the following values: `INFO` (Low severity), `WARNING` (Medium severity), or `ERROR` (High severity). The `severity` key specifies how critical are the issues that a rule potentially detects. Note: Semgrep Supply Chain differs, as its rules use CVE assignments for severity. For more information, see [Filters](/semgrep-supply-chain/triage-and-remediation/#filters) section in Semgrep Supply Chain documentation. |
 | `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values) |
-| [`pattern`](#pattern)_\*_     | `string` | Find code matching this expression |
-| [`patterns`](#patterns)_\*_   | `array`  | Logical AND of multiple patterns |
-| [`pattern-either`](#pattern-either)_\*_ | `array`  | Logical OR of multiple patterns |
-| [`pattern-regex`](#pattern-regex)_\*_   | `string` | Find code matching this [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
+| `pattern`_\*_     | `string` | Find code matching this expression |
+| `patterns`_\*_   | `array`  | Logical AND of multiple patterns |
+| `pattern-either`_\*_ | `array`  | Logical OR of multiple patterns |
+| `pattern-regex`_\*_   | `string` | Find code matching this [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 :::info
 Only one of the following is required: `pattern`, `patterns`, `pattern-either`, `pattern-regex`

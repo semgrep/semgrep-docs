@@ -25,7 +25,7 @@ Semgrep by default runs entirely locally (unless you set it up yourself in a ser
 “If grep supports it, we will too!” This even includes those that aren’t thought of as programming languages, like Bash or Docker.
 
 1. **Run anywhere**<br/>
-Semgrep is small (<100MB), has minimal runtime dependencies, and should be easily installable via your programming language or operating system package manager. 
+Semgrep is small (&lt;100MB), has minimal runtime dependencies, and should be easily installable via your programming language or operating system package manager. 
 
 1. **Keep easy things easy, and hard things possible.**<br/>
 Using Semgrep to scan your code, and writing rules with which to scan, should be easy. Semgrep also smooths the process with delightful defaults and support every step of the way. But it’s also adaptable, and we welcome you using Semgrep in your own custom way. Hey, there are even [examples of scanning cat pictures out there](https://youtu.be/ybWB2Vf2V50?t=1182).

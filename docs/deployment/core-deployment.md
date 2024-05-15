@@ -109,10 +109,13 @@ Useful features that you can add based on your tech stack. You can integrate the
         </tr>
         <tr>
             <td>IDE integration</td>
-            <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
-            <ul><li>Microsoft Visual Studuio Code</li>
-            <li>IntelliJ Ultimate IDEA</li>
-            <li>Emacs</li></ul>
+            <td>
+                Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
+                <ul>
+                    <li>Microsoft Visual Studuio Code</li>
+                    <li>IntelliJ Ultimate IDEA</li>
+                    <li>Emacs</li>
+                </ul>
             </td>
         </tr>
         <tr>
