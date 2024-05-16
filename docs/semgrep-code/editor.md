@@ -3,6 +3,7 @@ slug: editor
 append_help_link: true
 title: Write custom rules
 hide_title: true
+toc_max_heading_level: 2
 tags:
     - Semgrep AppSec Platform
     - Team & Enterprise Tier
@@ -12,6 +13,8 @@ description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform t
 import MoreHelp from "/src/components/MoreHelp"
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
+import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
+
 
 <ul id="tag__badge-list">
 {
@@ -186,6 +189,39 @@ Once you've written a rule and created comment annotations, you can run your rul
 ### Turbo mode (beta)
 
 <EnableTurboMode />
+
+## Code search (beta)
+
+Code search allows you to test a Semgrep rule by running it against one or more GitHub repositories or projects instead of just a few lines of test code. Its results highlight all instances of matching code in those target repositories, allowing you to see whether your rule works as intended or not. This rapid feedback can help you develop more accurate and effective rules.
+
+![Code search in Semgrep Editor](/img/code-search.png)
+***Figure.*** Code search in Semgrep Editor
+
+### Prerequisites
+
+* Code search is currently available to all paying customers of Semgrep Code.
+* You must grant Semgrep code access by [installing the private Semgrep GitHub app](#install-the-private-semgrep-github-app-to-enable-code-access) if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
+
+#### Install the private Semgrep GitHub app to enable code access
+
+<InstallPrivateGitHubApp />
+
+:::info
+Code search currently works with repositories or projects hosted by Github.com.
+:::
+
+To run your rule against selected repositories or projects:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to **Rules > Editor**, and open up the rule you want to test.
+3. In the **code panel** click **live code**.
+4. Select the repositories against which you want the rule to run. You can use the search bar to narrow down the list of repositories shown. Semgrep currently supports both public repositories and private repositories available to your Semgrep organization. 
+5. Optional: If you're running your rule against multiple repositories, select the **Limit to first result per repository** checkbox to see only the first result per repository. This speeds up your search and allows you to receive your results faster.
+6. Click **Run** to start the search.
+7. When the search completes, you'll see a list of results where the rule generated a finding when run against your codebase. The links, which include filenames and line numbers, take you to GitHub, where you can view and remediate the issue.
+
+![Code search results in Semgrep Editor](/img/code-search-results.png)
+***Figure.*** Code search results in Semgrep Editor
 
 ## Set a rule’s visibility and share a rule
 
