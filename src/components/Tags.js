@@ -16,9 +16,9 @@ const {metadata} = useDoc();
   const {editUrl, lastUpdatedAt, lastUpdatedBy, tags} = metadata;
   return (
     <>
-      <ul className={clsx('padding--none', 'margin-left--sm')}>
+      <ul className={clsx('top-tag-list', 'padding--none')}>
         {tags.map(({label, permalink: tagPermalink}) => (
-          <li key={tagPermalink}>
+          <li key={tagPermalink} className='top-tag-item'>
             <Tag label={label} permalink={tagPermalink} />
           </li>
         ))}
