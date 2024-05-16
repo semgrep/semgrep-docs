@@ -4,6 +4,7 @@ hide_title: true
 id: Docs home
 displayed_sidebar: topLevelSidebar
 toc_max_heading_level: 2
+pagination_next: null
 description: >-
   Read the documentation and get started with Semgrep.
   A fast, open-source, static analysis engine
