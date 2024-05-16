@@ -47,9 +47,9 @@ The following code editor shows a rule for finding Python `print()` statements. 
 The Semgrep ecosystem includes:
 
 - [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-- [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-- [Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets) - Detect and validate leaked credentials in your codebase.
-- [Semgrep Supply Chain (SSC)](https://semgrep.dev/products/semgrep-supply-chain) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
+- [Semgrep Code](/semgrep-code/overview) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
+- [Semgrep Secrets](/semgrep-secrets/conceptual-overview) - Detect and validate leaked credentials in your codebase.
+- [Semgrep Supply Chain (SSC)](/semgrep-supply-chain/overview) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
 
 Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
 
