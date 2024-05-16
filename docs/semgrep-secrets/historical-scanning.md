@@ -107,7 +107,7 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 
 - Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish under 5 minutes to more than 60 minutes for extreme cases.
 - Within Semgrep AppSec Platform, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
-- With historical scanning enabled, the CLI may display duplicate instances of the same secret finding if it occurs across various commits or branches. This is to ensure thorough analysis by presenting all occurrences. However, when utilizing the Semgrep AppSec Platform, findings from historical scans are deduplicated. Consequently, you'll encounter only one entry for each distinct secret, irrespective of its multiple appearances in your Git history..
+- With historical scanning enabled, the CLI output displays secrets still present in the current version of the code twice: once at the commit where they were initially added and once at the current commit from the standard Secrets scan. Semgrep AppSec Platform deduplicates the two findings and displays the secret as a current rather than a historical one.
 
 ### Size of commit history
 
