@@ -505,29 +505,6 @@ module.exports = {
       items: [
         'cli-reference-oss'
       ]
-    },
-    {
-        type: 'category',
-        label: 'Contribute',
-        collapsible: false,
-        items: [
-            'contributing/contributing',
-            'contributing/contributing-rules',
-            'contributing/contributing-code',
-            {
-                type: 'doc',
-                id: 'contributing/semgrep-core-contributing',
-                label: 'semgrep-core contributing'
-            },
-            {
-               type: 'doc',
-               id: 'contributing/semgrep-contributing',
-               label: 'semgrep contributing'
-            },
-            'contributing/adding-a-language',
-            'contributing/updating-a-grammar',
-            'contributing/troubleshooting',
-        ]
     }
   ],
   aboutSidebar: [
@@ -551,6 +528,29 @@ module.exports = {
               id: 'metrics',
               label: 'Semgrep privacy policy'
             },
+            {
+              type: 'category',
+              label: 'Contribute to Semgrep',
+              collapsible: true,
+              items: [
+                  'contributing/contributing',
+                  'contributing/contributing-rules',
+                  'contributing/contributing-code',
+                  {
+                      type: 'doc',
+                      id: 'contributing/semgrep-core-contributing',
+                      label: 'semgrep-core contributing'
+                  },
+                  {
+                     type: 'doc',
+                     id: 'contributing/semgrep-contributing',
+                     label: 'semgrep contributing'
+                  },
+                  'contributing/adding-a-language',
+                  'contributing/updating-a-grammar',
+                  'contributing/troubleshooting',
+              ]
+            }
         ],
     },
   ],
