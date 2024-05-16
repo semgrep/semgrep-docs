@@ -214,6 +214,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:

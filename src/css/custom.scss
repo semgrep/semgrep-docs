@@ -481,6 +481,7 @@ article video {
 
 .top-tag-item:not(:last-child):after {
   margin-left: 1rem;
+  content: "|";
 }
 
 

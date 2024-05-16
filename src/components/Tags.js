@@ -7,7 +7,7 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import Tag from '@theme/Tag';
+import Link from '@docusaurus/Link';
 import {useDoc} from '@docusaurus/theme-common/internal';
 
 export default function Tags({tag}) {
@@ -19,7 +19,7 @@ const {metadata} = useDoc();
       <ul className={clsx('top-tag-list', 'padding--none')}>
         {tags.map(({label, permalink: tagPermalink}) => (
           <li key={tagPermalink} className='top-tag-item'>
-            <Tag label={label} permalink={tagPermalink} />
+              <Link href={tagPermalink}>{label}</Link>
           </li>
         ))}
       </ul>
