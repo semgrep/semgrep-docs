@@ -52,13 +52,15 @@ Monorepos may take longer to finish scanning. Semgrep provides several options t
 
 ## Roles
 
-Semgrep provides two roles: `admin` and `member`.
+Semgrep provides two primary roles: **admin** and **member**.
 
-For **single-user deployments**, you are the sole `admin` of your deployment.
+Deployments can also enable a third role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
+
+For **single-user deployments**, you are the sole **admin** of your deployment.
 
 For **multi-user deployments**, determine the following:
 
-- The administrators (`admins`) that own the Semgrep deployment.
+- The administrators (**admins**) that own the Semgrep deployment.
 - For `members`, ensure that they have a sign-in method:
     - SSO
     - GitHub Cloud
@@ -82,6 +84,10 @@ The following checklist breaks down permissions required by Semgrep features.
 </tr>
 <tr>
 <td>Defining environment variables and storing secrets.</td>
+</tr>
+<tr>
+<td>Run Semgrep continuously <strong>without</strong> changing your CI workflows.</td>
+<td>Read access to user-selected repositories.</td>
 </tr>
 <tr>
 <td>Manage user authentication with SSO.</td>
@@ -116,7 +122,7 @@ The following checklist breaks down permissions required by Semgrep features.
 
 | Feature | Permission required |
 | --- | -------  |
-| Create CI jobs for repositories in bulk and detect GitHub repos automatically. | Installing GitHub apps.         |
+| Create CI jobs in bulk and detect GitHub repositories automatically. | Installing GitHub apps.         |
 | Pull request (PR) comments. |  For GitHub Enterprise Server: Adding a personal access token (PAT) with [assigned scopes](/deployment/connect-scm/#connect-to-on-premise-orgs).          |
 | GPT-assisted triage and recommendations. | Code access. |
 
@@ -143,7 +149,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <td>Create personal or project-level access tokens.</td>
 </tr>
 <tr>
-<td>Code access.</td>
+<td>Read access to user-selected repositories.</td>
 </tr>
 </tbody>
 </table>
@@ -185,7 +191,11 @@ This section explains Semgrep AppSec Platform permissions that are requested in 
 
 ##### Permissions when signing in with GitHub
 
-Semgrep AppSec Platform requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep AppSec Platform. Read the following list to see how Semgrep AppSec Platform uses permissions when signing in:
+Semgrep AppSec Platform requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep AppSec Platform.
+
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when signing in.</summary>
 
 <dl>
     <dt>Verify your GitHub identity</dt>
@@ -196,9 +206,15 @@ Semgrep AppSec Platform requests the following standard permissions set by GitHu
     <dd>Enables Semgrep AppSec Platform to perform certain tasks <strong>only on resources that you choose to share with Semgrep AppSec Platform</strong>. Semgrep AppSec Platform never uses this permission and never performs any actions on your behalf, even after you have installed <code>semgrep-app</code>. See <a href ="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps">When does a GitHub App act on your behalf?</a> in GitHub documentation.</dd>
 </dl>
 
-##### Permissions when adding your repositories into Semgrep AppSec Platform
+</details>
 
-The GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app is used to integrate Semgrep into user-selected GitHub repositories. It requires the following permissions:
+##### Permissions when adding members or repositories into Semgrep AppSec Platform
+
+The public GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app is used to integrate Semgrep into user-selected GitHub repositories.
+
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when adding members or repositories.</summary>
 
 <dl>
     <dt>Reading metadata of the repositories you select</dt>
@@ -222,6 +238,50 @@ The GitHub integration app is called [`semgrep-app`](https://github.com/apps/sem
     <dt>Reading and writing pull requests</dt>
     <dd>Write permissions allow Semgrep AppSec Platform to leave pull request comments about findings. Read permissions allow Semgrep AppSec Platform to automatically remove findings when the pull request that introduced them is closed without merging.</dd>
 </dl>
+
+</details>
+
+
+##### Permissions when adding repositories into Semgrep AppSec Platform through managed scanning or using AI features
+
+You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
+
+- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning).
+- To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
+
+:::info
+These features require **read access** to your code.
+:::
+
+<details>
+
+<summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>managed scanning</strong>.</summary>
+
+<dl>
+<dt>Reading metadata of the repositories you select</dt>
+<dd>Lets Semgrep list their names on the project setup page.</dd>
+<dt>Reading the list of organization members</dt>
+<dd>Lets Semgrep determine who can manage your Semgrep organization based on your GitHub organization's members list.</dd>
+<dt>Writing (and reading) pull requests</dt>
+<dd>Lets Semgrep comment about findings on pull requests.</dd>
+<dt>Writing (and reading) actions</dt>
+<dd>Allows Semgrep AppSec Platform to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.</dd>
+<dt>Reading checks</dt>
+<dd>Facilitates debugging of Semgrep AppSec Platform when configured out of GitHub Actions</dd>
+<dt>Writing (and reading) security events.</dt>
+<dd>Enables integration with GitHub Advanced Security (for example, to show Semgrep results)</dd>
+<dt>Writing (and reading) secrets</dt>
+<dd>Enables automatic adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: We cannot read the values of your existing or future secrets (only the names).</dd>
+<dt>Writing (and reading) 2 files</dt>
+<dd>Lets Semgrep configure itself to run in CI by writing to .github/workflows/semgrep.yml and .semgrepignore.</dd>
+<dt>Writing (and reading) workflows</dt>
+<dd>Lets Semgrep configure itself to run in CI by writing to .github/workflows/semgrep.yml. GitHub allows writing to files within .github/workflows/ only if this permission is granted along with "Writing a single file."</dd>
+<dt>Read source code of the repositories you select</dt>
+<dd>Allows Semgrep Assistant to fetch source code files on-demand to construct AI prompts.</dd>
+
+</dl>
+
+</details>
 
 </TabItem>
 
