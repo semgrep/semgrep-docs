@@ -5,8 +5,6 @@ tags:
 description: How to collect logs when running Semgrep on the command line.
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-
 # How to collect logs when running Semgrep in CLI
 
 When troubleshooting Semgrep scans on the command line interface (CLI), collecting and sharing logs can be extremely helpful. By default, Semgrep prints findings from a scan to `stdout`, and other messages, including scan details and progress, to `stderr`. For troubleshooting, it's best to provide both.
@@ -64,11 +62,11 @@ Semgrep has three commonly used log levels.
 * Verbose (`-v` or `--verbose`): Adds list of rules and other details such as skipped files.
 * Debug (`--debug`): Logs entire scan process at a very high level of detail.
 
-The default level is useful for many common tasks such as identifying the scan in the Cloud Platform, checking which products were run, and seeing how many files were scanned with how many rules. 
+The default level is useful for many common tasks such as identifying the scan in the Cloud Platform, checking which products were run, and seeing how many files were scanned with how many rules.
 
 Verbose logs are useful to determine which specific files were scanned and list all rules run. They provide the most useful detail when a particular file appears to be missed or it's not clear which rules are running in a scan.
 
-Debug logs are typically collected only if very detailed debugging is needed, such as if Semgrep crashes or is running very slowly. They're often very large. 
+Debug logs are typically collected only if very detailed debugging is needed, such as if Semgrep crashes or is running very slowly. They're often very large.
 
 Semgrep can also output only findings with its Quiet mode (`-q`). This is not recommended when troubleshooting.
 
@@ -76,4 +74,3 @@ Semgrep can also output only findings with its Quiet mode (`-q`). This is not re
 
 See [Semgrep scan troubleshooting](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) for specific troubleshooting suggestions for scans.
 
-<MoreHelp/>

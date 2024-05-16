@@ -1,24 +1,18 @@
 ---
-slug: triage-and-remediation 
+slug: triage-and-remediation
 append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Triage and remediation 
+title: Triage and remediation
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Triaging and remediating dependency findings
 
@@ -210,12 +204,10 @@ To ignore a vulnerability:
 
 1. **Optional:** Filter vulnerabilities to apply criteria for a group of findings to ignore.
 2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
-3. Click the reason for ignoring. 
+3. Click the reason for ignoring.
 
 ## Viewing Semgrep Supply Chain's total CVE coverage
 
 The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
 
 <AdmonitionSotCves />
-
-<MoreHelp />

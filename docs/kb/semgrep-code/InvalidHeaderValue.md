@@ -7,7 +7,7 @@ tags:
 append_help_link: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Troubleshoot `ValueError: Invalid header value` error
 
@@ -54,7 +54,7 @@ Traceback (most recent call last):
     _HTTPConnection.putheader(self, header, *values)
   File "/usr/local/lib/python3.11/http/client.py", line 1261, in putheader
     raise ValueError('Invalid header value %r' % (values[i],))
-ValueError: Invalid header value b'Bearer *******************************************************' 
+ValueError: Invalid header value b'Bearer *******************************************************'
 ```
 
 This error indicates that there is a problem in the pasted `SEMGREP_APP_TOKEN` value, most often an extra newline (`\n`).
@@ -75,5 +75,3 @@ To fix on GitLab:
 1. Go to your repository's **CI/CD** settings
 2. Update the `SEMGREP_APP_TOKEN` value to ensure it does not have an extraneous newline (`\n`) and is not malformed
    ![Updating GitLab Variable](/img/kb/gitlab-update-value.png)
-
-<MoreHelp />

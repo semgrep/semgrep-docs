@@ -6,7 +6,7 @@ tags:
 append_help_link: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # My GitLab pipeline says that the token is invalid, but it is valid
 
@@ -32,5 +32,3 @@ semgrep:
 ```
 
 Without the explicit reference failing to resolve, GitLab's runners identify and use the correct value.
-
-<MoreHelp />

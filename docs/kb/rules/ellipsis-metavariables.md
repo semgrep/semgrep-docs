@@ -5,7 +5,7 @@ tags:
   - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Matching multiple tokens with ellipsis metavariables
 
@@ -42,5 +42,3 @@ To address some of the limitations of generic mode, the team is experimenting wi
 With Aliengrep, you can [configure what characters are allowed as part of a word token](/docs/writing-rules/experiments/aliengrep/#additional-word-characters-captured-by-metavariables), so that you could match the HTML example with a single metavariable. You can also [have even more fun with ellipses](/docs/writing-rules/experiments/aliengrep/#ellipsis-).
 
 Give it a try and share your thoughts!
-
-<MoreHelp />

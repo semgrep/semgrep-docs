@@ -10,17 +10,11 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 
 # View findings in Semgrep AppSec Platform
@@ -160,5 +154,3 @@ Additionally, account owners may request data destruction at any time by contact
 
 - Learn how to [triage and remediate Semgrep Code findings](/semgrep-code/triage-remediation).
 - See [Semgrep Assistant for Semgrep Code](/semgrep-assistant/overview) for information on receiving GPT-4-powered security recommendations when reviewing your findings.
-
-<MoreHelp />

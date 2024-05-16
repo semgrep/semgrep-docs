@@ -9,17 +9,6 @@ tags:
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-import Tags from "/src/components/Tags"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
-
 # Evaluating your security posture through the Dashboard
 
 ![Screenshot of dashboard view](/img/dashboard-view.png)
@@ -164,5 +153,3 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 ![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
 -->
-
-<MoreHelp />

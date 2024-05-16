@@ -6,7 +6,7 @@ hide_title: true
 title: Perform cross-file analysis
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -207,5 +207,3 @@ Cross-file analysis is different from [join mode](/writing-rules/experiments/joi
 ### Feedback for Semgrep Code's advanced analyses
 
 The team at Semgrep is excited to hear what’s on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-
-<MoreHelp />

@@ -8,7 +8,7 @@ hide_title: true
 
 <!-- Updates to this doc may affect ignore-oss -->
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignore files, folders, and code
@@ -110,7 +110,7 @@ You can also add files to `.semgrepignore` while triaging individual findings in
 <IgnoreIndividualFindingNoGrouping />
 
 :::note
-Add files to `.semgrepignore` in the fifth step of the procedure described above. 
+Add files to `.semgrepignore` in the fifth step of the procedure described above.
 :::
 
 ## Ignore code through nosemgrep
@@ -160,7 +160,7 @@ Python examples:
 bad_func1()  # nosemgrep: rule-id-1
 
 # nosemgrep: rule-id-1, rule-id-2
-bad_func2() 
+bad_func2()
 
 ```
 
@@ -199,5 +199,3 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 ### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
 
 To fix this, create an empty .semgrepignore file. If the scan is a one-off event, delete the .semgrepignore file to restore default ignore patterns.
-
-<MoreHelp />

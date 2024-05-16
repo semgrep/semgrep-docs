@@ -1,7 +1,7 @@
 ---
 slug: dependency-search
 append_help_link: true
-title: Dependency search 
+title: Dependency search
 hide_title: true
 description: "Search through all your dependencies in all your onboarded repositories at any time."
 tags:
@@ -9,15 +9,9 @@ tags:
   - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Searching through your dependencies
 
@@ -35,7 +29,7 @@ _**Figure**_. Default dependency search page.
 * You need at least **one** completed Semgrep Supply Chain scan of all the repositories you want to search through.
 :::
 
-To search through your dependencies: 
+To search through your dependencies:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
@@ -43,13 +37,13 @@ To search through your dependencies:
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it is not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
   ![Semgrep Supply Chain Dependencies tab](/img/sc-dependencies.png#md-width) *Figure*. The Semgrep Supply Chain Dependencies tab.
-1. Type the name of the dependency you are searching for. 
+1. Type the name of the dependency you are searching for.
 2. Optional: Apply filters as necessary for your search.
 
 :::tip
 Search for ranges of supported versions with the `>` or `<` operators following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser greater than 1.18.0`.
 :::
-    
+
 Dependency search provides the following filters:
 
 <dl>
@@ -88,4 +82,3 @@ To ensure that your dependencies appear, check the following:
 * Ensure that Semgrep Supply Chain can parse your lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages and lockfiles.
 * Make sure you've scanned the repository at least once.
 * If you are using filters, ensure that your filters and search syntax is correct.
-
