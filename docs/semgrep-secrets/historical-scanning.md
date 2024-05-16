@@ -26,7 +26,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 ## Run historical scans
 
-You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff scans.
+You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. By default, historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff scans.
 
 ### Prerequisites
 
@@ -92,6 +92,10 @@ The historical scan results appear in the **Secrets Historical Scan** section:
     - Secrets findings with validation errors
 - Findings from historical scans are generated through **Generic** (regex-based) rules only.
     - Navigate to **[<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform > Policies > Secrets](https://semgrep.dev/orgs/-/policies/secrets?analysis-method=generic)** and click **Generic** under **Analysis method** to view these rules.
+ 
+:::info
+To display invalid or unvalidated historical secrets (for comprehensive evaluation), you can add `--no-secrets-validation` to the command.
+:::
 
 For more information on the types of findings by validation, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
 
