@@ -3,7 +3,7 @@ slug: private-rules
 description: "Users of the Team and Enterprise tier for Semgrep Code can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 
 # Private rules
@@ -50,6 +50,7 @@ To create private rules through the [Semgrep CLI](/getting-started/quickstart), 
     semgrep publish myrules/
     ```
 
+If the rules are in the directory you publish from, you can use `semgrep publish .` to refer to the current directory. You must provide the directory specification.
 If the directory contains test cases for the rules, Semgrep uploads them as well (see [testing Semgrep rules](/writing-rules/testing-rules)).
 
 You can also change the visibility of the rules. For instance, to publish the rules as unlisted (which does not require authentication but will not be displayed in the public registry):
@@ -70,7 +71,9 @@ To enforce the rule on new scans, add the rule in the [registry](https://semgrep
 
 ## Automatically publishing rules
 
-This section provides an example of how to automatically publish your private rules so they are accessible within your private organization. "Publishing" your private rules in this manner does not make them public. The following sample of the GitHub Actions workflow publishes rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
+This section provides examples of how to automatically publish your private rules so they are accessible within your private organization. "Publishing" your private rules in this manner does not make them public. In the following examples, the private rules are stored in `private_rule_dir`, which is a subdirectory of the repository root. If your rules are in the root of your repository, you can replace the command with `semgrep publish --visibility=org_private .` to refer to the repository root. You must provide the directory specification.
+
+The following sample of the GitHub Actions workflow publishes rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
 
 1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
 2. Create the following file at `.github/workflows/semgrep-publish.yml`:
@@ -127,5 +130,3 @@ Private rules are only visible to logged-in members of your organization.
 ### Publishing a rule with the same rule ID
 
 Rules have unique IDs. If you publish a rule with the same ID as an existing rule, the new rule overwrites the previous one.
-
-<MoreHelp />

@@ -9,17 +9,11 @@ title: Overview
 hide_title: false
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 <SscIntro />
 
@@ -53,7 +47,7 @@ _Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and 
 Semgrep Supply Chain generates a **finding** any time it determines that your
 codebase uses or imports a package containing a vulnerability. In addition, Semgrep
 Supply Chain offers two levels of support for reachability analysis, [depending
-on your language](/supported-languages/#maturity-levels-1):
+on your language](/supported-languages#maturity-levels):
 
 * **GA**: Semgrep writes rules for all critical and high CVE
 severity levels for GA languages. That means Semgrep Supply Chain can flag all
@@ -129,5 +123,3 @@ Semgrep Supply Chain automatically scans repositories that you have added to Sem
   hard](https://semgrep.dev/blog/2022/software-supply-chain-security-is-hard/)
 * [The best free, open-source supply-chain security tool? The
   lockfile](https://semgrep.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
-
-<MoreHelp />

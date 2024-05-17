@@ -8,14 +8,12 @@ tags:
   - cli
 ---
 
-import MoreHelp from "/src/components/MoreHelp";
+
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
-
-<!-- semgrep ci can run any product, so I removed the reference to Pro Engine -->
 
 Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
 
@@ -201,5 +199,3 @@ To log out of your Semgrep account:
 ```console
 semgrep logout
 ```
-
-<MoreHelp />

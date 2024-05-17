@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Enabling webhooks
 
@@ -129,5 +123,3 @@ The following is an example of a `semgrep_scan` object:
   }
 }
 ```
-
-<MoreHelp />

@@ -1,5 +1,5 @@
 ---
-slug: slack-notifications 
+slug: slack-notifications
 append_help_link: true
 title: Slack
 hide_title: true
@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Receiving Slack notifications
 
@@ -28,7 +22,7 @@ Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integratio
 <!-- <ProcedureIntegrateSlack /> -->
 
 :::info Prerequisites
-* You must be a Slack **Workspace Owner** to set up the Semgrep Slack app. 
+* You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
 :::
 
 The Semgrep Slack app enables Semgrep AppSec Platform to notify you of new findings after every scan. By receiving notifications within your Slack workspace, developers and security engineers are able to see findings without leaving their current environment. This can lessen the friction between detecting a finding, triaging it, and resolving it.
@@ -63,7 +57,7 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 You have successfully set up notifications for Semgrep findings. The Semgrep Slack app reports new findings after every scan but does not report findings that were previously discovered.
 
 :::tip Suggested workflow
-In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them. 
+In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them.
 :::
 
 ![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#bordered "Message from Semgrep Slack app consolidating findings after a scan")
@@ -103,7 +97,7 @@ To change the settings:
 ## Uninstalling the Semgrep Slack App from your Slack workspace
 
 :::caution
-This removes **all** Semgrep notifications in **all** channels in your Slack workspace. 
+This removes **all** Semgrep notifications in **all** channels in your Slack workspace.
 :::
 
 To uninstall the Semgrep Slack App entirely from your Slack workspace, perform the following steps:
@@ -159,138 +153,106 @@ There are many possible causes for this error. Try the following fixes:
 
 This error occasionally appears due to connection or service issues. To fix this issue, retry your last command or operation after a few minutes.
 
-## Slack permissions 
+## Slack permissions
 
-The following table describes the purpose for each permission required to use the Semgrep Slack app. 
+The following table describes the purpose for each permission required to use the Semgrep Slack app.
 
 <table>
   <tr>
-   <td><strong>Permission</strong>
+   <td>
+    <strong>Permission</strong>
    </td>
-   <td><strong>Slack description</strong>
+   <td>
+    <strong>Slack description</strong>
    </td>
-   <td><strong>Purpose</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><strong><a href="https://api.slack.com/scopes/app_mentions:read">app_mentions:read</a></strong>
-   </td>
-   <td>View messages that directly mention <code>@Semgrep</code> in conversations that the app is in.
-   </td>
-   <td>Enables the Semgrep Slack app to respond when users mention it in the chat.
+   <td>
+    <strong>Purpose</strong>
    </td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong> 
+   <td>
+    <strong><a href="https://api.slack.com/scopes/app_mentions:read">app_mentions:read</a></strong>
    </td>
-   <td>View basic information about public channels in a workspace.
+   <td>
+   View messages that directly mention <code>@Semgrep</code> in conversations that the app is in.
    </td>
-   <td>Basic channel information such as <code>channel_id</code> is used to ensure that Semgrep findings (results) are sent to the appropriate channel.
-   </td>
+   <td>Enables the Semgrep Slack app to respond when users mention it in the chat.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/chat:write">chat:write</a></strong>
+   <td>
+    <strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong>
    </td>
-   <td>Send messages as <code>@Semgrep</code>.
-   </td>
-   <td>Enables the Semgrep Slack app to send findings to channels.
-   </td>
+   <td>View basic information about public channels in a workspace.</td>
+   <td>Basic channel information such as <code>channel_id</code> is used to ensure that Semgrep findings (results) are sent to the appropriate channel.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/chat:write.customize">chat:write.customize</a></strong>
+   <td>
+    <strong><a href="https://api.slack.com/scopes/chat:write">chat:write</a></strong>
    </td>
-   <td>Send messages as <code>@Semgrep</code> with a customized username and avatar.
+   <td>
+    Send messages as <code>@Semgrep</code>.
    </td>
-   <td>Helps users identify Semgrep Slack app messages through the use of an image and username.
-   </td>
+   <td>Enables the Semgrep Slack app to send findings to channels.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/chat:write.public">chat:write.public</a></strong>
-   </td>
-   <td>Send messages to channels <code>@Semgrep</code> isn't a member of.
-   </td>
-   <td>Enables users to invoke Semgrep Slack app features in any public channel using the slash command.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/chat:write.customize">chat:write.customize</a></strong></td>
+   <td>Send messages as <code>@Semgrep</code> with a customized username and avatar.</td>
+   <td>Helps users identify Semgrep Slack app messages through the use of an image and username.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/commands">commands</a></strong>
-   </td>
-   <td>Add shortcuts or slash commands that people can use.
-   </td>
-   <td>Enables the Semgrep Slack app to register custom slash commands such as <code>/semgrep_subscribe</code> used for notification subscription.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/chat:write.public">chat:write.public</a></strong></td>
+   <td>Send messages to channels <code>@Semgrep</code> isn't a member of.</td>
+   <td>Enables users to invoke Semgrep Slack app features in any public channel using the slash command.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/emoji:read">emoji:read</a></strong>
-   </td>
-   <td>View custom emoji in a workspace.
-   </td>
-   <td>Allows Semgrep to support a workspace's custom emojis.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/commands">commands</a></strong></td>
+   <td>Add shortcuts or slash commands that people can use.</td>
+   <td>Enables the Semgrep Slack app to register custom slash commands such as <code>/semgrep_subscribe</code> used for notification subscription.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/im:write">im:write</a></strong>
-   </td>
-   <td>Start direct messages with people.
-   </td>
-   <td>Allows users to interact with the Semgrep Slack app and use the slash commands in direct messages.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/emoji:read">emoji:read</a></strong></td>
+   <td>View custom emoji in a workspace.</td>
+   <td>Allows Semgrep to support a workspace's custom emojis.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/links:write">links:write</a></strong>
-   </td>
-   <td>Show previews of URLs in messages.
-   </td>
-   <td>Enables Semgrep Slack app to include links in messages.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/im:write">im:write</a></strong></td>
+   <td>Start direct messages with people.</td>
+   <td>Allows users to interact with the Semgrep Slack app and use the slash commands in direct messages.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/users:read">users:read</a></strong>
-   </td>
-   <td>View profile details about people in a workspace.
-   </td>
-   <td>Enables Semgrep Slack app to correctly address users in messages.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/links:write">links:write</a></strong></td>
+   <td>Show previews of URLs in messages.</td>
+   <td>Enables Semgrep Slack app to include links in messages.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/users:write">users:write</a></strong>
-   </td>
-   <td>Set presence for Semgrep.
-   </td>
-   <td>Used by the Semgrep Slack app to interact with the workspace and enables users to add the Semgrep Slack app to relevant channels.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/users:read">users:read</a></strong></td>
+   <td>View profile details about people in a workspace.</td>
+   <td>Enables Semgrep Slack app to correctly address users in messages.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/workflow.steps:execute">workflow.steps:execute</a></strong>
-   </td>
-   <td>Add steps that people can use in Workflow Builder.
-   </td>
-   <td>Enables Semgrep to make use of modals and drop-down boxes when a user creates or updates their notifications.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/users:write">users:write</a></strong></td>
+   <td>Set presence for Semgrep.</td>
+   <td>Used by the Semgrep Slack app to interact with the workspace and enables users to add the Semgrep Slack app to relevant channels.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/groups:read">groups:read</a></strong>
-   </td>
-   <td>View basic information about private channels that your Slack app has been added to.
-   </td>
-   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications configuration if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/workflow.steps:execute">workflow.steps:execute</a></strong></td>
+   <td>Add steps that people can use in Workflow Builder.</td>
+   <td>Enables Semgrep to make use of modals and drop-down boxes when a user creates or updates their notifications.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/team:read">team:read</a></strong>
-   </td>
-   <td>View the name, email domain, and icon for workspaces your slack app is connected to.
-   </td>
-   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications configuration if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/groups:read">groups:read</a></strong></td>
+   <td>View basic information about private channels that your Slack app has been added to.</td>
+   <td>Semgrep Slack app uses <code>channels_id_changed</code> to update its notifications configuration if the channel that receives findings is updated. This ensures that you are able to receive findings ever renaming a channel.</td>
   </tr>
   <tr>
-   <td><strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong>
-   </td>
-   <td>View basic information about public channels in a workspace.
-   </td>
-   <td>Enables Semgrep Slack app to monitor if channels that receive Semgrep findings have been deleted or archived.
-   </td>
+   <td><strong><a href="https://api.slack.com/scopes/team:read">team:read</a></strong></td>
+   <td>View the name, email domain, and icon for workspaces your slack app is connected to.</td>
+   <td>Semgrep Slack app uses <code>team_name_changed</code> to update its notifications configuration if the team name is updated. This ensures that you are able to receive findings notifications even after renaming your team.</td>
+  </tr>
+  <tr>
+   <td><strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong></td>
+   <td>View basic information about public channels in a workspace.</td>
+   <td>Enables Semgrep Slack app to monitor if channels that receive Semgrep findings have been deleted or archived.</td>
   </tr>
 </table>
 
@@ -318,5 +280,3 @@ Unused and removed for now:
 #### Additional resources
 * https://api.slack.com/apps
 * https://api.slack.com/messaging/webhooks#enable_webhooks
-
-<MoreHelp />

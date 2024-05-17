@@ -10,7 +10,7 @@ description: >-
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-import MoreHelp from "/src/components/MoreHelp"
+
 import ThemedImage from '@theme/ThemedImage'
 
 <!---
@@ -73,7 +73,7 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://semgre
 
 ### Semgrep Code
 
-Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/docs/supported-languages#semgrep-code) to see all the languages supported.
+Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/supported-languages#semgrep-code-language-support) to see all the languages supported.
 
 ### Semgrep Supply Chain
 

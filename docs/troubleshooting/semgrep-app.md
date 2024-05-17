@@ -9,15 +9,9 @@ tags:
 
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 
 # Troubleshooting Semgrep AppSec Platform
@@ -68,5 +62,3 @@ Many CI providers have a time limit for how long a job can run. Semgrep CI also 
 Our comments are powered by an external service called [utteranc.es](https://utteranc.es/).
 If you aren't able to authenticate to leave comments,
 please make sure you don't have an ad blocker interrupting requests to their domain.
-
-<MoreHelp />

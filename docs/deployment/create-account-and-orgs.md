@@ -94,7 +94,7 @@ Organizations can be as small as a single user in a department, or encompass who
 
 By default, orgs do not manage any authentication or repositories. You add resources and users to an org by connecting to an SCM or SSO, or setting up a Semgrep scan.
 
-Once you have connected to your SSO or SCM, any team member from your GitHub, GitLab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through [<i class="fa-regular fa-file-lines"></i> user access control features](/deployment/user-management).
+Once you have connected to your SSO or SCM, any team member from your GitHub, GitLab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through [<i class="fa-regular fa-file-lines"></i> user access control features](/deployment/teams).
 
 ### Create additional orgs
 

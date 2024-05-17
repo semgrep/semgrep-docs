@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
-import MoreHelp from "/src/components/MoreHelp"
+
+
 
 # Single-sign on (SSO) configuration
 
@@ -142,5 +136,3 @@ You have now set up SAML configuration between Microsoft Entra ID and Semgrep Ap
 #### Add users to your new enterprise app
 
 To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
-
-<MoreHelp />

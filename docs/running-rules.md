@@ -6,7 +6,7 @@ title: Run rules
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Run rules
 
@@ -122,5 +122,3 @@ Semgrep supports a large number of languages and rules! Their number is continuo
 <div className="lang-container" style={{marginBottom: '20px'}}>
   <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/registry.rules.num/graph"></iframe>
 </div>
-
-<MoreHelp />

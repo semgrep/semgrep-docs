@@ -4,7 +4,7 @@ slug: testing-rules
 description: "Semgrep provides a convenient testing mechanism for your rules. You can simply write code and provide a few annotations to let Semgrep know where you are or aren't expecting findings."
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 # Testing rules
@@ -32,9 +32,9 @@ The `.test.yaml` file extension can also be used for test files. This is necessa
 
 Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
 
-To define a test for autofix behavior: 
+To define a test for autofix behavior:
 
-1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension.  
+1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension.
    For example, name the autofix test file of a rule with test code in `path/to/rule.py` as `path/to/rule.fixed.py`.
 2. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
 3. Run `semgrep --test` to verify that your autofix test file is correctly detected.
@@ -214,5 +214,3 @@ This feature is still experimental and under active development. Your feedback i
 ## Enabling autofix in Semgrep Code
 
 <EnableAutofix />
-
-<MoreHelp />

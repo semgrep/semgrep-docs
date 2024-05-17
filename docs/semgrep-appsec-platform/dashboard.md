@@ -1,24 +1,13 @@
 ---
-slug: dashboard 
+slug: dashboard
 append_help_link: true
-title: Dashboard 
+title: Dashboard
 description: "The Dashboard is a summary view within Semgrep AppSec Platform to help security teams evaluate their organization's security posture."
 tags:
     - Semgrep AppSec Platform
     - Team & Enterprise Tier
 hide_title: true
 ---
-
-import MoreHelp from "/src/components/MoreHelp"
-import Tags from "/src/components/Tags"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
 # Evaluating your security posture through the Dashboard
 
@@ -109,7 +98,7 @@ Filters mentioned in previous sections [Filtering findings by time](#filtering-f
 ## See also
 
 * [Semgrep Registry](https://semgrep.dev/explore)
-* [Findings](semgrep-code/findings)
+* [Findings](/semgrep-code/findings)
 
 ## Additional references
 
@@ -163,5 +152,3 @@ The **Most disliked** metric is taken from the **Developer Feedback** feature. D
 ![Screenshot of developer feedback end flow](/img/dashboard-devfeedback2.png)
 
 -->
-
-<MoreHelp />

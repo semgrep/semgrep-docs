@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
-import MoreHelp from "/src/components/MoreHelp"
+
+
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
@@ -110,5 +104,3 @@ For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgr
 ## Losing access to Semgrep Pro rules
 
 You lose access to Semgrep Pro rules and their future improvements if you choose not to renew your Team or Enterprise tier plan.
-
-<MoreHelp />

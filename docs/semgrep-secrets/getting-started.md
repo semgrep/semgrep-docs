@@ -8,7 +8,7 @@ tags:
   - Semgrep Secrets
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Scan for secrets
 
@@ -72,5 +72,3 @@ To see the rules you're using for which there is Secrets rule upgrade in Semgrep
 
 * Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep AppSec Platform](/semgrep-secrets/policies).
 * Learn how to [write custom validators](/semgrep-secrets/validators) for your Semgrep Secrets rules.
-
-<MoreHelp />

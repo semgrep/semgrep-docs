@@ -76,8 +76,12 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep AppSec Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
         </tr>
         <tr>
-            <td>Scanning in CI</td>
-            <td>Semgrep fully supports many popular CI providers.</td>
+            <td>Scanning remote repositories through CI</td>
+            <td>Semgrep fully supports many popular CI providers. See <a href="/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
+        </tr>
+        <tr>
+            <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
@@ -109,10 +113,13 @@ Useful features that you can add based on your tech stack. You can integrate the
         </tr>
         <tr>
             <td>IDE integration</td>
-            <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
-            <ul><li>Microsoft Visual Studio Code</li>
-            <li>IntelliJ Ultimate IDEA</li>
-            <li>Emacs</li></ul>
+            <td>
+                Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
+                <ul>
+                    <li>Microsoft Visual Studio Code</li>
+                    <li>IntelliJ Ultimate IDEA</li>
+                    <li>Emacs</li>
+                </ul>
             </td>
         </tr>
         <tr>

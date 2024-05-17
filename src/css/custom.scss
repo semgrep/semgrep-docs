@@ -96,6 +96,17 @@
   font-weight: 600;
 }
 
+:where(.MarkpromptSearchResult a) {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.MarkpromptContentDialog {
+  z-index:999;
+
+}
+
+
 /******************************************************************************
  *                                                                            *
  * THEME AND COLORS                                                           *
@@ -321,8 +332,6 @@ img[src*="bordered"] {
 
 img[src*="md-width"] {
     width: 75%;
-    margin-right: auto;
-    margin-left: auto;
     display: block;
     border: 2px solid black;
 }
@@ -335,9 +344,7 @@ img[src*="md-noborder"] {
 }
 
 img[src*="sm-width-noborder"] {
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 50%;
     display: block;
 }
 .placeholder {
@@ -458,14 +465,14 @@ article video {
 
 /* badge */
 
-#tag__badge-list {
+.top-tag-list {
   display: flex;
   flex-direction: row;
   padding-left: 0rem;
   padding-top: 0.8rem;
   margin-bottom: 0.4rem
 }
-.tag__badge-item {
+.top-tag-item {
   list-style: none !important;
   borderRadius: 8px;
   color: var(--ifm-color-primary);
@@ -477,9 +484,9 @@ article video {
   font-size: 0.8rem;
 }
 
-.tag__badge-item:not(:last-child):after {
-  content: "|";
+.top-tag-item:not(:last-child):after {
   margin-left: 1rem;
+  content: "|";
 }
 
 
