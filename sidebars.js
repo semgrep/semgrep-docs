@@ -483,7 +483,6 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart-oss',
-            'prerequisites-oss',
             'supported-languages-oss'
         ]
     },
@@ -495,17 +494,8 @@ module.exports = {
             'deployment/oss-deployment',
             'running-rules',
             'getting-started/cli-oss',
-            'ignore-oss'
         ]
     },
-    {
-      type: 'category',
-      label: 'References',
-      collapsible: false,
-      items: [
-        'cli-reference-oss'
-      ]
-    }
   ],
   aboutSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },

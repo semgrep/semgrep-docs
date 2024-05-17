@@ -384,6 +384,10 @@ module.exports = {
           { from: "/semgrep-cloud-platform/webhooks/" , to: "/semgrep-appsec-platform/webhooks" } ,
           /* MAY 7, 2024 */
           { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
+          /* MAY 18, 2024 */
+          { from: "/prerequisites-oss" , to: "/prerequisites" } ,
+          { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
+          { from: "/cli-reference-oss" , to: "/cli-reference" } ,
         ]
       }
     ],
