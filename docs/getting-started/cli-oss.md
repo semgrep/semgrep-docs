@@ -36,7 +36,7 @@ See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's 
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
+Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test

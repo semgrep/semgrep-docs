@@ -156,7 +156,9 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 ## How team access works
 
 - Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
+<!-- vale off -->
 - Members of a subteam do not have access to the projects of teams or subteams above it.
+<!-- vale on -->
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
@@ -249,7 +251,7 @@ You must be an admin or manager to view the **Teams** tab.
 ### Delete a team or subteam
 
 1. If you are deleting a team, delete its subteams first.
-    1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click on the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
+    1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
 1. Click the **<i class="fa-solid fa-trash"></i> trash can** icon.
 1. Click **Delete** to confirm.
 
