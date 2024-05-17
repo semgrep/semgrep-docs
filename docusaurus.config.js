@@ -388,6 +388,7 @@ module.exports = {
           { from: "/prerequisites-oss" , to: "/prerequisites" } ,
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
+          { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
         ]
       }
     ],

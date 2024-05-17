@@ -235,8 +235,16 @@ module.exports = {
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules'
-            ]
-        },
+                {
+                    type: 'category',
+                    label: 'Semgrep OSS',
+                    collapsible: false,
+                    items: [
+                        'deployment/oss-deployment',
+                        'running-rules',
+                        'getting-started/cli-oss',
+                        ]
+                },
         {
             type: 'category',
             collapsible: true,
@@ -482,18 +490,7 @@ module.exports = {
         label: 'Get started',
         collapsible: false,
         items: [
-            'getting-started/quickstart-oss',
             'supported-languages-oss'
-        ]
-    },
-    {
-        type: 'category',
-        label: 'Run scans',
-        collapsible: false,
-        items: [
-            'deployment/oss-deployment',
-            'running-rules',
-            'getting-started/cli-oss',
         ]
     },
   ],
