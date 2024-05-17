@@ -18,14 +18,14 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep Pro', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'getting-started/quickstart-oss', label: 'Scan with Semgrep OSS'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
-    { type: 'doc', id: 'semgrep-pro-vs-oss', label: 'Semgrep Pro versus Semgrep OSS', className: 'top-category-separator' },
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
+      className: 'top-category-separator'
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
@@ -523,6 +523,7 @@ module.exports = {
             'usage-and-billing',
             'deployment/claim-a-license',
             'contributing/philosophy',
+            'semgrep-pro-vs-oss',
             {
               type: 'doc',
               id: 'metrics',
