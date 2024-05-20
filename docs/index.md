@@ -54,5 +54,5 @@ Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contri
 | Product | Language support |
 | - | - |
 | Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code)! 🚀 |
-| Semgrep Secrets | Semgrep Secrets can scan repositories using any programming language. |
+| Semgrep Secrets | Semgrep Secrets detects API keys, hardcoded passwords, authentication tokens, and more in your repositories. |
 | Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and TypeScript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
