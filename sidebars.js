@@ -184,6 +184,7 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
+                'running-rules',
                 'semgrep-code/findings',
                 'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
@@ -199,7 +200,6 @@ module.exports = {
                     collapsible: true,
                     items: [
                         'deployment/oss-deployment',
-                        'running-rules',
                         'getting-started/cli-oss',
                         ]
                 },
