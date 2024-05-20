@@ -32,7 +32,7 @@ The code is kept here for easy maintenance.
       }} />
   </a>
 </p>
-<h3 align="center">Code scanning at ludicrous speed.<br />Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
+<h3 align="center">Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
 
 Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. Its rules look like the code you already write -- no abstract syntax trees, regex wrestling, or painful DSLs. 
 
