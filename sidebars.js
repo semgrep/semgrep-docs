@@ -153,7 +153,7 @@ module.exports = {
           type: 'category',
           label: 'Reports',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
+          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
           items: [
             'semgrep-appsec-platform/dashboard'
           ]
