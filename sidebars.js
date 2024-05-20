@@ -19,8 +19,7 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
-    { type: 'ref', id: 'getting-started/quickstart-oss', label: 'Scan with Semgrep OSS'},
-    { type: 'ref', id: 'writing-rules/overview', label: 'Write rules'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules'},
     {
       type: 'link',
       label: 'Knowledge base',
@@ -197,7 +196,7 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Semgrep OSS',
-                    collapsible: false,
+                    collapsible: true,
                     items: [
                         'deployment/oss-deployment',
                         'running-rules',
@@ -275,7 +274,6 @@ module.exports = {
       ]
     }
   ],
-
   rulewritingSidebar: [
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
@@ -417,17 +415,6 @@ module.exports = {
             ],
         },
 ],
-  ossSidebar: [
-    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    {
-        type: 'category',
-        label: 'Get started',
-        collapsible: false,
-        items: [
-            'supported-languages-oss'
-        ]
-    },
-  ],
   aboutSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
