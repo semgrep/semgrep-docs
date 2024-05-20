@@ -172,45 +172,6 @@ module.exports = {
             'extensions/semgrep-intellij'
           ]
         },
-            /*
-            {
-                type: 'category',
-                label: 'Semgrep CLI',
-                link: {
-                    type: 'generated-index',
-                    title: 'Semgrep command-line interface (CLI)',
-                    description:
-                      "Learn about the Semgrep open source command-line tool.",
-                    keywords: ['CLI']
-                  },
-                items: [
-                    'getting-started',
-                    'running-rules',
-                    'managing-findings',
-                    'reporting-false-negatives',
-                    'troubleshooting/semgrep'
-                ]
-            },
-            {
-                type: 'category',
-                label: 'Semgrep in CI',
-                link: {
-                    type: 'generated-index',
-                    title: 'Semgrep in continuous integration (CI)',
-                    description:
-                      "Learn how to use Semgrep in continuous integration (CI).",
-                    keywords: ['CI']
-                  },
-                items: [
-                    'semgrep-ci/overview',
-                    'semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform',
-                    'semgrep-ci/ci-environment-variables',
-                    'semgrep-ci/configuring-blocking-and-errors-in-ci',
-                    'semgrep-ci/sample-ci-configs',
-                    'troubleshooting/semgrep-ci'
-                ]
-            },
-        */
       ]
     },
     {
@@ -223,8 +184,6 @@ module.exports = {
             collapsible: true,
             label: 'SAST (Code)',
             items: [
-                //'running-rules',
-                //'semgrep-code/getting-started', (deprecated in favor of overview)
                 'semgrep-code/overview',
                 'semgrep-code/findings',
                 'semgrep-code/policies',
@@ -234,7 +193,7 @@ module.exports = {
                 'semgrep-code/remove-duplicates',
                 'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
-                'semgrep-code/pro-rules'
+                'semgrep-code/pro-rules',
                 {
                     type: 'category',
                     label: 'Semgrep OSS',
@@ -245,6 +204,8 @@ module.exports = {
                         'getting-started/cli-oss',
                         ]
                 },
+            ]
+        },
         {
             type: 'category',
             collapsible: true,
@@ -271,37 +232,9 @@ module.exports = {
                 'semgrep-secrets/rules',
                 'semgrep-secrets/validators'
             ]
-        },
-        /*
-        'semgrep-appsec-platform/getting-started',
-        'semgrep-appsec-platform/semgrep-api',
-        'troubleshooting/semgrep-app', */
-      ]
-    },
-    /* {
-      type: 'category',
-      label: 'Scan with Semgrep OSS',
-      collapsible: false,
-      items: [
-        {
-            type: 'category',
-            collapsible: true,
-            label: 'SAST',
-            items: [
-                'running-rules',
-                'semgrep-ci/running-semgrep-ci-without-semgrep-appsec-platform',
-                'playground'
-            ]
-        } /*
-        'semgrep-code/getting-started',
-        'semgrep-code/demo-project',
-                  items: [
-                'semgrep-code/pro-rules',
-                    'semgrep-code/semgrep-pro-engine-examples',
-                    'semgrep-code/semgrep-pro-engine-data-flow'
-                  ]
+          },
         ]
-    }, */
+      },
     {
       type: 'category',
       label: 'References',
@@ -339,9 +272,10 @@ module.exports = {
             ]
         },
         'cli-reference',
-        ]
+      ]
     }
   ],
+
   rulewritingSidebar: [
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
@@ -668,7 +602,7 @@ module.exports = {
   updatesSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
-    type: 'category',
+        type: 'category',
         label: 'Release notes',
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
@@ -758,5 +692,5 @@ module.exports = {
         ]
     },
     'release-notes/rule-updates'
-],
+  ],
 };
