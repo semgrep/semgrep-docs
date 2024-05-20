@@ -8,8 +8,6 @@ tags:
   - Semgrep Secrets
 ---
 
-
-
 # Scan for secrets
 
 Semgrep Secrets allows you to detect and triage leaked secrets and credentials
@@ -21,7 +19,6 @@ This document guides you through:
 
 1. Enabling Semgrep Secrets
 2. Viewing your results and triaging your findings
-3. Setting up PR comments and notifications
 
 ## Language and environment support
 
@@ -37,7 +34,7 @@ You have completed a [Semgrep core deployment](/deployment/core-deployment).
 2. Click **<i class="fa-solid fa-gear"></i> Settings**.
 3. On the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle to enable.
 
-Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning. There are no additional steps to take.
+Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning.
 
 ## Scan your repository
 
@@ -47,6 +44,15 @@ After you've enabled Semgrep Secrets, you can:
 * Start a scan from the CLI (Semgrep recommends that you run CLI scans only on feature branches, not main branches)
 * Wait for your scheduled Semgrep full scan
 * Open a pull request or merge request and wait for Semgrep to scan the branch automatically
+
+## Configure files to ignore
+
+Semgrep Secrets will scan files even if they are specified in a local `.semgrepignore`, since secrets can often be found in files that are not relevant for code scanning. To specify files to ignore in Semgrep Secrets as well:
+
+1. Sign in to Semgrep AppSec Platform.
+2. Go to **Projects** and select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
+3. Add entries to the **Path ignores** box to ignore them for Semgrep Secrets as well as other Semgrep products.
+4. Click **Save changes**.
 
 ## Upgrade your rules
 
