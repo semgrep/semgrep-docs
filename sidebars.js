@@ -155,8 +155,7 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
           items: [
-            'semgrep-appsec-platform/dashboard',
-            'semgrep-supply-chain/sbom'
+            'semgrep-appsec-platform/dashboard'
           ]
         },
         {
@@ -245,6 +244,7 @@ module.exports = {
                 'semgrep-supply-chain/overview',
                 'semgrep-supply-chain/getting-started',
                 'semgrep-supply-chain/triage-remediation',
+                'semgrep-supply-chain/sbom',
                 'semgrep-supply-chain/ignoring-deps',
                 'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/license-compliance'
