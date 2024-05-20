@@ -153,10 +153,9 @@ module.exports = {
           type: 'category',
           label: 'Reports',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
+          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
           items: [
-            'semgrep-appsec-platform/dashboard',
-            'semgrep-supply-chain/sbom'
+            'semgrep-appsec-platform/dashboard'
           ]
         },
         {
@@ -247,6 +246,7 @@ module.exports = {
                 'semgrep-supply-chain/triage-remediation',
                 'semgrep-supply-chain/ignoring-deps',
                 'semgrep-supply-chain/dependency-search',
+                'semgrep-supply-chain/sbom',
                 'semgrep-supply-chain/license-compliance'
             ]
         },

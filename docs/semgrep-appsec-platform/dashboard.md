@@ -97,6 +97,7 @@ Filters mentioned in previous sections [Filtering findings by time](#filtering-f
 
 ## See also
 
+* [Generate an SBOM](/semgrep-supply-chain/sbom)
 * [Semgrep Registry](https://semgrep.dev/explore)
 * [Findings](/semgrep-code/findings)
 
