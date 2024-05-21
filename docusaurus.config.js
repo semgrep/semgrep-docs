@@ -386,6 +386,7 @@ module.exports = {
           { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
           /* MAY 18, 2024 */
           { from: "/prerequisites-oss" , to: "/prerequisites" } ,
+          { from: "/supported-languages-oss" , to: "/supported-languages" } ,
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
           { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
