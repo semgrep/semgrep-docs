@@ -48,6 +48,7 @@ module.exports = {
               link: {type: 'generated-index'},
               items: [
                 'getting-started/cli',
+                'running-rules',
                 'update',
                 'deployment/local-to-scp-scans',
               ]
@@ -184,7 +185,6 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
-                'running-rules',
                 'semgrep-code/findings',
                 'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
