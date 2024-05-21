@@ -52,6 +52,8 @@ semgrep ci --json -o findings.json 2> semgrep.log
 
 outputs findings as JSON and saves the scan log to `semgrep.log`.
 
+> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
+
 In addition to findings formats, there are options to add details of the data flow (`--dataflow-traces`) or explanations of rule matching (`--matching-explanations`). These are less frequently used in overall scan troubleshooting, but can be helpful for understanding findings.
 
 ## Logging verbosity options

@@ -194,6 +194,8 @@ For example, to save to a JSON file:
 
 `semgrep scan --json > findings.json`
 
+> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
+
 You can also use the SARIF format:
 
 `semgrep scan --sarif > findings.sarif`
