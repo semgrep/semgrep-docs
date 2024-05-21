@@ -47,16 +47,16 @@ After you've enabled Semgrep Secrets, you can:
 
 ## Configure files to ignore
 
-Semgrep Secrets will scan files even if they are specified in a local `.semgrepignore`, since secrets can often be found in files that are not relevant for code scanning. To specify files to ignore in Semgrep Secrets as well:
+Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that are not relevant for code scanning. To specify files that Semgrep Secrets should ignore:
 
 1. Sign in to Semgrep AppSec Platform.
 2. Go to **Projects** and find your project. Select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
-3. Add entries to the **Path ignores** box to ignore them for Semgrep Secrets as well as other Semgrep products.
+3. Add the file paths to the **Path ignores** box. Semgrep ignores all file paths listed, including for Semgrep Secrets.
 4. Click **Save changes**.
 
 ## Upgrade your rules
 
-If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that utilizes Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
+If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that uses Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
 
 You can see individual findings for which there is a Semgrep Secrets rule upgrade in Semgrep AppSec Platform's **Findings** page. The findings are tagged with a label that says `Secrets version available! Click to see rule(s)`.
 
