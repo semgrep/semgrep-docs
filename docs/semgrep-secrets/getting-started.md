@@ -50,7 +50,7 @@ After you've enabled Semgrep Secrets, you can:
 Semgrep Secrets will scan files even if they are specified in a local `.semgrepignore`, since secrets can often be found in files that are not relevant for code scanning. To specify files to ignore in Semgrep Secrets as well:
 
 1. Sign in to Semgrep AppSec Platform.
-2. Go to **Projects** and select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
+2. Go to **Projects** and find your project. Select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
 3. Add entries to the **Path ignores** box to ignore them for Semgrep Secrets as well as other Semgrep products.
 4. Click **Save changes**.
 
