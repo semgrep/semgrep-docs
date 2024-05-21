@@ -31,12 +31,12 @@ All Semgrep customers can contact Semgrep Support through the following methods.
 #### Slack
 
 Customers with a private Slack channel with Semgrep can open a support case
-directly from Slack. 
+directly from Slack.
 
 #### Web
 
 Customers who log in to Semgrep AppSec Platform can open a support case
-from the [Help section](https://semgrep.dev/orgs/-/support). 
+from the [Help section](https://semgrep.dev/orgs/-/support).
 
 #### Email
 
@@ -47,9 +47,7 @@ your issue, you can email the Support team at
 ## Support for all Semgrep users (community support)
 
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
-Semgrep maintainers and support engineers. All users, including OSS Engine users
-and Pro Engine users without a paid subscription plan, are welcome to ask for help in
-the community Slack group.
+Semgrep maintainers and support engineers. All users, including Semgrep OSS users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
 
 Users interested in seeing a demo or proof of concept can also send inquiries
 through [email](mailto:support@semgrep.com).
@@ -58,7 +56,7 @@ through [email](mailto:support@semgrep.com).
 
 Users of Semgrep OSS can log bugs and feature requests in the
 [semgrep](https://github.com/semgrep/semgrep/issues) repository. They can also
-ask questions regarding usage, rollouts, and deployments in the [community Slack
+ask questions regarding usage, roll outs, and deployments in the [community Slack
 group](https://go.semgrep.dev/slack)
 
 ## Status page

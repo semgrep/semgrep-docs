@@ -11,7 +11,7 @@ If a Semgrep scan is failing or running slowly, try the following steps to inves
 
 1. [Update Semgrep](/docs/update) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
 2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
-3. If you are running Semgrep Pro Engine in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to Semgrep Pro Engine, and often speeds up a scan or reduces memory usage.
+3. If you are running cross-file (interfile) analysis in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to cross-file analysis, and often speeds up a scan or reduces memory usage.
 
 :::info
 Semgrep verbose or debug logs can be quite lengthy. To prevent flooding your terminal and preserve the logs for analysis, you can redirect all output to a file with `semgrep [OPTIONS] [TARGETS]... &> semgrep.log`. See also [How to collect logs when running Semgrep in CLI](/docs/kb/semgrep-code/collect-cli-logs).
@@ -23,7 +23,7 @@ Memory usage is a common issue with scans, especially in memory-constrained envi
 
 * Try increasing the memory available if you are working in a container or managed instance where you can manage the amount of memory.
 * Use the `--max-memory LIMIT` option for your Semgrep run. This option stops a rule/file scan if it reaches the set limit, and moves to the next rule / file.
-  - If you are running an interfile scan with the Pro Engine, this option also falls back to the OSS engine if the interfile pre-processing stage requires more than this amount of memory.
+  - If you are running an interfile scan, this option also falls back to the OSS engine if the interfile pre-processing stage requires more than this amount of memory.
 * Run Semgrep in single-threaded mode with `--jobs 1`. This reduces the amount of memory used compared to running multiple jobs.
 * Try increasing your stack limit, if a limit is set for the context where you invoke Semgrep (`ulimit -s [limit]`).
 
@@ -44,7 +44,7 @@ Semgrep has several timeout settings that affect scan duration and can be adjust
 
  * `--timeout`: Similar to `--max-memory`, `--timeout` affects the behavior of the scan when running a single rule on a single file. It defaults to 5 seconds. Typical values range from 3 seconds (favors faster scans, but more timeouts) to 30 seconds (slower scans, fewer timeouts).
  * `--timeout-threshold`: The number of attempts made to run a single rule on a single file, if it times out due to the `--timeout` limit. It defaults to 3. Decreasing the value may speed up scans but cause more timeouts.
- * `--interfile-timeout`: If you are running an interfile scan with the Pro Engine, this is the maximum amount of time in seconds to spend on interfile analysis before falling back to the OSS Engine. Defaults to 3 hours (10800 seconds) for scans using `semgrep ci`. Otherwise, the default is no maximum time (continue with Pro Engine until the scan completes).
+ * `--interfile-timeout`: If you are running an interfile scan, this is the maximum amount of time in seconds to spend on interfile analysis before falling back to the OSS Engine. Defaults to 3 hours (10800 seconds) for scans using `semgrep ci`. Otherwise, the default is no maximum time (continue with cross-file analysis until the scan completes).
 
 ## 401 error when scanning with Semgrep Registry rules
 
@@ -76,7 +76,7 @@ Once you have isolated the issue:
 
 1. Identify the rule, file, and lines (if available) where Semgrep encountered the error.
 2. Determine whether you can share a minimal example of the code or rule that is causing the issue.
-  * If the issue occurs with Semgrep Pro Engine, or the code is internal or sensitive and cannot be sufficiently redacted, [reach out for help](/docs/support), and include what you've determined so far.
+  * If the issue occurs with cross-file analysis, or the code is internal or sensitive and cannot be sufficiently redacted, [reach out for help](/support), and include what you've determined so far.
   * Otherwise, share the issue details and related code with Semgrep via https://github.com/semgrep/semgrep/issues.
 
 If you are encountering memory usage issues, please include in your report:
