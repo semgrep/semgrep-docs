@@ -9,12 +9,9 @@ title: Triage and remediation
 hide_title: true
 ---
 
-
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-
-
-# Triaging and remediating dependency findings
+# Triage and remediate dependency findings
 
 Perform triage and remediation on your open source dependencies through the **Supply Chain** page. This page displays relevant scan data through three tabs:
 
@@ -35,178 +32,98 @@ Perform triage and remediation on your open source dependencies through the **Su
   <dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
 </dl>
 
-![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulnerabilities.png)
+![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
 _Figure 1_. Semgrep Supply Chain Vulnerabilities page.
 
-## Assessing and triaging dependency findings and usages
+## Assess and triage dependency findings and usages
 
 :::info Prerequisite
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
-To view the latest findings of Semgrep Supply Chain, click **Supply Chain**.
+To view the latest Semgrep Supply Chain findings, click **Supply Chain**. You can view findings individually or grouped by the rule that identified the finding. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
-Findings are displayed under their respective repositories. Findings are grouped by **vulnerability**. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards from newest to oldest then by severity from critical to low.
-
-<div class="bordered">
-
-![A single vulnerability entry in Semgrep Supply Chain](/img/sc-ignore-reasons.png)
-
-</div>
-
+![A single vulnerability entry in Semgrep Supply Chain](/img/sc-vuln-entry.png)
 _Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
 
-Within the **Vulnerabilities** tab, you can determine reachable, true positives and the necessary effort to fix or resolve findings. After assessment, Semgrep Supply Chain assists users to decide between two triage actions:
-
-* **Ignore the vulnerabilities. **Vulnerabilities that are **ignored** are false positives, acceptable risks, or deprioritized findings due to some factor, such as time.
-* **Remediate or resolve the vulnerability.** These vulnerabilities are true positives that are prioritized due to factors such as reachability and severity.
-
+You can also view the findings individually by clicking on the drop-down box on the header and clicking **No grouping**.
 
 ### Assessment actions
 
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
 <table>
-  <thead><tr>
-   <th>Assessment action</th>
-   <th>Method</th>
-  </tr></thead>
+  <thead>
+    <tr>
+      <th>Assessment action</th>
+      <th>Method</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-    <td>View specific pattern matches in your codebase.</td>
-    <td>Click links provided under <strong>Reachable via N usages</strong> within the vulnerability's entry.</td>
+      <td>View specific pattern matches in your codebase.</td>
+      <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.</td>
     </tr>
     <tr>
-    <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.</td>
-    <td>Click the vulnerability's <strong>CVE badge</strong>.</td>
+      <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.</td>
+      <td>Click the vulnerability's <strong>CVE badge</strong>.</td>
     </tr>
     <tr>
-    <td>View safe versions to upgrade your dependencies.</td>
-    <td>Visible on the vulnerability entry.</td>
+      <td>View safe versions to upgrade your dependencies.</td>
+      <td>Visible on the vulnerability entry.</td>
     </tr>
     <tr>
-    <td>Filter vulnerabilities.</td>
-    <td>Click any of the filters available. Refer to the following table for filtering information.</td>
+      <td>Filter vulnerabilities.</td>
+      <td>Click any of the filters available. Refer to the following table for filtering information.</td>
     </tr>
   </tbody>
 </table>
 
 ### Filters
 
-The following **filters** are provided:
+Use filters to narrow down your results. The following criteria are available for filtering:
 
-<table>
-  <thead><tr>
-   <th>Filter</th>
-   <th>Description</th>
-  </tr></thead>
-  <tbody>
-    <tr>
-      <td>Exposure</td>
-      <td>Filters are based on the <a href="/docs/semgrep-supply-chain/glossary">reachability</a> of a vulnerability. The <strong>Reachable</strong> filter is selected by default.</td>
-    </tr>
-    <tr>
-      <td>Severity</td>
-      <td>Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database. <strong>All severities</strong> are selected by default.</td>
-    </tr>
-    <tr>
-      <td>Status</td>
-      <td>Filters are based on the status of a vulnerability. The <strong>New</strong> filter is selected by default.</td>
-    </tr>
-    <tr>
-      <td>Transitivity</td>
-      <td>Filters are based on the transitivity of a vulnerability. <strong>All transitivities</strong> are selected by default.</td>
-    </tr>
-  </tbody>
-</table>
+| Filter                 | Description  |
+| ---------------------  | ------------ |
+| **Projects**           | Filter by repositories connected to your Semgrep account. |
+| **Branch**             | Filter by findings in different Git branches. |
+| **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with [Teams](/deployment/teams#teams-beta) enabled. |
+| **Tags**               | Filter for findings based on the tags associated with the project. |
+| **Status**             | Filter the triage state of a finding: <ul><li>**New**: Vulnerabilities that have not undertaken triage or remediation action.</li><li>**Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as Fixed.</li><li>**Ignored**: Vulnerabilities that have been triaged as ignored by the user. </li></ul>|
+| **Severity**           | Filter by the severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.  |
+| **Transitivity**       | Filter by the transitivity of the finding. <ul><li>**Direct**: Your project depends directly on the dependency.</li><li>**Transitive**: Your project's dependency depends on a vulnerable dependency.</li><li>**Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.</li></ul> |
+| **Reachability**       | Filter by exposure, or whether the finding is reachable or not. <ul><li>**Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition</li><li>**Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.</li><li>**Conditionally reachable**: A finding is conditionally reachable if Semgrep finds a way to reach it when scanning your code when certain conditions are met.</li><li>**Unreachable**: A finding is unreachable if you don't use the vulnerable piece of code of the imported library or package.</li><li>**Undetermined**: A finding is undetermined if Semgrep Supply Chain determines that you use a vulnerable version of a dependency, but it doesn't have a relevant reachability rule.</li></ul>|
+| **Dependency**         | Filter for findings based on the name of the dependency involved. |
+| **CVE**                | Filter based on the CVE assigned to the finding type. |
 
-#### Exposure filters
-
-The following **exposure filters** are provided:
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Exposure filter</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Reachable</td>
-      <td>Semgrep detected that there is a usage of the vulnerability from the dependency in your codebase. Some vulnerabilities are considered always reachable because they can be exploited regardless of their usage in your codebase. Others may require manual review and provide criteria to evaluate, such as whether the server running the vulnerable code is internet-accessible.</td>
-    </tr>
-    <tr>
-      <td>Unreachable</td>
-      <td>Semgrep determined that there is no usage of the vulnerability from the dependency in your codebase.</td>
-    </tr>
-    <tr>
-      <td>Undetermined</td>
-      <td>Semgrep does not scan for the reachability of this vulnerability.</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Status filters
-
-The following **status filters** are provided:
-
-<table>
-  <thead>
-    <tr>
-      <th>Status filter</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>New</td>
-      <td>Vulnerabilities that have not undertaken triage or remediation action.</td>
-    </tr>
-    <tr>
-    <td>Fixed</td>
-    <td>Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as <strong>Fixed</strong>.</td>
-    </tr>
-    <tr>
-      <td>Ignored</td>
-      <td>
-        Vulnerabilities that have been triaged as ignored by the user. Semgrep Supply Chain provides the following options for developers to select:
-        <ul>
-          <li>False positive</li>
-          <li>Acceptable risk</li>
-          <li>No time to fix</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-## Remediating true positives
+## Remediate true positives
 
 Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
 
 * Update the dependency to a safe version that does not contain the vulnerability.
 * Remove the dependency and refactor all usages in the codebase.
 
+<!-- Feature has been disabled for the time being. See https://github.com/semgrep/semgrep-app/pull/10186
+
 ### Updating the dependency
 
 Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
+-->
 
-### Removing the dependency and refactoring code
+### Remove the dependency and refactoring code
 
 Another method to remediate vulnerabilities is to remove the dependency entirely and refactor code. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
 
-## Ignoring vulnerabilities
+### Ignore findings
 
-To ignore a vulnerability:
+The **Vulnerabilities** tab allows you to identify the reachable, true positives so that you can fix or resolve the related issues. However, you can choose to ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
 
-1. **Optional:** Filter vulnerabilities to apply criteria for a group of findings to ignore.
-2. Click on the vulnerability's **Ignore **button. A drop-down menu appears.
-3. Click the reason for ignoring.
+1. Select one or more findings.
+2. Click **Triage**.
+3. Select **Ignore** and click **Continue**.
+4. Select an **Ignore reason**, provide a optional comment, and click **Ignore**.
 
-## Viewing Semgrep Supply Chain's total CVE coverage
+## View Semgrep Supply Chain's total CVE coverage
 
 The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
 
