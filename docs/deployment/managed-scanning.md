@@ -10,7 +10,7 @@ tags:
 
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
 
-# Add repositories to Semgrep in bulk
+# Managed scanning
 
 **Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your existing CI workflows. Similar to Semgrep CI workflows, managed scanning also integrates into developer workflows through PR comments.
 
