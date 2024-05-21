@@ -1,6 +1,6 @@
 ---
 slug: managed-scanning
-title: Add repositories to Semgrep in bulk (beta)
+title: Managed scanning (beta)
 hide_title: true
 description: Semgrep managed scanning provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
 tags:
