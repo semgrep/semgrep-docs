@@ -1,11 +1,11 @@
 ---
-slug: core-deployment 
+slug: core-deployment
 append_help_link: true
-title: Core deployment 
+title: Core deployment
 description: Learn how to set up a comprehensive Semgrep deployment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep Cloud Platform
+  - Semgrep AppSec Platform
 ---
 
 Semgrep can be set up to scan repositories of any size.
@@ -18,14 +18,14 @@ Deployment includes:
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
-Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere. 
+Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere.
 
 :::tip Are these guides for you?
 - These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
 - Individual users can also use these guides to deploy Semgrep as part of their personal security.
 :::
 
-Many deployment features are set up through **Semgrep Cloud Platform**.
+Many deployment features are set up through **Semgrep AppSec Platform**.
 
 Deployment does **not** include:
 
@@ -73,11 +73,15 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>Organizations</td>
-            <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep Cloud Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
+            <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep AppSec Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
         </tr>
         <tr>
-            <td>Scanning in CI</td>
-            <td>Semgrep fully supports many popular CI providers.</td>
+            <td>Scanning remote repositories through CI</td>
+            <td>Semgrep fully supports many popular CI providers. See <a href="/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
+        </tr>
+        <tr>
+            <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
@@ -109,10 +113,13 @@ Useful features that you can add based on your tech stack. You can integrate the
         </tr>
         <tr>
             <td>IDE integration</td>
-            <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
-            <ul><li>Microsoft Visual Studuio Code</li>
-            <li>IntelliJ Ultimate IDEA</li>
-            <li>Emacs</li></ul>
+            <td>
+                Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
+                <ul>
+                    <li>Microsoft Visual Studio Code</li>
+                    <li>IntelliJ Ultimate IDEA</li>
+                    <li>Emacs</li>
+                </ul>
             </td>
         </tr>
         <tr>
@@ -133,7 +140,7 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 1. **Setting up membership**:
     - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
     - You can also use SSO to manage user authentication.
-1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep Cloud Platform.
+1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep AppSec Platform.
 1. **Enabling Semgrep to post PR or MR comments**.
 
 ![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
@@ -156,4 +163,3 @@ This **initial phase** prepares you to deploy Semgrep to the rest of the organiz
 ## Next steps
 
 Click **Next** to begin setting up your core deployment.
-

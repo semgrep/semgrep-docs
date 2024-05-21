@@ -124,7 +124,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 - Added [legal information](/semgrep-assistant/overview#privacy-and-legal-considerations) about Semgrep Assistant. <!-- 1308 -->
 - Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
 - Knowledge base articles:
-    - Troubleshoot why [SAML stops working](/kb/semgrep-cloud-platform/saml-stops-working) <!-- 1330 -->
+    - Troubleshoot why [SAML stops working](/kb/semgrep-appsec-platform/saml-stops-working) <!-- 1330 -->
     - [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/kb/semgrep-code/scan-engine-kill) <!-- 1310 -->
 - Added guidance on running Semgrep Supply Chain scans [in the CLI](/semgrep-supply-chain/getting-started/#run-a-scan-using-the-cli ). <!-- 1334 -->
 

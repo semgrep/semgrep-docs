@@ -9,6 +9,8 @@ tags:
   - Semgrep Supply Chain
 ---
 
+
+
 # License compliance
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
@@ -17,7 +19,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 *Figure 1*. Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed.
 
 :::info Prerequisites
-- License scanning can be performed only through Semgrep Cloud Platform (SCP).
+- License scanning can be performed only through Semgrep AppSec Platform.
 - To detect licenses, you must:
     - [Complete a Semgrep core deployment](/deployment/core-deployment) for repositories you want to scan.
     - [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
@@ -32,7 +34,7 @@ Semgrep Supply Chain's **license compliance** feature enables you to explicitly 
 
 To view a package's license:
 
-1. [Sign in to Semgrep Cloud Platform](https://semgrep.dev/login).
+1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**. Detected licenses are listed in the row for a given package.
 
 ## Blocking, commenting, or allowing licenses
@@ -118,7 +120,7 @@ The **Other** license category may include copyleft or permissive licenses. Cons
 
 Some packages allow multiple licenses. Semgrep treats packages with multiple licenses as if all licenses apply, and behaves according to the strictest policy. For example, if a package allows use under either an MIT license or a GPL-3.0 license, and the GPL-3.0 license is set to Block, but the MIT license is set to Allow, a PR that adds the package is blocked.
 
-Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
+Add an [exemption for the package](#exempt-dependencies) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
 
 ## Exempt dependencies
 
@@ -127,7 +129,7 @@ useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
-1. Log in to Semgrep Cloud Platform and navigate to **Supply Chain** >
+1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain** >
    **Dependencies**.
 2. Search for the dependencies you want to exempt.
 3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
@@ -154,7 +156,7 @@ exception. This ensures that the exclusion won't fail when you upgrade to
 
 To set a custom dependency exception:
 
-1. Log in to Semgrep Cloud Platform and navigate to **Supply Chain** > <i
+1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain** > <i
    class="fa-solid fa-gear"></i> **Settings**.
 2. In **Custom Dependency Exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
@@ -165,6 +167,4 @@ To set a custom dependency exception:
       optional.
    4. Click **Add** to save and add the exception.
 
-![Semgrep Cloud Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)
-
-<MoreHelp />
+![Semgrep AppSec Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)

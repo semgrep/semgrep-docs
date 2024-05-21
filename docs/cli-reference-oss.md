@@ -10,17 +10,11 @@ hide_title: true
 title: CLI reference
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # CLI reference
 
@@ -61,15 +55,15 @@ In addition to `.semgrepignore` there are several methods to set up ignore patte
 Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
 
 <pre>
-export HTTP_PROXY="<span className="placeholder">HTTP_PROXY_URL</span>"<br />
-export HTTPS_PROXY="<span className="placeholder">HTTPS_PROXY_URL</span>"
+ export HTTP_PROXY="<span className="placeholder">HTTP_PROXY_URL</span>"<br />
+ export HTTPS_PROXY="<span className="placeholder">HTTPS_PROXY_URL</span>"
 </pre>
 
 For example:
 
 <pre>
-export HTTP_PROXY="http://10.10.1.10:3128" <br />
-export HTTPS_PROXY="http://10.10.1.10:1080"
+ export HTTP_PROXY="http://10.10.1.10:3128" <br />
+ export HTTPS_PROXY="http://10.10.1.10:1080"
 </pre>
 
 ## Exit codes
@@ -108,5 +102,3 @@ The output is a single exit code, such as:
 - 11: Semgrep encountered a lexical error when running rule on a file.
 - 12: Semgrep found too many matches.
 -->
-
-<MoreHelp />

@@ -9,21 +9,15 @@ tags:
   - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Set up Semgrep Supply Chain for your infrastructure
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 - Optionally, you have [set up SSO](/deployment/sso).
 - You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
@@ -37,7 +31,7 @@ The documents in this category describe how to set up Semgrep Supply Chain for s
 
 | CI provider                 | Issue   | Solution |
 | ----------                  | ------- | ------    |
-| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep Cloud Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins-ui)          |
+| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep AppSec Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins-ui)          |
 
 | Package manager | Issue | Solution |
 | ----------     | ------- | ------    |

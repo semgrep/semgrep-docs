@@ -6,22 +6,22 @@ semgrep:
   script: semgrep ci --supply-chain
 
   rules:
-  # Scan changed files in MRs, (diff-aware scanning):
-  - if: $CI_MERGE_REQUEST_IID
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
 
-  # Scan mainline (default) branches and report all findings.
-  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
   variables:
-    # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
-    # Generate a token from Semgrep Cloud Platform > Settings
+    # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep AppSec Platform > Settings
     # and add it as a variable in your GitLab CI/CD project settings.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
 
   # Other optional settings in the `variables` block:
 
-  # Receive inline MR comments (requires Semgrep Cloud Platform account)
-  # Setup instructions: 
-  # https://semgrep.dev/docs/semgrep-cloud-platform/gitlab-mr-comments
+  # Receive inline MR comments (requires Semgrep AppSec Platform account)
+  # Setup instructions:
+  # https://semgrep.dev/docs/semgrep-appsec-platform/gitlab-mr-comments
   #   GITLAB_TOKEN: $PAT
 ```

@@ -2,12 +2,12 @@
 description: To prevent duplicated findings, perform full scans only on the main branch of your repository.
 tags:
   - Semgrep CI
-  - Semgrep Cloud Platform
+  - Semgrep AppSec Platform
 ---
 
 # Why are duplicate findings appearing after running Semgrep in CI?
 
-When scanning with Semgrep in CI, there are two types of scans you can perform: full scans and [**diff-aware scans**](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning).
+When scanning with Semgrep in CI, there are two types of scans you can perform: full scans and [**diff-aware scans**](/deployment/customize-ci-jobs#set-up-diff-aware-scans).
 
 For full scans, the same rule and code produces a finding for every branch it is found on. If you are performing full scans on all branches, [the same finding appears for each branch](/semgrep-code/remove-duplicates).
 
@@ -15,6 +15,5 @@ To prevent duplication, Semgrep recommends performing full scans only on the mai
 
 For more on setting up diff-aware scanning, see:
 
-* [Running Semgrep in CI with Semgrep Cloud Platform: Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning)
-* [Running Semgrep in CI without Semgrep Cloud Platform: Diff-aware scanning](/docs/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/#diff-aware-scanning)
+* [Customize CI jobs > Set up diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)
 * [CI environment variables: SEMGREP_BASELINE_REF](/docs/semgrep-ci/ci-environment-variables/#semgrep_baseline_ref)

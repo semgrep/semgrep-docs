@@ -6,7 +6,7 @@ hide_title: true
 title: Perform cross-file analysis
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,14 +17,14 @@ import TabItem from '@theme/TabItem';
 
 
 :::note Language support
-Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Code.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#semgrep-code-language-support) to see languages supported by Semgrep Code.
 :::
 
 ## Run cross-file analysis
 
-This section guides you through installing the proprietary cross-file (interfile) analysis binary and helps you to scan your projects both in CLI and with Semgrep Cloud Platform (SCP).
+This section guides you through installing the proprietary cross-file (interfile) analysis binary and helps you to scan your projects both in CLI and with Semgrep AppSec Platform.
 
-### Run cross-file analysis with Semgrep Cloud Platform
+### Run cross-file analysis with Semgrep AppSec Platform
 
 :::info Prerequisite
 You have completed a [Semgrep core deployment](/deployment/core-deployment).
@@ -32,7 +32,7 @@ You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 This is the preferred method to run cross-file analysis. It enables you to view and triage your findings from a centralized location. Your source code is not uploaded.
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> [Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle.
 ![Cross-file analysis toggle](/img/cross-file-analysis-toggle.png#md-width)
@@ -46,13 +46,13 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 - Local installation of Semgrep CLI. See [<i class="fa-regular fa-file-lines"></i> Getting started with Semgrep](/getting-started/quickstart) to install Semgrep CLI.
 :::
 
-1. Sign up or sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign up or sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
 1. Click **<i class="fa-solid fa-gear"></i> [Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle.
 ![Cross-file analysis toggle](/img/cross-file-analysis-toggle.png#md-width)
 1. Ensure that you are in the **root directory** of the repository you want to scan.
-1. In your CLI, log in to your Semgrep Cloud Platform account and run a scan:
+1. In your CLI, log in to your Semgrep AppSec Platform account and run a scan:
 ```sh
 semgrep login && semgrep ci
 ```
@@ -115,7 +115,7 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
     </Tabs>
 
-1. Log in to Semgrep Cloud Platform:
+1. Log in to Semgrep AppSec Platform:
     ```sh
     semgrep login
     ```
@@ -177,10 +177,13 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
     <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
-    <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
-    <li>Semgrep Code scans run cross-function analysis by default.</li>
-    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
-    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
+    <dd>
+        <ul>
+            <li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
+            <li>Semgrep Code scans run cross-function analysis by default.</li>
+            <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
+            <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
+        </ul>
     </dd>
 </dl>
 
@@ -190,7 +193,7 @@ To provide reliably completed scans, Semgrep Code can **fall back** to the use o
 
 By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-function analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-function analysis. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --oss-only`. This overrides the Semgrep Cloud Platform setting for these repositories, and always runs these scans with single-function analysis.
+If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --oss-only`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-function analysis.
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
@@ -204,5 +207,3 @@ Cross-file analysis is different from [join mode](/writing-rules/experiments/joi
 ### Feedback for Semgrep Code's advanced analyses
 
 The team at Semgrep is excited to hear what’s on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-
-<MoreHelp />

@@ -40,9 +40,9 @@ To understand in greater detail how Semgrep detects tainted data flows, you can 
 
 ### Dry runs
 
-To avoid sending test data to Semgrep Cloud Platform and potentially confounding existing findings, use `semgrep scan` or `semgrep ci --dry-run`. 
+To avoid sending test data to Semgrep AppSec Platform and potentially confounding existing findings, use `semgrep scan` or `semgrep ci --dry-run`. 
 
-When testing locally, adding `--dataflow-traces` allows you to see the taint traces as you would in the Semgrep Cloud Platform UI.
+When testing locally, adding `--dataflow-traces` allows you to see the taint traces as you would in the Semgrep AppSec Platform UI.
 
 #### Sample taint data-flow reporting
 

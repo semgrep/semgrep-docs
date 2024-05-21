@@ -10,7 +10,7 @@ description: >-
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-import MoreHelp from "/src/components/MoreHelp"
+
 import ThemedImage from '@theme/ThemedImage'
 
 <!---
@@ -44,7 +44,7 @@ Its rules look like the code you already write; no abstract syntax trees, regex 
 The Semgrep ecosystem includes the following products:
 
 - [Semgrep OSS Engine](/getting-started/quickstart) - The open-source engine at the heart of everything.
-- [Semgrep Cloud Platform (SCP)](https://semgrep.dev/login) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
+- [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor SAST, SCA, and leaked secrets at scale using Semgrep Integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
 - [Semgrep Code](https://semgrep.dev/products/semgrep-code) - Scan your code with Semgrep's Pro rules and Semgrep Pro Engine to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
     - [Semgrep Pro rules](/semgrep-code/pro-rules) - High-confidence rules written by Semgrep Security Research team for a variety of languages
     - [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) - Advanced engine that performs interfile and interprocedural analysis
@@ -53,7 +53,7 @@ The Semgrep ecosystem includes the following products:
 
 :::tip
 The following products are **free** for up to 10 contributors:
-* Semgrep Cloud Platform
+* Semgrep AppSec Platform
 * Semgrep Code
 * Semgrep Supply Chain
 :::
@@ -73,7 +73,7 @@ Semgrep is developed and commercially supported by [Semgrep, Inc](https://semgre
 
 ### Semgrep Code
 
-Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/docs/supported-languages#semgrep-code) to see all the languages supported.
+Semgrep Code supports over 30 languages and counting! 🚀 Visit [Semgrep Code's supported languages](/supported-languages#semgrep-code-language-support) to see all the languages supported.
 
 ### Semgrep Supply Chain
 
@@ -86,12 +86,12 @@ The following table lists environments in which you can run various Semgrep prod
 
 | Product              | Local CLI | Remote CI |
 | -------------------- | --------- | --------- |
-| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep Cloud Platform](semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform) or run [stand-alone CI jobs](semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform) |
-| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep Cloud Platform](getting-started/quickstart) |
-| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](/semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep Cloud Platform](/getting-started/quickstart) |
+| Semgrep OSS Engine  |  ✅  [Run locally with Semgrep Engine](/getting-started/quickstart)  |   ✅  Can send findings to [Semgrep AppSec Platform](/deployment/core-deployment) or run [stand-alone CI jobs](/deployment/oss-deployment) |
+| Semgrep Code         |  ✅  Log in to access [Pro Engine](semgrep-code/semgrep-pro-engine-intro) and [Pro rules](semgrep-code/pro-rules) (Team and Enterprise tier) |   ✅  Best used with [Semgrep AppSec Platform](getting-started/quickstart) |
+| Semgrep Supply Chain |  ✅  Log in to access [Supply Chain](/semgrep-supply-chain/overview) rules (Team and Enterprise tier)  |   ✅  Best used with [Semgrep AppSec Platform](/getting-started/quickstart) |
 
 :::info
-Semgrep Cloud Platform is a hosted web application (SaaS) and as such is excluded from the table.
+Semgrep AppSec Platform is a hosted web application (SaaS) and as such is excluded from the table.
 :::
 
 ## History

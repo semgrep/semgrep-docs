@@ -5,7 +5,7 @@ description: >-
   Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import Login from "/src/components/procedure/_login-activate.mdx"
 
 # Extensions
@@ -26,8 +26,8 @@ Several third-party tools include Semgrep extensions.
 
 All of our official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate
 with Semgrep. This allows us to focus on one codebase that can be shared across most modern editor platforms. To implement a custom extension,
-one can wrap `semgrep lsp` to start the Semgrep Language Server, which will communicate over `stdio`. Alternatively, this protocol is a 
-great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to hugely increase performance. 
+one can wrap `semgrep lsp` to start the Semgrep Language Server, which will communicate over `stdio`. Alternatively, this protocol is a
+great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to hugely increase performance.
 Please let us know on our community Slack linked below if you do, we'd be more than happy to help in anyway.
 
 ### Pre-commit
@@ -76,7 +76,5 @@ Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 - [libsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
-- [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce) 
+- [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce)
 - [SecObserve](https://github.com/MaibornWolff/SecObserve)
-
-<MoreHelp />

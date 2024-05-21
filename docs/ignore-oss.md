@@ -8,7 +8,7 @@ hide_title: true
 
 <!-- Updates to this doc may or affect Ignoring files, folders, and code -->
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignore files, folders, and code
@@ -83,6 +83,10 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 * An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
 * Any line that begins with a colon, but not `:include`, raises an error.
 * `\:` is added to escape leading colons.
+
+:::tip
+To ignore an entire directory, make sure the `.semgrepignore` entry ends with a `/`, designating it as a directory and not a file.
+:::
 
 Unsupported patterns are silently removed from the pattern list (this is done so that `.gitignore` files may be included without raising errors). The removal is logged.
 

@@ -14,7 +14,7 @@ toc_max_heading_level: 3
 ### Additions
 
 - Azure Pipelines CI configuration is now available when adding a new repository to Semgrep App for scanning. Users can select **Azure Pipelines** from within the App, and Semgrep generates a code snippet that users can copy and commit to their configuration file to set up their CI job.
-- Users can now delete projects in bulk (also known as batch delete) from Semgrep App's interface. To do this, sign into **Semgrep App** > **Projects**, and click on **Edit Projects**.
+- Users can now delete projects in bulk (also known as batch delete) from Semgrep App's interface. To do this, sign in to **Semgrep App** > **Projects**, and click **Edit Projects**.
 - Users can now see usage limits in **Semgrep App** > **Settings**.
 
 ## Semgrep CLI
@@ -36,7 +36,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
   ```
   As this caused confusion when running the CLI, this message is now displayed for development and debugging purposes only. Note that metrics are still successfully uploaded, but the success status is not sent in time for the current timeout set.
 
-- `semgrep ci` now defaults to fail open on internal errors and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/ci-environment-variables/#configuring-blocking-findings-and-errors) for more information.
+- `semgrep ci` now defaults to fail open on internal errors and always exits with exit code 0, which is equivalent to passing `--suppress-errors`. To disable this behavior, you can pass `--no-suppress-errors`, surfacing all exit codes to the CI provider. See [Configuring blocking findings and errors](/semgrep-ci/configuring-blocking-and-errors-in-ci) for more information.
 
 #### Additional information
 
@@ -45,15 +45,15 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 ## Documentation updates
 
 - Consistent and exhaustive documentation about continuous integration (CI) both with and without Semgrep App:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform)
-- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Propagators](/writing-rules/data-flow/taint-mode/#propagators) section.
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/deployment/core-deployment)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/deployment/oss-deployment)
+- Experimental taint propagators allow you to specify additional structures through which taint propagates. See how to use them in the [Propagators](/writing-rules/data-flow/taint-mode#propagators-pro) section.
 - Updated [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation, rewritten examples, and added new sections, including a new [Handling line-based input](/writing-rules/generic-pattern-matching/#handling-line-based-input) section.
 - Introduced interface and color changes to fit new [semgrep.dev](https://semgrep.dev/) website design.
 - Report vulnerabilities that Semgrep should have found, but did not. You can report these false negatives directly from your command-line using a built-in Semgrep flag. See [Reporting false negatives with shouldafound](/reporting-false-negatives) article.
 - Contribution documentation now provides [Adding python packages to `semgrep`](/contributing/semgrep-contributing/#adding-python-packages-to-semgrep) section.
-- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/configuration-reference/#diff-aware-scanning-semgrep_baseline_ref) section.
-- Updated fail open CI documentation in [Configuring blocking findings and errors](/semgrep-ci/configuration-reference/#configuring-blocking-findings-and-errors) section.
+- Updated and rewritten [Diff-aware scanning (SEMGREP_BASELINE_REF)](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) section.
+- Updated fail open CI documentation in [Configuring blocking findings and errors](/semgrep-ci/configuring-blocking-and-errors-in-ci) section.
 - Added section about [`patterns` operator evaluation strategy](/writing-rules/rule-syntax/#patterns-operator-evaluation-strategy).
-- Updated adding [Slack notifications section in Notifications](/semgrep-code/notifications#slack) article, and updated [Integrating Semgrep App with third-party tools](/semgrep-code/notifications)
+- Updated adding [Slack notifications section in Notifications](/semgrep-appsec-platform/slack-notifications) article, and updated **Integrating Semgrep App with third-party tools**
 - Many other updates and fixes have been introduced to the documentation website.

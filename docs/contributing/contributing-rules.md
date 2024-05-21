@@ -6,7 +6,7 @@ toc_max_heading_level: 4
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import MoreHelp from "/src/components/MoreHelp"
+
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Contributing rules
@@ -14,16 +14,15 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
-    <dt>For users of Semgrep Cloud Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep Cloud Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-cloud-platform-recommended"> Contributing through Semgrep Cloud Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.
-</dd>
+    <dt>For users of Semgrep AppSec Platform</dt>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contributing through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
     <dt>For contributors to the repository through GitHub</dt>
     <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
 </dl>
 
-## Contributing through Semgrep Cloud Platform (recommended)
+## Contributing through Semgrep AppSec Platform (recommended)
 
-To contribute and publish rules to the Semgrep Registry through Semgrep Cloud Platform, follow these steps:
+To contribute and publish rules to the Semgrep Registry through Semgrep AppSec Platform, follow these steps:
 
 1. Go to [Playground](https://semgrep.dev/playground/new).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
@@ -139,8 +138,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-   </td>
+   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.</td>
    <td>
     <ul>
       <li><code>best-practice</code></li>
@@ -150,7 +148,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
       <li><code>portability</code></li>
       <li><code>security</code></li>
     </ul>
-    </td>
+   </td>
     <td>
     <pre>
     category: security
@@ -160,12 +158,11 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   <tr>
    <td><code>references</code></td>
    <td>Additional information that gives more context to the user of the rule. This helps developers understand the issue and how to fix it.</td>
-   <td>No finite value. Any additional information that gives more context.
-   </td>
+   <td>No finite value. Any additional information that gives more context.</td>
    <td>
-    <pre  style="white-space: pre-wrap; word-break: keep-all;">
+    <pre style={{"white-space": "pre-wrap", "word-break": "keep-all"}}>
     <code>references:<br /></code>
-    <code>  - https://cheatsheetseries.owasp.<br />org/cheatsheets/DOM_based_XSS_<br />Prevention_Cheat_Sheet.html</code>
+    <code>  - [OWASP DOM based XSS Prevention Cheat Sheet][OWASP-DOM-based-XSS-prevention]</code>
     </pre>
    </td>
   </tr>
@@ -174,7 +171,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 
 :::info
 - If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-- Semgrep Pro Engine rules that leverage cross-file (interfile) analysis also require `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#creating-rules-that-analyze-across-files).
+- Semgrep Pro Engine rules that leverage cross-file (interfile) analysis also require `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions).
 :::
 
 ### Understanding rule namespacing
@@ -239,7 +236,7 @@ When you contribute rules to the Semgrep Registry, our quality checkers (linters
 
 ### Including fields required by security category
 
-Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep Cloud Platform and Semgrep CLI. Nest these metadata under the `metadata` field.
+Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep AppSec Platform and Semgrep CLI. Nest these metadata under the `metadata` field.
 
 If your rule has a `category: security`, the following metadata are required:
 
@@ -507,4 +504,6 @@ See a [PR example](https://github.com/semgrep/semgrep-rules/pull/2730).
 
 There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
-<MoreHelp />
+
+
+[OWASP-DOM-based-XSS-prevention]: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html

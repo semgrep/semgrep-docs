@@ -18,9 +18,9 @@ A programming language must be supported by Semgrep for your chosen product.
 
 | Product              | Scan type | Link   |
 | -------              | ------    | ------ |
-| Semgrep OSS          | SAST      | [Supported languages](/supported-languages/#language-maturity)  |
-| Semgrep Code         | SAST      | [Supported languages](/supported-languages/#language-maturity)  |
-| Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages/#semgrep-supply-chain)       |
+| Semgrep OSS          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Code         | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages#semgrep-supply-chain)       |
 | Semgrep Secrets      | Secrets   | Language-agnostic       |
 
 <!-- Update Secrets with service validators once available -->
@@ -39,7 +39,7 @@ These requirements apply to both Semgrep Pro and Semgrep OSS.
 - Linux
 - Windows Subsystem for Linux (WSL)
 
-## Semgrep Cloud Platform
+## Semgrep AppSec Platform
 
 These requirements apply to Semgrep Pro.
 

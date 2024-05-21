@@ -8,14 +8,12 @@ tags:
   - cli
 ---
 
-import MoreHelp from "/src/components/MoreHelp";
+
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
-
-<!-- semgrep ci can run any product, so I removed the reference to Pro Engine -->
 
 Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
 
@@ -28,7 +26,7 @@ Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machi
 For scans using `semgrep ci`:
 
 * Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
-* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep Cloud Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
+* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep AppSec Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
 
 ## Set up Semgrep
 
@@ -44,7 +42,7 @@ For scans using `semgrep ci`:
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
 - `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
-- `semgrep ci` - This is the recommended command if you are scanning git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep Cloud Platform.
+- `semgrep ci` - This is the recommended command if you are scanning Git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
 
@@ -72,12 +70,23 @@ To export the results to a JSON file:
 semgrep ci --json --json-output=semgrep.json
 ```
 
-To view your results in multiple formats, combine the appropriate flags:
+In addition to the `--text`, `--json`, and `--sarif` flags, which set the primary output formats, and the `--output=<value>` flag that saves the results to a file or posts to a URL, you can append `--<format>-output=<file>` to obtain additional output streams:
 
 ```console
-# obtain results as text output and as JSON, SARIF
-semgrep ci --text --text-output=semgrep.txt --json --json-output=semgrep.json --sarif --sarif-output=semgrep.sarif
+# prints findings in SARIF format to standard output and writes in JSON format to `findings.json`.
+semgrep ci --sarif --json-output=findings.json
+
+# prints findings in text to standard out and writes JSON output to `findings.json`.
+semgrep ci --json-output=findings.json
+
+# prints text output to `findings.txt` and writes in SARIF to `findings.sarif`.
+semgrep ci --output=findings.txt --sarif-output=findings.sarif
+
+# writes text to `semgrep.txt`, JSON to `semgrep.json`, and SARIF to `semgrep.sarif`.
+semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
 ```
+
+Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
 ### Scan your project with a specific ruleset
 
@@ -85,7 +94,7 @@ semgrep ci --text --text-output=semgrep.txt --json --json-output=semgrep.json --
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
+Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test
@@ -101,7 +110,7 @@ semgrep publish <path/to/rules>
 
 ### Scan without sending results to Semgrep
 
-To scan your project using the configuration you've set up in Semgrep Cloud Platform **without** sending scan results to Semgrep, use:
+To scan your project using the configuration you've set up in Semgrep AppSec Platform **without** sending scan results to Semgrep, use:
 
 ```console
 semgrep ci --dry-run
@@ -111,19 +120,19 @@ This can be helpful to verify the results of a specific ruleset or to see how yo
 
 ### Scan using OSS-only analysis (single-function)
 
-To scan your project using exclusively open-source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep Cloud Platform:
+To scan your project using exclusively open source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
 ```console
 semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open-source analyses.
+See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
 :::
 
 ## Scan using specific Semgrep Products
 
-When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep Cloud Platform. To scan your project with just one product, run:
+When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep AppSec Platform. To scan your project with just one product, run:
 
 ```console
 # scan with Semgrep Code
@@ -190,5 +199,3 @@ To log out of your Semgrep account:
 ```console
 semgrep logout
 ```
-
-<MoreHelp />

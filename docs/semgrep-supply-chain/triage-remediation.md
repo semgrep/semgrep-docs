@@ -1,43 +1,35 @@
 ---
-slug: triage-and-remediation 
+slug: triage-and-remediation
 append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
     - Semgrep Supply Chain
     - Team & Enterprise Tier
-title: Triage and remediation 
+title: Triage and remediation
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
 # Triage and remediate dependency findings
 
 Perform triage and remediation on your open source dependencies through the **Supply Chain** page. This page displays relevant scan data through three tabs:
 
 <dl>
-<dt>Vulnerabilities</dt>
-    <dd>This tab enables you to:
+  <dt>Vulnerabilities</dt>
+  <dd>
+    This tab enables you to:
     <ul>
-        <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
-        <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.</li>
-        <li>Understand how to remediate vulnerabilities by providing versions to upgrade to.</li>
-        <li>Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.</li>
+      <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
+      <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.</li>
+      <li>Understand how to remediate vulnerabilities by providing versions to upgrade to.</li>
+      <li>Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.</li>
     </ul>
-</dd>
-<dt>Advisories</dt>
-<dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
-<dt>Dependencies</dt>
-<dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
+  </dd>
+  <dt>Advisories</dt>
+  <dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
+  <dt>Dependencies</dt>
+  <dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
 </dl>
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
@@ -61,34 +53,30 @@ You can also view the findings individually by clicking on the drop-down box on 
 To assess your findings, Semgrep Supply Chain provides the following methods:
 
 <table>
-  <thead><tr>
-   <th>Assessment action</th>
-   <th>Method</th>
-  </tr></thead>
-  <tbody><tr>
-   <td>View specific pattern matches in your codebase.
-   </td>
-   <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.
-   </td>
-  </tr>
-  <tr>
-   <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.
-   </td>
-   <td>Click the vulnerability's <strong>CVE badge</strong>.
-   </td>
-  </tr>
-  <tr>
-   <td>View safe versions to upgrade your dependencies.
-   </td>
-   <td>Visible on the vulnerability entry.
-   </td>
-  </tr>
-  <tr>
-   <td>Filter vulnerabilities.
-   </td>
-   <td>Click any of the filters available. Refer to the following table for filtering information.
-   </td>
-  </tr></tbody>
+  <thead>
+    <tr>
+      <th>Assessment action</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>View specific pattern matches in your codebase.</td>
+      <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.</td>
+    </tr>
+    <tr>
+      <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.</td>
+      <td>Click the vulnerability's <strong>CVE badge</strong>.</td>
+    </tr>
+    <tr>
+      <td>View safe versions to upgrade your dependencies.</td>
+      <td>Visible on the vulnerability entry.</td>
+    </tr>
+    <tr>
+      <td>Filter vulnerabilities.</td>
+      <td>Click any of the filters available. Refer to the following table for filtering information.</td>
+    </tr>
+  </tbody>
 </table>
 
 ### Filters
@@ -140,5 +128,3 @@ The **Vulnerabilities** tab allows you to identify the reachable, true positives
 The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
 
 <AdmonitionSotCves />
-
-<MoreHelp />
