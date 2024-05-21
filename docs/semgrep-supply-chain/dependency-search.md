@@ -82,4 +82,4 @@ To ensure that your dependencies appear, check the following:
 * Ensure that Semgrep Supply Chain can parse your lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages and lockfiles.
 * Make sure you've scanned the repository at least once.
 * If you are using filters, ensure that your filters and search syntax is correct.
-* Make sure the the scan you are not referring to is a diff scan. Only dependencies scanned off of full scans are shown within the Dependencies page. 
+* Ensure that the scan you're referring to isn't a diff-aware scan. Only dependencies scanned off of full scans are shown on the **Dependencies** page. 
