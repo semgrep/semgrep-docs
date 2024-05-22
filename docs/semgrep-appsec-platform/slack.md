@@ -1,5 +1,5 @@
 ---
-slug: slack-notifications 
+slug: slack-notifications
 append_help_link: true
 title: Slack
 hide_title: true
@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Receiving Slack notifications
 
@@ -28,7 +22,7 @@ Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integratio
 <!-- <ProcedureIntegrateSlack /> -->
 
 :::info Prerequisites
-* You must be a Slack **Workspace Owner** to set up the Semgrep Slack app. 
+* You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
 :::
 
 The Semgrep Slack app enables Semgrep AppSec Platform to notify you of new findings after every scan. By receiving notifications within your Slack workspace, developers and security engineers are able to see findings without leaving their current environment. This can lessen the friction between detecting a finding, triaging it, and resolving it.
@@ -63,7 +57,7 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 You have successfully set up notifications for Semgrep findings. The Semgrep Slack app reports new findings after every scan but does not report findings that were previously discovered.
 
 :::tip Suggested workflow
-In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them. 
+In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them.
 :::
 
 ![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#bordered "Message from Semgrep Slack app consolidating findings after a scan")
@@ -103,7 +97,7 @@ To change the settings:
 ## Uninstalling the Semgrep Slack App from your Slack workspace
 
 :::caution
-This removes **all** Semgrep notifications in **all** channels in your Slack workspace. 
+This removes **all** Semgrep notifications in **all** channels in your Slack workspace.
 :::
 
 To uninstall the Semgrep Slack App entirely from your Slack workspace, perform the following steps:
@@ -159,9 +153,9 @@ There are many possible causes for this error. Try the following fixes:
 
 This error occasionally appears due to connection or service issues. To fix this issue, retry your last command or operation after a few minutes.
 
-## Slack permissions 
+## Slack permissions
 
-The following table describes the purpose for each permission required to use the Semgrep Slack app. 
+The following table describes the purpose for each permission required to use the Semgrep Slack app.
 
 <table>
   <tr>
@@ -186,7 +180,7 @@ The following table describes the purpose for each permission required to use th
   </tr>
   <tr>
    <td>
-    <strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong> 
+    <strong><a href="https://api.slack.com/scopes/channels:read">channels:read</a></strong>
    </td>
    <td>View basic information about public channels in a workspace.</td>
    <td>Basic channel information such as <code>channel_id</code> is used to ensure that Semgrep findings (results) are sent to the appropriate channel.</td>
@@ -286,5 +280,3 @@ Unused and removed for now:
 #### Additional resources
 * https://api.slack.com/apps
 * https://api.slack.com/messaging/webhooks#enable_webhooks
-
-<MoreHelp />

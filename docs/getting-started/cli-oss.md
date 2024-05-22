@@ -9,7 +9,6 @@ tags:
   - CLI
 ---
 
-import MoreHelp from "/src/components/MoreHelp";
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
 import ExportAs from "/src/components/reference/_export-as.mdx";
@@ -37,7 +36,7 @@ See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's 
 
 #### Test custom rules
 
-Semgrep includes functionality to [test the custom rules that you write](/writing-rules/testing-rules):
+Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
 ```console
 semgrep scan --test
@@ -75,5 +74,3 @@ semgrep scan --debug
 ## Exit codes
 
 The command `semgrep scan` finishes with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings, pass in the `--error` flag.
-
-<MoreHelp />

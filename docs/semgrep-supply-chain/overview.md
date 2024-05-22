@@ -9,17 +9,11 @@ title: Overview
 hide_title: false
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 <SscIntro />
 
@@ -60,6 +54,8 @@ severity levels for GA languages. That means Semgrep Supply Chain can flag all
 your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability
     definition, the finding is flagged as **reachable**.
+      * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved for these findings.
+      * A finding is **conditionally reachable** if Semgrep finds a way to reach it when scanning your code when certain conditions are met.
   * If you don't use the vulnerable piece of code of the library or package
   imported, the finding is flagged as **unreachable**.
   * If Semgrep Supply Chain determines that you use a vulnerable version of a
@@ -129,5 +125,3 @@ Semgrep Supply Chain automatically scans repositories that you have added to Sem
   hard](https://semgrep.dev/blog/2022/software-supply-chain-security-is-hard/)
 * [The best free, open-source supply-chain security tool? The
   lockfile](https://semgrep.dev/blog/2022/the-best-free-open-source-supply-chain-tool-the-lockfile/)
-
-<MoreHelp />

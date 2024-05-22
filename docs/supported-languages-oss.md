@@ -6,24 +6,18 @@ description: >-
 hide_title: true
 title: Supported languages
 tags:
-    - Semgrep Supply Chain 
+    - Semgrep Supply Chain
     - Semgrep OSS Engine
     - Team & Enterprise Tier
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Supported languages
 
@@ -38,7 +32,7 @@ For commercial Semgrep offerings, check the [Semgrep Pro > Supported languages](
 
 Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open-source engine.
 
-Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS. 
+Semgrep Code is a static application security testing SAST solution that uses both Semgrep OSS Engine and a proprietary Semgrep Pro engine. This engine can perform more complex code analyses, resulting in a higher true positive rate than Semgrep OSS.
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
@@ -50,9 +44,9 @@ Use either tool to scan local code or integrate it into your CI/CD pipeline to a
 ### Language maturity levels
 Semgrep Code languages can be classified into four maturity levels:
 
-* Generally available (GA) 
+* Generally available (GA)
 * Beta
-* Experimental 
+* Experimental
 * Community supported\*
 
 \*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
@@ -98,7 +92,7 @@ Their differences are outlined in the following table:
 
 ### Semgrep Code language support
 
-Semgrep Code supports over 30 languages and counting! 🚀 
+Semgrep Code supports over 30 languages and counting! 🚀
 
 <SupportedLanguagesTable />
 
@@ -111,40 +105,40 @@ Community supported languages have varying levels of rule coverage - check the r
 <details>
  <summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
-- Bash      
-- C         
-- C++       
-- C#        
-- Cairo     
-- Clojure   
-- Dart       
+- Bash
+- C
+- C++
+- C#
+- Cairo
+- Clojure
+- Dart
 - Dockerfile
-- Generic   
-- Go        
-- Hack       
-- HTML          
-- Java      
+- Generic
+- Go
+- Hack
+- HTML
+- Java
 - JavaScript
-- JSON      
-- Jsonnet   
-- Julia      
-- Lisp       
-- Lua        
-- Kotlin    
-- Ruby      
-- Rust      
-- JSX       
-- Ocaml      
-- PHP       
-- Python    
-- R          
-- Scala     
-- Scheme     
-- Solidity   
-- Swift     
+- JSON
+- Jsonnet
+- Julia
+- Lisp
+- Lua
+- Kotlin
+- Ruby
+- Rust
+- JSX
+- Ocaml
+- PHP
+- Python
+- R
+- Scala
+- Scheme
+- Solidity
+- Swift
 - TypeScript
-- YAML      
-- XML       
+- YAML
+- XML
 
 </details>
 
@@ -156,8 +150,6 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 Visit the Semgrep public language dashboard to see the parse rates for each language
 * See [Parse rates by language](https://dashboard.semgrep.dev/).
 
-<!-- coupling: If you modify the features in the levels below, change also 
+<!-- coupling: If you modify the features in the levels below, change also
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
-
-<MoreHelp />

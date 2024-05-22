@@ -214,6 +214,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
@@ -383,6 +384,7 @@ module.exports = {
           { from: "/semgrep-cloud-platform/webhooks/" , to: "/semgrep-appsec-platform/webhooks" } ,
           /* MAY 7, 2024 */
           { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
+          { from: "/semgrep-secrets" , to: "/semgrep-secrets/conceptual-overview" } ,
         ]
       }
     ],

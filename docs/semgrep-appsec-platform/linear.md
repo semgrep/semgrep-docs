@@ -1,5 +1,5 @@
 ---
-slug: linear 
+slug: linear
 append_help_link: true
 title: Linear
 hide_title: true
@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Create Linear tickets
 
@@ -57,7 +51,7 @@ Use the drop-down lists to select the default project and team. These settings c
 Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create will be shown in the UI once the page is refreshed.
 :::
 
-To create tickets for one or more Code findings, use the triage button from the Code findings page or from an individual finding's details page. Findings can be individually selected, or you can create tickets for all findings for a given rule. 
+To create tickets for one or more Code findings, use the triage button from the Code findings page or from an individual finding's details page. Findings can be individually selected, or you can create tickets for all findings for a given rule.
 
 Once a ticket has been created, a link will be present on the right side of the findings page and along the top of an individual finding's details page.
 
@@ -73,7 +67,7 @@ Once a ticket has been created, a link will be present on the right side of the 
 Tickets can only be created for Supply Chain findings with reachable usages. They cannot be created for **Always reachable** or **Unreachable** findings.
 :::
 
-The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages can not be selected individually. 
+The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages can not be selected individually.
 
 ![Create Linear ticket - Supply Chain](/img/linear-ssc-findings.png)
 **Figure** Supply Chain triage flow
@@ -87,5 +81,3 @@ On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page
 
 * This **does not** delete any tickets created by Semgrep.
 * This **removes** the link between Linear tickets and Semgrep findings, even if the integration is re-added in the future.
-
-<MoreHelp />

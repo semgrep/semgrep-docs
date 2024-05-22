@@ -7,7 +7,7 @@ tags:
   - Deployment
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"

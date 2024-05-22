@@ -3,7 +3,7 @@ slug: overview
 append_help_link: true
 title: AI-assisted triage and autofix
 hide_title: true
-description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings. 
+description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings.
 tags:
   - Semgrep Code
   - Semgrep Supply Chain
@@ -12,7 +12,7 @@ tags:
   - Semgrep Assistant
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Semgrep Assistant overview
 
@@ -55,7 +55,7 @@ Component tags are available in SCP's **Findings** page.
 
 Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in SCP's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
+Auto-triage recommendations are available in SCP's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
 *Figure*. Semgrep Assistant auto-triage in the Findings page.
@@ -76,14 +76,14 @@ Autofixes are available in PR and MR comments, so developers can review and veri
 ![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png)
 *Figure*. Semgrep Assistant generates a potential fix in a PR comment.
 
-Autofixes are also available in Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding). 
+Autofixes are also available in Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
 ![Semgrep Assistant showing a potential fix in SCP](/img/semgrep-assistant-scp-autofix.png)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
 
 The finding's details also include a link to the PR or MR with the autofix, so you can go directly to the PR or MR to commit the autofix.
 
-:::info 
+:::info
 If there are a large number of new issues found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
@@ -135,5 +135,3 @@ If Semgrep Assistant suggests that a finding is a true positive and supplies an 
 ## Next steps
 
 Learn how to [enable Semgrep Assistant](/semgrep-assistant/getting-started) for your deployment.
-
-<MoreHelp />

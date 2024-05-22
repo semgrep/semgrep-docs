@@ -10,7 +10,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
@@ -21,13 +21,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Set up GitLab merge request comments
 
@@ -145,5 +139,3 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

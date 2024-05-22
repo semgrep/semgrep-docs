@@ -6,7 +6,7 @@ tags:
   - Troubleshooting
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # SAML SSO error: There is no AttributeStatement on the Response
 
@@ -24,5 +24,3 @@ This error occurs when [an attribute within the SAML response does not contain a
    - If your SP does *not* expect the attribute statement in your SAML settings, you can remove it.
 
 Regardless of which option you choose, you can update or remove SAML attribute statements using your identity provider (IdP). Reach out to your SSO administrator or your IdP for instructions.
-
-<MoreHelp />

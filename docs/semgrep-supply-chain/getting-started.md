@@ -10,20 +10,14 @@ hide_title: true
 ---
 
 <!-- vale off -->
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
 <!-- vale on -->
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Scan third-party dependencies
 
@@ -128,5 +122,3 @@ Alternatively, you can configure your version control system to prevent merging 
 ## Ignore lockfiles and dependencies
 
 See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
-
-<MoreHelp />

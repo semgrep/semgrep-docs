@@ -1,5 +1,5 @@
 ---
-slug: jira 
+slug: jira
 append_help_link: true
 title: Jira
 hide_title: true
@@ -9,15 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
+
 
 # Create Jira tickets
 
@@ -30,13 +24,13 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 * This feature is in a **closed beta**. To request access:
   1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
   2. Contact your Technical Account Manager or Account Executive and let them know you'd like to try the Jira integration.
-* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported. 
+* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
 
 ## Enable the Jira integration
 
 To enable the Jira integration, follow these steps:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login). 
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 3. If this is your first integration, click **Setup First Integration**. Otherwise, click **Add integration**. In the drop-down menu that appears, select **Jira**.
 4. Follow the on-screen instructions to grant Semgrep the necessary permissions and set up the integration.
@@ -79,7 +73,7 @@ To create a mapping:
 Repeat these steps for each mapping you want to create. When done, click **Save changes** to proceed.
 
 :::note
-Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep values. 
+Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep values.
 :::
 
 ### Sample mappings
@@ -158,5 +152,3 @@ Note that deleting the integration:
 
 * **Does not** delete any tickets created by Semgrep
 * **Removes** the link between Jira tickets and Semgrep findings, even if you re-add the integration in the future
-
-<MoreHelp />
