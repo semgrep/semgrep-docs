@@ -19,17 +19,17 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
-    { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules'},
+      { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
       className: 'top-category-separator'
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
+    { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
+    { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep' },
   ],
   scanSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
