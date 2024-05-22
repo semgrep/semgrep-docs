@@ -56,7 +56,7 @@ through [email](mailto:support@semgrep.com).
 
 Users of Semgrep OSS can log bugs and feature requests in the
 [semgrep](https://github.com/semgrep/semgrep/issues) repository. They can also
-ask questions regarding usage, roll outs, and deployments in the [community Slack
+ask questions regarding usage, rollouts, and deployments in the [community Slack
 group](https://go.semgrep.dev/slack)
 
 ## Status page
