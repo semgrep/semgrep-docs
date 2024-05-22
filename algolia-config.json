@@ -50,7 +50,9 @@
       "security",
       "git",
       "coverage",
-      "leverage"
+      "leverage",
+      "teams",
+      "terms"
     ],
     "separatorsToIndex": "_",
     "attributesForFaceting": [
