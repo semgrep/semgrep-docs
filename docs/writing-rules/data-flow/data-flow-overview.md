@@ -14,7 +14,7 @@ Semgrep provides an intra-procedural data-flow analysis engine that opens variou
 - [Constant propagation](/writing-rules/data-flow/constant-propagation) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](/writing-rules/data-flow/constant-propagation), called [Symbolic propagation](/writing-rules/experiments/symbolic-propagation).
 - [Taint tracking (known also as taint analysis)](/writing-rules/data-flow/taint-mode/) enables you to write simple rules that catch complex [injection bugs](https://owasp.org/www-community/Injection_Flaws), such as those that can result in [cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
-In principle, all data-flow related features are available for any of Semgrep's [supported languages](/supported-languages). Semgrep Pro Engine also supports data-flow analysis. For more details, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro) documentation.
+In principle, all data flow related features are available for any of Semgrep's [supported languages](/supported-languages). Interfile (cross-file) analysis also supports data-flow analysis. For more details, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro) documentation.
 
 :::info
 Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status).

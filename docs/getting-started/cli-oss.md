@@ -2,7 +2,7 @@
 slug: cli-oss
 title: Local CLI scans
 hide_title: true
-displayed_sidebar: ossSidebar
+displayed_sidebar: scanSidebar
 description: Learn how to set up Semgrep, scan your codebase for security issues, and view your findings in the CLI.
 tags:
   - quickstart
