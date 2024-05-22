@@ -65,8 +65,7 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 
 ### GitHub Enterprise Server
 
-This section is applicable to users with **GitHub Enterprise Server**. The Semgrep team
-recommends connecting to your GitHub orgs using the Semgrep App instead of using
+This section is applicable to users on a **GitHub Enterprise Server** plan. The Semgrep team recommends connecting to your GitHub orgs using the Semgrep App instead of using
 a personal access token (PAT) whenever possible.
 
 import Tabs from '@theme/Tabs';
@@ -83,8 +82,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value='app'>
 
 The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
-and orgs in your GHE deployment. There are two primary installation
-steps:
+and orgs in your GHE deployment. There are two primary installation steps:
 
 1. Install the Semgrep App for the first time using the GHE organization (org)
    that "owns" the app.
@@ -92,46 +90,36 @@ steps:
 
 #### Initial Semgrep App installation
 
-If your deployment contains many orgs, you must choose an org in the deployment that will act as the **owner** of the Semgrep app. As the owner, this org controls the settings and permissions granted to the app.
+If your deployment contains many orgs, you must choose an org in the deployment that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login/).
-2. Go to **Settings** > **Source Code Managers**, and click **Add GitHub
-   Enterprise**.
-   ![Semgrep AppSec Platform's Source code managers page](/img/ghe-1.png#md-width)
-3. In the popup window, provide:
+2. Click <i class="fa-solid fa-gear"></i> Settings** > **Source Code Managers**, and click **Add GitHub Enterprise**.
+3. In the **Connect your GitHub Organization** dialog box, provide:
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
-   - A random string in the **Access token** field; this field will be optional in the future
 4. Click **Connect** to save your changes.
-   ![Connect your GitHub Organization popup window](/img/ghe-2.png#md-width)
 5. Refresh your browser. You should see a new entry under **Source code
    managers** that displays the GHE org and instance URL you entered. Click
-   **Create App**.
-   ![Semgrep AppSec Platform's Source code managers page with new GHE instance](/img/ghe-3.png#md-width)
-6. In the popup window:
-   1. Ensure that:
-      - You've selected **Organization**
-      - The **GitHub Organization name** is populated (if not, enter the name of
-        your org)
-      - You've selected the **Use for multiple GitHub orgs (Enterprise-public
-        app)** checkbox
-   2. Review the permissions for the app; as the app owner, note that you can
+   **Register app**.
+6. In the **Add GitHub App** page, ensure that:
+    - You've selected **Organization**.
+    - The **GitHub Organization name** is populated; if not, enter the name of
+      your org.
+    - You've selected the **Use for multiple GitHub orgs (Enterprise-public
+      app)** checkbox.
+7. Review the permissions for the app; as the app owner, note that you can
    change these permissions later.
-   3. Click **Create GitHub App** to proceed.
-      If this step is successful, the blue **Create GitHub App** button turns into a gray **Created** button.
-7. Click **Install** under **Step 4**. You are taken to your GHE instance and
+8. Click **Register GitHub App** to proceed.
+9. You are taken to your GHE instance and
    asked to name your app. You can choose whatever name you'd like, but Semgrep
    recommends that you name it something that indicates that this is the Semgrep
    GHE app.
-8. After you name your app, choose the GHE org to which you want it installed.
+10. After you name your app, choose the GHE org to which you want it installed.
    Select the org that you want to act as the owner of the app, and click
    **Install**.
 9. Wait for the installation to complete. When done, you will be redirected to
    Semgrep.
-10. Verify the installation by navigating to **Settings** > **Source Code
-   Managers**. Ensure that the entry for your SCM shows a gray **Installed**
-   button.
-   ![Semgrep AppSec Platform's Source code managers list showing GHE instance](/img/ghe-8.png#md-width)
+10. Verify the installation by navigating to **Settings** > **Source Code Managers**. Ensure that the entry for your SCM shows a **Connected** badge.
 11. In GHE, you should see the app listed as installed on the **GitHub Apps**
    page.
    ![GHE showing installed Semgrep App](/img/ghe-9.png#md-width)
