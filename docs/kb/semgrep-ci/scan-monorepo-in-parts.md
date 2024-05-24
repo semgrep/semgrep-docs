@@ -23,10 +23,10 @@ To split up your monorepo, you need to make two changes. First, use the `--inclu
 
 For example, if the monorepo has four main modules and their paths are:
 ```
-/src/moduleA
-/src/moduleB
-/src/moduleC
-/src/moduleD
+src/moduleA
+src/moduleB
+src/moduleC
+src/moduleD
 ```
 
 Then splitting its scans into four separate scans, one for each module, would provide a logical separation for findings. In general, we recommend that modules not exceed ~100,000 lines of code in order to maintain optimal scan time and efficiency.
@@ -34,7 +34,7 @@ Then splitting its scans into four separate scans, one for each module, would pr
 After choosing a logical split, use the `--include` flag ([see CLI reference](/docs/cli-reference)) with the relevant path to only scan files in that module's code path:
 
 ```
-semgrep ci --include=/src/moduleA/*
+semgrep ci --include=src/moduleA/**
 ```
 
 Now, Semgrep is only scanning files under that path and the CI run will take less time, since less code is being scanned.
@@ -42,7 +42,7 @@ Now, Semgrep is only scanning files under that path and the CI run will take les
 For the other modules, the commands look similar. For module B:
 
 ```
-semgrep ci --include=/src/moduleB/*
+semgrep ci --include=src/moduleB/**
 ```
 
 You will then have the flexibility to trigger each one on appropriate events or frequencies.
@@ -63,7 +63,7 @@ export SEMGREP_REPO_DISPLAY_NAME="semgrep/monorepo/moduleA"
 And then run Semgrep as demonstrated earlier:
 
 ```
-semgrep ci --include=/src/moduleA/*
+semgrep ci --include=src/moduleA/**
 ```
 
 Now, the findings from this CI run will show up in their own project in Semgrep AppSec Platform named `semgrep/monorepo/moduleA`. This is not only necessary to ensure findings have a consistent status, but also helpful so that developers and security engineers can have a clearer understanding of which findings pertain to the module that they are responsible for.
