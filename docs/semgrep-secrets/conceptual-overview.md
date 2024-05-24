@@ -8,7 +8,7 @@ tags:
   - Semgrep Secrets
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Semgrep Secrets overview
 
@@ -154,5 +154,3 @@ See [<i class="fa-regular fa-file-lines"></i> Scan for secrets](/semgrep-secrets
 * View and triage secrets-related findings
 * Receive notifications and post tickets whenever Semgrep Secrets identifies issues
 * Write [custom rules](/semgrep-secrets/rules) with [validators](/semgrep-secrets/validators) to find bespoke secrets
-
-<MoreHelp />

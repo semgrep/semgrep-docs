@@ -6,7 +6,7 @@ hide_title: true
 title: Perform cross-file analysis
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 
 :::note Language support
-Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages/#semgrep-pro-engine) to see languages supported by Semgrep Code.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#semgrep-code-language-support) to see languages supported by Semgrep Code.
 :::
 
 ## Run cross-file analysis
@@ -177,10 +177,13 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
     <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
-    <dd><ul><li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
-    <li>Semgrep Code scans run cross-function analysis by default.</li>
-    <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
-    <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li></ul>
+    <dd>
+        <ul>
+            <li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
+            <li>Semgrep Code scans run cross-function analysis by default.</li>
+            <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
+            <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
+        </ul>
     </dd>
 </dl>
 
@@ -204,5 +207,3 @@ Cross-file analysis is different from [join mode](/writing-rules/experiments/joi
 ### Feedback for Semgrep Code's advanced analyses
 
 The team at Semgrep is excited to hear what’s on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
-
-<MoreHelp />

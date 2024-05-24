@@ -1,7 +1,7 @@
 ---
-slug: bitbucket-pr-comments 
+slug: bitbucket-pr-comments
 append_help_link: true
-title: Bitbucket PR comments 
+title: Bitbucket PR comments
 hide_title: true
 description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
 tags:
@@ -9,7 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
+
+<!-- vale off -->
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -18,16 +20,11 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
+import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+<!-- vale on -->
 
-# Enabling Bitbucket pull request comments
+# Enable Bitbucket pull request comments
 
 <DeploymentJourney />
 
@@ -46,7 +43,7 @@ PR comments appear for the following types of scans under these conditions:
 
 ## Supported Bitbucket plans
 
-- Any of the following Bitbucket plans are supported: 
+- Any of the following Bitbucket plans are supported:
     - Cloud Free
     - Standard
     - Premium
@@ -54,8 +51,8 @@ PR comments appear for the following types of scans under these conditions:
 
 There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
 
-- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one workspace access token, you can bulk-onboard more repositories at once from a whole workspace. See [Creating a workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token). However, you can also use the option of a repository access token to onboard repositories one by one.
-- **Repository access token**: If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding. See [Creating a repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+- **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one workspace access token, you can bulk-onboard more repositories at once from a whole workspace. However, you can also use the option of a repository access token to onboard repositories one by one.
+- **Repository access token**: If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
 
 <Tabs
     defaultValue="workspace-token"
@@ -67,7 +64,7 @@ There are two ways in which you can integrate Semgrep comments into Bitbucket Cl
 
 <TabItem value="workspace-token">
 
-## Creating and adding a workspace access token
+## Create and add a workspace access token
 
 :::info Prerequisite
 - **Bitbucket Cloud Premium** plan. If you do not have a Bitbucket Cloud Premium plan, create a repository access token.
@@ -78,13 +75,13 @@ Create a workspace access token in Bitbucket (only available if you have a Bitbu
 1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for pull requests. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
 1. Add the workspace access token as a workspace variable with the **Secured** option.
 
-To complete the configuration, follow the [Enabling PR comments in Bitbucket Cloud](#enabling-pr-comments-in-bitbucket-cloud) section.
+Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 
 </TabItem>
 
 <TabItem value="repository-token">
 
-## Creating and adding a repository access token
+## Create and add a repository access token
 
 :::note
 This section helps you to configure PR comments if you do **not** have a Bitbucket Cloud Premium plan. You can create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
@@ -95,18 +92,26 @@ Fulfill these general steps to create a repository access token:
 1. Create a repository access token in Bitbucket with **Read**, and **Write** permissions for pull requests. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/) in Bitbucket documentation.
 1. Add the repository access token as a repository variable with the **Secured** option.
 
-To complete the configuration, follow the [Adding Semgrep to your Bitbucket CI pipeline for PR comments](/semgrep-code/notifications/#bitbucket-ci-pipelines-yaml-file-for-pr-comments) section.
+Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 
 </TabItem>
 
 </Tabs>
 
-## Enable PR comments in Bitbucket 
+## Enable PR comments in Bitbucket
 
 ### Prerequisites
 
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
-- You must have a Bitbucket Cloud [workspace access token](/semgrep-code/notifications/#creating-and-adding-a-workspace-access-token) or a [repository access token](/semgrep-code/notifications/#creating-and-adding-a-repository-access-token).
+- You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
+
+
+### Confirm your Semgrep account's connection
+
+Confirm that you have the correct connection and access:
+
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
+2. Check that an entry for your GitHub org exists and is correct.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
@@ -118,7 +123,7 @@ To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your
 
 The following snippet is a sample with `BITBUCKET_TOKEN` defined in a `bitbucket-pipelines.yml` file:
 
-<!-- 
+<!--
 <Tabs
     defaultValue="jenkins"
     values={[
@@ -178,6 +183,10 @@ pipelines:
 </Tabs>
 -->
 
+### Configure comments for Semgrep Code
+
+<PrCommentsInSast name="Bitbucket" comment_type="PR" />
+
 ### Receive comments in your VPN or on-premise SCM
 
 Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access control features](https://support.atlassian.com/bitbucket-cloud/docs/control-access-to-your-private-content/) for content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
@@ -192,8 +201,6 @@ Only rules set to the **Comment** and **Block** rule modes in the [Policies page
 
 <NextAfterComments />
 
-## Additional references 
+## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

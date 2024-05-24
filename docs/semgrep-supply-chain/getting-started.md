@@ -10,20 +10,14 @@ hide_title: true
 ---
 
 <!-- vale off -->
-import MoreHelp from "/src/components/MoreHelp"
+
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
 <!-- vale on -->
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Scan third-party dependencies
 
@@ -79,28 +73,19 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
 
 <table>
   <tr>
-   <td><strong>Event</strong>
-   </td>
-   <td><strong>Scope of scan</strong>
-   </td>
-   <td><strong>Dependency rule set</strong>
-   </td>
+    <td><strong>Event</strong></td>
+    <td><strong>Scope of scan</strong></td>
+    <td><strong>Dependency rule set</strong></td>
   </tr>
   <tr>
-   <td>Pull or merge request
-   </td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a>
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Pull or merge request</td>
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a></td>
+   <td>All dependency rules</td>
   </tr>
   <tr>
-   <td>Push or scheduled event, such as a cron job
-   </td>
-   <td>Full scan
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Push or scheduled event, such as a cron job</td>
+   <td>Full scan</td>
+   <td>All dependency rules</td>
   </tr>
 </table>
 
@@ -137,5 +122,3 @@ Alternatively, you can configure your version control system to prevent merging 
 ## Ignore lockfiles and dependencies
 
 See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
-
-<MoreHelp />

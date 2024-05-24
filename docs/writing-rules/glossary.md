@@ -13,11 +13,9 @@ The definitions provided here are specific to Semgrep.
 
 ## Constant propagation
 
-<!-- Refers to state of a variable remaining constant throughout the program. Semgrep can analyze whether a variable carries a constant value at a given point. Both Semgrep OSS and Semgrep Pro Engine perform this analysis, with Semgrep Pro able to track the propagation across files. -->
-
 Constant propagation is a type of analysis where values known to be constant are substituted in later uses, allowing the value to be used to detect matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
 
-Constant propagation is applied to all rules unless [it is disabled](/data-flow/constant-propagation/#disabling-constant-propagation).
+Constant propagation is applied to all rules unless [it is disabled](/writing-rules/data-flow/constant-propagation#disabling-constant-propagation).
 
 For example, given the following pattern:
 ```yaml
@@ -109,17 +107,18 @@ Rules can be run on either Semgrep or its OSS Engine. Only proprietary Semgrep c
 There are two types of rules: **search** and **taint**.
 
 <dl>
-<dt>Search rules</dt>
-<dd>Rules default to this type. Search rules detect matches based on the patterns described by a rule. There are several semantic analyses that search rules perform, such as:
+  <dt>Search rules</dt>
+  <dd>
+    Rules default to this type. Search rules detect matches based on the patterns described by a rule. There are several semantic analyses that search rules perform, such as:
     <ul>
-    <li>Interpreting syntactically different code as semantically equivalent</li>
-    <li>Constant propagation</li>
-    <li>Matching a fully qualified name to its reference in the code, even when not fully qualified</li>
-    <li>Type inference, particularly when using typed metavariables</li>
+      <li>Interpreting syntactically different code as semantically equivalent</li>
+      <li>Constant propagation</li>
+      <li>Matching a fully qualified name to its reference in the code, even when not fully qualified</li>
+      <li>Type inference, particularly when using typed metavariables</li>
     </ul>
-</dd>
-<dt>Taint rules</dt>
-<dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a>.</dd>
+  </dd>
+  <dt>Taint rules</dt>
+  <dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a>.</dd>
 </dl>
 
 <!-- how can we say that search rules are semantic if no analysis is performed on the value of data, such as variables? Or are there levels of semantic understanding that semgrep can perform? -->

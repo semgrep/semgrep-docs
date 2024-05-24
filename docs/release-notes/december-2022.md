@@ -47,20 +47,20 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 
 ### Additions
 
-- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Microsoft Entra ID](/semgrep-appsec-platform/sso/#setting-up-saml-sso-with-azure-active-directory).
-- Added a new document [Learning Semgrep App with a demo project](/semgrep-code/demo-project).
-- Added section [Disabling rules](/semgrep-code/rule-board/#disabling-rules).
+- Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Microsoft Entra ID](/deployment/sso#set-up-saml-sso-with-microsoft-entra-id).
+- Added a new document **Learning Semgrep App with a demo project**.
+- Added section [Disabling rules](/semgrep-code/policies/#disabling-rules).
 - Added [Licensing document](/licensing) which provides an overview of licenses used by different Semgrep, Inc products.
 
 ### Changes
 
 - Updated [Getting started with Semgrep App](/deployment/core-deployment) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
 - Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
-- Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro/#installing-deepsemgrep) section.
+- Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro) section.
 - Updated [Filtering findings](/semgrep-code/findings/#filter-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
     - [Autofix](/writing-rules/autofix)
     - [Generic pattern matching](/writing-rules/generic-pattern-matching)
     - [Metavariable analysis](/writing-rules/metavariable-analysis)
-    - Taint propagators - moved to [Taint tracking](/writing-rules/data-flow/taint-mode/#propagators) documentation
+    - Taint propagators - moved to [Taint tracking](/writing-rules/data-flow/taint-mode#propagators-pro) documentation
 - Updated screenshots in Semgrep App documentation. Many additional improvements and fixes were made.

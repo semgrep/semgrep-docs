@@ -1,12 +1,12 @@
 ---
 description: Fix a SAML configuration error when an AttributeStatement is missing.
 tags:
-  - Semgrep AppSec Platform 
+  - Semgrep AppSec Platform
   - SSO
   - Troubleshooting
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # SAML SSO error: There is no AttributeStatement on the Response
 
@@ -18,11 +18,9 @@ This error occurs when [an attribute within the SAML response does not contain a
 
 ## Find the SAML attribute that is causing the error
 
-1. If you do not know the attribute that is causing the error, you can [identify it by investigating the payload](https://support.okta.com/help/s/article/How-to-View-a-SAML-Response-in-Your-Browser-for-Troubleshooting?language=en_US). 
+1. If you do not know the attribute that is causing the error, you can [identify it by investigating the payload](https://support.okta.com/help/s/article/How-to-View-a-SAML-Response-in-Your-Browser-for-Troubleshooting?language=en_US).
 2. Once you have identified the attribute in question, there are two ways for you to fix the issue. The best option depends on what information your SP expects to receive:
-   - If your SP requires a value for the specific SAML attribute statement, you must add the value in the IdP. When [setting up SSO to Semgrep AppSec Platform](/semgrep-cloud-platform/sso/#saml-20), you must provide `name` and `email`.
+   - If your SP requires a value for the specific SAML attribute statement, you must add the value in the IdP. When [setting up SSO to Semgrep AppSec Platform](/deployment/sso/#saml-20), you must provide `name` and `email`.
    - If your SP does *not* expect the attribute statement in your SAML settings, you can remove it.
 
 Regardless of which option you choose, you can update or remove SAML attribute statements using your identity provider (IdP). Reach out to your SSO administrator or your IdP for instructions.
-
-<MoreHelp />

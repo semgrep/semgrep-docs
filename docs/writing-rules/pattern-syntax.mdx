@@ -4,17 +4,15 @@ slug: pattern-syntax
 description: "Learn Semgrep's pattern syntax to search code for a given code pattern. If you're just getting started writing Semgrep rules, check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
-import MoreHelp from "/src/components/MoreHelp";
-
 # Pattern syntax
 
 :::tip
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
 :::
 
-This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](/docs/pattern-examples). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
+This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](/writing-rules/pattern-examples). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
 coordinating patterns may be specified in a configuration file. See
-[rule syntax](/docs/rule-syntax) for more information.
+[rule syntax](/writing-rules/rule-syntax) for more information.
 
 ## Pattern matching
 
@@ -358,7 +356,7 @@ The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info
 You can use `"$X"` to match any string literal. This is similar
 to using `"..."`, but the content of the string is stored in the
 metavariable `$X`, which can then be used in a message
-or in a [`metavariable-regex`](/docs/rule-syntax/#metavariable-regex).
+or in a [`metavariable-regex`](/writing-rules/rule-syntax/#metavariable-regex).
 
 You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
@@ -585,7 +583,7 @@ def update_system():
 ```
 
 Basic constant propagation support like in the example above is a stable feature.
-Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](/docs/data-flow/constant-propagation).
+Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation).
 
 The pattern `set_password("...")` also matches:
 
@@ -599,7 +597,7 @@ def update_system():
 ```
 
 :::tip
-It is possible to disable constant propagation in a per-rule basis via the [`options` rule field](./rule-syntax.md#options).
+It is possible to disable constant propagation in a per-rule basis via the [`options` rule field](/writing-rules/rule-syntax#options).
 :::
 
 ### Associative and commutative operators
@@ -608,7 +606,7 @@ Semgrep performs associative-commutative (AC) matching. For example, `... && B &
 
 Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
 
-Using [`options`](/docs/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
 
 ## Deep expression operator
 
@@ -729,7 +727,7 @@ you can just match the header of a conditional with `if ($E)`,
 or just the try part of an exception statement with `try { ... }`.
 
 This is especially useful when used in a
-[pattern-inside](/docs/rule-syntax#pattern-inside) to restrict the
+[pattern-inside](/writing-rules/rule-syntax#pattern-inside) to restrict the
 context in which to search for other things.
 
 ### Other partial constructs
@@ -744,7 +742,7 @@ function `foo`. In the same way, you can just match a class header
 ### String matching
 
 :::warning
-String matching has been deprecated. You should use [`metavariable-regex`](/docs/rule-syntax#metavariable-regex) instead.
+String matching has been deprecated. You should use [`metavariable-regex`](/writing-rules/rule-syntax#metavariable-regex) instead.
 :::
 
 Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
@@ -756,5 +754,3 @@ requests.get("api.dev.corp.com")  # Oops, development API left in
 ```
 
 To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
-
-<MoreHelp />

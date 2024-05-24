@@ -8,7 +8,7 @@ tags:
   - Semgrep AppSec Platform
 ---
 
-# Scan local repositories and upload findings 
+# Scan local repositories and upload findings
 
 You can send findings (scan results) from a local repository to Semgrep AppSec Platform. The local repository is a separate **project** from its remote counterpart. This is useful for testing rules and policies, or simply scanning your own work before it is merged to your organization's trunk branch.
 
@@ -49,14 +49,14 @@ Refer to the following image for an example of both remote and local Projects in
 * **For personal orgs:** A local repository scan does **not** overwrite the findings records of its remote counterpart. They are two separate projects. Personal accounts only have one team member or user: you.
 * **For organization orgs**: A local repository scan does **not** overwrite findings records of its remote counterpart. However, if two members have both cloned the same local repository, such as `RepoA`, and both send local `RepoA` findings, one set of findings may overwrite other unintentionally. This is because orgs can have more than one team member, but all local scans are sent to the same project slug.
 
-## Link local scans to their remote repositories 
+## Link local scans to their remote repositories
 
 When sending findings from local repositories to Semgrep AppSec Platform, the links shown on the **Findings** page are not generated. They may be missing, or they may not link to the correct file. This is because the scan was performed on your local repository, not remote.
 
 You can optionally set up cross-linking between local and remote repositories to create the correct hyperlinks. To do so, set up environment variables through the CLI:
 
-1. Navigate to the root of your repo.
-2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repo:
+1. Navigate to the root of your repository.
+2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repository:
     <pre><code>
     export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
     </code></pre>
@@ -69,7 +69,7 @@ You can optionally set up cross-linking between local and remote repositories to
         <pre><code>
         export SEMGREP_BRANCH=<span className="placeholder">BRANCH_NAME</span>
         </code></pre>
-4. Create the `SEMGREP_REPO_NAME` variable, setting it to the name of your repo:
+4. Create the `SEMGREP_REPO_NAME` variable, setting it to the name of your repository:
     <pre><code>
     export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span>
     </code></pre>
@@ -99,7 +99,7 @@ export SEMGREP_REPO_URL=https://github.com/corporation/s_juiceshop
 # Set the repository name
 export SEMGREP_REPO_NAME=corporation/s_juiceshop
 
-# Retrieve the branch 
+# Retrieve the branch
 git rev-parse --abbrev-ref HEAD
 s_update
 

@@ -10,7 +10,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
@@ -21,13 +21,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Set up GitLab merge request comments
 
@@ -52,7 +46,7 @@ MR comments appear for the following types of scans under these conditions:
 
 In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 
-### Confirm your Semgrep account's connection to GitLab
+### Confirm your Semgrep account's connection
 
 MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
@@ -97,7 +91,7 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
     1. In your CI provider's interface, define the value of the PAT as a secret. Refer to your CI provider's documentation for steps to do this.
     2. Define the environment variable `GITLAB_TOKEN` and assign the PAT to it.
 
-For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs/#gitlab-ci).
+For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs#gitlab-cicd).
 
 ### Define environment variables needed for other CI providers
 
@@ -134,7 +128,7 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 
 :::info Prerequisites
 - Set up Semgrep to post GitLab merge request comments, as described on this page.
-- To obtain meaningful results of dataflow traces in MR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
+- To obtain meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
@@ -145,5 +139,3 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

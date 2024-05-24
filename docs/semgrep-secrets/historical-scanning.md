@@ -17,11 +17,12 @@ You can perform one-time historical scans or enable historical scanning for full
 
 You can run historical scans in the CLI and in your Semgrep deployment, which enables you to track and triage these secrets.
 
-:::note Feature maturity
+## Feature maturity
+
 - This feature is in **public beta**. See [Limitations](#limitations) for more information.
 - All Semgrep Secrets customers can enable this feature.
 - Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
-:::
+
 
 ## Run historical scans
 

@@ -10,21 +10,15 @@ tags:
     - Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Ticketing integrations
 
-Send tickets to third-party ticketing systems through Semgrep AppSec Platform. 
+Send tickets to third-party ticketing systems through Semgrep AppSec Platform.
 
 :::note
 These features are in a **closed beta**. To request access:
@@ -37,4 +31,3 @@ Semgrep AppSec Platform can create tickets in the following systems:
 * [Asana](/semgrep-appsec-platform/asana)
 * [Jira](/semgrep-appsec-platform/jira)
 * [Linear](/semgrep-appsec-platform/linear)
-
