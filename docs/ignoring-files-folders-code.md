@@ -98,19 +98,30 @@ To define files and folders in Semgrep AppSec Platform:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
 2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
-3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
-4. Enter files and folders to ignore in the **Path Ignores** box.
+3. Find the project you want to modify, then click its <i class="fa-solid fa-gear"></i> **gear** icon in the **Settings** column.
+4. To define files and folders that Semgrep Code and Semgrep Supply Chain ignores:
+   1. Click **Code (SAST) & Supply Chain (SCA)** to expand and display the **Path Ignores** box.
+   2. Enter files and folders to ignore in the **Path Ignores** box.
+   3. Click **Save changes**.
+5. To define files and folders that Semgrep Secrets ignores:
+   1. Click **Secrets** to expand and display the **Path Ignores** box.
+   2. Enter files and folders to ignore in the **Path Ignores** box.
+   3. Click **Save changes**.
 
-Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns, though anything added to the `.semgrepignore` file does override the default Sempgrep patterns.
+Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
+
+Adding items to the **Path Ignores** box doesn't override default Semgrep ignore patterns, but items added to `.semgrepignore` overrides default Semgrep patterns.
+
+### Add items to `.semgrepignore` during findings triage
 
 You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
 
 1. On the Semgrep Code [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
-1. Next to a finding you want to ignore, click **Open**.
-2. Select **Ignored**, and optionally, select an **Ignore reason**.
-3. Click to expand **Ignore files in future scans...**.
-4. Select the files you want ignored in future scans.
-5. Click **Change status** to save. 
+2. Next to a finding you want to ignore, click **Open**.
+3. Select **Ignored**, and optionally, select an **Ignore reason**.
+4. Click to expand **Ignore files in future scans...**.
+5. Select the files you want ignored in future scans.
+6. Click **Change status** to save. 
 
 ## Ignore code through nosemgrep
 
