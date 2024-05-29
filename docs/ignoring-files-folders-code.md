@@ -8,7 +8,6 @@ hide_title: true
 
 <!-- Updates to this doc may affect ignore-oss -->
 
-
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignore files, folders, and code
@@ -69,13 +68,12 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. An empty `.semgrepignore` will make Semgrep scan paths in `.gitignore`. |
-| To ignore files and folders in `.gitignore`. | Add `:include .gitignore` to your `.semgrepignore` file. |
+| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
-| To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the  pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, still resulting in the file's exclusion. |
-| To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`, which overrides its definition within `.semgrepignore` as well. |
+| To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
+| To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](/writing-rules/rule-syntax#paths).
 
 ## Define ignored files and folders in `.semgrepignore`
@@ -103,15 +101,16 @@ To define files and folders in Semgrep AppSec Platform:
 3. Select the name of the project to modify, and then click the respective <i class="fa-solid fa-gear"></i> **gear** icon in the Settings column.
 4. Enter files and folders to ignore in the **Path Ignores** box.
 
-Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns.
+Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores. Adding items to the **Path Ignores** box does not override default Semgrep ignore patterns, though anything added to the `.semgrepignore` file does override the default Sempgrep patterns.
 
 You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
 
-<IgnoreIndividualFindingNoGrouping />
-
-:::note
-Add files to `.semgrepignore` in the fifth step of the procedure described above.
-:::
+1. On the Semgrep Code [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
+1. Next to a finding you want to ignore, click **Open**.
+2. Select **Ignored**, and optionally, select an **Ignore reason**.
+3. Click to expand **Ignore files in future scans...**.
+4. Select the files you want ignored in future scans.
+5. Click **Change status** to save. 
 
 ## Ignore code through nosemgrep
 
@@ -196,6 +195,6 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 ## Known issues
 
-### `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
+* `--no-git-ignore` is overridden due to default ignore patterns (.semgrepignore) ([#4537](https://github.com/semgrep/semgrep/issues/4537))
 
-To fix this, create an empty .semgrepignore file. If the scan is a one-off event, delete the .semgrepignore file to restore default ignore patterns.
+    To fix this, create an empty .semgrepignore file. If the scan is a one-off event, delete the .semgrepignore file to restore default ignore patterns.
