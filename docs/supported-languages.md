@@ -32,7 +32,7 @@ This document provides information about supported languages and language maturi
 
 Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
 
-Semgrep Code is a static application security testing (SAST) solution that makes use of proprietary Semgrep analyses, such as cross-file (interfile) and cross-function (intrafile) data flow, in addition to Semgrep OSS. This results in a [higher true positive rate than Semgrepe OSS](/semgrep-code/java).
+Semgrep Code is a static application security testing (SAST) solution that makes use of proprietary Semgrep analyses, such as cross-file (interfile) and cross-function (intrafile) data flow, in addition to Semgrep OSS. This results in a [higher true positive rate than Semgrep OSS](/semgrep-code/java).
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
