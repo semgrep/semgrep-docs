@@ -263,6 +263,13 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
    <td>--</td>
 </tr>
 <tr>
+   <td>Elixir</td>
+   <td>Hex</td>
+   <td><code>mix.lock</code></td>
+   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td>--</td>
+</tr>
+<tr>
    <td rowspan="2">Kotlin</td>
    <td>Gradle</td>
    <td><code>gradle.lockfile§</code></td>
