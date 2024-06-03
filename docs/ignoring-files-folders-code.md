@@ -110,7 +110,7 @@ To define files and folders in Semgrep AppSec Platform:
 
 Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
 
-Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns, since the patterns are additive. However, items added to `.semgrepignore` overrides default Semgrep patterns.
+Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` overrides default Semgrep CLI patterns.
 
 ### Add items to `.semgrepignore` during findings triage
 
