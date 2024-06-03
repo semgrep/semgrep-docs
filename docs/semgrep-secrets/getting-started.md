@@ -17,8 +17,9 @@ and save time by prioritizing which secrets to rotate based on whether they're a
 
 This document guides you through:
 
-1. Enabling Semgrep Secrets
-2. Viewing your results and triaging your findings
+1. Enabling Semgrep Secrets and scanning your repository
+2. Configuring your ignore files
+3. Upgrading your Semgrep Code rules to Semgrep Secrets rules
 
 ## Language and environment support
 
@@ -47,7 +48,7 @@ After you've enabled Semgrep Secrets, you can:
 
 ## Configure files to ignore
 
-Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that are not relevant for code scanning. To specify files that Semgrep Secrets should ignore:
+Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that aren't relevant for code scanning. To specify files that Semgrep Secrets should ignore:
 
 1. Sign in to Semgrep AppSec Platform.
 2. Go to **Projects** and find your project. Select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
@@ -62,7 +63,7 @@ You can see individual findings for which there is a Semgrep Secrets rule upgrad
 
 ![Finding tagged as having a Secrets rule available](/img/superseded-rules-finding.png#md-width)
 
-To see the rules you're using for which there is Secrets rule upgrade in Semgrep AppSec Platform:
+To see the rules you're using for which there is a Secrets rule upgrade in Semgrep AppSec Platform:
 
 1. Sign in to Semgrep AppSec Platform.
 2. Go to **Rules** > **Policies** > **Code**.
