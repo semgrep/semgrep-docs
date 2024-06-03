@@ -37,7 +37,6 @@ In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repo
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
-
 ```
 
 :::caution
@@ -60,7 +59,6 @@ There are files that Semgrep ignores even without `.semgrepignore`:
 Large files and unknown file extensions are included or excluded through command line flags (See [CLI reference](/docs/cli-reference)). Binary files are never scanned.
 
 This document defines **files, folders and code** as those that are **relevant to a Semgrep scan**. For example, `.jpg` files are not a part of Semgrep's scope and therefore are not part of the scope of this document.
-
 
 ## Customize ignore behavior
 
@@ -114,7 +112,7 @@ Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override 
 
 ### Add items to `.semgrepignore` during findings triage
 
-You can also add files to `.semgrepignore` while triaging individual findings in the **No grouping** view on the Findings page:
+You can also add files to `.semgrepignore` while triaging individual findings using Semgrep AppSec Platform in the **No grouping** view on the Findings page:
 
 1. On the Semgrep Code [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
 2. Next to a finding you want to ignore, click **Open**.
@@ -206,9 +204,9 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 ## Troubleshooting
 
-**For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly include files that are typically excluded from a Semgrep scan, such as `/tests`, you must:
+**For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly exclude files, you must:
 
-1. Create a `.semgrepignore` file that includes the files you want included.
+1. Create a `.semgrepignore` file that lists the files you want excludes.
 2. [Update the **Path Ignores** box](#define-ignored-files-and-folders-in-semgrep-appsec-platform) in Semgrep AppSec Platform.
 
 ## Known issues
