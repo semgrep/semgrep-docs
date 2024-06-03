@@ -110,7 +110,7 @@ To define files and folders in Semgrep AppSec Platform:
 
 Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
 
-Adding items to the **Path Ignores** box doesn't override default Semgrep ignore patterns, but items added to `.semgrepignore` overrides default Semgrep patterns.
+Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns, since the patterns are additive. However, items added to `.semgrepignore` overrides default Semgrep patterns.
 
 ### Add items to `.semgrepignore` during findings triage
 
@@ -203,6 +203,13 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 * [Ignore findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings)
 * [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments)
+
+## Troubleshooting
+
+**For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly include files that are typically excluded from a Semgrep scan, such as `/tests`, you must:
+
+1. Create a `.semgrepignore` file that includes the files you want included.
+2. [Update the **Path Ignores** box](#define-ignored-files-and-folders-in-semgrep-appsec-platform) in Semgrep AppSec Platform.
 
 ## Known issues
 
