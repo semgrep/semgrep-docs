@@ -19,7 +19,7 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
-      { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     {
       type: 'link',
       label: 'Knowledge base',
