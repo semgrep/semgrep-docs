@@ -18,8 +18,8 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 ## Prerequisites
 
 * This feature is in a **closed beta**. To request access:
- 1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
- 2. Contact your Technical Account Manager or Account Executive and let them know you want to try the Jira integration.
+  1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
+  2. Contact your Technical Account Manager or Account Executive and let them know you want to try the Jira integration.
 * You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
 
 ## Enable the Jira integration
@@ -27,11 +27,11 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 To enable the Jira integration, follow these steps:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 3. If this is your first integration, click **Set up First Integration**. Otherwise, click **Add integration**. In the drop-down menu that appears, select **Jira**.
 4. Follow the on-screen instructions to grant Semgrep the necessary permissions and set up the integration.
 5. When prompted, select the Jira instance you want to connect to. If you have multiple Jira instances, choose one instance from the **Use app on** drop-down menu.
- * **For deployments that have used a previous version of the Jira integration**: Ensure you're connecting to the same Jira instance you previously connected to. Please contact Semgrep if you want to connect to a different Jira instance.
+   * **For deployments that have used a previous version of the Jira integration**: Ensure you're connecting to the same Jira instance you previously connected to. Please contact Semgrep if you want to connect to a different Jira instance.
 
 ## Configure the integration
 
@@ -43,7 +43,7 @@ Once you have enabled the Jira integration, you must complete the following step
 4. If you'd like to see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
 5. Click **Save changes** to proceed.
 
-![Jira configuration screen](/img/jira-subdomain.png)
+![Jira configuration screen](/img/jira-subdomain.png#md-width)
 **_Figure._** The Jira configuration screen.
 
 ### Create mappings
@@ -55,7 +55,7 @@ Optionally, you can customize the Jira field mappings and indicate which Semgrep
 * Drop-down menus
 * Checkboxes
 
-![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png)
+![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
 **_Figure._** The Jira configuration screen for field data mappings.
 
 > Click **Field mapping help** to see a list of the Semgrep fields available for mapping.
@@ -71,7 +71,7 @@ To create a mapping:
 
 Repeat these steps for each mapping you want to create. When done, click **Save changes** to proceed.
 
-:::note
+:::warning
 Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep values.
 :::
 
@@ -93,48 +93,68 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 
 ### Code
 
-To create tickets for one or more Code findings, you can use the triage button:
+You can create tickets for Code findings using the **Triage** button on the:
 
-* On the **Findings** page
-* On an individual finding's **Details** page.
+* [**Findings**](https://semgrep.dev/orgs/-/findings) page
+* Individual finding's **Details** page.
 
-When working on the **Findings** page, you can select and create tickets for individual findings or all findings for a given rule.
+To create tickets:
+
+1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step two.
+2. Click **Triage**.
+3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
+4. Click **Change status** to proceed.
 
 :::note
 Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
 :::
 
-![Create Jira ticket - Code](/img/jira-code-findings.png)
+![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
 ***Figure.*** Code triage flow
 
-Once a ticket has been created, a link appears on the right side of the **Findings** page and along the top of an individual finding's details page.
+Once a ticket has been created, a link appears on the **Findings** page and along the top of an individual finding's details page.
 
-![Jira ticket created - Code](/img/jira-code-ticketed.png)
+![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
 ***Figure.*** Code ticket created
 
 ### Supply Chain
 
-The Supply Chain triage flow creates tickets for all usages of a given vulnerability. Usages cannot be selected individually.
+You can create tickets for Supply Chain findings using the **Triage** button on the:
 
-To create tickets for one or more Supply Chain findings, you can use the triage button on the:
+* [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities) page
+* Individual finding's **Details** page
 
-* **Supply Chain > Vulnerabilities** page
-* Individual finding's **Details** page.
+To create tickets:
 
-![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png)
+1. If you're on the **Supply Chain > Vulnerabilities** page, select the findings for which you want tickets created. Otherwise, proceed to step two.
+2. Click **Triage**.
+3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
+4. Click **Change status** to proceed.
+
+![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
 ***Figure*.** Supply Chain triage flow
 
-![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png)
+![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png#md-width)
 ***Figure*.** Supply Chain ticket created
 
 ### Secrets
 
-After selecting one or more findings, you can use the triage button on the **Secrets** page to create tickets for them.
+To create tickets for findings generated by Semgrep Secrets:
 
-![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png)
+1. Select one or more findings listed in Secrets.
+2. Click **Triage**.
+3. Select **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets**.
+4. Click **Continue** to proceed.
+
+![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png#md-width)
 ***Figure*.** Secrets triage flow
 
-## Remove your Jira integration
+![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
+***Figure*.** Secrets ticket created
+
+## Remove the Jira integration
+
+To remove the Jira integration from your Semgrep organization:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. Navigate to the **Jira Cloud** section and click **Remove integration**.
