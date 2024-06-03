@@ -6,8 +6,6 @@ description: "This documents various methods to skip or ignore files or folders 
 hide_title: true
 ---
 
-<!-- Updates to this doc may affect ignore-oss -->
-
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignore files, folders, and code
