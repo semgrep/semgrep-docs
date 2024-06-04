@@ -21,7 +21,9 @@ import TabItem from '@theme/TabItem';
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 :::
 
-* Add the rest of your organization (org) members to Semgrep.
+Create a Semgrep account by signing in to Semgrep AppSec Platform with your GitHub or GitLab account. This enables you to:
+
+* Add the rest of your GitHub or GitLab organization (org) members to Semgrep.
 * Configure Semgrep to scan repositories in other source code managers, such as Bitbucket.
 
 :::tip Using SSO for your initial sign-in
@@ -30,7 +32,7 @@ Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgre
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform is used to manage all Semgrep Pro products, where you can:
+Semgrep AppSec Platform is used to manage all Semgrep products, and it is where you can:
 
 - View and manage your Semgrep findings.
 - Customize how Semgrep scans your code.
@@ -63,7 +65,7 @@ The following steps walk you through creating a **user account** and your first 
 
 </Tabs>
 
-You have successfully created an account and your first organization.
+You have successfully created an account, your first organization, and have optionally run your first scan.
 
 ## Set up organizations
 
