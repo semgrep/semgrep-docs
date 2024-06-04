@@ -32,7 +32,7 @@ Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgre
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform is used to manage all Semgrep products, where you can:
+Semgrep AppSec Platform is used to manage all Semgrep products, and it is where you can:
 
 - View and manage your Semgrep findings.
 - Customize how Semgrep scans your code.
