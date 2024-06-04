@@ -424,6 +424,17 @@ img[src*="sm-width-noborder"] {
   }
 }
 
+@media screen and (min-width: 997px) and (max-width: 1279px) {
+  a.navbar__link {
+    font-size: 0.90rem !important;
+  }
+  div.navbar__items:nth-child(1) > a:nth-child(4) {
+    display: none !important;
+  }
+  .navbar__search-input {
+    width: 10rem;
+  }
+}
 .navbar__items {
   height: 78px;
 }
