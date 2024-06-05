@@ -100,7 +100,7 @@ You can create tickets for Code findings using the **Triage** button on the:
 
 To create tickets:
 
-1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step two.
+1. If you're on the [**Findings**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step two.
 2. Click **Triage**.
 3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
 4. Click **Change status** to proceed.
@@ -126,7 +126,7 @@ You can create tickets for Supply Chain findings using the **Triage** button on 
 
 To create tickets:
 
-1. If you're on the **Supply Chain > Vulnerabilities** page, select the findings for which you want tickets created. Otherwise, proceed to step two.
+1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities) page, select the findings for which you want tickets created. Otherwise, proceed to step two.
 2. Click **Triage**.
 3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
 4. Click **Change status** to proceed.
