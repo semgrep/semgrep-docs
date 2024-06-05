@@ -96,7 +96,7 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 You can create tickets for Code findings using the **Triage** button on the:
 
 * [**Findings**](https://semgrep.dev/orgs/-/findings) page
-* Individual finding's **Details** page.
+* Individual finding's **Details** page
 
 To create tickets:
 
