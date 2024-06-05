@@ -29,11 +29,7 @@ Semgrep scans can be classified by **scope**. The scope of a scan refers to what
       results introduced by changes in commits 9 and 10. This is how{" "}
       <code>semgrep ci</code> can run in pull requests and merge requests, since
       it reports only the findings that are created by those code changes. To
-      run a diff-aware scan, use{" "}
-      <code>
-        SEMGREP_BASELINE_REF=<span class="placeholder">REF</span> semgrep ci
-      </code>{" "}
-      where <span class="placeholder">REF</span> can be a commit hash, branch
+      run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF </span>semgrep ci</code>, where <span class="placeholder">REF</span> can be a commit hash, branch
       name, or other Git reference.
     </p>
   </dd>
