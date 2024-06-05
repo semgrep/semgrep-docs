@@ -19,7 +19,7 @@ it redirects to the default site: `https://semgrep.dev` and it could lead to an 
 
 ## How to fix this login issue
 
-It can be solved setting the environment variable `SEMGREP_APP_URL` before calling to the `semgrep login` function.
+It can be solved by setting the environment variable `SEMGREP_APP_URL` before calling the `semgrep login` function.
 ```console
 export SEMGREP_APP_URL=https://yourcompany.semgrep.dev
 ```
