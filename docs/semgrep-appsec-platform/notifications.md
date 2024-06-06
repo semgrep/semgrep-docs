@@ -6,8 +6,8 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures, how to receive merge or pull request comments in your CI/CD pipeline, or how to integrate using webhooks."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 

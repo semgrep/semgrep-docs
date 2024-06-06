@@ -5,13 +5,9 @@ title: Linear
 hide_title: true
 description: "Send Semgrep findings to your Linear project."
 tags:
+    - Beta
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Create Linear tickets
 

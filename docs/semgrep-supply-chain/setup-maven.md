@@ -5,8 +5,8 @@ title: Apache Maven
 hide_title: true
 description: Set up Semgrep Supply Chain to correctly detect packages in Maven.
 tags:
+  - Deployment
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
 ---
 
 
@@ -30,7 +30,7 @@ The **general steps** to enable Semgrep Supply Chain to correctly parse Maven pr
 :::caution
 * Ensure that Maven is installed in the build environment that is used to generate the dependency trees.
 * Ensure that you generate dependency trees before running Semgrep.
-* This approach works for full scans. It does not work for [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) because the generated file is not tracked by git.
+* This approach works for full scans. It does not work for [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) because the generated file is not tracked by Git.
 :::
 
 You can perform the general steps in a local environment for testing. The following screenshot displays the commands running in a local environment:
@@ -57,7 +57,7 @@ To successfully run a Semgrep Supply Chain scan in GitHub Actions, the GitHub Ac
 
 <TabItem value='gha-multiple'>
 
-In the following code snippet, dependency trees are shared between the two jobs through a zip file that gathers all the lock files and, in the next job, unzips the lock files and runs Semgrep as usual.
+In the following code snippet, dependency trees are shared between the two jobs through a zip file that gathers all the lockfiles and, in the next job, unzips the lockfiles and runs Semgrep as usual.
 
 ```yaml
 on:

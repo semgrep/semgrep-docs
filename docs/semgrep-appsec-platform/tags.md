@@ -5,13 +5,9 @@ description: "Guidelines on how to add or remove tags through Semgrep AppSec Pla
 title: Tagging projects
 hide_title: true
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Tagging projects
 

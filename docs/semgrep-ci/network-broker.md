@@ -4,8 +4,7 @@ title: Semgrep Network Broker
 hide_title: false
 description: Learn how to set up the Semgrep Network Broker, which facilitates secure access between Semgrep and your private network.
 tags:
-  - Semgrep in CI
-  - Network broker
+  - Deployment
 ---
 
 # Set up the Semgrep Network Broker

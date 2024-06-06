@@ -5,10 +5,7 @@ title: AI-assisted triage and autofix
 hide_title: true
 description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings.
 tags:
-  - Semgrep Code
-  - Semgrep Supply Chain
-  - Semgrep Secrets
-  - Semgrep AppSec Platform
+  - Deployment
   - Semgrep Assistant
 ---
 

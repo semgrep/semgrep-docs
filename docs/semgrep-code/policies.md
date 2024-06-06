@@ -5,14 +5,9 @@ title: Set rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
-    - Semgrep AppSec Platform
-    - Team & Enterprise Tier
     - Semgrep Code
+    - Semgrep AppSec Platform
 ---
-
-
-
-
 
 # Set rules through Policies
 

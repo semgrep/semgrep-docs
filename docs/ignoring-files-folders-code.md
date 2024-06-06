@@ -4,6 +4,9 @@ append_help_link: true
 title: Ignore files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
 hide_title: true
+tags:
+    - Semgrep OSS
+    - Semgrep AppSec Platform
 ---
 
 <!-- Updates to this doc may affect ignore-oss -->
@@ -47,14 +50,14 @@ The default `.semgrepignore` file causes Semgrep to skip these folders:
 * `/tests`, `/test`
 * `/vendors`
 
-To include the above folders, create a `.semgrepignore` file without those paths.
+To include these folders, create a `.semgrepignore` file without those paths.
 :::
 
 ## Files, folders, and code beyond Semgrep's scope
 
 There are files that Semgrep ignores even without `.semgrepignore`:
 
-* Large files (maximum file size defaults to 1MB)
+* Large files (maximum file size defaults to 1 MB)
 * Binary files
 * Unknown file extensions (file extensions not matched with any supported programming language)
 
@@ -192,7 +195,7 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 **Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
 * [Ignore findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings)
-* [Ingore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments)
+* [Ignore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments)
 
 ## Known issues
 

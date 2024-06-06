@@ -5,10 +5,9 @@ title: Teams and user management
 hide_title: true
 description: Manage user access to projects through Teams.
 tags:
+  - Deployment
   - Semgrep AppSec Platform
 ---
-
-
 
 # Manage user access to projects
 

@@ -1,9 +1,11 @@
 ---
 slug: semgrep-intellij
 append_help_link: true
+description
+description: Learn how to install and use Semgrep's extension for IntelliJ.
+tags:
+    - Extensions
 ---
-
-
 
 # Semgrep IntelliJ extension
 
