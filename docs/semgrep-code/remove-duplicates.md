@@ -7,7 +7,6 @@ description: Learn how to remove duplicate findings and prevent them from displa
 tags:
   - Semgrep Code
   - Semgrep AppSec Platform
-  - Team & Enterprise tier
 ---
 
 # Remove duplicate findings

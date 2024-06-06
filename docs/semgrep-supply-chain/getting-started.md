@@ -4,7 +4,6 @@ append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
 title: Scan third-party dependencies
 hide_title: true
 ---

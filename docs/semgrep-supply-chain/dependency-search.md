@@ -6,7 +6,7 @@ hide_title: true
 description: "Search through all your dependencies in all your onboarded repositories at any time."
 tags:
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
+  - Semgrep AppSec Platform
 ---
 
 # Search through your dependencies

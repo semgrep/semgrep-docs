@@ -4,7 +4,7 @@ append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
+    - Semgrep AppSec Platform
 title: Triage and remediation
 hide_title: true
 ---

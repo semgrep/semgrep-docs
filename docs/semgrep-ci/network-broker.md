@@ -65,7 +65,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
   <pre class="language-console"><code>echo `<span className="placeholder">YOUR_PRIVATE_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
-  :::info Key sharing 
+  :::info Key sharing
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
   :::
 
@@ -90,11 +90,11 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your GitLab or GitHub URL:
 
   ```yaml
-  # for GitLab 
+  # for GitLab
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>
 
-  # for GitHub 
+  # for GitHub
   github:
     baseUrl: <https://github.exampleCo.com/api/v3>
   ```
@@ -102,8 +102,8 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address `SEMGREP_LOCAL_ADDRESS`. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
 
   <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">DEPLOYMENT_ID</span>:0:1</code></pre>
- 
-  Update the `localAddress` field of `config.yaml`; 
+
+  Update the `localAddress` field of `config.yaml`;
 
   ```yaml
   inbound:

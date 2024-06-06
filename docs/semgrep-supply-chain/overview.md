@@ -4,7 +4,6 @@ append_help_link: true
 description: "Learn how Semgrep leverages its engine to scan open source dependencies with high-signal rules."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
 title: Overview
 hide_title: false
 ---

@@ -5,7 +5,6 @@ title: Ignore files, folders, and code
 description: "This documents various methods to skip or ignore files or folders that are not relevant to a Semgrep scan."
 hide_title: true
 tags:
-    - Semgrep OSS
     - Semgrep AppSec Platform
 ---
 

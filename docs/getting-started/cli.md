@@ -5,7 +5,6 @@ hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
   - quickstart
-  - cli
 ---
 
 
