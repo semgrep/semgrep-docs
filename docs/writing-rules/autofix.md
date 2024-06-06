@@ -10,7 +10,7 @@ Semgrep's rule format supports a `fix:` key that supports the replacement of met
 
 You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
 
-Sample autofix (see in [Playground](https://semgrep.dev/s/R6g)):
+Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
 
 ```yaml
 rules:
@@ -26,7 +26,7 @@ rules:
   severity: WARNING
 ```
 
-## Creating autofix rules
+## Create autofix rules
 
 See how to create an autofix rule in **Transforming code with Semgrep autofixes** video:
 
