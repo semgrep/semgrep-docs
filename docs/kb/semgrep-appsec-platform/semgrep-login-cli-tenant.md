@@ -24,4 +24,4 @@ Set the environment variable `SEMGREP_APP_URL` before calling the `semgrep login
 export SEMGREP_APP_URL=https://mycompany.semgrep.dev
 semgrep login
 ```
-As login can be a recurrent task, one tip is to set the export statement in the `.~/.bashrc` file or similar depending on your operative system.
+If you frequently log in from the command line, set the SEMGREP_APP_URL variable in your shell initialization file, such as `~/.zshrc` or `~ /.bash_profile`, depending on your operating system.
