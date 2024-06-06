@@ -17,7 +17,7 @@ semgrep login
 it redirects to the default site: `https://semgrep.dev` and it could lead to an authentication issue if you are a single-tenant customers, as the expected site should be an URL like: `https://yourcompany.semgrep.dev`
 
 
-## How to fix this login issue
+## To log in to the correct tenant site
 
 It can be solved by setting the environment variable `SEMGREP_APP_URL` before calling the `semgrep login` function.
 ```console
