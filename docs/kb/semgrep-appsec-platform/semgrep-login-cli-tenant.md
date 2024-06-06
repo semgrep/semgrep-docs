@@ -8,7 +8,7 @@ tags:
 
 
 
-## semgrep login doesn't redirect to my Semgrep site.
+## The `semgrep login` command doesn't redirect to my Semgrep tenant site
 
 When executing the command: 
 ```console
