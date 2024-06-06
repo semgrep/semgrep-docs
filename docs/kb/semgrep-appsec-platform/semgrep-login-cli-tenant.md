@@ -1,5 +1,5 @@
 ---
-description: Fix a semgrep login issue for single-tenant customers.
+description: Execute `semgrep login` correctly for customers on dedicated tenants.
 tags:
   - Semgrep AppSec Platform
   - Login
