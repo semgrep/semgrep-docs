@@ -66,7 +66,7 @@ To create a mapping:
 
 1. Select the Semgrep product for which the mapping is valid: **Code**, **Supply Chain**, or **Secrets**.
 2. Click **Add mapping**.
-3. Select the **Jira field** to which the Semgrep data should be mapped. You can [create a new field](https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/) if necessary. If you opt not to add Semgrep values to your Jira fields, you can create [automation to map to your field values](https://www.atlassian.com/software/jira/guides/automation/overview#what-is-automation).
+3. Select the **Jira field** to which the Semgrep data should be mapped. You can [create a new field](https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/) if necessary. If you opt not to add Semgrep values to your Jira fields, you can create an [automation to map to your field values](https://www.atlassian.com/software/jira/guides/automation/overview#what-is-automation).
 4. Select the **Semgrep field** that holds the data to be mapped.
 
 Repeat these steps for each mapping you want to create. When done, click **Save changes** to proceed.
@@ -77,7 +77,7 @@ Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep va
 
 ### Example mapping
 
-Semgrep's **Severity** field can have the following values: `Low`, `Medium`, `High`, and `Critical`. The following Jira field setups would work for capturing this information:
+Semgrep's **Severity** field can have the following values: `Low`, `Medium`, `High`, and `Critical`. The following Jira field setups can be used to capture this information:
 
 * A short text issue type field
 * A paragraph issue type field
