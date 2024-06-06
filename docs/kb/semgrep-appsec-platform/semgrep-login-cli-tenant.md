@@ -21,6 +21,7 @@ it redirects to the default site: `https://semgrep.dev` and it could lead to an 
 
 Set the environment variable `SEMGREP_APP_URL` before calling the `semgrep login` function.
 ```console
-export SEMGREP_APP_URL=https://yourcompany.semgrep.dev
+export SEMGREP_APP_URL=https://mycompany.semgrep.dev
+semgrep login
 ```
 As login can be a recurrent task, one tip is to set the export statement in the `.~/.bashrc` file or similar depending on your operative system.
