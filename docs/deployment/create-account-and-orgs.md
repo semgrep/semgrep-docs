@@ -5,9 +5,8 @@ title: Create an account
 hide_title: true
 description: Create a Semgrep account and organization to prepare your deployment for the addition of repositories and team members.
 tags:
-  - Semgrep AppSec Platform
-  - Team & Enterprise Tier
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
