@@ -8,7 +8,7 @@ description: >-
   rule licensing, technical support, and more.
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import TOCInline from "@theme/TOCInline"
 
 # Frequently asked questions
@@ -218,5 +218,3 @@ A policy is a simple collection of rules and a definition of what to do with rul
 ### Do you have a visualization UI?
 
 Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](/semgrep-appsec-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
-
-<MoreHelp />

@@ -9,7 +9,7 @@ tags:
   - Semgrep Supply Chain
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # License compliance
 
@@ -168,5 +168,3 @@ To set a custom dependency exception:
    4. Click **Add** to save and add the exception.
 
 ![Semgrep AppSec Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)
-
-<MoreHelp />

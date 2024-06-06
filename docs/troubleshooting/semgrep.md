@@ -6,7 +6,7 @@ hide_title: true
 append_help_link: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Troubleshooting Semgrep CLI
 
@@ -29,5 +29,3 @@ Review troubleshooting steps for slow scans at [Semgrep scan troubleshooting: Sl
 Thank you! Check out the [Contributing docs](/docs/contributing/contributing) to get started.
 
 The section [Exploring results from a slow run of Semgrep](/docs/contributing/semgrep-core-contributing/#exploring-results-from-a-slow-run-of-semgrep) is helpful if you haven't previously investigated Semgrep performance.
-
-<MoreHelp />

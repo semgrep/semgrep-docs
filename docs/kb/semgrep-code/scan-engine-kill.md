@@ -5,8 +5,6 @@ tags:
   - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-
 # Troubleshooting "You are seeing this because the engine was killed" on monorepos
 
 Scans can fail to complete on large monorepos. This article describes possible solutions, such as:
@@ -55,7 +53,7 @@ To determine how many files are getting scanned:
 1. View the Semgrep scan output in your CI logs. This step depends on your CI provider.
 2. In the CI logs, search for the section **Scan Status**.
 
-A sample Semgrep scan ouptut can look like this:
+A sample Semgrep scan output can look like this:
 
 ```console
 ┌─────────────┐
@@ -129,7 +127,7 @@ First, establish how much memory is required to scan. Determining the total amou
 $ free -m
 ```
 to see both your RAM and your swap space usage in Linux.
-- Then perhaps add 10% more RAM to your final memory tally to account for churn, increase in code, and so on.  This is something you must gauge.
+- Then perhaps add 10% more RAM to your final memory tally to account for churn, increase in code, and so on. This is something you must gauge.
 
 ## Parallelization
 
@@ -141,4 +139,3 @@ To increase parallelization, first try the scan with `-j 2` for two jobs. For tw
 
 Furthermore, there is overhead in parallelization: the total RAM required for a `-j 2` scan is greater than a `-j 1` scan for the same codebase, but you should see a decrease in total scan time.
 
-<MoreHelp/>

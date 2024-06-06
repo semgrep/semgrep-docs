@@ -4,8 +4,6 @@ slug: pattern-syntax
 description: "Learn Semgrep's pattern syntax to search code for a given code pattern. If you're just getting started writing Semgrep rules, check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
-import MoreHelp from "/src/components/MoreHelp";
-
 # Pattern syntax
 
 :::tip
@@ -756,5 +754,3 @@ requests.get("api.dev.corp.com")  # Oops, development API left in
 ```
 
 To search for specific strings, use the syntax `"=~/<regexp>/"`. Advanced regexp features are available, such as case-insensitive regexps with `'/i'` (e.g., `"=~/foo/i"`). Matching occurs anywhere in the string unless the regexp `^` anchor character is used: `"=~/^foo.*/"` checks if a string begins with `foo`.
-
-<MoreHelp />

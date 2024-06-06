@@ -10,17 +10,11 @@ hide_title: true
 title: CLI reference
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # CLI reference
 
@@ -107,5 +101,3 @@ The output is a single exit code, such as:
 - 11: Semgrep encountered a lexical error when running rule on a file.
 - 12: Semgrep found too many matches.
 -->
-
-<MoreHelp />

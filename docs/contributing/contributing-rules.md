@@ -6,7 +6,7 @@ toc_max_heading_level: 4
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import MoreHelp from "/src/components/MoreHelp"
+
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Contributing rules
@@ -171,7 +171,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 
 :::info
 - If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
-- Semgrep Pro Engine rules that leverage cross-file (interfile) analysis also require `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions).
+- Cross-file (interfile) analysis requires `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions).
 :::
 
 ### Understanding rule namespacing
@@ -504,6 +504,6 @@ See a [PR example](https://github.com/semgrep/semgrep-rules/pull/2730).
 
 There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
 
-<MoreHelp />
+
 
 [OWASP-DOM-based-XSS-prevention]: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html

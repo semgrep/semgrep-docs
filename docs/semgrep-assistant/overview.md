@@ -3,7 +3,7 @@ slug: overview
 append_help_link: true
 title: AI-assisted triage and autofix
 hide_title: true
-description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings. 
+description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings.
 tags:
   - Semgrep Code
   - Semgrep Supply Chain
@@ -12,7 +12,7 @@ tags:
   - Semgrep Assistant
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Semgrep Assistant overview
 
@@ -151,5 +151,3 @@ If Semgrep Assistant suggests that a finding is a true positive and supplies an 
 ## Next steps
 
 Learn how to [enable Semgrep Assistant](/semgrep-assistant/getting-started) for your deployment.
-
-<MoreHelp />

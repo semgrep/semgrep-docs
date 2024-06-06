@@ -1,12 +1,12 @@
 ---
 description: If SAML signature validation fails, check your certificate upload and information.
 tags:
-  - Semgrep AppSec Platform 
+  - Semgrep AppSec Platform
   - SSO
   - Troubleshooting
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # SAML SSO Error: Signature validation failed
 
@@ -30,7 +30,7 @@ Check information such as:
 - Validity dates
 - Signature algorithm and value
 
-Address any problems with the certificate. Then, upload the resulting certificate to Semgrep AppSec Platform: 
+Address any problems with the certificate. Then, upload the resulting certificate to Semgrep AppSec Platform:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access > [SSO](https://semgrep.dev/orgs/-/settings/access/sso)**.
@@ -38,5 +38,3 @@ Address any problems with the certificate. Then, upload the resulting certificat
 4. Click **Save**.
 
 After updating the settings, attempt a new SSO login.
-
-<MoreHelp />

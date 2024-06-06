@@ -6,7 +6,7 @@ tags:
   - Troubleshooting
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Troubleshooting SAML SSO
 
@@ -34,5 +34,3 @@ If you are not a SAML administrator, the best next step is to contact your admin
 If your SAML administrator changes the SAML configuration on the IdP side, you must change your Semgrep SAML configuration to match. For example, your administrator might update the login URL or add a redirect. This can result in errors in SAML communication.
 
 To resolve the issue, reach out to your SAML administrator to determine the new information to use.
-
-<MoreHelp />

@@ -6,7 +6,7 @@ tags:
   - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Performance principles for rules and files to abide by when scanning repositories
 
@@ -59,5 +59,3 @@ full list of files Semgrep skips by including the `--verbose` flag and
 inspecting `ci.log`. This information helps you determine the feasibility of
 including those files and whether you should adjust the maximum file size limit
 to scan such files.
-
-<MoreHelp />

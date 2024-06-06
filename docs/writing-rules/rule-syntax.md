@@ -4,7 +4,7 @@ slug: rule-syntax
 description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
@@ -1058,7 +1058,7 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "*.jinja2"
+        - "**/*.jinja2"
         - "*_test.go"
         - "project/tests"
         - project/static/*.js
@@ -1149,5 +1149,3 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 The [full configuration-file format](https://github.com/semgrep/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
-
-<MoreHelp />

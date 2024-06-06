@@ -8,7 +8,7 @@ hide_title: true
 
 <!-- Updates to this doc may or affect Ignoring files, folders, and code -->
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
 # Ignore files, folders, and code

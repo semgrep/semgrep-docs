@@ -9,7 +9,7 @@ tags:
   - quickstart
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -190,5 +190,3 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     :::info
     **Code is not uploaded.** Only **findings** are sent to Semgrep AppSec Platform.
     :::
-
-<MoreHelp />
