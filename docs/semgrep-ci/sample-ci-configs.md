@@ -5,13 +5,8 @@ description: "View sample configuration files to run Semgrep with various CI/CD 
 title: Sample CI configurations
 hide_title: true
 tags:
-    - Semgrep in CI
-    - Team & Enterprise Tier
+    - Deployment
 ---
-
-
-
-
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -302,6 +297,8 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 
 ### Sample Buildkite configuration snippet
 
+<!-- vale off -->
+
 <Tabs
     defaultValue="buildkite-semgrep"
     values={[
@@ -310,7 +307,10 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     ]}
 >
 
+<!-- vale on -->
+
 <TabItem value='buildkite-semgrep'>
+
 
 The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
 

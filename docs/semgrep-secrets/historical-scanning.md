@@ -6,7 +6,7 @@ hide_title: true
 description: Detect valid, leaked secrets in previous Git commits through a historical scan.
 tags:
   - Semgrep Secrets
-  - Team & Enterprise tier
+  - Semgrep AppSec Platform
 ---
 
 # Scan your Git history (beta)
@@ -26,7 +26,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 ## Run historical scans
 
-You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff scans.
+You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff-aware scans.
 
 ### Prerequisites
 

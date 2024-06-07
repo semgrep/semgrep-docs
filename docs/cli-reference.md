@@ -3,18 +3,13 @@ slug: cli-reference
 append_help_link: true
 description: "Reference for the Semgrep command-line interface including options and exit code behavior."
 tags:
-    - Semgrep CLI
-    - Semgrep Code
-    - Team & Enterprise Tier
+    - Semgrep AppSec Platform
 hide_title: true
 title: CLI reference
 ---
 
-
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
-
-
 
 # CLI reference
 

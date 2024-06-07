@@ -5,6 +5,7 @@ hide_title: true
 description: Learn about validators used in Semgrep Secrets rules.
 tags:
   - Semgrep Secrets
+  - Rule writing
 ---
 
 
@@ -43,7 +44,7 @@ validators:
     - match:
       - status-code: 401
       result:
-        validity: invalid 
+        validity: invalid
 ```
 
 <details>
@@ -54,7 +55,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING 
+  severity: WARNING
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -77,7 +78,7 @@ rules:
       - match:
         - status-code: 401
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)
@@ -99,16 +100,21 @@ rules:
 
 ### type
 
+<!-- vale off -->
+
 | Key | Required | Description |
 | - | - | - |
 | http | Yes | Indicates that the request type is `http`. |
+
+<!-- vale on -->
 
 :::note
 Semgrep only supports web services with HTTP(S).
 :::
 
-<!-- TODO: if we expand to more validator types we should  -->
 ### request
+
+<!-- vale off -->
 
 | Key | Required | Description |
 | - | - | - |
@@ -117,6 +123,8 @@ Semgrep only supports web services with HTTP(S).
 | url | Yes | The URL to which the call is made |
 | headers | Yes | The headers to include with the call |
 | body | No | The body used with `POST`, `PUT`, and `PATCH` requests |
+
+<!-- vale on -->
 
 #### Subkeys for `headers`
 
@@ -197,7 +205,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING 
+  severity: WARNING
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -221,7 +229,7 @@ rules:
       - match:
         - status-code: 401
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)
@@ -241,7 +249,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING 
+  severity: WARNING
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -277,7 +285,7 @@ rules:
       - match:
         - status-code: 200
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)
@@ -310,7 +318,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING 
+  severity: WARNING
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -333,7 +341,7 @@ rules:
       - match:
         - status-code: 401
         result:
-          validity: invalid 
+          validity: invalid
   patterns:
   - patterns:
     - pattern-regex: (?<REGEX>\b(someprefix_someRegex[0-9A-Z]{32})\b)

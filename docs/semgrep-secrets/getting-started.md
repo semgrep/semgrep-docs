@@ -70,7 +70,6 @@ To see the rules you're using for which there is a Secrets rule upgrade in Semgr
 3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
 
 ![Filter to find rules for which there is a rule upgrade](/img/superseded-rules-policies.png#md-width)
-
 ## Next steps
 
 * Learn how to [view and triage secrets in Semgrep AppSec Platform](/semgrep-secrets/view-triage)

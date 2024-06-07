@@ -6,6 +6,7 @@ hide_title: true
 description: Learn how to view and triage findings identified by Semgrep Secrets.
 tags:
     - Semgrep Secrets
+    - Semgrep AppSec Platform
 ---
 
 # View and triage secrets in Semgrep AppSec Platform

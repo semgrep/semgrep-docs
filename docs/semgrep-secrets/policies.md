@@ -6,6 +6,7 @@ hide_title: true
 description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code.
 tags:
   - Semgrep Secrets
+  - Semgrep AppSec Platform
 ---
 
 # Manage Semgrep Secrets rules using the Policies page
