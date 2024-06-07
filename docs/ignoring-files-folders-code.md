@@ -64,11 +64,11 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory. |
+| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory, or [remove the items listed in your project's **Path Ignores** list](#define-ignored-files-and-folders-in-semgrep-appsec-platform)  in Semgrep AppSec Platform. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
-| To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
+| To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. Any file that isn't matched is excluded. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](/writing-rules/rule-syntax#paths).
 
@@ -104,16 +104,16 @@ To define files and folders in Semgrep AppSec Platform:
    2. Enter files and folders to ignore in the **Path Ignores** box.
    3. Click **Save changes**.
 
-Including files and folders through this method is **additive**. When Semgrep AppSec Platform makes a scan, it looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
+Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
 
 Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
 
 ### Add items to `.semgrepignore` during findings triage
 
-You can also add files to `.semgrepignore` while triaging individual findings using Semgrep AppSec Platform in the **No grouping** view on the Findings page:
+You can also add files to `.semgrepignore` while triaging individual findings using Semgrep AppSec Platform:
 
 1. On the Semgrep Code [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
-2. Next to a finding you want to ignore, click **Open**.
+2. Click the finding you want ignored to open its **Details** page.
 3. Select **Ignored**, and optionally, select an **Ignore reason**.
 4. Click to expand **Ignore files in future scans...**.
 5. Select the files you want ignored in future scans.
@@ -202,9 +202,9 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 ## Troubleshooting
 
-**For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly exclude files, you must:
+**For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly exclude files, you must do one of the following steps:
 
-1. Create a `.semgrepignore` file that lists the files you want excludes.
+1. Create a `.semgrepignore` file that lists the files you want excluded.
 2. [Update the **Path Ignores** box](#define-ignored-files-and-folders-in-semgrep-appsec-platform) in Semgrep AppSec Platform.
 
 ## Known issues
