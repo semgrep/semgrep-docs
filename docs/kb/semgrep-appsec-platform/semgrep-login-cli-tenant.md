@@ -14,7 +14,7 @@ When executing the command:
 ```console
 semgrep login
 ```
-it redirects to `https://semgrep.dev`, and I receive an error when login: `The requested URL was not found on the server`. I'm expecting to be directed to `https://mycompany.semgrep.dev`
+it redirects to `https://semgrep.dev`, and I receive an error when login: `The requested URL was not found on the server`. I'm expecting to be redirected to `https://mycompany.semgrep.dev`
 
 
 ## To log in to the correct tenant site
