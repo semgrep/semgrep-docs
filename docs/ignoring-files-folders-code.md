@@ -64,7 +64,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory, or [remove the items listed in your project's **Path Ignores** list](#define-ignored-files-and-folders-in-semgrep-appsec-platform)  in Semgrep AppSec Platform. |
+| To scan all files within Semgrep's scope each time you run Semgrep (only files within `.git` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory, and for `semgrep ci` scans, [remove any entries listed in your project's **Path Ignores** list](#define-ignored-files-and-folders-in-semgrep-appsec-platform)  in Semgrep AppSec Platform. |
 | To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
