@@ -23,6 +23,7 @@ Prefer "Semgrep Slack app" over "Semgrep Slack integration" or "Slack integratio
 
 :::info Prerequisites
 * You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
+* If you have a dedicated Semgrep tenant, you must [contact Semgrep Support](/docs/support) to have your Semgrep tenant enabled for the Semgrep Slack app.
 :::
 
 The Semgrep Slack app enables Semgrep AppSec Platform to notify you of new findings after every scan. By receiving notifications within your Slack workspace, developers and security engineers are able to see findings without leaving their current environment. This can lessen the friction between detecting a finding, triaging it, and resolving it.
