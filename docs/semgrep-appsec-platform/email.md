@@ -6,12 +6,7 @@ hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Receiving email notifications
 

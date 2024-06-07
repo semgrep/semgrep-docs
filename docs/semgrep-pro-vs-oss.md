@@ -4,9 +4,6 @@ append_help_link: true
 title: Semgrep Pro versus Semgrep OSS
 hide_title: true
 description: "Learn about the features and differences of Semgrep OSS and Semgrep Pro."
-tags:
-  - Semgrep OSS
-  - Semgrep Team & Enterprise Tier
 ---
 
 # Semgrep Pro versus Semgrep OSS
@@ -24,7 +21,7 @@ The terms used in this document are defined as follows:
 <dl>
   <dt>Semgrep OSS</dt>
   <dd>
-    Refers to Semgrep offerings with an open-source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.
+    Refers to Semgrep offerings with an open source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.
   </dd>
   <dt>Semgrep Pro</dt>
   <dd>
@@ -114,7 +111,7 @@ The following table lists tools to enable developers to resolve findings in thei
 | ------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | [Role-based access control (RBAC)](/deployment/teams) | --          | ✔️                |
 | [Personal and organizational accounts](/deployment/teams)                              | --          | ✔️                |
-| [SSO, OpenID, or OAuth2 authentication](/deployment/sso)                                         | --          | ✔️                |
+| [SSO, OpenID, or OAuth 2.0 authentication](/deployment/sso)                                         | --          | ✔️                |
 
 ## 🧾 Licenses and tiers
 

@@ -7,10 +7,7 @@ description: >-
   This document links to Semgrep API documentation.
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
 
 # Semgrep API
 

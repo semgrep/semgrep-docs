@@ -6,12 +6,7 @@ hide_title: true
 description: "Receive Semgrep findings in your Slack workspaces."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Receiving Slack notifications
 

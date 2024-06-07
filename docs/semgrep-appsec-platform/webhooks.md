@@ -6,12 +6,7 @@ hide_title: true
 description: "Create webhooks to receive Semgrep findings in your endpoints."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Enabling webhooks
 
