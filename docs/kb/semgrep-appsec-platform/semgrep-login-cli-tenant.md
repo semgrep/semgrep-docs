@@ -14,7 +14,7 @@ When executing the command:
 ```console
 semgrep login
 ```
-it redirects to the default site: `https://semgrep.dev` and it could lead to an authentication issue if you are a single-tenant customers, as the expected site should be an URL like: `https://yourcompany.semgrep.dev`
+it redirects to `https://semgrep.dev`, and I receive an error when login: `The requested URL was not found on the server`. I'm expecting to be directed to `https://mycompany.semgrep.dev`
 
 
 ## To log in to the correct tenant site
