@@ -9,9 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-
-
-
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
 
 # Enabling webhooks
 
@@ -42,6 +40,8 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+
+<Notifications />
 
 ## Findings
 

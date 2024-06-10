@@ -9,9 +9,7 @@ tags:
     - Team & Enterprise Tier
 ---
 
-
-
-
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
 
 # Receiving Slack notifications
 
@@ -93,6 +91,8 @@ To change the settings:
 1. In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar. This displays the **Semgrep App Home**.
 2. Click the **three-dot menu** of the channel to update.
 3. Click **Manage filters**.
+
+<Notifications />
 
 ## Uninstalling the Semgrep Slack App from your Slack workspace
 
