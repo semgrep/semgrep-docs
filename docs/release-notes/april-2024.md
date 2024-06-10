@@ -13,8 +13,6 @@ tags:
 
 ## 🌐 Semgrep AppSec Platform
 
-<!-- Sara -->
-
 ### Added
 
 - The **Teams** feature, which provides project-level role-based access control (RBAC), is now in public beta. This feature enables you to assign **members** to **teams**, and then grant those teams access to specific projects (repositories added to Semgrep).
