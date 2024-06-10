@@ -10,6 +10,8 @@ Semgrep's rule format supports a `fix:` key that supports the replacement of met
 
 You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
 
+## Example autofix snippet
+
 Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
 
 ```yaml
@@ -73,7 +75,7 @@ rules:
   severity: WARNING
 ```
 
-## Removing a code detected by a rule
+## Remove a code detected by a rule
 
 Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
 
