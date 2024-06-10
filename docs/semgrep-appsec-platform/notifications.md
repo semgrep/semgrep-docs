@@ -14,6 +14,6 @@ tags:
 
 Users with team or enterprise subscriptions can receive notifications from Semgrep AppSec Platform in the following channels:
 
-- [Slack](/docs/semgrep-appsec-platform/slack)
-- [Email](/docs/semgrep-appsec-platform/email)
-- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
+- [Slack](/semgrep-appsec-platform/slack-notifications)
+- [Email](/semgrep-appsec-platform/email-notifications)
+- [Webhooks](/semgrep-appsec-platform/webhooks)
