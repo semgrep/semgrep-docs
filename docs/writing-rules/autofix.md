@@ -1,5 +1,7 @@
 ---
 append_help_link: true
+tags:
+  - Rule writing
 ---
 
 # Autofix
@@ -37,7 +39,7 @@ A variant on the `fix` key is `fix-regex`, which applies regular expression repl
 `fix-regex` has two required fields:
 
 - `regex` specifies the regular expression to replace within the match found by Semgrep
-- `replacement` specifies what to replace the regular expression with. 
+- `replacement` specifies what to replace the regular expression with.
 
 `fix-regex` also takes an optional `count` field, which specifies how many occurrences of `regex` to replace with `replacement`, from left-to-right and top-to-bottom. By default, `fix-regex` will replace all occurrences of `regex`. If `regex` does not match anything, no replacements are made.
 

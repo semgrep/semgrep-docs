@@ -2,6 +2,8 @@
 append_help_link: true
 slug: rule-syntax
 description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+tags:
+  - Rule writing
 ---
 
 
@@ -615,7 +617,7 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
-Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
+Comparison expressions support simple arithmetic as well as composition with [Boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
 
 ```yaml
 rules:
@@ -832,7 +834,7 @@ def func2():
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 
-The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
+The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call&mdash;it only needs to make sure `close` is called.
 
 ## Metavariable matching
 
@@ -1035,7 +1037,7 @@ rules:
 
 The `min-version`/`max-version` feature is available since Semgrep
 1.38.0. It is intended primarily for publishing rules that rely on
-newly-released features without causing errors in older Semgrep
+newly released features without causing errors in older Semgrep
 installations.
 
 

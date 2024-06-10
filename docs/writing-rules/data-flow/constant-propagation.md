@@ -3,6 +3,8 @@ slug: constant-propagation
 append_help_link: true
 description: >-
   Semgrep performs flow-sensitive constant folding and this information is used by the matching engine.
+tags:
+    - Rule writing
 ---
 
 Constant propagation
