@@ -9,13 +9,11 @@ tags:
     - Team & Enterprise Tier
 ---
 
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
 
+# Receive email notifications
 
-
-
-# Receiving email notifications
-
-Receive Semgrep findings through email.
+You can choose to receive notifications from Semgrep regarding new findings through email.
 
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
@@ -34,5 +32,7 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
 **Figure** Sample of an email sent from Semgrep with findings.
 
 :::note Number of emails
-On each scan that has at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
+For each scan with at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
 :::
+
+<Notifications />
