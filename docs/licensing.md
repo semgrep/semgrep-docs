@@ -1,6 +1,8 @@
 ---
 slug: licensing
 append_help_link: true
+tags:
+  - Support
 description: >-
   Learn about licenses of Semgrep products.
 ---

@@ -2,6 +2,8 @@
 slug: trophy-case
 hide_table_of_contents: true
 description: "This is a list of vulnerabilities found and security fixes made with Semgrep."
+tags:
+  - Rule writing
 ---
 
 # Semgrep trophy case
@@ -15,8 +17,8 @@ Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 |[CVE-2019-5479](https://nvd.nist.gov/vuln/detail/CVE-2019-5479)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|larbitbase-api < v0.5.5	|An unintended require vulnerability in &lt;v0.5.5 larvitbase-api may allow an attacker to load arbitrary non-production code (JavaScript file).	|
 |[CVE-2020-8128](https://nvd.nist.gov/vuln/detail/CVE-2020-8128)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|jsreport < 2.5.0	|An unintended require and server-side request forgery vulnerabilities in jsreport version 2.5.0 and earlier allow attackers to execute arbitrary code.	|
 |[CVE-2020-8129](https://nvd.nist.gov/vuln/detail/CVE-2020-8129)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|script-manager < 0.8.6	|An unintended require vulnerability in script-manager npm package version 0.8.6 and earlier may allow attackers to execute arbitrary code.	|
-|[CVE-2020-7739](https://nvd.nist.gov/vuln/detail/CVE-2020-7739)	|[javascript.phantom.security.audit.phantom-injection](https://semgrep.dev/r?q=javascript.phantom.security.audit.phantom-injection)	|phantomjs-seo	|This affects all versions of package phantomjs-seo. It is possible for an attacker to craft a url that will be passed to a PhantomJS instance allowing for an SSRF attack.	|
-|[CVE-2020-7740](https://nvd.nist.gov/vuln/detail/CVE-2020-7740)	|[javascript.wkhtmltopdf.security.audit.wkhtmltopdf-injection](https://semgrep.dev/r?q=javascript.wkhtmltopdf.security.audit.wkhtmltopdf-injection)	|node-pdf-generator	|This affects all versions of package node-pdf-generator. Due to lack of user input validation and sanitization done to the content given to node-pdf-generator, it is possible for an attacker to craft a url that will be passed to an external server allowing an SSRF attack.	|
+|[CVE-2020-7739](https://nvd.nist.gov/vuln/detail/CVE-2020-7739)	|[javascript.phantom.security.audit.phantom-injection](https://semgrep.dev/r?q=javascript.phantom.security.audit.phantom-injection)	|phantomjs-seo	|This affects all versions of package phantomjs-seo. It is possible for an attacker to craft a URL that will be passed to a PhantomJS instance allowing for an SSRF attack.	|
+|[CVE-2020-7740](https://nvd.nist.gov/vuln/detail/CVE-2020-7740)	|[javascript.wkhtmltopdf.security.audit.wkhtmltopdf-injection](https://semgrep.dev/r?q=javascript.wkhtmltopdf.security.audit.wkhtmltopdf-injection)	|node-pdf-generator	|This affects all versions of package node-pdf-generator. Due to lack of user input validation and sanitization done to the content given to node-pdf-generator, it is possible for an attacker to craft a URL that will be passed to an external server allowing an SSRF attack.	|
 |[CVE-2020-7749](https://nvd.nist.gov/vuln/detail/CVE-2020-7749)	|[javascript.puppeteer.security.audit.puppeteer-setcontent-injection](https://semgrep.dev/r?q=javascript.puppeteer.security.audit.puppeteer-setcontent-injection)	|osm-static-maps	|This affects all versions of package osm-static-maps. User input given to the package is passed directly to a template without escaping (`{{{ ... }}}`). As such, it is possible for an attacker to inject arbitrary HTML/JS code and depending on the context. It will be outputted as an HTML on the page which gives opportunity for XSS or rendered on the server (puppeteer) which also gives opportunity for SSRF and Local File Read.	|
 
 <!--

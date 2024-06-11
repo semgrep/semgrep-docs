@@ -4,6 +4,9 @@ append_help_link: true
 title: Semgrep Pro versus Semgrep OSS
 hide_title: true
 description: "Learn about the features and differences of Semgrep OSS and Semgrep Pro."
+tags
+  - Support
+  - Semgrep AppSec Platform
 ---
 
 # Semgrep Pro versus Semgrep OSS
