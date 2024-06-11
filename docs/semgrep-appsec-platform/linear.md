@@ -9,9 +9,9 @@ tags:
     - Team & Enterprise Tier
 ---
 
-
-
-
+:::note
+The beta program for this feature has ended and this feature is currently unavailable on Semgrep AppSec Platform. Semgrep, Inc may re-enable the beta program for this feature at a later date. Reach out to your Technical Account Manager (TAM) if you'd like to request this feature.
+:::
 
 # Create Linear tickets
 
