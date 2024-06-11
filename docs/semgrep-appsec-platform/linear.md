@@ -10,7 +10,7 @@ tags:
 ---
 
 :::note
-The beta program for this feature has ended and this feature is currently unavailable on Semgrep AppSec Platform. Semgrep, Inc may re-enable the beta program for this feature at a later date. Reach out to your Technical Account Manager (TAM) if you'd like to request this feature.
+The beta program for this feature has ended. This feature is currently unavailable on Semgrep AppSec Platform. Semgrep, Inc may re-enable a beta program at a later date. To learn more, reach out to your Technical Account Manager (TAM).
 :::
 
 # Create Linear tickets
