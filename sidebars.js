@@ -104,6 +104,7 @@ module.exports = {
                     'semgrep-appsec-platform/bitbucket-pr-comments',
                     ]
                 },
+                'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'deployment/beyond-core-deployment'
             ]
         },
@@ -190,7 +191,6 @@ module.exports = {
                 'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/remove-duplicates',
-                'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
                 {
