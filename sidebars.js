@@ -80,6 +80,7 @@ module.exports = {
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
+                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         'deployment/managed-scanning',
                         {
                             type: 'category',
@@ -104,7 +105,6 @@ module.exports = {
                     'semgrep-appsec-platform/bitbucket-pr-comments',
                     ]
                 },
-                'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'deployment/beyond-core-deployment'
             ]
         },
