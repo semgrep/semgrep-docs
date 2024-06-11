@@ -5,7 +5,7 @@ hide_title: true
 description: "Set up your CI pipeline with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
-    - Semgrep AppSec Platform
+  - Semgrep AppSec Platform
 ---
 
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"

@@ -4,7 +4,7 @@ append_help_link: true
 description: "Learn about Semgrep rules, how to add your custom rules and rules from Semgrep Registry, a community-contributed repository of rules to help enforce security."
 title: Run rules
 tags:
-    - Quickstart
+    - Semgrep Code
 hide_title: true
 ---
 
