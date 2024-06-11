@@ -66,7 +66,6 @@ tags:
 
 - Added public Supply Chain APIs. [<i class="fas fa-external-link fa-xs"></i> Read the documentation](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 - Added [lockfile-only support](/supported-languages/#semgrep-supply-chain) for the **Hex package manager** for Elixir codebases.
-- Added two new triage statuses: **Reviewing**, which indicates the findings that require more investigation to determine what the next steps should be, and **Fixing**, which indicate findings for which a Jira ticket has been created.
 
 ### Changed
 
