@@ -3,7 +3,8 @@ slug: cli-reference
 append_help_link: true
 description: "Reference for the Semgrep command-line interface including options and exit code behavior."
 tags:
-    - Semgrep AppSec Platform
+    - Deployment
+    - CLI
 hide_title: true
 title: CLI reference
 ---
