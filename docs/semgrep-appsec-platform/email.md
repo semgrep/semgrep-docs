@@ -8,9 +8,11 @@ tags:
     - Semgrep AppSec Platform
 ---
 
-# Receiving email notifications
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
 
-Receive Semgrep findings through email.
+# Receive email notifications
+
+You can choose to receive notifications from Semgrep regarding new findings through email.
 
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
@@ -29,5 +31,7 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
 **Figure** Sample of an email sent from Semgrep with findings.
 
 :::note Number of emails
-On each scan that has at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
+For each scan with at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
 :::
+
+<Notifications />

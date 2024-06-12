@@ -8,7 +8,9 @@ tags:
     - Semgrep AppSec Platform
 ---
 
-# Enabling webhooks
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
+
+# Enable webhooks
 
 Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
@@ -21,7 +23,7 @@ Semgrep sends two types of JSON objects:
 <dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
 </dl>
 
-## Setting up webhooks
+## Set up webhooks
 
 Perform these steps in Semgrep AppSec Platform to set up webhooks:
 
@@ -38,9 +40,11 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
 
-## Findings
+<Notifications />
 
-The following is an example of a `semgrep_finding` object:
+## Semgrep findings object
+
+The following is an example of a `semgrep_finding` object sent by Semgrep:
 
 ```json
 [
@@ -82,9 +86,9 @@ The following is an example of a `semgrep_finding` object:
 ]
 ```
 
-## Scans
+## Semgrep scan object
 
-The following is an example of a `semgrep_scan` object:
+The following is an example of a `semgrep_scan` object sent by Semgrep:
 
 ```json
 {

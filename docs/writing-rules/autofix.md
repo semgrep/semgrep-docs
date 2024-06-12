@@ -6,11 +6,15 @@ tags:
 
 # Autofix
 
-Hands down the best way to enforce a code standard is to just automatically fix it. Semgrep's rule format supports a `fix:` key that supports metavariable replacement, much like message fields. This allows for value capture and rewriting.
+Autofix is a Semgrep feature where rules contain suggested fixes to resolve findings.
 
-The autofix can be applied directly to the file using the `--autofix` flag, or you can use both the `--autofix` and `--dryrun` flags to test the autofix.
+Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. This allows for value capture and rewriting. With rules that make use of the autofix capability, you can resolve findings as part of your code review workflow. Semgrep suggests these fixes through GitHub PR or GitLab MR comments.
 
-Example autofix (see in Playground [here](https://semgrep.dev/s/R6g)):
+You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
+
+## Example autofix snippet
+
+Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
 
 ```yaml
 rules:
@@ -26,7 +30,7 @@ rules:
   severity: WARNING
 ```
 
-## Creating autofix rules
+## Create autofix rules
 
 See how to create an autofix rule in **Transforming code with Semgrep autofixes** video:
 
@@ -73,7 +77,7 @@ rules:
   severity: WARNING
 ```
 
-## Removing a code detected by a rule
+## Remove a code detected by a rule
 
 Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
 
