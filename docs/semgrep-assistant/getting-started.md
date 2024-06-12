@@ -4,6 +4,7 @@ title: Analyze with Assistant
 hide_title: true
 description: Learn how to enable and use all of Assistant's features.
 tags:
+  - Deployment
   - Semgrep Assistant
 ---
 

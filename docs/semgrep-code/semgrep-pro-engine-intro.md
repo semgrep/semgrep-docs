@@ -4,6 +4,9 @@ append_help_link: true
 description: "This article introduces cross-file (interfile) analysis, guides you through installation, and provides some additional information."
 hide_title: true
 title: Perform cross-file analysis
+tags:
+  - Semgrep Code
+  - Semgrep AppSec Platform
 ---
 
 

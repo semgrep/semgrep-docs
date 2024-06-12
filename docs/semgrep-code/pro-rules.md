@@ -6,7 +6,6 @@ title: Semgrep Pro rules
 hide_title: true
 tags:
     - Semgrep Code
-    - Team & Enterprise Tier
 ---
 
 
@@ -19,9 +18,6 @@ import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry.
 
-<!--
-Claudio's portions
--->
 
 ## Kinds of rules in the Semgrep Registry
 
@@ -68,7 +64,7 @@ For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgr
 1. Go to [Semgrep Registry](https://semgrep.dev/r).
 2. Click on **Visibility > Pro rules**.
 3. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
-4. For a single rule, click on the rule's card > Run locally. For rulesets, click the card.
+4. For a single rule, click the rule's card > Run locally. For rulesets, click the card.
 5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Refer to the following sample snippet:
 
 ### Adding Pro rules to your Semgrep org through the Registry

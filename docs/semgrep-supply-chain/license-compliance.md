@@ -5,11 +5,9 @@ title: License compliance
 hide_title: true
 description: "Semgrep Supply Chain can detect and list a package's license. Prevent or exempt certain packages from being used based on their licenses."
 tags:
-  - Team & Enterprise tier
   - Semgrep Supply Chain
+  - Semgrep AppSec Platform
 ---
-
-
 
 # License compliance
 

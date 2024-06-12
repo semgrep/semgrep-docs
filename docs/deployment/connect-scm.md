@@ -5,9 +5,8 @@ hide_title: true
 description: Connect a GitHub or GitLab organization to manage user authentication.
 toc_max_heading_level: 3
 tags:
-  - Semgrep AppSec Platform
-  - Team & Enterprise Tier
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 # Connect a source code manager

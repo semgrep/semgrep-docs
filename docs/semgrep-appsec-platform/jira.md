@@ -5,19 +5,17 @@ title: Jira
 hide_title: true
 description: "Send Semgrep findings to your Jira project."
 tags:
- - Semgrep AppSec Platform
- - Team & Enterprise Tier
+    - Beta
+    - Semgrep AppSec Platform
 ---
 
 # Create Jira tickets
-
-<!-- It's Jira, not JIRA :) -->
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code, Supply Chain, and Secrets findings.
 
 ## Prerequisites
 
-* This feature is in a **closed beta**. To request access:
+* This feature is in a **private beta**. To request access:
   1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
   2. Contact your Technical Account Manager or Account Executive and let them know you want to try the Jira integration.
 * You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.

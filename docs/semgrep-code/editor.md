@@ -5,18 +5,14 @@ title: Write custom rules
 hide_title: true
 toc_max_heading_level: 2
 tags:
+    - Semgrep Code
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
-
 
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
-
-
-
 
 # Write rules using Semgrep Editor
 

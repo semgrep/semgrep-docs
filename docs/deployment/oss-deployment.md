@@ -5,7 +5,7 @@ title: Semgrep OSS in CI
 description: Learn how to set up a Semgrep OSS CI environment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep OSS Engine
+  - Semgrep OSS
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"

@@ -6,9 +6,7 @@ description: >-
   Semgrep supports more than two dozen languages. Learn about generally available, beta, and experimentally supported languages.
 hide_title: true
 tags:
-    - Semgrep Supply Chain
-    - Semgrep OSS Engine
-    - Team & Enterprise Tier
+    - Deployment
 title: Supported languages
 ---
 

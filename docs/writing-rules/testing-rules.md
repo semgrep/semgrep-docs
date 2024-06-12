@@ -2,6 +2,8 @@
 append_help_link: true
 slug: testing-rules
 description: "Semgrep provides a convenient testing mechanism for your rules. You can simply write code and provide a few annotations to let Semgrep know where you are or aren't expecting findings."
+tags:
+  - Rule writing
 ---
 
 

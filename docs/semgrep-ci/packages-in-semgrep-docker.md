@@ -4,10 +4,11 @@ title: Packages in Semgrep docker
 hide_title: true
 description: Packages included in the latest Semgrep docker image.
 tags:
-  - Semgrep in CI
+  - Deployment
+  - Semgrep AppSec Platform
 ---
 
-# Packages in the Semgrep docker image 
+# Packages in the Semgrep docker image
 
 ## Packages
 
@@ -41,4 +42,3 @@ The Python 3.11 docker includes additional packages (for example, `ncurses`) tha
 ## Previous incidents
 
 - [<i class="fas fa-external-link fa-xs"></i> Semgrep v.1.66.0](https://github.com/semgrep/semgrep/releases/tag/v1.66.0) removed `bash`, `jq`, and `curl` to reduce the attack surface of the Semgrep docker image. They were subsequently re-added for future Semgrep releases.
-

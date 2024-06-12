@@ -80,6 +80,7 @@ module.exports = {
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
+                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         'deployment/managed-scanning',
                         {
                             type: 'category',
@@ -190,7 +191,6 @@ module.exports = {
                 'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/remove-duplicates',
-                'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
                 {

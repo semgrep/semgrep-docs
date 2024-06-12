@@ -5,13 +5,9 @@ title: Asana
 hide_title: true
 description: "Send Semgrep findings to your Asana project."
 tags:
+    - Beta
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Create Asana tickets
 

@@ -5,7 +5,6 @@ hide_title: true
 description: Definitions of Semgrep Code product-specific terms.
 tags:
   - Semgrep Code
-  - Team & Enterprise Tier
 ---
 
 # Semgrep Code product terms

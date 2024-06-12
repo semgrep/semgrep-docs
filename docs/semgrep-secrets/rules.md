@@ -1,11 +1,12 @@
 ---
 slug: rules
 append_help_link: true
-title: Write rules
+title: Write custom rules
 hide_title: true
 description: Learn about Semgrep Secrets rules.
 tags:
   - Semgrep Secrets
+  - Rule writing
 ---
 
 # Semgrep Secrets rule structure and sample

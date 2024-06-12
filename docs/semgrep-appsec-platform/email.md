@@ -6,7 +6,6 @@ hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 import Notifications from "/src/components/concept/_notification-deduplication.mdx"

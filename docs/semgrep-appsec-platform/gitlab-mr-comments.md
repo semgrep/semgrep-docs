@@ -6,10 +6,11 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Enable merge request (MR) comments in your GitLab repositories to display Semgrep findings to developers."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
+<!-- vale off -->
 
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
@@ -21,7 +22,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
-
+<!-- vale on -->
 
 # Set up GitLab merge request comments
 

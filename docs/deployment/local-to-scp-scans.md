@@ -4,7 +4,6 @@ title: Upload local scan findings
 hide_title: true
 description: Send your local scans to Semgrep AppSec Platform to view and track your findings.
 tags:
-  - CLI
   - Semgrep AppSec Platform
 ---
 

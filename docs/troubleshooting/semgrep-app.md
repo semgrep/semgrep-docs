@@ -5,14 +5,7 @@ title: Troubleshooting
 hide_title: true
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
-
 ---
-
-
-
-
-
 
 # Troubleshooting Semgrep AppSec Platform
 

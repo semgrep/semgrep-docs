@@ -5,6 +5,7 @@ title: Pre-deployment checklist
 description: Use this checklist to ensure a smooth deployment of Semgrep in your organization.
 tags:
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 import Tabs from '@theme/Tabs';

@@ -8,14 +8,10 @@ title: Troubleshooting Semgrep in CI
 hide_title: true
 append_help_link: true
 tags:
-    - Semgrep in CI
-    - Team & Enterprise Tier
+    - Deployment
 ---
 
-
 import RetrieveGhaLogs from "/src/components/procedure/_retrieve-gha-logs.mdx"
-
-
 
 # Troubleshooting Semgrep issues in CI
 
@@ -104,7 +100,7 @@ The `semgrep-sast` job should take less than a minute to scan a large project wi
 
 #### Solution #1: Review global CI job configuration
 
-You might be creating large files or directories in your GitLab CI config's `before_script:`, `cache:`, or similar sections. The `semgrep-sast` job scans all files available to it, not just the source code committed to git, so if for example you have a cache configuration of
+You might be creating large files or directories in your GitLab CI config's `before_script:`, `cache:`, or similar sections. The `semgrep-sast` job scans all files available to it, not just the source code committed to Git, so if for example you have a cache configuration of
 
 ```yaml
 cache:
@@ -128,7 +124,7 @@ If you know which large files might be taking too long to scan, you can use [Git
 - `SAST_EXCLUDED_PATHS: "tests"` will ignore
   `tests/foo.py` as well as `a/b/tests/c/foo.py`.
 
-You can use a comma separated list to ignore multiple patterns: `SAST_EXCLUDED_PATHS: "*.py, tests"` would ignore all of the above paths.
+You can use a comma separated list to ignore multiple patterns: `SAST_EXCLUDED_PATHS: "*.py, tests"` will ignore all of the preceding paths.
 
 ### `semgrep-sast` reports false positives or false negatives
 

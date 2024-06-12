@@ -7,7 +7,6 @@ description: "Receive Semgrep findings in your Slack workspaces."
 toc_max_heading_level: 2
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 import Notifications from "/src/components/concept/_notification-deduplication.mdx"

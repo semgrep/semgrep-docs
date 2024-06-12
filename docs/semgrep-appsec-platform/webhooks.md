@@ -6,7 +6,6 @@ hide_title: true
 description: "Create webhooks to receive Semgrep findings in your endpoints."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 import Notifications from "/src/components/concept/_notification-deduplication.mdx"

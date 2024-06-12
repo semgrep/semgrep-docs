@@ -6,8 +6,8 @@ hide_title: true
 toc_max_heading_level: 4
 description: "Learn how to receive Slack or email alerts about findings and failures and how to integrate using webhooks."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 # Alerts and notifications
