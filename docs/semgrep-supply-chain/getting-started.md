@@ -111,7 +111,7 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge request scans if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on scans that detect reachable findings in direct dependencies with high or critical severity.
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge request scans if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on scans that detect reachable findings in direct dependencies with high or critical severity. Findings only block when there is an upgrade available, to prevent blocking when there is no resolution for the vulnerability.
 
 1. Log in to Semgrep AppSec Platform.
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
