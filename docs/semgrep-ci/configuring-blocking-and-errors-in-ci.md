@@ -16,7 +16,7 @@ This article documents how Semgrep pipelines handle blocking findings and errors
 
 ## Default configuration of blocking findings and error suppression
 
-Semgrep blocks the pull requests (PRs) or merge requests (MRs) in its default configuration only when it matches a blocking finding.
+Semgrep can help block pull requests (PRs) or merge requests (MRs). Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR when it matches a blocking finding. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
 
 Blocking findings can be defined as:
 
