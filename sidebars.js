@@ -145,9 +145,7 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
           items: [
-            'semgrep-appsec-platform/asana',
             'semgrep-appsec-platform/jira',
-            'semgrep-appsec-platform/linear'
           ]
         },
         {
