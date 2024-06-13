@@ -11,7 +11,7 @@ tags:
 
 > The GitHub App can only do things that both you and the app have permission to do.
 
-This also applies to read and write permissions&mdash;you have to explicitly grant those permissions on a granular level.
+This restriction also applies to read and write permissions&mdash;for example, you have to explicitly grant read and write permissions on a granular level for an app to act on your behalf.
 
 At the start of your Semgrep onboarding experience, the resource granted is your **email address**, but Semgrep itself never acts on your behalf.
 
