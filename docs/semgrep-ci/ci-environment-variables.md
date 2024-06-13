@@ -51,7 +51,7 @@ Example:
 export SEMGREP_BASELINE_REF="main"
 ```
 :::info
-`SEMGREP_BASELINE_REF` is superceded by `SEMGREP_BASELINE_COMMIT`.
+`SEMGREP_BASELINE_REF` is superseded by `SEMGREP_BASELINE_COMMIT`.
 :::
 
 ### `SEMGREP_BASELINE_COMMIT`
