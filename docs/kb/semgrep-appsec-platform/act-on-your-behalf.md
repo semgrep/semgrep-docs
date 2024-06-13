@@ -21,7 +21,7 @@ _**Figure**. You grant Semgrep read access to your email address when you sign i
 ## How to detect when an app acts on your behalf
 
 <!-- vale off -->
-When an action is undertaken by an app on your behalf, it adds a label **&mdash; with <span className="placeholder">NAME_OF_APP</span> app**.
+When an action is undertaken by an app on your behalf, GitHub adds a label **&mdash; with <span className="placeholder">NAME_OF_APP</span> app**.
 <!-- vale on -->
 
 ![GitHub **ExampleApp** performing an action on behalf of a user.](/img/github-act-on-your-behalf.png)
