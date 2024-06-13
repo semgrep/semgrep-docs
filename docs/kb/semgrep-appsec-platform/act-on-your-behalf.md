@@ -13,7 +13,7 @@ tags:
 
 This restriction also applies to read and write permissions&mdash;for example, you have to explicitly grant read and write permissions on a granular level for an app to act on your behalf.
 
-At the start of your Semgrep onboarding experience, the resource granted is your **email address**, but Semgrep itself never acts on your behalf.
+At the start of your Semgrep onboarding experience, the resource granted to Semgrep is read access to your **email address**, but Semgrep itself never acts on your behalf.
 
 ![You grant Semgrep read access to your email address when you sign in for the first time.](/img/new-onboarding.png#md-noborder)
 _**Figure**. You grant Semgrep read access to your email address when you sign in for the first time._
