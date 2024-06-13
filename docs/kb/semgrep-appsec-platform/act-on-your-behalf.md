@@ -7,7 +7,7 @@ tags:
 
 # What does "Act on your behalf" mean?
 
-**Act on your behalf** is a permission that GitHub requires of all third-party GH apps that verify an identity, that is, when GitHub is used as an identity provider (IdP). The actual scope of that permission is limited to what the user explicitly permits. As stated in the [GitHub documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps#about-github-apps-acting-on-your-behalf):
+**Act on your behalf** is a permission that GitHub requires of all third-party apps that verify a user's identity, that is, when GitHub is used as an identity provider (IdP). The actual scope of this permission is limited to what the user explicitly permits. As stated in the [GitHub documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps#about-github-apps-acting-on-your-behalf):
 
 > The GitHub App can only do things that both you and the app have permission to do.
 
