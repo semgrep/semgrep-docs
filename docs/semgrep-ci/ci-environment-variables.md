@@ -59,7 +59,7 @@ export SEMGREP_BASELINE_REF="main"
 Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. This environment variable doesn't work if you are not currently in a Git directory, there are unstaged changes, or given baseline hash doesn't exist.
 
 :::info
-The value of `SEMGREP_BASELINE_COMMIT` is superceded when the option `--baseline-commit` is set as part of the scan command.
+The value of `SEMGREP_BASELINE_COMMIT` is superseded when the option `--baseline-commit` is set as part of the scan command.
 :::
 
 ### `SEMGREP_ENABLE_VERSION_CHECK`
