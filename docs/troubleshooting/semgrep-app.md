@@ -1,7 +1,7 @@
 ---
 slug: semgrep-app
 description: "Not seeing what you expect in Semgrep AppSec Platform? Follow these troubleshooting steps or find out how to get one-on-one help."
-title: Troubleshooting
+title: Troubleshooting CI
 hide_title: true
 tags:
     - Deployment

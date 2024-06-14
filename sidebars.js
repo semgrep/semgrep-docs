@@ -51,6 +51,7 @@ module.exports = {
                 'running-rules',
                 'update',
                 'deployment/local-to-scp-scans',
+                'troubleshooting/semgrep',
               ]
             },
         ]
