@@ -25,6 +25,10 @@ Blocking findings can be defined as:
 
 By default, Semgrep does not block your pipeline when it encounters an internal error. Semgrep suppresses all errors and does not surface them to the CI provider. In case of an internal error, Semgrep sends an anonymous crash report to a crash-reporting server and does not block your CI pipeline. To change the default configuration, see the sections below.
 
+:::tip
+How to enforce a block on a PR or MR after Semgrep exits with error code `1` is dependent on your CI provider. Review your CI provider's documentation for further information.
+:::
+
 ## Configuration options for blocking findings and errors
 
 Configure, change or revert to the default setup of blocking findings and errors in your CI pipeline using the following options in CI configuration file:
