@@ -91,7 +91,8 @@ module.exports = {
                                 'semgrep-supply-chain/setup-maven',
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
-                        }
+                        },
+                        'troubleshooting/semgrep-app',
                     ]
                 },
                 {
