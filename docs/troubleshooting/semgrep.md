@@ -4,6 +4,9 @@ description: "Get more information when Semgrep hangs, crashes, times out, or ru
 title: Troubleshooting the CLI
 hide_title: true
 append_help_link: true
+tags:
+  - Troubleshooting
+  - CLI
 ---
 
 # Troubleshooting Semgrep CLI
