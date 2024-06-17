@@ -294,7 +294,7 @@ module.exports = {
           { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-code/semgrep-pro-engine-data-flow" } ,
 
           // Troubleshooting
-          { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci" } ,
+          { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-app" } ,
 
           // Semgrep Assistant
           { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
