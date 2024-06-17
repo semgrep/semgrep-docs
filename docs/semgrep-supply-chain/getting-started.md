@@ -110,11 +110,12 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep can help block pull requests (PRs) or merge requests (MRs). Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR when it matches a blocking finding. This feature works with both full scans and diff-aware scans, which are scans that show only the findings that have been caused by changes in files starting from a specific Git baseline. These are typically performed on feature branches when a pull or merge request is opened.
+Semgrep can be used to block pull requests (PRs) or merge requests (MRs) when it matches a blocking finding. When one or more findings is blocking, Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline, such as not allowing merge of the PR/MR. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in blocking pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to help block whenever:
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in blocking pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to help block scans whenever all of the following conditions are met:
 
-* It detects reachable findings in direct dependencies with high or critical severity
+* It detects reachable findings in direct dependencies
+* The reachable findings are of critical or high severity
 * There is an upgrade available for the affected dependency; this is to prevent blocking when there is no resolution for the vulnerability
 
 To enable **Scan Blocking**:
