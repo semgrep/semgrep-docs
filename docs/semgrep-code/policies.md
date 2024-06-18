@@ -87,16 +87,18 @@ To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-l
 
 ### Add rulesets to your Policies
 
+Rather than adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework the Semgrep team has curated.
+
 1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
 2. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page to find the ruleset you're interested in adding.
-3. Click the ruleset to open the ruleset's **Explore** page. This page allows you to view the rules included and provides instructions for you to test and run the ruleset locally before you add it to your policies.
+3. Click the ruleset to open its **Explore** page. This page lets you view the included rules and provides instructions for testing and running the ruleset locally before adding it to your policies.
 4. Click **Add to Policy**.
 5. Specify the workflow action for the rules that you are adding by selecting one of these options:
     - Monitor
     - Comment
     - Block
 
-Future rule additions to this ruleset will automatically be included in your policy in the same mode that you select. You can change the default mode for the current and future rules by readding the ruleset through the Registry and selecting a different mode. You *cannot* just change the mode of all existing rules associated with the ruleset using the the Policies page, since this only makes every rule that you changed an exception to the default.
+If Semgrep adds rules to the ruleset in the future, they will automatically be added to your Policies in the same mode that you select. You can change the default mode for the current and future rules by re-adding the ruleset through the Registry and choosing a different mode. You *cannot* change the mode of all existing rules associated with the ruleset using the Policies page, since this only makes every rule that you changed an exception to the default.
 
 ## Disable rules
 
