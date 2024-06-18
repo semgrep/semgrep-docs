@@ -51,6 +51,7 @@ module.exports = {
                 'running-rules',
                 'update',
                 'deployment/local-to-scp-scans',
+                'troubleshooting/semgrep',
               ]
             },
         ]
@@ -91,7 +92,8 @@ module.exports = {
                                 'semgrep-supply-chain/setup-maven',
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
-                        }
+                        },
+                        'troubleshooting/semgrep-app'
                     ]
                 },
                 {

@@ -1,7 +1,10 @@
 ---
 slug: rules
+tags:
+  - Troubleshooting
+  - Rule writing
+description: "Follow these troubleshooting steps when your pattern fails to parse, your rule doesn't match its intended code, and other rule writing pitfalls."
 ---
-
 
 
 # Troubleshooting rules
@@ -46,7 +49,7 @@ While the most common reason for pattern parse errors is the above, other things
 
 ## If your rule doesn't match where it should
 
-In general, it helps to test the patterns within your rule in isolation. If you scan for the patterns one by one and they each find what you expect, the issue is with the boolean logic within your rule. Review the [rule syntax](/writing-rules/rule-syntax) to make sure the operators are meant to behave like you expect. If you managed to find a pattern that behaves incorrectly, continue debugging with the section below.
+In general, it helps to test the patterns within your rule in isolation. If you scan for the patterns one by one and they each find what you expect, the issue is with the Boolean logic within your rule. Review the [rule syntax](/writing-rules/rule-syntax) to make sure the operators are meant to behave like you expect. If you managed to find a pattern that behaves incorrectly, continue debugging with the section below.
 
 ## If your pattern doesn't match where it should
 
