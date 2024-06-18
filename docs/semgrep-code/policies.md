@@ -87,7 +87,7 @@ To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-l
 
 ### Add rulesets to your Policies
 
-Rather than adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework the Semgrep team has curated.
+Instead of adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework. The Semgrep team curates the rulesets.
 
 1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
 2. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page to find the ruleset you're interested in adding.
