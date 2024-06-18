@@ -47,7 +47,7 @@ Many CI providers have a time limit for how long a job can run. Semgrep CI also 
 
 - Please [reach out](/support) to the Semgrep maintainers for help with tracking down the cause. Semgrep scans most large projects with hundreds of rules within a few minutes, and long run times are typically caused by just one rule or source code file taking too long.
 - To drastically cut run times, you can use Semgrep's diff-aware scanning to skip scanning unchanged files. For more details, see [Semgrep's behavior](/deployment/customize-ci-jobs).
-- You can skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignore-oss).
+- You can skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code).
 - You can increase Semgrep's own run time limit by setting a `semgrep ci --timeout <seconds>` flag, or by setting a `SEMGREP_TIMEOUT=<seconds>` environment variable. To fully disable the time limit, set this value to `0`.
 
 ## If you're unable to comment on Semgrep Registry pages
