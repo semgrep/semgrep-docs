@@ -5,13 +5,9 @@ title: Jenkins UI
 hide_title: true
 description: Configure Jenkins to send the correct branch name to Semgrep AppSec Platform.
 tags:
+  - Deployment
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Set up Semgrep Supply Chain with Jenkins UI
 

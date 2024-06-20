@@ -5,13 +5,9 @@ description: "SSO configuration instructions."
 title: SSO authentication
 hide_title: true
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Single-sign on (SSO) configuration
 

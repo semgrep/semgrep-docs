@@ -4,7 +4,6 @@ append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
 title: Scan third-party dependencies
 hide_title: true
 ---
@@ -111,11 +110,19 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity.
+Semgrep can be used to block pull requests (PRs) or merge requests (MRs) when it matches a blocking finding. When one or more findings is blocking, Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline, such as not allowing merge of the PR/MR. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
+
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in blocking pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to help block scans whenever all of the following conditions are met:
+
+* It detects reachable findings in direct dependencies
+* The reachable findings are of critical or high severity
+* There is an upgrade available for the affected dependency; this is to prevent blocking when there is no resolution for the vulnerability
+
+To enable **Scan Blocking**:
 
 1. Log in to Semgrep AppSec Platform.
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
-3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR/MR Blocking**.
+3. Click **<i class="fa-solid fa-toggle-large-on"></i> Scan Blocking**.
 
 Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 

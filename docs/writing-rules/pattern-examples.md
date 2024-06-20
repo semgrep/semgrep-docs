@@ -1,5 +1,7 @@
 ---
 slug: pattern-examples
+tags:
+  - Rule writing
 ---
 
 

@@ -5,7 +5,6 @@ title: Dashboard
 description: "The Dashboard is a summary view within Semgrep AppSec Platform to help security teams evaluate their organization's security posture."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 hide_title: true
 ---
 

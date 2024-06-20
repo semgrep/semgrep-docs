@@ -1,5 +1,8 @@
 ---
 slug: security
+description: If you’ve found a vulnerability in Semgrep, please email security@semgrep.com and we’ll respond promptly.
+tags:
+  - Support
 ---
 
 # Security

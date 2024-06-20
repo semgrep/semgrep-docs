@@ -1,6 +1,8 @@
 ---
 slug: integrating
 append_help_link: true
+tags:
+  - Support
 description: >-
   Learn about integrating Semgrep and the Semgrep Registry into your product.
 ---

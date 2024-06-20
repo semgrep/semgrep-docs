@@ -3,6 +3,8 @@ slug: update
 append_help_link: true
 description: "Update Semgrep by running the correct commands for your environment or operating system."
 title: Update Semgrep
+tags:
+  - Deployment
 hide_title: true
 ---
 

@@ -6,6 +6,7 @@ hide_title: true
 description: Generate a CycloneDX JSON or XML SBOM to view all dependencies of a repository.
 tags:
   - Semgrep Supply Chain
+  - Semgrep AppSec Platform
 ---
 
 # Generating an SBOM (software bill of materials)

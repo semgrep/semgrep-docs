@@ -6,7 +6,7 @@ hide_title: true
 description: Detect valid, leaked secrets in previous Git commits through a historical scan.
 tags:
   - Semgrep Secrets
-  - Team & Enterprise tier
+  - Semgrep AppSec Platform
 ---
 
 # Scan your Git history (beta)
@@ -26,7 +26,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 ## Run historical scans
 
-You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff scans.
+You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff-aware scans.
 
 ### Prerequisites
 
@@ -108,8 +108,7 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 
 - Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish under 5 minutes to more than 60 minutes for extreme cases.
 - Within Semgrep AppSec Platform, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
-- A finding can show up twice in the CLI with historical scanning enabled: the HEAD commit in the regular Secrets scan and another commit in the historical scan.
-    - If findings are sent to Semgrep AppSec Platform, they are deduplicated and appear as a **regular finding**, not a historical finding.
+- With historical scanning enabled, the CLI output displays secrets still present in the current version of the code twice: once at the commit where they were initially added and once at the current commit from the standard Secrets scan. Semgrep AppSec Platform deduplicates the two findings and displays the secret as a current rather than a historical one.
 
 ### Size of commit history
 

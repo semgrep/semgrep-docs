@@ -294,7 +294,7 @@ module.exports = {
           { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-code/semgrep-pro-engine-data-flow" } ,
 
           // Troubleshooting
-          { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-ci" } ,
+          { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-app" } ,
 
           // Semgrep Assistant
           { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
@@ -369,14 +369,14 @@ module.exports = {
           { from: "/playground/" , to: "/semgrep-code/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           /* APR 30, 2024 */
-          { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/asana" } ,
+          { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/ticketing" } ,
           { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
           { from: "/semgrep-cloud-platform/github-pr-comments/" , to: "/semgrep-appsec-platform/github-pr-comments" } ,
           { from: "/semgrep-cloud-platform/gitlab-mr-comments/" , to: "/semgrep-appsec-platform/gitlab-mr-comments" } ,
           { from: "/semgrep-cloud-platform/dashboard/" , to: "/semgrep-appsec-platform/dashboard" } ,
           { from: "/semgrep-cloud-platform/email-notifications/" , to: "/semgrep-appsec-platform/email-notifications" } ,
           { from: "/semgrep-cloud-platform/jira/" , to: "/semgrep-appsec-platform/jira" } ,
-          { from: "/semgrep-cloud-platform/linear/" , to: "/semgrep-appsec-platform/linear" } ,
+          { from: "/semgrep-cloud-platform/linear/" , to: "/semgrep-appsec-platform/ticketing" } ,
           { from: "/semgrep-cloud-platform/notifications/" , to: "/semgrep-appsec-platform/notifications" } ,
           { from: "/semgrep-cloud-platform/slack-notifications/" , to: "/semgrep-appsec-platform/slack-notifications" } ,
           { from: "/semgrep-cloud-platform/tags/" , to: "/semgrep-appsec-platform/tags" } ,

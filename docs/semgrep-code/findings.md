@@ -6,8 +6,8 @@ description: "The Findings page allows users to view findings identified by Semg
 hide_title: true
 toc_max_heading_level: 5
 tags:
+    - Semgrep Code
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"

@@ -4,6 +4,8 @@ append_help_link: true
 description: >-
   Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
 sidebar_label: Engine overview
+tags:
+  - Rule writing
 ---
 
 import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"

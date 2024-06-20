@@ -1,6 +1,8 @@
 ---
 slug: private-rules
-description: "Users of the Team and Enterprise tier for Semgrep Code can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
+description: "Semgrep Code users can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
+tags:
+  - Rule writing
 ---
 
 
@@ -75,7 +77,7 @@ This section provides examples of how to automatically publish your private rule
 
 The following sample of the GitHub Actions workflow publishes rules from a private Git repository after a merge to the `main`, `master`, or `develop` branches.
 
-1. Make sure that `SEMGREP_APP_TOKEN` is defined in your Github project or organization's secrets.
+1. Make sure that `SEMGREP_APP_TOKEN` is defined in your GitHub project or organization's secrets.
 2. Create the following file at `.github/workflows/semgrep-publish.yml`:
     ```yaml
     name: semgrep-publish

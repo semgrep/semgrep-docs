@@ -5,7 +5,6 @@ hide_title: true
 description: Learn how to set up Semgrep, scan your first project for security issues, and view your findings in the CLI.
 tags:
   - quickstart
-  - cli
 ---
 
 
@@ -41,7 +40,7 @@ For scans using `semgrep ci`:
 
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
-- `semgrep scan` - This is the recommended command for scanning local codebases and writing and testing custom rules.
+- `semgrep scan` - This is the recommended command for [scanning local codebases or scanning a project when you don't have a Semgrep account](/getting-started/cli-oss). It is also recommended for [writing and testing custom rules](#scan-your-project-with-a-specific-ruleset).
 - `semgrep ci` - This is the recommended command if you are scanning Git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.

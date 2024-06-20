@@ -5,14 +5,9 @@ title: Set rules through Policies
 hide_title: true
 description: "The Policies page is a visual representation of the rules that Semgrep Code uses to scan code."
 tags:
-    - Semgrep AppSec Platform
-    - Team & Enterprise Tier
     - Semgrep Code
+    - Semgrep AppSec Platform
 ---
-
-
-
-
 
 # Set rules through Policies
 
@@ -61,7 +56,7 @@ The Policies page consists of a header and three main panes:
 
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
-* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR.
+* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
 * Leaving a PR or MR comment.
 * Notifying select channels, such as private Slack channels or webhooks.
 

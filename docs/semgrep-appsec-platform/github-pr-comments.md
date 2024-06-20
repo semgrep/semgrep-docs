@@ -5,10 +5,11 @@ title: GitHub PR comments
 hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
+<!-- vale off -->
 
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
@@ -20,12 +21,9 @@ import DefineConnectionVariables from "/src/components/reference/_define-connect
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 
-
-
+<!-- vale on -->
 
 # Set up GitHub pull request comments
-
-<!--  The entire process of setting up the GH comment is more than just "enabling it", ie. turning it on. Users have to set up the rules. So I changed the verb. -->
 
 <DeploymentJourney />
 

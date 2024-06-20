@@ -50,10 +50,11 @@ After you've enabled Semgrep Secrets, you can:
 
 Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that aren't relevant for code scanning. To specify files that Semgrep Secrets should ignore:
 
-1. Sign in to Semgrep AppSec Platform.
-2. Go to **Projects** and find your project. Select the gear icon <i class="fa-solid fa-gear"></i> to access the settings for the related project.
-3. Add the file paths to the **Path ignores** box. Semgrep ignores all file paths listed, including for Semgrep Secrets.
-4. Click **Save changes**.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
+3. Click **Secrets** to expand and display the **Path Ignores** box.
+4. Enter files and folders to ignore in the **Path Ignores** box.
+5. Click **Save changes**.
 
 ## Upgrade your rules
 
@@ -70,7 +71,6 @@ To see the rules you're using for which there is a Secrets rule upgrade in Semgr
 3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
 
 ![Filter to find rules for which there is a rule upgrade](/img/superseded-rules-policies.png#md-width)
-
 ## Next steps
 
 * Learn how to [view and triage secrets in Semgrep AppSec Platform](/semgrep-secrets/view-triage)

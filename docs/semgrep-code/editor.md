@@ -5,18 +5,14 @@ title: Write custom rules
 hide_title: true
 toc_max_heading_level: 2
 tags:
+    - Semgrep Code
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
-
 
 import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
-
-
-
 
 # Write rules using Semgrep Editor
 
@@ -143,7 +139,7 @@ Advanced mode is a YAML editor that allows you to write rules using [Semgrep syn
 :::info Rules syntax
 Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#write-a-new-rule-based-on-an-existing-rule) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#write-a-new-rule-by-forking-an-existing-rule) them.
 :::
 
 To write a rule in advanced mode:
@@ -252,7 +248,7 @@ If successful, you'll see a pop-up window indicating that your rule has been add
 
 [Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for various languages and frameworks. You can fork an existing rule to use as a starting point for writing your own.
 
-### Write a new rule based on an existing rule
+### Write a new rule by forking an existing rule
 
 One way to create new rules is to fork an existing rule in Semgrep Registry and modify it to meet your software and business requirements.
 

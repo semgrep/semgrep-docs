@@ -2,16 +2,12 @@
 slug: ci-environment-variables
 description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep AppSec Platform, and more."
 tags:
-    - Semgrep in CI
-    - Team & Enterprise Tier
+    - Deployment
 title: CI environment variables
 hide_title: true
 ---
 
-
 import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
-
-
 
 # Continuous integration (CI) environment variables
 
@@ -55,15 +51,15 @@ Example:
 export SEMGREP_BASELINE_REF="main"
 ```
 :::info
-`SEMGREP_BASELINE_REF` is superceded by `SEMGREP_BASELINE_COMMIT`.
+`SEMGREP_BASELINE_REF` is superseded by `SEMGREP_BASELINE_COMMIT`.
 :::
 
 ### `SEMGREP_BASELINE_COMMIT`
 
-Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. This environment variable doesn't work if you are not currently in a git directory, there are unstaged changes, or given baseline hash doesn't exist.
+Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. This environment variable doesn't work if you are not currently in a Git directory, there are unstaged changes, or given baseline hash doesn't exist.
 
 :::info
-The value of `SEMGREP_BASELINE_COMMIT` is superceded when the option `--baseline-commit` is set as part of the scan command.
+The value of `SEMGREP_BASELINE_COMMIT` is superseded when the option `--baseline-commit` is set as part of the scan command.
 :::
 
 ### `SEMGREP_ENABLE_VERSION_CHECK`
@@ -298,7 +294,7 @@ steps:
     ...
 ```
 
-## Environment variable for creating comments in BitBucket pull requests
+## Environment variable for creating comments in Bitbucket pull requests
 
 
 ### `BITBUCKET_TOKEN`
