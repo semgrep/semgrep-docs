@@ -131,7 +131,7 @@ The following is an example of a `semgrep_scan` object sent by Semgrep:
 ```json
 {
   "semgrep_scan": {
-    "deployment_id": 12431,
+    "deployment_id": 1,
     "enabled_products": [
       "sast",
       "sca",
