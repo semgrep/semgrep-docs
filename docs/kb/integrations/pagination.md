@@ -13,6 +13,8 @@ Semgrep's API endpoints use both offset-based pagination and cursor-based pagina
 
 ## Offset-based pagination
 
+Offset-based pagination defines a **limit** to specify the number of entries fetched and **offset** to indicate where to start collecting data, which correspond to the `page_size` and `page` query parameters described in this section.
+
 The following API endpoints support offset-based pagination:
 
 - [List all projects](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.repository.openapi_list_recent_projects)
@@ -36,7 +38,7 @@ curl 'https://semgrep.dev/api/v1/deployments/docs_test/findings?page=2&page_size
 
 ## Cursor-based pagination
 
-The [List Secrets](https://semgrep.dev/api/v1/docs/#tag/SecretsService/operation/semgrep_app.products.secrets.handlers.issue.list_issues_conexxion) endpoint support cursor-based pagination:
+The [List Secrets](https://semgrep.dev/api/v1/docs/#tag/SecretsService/operation/semgrep_app.products.secrets.handlers.issue.list_issues_conexxion) endpoint supports cursor-based pagination:
 
 For these endpoints, include the following query parameters to paginate through results.
 
@@ -66,7 +68,7 @@ Repeat this process for additional pages.
 
 ## Mixed pagination
 
-The following API endpoints support mixed used of page- and cursor-based pagination:
+The following API endpoints support mixed usages of page- and cursor-based pagination:
 
 - [List supply chain vulnerabilities](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.vulns.list_vulns_conexxion)
 - [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_repositories_for_dependencies_conexxion)
