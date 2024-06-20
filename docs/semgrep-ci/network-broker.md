@@ -120,3 +120,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 You can check the logs for Semgrep Network Broker by running:
 
 <pre class="language-console"><code>sudo docker logs <span className="placeholder">CONTAINER_ID</span></code></pre>
+
+## Run multiple instances of the Semgrep Network Broker
+
+If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments.
