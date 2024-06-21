@@ -27,6 +27,11 @@ The Semgrep Jira integration provides the following capabilities:
 - You can create a single ticket for multiple findings (up to 50) that were detected by a single rule, or create individual tickets per finding.
 - These tickets can be created in **multiple Jira projects**.
 
+## Limitations
+
+- You can create only **one Jira integration** per Semgrep account or deployment.
+- You can only use **one subdomain** per Jira integration.
+
 ## Enable the Jira integration
 
 To enable the Jira integration, follow these steps:
