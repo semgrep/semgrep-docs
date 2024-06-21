@@ -15,10 +15,17 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 ## Prerequisites
 
-* This feature is in a **private beta**. To request access:
-  1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
-  2. Contact your Technical Account Manager or Account Executive and let them know you want to try the Jira integration.
-* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
+- The Jira integration is in **public beta** for all existing Semgrep AppSec Platform users.
+- You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
+- You must have at least one Jira project, which is where the tickets will be created.
+
+## Features
+
+The Semgrep Jira integration provides the following capabilities:
+
+- You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
+- You can create a single ticket for multiple findings (up to 50) that were detected by a single rule, or create individual tickets per finding.
+- These tickets can be created in **multiple Jira projects**.
 
 ## Enable the Jira integration
 
@@ -38,11 +45,15 @@ Once you have enabled the Jira integration, you must complete the following step
 1. Select the **Subdomain** for the Jira instance you want to use.
 2. Select the **Default project** where the Jira tickets will be created.
 3. Select the **Issue type** you want created with your Semgrep findings.
-4. If you'd like to see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
+4. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
 5. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
 _**Figure.** The Jira configuration screen._
+
+:::tip
+The Jira integration automatically detects other Jira projects in your subdomain if those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
+:::
 
 ### Create mappings
 
