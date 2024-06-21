@@ -42,7 +42,7 @@ Once you have enabled the Jira integration, you must complete the following step
 5. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
-**_Figure._** The Jira configuration screen.
+_**Figure.** The Jira configuration screen._
 
 ### Create mappings
 
@@ -54,7 +54,7 @@ Optionally, you can customize the Jira field mappings and indicate which Semgrep
 * Checkboxes
 
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
-**_Figure._** The Jira configuration screen for field data mappings.
+_**Figure.** The Jira configuration screen for field data mappings._
 
 > Click **Field mapping help** to see a list of the Semgrep fields available for mapping.
 
@@ -107,6 +107,7 @@ To create tickets:
 1. Select the **Create tickets...** checkbox.
     1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
     1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Optional: You can add **Comments** in the text box if you selected the **Reviewing** triage state.
 1. Click **Change status** to proceed.
 <!-- vale on -->
 
@@ -115,12 +116,12 @@ Creating tickets for many findings at once may take some time. Tickets that take
 :::
 
 ![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
-***Figure.*** Code triage flow
+_**Figure.** Code triage flow._
 
 Once a ticket has been created, a link appears on the **Findings** page and along the top of an individual finding's details page.
 
 ![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
-***Figure.*** Code ticket created
+_**Figure.** Code ticket created._
 
 ### Supply Chain
 
@@ -138,14 +139,15 @@ To create tickets:
 1. Select the **Create tickets...** checkbox.
     1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
     1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Optional: You can add **Comments** in the text box if you selected the **Reviewing** triage state.
 1. Click **Change status** to proceed.
 <!-- vale on -->
 
 ![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
-**_Figure_.** Supply Chain triage flow
+_**Figure.** Supply Chain triage flow._
 
 ![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png#md-width)
-**_Figure_.** Supply Chain ticket created
+_**Figure.** Supply Chain ticket created._
 
 ### Secrets
 
@@ -161,10 +163,10 @@ To create tickets:
 <!-- vale on -->
 
 ![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png#md-width)
-**_Figure_.** Secrets triage flow
+_**Figure.** Secrets triage flow._
 
 ![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
-**_Figure_.** Secrets ticket created
+_**Figure.** Secrets ticket created._
 
 ## Remove the Jira integration
 
