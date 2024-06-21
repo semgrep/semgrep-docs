@@ -89,6 +89,8 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 
 ## Create tickets
 
+After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets.
+
 ### Code
 
 You can create tickets for Code findings using the **Triage** button on the:
@@ -98,10 +100,15 @@ You can create tickets for Code findings using the **Triage** button on the:
 
 To create tickets:
 
+<!-- vale off-->
 1. If you're on the [**Findings**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step 2.
-2. Click **Triage**.
-3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
-4. Click **Change status** to proceed.
+1. Click **Triage**.
+1. Set the status to **Fixing** or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Select the **Create tickets...** checkbox.
+    1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Click **Change status** to proceed.
+<!-- vale on -->
 
 :::note
 Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
@@ -124,31 +131,40 @@ You can create tickets for Supply Chain findings using the **Triage** button on 
 
 To create tickets:
 
+<!-- vale off-->
 1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities) page, select the findings for which you want tickets created. Otherwise, proceed to step 2.
-2. Click **Triage**.
-3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
-4. Click **Change status** to proceed.
+1. Click **Triage**.
+1. Set the status to **Fixing** or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Select the **Create tickets...** checkbox.
+    1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Click **Change status** to proceed.
+<!-- vale on -->
 
 ![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
-***Figure*.** Supply Chain triage flow
+**_Figure_.** Supply Chain triage flow
 
 ![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png#md-width)
-***Figure*.** Supply Chain ticket created
+**_Figure_.** Supply Chain ticket created
 
 ### Secrets
 
 To create tickets:
 
+<!-- vale off -->
+
 1. Select one or more findings listed in Secrets.
 2. Click **Triage**.
 3. Select **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets**.
-4. Click **Continue** to proceed.
+4. Click **Creat ticket** to proceed.
+
+<!-- vale on -->
 
 ![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png#md-width)
-***Figure*.** Secrets triage flow
+**_Figure_.** Secrets triage flow
 
 ![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
-***Figure*.** Secrets ticket created
+**_Figure_.** Secrets ticket created
 
 ## Remove the Jira integration
 
