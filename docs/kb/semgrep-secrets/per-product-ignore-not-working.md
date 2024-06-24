@@ -1,5 +1,5 @@
 ---
-description: Product specific path ignores requires a supported CLI version
+description: Product-specific path ignores require a supported CLI version.
 tags: 
     - Semgrep Secrets
 ---
