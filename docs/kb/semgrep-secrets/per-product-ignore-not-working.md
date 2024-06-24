@@ -4,7 +4,7 @@ tags:
     - Semgrep Secrets
 ---
 
-# Why didn't Semgrep Secrets ignore the files/folders I specified?
+# Why didn't Semgrep Secrets ignore the files and folders I specified?
 
 The Semgrep AppSec platform allows you to [define ignore patterns](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform) for specific products within a project. However, these product-specific ignores for Semgrep Secrets require a CLI version `1.71.0` or later.
 
