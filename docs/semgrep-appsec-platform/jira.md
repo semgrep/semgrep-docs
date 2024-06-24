@@ -56,8 +56,12 @@ Once you have enabled the Jira integration, you must complete the following step
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
 _**Figure.** The Jira configuration screen._
 
-:::tip
+### Automatic detection of other Jira projects
+
 The Jira integration automatically detects other Jira projects in your subdomain if those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
+
+:::caution Same name, different ID
+Issue types may have the same name, but a different Issue ID. Having the same name, such as **Task**, does not guarantee that the Issue ID is the same. If you are unable to select other projects to create tickets in, check that your Issue ID across projects is the same. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
 :::
 
 ### Create mappings
