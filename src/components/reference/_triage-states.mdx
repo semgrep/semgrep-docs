@@ -2,7 +2,7 @@
 | - | - |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
 | **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
-| **Fixing** | Findings for which a Jira ticket has been created. |
+| **Fixing** | Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
 | **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 | **Ignored** | Findings that are ignored are present in the code but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). |
 
