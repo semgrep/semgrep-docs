@@ -8,4 +8,4 @@ tags:
 
 The Semgrep AppSec Platform allows you to [define ignore patterns](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform) for specific Semgrep products for each project. However, product-specific ignores for Semgrep Secrets require Semgrep version `1.71.0` or later in your CLI or CI environment.
 
-If you are using an older version of the CLI, the path ignores for Semgrep Secrets will not be applied. Instead, the system will fallback to the SAST + SCA path ignores.
+If you use an older version of Semgrep, the path ignores for Semgrep Secrets that are set in Semgrep AppSec Platform are not applied. Instead, the system applies the path ignores from SAST and SCA to your Secrets scan as well.
