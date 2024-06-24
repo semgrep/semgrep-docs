@@ -19,7 +19,7 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/deployment/add-semgrep-to-ci).
 
-There are two tools provided to split up a repo. Consider a monorepo named `monorepo` with four main modules
+There are two features provided by Semgrep to split up a repo. Consider a monorepo named `monorepo` with four main modules
 
     /src/moduleA
     /src/moduleB
@@ -30,21 +30,21 @@ The easiest way to split this monorepo up is into four separate scans, one for e
 
     semgrep ci --subdir /src/moduleA/*
 
-In addition to scanning `/src/moduleA/*`, this will send the results to a project called `monorepo/src/moduleA`. If you want to change the project name, just set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
+In addition to scanning `/src/moduleA/*`, this command sends the results to a project called `monorepo/src/moduleA`. If you want to change the project name, set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
 
 For example:
 
     SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir /src/moduleA/*
 
-It is important that two scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAMES`. This is not only necessary to ensure findings have a consistent status, but also helpful so that developers and security engineers can have a clearer understanding of which findings pertain to the module that they are responsible for.
+It is important that scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
 
 To scan the entire monorepo, trigger one scan for each module.
 
 :::info
-Only ever change `SEMGREP_REPO_DISPLAY_NAME`. Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, in order to retain hyperlink and PR/MR comment functionality.
+You must only change `SEMGREP_REPO_DISPLAY_NAME`. Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, in order to retain hyperlink and PR/MR comment functionality.
 :::
 
-`--subdir` only takes a single folder. If you want to scan multiple folders as part of one scan, you will have to instead use `--include` and `--exclude` ([see CLI reference](/docs/cli-reference)) to instruct Semgrep what paths to include. This will perform file targeting across the whole monorepo. but will only analyze the included files.
+The `--subdir` flag takes, as input, only a single folder. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/docs/cli-reference)) to instruct Semgrep what paths to include. This performs file targeting across the whole monorepo. but only analyzes the included files.
 
 Unlike `--subdir`, `--include` and `--exclude` don't automatically direct results to a corresponding project, so you always have to set `SEMGREP_REPO_DISPLAY_NAME`.
 
