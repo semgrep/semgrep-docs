@@ -50,37 +50,75 @@ The following is an example of a `semgrep_finding` object sent by Semgrep:
 [
   {
     "semgrep_finding": {
-      "id": "241dbe518caf15f800131d2d0c70bf08",
-      "ref": "refs/pull/2658/merge",
-      "start_date": "None",
-      "check_id": "log-exc-info",
-      "path": "server/semgrep_app/handlers/registry.py",
-      "line": 185,
-      "column": 9,
-      "message": "Error messages should be logged with `exc_info=True` in order to propagate\nstack information to Sentry. Either change the logging level or raise an Exception.\n",
-      "severity": 1,
+      "check_id": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+      "column": 28,
+      "commit_date": "2024-06-11T20:39:36",
+      "commit_url": "https://github.com/owasp/juice-shop/commit/1bb71fff3589e51293e373274092d82c426025d2",
+      "end_column": 159,
+      "end_line": 10,
+      "first_seen_scan_id": "j4an6ro33aJM",
+      "id": "c409ef941eec3008da6e1fd347e793aa",
       "index": 0,
-      "end_line": 187,
-      "end_column": 10,
-      "commit_date": "2021-06-07T15:26:35+03:00",
-      "first_seen_scan_id": "xnkPGY8VL20o",
-      "category": "security",
-      "cwe": "CWE-319: Cleartext Transmission of Sensitive Information",
-      "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
-      "owasp": "A3: Sensitive Data Exposure",
-      "references": ["https://tomcat.apache.org/tomcat-5.5-doc/servletapi/"],
-      "source": "https://semgrep.dev/r/java.servlets.security.cookie-issecure-false.cookie-issecure-false",
-      "technology": ["servlet",  "tomcat"],
-      "vulnerability": "Insecure Transport",
+      "line": 10,
+      "message": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
       "metadata": {
-        "dev.semgrep.actions": [],
-        "semgrep.policy": {
-          "id": 8168,
-          "name": "Web Apps Notify Only",
-          "slug": "web-apps-notify-only"
+        "category": "security",
+        "confidence": "HIGH",
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "cwe2021-top25": 1,
+        "cwe2022-top25": 1,
+        "dev.semgrep.actions": [
+          "comment"
+        ],
+        "impact": "HIGH",
+        "interfile": 1,
+        "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+        "likelihood": "HIGH",
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection"
+        ],
+        "references": [
+          "https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements"
+        ],
+        "semgrep.dev": {
+          "rule": {
+            "origin": "community",
+            "r_id": 22085,
+            "rule_id": "yyU0GX",
+            "rule_name": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "rv_id": 109973,
+            "url": "https://semgrep.dev/playground/r/3ZTkQwW/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "version_id": "3ZTkQwW"
+          },
+          "src": "unchanged"
         },
-        "semgrep.url": "https://semgrep.dev/s/johndoe:log-exc-info"
-      }
+        "semgrep.policy": {
+          "id": 61271,
+          "name": "Rule Board - PR Comments column",
+          "slug": "rule-board-pr-comments"
+        },
+        "semgrep.url": "https://semgrep.dev/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+        "shortlink": "https://sg.run/gjoe",
+        "source": "https://semgrep.dev/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+        "subcategory": [
+          "vuln"
+        ],
+        "technology": [
+          "express"
+        ],
+        "vulnerability_class": [
+          "SQL Injection"
+        ]
+      },
+      "numeric_id": 11301071,
+      "path": "data/static/codefixes/unionSqlInjectionChallenge_3.ts",
+      "ref": "refs/heads/master",
+      "repo_name": "owasp/juice-shop",
+      "severity": 2,
+      "start_date": "2023-02-12 00:50:21.552606+00:00"
     }
   }
 ]
@@ -94,31 +132,49 @@ The following is an example of a `semgrep_scan` object sent by Semgrep:
 {
   "semgrep_scan": {
     "deployment_id": 1,
-    "started_at": "2021-09-21T23:49:17.480929+00:00",
-    "completed_at": null,
+    "enabled_products": [
+      "sast",
+      "sca",
+      "secrets"
+    ],
     "exit_code": null,
-    "repository": "semgrep/semgrep-app",
-    "ci_job_url": "https://github.com/semgrep/semgrep-app/actions/runs/1236121005",
-    "environment": "",
-    "commit": "e22f08e8e871bde8c100b3a4a6f8e9387d651223",
-    "commit_committer_email": "",
-    "commit_timestamp": "",
-    "commit_author_email": "support@semgrep.com",
-    "commit_author_name": "Semgrep User",
-    "commit_author_username": "semgrepuser",
-    "commit_author_image_url": "https://avatars.githubusercontent.com/u/29760937?s=200&v=4",
-    "commit_authored_timestamp": "",
-    "commit_title": "fixup",
-    "config": "",
-    "on": "pull_request",
-    "branch": "refs/pull/3483/merge",
-    "pull_request_timestamp": "",
-    "pull_request_author_username": "semgrepuser",
-    "pull_request_author_image_url": "https://avatars.githubusercontent.com/u/29760937?s=200&v=4",
-    "pull_request_id": "3483",
-    "pull_request_title": "test bad commit",
-    "ignored_files": ["/server/semgrep_app/templates/"],
-    "id": "xnkPGY8VL20o"
+    "hashed_id": "Y4QdEwR2qPgK",
+    "id": 27714135,
+    "meta": {
+      "app_block_override": null,
+      "branch": "refs/pull/7/merge",
+      "ci_job_url": "https://github.com/owasp/juice-shop/actions/runs/9999999",
+      "commit": "4166d6fd19ce97e65cf3278ce85afe4f444a7842",
+      "commit_author_image_url": "https://avatars.githubusercontent.com/u/1274037?v=4",
+      "commit_author_email": "support@semgrep.com",
+      "commit_author_name": "Semgrep User",
+      "commit_author_username": "semgrepuser",
+      "commit_timestamp": "2024-06-11T21:25:13",
+      "commit_title": "random code changes",
+      "is_code_scan": 0,
+      "is_full_scan": 0,
+      "is_sca_scan": 0,
+      "is_secrets_scan": 0,
+      "on": "pull_request",
+      "org_id": "1274037",
+      "pull_request_author_username": "semgrepuser",
+      "pull_request_author_image_url": "https://avatars.githubusercontent.com/u/29760937?s=200&v=4",
+      "pull_request_id": "7",
+      "pull_request_title": "random code changes",
+      "renamed_paths": [],
+      "repo_display_name": "owasp/juice-shop",
+      "repo_id": "600593544",
+      "repo_url": "https://github.com/owasp/juice-shop",
+      "repository": "owasp/juice-shop",
+      "scan_environment": "github-actions",
+      "semgrep_version": "1.75.0",
+      "version": "v1"
+    },
+    "repository_id": 158684,
+    "started_at": "2024-06-11T21:26:22.844158+00:00",
+    "completed_at": null,
+    "stats": null,
+    "tenant_name": "default"
   }
 }
 ```
