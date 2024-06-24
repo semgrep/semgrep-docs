@@ -119,11 +119,11 @@ To create tickets:
 <!-- vale off-->
 1. If you're on the [**Findings**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step 2.
 1. Click **Triage**.
-1. Set the status to **Fixing** or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
 1. Select the **Create tickets...** checkbox.
     1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
     1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
-1. Optional: You can add **Comments** in the text box if you wish.
+1. Optional: You can add **Comments** in the text box.
 1. Click **Submit** to proceed.
 <!-- vale on -->
 
@@ -151,12 +151,12 @@ To create tickets:
 <!-- vale off-->
 1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities) page, select the findings for which you want tickets created. Otherwise, proceed to step 2.
 1. Click **Triage**.
-1. Set the status to **Fixing** or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
 1. Select the **Create tickets...** checkbox.
-    1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
-    1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
-1. Optional: You can add **Comments** in the text box if you selected the **Reviewing** triage state.
-1. Click **Change status** to proceed.
+    1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Optional: You can add **Comments** in the text box.
+1. Click **Submit** to proceed.
 <!-- vale on -->
 
 ![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
