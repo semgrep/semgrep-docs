@@ -52,7 +52,7 @@ The Policies page consists of a header and three main panes:
     <dd>The rule pane displays the rules that Semgrep scans use to detect findings and allows you to edit their assigned rule modes. You can make these edits either one by one or through bulk editing of many rules. You can also use the <strong>Search for rule names or ids</strong> box. See <a href="#policies-filter-reference">Policies filter reference</a> for more information.</dd>
 </dl>
 
-## Blocking a PR or MR through rule modes
+## Block a PR or MR through rule modes
 
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
 
@@ -70,7 +70,7 @@ Semgrep Code provides three rule modes:
 
 Semgrep Code provides first-time users with the [<i class="fas fa-external-link fa-xs"></i> Default ruleset](https://semgrep.dev/p/default). These rules are initially placed in the Monitor column. As you develop confidence in these rules, you are able to change their modes to Comment or Block, ensuring that developers remain free of friction from false positives.
 
-## Adding rules
+## Add rules
 
 To add rules, follow these steps:
 
@@ -81,11 +81,26 @@ To add rules, follow these steps:
     - Comment
     - Block
 
-### Adding custom rules to your Policies
+### Add custom rules to your Policies
 
 To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
 
-## Disabling rules
+### Add rulesets to your Policies
+
+Instead of adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework. The Semgrep team curates the rulesets.
+
+1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
+2. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page to find the ruleset you're interested in adding.
+3. Click the ruleset to open its **Explore** page. This page lets you view the included rules and provides instructions for testing and running the ruleset locally before adding it to your policies.
+4. Click **Add to Policy**.
+5. Specify the workflow action for the rules that you are adding by selecting one of these options:
+    - Monitor
+    - Comment
+    - Block
+
+If Semgrep adds rules to the ruleset in the future, they will automatically be added to your Policies in the same mode that you select. You can change the default mode for the current and future rules by re-adding the ruleset through the Registry and choosing a different mode. You *cannot* change the mode of all existing rules associated with the ruleset using the Policies page, since this only makes every rule that you changed an exception to the default.
+
+## Disable rules
 
 To disable a rule, follow these steps:
 
@@ -149,7 +164,7 @@ This feature makes use of a **Global Policy** that runs on **all** repositories.
 
 You can create a policy, for example, "Custom Coding Standards Policy", with some additional rules, and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your "Custom Coding Standards Policy".
 
-### Resolving workflow actions in multiple policies
+### Resolve workflow actions in multiple policies
 
 If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows:
 
