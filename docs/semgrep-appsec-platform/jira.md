@@ -123,7 +123,7 @@ To create tickets:
 1. Select the **Create tickets...** checkbox.
     1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
     1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
-1. Optional: You can add **Comments** in the text box if you selected the **Reviewing** triage state.
+1. Optional: You can add **Comments** in the text box if you wish.
 1. Click **Submit** to proceed.
 <!-- vale on -->
 
