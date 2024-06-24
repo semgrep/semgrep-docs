@@ -122,7 +122,7 @@ To create tickets:
 1. Set the status to **Fixing** or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
 1. Select the **Create tickets...** checkbox.
     1. Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
-    1. Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
 1. Optional: You can add **Comments** in the text box if you selected the **Reviewing** triage state.
 1. Click **Submit** to proceed.
 <!-- vale on -->
