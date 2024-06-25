@@ -7,11 +7,19 @@ tags:
   - Semgrep Code
 ---
 
+import DefaultBranches from "/src/components/reference/_default-branches.md"
+
 # Semgrep Code product terms
 
 The terms and definitions provided here are specific to Semgrep Code.
 
 For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/writing-rules/glossary).
+
+## Default branch
+
+Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches and automatically performs full scans on them:
+
+<DefaultBranches />
 
 ## Diff-aware scan
 
