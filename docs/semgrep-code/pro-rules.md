@@ -34,36 +34,39 @@ Semgrep's Security Research team plans to keep improving coverage by adding supp
 
 ## Scan with Semgrep Pro rules
 
-You can run a scan with Semgrep Pro rules in Semgrep AppSec Platform, your CLI, and your own CI environment.
-
-* To use Pro Rules with Semgrep AppSec Platform, add them to your Policies page. The rules are then included in your next scan.
-* To use Pro Rules in your own CI or CLI environment, add the rules or rulesets through the `--config` flag.
+Your Semgrep AppSec Platform account already includes Pro rules, as they are included in the **Default** ruleset. These Pro rules run on all your scans.
 
 :::info
 Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 :::
 
+### Customize or remove Pro rules in Semgrep AppSec Platform
+
+Like any other rule or ruleset, you can disable or customize Pro rules to leave comments to developers or potentially block a PR by changing its Rule mode. To disable or customize Pro Rules in Semgrep AppSec Platform:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Navigate to **Rules > Policies**.
+1. Under **Source**, click **Pro <i class="fa-solid fa-gem"></i>** to view all the Semgrep Pro rules currently in your Policies.
+1. Find and select the rules you want to disable or change.
+1. Click **Change modes** and select one of the provided options.
+
+You can find all Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules, you can simply use the **Source > Pro <i class="fa-solid fa-gem"></i>** filter.
+
 ### Add Semgrep Pro rules in CLI or CI
 
-:::note Prerequisites
 For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgrep-account).
-:::
 
+In some cases, you may want to run a specific set of Pro rules in your environment.
+
+1. Ensure that you are logged
 1. Go to [Semgrep Registry](https://semgrep.dev/r).
 2. Click on **Visibility > Pro rules**.
 3. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
 4. For a single rule, click the rule's card > Run locally. For rulesets, click the card.
 5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Refer to the following sample snippet:
 
-### Adding Pro rules to your Semgrep org through the Registry
-
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to [Semgrep Registry](https://semgrep.dev/r).
 3. Click on **Visibility > Pro rules**.
 4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
-5. To add a specific rule or ruleset:
-    1. Click on the card for the **rule or ruleset > Add to Policy**.
-    2. Select a Policy rule mode to add the rules to. It is recommended to start with the Monitor mode to silently gather findings and audit the rule's performance.
 
 ### Filtering behavior
 
