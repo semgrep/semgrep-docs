@@ -8,28 +8,21 @@ tags:
     - Semgrep Code
 ---
 
-
-
-
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules
 
-This article provides an overview of rules provided exclusively by Semgrep, Inc. called Semgrep Pro rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry.
+This article provides an overview of rules provided exclusively by Semgrep, Inc. called **Semgrep Pro** rules. These high-confidence, professionally maintained rules are a proprietary addition to Semgrep Registry.
 
+The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce highly accurate, actionable findings.
 
-## Kinds of rules in the Semgrep Registry
+## Types of rules in the Semgrep Registry by author
 
-The Semgrep Registry includes the following kinds of rules:
 * **Community rules** - reviewed by the Semgrep team, these rules consist of contributions from Semgrep’s community. Community rules encompass a wide array of rules, including many that are made for security auditors.
 * **Third-party rules** - created directly by external contributors such as Trail of Bits, GitLab and many more.
 * **Private rules** - rules that can be authored and published by your own organization and for use only by your organization.
 * **Pro rules** - proprietary rules created by the Semgrep team targeted for security and software engineers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
-
-## Introduction
-
-The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce highly accurate, actionable findings.
 
 ## Semgrep Pro rules content
 
@@ -39,13 +32,9 @@ After using Semgrep Pro rules, you will see improved findings across many langua
 
 Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
 
-:::info
-See the [Rule updates](/release-notes/rule-updates) for an overview of updates and improvements released by Semgrep, Inc. for Semgrep’s rules, including Semgrep Pro rules.
-:::
+## Scan with Semgrep Pro rules
 
-## Using Semgrep Pro rules
-
-You can use Semgrep Pro rules in both Semgrep AppSec Platform and your own CLI or CI environment.
+You can run a scan with Semgrep Pro rules in Semgrep AppSec Platform, your CLI, and your own CI environment.
 
 * To use Pro Rules with Semgrep AppSec Platform, add them to your Policies page. The rules are then included in your next scan.
 * To use Pro Rules in your own CI or CLI environment, add the rules or rulesets through the `--config` flag.
@@ -54,11 +43,10 @@ You can use Semgrep Pro rules in both Semgrep AppSec Platform and your own CLI o
 Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 :::
 
-### Adding Semgrep Pro rules in CLI or CI
+### Add Semgrep Pro rules in CLI or CI
 
 :::note Prerequisites
 For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgrep-account).
-
 :::
 
 1. Go to [Semgrep Registry](https://semgrep.dev/r).
