@@ -17,7 +17,7 @@ For rule-writing and SAST (static application security testing) terms, see the [
 
 ## Default branch
 
-Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches and automatically performs full scans on them:
+Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches.
 
 <DefaultBranches />
 
