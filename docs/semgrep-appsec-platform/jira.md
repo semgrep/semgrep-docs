@@ -31,6 +31,7 @@ The Semgrep Jira integration provides the following capabilities:
 
 - You can create only **one Jira integration** per Semgrep account or deployment.
 - You can only use **one subdomain** per Jira integration.
+- The Semgrep Jira integration does not support bi-directional or two-way status syncing.
 
 ## Enable the Jira integration
 
@@ -131,8 +132,9 @@ To create tickets:
 1. Click **Submit** to proceed.
 <!-- vale on -->
 
-:::note
-Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
+:::info
+- Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
+- If ticket creation **fails**, Semgrep automatically retries several times over the next day to provide robustness against outages and down time in third-party services.
 :::
 
 ![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
