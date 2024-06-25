@@ -17,7 +17,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 - The Jira integration is in **public beta** for all existing Semgrep AppSec Platform users.
 - You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
-- You must have at least one Jira project, which is where the tickets will be created.
+- You must have at least one Jira project to set as the default location where tickets will be created.
 
 ## Features
 
