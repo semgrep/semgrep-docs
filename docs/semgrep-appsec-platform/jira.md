@@ -59,7 +59,10 @@ _**Figure.** The Jira configuration screen._
 
 ### Automatic detection of other Jira projects
 
-The Jira integration automatically detects other Jira projects in your subdomain if those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
+The Jira integration automatically detects other Jira projects in your subdomain under the following conditions:
+
+- The projects and Issue types are **company-managed**, not team-managed. See the Jira documentation about [<i class="fas fa-external-link fa-xs"></i> Team-managed and company-managed projects](https://support.atlassian.com/jira-software-cloud/docs/what-are-team-managed-and-company-managed-projects/)
+- Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
 
 :::caution Same name, different ID
 Issue types may have the same name, but a different Issue type ID. If you can't view or select other Jira projects when creating tickets, check that your Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
