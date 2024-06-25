@@ -81,10 +81,14 @@ public class Test2 {
 }
 ```
 
-Because `REGEX` is public in the first code snippet, Semgrep doesn't propagate its value to other classes on the assumption that it could have mutated. However, in the second example, `REGEX` is private, and Semgrep assumes it to be immutable. The rule would also work with:
+Because `REGEX` is public in the first code snippet, Semgrep doesn't propagate its value to other classes on the assumption that it could have mutated. However, in the second example, Semgrep understands that `REGEX` is private and is only assigned to once. Therefore, Semgrep assumes it to be immutable.
+
+The rule would also work with:
 
 ```java
+...
 public final String REGEX = "(a+)+$";
+...
 ```
 
 ## Disable constant propagation
