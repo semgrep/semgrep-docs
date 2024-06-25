@@ -105,7 +105,7 @@ Semgrep's **Severity** field can have the following values: `Low`, `Medium`, `Hi
 
 If you opt for a drop-down or a checkbox issue type field, verify that:
 
-* There are no misspellings
+* There are no misspellings.
 * No valid options are missing. If your drop-down or checkbox issue type is missing the `Medium` option, Jira cannot create tickets for medium-severity findings.
 
 ## Create tickets
