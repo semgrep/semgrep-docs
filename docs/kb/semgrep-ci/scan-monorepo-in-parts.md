@@ -48,19 +48,72 @@ The `--subdir` flag takes, as input, only a single folder. If you want to scan m
 
 Unlike `--subdir`, `--include` and `--exclude` don't automatically direct results to a corresponding project, so you always have to set `SEMGREP_REPO_DISPLAY_NAME`.
 
-:::info
-WARNING: if `--include` and `--exclude` are used in a `semgrep ci` scan without setting `SEMGREP_REPO_DISPLAY_NAME`, `semgrep ci` might close findings that aren't detected in those scans.
-:::
-
 Here's an example using `--include`.
 
     SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=/src/moduleA/* --include=/src/moduleB/*
 
-### Example using GitHub Actions
+:::info
+WARNING: if `--include` and `--exclude` are used in a `semgrep ci` scan without setting `SEMGREP_REPO_DISPLAY_NAME`, `semgrep ci` might close findings that aren't detected in those scans.
+:::
+
+### Examples using GitHub Actions
 
 Below, you will find an example GitHub Actions workflow file. This is 1 of 4 workflow files you would need for this specific example, all placed in the monorepo's `.github/workflows/` folder. Each workflow file corresponds to a module of the monorepo you would like to scan and treat as a separate project in Semgrep AppSec Platform. 
 
 You can name each workflow file whatever you like, but it may be helpful to name it after the module it corresponds to. In this example, something like `semgrep_moduleA.yml` would be ideal.
+
+#### With --subdir
+
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep - moduleA
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request:
+    # Restrict the workflow to only run for files changed in a PR at the desired module path:
+    paths:
+      - 'src/moduleA/**'
+  # Run a full scan when the Semgrep workflow file is changed:
+  push:
+    paths:
+      - '.github/workflows/semgrep_moduleA.yml'
+  # Schedule a daily full scan CI job (this method uses cron syntax):
+  schedule:
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job.
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v4
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci --subdir=src/moduleA/
+        env:
+          # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+          # Generate a token from Semgrep AppSec Platform > Settings
+          # and add it to your GitHub secrets.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+```
+
+
+#### With --include
+
 
 ```yaml
 # Name of this GitHub Actions workflow.
