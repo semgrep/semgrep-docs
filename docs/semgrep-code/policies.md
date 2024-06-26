@@ -169,7 +169,7 @@ Users create different policies that repositories can **subscribe** to.
 
 This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
 
-You can create a policy, for example, "Custom Coding Standards Policy," with some additional rules, and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your "Custom Coding Standards Policy."
+You can create a policy with additional rules and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
 
 ### Resolve workflow actions in multiple policies
 
