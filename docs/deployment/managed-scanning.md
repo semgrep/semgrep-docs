@@ -52,29 +52,34 @@ Managed scanning is specifically designed to limit the amount of time that code 
 1. Semgrep runs the scan from that container. Diff-aware scans typically take seconds, while full scans can take minutes to hours to complete.
 1. The ephemeral container is immediately and automatically destroyed post-scan along with all contents in it.
 
-## Prerequisites
+## Add a repository to Semgrep Managed Scanning
 
-Managed scanning requires both the public Semgrep GitHub app and a private Semgrep GitHub app that you register and create yourself.
+Part of the process of adding a repository includes creating and registering a public Semgrep GitHub app and a private Semgrep GitHub App.
 
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
 - The private Semgrep GitHub app is required to enable code access for managed scanning.
 
 To view all permissions, see [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information.
 
-### Install the public Semgrep GitHub app
+<!-- vale off -->
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
+1. Click **Scan New Project > Semgrep Managed Scan**.
+1. If you haven't completed the installation of public and private Semgrep GitHub apps, you are redirected to the **Set up Managed Scans** page, which facilitates the creation of both.
+    1. Follow the steps in the page to create and register both a public and private Semgrep GitHub app.
+1. In the **Enable Managed Scans for GitHub repos** page, select the repositories you want to add to Semgrep Managed Scanning.
+    1. Optional: If you don't see the repository you want to add, click **Sync projects** or click **Check GitHub Access Configuration** to ensure that you've granted Semgrep access to at least one repository.
+1. Select the repositories you want to scan from the list.
+1. Click **Enable Managed Scans**.
+<!-- vale on -->
 
-If you have already installed the public Semgrep GitHub app, skip this step and proceed to [Install the private Semgrep GitHub app](#install-the-private-semgrep-github-app).
+You have finished setting up a Semgrep Managed Scan.
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
-1. Click **Connect to GitHub**.
-1. Follow the steps to connect to your GitHub organization. Ensure that you grant access to the repositories you want to scan.
+- After enabling managed scanning, Semgrep performs a full scan in batches on all the repositories.
+- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- Projects scanned through managed scanning are tagged with `autoscan`.
 
-### Install the private Semgrep GitHub app
 
-<InstallPrivateGitHubApp />
-
-### Completed installation
+### Troubleshoot your Semgrep GitHub app installation
 
 A complete installation is displayed in the Source Code Manager entry as follows:
 
@@ -85,18 +90,6 @@ You can also confirm a complete installation through your GitHub settings page, 
 
 ![GitHub settings page](/img/zcs-github-apps.png#bordered)
 _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. The private Semgrep app follows the convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**_.
-
-## Add a repository
-
-1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
-1. Click **Scan New Project > Semgrep Managed Scan**.
-1. Optional: If you can't find the repository you want to add, click **Can't find your project? > Sync projects**.
-1. Select the repositories you want to scan from the list.
-1. Click **Enable managed scanning**.
-
-- After enabling managed scanning, Semgrep performs a full scan in batches on all the repositories.
-- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through managed scanning are tagged with `autoscan`.
 
 ### If the page doesn't display any repositories
 
