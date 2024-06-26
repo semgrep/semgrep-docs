@@ -40,9 +40,9 @@ Your Semgrep AppSec Platform account already includes Pro rules, as they are inc
 Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 :::
 
-### Customize or remove Pro rules in Semgrep AppSec Platform
+### Change rule modes or disable Pro rules in Semgrep AppSec Platform
 
-Like any other rule or ruleset, you can disable or customize Pro rules to leave comments to developers or potentially block a PR by changing its Rule mode. To disable or customize Pro Rules in Semgrep AppSec Platform:
+Like any other rule or ruleset, you can disable Pro rules or change their rule mode to leave comments to developers or potentially block a PR.
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to **Rules > Policies**.
@@ -54,40 +54,21 @@ You can find all Semgrep Pro rules in your Policies page, so if you want to re-e
 
 ### Add Semgrep Pro rules in CLI or CI
 
+:::info Prerequisites
 For CLI users: You must be [logged in](/getting-started/cli#log-in-to-your-semgrep-account).
+:::
 
-In some cases, you may want to run a specific set of Pro rules in your environment.
+In some cases, you may want to run a scan with a specific set of Pro rules:
 
-1. Ensure that you are logged
 1. Go to [Semgrep Registry](https://semgrep.dev/r).
-2. Click on **Visibility > Pro rules**.
+2. Click **Visibility > Pro rules**.
 3. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
-4. For a single rule, click the rule's card > Run locally. For rulesets, click the card.
-5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Refer to the following sample snippet:
+4. For a single rule, click the **Rule's card > Run locally**. For rulesets, click the card.
+5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Snippets can look like these:
+    ```bash
+    semgrep --config "p/c"
+    semgrep --config "p/xss"
+    ```
 
-3. Click on **Visibility > Pro rules**.
-4. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
-
-### Filtering behavior
-
-* Filter types such as Language and Technology use AND logic. This means that search terms must match all filters. For example, selecting Java (a Language) and security (a Category) shows only rules with both properties (Java and security).
-* Adding filters of the same type use OR logic. This means that search terms can match any of the filters for that type. For example, selecting Java and Python (both languages) shows rules with either language.
-* A gem icon (💎) denotes Semgrep Pro rules.
-
-<!-- Future feature: Add Semgrep Pro rules through your Policy -->
 
 <!-- Future feature: Receiving updates on Semgrep Pro rules -->
-
-## Removing or disabling Semgrep Pro rules
-
-### Disabling rules
-
-<DisableRule />
-
-### Removing rulesets
-
-<RemoveRuleset />
-
-## Losing access to Semgrep Pro rules
-
-You lose access to Semgrep Pro rules and their future improvements if you choose not to renew your Team or Enterprise tier plan.
