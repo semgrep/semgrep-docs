@@ -102,7 +102,7 @@ If Semgrep adds rules to the ruleset in the future, they will automatically be a
 
 #### Filtering behavior
 
-* Filter types such as Language and Technology use AND logic. This means that search terms must match all filters. For example, selecting Java (a Language) and security (a Category) shows only rules with both properties (Java and security).
+* Filter types such as **Language** and **Technology** use `AND` logic. This means that search terms must match all filters. For example, selecting Java (a **Language**) and security (a **Category**) shows only rules with both properties (Java and security).
 * Adding filters of the same type use `OR `logic. This means that search terms can match any of the filters for that type. For example, selecting Java and Python (both **Languages**) shows rules with either language.
 * A gem icon (💎) denotes Semgrep Pro rules.
 
