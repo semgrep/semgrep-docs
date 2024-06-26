@@ -15,10 +15,23 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 ## Prerequisites
 
-* This feature is in a **private beta**. To request access:
-  1. Fill out the [Request access to the Semgrep Jira integration closed beta](https://get.semgrep.dev/Jira-asana-linear-private-beta.html) form.
-  2. Contact your Technical Account Manager or Account Executive and let them know you want to try the Jira integration.
-* You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
+- The Jira integration is in **public beta** for all existing Semgrep AppSec Platform users.
+- You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
+- You must have at least one Jira project to set as the default location where tickets will be created.
+
+## Features
+
+The Semgrep Jira integration provides the following capabilities:
+
+- You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
+- You can create a single ticket for multiple findings (up to 50) that were detected by a single rule in the same project, or create individual tickets per finding.
+- Tickets can be created in **multiple Jira projects** if manually specified at ticket creation time.
+
+## Limitations
+
+- You can create only **one Jira integration** per Semgrep account or deployment.
+- You can only use **one subdomain** per Jira integration.
+- The Semgrep Jira integration does not support bi-directional or two-way status syncing.
 
 ## Enable the Jira integration
 
@@ -38,11 +51,22 @@ Once you have enabled the Jira integration, you must complete the following step
 1. Select the **Subdomain** for the Jira instance you want to use.
 2. Select the **Default project** where the Jira tickets will be created.
 3. Select the **Issue type** you want created with your Semgrep findings.
-4. If you'd like to see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
+4. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
 5. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
-**_Figure._** The Jira configuration screen.
+_**Figure.** The Jira configuration screen._
+
+### Automatic detection of other Jira projects
+
+The Jira integration automatically detects other Jira projects in your subdomain under the following conditions:
+
+- The projects and Issue types are **company-managed**, not team-managed. See the Jira documentation about [<i class="fas fa-external-link fa-xs"></i> Team-managed and company-managed projects](https://support.atlassian.com/jira-software-cloud/docs/what-are-team-managed-and-company-managed-projects/)
+- Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
+
+:::caution Same name, different ID
+Issue types may have the same name, but a different Issue type ID. If you can't view or select other Jira projects when creating tickets, check that your Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
+:::
 
 ### Create mappings
 
@@ -54,7 +78,7 @@ Optionally, you can customize the Jira field mappings and indicate which Semgrep
 * Checkboxes
 
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
-**_Figure._** The Jira configuration screen for field data mappings.
+_**Figure.** The Jira configuration screen for field data mappings._
 
 > Click **Field mapping help** to see a list of the Semgrep fields available for mapping.
 
@@ -84,10 +108,12 @@ Semgrep's **Severity** field can have the following values: `Low`, `Medium`, `Hi
 
 If you opt for a drop-down or a checkbox issue type field, verify that:
 
-* There are no misspellings
+* There are no misspellings.
 * No valid options are missing. If your drop-down or checkbox issue type is missing the `Medium` option, Jira cannot create tickets for medium-severity findings.
 
 ## Create tickets
+
+After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets.
 
 ### Code
 
@@ -98,22 +124,29 @@ You can create tickets for Code findings using the **Triage** button on the:
 
 To create tickets:
 
+<!-- vale off-->
 1. If you're on the [**Findings**](https://semgrep.dev/orgs/-/findings) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step 2.
-2. Click **Triage**.
-3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
-4. Click **Change status** to proceed.
+1. Click **Triage**.
+1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Select the **Create tickets...** checkbox.
+    1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Optional: You can add **Comments** in the text box.
+1. Click **Submit** to proceed.
+<!-- vale on -->
 
-:::note
-Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
+:::info
+- Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
+- If ticket creation **fails**, Semgrep automatically retries several times over the next day to provide robustness against outages and down time in third-party services.
 :::
 
 ![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
-***Figure.*** Code triage flow
+_**Figure.** Code triage flow._
 
 Once a ticket has been created, a link appears on the **Findings** page and along the top of an individual finding's details page.
 
 ![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
-***Figure.*** Code ticket created
+_**Figure.** Code ticket created._
 
 ### Supply Chain
 
@@ -124,31 +157,41 @@ You can create tickets for Supply Chain findings using the **Triage** button on 
 
 To create tickets:
 
+<!-- vale off-->
 1. If you're on the [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities) page, select the findings for which you want tickets created. Otherwise, proceed to step 2.
-2. Click **Triage**.
-3. Set the status to **Fixing**, and select the **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets in <span className="placeholder">PROJECT_NAME</span>** box that appears.
-4. Click **Change status** to proceed.
+1. Click **Triage**.
+1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Select the **Create tickets...** checkbox.
+    1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+1. Optional: You can add **Comments** in the text box.
+1. Click **Submit** to proceed.
+<!-- vale on -->
 
 ![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
-***Figure*.** Supply Chain triage flow
+_**Figure.** Supply Chain triage flow._
 
 ![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png#md-width)
-***Figure*.** Supply Chain ticket created
+_**Figure.** Supply Chain ticket created._
 
 ### Secrets
 
 To create tickets:
 
+<!-- vale off -->
+
 1. Select one or more findings listed in Secrets.
 2. Click **Triage**.
 3. Select **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets**.
-4. Click **Continue** to proceed.
+4. Click **Creat ticket** to proceed.
+
+<!-- vale on -->
 
 ![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png#md-width)
-***Figure*.** Secrets triage flow
+_**Figure.** Secrets triage flow._
 
 ![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
-***Figure*.** Secrets ticket created
+_**Figure.** Secrets ticket created._
 
 ## Remove the Jira integration
 

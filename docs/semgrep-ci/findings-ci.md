@@ -29,9 +29,10 @@ These states correspond to:
 Semgrep AppSec Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of four statuses in Semgrep AppSec Platform:
 
 * `OPEN`
+* `REVIEWING`
+* `FIXING`
 * `IGNORED`
 * `FIXED`
-* `REMOVED`
 
 ### Finding status
 
