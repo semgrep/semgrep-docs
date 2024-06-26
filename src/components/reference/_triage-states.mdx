@@ -6,9 +6,9 @@
 | **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 | **Ignored** | Findings that are ignored are present in the code but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). |
 
-### Remove findings
+### Removed findings
 
-You can **remove** findings. Semgrep considers a finding removed if it is not found in the most recent scan of the branch where Semgrep initially detected it due to any of the following conditions:
+Findings can also be **removed**. Semgrep considers a finding removed if it is not found in the most recent scan of the branch where Semgrep initially detected it due to any of the following conditions:
 
 - The rule that detected the finding isn't enabled in the policy anymore.
 - The rule that detected the finding was updated such that it no longer detects the finding.
