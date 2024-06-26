@@ -30,8 +30,8 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
 ![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png#bordered)
 **Figure** Sample of an email sent from Semgrep with findings.
 
-:::note Number of emails
-For each scan with at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
-:::
-
 <Notifications />
+
+### Number of emails
+
+While emails are triggered only when Semgrep identifies a new finding, the emails you receive also include a summary of all findings.
