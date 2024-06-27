@@ -42,7 +42,8 @@ Rules that don't apply to your target repository's language or framework are ski
 
 ### Change rule modes or disable Pro rules in Semgrep AppSec Platform
 
-Like any other rule or ruleset, you can disable Pro rules or change their rule mode to leave comments to developers or potentially block a PR.
+Like any other rule or ruleset, you can disable Pro rules or change their rule mode to leave comments for developers or potentially block a PR.
+
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to **Rules > Policies**.
