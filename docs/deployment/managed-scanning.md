@@ -63,7 +63,7 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
-1. Click **Scan New Project > Semgrep Managed Scan**.
+1. Click **Scan new project > Semgrep Managed Scan**.
 1. If you haven't completed the installation of public and private Semgrep GitHub apps, you are redirected to the **Set up Managed Scans** page, which facilitates the creation of both.
     1. Follow the steps in the page to create and register both a public and private Semgrep GitHub app.
 1. In the **Enable Managed Scans for GitHub repos** page, select the repositories you want to add to Semgrep Managed Scanning.
