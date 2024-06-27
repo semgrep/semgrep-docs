@@ -21,6 +21,7 @@ import DefineConnectionVariables from "/src/components/reference/_define-connect
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 
 <!-- vale on -->
 
@@ -132,6 +133,10 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - To obtain meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
+
+## Disable MR comments for Supply Chain findings
+
+<DisableComments />
 
 ## Next steps
 

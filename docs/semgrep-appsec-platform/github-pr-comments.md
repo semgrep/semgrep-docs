@@ -20,6 +20,7 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 
 <!-- vale on -->
 
@@ -128,6 +129,10 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
     <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
 </tr>
 </table>
+
+## Disable PR comments for Supply Chain findings
+
+<DisableComments />
 
 ## Next steps
 
