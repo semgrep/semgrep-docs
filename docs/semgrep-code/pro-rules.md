@@ -38,13 +38,13 @@ Your Semgrep AppSec Platform account already includes Pro rules that are likely 
 
 
 :::info
-Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
+- To make the most out of Pro rules, ensure that you are [running **cross-file analysis**](/semgrep-code/semgrep-pro-engine-intro#run-cross-file-analysis-with-semgrep-appsec-platform).
+- Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 :::
 
 ### Change rule modes or disable Pro rules in Semgrep AppSec Platform
 
 Like any other rule or ruleset, you can disable Pro rules or change their rule mode to leave comments for developers or potentially block a PR.
-
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to **Rules > Policies**.
