@@ -51,7 +51,7 @@ Like any other rule or ruleset, you can disable Pro rules or change their rule m
 1. Find and select the rules you want to disable or change.
 1. Click **Change modes** and select one of the provided options.
 
-You can find all previously-added Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules or adjust the mode again in the future, use the **Source > Pro <i class="fa-solid fa-gem"></i>** filter as described previously.
+You can find all previously added Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules or adjust the mode again in the future, use the **Source > Pro <i class="fa-solid fa-gem"></i>** filter as described previously.
 
 ### Add Semgrep Pro rules in CLI or CI
 
@@ -65,11 +65,6 @@ In some cases, you may want to run a scan with a specific set of Pro rules:
 2. Click **Visibility > Pro rules**.
 3. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
 4. For a single rule, click the **Rule's card > Run locally**. For rulesets, click the card.
-5. Copy and paste the snippet to your CLI or CI configuration file. You can add several rulesets. Snippets can look like these:
-    ```bash
-    semgrep --config "p/c"
-    semgrep --config "p/xss"
-    ```
-
-
-<!-- Future feature: Receiving updates on Semgrep Pro rules -->
+5. Copy and paste the command to your CLI or CI configuration file. You can add several rulesets.
+  ![A ruleset consisting of Pro and non-Pro rules. Copy the snippet under Test and Run Locally.](/img/registry-run-locally.png#md-width)
+  _**Figure**. A ruleset consisting of Pro and non-Pro rules. Copy and paste the snippet under Test and Run Locally to your CLI or CI._
