@@ -76,6 +76,7 @@ Optionally, you can customize the Jira field mappings and indicate which Semgrep
 * Paragraphs
 * Drop-down menus
 * Checkboxes
+* Labels
 
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
 _**Figure.** The Jira configuration screen for field data mappings._
