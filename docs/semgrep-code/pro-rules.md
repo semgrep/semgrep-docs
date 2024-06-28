@@ -21,7 +21,7 @@ The goal of Pro rules is to provide a set of well-supported rules with improved 
 
 * **Community rules** - reviewed by the Semgrep team, these rules consist of contributions from Semgrep’s community. Community rules encompass a wide array of rules, including many that are made for security auditors.
 * **Third-party rules** - created directly by external contributors such as Trail of Bits, GitLab and many more.
-* **Private rules** - rules that can be authored and published by your own organization and for use only by your organization.
+* **Private rules** - rules authored and published by your own organization, for use only by your organization.
 * **Pro rules** - proprietary rules created by the Semgrep team targeted for security and software engineers who need accurate findings. These rules provide increased coverage for many programming languages and use the latest Semgrep features.
 
 ## Semgrep Pro rules content
