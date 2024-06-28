@@ -34,7 +34,8 @@ Semgrep's Security Research team plans to keep improving coverage by adding supp
 
 ## Scan with Semgrep Pro rules
 
-Your Semgrep AppSec Platform account already includes Pro rules, as they are included in the **Default** ruleset. These Pro rules run on all your scans.
+Your Semgrep AppSec Platform account already includes Pro rules that are likely to be widely useful, as they are included in the **Default** ruleset. These Pro rules run on all your scans.
+
 
 :::info
 Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
