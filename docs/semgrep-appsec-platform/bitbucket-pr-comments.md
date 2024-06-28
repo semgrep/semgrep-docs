@@ -19,6 +19,7 @@ import NextAfterComments from "/src/components/procedure/_next-after-comments.md
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 
 <!-- vale on -->
 
@@ -194,6 +195,10 @@ Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access co
 :::info
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
+
+## Disable PR comments for Supply Chain findings
+
+<DisableComments />
 
 ## Next steps
 
