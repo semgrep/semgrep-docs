@@ -51,7 +51,7 @@ Like any other rule or ruleset, you can disable Pro rules or change their rule m
 1. Find and select the rules you want to disable or change.
 1. Click **Change modes** and select one of the provided options.
 
-You can find all Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules, you can simply use the **Source > Pro <i class="fa-solid fa-gem"></i>** filter.
+You can find all previously-added Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules or adjust the mode again in the future, use the **Source > Pro <i class="fa-solid fa-gem"></i>** filter as described previously.
 
 ### Add Semgrep Pro rules in CLI or CI
 
