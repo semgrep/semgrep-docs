@@ -85,7 +85,7 @@ To add rules, follow these steps:
 
 To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
 
-### Add rulesets to your Policies
+### Add rulesets to your Policies from the Registry
 
 Instead of adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework. The Semgrep team curates the rulesets.
 
@@ -99,6 +99,13 @@ Instead of adding individual rules to your Policies, you can add rulesets, which
     - Block
 
 If Semgrep adds rules to the ruleset in the future, they will automatically be added to your Policies in the same mode that you select. You can change the default mode for the current and future rules by re-adding the ruleset through the Registry and choosing a different mode. You *cannot* change the mode of all existing rules associated with the ruleset using the Policies page, since this only makes every rule that you changed an exception to the default.
+
+#### Filtering behavior
+
+* Filter types such as **Language** and **Technology** use `AND` logic. This means that search terms must match all filters. For example, selecting Java (a **Language**) and security (a **Category**) shows only rules with both properties (Java and security).
+* Adding filters of the same type use `OR `logic. This means that search terms can match any of the filters for that type. For example, selecting Java and Python (both **Languages**) shows rules with either language.
+* A gem icon (💎) denotes Semgrep Pro rules.
+
 
 ## Disable rules
 
@@ -162,7 +169,7 @@ Users create different policies that repositories can **subscribe** to.
 
 This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
 
-You can create a policy, for example, "Custom Coding Standards Policy", with some additional rules, and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your "Custom Coding Standards Policy".
+You can create a policy with additional rules and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
 
 ### Resolve workflow actions in multiple policies
 
