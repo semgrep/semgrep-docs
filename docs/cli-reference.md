@@ -21,7 +21,7 @@ This document provides the outputs of the following [Semgrep CLI](https://github
 - `semgrep scan --help`
 - `semgrep ci --help`
 
-- In addition, this page also gives an overview of the Semgrep CLI exit codes.
+In addition, this page also gives an overview of the Semgrep CLI exit codes.
 
 ## Semgrep commands
 
@@ -69,7 +69,7 @@ The Semgrep command line tool supports a `.semgrepignore` file that follows `.gi
 
 In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](/ignoring-files-folders-code).
 
-## Connecting to Semgrep Registry through a proxy
+## Connect to Semgrep Registry through a proxy
 
 Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
 
