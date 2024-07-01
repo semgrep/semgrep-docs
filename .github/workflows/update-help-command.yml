@@ -1,5 +1,5 @@
 # Name of this GitHub Actions workflow.
-name: Update semgrep scan help command
+name: Update semgrep help command
 
 on:
   repository_dispatch:
