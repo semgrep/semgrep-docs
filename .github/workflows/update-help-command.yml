@@ -4,7 +4,7 @@ name: Update semgrep scan help command
 on:
   repository_dispatch:
     types: [new_release]
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   update-output:
