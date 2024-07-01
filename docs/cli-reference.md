@@ -11,10 +11,17 @@ title: CLI reference
 
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
+import CLIHelpCiOutput from '/src/components/reference/_cli-help-ci-output.md'
 
 # CLI reference
 
-This document provides the outputs of the `semgrep --help` and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/semgrep/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
+This document provides the outputs of the following [Semgrep CLI](https://github.com/semgrep/semgrep) tool commands:
+
+- `semgrep --help`
+- `semgrep scan --help`
+- `semgrep ci --help`
+
+- In addition, this page also gives an overview of the Semgrep CLI exit codes.
 
 ## Semgrep commands
 
@@ -40,7 +47,23 @@ Command output:
 
 <CLIHelpScanOutput />
 
-## Ignoring Files
+<!-- vale off -->
+
+## Semgrep ci command options
+
+To list all available `semgrep ci` options, run the following command:
+
+```bash
+semgrep ci --help
+```
+
+Command output:
+
+<CLIHelpCiOutput />
+
+<!-- vale on -->
+
+## Ignore files
 
 The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendor and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
 

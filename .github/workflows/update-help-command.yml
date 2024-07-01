@@ -1,5 +1,5 @@
 # Name of this GitHub Actions workflow.
-name: Update help command
+name: Update semgrep scan help command
 
 on:
   repository_dispatch:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   update-output:
-    name: Update `--help` and `--help scan` command output 
+    name: Update `--help` and `--help scan` command output
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -33,6 +33,11 @@ jobs:
           docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep scan --help | tee src/components/reference/_cli-help-scan-output.md
           sed -i '1i```' src/components/reference/_cli-help-scan-output.md
           echo '```' >> src/components/reference/_cli-help-scan-output.md
+      - name: Run `semgrep ci --help` and update reference file with output
+        run: |
+          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep ci --help | tee src/components/reference/_cli-help-ci-scan-output.md
+          sed -i '1i```' src/components/reference/_cli-help-ci-output.md
+          echo '```' >> src/components/reference/_cli-help-ci-output.md
       - name: Commit changes, if any
         run: |
           if $(git diff --quiet); then
