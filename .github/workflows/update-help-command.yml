@@ -36,7 +36,7 @@ jobs:
           echo '```' >> src/components/reference/_cli-help-scan-output.md
       - name: Run `semgrep ci --help` and update reference file with output
         run: |
-          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep ci --help | tee src/components/reference/_cli-help-ci-scan-output.md
+          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep ci --help | tee src/components/reference/_cli-help-ci-output.md
           sed -i '1i```' src/components/reference/_cli-help-ci-output.md
           echo '```' >> src/components/reference/_cli-help-ci-output.md
       - name: Commit changes, if any
