@@ -19,22 +19,28 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/deployment/add-semgrep-to-ci).
 
-There are two features provided by Semgrep to split up a repo. Consider a monorepo named `monorepo` with four main modules
+There are two features provided by Semgrep to split up a repo. Consider a monorepo named `monorepo` with four main modules:
 
-    /src/moduleA
-    /src/moduleB
-    /src/moduleC
-    /src/moduleD
+```
+/src/moduleA
+/src/moduleB
+/src/moduleC
+/src/moduleD
+```
 
-The easiest way to split this monorepo up is into four separate scans, one for each module. To do this, use the `--subdir` (see `semgrep ci --help`) flag with the relevant path to only scan files in that module's code path:
+The easiest way to split this monorepo up is into four separate scans, one for each module. To do this, use the `--subdir` flag with the relevant path to only scan files in that module's code path:
 
-    semgrep ci --subdir /src/moduleA/*
+```
+semgrep ci --subdir /src/moduleA/*
+```
 
 In addition to scanning `/src/moduleA/*`, this command sends the results to a project called `monorepo/src/moduleA`. If you want to change the project name, set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
 
 For example:
 
-    SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir /src/moduleA/*
+```
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir /src/moduleA/*
+```
 
 It is important that scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
 
@@ -44,25 +50,27 @@ To scan the entire monorepo, trigger one scan for each module.
 You must only change `SEMGREP_REPO_DISPLAY_NAME`. Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, in order to retain hyperlink and PR/MR comment functionality.
 :::
 
-The `--subdir` flag takes, as input, only a single folder. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/docs/cli-reference)) to instruct Semgrep what paths to include. This performs file targeting across the whole monorepo. but only analyzes the included files.
+The `--subdir` flag takes a single folder as input. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/docs/cli-reference)) to tell Semgrep what paths to include. This performs file targeting across the whole monorepo. but only analyzes the included files.
 
 Unlike `--subdir`, `--include` and `--exclude` don't automatically direct results to a corresponding project, so you always have to set `SEMGREP_REPO_DISPLAY_NAME`.
 
 Here's an example using `--include`.
 
-    SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=/src/moduleA/* --include=/src/moduleB/*
+```
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=/src/moduleA/* --include=/src/moduleB/*
+```
 
 :::info
-WARNING: if `--include` and `--exclude` are used in a `semgrep ci` scan without setting `SEMGREP_REPO_DISPLAY_NAME`, `semgrep ci` might close findings that aren't detected in those scans.
+WARNING: if `--include` and `--exclude` are used in a `semgrep ci` scan without setting `SEMGREP_REPO_DISPLAY_NAME`, that scan might close findings that aren't detected because that part of the repo was not scanned.
 :::
 
 ### Examples using GitHub Actions
 
-Below, you will find an example GitHub Actions workflow file. This is 1 of 4 workflow files you would need for this specific example, all placed in the monorepo's `.github/workflows/` folder. Each workflow file corresponds to a module of the monorepo you would like to scan and treat as a separate project in Semgrep AppSec Platform. 
+The following examples each provide a GitHub Actions workflow file. This is 1 of 4 workflow files you would need to set up all the necessary scans. Each workflow file corresponds to a module of the monorepo you would like to scan and treat as a separate project in Semgrep AppSec Platform. Place all the files in the monorepo's `.github/workflows/` folder.
 
 You can name each workflow file whatever you like, but it may be helpful to name it after the module it corresponds to. In this example, something like `semgrep_moduleA.yml` would be ideal.
 
-#### With --subdir
+#### With `--subdir`
 
 ```yaml
 # Name of this GitHub Actions workflow.
@@ -111,9 +119,7 @@ jobs:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```
 
-
-#### With --include
-
+#### With `--include`
 
 ```yaml
 # Name of this GitHub Actions workflow.
