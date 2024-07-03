@@ -21,7 +21,7 @@ When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To un
 
 There are two features provided by Semgrep to split up a repo. Consider a monorepo named `monorepo` with four main modules:
 
- ```
+```
 /src/moduleA
 /src/moduleB
 /src/moduleC
