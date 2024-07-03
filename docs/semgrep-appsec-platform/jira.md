@@ -70,7 +70,7 @@ Issue types may have the same name, but a different Issue type ID. If you can't 
 
 ### Create mappings
 
-Optionally, you can customize the Jira field mappings and indicate which Semgrep fields they should be populated with. Currently, Semgrep supports the mapping of the following issue types:
+Optionally, you can customize the Jira field mappings and indicate which Semgrep fields they should be populated with. Currently, Semgrep supports the mapping of the following field types:
 
 * Short texts
 * Paragraphs
@@ -83,9 +83,9 @@ _**Figure.** The Jira configuration screen for field data mappings._
 
 > Click **Field mapping help** to see a list of the Semgrep fields available for mapping.
 
-The integration supports the use of custom Jira issue types and custom fields.
+The integration supports the use of custom Jira issue types and custom fields. However, it does not support field types other than those listed above. If you have a required field of a different type in your project, it will not be possible for Semgrep to map a value to that field, and issue creation will fail.
 
-To create a mapping:
+To create a field mapping:
 
 1. Select the Semgrep product for which the mapping is valid: **Code**, **Supply Chain**, or **Secrets**.
 2. Click **Add mapping**.
