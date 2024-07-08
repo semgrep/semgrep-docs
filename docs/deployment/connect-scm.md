@@ -2,7 +2,7 @@
 slug: connect-scm
 title: Connect a source code manager
 hide_title: true
-description: Connect a GitHub or GitLab organization to manage user authentication.
+description: Connect a Bitbucket project or a GitHub or GitLab organization to manage user authentication.
 toc_max_heading_level: 3
 tags:
   - Deployment
@@ -23,7 +23,7 @@ Linking a source code manager provides the following benefits:
     - Provides Semgrep access to post PR or MR comments.
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
 
-You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
+If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Bitbucket, though you will need to use SSO to manage the authentication of your users in such cases.
 
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single tenant by the service provider.
 
@@ -60,7 +60,18 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci). No other steps are needed.
 
-## Connect to on-premise orgs
+## Connect to on-premise orgs and projects
+
+### Bitbucket Data Center
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Click **Settings** > **Source Code Managers > Add Bitbucket Data Center**.
+1. In the **Connect your Bitbucket Project (Key)** dialog box, provide:
+   - The **Name of your Bitbucket Project (Key)**
+   - The **URL** to access your installation of Bitbucket Data Center
+   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html)
+1. Follow the on-screen prompts to complete the installation process.
+2. When done, the Bitbucket project is listed under **Source Code organizations**. Click **Test connection** to verify that the integration was installed correctly.
 
 ### GitHub Enterprise Server
 
