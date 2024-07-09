@@ -527,13 +527,23 @@ For example, if you want to specify that a function should **always** have 3 arg
 - pattern: def function($_, $_, $_)
 ```
 
+An anonymous metavariable does not produce any binding to the code it matched. This means it does not store the code that it matched. The pattern:
+
+```yaml
+- pattern: def function($A, $B, $C)
+```
+
+is not equivalent to the former example, as `$A`, `$B`, and `$C` bind to the code that matched the pattern. You can then use `$A` or any other metavariable in your rule definition to specify that specific code. Anonymous metavariables cannot be used this way.
+
 Anonymous metavariables also communicate to the reader that their values are not relevant, but rather their occurrence in the pattern.
 
 ### Metavariable unification
 
-For search mode rules, metavariables with the same name are treated as the same metavariable across and within pattern operators **except for `pattern-either`**.
+For search mode rules, metavariables with the same name are treated as the same metavariable across and within pattern operators **except for `pattern-either`**. This is called metavariable unification.
 
-For taint mode rules, metavariable unification is **not** enabled by default. To enforce unification, set `taint_unify_mvars: true` under the rule `options` key. When `taint_unify_mvars: true` is set, a metavariable defined in `pattern-sinks` and `pattern-sources` with the same name is treated as the same metavariable. See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode#metavariables-rule-message-and-unification) for more information.
+For taint mode rules, patterns defined **within** `pattern-sinks` and `pattern-sources` still unify. However, metavariable unification **between** `pattern-sinks` and `pattern-sources` is **not** enabled by default.
+
+To enforce unification, set `taint_unify_mvars: true` under the rule `options` key. When `taint_unify_mvars: true` is set, a metavariable defined in `pattern-sinks` and `pattern-sources` with the same name is treated as the same metavariable. See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode#metavariables-rule-message-and-unification) for more information.
 
 ### Display matched metavariables in rule messages
 
