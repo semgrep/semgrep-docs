@@ -25,7 +25,11 @@ The Semgrep Jira integration provides the following capabilities:
 
 - You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
 - You can create a single ticket for multiple findings (up to 50) that were detected by a single rule in the same project, or create individual tickets per finding.
+- You can automate the creation of tickets for high severity, high confidence findings in your [default branch](/deployment/add-semgrep-to-ci#default-branch-names).
+  - Automated ticket creation can be configured on a per-product setting.
+  - For Supply Chain findings, tickets are created for reachable findings.
 - Tickets can be created in **multiple Jira projects** if manually specified at ticket creation time.
+
 
 ## Limitations
 
@@ -49,13 +53,20 @@ To enable the Jira integration, follow these steps:
 Once you have enabled the Jira integration, you must complete the following steps on Semgrep AppSec Platform's **Integrations** page:
 
 1. Select the **Subdomain** for the Jira instance you want to use.
-2. Select the **Default project** where the Jira tickets will be created.
-3. Select the **Issue type** you want created with your Semgrep findings.
-4. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
-5. Click **Save changes** to proceed.
+1. Select the **Default project** where the Jira tickets will be created.
+1. Select the **Issue type** you want created with your Semgrep findings.
+1. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
+1. Optional: Click **Customize ticket creation**, then select **<i class="fa-solid fa-square-check"></i> Automatically create tickets for high severity, high confidence findings on the default branch** to allow Semgrep to automatically create tickets.
+1. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
 _**Figure.** The Jira configuration screen._
+
+:::tip
+- Tickets are created only for **high severity, high confidence findings** only. This ensures that the noise is kept to a minimum.
+- For Supply Chain findings, tickets are created for **reachable findings**.
+- Automated ticket creation can be configured on a per-product setting.
+:::
 
 ### Automatic detection of other Jira projects
 
