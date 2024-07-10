@@ -88,21 +88,10 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 
 ### GitHub Enterprise Server
 
-This section is applicable to users on a **GitHub Enterprise Server** plan. The Semgrep team recommends connecting to your GitHub orgs using the Semgrep App instead of using
-a personal access token (PAT) whenever possible.
+This section is applicable to users on a **GitHub Enterprise Server** plan.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-<Tabs
-    defaultValue="app"
-    values={[
-    {label: 'Semgrep App (Recommended)', value: 'app'},
-    {label: 'PAT', value: 'pat'},
-    ]}
->
-
-<TabItem value='app'>
 
 The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
 and orgs in your GHE deployment. There are two primary installation steps:
@@ -116,7 +105,7 @@ and orgs in your GHE deployment. There are two primary installation steps:
 If your deployment contains many orgs, you must choose an org in the deployment that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login/).
-2. Click <i class="fa-solid fa-gear"></i> Settings** > **Source Code Managers**, and click **Add GitHub Enterprise**.
+2. Click **<i class="fa-solid fa-gear"></i> Settings** > **Source Code Managers**, and click **Add GitHub Enterprise**.
 3. In the **Connect your GitHub Organization** dialog box, provide:
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
@@ -157,30 +146,6 @@ You can install the Semgrep app onto additional GHE orgs at any time. To do so:
     ![Source code organizations list](/img/ghe-15.png#md-width)
 
 You have successfully connected Semgrep to your GitHub Enterprise Server.
-
-</TabItem>
-
-<TabItem value='pat'>
-
-Connect Semgrep and GitHub Enterprise Server by creating a PAT and setting it in Semgrep AppSec Platform:
-
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **Settings** > **Source Code Managers > GitHub Enterprise Server**.
-![Source code manager tab](/img/source-code-manager.png#md-width)
-1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Ensure that the PAT is created with the required scopes:
-   - `public_repo`
-   - `repo:status`
-   - `user:email`
-   - `write:discussion`
-1. Return to Semgrep AppSec Platform and enter the personal access token generated into the **Access token** field.
-1. Enter your GHE Server base URL into the **URL** field.
-1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-        1. Commit a `semgrep.yml` configuration file into the `.github/workflows` folder. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#github-actions) for a template you can copy and customize.
-        2. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
-
-</TabItem>
-
-</Tabs>
 
 ### GitLab Self-Managed Plans
 
