@@ -93,10 +93,7 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 
 ### GitHub Enterprise Server
 
-This section is applicable to users on a **GitHub Enterprise Server** plan.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+This section is applicable to users on a **GitHub Enterprise Server** plan. 
 
 The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
 and orgs in your GHE deployment. There are two primary installation steps:
