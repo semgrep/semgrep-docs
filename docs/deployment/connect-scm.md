@@ -31,6 +31,18 @@ The process to connect a source code manager depends on whether your SCM tool is
 
 If you opted to scan a GitHub or GitLab repository when you initially signed in, you may have already performed these steps and can skip to [Next steps](#next-steps).
 
+### Bitbucket Cloud
+
+1. Sign in to Semgrep AppSec Platform.
+1. On the sidebar, click **the organization account** you want to make a connection for.
+1. Click **Settings** > **Source Code Managers**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
+1. Click **Add Bitbucket Cloud**.
+1. In the **Connect your Bitbucket Workspace** dialog box, provide:
+   - The **Name of your Bitbucket Workspace**
+   - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
+2. Click **Connect** to save and proceed.
+
 ### GitHub Cloud
 
 1. Sign in to Semgrep AppSec Platform.
