@@ -35,13 +35,13 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 
 1. Sign in to Semgrep AppSec Platform.
 1. On the sidebar, click **the organization account** you want to make a connection for.
-1. Click **Settings** > **Source Code Managers**.
+1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Cloud**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
-1. Click **Add Bitbucket Cloud**.
 1. In the **Connect your Bitbucket Workspace** dialog box, provide:
    - The **Name of your Bitbucket Workspace**
    - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
 2. Click **Connect** to save and proceed.
+3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
 
 ### GitHub Cloud
 
@@ -76,14 +76,15 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 
 ### Bitbucket Data Center
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **Settings** > **Source Code Managers > Add Bitbucket Data Center**.
+1. Sign in to Semgrep AppSec Platform.
+1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Data Center**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
 1. In the **Connect your Bitbucket Project (Key)** dialog box, provide:
    - The **Name of your Bitbucket Project (Key)**
    - The **URL** to access your installation of Bitbucket Data Center
-   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html)
-1. Follow the on-screen prompts to complete the installation process.
-2. When done, the Bitbucket project is listed under **Source Code organizations**. Click **Test connection** to verify that the integration was installed correctly.
+   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
+1. Click **Connect** to save and proceed.
+1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
 
 ### GitHub Enterprise Server
 
