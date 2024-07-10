@@ -81,12 +81,12 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Data Center**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 1. In the **Connect your Bitbucket Project (Key)** dialog box, provide:
-   - The **Name of your Bitbucket Project (Key)**
+   - The **Name of your Bitbucket Project (Key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
    - The **URL** to access your installation of Bitbucket Data Center
    - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
-1. Click **Connect** to save and proceed.
-1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
-1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
+2. Click **Connect** to save and proceed.
+3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
+4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
     1. Create or edit your `.bitbucket-pipelines.yml` configuration file to add Semgrep as part of your Bitbucket Pipelines. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs#bitbucket-pipelines) for a template you can copy and customize.
     2. Commit the updated `.bitbucket-pipelines.yml` file.
     3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the Bitbucket Pipelines interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
