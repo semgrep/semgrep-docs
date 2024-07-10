@@ -103,7 +103,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     baseUrl: <https://github.exampleCo.com/api/v3>
   ```
 
-1. Convert your organization ID to hexadecimal for use in creating your `SEMGREP_LOCAL_ADDRESS`. The organization ID is found in the **Identifiers** section of the main [Settings page](https://semgrep.dev/orgs/-/settings) in the Semgrep AppSec platform. (You may also hear this called a deployment ID.) You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
+1. Convert your organization ID to hexadecimal for use in creating your `SEMGREP_LOCAL_ADDRESS`. The organization ID is found in the **Identifiers** section of the [Settings' **Deployment** page](https://semgrep.dev/orgs/-/settings) in Semgrep AppSec Platform. You may also hear this called a deployment ID. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
 
   <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">ORGANIZATION_ID</span>:0:1</code></pre>
 
