@@ -22,6 +22,7 @@ Linking a source code manager provides the following benefits:
 - For GitHub users:
     - Provides Semgrep access to post PR or MR comments.
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
+- Allows you to scan and manage your Bitbucket projects in Semgrep AppSec Platform.
 
 If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Bitbucket, though you will need to use SSO to manage the authentication of your users in such cases.
 
@@ -85,6 +86,10 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
    - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
 1. Click **Connect** to save and proceed.
 1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
+1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
+    1. Create or edit your `.bitbucket-pipelines.yml` configuration file to add Semgrep as part of your Bitbucket Pipelines. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs#bitbucket-pipelines) for a template you can copy and customize.
+    2. Commit the updated `.bitbucket-pipelines.yml` file.
+    3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the Bitbucket Pipelines interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### GitHub Enterprise Server
 
@@ -151,7 +156,7 @@ You have successfully connected Semgrep to your GitHub Enterprise Server.
 
 This section is applicable to users with subscriptions to any **GitLab self-managed plan**.
 
-Connect Semgrep and GitLab Self-Managed by creating a PAT and setting it in Semgrep AppSec Platform:
+Connect Semgrep and GitLab Self-Managed accounts by creating a PAT and providing it to Semgrep using Semgrep AppSec Platform:
 
 1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
