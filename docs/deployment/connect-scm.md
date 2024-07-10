@@ -41,8 +41,12 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. In the **Connect your Bitbucket Workspace** dialog box, provide:
    - The **Name of your Bitbucket Workspace**
    - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
-2. Click **Connect** to save and proceed.
-3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
+1. Click **Connect** to save and proceed.
+1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
+1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
+    1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
+    2. Commit the updated configuration file.
+    3. Run the CI job to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### GitHub Cloud
 
@@ -87,9 +91,9 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 2. Click **Connect** to save and proceed.
 3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
 4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-    1. Create or edit your `.bitbucket-pipelines.yml` configuration file to add Semgrep as part of your Bitbucket Pipelines. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs#bitbucket-pipelines) for a template you can copy and customize.
-    2. Commit the updated `.bitbucket-pipelines.yml` file.
-    3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the Bitbucket Pipelines interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
+    1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
+    2. Commit the updated configuration file.
+    3. Run the CI job to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### GitHub Enterprise Server
 
