@@ -210,17 +210,19 @@ where:
 
 ## <i class="fa-solid fa-exclamation"></i> `as-metavariable`
 
+> `as-metavariable` is only available in the new syntax.
+
 `as-metavariable` is a rule-writing feature that bridges the gap between metavariables and matches. Metavariables get access to things like `metavariable-comparison`, `metavariable-regex`, and `metavariable-pattern`, but you can’t use them on arbitrary matches. However, the `as` operator lets you embed arbitrary matches into metavariables, or bind arbitrary matches to a name.
 
 The syntax is as follows:
 
 ```yaml
 all:
- - pattern: |
- @decorator
- def $FUNC(...):
- ...
-    as: $DECORATED_FUNC
+  - pattern: |
+    @decorator
+    def $FUNC(...):
+      ...
+  as: $DECORATED_FUNC
 ```
 
 Since `as` appears in the same indentation as the `pattern`, Semgrep couples the two. This augmented `pattern` operator matches the enclosed pattern, but produces an environment where `$DECORATED_FUNC` is bound to the match it corresponds to. So for instance, the following rule:
@@ -228,13 +230,13 @@ Since `as` appears in the same indentation as the `pattern`, Semgrep couples the
 ```yaml
 match:
   pattern: |
- @decorator
- def $FUNC(...):
- ...
+    @decorator
+    def $FUNC(...):
+      ...
   as: $DECORATED_FUNC
 fix: |
- @another_decorator
- $DECORATED_FUNC
+  @another_decorator
+  $DECORATED_FUNC
 ```
 
 Allows you to capture the decorated function. You can then use it in, for example, autofix's metavariable or metavariable ellipses interpolation, where you express something like "rewrite X, but with Y."
