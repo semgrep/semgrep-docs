@@ -269,7 +269,7 @@ If your rule has a `category: security`, the following metadata are required:
   </tr>
   <tr>
    <td><code>subcategory</code></td>
-   <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
+   <td><code>vuln</code>, <code>audit</code>, <code>secure default</code></td>
    <td>
     <pre>
     <code>subcategory:<br /></code>
@@ -456,13 +456,13 @@ subcategory:
   - audit
 ```
 
-##### guardrail
+##### secure default
 
-A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
+A secure default rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
 
 ```yaml
 subcategory:
-  - guardrail
+  - secure default
 ```
 
 #### Technology
