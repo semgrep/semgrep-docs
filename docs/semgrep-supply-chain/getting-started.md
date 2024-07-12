@@ -28,7 +28,9 @@ This article walks you through the Semgrep Supply Chain configuration and custom
 
 ## Project directory structure
 
-Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in subfolders as well.
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Your code must use [supported lockfile ecosystems and filenames](/docs/supported-languages#semgrep-supply-chain). 
+
+Semgrep Supply Chain can correctly parse code files and lockfiles in subfolders as well. Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Lockfiles must all use the supported lockfile names.
 
 In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
