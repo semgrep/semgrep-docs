@@ -68,15 +68,11 @@ The **Secrets** page consists of:
 
 ### Filter findings
 
-Semgrep AppSec Platform offers a variety of filters to help you narrow down the list of findings. The following sections describe what filters are available to you.
-
-## View your findings
-
 Semgrep AppSec Platform offers a variety of filters to help you narrow down the
 list of findings. The following sections describe what filters are available to
 you.
 
-### Triage status
+#### Triage status
 
 | Status | Description |
 | -----------  | ------------ |
@@ -84,7 +80,7 @@ you.
 | **Ignored** | Findings that are ignored are present in the code, but have been labeled as unimportant. Ignore findings that are false positives or deprioritized issues. |
 | **Fixed** | Fixed findings were detected in a previous scan, but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 
-### Severity
+#### Severity
 
 Severity is assigned based on how sensitive or crucial the exposed web service is. Possible values include:
 
@@ -92,7 +88,7 @@ Severity is assigned based on how sensitive or crucial the exposed web service i
 * Medium
 * Low
 
-### Validation
+#### Validation
 
 Refers to whether or not a secret is active and can be used to grant resources or authentication, or if a secret is inactive.
 
@@ -103,7 +99,7 @@ Refers to whether or not a secret is active and can be used to grant resources o
 | Validation error | Semgrep made an API call but it returned and HTTP response of 400 or similar; a server error, such as a timeout, occurred. The Semgrep Team recommends manually reviewing the finding. |
 | No validator | Semgrep does not perform any validation on this finding. You must manually review the finding. |
 
-### Repository visibility
+#### Repository visibility
 
 Refers to whether or not the repository is a public repository or private. This is detected through your source code manager.
 
@@ -117,15 +113,15 @@ Semgrep supports visibility detection only for GitHub repositories of any plan.
 | Private | Repository access requires authentication. |
 | Unknown | Semgrep Secrets is unable to detect your repository visibility. This is typically assigned to: <ul><li>Scans from local developer machines.</li><li>Scans from any non-GitHub source code manager, such as GitLab.</li></ul> |
 
-### Secret type
+#### Secret type
 
 Refers to the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**.
 
-### Projects
+#### Projects
 
 A repository that's been onboarded to Semgrep for scanning.
 
-### Branches
+#### Branches
 
 A branch of any Project.
 
