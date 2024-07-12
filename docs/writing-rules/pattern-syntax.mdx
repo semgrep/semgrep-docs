@@ -527,7 +527,7 @@ For example, if you want to specify that a function should **always** have 3 arg
 - pattern: def function($_, $_, $_)
 ```
 
-An anonymous metavariable does not produce any binding to the code it matched. This means it does not store the code that it matched. The pattern:
+An anonymous metavariable does not produce any binding to the code it matched. This means it does not enforce that it matches the same code at each place it is used. The pattern:
 
 ```yaml
 - pattern: def function($A, $B, $C)
@@ -539,7 +539,7 @@ Anonymous metavariables also communicate to the reader that their values are not
 
 ### Metavariable unification
 
-For search mode rules, metavariables with the same name are treated as the same metavariable across and within pattern operators **except for `pattern-either`**. This is called metavariable unification.
+For search mode rules, metavariables with the same name are treated as the same metavariable within the `patterns` operator. This is called metavariable unification.
 
 For taint mode rules, patterns defined **within** `pattern-sinks` and `pattern-sources` still unify. However, metavariable unification **between** `pattern-sinks` and `pattern-sources` is **not** enabled by default.
 
