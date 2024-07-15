@@ -24,7 +24,7 @@ Linking a source code manager provides the following benefits:
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
 - Allows you to scan and manage your Bitbucket projects in Semgrep AppSec Platform.
 
-If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Bitbucket, though you will need to use SSO to manage the authentication of your users in such cases.
+If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Bitbucket, though you will need to use a separate SSO provider to manage the authentication of your users in such cases.
 
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single tenant by the service provider.
 
@@ -43,7 +43,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - The **Name of your Bitbucket Workspace**
    - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
 1. Click **Connect** to save and proceed.
-1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
+1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
 1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
     1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
     2. Commit the updated configuration file.
