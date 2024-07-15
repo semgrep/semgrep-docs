@@ -35,7 +35,8 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 ### Bitbucket Cloud
 
 1. Sign in to Semgrep AppSec Platform.
-1. On the sidebar, click **the organization account** you want to make a connection for.
+1. On the sidebar, click the account name to open the drop-down menu.
+1. Using the drop-down menu, select the account you want to make a connection for.
 1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Cloud**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
 1. In the **Connect your Bitbucket Workspace** dialog box, provide:
@@ -84,8 +85,8 @@ For users of GitLab cloud-hosted plans, a connection to GitLab is created automa
 1. Sign in to Semgrep AppSec Platform.
 1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Data Center**.
 ![Source code manager tab](/img/source-code-manager.png#md-width)
-1. In the **Connect your Bitbucket Project (Key)** dialog box, provide:
-   - The **Name of your Bitbucket Project (Key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
+1. In the **Connect your Bitbucket project (key)** dialog box, provide:
+   - The **Name of your Bitbucket project (key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
    - The **URL** to access your installation of Bitbucket Data Center
    - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
 2. Click **Connect** to save and proceed.

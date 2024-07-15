@@ -16,7 +16,7 @@ PR or MR comments are currently supported for:
 
 * All GitHub plans
 * All GitLab plans
-* Bitbucket Cloud and Bitbucket Data Center
+* All Bitbucket plans
 
 PR or MR comments are not supported for:
 
