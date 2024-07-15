@@ -18,10 +18,6 @@ Several third-party tools include Semgrep extensions.
 - IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
-### Community-contributed IDE extensions
-
-- Vim: [`semgrep.vim`](https://github.com/semgrep/semgrep.vim)
-
 ### The LSP Command
 
 All of our official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate
