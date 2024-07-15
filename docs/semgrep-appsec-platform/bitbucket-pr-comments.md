@@ -110,7 +110,7 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
-2. Check that an entry for your GitHub org exists and is correct.
+2. Check that an entry for your Bitbucket workspace exists and is correct.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
