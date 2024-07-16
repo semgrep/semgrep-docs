@@ -16,11 +16,10 @@ PR or MR comments are currently supported for:
 
 * All GitHub plans
 * All GitLab plans
-* Bitbucket Cloud
+* All Bitbucket plans
 
 PR or MR comments are not supported for:
 
-* Bitbucket Data Center
 * Azure Repos
 * Any other SCM or repository provider
 
@@ -49,6 +48,7 @@ For MR comments on GitLab and PR comments on Bitbucket, ensure that you have per
 * You have configured a token with appropriate permissions to comment on MRs or PRs.
 * You have added the token as a variable in your project or workspace configuration.
 * You have added the token value to your CI configuration.
+* For Bitbucket Data Center users: you have added Bitbucket Data Center as a source code manager in Semgrep AppSec Platform.
 
 #### GitLab
 

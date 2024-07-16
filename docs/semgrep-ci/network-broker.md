@@ -90,10 +90,10 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your Bitbucket Data Center, GitLab, or GitHub URL:
 
   ```yaml
-  # for Bitbucket
+  # for Bitbucket - compatible with Network Broker versions 0.20.0 and later
   bitbucket:
     baseUrl: <https://bitbucket.example.com/rest/api/latest>
-
+    
   # for GitLab
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>

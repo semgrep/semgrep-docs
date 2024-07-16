@@ -1,0 +1,38 @@
+The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform. It is for use with code hosted in Bitbucket Data Center.
+
+This code snippet uses Jenkins declarative syntax.
+
+```javascript
+pipeline {
+  agent any
+    environment {
+      // The following variable is required for a Semgrep AppSec Platform-connected scan:
+      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+      BITBUCKET_TOKEN = credentials('FS_BITBUCKET_TOKEN')
+
+      // Uncomment the following line to scan changed
+      // files in PRs or MRs (diff-aware scanning):
+      // SEMGREP_BASELINE_REF = "${env.CHANGE_ID != null ? 'main' : ''}"
+
+      // Troubleshooting:
+
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
+      // to the code that generated a finding or if you are not receiving PR or MR comments.
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/YOUR_BITBUCKET_DATA_CENTER_URL\/scm\/(.*).git$/, '$1')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(https:\/\/.*?)\/scm\/(.*)\/(.*)\.git$/, '$1/projects/$2/repos/$3')
+      // SEMGREP_PR_ID = "${env.CHANGE_ID != null ? env.CHANGE_ID : ''}"
+      SEMGREP_APP_URL = "https://semgrep.dev"
+    }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+            sh 'pip3 install semgrep'
+            sh 'semgrep ci'
+        }
+    }
+  }
+}
+```

@@ -28,6 +28,7 @@ import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
+import JenkinsBitbucket from "/src/components/code_snippets/_jenkins-semgrep-app-bbdc.mdx"
 
 <!--Bitbucket Pipelines -->
 
@@ -203,6 +204,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     {label: 'Default', value: 'jenkins-semgrep'},
     {label: 'Semgrep OSS', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
+    {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
 >
 
@@ -234,6 +236,13 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 <JenkinsSemgrepAppSastDocker />
 
 </TabItem>
+
+<TabItem value='jenkins-bb'>
+
+<JenkinsBitbucket />
+
+</TabItem>
+
 </Tabs>
 
 ## Bitbucket Pipelines
