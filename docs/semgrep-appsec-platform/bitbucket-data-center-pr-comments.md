@@ -5,8 +5,8 @@ title: Bitbucket Data Center
 hide_title: true
 description: "Enable PR comments in your Bitbucket Data Center repositories to display Semgrep findings to developers."
 tags:
-    - Deployment
-    - Semgrep AppSec Platform
+ - Deployment
+ - Semgrep AppSec Platform
 ---
 
 <!-- vale off -->
@@ -27,12 +27,12 @@ import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_commen
 
 <DeploymentJourney />
 
-Semgrep can create **pull request (PR) comments** in your Bitbucket repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
+Semgrep can create **pull request (PR) comments** in your Bitbucket repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. They are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
 Automated comments on Bitbucket pull requests are displayed as follows:
 
-![Semgrep Bitbucket PR comment](/img/bb-pr-comment.png#md-width)
-**Figure** An inline Bitbucket pull request comment.
+![Semgrep Bitbucket PR comment](/img/bbdc-pr-comments.png#md-width)
+_**Figure.**_ Bitbucket Data Center pull request comments.
 
 ## Conditions for PR comment creation
 
@@ -40,24 +40,12 @@ PR comments appear for the following types of scans under these conditions:
 
 <CommentTriggers />
 
-## Bitbucket tokens
-
-To integrate Semgrep comments into Bitbucket Data Center, you must provide a workspace access token.
-
-## Create and add a workspace access token
-
-1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for pull requests. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
-2. Add the workspace access token as a workspace variable with the **Secured** option.
-
-Continue setting up Bitbucket PR comments by finishing the rest of this guide.
-
 ## Enable PR comments in Bitbucket
 
 ### Prerequisites
 
-- In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
-- You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
-
+In addition to finishing the previous steps in your deployment journey, it is recommended that you complete a **full scan** on your **default branch** for the repository in which you want to receive comments.
+- You must have a Bitbucket Data Center HTTP access token. Ensure that the [token HTTP access token that you create](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) has been granted **Project write** permissions. You'll provide this token to your CI provider during the setup process.
 
 ### Confirm your Semgrep account's connection
 
@@ -78,34 +66,34 @@ The following snippet is a sample with `BITBUCKET_TOKEN` defined in a `bitbucket
 
 <!--
 <Tabs
-    defaultValue="jenkins"
-    values={[
-    {label: 'Sample Jenkins snippet', value: 'jenkins'},
-    {label: 'Sample Bitbucket Pipelines snippet', value: 'pipelines'},
-    ]}
+ defaultValue="jenkins"
+ values={[
+ {label: 'Sample Jenkins snippet', value: 'jenkins'},
+ {label: 'Sample Bitbucket Pipelines snippet', value: 'pipelines'},
+ ]}
 >
 
 <TabItem value='jenkins'>
 
 ```javascript
 pipeline {
-  agent any
-    environment {
+ agent any
+ environment {
 
-      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-      // Define BITBUCKET_TOKEN to receive PR comments for Bitbucket Cloud
-      BITBUCKET_TOKEN = credentials('BITBUCKET_PAT')
+ SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+ // Define BITBUCKET_TOKEN to receive PR comments for Bitbucket Cloud
+ BITBUCKET_TOKEN = credentials('BITBUCKET_PAT')
 
-      // ... Other configuration variables
-    }
-    stages {
-      stage('Semgrep-Scan') {
-        steps {
-          sh 'pip3 install semgrep'
-          sh 'semgrep ci'
-      }
-    }
-  }
+ // ... Other configuration variables
+ }
+ stages {
+ stage('Semgrep-Scan') {
+ steps {
+ sh 'pip3 install semgrep'
+ sh 'semgrep ci'
+ }
+ }
+ }
 }
 ```
 </TabItem>
@@ -122,12 +110,12 @@ pipelines:
       # ...
   pull-requests:
     '**':
-      - step:
+ - step:
           name: 'Run Semgrep diff scan with PR branch'
           image: semgrep/semgrep
           script:
             # ...
-            - export BITBUCKET_TOKEN=$PAT
+ - export BITBUCKET_TOKEN=$PAT
 ```
 
 <!--
