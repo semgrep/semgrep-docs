@@ -9,6 +9,8 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
+
 # Connect a source code manager
 
 :::note Your deployment journey
@@ -76,7 +78,9 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 ### GitLab Cloud
 
-For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci). No other steps are needed.
+For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after adding a Semgrep job to GitLab CI/CD. No other steps are needed.
+
+<PlatformAddRepo />
 
 ## Connect to on-premise orgs and projects
 
