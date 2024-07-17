@@ -102,6 +102,7 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
+                    'semgrep-appsec-platform/azure-pr-comments',
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
                     'semgrep-appsec-platform/bitbucket-pr-comments',
