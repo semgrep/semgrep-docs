@@ -32,7 +32,7 @@ The process to connect a source code manager depends on whether your SCM tool is
 
 If you opted to scan a GitHub or GitLab repository when you initially signed in, you may have already performed these steps and can skip to [Next steps](#next-steps).
 
-## Azure DevOps Cloud
+### Azure DevOps Cloud
 
 1. Sign in to Semgrep AppSec Platform.
 1. On the sidebar, click the account name to open the drop-down menu.
