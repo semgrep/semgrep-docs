@@ -1,20 +1,29 @@
 ```yaml
-- label: ":semgrep: Semgrep"
+- label: ":semgrep: Semgrep Full Scan"
   commands:
-    # Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
-    # to the code that generated a finding.
-    # Buildkite may set BUILDKITE_COMMIT to a symbolic ref, but Semgrep only accepts SHA1 for commits
-    # - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
-    # - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
-    # - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
-    # Use sed -e 's#git@github.com:##' if you clone with SSH
-    # - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
+    - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#git@github.com:##' | sed -e 's#.git##')"
     - semgrep ci
+  if: |
+    build.pull_request.id == null
+
+- label: ":semgrep: Semgrep Diff Scan"
+  commands:
+    - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
+    - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#git@github.com:##' | sed -e 's#.git##')"
+    - SEMGREP_BASELINE_REF=${BUILDKITE_PULL_REQUEST_BASE_BRANCH} semgrep ci
+  if: |
+    build.pull_request.id != null
 
   plugins:
     - docker#v5.11.0:
-        image: semgrep/semgrep
+        image: semgrep/semgrep:latest
         environment:
-          # The following variable is required to set up a scan connected to Semgrep AppSec Platform
+          # The following variable is required to set up a scan connected to Semgrep Cloud Platform:
           - "SEMGREP_APP_TOKEN"
 ```
