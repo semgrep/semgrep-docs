@@ -1,27 +1,20 @@
 ```yaml
 - label: ":semgrep: Semgrep"
   commands:
-    # Uncomment the following line to scan changed
-    # files in PRs or MRs (diff-aware scanning):
-    # - export SEMGREP_BASELINE_REF = "main"
-
-    # Troubleshooting:
-
     # Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
-    # to the code that generated a finding or if you are not receiving PR or MR comments.
-    # - export SEMGREP_COMMIT=${BUILDKITE_COMMIT}
-    # - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    # to the code that generated a finding.
+    # Buildkite may set BUILDKITE_COMMIT to a symbolic ref, but Semgrep only accepts SHA1 for commits
+    # - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
     # - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
-    # - export SEMGREP_REPO_URL="$(echo "$BUILDKITE_REPO" | sed -e 's#.\{4\}$##')"
-    # - echo "$BUILDKITE_REPO" | sed 's#https://github.com/##' | sed 's#.git##'
+    # - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
+    # Use sed -e 's#git@github.com:##' if you clone with SSH
     # - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#https://github.com/##' | sed -e 's#.git##')"
-
     - semgrep ci
 
   plugins:
-    - docker#v3.7.0:
+    - docker#v5.11.0:
         image: semgrep/semgrep
         environment:
-          # The following variable is required to set up a scan connected to Semgrep AppSec Platform:
+          # The following variable is required to set up a scan connected to Semgrep AppSec Platform
           - "SEMGREP_APP_TOKEN"
 ```
