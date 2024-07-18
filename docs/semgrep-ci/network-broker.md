@@ -127,4 +127,6 @@ You can check the logs for Semgrep Network Broker by running:
 
 ## Run multiple instances of the Semgrep Network Broker
 
-If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments.
+If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments. 
+
+You may see some contention in logs, as the broker hasn't yet been optimized for this use case.
