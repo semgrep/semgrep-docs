@@ -288,7 +288,7 @@ To add Semgrep into your Buildkite pipeline:
 1. Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the target repository.
 2. Copy the code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet), making alterations if necessary for your environment.
 3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated `pipeline.yml` file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **your repository > Pipelines**.
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **Pipelines > pipeline name**.
 
 :::note
 These steps can be performed within Buildkite's UI. To do so, navigate to Buildkite's main page, and click **Pipelines > New Pipeline**.
@@ -312,13 +312,14 @@ These steps can be performed within Buildkite's UI. To do so, navigate to Buildk
 
 The following configuration creates a CI job that runs scans according to the products you have enabled in Semgrep AppSec Platform. The provided environment variables are commonly needed to correctly configure scans from Buildkite.
 
-This file configures two alternative command paths, one for full scans, and one for diff-aware scans. The latter is used for pull or merge requests.
+This file configures two mutually exclusive command steps, one for full scans, and one for diff-aware scans. The latter is used for pull or merge requests.
 
-In order for this configuration to run the correct type of scan, go to the pipeline **Settings** and select the connected source code manager in the left sidebar. In that section, make the following changes:
+In order for this configuration to run the correct type of scan for each condition:
 
-1. Under **Branch Limiting**, enter your default branch name. You can include any other branch names that require full scans as well, such as `release-*`.
+1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
+2. Under **Branch Limiting**, enter your default branch name. You can include any other branch names that require full scans as well, such as `release-*`.
 2. Click **Save Branch Limiting**.
-3. Under the source code manager section, select the box for **Build Pull Requests**. Or for GitLab, when setting up the webhook, ensure that the **Merge request** event is selected.
+3. Under the source code manager section, select the box for **Build Pull Requests**. For GitLab, instead ensure that the **Merge request** event is selected when setting up the webhook.
 4. Click **Save Settings** for that section.
 
 You can refer to Buildkite's [Branch configuration documentation](https://buildkite.com/docs/pipelines/branch-configuration) or [GitLab integration details](https://buildkite.com/docs/integrations/gitlab) for more information on these settings.
