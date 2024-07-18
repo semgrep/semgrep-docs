@@ -285,13 +285,13 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To add Semgrep into your Buildkite pipeline:
 
-1. Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the related repository.
+1. Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the target repository.
 2. Copy the code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet), making alterations if necessary for your environment.
 3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated `pipeline.yml` file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file, or if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **your repository > Pipelines**.
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **your repository > Pipelines**.
 
 :::note
-These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > New Pipeline** to perform these steps within Buildkite's UI.
+These steps can be performed within Buildkite's UI. To do so, navigate to Buildkite's main page, and click **Pipelines > New Pipeline**.
 :::
 
 ### Sample Buildkite configuration snippet
