@@ -314,15 +314,20 @@ The following configuration creates a CI job that runs scans according to the pr
 
 This file configures two mutually exclusive command steps, one for full scans, and one for diff-aware scans. The latter is used for pull or merge requests.
 
-In order for this configuration to run the correct type of scan for each condition:
+In order for this configuration to run the correct type of scan for each condition, it requires both [branch filtering](https://buildkite.com/docs/pipelines/branch-configuration) and configuration to build on pull requests.
+
+#### Branch filtering
 
 1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
-2. Under **Branch Limiting**, enter your default branch name. You can include any other branch names that require full scans as well, such as `release-*`.
-2. Click **Save Branch Limiting**.
-3. Under the source code manager section, select the box for **Build Pull Requests**. For GitLab, instead ensure that the **Merge request** event is selected when setting up the webhook.
-4. Click **Save Settings** for that section.
+   ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png)
+2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box.
+   ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png)
+   You can include any other branch names that require full scans as well, such as `release-*`.
+3. Click **Save Branch Limiting**.
 
-You can refer to Buildkite's [Branch configuration documentation](https://buildkite.com/docs/pipelines/branch-configuration) or [GitLab integration details](https://buildkite.com/docs/integrations/gitlab) for more information on these settings.
+#### Build on pull requests
+
+In order to run diff-aware scans, your pipeline must run builds on pull or merge requests. Buildkite integrates with several source code managers and each one has different options to handle pull or merge requests. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the documentation for your [Source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull or merge requests.
 
 <BuildkiteSemgrepAppSast />
 
