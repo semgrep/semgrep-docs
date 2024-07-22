@@ -9,139 +9,127 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for March 2024
+# Semgrep release notes for June 2024
 
-## 🔧 OSS Engine
-
-* The following versions of the OSS Engine were released in September 2023:
-  * [<i class="fas fa-external-link fa-xs"></i>1.64.0](https://github.com/semgrep/semgrep/releases/tag/v1.64.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.65.0](https://github.com/semgrep/semgrep/releases/tag/v1.65.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.66.0](https://github.com/semgrep/semgrep/releases/tag/v1.66.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.66.1](https://github.com/semgrep/semgrep/releases/tag/v1.66.1)
-  * [<i class="fas fa-external-link fa-xs"></i>1.66.2](https://github.com/semgrep/semgrep/releases/tag/v1.66.2)
-  * [<i class="fas fa-external-link fa-xs"></i>1.67.0](https://github.com/semgrep/semgrep/releases/tag/v1.67.0)
-
-## 🌐 Cloud Platform
+## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- The **Add to policy** button in the **Playground** can now differentiate between custom Code and Secrets rules. When you click **Add to policy**, it detects which type of rule you have written and adds the rule to the corresponding policy board. <!-- 12739 -->
-
-### Fixed
-
-- Fixed a bug in which users couldn't claim a license if they only had one organization. <!-- 13076 -->
-- **Visual Studio Code extension:** fixed an issue where rules weren't downloaded to the user's machine, which resulted in no findings detected.
-- Minor UI and in-app copy fixes in the following:
-    - Editor
-    - Settings page
-    - Tutorial page
-    - Onboarding process <!-- 13447, 13445, 13364, 13194, 13082 -->
-- Fixed a bug in which users were sometimes unable to delete their SSO configuration. <!-- 13171 -->
-
-## 💻 Code
-
-### Added
-
-- Added support for Python's `yield` keyword, enabling the detection of taint findings from taint sources returned by `yield`.
-- Added ability for users to copy file paths displayed in Semgrep Cloud Platform's **Findings** page if they aren't links.
-- Added the ability for users to see if there's a version of a rule they're currently using that supports interfile analysis.
-- Added **Clear filters** button when no findings appear in the **Findings** page after the user has set some filters.
-- **API**: added ability to get rules metadata from the API.
+- The Semgrep **Jira integration** is now in **public beta**. Create Jira project tickets from Semgrep AppSec Platform and configure mappings from Semgrep fields to Jira fields. Read the [Jira integration documentation](/semgrep-appsec-platform/jira#enable-the-jira-integration) to learn more.
+  - Assistant remediation guidance is now available in Jira tickets you create. <!-- 14994 -->
+  - Added a red Jira ticket icon in the **Findings** page to make it clear when Jira ticket creation fails.  <!-- 14835 -->
+- The onboarding checklist modal now expands automatically to show more items when you first sign in to Semgrep AppSec Platform. <!-- 14987 -->
+- You can now sort projects by name and latest scan by navigating to the **Projects** page and clicking the arrow next to their respective headers. <!-- 14923 -->
+![Arrows used to sort projects by name and latest scan.](/img/release-notes-project-sorting.png#bordered)
+- **Playground**: Added the `fix` key to structure mode.
+- Added a setup page for Semgrep Managed Scanning. New users are now able to create a source code manager when setting up managed scans for the first time.
+- Added the ability [to define separate path ignores lists](/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform). Users can now define one for Semgrep Code and Supply Chain and another for Semgrep Secrets.
+- Added two additional triage states for all Semgrep products:
+  - Reviewing
+  - Fixing
 
 ### Changed
 
-- Code analysis started by logged-in users running `semgrep ci` now includes cross-function (intrafile) analysis by default. This change affects CI jobs and CLI scans.
-- `.phtml` files are now processed as PHP files and analyzed using PHP rules.
-- Updated PR comments to include links to specific findings in Semgrep Cloud Platform.
-- Users can see all projects, even if they don't have any identified findings, in the **Most findings** list on Semgrep Cloud Platform's **Dashboard** page. <!-- https://github.com/semgrep/semgrep-app/pull/12870 -->
-- Semgrep Code now distinguishes between findings **resolved by rule changes** and findings **resolved due to code modifications**. This change applies only to new findings.
-  - Only findings fixed due to **code modifications** are marked as **fixed**.
-    - The fix rate calculated by Semgrep Code now includes only such findings.
-  - Findings fixed due to rule changes are marked as **resolved**.
-- **CLI**: Semgrep clones the repository into the current working directory instead of a `tmp` folder when using the `--remote` flag.
+- Updated the **Settings > Integrations** tab with the latest supported integration information. <!--15042 -->
 
 ### Fixed
 
-- **Kotlin**: Fixed a parsing error when a newline appears between the class name and the primary constructor.
-- Fixed an issue where autofix on variable definitions could not handle semicolons for Java, C++, C#, Rust, Cairo, Solidity, and Dart.
-- Fixed an issue with autofix application on lines with multi-byte characters.
-- Fixed issue where credentials were inadvertently included in a project URL when publishing a custom rule using `semgrep publish`. Running `semgrep publish` generates a `rule-origin-note`, which includes the project URL in the metadata. When this process occurs in a GitLab CI job, GitLab includes the CI job tokens in the project URL. Semgrep now removes the credential from the metadata.
-- Fixed an issue where reachability rules were deleted from Semgrep Registry.
-- Fixed an issue where the timestamp on the findings didn't correspond to the timestamp used by the filter; now, both use the `relevant_since` filter, which provides information about when findings were last reopened.
+- Previously, users whose access token had expired found themselves redirected back and forth between `/login` and `/orgs/-`, ultimately navigating them to `/login`. This issue has been fixed and the user is now properly redirected based on the state of the access token.
 
-## ⛓️ Supply Chain
+## 💻 Semgrep Code
 
 ### Added
 
-- Supply Chain now offers [lockfile-only support](/supported-languages/#semgrep-supply-chain) for Swift projects.
+- Added support for the `--subdir` command, which enables scanning monorepos in parts. `--subdir` accepts the path to a subdirectory, then runs Semgrep only on the specified subdirectory and ensures that the file links displayed in Semgrep AppSec Platform are correct.
+- Added traces to help debug the performance of tainting. To send traces added in the PR, pass `--trace` and set the environment variable `SEMGREP_TRACE_LEVEL=trace`. To send traces to a local endpoint instead of Semgrep's default endpoint, use `--trace-endpoint`.
 
 ### Changed
 
-- Findings with a **critical** severity now display in Semgrep Cloud Platform with a darker red color to help distinguish them from high-severity findings.
-- Findings are now displayed in Semgrep Cloud Platform with readable names, such as `git-url-parse: Inefficient Regular Expression Complexity` instead of `lodash.defaultsdeep: Improper Input Validation`.
+- Removed URLs at the end of logs generated whenever `semgrep ci --dryrun` is run. Dry runs occur locally without results uploaded to Semgrep AppSec Platform, so the URL is unnecessary.
 
 ### Fixed
 
-- Fixed an issue where bulk triage didn't work in Semgrep Cloud Platform for Supply Chain findings.
-- Fixed an issue where Supply Chain rules and findings erroneously display a confidence label.
+- Fixed an issue that caused findings to be flagged as **Untriaged** and display the message, "Untriaged by Semgrep because a related issue was untriaged."
+- Fixed an issue with **last seen** scan dates when projects are scanned with individual products, such as Code and Supply Chain, not simultaneously.
 
-## 🤖 Assistant
-
-Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-assistant/overview/) and the [<i class="fas fa-external-link fa-xs"></i> blog post](https://semgrep.dev/blog/2024/assistant-ga-launch).
+## ⛓️  Semgrep Supply Chain
 
 ### Added
 
-- Added the **Agree** and **Ignore** buttons to the **No grouping** view in the **Semgrep Cloud Platform > Code** page.
-- Added the AI **component tags** in the **Finding details** page and **No grouping** view. <!-- 13419 -->
-- Added the ability to use AI to generate Semgrep rules (beta). To try this feature:
-    1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Editor](https://semgrep.dev/orgs/-/editor) and click on the **<span style={{color:'#ffffff'}}><span style={{backgroundColor:'#000000'}}><i class="fa-solid fa-circle-plus"></i></span></span> black square with white circle plus sign**.
-    2. Select **...with Semgrep Assistant (beta)** from the drop-down box.
-    ![Generate rule with Semgrep Assistant form](/img/ai-generate-rule.png)
+- You can now disable Supply Chain PR comments for reachable findings. Navigate to **Settings > Deployment**, and within the **Supply Chain** section, click the <i class="fa-solid fa-toggle-large-on"></i> **PR/MR Comments** toggle.
 
 ### Changed
 
-- Improvements to in-app copy and UI. <!-- 13399, 13352 -->
-
-## 🔐 Secrets
-
-### Added
-
-- Historical scanning is now available as a **public beta** feature. [<i class="fa-regular fa-file-lines"></i> Historical scanning](/docs/semgrep-secrets/historical-scanning/) allows users to find valid secrets in their Git commit history. To enable this feature:
-    1. Log in to Semgrep Cloud Platform.
-    2. Navigate to **Settings** > **Deployments**.
-    3. Under **Secrets**, toggle on **Historical scanning**.
-  Users can also include the `--historical-secrets` flag when running `semgrep ci` in the CLI.
-- Added the ability to view a Secrets rule if there's one that supersedes a Semgrep Code rule with similar functionality. These notifications are available in Semgrep Cloud Platform on:
-  - The **Findings** and **Finding Details** pages
-  - The **Policies** page
-  In addition to the affected findings labeled with **Secrets version available**, users can look for findings using the **Available rule upgrades** filter.
-
-### Changed
-
-- Moved the **Settings** page for Secrets from its **Findings** page to **Settings** > **Deployment**.
+- The Supply Chain > **Advisories** tab search box now allows you to search by CVE number, such as `CVE-2023-44487`, or GitHub Security Advisory (GHSA) ID.
 
 ### Fixed
 
-- Fixed an issue where some Secrets findings were labeled as Code findings.
-- **CLI**: Fixed an issue where there were no warnings if Secrets is enabled, but users have no Secrets rules configured.
+- Clicking the **Clear filters** button in **Supply Chain > Vulnerabilities** now clears all filters correctly. <!-- 15004 -->
+
+## 🤖 Semgrep Assistant
+
+### Added
+
+- Added the Assistant **Analyze** button to Semgrep Code's **Finding Details** page so that users do not have to return to the **Findings** page to trigger Assistant actions.
+- Assistant features have been added to the Jira integration. See [Semgrep AppSec Platform](#-semgrep-appsec-platform) for more information.
+
+### Fixed
+
+- Fixed an issue with Assistant causing long wait times for analysis results.
+
+## 🔐 Semgrep Secrets
+
+### Added
+
+- Added a pop-up confirmation in Semgrep AppSec Platform that enabling historical secrets results in longer scan times.
+
+### Changed
+
+- Changed the details page for Secrets findings to match findings identified by Semgrep Code and Semgrep Supply Chain.
+- Changed Secrets findings to rely on the findings severity instead of rule severity, since a validator can override the latter value.
+
+### Fixed
+
+- Fixed an issue where Semgrep Code incorrectly ran alongside Semgrep Secrets. This occurred when there were files that:
+  - Should be scanned by Semgrep Secrets but ignored by Semgrep Code, and
+  - Contained Python functions with annotations ending in `endpoint`, `route`, `get`, `patch`, `post`, `put`, `delete`, `before_request`, or `after_request`
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- Added the following new documents:
-    - [<i class="fa-regular fa-file-lines"></i> Packages in the Semgrep Docker image](/semgrep-ci/packages-in-semgrep-docker): Lists the packages including in the Semgrep docker image in addition to the Semgrep binary.
-    - [<i class="fa-regular fa-file-lines"></i> Semgrep OSS in CI](/docs/deployment/oss-deployment): A guide to using only open source Semgrep in your CI jobs.
-- New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci).
-- Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm/#github-enterprise-server) to connect to your GitHub orgs.
+- Added the following new documents, articles and sections:
+  - [Why didn't Semgrep ignore the files and folders in the Secrets Path ignores for this project?](http://localhost:3000/docs/kb/semgrep-secrets/per-product-ignore-not-working)
+  - [How to paginate responses from the Semgrep API](/kb/integrations/pagination)
+  - [The `semgrep login` command doesn't redirect to my Semgrep tenant site](/kb/semgrep-appsec-platform/semgrep-login-cli-tenant)
+  - [What does "Act on your behalf" mean?](/kb/semgrep-appsec-platform/act-on-your-behalf)
+- Various documentation presentation updates.
+- Added a [list of default branch names](/semgrep-code/glossary#default-branch) that Semgrep uses to identify trunk or mainline branches.
 
 ### Changed
 
-- Major edits and updates to documentation for:
-  - [Semgrep Secrets](/semgrep-secrets/getting-started)
-  - [Semgrep Assistant](/semgrep-assistant/overview)
-  - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
-- Updated Semgrep Pro Engine documentation to clarify what is enabled by the **cross-file analysis** toggle in **Semgrep Cloud Platform > Settings**.
-- Updated [**Findings** page information](/semgrep-code/findings).
-- Updated SSO documentation with latest steps to integrate with [Microsoft Entra ID](/docs/deployment/sso/#set-up-saml-sso-with-microsoft-entra-id).
-- GitHub Actions configuration snippets have been updated to use `actions/checkout@v4`.
+<!-- 15039 -->
+- Revised the definitions for the following fields in the API documentation:
+  - State
+  - Status
+  - Triage state
+- Major updates have been made to the following documentation:
+  - [Create Jira tickets](/semgrep-appsec-platform/jira)
+  - [Pro rules](/semgrep-code/pro-rules)
+  - [Notifications](/semgrep-appsec-platform/notifications)
+- Updated [webhook samples](/semgrep-appsec-platform/webhooks#semgrep-findings-object).
+- Site look and feel: minor cosmetic improvements.
+
+### Fixed
+
+- Fixed various broken links.
+- Various troubleshooting documents have been restored and re-edited for clarity and quality.
+
+## 🔧 Semgrep OSS Engine
+
+The following versions of Semgrep OSS Engine were released in June 2024:
+
+- [<i class="fas fa-external-link fa-xs"></i>1.75.0](https://github.com/semgrep/semgrep/releases/tag/v1.75.0)
+- [<i class="fas fa-external-link fa-xs"></i>1.76.0](https://github.com/semgrep/semgrep/releases/tag/v1.76.0)
+- [<i class="fas fa-external-link fa-xs"></i>1.77.0](https://github.com/semgrep/semgrep/releases/tag/v1.77.0)
+- [<i class="fas fa-external-link fa-xs"></i>1.78.0](https://github.com/semgrep/semgrep/releases/tag/v1.78.0)

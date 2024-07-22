@@ -7,16 +7,7 @@ description: >-
   This document links to Semgrep API documentation.
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier 
 ---
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
 # Semgrep API
 

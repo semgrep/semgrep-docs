@@ -5,10 +5,9 @@ title: Teams and user management
 hide_title: true
 description: Manage user access to projects through Teams.
 tags:
-  - Semgrep Cloud Platform
+  - Deployment
+  - Semgrep AppSec Platform
 ---
-
-import MoreHelp from "/src/components/MoreHelp"
 
 # Manage user access to projects
 
@@ -27,10 +26,10 @@ Semgrep primarily divides users into two roles:
 * `admin`
 * `member`
 
-Optionally, you can assign members to a third role, **manager**, for more granular assignment of user access. Managers are a subset of members with some additional capabilities and scopes.
+Optionally, you can appoint members to a third role: the **manager** role. Managers are a subset of members with some additional capabilities and scopes. In particular, they are able to assign specific projects to members through the creation of [teams](#teams-beta).
 
 :::info
-* Users are assigned a role based on your [organization's default](#setting-a-default-role). New organizations are created with a default role of `admin`.
+* Users are assigned a role based on your [organization's default](#set-a-default-role). New organizations are created with a default role of `admin`.
 :::
 
 ### Member permissions and visibility
@@ -39,7 +38,7 @@ Admins have full permissions, scopes, and visibility into all aspects of Semgrep
 
 Members can edit the following page:
 
-- **Findings**. They can view **all projects** in the Findings page, and can still sort and triage findings.
+- **Findings**. They can view **all projects** in the Findings page, and can sort and triage findings.
 
 Members can view the following pages:
 
@@ -74,7 +73,7 @@ Organizations start with a default role of `admin`.
 
 To change this, perform the following steps:
 
-1. On Semgrep Cloud Platform's sidebar, click Settings.
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings**.
 2. Click **Access > Defaults**.
 
 ![Default user role](/img/default-user-role.png#md-width)<br />
@@ -82,7 +81,7 @@ _**Figure**. Default user role._
 
 ## Teams (beta)
 
-The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep Cloud Platform (SCP). This provides more granular control than the [**Members** feature](#member-permissions-and-visibility).
+The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Members** feature](#member-permissions-and-visibility).
 
 You can quickly assign projects to large groups of members by first assigning members to teams and subteams within your organization.
 
@@ -156,7 +155,9 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 ## How team access works
 
 - Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
+<!-- vale off -->
 - Members of a subteam do not have access to the projects of teams or subteams above it.
+<!-- vale on -->
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
@@ -191,7 +192,7 @@ Managers cannot remove themselves from their team. Admins and co-managers of the
 
 ## Enable teams
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[<i class="fa-solid fa-gear"></i> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
 1. Optional: Click **<i class="fa-solid fa-square-check"></i> Yes, add new users to the default team** if you want new members and projects to be added to the default team.
 1. Click **Enable**.
@@ -214,7 +215,7 @@ The Semgrep team recommends that admins assign projects to one team only.
 
 You must be an admin or manager to view the **Teams** tab.
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[<i class="fa-solid fa-gear"></i> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
 
 ### Create a team
@@ -249,7 +250,7 @@ You must be an admin or manager to view the **Teams** tab.
 ### Delete a team or subteam
 
 1. If you are deleting a team, delete its subteams first.
-    1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click on the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
+    1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-chevron-down"></i> down arrow** to show all subteams under a team, then follow steps 2-3.
 1. Click the **<i class="fa-solid fa-trash"></i> trash can** icon.
 1. Click **Delete** to confirm.
 
@@ -280,13 +281,13 @@ Both members and admins can log in through the command-line interface (CLI) by e
 semgrep login
 ```
 
-This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep Cloud Platform.
+This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep AppSec Platform.
 
-Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#changing-a-users-role).
+Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#change-a-users-role).
 
 ### Token scopes
 
-Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep Cloud Platform when onboarding (adding) a repository.
+Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep AppSec Platform when onboarding (adding) a repository.
 
 The following table displays token scopes and their permissions:
 
@@ -300,8 +301,6 @@ The following table displays typical uses for token scopes:
 
 | Token scope |Typical uses |
 | ----------- | ----------- |
-| Agent (CI)  | Generated by Semgrep Cloud Platform when onboarding (adding) a repository to Semgrep Cloud Platform. For non-GitHub-Actions users, you may have to copy and paste the token value into your CI provider's interface. |
+| Agent (CI)  | Generated by Semgrep AppSec Platform when onboarding (adding) a repository to Semgrep AppSec Platform. For non-GitHub Actions users, you may have to copy and paste the token value into your CI provider's interface. |
 | Web API     | Used to access Semgrep's API. |
-| Member      | Auto-generated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's private rule and rulesets. The permissions of these tokens cannot be escalated. |
-
-<MoreHelp />
+| Member      | Auto-generated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's configured Policies, including private rules. The permissions of these tokens cannot be escalated. |

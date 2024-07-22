@@ -2,9 +2,11 @@
 append_help_link: true
 slug: rule-syntax
 description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+tags:
+  - Rule writing
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
@@ -615,7 +617,7 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
-Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
+Comparison expressions support simple arithmetic as well as composition with [Boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
 
 ```yaml
 rules:
@@ -832,7 +834,7 @@ def func2():
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 
-The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
+The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call&mdash;it only needs to make sure `close` is called.
 
 ## Metavariable matching
 
@@ -947,6 +949,7 @@ Enable, disable, or modify the following matching features:
 | `attr_expr`            | `true`  | Expression patterns (for example: `f($X)`) matches attributes (for example: `@f(a)`). |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
 | `constant_propagation` | `true`  | [Constant propagation](/writing-rules/pattern-syntax/#constants), including [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation). |
+| `decorators_order_matters` | `false` | Match non-keyword attributes (for example: decorators in Python) in order, instead of the order-agnostic default. Keyword attributes (for example: `static`, `inline`, etc) are not affected. |
 | `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are: <ul><li>`c` for traditional C-style comments (`/* ... */`). </li><li> `cpp` for modern C or C++ comments (`// ...` or `/* ... */`). </li><li> `shell` for shell-style comments (`# ...`). </li></ul> By default, the generic mode does not recognize any comments. Available since Semgrep version 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis operator `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `implicit_return`   | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
@@ -1035,7 +1038,7 @@ rules:
 
 The `min-version`/`max-version` feature is available since Semgrep
 1.38.0. It is intended primarily for publishing rules that rely on
-newly-released features without causing errors in older Semgrep
+newly released features without causing errors in older Semgrep
 installations.
 
 
@@ -1058,7 +1061,7 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "*.jinja2"
+        - "**/*.jinja2"
         - "*_test.go"
         - "project/tests"
         - project/static/*.js
@@ -1149,5 +1152,3 @@ The above rule makes use of many operators. It uses `pattern-either`, `patterns`
 
 The [full configuration-file format](https://github.com/semgrep/semgrep-interfaces/blob/main/rule_schema_v1.yaml) is defined as
 a [jsonschema](http://json-schema.org/specification.html) object.
-
-<MoreHelp />

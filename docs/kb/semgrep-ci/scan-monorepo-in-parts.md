@@ -19,43 +19,153 @@ As such, it can be helpful to scan a monorepo in parts for multiple reasons:
 
 When scanning a repo with Semgrep in CI, the base command is `semgrep ci`. To understand this default setup for your source code manager (SCM) and CI provider, see [Getting started with Semgrep in continuous integration (CI)](/deployment/add-semgrep-to-ci).
 
-To split up your monorepo, you need to make two changes. First, use the `--include` flag to determine *how* you want to logically split up the code. Second, update the `SEMGREP_REPO_NAME` environment variable to assign findings to separate projects in Semgrep AppSec Platform. 
+There are two features provided by Semgrep to split up a repo. Consider a monorepo named `monorepo` with four main modules:
 
-For example, if the monorepo has four main modules and their paths are:
+```
+/src/moduleA
+/src/moduleB
+/src/moduleC
+/src/moduleD
+```
 
-    /src/moduleA
-    /src/moduleB
-    /src/moduleC
-    /src/moduleD
+The easiest way to split this monorepo up is into four separate scans, one for each module. To do this, use the `--subdir` flag with the relevant path to only scan files in that module's code path:
 
-Then splitting its scans into four separate scans, one for each module, would provide a logical separation for findings.
+```
+semgrep ci --subdir /src/moduleA/*
+```
 
-After choosing a logical split, use the `--include` flag ([see CLI reference](/docs/cli-reference)) with the relevant path to only scan files in that module's code path:
+In addition to scanning `/src/moduleA/*`, this command sends the results to a project called `monorepo/src/moduleA`. If you want to change the project name, set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
 
-    semgrep ci --include=/src/moduleA/*
+For example:
 
-Now, Semgrep is only scanning files under that path and the CI run will take less time, since less code is being scanned.
+```
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir /src/moduleA/*
+```
 
-For the other modules, the commands look similar. For module B:
+It is important that scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
 
-    semgrep ci --include=/src/moduleB/*
-
-You will then have the flexibility to trigger each one on appropriate events or frequencies.
-
-Now that you've successfully configured your monorepo to be scanned in parts, you also have to configure the findings from each part or module to show up as their own project in Semgrep AppSec Platform.
-
-To ensure findings from the module are assigned to their own project in Semgrep AppSec Platform, you will need to explicitly set the `SEMGREP_REPO_NAME` environment variable ([see CI environment variables reference](/docs/semgrep-ci/ci-environment-variables/#semgrep_repo_name)).
+To scan the entire monorepo, trigger one scan for each module.
 
 :::info
-Changing the `SEMGREP_REPO_NAME` value in a scan so that it does not match the repo's `<org>/<repo name>` structure on the SCM may cause issues with PR/MR comments and code hyperlinks in Semgrep AppSec Platform. This is a necessary tradeoff when splitting up a repo into multiple projects.
+You must only change `SEMGREP_REPO_DISPLAY_NAME`. Ensure that `SEMGREP_REPO_NAME` is still properly set (either automatically if using a [supported SCM and CI provider](/docs/semgrep-ci/sample-ci-configs#feature-support) or [explicitly](/docs/semgrep-ci/ci-environment-variables#semgrep_repo_name)) as with any Semgrep scan, in order to retain hyperlink and PR/MR comment functionality.
 :::
 
-For example, if your monorepo is located at `https://github.com/semgrep/monorepo` the `SEMGREP_REPO_NAME` would typically be set to `semgrep/monorepo`. To split the single project into four projects corresponding to the logical modules, set `SEMGREP_REPO_NAME` to match the module name before running Semgrep:
+The `--subdir` flag takes a single folder as input. If you want to scan multiple folders as part of one scan, you will have to use `--include` and `--exclude` ([see CLI reference](/docs/cli-reference)) to tell Semgrep what paths to include. This performs file targeting across the whole monorepo. but only analyzes the included files.
 
-    export SEMGREP_REPO_NAME="semgrep/monorepo/moduleA"
+Unlike `--subdir`, `--include` and `--exclude` don't automatically direct results to a corresponding project, so you always have to set `SEMGREP_REPO_DISPLAY_NAME`.
 
-And then running Semgrep as demonstrated above:
+Here's an example using `--include`.
 
-    semgrep ci --include=/src/moduleA/*
+```
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=/src/moduleA/* --include=/src/moduleB/*
+```
 
-Now, the findings from this CI run will show up in their own project in Semgrep AppSec Platform named `semgrep/monorepo/moduleA`. This is not only necessary to ensure findings have a consistent status, but also helpful so that developers and security engineers can have a clearer understanding of which findings pertain to the module that they are responsible for.
+:::info
+WARNING: if `--include` and `--exclude` are used in a `semgrep ci` scan without setting `SEMGREP_REPO_DISPLAY_NAME`, that scan might close findings that aren't detected because that part of the repo was not scanned.
+:::
+
+### Examples using GitHub Actions
+
+The following examples each provide a GitHub Actions workflow file. This is 1 of 4 workflow files you would need to set up all the necessary scans. Each workflow file corresponds to a module of the monorepo you would like to scan and treat as a separate project in Semgrep AppSec Platform. Place all the files in the monorepo's `.github/workflows/` folder.
+
+You can name each workflow file whatever you like, but it may be helpful to name it after the module it corresponds to. In this example, something like `semgrep_moduleA.yml` would be ideal.
+
+#### With `--subdir`
+
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep - moduleA
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request:
+    # Restrict the workflow to only run for files changed in a PR at the desired module path:
+    paths:
+      - 'src/moduleA/**'
+  # Run a full scan when the Semgrep workflow file is changed:
+  push:
+    paths:
+      - '.github/workflows/semgrep_moduleA.yml'
+  # Schedule a daily full scan CI job (this method uses cron syntax):
+  schedule:
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job.
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v4
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci --subdir=src/moduleA/
+        env:
+          # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+          # Generate a token from Semgrep AppSec Platform > Settings
+          # and add it to your GitHub secrets.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+```
+
+#### With `--include`
+
+```yaml
+# Name of this GitHub Actions workflow.
+name: Semgrep - moduleA
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request:
+    # Restrict the workflow to only run for files changed in a PR at the desired module path:
+    paths:
+      - 'src/moduleA/**'
+  # Run a full scan when the Semgrep workflow file is changed:
+  push:
+    paths:
+      - '.github/workflows/semgrep_moduleA.yml'
+  # Schedule a daily full scan CI job (this method uses cron syntax):
+  schedule:
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job.
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v4
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci --include=src/moduleA/**
+        env:
+          # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+          # Generate a token from Semgrep AppSec Platform > Settings
+          # and add it to your GitHub secrets.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+          # Set the display name of the project in Semgrep AppSec Platform
+          SEMGREP_REPO_DISPLAY_NAME: semgrep/monorepo/moduleA
+```

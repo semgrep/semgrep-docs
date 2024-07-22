@@ -1,6 +1,8 @@
 ---
 slug: licensing
 append_help_link: true
+tags:
+  - Support
 description: >-
   Learn about licenses of Semgrep products.
 ---
@@ -12,7 +14,9 @@ The following is a list of products offered by Semgrep, Inc., along with their l
 <dl>
   <dt>Semgrep OSS Engine</dt>
     <dd>Semgrep OSS Engine is an open source project licensed under <a href="https://github.com/semgrep/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep OSS Engine is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
-  <dt>Semgrep Code, Semgrep AppSec Platform, Semgrep Pro Engine, and Semgrep Pro rules</dt>
+  <dt>Semgrep AppSec Platform</dt>
+    <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd> 
+  <dt>Semgrep Code and Semgrep Pro rules</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd> 
   <dt>Semgrep Secrets</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>

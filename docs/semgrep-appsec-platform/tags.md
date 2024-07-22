@@ -2,24 +2,14 @@
 slug: tags
 append_help_link: true
 description: "Guidelines on how to add or remove tags through Semgrep AppSec Platform and semgrepconfig.yml file."
-title: Tagging projects 
+title: Tagging projects
 hide_title: true
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
-
-import MoreHelp from "/src/components/MoreHelp"
-
-# Tagging projects 
+# Tagging projects
 
 Add tags for specific projects in the Semgrep AppSec Platform through the following methods:
 
@@ -57,5 +47,3 @@ You can also add tags through a specific file added to your repository. To do so
 :::caution
 Changes to tags made through the `.semgrepconfig.yml` file are also visible in the **Semgrep AppSec Platform > Projects** page, however, the inverse is **not** true (changes in Semgrep AppSec Platform > Projects page will be overwritten by `.semgrepconfig.yml`.)
 :::
-
-<MoreHelp />

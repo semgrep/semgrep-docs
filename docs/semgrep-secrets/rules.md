@@ -1,11 +1,12 @@
 ---
 slug: rules
 append_help_link: true
-title: Write rules
+title: Write custom rules
 hide_title: true
 description: Learn about Semgrep Secrets rules.
 tags:
   - Semgrep Secrets
+  - Rule writing
 ---
 
 # Semgrep Secrets rule structure and sample
@@ -27,9 +28,9 @@ If you want to keep your rules file local, you must pass in the `--allow-untrust
 
 ### Use Semgrep Editor
 
-The Semgrep Editor, available in Semgrep Cloud Platform, can help you write custom Semgrep Secrets rules. To pull up a sample rule that you can modify:
+The Semgrep Editor, available in Semgrep AppSec Platform, can help you write custom Semgrep Secrets rules. To pull up a sample rule that you can modify:
 
-1. Sign in to Semgrep Cloud Platform.
+1. Sign in to Semgrep AppSec Platform.
 2. Go to **Rules > Editor**.
 3. Click the **+** icon and, under **Secrets**, select **HTTP validators**.
 
@@ -41,7 +42,7 @@ Custom validator rules are private to your organization. They are not available 
 
 To run a specific rule when invoking Semgrep from the CLI:
 
-1. Sign in to Semgrep Cloud Platform.
+1. Sign in to Semgrep AppSec Platform.
 2. Go to **Rules > Editor**.
 3. Open up your rule.
 4. Click **Add to Policy** and select your mode: Monitor, Comment, or Blocking.

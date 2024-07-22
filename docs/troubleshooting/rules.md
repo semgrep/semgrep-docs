@@ -1,8 +1,11 @@
 ---
 slug: rules
+tags:
+  - Troubleshooting
+  - Rule writing
+description: "Follow these troubleshooting steps when your pattern fails to parse, your rule doesn't match its intended code, and other rule writing pitfalls."
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
 
 # Troubleshooting rules
 
@@ -46,7 +49,7 @@ While the most common reason for pattern parse errors is the above, other things
 
 ## If your rule doesn't match where it should
 
-In general, it helps to test the patterns within your rule in isolation. If you scan for the patterns one by one and they each find what you expect, the issue is with the boolean logic within your rule. Review the [rule syntax](/writing-rules/rule-syntax) to make sure the operators are meant to behave like you expect. If you managed to find a pattern that behaves incorrectly, continue debugging with the section below.
+In general, it helps to test the patterns within your rule in isolation. If you scan for the patterns one by one and they each find what you expect, the issue is with the Boolean logic within your rule. Review the [rule syntax](/writing-rules/rule-syntax) to make sure the operators are meant to behave like you expect. If you managed to find a pattern that behaves incorrectly, continue debugging with the section below.
 
 ## If your pattern doesn't match where it should
 
@@ -59,5 +62,3 @@ If you isolated the issue to one specific pattern, here are some common issues t
 
 - When using `metavariable-regex`, the regex will match against all characters of the found metavariable. This means that if the metavariable matches a `"foo"` string in your code, the `metavariable-regex` pattern will run against a five character string with the quote characters at either end.
 - Note that using the pipe (`|`) character will append a newline to your regex! If you are writing `pattern-regex: |` and then a newline with the regex, you almost certainly want the `|-` operator as in `pattern-regex: |-` to remove that trailing newline.
-
-<MoreHelp />

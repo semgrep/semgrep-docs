@@ -1,6 +1,8 @@
 ---
 append_help_link: true
 slug: rule-ideas
+tags:
+  - Rule writing
 ---
 
 # Custom rule examples
@@ -13,7 +15,7 @@ Not sure what to write a rule for? Below are some common questions, ideas, and t
 
 _Time to write this rule: **5 minutes**_
 
-You can use Semgrep and its GitHub integration to [automate PR comments](/semgrep-code/notifications) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](/docs/pattern-syntax) or try the [tutorial](https://semgrep.dev/learn).
+You can use Semgrep and its GitHub integration to [automate PR comments](/semgrep-appsec-platform/notifications) that you frequently make in code reviews. Writing a custom rule for the code pattern you want to target is usually straightforward. If you want to understand the Semgrep syntax, see the [documentation](/writing-rules/pattern-syntax) or try the [tutorial](https://semgrep.dev/learn).
 
 ![A reviewer writes a Semgrep rule and adds it to an organization-wide policy](/img/semgrep-ci.gif)
 <br />
@@ -53,7 +55,7 @@ _Time to write this rule: **5 minutes**_
 
 Use Semgrep to flag specific uses of APIs too, not just their presence in code. We jokingly call these the "security off" buttons and make extensive use of Semgrep to detect them.
 
-This rule detects when HTML autoescaping is explicitly disabled for a Django template.
+This rule detects when HTML auto escaping is explicitly disabled for a Django template.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=9Yjy" title="Detect security violations in code with Semgrep" width="100%" height="432px" frameBorder="0"></iframe>
 
@@ -126,7 +128,7 @@ Try answering these questions to uncover important rules for your project.
 1. [XYZ] is a (security, performance, other) library that everyone should use, but they don’t consistently.
 1. When you review code, what changes do you frequently ask for?
 1. What vulnerability classes from bug bounty submissions reoccur (or appear in different places of the codebase)?
-1. Are there eng / perf patterns? Consistent exception handlers?
+1. Are there engineering or performance patterns? Consistent exception handlers?
 1. What issues were caused by misconfigurations in Infrastructure-as-Code files (JSON)?
 1. What are some “invariants” that should hold about your code - things that should always or never be true (e.g. every admin route checks if user is admin)?
 1. What methods/APIs are deprecated and you’re trying to move away from?

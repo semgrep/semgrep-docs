@@ -5,19 +5,9 @@ description: "SSO configuration instructions."
 title: SSO authentication
 hide_title: true
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
-
-import MoreHelp from "/src/components/MoreHelp"
 
 # Single-sign on (SSO) configuration
 
@@ -30,9 +20,9 @@ import MoreHelp from "/src/components/MoreHelp"
 
 The only required steps to ensure that users are added to Semgrep AppSec Platform are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
 
-Semgrep supports SSO through [OpenID Connect / OAuth2](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
+Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
 
-## OpenID Connect / OAuth2
+## OpenID Connect / OAuth 2.0
 
 To set up SSO:
 
@@ -55,14 +45,14 @@ To set up SSO:
 
 1. From your **authentication provider**, create the **SAML app**.
     ![Creating SAML app through Okta](/img/saml-creating-app.png "Creating SAML app through Okta")
-2. From the **App Dashboard**, click on **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**
+2. From the **App Dashboard**, click **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**
 3. Copy the `Single sign on URL`, and `Audience URI`. Paste the values as needed in your authentication provider. The Provider ID value will be your organization's slug in **Settings** > **Deployment**,
     ![Finding Single sign on URL, and Audience URI via Semgrep AppSec Platform](/img/saml-copy-urls.png "Finding Single sign on URL, and Audience URI via Semgrep AppSec Platform")
 4. From your authentication provider, add in two attribute statements `name` and `email`.
     ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png "Filling in attribute statements through Okta")
 5. From your authentication provider, copy your `IdP SSO URL`, `IdP Issuer ID`, and `X509 Certificate` to Semgrep's Configure SSO: SAML tab.
     ![Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta](/img/saml-copy-IdPSSO-IdPID-and-X509.png "Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta")
-    ![Filling in Idp SSO URL, Idp Issuer ID, and X509 Certificate on Semgrep](/img/saml-filling-IdpSSO-IdpID-X509.png "Filling in Idp SSO URL, Idp Issuer ID, and X509 Certificate on Semgrep")
+    ![Filling in IdP SSO URL, IdP Issuer ID, and X509 Certificate on Semgrep](/img/saml-filling-IdpSSO-IdpID-X509.png "Filling in Idp SSO URL, IdP Issuer ID, and X509 Certificate on Semgrep")
 6. Provide a descriptive `Display Name`.
     ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-display-name.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
@@ -142,5 +132,3 @@ You have now set up SAML configuration between Microsoft Entra ID and Semgrep Ap
 #### Add users to your new enterprise app
 
 To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
-
-<MoreHelp />

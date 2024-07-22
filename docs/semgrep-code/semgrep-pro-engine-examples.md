@@ -1,21 +1,21 @@
 ---
 slug: semgrep-pro-engine-examples
 append_help_link: true
-description: "This document provides an overview of Semgrep Pro Engine language use cases."
+description: "This document provides an overview of Semgrep cross-file analysis use cases."
 toc_max_heading_level: 5
 ---
 
-# Semgrep Pro Engine examples
+# Cross-file analysis examples
 
-This document provides an overview of Semgrep Pro Engine features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis. Several examples provide a comparison between the results of Semgrep Pro Engine and Semgrep OSS Engine.
+This document provides an overview of Semgrep cross-file (interfile) analysis features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis. Several examples provide a comparison between the results of Semgrep Pro Engine and Semgrep OSS Engine.
 
 ## Tips and tricks for an interactive experience
 
 The following resources can help you to test the code in the sections below. As you work through the examples in this document, try the following:
 
-- Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Pro Engine beta** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
+- Ensure that the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle is enabled on the [Playground](https://semgrep.dev/playground/new) page.
     - Rules you use in Semgrep Pro Engine require `interfile: true` key included in the `options` key. See the following [example](https://semgrep.dev/playground/s/lkPE).
-- The [Semgrep Pro Engine testing repository](https://github.com/semgrep/semgrep-pro-tests)
+- The [Semgrep cross-file analysis testing repository](https://github.com/semgrep/semgrep-pro-tests)
     - Clone the repository:
         ```sh
         git clone https://github.com/semgrep/semgrep-pro-tests
@@ -70,7 +70,7 @@ semgrep --config pro.yaml . --pro
 
 #### ES6 and CommonJS
 
-The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro Engine can track dataflow through ES6 imports or exports and some CommonJS export paths (See [Known limitations of Semgrep Pro Engine](/supported-languages/#known-limitations-of-semgrep-pro-engine).
+The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep Pro Engine can track dataflow through ES6 imports or exports and some CommonJS export paths (See [Known limitations of Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis).
 
 ##### ES6
 

@@ -9,7 +9,7 @@ tags:
   - Semgrep Code
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
 
 # Semgrep Code overview
@@ -65,13 +65,10 @@ semgrep ci --oss-only
 ## Next steps
 
 - [View your findings](/semgrep-code/findings).
-- Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#jumpstart-rule-writing-using-existing-rules).
+- Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#write-a-new-rule-by-forking-an-existing-rule).
 - Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
 - Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
 
 ## Further reading
 
 - Read the [Trail of Bits Automated Testing Handbook](https://appsec.guide/) to learn about configuring and optimizing security tools, including Semgrep.
-
-
-<MoreHelp />

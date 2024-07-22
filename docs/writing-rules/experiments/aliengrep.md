@@ -6,6 +6,8 @@ title: Aliengrep
 hide_title: true
 ---
 
+
+
 # Aliengrep
 
 :::caution
@@ -221,5 +223,3 @@ This rule matches `Content-Type: text/html` but also `content-type: text/html` o
 :::caution
 Back-referencing a metavariable requires an exact repeat of the text captured by the metavariable, even in caseless mode. For example, `$X $X` matches `ab ab` and `AB AB` but not `ab AB`.
 :::
-
-<MoreHelp />

@@ -4,29 +4,19 @@ append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
 title: Scan third-party dependencies
 hide_title: true
 ---
 
 <!-- vale off -->
-import MoreHelp from "/src/components/MoreHelp"
 
-import PlatformSigninIntro from "/src/components/concept/_platform-signin-intro.md"
-import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
-import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
+
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
 <!-- vale on -->
 
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+
 
 # Scan third-party dependencies
 
@@ -57,7 +47,7 @@ If you have code files in `my-project/biking`, Semgrep Supply Chain does not ass
 
 ## Enable Semgrep Supply Chain
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
 1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Supply Chain scans** toggle if it is not already enabled.
 
@@ -82,28 +72,19 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
 
 <table>
   <tr>
-   <td><strong>Event</strong>
-   </td>
-   <td><strong>Scope of scan</strong>
-   </td>
-   <td><strong>Dependency rule set</strong>
-   </td>
+    <td><strong>Event</strong></td>
+    <td><strong>Scope of scan</strong></td>
+    <td><strong>Dependency rule set</strong></td>
   </tr>
   <tr>
-   <td>Pull or merge request
-   </td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning">Diff-aware scan</a>
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Pull or merge request</td>
+   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a></td>
+   <td>All dependency rules</td>
   </tr>
   <tr>
-   <td>Push or scheduled event, such as a cron job
-   </td>
-   <td>Full scan
-   </td>
-   <td>All dependency rules
-   </td>
+   <td>Push or scheduled event, such as a cron job</td>
+   <td>Full scan</td>
+   <td>All dependency rules</td>
   </tr>
 </table>
 
@@ -129,16 +110,22 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-Semgrep Supply Chain versions **v0.122.0** and earlier automatically blocked pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to block on pull request scans that detect reachable findings in direct dependencies with high or critical severity.
+Semgrep can be used to block pull requests (PRs) or merge requests (MRs) when it matches a blocking finding. When one or more findings is blocking, Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline, such as not allowing merge of the PR/MR. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
+
+Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in blocking pull/merge requests if it discovered reachable findings in the code, but later versions do not do this. You can, however, configure Semgrep Supply Chain to help block scans whenever all of the following conditions are met:
+
+* It detects reachable findings in direct dependencies
+* The reachable findings are of critical or high severity
+* There is an upgrade available for the affected dependency; this is to prevent blocking when there is no resolution for the vulnerability
+
+To enable **Scan Blocking**:
 
 1. Log in to Semgrep AppSec Platform.
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
-3. Click **<i class="fa-solid fa-toggle-large-on"></i> PR/MR Blocking**.
+3. Click **<i class="fa-solid fa-toggle-large-on"></i> Scan Blocking**.
 
 Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
 
 ## Ignore lockfiles and dependencies
 
 See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.
-
-<MoreHelp />

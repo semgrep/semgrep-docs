@@ -123,8 +123,8 @@ If no issues are detected after a few days, the Semgrep team then promotes the `
 ### Changed
 
 - Improved [<i class="fa-regular fa-file-lines"></i> Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) documentation with a new example and updated definitions.
-- Updated [<i class="fa-regular fa-file-lines"></i> Troubleshooting Semgrep in CI](/troubleshooting/semgrep-ci)
-- Clarified language around [Semgrep and source code managers](/semgrep-cloud-platform/user-management).
+- Updated [<i class="fa-regular fa-file-lines"></i> Troubleshooting Semgrep in CI](/troubleshooting/semgrep-app)
+- Clarified language around [Semgrep and source code managers](/deployment/connect-scm).
 - Added a section about additional permissions required to run Semgrep Assistant.
 
 ### Fixed

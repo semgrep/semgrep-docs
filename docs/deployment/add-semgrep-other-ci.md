@@ -5,6 +5,7 @@ hide_title: true
 description: "Set up your CI pipeline manually with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
@@ -20,7 +21,7 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 
 This guide walks you through creating a Semgrep job for CI providers for which Semgrep AppSec Platform has no explicit guidance. Without explicit guidance, you must manually make a CI configuration file yourself.
 
-Check [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-scp) first to ensure that this guide applies to your CI provider.
+Check [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-semgrep-appsec-platform) first to ensure that this guide applies to your CI provider.
 
 Skip this guide if you have already configured a CI job.
 
@@ -70,7 +71,8 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 
 The following example is a `bitbucket-pipelines.yml` file that adds Semgrep through the Docker image:
 
-<details><summary>Add Semgrep through the Docker image.</summary>
+<details>
+  <summary>Add Semgrep through the Docker image.</summary>
 
 ```yaml
 image: atlassian/default-image:latest
@@ -95,7 +97,8 @@ pipelines:
 
 The next example is a `Jenkinsfile` configuration that adds Semgrep by installing it:
 
-<details><summary>Add Semgrep by installing it.</summary>
+<details>
+  <summary>Add Semgrep by installing it.</summary>
 
 ```javascript
 pipeline {

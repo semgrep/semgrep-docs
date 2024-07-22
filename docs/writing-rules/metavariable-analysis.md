@@ -2,6 +2,8 @@
 slug: metavariable-analysis
 append_help_link: true
 description: "metavariable-analysis allows Semgrep users to check metavariables for common problematic properties, such as RegEx denial of service (ReDoS) and high-entropy values."
+tags:
+  - Rule writing
 ---
 
 # Metavariable analysis
@@ -15,7 +17,7 @@ metavariable-analysis:
     analyzer: redos
     metavariable: $VARIABLE
 ```
-RegEx denial of service is caused by poorly-constructed regular expressions that exhibit exponential runtime when fed specifically-crafted inputs. The `redos` analyzer uses known RegEx antipatterns to determine if the target expression is potentially vulnerable to catastrophic backtracking.
+RegEx denial of service is caused by poorly constructed regular expressions that exhibit exponential runtime when fed specifically crafted inputs. The `redos` analyzer uses known RegEx antipatterns to determine if the target expression is potentially vulnerable to catastrophic backtracking.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=2Aoj" border="0" frameBorder="0" width="100%" height="432"></iframe>
 

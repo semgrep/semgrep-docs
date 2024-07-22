@@ -7,7 +7,7 @@ tags:
 append_help_link: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Fix pattern parse errors when running rules
 
@@ -32,7 +32,7 @@ Pattern error: Stdlib.Parsing.Parse_error
 
 ## Resolution
 
-Using a reserved word in your rule leads to parsing errors, so if you see this error, determine if the words cited in the error are reserved words. If they are, you can replace your `metavariable-pattern` with `metavariable-regex`. 
+Using a reserved word in your rule leads to parsing errors, so if you see this error, determine if the words cited in the error are reserved words. If they are, you can replace your `metavariable-pattern` with `metavariable-regex`.
 
 This substitution works because `metavariable-pattern` tries to match the pattern within the captured metavariable, which is going to be affected by how reserved keywords are parsed, while `metavariable-regex` runs a regex on the text range associated with the metavariable, ignoring how its content would be parsed and bypassing the issue.
 
@@ -54,19 +54,17 @@ patterns:
 - pattern: patch
 ```
 
-To fix the error, replace 
+To fix the error, replace
 
 ```code
 - metavariable-pattern:
        metavariable: $FUNC
 ```
 
-with 
+with
 
 ```code
 - metavariable-regex:
     metavariable: $FUNC
     regex: ^(post|put|delete|patch)$
 ```
-
-<MoreHelp />

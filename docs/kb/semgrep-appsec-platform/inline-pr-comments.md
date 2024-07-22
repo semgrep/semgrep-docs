@@ -4,7 +4,7 @@ tags:
   - PR comments
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Why did the comments on a PR or MR not appear inline?
 
@@ -26,8 +26,6 @@ GitLab allows comments to be posted on lines of code outside the default file-di
 
 ## Additional references
 
-* [Enabling GitHub pull request comments](/docs/semgrep-cloud-platform/github-pr-comments)
-* [Enabling GitLab merge request comments](/docs/semgrep-cloud-platform/gitlab-mr-comments)
-* [Enabling Bitbucket pull request comments](/docs/semgrep-cloud-platform/bitbucket-pr-comments)
-
-<MoreHelp />
+* [Enabling GitHub pull request comments](/semgrep-appsec-platform/github-pr-comments)
+* [Enabling GitLab merge request comments](/semgrep-appsec-platform/gitlab-mr-comments)
+* [Enabling Bitbucket pull request comments](/semgrep-appsec-platform/bitbucket-pr-comments)

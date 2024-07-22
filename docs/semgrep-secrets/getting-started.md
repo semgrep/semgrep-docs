@@ -8,8 +8,6 @@ tags:
   - Semgrep Secrets
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-
 # Scan for secrets
 
 Semgrep Secrets allows you to detect and triage leaked secrets and credentials
@@ -19,9 +17,9 @@ and save time by prioritizing which secrets to rotate based on whether they're a
 
 This document guides you through:
 
-1. Enabling Semgrep Secrets
-2. Viewing your results and triaging your findings
-3. Setting up PR comments and notifications
+1. Enabling Semgrep Secrets and scanning your repository
+2. Configuring your ignore files
+3. Upgrading your Semgrep Code rules to Semgrep Secrets rules
 
 ## Language and environment support
 
@@ -37,7 +35,7 @@ You have completed a [Semgrep core deployment](/deployment/core-deployment).
 2. Click **<i class="fa-solid fa-gear"></i> Settings**.
 3. On the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets** toggle to enable.
 
-Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning. There are no additional steps to take.
+Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning.
 
 ## Scan your repository
 
@@ -48,22 +46,31 @@ After you've enabled Semgrep Secrets, you can:
 * Wait for your scheduled Semgrep full scan
 * Open a pull request or merge request and wait for Semgrep to scan the branch automatically
 
+## Configure files to ignore
+
+Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that aren't relevant for code scanning. To specify files that Semgrep Secrets should ignore:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
+3. Click **Secrets** to expand and display the **Path Ignores** box.
+4. Enter files and folders to ignore in the **Path Ignores** box.
+5. Click **Save changes**.
+
 ## Upgrade your rules
 
-If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that utilizes Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
+If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that uses Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
 
 You can see individual findings for which there is a Semgrep Secrets rule upgrade in Semgrep AppSec Platform's **Findings** page. The findings are tagged with a label that says `Secrets version available! Click to see rule(s)`.
 
 ![Finding tagged as having a Secrets rule available](/img/superseded-rules-finding.png#md-width)
 
-To see the rules you're using for which there is Secrets rule upgrade in Semgrep AppSec Platform:
+To see the rules you're using for which there is a Secrets rule upgrade in Semgrep AppSec Platform:
 
 1. Sign in to Semgrep AppSec Platform.
 2. Go to **Rules** > **Policies** > **Code**.
 3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
 
 ![Filter to find rules for which there is a rule upgrade](/img/superseded-rules-policies.png#md-width)
-
 ## Next steps
 
 * Learn how to [view and triage secrets in Semgrep AppSec Platform](/semgrep-secrets/view-triage)
@@ -72,5 +79,3 @@ To see the rules you're using for which there is Secrets rule upgrade in Semgrep
 
 * Learn more about the [structure of rules for Semgrep Secrets](/semgrep-secrets/rules), as well as how to [manage your rules using Semgrep AppSec Platform](/semgrep-secrets/policies).
 * Learn how to [write custom validators](/semgrep-secrets/validators) for your Semgrep Secrets rules.
-
-<MoreHelp />

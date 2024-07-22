@@ -1,6 +1,6 @@
 ---
-slug: customize-ci-jobs 
-title: Customize CI jobs 
+slug: customize-ci-jobs
+title: Customize CI jobs
 hide_title: true
 description: Customize your CI job to fit your organization's workflows.
 tags:
@@ -15,7 +15,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
-- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs). 
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 - Optionally, you have [set up SSO](/deployment/sso).
 - You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
@@ -24,7 +24,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 Customize your CI job to achieve the following goals:
 
 * **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
-* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created. 
+* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created.
 - **Set a timeout to increase or decrease Semgrep's overall runtime.** If scans are taking too long, or rules aren't running, customize your per-rule timeout.
 
 <!--
@@ -32,7 +32,7 @@ Customize your CI job to achieve the following goals:
 -->
 <!--
 * **Run Semgrep on relevant files and blocks of code**. Configure Semgrep to ignore files and folders such as test files, configuration files, and files from other vendors.
- * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported. 
+ * **Configure a Semgrep CI job to pass even when any finding is detected**. By default, stand-alone configurations fail when any finding is detected. You can also configure Semgrep to pass CI jobs when findings are reported.
 * **Output, export, or save findings to a file**. Semgrep can save to a number of file formats, including SARIF and JSON.-->
 
 ## Set up diff-aware scans
@@ -44,11 +44,9 @@ Follow the steps in this section only for the following CI providers:
 - CI providers without guidance from Semgrep AppSec Platform
 :::
 
-<DiffAwareScanning />
+Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
 
-To configure a diff-aware scan:
-
-1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-through-semgrep-cloud-platform).
+1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-1).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
 
 ## Set a scan schedule

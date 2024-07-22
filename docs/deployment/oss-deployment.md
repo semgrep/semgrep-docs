@@ -5,10 +5,11 @@ title: Semgrep OSS in CI
 description: Learn how to set up a Semgrep OSS CI environment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep OSS Engine
+  - Semgrep OSS
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
+import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 
 # Semgrep OSS in CI
 
@@ -25,11 +26,12 @@ This guide explains how to set up Semgrep OSS in your CI pipeline using entirely
 
 ## Ensure your scans use open source components
 
-This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the usage limits of Semgrep Pro. In order to remain strictly open-source, you must ensure that the rules you run use open-source licenses or are your own custom Semgrep rules.
+This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the usage limits of Semgrep Pro. In order to remain strictly open source, you must ensure that the rules you run use open source licenses or are your own custom Semgrep rules.
 
-To check a rule's license, check the `license` key under the `metadata` of a Semgrep rule.
+To verify a rule's license, read the `license` key under the `metadata` of a Semgrep rule.
 
-<details><summary>Click to expand for an example of a rule with a <code>license</code> key.</summary>
+<details>
+  <summary>Click to expand for an example of a rule with a <code>license</code> key.</summary>
 
 This rule's last line displays a `license: MIT` key-value pair.
 
@@ -91,7 +93,7 @@ Use either of the following methods to run Semgrep on other CI providers.
 
 #### Direct docker usage
 
-Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [BitBucket Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-bitbucket-pipelines-configuration-snippet).
+Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [Bitbucket Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-bitbucket-pipelines-configuration-snippet).
 
 #### Install `semgrep` within your CI job
 
@@ -100,7 +102,7 @@ If you cannot use the Semgrep Docker image, install Semgrep as a step or command
 1. Add `pip3 install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
 2. Run any valid `semgrep scan` command, such as `semgrep scan --config auto`.
 
-For an example, see the the [Azure Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-azure-pipelines-configuration-snippet).
+For an example, see the [Azure Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-azure-pipelines-configuration-snippet).
 
 ## Configure your CI job
 
@@ -180,7 +182,7 @@ See [Writing rules](/writing-rules/overview) to learn how to write custom rules.
 
 ### Ignore files
 
-See [<i class="fa-regular fa-file-lines"></i> Ignore files, folders, and code](/ignore-oss).
+See [<i class="fa-regular fa-file-lines"></i> Ignore files, folders, and code](/ignoring-files-folders-code).
 
 <CiIgnoringFiles />
 
@@ -191,6 +193,8 @@ To save or export findings, pass file format options and send the formatted find
 For example, to save to a JSON file:
 
 `semgrep scan --json > findings.json`
+
+> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
 
 You can also use the SARIF format:
 

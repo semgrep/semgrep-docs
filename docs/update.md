@@ -3,10 +3,12 @@ slug: update
 append_help_link: true
 description: "Update Semgrep by running the correct commands for your environment or operating system."
 title: Update Semgrep
+tags:
+  - Deployment
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Update Semgrep
 
@@ -33,6 +35,3 @@ python3 -m pip install --upgrade semgrep
 # confirm your Semgrep installation
 semgrep --version
 ```
-
-
-<MoreHelp />

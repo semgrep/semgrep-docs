@@ -5,16 +5,16 @@ title: Triage and remediation
 hide_title: false
 description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
+    - Semgrep Code
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
-# Triage and remediate Semgrep Code findings in Semgrep AppSec Platform
+# Triage and remediate findings
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
-import MoreHelp from "/src/components/MoreHelp"
+
 
 This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep AppSec Platform, including:
 

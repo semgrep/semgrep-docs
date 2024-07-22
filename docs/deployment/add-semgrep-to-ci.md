@@ -5,14 +5,14 @@ hide_title: true
 description: "Set up your CI pipeline with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
+  - Semgrep AppSec Platform
 ---
-
-import MoreHelp from "/src/components/MoreHelp"
 
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
-
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
+import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -81,7 +81,7 @@ To add a CI job to GitHub Actions:
 1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file.
 1. Click **Commit file**.
 
-You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep AppSec Platform for triage and remediation.
+You have now added a Semgrep job to GitHub Actions. A **full scan** begins automatically after adding a new repository. Its findings are sent to Semgrep AppSec Platform for triage and remediation.
 
 ### Detecting GitHub repositories
 
@@ -123,6 +123,16 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 - Semgrep collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
+## Scan scope
+
+<DiffAwareScanning />
+
+### Default branch names
+
+Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
+
+<DefaultBranches />
+
 ## Next steps
 
 <NextStepsComments opening_phrase="For Jenkins users: Set up a separate CI job for diff-aware scans for"/>
@@ -144,7 +154,7 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 
 <!-- Changes to existing
 
-https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#compatibility-of-environment-variables
+https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#compatibility-of-environment-variables
 -> maybe place these into sample CI configs? or separate thing entirely
 
 -->

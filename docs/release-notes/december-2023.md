@@ -121,12 +121,12 @@ viewing their finding details pages.
 ### Added
 
 * Added [Quickstart](/docs/getting-started/quickstart).
-* Added [Privacy and legal considerations](/docs/semgrep-code/semgrep-assistant-code#privacy-and-legal-considerations) information for Semgrep Assistant.
+* Added [Privacy and legal considerations](/semgrep-assistant/overview#privacy-and-legal-considerations) information for Semgrep Assistant.
 * New knowledge base articles:
   * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
   * [How to scan a large monorepo](/kb/semgrep-code/scan-engine-kill)
   * [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
-  * [SSO Error: Signature validation failed. SAML Response rejected](/docs/kb/semgrep-cloud-platform/saml-bad-signature)
+  * [SSO Error: Signature validation failed. SAML Response rejected](/docs/kb/semgrep-appsec-platform/saml-bad-signature)
   * [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/docs/kb/semgrep-code/scan-engine-kill)
 
 ### Changed
@@ -134,9 +134,9 @@ viewing their finding details pages.
 * Updated overview articles for [Semgrep Code](/semgrep-code/overview) and
   [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview).
 * Updated documentation on setting up pull request or merge request comments for
-  [GitHub](/docs/semgrep-cloud-platform/github-pr-comments),
-  [GitLab](/docs/semgrep-cloud-platform/gitlab-mr-comments), and
-  [Bitbucket](/docs/semgrep-cloud-platform/bitbucket-pr-comments) users.
+  [GitHub](/docs/semgrep-appsec-platform/github-pr-comments),
+  [GitLab](/docs/semgrep-appsec-platform/gitlab-mr-comments), and
+  [Bitbucket](/docs/semgrep-appsec-platform/bitbucket-pr-comments) users.
 * General improvements to API docs, including clarification of usage
   instructions for Supply Chain and Secrets endpoints.
 

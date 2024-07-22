@@ -1,7 +1,7 @@
 ---
-slug: core-deployment 
+slug: core-deployment
 append_help_link: true
-title: Core deployment 
+title: Core deployment
 description: Learn how to set up a comprehensive Semgrep deployment for yourself or your organization.
 tags:
   - Deployment
@@ -18,7 +18,7 @@ Deployment includes:
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
 
-Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere. 
+Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere.
 
 :::tip Are these guides for you?
 - These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
@@ -54,7 +54,7 @@ These are the absolute minimum Semgrep features for any deployment.
         <tr>
             <td>SAST scanning</td>
             <td>Check that Semgrep:
-            <ul><li>Can scan your language and that the language's maturity matches your security needs. See <a href="/supported-languages"><i class="fa-regular fa-file-lines" /> Supported languages</a>.</li>
+            <ul><li>Can scan your language and that the language's maturity matches your security needs. See <a href="/docs/supported-languages"><i class="fa-regular fa-file-lines" /> Supported languages</a>.</li>
             <li>Provides rulesets that you can use out-of-the-box. See <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs" /> Semgrep Registry</a>.</li></ul></td>
         </tr>
         <tr>
@@ -62,8 +62,8 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Check that Semgrep supports your lockfile or package manager.</td>
         </tr>
         <tr>
-            <td>Secrets scanning (beta)</td>
-            <td>Check that your services, such as Slack or Twilio, can be validated by Semgrep. Semgrep Secrets is in beta, so you must <a href="https://get.semgrep.dev/Book-a-demo.html"><i class="fas fa-external-link fa-xs"/> Book a demo.</a></td>
+            <td>Secrets scanning</td>
+            <td>Check that your services, such as Slack or Twilio, can be validated by Semgrep. Semgrep Secrets is available through Semgrep Sales, so you must <a href="https://get.semgrep.dev/Book-a-demo.html"><i class="fas fa-external-link fa-xs"/> Book a demo.</a></td>
         </tr>
         <tr>
             <td>SSO</td>
@@ -76,8 +76,12 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Semgrep can connect to orgs from <strong>GitHub and GitLab</strong>. Connecting an org enables Semgrep AppSec Platform to authenticate new users from the same org easily.<br /><br />If you use <strong>Bitbucket or Azure Repos</strong>, you can use SSO to manage the authentication of your users, then add repositories for scanning through your CI provider.</td>
         </tr>
         <tr>
-            <td>Scanning in CI</td>
-            <td>Semgrep fully supports many popular CI providers.</td>
+            <td>Scanning remote repositories through CI</td>
+            <td>Semgrep fully supports many popular CI providers. See <a href="/docs/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
+        </tr>
+        <tr>
+            <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/docs/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
@@ -109,10 +113,13 @@ Useful features that you can add based on your tech stack. You can integrate the
         </tr>
         <tr>
             <td>IDE integration</td>
-            <td>Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
-            <ul><li>Microsoft Visual Studuio Code</li>
-            <li>IntelliJ Ultimate IDEA</li>
-            <li>Emacs</li></ul>
+            <td>
+                Encourage developers to run Semgrep in their IDE. Officially supported extensions include:
+                <ul>
+                    <li>Microsoft Visual Studio Code</li>
+                    <li>IntelliJ Ultimate IDEA</li>
+                    <li>Emacs</li>
+                </ul>
             </td>
         </tr>
         <tr>
@@ -122,7 +129,7 @@ Useful features that you can add based on your tech stack. You can integrate the
     </tbody>
 </table>
 
-<!-- - Integrate Semgrep with Jira, Linear, and Asana (Private beta). -->
+<!-- - Integrate Semgrep with Jira (Private beta). -->
 
 ## Core deployment process
 
@@ -156,4 +163,3 @@ This **initial phase** prepares you to deploy Semgrep to the rest of the organiz
 ## Next steps
 
 Click **Next** to begin setting up your core deployment.
-

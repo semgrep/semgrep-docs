@@ -11,13 +11,13 @@ First, verify that your repository meets the basic requirements for Semgrep Supp
 
 ### Are the language and ecosystem supported?
 
-Check the [Supported Languages table](/docs/supported-languages/#general-availability) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
+Check the [Supported Languages table](/supported-languages#semgrep-supply-chain) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
 
 ###  Is the supported lockfile present in an appropriate location with the expected name?
 
 Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) have their findings grouped based on the lockfiles present in subdirectories.
 
-Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/docs/supported-languages#general-availability).
+Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/supported-languages#maturity-levels).
 
 [Reach out for help](#if-youre-still-having-trouble) if you run into trouble with lockfile location or naming.
 
@@ -56,7 +56,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 
 ### If the scan was a diff-aware (PR/MR) scan, was the lockfile modified?
 
-Semgrep Supply Chain only runs in [diff-aware scans](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning) if the lockfile was modified in the PR/MR.
+Semgrep Supply Chain only runs in [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) if the lockfile was modified in the PR/MR.
 
 If code is modified, but the lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact [reachability](/docs/semgrep-supply-chain/glossary#reachability) will be identified on the next full scan.
 

@@ -5,11 +5,12 @@ title: GitHub PR comments
 hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+<!-- vale off -->
+
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
@@ -19,19 +20,11 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
+<!-- vale on -->
 
 # Set up GitHub pull request comments
-
-<!--  The entire process of setting up the GH comment is more than just "enabling it", ie. turning it on. Users have to set up the rules. So I changed the verb. -->
 
 <DeploymentJourney />
 
@@ -54,7 +47,7 @@ PR comments appear for the following types of scans under these conditions:
 
 In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 
-### Confirm your Semgrep account's connection to GitHub
+### Confirm your Semgrep account's connection
 
 Confirm that you have the correct connection and access:
 
@@ -117,7 +110,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 :::info Prerequisites
 - Set up Semgrep to post GitHub PR comments, as described on this page.
-- To obtain meaningful results of dataflow traces in PR comments, use Semgrep Pro Engine while scanning your repositories to display cross-file (interfile) findings. To enable Semgrep Pro Engine, see [Semgrep Pro Engine overview](/semgrep-code/semgrep-pro-engine-intro).
+- To obtain meaningful results of dataflow traces in PR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
@@ -137,6 +130,10 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 </tr>
 </table>
 
+## Disable PR comments for Supply Chain findings
+
+<DisableComments />
+
 ## Next steps
 
 <NextAfterComments />
@@ -144,5 +141,3 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 ## Additional references
 
 <TroubleshootingPrLinks />
-
-<MoreHelp />

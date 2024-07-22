@@ -4,27 +4,16 @@ append_help_link: true
 description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring lockfiles or code files."
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
-title: Ignoring lockfiles and dependencies 
+title: Ignoring lockfiles and dependencies
 hide_title: true
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
-
-# Ignoring lockfiles and dependencies 
+# Ignoring lockfiles and dependencies
 
 
 There are several methods to restrict code files or lock files from generating dependency findings.
 
-Create a `.semgrepignore` file in your repository's root directory and define code files and lock files to ignore. For more information, see [Ignoring files, folders, and code](/ignoring-files-folders-code/#defining-ignored-files-and-folders-in-semgrep-cloud-platform).
+Create a `.semgrepignore` file in your repository's root directory and define code files and lock files to ignore. For more information, see [Ignoring files, folders, and code](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform).
 
 Refer to the following table to see which goal best suits your need:
 

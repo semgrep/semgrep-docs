@@ -4,7 +4,7 @@ append_help_link: true
 description: "This article explains the extract mode, which allows for easier handling of files containing more than one language."
 ---
 
-import MoreHelp from "/src/components/MoreHelp"
+
 
 # Extract mode
 
@@ -16,7 +16,7 @@ As of Semgrep 1.65.0, extract mode has been deprecated and removed from Semgrep.
 
 Extract mode enables you to run existing rules on subsections of files where the rule language is different than the language of the file. For example, running a JavaScript rule on code contained inside of script tags in an HTML document.
 
-<!-- 
+<!--
 :::info
 The extract mode feature is still in a very experimental stage and may not work as intended. The Semgrep team is planning to improve this feature in the future. Reach out for help and suggestions on the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
 ::: -->
@@ -140,5 +140,3 @@ The value of `reduce` key must be one of the following:
 Although extract mode supports JSON array decoding with the `json` key, it does not support other additional processing for the extracted text, such as unescaping strings.
 
 While extract mode can help to enable rules which try and track taint across a language boundary within a file, taint rules cannot have a source and sink split across the original file and extracted text.
-
-<MoreHelp />

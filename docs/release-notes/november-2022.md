@@ -75,7 +75,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 #### Semgrep App
 
-- The [Tagging projects](/semgrep-cloud-platform/tags) document explains how to use tags in projects added to Semgrep App.
+- The [Tagging projects](/semgrep-appsec-platform/tags) document explains how to use tags in projects added to Semgrep App.
 
 #### Semgrep CLI
 
@@ -85,11 +85,11 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 ### Changes
 
 - The following CI documents have been updated to reflect the latest environment variable:
-  - [Running Semgrep in continuous integration (CI) with Semgrep App](/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform)
-  - [Running Semgrep in continuous integration (CI) without Semgrep App](/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform)
+  - [Running Semgrep in continuous integration (CI) with Semgrep App](/deployment/core-deployment)
+  - [Running Semgrep in continuous integration (CI) without Semgrep App](/deployment/oss-deployment)
   - [Sample continuous integration (CI) configurations](/semgrep-ci/sample-ci-configs)
 - Updated [Usage and billing](/usage-and-billing) page. [Semgrep Supply Chain supported languages](/supported-languages/#semgrep-supply-chain) are now part of Pricing and billing document.
-- The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/configuration-reference/#semgrep_timeout) documentation for more details.
+- The `SEMGREP_TIMEOUT ` information has been updated. See [`SEMGREP_TIMEOUT`](/semgrep-ci/ci-environment-variables#semgrep_timeout) documentation for more details.
 - Collapsible items in the documentation sidebar now take you to overview pages for a given category or lead to introductory pages. Overview pages also provide an updated description for displayed cards that represent individual documents. For example: [Semgrep command-line interface (CLI)](/getting-started/cli), [Semgrep in continuous integration (CI)](/deployment/add-semgrep-to-ci), [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview)
 - Release notes that you are now reading have been split into one document for each month the Release notes category now has its own dedicated right sidebar. This change makes it easier to find changes that happened over the span of a month.
 - The [Experiments](/writing-rules/experiments/introduction) category now falls under **Writing custom rules** section on our left navigation.

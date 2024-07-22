@@ -1,9 +1,10 @@
 ---
 slug: semgrep-intellij
 append_help_link: true
+description: "Learn how to install and use Semgrep's extension for IntelliJ."
+tags:
+    - Extensions
 ---
-
-import MoreHelp from "/src/components/MoreHelp"
 
 # Semgrep IntelliJ extension
 
@@ -44,7 +45,7 @@ Semgrep's IntelliJ extensions are in **public beta**. Currently, the IntelliJ ex
 
 ## Supported Jet Brains products
 
-Semgrep's IDE extension is available in many Jet Brains products: 
+Semgrep's IDE extension is available in many Jet Brains products:
 
 - AppCode
 - Aqua
@@ -62,14 +63,14 @@ Semgrep's IDE extension is available in many Jet Brains products:
 
 :::caution
 
-IntelliJ extension does not support: 
+IntelliJ extension does not support:
 - IntelliJ IDEA Community Edition
 
 :::
 
 ## Commands
 
-Run Semgrep extension commands through the IntelliJ Command Palette. You can access the Command Palette by pressing <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) on your keyboard. 
+Run Semgrep extension commands through the IntelliJ Command Palette. You can access the Command Palette by pressing <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) on your keyboard.
 
 - `Sign in with Semgrep`: Sign up or log in to the Semgrep AppSec Platform (this command opens a new window in your browser). Alternatively, you can log in through your command-line interface by running `semgrep login`.
 - `Sign out of Semgrep`: Log out of Semgrep AppSec Platform. If you are logged out, you lose access to Semgrep Supply Chain and Semgrep Secrets. Alternatively, you can sign out through your command-line interface by running `semgrep logout`.

@@ -5,8 +5,8 @@ title: License compliance
 hide_title: true
 description: "Semgrep Supply Chain can detect and list a package's license. Prevent or exempt certain packages from being used based on their licenses."
 tags:
-  - Team & Enterprise tier
   - Semgrep Supply Chain
+  - Semgrep AppSec Platform
 ---
 
 # License compliance
@@ -118,7 +118,7 @@ The **Other** license category may include copyleft or permissive licenses. Cons
 
 Some packages allow multiple licenses. Semgrep treats packages with multiple licenses as if all licenses apply, and behaves according to the strictest policy. For example, if a package allows use under either an MIT license or a GPL-3.0 license, and the GPL-3.0 license is set to Block, but the MIT license is set to Allow, a PR that adds the package is blocked.
 
-Add an [exemption for the package](#exempting-packages) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
+Add an [exemption for the package](#exempt-dependencies) if subsequent review indicates the dependency is safe for use under one of the detected licenses.
 
 ## Exempt dependencies
 
@@ -166,5 +166,3 @@ To set a custom dependency exception:
    4. Click **Add** to save and add the exception.
 
 ![Semgrep AppSec Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)
-
-<MoreHelp />

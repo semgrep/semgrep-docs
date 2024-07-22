@@ -5,19 +5,9 @@ title: Jenkins UI
 hide_title: true
 description: Configure Jenkins to send the correct branch name to Semgrep AppSec Platform.
 tags:
+  - Deployment
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
 ---
-
-import MoreHelp from "/src/components/MoreHelp"
-
-<ul id="tag__badge-list">
-{
-Object.entries(frontMatter).filter(
-    frontmatter => frontmatter[0] === 'tags')[0].pop().map(
-    (value) => <li class='tag__badge-item'>{value}</li> )
-}
-</ul>
 
 # Set up Semgrep Supply Chain with Jenkins UI
 
@@ -53,5 +43,3 @@ To set up SSC with Jenkins UI, perform the following steps:
 1. Optional: Click **Build Now** to test that your job can now send findings to Semgrep AppSec Platform.
 
 You have successfully set up your Jenkins UI job to send findings to Semgrep AppSec Platform.
-
-<MoreHelp />

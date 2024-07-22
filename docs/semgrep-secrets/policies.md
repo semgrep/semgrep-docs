@@ -6,6 +6,7 @@ hide_title: true
 description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code.
 tags:
   - Semgrep Secrets
+  - Semgrep AppSec Platform
 ---
 
 # Manage Semgrep Secrets rules using the Policies page
@@ -64,7 +65,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Fix rate  | The percentage of findings that are fixed through changes to the code.  |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |
-| Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep. Custom:</strong> Rules created within your Semgrep organization. |
+| Source  | Indicates the origin of a rule. <ul><li>**Pro:** Authored by Semgrep.</li><li>**Custom:** Rules created within your Semgrep organization.</li></ul> |
 | Ruleset  | The name of the ruleset the rule belongs to. |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 
@@ -77,6 +78,12 @@ Semgrep Secrets provides three rule modes. These can be used to trigger **workfl
 | Monitor   | Rules in **Monitor mode** display findings only in: <ul><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules to this mode to evaluate their true positive rate and other criteria you may have. By keeping rules in Monitor, developers do not receive potentially noisy findings in their PRs or MRs.  |
 | Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
 | Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Secrets detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
+
+If you're encountering issues getting PR comments for Semgrep Secrets:
+
+* Make sure the rule is in **Comment** or **Block** mode
+* Review the [PR or MR comments guide for your SCM](/docs/category/pr-or-mr-comments)
+* Explore [other reasons you may not see PR or MR comments](/docs/kb/semgrep-appsec-platform/missing-pr-comments)
 
 ## Validation state policies
 
@@ -98,15 +105,13 @@ Semgrep enables you to set a **workflow action** based on the presence of a find
 
 * Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block on a PR or MR.
 * Leaving a [PR or MR comment](/category/pr-or-mr-comments).
-* [Notifying select channels](/semgrep-cloud-platform/notifications), such as private Slack channels or webhooks.
+* [Notifying select channels](/semgrep-appsec-platform/notifications), such as private Slack channels or webhooks.
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 
-<!-- Custom rules aren't ready yet
 ## Add custom rules
 
-To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor/#setting-code-standards-with-the-policies-page).
- -->
+To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i>Semgrep Secrets rule structure and sample](/semgrep-secrets/rules).
 
 ## Disable rules
 

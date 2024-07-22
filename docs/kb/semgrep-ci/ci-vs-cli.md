@@ -13,7 +13,7 @@ However, the two methods of running Semgrep have somewhat different behavior by 
 
 ## Installation methods and versioning
 
-When comparing Semgrep scans in CI and CLI, please start by ensuring that you are running the same version of Semgrep on the CLI as in CI, and that it is [installed](/docs/getting-started/#installing-and-running-semgrep-locally) in the same way as it is in CI.
+When comparing Semgrep scans in CI and CLI, ensure that you are running the same version of Semgrep on the CLI as in CI, and that it is [installed](/getting-started/cli) in the same way as it is in CI.
 
 If you use Semgrep's Docker image in CI and are running the CLI scan locally, the best options are:
 
@@ -24,7 +24,7 @@ If you use Semgrep's Docker image in CI and are running the CLI scan locally, th
 
 When comparing findings, ensure that the scans were run on the same code. To compare results for an entire repository, the best option is to scan the latest commit to the default branch.
 
-When running Semgrep in CI, if the triggering event is a pull request or merge request, the recommended configuration runs a [diff-aware scan](/docs/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/#diff-aware-scanning), so only findings identified in the changed code are reported. Therefore, not all findings are reported in these scans.
+When running Semgrep in CI, if the triggering event is a pull request or merge request, the recommended configuration runs a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans), so only findings identified in the changed code are reported. Therefore, not all findings are reported in these scans.
 
 ## Rule configuration
 
@@ -44,11 +44,11 @@ would give similar results to `semgrep ci`.
 
 ## Pro analysis
 
-When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-pro-engine), then interfile and interprocedural analysis is performed.
+When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-code-language-support), then interfile and interprocedural analysis is performed.
 
 If Pro Engine is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
 
-To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#installing-semgrep-pro-engine-in-cli), and include `--pro` in your command:
+To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
 ```bash
 semgrep --config auto --pro
