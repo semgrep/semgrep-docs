@@ -319,19 +319,20 @@ In order for this configuration to run the correct type of scan for each conditi
 #### Branch filtering
 
 1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
-   ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png)
-2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box.
-   ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png)
-   You can include any other branch names that require full scans as well, such as `release-*`.
+    ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png#md-width)
+    _**Figure.**_ Buildkite pipeline settings with using GitHub as the SCM.
+2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
+    ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png#md-width)
+    _**Figure.**_ Branch limiting settings with main as the example branch.
 3. Click **Save Branch Limiting**.
 
 #### Build on pull requests
 
-In order to run diff-aware scans, your pipeline must run builds on pull or merge requests. Buildkite integrates with several source code managers and each one has different options to handle pull or merge requests. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the documentation for your [Source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull or merge requests.
+To run diff-aware scans, your pipeline must run builds on pull or merge requests. Buildkite integrates with several source code managers and each one has different options to handle pull or merge requests. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull or merge requests.
 
 <BuildkiteSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+You can [run specific product scans by passing the appropriate argument](/getting-started/cli#scan-using-specific-semgrep-products), such as `--supply-chain`.
 
 </TabItem>
 
