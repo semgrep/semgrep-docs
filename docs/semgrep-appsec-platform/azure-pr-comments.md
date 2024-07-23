@@ -23,11 +23,11 @@ import NextAfterComments from "/src/components/procedure/_next-after-comments.md
 
 <DeploymentJourney />
 
-Semgrep can create **pull request (PR) comments** in your Azure DevOps repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
+Semgrep can create **pull request (PR) comments** in your Azure DevOps repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards, to help their fellow developers write safe and standards-compliant code.
 
-TODO: Automated comments on Azure DevOps pull requests are displayed as follows:
+Automated comments on Azure DevOps pull requests are displayed as follows:
 
-![Semgrep Azure DevOps PR comment](/img/bb-pr-comment.png#md-width)
+![Semgrep Azure DevOps PR comment](/img/azure-pr-comment.png#md-width)
 **Figure** An inline Azure DevOps pull request comment.
 
 ## Conditions for PR comment creation
@@ -40,11 +40,13 @@ PR comments appear for the following types of scans under these conditions:
 
 ### Prerequisites
 
+Semgrep currently supports repositories hosted by Azure DevOps Cloud.
+
 In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 
 ### Confirm your Semgrep account's connection
 
-PR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
+PR comments are enabled by default for users who have connected their Azure DevOps organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Azure DevOps org exists and is correct.
