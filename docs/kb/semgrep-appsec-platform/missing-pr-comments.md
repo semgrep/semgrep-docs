@@ -17,7 +17,7 @@ PR or MR comments are currently supported for:
 * All GitHub plans
 * All GitLab plans
 * All Bitbucket plans
-* Azure DevOps Clous repositories
+* Azure DevOps Cloud repositories
 
 PR or MR comments are not supported for:
 
