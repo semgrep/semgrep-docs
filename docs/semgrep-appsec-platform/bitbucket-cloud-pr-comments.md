@@ -1,9 +1,9 @@
 ---
-slug: bitbucket-pr-comments
+slug: bitbucket-cloud-pr-comments
 append_help_link: true
-title: Bitbucket PR comments
+title: Bitbucket Cloud
 hide_title: true
-description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
+description: "Enable PR comments in your Bitbucket Cloud repositories to display Semgrep findings to developers."
 tags:
     - Deployment
     - Semgrep AppSec Platform
@@ -23,7 +23,7 @@ import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_commen
 
 <!-- vale on -->
 
-# Enable Bitbucket pull request comments
+# Enable Bitbucket Cloud pull request comments
 
 <DeploymentJourney />
 

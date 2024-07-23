@@ -28,4 +28,4 @@ GitLab allows comments to be posted on lines of code outside the default file-di
 
 * [Enabling GitHub pull request comments](/semgrep-appsec-platform/github-pr-comments)
 * [Enabling GitLab merge request comments](/semgrep-appsec-platform/gitlab-mr-comments)
-* [Enabling Bitbucket pull request comments](/semgrep-appsec-platform/bitbucket-pr-comments)
+* [Enabling Bitbucket pull request comments](/category/bitbucket-pr-comments)

@@ -56,7 +56,7 @@ The GitLab token should have `api` scope and be added to the project's CI/CD set
 
 #### Bitbucket
 
-The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/docs/semgrep-appsec-platform/bitbucket-pr-comments) for details.
+The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/category/bitbucket-pr-comments) for details.
 
 ## Have you placed the rule in Comment or Block?
 

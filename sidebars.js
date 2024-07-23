@@ -104,8 +104,17 @@ module.exports = {
                   items: [
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
-                    'semgrep-appsec-platform/bitbucket-pr-comments',
-                    ]
+                    {
+                      type: 'category',
+                      label: 'Bitbucket PR comments',
+                      collapsible: true,
+                      link: {type: 'generated-index'},
+                      items: [
+                        'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
+                        'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
+                      ]
+                    }                    
+                  ]
                 },
                 'deployment/beyond-core-deployment'
             ]

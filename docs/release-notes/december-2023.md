@@ -136,7 +136,7 @@ viewing their finding details pages.
 * Updated documentation on setting up pull request or merge request comments for
   [GitHub](/docs/semgrep-appsec-platform/github-pr-comments),
   [GitLab](/docs/semgrep-appsec-platform/gitlab-mr-comments), and
-  [Bitbucket](/docs/semgrep-appsec-platform/bitbucket-pr-comments) users.
+  [Bitbucket](/category/bitbucket-pr-comments) users.
 * General improvements to API docs, including clarification of usage
   instructions for Supply Chain and Secrets endpoints.
 
