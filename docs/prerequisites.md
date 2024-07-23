@@ -48,7 +48,7 @@ These requirements apply to Semgrep Pro.
     - GitHub
     - GitLab
     - Bitbucket
-    - Azure Repos
+    - Azure DevOps
 - A CI provider and sufficient permissions to create CI jobs.
 
 <!-- IDEs - to add after -->
