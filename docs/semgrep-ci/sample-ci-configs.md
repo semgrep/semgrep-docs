@@ -261,6 +261,8 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
 
 ### Sample Bitbucket Pipelines configuration snippet
 
+:::note If the default runner runs out of memory, you can add the [size: 2x directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step. :::
+
 <Tabs
     defaultValue="bitbucket-semgrep"
     values={[
