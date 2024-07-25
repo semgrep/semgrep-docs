@@ -80,9 +80,9 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 
 ### Memories (beta)
 
-Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
+Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, users can provide feedback by adding custom instructions.
 
-For example, if the code contains a hard-coded secret, Assistant might suggest using an SDK containing credentialing handling. However, if your company prefers to use a specific secrets manager, you can provide this information to Assistant. Assistant then stores this information to tailor future code remediation guidance appropriately.
+For example, if the code contains a hard-coded secret, Assistant might suggest using an SDK containing credentialing handling. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
 
 #### Autofix
 

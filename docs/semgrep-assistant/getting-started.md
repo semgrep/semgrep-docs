@@ -119,7 +119,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
   ![ Policies modes](/img/semgrep-assistant-comment.png)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
 
-### Enable Memories (beta)
+### Add Memories (beta)
 
 Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
 
@@ -127,14 +127,14 @@ Assistant Memories allows users to tailor Assistant's remediation guidance to th
 
 To add a Memory:
 
-1. Identify the specific instance of and **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project.
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project.
    ![Assistant’s suggested fix for a hard-coded secret in the user’s code](/img/memories-1.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hard-coded secret in the user’s code.
 2. Click **Save and regenerate**.
-   ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-1.png#md-width)
+   ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
    ***Figure***. User-provided custom instruction that Assistant uses to improve future guidance.
 3. Assistant regenerates the suggested fix to reflect the instructions you provided.
-   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-1.png#md-width)
+   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-3.png#md-width)
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
