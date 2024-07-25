@@ -261,8 +261,6 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
 
 ### Sample Bitbucket Pipelines configuration snippet
 
-:::note If the default runner runs out of memory, you can add the [size: 2x directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step. :::
-
 <Tabs
     defaultValue="bitbucket-semgrep"
     values={[
@@ -291,6 +289,10 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 </TabItem>
 </Tabs>
+
+:::tip
+If the pipeline's default runner runs out of memory, you can [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available.
+:::
 
 ## Buildkite
 
