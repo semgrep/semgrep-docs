@@ -78,6 +78,12 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 ![Findings detail with remediation advice](/img/assistant-guidance-ui.png)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
 
+### Memories (beta)
+
+Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
+
+For example, if the code contains a hard-coded secret, Assistant might suggest using an SDK containing credentialing handling. However, if your company prefers to use a specific secrets manager, you can provide this information to Assistant. Assistant then stores this information to tailor future code remediation guidance appropriately.
+
 #### Autofix
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
