@@ -57,7 +57,7 @@ Managed scans are specifically designed to limit the amount of time that code re
 Part of the process of adding a repository includes creating and registering a public Semgrep GitHub app and a private Semgrep GitHub App.
 
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
-- The private Semgrep GitHub app is required to enable code access for managed scans.
+- The private Semgrep GitHub app is required to enable code access for Managed Scans.
 
 To view all permissions, see [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information.
 
