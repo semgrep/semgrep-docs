@@ -290,6 +290,19 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
+:::tip
+If the pipeline's default runner runs out of memory, you can [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available:
+
+```yaml
+pipelines:
+  default:
+    - step:
+        size: 2x
+        script:
+          - echo "This step gets double the memory!"
+```
+:::
+
 ## Buildkite
 
 To add Semgrep into your Buildkite pipeline:
