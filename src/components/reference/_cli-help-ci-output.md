@@ -29,7 +29,7 @@ OPTIONS
            Apply autofix patches. WARNING: data loss can occur with this
            flag. Make sure your files are stored in a version control system.
            Note that this mode is experimental and not guaranteed to function
-           properly.
+           properly. 
 
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
@@ -40,7 +40,7 @@ OPTIONS
        --baseline-commit=VAL (absent SEMGREP_BASELINE_COMMIT env)
            Only show results that are not found in this commit hash. Aborts
            run if not currently in a git directory, there are unstaged
-           changes, or given baseline hash doesn't exist.
+           changes, or given baseline hash doesn't exist. 
 
        --code
            Run Semgrep Code (SAST) product.
@@ -62,7 +62,7 @@ OPTIONS
            The depth of the Pro (interfile) differential scan, the number of
            steps (both in the caller and callee sides) from the targets in
            the call graph tracked by the deep preprocessor. Only applied in
-           differential scan mode. Default to 2.
+           differential scan mode. Default to 2. 
 
        --disable-nosem
            negates --enable-nosem
@@ -78,11 +78,11 @@ OPTIONS
            If --dryrun, does not write autofixes to a file. This will print
            the changes to the console. This lets you see the changes before
            you commit to them. Only works with the --autofix flag. Otherwise
-           does nothing.
+           does nothing. 
 
        --dump-ast
            If --dump-ast, shows AST of the input file or passed expression
-           and then exit (can use --json).
+           and then exit (can use --json). 
 
        --dump-engine-path
            <internal, do not use>
@@ -90,7 +90,7 @@ OPTIONS
        -e VAL, --pattern=VAL
            Code search pattern. See
            https://semgrep.dev/docs/writing-rules/pattern-syntax for
-           information on pattern features.
+           information on pattern features. 
 
        --emacs
            Output results in Emacs single-line format.
@@ -105,7 +105,7 @@ OPTIONS
 
        --enable-version-check (absent SEMGREP_ENABLE_VERSION_CHECK env)
            Checks Semgrep servers to see if the latest version is run;
-           disabling this may reduce exit time after returning results.
+           disabling this may reduce exit time after returning results. 
 
        --error
            Exit 1 if there are findings. Useful for CI and scripts.
@@ -118,7 +118,12 @@ OPTIONS
            '--exclude' options may be specified. PATTERN is a glob-style
            pattern that uses the same syntax as gitignore and semgrepignore,
            which is documented at
-           https://git-scm.com/docs/gitignore#_pattern_format
+           https://git-scm.com/docs/gitignore#_pattern_format 
+
+       --exclude-minified-files
+           Skip minified files. These are files that are > 7% whitespace, or
+           who have a large number of bytes per line. By defualt minified
+           files are scanned 
 
        --exclude-rule=VAL
            Skip any rule with the given id. Can add multiple times.
@@ -136,14 +141,14 @@ OPTIONS
            For example `semgrep --config p/python --config
            myrules/myrule.yaml` See
            https://semgrep.dev/docs/writing-rules/rule-syntax for information
-           on configuration file format.
+           on configuration file format. 
 
        --files-with-matches
            Output only the names of files containing matches
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
-           TTY; defaults to using the TTY status
+           TTY; defaults to using the TTY status 
 
        --gh-token=VAL (absent GH_TOKEN env)
            The GitHub token.
@@ -216,7 +221,7 @@ OPTIONS
            '--include=foo.* --include=bar.*' will select both 'src/foo.jsx'
            and 'lib/bar.js'. Glob-style patterns follow the syntax supported
            by gitignore and semgrepignore, which is documented at
-           https://git-scm.com/docs/gitignore#_pattern_format
+           https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
            Output results incrementally.
@@ -231,7 +236,7 @@ OPTIONS
 
        -j VAL, --jobs=VAL (absent=4)
            Number of subprocesses to use to run checks in parallel. Defaults
-           to the number of cores detected on the system (1 if using --pro).
+           to the number of cores detected on the system (1 if using --pro). 
 
        --json
            Output results in Semgrep's JSON format.
@@ -249,7 +254,7 @@ OPTIONS
 
        -l VAL, --lang=VAL
            Parse pattern and all files in specified language. Must be used
-           with -e/--pattern.
+           with -e/--pattern. 
 
        --legacy
            Prefer old (legacy) behavior.
@@ -270,12 +275,12 @@ OPTIONS
            Maximum system memory in MiB to use during the interfile
            pre-processing phase, or when running a rule on a single file. If
            set to 0, will not have memory limit. Defaults to 0. For CI scans
-           that use the Pro Engine, defaults to 5000 MiB.
+           that use the Pro Engine, defaults to 5000 MiB. 
 
-       --max-target-bytes=VAL (absent=1000000)
+       --max-target-bytes=VAL (absent=-1)
            Maximum size for a file to be scanned by Semgrep, e.g '1.5MB'. Any
            input program larger than this will be ignored. A zero or negative
-           value disables this filter. Defaults to 1000000 bytes
+           value disables this filter. Defaults to -1 bytes
 
        --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
@@ -283,7 +288,7 @@ OPTIONS
            the Semgrep server. If 'on', metrics are always sent. If 'off',
            metrics are disabled altogether and not sent. If absent, the
            SEMGREP_SEND_METRICS environment variable value will be used. If
-           no environment variable, defaults to 'auto'.
+           no environment variable, defaults to 'auto'. 
 
        --no-autofix
            negates -a/--autofix
@@ -293,6 +298,9 @@ OPTIONS
 
        --no-error
            negates --error
+
+       --no-exclude-minified-files
+           negates --exclude-minified-files
 
        --no-force-color
            negates --force-color
@@ -327,7 +335,7 @@ OPTIONS
 
        --optimizations=VAL (absent=all)
            Turn on/off optimizations. Default = 'all'. Use 'none' to turn all
-           optimizations off.
+           optimizations off. 
 
        --oss-only
            Run using only OSS features, even if the Semgrep Pro toggle is on.
@@ -345,6 +353,10 @@ OPTIONS
        --pro-languages
            Enable Pro languages (currently Apex and Elixir). Requires Semgrep
            Pro Engine. See https://semgrep.dev/products/pro-engine/ for more.
+
+       --pro-path-sensitive
+           Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
+           Engine. See https://semgrep.dev/products/pro-engine/ for more.
 
        --profile
            <undocumented>
@@ -370,11 +382,11 @@ OPTIONS
 
        --replacement=VAL
            An autofix expression that will be applied to any matches found
-           with --pattern. Only valid with a command-line specified pattern.
+           with --pattern. Only valid with a command-line specified pattern. 
 
        --rewrite-rule-ids
            Rewrite rule ids when they appear in nested sub-directories (Rule
-           'foo' in test/rules.yaml will be renamed 'test.foo').
+           'foo' in test/rules.yaml will be renamed 'test.foo'). 
 
        --sarif
            Output results in SARIF format.
@@ -389,7 +401,7 @@ OPTIONS
            to the value of --lang if applicable, or otherwise with the
            analyzers/languages specified in the Semgrep rule(s) regardless of
            file extension or file type. This setting doesn't apply to target
-           files discovered by scanning folders. Defaults to false.
+           files discovered by scanning folders. Defaults to false. 
 
        --secrets
            Run Semgrep Secrets product, including support for secret
@@ -420,7 +432,7 @@ OPTIONS
        --severity=VAL
            Report findings only from rules matching the supplied severity
            level. By default all applicable rules are run. Can add multiple
-           times. Each should be one of INFO, WARNING, or ERROR.
+           times. Each should be one of INFO, WARNING, or ERROR. 
 
        --show-supported-languages
            Print a list of languages that are currently supported by Semgrep.
@@ -431,7 +443,7 @@ OPTIONS
        --strict
            Return a nonzero exit code when WARN level errors are encountered.
            Fails early if invalid configuration files are present. Defaults
-           to --no-strict.
+           to --no-strict. 
 
        --subdir=VAL (absent=/src)
            Scan only a subdirectory of this folder. This creates a project
@@ -454,7 +466,7 @@ OPTIONS
 
        --test-ignore-todo
            If --test-ignore-todo, ignores rules marked as '#todoruleid:' in
-           test files.
+           test files. 
 
        --text
            Output results in text format.
@@ -465,20 +477,20 @@ OPTIONS
 
        --time
            Include a timing summary with the results. If output format is
-           json, provides times for each pair (rule, target).
+           json, provides times for each pair (rule, target). 
 
        --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
-           If set to 0 will not have time limit. Defaults to 5.0 s.
+           If set to 0 will not have time limit. Defaults to 5.0 s. 
 
        --timeout-threshold=VAL (absent=3)
            Maximum number of rules that can time out on a file before the
-           file is skipped. If set to 0 will not have limit. Defaults to 3.
+           file is skipped. If set to 0 will not have limit. Defaults to 3. 
 
        --trace
            Record traces from Semgrep scans to help debugging. This feature
            is meant for internal use and may be changed or removed without
-           warning.
+           warning. 
 
        --trace-endpoint=VAL
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
@@ -493,19 +505,19 @@ OPTIONS
            new files would be scanned. Git submodules and git- ignored files
            would normally be skipped. --no-git-ignore will disable git-aware
            filtering. Setting this flag does nothing if the scanning root is
-           not in a git repository.
+           not in a git repository. 
 
        --use-osemgrep-sarif
            Output results using osemgrep.
 
        -v, --verbose
            Show more details about what rules are running, which files failed
-           to parse, etc.
+           to parse, etc. 
 
        --validate
            Validate configuration file(s). This will check YAML files for
            errors and run 'p/semgrep-rule-lints' on the YAML files. No search
-           is performed.
+           is performed. 
 
        --version
            Show the version and exit.
@@ -631,4 +643,5 @@ AUTHORS
 BUGS
        If you encounter an issue, please report it at
        https://github.com/semgrep/semgrep/issues
+
 ```
