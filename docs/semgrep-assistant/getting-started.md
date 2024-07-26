@@ -123,6 +123,8 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
 
+Memories are enabled by default for all Assistant users.
+
 To add a Memory:
 
 1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project.
@@ -142,7 +144,6 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
 2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
 3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
-
 
 ### Enable priority inbox
 
