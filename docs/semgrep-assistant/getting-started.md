@@ -121,13 +121,13 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ### Add Memories (beta)
 
-Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
+Assistant Memories allow AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
 
 Memories are enabled by default for all Assistant users.
 
 To add a Memory:
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project.
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
    ![Assistant’s suggested fix for a hard-coded secret in the user’s code](/img/memories-1.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hard-coded secret in the user’s code.
 2. Click **Save and regenerate**.
