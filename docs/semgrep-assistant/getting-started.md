@@ -123,8 +123,6 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 Assistant Memories allows users to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix,  users can provide feedback by adding custom instructions.
 
-> Assistant Memories is currently in **public beta**. Please contact Semgrep to obtain access to this feature.
-
 To add a Memory:
 
 1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project.
