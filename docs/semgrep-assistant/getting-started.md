@@ -127,7 +127,7 @@ Memories are enabled by default for all Assistant users.
 
 To add a Memory:
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
    ![Assistant’s suggested fix for a hard-coded secret in the user’s code](/img/memories-1.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hard-coded secret in the user’s code.
 2. Click **Save and regenerate**.
