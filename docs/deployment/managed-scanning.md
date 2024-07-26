@@ -87,7 +87,7 @@ You have finished setting up a Semgrep Managed Scan.
 A complete installation is displayed in the Source Code Manager entry as follows:
 
 ![GitHub entry with public and private GitHub app connection](/img/zcs-code-access-enabled.png#md-width)
-_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed managed scans set-up._
+_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed Managed Scans set-up._
 
 You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
 
