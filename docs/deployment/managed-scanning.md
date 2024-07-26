@@ -69,7 +69,10 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. In the **Enable Managed Scans for GitHub repos** page, select the repositories you want to add to Semgrep Managed Scans.
     1. Optional: If you don't see the repository you want to add, click **Sync projects** or click **Check GitHub Access Configuration** to ensure that you've granted Semgrep access to at least one repository.
 1. Select the repositories you want to scan from the list.
-1. Click **Enable Managed Scans**.
+1. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
+![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
+1. Click **Enable**.
 <!-- vale on -->
 
 You have finished setting up a Semgrep Managed Scan.
