@@ -121,7 +121,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ### Add Memories (beta)
 
-Assistant Memories allow AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
+Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 
 Memories are enabled by default for all Assistant users.
 
