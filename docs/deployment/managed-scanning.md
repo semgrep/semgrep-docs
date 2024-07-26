@@ -183,7 +183,7 @@ You can view logs for your most recent scan by clicking **Projects > the project
 _**Figure**. The Projects page. Click the project's latest scan (underlined) to view the log._
 
 :::info
-It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update after around fifteen minutes after the scan, there may be issues with the scan itself.
+It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
 :::
 
 **Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.
