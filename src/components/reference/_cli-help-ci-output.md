@@ -534,7 +534,7 @@ OPTIONS
            files before any rule-specific or language-specific filtering.
            Then exit. The output format is unspecified. THIS OPTION IS NOT
            PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. 
+           NOTICE.
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
