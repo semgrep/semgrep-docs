@@ -125,15 +125,16 @@ Assistant Memories allows AppSec teams and developers to tailor Assistant's reme
 
 Memories are enabled by default for all Assistant users.
 
-To add a Memory:
+To add a memory:
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
+2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
    ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-1.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
-2. Click **Save and regenerate**.
+3. Click **Save and regenerate**.
    ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
    ***Figure***. User-provided custom instruction that Assistant uses to improve future guidance.
-3. Assistant regenerates the suggested fix to reflect the instructions you provided.
+4. Assistant regenerates the suggested fix to reflect the instructions you provided.
    ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-3.png#md-width)
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
