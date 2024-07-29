@@ -29,7 +29,7 @@ This feature is in a **private beta**. To request access, contact your Technical
 
 
 ![Dashboard (beta) page](/img/dashboard-fold.png)
-_**Figure**. The dashboard (beta_) page._
+_**Figure**. The dashboard (beta_) page.
 
 The dashboard is divided into several panes:
 
@@ -69,22 +69,22 @@ By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority**
 
 ## Production backlog
 
-This pane displays analytics related to findings detected in your primary or default branch. This typically means that the finding, usually a security issue, has made it to production environments.
+This pane displays analytics related to findings detected in your **primary or default branch**. This typically means that the finding, usually a security issue, has made it to production environments.
 
 ### Key metrics
 
 | Key metrics    | Description |
 | -------------- | ------ |
-| Total new      | |
-| Total fixed    | |
-| Total ignored  | |
+| Total new      | Total new findings.  |
+| Total fixed    | Total fixed findings. |
+| Total ignored  | Total ignored findings. |
 | Total net new  | |
 
 ### Charts
 
 | Chart | Description |
 | -------  | ------ |
-| Open backlog         | Open findings over the chosen time period. This tracks the total findings from each scan and displays them. Lower values are better. |
+| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. |
 | Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. |
 
 ## Secure guardrails
