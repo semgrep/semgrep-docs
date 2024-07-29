@@ -62,11 +62,9 @@ Configurations set here apply to the following panes:
 
 By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority** filters are enabled. These filters display any finding that is **Critical** or **High** severity in **addition** to being:
 
-- High confidence - if the finding is from Semgrep Code.
-- Reachable - if the finding is from Semgrep Supply Chain.
-- Valid - if the finding is from Secrets.
-
-tk add links to definitions
+- [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
+- [Reachable](/semgrep-supply-chain/triage-and-remediation#filters) - if the finding is from Semgrep Supply Chain.
+- [Valid](/semgrep-secrets/getting-started#validation) - if the finding is from Semgrep Secrets.
 
 ## Production backlog
 
