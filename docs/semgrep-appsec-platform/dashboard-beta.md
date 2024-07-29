@@ -2,9 +2,10 @@
 slug: dashboard-beta
 title: Dashboard (beta)
 hide_title: true
-description: Dashboard (beta)
+description: Use the Semgrep dashboard (beta) to gain an overview of your organization's security posture, including the deployment of guardrails.
 tags:
   - Semgrep AppSec Platform
+  - Secure guardrails
 ---
 
 # Dashboard (beta)
@@ -16,7 +17,7 @@ The Semgrep dashboard (beta) is an overview of your organization’s security po
 - Awareness of trends and opportunities that you can use to improve your security posture.
   - You are able to view **recurring security issues**, consequently taking action on them.
 
-<!-- 
+<!--
 The dashboard provides the following features:
 
 - Filters that enable you to track key metrics over a period of time, per Semgrep product, and per project.
@@ -70,7 +71,7 @@ By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority**
 
 This pane displays analytics related to findings detected in your primary or default branch. This typically means that the finding, usually a security issue, has made it to production environments.
 
-### Key metrics 
+### Key metrics
 
 | Key metrics    | Description |
 | -------------- | ------ |
@@ -95,10 +96,13 @@ _**Figure**. Secure guardrails pane._
 
 ### Key metrics
 
+<!-- vale off -->
 | Key metrics    | Description |
 | -------------- | ------ |
-| Findings shown to devs      | Percentage of findings shown to devs in PR or MR comments against the total findings count. An upward or stable trend is better. |
-| Findings fixed before backlog      | Displays the percentage of findings that were fixed before they could be detected in a default branch or production backlog against the total findings count. An upward or stable trend is better. |
+| Findings shown to devs      | Percentage of findings shown to developers in PR or MR comments against the total findings count. An upward or stable trend is better. |
+| Findings fixed before backlog      | Displays the percentage of findings that were fixed before they could be detected in a default branch or production backlog against the total findings count in the specified time period. An upward or stable trend is better. |
+
+<!-- vale on -->
 
 ### Charts
 
@@ -117,3 +121,15 @@ _**Figure**. Findings by project; group them by product or severity._
 ## Mean time to remediate
 
 <!-- check if title changes -->
+
+![Mean time to remediate a finding.]/img/dashboard-mean-time-remediate.png)
+_**Figure**. Mean time to remediate a finding._
+
+A chart displaying the mean time to remediate a finding over the specified time period. Lower is better.
+
+For a finding to be remediated, it must have any of the following statuses:
+
+- Fixed
+- Ignored
+- Fixing
+- Reviewing
