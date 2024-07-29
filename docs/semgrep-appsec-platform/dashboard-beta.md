@@ -16,16 +16,19 @@ The Semgrep dashboard (beta) is an overview of your organization’s security po
 - Awareness of trends and opportunities that you can use to improve your security posture.
   - You are able to view **recurring security issues**, consequently taking action on them.
 
+<!-- 
 The dashboard provides the following features:
 
-- Filters that enable you to track metrics over a period of time, per Semgrep product, and per project.
-- Insights
+- Filters that enable you to track key metrics over a period of time, per Semgrep product, and per project.
+-->
 
 :::note
 This feature is in a **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the dashboard beta.
 :::
 
-tk-screenshot
+
+![Dashboard (beta) page](/img/dashboard-fold.png)
+_**Figure**. The dashboard (beta_) page._
 
 The dashboard is divided into several panes:
 
@@ -87,24 +90,31 @@ This pane displays analytics related to findings detected in your primary or def
 
 ## Secure guardrails
 
-This provides an overview of how secure guardrails are used in your organization.
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+
+![Secure guardrails pane](/img/dashboard-guardrails.png)
+_**Figure**. Secure guardrails pane._
 
 ### Key metrics
 
-
 | Key metrics    | Description |
 | -------------- | ------ |
-| Findings shown to devs      | Displayed as a fractional amount with the denominator being the total . An upward or stable trend is better. |
-| Findings fixed before backlog      | |
+| Findings shown to devs      | Percentage of findings shown to devs in PR or MR comments against the total findings count. An upward or stable trend is better. |
+| Findings fixed before backlog      | Displays the percentage of findings that were fixed before they could be detected in a default branch or production backlog against the total findings count. An upward or stable trend is better. |
 
 ### Charts
 
 | Chart | Description |
 | -------  | ------ |
-| Open backlog         | Open findings over the chosen time period. This tracks the total findings from each scan and displays them. Lower values are better. |
-| Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. |
+| Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, or remained open. A greater **Fixed** value is better. |
 
 ## Most findings by project
+
+A table providing a breakdown of findings for each project, grouped by product or severity. Lower values are better.
+
+![Findings by project pane.](/img/dashboard-findings-by-project.png#sm-width-noborder)
+_**Figure**. Findings by project; group them by product or severity._
 
 ## Mean time to remediate
 
