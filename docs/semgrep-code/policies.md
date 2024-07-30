@@ -163,7 +163,7 @@ To change assigned modes, select either the top **Matching Rules** checkbox to s
 If you have the **multiple policies** feature, you can customize the rules that run on specific repositories. Currently, this beta is not accepting new participants.
 :::
 
-The multiple policies feature enables users to customize the rules that run on specific repositories (projects). Users create different policies that projects can be assigned to.
+The multiple policies feature enables users to customize the rules that run on specific projects (repositories). Users create different policies that projects can be assigned to.
 
 This feature makes use of a **Global Policy** that runs on **all** projects. Projects cannot be unassigned from it.
 
