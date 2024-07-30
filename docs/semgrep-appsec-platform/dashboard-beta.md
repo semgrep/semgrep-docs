@@ -154,11 +154,14 @@ This pane displays analytics related to findings detected in your **primary or d
 
 | Key metrics    | Description |
 | -------------- | ------ |
-| Total new      | Total new findings.  |
-| Total fixed    | Total fixed findings. |
-| Total ignored  | Total ignored findings. |
-| Total net new  | |
+| Total new      | New **Open**, **Fixing**, or **Reviewing** findings, including findings that were fixed or ignored within the time period. |
+| Total fixed    | Total **Fixed** findings. |
+| Total ignored  | Total **Ignored** findings. |
+| Total net new  | New **Open**, **Fixing**, or **Reviewing** findings that were **not** fixed or ignored within the specified time period. Lower values are better. |
 
+:::tip
+A low or 0 value for **Total net new** is ideal as it indicates that findings are being triaged or resolved within the time period.
+:::
 ### Charts
 
 | Chart | Description |
@@ -178,8 +181,8 @@ _**Figure**. Secure guardrails pane._
 <!-- vale off -->
 | Key metrics    | Description |
 | -------------- | ------ |
-| Findings shown to devs      | Percentage of findings shown to developers in PR or MR comments against the total findings count. An upward or stable trend is better. |
-| Findings fixed before backlog      | Displays the percentage of findings that were fixed before they could be detected in a default branch or production backlog against the total findings count in the specified time period. An upward or stable trend is better. |
+| Findings shown to devs      | Number of findings shown to developers in PR or MR comments (the numerator) against the total findings count (denominator). An upward or stable trend is better. |
+| Findings fixed before backlog      | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period. An upward or stable trend is better. |
 
 <!-- vale on -->
 
