@@ -90,7 +90,7 @@ Semgrep supports the following interfaces:
     <td>[All GitLab plans](/semgrep-appsec-platform/gitlab-mr-comments)</td>
 </tr>
 <tr>
-    <td>[All Bitbucket plans](/semgrep-appsec-platform/bitbucket-pr-comments)</td>
+    <td>[All Bitbucket plans](/category/bitbucket-pr-comments)</td>
 </tr>
 <tr>
     <td>[Azure Devops Cloud](/semgrep-appsec-platform/azure-pr-comments)</td>
