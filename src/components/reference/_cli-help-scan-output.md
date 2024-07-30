@@ -140,7 +140,8 @@ OPTIONS
            on configuration file format. 
 
        --files-with-matches
-           Output only the names of files containing matches
+           Output only the names of files containing matches. REQUIRES
+           --experimental
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
@@ -182,7 +183,7 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
-           Output results incrementally.
+           Output results incrementally. REQUIRES --experimental
 
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
@@ -290,7 +291,8 @@ OPTIONS
            optimizations off. 
 
        --oss-only
-           Run using only OSS features, even if the Semgrep Pro toggle is on.
+           Run using only the OSS engine, even if the Semgrep Pro toggle is
+           on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
            Inter-file analysis and Pro languages (currently Apex and Elixir).
@@ -321,7 +323,7 @@ OPTIONS
            a specific directory to be the project root. This is useful for
            testing or for restoring compatibility with older semgrep
            implementations that only looked for a .semgrepignore file in the
-           current directory.
+           current directory. REQUIRES --experimental
 
        -q, --quiet
            Only output findings.
@@ -330,7 +332,8 @@ OPTIONS
            Remote will quickly checkout and scan a remote git repository of
            the format "http[s]://<WEBSITE>/.../<REPO>.git". Must be run with
            --pro Incompatible with --project-root. Note this requires an
-           empty CWD as this command will clone the repository into the CWD
+           empty CWD as this command will clone the repository into the CWD.
+           REQUIRES --experimental
 
        --replacement=VAL
            An autofix expression that will be applied to any matches found
@@ -407,11 +410,11 @@ OPTIONS
            is meant for internal use and may be changed or removed without
            warning. 
 
-       --trace-endpoint=VAL
+       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINTS env)
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning.
+           internal use and may be changed or removed wihtout warning. 
 
        --use-git-ignore
            Skip files ignored by git. Scanning starts from the root folder
@@ -449,7 +452,7 @@ OPTIONS
            files before any rule-specific or language-specific filtering.
            Then exit. The output format is unspecified. THIS OPTION IS NOT
            PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. 
+           NOTICE. REQUIRES --experimental. 
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
@@ -479,6 +482,9 @@ ENVIRONMENT
 
        SEMGREP_FORCE_COLOR
            See option --force-color.
+
+       SEMGREP_OTEL_ENDPOINTS
+           See option --trace-endpoint.
 
        SEMGREP_RULES
            See option --config.
