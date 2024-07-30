@@ -136,7 +136,11 @@ Remediation guidance can come in three forms:
 - AI-generated remediation guidance through Semgrep Assistant
 - The rule's `fix`
 
-Much of the remediation guidance originates from the rule itself, which is also used to generate Semgrep Assistant's advice. Learning the basic Semgrep rule structure can help you customize remediation for developers in the future, or write and deploy guardrails of your own.
+Much of the remediation guidance originates from the rule itself, which is also used to generate Semgrep Assistant's advice (if Assistant is enabled). Learning the basic Semgrep rule structure can help you:
+
+- Customize remediation through your organization-specific rules.
+  - Writing your own rules provides you with a means to tailor Semgrep to your organization with or without Assistant.
+- Write and deploy guardrails of your own.
 
 The following example illustrates a basic Semgrep rule.
 
