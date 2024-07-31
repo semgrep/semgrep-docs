@@ -40,7 +40,7 @@ The dashboard is divided into several panes:
 <table>
 <thead>
 <tr>
-<td>Pane</td>
+<td><b>Pane</b></td>
 <td><b>Description</b></td>
 </tr>
 </thead>
