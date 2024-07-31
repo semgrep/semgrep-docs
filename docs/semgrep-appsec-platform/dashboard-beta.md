@@ -10,7 +10,7 @@ tags:
 
 # Dashboard (beta)
 
-The Semgrep dashboard (beta) is an overview of your organization’s security posture from data aggregated within Semgrep AppSec Platform. It helps you:
+The Semgrep dashboard (beta) is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
   - The dashboard beta includes assessing the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
