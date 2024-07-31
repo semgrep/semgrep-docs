@@ -4,6 +4,7 @@ tags:
   - Rules
   - Semgrep Registry
   - Semgrep Code
+  - Semgrep Secrets
 append_help_link: true
 ---
 
