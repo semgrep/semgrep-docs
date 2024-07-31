@@ -13,7 +13,7 @@ tags:
 The Semgrep dashboard (beta) is an overview of your organization’s security posture from data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
-  - The dashboard beta includes assessing the deployment and adoption of **secure guardrails** to your organization.
+  - The dashboard beta includes assessing the deployment and adoption of **[secure guardrails](/secure-guadrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts in the page as well as view priority findings.
 
@@ -31,7 +31,7 @@ Beta-exclusive features include:
 
 
 ![Dashboard (beta) page](/img/dashboard-fold.png)
-_**Figure**. The dashboard (beta) page._
+_**Figure**. The dashboard (beta) page. Hover over the charts to view data for that point in time._
 
 ## Dashboard overview
 
@@ -65,7 +65,7 @@ Displays data about all the findings detected in your primary or default branch 
 </td>
 </tr>
 <tr>
-<td>Secure guardrails</td>
+<td>[Secure guardrails](/secure-guadrails/secure-guardrails-in-semgrep)</td>
 <td>
 Displays data relevant to the deployment and adoption of secure guardrails. It helps address the following:
 - How many vulnerabilities did Semgrep prevent from entering production, over time?
@@ -174,7 +174,7 @@ A low or 0 value for **Total net new** is ideal as it indicates that findings ar
 This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
 
 ![Secure guardrails pane](/img/dashboard-guardrails.png)
-_**Figure**. Secure guardrails pane._
+_**Figure**. Secure guardrails pane. Hover over the charts to view data for that point in time._
 
 ### Key metrics
 
@@ -206,10 +206,10 @@ _**Figure**. Findings by project; group them by product or severity._
 
 ## Median open age
 
-![Median open age of a finding.]/img/dashboard-mean-time-remediate.png)
+![Median open age of a finding.](/img/dashboard-mean-time-remediate.png)
 _**Figure**. Median open age of a finding._
 
-A chart displaying the mean time to remediate a finding over the specified time period. Lower is better.
+A chart displaying the median open age of a finding in **days** over the specified time period. Lower is better.
 
 For a finding to be remediated, it must have any of the following statuses:
 
