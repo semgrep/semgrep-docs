@@ -18,7 +18,7 @@ The Semgrep dashboard (beta) is an overview of your organization’s security po
 - Quickly filter data granularly for all the charts on the page and view priority findings.
 
 :::note
-This feature is in a **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the dashboard beta.
+This feature is in **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the dashboard beta.
 
 Beta-exclusive features include:
 
