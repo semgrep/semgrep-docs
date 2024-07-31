@@ -142,6 +142,16 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Secure guardrails',
+          collapsible: true,
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
+          items: [
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Notifications',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/notifications'},
