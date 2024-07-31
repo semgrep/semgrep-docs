@@ -176,7 +176,8 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
           items: [
-            'semgrep-appsec-platform/dashboard'
+            'semgrep-appsec-platform/dashboard',
+            'semgrep-appsec-platform/dashboard-beta'
           ]
         },
         {
