@@ -13,7 +13,7 @@ When using a [`nonroot` variant](https://hub.docker.com/r/semgrep/semgrep/tags?p
 
 This [sample GitHub Actions configuration file](/docs/semgrep-ci/sample-ci-configs#sample-github-actions-configuration-file) uses the default Semgrep docker image, which has root permissions, making it very simple to declare it as a container image running on top of something like Ubuntu, using the GitHub Actions workflow YAML syntax.
 
-With the `nonroot` image, the same YAML syntax cannot be used to declare the image, as it will then run into permissions issues when trying to check out the repository during scan time. Instead, the image must be declared using a `docker run` command, along with the proper user and group permissions applied beforehand.
+With the `nonroot` image, the same YAML syntax cannot be used to declare the image, as it then runs into permissions issues when trying to check out the repository during scan time. Instead, the image must be declared using a `docker run` command, along with the proper user and group permissions applied beforehand.
 
 Furthermore, various pieces of git metadata stored as environment variables or in the `GITHUB_EVENT_PATH` JSON file must be copied over from the runner environemnt to the `nonroot` image environment, as Semgrep uses this information to properly configure the scan.
 
