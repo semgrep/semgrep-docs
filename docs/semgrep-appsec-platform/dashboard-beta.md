@@ -25,7 +25,7 @@ Beta-exclusive features include:
 - Improved filtering, including a [recommended priority](#recommended-priority) set of filters to bring to your attention the most important findings quickly.
 - Graphs and charts that track:
     - Developer engagement through secure guardrails.
-    - Changes in the number of open findings in production backlog, which lets you know if your team is addressing findings or if they are decreasing over time.
+    - Changes in the number of open findings in the production backlog, which lets you know if your team is addressing findings or if the number of new findings is decreasing over time.
     - The average time it takes to close a finding.
 :::
 
