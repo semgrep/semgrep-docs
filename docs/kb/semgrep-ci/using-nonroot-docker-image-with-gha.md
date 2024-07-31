@@ -32,15 +32,15 @@ on:
   workflow_dispatch: {}
   # Scan mainline branches if there are changes to .github/workflows/semgrep.yml:
   push:
-      branches:
-          - main
-          - master
-      paths:
-          - .github/workflows/semgrep.yml
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/semgrep.yml
   # Schedule the CI job (this method uses cron syntax):
   schedule:
-      - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
-      # It is recommended to change the schedule to a random time.
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
 
 jobs:
   semgrep:
