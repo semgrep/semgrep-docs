@@ -15,7 +15,7 @@ The Semgrep dashboard (beta) is an overview of your organization’s security po
 - Evaluate your AppSec program, enabling you to know your current security risk.
   - The dashboard beta includes assessing the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
-- Quickly filter data granularly for all the charts in the page as well as view priority findings.
+- Quickly filter data granularly for all the charts on the page and view priority findings.
 
 :::note
 This feature is in a **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the dashboard beta.
