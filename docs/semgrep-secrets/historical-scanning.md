@@ -66,7 +66,7 @@ You can run a historical scan locally without sending the scan results to Semgre
 To run a test scan, enter the following command:
 
 ```bash
-semgrep scan --config secrets --historical-secrets
+semgrep ci --secrets --historical-secrets --dry-run
 ```
 
 The historical scan results appear in the **Secrets Historical Scan** section:
