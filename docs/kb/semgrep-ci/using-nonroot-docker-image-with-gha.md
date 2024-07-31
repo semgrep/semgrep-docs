@@ -7,7 +7,7 @@ description: How to properly configure your GitHub Actions workflow to use the `
 append_help_link: true
 ---
 
-# Configuring GitHub Actions to use the `nonroot` Semgrep docker image
+# Configure GitHub Actions to use the `nonroot` Semgrep docker image
 
 When using a [`nonroot` variant](https://hub.docker.com/r/semgrep/semgrep/tags?page=&page_size=&ordering=&name=nonroot) of the Semgrep docker image with GitHub Actions, there is some extra workflow configuration required to ensure that scans run as intended despite the limited permissions of the `nonroot` image.
 
