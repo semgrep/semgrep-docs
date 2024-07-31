@@ -19,7 +19,7 @@ Furthermore, various pieces of Git metadata stored as environment variables or i
 
 ## Sample GitHub Actions workflow file using the `nonroot` Semgrep docker image
 
-The example workflow file below contains the extra steps required to successfully use the `nonroot` image, along with commented explanations before each step.
+The following example workflow file contains the extra steps required to successfully use the `nonroot` image, along with commented explanations before each step.
 
 ```yaml
 # Name of this GitHub Actions workflow.
