@@ -71,6 +71,7 @@ The following table displays various notification channels and reporting feature
 
 | Feature                                                                                                         | Semgrep OSS | Semgrep Pro |
 | --------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
+| Send scan results to GitLab SAST and GitHub Advanced Security | ✔️ | ✔️ |
 | [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](/semgrep-code/policies) | --          | ✔️                |
 | [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-appsec-platform/notifications)           | --          | ✔️                |
 | [Findings dashboard](/semgrep-appsec-platform/dashboard)                                                        | --          | ✔️                |
