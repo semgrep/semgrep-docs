@@ -462,7 +462,7 @@ subcategory:
 
 A secure default rule makes use of inherently secure libraries, frameworks, configurations, or settings. These rules enforce the mitigation of common security concerns, such as preventing cross-site request forgery (CSRF) by properly verifying inbound requests in Django or Flask applications.
 
-A secure defalt rule contains remediation suggests applying a one-time setting that ensures security throughout the codebase without the need for repeated application by developers. For example, configuring a global security setting in a web application framework that applies to all routes and inputs.
+A secure default rule must contain remediation that suggests applying a one-time setting that ensures security throughout the codebase without the need for repeated application by developers. For example, configuring a global security setting in a web application framework that applies to all routes and inputs.
 
 ```yaml
 subcategory:
