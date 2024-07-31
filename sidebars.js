@@ -114,7 +114,7 @@ module.exports = {
                         'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
                         'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
                       ]
-                    }                    
+                    }
                   ]
                 },
                 'deployment/beyond-core-deployment'
@@ -138,6 +138,16 @@ module.exports = {
           link: {type: 'doc', id: 'semgrep-assistant/overview'},
           items: [
             'semgrep-assistant/getting-started'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Secure guardrails',
+          collapsible: true,
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
+          items: [
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
           ]
         },
         {
