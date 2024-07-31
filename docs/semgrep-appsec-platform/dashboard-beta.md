@@ -68,7 +68,7 @@ Displays data about all the findings detected in your primary or default branch 
 <td>[Secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)</td>
 <td>
 Displays data relevant to the deployment and adoption of secure guardrails. It helps address the following:
-- How many vulnerabilities did Semgrep prevent from entering production, over time?
+- How many vulnerabilities did Semgrep prevent from entering production over time?
 - Am I effectively introducing guardrails to my developers?
 - Of the issues shown to developers, are they being fixed, or are they being ignored?
 </td>
