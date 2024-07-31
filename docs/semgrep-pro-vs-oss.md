@@ -73,7 +73,6 @@ The following table displays various notification channels and reporting feature
 | --------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | [Centralized management of scan results (triage, remediation, fine-tuning noisy rules)](/semgrep-code/policies) | --          | ✔️                |
 | [Notifications and reports (Slack, email, webhooks, and API)](/semgrep-appsec-platform/notifications)           | --          | ✔️                |
-| Send scan results to GitLab SAST and GitHub Advanced Security                                                   | --          | ✔️                |
 | [Findings dashboard](/semgrep-appsec-platform/dashboard)                                                        | --          | ✔️                |
 | Findings retention                                                                                              | --          | [As long as account is active](/semgrep-code/findings/#data-retention)           |
 
