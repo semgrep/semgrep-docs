@@ -461,6 +461,9 @@ subcategory:
 ##### secure default
 
 A secure default rule makes use of inherently secure libraries, frameworks, configurations, or settings. These rules enforce the mitigation of common security concerns, such as preventing cross-site request forgery (CSRF) by properly verifying inbound requests in Django or Flask applications.
+
+A secure defalt rule contains remediation suggests applying a one-time setting that ensures security throughout the codebase without the need for repeated application by developers. For example, configuring a global security setting in a web application framework that applies to all routes and inputs.
+
 ```yaml
 subcategory:
   - secure default
@@ -504,7 +507,6 @@ To update an existing open source rule, follow these steps:
 See a [PR example](https://github.com/semgrep/semgrep-rules/pull/2730).
 
 There can be specific messages in the repository’s pipeline informing you about specific details of your rule. Ensure that your rule fulfills all of the necessities and requirements. However, sometimes the pipeline running in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository can have specific issues. In such a case, wait for a Semgrep reviewer's help.
-
 
 
 [OWASP-DOM-based-XSS-prevention]: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html

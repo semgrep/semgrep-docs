@@ -2,6 +2,7 @@
 slug: secure-guardrails-in-semgrep
 title: Secure guardrails
 hide_title: true
+displayed_sidebar: scanSidebar
 description: Learn about secure guardrails and how to deploy them in Semgrep.
 tags:
   - Secure guardrails

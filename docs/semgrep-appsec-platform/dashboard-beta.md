@@ -13,7 +13,7 @@ tags:
 The Semgrep dashboard (beta) is an overview of your organization’s security posture from data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
-  - The dashboard beta includes assessing the deployment and adoption of **[secure guardrails](/secure-guadrails/secure-guardrails-in-semgrep)** to your organization.
+  - The dashboard beta includes assessing the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts in the page as well as view priority findings.
 
@@ -65,7 +65,7 @@ Displays data about all the findings detected in your primary or default branch 
 </td>
 </tr>
 <tr>
-<td>[Secure guardrails](/secure-guadrails/secure-guardrails-in-semgrep)</td>
+<td>[Secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)</td>
 <td>
 Displays data relevant to the deployment and adoption of secure guardrails. It helps address the following:
 - How many vulnerabilities did Semgrep prevent from entering production, over time?
@@ -206,7 +206,7 @@ _**Figure**. Findings by project; group them by product or severity._
 
 ## Median open age
 
-![Median open age of a finding.](/img/dashboard-mean-time-remediate.png)
+![Median open age of a finding.](/img/dashboard-mean-time-remediate.png#sm-width-noborder)
 _**Figure**. Median open age of a finding._
 
 A chart displaying the median open age of a finding in **days** over the specified time period. Lower is better.
