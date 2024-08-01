@@ -134,7 +134,7 @@ inbound:
   allowlist:
     # allow GET requests from https://git.example.com/*
     - url: https://git.example.com/*
-      methods: [GET]
+      methods: [GET, POST]
 ```
 
 ## Run multiple instances of the Semgrep Network Broker
