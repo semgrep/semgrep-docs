@@ -71,9 +71,11 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
 ![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
 1. Click **Enable**.
+1. If you use the **Semgrep Network Broker**, must edit you Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
+
 <!-- vale on -->
 
-You have finished setting up a Semgrep Managed Scan.
+You have finished setting up a Semgrep managed scan.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
