@@ -129,13 +129,13 @@ To add a memory:
 
 1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
 2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
-   ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-1.png#md-width)
+   ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-3.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
 3. Click **Save and regenerate**.
    ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
    ***Figure***. User-provided custom instruction that Assistant uses to improve future guidance.
 4. Assistant regenerates the suggested fix to reflect the instructions you provided.
-   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-3.png#md-width)
+   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-1.png#md-width)
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.

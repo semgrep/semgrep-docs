@@ -125,6 +125,18 @@ You can check the logs for Semgrep Network Broker by running:
 
 <pre class="language-console"><code>sudo docker logs <span className="placeholder">CONTAINER_ID</span></code></pre>
 
+## Use Semgrep Network Broker with Managed Scans
+
+Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+
+```yaml
+inbound:
+  allowlist:
+    # allow GET requests from https://git.example.com/*
+    - url: https://git.example.com/*
+      methods: [GET, POST]
+```
+
 ## Run multiple instances of the Semgrep Network Broker
 
 If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments.
