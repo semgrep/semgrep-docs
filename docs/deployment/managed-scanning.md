@@ -21,8 +21,6 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 
 - Managed Scans is in **public beta** for all existing Semgrep AppSec Platform users.
 - It supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
-    - This guide provides self-service enablement steps for **hosted GitHub plans**.
-    - To enable Managed Scans on GitHub Enterprise Server, contact your technical account manager (TAM).
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 - Managed Scans is available for all Semgrep products you have purchased, including:
     - Semgrep Code
@@ -73,9 +71,11 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
 ![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
 1. Click **Enable**.
+1. If you use the **Semgrep Network Broker**, must edit you Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
+
 <!-- vale on -->
 
-You have finished setting up a Semgrep Managed Scan.
+You have finished setting up a Semgrep managed scan.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
