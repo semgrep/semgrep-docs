@@ -4,7 +4,7 @@ title: Primary branch
 hide_title: true
 description: Set your primary or default branch to ensure Semgrep full scans display accurate counts and deduplicated findings.
 tags:
-  - Semgrep AppSec Platform
+  - Core deployment
 ---
 
 # Set a primary branch
@@ -18,14 +18,19 @@ In many cases, Semgrep automatically detects primary branches. If you have proje
 - Primary branches are set on a per-project basis. They cannot be set in bulk.
 :::
 
-## Discover which projects do not have a primary branch
+A primary branch enables Semgrep to filter your findings by branch and to accurately deduplicate findings.
 
+## Find projects without a primary branch
+
+'Projects without primary branches have an orange information icon <span style={{color: 'orange'}}> <i class="fa-solid fa-circle-exclamation"></i></span> next to their name in the **Projects** page.
 
 ## Set a project's primary branch
 
-1. Sign in to Semgrep AppSec Platform.
-1. Click **Projects**.
+1. In the Semgrep web app, click **Projects**.
 1. Search for your project's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that project.
 1. In the **Primary branch** section, click the drop-down box and select a branch.
 1. Click **Save**.
+
+![Primary branch selection](/img/primary-branch.png#md-width-bordered)
+_**Figure**. Projects > Project <i class="fa-solid fa-gear"></i> settings page > Primary branch selection._
