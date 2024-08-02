@@ -9,8 +9,6 @@ tags:
   - Semgrep AppSec Platform
 ---
 
-import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
-
 # Connect a source code manager
 
 :::note Your deployment journey
@@ -25,6 +23,7 @@ Linking a source code manager provides the following benefits:
     - Provides Semgrep access to post PR or MR comments.
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
 - Allows you to scan and manage your Azure DevOps and Bitbucket projects in Semgrep AppSec Platform.
+- Allows the Semgrep platform to generate hyperlinks to code in findings.
 
 If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Azure DevOps and Bitbucket, though you will need to use a separate SSO provider to manage the authentication of your users in such cases.
 
@@ -95,9 +94,15 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 ### GitLab Cloud
 
-For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after adding a Semgrep job to GitLab CI/CD. No other steps are needed.
-
-<PlatformAddRepo />
+1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
+2. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+3. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Cloud** and enter the personal access token generated into the **Access token** field.
+4. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+5. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 3-4 for each GitLab group.
+6. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
+    1. Create or edit your `.gitlab-ci.yml` configuration file to add Semgrep as part of your GitLab CI/CD pipeline. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#gitlab-cicd) for a template you can copy and customize.
+    2. Commit the updated `.gitlab-ci.yml` file.
+    3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ## Connect to on-premise orgs and projects
 
@@ -182,10 +187,12 @@ This section is applicable to users with subscriptions to any **GitLab self-mana
 Connect Semgrep and GitLab Self-Managed accounts by creating a PAT and providing it to Semgrep using Semgrep AppSec Platform:
 
 1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 3. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Self-Managed** and enter the personal access token generated into the **Access token** field.
-3. Enter your GLSM base URL into the **URL** field.
-4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
+4. Enter your GLSM base URL into the **URL** field.
+5. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+6. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 3-4 for each GitLab group.
+7. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
     1. Create or edit your `.gitlab-ci.yml` configuration file to add Semgrep as part of your GitLab CI/CD pipeline. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#gitlab-cicd) for a template you can copy and customize.
     2. Commit the updated `.gitlab-ci.yml` file.
     3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
