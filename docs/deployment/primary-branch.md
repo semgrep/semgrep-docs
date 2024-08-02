@@ -18,11 +18,11 @@ In many cases, Semgrep automatically detects primary branches. If you have proje
 - Primary branches are set on a per-project basis. They cannot be set in bulk.
 :::
 
-A primary branch enables Semgrep to filter your findings by branch and to accurately deduplicate findings.
+A primary branch enables Semgrep to filter your findings by branch and to accurately deduplicate findings. The primary branch is also used to analyze the deployment of [secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep) to your developers; findings fixed before they are merged into the primary branch reduces the overall production backlog.
 
 ## Find projects without a primary branch
 
-'Projects without primary branches have an orange information icon <span style={{color: 'orange'}}> <i class="fa-solid fa-circle-exclamation"></i></span> next to their name in the **Projects** page.
+Projects without primary branches have an orange information icon <span style={{color: 'orange'}}> <i class="fa-solid fa-circle-exclamation"></i></span> next to their name in the **Projects** page.
 
 ## Set a project's primary branch
 
@@ -32,5 +32,5 @@ A primary branch enables Semgrep to filter your findings by branch and to accura
 1. In the **Primary branch** section, click the drop-down box and select a branch.
 1. Click **Save**.
 
-![Primary branch selection](/img/primary-branch.png#md-width-bordered)
+![Primary branch selection](/img/primary-branch.png#sm-width-bordered)
 _**Figure**. Projects > Project <i class="fa-solid fa-gear"></i> settings page > Primary branch selection._
