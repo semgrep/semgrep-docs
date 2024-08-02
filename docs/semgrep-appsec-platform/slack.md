@@ -28,7 +28,7 @@ You can select the channels in your Slack workspace that receive findings. You c
 
 :::info Prerequisites
 * You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
-* **Single-tenant Semgrep AppSec Platform**: Reach out to your Technical Account Manaegr (TAM) to ensure your instance is has been configured for the Semgrep Slack app.
+* **Single-tenant Semgrep AppSec Platform**: Reach out to your Technical Account Manager (TAM) to ensure your instance has been configured for the Semgrep Slack app.
 :::
 
 To install the Semgrep Slack app, follow these steps:
