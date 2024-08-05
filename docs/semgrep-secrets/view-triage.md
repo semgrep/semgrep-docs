@@ -18,6 +18,10 @@ After each scan, your findings are displayed in Semgrep AppSec Platform's
 Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
 :::
 
+## Default Secrets page view and branch logic
+
+In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets the **latest instance**, that is, the finding from the most recent branch scanned, is displayed by default because if a Secrets finding is present in **any branch**, even a non-primary branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
+
 ## Triage findings
 
 You can triage secrets-related findings in Semgrep AppSec Platform on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
