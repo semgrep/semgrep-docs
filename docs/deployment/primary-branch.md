@@ -1,6 +1,6 @@
 ---
 slug: primary-branch
-title: Primary branch
+title: Set a primary branch
 hide_title: true
 description: Set your primary or default branch to ensure Semgrep full scans display accurate counts and deduplicated findings.
 tags:
@@ -15,7 +15,7 @@ In many cases, Semgrep automatically detects primary branches. If you have proje
 
 :::note
 - This feature is in **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the primary branch beta.
-- Primary branches are set on a per-project basis. They cannot be set in bulk.
+- Primary branches are set on a **per-project** basis. They cannot be set in bulk.
 :::
 
 A primary branch enables Semgrep to filter your findings by branch and to accurately deduplicate findings. The primary branch is also used to analyze the deployment of [secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep) to your developers; findings fixed before they are merged into the primary branch reduces the overall production backlog.

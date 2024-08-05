@@ -52,6 +52,20 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 
 ![Group by Rule option](/img/cloud-platform-findings-no-grouping.png#md-width)
 
+### Default Findings page view
+
+:::tip
+If you do not see any findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a primary branch, if it is not already set.
+:::
+
+The Semgrep Findings page displays findings from all projects (repositories) with a [primary branch](/core-deployment/primary-branch), arranged by most recent scan.
+
+A **single** finding may appear in several branches. These appearances are called instances of a finding. Semgrep automatically **deduplicates** these instances, so that you do not get an inflated count of findings per ref that the finding is present in.
+
+When filtering by primary branch and triage status, the filters are applied based on the **triage status of the finding on the primary branch**. This means that on some feature branches, the instance may already be **Fixed**, but on the primary branch, the finding is still **Open**. The finding status on the primary branch is updated when the PR or MR is merged and Semgrep has scanned the code.
+
+<!-- The above behavior is true for SAST and SCA -->
+
 ### Filter findings
 
 Use filters to narrow down your results. The following criteria are available for filtering:
@@ -146,6 +160,7 @@ To **add notes** to the activity history of a finding:
 ### View dataflow traces
 
 <DisplayTaintedDataProcedure />
+
 
 ## Data retention
 
