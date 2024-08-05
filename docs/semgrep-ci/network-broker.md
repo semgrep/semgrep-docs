@@ -125,6 +125,34 @@ You can check the logs for Semgrep Network Broker by running:
 
 <pre class="language-console"><code>sudo docker logs <span className="placeholder">CONTAINER_ID</span></code></pre>
 
+### Adjusting log verbosity
+
+The Semgrep Network broker can log details of the proxied requests and responses for troubleshooting. Normally, these should only be collected when working to identify an issue. If requests and responses are large, they can occupy significant memory in the tunnel.
+
+In your broker configuration, that looks like:
+
+```yaml
+inbound:
+  logging:
+    logRequestBody: true
+    logResponseBody: true
+```
+
+In the logs, this leads to entries for `proxy.request` and `proxy.response`.
+
+These values can also be set on a per-allowlist basis:
+
+```
+inbound:
+  allowlist:
+    - url: https://httpbin.org/*
+      methods: [GET, POST]
+      logRequestBody: true
+      logResponseBody: true
+```
+
+This provides additional flexibility when troubleshooting. See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file#logging) for more details.
+
 ## Use Semgrep Network Broker with Managed Scans
 
 Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
