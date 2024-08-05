@@ -140,7 +140,6 @@ To view in-depth information about a specific finding:
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png#md-width)
     - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
-
 #### Add notes to findings
 
 To **add notes** to the activity history of a finding:
@@ -152,6 +151,12 @@ To **add notes** to the activity history of a finding:
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
 2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
     ![Semgrep AppSec Platform finding details page](/img/cloud-platform-finding-details.png#md-width)
+### View branches that contain the finding
+
+To view all the branches that contain the finding, click the finding's **details page**. You can see all the branches on the **On <span className="placeholder">N</span> branches** pane.
+
+![Details page > On N branches](/img/details-on-n-branches.png#sm-width-noborder)
+_**Figure**. **Details page > On <span className="placeholder">N</span> branches** pane._
 
 ## Dataflow traces
 
