@@ -55,10 +55,10 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 ### Default Findings page view
 
 :::tip
-If you do not see any findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a primary branch, if it is not already set.
+If you do not see any findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
 :::
 
-The Semgrep Findings page displays findings from all projects (repositories) with a [primary branch](/core-deployment/primary-branch), arranged by most recent scan.
+The Semgrep Findings page displays findings from all projects (repositories) with a [primary branch](/deployment/primary-branch), arranged by most recent scan.
 
 A **single** finding may appear in several branches. These appearances are called instances of a finding. Semgrep automatically **deduplicates** these instances, so that you do not get an inflated count of findings per ref that the finding is present in.
 
