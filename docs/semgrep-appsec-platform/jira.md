@@ -88,6 +88,7 @@ Optionally, you can customize the Jira field mappings and indicate which Semgrep
 * Drop-down menus
 * Checkboxes
 * Labels
+* Components (including Compass components)
 
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
 _**Figure.** The Jira configuration screen for field data mappings._
