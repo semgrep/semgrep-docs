@@ -81,7 +81,7 @@ Issue types may have the same name, but a different Issue type ID. If you can't 
 
 ### Create mappings
 
-Optionally, you can customize the Jira field mappings and indicate which Semgrep fields they should be populated with. Currently, Semgrep supports the mapping of the following field types:
+Optionally, you can customize the Jira field mappings and indicate which values they should be populated with. Semgrep can map from Jira fields to either Semgrep fields or static Jira fields. Currently, Semgrep supports the mapping of the following field types:
 
 * Short texts
 * Paragraphs
@@ -128,6 +128,14 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 
 After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets.
 
+### Component Mappings
+
+If you've created a custom field mapping for a component field type, be aware that if you choose to create tickets in a project other than your default project as configured in your integration settings, you'll need to ensure that project has access to the component you selected for your mapping.
+
+If your default project uses [**Jira Components**](https://support.atlassian.com/jira-software-cloud/docs/what-are-jira-components/) and you create a component field mapping in your integration settings, **you'll be unable to create tickets in another project** because Jira components are always project-scoped.
+
+If your default project uses [**Compass Components**](https://support.atlassian.com/jira-software-cloud/docs/what-are-compass-components/) and you create a component field mapping in your integration settings, you can create tickets in another project **only if your selected component is available in that project**. You can configure which components are available in each project in your Compass settings.
+
 ### Code
 
 You can create tickets for Code findings using the **Triage** button on the:
@@ -143,7 +151,7 @@ To create tickets:
 1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
 1. Select the **Create tickets...** checkbox.
     1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
-    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to. You can choose any project that is associated with the issue type configured in your integration settings.
 1. Optional: You can add **Comments** in the text box.
 1. Click **Submit** to proceed.
 <!-- vale on -->
