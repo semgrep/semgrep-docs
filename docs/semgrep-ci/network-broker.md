@@ -78,7 +78,6 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
    1. Log in to Semgrep AppSec Platform.
    2. Navigate to **Settings** > **Broker**.
    3. Paste your public key and click **Add Public Key**.
-
    ![Screenshot of Semgrep AppSec Platform's Network Broker page](/img/scp-broker.png#md-width)
 
 ### Update the config with your SCM information
