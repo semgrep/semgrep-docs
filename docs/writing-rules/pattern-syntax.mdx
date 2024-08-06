@@ -364,6 +364,25 @@ You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
 those constructs, e.g., Ruby).
 
+:::caution
+Because literal metavariables bind to strings that may not be valid code, if you want to match them in more detail with a [`metavariable-pattern`](/writing-rules/rule-syntax/#metavariable-pattern), you'll need to [specify `generic` language](/writing-rules/rule-syntax#metavariable-pattern-with-nested-language) inside the `metavariable-pattern`. For example:
+
+```
+rules:
+  - id: match-literal-string
+    languages:
+      - python
+    severity: INFO
+    message: Found "$STRING"
+    patterns:
+      - pattern: '"$STRING"'
+      - metavariable-pattern:
+          language: generic
+          metavariable: $STRING
+          pattern: "literal string contents"
+```
+:::
+
 ### Typed metavariables
 
 #### Syntax
