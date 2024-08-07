@@ -129,7 +129,7 @@ You can check the logs for Semgrep Network Broker by running:
 
 The Semgrep Network broker can log details of the proxied requests and responses for troubleshooting. Normally, these should only be collected when working to identify an issue. If requests and responses are large, they can occupy significant memory in the tunnel.
 
-In your broker configuration, that looks like:
+To log additional details, add this snippet to your broker configuration:
 
 ```yaml
 inbound:
