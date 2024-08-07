@@ -45,10 +45,6 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
 3. The Azure DevOps organization is now listed under **Source Code managers**. Click **Test connection** to verify that the new integration is installed correctly.
-4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-    1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
-    2. Commit the updated configuration file.
-    3. Run the CI job to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### Bitbucket Cloud
 
@@ -62,10 +58,6 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
 1. Click **Connect** to save and proceed.
 1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
-1. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-    1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
-    2. Commit the updated configuration file.
-    3. Run the CI job to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### GitHub Cloud
 
@@ -117,10 +109,6 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
    - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
 2. Click **Connect** to save and proceed.
 3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
-4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-    1. Create or edit your configuration file to add Semgrep as part of your pipeline. Refer to [Sample CI configurations](/semgrep-ci/sample-ci-configs) for templates you can copy and customize.
-    2. Commit the updated configuration file.
-    3. Run the CI job to establish a connection with Semgrep AppSec Platform. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
 
 ### GitHub Enterprise Server
 
