@@ -21,7 +21,7 @@ tags:
   - Azure DevOps
   - Bitbucket Cloud
   - Bitbucket Data Center
-  - With these changes, it is easier for you to add repositories from these SCMs to Semgrep.
+  With these changes, it is easier for you to add repositories from these SCMs to Semgrep.
 - Semgrep Managed Scans:
   - You can now view your most recent scan log.
   - You can enable or disable diff-aware scans for PRs and MRs.
@@ -35,7 +35,7 @@ tags:
 - Updated the **findings details** page. <!-- 15573 -->
 - Updated GHA sample workflows to use `setup-node@v4`.  <!-- 15707 -->
 - Various performance improvements to Semgrep Managed Scans.
-- Projects on Semgrep Managed Scans now use the `managed-scan` tag instead of `autoscan` <!-- 15450 -->
+- Projects on Semgrep Managed Scans now use the `managed-scan` tag instead of `autoscan`. <!-- 15450 -->
 - Improvements to API documentation.
 
 ### Fixed
@@ -169,7 +169,6 @@ with top-level functions with no arguments when both share a name:
 - Added the following new documents, articles and sections:
   - [Secure guardrails in Semgrep](/secure-guardrails/secure-guardrails-in-semgrep) - an overview of secure guardrails and how to use Semgrep features to implement guardrails.
     - [Secure defaults](/secure-guardrails/secure-defaults) - a definition of secure defaults and reference towards creating your own.
-    -
   - Added sections about connecting the following SCMs to Semgrep:
     - [Azure DevOps Cloud](/deployment/connect-scm#azure-devops-cloud)
     - [Bitbucket Cloud](/deployment/connect-scm#bitbucket-cloud) <!-- vale off -->
