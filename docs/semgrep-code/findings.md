@@ -12,6 +12,7 @@ tags:
 
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
+import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
 
 # View findings in Semgrep AppSec Platform
 
@@ -54,17 +55,7 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 
 ### Default Code page view
 
-:::tip
-If you do not see any findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
-:::
-
-The Semgrep Code page displays findings from all projects (repositories) with a [primary branch](/deployment/primary-branch), arranged by most recent scan.
-
-A **single** finding may appear in several branches. These appearances are called instances of a finding. Semgrep automatically **deduplicates** these instances, so that you do not get an inflated count of findings per ref that the finding is present in.
-
-When filtering by primary branch and triage status, the filters are applied based on the **triage status of the finding on the primary branch**. This means that on some feature branches, the instance may already be **Fixed**, but on the primary branch, the finding is still **Open**. The finding status on the primary branch is updated when the PR or MR is merged and Semgrep has scanned the code.
-
-<!-- The above behavior is true for SAST and SCA -->
+<FindingsDefaultView product_name="Code" /> 
 
 ### Filter findings
 
