@@ -3,7 +3,7 @@ NAME
        semgrep ci - the recommended way to run semgrep in CI
 
 SYNOPSIS
-       semgrep ci [OPTION]… [TARGETS]…
+       semgrep ci [OPTION]…
 
 DESCRIPTION
        In pull_request/merge_request (PR/MR) contexts, `semgrep ci` will only
@@ -14,17 +14,7 @@ DESCRIPTION
 
        Only displays findings that were marked as blocking.
 
-ARGUMENTS
-       TARGETS
-           Files or folders to be scanned by semgrep.
-
 OPTIONS
-       -- semgrep-repo-display-name=VAL (absent SEMGREP_REPO_DISPLAY_NAME
-       env)
-           The name the repository should be displayed as for this scan.
-           Setting it allows users to scan individual repos in one monorepo
-           separately.
-
        -a, --autofix
            Apply autofix patches. WARNING: data loss can occur with this
            flag. Make sure your files are stored in a version control system.
@@ -80,18 +70,6 @@ OPTIONS
            you commit to them. Only works with the --autofix flag. Otherwise
            does nothing. 
 
-       --dump-ast
-           If --dump-ast, shows AST of the input file or passed expression
-           and then exit (can use --json). 
-
-       --dump-engine-path
-           <internal, do not use>
-
-       -e VAL, --pattern=VAL
-           Code search pattern. See
-           https://semgrep.dev/docs/writing-rules/pattern-syntax for
-           information on pattern features. 
-
        --emacs
            Output results in Emacs single-line format.
 
@@ -106,9 +84,6 @@ OPTIONS
        --enable-version-check (absent SEMGREP_ENABLE_VERSION_CHECK env)
            Checks Semgrep servers to see if the latest version is run;
            disabling this may reduce exit time after returning results. 
-
-       --error
-           Exit 1 if there are findings. Useful for CI and scripts.
 
        --exclude=PATTERN
            Skip any file or directory whose path that matches PATTERN.
@@ -131,20 +106,12 @@ OPTIONS
        --experimental
            Enable experimental features.
 
-       -f VAL, -c VAL, --config=VAL (absent SEMGREP_RULES env)
-           YAML configuration file, directory of YAML files ending in
-           .yml|.yaml, URL of a configuration file, or Semgrep registry entry
-           name. Use --config auto to automatically obtain rules tailored to
-           this project; your project URL will be used to log in to the
-           Semgrep registry. To run multiple rule files simultaneously, use
-           --config before every YAML, URL, or Semgrep registry entry name.
-           For example `semgrep --config p/python --config
-           myrules/myrule.yaml` See
-           https://semgrep.dev/docs/writing-rules/rule-syntax for information
-           on configuration file format. 
+       -f VAL, -c VAL, --config=VAL
+           Not supported in 'ci' mode.
 
        --files-with-matches
-           Output only the names of files containing matches
+           Output only the names of files containing matches. REQUIRES
+           --experimental.
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
@@ -224,7 +191,7 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
-           Output results incrementally.
+           Output results incrementally. REQUIRES --experimental.
 
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
@@ -252,10 +219,6 @@ OPTIONS
            Write a copy of the JUnit XML output to a file or post to or post
            to URL.
 
-       -l VAL, --lang=VAL
-           Parse pattern and all files in specified language. Must be used
-           with -e/--pattern. 
-
        --legacy
            Prefer old (legacy) behavior.
 
@@ -277,10 +240,10 @@ OPTIONS
            set to 0, will not have memory limit. Defaults to 0. For CI scans
            that use the Pro Engine, defaults to 5000 MiB. 
 
-       --max-target-bytes=VAL (absent=-1)
+       --max-target-bytes=VAL (absent=1000000)
            Maximum size for a file to be scanned by Semgrep, e.g '1.5MB'. Any
            input program larger than this will be ignored. A zero or negative
-           value disables this filter. Defaults to -1 bytes
+           value disables this filter. Defaults to 1000000 bytes
 
        --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
@@ -295,9 +258,6 @@ OPTIONS
 
        --no-dryrun
            negates --dryrun
-
-       --no-error
-           negates --error
 
        --no-exclude-minified-files
            negates --exclude-minified-files
@@ -314,14 +274,8 @@ OPTIONS
        --no-secrets-validation
            Disables secret validation.
 
-       --no-strict
-           negates --strict
-
        --no-suppress-errors
            negates --suppress-errors
-
-       --no-test-ignore-todo
-           negates --test-ignore-todo
 
        --no-time
            negates --time
@@ -338,7 +292,8 @@ OPTIONS
            optimizations off. 
 
        --oss-only
-           Run using only OSS features, even if the Semgrep Pro toggle is on.
+           Run using only the OSS engine, even if the Semgrep Pro toggle is
+           on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
            Inter-file analysis and Pro languages (currently Apex and Elixir).
@@ -361,28 +316,8 @@ OPTIONS
        --profile
            <undocumented>
 
-       --project-root=VAL
-           The project root for gitignore and semgrepignore purposes is
-           detected automatically from the presence of a .git/ directory in
-           the current directory or one of its parents. If not found, the
-           current directory is used as the project root. This option forces
-           a specific directory to be the project root. This is useful for
-           testing or for restoring compatibility with older semgrep
-           implementations that only looked for a .semgrepignore file in the
-           current directory.
-
        -q, --quiet
            Only output findings.
-
-       --remote=VAL
-           Remote will quickly checkout and scan a remote git repository of
-           the format "http[s]://<WEBSITE>/.../<REPO>.git". Must be run with
-           --pro Incompatible with --project-root. Note this requires an
-           empty CWD as this command will clone the repository into the CWD
-
-       --replacement=VAL
-           An autofix expression that will be applied to any matches found
-           with --pattern. Only valid with a command-line specified pattern. 
 
        --rewrite-rule-ids
            Rewrite rule ids when they appear in nested sub-directories (Rule
@@ -423,27 +358,19 @@ OPTIONS
        --semgrep-pr-title=VAL (absent SEMGREP_PR_TITLE env)
            The PR/MR title.
 
+       --semgrep-repo-display-name=VAL (absent SEMGREP_REPO_DISPLAY_NAME env)
+           The name the repository should be displayed as for this scan.
+           Setting it allows users to scan individual repos in one monorepo
+           separately.
+
        --semgrep-repo-name=VAL (absent SEMGREP_REPO_NAME env)
            The name of the Git repository.
 
        --semgrep-repo-url=VAL (absent SEMGREP_REPO_URL env)
            The URL of the Git repository.
 
-       --severity=VAL
-           Report findings only from rules matching the supplied severity
-           level. By default all applicable rules are run. Can add multiple
-           times. Each should be one of INFO, WARNING, or ERROR. 
-
-       --show-supported-languages
-           Print a list of languages that are currently supported by Semgrep.
-
        --skip-unknown-extensions
            negates --scan-unknown-extensions
-
-       --strict
-           Return a nonzero exit code when WARN level errors are encountered.
-           Fails early if invalid configuration files are present. Defaults
-           to --no-strict. 
 
        --subdir=VAL (absent=/src)
            Scan only a subdirectory of this folder. This creates a project
@@ -460,13 +387,6 @@ OPTIONS
            true, encountered errors are suppressed and the exit code is zero
            (success). If false, encountered errors are not suppressed and the
            exit code is non-zero (failure).
-
-       --test
-           Run test suite.
-
-       --test-ignore-todo
-           If --test-ignore-todo, ignores rules marked as '#todoruleid:' in
-           test files. 
 
        --text
            Output results in text format.
@@ -492,11 +412,11 @@ OPTIONS
            is meant for internal use and may be changed or removed without
            warning. 
 
-       --trace-endpoint=VAL
+       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINTS env)
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning.
+           internal use and may be changed or removed wihtout warning. 
 
        --use-git-ignore
            Skip files ignored by git. Scanning starts from the root folder
@@ -507,20 +427,9 @@ OPTIONS
            filtering. Setting this flag does nothing if the scanning root is
            not in a git repository. 
 
-       --use-osemgrep-sarif
-           Output results using osemgrep.
-
        -v, --verbose
            Show more details about what rules are running, which files failed
            to parse, etc. 
-
-       --validate
-           Validate configuration file(s). This will check YAML files for
-           errors and run 'p/semgrep-rule-lints' on the YAML files. No search
-           is performed. 
-
-       --version
-           Show the version and exit.
 
        --vim
            Output results in vim single-line format.
@@ -528,13 +437,6 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to or post to
            URL.
-
-       --x-ls
-           [INTERNAL] List the selected target files and the skipped target
-           files before any rule-specific or language-specific filtering.
-           Then exit. The output format is unspecified. THIS OPTION IS NOT
-           PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. 
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
@@ -613,6 +515,9 @@ ENVIRONMENT
        SEMGREP_JOB_URL
            See option --semgrep-job-url.
 
+       SEMGREP_OTEL_ENDPOINTS
+           See option --trace-endpoint.
+
        SEMGREP_PR_ID
            See option --semgrep-pr-id.
 
@@ -620,16 +525,13 @@ ENVIRONMENT
            See option --semgrep-pr-title.
 
        SEMGREP_REPO_DISPLAY_NAME
-           See option -- semgrep-repo-display-name.
+           See option --semgrep-repo-display-name.
 
        SEMGREP_REPO_NAME
            See option --semgrep-repo-name.
 
        SEMGREP_REPO_URL
            See option --semgrep-repo-url.
-
-       SEMGREP_RULES
-           See option --config.
 
        SEMGREP_SEND_METRICS
            See option --metrics.
