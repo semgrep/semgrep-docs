@@ -11,7 +11,7 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 
 # Contributing rules
 
-Publish rules in the open-source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
+Publish rules in the open source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
     <dt>For users of Semgrep AppSec Platform</dt>
@@ -185,13 +185,13 @@ Include a test file in the language that your rule is targeting. A test file inc
 - At least one test where the rule detects a finding. This is called a true positive finding.
 - At least one test where the rule does **not** detect a finding. This is called a true negative finding.
 
-Test file names must match the rule file name, except for the file extension. For example, if the rule is in `my-rule.yaml`, the test file name must be `my-rule.js`. Use any valid extension for the target language.
+Test file names must match the rule filename, except for the file extension. For example, if the rule is in `my-rule.yaml`, the test filename must be `my-rule.js`. Use any valid extension for the target language.
 
 :::info Requirements of test files
 - In the test file, include examples that mark:
     - What is expected to be a finding.
     - What is not a finding.
-- The test file name must match the rule file name, except for the file extension.
+- The test filename must match the rule filename, except for the file extension.
 :::
 
 See the examples of the rule and test file below:
@@ -204,7 +204,7 @@ rules:
   …
 ```
 
-In the test file, mark an expected finding with a comment tag, and mention **ruleid** of your rule in the comment before the expected finding. Also, mark the code that is expected not to be a finding with a comment stating `ok` and add the **ruleid** also. See the example below:
+In the test file, mark an expected finding with a comment tag and the `ruleid` of your rule in the comment before the expected finding. Also, mark the code that is expected not to be a finding with a comment stating `ok` and add the `ruleid` also. See the example below:
 ```js
 // ruleid: my-rule
 var strdata = "hello";
@@ -224,7 +224,7 @@ Include a rule message that provides details about the matched pattern and infor
 
 Use the YAML multiline string operator `>-` when rule messages span multiple lines. This presents the best-looking rule message on the command line without having to worry about line wrapping or escaping the quote or using the backslash.
 
-For an example of a good rule message, see: [this rule for Django's mark_safe](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
+For an example of a good rule message, see: [this rule for Django's `mark_safe`](https://semgrep.dev/r?q=python.django.security.audit.avoid-mark-safe.avoid-mark-safe).
 
 :::note Rule message example
 `mark_safe()` is used to mark a string as safe for HTML output. This disables escaping and may expose the content to XSS attacks. Instead, use `django.utils.html.format_html()` to build HTML for rendering.
@@ -269,7 +269,7 @@ If your rule has a `category: security`, the following metadata are required:
   </tr>
   <tr>
    <td><code>subcategory</code></td>
-   <td><code>vuln</code>, <code>audit</code>, <code>guardrail</code></td>
+   <td><code>vuln</code>, <code>audit</code>, <code>secure default</code></td>
    <td>
     <pre>
     <code>subcategory:<br /></code>
@@ -283,7 +283,7 @@ If your rule has a `category: security`, the following metadata are required:
 These fields help you to find rules in different categories such as:
 - High confidence security rules for CI pipelines.
 - OWASP Top 10 or CWE Top 25 rulesets.
-- Technology. For example, `react` so it is easy to find Reac rulesets.
+- Technology. For example, `react` so it is easy to find React rulesets.
 - Audit rules with lower confidence are intended for code auditors.
 
 Examples of rules with a full list of required metadata:
@@ -434,7 +434,9 @@ impact: LOW
 
 Include a subcategory to explain what is the type of the rule. See the subsections below for more details.
 
+<!-- vale off -->
 ##### vuln
+<!-- vale on -->
 
 A vulnerability rule is something that developers certainly want to resolve. For example, an SQL Injection rule that uses taint mode. Example:
 
@@ -456,18 +458,17 @@ subcategory:
   - audit
 ```
 
-##### guardrail
+##### secure default
 
-A guardrail rule is useful for companies writing custom rules. For example, finding all usages to non-standard XML parsing libraries within the company. The rule can also bring a message that a developer can use only a company-approved library.
-
+A secure default rule makes use of inherently secure libraries, frameworks, configurations, or settings. These rules enforce the mitigation of common security concerns, such as preventing cross-site request forgery (CSRF) by properly verifying inbound requests in Django or Flask applications.
 ```yaml
 subcategory:
-  - guardrail
+  - secure default
 ```
 
 #### Technology
 
-Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in [Semgrep Registry](https://semgrep.dev/explore), for example `express` will be included in the `p/express` rulepack.
+Technology helps to define specific rulesets for languages, libraries, and frameworks that are available in [Semgrep Registry](https://semgrep.dev/explore), for example `express` will be included in the `p/express` ruleset.
 
 - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
 
@@ -491,9 +492,9 @@ References help provide more context to a developer on what the issue is, and ho
       - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
     ```
 
-## Updating existing open-source rules in Semgrep Registry
+## Updating existing open source rules in Semgrep Registry
 
-To update an existing open-source rule, follow these steps:
+To update an existing open source rule, follow these steps:
 
 1. Find a rule you want to update in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository.
 2. Submit a PR to the repository with your new update.

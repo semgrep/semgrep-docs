@@ -102,10 +102,20 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
+                    'semgrep-appsec-platform/azure-pr-comments',
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
-                    'semgrep-appsec-platform/bitbucket-pr-comments',
-                    ]
+                    {
+                      type: 'category',
+                      label: 'Bitbucket PR comments',
+                      collapsible: true,
+                      link: {type: 'generated-index'},
+                      items: [
+                        'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
+                        'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
+                      ]
+                    }
+                  ]
                 },
                 'deployment/beyond-core-deployment'
             ]
@@ -128,6 +138,16 @@ module.exports = {
           link: {type: 'doc', id: 'semgrep-assistant/overview'},
           items: [
             'semgrep-assistant/getting-started'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Secure guardrails',
+          collapsible: true,
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
+          items: [
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
           ]
         },
         {
@@ -603,6 +623,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/june-2024',
                 'release-notes/may-2024',
                 'release-notes/april-2024',
                 'release-notes/march-2024',

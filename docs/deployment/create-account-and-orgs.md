@@ -78,6 +78,7 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ### Next steps for Bitbucket and Azure Repos users
 
+- Connect your Semgrep org to your Bitbucket Data Center project or your Azure DevOps organization. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
 - To add members to your Semgrep organization, set up [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You can also opt to scan a repository instead.
 

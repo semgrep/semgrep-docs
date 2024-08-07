@@ -87,9 +87,13 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
    ![Screenshot of Semgrep AppSec Platform's Network Broker page](/img/scp-broker.png#md-width)
 
-2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your GitLab or GitHub URL:
+2. Update the `config.yaml` by replacing `YOUR_BASE_URL` with your Bitbucket Data Center, GitLab, or GitHub URL:
 
   ```yaml
+  # for Bitbucket - compatible with Network Broker versions 0.20.0 and later
+  bitbucket:
+    baseUrl: <https://bitbucket.example.com/rest/api/latest>
+    
   # for GitLab
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>
@@ -99,16 +103,16 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     baseUrl: <https://github.exampleCo.com/api/v3>
   ```
 
-1. Convert your deployment ID to hexadecimal for use in creating your deployment's local address `SEMGREP_LOCAL_ADDRESS`. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) if needed.
+1. Convert your organization ID to hexadecimal for use in creating your `SEMGREP_LOCAL_ADDRESS`. The organization ID is found in the **Identifiers** section of the [Settings' **Deployment** page](https://semgrep.dev/orgs/-/settings) in Semgrep AppSec Platform. You may also hear this called a deployment ID. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
 
-  <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">DEPLOYMENT_ID</span>:0:1</code></pre>
+  <pre class="language-console"><code>fdf0:59dc:33cf:9be8:0:<span className="placeholder">ORGANIZATION_ID</span>:0:1</code></pre>
 
   Update the `localAddress` field of `config.yaml`;
 
   ```yaml
   inbound:
     wireguard:
-      localAddress: fdf0:59dc:33cf:9be8:0:DEPLOYMENT_ID:0:1
+      localAddress: fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1
   ```
 
 1. Run the following command to start Semgrep Network Broker with your updated configuration file:
@@ -120,6 +124,18 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 You can check the logs for Semgrep Network Broker by running:
 
 <pre class="language-console"><code>sudo docker logs <span className="placeholder">CONTAINER_ID</span></code></pre>
+
+## Use Semgrep Network Broker with Managed Scans
+
+Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+
+```yaml
+inbound:
+  allowlist:
+    # allow GET requests from https://git.example.com/*
+    - url: https://git.example.com/*
+      methods: [GET]
+```
 
 ## Run multiple instances of the Semgrep Network Broker
 

@@ -370,7 +370,7 @@ module.exports = {
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           /* APR 30, 2024 */
           { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/ticketing" } ,
-          { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
+          { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/category/bitbucket-pr-comments" } ,
           { from: "/semgrep-cloud-platform/github-pr-comments/" , to: "/semgrep-appsec-platform/github-pr-comments" } ,
           { from: "/semgrep-cloud-platform/gitlab-mr-comments/" , to: "/semgrep-appsec-platform/gitlab-mr-comments" } ,
           { from: "/semgrep-cloud-platform/dashboard/" , to: "/semgrep-appsec-platform/dashboard" } ,
@@ -390,6 +390,8 @@ module.exports = {
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
           { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
+          /* JULY 15, 2024 */
+          { from: "/semgrep-appsec-platform/bitbucket-pr-comments" , to: "/category/bitbucket-pr-comments"} ,
         ]
       }
     ],

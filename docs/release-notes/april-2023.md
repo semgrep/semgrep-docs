@@ -121,7 +121,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Additions
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
-- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-appsec-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
+- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/category/bitbucket-pr-comments) to enable PR comments in your repositories.
 
 ### Changes
 

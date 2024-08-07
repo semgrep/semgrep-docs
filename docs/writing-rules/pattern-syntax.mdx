@@ -281,7 +281,7 @@ Half or partial statements can't be matches; both of the examples above must spe
 Ellipsis `...` is generally used to match sequences of similar elements.
 However, you can also match single item using ellipsis `...` operator.
 The following pattern is valid in languages with a C-like
-syntax even though `...` matches a single boolean value rather
+syntax even though `...` matches a single Boolean value rather
 than a sequence:
 
 ```java
@@ -332,7 +332,7 @@ Metavariables can also be used to match imports. For example, `import $X` matche
 import random
 ```
 
-### Reoccuring metavariables
+### Reoccurring metavariables
 
 Re-using metavariables shows their true power. Detect useless assignments:
 
@@ -385,7 +385,7 @@ But if we are concerned about finding calls to the `Math.log()` method as well, 
 pattern: (java.util.logging.Logger $LOGGER).log(...)
 ```
 
-Alternatively, if we want to capture more logger types, for example custom logger types, we could instead add a constraint to the type of the argument in this methodcall instead.
+Alternatively, if we want to capture more logger types, for example custom logger types, we could instead add a constraint to the type of the argument in this method call instead.
 
 ```text
 pattern: $LOGGER.log(java.util.logging.LogRecord $RECORD)
@@ -492,7 +492,7 @@ class Test {
 }
 ```
 
-If you searched for `$X.log(...)`, you can also match `Math.log(num)`. Instead, you can search for `(Logger $X).log(...)` which gives you the call to `logger`. See the rule [logger_search](https://semgrep.dev/playground/s/lgAo).
+If you searched for `$X.log(...)`, you can also match `Math.log(num)`. Instead, you can search for `(Logger $X).log(...)` which gives you the call to `logger`. See the rule [`logger_search`](https://semgrep.dev/playground/s/lgAo).
 
 :::caution
 Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
@@ -515,7 +515,37 @@ When referencing an ellipsis metavariable in a rule message or [metavariable-pat
 - message: Call to foo($...ARGS)
 ```
 
-### Displaying matched metavariables in rule messages
+### Anonymous metavariables
+
+Anonymous metavariables are used to specify that a metavariable exists in the pattern you want to capture.
+
+An anonymous metavariable always takes the form `$_`. Variables such as `$_1` or `$_2` are **not** anonymous. You can use more than one anonymous metavariable in a rule definition.
+
+For example, if you want to specify that a function should **always** have 3 arguments, then you can use anonymous metavariables:
+
+```yaml
+- pattern: def function($_, $_, $_)
+```
+
+An anonymous metavariable does not produce any binding to the code it matched. This means it does not enforce that it matches the same code at each place it is used. The pattern:
+
+```yaml
+- pattern: def function($A, $B, $C)
+```
+
+is not equivalent to the former example, as `$A`, `$B`, and `$C` bind to the code that matched the pattern. You can then use `$A` or any other metavariable in your rule definition to specify that specific code. Anonymous metavariables cannot be used this way.
+
+Anonymous metavariables also communicate to the reader that their values are not relevant, but rather their occurrence in the pattern.
+
+### Metavariable unification
+
+For search mode rules, metavariables with the same name are treated as the same metavariable within the `patterns` operator. This is called metavariable unification.
+
+For taint mode rules, patterns defined **within** `pattern-sinks` and `pattern-sources` still unify. However, metavariable unification **between** `pattern-sinks` and `pattern-sources` is **not** enabled by default.
+
+To enforce unification, set `taint_unify_mvars: true` under the rule `options` key. When `taint_unify_mvars: true` is set, a metavariable defined in `pattern-sinks` and `pattern-sources` with the same name is treated as the same metavariable. See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode#metavariables-rule-message-and-unification) for more information.
+
+### Display matched metavariables in rule messages
 
 Display values of matched metavariables in rule messages. Add a metavariable to the rule message (for example `Found $X`) and Semgrep replaces it with the value of the detected metavariable.
 
@@ -614,7 +644,7 @@ Semgrep performs associative-commutative (AC) matching. For example, `... && B &
 
 Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
 
-Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat Boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
 
 ## Deep expression operator
 

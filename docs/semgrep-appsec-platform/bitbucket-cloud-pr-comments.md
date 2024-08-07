@@ -1,9 +1,9 @@
 ---
-slug: bitbucket-pr-comments
+slug: bitbucket-cloud-pr-comments
 append_help_link: true
-title: Bitbucket PR comments
+title: Bitbucket Cloud
 hide_title: true
-description: "Enable PR comments in your Bitbucket repositories to display Semgrep findings to developers."
+description: "Enable PR comments in your Bitbucket Cloud repositories to display Semgrep findings to developers."
 tags:
     - Deployment
     - Semgrep AppSec Platform
@@ -23,7 +23,7 @@ import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_commen
 
 <!-- vale on -->
 
-# Enable Bitbucket pull request comments
+# Enable Bitbucket Cloud pull request comments
 
 <DeploymentJourney />
 
@@ -46,9 +46,9 @@ PR comments appear for the following types of scans under these conditions:
     - Cloud Free
     - Standard
     - Premium
-- Bitbucket Data Center is not supported.
+- Bitbucket Data Center
 
-There are two ways in which you can integrate Semgrep comments into Bitbucket Cloud depending on the Bitbucket plan you use:
+There are two ways in which you can integrate Semgrep comments into Bitbucket depending on the Bitbucket plan you use:
 
 - **Workspace access token**: If you use the Bitbucket Cloud Premium plan, you can create a workspace access token. This option saves time because you can create one access token for all repositories in the workspace. With one workspace access token, you can bulk-onboard more repositories at once from a whole workspace. However, you can also use the option of a repository access token to onboard repositories one by one.
 - **Repository access token**: If you do **not** have the Bitbucket Cloud Premium plan, create a separate repository access token for each repository where you want to use Semgrep. This configuration option is also useful if you have the Bitbucket Cloud Premium plan, but prefer to onboard repositories one by one instead of bulk onboarding.
@@ -110,7 +110,7 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
-2. Check that an entry for your GitHub org exists and is correct.
+2. Check that an entry for your Bitbucket workspace exists and is correct.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 

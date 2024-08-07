@@ -299,7 +299,7 @@ steps:
 
 ### `BITBUCKET_TOKEN`
 
-Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-pr-comments) for instructions.
+**Optional**: If you're not receiving PR comments or your code hyperlinks aren't displaying in Semgrep AppSec Platform, try setting the `BITBUCKET_TOKEN` environment variable. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) for instructions.
 
 Example:
 

@@ -118,8 +118,6 @@ Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.d
 
 #### Integrated: Semgrep understands Git
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep AppSec Platform](/deployment/add-semgrep-to-ci) and GitHub/GitLab/etc. integrations.
-
 It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep AppSec Platform](https://semgrep.dev/manage) and various repository integrations.
 
 #### Portable: If you write a Semgrep rule, it runs anywhere

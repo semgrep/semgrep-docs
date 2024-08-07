@@ -127,7 +127,7 @@ To check that your notifications are set up, receive a test message from Semgrep
 
 ### Check your filters
 
-If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#change-slack-notification-settings).
 
 ### Permissions not up-to-date
 

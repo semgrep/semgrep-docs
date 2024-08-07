@@ -370,6 +370,14 @@ img[src*="md-width"] {
     border: 2px solid black;
 }
 
+img[src*="md-width-centered"] {
+    width: 75%;
+    display: block;
+    border: 2px solid black;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 img[src*="md-noborder"] {
     width: 75%;
     margin-right: auto;
@@ -380,6 +388,11 @@ img[src*="md-noborder"] {
 img[src*="sm-width-noborder"] {
     width: 50%;
     display: block;
+}
+img[src*="sm-width-bordered"] {
+    width: 50%;
+    display: block;
+    border: 2px solid black;
 }
 .placeholder {
     color: #E3116C;

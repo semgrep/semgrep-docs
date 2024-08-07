@@ -119,6 +119,33 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
   ![ Policies modes](/img/semgrep-assistant-comment.png)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
 
+### Add Memories (beta)
+
+Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
+
+Memories are enabled by default for all Assistant users.
+
+To add a memory:
+
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
+2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+   ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-1.png#md-width)
+   ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
+3. Click **Save and regenerate**.
+   ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
+   ***Figure***. User-provided custom instruction that Assistant uses to improve future guidance.
+4. Assistant regenerates the suggested fix to reflect the instructions you provided.
+   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-3.png#md-width)
+   ***Figure***. Regenerated Assistant fix using the user-provided instructions.
+
+While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+
+#### Remove Memories
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
+3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
+
 ### Enable priority inbox
 
 If [priority inbox](/semgrep-assistant/overview/#priority-inbox), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:

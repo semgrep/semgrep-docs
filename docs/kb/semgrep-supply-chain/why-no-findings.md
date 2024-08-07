@@ -17,7 +17,8 @@ Check the [Supported Languages table](/supported-languages#semgrep-supply-chain)
 
 Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant lockfile. Monolithic repositories (monorepos) have their findings grouped based on the lockfiles present in subdirectories.
 
-Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/supported-languages#maturity-levels).
+Semgrep Supply Chain only recognizes the lockfile names indicated in the [Supported Languages table](/supported-languages#semgrep-supply-chain).
+If you do not use the standard lockfile name for your ecosystem, renaming the lockfile to the standard name before scanning with Semgrep in CI is recommended.
 
 [Reach out for help](#if-youre-still-having-trouble) if you run into trouble with lockfile location or naming.
 

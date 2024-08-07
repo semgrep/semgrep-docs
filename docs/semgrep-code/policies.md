@@ -163,17 +163,17 @@ To change assigned modes, select either the top **Matching Rules** checkbox to s
 If you have the **multiple policies** feature, you can customize the rules that run on specific repositories. Currently, this beta is not accepting new participants.
 :::
 
-The multiple policies feature enables users to customize the rules that run on specific repositories.
+The multiple policies feature enables users to customize the rules that run on specific projects (repositories). Users create different policies that projects can be assigned to.
 
-Users create different policies that repositories can **subscribe** to.
+This feature makes use of a **Global Policy** that runs on **all** projects. Projects cannot be unassigned from it.
 
-This feature makes use of a **Global Policy** that runs on **all** repositories. Repositories cannot unsubscribe from it.
+You can create a new policy and add one or more projects, then select rules to add to the policy. Projects are assigned manually to additional policies and multiple projects can be added by searching repository names or tags. 
 
-You can create a policy with additional rules and add it to one or more repositories. During a scan, these repositories run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
+During a scan, the repositories assigned to your custom policy run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
 
 ### Resolve workflow actions in multiple policies
 
-If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule's mode where precedence is as follows:
+If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule mode, where precedence is as follows:
 
 1. Block
 2. Comment
