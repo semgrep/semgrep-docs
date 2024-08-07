@@ -9,8 +9,10 @@ title: Triage and remediation
 hide_title: true
 ---
 
+<!-- vale off -->
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
+<!-- vale on -->
 
 # Triage and remediate dependency findings
 
@@ -51,7 +53,13 @@ You can also view the findings individually by clicking on the drop-down box on 
 
 ### Default Supply Chain > Vulnerabilities tab view
 
-<FindingsDefaultView product_name="Supply Chain" /> 
+<!-- To be superseded after beta concludes -->
+
+In Semgrep, a single finding may appear in several branches. These appearances are called **instances** of a finding. In the Vulnerabilities tab, the latest instance, or the finding from the most recent branch scanned, is displayed by default.
+
+#### For primary branch beta participants
+
+<FindingsDefaultView product_name="Supply Chain" />
 
 ### Assessment actions
 

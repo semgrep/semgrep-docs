@@ -1,6 +1,6 @@
 ---
 slug: primary-branch
-title: Set a primary branch
+title: Set a primary branch (beta)
 hide_title: true
 description: Set your primary or default branch to ensure Semgrep full scans display accurate counts and deduplicated findings.
 tags:
@@ -33,7 +33,7 @@ Projects without primary branches have an orange information icon <span style={{
 ### Through the web app
 
 1. In the Semgrep web app, click **Projects**.
-1. Search for your project's name. 
+1. Search for your project's name.
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that project.
 1. In the **Primary branch** section, click the drop-down box and select a branch. The drop-down menu shows a list of **scanned branches**.
 1. Click **Save**.
