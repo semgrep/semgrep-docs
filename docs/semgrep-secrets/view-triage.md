@@ -20,7 +20,7 @@ Findings from local scans are differentiated from their remote counterparts thro
 
 ## Default Secrets page view and branch logic
 
-In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets the **latest instance**, that is, the finding from the most recent branch scanned, is displayed by default because if a Secrets finding is present in **any branch**, even a non-primary branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
+In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets, the **latest instance**, or the finding from the most recent branch scanned, is displayed by default. This is because, if a Secrets finding is present in **any branch**, even a non-primary branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
 
 ## Triage findings
 
