@@ -62,7 +62,7 @@ Once you have enabled the Jira integration, you must complete the following step
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
 _**Figure.** The Jira configuration screen._
 
-:::tip
+:::tip Automatic creation of tickets
 - Tickets are created only for **high severity, high confidence findings** only. This ensures that the noise is kept to a minimum.
 - For Supply Chain findings, tickets are created for **reachable findings**.
 - Automated ticket creation can be configured on a per-product setting.

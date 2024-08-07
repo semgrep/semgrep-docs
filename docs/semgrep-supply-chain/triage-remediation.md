@@ -10,8 +10,10 @@ hide_title: true
 ---
 
 <!-- vale off -->
+
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
+
 <!-- vale on -->
 
 # Triage and remediate dependency findings
