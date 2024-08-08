@@ -107,11 +107,11 @@ OPTIONS
            Enable experimental features.
 
        -f VAL, -c VAL, --config=VAL
-           Not supported in 'ci' mode.
+           Not supported in 'ci' mode
 
        --files-with-matches
            Output only the names of files containing matches. REQUIRES
-           --experimental.
+           --experimental
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
@@ -191,7 +191,7 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
-           Output results incrementally. REQUIRES --experimental.
+           Output results incrementally. REQUIRES --experimental
 
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
