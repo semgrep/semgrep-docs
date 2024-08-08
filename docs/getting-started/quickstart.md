@@ -190,3 +190,7 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     :::info
     **Code is not uploaded.** Only **findings** are sent to Semgrep AppSec Platform.
     :::
+
+## Scan without a GitHub or GitLab account
+
+If you don't have a GitHub or GitLab account, you can use `semgrep scan` in your CLI. See [Scan your project](/getting-started/cli#scan-your-project) for more details.
