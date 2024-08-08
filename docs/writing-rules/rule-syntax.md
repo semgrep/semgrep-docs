@@ -407,7 +407,7 @@ module.insecure3("test")
 module.secure("test")
 ```
 
-Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
+Regex matching is **left anchored** by default. To allow prefixes, use `.*` at the beginning of the regex. To match the end of a string, use `$`. The next example, using the same expression as above but anchored on the right, finds no matches:
 
 ```yaml
 rules:
@@ -416,7 +416,23 @@ rules:
       - pattern: module.$METHOD(...)
       - metavariable-regex:
           metavariable: $METHOD
-          regex: (^insecure$)
+          regex: (insecure$)
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
+```
+
+This one would match all of the function calls in the example, returning a false positive on the `module.secure` call:
+
+```yaml
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*secure)
     message: module using insecure method call
     languages:
       - python
