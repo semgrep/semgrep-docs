@@ -108,11 +108,6 @@ If many new issues are found in a given scan, Assistant auto-triage and autofix 
 
 Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
-This information is also available in Semgrep AppSec Platform on the **Dashboard** page under **Assistant recommended tasks**.
-
-![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
-*Figure*. Semgrep Assistant's priority inbox Dashboard view.
-
 ### Custom rules editor (beta)
 
 Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
