@@ -49,7 +49,7 @@ The below optional fields must reside underneath a `patterns` field.
 
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
-| [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
+| [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
 | [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
@@ -407,7 +407,7 @@ module.insecure3("test")
 module.secure("test")
 ```
 
-Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
+Regex matching is **left anchored**. To allow prefixes, use `.*` at the beginning of the regex. To match the end of a string, use `$`. The next example, using the same expression as above but anchored on the right, finds no matches:
 
 ```yaml
 rules:
@@ -416,7 +416,23 @@ rules:
       - pattern: module.$METHOD(...)
       - metavariable-regex:
           metavariable: $METHOD
-          regex: (^insecure$)
+          regex: (insecure$)
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
+```
+
+The following example matches all of the function calls in the same code sample, returning a false positive on the `module.secure` call:
+
+```yaml
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*secure)
     message: module using insecure method call
     languages:
       - python
