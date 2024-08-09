@@ -269,6 +269,8 @@ The following example shows how [the original rule, identifying uses of `SHA-1` 
 
 <iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
 
+When you fork a rule, the copy is independent from the original. To run your new rule in your scans, [add it to a policy](#add-a-rule-to-the-policies-page). If you want your copy to replace the rule you forked, add it to a policy, then disable the original on the Policies page.
+
 ## Contribute to the open-source Semgrep Registry
 
 :::info
