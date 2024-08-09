@@ -423,7 +423,7 @@ rules:
     severity: ERROR
 ```
 
-This one matches all of the function calls in the example, returning a false positive on the `module.secure` call:
+The following example matches all of the function calls in the same code sample, returning a false positive on the `module.secure` call:
 
 ```yaml
 rules:
