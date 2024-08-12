@@ -91,7 +91,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | ------------------------  | ------------ |
 | **Projects**              | Filter by repositories connected to Semgrep AppSec Platform. |
 | **Branches**              | Filter by findings in different Git branches. |
-| **Teams**                 | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with RBAC enabled. |
+| **Teams**                 | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with [Semgrep Teams](/deployment/teams#teams-beta) enabled. |
 | **Tags**                  | Filter for findings based on the tags associated with the project. |
 | **Status**                | Filter the triage state of a finding. Refer to [Triage statuses](#triage-status) to understand triage states. |
 | **Severity**              | Filter by the [severity](#severity) of a finding. Severity is computed based on the values assigned for [Likelihood](/contributing/contributing-to-semgrep-rules-repository/#likelihood) and [Impact](/contributing/contributing-to-semgrep-rules-repository/#impact) by the rule's author. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
