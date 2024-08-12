@@ -20,7 +20,7 @@ tags:
 
 The only required steps to ensure that users are added to Semgrep AppSec Platform are on the side of the SSO provider. After setting up SSO, users are able to sign in to your Semgrep organizations by entering their SSO credentials.
 
-Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth2) and [SAML 2.0](#saml-20).
+Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth-20) and [SAML 2.0](#saml-20).
 
 ## OpenID Connect / OAuth 2.0
 

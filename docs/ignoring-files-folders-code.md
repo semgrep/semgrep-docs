@@ -119,7 +119,7 @@ You can also add files to `.semgrepignore` while triaging individual findings us
 3. Select **Ignored**, and optionally, select an **Ignore reason**.
 4. Click to expand **Ignore files in future scans...**.
 5. Select the files you want ignored in future scans.
-6. Click **Change status** to save. 
+6. Click **Change status** to save.
 
 ## Ignore code through nosemgrep
 
@@ -193,7 +193,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disable rules on Semgrep AppSec Platform
 
-Semgrep AppSec Platform users can disable rules and rulesets through the Policies page. See [Disabling rules](/semgrep-code/policies#disabling-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
+Semgrep AppSec Platform users can disable rules and rulesets through the Policies page. See [Disable rules](/semgrep-code/policies#disable-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
 
 ## Ignore findings
 
