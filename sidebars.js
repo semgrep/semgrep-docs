@@ -162,15 +162,7 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/jira',
-          ]
-        },
+        { type: 'link', href: '/semgrep-appsec-platform/jira', label: 'Jira'},
         {
           type: 'category',
           label: 'Reports',
