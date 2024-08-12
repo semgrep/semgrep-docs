@@ -52,12 +52,12 @@ Dependency search provides the following filters, which correspond to the data p
 <dt>License Policy</dt>
 <dd>The License Policy you set; determines whether a dependency can be used based on its license.</dd>
 <dt>License</dt>
-<dd>The dependency's license</dd>
+<dd>The dependency's license type.</dd>
 <dt>Ecosystem</dt>
-<dd>The language of the dependency</dd>
+<dd>The language of the dependency.</dd>
 </dl>
 
-![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
+![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**_.  Dependency search page with sample search query.
 
 ## Troubleshooting
