@@ -123,7 +123,7 @@ useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
-1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain** >
+1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain** >
    **Dependencies**.
 2. Search for the dependencies you want to exempt.
 3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
@@ -150,7 +150,7 @@ exception. This ensures that the exclusion won't fail when you upgrade to
 
 To set a custom dependency exception:
 
-1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain > License configuration**.
+1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain > License configuration**.
 2. In **Custom dependency exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
    1. Select the **Ecosystem** where this dependency applies.
