@@ -13,7 +13,7 @@ tags:
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
-![Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-configuration.png#md-width)
+![Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-configuration.png#md-width)
 *Figure 1*. Semgrep Supply Chain's License configuration tab with licenses and permissions listed.
 
 ## Prerequisites and feature support
@@ -56,7 +56,7 @@ To change the policies of packages based on the license:
 
 1. From the **Supply Chain** page, click **License configuration** on the header menu.
 2. Browse the available licenses within the **License configuration** section.
-![Screenshot of license configuration section](/img/sc-license-configuration.png#md-width)
+![License configuration section](/img/sc-license-configuration.png#md-width)
 *Figure 3.* Screenshot of Supply Chain > Settings > License configuration section.
 3. Click the permission (**Allow**, **Comment**, or **Block**) you want to set the license to.
 4. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
