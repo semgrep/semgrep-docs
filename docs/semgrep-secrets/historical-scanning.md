@@ -76,9 +76,11 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 ## View or hide historical findings
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are labeled as shown in the following screenshot:
-   ![Secrets finding labeled as historical finding](/img/historical-findings.png#md-width)
-3. On the filter panel, select **Include historical findings** to toggle on the display of historical findings.
+1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
+1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
+
+![Historical secrets in Semgrep AppSec Platform](/img/historical-secrets-scp.png)
+*Figure.* Historical findings in Semgrep AppSec Platform.
 
 ## Scope of findings
 
