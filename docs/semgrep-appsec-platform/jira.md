@@ -3,6 +3,7 @@ slug: jira
 append_help_link: true
 title: Jira
 hide_title: true
+displayed_sidebar: scanSidebar
 description: "Send Semgrep findings to your Jira project."
 tags:
     - Beta
