@@ -95,6 +95,13 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs#gitlab-cicd).
 
+:::info MR comments with multiple GitLab groups
+If you're using Semgrep with multiple GitLab groups, ensure that you've completed one of the following steps to ensure that you see MR comments for repositories associated with all of your groups:
+
+1. Create a Semgrep account connection with each GitLab group by signing in to your Semgrep account, navigating to **Settings > Source code managers**, and adding an entry for each group.
+2. Add the `GITLAB_TOKEN` environment variable to your CI configuration. You can set `GITLAB_TOKEN` to the GitLab PAT that grants access to all of your GitLab groups (recommended), or you can use a different GitLab PAT for each of your GitLab groups.
+:::
+
 ### Define environment variables needed for other CI providers
 
 <DefineConnectionVariables name="GitLab CI/CD" comment_type="MR"/>
