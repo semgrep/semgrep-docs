@@ -440,7 +440,7 @@ rules:
 ```
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet.
 :::
 
 ### `metavariable-pattern`
