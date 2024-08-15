@@ -40,7 +40,7 @@ This is caused by the value of `$X` within the code, which is `size`. However, t
 To retrieve the correct value in the case described above, use `value($X)` in the rule message (for example (`Creating a buffer using value($X)`). Semgrep replaces the `value($X)` with the underlying propagated value of the metavariable `$X` if it computes one (otherwise, Semgrep uses the matched value).
 
 :::info
-Regular Semgrep syntax for displaying matched metavariables in rule messages is for example `$X`. For specific propagated values, use experimental syntax `value($X)` instead. For more information about the standard syntax, see [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax/#displaying-matched-metavariables-in-rule-messages).
+Regular Semgrep syntax for displaying matched metavariables in rule messages is for example `$X`. For specific propagated values, use experimental syntax `value($X)` instead. For more information about the standard syntax, see [Displaying matched metavariables in rule messages](/writing-rules/pattern-syntax#display-matched-metavariables-in-rule-messages).
 :::
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
