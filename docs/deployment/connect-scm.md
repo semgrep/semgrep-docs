@@ -128,24 +128,24 @@ If your deployment contains many orgs, you must choose an org in the deployment 
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
 4. Click **Connect** to save your changes.
-5. Refresh your browser. You should see a new entry under **Source code managers** that displays the GHE org and instance URL you entered. Click **Register app**.
-6. In the **Add GitHub App** page, ensure that:
+6. In the **Add GitHub App** page that you're redirected to, ensure that:
     - You've selected **Organization**.
     - The **GitHub Organization name** is populated; if not, enter the name of your org.
     - You've selected the **Use for multiple GitHub orgs (Enterprise-public app)** checkbox.
-7. Review the permissions for the app; as the app owner, note that you can change these permissions later.
-8. Click **Register GitHub App** to proceed.
-9. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
-10. After you name your app, choose the GHE org to which you want it installed.
-11. Select the org that you want to act as the owner of the app, and click **Install**.
-12. Wait for the installation to complete. When done, you will be redirected to Semgrep.
-13. Verify the installation by navigating to **Settings** > **Source Code Managers**. Ensure that the entry for your SCM shows a **Connected** badge.
-14. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
+7. Select the features you'd like enabled. Enabling PR comments, Assistant recommendations, and Semgrep Managed Scans requires you to grant Semgrep Code Access, while enabling only PR comments does not.
+8. Review the permissions for the app; as the app owner, note that you can change these permissions later.
+9. Click **Register GitHub App** to proceed.
+10. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
+11. After you name your app, choose the GHE org to which you want it installed.
+12. Select the org that you want to act as the owner of the app, and click **Install**.
+13. Wait for the installation to complete. When done, you will be redirected to Semgrep.
+14. Verify the installation by navigating to **Settings** > **Source Code Managers**. Ensure that the entry for your SCM shows a **Connected** badge.
+15. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
    ![GHE showing installed Semgrep App](/img/ghe-9.png#md-width)
    You can click **Configure** to choose the repositories to which the app has access. Additionally, you can go to **App settings** to customize the permissions granted to the app.
    ![GitHub Apps page showing App settings link](/img/ghe-10.png#md-width)
+16. If you have additional GHE orgs you'd like to add, you can do so by repeating steps 2-15.
 
-<br />
 At this point, you've successfully installed the GHE Semgrep App on the owner GHE org. In the future, other members of your GHE instance can install the app on their GHE orgs using the public link if they have the proper permissions. You can get the public link from GHE by going to **GitHub Apps** > **App settings**.
 
 ![App installation page](/img/ghe-11.png#md-width)
