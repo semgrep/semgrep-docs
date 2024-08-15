@@ -6,7 +6,7 @@ description: "This document provides information about experimental syntax addit
 
 # Displaying propagated value of metavariables
 
-This document provides information about experimental syntax supplement to [Display matched metavariables in rule messages](/writing-rules/pattern-syntax/#display-matched-metavariables-in-rule-messages). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for.
+This document provides information about experimental syntax supplement to [Display matched metavariables in rule messages](/writing-rules/pattern-syntax#display-matched-metavariables-in-rule-messages). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for.
 
 See the following rule message and part of a Semgrep rule (formula):
 
