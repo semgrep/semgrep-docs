@@ -146,7 +146,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
 - Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference).
-- Clarified sections [Disabling rules](/semgrep-code/policies#disabling-rules) and **Removing rulesets**.
+- Clarified sections [Disable rules](/semgrep-code/policies#disable-rules) and **Removing rulesets**.
 - Known limitations of Semgrep Pro Engine section have been expanded and moved to the [Known limitations of cross-file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis) document.
 - Fixed various broken links.
 - Fixed various spelling issues.

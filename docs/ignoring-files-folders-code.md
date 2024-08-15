@@ -193,7 +193,7 @@ Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 
 ## Disable rules on Semgrep AppSec Platform
 
-Semgrep AppSec Platform users can disable rules and rulesets through the Policies page. See [Disable rules](/semgrep-code/policies#disable-rules) and [Disabling rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
+Semgrep AppSec Platform users can disable rules and rulesets through the Policies page. See [Disable rules](/semgrep-code/policies#disable-rules) and [Disable rulesets](/semgrep-code/triage-remediation/#disable-a-ruleset-or-a-rule).
 
 ## Ignore findings
 
