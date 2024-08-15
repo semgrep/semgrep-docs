@@ -234,7 +234,7 @@ To rename a rule, enter the new name in the YAML editor’s `id` field. The, sav
 
 The **[Policies](/semgrep-code/policies/)** page displays rules that Semgrep Cloud Platform uses to scan your project's code. Rules added to the **Policies** page become part of every Semgrep scan you run.
 
-When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
+When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
 
 To add a rule to the **Policies** page:
 

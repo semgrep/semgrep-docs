@@ -35,4 +35,4 @@ View all proprietary Semgrep secure default rules through the ruleset [p/secure-
 
 ## Next steps
 
-- [Create your own secure default rules](/secure-guardrails/custom-guardrails-rules#create-a-custom-secure-default)
+- [Create your own secure default rules](/secure-guardrails/custom-guardrails-rules#general-steps)
