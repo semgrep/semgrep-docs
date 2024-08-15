@@ -28,7 +28,9 @@ This article walks you through the Semgrep Supply Chain configuration and custom
 
 ## Project directory structure
 
-Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Semgrep Supply Chain can correctly parse code files in subfolders as well.
+Semgrep Supply Chain requires a [lockfile](/semgrep-supply-chain/glossary/#lockfile). Your code must use [supported lockfile ecosystems and filenames](/docs/supported-languages#semgrep-supply-chain). 
+
+Semgrep Supply Chain can correctly parse code files and lockfiles in subfolders as well. Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Lockfiles must all use the supported lockfile names.
 
 In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
@@ -78,7 +80,7 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
   </tr>
   <tr>
    <td>Pull or merge request</td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a></td>
+   <td><a href="/docs/deployment/customize-ci-jobs#set-up-diff-aware-scans">Diff-aware scan</a></td>
    <td>All dependency rules</td>
   </tr>
   <tr>
@@ -120,7 +122,7 @@ Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in bl
 
 To enable **Scan Blocking**:
 
-1. Log in to Semgrep AppSec Platform.
+1. Sign in to Semgrep AppSec Platform.
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
 3. Click **<i class="fa-solid fa-toggle-large-on"></i> Scan Blocking**.
 

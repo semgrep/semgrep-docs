@@ -28,6 +28,7 @@ You can select the channels in your Slack workspace that receive findings. You c
 
 :::info Prerequisites
 * You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
+* **Single-tenant Semgrep AppSec Platform**: Reach out to your Technical Account Manager (TAM) to ensure your instance has been configured for the Semgrep Slack app.
 :::
 
 To install the Semgrep Slack app, follow these steps:
@@ -127,7 +128,7 @@ To check that your notifications are set up, receive a test message from Semgrep
 
 ### Check your filters
 
-If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#change-slack-notification-settings).
 
 ### Permissions not up-to-date
 

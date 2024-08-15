@@ -1,8 +1,8 @@
 ---
 slug: managed-scanning
-title: Managed scanning (beta)
+title: Managed Scans (beta)
 hide_title: true
-description: Semgrep managed scanning provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
+description: Semgrep Managed Scans provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.
 tags:
   - Beta
   - Deployment
@@ -11,40 +11,38 @@ tags:
 
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
 
-# Managed scanning
+# Semgrep Managed Scans
 
-**Semgrep managed scanning** enables you to add repositories to your Semgrep org in bulk without adding or changing your existing CI workflows. Similar to Semgrep CI workflows, managed scanning also integrates into developer workflows through PR comments.
+Add repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. Similar to CI workflows, Managed Scans also integrates into developer workflows through PR comments.
 
 This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-to-ci). Instead of adding a Semgrep job or workflow to your CI/CD pipeline, repositories are added to Semgrep AppSec Platform.
 
 ## Feature maturity and support
 
-- Managed scanning is in **public beta** for all existing Semgrep AppSec Platform users.
-- Managed scanning supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
-    - This guide provides self-service enablement steps for **hosted GitHub plans**.
-    - To enable managed scanning on GitHub Enterprise Server, contact your technical account manager (TAM).
+- Managed Scans is in **public beta** for all existing Semgrep AppSec Platform users.
+- It supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
-- Managed scanning is available for all Semgrep products you have purchased, including:
+- Managed Scans is available for all Semgrep products you have purchased, including:
     - Semgrep Code
     - Semgrep Supply Chain
     - Semgrep Secrets
-- Managed scanning performs both full scans and diff-aware scans when a developer creates a pull request.
+- Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
 
 :::info
-- To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed scanning does **not** support lockfile generation.
-- For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use managed scanning. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
+- To receive Supply Chain findings, you must have a supported lockfile in your repository. Managed Scans does **not** support lockfile generation.
+- For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use Managed Scans. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
 :::
 
 ## Security
 
-Managed scanning requires **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-projects)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
+Managed Scans require **[<i class="fas fa-external-link fa-xs"></i> read access](https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-projects)** to your code in GitHub for the repositories you choose to scan. Semgrep clones your repository at the beginning of every scan. Once the scan completes, the clone is destroyed and is not persisted anywhere.
 
 The access to your code is facilitated by a **private Semgrep GitHub app** that you create and register in your GitHub organization.
 
 - You are in control of the app and can [revoke access to repositories](#remove-the-private-app) at any time.
 - You can [limit access to specific repositories](#limit-access-to-specific-repositories).
 
-Managed scanning is specifically designed to limit the amount of time that code remains on our infrastructure.
+Managed scans are specifically designed to limit the amount of time that code remains within Semgrep infrastructure.
 
 ### Life cycle of a managed scan
 
@@ -52,12 +50,12 @@ Managed scanning is specifically designed to limit the amount of time that code 
 1. Semgrep runs the scan from that container. Diff-aware scans typically take seconds, while full scans can take minutes to hours to complete.
 1. The ephemeral container is immediately and automatically destroyed post-scan along with all contents in it.
 
-## Add a repository to Semgrep Managed Scanning
+## Add a repository to Semgrep Managed Scans
 
 Part of the process of adding a repository includes creating and registering a public Semgrep GitHub app and a private Semgrep GitHub App.
 
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
-- The private Semgrep GitHub app is required to enable code access for managed scanning.
+- The private Semgrep GitHub app is required to enable code access for Managed Scans.
 
 To view all permissions, see [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information.
 
@@ -66,17 +64,22 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. Click **Scan new project > Semgrep Managed Scan**.
 1. If you haven't completed the installation of public and private Semgrep GitHub apps, you are redirected to the **Set up Managed Scans** page, which facilitates the creation of both.
     1. Follow the steps in the page to create and register both a public and private Semgrep GitHub app.
-1. In the **Enable Managed Scans for GitHub repos** page, select the repositories you want to add to Semgrep Managed Scanning.
+1. In the **Enable Managed Scans for GitHub repos** page, select the repositories you want to add to Semgrep Managed Scans.
     1. Optional: If you don't see the repository you want to add, click **Sync projects** or click **Check GitHub Access Configuration** to ensure that you've granted Semgrep access to at least one repository.
 1. Select the repositories you want to scan from the list.
-1. Click **Enable Managed Scans**.
+1. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
+![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
+1. Click **Enable**.
+1. If you use the **Semgrep Network Broker**, must edit you Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
+
 <!-- vale on -->
 
-You have finished setting up a Semgrep Managed Scan.
+You have finished setting up a Semgrep managed scan.
 
-- After enabling managed scanning, Semgrep performs a full scan in batches on all the repositories.
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through managed scanning are tagged with `autoscan`.
+- Projects scanned through Managed Scans are tagged with `managed-scan `.
 
 
 ### Troubleshoot your Semgrep GitHub app installation
@@ -84,7 +87,7 @@ You have finished setting up a Semgrep Managed Scan.
 A complete installation is displayed in the Source Code Manager entry as follows:
 
 ![GitHub entry with public and private GitHub app connection](/img/zcs-code-access-enabled.png#md-width)
-_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed managed scanning set-up._
+_**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settings > Source Code Managers** displaying a completed Managed Scans set-up._
 
 You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
 
@@ -103,7 +106,7 @@ Repositories must be accessible to both the public Semgrep GitHub app and the pr
 
 ### Convert or migrate an existing Semgrep CI job
 
-You can immediately add any existing project to managed scanning.
+You can immediately add any existing project to Managed Scans.
 
 1. Follow the steps in [Add a repository](#add-a-repository).
 1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository.
@@ -114,9 +117,9 @@ Semgrep preserves your findings, scans, and triage history.
 
 ## Default configuration
 
-By default, projects on managed scanning are configured with:
+By default, projects on Managed Scans are configured with:
 
-- **Weekly full scans** of the entire repository. When a project is first added to managed scanning, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
+- **Weekly full scans** of the entire repository. When a project is first added to Managed Scans, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
 
 ## Scan management and configuration
@@ -174,4 +177,13 @@ To **view** the repositories you have granted access to:
 
 ### Scan logs and statistics
 
-Scan statistics, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.
+You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
+
+![Click the project's latest scan to view the log](/img/sms-logs.png)
+_**Figure**. The Projects page. Click the project's latest scan (underlined) to view the log._
+
+:::info
+It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
+:::
+
+**Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.

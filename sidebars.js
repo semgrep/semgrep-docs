@@ -93,6 +93,7 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
                 },
@@ -102,10 +103,20 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
+                    'semgrep-appsec-platform/azure-pr-comments',
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
-                    'semgrep-appsec-platform/bitbucket-pr-comments',
-                    ]
+                    {
+                      type: 'category',
+                      label: 'Bitbucket PR comments',
+                      collapsible: true,
+                      link: {type: 'generated-index'},
+                      items: [
+                        'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
+                        'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
+                      ]
+                    }
+                  ]
                 },
                 'deployment/beyond-core-deployment'
             ]
@@ -132,6 +143,16 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Secure guardrails',
+          collapsible: true,
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
+          items: [
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Notifications',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/notifications'},
@@ -141,22 +162,15 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/jira',
-          ]
-        },
+        'semgrep-appsec-platform/jira',
         {
           type: 'category',
           label: 'Reports',
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
           items: [
-            'semgrep-appsec-platform/dashboard'
+            'semgrep-appsec-platform/dashboard',
+            'semgrep-appsec-platform/dashboard-beta'
           ]
         },
         {
@@ -603,6 +617,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/july-2024',
                 'release-notes/june-2024',
                 'release-notes/may-2024',
                 'release-notes/april-2024',

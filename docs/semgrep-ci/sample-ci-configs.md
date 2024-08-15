@@ -28,6 +28,7 @@ import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
+import JenkinsBitbucket from "/src/components/code_snippets/_jenkins-semgrep-app-bbdc.mdx"
 
 <!--Bitbucket Pipelines -->
 
@@ -203,6 +204,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     {label: 'Default', value: 'jenkins-semgrep'},
     {label: 'Semgrep OSS', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
+    {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
 >
 
@@ -234,6 +236,13 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 <JenkinsSemgrepAppSastDocker />
 
 </TabItem>
+
+<TabItem value='jenkins-bb'>
+
+<JenkinsBitbucket />
+
+</TabItem>
+
 </Tabs>
 
 ## Bitbucket Pipelines
@@ -281,18 +290,30 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
+:::tip
+If the pipeline's default runner runs out of memory, you can limit the number of subprocesses Semgrep uses with the [`-j` flag](/cli-reference), or [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available:
+
+```yaml
+pipelines:
+  default:
+    - step:
+        size: 2x
+        script:
+          - echo "This step gets double the memory!"
+```
+:::
+
 ## Buildkite
 
 To add Semgrep into your Buildkite pipeline:
 
-1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [Buildkite code snippet](#sample-buildkite-configuration-snippet). This configuration file can also be stored within Buildkite.
-2. Copy the relevant code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet).
-3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated configuration file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through Buildkite's interface, by clicking **your repository > Pipelines**.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+1. Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the target repository.
+2. Copy the code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet), making alterations if necessary for your environment.
+3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated `pipeline.yml` file into the `/.buildkite` folder within the target repository.
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **Pipelines > pipeline name**.
 
 :::note
-These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
+These steps can be performed within Buildkite's UI. To do so, navigate to Buildkite's main page, and click **Pipelines > New Pipeline**.
 :::
 
 ### Sample Buildkite configuration snippet
@@ -311,12 +332,29 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 
 <TabItem value='buildkite-semgrep'>
 
+The following configuration creates a CI job that runs scans according to the products you have enabled in Semgrep AppSec Platform. The provided environment variables are commonly needed to correctly configure scans from Buildkite.
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+This file configures two mutually exclusive command steps, one for full scans, and one for diff-aware scans. The latter is used for pull or merge requests.
+
+In order for this configuration to run the correct type of scan for each condition, it requires both [branch filtering](https://buildkite.com/docs/pipelines/branch-configuration) and configuration to build on pull requests.
+
+#### Branch filtering
+
+1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
+    ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png#md-width)
+    _**Figure.**_ Buildkite pipeline settings with using GitHub as the SCM.
+2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
+    ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png#md-width)
+    _**Figure.**_ Branch limiting settings with main as the example branch.
+3. Click **Save Branch Limiting**.
+
+#### Build on pull requests
+
+To run diff-aware scans, your pipeline must run builds on pull or merge requests. Buildkite integrates with several source code managers and each one has different options to handle pull or merge requests. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull or merge requests.
 
 <BuildkiteSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+You can [run specific product scans by passing the appropriate argument](/getting-started/cli#scan-using-specific-semgrep-products), such as `--supply-chain`.
 
 </TabItem>
 

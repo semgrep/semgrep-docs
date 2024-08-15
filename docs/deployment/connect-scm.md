@@ -2,7 +2,7 @@
 slug: connect-scm
 title: Connect a source code manager
 hide_title: true
-description: Connect a GitHub or GitLab organization to manage user authentication.
+description: Connect a source code manager for use with Semgrep.
 toc_max_heading_level: 3
 tags:
   - Deployment
@@ -22,14 +22,42 @@ Linking a source code manager provides the following benefits:
 - For GitHub users:
     - Provides Semgrep access to post PR or MR comments.
     - For GitHub Actions users: Enables you to add a Semgrep CI job to repositories in bulk.
+- Allows you to scan and manage your Azure DevOps and Bitbucket projects in Semgrep AppSec Platform.
+- Allows the Semgrep platform to generate hyperlinks to code in findings.
 
-You can only connect your Semgrep organization to the source code manager that you originally logged in with. If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources.
+If your organization uses both GitHub and GitLab to manage source code, log in with the source code manager that you would prefer to use to manage Semgrep org membership. You can still scan repositories from other sources, including Azure DevOps and Bitbucket, though you will need to use a separate SSO provider to manage the authentication of your users in such cases.
 
 The process to connect a source code manager depends on whether your SCM tool is cloud-hosted by the service provider, hosted on-premise, or hosted as a single tenant by the service provider.
 
 ## Connect to cloud-hosted orgs
 
 If you opted to scan a GitHub or GitLab repository when you initially signed in, you may have already performed these steps and can skip to [Next steps](#next-steps).
+
+### Azure DevOps Cloud
+
+1. Sign in to Semgrep AppSec Platform.
+1. On the sidebar, click the account name to open the drop-down menu.
+1. Using the drop-down menu, select the account you want to make a connection for.
+1. Go to **Settings** > **Source Code Managers**, and click **Add Azure DevOps**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
+1. In the **Connect your Azure DevOps organization** dialog box, provide:
+   - The **Name of your Azure DevOps organization**
+   - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
+2. Click **Connect** to save and proceed.
+3. The Azure DevOps organization is now listed under **Source Code managers**. Click **Test connection** to verify that the new integration is installed correctly.
+
+### Bitbucket Cloud
+
+1. Sign in to Semgrep AppSec Platform.
+1. On the sidebar, click the account name to open the drop-down menu.
+1. Using the drop-down menu, select the account you want to make a connection for.
+1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Cloud**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
+1. In the **Connect your Bitbucket Workspace** dialog box, provide:
+   - The **Name of your Bitbucket Workspace**
+   - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
+1. Click **Connect** to save and proceed.
+1. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
 
 ### GitHub Cloud
 
@@ -58,9 +86,26 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 ### GitLab Cloud
 
-For users of GitLab cloud-hosted plans, a connection to GitLab is created automatically after [adding a Semgrep job to GitLab CI/CD](/deployment/add-semgrep-to-ci). No other steps are needed.
+1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
+2. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+3. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Cloud** and enter the personal access token generated into the **Access token** field.
+4. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+5. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 1, 3-4 for each GitLab group.
+1. The GitLab groups are now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
 
-## Connect to on-premise orgs
+## Connect to on-premise orgs and projects
+
+### Bitbucket Data Center
+
+1. Sign in to Semgrep AppSec Platform.
+1. Go to **Settings** > **Source Code Managers**, and click **Add Bitbucket Data Center**.
+![Source code manager tab](/img/source-code-manager.png#md-width)
+1. In the **Connect your Bitbucket project (key)** dialog box, provide:
+   - The **Name of your Bitbucket project (key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
+   - The **URL** to access your installation of Bitbucket Data Center
+   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
+2. Click **Connect** to save and proceed.
+3. The Bitbucket project is now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration was installed correctly.
 
 ### GitHub Enterprise Server
 
@@ -78,7 +123,7 @@ and orgs in your GHE deployment. There are two primary installation steps:
 If your deployment contains many orgs, you must choose an org in the deployment that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login/).
-2. Click <i class="fa-solid fa-gear"></i> Settings** > **Source Code Managers**, and click **Add GitHub Enterprise**.
+2. Click **<i class="fa-solid fa-gear"></i> Settings** > **Source Code Managers**, and click **Add GitHub Enterprise**.
 3. In the **Connect your GitHub Organization** dialog box, provide:
    - The **Name of your GitHub Organization**
    - The **URL** to access your deployment
@@ -124,16 +169,15 @@ You have successfully connected Semgrep to your GitHub Enterprise Server.
 
 This section is applicable to users with subscriptions to any **GitLab self-managed plan**.
 
-Connect Semgrep and GitLab Self-Managed by creating a PAT and setting it in Semgrep AppSec Platform:
+Connect Semgrep and GitLab Self-Managed accounts by creating a PAT and providing it to Semgrep using Semgrep AppSec Platform:
 
 1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 3. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Self-Managed** and enter the personal access token generated into the **Access token** field.
-3. Enter your GLSM base URL into the **URL** field.
-4. Ensure that your SCM integration successfully detects repositories by setting up a CI job. Do the following steps **for each repository** you want to scan:
-    1. Create or edit your `.gitlab-ci.yml` configuration file to add Semgrep as part of your GitLab CI/CD pipeline. Refer to [Sample CI configurations](/docs/semgrep-ci/sample-ci-configs#gitlab-cicd) for a template you can copy and customize.
-    2. Commit the updated `.gitlab-ci.yml` file.
-    3. The CI job starts automatically to establish a connection with Semgrep AppSec Platform. Alternatively, if it does not start automatically, start the job from the GitLab CI/CD interface. Upon establishing a connection, your repository appears in **Semgrep AppSec Platform > [Projects](https://semgrep.dev/orgs/-/projects)** page.
+4. Enter your GLSM base URL into the **URL** field.
+5. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+6. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 1, 3-5 for each GitLab group.
+1. The GitLab groups are now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
 
 
 ## Next steps

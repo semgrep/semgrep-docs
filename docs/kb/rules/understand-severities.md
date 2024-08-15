@@ -7,9 +7,9 @@ tags:
 
 # How does Semgrep assign severity levels to rules?
 
-## Semgrep Code
+## Semgrep Code and Secrets
 
-Semgrep Code rules have one of three severity levels: `ERROR` (High), `WARNING` (Medium), or `INFO` (Low). The severity indicates how critical the issues are that a rule potentially detects.
+Semgrep Code and Secrets rules have one of three severity levels: `ERROR` (High), `WARNING` (Medium), or `INFO` (Low). The severity indicates how critical the issues are that a rule potentially detects.
 
 The rule author assigns the rule severity. For custom and third-party rules, their severity assignment is the source of truth.
 
