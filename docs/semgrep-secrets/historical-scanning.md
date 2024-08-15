@@ -21,6 +21,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 - This feature is in **public beta**. See [Limitations](#limitations) for more information.
 - All Semgrep Secrets customers can enable this feature.
+- Currently, only rules that perform HTTP validation are incorporated during historical scanning. Findings that have been verified as valid are surfaced.
 - Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
 
