@@ -48,6 +48,7 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
+      token: glpat-xxxxx
 ```
 
   The `publicKey` value should be entered precisely as shown in the example:
@@ -88,14 +89,17 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
   # for GitLab
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>
+    token: ...
 
   # for GitHub
   github:
     baseUrl: <https://github.exampleCo.com/api/v3>
+    token: ...
 
   # for Bitbucket - compatible with Network Broker versions 0.20.0 and later
   bitbucket:
     baseUrl: <https://bitbucket.example.com/rest/api/latest>
+    token: ...
 ```
 
 ### Add your local address to the config
