@@ -1,7 +1,7 @@
 ---
 slug: display-propagated-metavariable
 append_help_link: true
-description: "This document provides information about experimental syntax addition to [Displaying matched metavariable in rule message](/writing-rules/pattern-syntax/#displaying-matched-metavariable-in-rule-message). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for."
+description: "This document provides information about experimental syntax addition to [Displaying matched metavariable in rule message](/writing-rules/pattern-syntax/#display-matched-metavariable-in-rule-message). Semgrep enables you to display values of matched metavariables in rule messages. However, in some cases, the matched value of the metavariable is not the real value you were looking for."
 ---
 
 # Displaying propagated value of metavariables

@@ -66,8 +66,8 @@ In your Slack workspace, create separate channels for either policies, repositor
 ## Remove notifications for findings in Slack
 
 :::note
-This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstalling the Semgrep Slack App from your Slack workspace
-](#uninstalling-the-semgrep-slack-app-from-your-slack-workspace).
+This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstall the Semgrep Slack App from your Slack workspace
+](#uninstall-the-semgrep-slack-app-from-your-slack-workspace).
 :::
 
 To remove or unsubscribe to notifications:
