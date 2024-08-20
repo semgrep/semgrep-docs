@@ -69,9 +69,9 @@ There are two ways in which you can integrate Semgrep comments into Bitbucket de
 - **Bitbucket Cloud Premium** plan. If you do not have a Bitbucket Cloud Premium plan, create a repository access token.
 :::
 
-Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan). Fulfill these general steps to create a workspace access token:
+Create a workspace access token in Bitbucket (only available if you have a Bitbucket Cloud Premium plan):
 
-1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for pull requests. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
+1. Create a workspace access token in Bitbucket with **Read** and **Write** permissions for the **Pull requests** scope. Follow the instructions in [Create a workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) in Bitbucket documentation.
 1. Add the workspace access token as a workspace variable with the **Secured** option.
 
 Continue setting up Bitbucket PR comments by finishing the rest of this guide.
@@ -88,7 +88,7 @@ This section helps you to configure PR comments if you do **not** have a Bitbuck
 
 Fulfill these general steps to create a repository access token:
 
-1. Create a repository access token in Bitbucket with **Read**, and **Write** permissions for pull requests. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/) in Bitbucket documentation.
+1. Create a repository access token in Bitbucket with **Read**, and **Write** permissions for the **Pull requests** scope. Follow the instructions in [Create a repository Access Token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-access-token/) in Bitbucket documentation.
 1. Add the repository access token as a repository variable with the **Secured** option.
 
 Continue setting up Bitbucket PR comments by finishing the rest of this guide.

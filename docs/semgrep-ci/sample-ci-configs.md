@@ -291,7 +291,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </Tabs>
 
 :::tip
-If the pipeline's default runner runs out of memory, you can [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available:
+If the pipeline's default runner runs out of memory, you can limit the number of subprocesses Semgrep uses with the [`-j` flag](/cli-reference), or [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available:
 
 ```yaml
 pipelines:

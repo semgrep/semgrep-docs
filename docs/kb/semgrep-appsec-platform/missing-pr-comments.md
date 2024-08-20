@@ -23,7 +23,7 @@ PR or MR comments are not supported for:
 
 * Any other SCM or repository provider
 
-If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Connect to on-premise GitHub or GitLab orgs](/deployment/connect-scm/#connect-to-on-premise-orgs) for more details on configuration.
+If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Connect to on-premise GitHub or GitLab orgs](/deployment/connect-scm/#connect-to-on-premise-orgs-and-projects) for more details on configuration.
 
 ## Have you configured permissions and tokens correctly?
 

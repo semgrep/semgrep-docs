@@ -1,9 +1,19 @@
 If you are behind a firewall, are using a virtual private network (VPN), or have network restrictions regarding access, you may need to add the following IP addresses to the **ingress** allowlist and **egress** allowlist:
 
 ```bash
-# These IP addresses are inbound and outbound:
+# Ingress IP addresses (from Semgrep to your infrastructure) and egress IP addresses (from your infrastructure to Semgrep)
 35.166.231.235
 52.35.248.246
 52.34.137.110
 44.225.64.41
 ```
+
+#### Additional egress IP addresses
+
+You must also add **CloudFront IP addresses** to your **egress** allowlist. Refer to [<i class="fas fa-external-link fa-xs"></i> Locations and IP address ranges of CloudFront edge servers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html) for a list of IP addresses.
+
+#### Features that make use of IP addresses
+
+- [PR and MR comments](/category/pr-or-mr-comments)
+- [Semgrep Managed Scans](/deployment/managed-scanning)
+- [Semgrep Assistant](/semgrep-assistant/getting-started)

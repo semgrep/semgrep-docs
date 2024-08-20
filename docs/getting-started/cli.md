@@ -188,7 +188,7 @@ semgrep ci --debug
 
 The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings:
 
-* [Configure blocking rules](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes)
+* [Configure blocking rules](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes)
 * Pass in the `--error` flag when running `semgrep scan`.
 
 When you run `semgrep ci`, you can pass in the `--no-suppress-errors` if you don't want [internal errors suppressed](/cli-reference/#exit-codes).

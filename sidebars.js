@@ -93,6 +93,7 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
                 },
@@ -161,15 +162,7 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/jira',
-          ]
-        },
+        'semgrep-appsec-platform/jira',
         {
           type: 'category',
           label: 'Reports',
@@ -624,6 +617,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/july-2024',
                 'release-notes/june-2024',
                 'release-notes/may-2024',
                 'release-notes/april-2024',

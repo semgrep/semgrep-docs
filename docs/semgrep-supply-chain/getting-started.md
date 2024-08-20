@@ -80,7 +80,7 @@ Depending on how your CI/CD system is configured, you can trigger a Semgrep Supp
   </tr>
   <tr>
    <td>Pull or merge request</td>
-   <td><a href="/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#diff-aware-scanning">Diff-aware scan</a></td>
+   <td><a href="/docs/deployment/customize-ci-jobs#set-up-diff-aware-scans">Diff-aware scan</a></td>
    <td>All dependency rules</td>
   </tr>
   <tr>
@@ -122,7 +122,7 @@ Semgrep Supply Chain versions **v0.122.0** and earlier automatically aided in bl
 
 To enable **Scan Blocking**:
 
-1. Log in to Semgrep AppSec Platform.
+1. Sign in to Semgrep AppSec Platform.
 2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
 3. Click **<i class="fa-solid fa-toggle-large-on"></i> Scan Blocking**.
 

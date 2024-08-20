@@ -32,7 +32,7 @@ To search through your dependencies:
   ![Semgrep Supply Chain Settings tab](/img/sc-settings.png#md-width) *Figure*. The Semgrep Supply Chain Settings tab.
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it is not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
-  ![Semgrep Supply Chain Dependencies tab](/img/sc-dependencies.png#md-width) *Figure*. The Semgrep Supply Chain Dependencies tab.
+  ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) *Figure*. The Semgrep Supply Chain Dependencies tab.
 1. Type the name of the dependency you are searching for.
 2. Optional: Apply filters as necessary for your search.
 
@@ -43,19 +43,21 @@ Search for ranges of supported versions with the `>` or `<` operators following 
 Dependency search provides the following filters, which correspond to the data points displayed by Semgrep about each dependency:
 
 <dl>
+<dt>Dependency</dt>
+<dd>The name and version of the dependency</dd>
 <dt>Projects</dt>
-<dd></dd>
+<dd>The projects where the dependency can be found.</dd>
 <dt>Transitivity</dt>
 <dd>The relationship of the dependency to your codebase. The relationship can be direct, indirect, or unknown.</dd>
 <dt>License Policy</dt>
 <dd>The License Policy you set; determines whether a dependency can be used based on its license.</dd>
 <dt>License</dt>
-<dd>The dependency's license</dd>
+<dd>The dependency's license type.</dd>
 <dt>Ecosystem</dt>
-<dd>The language of the dependency</dd>
+<dd>The language of the dependency.</dd>
 </dl>
 
-![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png)
+![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**_.  Dependency search page with sample search query.
 
 ## Troubleshooting

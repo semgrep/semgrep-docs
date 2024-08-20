@@ -21,6 +21,7 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 - This feature is in **public beta**. See [Limitations](#limitations) for more information.
 - All Semgrep Secrets customers can enable this feature.
+- Currently, only rules that perform HTTP validation are incorporated during historical scanning. Findings that have been verified as valid are surfaced.
 - Please leave feedback either by reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
 
@@ -76,11 +77,9 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 ## View or hide historical findings
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
-1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
-
-![Historical secrets in Semgrep AppSec Platform](/img/historical-secrets-scp.png)
-*Figure.* Historical findings in Semgrep AppSec Platform.
+2. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are labeled as shown in the following screenshot:
+   ![Secrets finding labeled as historical finding](/img/historical-findings.png#md-width)
+3. On the filter panel, select **Include historical findings** to toggle on the display of historical findings.
 
 ## Scope of findings
 
