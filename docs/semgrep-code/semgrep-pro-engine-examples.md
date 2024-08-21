@@ -144,8 +144,7 @@ class BadRequest extends ExampleException {
 
 Where `ExampleException` is thrown, it is also good to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep OSS, Semgrep can find `BadRequest`. Since Semgrep uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
 
-:::tip Try it out
-If you are following in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
+If you are following along with the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
 
 1. Run Semgrep OSS:
     ```sh
@@ -155,7 +154,6 @@ If you are following in the cloned [Semgrep testing repository](https://github.c
     ```sh
     semgrep --config pro.yaml . --pro
     ```
-:::
 
 ### Using class inheritance with typed metavariables
 
@@ -169,13 +167,11 @@ The rule searches for any variable of type `ExampleException` being logged. Semg
 For a more realistic example where typed metavariables are used, see the following [rule written by the Semgrep community](https://semgrep.dev/playground/s/o9l6) to find code vulnerable to the log4j vulnerability.
 :::
 
-:::tip Try it out
-Run Semgrep in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/class_inheritance_with_typed_metavariables` and run the following command:
+To test this example in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), run Semgrep by going to `docs/class_inheritance_with_typed_metavariables` and entering the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
 ```
-:::
 
 ## Constant propagation
 
@@ -204,13 +200,11 @@ public final class Constants {
 
 Semgrep matches the first call without any change to the rule.
 
-:::tip Try it out
-Run Semgrep in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+To test this through the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
 ```
-:::
 
 #### JavaScript and TypeScript
 
@@ -229,7 +223,7 @@ export const EMPLOYEE_TABLE_NAME = "Employees";
 
 Semgrep matches the first call without any change to the rule.
 
-Run Semgrep in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_dangerous_calls` and run the following command:
+To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests),go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -245,7 +239,7 @@ In the previous example, it only mattered cared whether the string was constant 
 
 With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
-Run Semgrep in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
@@ -257,7 +251,7 @@ semgrep --config pro.yaml . --pro
 
 With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
 
-Run Semgrep in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests). Go to `docs/constant_propagation_propagating_values` and run the following command:
+To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), go to `docs/constant_propagation_propagating_values` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
