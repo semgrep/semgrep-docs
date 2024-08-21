@@ -39,6 +39,7 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart',
+            'getting-started/quickstart-sms',
             'prerequisites',
             'supported-languages',
             {
