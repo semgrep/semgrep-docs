@@ -190,7 +190,8 @@ It can take a few minutes for your latest scan's logs to appear. However, if the
 
 #### All scans
 
-To view all scans, click the project's **Details** page, then click the **Scans** tab.
+1. Click the project's **Details** page > **Scans** tab. 
+1. Click the **<i class="fas fa-scroll"></i>** scroll icon under **Logs** to view the log for the particular entry. 
 
 ### Scan statistics
 
