@@ -1,7 +1,7 @@
 ---
 slug: quickstart-managed-scans
 append_help_link: true
-title: "Quickstart: Managed scans"
+title: "Quickstart: Managed Scans"
 hide_title: true
 description: Set up Semgrep Managed Scans when you sign in to Semgrep for the first time.
 tags:
