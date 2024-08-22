@@ -15,12 +15,12 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 
 ## Supported source code managers
 
-- Semgrep Managed Scans is available for **GitHub Cloud (GitHub.com) and GitHub Enterprise Server**.
+- Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
 
 ## Prerequisites
 
 - Admin access to your GitHub organization.
-- **Read access** to your code must be granted. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
+- **Read access** to your code must be granted to Semgrep. This is achieved through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
 
 ## Add repositories to Semgrep Managed Scans
 
@@ -43,8 +43,8 @@ You have finished setting up a Semgrep managed scan.
 
 Once a scan has finished, you can view your findings by clicking any of the following on the navigation menu:
 
-- [Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
-- [Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
-- [Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
+- [<i class="fas fa-external-link fa-xs"></i>  Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
+- [<i class="fas fa-external-link fa-xs"></i> Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
+- [<i class="fas fa-external-link fa-xs"></i> Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
 
 To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning).
