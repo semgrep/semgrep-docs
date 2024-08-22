@@ -19,9 +19,11 @@ Learn how to set up Semgrep, scan your first project for security issues, and vi
 You must have Python 3.8 or later installed on the machine where the Semgrep CLI is running.
 :::
 
-1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
-2. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
-3. Launch your CLI, and follow the instructions on the [**Scan a project on your machine**](https://semgrep.dev/onboarding/scan) page. For your convenience, the same information is presented below, along with instructions for Windows users.
+1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
+1. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
+1. Select a reason why you're using Semgrep.
+1. Click **Run on CLI**.
+1. Launch your CLI, and follow the instructions on the [**Scan a project on your machine**](https://semgrep.dev/onboarding/scan) page. For your convenience, the same information is presented below, along with instructions for Windows users.
 
     <Tabs
         defaultValue="macOS"

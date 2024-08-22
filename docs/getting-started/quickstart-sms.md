@@ -11,12 +11,40 @@ tags:
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans (beta) is the quickest method to scan repositories at scale with Semgrep.
+Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale with Semgrep. Instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add to it.
 
-Semgrep Managed Scans is available for **GitHub users of any plan only**.
+## Supported source code managers
 
-:::info Code access
-**Read access** to your code is required to enable Semgrep Managed Scans. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
-:::
+- Semgrep Managed Scans is available for **GitHub Cloud (GitHub.com) and GitHub Enterprise Server**.
 
-1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub**. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
+## Prerequisites
+
+- Admin access to your GitHub organization.
+- **Read access** to your code must be granted. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
+
+## Add repositories to Semgrep Managed Scans
+
+1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
+1. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
+1. Select a reason why you're using Semgrep.
+1. When asked **Where do you want to scan?** click **GitHub**.
+1. Follow the steps in the **Connect GitHub to Semgrep** page. These steps install a public GitHub app, which handles PR comments, and a private GitHub app, which handles code access. You are able to select which repositories these apps have access to, and have full control over removing them or revoking their permissions.
+1. Click **Set up projects**. You are taken to the **Enable Managed Scans for GitHub repos** page.
+1. Select all the repositories you want to add to Semgrep Managed Scans for scanning.
+1. Click **Enable Managed Scans**. You are taken to the **Projects** page as your scans begin.
+
+You have finished setting up a Semgrep managed scan.
+
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
+- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- Projects scanned through Managed Scans are tagged with `managed-scan`.
+
+## Next steps
+
+Once a scan has finished, you can view your findings by clicking any of the following on the navigation menu:
+
+- [Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
+- [Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
+- [Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
+
+To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning).
