@@ -217,7 +217,7 @@ To run your rule against selected repositories or projects:
 
 Upon saving, a rule’s visibility is **private** by default. A private rule is visible only to members within an organization.
 
-- To share a rule, click **Share > Public > Confirm**. If you want to share this specific version of the rule, you can also toggle Permalink. This provides a shortlink to this version of the rule, which will not change if the rule is modified.
+- To share a rule outside your organization, click **Share > Public > Confirm**. If you want to share this specific version of the rule, you can also toggle Permalink. This provides a shortlink to this version of the rule, which will not change if the rule is modified.
 - To share a private rule with those who can access it, click **Share** and copy the **URL link**.
 
 Some older rules in Semgrep AppSec Platform may be **unlisted** rather than private. These rules are marked with an icon without a lock, and can be shared with anyone, including those who cannot access Semgrep AppSec Platform.
