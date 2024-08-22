@@ -175,7 +175,9 @@ To **view** the repositories you have granted access to:
 1. Review the repositories under repository access.
 1. Perform steps 2 and 3 on the entry of your private Semgrep GitHub app.
 
-### Scan logs and statistics
+### Scan logs
+
+#### Most recent scan
 
 You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
 
@@ -185,5 +187,11 @@ _**Figure**. The Projects page. Click the project's latest scan (underlined) to 
 :::info
 It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
 :::
+
+#### All scans
+
+To view all scans, click the project's **Details** page, then click the **Scans** tab.
+
+### Scan statistics
 
 **Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.
