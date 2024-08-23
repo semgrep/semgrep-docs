@@ -1,5 +1,6 @@
 :::tip
-If you do not see any findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
+- If you do not see any findings, or there are zero findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
+- The total count of findings in the **Projects** page is based on the **latest scanned branch**, not the primary branch, so it may differ.
 :::
 
 A **single** finding may appear in several branches. These appearances are called **instances** of a finding. Several instances of the same finding may differ in which line of code (LOC) they are on or in their triage state. For example, on `production` the finding may be on line 20, but the same finding was moved further to line 26 in `feature-branch-a`.
