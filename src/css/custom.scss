@@ -37,6 +37,14 @@
   --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 78px;
 
+
+  /**************************************************************************
+   * 2024 August style consolidation with marketing website                 *
+   *************************************************************************/
+  /* --ifm-font-color-base: #101828; Blue01*/
+  /* --ifm-font-color-base: #646D82; Blue03 */
+  --ifm-font-color-base: #3B4456; /* Blue02 */
+
   /**************************************************************************
    * MARKPROMPT                                                             *
    *************************************************************************/
@@ -287,7 +295,15 @@ details.alert {
   transform: rotate(-90deg) scale(75%);
 }
 
-/* globals */
+/******************************************************************************
+ *                                                                            *
+ * GLOBALS                                                                    *
+ * html, h1, p, etc.                                                          *
+ *****************************************************************************/
+
+ /**************************************************************************
+  * 2024 August style consolidation with marketing website                 *
+  *************************************************************************/
 
 * {
   font-variant-ligatures: none;
@@ -297,6 +313,7 @@ html {
   font-family: "Inter", sans-serif !important;
   font-weight: 400;
   word-break: keep-all;
+  line-height: 1.5;
 }
 
 h1,
@@ -305,28 +322,38 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 400;
   font-family: "Inter", sans-serif !important;
+  color: #101828;
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 45px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
 }
 
 h2 {
     font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 h3 {
-    font-size: 28px;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 h4 {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 
 h5 {
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 h6 {
