@@ -43,7 +43,8 @@ This feature may affect any bookmarks or saved links created for custom views or
   - `ref=_default`
   - `ref=_other`
 - For **Code** page and **Supply Chain > Vulnerabilities** tab:
-  - If you have any bookmarks that use the `ref` parameter without a `repo`, or a `repo` parameter without a `ref`, your URL will be redirected to the default view instead.
+  - Bookmarks that use the `ref` parameter without a `repo`, your URL will be redirected to the default view instead.
+  - Bookmarks that use any number of `repo` parameters without a `ref` will display the findings of primary branches for all repositories selected.
   - Any filters using multiple `refs` now show only one `ref`, such as the primary branch.
 
 ## Set a project's primary branch
@@ -65,7 +66,10 @@ You can also send a `patch` request to the following endpoint: [Deployment > Pro
 
 ### How Semgrep counts findings in the Projects page
 
-You can view a total count of findings in the **Projects** page for all Semgrep products. This total count is computed from the **latest scanned branch**, not the primary branch.
+You can view a total count of findings in the **Projects** page for all Semgrep products.
+
+- For Code and Supply Chain, this total count is computed from the **latest scanned branch**, not the primary branch.
+- For Secrets, this total count is computed from deduplicated findings across all branches.
 
 This means that the count of findings in your Code, Secrets, or Supply Chain page may differ from the counts in your Projects page.
 
