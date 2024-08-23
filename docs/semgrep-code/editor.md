@@ -248,7 +248,7 @@ If successful, you'll see a pop-up window indicating that your rule has been add
 
 ## Organize private rules
 
-All private rules for an organization are saved to the organization's folder. To further organize rules, consider organizational naming conventions to keep related rules near each other, such as by internal team, rule language, or vulnerability category.
+All private rules for an organization are saved to the organization's folder. To further organize rules, consider organizational naming conventions to facilitate searching for and identifying rules. Useful naming conventions might include internal team, rule language, or vulnerability category.
 
 ## Semgrep Registry rules
 
