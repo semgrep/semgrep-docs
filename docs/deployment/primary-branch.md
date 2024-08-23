@@ -49,6 +49,10 @@ This feature may affect any bookmarks or saved links created for custom views or
 
 ## Set a project's primary branch
 
+:::note
+If this is your first time setting up primary branches, you may have to sign out then in again for the feature to be fully activated. You only need to do this once.
+:::
+
 ### Through the web app
 
 1. In the Semgrep web app, click **Projects**.
