@@ -70,7 +70,7 @@
    *************************************************************************/
   /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
   /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
-  --ifm-font-color-base: var(--semgrep-secondary-blue02);
+  --ifm-font-color-base: var(--semgrep-secondary-blue03);
   --ifm-background-color: var(--semgrep-secondary-mint05);
 
   /**************************************************************************
@@ -353,7 +353,6 @@ html {
   font-weight: 400;
   word-break: keep-all;
   line-height: 1.5;
-  color: var(--semgrep-secondary-blue02);
 }
 
 h1,
