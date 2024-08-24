@@ -7,8 +7,36 @@
 
 /* You can override the default Infima variables here. */
 
+  /**************************************************************************
+   * 2024 August style consolidation with marketing website                 *
+   *************************************************************************/
+
 
 :root {
+  --semgrep-brand-green: #2ACFA6
+  --semgrep-secondary-mint01: #AFEAD8
+  --semgrep-secondary-mint02: #DEEDE8
+  --semgrep-secondary-mint03: #EAF0EF
+  --semgrep-secondary-mint04: #F3F6F6
+  --semgrep-secondary-mint05: #F8F9F9
+
+  --semgrep-secondary-purple01: #624DEF
+  --semgrep-secondary-purple02: #9485F4
+  --semgrep-secondary-purple03: #D5D0F6
+  --semgrep-secondary-yellow01: #FFBF19
+  --semgrep-secondary-orange01: #FF4F03
+
+  --semgrep-secondary-blue01: #101828
+  --semgrep-secondary-blue02: #3B4456
+  --semgrep-secondary-blue03: #646D82
+
+  --semgrep-secondary-green01: #232928
+  --semgrep-secondary-green02: #384240
+  --semgrep-secondary-green03: #314944
+
+  --semgrep-offwhite: #FCFCFC
+  --semgrep-grey-100: #F5F5F5
+
   --ifm-color-primary: #00A67D; /*use for category headers */
   --ifm-color-primary-dark: #00b581;
   --ifm-color-primary-darker: #00a674;
@@ -16,8 +44,8 @@
   --ifm-color-primary-light: #2acfa6;
   --ifm-color-primary-lighter: #77dec0;
   --ifm-color-primary-lightest: #DFF7F0;
-  --ifm-background-color: #f8f9f9;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-lightest);
+  --ifm-background-color: #f8f9f9;
 
   --ifm-breadcrumb-border-radius: 0.25rem;
   --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
@@ -43,7 +71,8 @@
    *************************************************************************/
   /* --ifm-font-color-base: #101828; Blue01*/
   /* --ifm-font-color-base: #646D82; Blue03 */
-  --ifm-font-color-base: #3B4456; /* Blue02 */
+  --ifm-font-color-base: var(--semgrep-secondary-blue02)
+
 
   /**************************************************************************
    * MARKPROMPT                                                             *
