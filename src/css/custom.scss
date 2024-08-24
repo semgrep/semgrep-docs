@@ -45,7 +45,6 @@
   --ifm-color-primary-lighter: #77dec0;
   --ifm-color-primary-lightest: #DFF7F0;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-lightest);
-  --ifm-background-color: var(--semgrep-offwhite);
 
   --ifm-breadcrumb-border-radius: 0.25rem;
   --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
@@ -69,10 +68,10 @@
   /**************************************************************************
    * 2024 August style consolidation with marketing website                 *
    *************************************************************************/
-  /* --ifm-font-color-base: #101828; Blue01*/
-  /* --ifm-font-color-base: #646D82; Blue03 */
-  --ifm-font-color-base: var(--semgrep-secondary-blue02)
-
+  /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
+  /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
+  --ifm-font-color-base: var(--semgrep-secondary-blue02);
+  --ifm-background-color: var(--semgrep-secondary-mint05);
 
   /**************************************************************************
    * MARKPROMPT                                                             *
@@ -332,8 +331,19 @@ details.alert {
 
  /**************************************************************************
   * 2024 August style consolidation with marketing website                 *
+  * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
+pre > code {
+  background-color: var(--semgrep-offwhite);
+}
+
+.alert--info {
+  background-color: var(--semgrep-secondary-bluetemp);
+}
+.alert--secondary {
+  background-color: var(--semgrep-grey-100);
+}
 * {
   font-variant-ligatures: none;
 }
@@ -343,6 +353,7 @@ html {
   font-weight: 400;
   word-break: keep-all;
   line-height: 1.5;
+  color: var(--semgrep-secondary-blue02);
 }
 
 h1,
