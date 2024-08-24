@@ -71,7 +71,7 @@
   /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
   /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
   --ifm-font-color-base: var(--semgrep-secondary-blue02);
-  --ifm-background-color: var(--semgrep-secondary-mint05);
+  --ifm-background-color: var(--semgrep-offwhite);
 
   /**************************************************************************
    * MARKPROMPT                                                             *
@@ -334,7 +334,7 @@ details.alert {
   * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
-pre > code {
+/* pre > code {
   background-color: var(--semgrep-offwhite);
 }
 
@@ -343,7 +343,7 @@ pre > code {
 }
 .alert--secondary {
   background-color: var(--semgrep-grey-100);
-}
+} */
 * {
   font-variant-ligatures: none;
 }
