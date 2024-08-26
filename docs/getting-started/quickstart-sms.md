@@ -11,7 +11,7 @@ tags:
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale with Semgrep. Instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add to it.
+Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale with Semgrep. Instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
 
 ## Supported source code managers
 
