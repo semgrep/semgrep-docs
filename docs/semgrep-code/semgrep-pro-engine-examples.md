@@ -223,7 +223,7 @@ export const EMPLOYEE_TABLE_NAME = "Employees";
 
 Semgrep matches the first call without any change to the rule.
 
-To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests),go to `docs/constant_propagation_dangerous_calls` and run the following command:
+To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), go to `docs/constant_propagation_dangerous_calls` and run the following command:
 
 ```sh
 semgrep --config pro.yaml . --pro
