@@ -98,7 +98,7 @@ For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-con
 :::info MR comments with multiple GitLab groups
 If you're using Semgrep with multiple GitLab groups, ensure that you've completed one of the following steps to ensure that you see MR comments for repositories associated with all of your groups:
 
-1. 1. Create a Semgrep account connection with each GitLab group by signing in to your Semgrep account, navigating to **Settings > Source code managers**, and adding an entry for each group. Note that you only need to add an entry for the parent group to onboard a parent group and all of its subgroups.
+1. Create a Semgrep account connection with each GitLab group by signing in to your Semgrep account, navigating to **Settings > Source code managers**, and adding an entry for each group. Note that you only need to add an entry for the parent group to onboard a parent group and all of its subgroups.
 2. Add the `GITLAB_TOKEN` environment variable to your CI configuration. You can set `GITLAB_TOKEN` to the GitLab PAT that grants access to all of your GitLab groups, if possible, or you can use a different GitLab PAT for each of your GitLab groups.
 :::
 
