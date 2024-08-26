@@ -24,7 +24,7 @@ The following resources can help you test the code in the sections below. As you
   ```sh
   git clone https://github.com/semgrep/semgrep-pro-tests
    ```
-  - Follow the instructions in the sections of this document. To run Semgrep in the cloned testing repository with cross-file (interfile) analysis, enter:
+  - Follow the instructions in the subsequent sections of this document using this testing repository. To run Semgrep in the cloned testing repository with cross-file (interfile) analysis, enter:
     ```sh
     semgrep --pro --config=pro.yaml .
     ```
