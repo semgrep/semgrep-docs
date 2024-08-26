@@ -71,7 +71,7 @@ The JavaScript and TypeScript ecosystems contain various ways for importing and 
 
 ##### ES6
 
-Semgrep can track data through the definition of exports for es6:
+Semgrep can track data through the definition of exports for ES6:
 
 ```js
 export function readUser() {
