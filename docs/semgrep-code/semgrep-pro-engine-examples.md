@@ -9,7 +9,7 @@ toc_max_heading_level: 5
 
 This document provides an overview of Semgrep's proprietary cross-file (interfile) and cross-function (intrafile) taint analysis features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis.
 
-Differences between Semgrep and Semgrep OSS can be observed by viewing the examples in a separate Playground tab. See the following section for more information.
+Differences between Semgrep and Semgrep OSS can be observed by viewing the examples in separate Playground tabs. See the following section for more information.
 
 Note that Semgrep cross-file analysis implies cross-function analysis as well.
 
