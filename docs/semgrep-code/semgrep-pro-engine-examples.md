@@ -67,7 +67,7 @@ semgrep --config pro.yaml . --pro
 
 #### ES6 and CommonJS
 
-The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code, Semgrep can track dataflow through ES6 imports or exports and some CommonJS export paths (See [Known limitations of cross file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis).
+The JavaScript and TypeScript ecosystems contain various ways for importing and exporting code. Semgrep can track dataflow through ES6 imports or exports and some CommonJS export paths. See [Known limitations of cross file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis).
 
 ##### ES6
 
