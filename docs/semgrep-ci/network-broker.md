@@ -89,17 +89,17 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
   # for GitLab
   gitlab:
     baseUrl: <https://gitlab.exampleCo.net/api/v4>
-    token: gitlab-pat
+    token: GITLAB_PAT
 
   # for GitHub
   github:
     baseUrl: <https://github.exampleCo.com/api/v3>
-    token: github-pat
+    token: GITHUB_PAT
 
   # for Bitbucket - compatible with Network Broker versions 0.20.0 and later
   bitbucket:
     baseUrl: <https://bitbucket.example.com/rest/api/latest>
-    token: bitbucket-access-token
+    token: BITBUCKET_ACCESS_TOKEN
 ```
 
 ### Add your local address to the config
