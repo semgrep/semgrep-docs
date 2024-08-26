@@ -231,7 +231,7 @@ semgrep --config pro.yaml . --pro
 
 ### Propagating values
 
-In the previous example, it only mattered cared whether the string was constant or not, so the example used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of Semgrep with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
+In the previous example, it only mattered whether the string was constant or not, so the example used `”...”`, but constant propagation also propagates the constant value. To illustrate the use of Semgrep with constant propagation, the rule from the previous section is changed to search for calls to `dangerous("Employees");`.
 
 #### Java
 
