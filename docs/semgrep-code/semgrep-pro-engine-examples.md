@@ -249,7 +249,7 @@ semgrep --config pro.yaml . --pro
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pORk" width="100%" height="432" frameborder="0"></iframe>
 
-With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently:
+With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently.
 
 To test this in the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), go to `docs/constant_propagation_propagating_values` and run the following command:
 
