@@ -154,6 +154,30 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
 3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
 
+### Use your own OpenAI API key
+
+If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Your OpenAI API key**, and provide your API key.
+
+Click **Save** to proceed.
+
+By switching from Semgrep's key to your key, note that you lose access to the following:
+
+- Semgrep’s fine-tuned models that can increase the quality of results.
+- Semgrep's Zero Data Retention agreement that prevents OpenAI from saving input or output data.
+- Semgrep paying for the cost of your AI usage.
+
+#### Additional AI providers
+
+If you would like access to the following AI providers for use with your Semgrep organization, click the <i class="fa-regular fa-envelope"></i> **icon** next to the AI provider of your choice to request access:
+
+- Azure OpenAI
+- AWS Bedrock
+- Google Gemini
+
 ## Analyze findings
 
 Once you've enabled Assistant, you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, auto-triage, and component tagging, on existing findings.
