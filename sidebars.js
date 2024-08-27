@@ -204,6 +204,7 @@ module.exports = {
                 'semgrep-code/triage-remediation',
                 'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
+                'semgrep-code/semgrep-pro-engine-examples',
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
