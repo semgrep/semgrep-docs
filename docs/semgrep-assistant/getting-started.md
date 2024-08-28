@@ -57,7 +57,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    1. **Weekly priority emails**: Enable weekly emails with information on Assistant's top three backlog tasks across all findings. The emails are sent out on Monday to all organization admins.
    1. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-   1. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   1. **Autofix suggestions for Code**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
     ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
 
 </TabItem>
@@ -118,7 +118,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ### Enable autofix suggestions
 
-Autofix allows you to receive code snippets to remediate true positives. Perform the following to enable it:
+Assistant autofix allows you to receive AI-generated code snippets to remediate true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
