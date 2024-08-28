@@ -15,12 +15,17 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 
 ## Supported source code managers
 
-- Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
+Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
+
+## Requirements
+
+To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
+
+Read access is permitted through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
 
 ## Prerequisites
 
 - Admin access to your GitHub organization.
-- **Read access** to your code must be granted to Semgrep. This is achieved through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
 
 ## Add repositories to Semgrep Managed Scans
 
@@ -39,7 +44,9 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 
 You have finished setting up a Semgrep managed scan.
 
-- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
+Here are some behaviors and characteristics of a managed scan:
+
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories that have been added to it.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects scanned through Managed Scans are tagged with `managed-scan`.
 
