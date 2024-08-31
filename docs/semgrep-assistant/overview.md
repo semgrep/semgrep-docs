@@ -15,7 +15,7 @@ tags:
 
 Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
+![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
 *Figure*. Semgrep Assistant detects a false positive.
 
 ## Support and availability
@@ -42,7 +42,7 @@ Semgrep Assistant supports [the same languages as Semgrep Code](/supported-langu
 
 By categorizing your code through component tags, Semgrep Assistant can help you prioritize **high-risk issues**, such as remediating a code finding related to payments or user authentication.
 
-![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
+![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
 
 Component tags are available in Semgrep AppSec Platform's **Findings** page.
 
@@ -52,7 +52,7 @@ Semgrep Assistant uses GPT-4's understanding of programming languages and librar
 
 Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
+![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
 *Figure*. Semgrep Assistant auto-triage in the Findings page.
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
@@ -68,12 +68,12 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 With Assistant enabled, every PR or MR comment Semgrep pushes includes remediation guidance with information on fixing the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
 
-![PR comments with remediation advice](/img/assistant-guidance.png)
+![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Findings detail with remediation advice](/img/assistant-guidance-ui.png)
+![Findings detail with remediation advice](/img/assistant-guidance-ui.png#md-width)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
 
 ### Memories (beta)
@@ -90,12 +90,12 @@ Assistant customizes the code snippets it provides based on previous feedback, i
 
 Autofixes are available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before applying them.
 
-![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png)
+![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
 *Figure*. Semgrep Assistant generates a potential fix in a PR comment.
 
 Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png)
+![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
 
 The finding's details include a link to the PR or MR with the autofix, so you can go directly to the PR or MR to commit the autofix.
@@ -104,14 +104,14 @@ The finding's details include a link to the PR or MR with the autofix, so you ca
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
-### Priority inbox
+### Weekly priority emails
 
 Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
 This information is also available in Semgrep AppSec Platform on the **Dashboard** page under **Assistant recommended tasks**.
 
-![Semgrep Assistant's priority inbox email and Dashboard view](/img/priority-inbox.png#md-width)
-*Figure*. Semgrep Assistant's priority inbox Dashboard view.
+![Semgrep Assistant's weekly recommended tasks view in the Dashboard](/img/priority-inbox.png#md-width)
+*Figure*. Semgrep Assistant's recommended tasks Dashboard view.
 
 ### Custom rules editor (beta)
 

@@ -48,6 +48,7 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
+      token: GITLAB_PAT
 ```
 
   The `publicKey` value should be entered precisely as shown in the example:
@@ -65,7 +66,7 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
 1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the network broker version number:
 
-  <pre class="language-console"><code>echo `<span className="placeholder">YOUR_PRIVATE_KEY</span>` | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
+  <pre class="language-console"><code>echo <span className="placeholder">YOUR_PRIVATE_KEY</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
   :::info Key sharing
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
@@ -82,21 +83,28 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
 
 ### Update the config with your SCM information
 
-Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL, for GitHub, GitLab, or Bitbucket Data Center:
+Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL, for GitHub, GitLab, or Bitbucket Data Center.
 
-```yaml
-  # for GitLab
-  gitlab:
-    baseUrl: <https://gitlab.exampleCo.net/api/v4>
+For GitLab: 
+<pre class="language-console"><code>
+gitlab:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
+</code></pre>
 
-  # for GitHub
-  github:
-    baseUrl: <https://github.exampleCo.com/api/v3>
+For GitHub:
+<pre class="language-console"><code>
+github:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
+</code></pre>
 
-  # for Bitbucket - compatible with Network Broker versions 0.20.0 and later
-  bitbucket:
-    baseUrl: <https://bitbucket.example.com/rest/api/latest>
-```
+For Bitbucket  - compatible with Network Broker versions 0.20.0 and later:
+<pre class="language-console"><code>
+bitbucket:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
+</code></pre>
 
 ### Add your local address to the config
 
