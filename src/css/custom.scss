@@ -70,7 +70,7 @@
    *************************************************************************/
   /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
   /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
-  --ifm-font-color-base: var(--semgrep-secondary-blue03);
+  --ifm-font-color-base: var(--semgrep-secondary-blue02);
   --ifm-background-color: var(--semgrep-secondary-mint05);
 
   /**************************************************************************
@@ -150,7 +150,7 @@
  *                                                                            *
  *****************************************************************************/
 
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap');
 
 html[data-theme="dark"] {
  --docusaurus-highlighted-code-line-bg: #737373;
@@ -400,7 +400,7 @@ h6 {
 }
 
 dt {
-    font-weight:700;
+    font-weight:600;
 }
 
 dd > ul {
