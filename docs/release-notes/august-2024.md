@@ -62,5 +62,8 @@ tags:
 ## 🔧 OSS Engine
 
 * The following versions of the OSS Engine were released in August 2024:
-  * [<i class="fas fa-external-link fa-xs"></i>VERSION](https://github.com/semgrep/semgrep/releases/tag/VERSION)
+  * [<i class="fas fa-external-link fa-xs"></i>1.83.0](https://github.com/semgrep/semgrep/releases/tag/v1.83.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.0](https://github.com/semgrep/semgrep/releases/tag/v1.84.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.1](https://github.com/semgrep/semgrep/releases/tag/v1.84.1)
+  * [<i class="fas fa-external-link fa-xs"></i>1.85.0](https://github.com/semgrep/semgrep/releases/tag/v1.85.0)
 
