@@ -15,6 +15,10 @@ tags:
 
 ### Added
 
+- A new **primary branch** feature is now in private beta. This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`.
+-
+
+
 ### Changed
 
 ### Fixed
@@ -55,12 +59,32 @@ tags:
 
 ### Added
 
+- Documentation for providing your own OpenAI API key.
+- EPSS documentation.
+- Sections for various source code manager improvements, such as:
+  - Support for multiple GitHub Enterprise Server organizations.
+  - MR comments for multiple GitLab groups.
+- Documentation specifying which features make use of the IP addresses that you must add to your allowlist when you deploy Semgrep.
+
 ### Changed
 
+- Various improvements to the Network broker documentation, such as:
+  - Improved logging documentation.
+  - Clarified variable names and placeholder values that users should replace.
+- Various updates to Editor documentation as a whole.
+- Various updates to Semgrep Assistant documentation.
+- Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
+
 ### Fixed
+
+- Updated and fixed various broken links.
+- Minor typographical fixes.
+
+### Removed
+
+- Removed the Ticketing page; currently Semgrep supports Jira exclusively. Semgrep may reopen betas for future ticketing integrations.
 
 ## 🔧 OSS Engine
 
 * The following versions of the OSS Engine were released in August 2024:
   * [<i class="fas fa-external-link fa-xs"></i>VERSION](https://github.com/semgrep/semgrep/releases/tag/VERSION)
-
