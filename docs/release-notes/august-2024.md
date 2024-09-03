@@ -13,6 +13,7 @@ tags:
 
 ## 🌐 Semgrep AppSec Platform
 
+
 ### Added
 
 ### Changed
@@ -43,6 +44,8 @@ tags:
 
 ### Added
 
+- The Semgrep AppSec Platform now displays EPSS scores for all Supply Chain findings. The [exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/) represents the likelihood that the vulnerability will be exploited in the wild in the next 30 days, where the higher the score, the greater the probability the vulnerability is exploited.
+
 ### Changed
 
 - The link to the Supply Chain findings page in Semgrep AppSec Platform filters to the specific repository and `ref` on which the findings are detected.
@@ -53,6 +56,9 @@ tags:
 
 ### Added
 
+- Added the ability for Semgrep Assistant users to use their own OpenAI API key instead of Semgrep's. This allows users to have complete control over how OpenAI handles their data.
+- Added the ability to query for Assistant's remediation gudiance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
+
 ### Changed
 
 ### Fixed
@@ -62,6 +68,9 @@ tags:
 ### Added
 
 ### Changed
+
+- The Secrets findings page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
+- Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
 
 ### Fixed
 
