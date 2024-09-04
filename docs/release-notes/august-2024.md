@@ -48,12 +48,8 @@ tags:
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
-- EPSS scores
 
-### Changed
-
-### Fixed
-
+- You can now view and filter through EPSS scores for your Supply Chain findings.
 
 ## 🤖 Semgrep Assistant
 
@@ -84,20 +80,20 @@ Secrets is no longer self serve
 
 ### Added
 
-- Documentation for providing your own OpenAI API key.
+- Documentation for providing your [own OpenAI API key](/semgrep-assistant/getting-started#use-your-own-openai-api-key) for use with Semgrep Assistant.
 - EPSS documentation.
-- Sections for various source code manager improvements, such as:
+- Sections for various source code manager additions, such as:
   - Support for multiple GitHub Enterprise Server organizations.
   - MR comments for multiple GitLab groups.
-- Documentation specifying which features make use of the IP addresses that you must add to your allowlist when you deploy Semgrep.
+- Documentation specifying which features make use of the [IP addresses](/deployment/checklist#ip-addresses) that you must add to your allowlist when you deploy Semgrep.
 
 ### Changed
 
-- Various improvements to the Network broker documentation, such as:
-  - Improved logging documentation.
+- Various improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**, such as:
+  - Improved logging guidance.
   - Clarified variable names and placeholder values that users should replace.
-- Various updates to Editor documentation as a whole.
-- Various updates to Semgrep Assistant documentation.
+- Various updates to [Editor documentation](https://semgrep.dev/docs/semgrep-code/editor) as a whole.
+- Various updates to [Semgrep Assistant](/semgrep-assistant/overview) documentation.
 - Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
 
 ### Fixed
@@ -107,7 +103,7 @@ Secrets is no longer self serve
 
 ### Removed
 
-- Removed the Ticketing page; Semgrep supports Jira exclusively and other ticketing integration betas have been closed. Semgrep may reopen betas for future ticketing integrations.
+- Removed the Ticketing page; Semgrep supports Jira exclusively. Other ticketing integration betas have been closed. Semgrep may reopen beta programs for future ticketing integrations.
 
 ## 🔧 OSS Engine
 
