@@ -13,13 +13,14 @@ tags:
 
 ## 🌐 Semgrep AppSec Platform
 
-
 ### Added
 
 - A new **primary branch** feature is now generally available (GA)! This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
 - **Semgrep Managed Scans**: You can now view logs of all scans by going to the project's **Details** page.
 - **Projects > Details page**: For projects using Semgrep in CI, you are now able to view the job log for a particular scan <!-- 15974 -->
-- **Jira**: Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
+- **Jira**:
+  - Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
+  - Added Jira ticket information to information returned from the Findings API.
 - Added initial page state for **Project > Details > Scans** tab. <!-- 15805 -->
 
 ### Changed
@@ -42,8 +43,8 @@ tags:
 
 ### Added
 
-- Docker: Semgrep ellipses `...` are now allowed in patterns for `HEALTHCHECK` commands.
-- Terraform: added support for `.tfvars` files. <!-- SAF-1481 -->
+- **Docker**: Semgrep ellipses `...` are now allowed in patterns for `HEALTHCHECK` commands.
+- **Terraform**: added support for `.tfvars` files. <!-- SAF-1481 -->
 
 ### Changed
 
@@ -68,21 +69,18 @@ tags:
 
 ### Fixed
 
+- Fixed an issue where Supply Chain's Findings Detail pages weren't showing detailed error information.
+
 ## 🤖 Semgrep Assistant
 
 ### Added
 
+- Assistant Memories is now in public beta. Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis.
 - Added the ability for Semgrep Assistant users to use their own OpenAI API key instead of Semgrep's. This allows users to have complete control over how OpenAI handles their data.
 - Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
-<!-- Memories -->
-
-### Changed
-
-### Fixed
 
 ## 🔐 Semgrep Secrets
 
-### Added
 
 ### Changed
 
