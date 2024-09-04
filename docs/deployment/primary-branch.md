@@ -29,7 +29,7 @@ Projects without primary branches have an orange information icon <span style={{
 
 ## Changes to existing URLs
 
-For Semgrep AppSec Platform users prior to September 4, 2024, this feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
+For Semgrep AppSec Platform users whose accounts were created prior to September 4, 2024, this feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
 
 - The following parameters are deprecated:
   - `ref=_default`
