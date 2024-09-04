@@ -17,7 +17,7 @@ tags:
 
 - A new **primary branch** feature is now generally available (GA)! This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
 - **Semgrep Managed Scans**: You can now view logs of all scans by going to the project's **Details** page.
-- **Projects > Details page**: For projects using Semgrep in CI, you are now able to view the job log for a particular scan <!-- 15974 -->
+- **Projects > Details page**: For projects using Semgrep in CI, you are now able to view the job log for a particular scan. <!-- 15974 -->
 - **Jira**:
   - Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
   - Added Jira ticket information to information returned from the Findings API.
