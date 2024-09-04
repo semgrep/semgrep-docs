@@ -29,7 +29,7 @@ Projects without primary branches have an orange information icon <span style={{
 
 ## Changes to existing URLs
 
-For customers prior to September 4, 2024, this feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
+For Semgrep AppSec Platform users prior to September 4, 2024, this feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
 
 - The following parameters are deprecated:
   - `ref=_default`
@@ -47,6 +47,10 @@ For customers prior to September 4, 2024, this feature may affect any bookmarks 
   - [How Semgrep counts findings in the projects page](/deployment/primary-branch#how-semgrep-counts-findings-in-the-projects-page)
 
 ### Through the web app
+
+:::info
+For Semgrep AppSec Platform users prior to September 4, 2024 you may have to sign out and sign in again for this feature to appear.
+:::
 
 1. In the Semgrep web app, click **Projects**.
 1. Search for your project's name.
@@ -72,6 +76,6 @@ This means that the count of findings in your Code, Secrets, or Supply Chain pag
 
 The following links explain how Semgrep presents findings for each Semgrep product in their respective page:
 
-- [Semgrep Code default view](/docs/semgrep-code/findings#for-primary-branch-beta-participants)
-- [Semgrep Supply Chain default view](/semgrep-supply-chain/triage-and-remediation#for-primary-branch-beta-participants)
-- [Semgrep Secrets default view ](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)
+- [Semgrep Code default view](/docs/semgrep-code/findings#default-code-page-view)
+- [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation#default-supply-chain--vulnerabilities-tab-view)
+- [Semgrep Secrets default view](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)
