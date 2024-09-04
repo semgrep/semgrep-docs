@@ -1,6 +1,6 @@
 ---
 slug: primary-branch
-title: Set a primary branch (beta)
+title: Set a primary branch
 hide_title: true
 description: Set your primary or default branch to ensure Semgrep full scans display accurate counts and deduplicated findings.
 tags:
@@ -12,14 +12,6 @@ tags:
 A **primary branch** is the base or target branch for pull and merge requests. It is usually referred to as a **default branch** or **trunk** by your source code manager (SCM). Typical names for a primary branch include `dev`, `production`, or `develop`.
 
 In many cases, Semgrep automatically detects primary branches when they first scan your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
-
-:::note
-- This feature is in **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the primary branch beta.
-- Primary branches are set on a **per-project** basis in the Semgrep web app. To quickly update your primary branches, use the [API endpoint](#through-an-api-endpoint).
-- For more information on how primary branches may affect existing projects behavior see:
-  - [Changes to existing URLs](#changes-to-existing-urls)
-  - [How Semgrep counts findings in the projects page](/deployment/primary-branch#how-semgrep-counts-findings-in-the-projects-page)
-:::
 
 A primary branch enables Semgrep to filter your findings by branch and to accurately deduplicate findings. The primary branch is also used to analyze the deployment of [secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep) to your developers; findings fixed before they are merged into the primary branch reduces the overall production backlog.
 
@@ -37,9 +29,9 @@ Projects without primary branches have an orange information icon <span style={{
 
 ## Changes to existing URLs
 
-This feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
+For customers prior to September 4, 2024, this feature may affect any bookmarks or saved links created for custom views or slices in product pages such as **Code**, **Supply Chain > Vulnerabilities**, and **Secrets**. The primary branch feature deprecates certain filters, which affect the parameters in your URL. In these cases, you may have to re-create your bookmarks.
 
-- The following parameters are deprecated upon joining this beta:
+- The following parameters are deprecated:
   - `ref=_default`
   - `ref=_other`
 - For **Code** page and **Supply Chain > Vulnerabilities** tab:
@@ -49,9 +41,10 @@ This feature may affect any bookmarks or saved links created for custom views or
 
 ## Set a project's primary branch
 
-:::info
-If this is your first time setting up primary branches, you may have to sign out then sign in again for the feature to be fully activated. You only need to do this once.
-:::
+- Primary branches are set on a **per-project** basis in the Semgrep web app. To quickly update your primary branches, use the [API endpoint](#through-an-api-endpoint).
+- For more information on how primary branches may affect existing projects behavior see:
+  - [Changes to existing URLs](#changes-to-existing-urls)
+  - [How Semgrep counts findings in the projects page](/deployment/primary-branch#how-semgrep-counts-findings-in-the-projects-page)
 
 ### Through the web app
 
