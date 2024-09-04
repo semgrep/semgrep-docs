@@ -15,13 +15,23 @@ tags:
 
 ### Added
 
-- A new **primary branch** feature is now in private beta. This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`.
--
-
+- A new **primary branch** feature is now generally available (GA)! This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
+- **Semgrep Managed Scans**: You can now view logs of all scans by going to the project's **Details** page.
+- **Projects > Details page**: For projects using Semgrep in CI, you are now able to view the job log for a particular scan <!-- 15974 -->
+- Automatic Jira ticket creation is now available to all Jira beta participants <!-- 16182 -->
+- Added initial page state for **Project > Details > Scans** tab. <!-- 15805 -->
 
 ### Changed
 
+- Various improvements and updates to the Semgrep pricing page. <!-- 16210 -->
+- Improvements to tooltips, help text, and icons in the **Projects** and **Findings** pages. <!-- 16246, 16186, 16058 -->
+- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now users are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
+
 ### Fixed
+
+- Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, users can see detailed error messages letting them know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
+- Fixed a regression in which clicking outside of the **Findings** page filter component did not clear all filters.
+- Various copy edits to the Dashboard (beta) page. <!-- 16176 -->
 
 ## 💻 Semgrep Code
 
@@ -34,14 +44,20 @@ tags:
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
+- EPSS scores
 
 ### Changed
 
 ### Fixed
 
+
 ## 🤖 Semgrep Assistant
 
 ### Added
+
+- Assistant Memories
+- BYO API key
+- Assistant remediation in API
 
 ### Changed
 
@@ -51,7 +67,12 @@ tags:
 
 ### Added
 
+New UI
+Secrets is no longer self serve
+
 ### Changed
+
+- no longer display file snippets
 
 ### Fixed
 
@@ -82,7 +103,7 @@ tags:
 
 ### Removed
 
-- Removed the Ticketing page; currently Semgrep supports Jira exclusively. Semgrep may reopen betas for future ticketing integrations.
+- Removed the Ticketing page; Semgrep supports Jira exclusively and other ticketing integration betas have been closed. Semgrep may reopen betas for future ticketing integrations.
 
 ## 🔧 OSS Engine
 
