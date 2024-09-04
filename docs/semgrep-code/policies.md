@@ -109,14 +109,7 @@ If Semgrep adds rules to the ruleset in the future, they will automatically be a
 
 ## Disable rules
 
-To disable a rule, follow these steps:
-
-1. On the **Policies** page, select either:
-    - The top **<span className="placeholder">Number</span> Matching Rules** checkbox to select all rules.
-    - Select individual checkboxes next to a rule to disable rules one by one.
-1. Click **(<span className="placeholder">Number</span>) Edit**, and then click **Disabled**.
-
-You can also select individual rules under the **Mode** column and disable them one by one.
+See [Triage and remediate findings](/semgrep-code/triage-remediation#disable-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
 
 ## Policies filter reference
 
