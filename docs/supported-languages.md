@@ -16,8 +16,6 @@ import SscIntro from "/src/components/concept/_ssc-intro.md"
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
-
-
 # Supported languages
 
 This document provides information about supported languages and language maturity definitions for the following products:
@@ -210,13 +208,13 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
   </tr>
   <tr>
    <td>pnpm</td>
    <td><code>pnpm-lock.yaml</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
   </tr>
   <tr>
    <td rowspan="4">Python</td>
@@ -312,6 +310,7 @@ _**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a
 _**§** Supply Chain does not analyze the transitivity of packages for these language or lockfile combinations. All dependencies are listed as **Unknown** transitivity._
 
 <AdmonitionSotCves />
+
 
 :::info Transitivity support
 For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
