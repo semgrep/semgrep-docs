@@ -82,9 +82,9 @@ tags:
 
 ### Changed
 
-- The Secrets findings page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
+- The **Secrets** page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
 - Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
-- Secrets is no longer self serve. To access Semgrep Secrets, you can contact your Semgrep account executive for a trial license.
+- Secrets is no longer self-serve. To access Semgrep Secrets, you can contact your Semgrep account executive for a trial license.
 
 ### Fixed
 
