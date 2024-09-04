@@ -18,8 +18,6 @@ tags:
 
 ### Changed
 
-- Switched from magenta to yellow when highlighting findings of medium or warning severity. Magenta is now used for findings with critical severity.
-
 ### Fixed
 
 ## 💻 Semgrep Code
