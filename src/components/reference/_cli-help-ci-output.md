@@ -74,8 +74,7 @@ OPTIONS
            Output results in Emacs single-line format.
 
        --emacs-output=VAL
-           Write a copy of the emacs output to a file or post to or post to
-           URL.
+           Write a copy of the emacs output to a file or post to URL.
 
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
@@ -159,15 +158,14 @@ OPTIONS
            Output results in GitLab SAST format.
 
        --gitlab-sast-output=VAL
-           Write a copy of the GitLab SAST output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab SAST output to a file or post to URL.
 
        --gitlab-secrets
            Output results in GitLab Secrets format.
 
        --gitlab-secrets-output=VAL
-           Write a copy of the GitLab Secrets output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab Secrets output to a file or post to
+           URL.
 
        --historical-secrets
            Scans git history using Secrets rules.
@@ -209,15 +207,13 @@ OPTIONS
            Output results in Semgrep's JSON format.
 
        --json-output=VAL
-           Write a copy of the json output to a file or post to or post to
-           URL.
+           Write a copy of the json output to a file or post to URL.
 
        --junit-xml
            Output results in JUnit XML format.
 
        --junit-xml-output=VAL
-           Write a copy of the JUnit XML output to a file or post to or post
-           to URL.
+           Write a copy of the JUnit XML output to a file or post to URL.
 
        --legacy
            Prefer old (legacy) behavior.
@@ -233,6 +229,11 @@ OPTIONS
        --max-lines-per-finding=VAL (absent=10)
            Maximum number of lines of code that will be shown for each match
            before trimming (set to 0 for unlimited).
+
+       --max-log-list-entries=VAL (absent=100)
+           Maximum number of entries that will be shown in the log (e.g.,
+           list of rule ids, list of skipped files). A zero or negative value
+           disables this filter. Defaults to 100
 
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile
@@ -327,8 +328,7 @@ OPTIONS
            Output results in SARIF format.
 
        --sarif-output=VAL
-           Write a copy of the SARIF output to a file or post to or post to
-           URL.
+           Write a copy of the SARIF output to a file or post to URL.
 
        --scan-unknown-extensions
            If true, target files specified directly on the command line will
@@ -392,8 +392,7 @@ OPTIONS
            Output results in text format.
 
        --text-output=VAL
-           Write a copy of the text output to a file or post to or post to
-           URL.
+           Write a copy of the text output to a file or post to URL.
 
        --time
            Include a timing summary with the results. If output format is
@@ -435,8 +434,7 @@ OPTIONS
            Output results in vim single-line format.
 
        --vim-output=VAL
-           Write a copy of the vim output to a file or post to or post to
-           URL.
+           Write a copy of the vim output to a file or post to URL.
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
