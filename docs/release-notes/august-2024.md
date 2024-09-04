@@ -27,13 +27,13 @@ tags:
 
 - Various improvements and updates to the Semgrep pricing page. <!-- 16210 -->
 - Improvements to tooltips, help text, and icons in the **Projects** and **Findings** pages. <!-- 16246, 16186, 16058 -->
-- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now users are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
+- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now you are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
 - Updated the Buildkite CI configuration template. <!-- 15932 -->
 - **Code search**: YAML is now validated in the search step and invalid YAML is caught when viewing results. <!-- 15886 -->
 
 ### Fixed
 
-- Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, users can see detailed error messages letting them know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
+- Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, you can see detailed error messages letting you know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
 - Fixed a regression in which clicking outside of the **Findings** page filter component did not clear all filters.
 - Various copy edits to the Dashboard (beta) page. <!-- 16176 -->
 - Fixed an issue in which untriaged findings could be marked as reopened when creating Jira tickets from the **Finding details** page. <!-- 15969 -->
@@ -44,7 +44,7 @@ tags:
 ### Added
 
 - **Docker**: Semgrep ellipses `...` are now allowed in patterns for `HEALTHCHECK` commands.
-- **Terraform**: added support for `.tfvars` files. <!-- SAF-1481 -->
+- **Terraform**: Added support for `.tfvars` files. <!-- SAF-1481 -->
 
 ### Changed
 
@@ -75,22 +75,21 @@ tags:
 
 ### Added
 
-- Assistant Memories is now in public beta. Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis.
-- Added the ability for Semgrep Assistant users to use their own OpenAI API key instead of Semgrep's. This allows users to have complete control over how OpenAI handles their data.
+- Assistant Memories is now in public beta. Memories allows you to tailor Assistant's remediation guidance to your organization's standards and defaults on a per-project, per-rule basis.
+- Added the ability for you to use your own OpenAI API key instead of Semgrep's. This allows you to have complete control over how OpenAI handles your data.
 - Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 
 ## 🔐 Semgrep Secrets
-
 
 ### Changed
 
 - The Secrets findings page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
 - Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
-- Secrets is no longer self serve. To access Semgrep Secrets, users can contact their Semgrep account executive for a trial license.
+- Secrets is no longer self serve. To access Semgrep Secrets, you can contact your Semgrep account executive for a trial license.
 
 ### Fixed
 
-- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, failed to be scanned by Semgrep Secrets. <!-- SAF-1459 -->
+- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, fail to be scanned by Semgrep Secrets. <!-- SAF-1459 -->
 
 ## 📝 Documentation and knowledge base
 
