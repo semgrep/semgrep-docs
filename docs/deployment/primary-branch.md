@@ -4,7 +4,7 @@ title: Set a primary branch
 hide_title: true
 description: Set your primary or default branch to ensure Semgrep full scans display accurate counts and deduplicated findings.
 tags:
-  - Core deployment
+  - Deployment
 ---
 
 # Set a primary branch
@@ -49,7 +49,7 @@ For Semgrep AppSec Platform users whose accounts were created prior to September
 ### Through the web app
 
 :::info
-For Semgrep AppSec Platform users prior to September 4, 2024 you may have to sign out and sign in again for this feature to appear.
+For Semgrep AppSec Platform users whose accounts were created prior to September 4, 2024, you may have to sign out and sign in again for this feature to appear.
 :::
 
 1. In the Semgrep web app, click **Projects**.
