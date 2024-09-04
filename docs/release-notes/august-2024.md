@@ -16,9 +16,27 @@ tags:
 
 ### Added
 
+- A new **primary branch** feature is now generally available (GA)! This feature enables you to set your repository's default branch. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
+- **Semgrep Managed Scans**: You can now view logs of all scans by going to the project's **Details** page.
+- **Projects > Details page**: For projects using Semgrep in CI, you are now able to view the job log for a particular scan <!-- 15974 -->
+- **Jira**: Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
+- Added initial page state for **Project > Details > Scans** tab. <!-- 15805 -->
+
 ### Changed
 
+- Various improvements and updates to the Semgrep pricing page. <!-- 16210 -->
+- Improvements to tooltips, help text, and icons in the **Projects** and **Findings** pages. <!-- 16246, 16186, 16058 -->
+- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now users are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
+- Updated the Buildkite CI configuration template. <!-- 15932 -->
+- **Code search**: YAML is now validated in the search step and invalid YAML is caught when viewing results. <!-- 15886 -->
+
 ### Fixed
+
+- Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, users can see detailed error messages letting them know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
+- Fixed a regression in which clicking outside of the **Findings** page filter component did not clear all filters.
+- Various copy edits to the Dashboard (beta) page. <!-- 16176 -->
+- Fixed an issue in which untriaged findings could be marked as reopened when creating Jira tickets from the **Finding details** page. <!-- 15969 -->
+- Fixed a bug in which the **Dashboard** did not display the correct number of findings. <!-- 15935-->
 
 ## 💻 Semgrep Code
 
@@ -42,7 +60,7 @@ tags:
 
 ### Added
 
-- The Semgrep AppSec Platform now displays EPSS scores for all Supply Chain findings. The [exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/) represents the likelihood that the vulnerability will be exploited in the wild in the next 30 days, where the higher the score, the greater the probability the vulnerability is exploited.
+- You can now view and filter through EPSS scores for your Supply Chain findings.
 
 ### Changed
 
@@ -55,7 +73,8 @@ tags:
 ### Added
 
 - Added the ability for Semgrep Assistant users to use their own OpenAI API key instead of Semgrep's. This allows users to have complete control over how OpenAI handles their data.
-- Added the ability to query for Assistant's remediation gudiance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
+- Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
+<!-- Memories -->
 
 ### Changed
 
@@ -69,6 +88,7 @@ tags:
 
 - The Secrets findings page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
 - Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
+- Secrets is no longer self serve. To access Semgrep Secrets, users can contact their Semgrep account executive for a trial license.
 
 ### Fixed
 
@@ -78,9 +98,30 @@ tags:
 
 ### Added
 
+- Documentation for providing your [own OpenAI API key](/semgrep-assistant/getting-started#use-your-own-openai-api-key) for use with Semgrep Assistant.
+- EPSS documentation.
+- Sections for various source code manager additions, such as:
+  - Support for multiple GitHub Enterprise Server organizations.
+  - MR comments for multiple GitLab groups.
+- Documentation specifying which features make use of the [IP addresses](/deployment/checklist#ip-addresses) that you must add to your allowlist when you deploy Semgrep.
+
 ### Changed
 
+- Various improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**, such as:
+  - Improved logging guidance.
+  - Clarified variable names and placeholder values that users should replace.
+- Various updates to [Editor documentation](https://semgrep.dev/docs/semgrep-code/editor) as a whole.
+- Various updates to [Semgrep Assistant](/semgrep-assistant/overview) documentation.
+- Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
+
 ### Fixed
+
+- Updated and fixed various broken links.
+- Minor typographical fixes.
+
+### Removed
+
+- Removed the Ticketing page; Semgrep supports Jira exclusively. Other ticketing integration betas have been closed. Semgrep may reopen beta programs for future ticketing integrations.
 
 ## 🔧 OSS Engine
 
@@ -89,4 +130,3 @@ tags:
   * [<i class="fas fa-external-link fa-xs"></i>1.84.0](https://github.com/semgrep/semgrep/releases/tag/v1.84.0)
   * [<i class="fas fa-external-link fa-xs"></i>1.84.1](https://github.com/semgrep/semgrep/releases/tag/v1.84.1)
   * [<i class="fas fa-external-link fa-xs"></i>1.85.0](https://github.com/semgrep/semgrep/releases/tag/v1.85.0)
-
