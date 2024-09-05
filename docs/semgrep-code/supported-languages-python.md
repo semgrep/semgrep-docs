@@ -39,7 +39,7 @@ Semgrep Code has native support for the most common web frameworks:
         <td>FastAPI</td>
     </tr>
     <tr>
-        <td>Category</td>
+        <td colspan="3">Category</td>
         <td>Web framework</td>
         <td>Web framework</td>
         <td>Web framework</td>
