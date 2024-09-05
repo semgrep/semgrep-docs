@@ -178,7 +178,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="12">Since May 2022</td>
+   <td rowspan="12">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
