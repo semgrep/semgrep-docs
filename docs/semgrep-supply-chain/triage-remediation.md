@@ -116,6 +116,8 @@ The triage state of the finding:
 * **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user.
 * **Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
 
+> You can set the **Fixing** and **Reviewing** statuses only if you are a [Jira beta](https://semgrep.dev/docs/semgrep-appsec-platform/jira) participant.
+
 #### Transitivity
 
 The transitivity of the finding: 
@@ -126,7 +128,7 @@ The transitivity of the finding:
 
 #### EPSS probability
 
-The [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/) represents the likelihood that the vulnerability will be exploited in the wild in the next 30 days. Its values range from 0% to 100%. The higher the score, the greater the probability the vulnerability is exploited. Semgrep groups probabilities as follows:
+The [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/) represents the likelihood that the vulnerability will be exploited in the wild in the next 30 days. Its values range from 0% to 100%. The higher the score, the greater the probability the vulnerability will be exploited. Semgrep groups probabilities as follows:
 
 * <b>High</b>: 50 - 100%
 * <b>Medium</b>: 10 - &#60;50%
