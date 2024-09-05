@@ -21,7 +21,7 @@ Semgrep’s Python coverage leverages framework-specific analysis capabilities t
 * Inter-procedural analysis (cross-function)
 
 ## Coverage 
-_Our coverage ethos: comprehensive and accurate detection of common, OWASP Top 10 issues in source code_
+_Semgrep's coverage ethos: comprehensive and accurate detection of common, OWASP Top 10 issues in source code_
 
 
 Semgrep Code has native support for the most common web frameworks: 
