@@ -96,7 +96,7 @@ Use filters to narrow down your results. The following criteria are available fo
 
 | Filter | Description  |
 | -  | - |
-| **Projects and branches** | The repositories connected to your Semgrep account and by findings in different Git branches. |
+| **Projects and branches** | The repositories connected to your Semgrep account and findings in different Git branches. |
 | **Tags** | The tags associated with the project. |
 | [**Status**](#status) | The triage state of a finding. |
 | **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the [GitHub Advisory Database](https://github.com/advisories).  |
@@ -136,7 +136,7 @@ The [Exploit prediction scoring system (EPSS) probability](https://www.first.org
 
 The finding's exposure to potential attacks, or whether it is reachable or not.
 
-* **Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition
+* **Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition.
 * **Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.
 * **Conditionally reachable**: A finding is conditionally reachable if Semgrep finds a way to reach it when scanning your code when certain conditions are met.
 * **No Reachability Analysis**: A finding that isn't scanned by Semgrep for reachability.
