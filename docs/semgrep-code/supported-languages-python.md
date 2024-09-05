@@ -16,15 +16,15 @@ Semgrep’s Python coverage leverages framework-specific analysis capabilities t
 :::
 
 ## Analysis Capabilities for Python
+* Framework-specific control flow analysis 
 * Inter-file analysis (cross-file)
 * Inter-procedural analysis (cross-function)
-* Framework-specific control flow analysis 
 
 ## Coverage 
 _Our coverage ethos: comprehensive and accurate detection of common, OWASP Top 10 issues in source code_
 
 
-Semgrep supports **over 100** common Python frameworks and libraries, including the 3 most popular frameworks: 
+Semgrep Code has native support for the most common web frameworks: 
 
 <table>
     <thead><tr>
@@ -48,7 +48,7 @@ Semgrep supports **over 100** common Python frameworks and libraries, including 
 </table>
 
 <details>
-  <summary>**Complete list of 100+ libraries and functional categories**</summary>
+  <summary>**In addition, Semgrep Code supports 75+ libraries based on their overall popularity.**</summary>
 
 | No  | Library                  | Category                                 |
 |----:|:-------------------------|:-----------------------------------------|
