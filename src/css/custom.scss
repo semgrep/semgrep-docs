@@ -19,7 +19,6 @@
   --semgrep-secondary-mint03: #EAF0EF;
   --semgrep-secondary-mint04: #F3F6F6;
   --semgrep-secondary-mint05: #F8F9F9;
-
   --semgrep-secondary-purple01: #624DEF;
   --semgrep-secondary-purple02: #9485F4;
   --semgrep-secondary-purple03: #D5D0F6;
@@ -36,6 +35,7 @@
 
   --semgrep-offwhite: #FCFCFC;
   --semgrep-grey-100: #F5F5F5;
+  --semgrep-grey-200: #E5E5E5;
 
   --ifm-color-primary: #00A67D; /*use for category headers */
   --ifm-color-primary-dark: #00b581;
@@ -72,6 +72,7 @@
   /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
   --ifm-font-color-base: var(--semgrep-secondary-blue02);
   --ifm-background-color: var(--semgrep-secondary-mint05);
+  --ifm-pre-background: var(--semgrep-grey-100);
 
   /**************************************************************************
    * MARKPROMPT                                                             *
