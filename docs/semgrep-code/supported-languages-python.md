@@ -24,7 +24,7 @@ Semgrep’s Python coverage leverages framework-specific analysis capabilities t
 _Semgrep's coverage ethos: comprehensive and accurate detection of common, OWASP Top 10 issues in source code_
 
 
-Semgrep Code has native support for the most common web frameworks: 
+In addition to rules, the Semgrep engine itself can analyze code and implicit dataflows in the context of the following supported frameworks:
 
 <table>
     <thead><tr>
