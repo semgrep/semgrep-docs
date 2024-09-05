@@ -33,22 +33,22 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
     </tr></thead>
     <tbody>
     <tr>
-        <td>Framework / library</td>
         <td>Django</td>
-        <td>Flask</td>
-        <td>FastAPI</td>
+        <td>Web framework</td>
     </tr>
     <tr>
-        <td colspan="3">Category</td>
+        <td>Flask</td>
         <td>Web framework</td>
-        <td>Web framework</td>
+    </tr>
+    <tr>
+        <td>FastAPI</td>
         <td>Web framework</td>
     </tr>
     </tbody>
 </table>
 
 <details>
-  <summary>**In addition, Semgrep Code supports 75+ libraries based on their overall popularity.**</summary>
+  <summary>**In addition, Semgrep Code supports 100+ libraries & frameworks based on their overall popularity.**</summary>
 
 | No  | Library                  | Category                                 |
 |----:|:-------------------------|:-----------------------------------------|
@@ -176,7 +176,7 @@ Results as of **September 9, 2024**:
     <tbody>
     <tr>
         <td>Benchmark true positive rate (before AI processing) for latest ruleset</td>
-        <td>**74%**</td>
+        <td>**84%**</td>
     </tr>
     <tr>
         <td>Lines of code scanned</td>

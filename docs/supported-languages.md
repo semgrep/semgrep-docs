@@ -106,6 +106,8 @@ Community supported languages have varying levels of rule coverage - view the re
  <summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
 
 - Bash
+- C
+- C++
 - C#
 - Cairo
 - Clojure
