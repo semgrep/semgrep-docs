@@ -55,12 +55,6 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 
 ### Default Code page view
 
-<!-- To be superseded after beta concludes -->
-
-In Semgrep, a single finding may appear in several branches. These appearances are called **instances** of a finding. In the Code page, the latest instance, or the finding from the most recent branch scanned, is displayed by default.
-
-#### For primary branch beta participants
-
 <FindingsDefaultView product_name="Code" />
 
 ### Filter findings
