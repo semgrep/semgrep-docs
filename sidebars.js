@@ -40,7 +40,15 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'prerequisites',
-            'supported-languages',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Supported languages',
+                link: {type: 'doc', id: 'supported-languages'},
+                items: [
+                    'semgrep-code/supported-languages-python',
+                ]
+            },
             {
               type: 'category',
               label: 'Local and CLI scans',
