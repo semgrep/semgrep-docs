@@ -170,7 +170,7 @@ Semgrep Code has native support for the most common web frameworks:
 
 Our benchmarking process involves scanning open-source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by our security research team to monitor and improve rule performance.
 
-Results as of **2024-09-04**:
+Results as of **September 9, 2024**:
 
 <table>
     <tbody>
