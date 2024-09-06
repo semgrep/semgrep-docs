@@ -75,7 +75,7 @@ tags:
 
 ### Added
 
-- Assistant Memories is now in public beta. Memories allows you to tailor Assistant's remediation guidance to your organization's standards and defaults on a per-project, per-rule basis.
+- Assistant Memories is now in public beta. This feature allows you to tailor Assistant's remediation guidance to your organization's standards and defaults on a per-project, per-rule basis.
 - Added the ability for you to use your own OpenAI API key instead of Semgrep's. This allows you to have complete control over how OpenAI handles your data.
 - Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 
