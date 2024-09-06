@@ -66,13 +66,9 @@ You can optionally set up cross-linking between local and remote repositories to
     <pre>export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span></pre>
 5. Create the `SEMGREP_COMMIT` variable:
     1. Retrieve the commit hash:
-        ```console
-        git log -n 1
-        ```
+        <pre>git log -n 1</pre>
     2. Set the variable by entering the text below, substituting <code><span className="placeholder">COMMIT_HASH</span></code> with the value from the previous step.
-    <pre><code>
-    export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
-    </code></pre>
+    <pre>export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span></pre>
 
 After performing these steps, rescan your repository to correctly generate links in Semgrep AppSec Platform.
 
