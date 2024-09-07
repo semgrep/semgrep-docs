@@ -426,6 +426,12 @@ details.alert {
 }
 
 /*better way to add a border, respects markdown indent */
+/* We use the "src attribute" (i.e. the attribute defined after an image URL, denoted by a hashtag:
+image.png#bordered) because using divs and HTML interfere with other docusaurus configurations
+See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matching-src-attribute
+https://www.w3.org/TR/selectors-3/#attribute-substrings
+*/
+
 img[src*="bordered"] {
     border: 2px solid black;
     margin-right: auto;
