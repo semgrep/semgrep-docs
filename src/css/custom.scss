@@ -335,8 +335,9 @@ details.alert {
   * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
-pre > code {
+pre, pre > code {
   background-color: var(--semgrep-offwhite);
+    box-shadow: var(--ifm-global-shadow-lw);
 }
 
 /*
@@ -436,6 +437,7 @@ https://www.w3.org/TR/selectors-3/#attribute-substrings
 img {
     box-shadow: -2px 2px 2px var(--semgrep-grey-300);
     border-radius: var(--ifm-code-border-radius);
+    margin-bottom: 4px;
 }
 
 img[src*="bordered"] {
