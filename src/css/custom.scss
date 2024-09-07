@@ -36,6 +36,7 @@
   --semgrep-offwhite: #FCFCFC;
   --semgrep-grey-100: #F5F5F5;
   --semgrep-grey-200: #E5E5E5;
+  --semgrep-grey-300: #D4D4D4;
 
   --ifm-color-primary: #00A67D; /*use for category headers */
   --ifm-color-primary-dark: #00b581;
@@ -425,12 +426,17 @@ details.alert {
     border: 2px solid black;
 }
 
-/*better way to add a border, respects markdown indent */
+/*better way to add additional css such as borders, respects markdown indent */
 /* We use the "src attribute" (i.e. the attribute defined after an image URL, denoted by a hashtag:
 image.png#bordered) because using divs and HTML interfere with other docusaurus configurations
 See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matching-src-attribute
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
+
+img {
+    box-shadow: -2px 2px 2px var(--semgrep-grey-300);
+    border-radius: var(--ifm-code-border-radius);
+}
 
 img[src*="bordered"] {
     border: 2px solid black;
@@ -444,10 +450,7 @@ img[src*="md-width"] {
     border: 2px solid black;
 }
 
-img[src*="md-width-centered"] {
-    width: 75%;
-    display: block;
-    border: 2px solid black;
+img[src*="centered"] {
     margin-right: auto;
     margin-left: auto;
 }
@@ -463,11 +466,13 @@ img[src*="sm-width-noborder"] {
     width: 50%;
     display: block;
 }
+
 img[src*="sm-width-bordered"] {
     width: 50%;
     display: block;
     border: 2px solid black;
 }
+
 .placeholder {
     color: #E3116C;
     font-style: italic;
