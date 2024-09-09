@@ -122,7 +122,7 @@ Semgrep Assistant can help you write custom rules to find patterns and vulnerabi
 Semgrep uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
 * Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which includes source code snippets.
-* Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 30 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
+* Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, "relevant lines of code" means lines that are part of the Semgrep finding, plus the minimum number of lines of code required to provide enough context to produce accurate results. Typically this is fewer than 60 lines of code. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains GPT's responses based on these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
 <!-- markdown-link-check-disable -->
 * Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Enterprise privacy at OpenAI](https://openai.com/enterprise-privacy).
