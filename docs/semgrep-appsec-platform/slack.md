@@ -60,8 +60,8 @@ You have successfully set up notifications for Semgrep findings. The Semgrep Sla
 In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them.
 :::
 
-![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png "Message from Semgrep Slack app consolidating findings after a scan")
-**Figure** A sample Slack message with Semgrep findings.
+![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#md-width "Message from Semgrep Slack app consolidating findings after a scan")
+_**Figure**. A sample Slack message with Semgrep findings._
 
 ## Remove notifications for findings in Slack
 

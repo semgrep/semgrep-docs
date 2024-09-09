@@ -335,6 +335,12 @@ details.alert {
   * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
+/* prevent box shadow and border on assets we don't want to apply it to */
+.navbar__logo > img {
+  box-shadow: 0px 0px 0px;
+  border: none;
+}
+
 pre, pre > code {
   background-color: var(--semgrep-offwhite);
     box-shadow: var(--ifm-global-shadow-lw);
@@ -445,12 +451,7 @@ img {
     box-shadow: -2px 2px 2px var(--semgrep-grey-300);
     border-radius: var(--ifm-code-border-radius);
     margin-bottom: 4px;
-}
-
-img[src*="bordered"] {
-    border: 2px solid black;
-    margin-right: auto;
-    display: block;
+    border: 1px solid var(--semgrep-grey-300);
 }
 
 img[src*="md-width"] {

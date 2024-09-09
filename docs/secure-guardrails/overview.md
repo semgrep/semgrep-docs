@@ -126,7 +126,7 @@ Semgrep provides customizability through:
 - Custom rules - You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
 - Assistant Memories - this feature allows you to add and save additional context when Semgrep Assistant provides remediation. For example, you can provide organization-specific public keys, which Semgrep Assistant remembers.
 
-![Assistant Memories form within a finding's details page](/img/guardrails-memories.png#md-width-centered)
+![Assistant Memories form within a finding's details page](/img/guardrails-memories.png#sm-width)
 _**Figure**. A form on a finding's details page where you can enter additional instructions or context._
 
 ### Remediation guidance
@@ -199,7 +199,7 @@ The guidance makes use of the Semgrep rule, AI's understanding of code, and a pr
 - Custom instructions
 - Broader context of the file
 
-![Semgrep PR comment with detailed remediation steps](/img/guardrails-comment-step-by-step.png#md-width-centered)
+![Semgrep PR comment with detailed remediation steps](/img/guardrails-comment-step-by-step.png#md-width)
 _**Figure**. AI-generated guidance. Developers are able to commit the suggestion directly._
 
 :::info
@@ -258,7 +258,7 @@ Rules can be **configured on a per-product, per-interface basis** to notify deve
 </table>
 
 ![Policies page > Code tab](/img/guardrails-policies.png)
-_**Figure**. Policies page > Code tab. Rules should be in either Comment or Block mode to leave a PR or MR comment._
+_**Figure**. **Policies page > Code tab**. Rules should be in either Comment or Block mode to leave a PR or MR comment._
 
 ## Next steps
 
