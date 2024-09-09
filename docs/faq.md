@@ -159,6 +159,36 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 
 See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
+### Comparing Semgrep to Endor Labs
+
+* **Prioritization**: Both Endor Labs and Semgrep support the prioritization of findings so that AppSec teams focus on the most impactful findings. While both companies offer findings filters based on criteria like reachability and EPSS scores, Semgrep offers support for statuses in addition to the basic reachability statuses of **reachable** and **not reachable**, such as **always reachable** and **conditionally reachable**.
+
+  Furthermore, Semgrep Assistant uses AI to help organization admins receive information on top backlog tasks, allowing them to prioritize findings from all products, including the SAST and SCA products, not just those resulting from dependency vulnerability scans.
+
+* **Reachability for transitive dependencies**: Reachability has been a fundamental part of Semgrep Supply Chain from the beginning. Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability, offering accuracy beyond that offered by Endor Labs. This coverage is offered for seven languages and counting.
+
+  Semgrep is also developing a dependency graph that shows the relationship between dependencies, which offers additional insight into the relationships between direct dependencies, transitive dependencies, and their associated vulnerabilities.
+
+* **Vulnerable functions**: Semgrep doesn't just identify a vulnerability as reachable when a vulnerable function is called -- it also takes into account *how* the vulnerable function is called and what data flows into that function. These functions are achieved through the use of Semgrep's rule syntax; when a rule is written, all possible permutations of the vulnerability are encapsulated in the rule. This functionality is something that Endor Labs doesn't have.
+
+  Semgrep's security research team does not just focus on analyzing a vulnerable function when writing rules. The team extends the scope of analysis to all the third-party callers of the vulnerable functions, not just the reported third-party function that's vulnerable. This extends the set of vulnerable functions greatly.
+
+  Learn more about how the security research team writes rules in [A day in the life: Supply Chain Security Researcher](https://semgrep.dev/blog/2024/a-day-in-the-life-supply-chain-security-researcher)
+
+* **Policies and flexibility**: Semgrep Supply Chain results in a failed CI job only when there are critical or high-severity findings. However, Semgrep supports notifications and integration with Jira to create tickets for all Supply Chain findings, and it offers the ability to only leave comments on PRs or block a change regarding license detection.
+
+  The policies for Semgrep's other products, however, provide extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+
+  - Only in the AppSec team’s view (monitor mode)
+  - In the AppSec team's view **and** in the developer’s workflow, while not blocking the build (comment mode)
+  - In the AppSec team's view **and** in the developer’s workflow, while also blocking the build (block mode)
+
+  These policy features will be added to Supply Chain in the near future.
+
+* **Dependency lifecycle management**: To help you manage your findings, Semgrep provides information, including EPSS probabilities, severity levels, transitivity information, and multiple levels of dataflow reachability.
+
+* **Accuracy of results**: Semgrep has reachability analysis for over 80% of critical CVEs dating back to 2017 and 100% of critical and high-severity CVEs dating back to May 2022. Endor Labs' reachability data, however, dates back to 2018.
+
 ### Comparing Semgrep to Snyk
 
 For SCA, reachability analysis is critical to cut down noise and reduce false positives. Semgrep offers reachability analysis for [several languages, such as Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain) whereas Snyk only offers reachability for Java.
