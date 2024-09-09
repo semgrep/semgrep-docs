@@ -434,6 +434,13 @@ See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matchin
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
 
+/* To deprecate:
+ * "bordered"
+ * "sm-width-bordered"
+ * */
+
+
+
 img {
     box-shadow: -2px 2px 2px var(--semgrep-grey-300);
     border-radius: var(--ifm-code-border-radius);
@@ -460,6 +467,11 @@ img[src*="md-noborder"] {
     width: 75%;
     margin-right: auto;
     margin-left: auto;
+    display: block;
+}
+
+img[src*="sm-width"] {
+    width: 50%;
     display: block;
 }
 

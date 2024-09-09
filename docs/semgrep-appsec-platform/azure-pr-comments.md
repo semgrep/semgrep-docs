@@ -28,7 +28,7 @@ Semgrep can create **pull request (PR) comments** in your Azure DevOps repositor
 Automated comments on Azure DevOps pull requests are displayed as follows:
 
 ![Semgrep Azure DevOps PR comment](/img/azure-pr-comment.png#md-width)
-**Figure** An inline Azure DevOps pull request comment.
+_**Figure**. An inline Azure DevOps pull request comment._
 
 ## Conditions for PR comment creation
 

@@ -35,7 +35,7 @@ To avoid the mismatch, ensure that the latest full scan ran on the default branc
 2. Click the **Download <i class="fa-solid fa-download"></i>** icon next to the repository you want an SBOM for.
 3. Click the format you want the SBOM to be in. After clicking, do not refresh or leave the page until the SBOM has been generated.
 3. Once Semgrep has generated the SBOM, click the link provided on the toaster notification to download it.
-    ![Download link in toaster notification](/img/download-sbom.png#bordered)
+    ![Download link in toaster notification](/img/download-sbom.png)
 
 You have successfully downloaded an SBOM.
 

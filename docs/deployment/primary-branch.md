@@ -58,7 +58,7 @@ For Semgrep AppSec Platform users whose accounts were created prior to September
 1. In the **Primary branch** section, click the drop-down box and select a branch. The drop-down menu shows a list of **scanned branches**.
 1. Click **Save**.
 
-![Primary branch selection](/img/primary-branch.png#sm-width-bordered)
+![Primary branch selection](/img/primary-branch.png#sm-width)
 _**Figure**. Projects > Project <i class="fa-solid fa-gear"></i> settings page > Primary branch selection._
 
 ### Through an API endpoint

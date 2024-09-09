@@ -261,7 +261,7 @@ To set a member as a manager for a subteam:
 1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Click on the **Members** tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
-![Add a manager](/img/access-add-manager.png#bordered)
+![Add a manager](/img/access-add-manager.png)
 1. Click **Review**.
 1. Click **Save changes**.
 
