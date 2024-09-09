@@ -9,199 +9,120 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for July 2024
+# Semgrep release notes for August 2024
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- A new **dashboard** focused on secure guardrails adoption is now in private beta. Find out what percent of findings are fixed before they enter your default or primary branch. To join the private beta, reach out to your Technical Account Manager or Account Executive. See the [Dashboard beta documentation](/semgrep-appsec-platform/dashboard-beta) for more information.
-  ![Dashboard (beta) page](/img/dashboard-fold.png)
-- Added support for the following source code managers (SCMs):
-  - Azure DevOps
-  - Bitbucket Cloud
-  - Bitbucket Data Center
-  With these changes, it is easier for you to add repositories from these SCMs to Semgrep.
-- Semgrep Managed Scans:
-  - You can now view your most recent scan log.
-  - You can enable or disable diff-aware scans for PRs and MRs.
-- Semgrep API:
-  - There is a new public endpoint `/v1/scan/:id`, which returns the metadata from `first_seen_scan`. <!-- 15178 -->
-  - Added `ecosystem` field to public findings API response. It is under `found_dependency`. <!-- 15284 -->
+- A new **primary branch** feature is now generally available (GA)! This feature lets you set your repository's default branch; typically Semgrep deployments perform full scans only on default branches. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
+- **Semgrep Managed Scans and Semgrep in CI**: You can now view logs of all scans by going to the project's **Details** page. <!-- 15974 -->
+- **Jira**:
+  - Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
+  - Added Jira ticket information to information returned from the Findings API.
+- Added initial page state for **Project > Details > Scans** tab. <!-- 15805 -->
 
 ### Changed
 
-- Improved the new user onboarding experience for GitHub users. Changes to the onboarding flow include copy fixes to the instructions and the faster addition of Semgrep to your repository's CI pipeline. <!-- 15330 -->
-- Updated the **findings details** page. <!-- 15573 -->
-- Updated GHA sample workflows to use `setup-node@v4`.  <!-- 15707 -->
-- Various performance improvements to Semgrep Managed Scans.
-- Projects on Semgrep Managed Scans now use the `managed-scan` tag instead of `autoscan`. <!-- 15450 -->
-- Improvements to API documentation.
+- Various improvements and updates to the Semgrep pricing page. <!-- 16210 -->
+- Improvements to tooltips, help text, and icons in the **Projects** and **Findings** pages. <!-- 16246, 16186, 16058 -->
+- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now you are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
+- Updated the Buildkite CI configuration template. <!-- 15932 -->
+- **Code search**: YAML is now validated in the search step and invalid YAML is caught when viewing results. <!-- 15886 -->
 
 ### Fixed
 
-- Fixed an issue in the Editor or Playground in which Turbo mode could return an `undefined` object. <!-- 15619 -->
-- Fixed an issue in which **Add other GitHub organization** wouldn't redirect to the correct URL. <!-- Semgrep 15419 -->
-- Minor type fixes to the Policies page. <!-- 15299 -->
+- **Jira**: Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, you can see detailed error messages letting you know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
+- Fixed a regression in which clicking outside of the **Findings** page filter component did not clear all filters.
+- Various copy edits to the Dashboard (beta) page. <!-- 16176 -->
+- Fixed an issue in which untriaged findings could be marked as reopened when creating Jira tickets from the **Finding details** page. <!-- 15969 -->
+- Fixed a bug in which the **Dashboard** did not display the correct number of findings. <!-- 15935-->
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Added the `--exclude-minified-files` flag to enable skipping minified files and the `--no-exclude-minified-files` flag to include minified files during scans triggered by running `semgrep ci` and `semgrep scan`. By default, Semgrep scans minified files.
-- Added `as-metavariable`, a new rule-writing feature that allows rule writers to bind arbitrary matches to a name and then use it with autofixes.
-- **Python**: Added support for [Flask](https://semgrep.dev/p/flask), [Django](https://semgrep.dev/p/django), and [FastAPI](https://semgrep.dev/p/fastapi).
-- Added community support for [Move](https://aptos.dev/en/build/smart-contracts).
-- <!-- vale off --> Added community support for [Circom](https://docs.circom.io/circom-language/signals/).<!-- vale on -->
+- **Docker**: Semgrep ellipses `...` are now allowed in patterns for `HEALTHCHECK` commands.
+- **Terraform**: Added support for `.tfvars` files. <!-- SAF-1481 -->
 
 ### Changed
 
-- Improved module resolution for Python scans so that imports like `from a.b import c`, where `c` is a module, resolve correctly.
-- Improved error handling for rules with invalid patterns so that scans still complete and findings from other rules are reported.
-- **CLI**:
-  - Users must sign in before running `semgrep scan --pro`. Scans will not begin until the user signs in.
-  - The `--debug` option now displays logging information incrementally instead of waiting for the scan to complete.
+- Semgrep CLI's `--debug` flag no longer generates profiling information, including time and scan performance measurements. To obtain this information, use `--time`.
 
 ### Fixed
 
-- Fixed an issue where Semgrep Managed Scanning would occasionally hang.
-- Fixed an issue where users couldn't pass in the `--junit-xml-output` flag.
-- Fixed an issue with the `--pro-intrafile` flag that caused Semgrep to confuse parameters
-with top-level functions with no arguments when both share a name:
-  ```js
-  def foo
-    taint
-  end
-
-  def bar(foo)
-    sink(foo) # no more false positive here
-  end
-  ```
-- Semgrep is stricter when unifying identifiers. For example, this pattern doesn't work because the `foo` methods in classes `A` and `B` aren't the same. As such, their IDs aren't unifiable through `$F`:
-  ```yaml
-  patterns:
-    - pattern-inside: |
-        class A:
-          ...
-          def $F(...):
-            ...
-          ...
-        ...
-    - pattern-inside: |
-        class B:
-          ...
-          def $F(...):
-            ...
-          ...
-        ...
-  ```
-  should be rewritten as follows:
-  ```yaml
-  patterns:
-    - pattern-inside: |
-        class A:
-          ...
-          def $F1(...):
-            ...
-          ...
-        ...
-    - pattern-inside: |
-        class B:
-          ...
-          def $F2(...):
-            ...
-          ...
-        ...
-    - metavariable-comparison:
-        comparison: str($F1) == str($F2)
-  ```
-- Fixed an issue where code snippets from GitLab-hosted repositories weren't loading.
-- **C++**: Fixed an issue so that scanning a project with header files no longer causes spurious warnings that the file is being skipped or isn't being analyzed.
-- **CLI**:
-  - Fixed an issue where autofix previews weren't displayed with appropriate spacing.
-  - Fixed an issue where rules served to the CLI weren't filtered by minimum and maximum versions supported, causing errors.
+- Fixed an error with Julia list comprehensions. For example, the pattern `[$A for $B in $C]` matches `[x for y in z]` and result in three bindings `[$A/x,$B/y,$C/z]` instead of one `[$A/x]`.
+- Fixed an issue resulting in deadlock when a scan has interfile analysis and tracing enabled and the number of subprocesses is greater than 1 (`j < 1`). <!-- SAF-1157 -->
+- Fixed an issue where the number of files reported as scanned by Semgrep CLI was inflated due double-counting of generic and regex modes. <!-- SAF-507 -->
+- `--debug` now generates fewer log entries. Additionally, when the number of ignored files, rules, or other entities is too large, Semgrep indicates this in the logs with `<SKIPPED DATA>` to keep the output minimal.
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
 
-- Added support for comparing Go pseudo-versions against other pseudo-versions and strict core versions.
-- Added support for uploading and parsing large npm repositories.
-- Added the ability for Supply Chain to retrieve and display CVE data.
-- Added a filter to support filtering by reachability rule, CVE, or GHSA information.
+- You can now filter and view EPSS scores for your Supply Chain findings.
 
 ### Changed
 
-- SBOMs generated by Semgrep now contain time zone information.
+- The link to the Supply Chain findings page in Semgrep AppSec Platform filters to the specific repository and `ref` on which the findings are detected.
 
 ### Fixed
 
-- Fixed an issue where `package-lock.json` parser incorrectly assumed that all paths in the `packages` component of `package-lock.json` started with `node_modules/`. This is incorrect, since a dependency can be installed anywhere. The parser can now recognize alternative locations.
-- Fixed an issue where users couldn't create Jira tickets for Supply Chain findings with the severity filter active.
-- Fixed an issue where CVE information was labeled as CWE information.
+- Fixed an issue where Supply Chain's Findings Detail pages weren't showing detailed error information.
 
 ## 🤖 Semgrep Assistant
 
 ### Added
 
-* **Assistant Memories** is now in public beta. [Assistant Memories](/semgrep-assistant/overview#memories-beta) allows users to tailor Assistant's remediation guidance on a per-project, per-rule basis.
-
-### Fixed
-
-- Fixed various UI issues when analyzing findings.
+- Assistant Memories is now in public beta. This feature allows you to tailor Assistant's remediation guidance to your organization's standards and defaults on a per-project, per-rule basis.
+- Added the ability for you to use your own OpenAI API key instead of Semgrep's. This allows you to have complete control over how OpenAI handles your data.
+- Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 
 ## 🔐 Semgrep Secrets
 
-### Added
+### Changed
 
-- Added the **Open in Editor** button to the findings detail page for findings identified by Secrets.
-- Added the ability to filter for Secrets findings with the status of **Ignored**.
-- Added the ability to triage Secrets using the **Reviewing** and **Fixing** statuses.
+- The **Secrets** page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
+- Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
+- Secrets is no longer self-serve. To access Semgrep Secrets, you can contact your Semgrep account executive for a trial license.
 
 ### Fixed
 
-- Fixed an issue where Slack webhooks weren't included in historical scan findings.
+- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, fail to be scanned by Semgrep Secrets. <!-- SAF-1459 -->
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- Added the following new documents, articles and sections:
-  - [Secure guardrails in Semgrep](/secure-guardrails/secure-guardrails-in-semgrep) - an overview of secure guardrails and how to use Semgrep features to implement guardrails.
-    - [Secure defaults](/secure-guardrails/secure-defaults) - a definition of secure defaults and reference towards creating your own.
-  - Added sections about connecting the following SCMs to Semgrep:
-    - [Azure DevOps Cloud](/deployment/connect-scm#azure-devops-cloud)
-    - [Bitbucket Cloud](/deployment/connect-scm#bitbucket-cloud) <!-- vale off -->
-    - [Bitbucket Data Center](/deployment/connect-scm#bitbucket-data-center)
-    <!-- vale on -->
-  - Added documentation about setting up PR comments for Azure and Bitbucket:
-    - [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments)
-    - [Bitbucket PR comments](/category/bitbucket-pr-comments)
-  - Added a section about Assistant Memories (beta).
-- Added the `semgrep ci` help output into the CLI reference documentation.
+- Documentation for providing your [own OpenAI API key](/semgrep-assistant/getting-started#use-your-own-openai-api-key) for use with Semgrep Assistant.
+- EPSS documentation.
+- Sections for various source code manager additions, such as:
+  - Support for multiple GitHub Enterprise Server organizations.
+  - MR comments for multiple GitLab groups.
+- Documentation specifying which features make use of the [IP addresses](/deployment/checklist#ip-addresses) that you must add to your allowlist when you deploy Semgrep.
 
 ### Changed
 
-- Updated the [Semgrep Network Broker](/semgrep-ci/network-broker) documentation to work with Semgrep Managed Scans and Bitbucket.
-- Updated instructions for connecting [Semgrep with GitHub Enterprise](/deployment/connect-scm#github-enterprise-server).
-- Updated the [Scan monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) knowledge base article to use the new Semgrep `--subdir` option.
-- Updated Semgrep Pro rules documentation.
-- Updated Semgrep rule syntax with the following:
-  - [Metavariable unification](/writing-rules/pattern-syntax#metavariable-unification)
-  - [Anonymous metavariables](/writing-rules/pattern-syntax#anonymous-metavariables)
-  - [`decorators_order_matters`](/writing-rules/rule-syntax#options)
+- Various improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**, such as:
+  - Improved logging guidance.
+  - Clarified variable names and placeholder values that users should replace.
+- Various updates to [Editor documentation](https://semgrep.dev/docs/semgrep-code/editor) as a whole.
+- Various updates to [Semgrep Assistant](/semgrep-assistant/overview) documentation.
+- Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
 
 ### Fixed
 
-- Various broken links have been updated.
+- Updated and fixed various broken links.
+- Minor typographical fixes.
 
 ### Removed
 
-- Removed the Semgrep vim extension from the documentation due to the lack of activity on the extension itself.
+- Removed the Ticketing page; Semgrep supports Jira exclusively. Other ticketing integration betas have been closed. Semgrep may reopen beta programs for future ticketing integrations.
 
 ## 🔧 OSS Engine
 
-* The following versions of the OSS Engine were released in July 2024:
-  * [<i class="fas fa-external-link fa-xs"></i>1.79.0](https://github.com/semgrep/semgrep/releases/tag/v1.79.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.80.0](https://github.com/semgrep/semgrep/releases/tag/v1.80.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.81.0](https://github.com/semgrep/semgrep/releases/tag/v1.81.0)
+* The following versions of the OSS Engine were released in August 2024:
+  * [<i class="fas fa-external-link fa-xs"></i>1.83.0](https://github.com/semgrep/semgrep/releases/tag/v1.83.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.0](https://github.com/semgrep/semgrep/releases/tag/v1.84.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.1](https://github.com/semgrep/semgrep/releases/tag/v1.84.1)
+  * [<i class="fas fa-external-link fa-xs"></i>1.85.0](https://github.com/semgrep/semgrep/releases/tag/v1.85.0)
