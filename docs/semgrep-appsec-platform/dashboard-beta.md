@@ -201,12 +201,12 @@ A table listing projects from most open findings to least, grouped by product or
 It is recommended to prioritize triage and remediation for the top projects listed in this table, especially if the priority filters are enabled.
 :::
 
-![Findings by project pane.](/img/dashboard-findings-by-project.png#sm-width-noborder)
+![Findings by project pane.](/img/dashboard-findings-by-project.png#sm-width)
 _**Figure**. Findings by project; group them by product or severity._
 
 ## Median open age
 
-![Median open age of a finding.](/img/dashboard-mean-time-remediate.png#sm-width-noborder)
+![Median open age of a finding.](/img/dashboard-mean-time-remediate.png#sm-width)
 _**Figure**. Median open age of a finding._
 
 A chart displaying the median open age of a finding in **days** over the specified time period. Lower is better.

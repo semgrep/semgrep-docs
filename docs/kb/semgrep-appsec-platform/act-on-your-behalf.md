@@ -29,7 +29,7 @@ _**Figure**. GitHub **ExampleApp** performing an action on behalf of a user._
 
 In contrast, the Semgrep GitHub app performs the action it's permitted to perform as itself. It does not use your identity to perform any actions. You can see this when Semgrep posts PR comments:
 
-![The Semgrep GitHub app commenting on a pull request as itself.](/img/semgrep-not-acting-on-your-behalf.png#md-noborder)
+![The Semgrep GitHub app commenting on a pull request as itself.](/img/semgrep-not-acting-on-your-behalf.png#md-width)
 _**Figure**. The Semgrep GitHub app commenting on a pull request as itself._
 
 ## Further reading
