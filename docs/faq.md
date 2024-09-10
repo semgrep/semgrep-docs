@@ -10,7 +10,6 @@ description: >-
   rule licensing, technical support, and more.
 ---
 
-
 import TOCInline from "@theme/TOCInline"
 
 # Frequently asked questions
@@ -161,13 +160,41 @@ See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for 
 
 ### Comparing Semgrep to Snyk
 
-For SCA, reachability analysis is critical to cut down noise and reduce false positives. Semgrep offers reachability analysis for [several languages, such as Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain) whereas Snyk only offers reachability for Java.
+#### SAST
 
-For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accommodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
+Both Semgrep and Snyk offer good SAST solutions out of the box. However, it is easier to customize the rules that are run against your code in Semgrep. By knowing which rules were run, you can analyze your results to see if the relevant vulnerabilities are being caught. Semgrep's goal is to help you customize your AppSec solution by allowing you to choose the rules that you run, as well as writing custom rules to capture use cases driven by your organization's goals.
 
-For secrets scanning, Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk has a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer their secret scanning to Snyk customers.
+Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its UI and CLI, while Semgrep displays remediation advice and guidance in its UI and in the form of PR or MR comments.
 
-See the [Semgrep vs. Snyk webpage](https://semgrep.dev/resources/semgrep-vs-snyk) for a more detailed comparison between the two.
+Both Snyk and Semgrep display prioritization metrics, such as severity, to help you decide which findings should be worked on first. Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides recommendations through Assistant, which offers functionality like GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+
+Semgrep offers autofix suggestions for SAST and SCA. Snyk offers autofix functionality for its SCA product, but not its SAST product.
+
+#### SCA
+
+Snyk offers reachability analysis for Java, JavaScript, and TypeScript, while Semgrep offers reachability analysis for [multiple languages, including Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain)
+
+Snyk offers limited information on whether dependencies are direct or transitive. However, this information is only available with Enterprise plans, and they're limited to projects using Node.js, including npm and Yarn, and Maven. Semgrep Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability. This coverage is offered for seven languages and counting.
+
+Semgrep and Snyk both offer license compliance features, ensuring that the dependencies that your developers use meet the requirements set by your organization.
+
+To help you manage your findings, Semgrep provides information, including EPSS probabilities, severity levels, transitivity information, and multiple levels of dataflow reachability. Snyk assesses impact and likelihood and encapsulates this information into a risk score. 
+
+#### Policies and rules management 
+
+Semgrep Code and Semgrep Secret's policies management feature provides extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+
+- Only in the AppSec team’s view (monitor mode)
+- In the AppSec team's view **and** in the developer’s workflow, while not blocking the build (comment mode)
+- In the AppSec team's view **and** in the developer’s workflow, while also blocking the build (block mode)
+
+Semgrep Supply Chain results in a failed CI job only when there are critical or high-severity findings. However, Semgrep supports notifications and integration with Jira to create tickets for all Supply Chain findings, and it offers the ability to only leave comments on PRs or block a change regarding license detection.
+
+#### Secrets detection
+
+Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk maintains a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer secrets scanning as part of Snyk Code.
+
+> See [Semgrep vs. Snyk](https://semgrep.dev/resources/semgrep-vs-snyk) for a detailed comparison.
 
 ### Comparing Semgrep to SonarQube
 
