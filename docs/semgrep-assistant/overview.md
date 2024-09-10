@@ -9,8 +9,6 @@ tags:
   - Semgrep Assistant
 ---
 
-
-
 # Semgrep Assistant overview
 
 Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.

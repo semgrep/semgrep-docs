@@ -56,31 +56,19 @@ You can optionally set up cross-linking between local and remote repositories to
 
 1. Navigate to the root of your repository.
 2. Create the `SEMGREP_REPO_URL` variable, setting it to the URL you'd use to access your online repository:
-    <pre><code>
-    export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span>
-    </code></pre>
+    <pre>export SEMGREP_REPO_URL=<span className="placeholder">URL_ADDRESS</span></pre>
 3. Create the `SEMGREP_BRANCH` variable:
     1. Retrieve the branch name:
-        ```console
-        git rev-parse --abbrev-ref HEAD
-        ```
+        <pre>git rev-parse --abbrev-ref HEAD</pre>
     2. Set the variable as shown, making sure that you replace the <code><span className="placeholder">BRANCH_NAME</span></code> placeholder:
-        <pre><code>
-        export SEMGREP_BRANCH=<span className="placeholder">BRANCH_NAME</span>
-        </code></pre>
+        <pre>export SEMGREP_BRANCH=<span className="placeholder">BRANCH_NAME</span></pre>
 4. Create the `SEMGREP_REPO_NAME` variable, setting it to the name of your repository:
-    <pre><code>
-    export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span>
-    </code></pre>
+    <pre>export SEMGREP_REPO_NAME=<span className="placeholder">REPO_NAME</span></pre>
 5. Create the `SEMGREP_COMMIT` variable:
     1. Retrieve the commit hash:
-        ```console
-        git log -n 1
-        ```
+        <pre>git log -n 1</pre>
     2. Set the variable by entering the text below, substituting <code><span className="placeholder">COMMIT_HASH</span></code> with the value from the previous step.
-    <pre><code>
-    export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span>
-    </code></pre>
+    <pre>export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span></pre>
 
 After performing these steps, rescan your repository to correctly generate links in Semgrep AppSec Platform.
 

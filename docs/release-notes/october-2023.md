@@ -69,7 +69,7 @@ tags:
     - Added support for NuGet (C#) license detection. <!-- (10777) -->
     - Added support for RubyGems (Ruby) license detection.
 - **Advisories:** Added a tooltip displaying the date when a CVE Numbering Authority (CNA) created the security advisory. [<i class="fas fa-external-link fa-xs"></i> CVE Numbering Authorities](https://nvd.nist.gov/general/cve-process) include the MITRE Corporation. These dates are not assigned by Semgrep, Inc. <!-- (10743) -->
-![Tooltip of advisory creation date](/img/advisories-date-created.png#bordered)
+![Tooltip of advisory creation date](/img/advisories-date-created.png)
 
 ### Changed
 
