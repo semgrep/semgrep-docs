@@ -67,15 +67,6 @@
 
 
   /**************************************************************************
-   * 2024 August style consolidation with marketing website                 *
-   *************************************************************************/
-  /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
-  /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
-  --ifm-font-color-base: var(--semgrep-secondary-blue02);
-  --ifm-background-color: var(--semgrep-secondary-mint05);
-  --ifm-pre-background: var(--semgrep-grey-100);
-
-  /**************************************************************************
    * MARKPROMPT                                                             *
    *************************************************************************/
   --markprompt-background: #fff;
@@ -152,6 +143,33 @@
  *****************************************************************************/
 
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  /**************************************************************************
+   * 2024 August style consolidation with marketing website                 *
+   *************************************************************************/
+
+html[data-theme="light"] {
+  /* --ifm-font-color-base: var(--semgrep-secondary-blue01); */
+  /* --ifm-font-color-base: var(--semgrep-secondary-blue03; */
+  --ifm-font-color-base: var(--semgrep-secondary-blue02);
+  --ifm-background-color: var(--semgrep-secondary-mint05);
+  --ifm-pre-background: var(--semgrep-grey-100);
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--semgrep-secondary-blue01);
+  }
+
+  pre, pre > code {
+    background-color: var(--semgrep-offwhite);
+    box-shadow: var(--ifm-global-shadow-lw);
+  }
+  img {
+      box-shadow: -2px 2px 2px var(--semgrep-grey-300);
+      border-radius: var(--ifm-code-border-radius);
+      margin-bottom: 4px;
+      border: 1px solid var(--semgrep-grey-300);
+  }
+}
 
 html[data-theme="dark"] {
  --docusaurus-highlighted-code-line-bg: #737373;
@@ -342,18 +360,10 @@ details.alert {
   border: none;
 }
 
-pre, pre > code {
-  background-color: var(--semgrep-offwhite);
-    box-shadow: var(--ifm-global-shadow-lw);
-}
-
 /*
 .alert--info {
   background-color: var(--semgrep-secondary-bluetemp);
 } */
-.alert--secondary {
-  background-color: var(--semgrep-grey-100);
-}
 * {
   font-variant-ligatures: none;
 }
@@ -373,7 +383,6 @@ h5,
 h6 {
   font-weight: 400;
   font-family: "Inter", sans-serif !important;
-  color: #101828;
 }
 
 h1 {
@@ -436,13 +445,6 @@ image.png#bordered) because using divs and HTML interfere with other docusaurus 
 See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matching-src-attribute
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
-
-img {
-    box-shadow: -2px 2px 2px var(--semgrep-grey-300);
-    border-radius: var(--ifm-code-border-radius);
-    margin-bottom: 4px;
-    border: 1px solid var(--semgrep-grey-300);
-}
 
 img[src*="no-shadow"] {
   box-shadow: 0px 0px 0px;
