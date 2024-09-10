@@ -232,8 +232,8 @@ Semgrep Supply Chain results in a failed CI job only when there are critical or 
 The policies for Semgrep's other products, Semgrep Code and Semgrep Secrets, provide extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
 
 - Only in the AppSec team’s view (monitor mode)
-- In the AppSec team's view **and** in the developer’s workflow, while not blocking the build (comment mode)
-- In the AppSec team's view **and** in the developer’s workflow, while also blocking the build (block mode)
+- In the AppSec team's view **and** in the developer’s workflow, while not failing the CI job (comment mode)
+- In the AppSec team's view **and** in the developer’s workflow, while also failing the CI job (block mode)
 
 #### Dependency lifecycle management
 
@@ -241,7 +241,7 @@ To help you manage your findings, Semgrep provides information, including EPSS p
 
 #### Accuracy of results
 
-Semgrep has reachability analysis for over 80% of critical CVEs dating back to 2017 and 100% of critical and high-severity CVEs dating back to May 2022. Endor Labs' reachability data, however, dates back to 2018.
+Semgrep has reachability analysis for over 80% of critical CVEs dating back to 2017 and 100% of critical and high severity CVEs dating back to May 2022. Endor Labs' reachability data, however, dates back to 2018.
 
 ### Comparing Semgrep to Snyk
 
