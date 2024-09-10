@@ -356,8 +356,8 @@ details.alert {
 
 /* prevent box shadow and border on assets we don't want to apply it to */
 .navbar__logo > img {
-  box-shadow: 0px 0px 0px;
-  border: none;
+  box-shadow: 0px 0px 0px !important;
+  border: none !important;
 }
 
 /*
@@ -447,9 +447,10 @@ https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
 
 img[src*="no-shadow"] {
-  box-shadow: 0px 0px 0px;
-  border: none;
+  box-shadow: 0px 0px 0px !important;
+  border: none !important;
 }
+
 img[src*="md-width"] {
     width: 75%;
     display: block;
