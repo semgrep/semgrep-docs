@@ -11,7 +11,6 @@ tags:
 
 # Single-sign on (SSO) configuration
 
-
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
@@ -132,3 +131,16 @@ You have now set up SAML configuration between Microsoft Entra ID and Semgrep Ap
 #### Add users to your new enterprise app
 
 To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
+
+## Turn off sign in with GitHub / GitLab
+
+If you have SSO enabled, you can turn off login using GitHub or GitLab credentials. Doing so forces members of your organization to log in using an email address with an approved domain.
+
+1. Sign in to your [Semgrep account](https://semgrep.dev/login).
+2. Navigate to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/docs-test/settings/access/loginMethods).
+3. GitHub users: Click the **GitHub SSO** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn off logins using GitHub.
+4. GitLab users: Click the **GitLab SSO** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn off logins using GitLab.
+
+:::warning
+Ensure that you have at least one user who can log in through SSO before disabling sign in with GitHub or GitLab.
+:::
