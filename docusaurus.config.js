@@ -392,6 +392,8 @@ module.exports = {
           { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
           /* JULY 15, 2024 */
           { from: "/semgrep-appsec-platform/bitbucket-pr-comments" , to: "/category/bitbucket-pr-comments"} ,
+          /* SEP 11, 2024 */
+          { from: "/kb/rules/match-commments" , to: "/kb/rules/match-comments" },
         ]
       }
     ],
