@@ -35,37 +35,54 @@ To have more granular control over the rules in a ruleset, you must add the rule
 ### Customize a rule from a Semgrep Community ruleset
 
 1. Edit the noisy rule to improve its performance.
-1. Test that the customizations improve the rule performance by entering:
+1. Test your rule improvements by entering:
 <pre>semgrep scan --config='<span class="placeholder">SEMGREP_RULES_FOLDER</span>/<span class="placeholder">NAME_OF_IMPROVED_RULE</span>.yaml'</pre>
 
 ### Remove the rule from the scan
 
 Delete the rule from the folder containing your Semgrep rules.
 
-## Use advanced analyses
+## Use advanced analyses and Pro rules
+
+Optimizing rules can be a time-consuming process. Often, rules are not necessarily noisy, but lack additional analysis to detect true positives while ignoring false positives.
 
 Semgrep AppSec Platform provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep OSS can't find.
 
-To enable these analyses, you must create a Semgrep account.
+For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default.
+
+To enable these analyses, you must create and sign in to a Semgrep account.
 
 ### Sign in to Semgrep
 
-To create a Semgrep Account You need a GitHub or GitLab account
+You need a GitHub or GitLab account to sign in to Semgrep.
+
 1. Enter the following command:
     ```
     semgrep login
     ```
 1. Follow the steps to create an account and proceed.
+1. Optional: Enter `semgrep ci` to run a scan. By default, these scans use Semgrep Pro rules, cross-function analysis, and language-specific improvements.
 
-### Use Pro rules
+:::tip
+The `--config` option is not compatible with `semgrep ci` once you are logged in. To use your custom rules, add them to Semgrep AppSec Platform.
+:::
 
+#### Analyses and improvements available by default
 
-### Enable
+##### Pro rules
 
-<!--
-due to the following:
+Semgrep Pro rules are high-confidence, professionally maintained rules provided exclusively by Semgrep.
 
-- The lack of additional SAST analyses, such as cross-file (interfile) taint.
-- The lack of Semgrep community rule coverage for your language.
+Click to view languages with Pro rules coverage
 
--->
+The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce accurate, actionable findings.
+
+##### Cross-function analysis
+
+##### Language-specific improvements
+
+Languages such as Java and frameworks such as Django, FastAPI, and Flask
+
+### Enable cross-file analysis
+
+By default, CLI scans using `semgrep ci` include cross-function analysis. Semgrep can also perform cross-file analysis.
