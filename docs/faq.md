@@ -166,13 +166,13 @@ Both Semgrep and Snyk offer out-of-the-box SAST solutions. Semgrep makes it easi
 
 In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
 
-Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its web app, in supported IDEs, and CLI, while Semgrep displays remediation advice and guidance in its web app, supported IDEs, the CLI, and in the form of PR or MR comments.
+Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its web app, in supported IDEs, and CLI, while Semgrep displays remediation advice and guidance in its web app, CLI, supported IDEs, and in the form of PR or MR comments.
 
 Snyk and Semgrep both display prioritization metrics to help you decide which findings you should work on first. For SAST, Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides severity information, confidence in the rule to detect findings that are true positives, and likelihood that an attacker can exploit the issues found.
 
 Additionally, Semgrep provides action recommendations through Assistant, which offers capabilities like GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-Snyk offers autofix capability for its SCA product, but not its SAST product. Semgrep offers autofix suggestions for SAST and SCA, where its [rules contain suggested fixes to resolve findings](/writing-rules/autofix), and in the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can generate an autofix](/semgrep-assistant/overview#autofix).
+Snyk offers autofix capability for its SCA product, but not its SAST product. Semgrep offers autofix suggestions for SAST and SCA, where its [rules contain suggested fixes to resolve findings](/writing-rules/autofix). In the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can generate an autofix](/semgrep-assistant/overview#autofix).
 
 #### SCA
 
