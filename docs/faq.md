@@ -162,9 +162,9 @@ See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for 
 
 #### SAST
 
-Both Semgrep and Snyk offer SAST solutions that are out of the box. Semgrep makes it easier to customize the rules that run against your code. Furthermore, when you know which rules were run, you can analyze your results to see if the relevant vulnerabilities were caught.
+Both Semgrep and Snyk offer out-of-the-box SAST solutions. Semgrep makes it easier to customize the rules that run against your code. Because these rules are visible and customizable, you can analyze your results to see if the relevant vulnerabilities were caught.
 
-In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, Semgrep Editor provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
+In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
 
 Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its UI and CLI, while Semgrep displays remediation advice and guidance in its UI and in the form of PR or MR comments.
 
@@ -176,11 +176,11 @@ Semgrep offers autofix suggestions for SAST and SCA. Snyk offers autofix capabil
 
 Snyk offers reachability analysis for Java, JavaScript, and TypeScript, while Semgrep offers reachability analysis for [multiple languages, including Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain)
 
-Snyk offers limited information on whether dependencies are direct or transitive. However, this information is only available with Enterprise plans, and the information is limited to projects using Node.js, specifically npm and Yarn packages, and Maven. Semgrep Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability. Semgrep offers this coverage for seven languages and counting.
+Snyk can detect whether dependencies are direct or transitive. However, this information is only available with Enterprise plans, and the information is limited to projects using Maven or Node.js, specifically npm and Yarn packages. Semgrep Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability. Semgrep offers this coverage for seven languages and counting.
 
 Semgrep and Snyk both offer license compliance features, ensuring that the dependencies that your developers use meet the requirements set by your organization.
 
-To help you manage your findings, Semgrep provides you with the findings' EPSS probabilities, severity levels, transitivity information, and multiple levels of dataflow reachability. Snyk assesses impact and likelihood and encapsulates this information into a risk score. 
+To help you manage your findings, Semgrep provides you with the findings' EPSS probabilities, severity levels and transitivity information. Snyk assesses impact and likelihood and encapsulates this information into a risk score. 
 
 #### Policies and rules management 
 
@@ -196,7 +196,6 @@ Semgrep Supply Chain results in a failed CI job only when there are critical or 
 
 Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk maintains a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer secrets scanning as part of Snyk Code.
 
-> See [Semgrep vs. Snyk](https://semgrep.dev/resources/semgrep-vs-snyk) for a detailed comparison.
 
 ### Comparing Semgrep to SonarQube
 
