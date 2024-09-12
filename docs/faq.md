@@ -166,7 +166,7 @@ Both Semgrep and Snyk offer out-of-the-box SAST solutions. Semgrep makes it easi
 
 In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
 
-Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its UI and CLI, while Semgrep displays remediation advice and guidance in its UI, CLI, and in the form of PR or MR comments.
+Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its web app, in supported IDEs, and CLI, while Semgrep displays remediation advice and guidance in its web app, supported IDEs, the CLI, and in the form of PR or MR comments.
 
 Snyk and Semgrep both display prioritization metrics to help you decide which findings you should work on first. For SAST, Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides severity information, confidence in the rule to detect findings that are true positives, and likelihood that an attacker can exploit the issues found.
 
