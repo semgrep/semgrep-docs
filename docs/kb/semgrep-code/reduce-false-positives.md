@@ -69,7 +69,7 @@ You need a GitHub or GitLab account to sign in to Semgrep.
     semgrep login
     ```
 1. Follow the steps to create an account and proceed.
-1. Optional: Enter `semgrep ci` to run a scan. By default, these scans use [Semgrep Pro rules, cross-function analysis, and language-specific improvements](/semgrep-code/reduce-false-positives#analyses-and-improvements-available-by-default).
+1. Optional: Enter `semgrep ci` to run a scan. By default, these scans use [Semgrep Pro rules, cross-function analysis, and language-specific improvements](#analyses-and-improvements-available-by-default).
 
 :::tip
 You can't use the `--config` option with `semgrep ci` once you are logged in. To use your custom rules, add them to your [<i class="fas fa-external-link fa-xs"></i> Policies page](https://semgrep.dev/orgs/-/policies).
