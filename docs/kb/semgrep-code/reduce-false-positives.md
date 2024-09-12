@@ -8,6 +8,10 @@ tags:
   - Semgrep OSS
 ---
 
+import ProRulesLanguageCoverage from "/src/components/reference/_pro-rules-language-coverage.mdx"
+import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"
+import DefCrossFunction from "/src/components/concept/_def-cross-function.mdx"
+
 # Reduce false positives in `semgrep scan`
 
 The `semgrep scan` command can be used to quickly perform SAST scans. However, you may encounter false positives as you work through your findings. This document presents different strategies to reduce false positives and increase true positives in your scans.
@@ -46,11 +50,15 @@ Delete the rule from the folder containing your Semgrep rules.
 
 Optimizing rules can be a time-consuming process. Often, rules are not necessarily noisy, but lack additional analysis to detect true positives while ignoring false positives.
 
-Semgrep AppSec Platform provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep OSS can't find.
+[Semgrep Code](/semgrep-code/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep OSS can't find.
 
 For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default.
 
 To enable these analyses, you must create and sign in to a Semgrep account.
+
+:::note
+Semgrep Code is free for up to 10 users.
+:::
 
 ### Sign in to Semgrep
 
@@ -61,28 +69,42 @@ You need a GitHub or GitLab account to sign in to Semgrep.
     semgrep login
     ```
 1. Follow the steps to create an account and proceed.
-1. Optional: Enter `semgrep ci` to run a scan. By default, these scans use Semgrep Pro rules, cross-function analysis, and language-specific improvements.
+1. Optional: Enter `semgrep ci` to run a scan. By default, these scans use [Semgrep Pro rules, cross-function analysis, and language-specific improvements](/semgrep-code/reduce-false-positives#analyses-and-improvements-available-by-default).
 
 :::tip
-The `--config` option is not compatible with `semgrep ci` once you are logged in. To use your custom rules, add them to Semgrep AppSec Platform.
+You can't use the `--config` option with `semgrep ci` once you are logged in. To use your custom rules, add them to your [<i class="fas fa-external-link fa-xs"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 
 #### Analyses and improvements available by default
+
+The following features are enabled by default and help reduce false positives.
 
 ##### Pro rules
 
 Semgrep Pro rules are high-confidence, professionally maintained rules provided exclusively by Semgrep.
 
-Click to view languages with Pro rules coverage
+<ProRulesLanguageCoverage />
 
 The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce accurate, actionable findings.
 
 ##### Cross-function analysis
 
+<DefCrossFunction />
+
+ To see cross-function analysis in action, [run the interactive example](/semgrep-code/semgrep-pro-engine-intro#cross-function-example).
+
 ##### Language-specific improvements
 
-Languages such as Java and frameworks such as Django, FastAPI, and Flask
+Languages such as Java and frameworks such as Django, FastAPI, and Flask have specific improvements that take into account language features and implicit dataflows. To learn more:
+
+- [Supported languages > Python](/semgrep-code/supported-languages-python)
+- [Semantic detection in Java](/semgrep-code/java)
 
 ### Enable cross-file analysis
 
-By default, CLI scans using `semgrep ci` include cross-function analysis. Semgrep can also perform cross-file analysis.
+<DefCrossFile />
+
+To run a scan with cross-file analysis, use the following command:
+```
+semgrep ci --pro
+```
