@@ -46,7 +46,7 @@ If you encounter issues during the setup process, please reach out to [support@s
 SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 
 1. Create a SAML app with your authentication provider.
-    ![Creating SAML app through Okta](/img/saml-creating-app.png#md-wdith)
+    ![Creating SAML app through Okta](/img/saml-creating-app.png#md-width)
 1. With your authentication provider, add in two attribute statements: `name` and `email`.
     ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png#md-width)
 1. Sign in to Semgrep AppSec Platform.
