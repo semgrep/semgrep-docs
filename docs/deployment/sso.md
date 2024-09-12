@@ -25,13 +25,14 @@ Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth
 
 To set up SSO:
 
-1. In Semgrep AppSec Platform, click **Settings** > **Access** > **[SSO](https://semgrep.dev/orgs/-/settings/access/sso)**, and then select **Add OpenID SSO**.
-2. Copy the `Redirect URL`.
-    ![Finding providerId and RedirectURL via Semgrep AppSec Platform](/img/sso-redirect-url.png "Finding Provider ID and RedirectURI via Semgrep AppSec Platform")
-3. Generate a `Client ID` and `Client Secret` through your authentication provider and paste them.
+1. Sign in to Semgrep AppSec Platform.
+2. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+3. Click **Add SSO configuration** and select **OpenID SSO**.
+4. Provide a **Display name** and the **Email domain**.
+1. Copy the **Redirect URL**.
+2. Generate a **Client ID** and **Client Secret** through your authentication provider and paste these values into Semgrep.
     ![Generating Client ID and Client Secret via the Okta](/img/sso-clientID-clientSecret.png "Generating Client ID and Client Secret through Okta")
-4. From your authentication provider, copy the values for `Base URL/Domain` and `Email Domain` to Semgrep's Configure SSO: OpenID tab. `Base URL/Domain` is `Okta domain` for Okta SSO.
-5. Provide a descriptive `Display Name`.
+3. From your authentication provider, copy the **Base URL** value, and provide it to Semgrep. For Okta SSO, the base URL is the **Okta domain**.
     ![Providing the Base URL/Domain, Display Name, and Email Domain](/img/sso-display-name.png "Providing the Base URL/Domain, Display Name, and Email Domain")
 
 In case you encounter issues during the setup process, please reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
