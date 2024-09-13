@@ -1,37 +1,24 @@
 ---
 slug: dashboard-beta
-title: Dashboard (beta)
+title: Dashboard
 hide_title: true
-description: Use the Semgrep dashboard (beta) to gain an overview of your organization's security posture, including the deployment of guardrails.
+description: Use the Semgrep dashboard to gain an overview of your organization's security posture, including the deployment of guardrails.
 tags:
   - Semgrep AppSec Platform
   - Secure guardrails
 ---
 
-# Dashboard (beta)
+# Dashboard
 
-The Semgrep dashboard (beta) is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
+The Semgrep dashboard is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
 - Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts on the page and view priority findings.
 
-:::note
-This feature is in **private beta**. To request access, contact your Technical Account Manager or your Account Executive and let them know you'd like to join the dashboard beta.
-
-Beta-exclusive features include:
-
-- Improved filtering, including a [recommended priority](#recommended-priority) set of filters to bring to your attention the most important findings quickly.
-- Graphs and charts that track:
-    - Developer engagement through secure guardrails.
-    - Changes in the number of open findings in the production backlog, which lets you know if your team is addressing findings or if the number of new findings is decreasing over time.
-    - The average time it takes to close a finding.
-:::
-
-
-![Dashboard (beta) page](/img/dashboard-fold.png)
-_**Figure**. The dashboard (beta) page. Hover over the charts to view data for that point in time._
+![Dashboard page](/img/dashboard-fold.png)
+_**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
 
 ## Dashboard overview
 
@@ -50,7 +37,7 @@ The dashboard is divided into several panes:
   <td>Provides a count of [priority](#recommended-priority) findings for all of your Semgrep products. Clicking any of the values takes you to the product's Findings page with those filters applied.</td>
 </tr>
 <tr>
-<td>Filters and configuration</td>
+<td>Reporting summary top bar</td>
 <td>
 Sets the filters for all the data in the page except for the **Today's recommended priority findings** pane.
 </td>
@@ -114,8 +101,8 @@ Configurations set here apply to the entire page.
 
 The following quick filters are visible on the page:
   - Time period
-  - Project (repository)
   - Semgrep product or type of scan (SAST, SCA, or Secrets)
+  - Project (repository)
   - [Recommended priority](#recommended-priority) toggle
 
 To access **all** filters:
