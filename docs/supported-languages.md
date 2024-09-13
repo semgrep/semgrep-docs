@@ -253,7 +253,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✅</td>
-   <td rowspan="7">Not applicable due to reachability support level</td>
+   <td rowspan="8">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
