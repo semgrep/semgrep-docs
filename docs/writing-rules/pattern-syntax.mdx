@@ -450,16 +450,15 @@ The syntax for a typed metavariable in Go looks different from the syntax for Ja
 In this Go example we look for calls to the `Open` function, but only on an object of the `zip.Reader` type.
 
 ```text
-pattern: ($READER : *zip.Reader).Open($INPUT)
+pattern: |
+    ($READER : *zip.Reader).Open($INPUT)
 ```
 
 ```go
-func read_file() {
-
-    reader, _ := zip.NewReader(readerat, 18276)
+func read_file(reader *zip.Reader, filename) {
 
 	// Matched
-	reader.Open("data")
+	reader.Open(filename)
 
     dir := http.Dir("/")
 
