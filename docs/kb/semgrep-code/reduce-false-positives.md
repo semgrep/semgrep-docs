@@ -75,11 +75,11 @@ You need a GitHub or GitLab account to sign in to Semgrep.
 You can't use the `--config` option with `semgrep ci` once you are logged in. To use your custom rules, add them to your [<i class="fas fa-external-link fa-xs"></i> Policies page](https://semgrep.dev/orgs/-/policies).
 :::
 
-#### Analyses and improvements available by default
+### Analyses and improvements available by default
 
 The following features are enabled by default and help reduce false positives.
 
-##### Pro rules
+#### Pro rules
 
 Semgrep Pro rules are high-confidence, professionally maintained rules provided exclusively by Semgrep.
 
@@ -87,13 +87,13 @@ Semgrep Pro rules are high-confidence, professionally maintained rules provided 
 
 The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce accurate, actionable findings.
 
-##### Cross-function analysis
+#### Cross-function analysis
 
 <DefCrossFunction />
 
  To see cross-function analysis in action, [run the interactive example](/semgrep-code/semgrep-pro-engine-intro#cross-function-example).
 
-##### Language-specific improvements
+#### Language-specific improvements
 
 Languages such as Java and frameworks such as Django, FastAPI, and Flask have specific improvements that take into account language features and implicit dataflows. To learn more:
 
@@ -108,3 +108,10 @@ To run a scan with cross-file analysis, use the following command:
 ```
 semgrep ci --pro
 ```
+:::tip Run SCA and SAST scans with one command
+
+The `semgrep ci` command can also run SCA scans with the Semgrep Supply Chain product, which makes use of the same analyses mentioned in this document to determine **reachability** and reduce false positives.
+
+Dataflow and interfile analyses in particular ensure that Semgrep Supply Chain provides a high true positive rate while reducing false positives. Read the [<i class="fas fa-external-link fa-xs"></i> Doyensec Software Composition Analysis Benchmark](https://www.doyensec.com/resources/Doyensec_Software_Composition_Analysis_Benchmark.pdf) to learn more.
+
+:::
