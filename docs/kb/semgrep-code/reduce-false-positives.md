@@ -52,9 +52,7 @@ Optimizing rules can be a time-consuming process. Often, rules are not necessari
 
 [Semgrep Code](/semgrep-code/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep OSS can't find.
 
-For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default.
-
-To enable these analyses, you must create and sign in to a Semgrep account.
+For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default once you've signed in to Semgrep.
 
 :::note
 Semgrep Code is free for up to 10 users.
