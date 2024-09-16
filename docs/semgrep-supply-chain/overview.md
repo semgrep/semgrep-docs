@@ -8,14 +8,13 @@ title: Overview
 hide_title: false
 ---
 
-
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
 
 <SscIntro />
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
+_**Figure**. Semgrep Supply Chain Vulnerabilities page._
 
 ## Identify open source security vulnerabilities
 
@@ -37,7 +36,7 @@ The following diagram shows the relationship between a Semgrep Supply Chain
 rule, the codebase scanned, and its lockfile:
 
 ![Relationship between a Semgrep Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
-_Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase.
+_**Figure**. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase._
 
 <AdmonitionSotCves />
 
