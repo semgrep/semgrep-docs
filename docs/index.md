@@ -14,7 +14,7 @@ description: >-
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import ThemedImage from '@theme/ThemedImage'
 
-<div class = "3-col-fixed">
+<div class = "col-3-fixed">
         <Card shadow='tl'>
           <CardHeader>
             <h3>Lorem Ipsum</h3>

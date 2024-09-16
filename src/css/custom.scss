@@ -590,8 +590,17 @@ article > a[class*="cardContainer_"][class~="card"] {
   content: "🏠";
   display: inline;
   padding-right: 8px;
-
 }
-/*
-.home-top-level:first-child:before{
-}*/
+
+
+/******************************************************************************
+ *                                                                            *
+ * CARDS                                                                      *
+ * 3-col layouts, flex, fixed, etc.                                           *
+ *****************************************************************************/
+
+
+.col-3-fixed {
+    display: flex;
+    justify-content: space-between;
+}
