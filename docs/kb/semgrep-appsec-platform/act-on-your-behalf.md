@@ -15,7 +15,7 @@ This restriction also applies to read and write permissions&mdash;for example, y
 
 At the start of your Semgrep onboarding experience, the resource granted to Semgrep is read access to your **email address**, but Semgrep itself never acts on your behalf.
 
-![You grant Semgrep read access to your email address when you sign in for the first time.](/img/new-onboarding.png#md-noborder)
+![You grant Semgrep read access to your email address when you sign in for the first time.](/img/new-onboarding.png#sm-width)
 _**Figure**. You grant Semgrep read access to your email address when you sign in for the first time._
 
 ## How to detect when an app acts on your behalf
@@ -29,7 +29,7 @@ _**Figure**. GitHub **ExampleApp** performing an action on behalf of a user._
 
 In contrast, the Semgrep GitHub app performs the action it's permitted to perform as itself. It does not use your identity to perform any actions. You can see this when Semgrep posts PR comments:
 
-![The Semgrep GitHub app commenting on a pull request as itself.](/img/semgrep-not-acting-on-your-behalf.png#md-noborder)
+![The Semgrep GitHub app commenting on a pull request as itself.](/img/semgrep-not-acting-on-your-behalf.png#md-width)
 _**Figure**. The Semgrep GitHub app commenting on a pull request as itself._
 
 ## Further reading

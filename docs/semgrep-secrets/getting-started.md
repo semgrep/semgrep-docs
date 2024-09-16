@@ -21,6 +21,10 @@ This document guides you through:
 2. Configuring your ignore files
 3. Upgrading your Semgrep Code rules to Semgrep Secrets rules
 
+:::info
+To access Semgrep Secrets, contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) for a trial license.
+:::
+
 ## Language and environment support
 
 Semgrep Secrets can scan repositories using **any programming language** and supports the posting of PR and MR comments to GitHub, GitLab, and Bitbucket.

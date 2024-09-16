@@ -143,7 +143,8 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep AppSec Platform.
 1. **Enabling Semgrep to post PR or MR comments**.
 
-![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
+![Core deployment steps](/img/core-deployment.png)
+_**Figure**. Core deployment steps._
 
 To manage a large volume of users and repositories, you may need to perform additional steps:
 

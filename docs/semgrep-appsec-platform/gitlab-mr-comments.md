@@ -138,8 +138,8 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ### Dataflow traces in MR comments
 
-![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png#bordered)
-**Figure** An inline GitLab pull request comment with dataflow traces.
+![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png)
+_**Figure**. An inline GitLab pull request comment with dataflow traces._
 
 <DisplayTaintedDataIntro />
 

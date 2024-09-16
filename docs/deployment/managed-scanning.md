@@ -69,7 +69,7 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. Select the repositories you want to scan from the list.
 1. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
 1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
-![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
+![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
 1. Click **Enable**.
 1. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
 
@@ -91,7 +91,7 @@ _**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settin
 
 You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
 
-![GitHub settings page](/img/zcs-github-apps.png#bordered)
+![GitHub settings page](/img/zcs-github-apps.png)
 _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. The private Semgrep app follows the convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**_.
 
 ### If the page doesn't display any repositories

@@ -40,7 +40,15 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'prerequisites',
-            'supported-languages',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Supported languages',
+                link: {type: 'doc', id: 'supported-languages'},
+                items: [
+                    'semgrep-code/supported-languages-python',
+                ]
+            },
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -618,6 +626,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/august-2024',
                 'release-notes/july-2024',
                 'release-notes/june-2024',
                 'release-notes/may-2024',

@@ -158,6 +158,16 @@ inbound:
 
 This provides additional flexibility when troubleshooting. See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file#logging) for more details.
 
+### Enable verbose WireGuard logging
+
+To troubleshoot connection issues potentially related to the WireGuard configuration, you can enable verbose logging by adding the following snippet to the broker configuration:
+
+```yaml
+inbound:
+  wireguard:
+    verbose: true
+```
+
 ## Use Semgrep Network Broker with Managed Scans
 
 Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:

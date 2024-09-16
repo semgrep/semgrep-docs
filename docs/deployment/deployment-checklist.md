@@ -111,9 +111,10 @@ The following checklist breaks down permissions required by Semgrep features.
 <Tabs
     defaultValue="gh"
     values={[
-    {label: 'GitHub', value: 'gh'},
-    {label: 'GitLab', value: 'gl'},
+    {label: 'Azure DevOps', value: 'az'},
     {label: 'Bitbucket', value: 'bb'},
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'}
     ]}
 >
 
@@ -164,6 +165,16 @@ The following checklist breaks down permissions required by Semgrep features.
 | Feature  | Permission |
 | -------  | -------  |
 | Pull request (PR) comments.  | Able to create **repository variables**. |
+
+</TabItem>
+
+<TabItem value='az'>
+
+#### Azure DevOps
+
+| Feature  | Permission |
+| -------  | -------  |
+| Pull request (PR) comments.  | Able to create [user personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). |
 
 </TabItem>
 

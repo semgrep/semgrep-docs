@@ -25,7 +25,7 @@ To aid in debugging, you can reproduce some aspects of your Semgrep CI job local
     ```
     semgrep login
     ```
-1. After logging in, return to the CLI and enter the following: <pre class="language-bash"><code>SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</code></pre>
+1. After logging in, return to the CLI and enter the following: <pre class="language-bash">SEMGREP_REPO_NAME=<span className="placeholder">your-organization</span>/<span className="placeholder">repository-name</span> semgrep ci</pre>
     For example, given a GitHub repository `vulncorp/juice-shop`, the full command would be:
     ```
     SEMGREP_REPO_NAME=vulncorp/juice-shop semgrep ci
@@ -170,7 +170,7 @@ Check the log output for any hints about what the issue is.
 
 - If the logs mention a missing token or an authentication failure, you can get a new token from the [Settings page of Semgrep AppSec Platform](https://semgrep.dev/manage/settings), and set it as `SEMGREP_APP_TOKEN` in your CI provider's secret management UI.
 - Alternatively, if this is the first scan after adding a new GitHub repository, and the repository is a fork, check your Actions tab to see if workflows are enabled:
-  ![Screenshot of GitHub's Actions tab with workflows disabled](/img/github-workflows-disabled.png#bordered)
+  ![Screenshot of GitHub's Actions tab with workflows disabled](/img/github-workflows-disabled.png)
   - Enable workflows by clicking **I understand my workflows, go ahead and enable them** to allow Semgrep to scan.
 
 ### If a project reports the last scan 'Never finished'
