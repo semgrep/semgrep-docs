@@ -12,9 +12,43 @@ description: >-
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-
 import ThemedImage from '@theme/ThemedImage'
 
+<div class = "3-col-fixed">
+        <Card shadow='tl'>
+          <CardHeader>
+            <h3>Lorem Ipsum</h3>
+          </CardHeader>
+          <CardBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+          <CardFooter>
+            <button className='button button--secondary button--block'>See All</button>
+          </CardFooter>
+        </Card>
+        <Card shadow='tl'>
+          <CardHeader>
+            <h3>Lorem Ipsum</h3>
+          </CardHeader>
+          <CardBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+          <CardFooter>
+            <button className='button button--secondary button--block'>See All</button>
+          </CardFooter>
+        </Card>
+        <Card shadow='tl'>
+          <CardHeader>
+            <h3>Lorem Ipsum</h3>
+          </CardHeader>
+          <CardBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+          <CardFooter>
+            <button className='button button--secondary button--block'>See All</button>
+          </CardFooter>
+        </Card>
+</div>
 <!---
 Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
