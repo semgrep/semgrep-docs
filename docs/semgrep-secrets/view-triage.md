@@ -46,7 +46,7 @@ You can find and perform bulk operations through filtering; [all filter operatio
 | View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
 | View findings of a specific severity | Under **Severity**, select a value. |
 
-![Secrets page and relevant triaging elements.](/img/secrets-triage.png#bordered)
+![Secrets page and relevant triaging elements.](/img/secrets-triage.png)
 **_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
 
 You can triage findings in bulk by performing the following steps:
@@ -67,7 +67,7 @@ To receive PR or MR comments, ensure that:
 * You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
 * You have defined which rules should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 
-![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png#bordered)
+![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png)
 **_Figure._** Semgrep Secrets finding in a PR comment.
 
 :::info

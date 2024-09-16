@@ -114,7 +114,7 @@ _\*To receive Assistant guidance, check that your source code manager (SCM) is s
 _**Figure**. Remediation message provided in VS Code. The message appears when a user hovers over findings, which are marked with squiggly lines. Developers can click the **Quick Fix** button to either ignore the finding or, if the rule provides an autofix, apply the fix._
 
 
-![A PR comment detecting a hardcoded secret](/img/guardrails-secrets.png#bordered)
+![A PR comment detecting a hardcoded secret](/img/guardrails-secrets.png)
 _**Figure**. A PR comment detecting a hardcoded secret._
 
 ### Customizability
@@ -199,7 +199,7 @@ The guidance makes use of the Semgrep rule, AI's understanding of code, and a pr
 - Custom instructions
 - Broader context of the file
 
-![Semgrep PR comment with detailed remediation steps](/img/guardrails-comment-step-by-step.png#md-width-centered)
+![Semgrep PR comment with detailed remediation steps](/img/guardrails-comment-step-by-step.png#md-width)
 _**Figure**. AI-generated guidance. Developers are able to commit the suggestion directly._
 
 :::info
@@ -257,8 +257,8 @@ Rules can be **configured on a per-product, per-interface basis** to notify deve
 </tbody>
 </table>
 
-![Policies page > Code tab](/img/guardrails-policies.png#bordered)
-_**Figure**. Policies page > Code tab. Rules should be in either Comment or Block mode to leave a PR or MR comment._
+![Policies page > Code tab](/img/guardrails-policies.png)
+_**Figure**. **Policies page > Code tab**. Rules should be in either Comment or Block mode to leave a PR or MR comment._
 
 ## Next steps
 
