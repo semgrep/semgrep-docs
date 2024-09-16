@@ -53,7 +53,7 @@ your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability
     definition, the finding is flagged as **reachable**.
       * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved for these findings.
-      * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. Semgrep Supply Chain can determine if the vulnerability is reachable, but such findings require manual review to determine whether those conditions have been met.
+      * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
   * If Semgrep Supply Chain determines that you either don't use the vulnerable library package imported or you don't use the vulnerable piece of code of the library or package imported, the finding is flagged as **unreachable**.
   * If Semgrep Supply Chain determines that you use a vulnerable version of a
   dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **no reachability analysis**.
