@@ -10,6 +10,7 @@ tags:
 
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
+import ProRulesLanguageCoverage from "/src/components/reference/_pro-rules-language-coverage.mdx"
 
 # Semgrep Pro rules
 
@@ -26,7 +27,9 @@ The goal of Pro rules is to provide a set of well-supported rules with improved 
 
 ## Semgrep Pro rules content
 
-Semgrep Pro rules provide improved coverage for many languages, including Java, JavaScript, TypeScript, Python, PHP, Ruby, C#, Swift, and Go.
+Semgrep Pro rules provide improved coverage for the following languages:
+
+<ProRulesLanguageCoverage />
 
 Semgrep Pro rules provide improved findings across many languages on specific classes of vulnerabilities, such as injection vulnerabilities, deserialization, XXE, and many others, as well as increased support for frameworks and technologies such as Express, Spring, Java Servlets, Laravel, Go net/http, React, Next.js, and Angular.
 

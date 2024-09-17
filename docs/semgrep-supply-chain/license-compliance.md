@@ -13,20 +13,16 @@ tags:
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
-![Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-scanning.png)
-*Figure 1*. Screenshot of Semgrep Supply Chain Dependencies tab with licenses listed.
+![Semgrep Supply Chain Dependencies tab with licenses listed](/img/sc-license-configuration.png#md-width)
+_**Figure**. Semgrep Supply Chain's License configuration tab with licenses and permissions listed._
 
-:::info Prerequisites
-- License scanning can be performed only through Semgrep AppSec Platform.
+## Prerequisites and feature support
+
+- License configuration can be performed only through Semgrep AppSec Platform.
 - To detect licenses, you must:
     - [Complete a Semgrep core deployment](/deployment/core-deployment) for repositories you want to scan.
     - [Enable dependency search](/semgrep-supply-chain/dependency-search/#using-dependency-search).
-:::
-
-:::caution Feature support
-* In general, licenses are detected based on the **package manager**. Refer to [Supported languages](/supported-languages/#semgrep-supply-chain) to see supported package managers.
-* The creation of pull request (PR) comments through the Comment policy is only available for GitHub Free and Pro plans.
-:::
+- In general, licenses are detected based on the **package manager**. Refer to [Supported languages](/supported-languages/#semgrep-supply-chain) to see supported package managers.
 
 ## Viewing licenses
 
@@ -58,11 +54,11 @@ By default, all licenses are set to **Allow**. You must configure your policies 
 
 To change the policies of packages based on the license:
 
-1. From the Supply Chain page, click **Settings** on the header menu.
+1. From the **Supply Chain** page, click **License configuration** on the header menu.
 2. Browse the available licenses within the **License configuration** section.
-![Screenshot of license configuration section](/img/sc-license-configuration.png#bordered)
-*Figure 3.* Screenshot of Supply Chain > Settings > License configuration section.
-3. Click the permission (Allow, Comment, or Block) you want to set the license to.
+![License configuration section](/img/sc-license-configuration.png#md-width)
+_**Figure**. The Supply Chain > Settings > License configuration section._
+3. Click the permission (**Allow**, **Comment**, or **Block**) you want to set the license to.
 4. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
 
 ### License categories
@@ -127,11 +123,11 @@ useful for internal dependencies not accessed by users or external APIs.
 
 To exempt a package:
 
-1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain** >
+1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain** >
    **Dependencies**.
 2. Search for the dependencies you want to exempt.
 3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
-   it. Upon clicking on the icon, its permission changes.
+   it. Upon clicking on the icon, its permission changes. Click again on the icon to remove the exemption if necessary.
 
 Exempted dependencies appear in the **Supply Chain** > **Settings** tab.
 
@@ -154,9 +150,8 @@ exception. This ensures that the exclusion won't fail when you upgrade to
 
 To set a custom dependency exception:
 
-1. Log in to Semgrep AppSec Platform and navigate to **Supply Chain** > <i
-   class="fa-solid fa-gear"></i> **Settings**.
-2. In **Custom Dependency Exceptions**, click **Add custom exception**.
+1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain > License configuration**.
+2. In **Custom dependency exceptions**, click **Add custom exception**.
 3. In the **Add custom dependency exception** window that appears:
    1. Select the **Ecosystem** where this dependency applies.
    2. Provide the **Package name**, for example, `bitwarden/cli`.

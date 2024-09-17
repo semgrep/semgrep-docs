@@ -18,6 +18,10 @@ After each scan, your findings are displayed in Semgrep AppSec Platform's
 Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
 :::
 
+## Default Secrets page view and branch logic
+
+In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets, the **latest instance**, or the finding from the most recent branch scanned, is displayed by default. This is because, if a Secrets finding is present in **any branch**, even a non-primary (default) branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
+
 ## Triage findings
 
 You can triage secrets-related findings in Semgrep AppSec Platform on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
@@ -42,7 +46,7 @@ You can find and perform bulk operations through filtering; [all filter operatio
 | View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
 | View findings of a specific severity | Under **Severity**, select a value. |
 
-![Secrets page and relevant triaging elements.](/img/secrets-triage.png#bordered)
+![Secrets page and relevant triaging elements.](/img/secrets-triage.png)
 **_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
 
 You can triage findings in bulk by performing the following steps:
@@ -63,7 +67,7 @@ To receive PR or MR comments, ensure that:
 * You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
 * You have defined which rules should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 
-![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png#bordered)
+![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png)
 **_Figure._** Semgrep Secrets finding in a PR comment.
 
 :::info

@@ -45,8 +45,8 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - Buildkite
 - Azure Pipelines
 
-![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#bordered)
-**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers.
+![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#md-width)
+_**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers._
 
 If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 

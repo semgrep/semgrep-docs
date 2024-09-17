@@ -9,6 +9,8 @@ hide_title: true
 title: CLI reference
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
 import CLIHelpCiOutput from '/src/components/reference/_cli-help-ci-output.md'
@@ -35,33 +37,18 @@ Command output:
 
 <CLIHelpOutput />
 
-## Semgrep scan command options
+## `semgrep scan` and `semgrep ci` command options
 
-To list all available `semgrep scan` options, run the following command:
+To list all available `semgrep scan` or `semgrep ci` options, run one of the following commands:
 
-```bash
-semgrep scan --help
-```
-
-Command output:
-
-<CLIHelpScanOutput />
-
-<!-- vale off -->
-
-## Semgrep ci command options
-
-To list all available `semgrep ci` options, run the following command:
-
-```bash
-semgrep ci --help
-```
-
-Command output:
-
-<CLIHelpCiOutput />
-
-<!-- vale on -->
+<Tabs>
+  <TabItem value="semgrep scan --help" label="semgrep scan --help">
+    <CLIHelpScanOutput />
+  </TabItem>
+  <TabItem value="semgrep ci --help" label="semgrep ci --help" default>
+    <CLIHelpCiOutput />
+  </TabItem>
+</Tabs>
 
 ## Ignore files
 

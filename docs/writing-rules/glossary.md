@@ -7,6 +7,9 @@ tags:
   - Rule writing
 ---
 
+import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"
+import DefCrossFunction from "/src/components/concept/_def-cross-function.mdx"
+
 # Static analysis and rule-writing glossary
 
 The definitions provided here are specific to Semgrep.
@@ -15,7 +18,7 @@ The definitions provided here are specific to Semgrep.
 
 Constant propagation is a type of analysis where values known to be constant are substituted in later uses, allowing the value to be used to detect matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
 
-Constant propagation is applied to all rules unless [it is disabled](/writing-rules/data-flow/constant-propagation#disabling-constant-propagation).
+Constant propagation is applied to all rules unless [it is disabled](/writing-rules/data-flow/constant-propagation#disable-constant-propagation).
 
 For example, given the following pattern:
 ```yaml
@@ -36,9 +39,7 @@ Constant propagation is one of the many analyses that differentiate Semgrep from
 
 ## Cross-file analysis
 
-Also known as **interfile analysis**. Cross-file analysis takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
-
-Cross-file analysis is usually used in contrast to intrafile (also known as per-file analysis), where each file is analyzed as a standalone block of code.
+<DefCrossFile />
 
 Within Semgrep, cross-file **and** cross-function analysis is simply referred to as cross-file analysis.
 
@@ -46,7 +47,7 @@ Semgrep OSS is limited to per-file analysis.
 
 ## Cross-function analysis
 
-Cross-function analysis means that interactions between functions are taken into account. This improves taint analysis, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many functions.
+<DefCrossFunction />
 
 Within Semgrep documentation, cross-function analysis implies intrafile or per-file analysis. Each file is still analyzed as a standalone block, but within the file it takes into account how information flows between functions.
 

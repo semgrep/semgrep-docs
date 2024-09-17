@@ -55,9 +55,10 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    4. When prompted, click **Continue** to allow redirection to GitHub to finalize app creation. Follow the instructions to finish creating and installing a private `semgrep-app`.
 4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+   1. **Weekly priority emails**: Enable weekly emails with information on Assistant's top three backlog tasks across all findings. The emails are sent out on Monday to all organization admins.
+   1. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
+   1. **Autofix suggestions for Code**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
+    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
 
 </TabItem>
 
@@ -85,21 +86,17 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
    2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
    3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
    4. **Weekly priority emails**: Get weekly emails with information on your top backlog tasks according to Assistant. Semgrep sends these emails to organization admins every Monday.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png)
+    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
 
 </TabItem>
 </Tabs>
 
-### Enable autofix suggestions
+### Enable weekly priority emails
 
-Autofix allows you to receive code snippets to remediate true positives. Perform the following to enable it:
+If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
-    :::tip
-    Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
-    :::
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ### Enable auto-triage
 
@@ -116,15 +113,70 @@ If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to 
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
-  ![ Policies modes](/img/semgrep-assistant-comment.png)
+  ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
 
-### Enable priority inbox
+### Enable autofix suggestions
 
-If [priority inbox](/semgrep-assistant/overview/#priority-inbox), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+Assistant autofix allows you to receive AI-generated code snippets to remediate true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+2. In the **Assistant** section, click the *Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
+    :::tip
+    Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
+    :::
+
+### Add Memories (beta)
+
+Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
+
+Memories are enabled by default for all Assistant users.
+
+To add a memory:
+
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
+2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+   ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-3.png#md-width)
+   ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
+3. Click **Save and regenerate**.
+   ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
+   ***Figure***. User-provided custom instruction that Assistant uses to improve future guidance.
+4. Assistant regenerates the suggested fix to reflect the instructions you provided.
+   ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-1.png#md-width)
+   ***Figure***. Regenerated Assistant fix using the user-provided instructions.
+
+While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+
+#### Remove Memories
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
+3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
+
+### Use your own OpenAI API key
+
+If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Your OpenAI API key**, and provide your API key.
+
+Click **Save** to proceed.
+
+By switching from Semgrep's key to your key, note that you lose access to the following:
+
+- Semgrep’s fine-tuned models that can increase the quality of results.
+- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/overview#privacy-and-legal-considerations) that prevents OpenAI from saving input or output data.
+- Semgrep paying for the cost of your AI usage.
+
+#### Additional AI providers
+
+If you would like access to the following AI providers for use with your Semgrep organization, click the <i class="fa-regular fa-envelope"></i> **icon** next to the AI provider of your choice to request access:
+
+- Azure OpenAI
+- AWS Bedrock
+- Google Gemini
 
 ## Analyze findings
 

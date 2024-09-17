@@ -9,127 +9,120 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for June 2024
+# Semgrep release notes for August 2024
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- The Semgrep **Jira integration** is now in **public beta**. Create Jira project tickets from Semgrep AppSec Platform and configure mappings from Semgrep fields to Jira fields. Read the [Jira integration documentation](/semgrep-appsec-platform/jira#enable-the-jira-integration) to learn more.
-  - Assistant remediation guidance is now available in Jira tickets you create. <!-- 14994 -->
-  - Added a red Jira ticket icon in the **Findings** page to make it clear when Jira ticket creation fails.  <!-- 14835 -->
-- The onboarding checklist modal now expands automatically to show more items when you first sign in to Semgrep AppSec Platform. <!-- 14987 -->
-- You can now sort projects by name and latest scan by navigating to the **Projects** page and clicking the arrow next to their respective headers. <!-- 14923 -->
-![Arrows used to sort projects by name and latest scan.](/img/release-notes-project-sorting.png#bordered)
-- **Playground**: Added the `fix` key to structure mode.
-- Added a setup page for Semgrep Managed Scanning. New users are now able to create a source code manager when setting up managed scans for the first time.
-- Added the ability [to define separate path ignores lists](/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform). Users can now define one for Semgrep Code and Supply Chain and another for Semgrep Secrets.
-- Added two additional triage states for all Semgrep products:
-  - Reviewing
-  - Fixing
+- A new **primary branch** feature is now generally available (GA)! This feature lets you set your repository's default branch; typically Semgrep deployments perform full scans only on default branches. Previously, Semgrep automatically detected primary branches through a list of common names, such as `main` or `master`, but now you can set it to any unique name your organization may use, such as `prod-1`. [Read the documentation](/deployment/primary-branch).
+- **Semgrep Managed Scans and Semgrep in CI**: You can now view logs of all scans by going to the project's **Details** page. <!-- 15974 -->
+- **Jira**:
+  - Added multi-label support when creating Jira tickets. Use a comma to delineate labels.
+  - Added Jira ticket information to information returned from the Findings API.
+- Added initial page state for **Project > Details > Scans** tab. <!-- 15805 -->
 
 ### Changed
 
-- Updated the **Settings > Integrations** tab with the latest supported integration information. <!--15042 -->
+- Various improvements and updates to the Semgrep pricing page. <!-- 16210 -->
+- Improvements to tooltips, help text, and icons in the **Projects** and **Findings** pages. <!-- 16246, 16186, 16058 -->
+- **Semgrep Managed Scans**: Improved error messages to users when clicking **Run a new scan** from the **Projects > Details** page. Now you are better equipped to troubleshoot issues with managed scans. <!-- 16025 -->
+- Updated the Buildkite CI configuration template. <!-- 15932 -->
+- **Code search**: YAML is now validated in the search step and invalid YAML is caught when viewing results. <!-- 15886 -->
 
 ### Fixed
 
-- Previously, users whose access token had expired found themselves redirected back and forth between `/login` and `/orgs/-`, ultimately navigating them to `/login`. This issue has been fixed and the user is now properly redirected based on the state of the access token.
+- **Jira**: Fixed a bug which prevented error messages from appearing in tooltips when Jira tickets failed to be created. Now, you can see detailed error messages letting you know what went wrong when a Jira ticket is not successfully created through Semgrep. <!-- 16259 -->
+- Fixed a regression in which clicking outside of the **Findings** page filter component did not clear all filters.
+- Various copy edits to the Dashboard (beta) page. <!-- 16176 -->
+- Fixed an issue in which untriaged findings could be marked as reopened when creating Jira tickets from the **Finding details** page. <!-- 15969 -->
+- Fixed a bug in which the **Dashboard** did not display the correct number of findings. <!-- 15935-->
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Added support for the `--subdir` command, which enables scanning monorepos in parts. `--subdir` accepts the path to a subdirectory, then runs Semgrep only on the specified subdirectory and ensures that the file links displayed in Semgrep AppSec Platform are correct.
-- Added traces to help debug the performance of tainting. To send traces added in the PR, pass `--trace` and set the environment variable `SEMGREP_TRACE_LEVEL=trace`. To send traces to a local endpoint instead of Semgrep's default endpoint, use `--trace-endpoint`.
+- **Docker**: Semgrep ellipses `...` are now allowed in patterns for `HEALTHCHECK` commands.
+- **Terraform**: Added support for `.tfvars` files. <!-- SAF-1481 -->
 
 ### Changed
 
-- Removed URLs at the end of logs generated whenever `semgrep ci --dryrun` is run. Dry runs occur locally without results uploaded to Semgrep AppSec Platform, so the URL is unnecessary.
+- Semgrep CLI's `--debug` flag no longer generates profiling information, including time and scan performance measurements. To obtain this information, use `--time`.
 
 ### Fixed
 
-- Fixed an issue that caused findings to be flagged as **Untriaged** and display the message, "Untriaged by Semgrep because a related issue was untriaged."
-- Fixed an issue with **last seen** scan dates when projects are scanned with individual products, such as Code and Supply Chain, not simultaneously.
+- Fixed an error with Julia list comprehensions. For example, the pattern `[$A for $B in $C]` matches `[x for y in z]` and result in three bindings `[$A/x,$B/y,$C/z]` instead of one `[$A/x]`.
+- Fixed an issue resulting in deadlock when a scan has interfile analysis and tracing enabled and the number of subprocesses is greater than 1 (`j < 1`). <!-- SAF-1157 -->
+- Fixed an issue where the number of files reported as scanned by Semgrep CLI was inflated due double-counting of generic and regex modes. <!-- SAF-507 -->
+- `--debug` now generates fewer log entries. Additionally, when the number of ignored files, rules, or other entities is too large, Semgrep indicates this in the logs with `<SKIPPED DATA>` to keep the output minimal.
 
-## ⛓️  Semgrep Supply Chain
+## ⛓️ Semgrep Supply Chain
 
 ### Added
 
-- You can now disable Supply Chain PR comments for reachable findings. Navigate to **Settings > Deployment**, and within the **Supply Chain** section, click the <i class="fa-solid fa-toggle-large-on"></i> **PR/MR Comments** toggle.
+- You can now filter and view EPSS scores for your Supply Chain findings.
 
 ### Changed
 
-- The Supply Chain > **Advisories** tab search box now allows you to search by CVE number, such as `CVE-2023-44487`, or GitHub Security Advisory (GHSA) ID.
+- The link to the Supply Chain findings page in Semgrep AppSec Platform filters to the specific repository and `ref` on which the findings are detected.
 
 ### Fixed
 
-- Clicking the **Clear filters** button in **Supply Chain > Vulnerabilities** now clears all filters correctly. <!-- 15004 -->
+- Fixed an issue where Supply Chain's Findings Detail pages weren't showing detailed error information.
 
 ## 🤖 Semgrep Assistant
 
 ### Added
 
-- Added the Assistant **Analyze** button to Semgrep Code's **Finding Details** page so that users do not have to return to the **Findings** page to trigger Assistant actions.
-- Assistant features have been added to the Jira integration. See [Semgrep AppSec Platform](#-semgrep-appsec-platform) for more information.
-
-### Fixed
-
-- Fixed an issue with Assistant causing long wait times for analysis results.
+- Assistant Memories is now in public beta. This feature allows you to tailor Assistant's remediation guidance to your organization's standards and defaults on a per-project, per-rule basis.
+- Added the ability for you to use your own OpenAI API key instead of Semgrep's. This allows you to have complete control over how OpenAI handles your data.
+- Added the ability to query for Assistant's remediation guidance via the [Findings API](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 
 ## 🔐 Semgrep Secrets
 
-### Added
-
-- Added a pop-up confirmation in Semgrep AppSec Platform that enabling historical secrets results in longer scan times.
-
 ### Changed
 
-- Changed the details page for Secrets findings to match findings identified by Semgrep Code and Semgrep Supply Chain.
-- Changed Secrets findings to rely on the findings severity instead of rule severity, since a validator can override the latter value.
+- The **Secrets** page in Semgrep AppSec Platform has been updated to match those for Semgrep Code and Semgrep Supply Chain.
+- Secrets findings no longer display code snippets, even if the user has granted Semgrep code access.
+- Secrets is no longer self-serve. To access Semgrep Secrets, you can contact your Semgrep account executive for a trial license.
 
 ### Fixed
 
-- Fixed an issue where Semgrep Code incorrectly ran alongside Semgrep Secrets. This occurred when there were files that:
-  - Should be scanned by Semgrep Secrets but ignored by Semgrep Code, and
-  - Contained Python functions with annotations ending in `endpoint`, `route`, `get`, `patch`, `post`, `put`, `delete`, `before_request`, or `after_request`
+- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, fail to be scanned by Semgrep Secrets. <!-- SAF-1459 -->
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- Added the following new documents, articles and sections:
-  - [Why didn't Semgrep ignore the files and folders in the Secrets Path ignores for this project?](http://localhost:3000/docs/kb/semgrep-secrets/per-product-ignore-not-working)
-  - [How to paginate responses from the Semgrep API](/kb/integrations/pagination)
-  - [The `semgrep login` command doesn't redirect to my Semgrep tenant site](/kb/semgrep-appsec-platform/semgrep-login-cli-tenant)
-  - [What does "Act on your behalf" mean?](/kb/semgrep-appsec-platform/act-on-your-behalf)
-- Various documentation presentation updates.
-- Added a [list of default branch names](/semgrep-code/glossary#default-branch) that Semgrep uses to identify trunk or mainline branches.
+- Documentation for providing your [own OpenAI API key](/semgrep-assistant/getting-started#use-your-own-openai-api-key) for use with Semgrep Assistant.
+- EPSS documentation.
+- Sections for various source code manager additions, such as:
+  - Support for multiple GitHub Enterprise Server organizations.
+  - MR comments for multiple GitLab groups.
+- Documentation specifying which features make use of the [IP addresses](/deployment/checklist#ip-addresses) that you must add to your allowlist when you deploy Semgrep.
 
 ### Changed
 
-<!-- 15039 -->
-- Revised the definitions for the following fields in the API documentation:
-  - State
-  - Status
-  - Triage state
-- Major updates have been made to the following documentation:
-  - [Create Jira tickets](/semgrep-appsec-platform/jira)
-  - [Pro rules](/semgrep-code/pro-rules)
-  - [Notifications](/semgrep-appsec-platform/notifications)
-- Updated [webhook samples](/semgrep-appsec-platform/webhooks#semgrep-findings-object).
-- Site look and feel: minor cosmetic improvements.
+- Various improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**, such as:
+  - Improved logging guidance.
+  - Clarified variable names and placeholder values that users should replace.
+- Various updates to [Editor documentation](https://semgrep.dev/docs/semgrep-code/editor) as a whole.
+- Various updates to [Semgrep Assistant](/semgrep-assistant/overview) documentation.
+- Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
 
 ### Fixed
 
-- Fixed various broken links.
-- Various troubleshooting documents have been restored and re-edited for clarity and quality.
+- Updated and fixed various broken links.
+- Minor typographical fixes.
 
-## 🔧 Semgrep OSS Engine
+### Removed
 
-The following versions of Semgrep OSS Engine were released in June 2024:
+- Removed the Ticketing page; Semgrep supports Jira exclusively. Other ticketing integration betas have been closed. Semgrep may reopen beta programs for future ticketing integrations.
 
-- [<i class="fas fa-external-link fa-xs"></i>1.75.0](https://github.com/semgrep/semgrep/releases/tag/v1.75.0)
-- [<i class="fas fa-external-link fa-xs"></i>1.76.0](https://github.com/semgrep/semgrep/releases/tag/v1.76.0)
-- [<i class="fas fa-external-link fa-xs"></i>1.77.0](https://github.com/semgrep/semgrep/releases/tag/v1.77.0)
-- [<i class="fas fa-external-link fa-xs"></i>1.78.0](https://github.com/semgrep/semgrep/releases/tag/v1.78.0)
+## 🔧 OSS Engine
+
+* The following versions of the OSS Engine were released in August 2024:
+  * [<i class="fas fa-external-link fa-xs"></i>1.83.0](https://github.com/semgrep/semgrep/releases/tag/v1.83.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.0](https://github.com/semgrep/semgrep/releases/tag/v1.84.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.84.1](https://github.com/semgrep/semgrep/releases/tag/v1.84.1)
+  * [<i class="fas fa-external-link fa-xs"></i>1.85.0](https://github.com/semgrep/semgrep/releases/tag/v1.85.0)

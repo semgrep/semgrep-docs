@@ -28,6 +28,7 @@ You can select the channels in your Slack workspace that receive findings. You c
 
 :::info Prerequisites
 * You must be a Slack **Workspace Owner** to set up the Semgrep Slack app.
+* **Single-tenant Semgrep AppSec Platform**: Reach out to your Technical Account Manager (TAM) to ensure your instance has been configured for the Semgrep Slack app.
 :::
 
 To install the Semgrep Slack app, follow these steps:
@@ -59,14 +60,13 @@ You have successfully set up notifications for Semgrep findings. The Semgrep Sla
 In your Slack workspace, create separate channels for either policies, repositories (projects), or types of findings depending on your business or development need. This ensures that developers receive only findings that are relevant to them.
 :::
 
-![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#bordered "Message from Semgrep Slack app consolidating findings after a scan")
-**Figure** A sample Slack message with Semgrep findings.
+![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-findings-message.png#md-width "Message from Semgrep Slack app consolidating findings after a scan")
+_**Figure**. A sample Slack message with Semgrep findings._
 
 ## Remove notifications for findings in Slack
 
 :::note
-This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstalling the Semgrep Slack App from your Slack workspace
-](#uninstalling-the-semgrep-slack-app-from-your-slack-workspace).
+This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstall the Semgrep Slack App](#uninstall-the-semgrep-slack-app).
 :::
 
 To remove or unsubscribe to notifications:
@@ -101,8 +101,6 @@ To change the settings:
 This removes **all** Semgrep notifications in **all** channels in your Slack workspace.
 :::
 
-To uninstall the Semgrep Slack App entirely from your Slack workspace, perform the following steps:
-
 1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find the Slack integration you want to remove.
 3. Click **Remove integration** > **Remove**.
@@ -127,7 +125,7 @@ To check that your notifications are set up, receive a test message from Semgrep
 
 ### Check your filters
 
-If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#changing-slack-notification-settings).
+If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#change-slack-notification-settings).
 
 ### Permissions not up-to-date
 

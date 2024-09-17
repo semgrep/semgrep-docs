@@ -78,7 +78,7 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ### Next steps for Bitbucket and Azure Repos users
 
-- Connect your Semgrep org to your Bitbucket Data Center project. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
+- Connect your Semgrep org to your Bitbucket Data Center project or your Azure DevOps organization. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
 - To add members to your Semgrep organization, set up [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You can also opt to scan a repository instead.
 
@@ -117,7 +117,7 @@ The following examples illustrate what a completed organizational set-up can loo
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep AppSec Platform.
 - This is similar to a **personal account** in GitHub or GitLab.
 
-![A simple example of a single-user, single-org setup.](/img/personal-org.png#md-noborder)
+![A simple example of a single-user, single-org setup.](/img/personal-org.png)
 **Figure.** A simple example of a single-user, single-org setup (a personal account).
 
 #### Enterprise org with SSO and multiple orgs in GitHub

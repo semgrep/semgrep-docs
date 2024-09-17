@@ -13,7 +13,7 @@ tags:
 
 Detect valid, leaked secrets in previous Git commits through a **historical scan**.
 
-You can perform one-time historical scans or enable historical scanning for full Secrets scans. Detecting valid secrets in your Git history is a step towards reducing your repository's attack surface.
+You can perform one-time historical scans or enable historical scans for full Secrets scans. Detecting valid secrets in your Git history is a step towards reducing your repository's attack surface.
 
 You can run historical scans in the CLI and in your Semgrep deployment, which enables you to track and triage these secrets.
 
@@ -21,19 +21,19 @@ You can run historical scans in the CLI and in your Semgrep deployment, which en
 
 - This feature is in **public beta**. See [Limitations](#limitations) for more information.
 - All Semgrep Secrets customers can enable this feature.
-- Please leave feedback by either reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
+- Currently, only rules that perform HTTP validation are incorporated during historical scanning. Findings that have been verified as valid are surfaced.
+- Please leave feedback either by reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
 
 ## Run historical scans
 
-You can enable historical scanning for your full scans or run a dedicated CI job for one-time scans. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Historical scans do **not** run on diff-aware scans.
+You can enable historical scans for your full scans, perform one-time historical scans on the CLI, or create an on-demand CI job. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Diff-aware scans do **not** perform historical scans.
 
 ### Prerequisites
 
 - **CLI tool**: Historical scanning requires at least Semgrep **v1.65.0**. See [Update](/update/) for instructions.
-- **Single-tenant Semgrep AppSec Platform**: Reach out to your TAM to ensure your instance is up-to-date.
 
-### Enable historical scanning for full Secrets scans
+### Enable historical scans for full Secrets scans
 
 :::tip
 If possible, [test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.
@@ -67,7 +67,7 @@ You can run a historical scan locally without sending the scan results to Semgre
 To run a test scan, enter the following command:
 
 ```bash
-semgrep scan --historical-secrets
+semgrep ci --secrets --historical-secrets --dry-run
 ```
 
 The historical scan results appear in the **Secrets Historical Scan** section:
@@ -77,11 +77,9 @@ The historical scan results appear in the **Secrets Historical Scan** section:
 ## View or hide historical findings
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are identified by an **<i class="fa-solid fa-hourglass-half"></i>** icon.
-1. Click **<i class="fa-solid fa-hourglass-half"></i> Hide historical** to toggle the display of historical findings.
-
-![Historical secrets in Semgrep AppSec Platform](/img/historical-secrets-scp.png)
-*Figure.* Historical findings in Semgrep AppSec Platform.
+2. Click **<i class="fa-solid fa-key"></i> Secrets**. Historical findings are labeled as shown in the following screenshot:
+   ![Secrets finding labeled as historical finding](/img/historical-findings.png#md-width)
+3. On the filter panel, select **Include historical findings** to toggle on the display of historical findings.
 
 ## Scope of findings
 
@@ -106,9 +104,9 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 
 ## Limitations
 
-- Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish under 5 minutes to more than 60 minutes for extreme cases.
+- Historical scanning can slow down scan times. Depending on the size of your repository history, scans can finish in less than 5 minutes or may take more than 60 minutes.
 - Within Semgrep AppSec Platform, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
-- With historical scanning enabled, the CLI output displays secrets still present in the current version of the code twice: once at the commit where they were initially added and once at the current commit from the standard Secrets scan. Semgrep AppSec Platform deduplicates the two findings and displays the secret as a current rather than a historical one.
+- With historical scans enabled, the CLI output displays secrets still present in the current version of the code twice: once at the commit where they were initially added and once at the current commit from the standard Secrets scan. Semgrep AppSec Platform deduplicates the two findings and displays the secret as a current rather than a historical one.
 
 ### Size of commit history
 

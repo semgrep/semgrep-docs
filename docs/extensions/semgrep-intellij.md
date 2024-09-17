@@ -64,7 +64,9 @@ Semgrep's IDE extension is available in many Jet Brains products:
 :::caution
 
 IntelliJ extension does not support:
-- IntelliJ IDEA Community Edition
+- IntelliJ IDEA Community Edition. 
+
+Semgrep does not offer an IDE integration with IntelliJ Community Edition because [this version lacks support for the Language Server Protocol (LSP)](https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html#supported-ides), which is essential for enabling Semgrep’s code scanning features. IntelliJ Ultimate, which includes LSP support, is required to use Semgrep's IDE integration.
 
 :::
 

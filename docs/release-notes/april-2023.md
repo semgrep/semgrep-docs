@@ -121,7 +121,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 ### Additions
 
 - You can now add repositories from Azure Repos into the Semgrep Cloud Platform.
-- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/semgrep-appsec-platform/bitbucket-pr-comments) to enable PR comments in your repositories.
+- Bitbucket PR comments are now available for Bitbucket Cloud users. See the [Enabling Bitbucket pull request comments](/category/bitbucket-pr-comments) to enable PR comments in your repositories.
 
 ### Changes
 
@@ -146,7 +146,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
 - Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference).
-- Clarified sections [Disabling rules](/semgrep-code/policies#disabling-rules) and **Removing rulesets**.
+- Clarified sections [Disable rules](/semgrep-code/policies#disable-rules) and **Removing rulesets**.
 - Known limitations of Semgrep Pro Engine section have been expanded and moved to the [Known limitations of cross-file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis) document.
 - Fixed various broken links.
 - Fixed various spelling issues.

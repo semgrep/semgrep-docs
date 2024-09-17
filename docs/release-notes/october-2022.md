@@ -114,7 +114,7 @@ The following references are available for Semgrep Supply Chain:
 
 #### Semgrep CLI
 
-- New section [Connecting to Semgrep Registry through a proxy](/cli-reference/#connecting-to-semgrep-registry-through-a-proxy).
+- New section [Connect to Semgrep Registry through a proxy](/cli-reference/#connect-to-semgrep-registry-through-a-proxy).
 
 ### Changes
 

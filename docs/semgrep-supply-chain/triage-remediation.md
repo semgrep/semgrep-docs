@@ -9,7 +9,12 @@ title: Triage and remediation
 hide_title: true
 ---
 
+<!-- vale off -->
+
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
+import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
+
+<!-- vale on -->
 
 # Triage and remediate dependency findings
 
@@ -30,10 +35,12 @@ Perform triage and remediation on your open source dependencies through the **Su
   <dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
   <dt>Dependencies</dt>
   <dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
+  <dt>License configuration</dt>
+  <dd>This tab allows you to explicitly allow or disallow (block) a package's use in your repository based on its license.</dd>
 </dl>
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
+_**Figure**. Semgrep Supply Chain Vulnerabilities page._
 
 ## Assess and triage dependency findings and usages
 
@@ -44,9 +51,13 @@ At least one repository that scans for dependencies through Semgrep Supply Chain
 To view the latest Semgrep Supply Chain findings, click **Supply Chain**. You can view findings individually or grouped by the rule that identified the finding. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
 ![A single vulnerability entry in Semgrep Supply Chain](/img/sc-vuln-entry.png)
-_Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
+_**Figure**. A single vulnerability entry in Semgrep Supply Chain._
 
 You can also view the findings individually by clicking on the drop-down box on the header and clicking **No grouping**.
+
+### Default Supply Chain > Vulnerabilities tab view
+
+<FindingsDefaultView product_name="Supply Chain" />
 
 ### Assessment actions
 
@@ -83,18 +94,55 @@ To assess your findings, Semgrep Supply Chain provides the following methods:
 
 Use filters to narrow down your results. The following criteria are available for filtering:
 
-| Filter                 | Description  |
-| ---------------------  | ------------ |
-| **Projects**           | Filter by repositories connected to your Semgrep account. |
-| **Branch**             | Filter by findings in different Git branches. |
-| **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with [Teams](/deployment/teams#teams-beta) enabled. |
-| **Tags**               | Filter for findings based on the tags associated with the project. |
-| **Status**             | Filter the triage state of a finding: <ul><li>**Open**: Findings for which there have been no triage or remediation action.</li><li>**Reviewing**: Findings that require more investigation to determine what the next steps should be.</li><li>**Fixing**: Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.</li><li>**Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.</li><li>**Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. </li></ul>|
-| **Severity**           | Filter by the severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.  |
-| **Transitivity**       | Filter by the transitivity of the finding. <ul><li>**Direct**: Your project depends directly on the dependency.</li><li>**Transitive**: Your project's dependency depends on a vulnerable dependency.</li><li>**Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.</li></ul> |
-| **Reachability**       | Filter by exposure, or whether the finding is reachable or not. <ul><li>**Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition</li><li>**Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.</li><li>**Conditionally reachable**: A finding is conditionally reachable if Semgrep finds a way to reach it when scanning your code when certain conditions are met.</li><li>**Unreachable**: A finding is unreachable if you don't use the vulnerable piece of code of the imported library or package.</li><li>**Undetermined**: A finding is undetermined if Semgrep Supply Chain determines that you use a vulnerable version of a dependency, but it doesn't have a relevant reachability rule.</li></ul>|
-| **Dependency**         | Filter for findings based on the name of the dependency involved. |
-| **CVE**                | Filter based on the CVE assigned to the finding type. |
+| Filter | Description  |
+| -  | - |
+| **Projects and branches** | The repositories connected to your Semgrep account and findings in different Git branches. |
+| **Tags** | The tags associated with the project. |
+| [**Status**](#status) | The triage state of a finding. |
+| **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the [GitHub Advisory Database](https://github.com/advisories).  |
+| [**Transitivity**](#transitivity) | The transitivity of the finding. |
+| [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
+| [**Reachability**](#reachability) | The finding's exposure, or whether it is reachable or not. |
+| **Dependencies** | The name of the dependency involved. |
+| **Rules** | The rule that generated the finding. |
+
+#### Status
+
+The triage state of the finding:
+
+* **Open**: Findings for which there have been no triage or remediation action.
+* **Reviewing**: Findings that require more investigation to determine what the next steps should be.
+* **Fixing**: Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.
+* **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user.
+* **Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
+
+> You can set the **Fixing** and **Reviewing** statuses only if you are a [Jira beta](https://semgrep.dev/docs/semgrep-appsec-platform/jira) participant.
+
+#### Transitivity
+
+The transitivity of the finding: 
+
+* **Direct**: Your project depends directly on the dependency.
+* **Transitive**: Your project's dependency depends on a vulnerable dependency.
+* **Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.
+
+#### EPSS probability
+
+The [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/) represents the likelihood that the vulnerability will be exploited in the wild in the next 30 days. Its values range from 0% to 100%. The higher the score, the greater the probability the vulnerability will be exploited. Semgrep groups probabilities as follows:
+
+* <b>High</b>: 50 - 100%
+* <b>Medium</b>: 10 - &#60;50%
+* <b>Low</b>: &#60;10%
+
+#### Reachability
+
+The finding's exposure to potential attacks, or whether it is reachable or not.
+
+* **Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition.
+* **Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.
+* **Conditionally reachable**: A finding is conditionally reachable if Semgrep finds a way to reach it when scanning your code when certain conditions are met.
+* **No Reachability Analysis**: A finding that isn't scanned by Semgrep for reachability.
+* **Unreachable**: A finding is unreachable if you don't use the vulnerable piece of code of the imported library or package.
 
 ## Remediate true positives
 
