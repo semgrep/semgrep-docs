@@ -162,19 +162,25 @@ html[data-theme="light"] {
   --ifm-pre-background: var(--semgrep-grey-100);
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--semgrep-secondary-blue01);
+    color: var(--semgrep-secondary-blue02);
   }
 
   pre, pre > code {
     background-color: var(--semgrep-offwhite);
     box-shadow: var(--semgrep-docs-box-shadow);
   }
+
   img {
       box-shadow: var(--semgrep-docs-box-shadow);
       border-radius: var(--ifm-code-border-radius);
       margin-bottom: 4px;
       border: var(--semgrep-docs-border);
   }
+
+  .home {
+      color: var(--semgrep-secondary-blue03);
+  }
+
 }
 
 html[data-theme="dark"] {
@@ -282,9 +288,9 @@ details.alert {
  *                                                                            *
  *****************************************************************************/
 
- .menu {
+ /*.menu {
   padding: 0.5rem !important;
- }
+ } */
 
 .menu__list-item-collapsible > a:not([href]) {
     color: var(--ifm-color-primary);
@@ -681,7 +687,6 @@ article > a[class*="cardContainer_"][class~="card"] {
  * 3-col layouts, flex, fixed, etc.                                           *
  *****************************************************************************/
 
-
 .col-2-fixed, .col-3-fixed {
     display: flex;
     justify-content: space-between;
@@ -711,6 +716,7 @@ article > a[class*="cardContainer_"][class~="card"] {
 
 a.card:hover {
   background-color: var(--semgrep-offwhite);
+  text-decoration: none;
 }
 
 .card__header {

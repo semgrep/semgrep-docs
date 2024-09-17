@@ -34,11 +34,11 @@ The code is kept here for easy maintenance.
 <h1>&nbsp;Semgrep docs</h1>
 </div>
 
-<h5 style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
 
 <h3>Scan with Semgrep AppSec Platform</h3>
 
-<h5>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
+<h5 class='home'>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
 
 <div class = "col-2-fixed">
   <Card>
