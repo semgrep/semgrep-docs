@@ -181,12 +181,19 @@ html[data-theme="light"] {
       color: var(--semgrep-secondary-blue03);
   }
 
-  .card > h6 {
+  .card__copy > h6 {
     color: var(--semgrep-secondary-purple01);
   }
 
   .card__body > p {
     color: var(--semgrep-secondary-blue02);
+  }
+
+  .card__image {
+    border: none;
+    box-shadow: none;
+    border-radius: unset;
+    width: 25%;
   }
 }
 
@@ -719,6 +726,8 @@ article > a[class*="cardContainer_"][class~="card"] {
   box-shadow: var(--semgrep-docs-box-shadow);
   border: var(--semgrep-docs-border);
   background-color: var(--semgrep-secondary-mint05);
+  flex-direction: row;
+  height: fit-content;
 }
 
 a.card:hover {
@@ -729,6 +738,11 @@ a.card:hover {
 .card__header {
   margin-top: 0px;
 }
+
+.card__body {
+  padding-top: 0px;
+}
+
 
 a[class*=cardContainer_][class~=card]  {
   box-shadow: var(--semgrep-docs-box-shadow);
