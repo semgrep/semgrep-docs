@@ -181,6 +181,13 @@ html[data-theme="light"] {
       color: var(--semgrep-secondary-blue03);
   }
 
+  .card > h6 {
+    color: var(--semgrep-secondary-purple01);
+  }
+
+  .card__body > p {
+    color: var(--semgrep-secondary-blue02);
+  }
 }
 
 html[data-theme="dark"] {
