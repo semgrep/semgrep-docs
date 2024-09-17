@@ -41,54 +41,70 @@ The code is kept here for easy maintenance.
 <h5>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
 
 <div class = "col-2-fixed">
-        <Card>
-          <CardHeader>
-            <h6>Get started</h6>
-          </CardHeader>
-          <CardBody>
-            Run your first Semgrep scan. 
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <h6>Deploy Semgrep</h6>
-          </CardHeader>
-          <CardBody>
-            Deploy Semgrep to your organization quickly and at scale.
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <h6>Triage and remediate</h6>
-          </CardHeader>
-          <CardBody>
-            Triage and remediate findings; fine-tune guardrails for developers.
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <h6>Write rules</h6>
-          </CardHeader>
-          <CardBody>
-            Create custom rules to enforce your organization's coding standards.
-          </CardBody>
-        </Card>
+  <Card>
+    <CardHeader>
+      <h6>Get started</h6>
+    </CardHeader>
+    <CardBody>
+      Run your first Semgrep scan. 
+    </CardBody>
+  </Card>
+  <Card>
+    <CardHeader>
+      <h6>Deploy Semgrep</h6>
+    </CardHeader>
+    <CardBody>
+      Deploy Semgrep to your organization quickly and at scale.
+    </CardBody>
+  </Card>
+  <Card>
+    <CardHeader>
+      <h6>Triage and remediate</h6>
+    </CardHeader>
+    <CardBody>
+      Triage and remediate findings; fine-tune guardrails for developers.
+    </CardBody>
+  </Card>
+  <Card>
+    <CardHeader>
+      <h6>Write rules</h6>
+    </CardHeader>
+    <CardBody>
+      Create custom rules to enforce your organization's coding standards.
+    </CardBody>
+  </Card>
 </div>
 
+<h3>Enhance your Semgrep experience</h3>
 
-Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. Its rules look like the code you already write -- no abstract syntax trees, regex wrestling, or painful DSLs.
+<div class = "col-3-fixed">
+  <Card>
+    <CardHeader>
+      <h6>Semgrep Assistant</h6>
+    </CardHeader>
+    <CardBody>
+      AI for triage, remediation, and institutional memory. 
+    </CardBody>
+  </Card>
+  <Card>
+    <CardHeader>
+      <h6>Secure guardrails</h6>
+    </CardHeader>
+    <CardBody>
+      Help developers write secure code in their environment.
+    </CardBody>
+  </Card>
+  <Card>
+    <CardHeader>
+      <h6>Managed Scans</h6>
+    </CardHeader>
+    <CardBody>
+      Onboard thousands of repositories to Semgrep.
+    </CardBody>
+  </Card>
+</div>
 
-The following code editor shows a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
-<br />
-
-The Semgrep ecosystem includes:
-
-- [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-- [Semgrep Code](/semgrep-code/overview) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-- [Semgrep Secrets](/semgrep-secrets/conceptual-overview) - Detect and validate leaked credentials in your codebase.
-- [Semgrep Supply Chain (SSC)](/semgrep-supply-chain/overview) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
-
+<!--
 Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
 
 <h2>Language support</h2>
@@ -98,3 +114,5 @@ Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contri
 | Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code-and-oss)! 🚀 |
 | Semgrep Secrets | Semgrep Secrets detects API keys, hardcoded passwords, authentication tokens, and more in your repositories. |
 | Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and TypeScript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
+
+-->
