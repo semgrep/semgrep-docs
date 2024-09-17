@@ -109,7 +109,9 @@ Repositories must be accessible to both the public Semgrep GitHub app and the pr
 You can immediately add any existing project to Managed Scans.
 
 1. Follow the steps in [Add a repository](#add-a-repository-to-semgrep-managed-scans).
-1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository.
+1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository if appropriate.
+
+If you plan to continue running some scans in GitHub Actions (for example, using Managed Scans to run weekly full scans but GitHub Actions for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.
 
 :::tip
 Semgrep preserves your findings, scans, and triage history.
