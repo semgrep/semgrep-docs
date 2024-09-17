@@ -42,33 +42,25 @@ The code is kept here for easy maintenance.
 
 <div class = "col-2-fixed">
   <Card>
-    <CardHeader>
-      <h6>Get started</h6>
-    </CardHeader>
+    <CardHeader>Get started</CardHeader>
     <CardBody>
       Run your first Semgrep scan. 
     </CardBody>
   </Card>
   <Card>
-    <CardHeader>
-      <h6>Deploy Semgrep</h6>
-    </CardHeader>
+    <CardHeader>Deploy Semgrep</CardHeader>
     <CardBody>
       Deploy Semgrep to your organization quickly and at scale.
     </CardBody>
   </Card>
   <Card>
-    <CardHeader>
-      <h6>Triage and remediate</h6>
-    </CardHeader>
+    <CardHeader>Triage and remediate</CardHeader>
     <CardBody>
       Triage and remediate findings; fine-tune guardrails for developers.
     </CardBody>
   </Card>
   <Card>
-    <CardHeader>
-      <h6>Write rules</h6>
-    </CardHeader>
+    <CardHeader>Write rules</CardHeader>
     <CardBody>
       Create custom rules to enforce your organization's coding standards.
     </CardBody>
@@ -78,26 +70,20 @@ The code is kept here for easy maintenance.
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
-  <Card>
-    <CardHeader>
-      <h6>Semgrep Assistant</h6>
-    </CardHeader>
+  <Card link='/docs/getting-started/quickstart'>
+    <CardHeader>Semgrep Assistant</CardHeader>
     <CardBody>
       AI for triage, remediation, and institutional memory. 
     </CardBody>
   </Card>
   <Card>
-    <CardHeader>
-      <h6>Secure guardrails</h6>
-    </CardHeader>
+    <CardHeader>Secure guardrails</CardHeader>
     <CardBody>
       Help developers write secure code in their environment.
     </CardBody>
   </Card>
   <Card>
-    <CardHeader>
-      <h6>Managed Scans</h6>
-    </CardHeader>
+    <CardHeader>Managed Scans</CardHeader>
     <CardBody>
       Onboard thousands of repositories to Semgrep.
     </CardBody>
