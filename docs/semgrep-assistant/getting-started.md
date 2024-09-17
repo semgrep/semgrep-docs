@@ -196,7 +196,7 @@ The amount of time required to analyze your findings varies, but the UI displays
 
 :::info
 - For Team tier users with less than 10 contributors: There is a cap of 250 Assistant runs per month using the **Analyze** button.
-- For Team or Enterprise users with an active subscription: There is a cap of 10,000 Assistant runs per month using the **Analyze** button.
+- For Team or Enterprise users with an active subscription: There is a cap of 10,000 Assistant runs per month using the **Analyze** button. It is rate-limited to 1,000 Assistant runs per hour.
 - For users of any tier: Assistant runs against pull requests and merge requests do not count against this limit.
 :::
 
