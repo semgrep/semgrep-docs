@@ -179,9 +179,14 @@ inbound:
     - url: https://git.example.com/*
       methods: [GET, POST]
 ```
-
 ## Run multiple instances of the Semgrep Network Broker
 
-If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments. 
+You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. However, you may see some noise in your logs since the Broker hasn't been architected yet for this specific configuration.
 
-You may see some contention in logs, as the broker hasn't yet been optimized for this use case.
+You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
+
+```console
+semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
+```
+
+Note that arrays are replaced while maps are merged.
