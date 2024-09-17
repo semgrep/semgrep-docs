@@ -1,3 +1,5 @@
+//Thanks to Docux (Juniors017) for creating this component and sharing it with us.
+//Docusaurus community - component library
 import React, { CSSProperties, ReactNode } from 'react'; // Import types for props
 import clsx from 'clsx'; // clsx helps manage conditional className names in a clean and concise manner.
 // Define an interface for the component props
@@ -16,9 +18,9 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const cardShadow = shadow ? `item shadow--${shadow}` : '';
   return (
-    <div className={clsx('card', className, cardShadow)} style={style}>
+    <button className={clsx('card', className, cardShadow)} style={style}>
       {children}
-    </div>
+    </button>
   );
 };
 export default Card;

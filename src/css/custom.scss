@@ -676,7 +676,19 @@ article > a[class*="cardContainer_"][class~="card"] {
  *****************************************************************************/
 
 
-.col-3-fixed {
+.col-2-fixed {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+.card {
+  font-family: "Inter", sans-serif !important;
+  width: calc(50% - 8px);
+  margin: 8px 0px 8px 0px;
+  align-items: flex-start;
+  align-content: flex-start;
+  text-align: left;
+}
+
+

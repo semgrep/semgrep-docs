@@ -14,59 +14,67 @@ description: >-
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import ThemedImage from '@theme/ThemedImage'
 
-<div class = "col-3-fixed">
-        <Card shadow='tl'>
-          <CardHeader>
-            <h3>Lorem Ipsum</h3>
-          </CardHeader>
-          <CardBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-          </CardBody>
-          <CardFooter>
-            <button className='button button--secondary button--block'>See All</button>
-          </CardFooter>
-        </Card>
-        <Card shadow='tl'>
-          <CardHeader>
-            <h3>Lorem Ipsum</h3>
-          </CardHeader>
-          <CardBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-          </CardBody>
-          <CardFooter>
-            <button className='button button--secondary button--block'>See All</button>
-          </CardFooter>
-        </Card>
-        <Card shadow='tl'>
-          <CardHeader>
-            <h3>Lorem Ipsum</h3>
-          </CardHeader>
-          <CardBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-          </CardBody>
-          <CardFooter>
-            <button className='button button--secondary button--block'>See All</button>
-          </CardFooter>
-        </Card>
-</div>
+<!-- vale off -->
+
 <!---
 Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
 -->
 
-<br />
-<p align="center">
-  <a href="https://semgrep.dev">
-    <ThemedImage
-      alt="Semgrep themed logo"
-      height="105px"
-      sources={{
-        light: ('img/semgrep.svg#no-shadow'),
-        dark: ('img/semgrep.svg#no-shadow'),
-      }} />
-  </a>
-</p>
-<h3 align="center">Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
+<div style={{display: 'inline-flex', paddingTop: '32px'}}>
+<a href="https://semgrep.dev">
+  <ThemedImage
+    alt="Semgrep themed logo"
+    height="48px"
+    sources={{
+      light: ('img/semgrep.svg#no-shadow'),
+      dark: ('img/semgrep.svg#no-shadow'),
+    }} />
+</a>
+<h1>&nbsp;Semgrep docs</h1>
+</div>
+
+<h5 style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
+
+<h3>Scan with Semgrep AppSec Platform</h3>
+
+<h5>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
+
+<div class = "col-2-fixed">
+        <Card>
+          <CardHeader>
+            <h6>Get started</h6>
+          </CardHeader>
+          <CardBody>
+            Run your first Semgrep scan. 
+          </CardBody>
+        </Card>
+        <Card>
+          <CardHeader>
+            <h6>Deploy Semgrep</h6>
+          </CardHeader>
+          <CardBody>
+            Deploy Semgrep to your organization quickly and at scale.
+          </CardBody>
+        </Card>
+        <Card>
+          <CardHeader>
+            <h6>Triage and remediate</h6>
+          </CardHeader>
+          <CardBody>
+            Triage and remediate findings; fine-tune guardrails for developers.
+          </CardBody>
+        </Card>
+        <Card>
+          <CardHeader>
+            <h6>Write rules</h6>
+          </CardHeader>
+          <CardBody>
+            Create custom rules to enforce your organization's coding standards.
+          </CardBody>
+        </Card>
+</div>
+
 
 Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. Its rules look like the code you already write -- no abstract syntax trees, regex wrestling, or painful DSLs.
 
