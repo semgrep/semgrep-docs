@@ -187,13 +187,14 @@ html[data-theme="light"] {
 
   .card__body > p {
     color: var(--semgrep-secondary-blue02);
+    flex-shrink:1;
   }
 
   .card__image {
     border: none;
     box-shadow: none;
     border-radius: unset;
-    width: 25%;
+    height: 100%;
   }
 }
 
@@ -727,7 +728,8 @@ article > a[class*="cardContainer_"][class~="card"] {
   border: var(--semgrep-docs-border);
   background-color: var(--semgrep-secondary-mint05);
   flex-direction: row;
-  height: fit-content;
+  min-height: 108px;
+  flex-wrap: nowrap;
 }
 
 a.card:hover {

@@ -51,22 +51,28 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
   <Card>
-    <CardHeader>Deploy Semgrep</CardHeader>
-    <CardBody>
-      Deploy Semgrep to your organization quickly and at scale.
-    </CardBody>
+    <div class="card__copy">
+        <CardHeader>Deploy Semgrep</CardHeader>
+        <CardBody>
+          Deploy Semgrep to your organization quickly and at scale.
+        </CardBody>
+    </div>
   </Card>
   <Card>
+    <div class="card__copy">
     <CardHeader>Triage and remediate</CardHeader>
     <CardBody>
       Triage and remediate findings; fine-tune guardrails for developers.
     </CardBody>
+    </div>
   </Card>
   <Card>
+    <div class="card__copy">
     <CardHeader>Write rules</CardHeader>
     <CardBody>
       Create custom rules to enforce your organization's coding standards.
     </CardBody>
+    </div>
   </Card>
 </div>
 
@@ -74,22 +80,28 @@ The code is kept here for easy maintenance.
 
 <div class = "col-3-fixed">
   <Card link='/docs/getting-started/quickstart'>
+    <div class="card__copy">
     <CardHeader>Semgrep Assistant</CardHeader>
     <CardBody>
       AI for triage, remediation, and institutional memory. 
     </CardBody>
+    </div>
   </Card>
   <Card>
+    <div class="card__copy">
     <CardHeader>Secure guardrails</CardHeader>
     <CardBody>
       Help developers write secure code in their environment.
     </CardBody>
+    </div>
   </Card>
   <Card>
+    <div class="card__copy">
     <CardHeader>Managed Scans</CardHeader>
     <CardBody>
       Onboard thousands of repositories to Semgrep.
     </CardBody>
+    </div>
   </Card>
 </div>
 
