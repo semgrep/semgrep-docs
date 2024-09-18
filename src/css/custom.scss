@@ -727,6 +727,9 @@ article > a[class*="cardContainer_"][class~="card"] {
   box-shadow: var(--semgrep-docs-box-shadow);
   border: var(--semgrep-docs-border);
   background-color: var(--semgrep-secondary-mint05);
+}
+
+.card-50 {
   flex-direction: row;
   min-height: 108px;
   flex-wrap: nowrap;
