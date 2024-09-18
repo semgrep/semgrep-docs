@@ -42,7 +42,7 @@ The code is kept here for easy maintenance.
 
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart'>
-    <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
+    <CardImage cardImageUrl='/img/icon-first-scan.svg' />
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
         <CardBody>
