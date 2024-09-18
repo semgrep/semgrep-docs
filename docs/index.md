@@ -51,7 +51,7 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
   <Card className={'card-50'} link='/deployment/core-deployment'>
-    <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
+    <CardImage cardImageUrl='/img/icon-deploy.svg' />
     <div class="card__copy">
         <CardHeader>Deploy Semgrep</CardHeader>
         <CardBody>
@@ -60,7 +60,7 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
   <Card className={'card-50'} link='/semgrep-code/triage-remediation'>
-    <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
+    <CardImage cardImageUrl='/img/icon-triage.svg' />
     <div class="card__copy">
     <CardHeader>Triage and remediate</CardHeader>
     <CardBody>
@@ -69,7 +69,7 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
   <Card className={'card-50'} link='/writing-rules/overview'>
-    <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
+    <CardImage cardImageUrl='/img/icon-rules.svg' />
     <div class="card__copy">
     <CardHeader>Write rules</CardHeader>
     <CardBody>
