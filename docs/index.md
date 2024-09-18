@@ -41,7 +41,7 @@ The code is kept here for easy maintenance.
 <h5 class='home'>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
 
 <div class = "col-2-fixed">
-  <Card className={'card-50'}>
+  <Card className={'card-50'} link='/getting-started/quickstart'>
     <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
@@ -50,7 +50,7 @@ The code is kept here for easy maintenance.
         </CardBody>
     </div>
   </Card>
-  <Card className={'card-50'}>
+  <Card className={'card-50'} link='/deployment/core-deployment'>
     <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
     <div class="card__copy">
         <CardHeader>Deploy Semgrep</CardHeader>
@@ -59,7 +59,7 @@ The code is kept here for easy maintenance.
         </CardBody>
     </div>
   </Card>
-  <Card className={'card-50'}>
+  <Card className={'card-50'} link='/semgrep-code/triage-remediation'>
     <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
     <div class="card__copy">
     <CardHeader>Triage and remediate</CardHeader>
@@ -68,7 +68,7 @@ The code is kept here for easy maintenance.
     </CardBody>
     </div>
   </Card>
-  <Card className={'card-50'}>
+  <Card className={'card-50'} link='/writing-rules/overview'>
     <CardImage cardImageUrl='https://a.storyblok.com/f/151984/41x41/cc044329c8/code-icon-complex200100.svg' />
     <div class="card__copy">
     <CardHeader>Write rules</CardHeader>
@@ -82,7 +82,7 @@ The code is kept here for easy maintenance.
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
-  <Card link='/docs/getting-started/quickstart' className={'card-50'}>
+  <Card link='/semgrep-assistant/overview'>
     <div class="card__copy">
     <CardHeader>Semgrep Assistant</CardHeader>
     <CardBody>
@@ -90,7 +90,7 @@ The code is kept here for easy maintenance.
     </CardBody>
     </div>
   </Card>
-  <Card>
+  <Card link='/secure-guardrails/secure-guardrails-in-semgrep'>
     <div class="card__copy">
     <CardHeader>Secure guardrails</CardHeader>
     <CardBody>
@@ -98,7 +98,7 @@ The code is kept here for easy maintenance.
     </CardBody>
     </div>
   </Card>
-  <Card>
+  <Card link='/deployment/managed-scanning'>
     <div class="card__copy">
     <CardHeader>Managed Scans</CardHeader>
     <CardBody>

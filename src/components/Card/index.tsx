@@ -2,6 +2,7 @@
 //Docusaurus community - component library
 import React, { CSSProperties, ReactNode } from 'react'; // Import types for props
 import clsx from 'clsx'; // clsx helps manage conditional className names in a clean and concise manner.
+import Link from '@docusaurus/Link';
 // Define an interface for the component props
 interface CardProps {
   link?: string; // link to doc 
@@ -20,9 +21,9 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const cardShadow = shadow ? `item shadow--${shadow}` : '';
   return (
-    <a href={link} className={clsx('card', className, cardShadow)} style={style}>
+    <Link to={link} className={clsx('card', className, cardShadow)} style={style}>
       {children}
-    </a>
+    </Link>
   );
 };
 export default Card;
