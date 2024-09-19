@@ -28,7 +28,7 @@ Then, save this custom version of the rule to your organization's rules, making 
 
 ![Save a rule in the Editor](/img/kb/save_rule_editor.png)
 
-By default, saving the rule also includes it in the Semgrep Registry, with visibility limited to your organization.
+By default, saving the rule also enables you to search for it in the [Semgrep Registry](https://semgrep.dev/r), with visibility limited to your organization.
 
 ![Custom rules in registry](/img/kb/custom_rules_in_editor.png)
 
