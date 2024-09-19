@@ -1,4 +1,4 @@
-One way to create new rules is to fork an existing rule in Semgrep Registry and modify it to meet your software and business requirements.
+One way to create new rules is to fork an existing rule in the Semgrep Registry and modify it to meet your software and business requirements.
 
 For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. However, your organization also prohibits the use of other hash functions as part of its standards or security compliance. The following steps illustrate the process of forking an existing `use-of-sha1` rule and changing it to forbid MD2 hashes.
 
