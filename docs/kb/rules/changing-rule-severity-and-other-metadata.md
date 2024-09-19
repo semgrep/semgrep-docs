@@ -15,7 +15,7 @@ To alter the severity or other metadata of a Semgrep rule, it must be forked and
 Only Semgrep Code and Secrets rules can be forked.
 :::
 
-## Forking a rule
+## Fork a rule
 
 To fork a rule, you must first open the rule definition in the Semgrep Editor. There are various ways to navigate to the Editor; the Semgrep Registry is one of them.
 
