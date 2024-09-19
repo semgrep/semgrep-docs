@@ -32,7 +32,9 @@ You will notice after forking the rule, that `-copy` has been added to the `id` 
 
 ## Changing the severity
 
-Once forked, you may customize the [severity or other metadata](/docs/writing-rules/rule-syntax#required) to your liking. Finally, you should save this custom version of the rule to your registry, making it available to use within your policy as defined in Semgrep AppSec Platform.
+Once you have forked the rule, you can change the [severity or other metadata](/docs/writing-rules/rule-syntax#required) to your liking. 
+
+Then, save this custom version of the rule to your organization's rules, making it available to use within your policy as defined in Semgrep AppSec Platform.
 
 ![Save a rule in the Editor](/img/kb/save_rule_editor.png)
 
