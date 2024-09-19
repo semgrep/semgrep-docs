@@ -25,6 +25,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 - The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
   - If you will be using the broker with a dedicated Semgrep tenant, please note that in your request.
 - **Docker** must be installed on the server where you install the network broker.
+- Ensure that you allocate at least 3 GB RAM for each instance of Semgrep Network Broker that you run.
 
 ## Configure Semgrep Network Broker
 
@@ -179,7 +180,14 @@ inbound:
     - url: https://git.example.com/*
       methods: [GET, POST]
 ```
-
 ## Run multiple instances of the Semgrep Network Broker
 
-If necessary, you can run multiple instances of the Semgrep Network Broker. Semgrep handles its requests accordingly, preventing issues like duplicate PR or MR comments.
+You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. However, you may see some noise in your logs since the Broker hasn't been architected yet for this specific configuration.
+
+You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
+
+```console
+semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
+```
+
+Note that arrays are replaced while maps are merged.

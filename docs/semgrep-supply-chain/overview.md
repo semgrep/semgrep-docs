@@ -8,16 +8,13 @@ title: Overview
 hide_title: false
 ---
 
-
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
-
-
 
 <SscIntro />
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
+_**Figure**. Semgrep Supply Chain Vulnerabilities page._
 
 ## Identify open source security vulnerabilities
 
@@ -39,7 +36,9 @@ The following diagram shows the relationship between a Semgrep Supply Chain
 rule, the codebase scanned, and its lockfile:
 
 ![Relationship between a Semgrep Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
-_Figure 2_. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase.
+_**Figure**. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase._
+
+<AdmonitionSotCves />
 
 ### Types of Semgrep Supply Chain findings
 
@@ -54,15 +53,12 @@ your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability
     definition, the finding is flagged as **reachable**.
       * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved for these findings.
-      * A finding is **conditionally reachable** if Semgrep finds a way to reach it when scanning your code when certain conditions are met.
-  * If you don't use the vulnerable piece of code of the library or package
-  imported, the finding is flagged as **unreachable**.
+      * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
+  * If Semgrep Supply Chain determines that you either don't use the vulnerable library package imported or you don't use the vulnerable piece of code of the library or package imported, the finding is flagged as **unreachable**.
   * If Semgrep Supply Chain determines that you use a vulnerable version of a
-  dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **undetermined**; this is most common with
-  vulnerabilities discovered before May 2022 or vulnerabilities with lower
-  severity levels.
+  dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **no reachability analysis**.
 
-* **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **undetermined**.
+* **lockfile-only languages**: For **[lockfile-only](/semgrep-supply-chain/glossary/#lockfile-only-rules)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **no reachability analysis**.
 
 Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups
 all usages together by vulnerability. For each vulnerability, the UI also displays
@@ -73,7 +69,7 @@ a CVE number corresponding to the [CVE program record](https://www.cve.org/About
 A [transitive
 dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency),
 also known as an indirect dependency, is a dependency of a dependency. Semgrep
-Supply Chain scans transitive dependencies for security vulnerabilities, but it
+Supply Chain scans transitive dependencies for [all supported languages](/supported-languages#semgrep-supply-chain), looking for security vulnerabilities, but it
 does *not* perform reachability analysis. This means that Semgrep Supply Chain
 doesn't check the source code of your project's dependencies to determine if
 their dependencies produce a reachable finding in your code.
