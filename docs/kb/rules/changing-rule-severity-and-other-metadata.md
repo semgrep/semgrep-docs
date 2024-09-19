@@ -6,6 +6,7 @@ tags:
   - Semgrep Secrets
 append_help_link: true
 ---
+import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
 
 # Change rule severity and other metadata by forking rules
 
@@ -17,18 +18,7 @@ Only Semgrep Code and Secrets rules can be forked.
 
 ## Fork a rule
 
-To fork a rule, you must first open the rule definition in the Semgrep Editor. There are various ways to navigate to the Editor; the Semgrep Registry is one of them.
-
-Let's say you want to fork the rule `c.lang.security.insecure-use-gets-fn.insecure-use-gets-fn`.
-
-From the [Semgrep Registry](https://semgrep.dev/r), you can search for the rule, and once found, you can click the icon in the top right to open the rule definition in the Editor.
-![Open a Semgrep Rule in the Editor](/img/kb/open_rule_in_editor.png)
-
-Here, you will be shown the rule and its definition on the left, along with its test code to the right. To fork the rule so you can customize it, utilize the "Fork" button in the top righ menu.
-
-![Fork a rule in the Editor](/img/kb/fork_rule_editor.png)
-
-You will notice after forking the rule, that `-copy` has been added to the `id` of the rule definition to differentiate it from the original rule. You may keep this or change the `id` to anything else.
+<ForkExistingRule />
 
 ## Changing the severity
 
