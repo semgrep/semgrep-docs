@@ -121,7 +121,7 @@ viewing their finding details pages.
 ### Added
 
 * Added [Quickstart](/docs/getting-started/quickstart).
-* Added [Privacy and legal considerations](/semgrep-assistant/overview#privacy-and-legal-considerations) information for Semgrep Assistant.
+* Added [Privacy and legal considerations](/semgrep-assistant/privacy) information for Semgrep Assistant.
 * New knowledge base articles:
   * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
   * [How to scan a large monorepo](/kb/semgrep-code/scan-engine-kill)

@@ -187,7 +187,7 @@ Click **Save** to proceed.
 By switching from Semgrep's key to your key, note that you lose access to the following:
 
 - Semgrep’s fine-tuned models that can increase the quality of results.
-- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/overview#privacy-and-legal-considerations) that prevents OpenAI from saving input or output data.
+- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
 
 ### Additional AI providers

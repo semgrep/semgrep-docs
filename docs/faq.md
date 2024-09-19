@@ -310,7 +310,7 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
 
-If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/overview#privacy-and-legal-considerations) section to understand how your code is stored and retained.
+If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/privacy) section to understand how your code is stored and retained.
 
 ### What data is stored?
 
