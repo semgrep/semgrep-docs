@@ -233,7 +233,7 @@ OPTIONS
        --max-log-list-entries=VAL (absent=100)
            Maximum number of entries that will be shown in the log (e.g.,
            list of rule ids, list of skipped files). A zero or negative value
-           disables this filter. Defaults to 100.
+           disables this filter. Defaults to 100
 
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile
@@ -277,9 +277,6 @@ OPTIONS
 
        --no-suppress-errors
            negates --suppress-errors
-
-       --no-time
-           negates --time
 
        --no-trace
            negates --trace
@@ -393,10 +390,6 @@ OPTIONS
 
        --text-output=VAL
            Write a copy of the text output to a file or post to URL.
-
-       --time
-           Include a timing summary with the results. If output format is
-           json, provides times for each pair (rule, target). 
 
        --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
