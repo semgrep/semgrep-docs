@@ -2,7 +2,6 @@
 description: Change rule severity and other metadata by forking rules
 tags:
   - Rules
-  - Semgrep Registry
   - Semgrep Code
   - Semgrep Secrets
 append_help_link: true
