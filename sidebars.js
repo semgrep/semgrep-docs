@@ -173,16 +173,7 @@ module.exports = {
           ]
         },
         'semgrep-appsec-platform/jira',
-        {
-          type: 'category',
-          label: 'Reports',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
-          items: [
-            'semgrep-appsec-platform/dashboard',
-            'semgrep-appsec-platform/dashboard-beta'
-          ]
-        },
+        'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
           label: 'IDE extensions',
