@@ -69,7 +69,7 @@ You can also send a `patch` request to the following endpoint: [Deployment > Pro
 
 You can view a total count of findings in the **Projects** page for all Semgrep products.
 
-- For Code and Supply Chain, this total count is computed from the **latest scanned branch**, not the primary branch.
+- For Code and Supply Chain, this total count is computed from the **primary branch**.
 - For Secrets, this total count is computed from deduplicated findings across all branches.
 
 This means that the count of findings in your Code, Secrets, or Supply Chain page may differ from the counts in your Projects page.
