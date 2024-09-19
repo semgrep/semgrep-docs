@@ -18,7 +18,7 @@ Only Semgrep Code and Secrets rules can be forked.
 
 ## Forking a rule
 
-To fork a rule, you must first open the rule definition in the Semgrep Editor. There are various ways to end up in the Editor, but one way would be via the Semgrep Registry. 
+To fork a rule, you must first open the rule definition in the Semgrep Editor. There are various ways to navigate to the Editor; the Semgrep Registry is one of them.
 
 Let's say you want to fork the rule `c.lang.security.insecure-use-gets-fn.insecure-use-gets-fn`.
 
