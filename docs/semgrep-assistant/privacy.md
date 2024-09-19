@@ -1,6 +1,6 @@
 ---
 slug: privacy
-title: Privacy and legal considerations
+title: Privacy policy and legal considerations
 hide_title: true
 description: Learn about the privacy and legal considerations involved when using Semgrep Assistant.
 tags:

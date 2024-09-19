@@ -1,14 +1,14 @@
 ---
 slug: getting-started
-title: Analyze with Assistant
+title: Enable and customize
 hide_title: true
-description: Learn how to enable and use all of Assistant's features.
+description: Learn how to enable and configure Assistant's features.
 tags:
   - Deployment
   - Semgrep Assistant
 ---
 
-# Enable and use Semgrep Assistant
+# Enable and customize Semgrep Assistant
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -91,13 +91,6 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 </TabItem>
 </Tabs>
 
-### Enable weekly priority emails
-
-If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
-
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-
 ### Enable auto-triage
 
 If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
@@ -127,7 +120,15 @@ Assistant autofix allows you to receive AI-generated code snippets to remediate 
     Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
     :::
 
-### Add Memories (beta)
+
+### Enable weekly priority emails
+
+If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+
+## Add Memories (beta)
 
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 
@@ -148,59 +149,11 @@ To add a memory:
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
 
-#### Remove Memories
+### Remove Memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
 2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
 3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
-
-### Use your own OpenAI API key
-
-If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
-
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
-2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
-3. Select **Your OpenAI API key**, and provide your API key.
-
-Click **Save** to proceed.
-
-By switching from Semgrep's key to your key, note that you lose access to the following:
-
-- Semgrep’s fine-tuned models that can increase the quality of results.
-- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/overview#privacy-and-legal-considerations) that prevents OpenAI from saving input or output data.
-- Semgrep paying for the cost of your AI usage.
-
-#### Additional AI providers
-
-If you would like access to the following AI providers for use with your Semgrep organization, click the <i class="fa-regular fa-envelope"></i> **icon** next to the AI provider of your choice to request access:
-
-- Azure OpenAI
-- AWS Bedrock
-- Google Gemini
-
-## Analyze findings
-
-Once you've enabled Assistant, you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions, including autofix, auto-triage, and component tagging, on existing findings.
-
-![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
-
-To analyze your findings with Assistant:
-
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Assistant to analyze.
-2. Click **Analyze**.
-3. In the confirmation window that appears, confirm that you want to analyze your findings with Assistant.
-
-After Assistant performs these functions, you can see your results on the **Findings** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations when viewing the finding details pages if you choose **No Grouping** instead of **Group by Rule**.
-
-The amount of time required to analyze your findings varies, but the UI displays a notification that provides an estimated wait time.
-
-:::info
-There is a cap of 250 Assistant runs per month using the **Analyze** button. Assistant runs against pull requests and merge requests do not count against this limit.
-:::
-
-## View recommendations
-
-You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
 
 ## Write custom rules (beta)
 
@@ -220,3 +173,27 @@ To do so:
    ![Custom rule sample plus test window](/img/assistant-write-custom-rule.png#md-width)
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
+
+## Use your own OpenAI API key
+
+If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Your OpenAI API key**, and provide your API key.
+
+Click **Save** to proceed.
+
+By switching from Semgrep's key to your key, note that you lose access to the following:
+
+- Semgrep’s fine-tuned models that can increase the quality of results.
+- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/overview#privacy-and-legal-considerations) that prevents OpenAI from saving input or output data.
+- Semgrep paying for the cost of your AI usage.
+
+### Additional AI providers
+
+If you would like access to the following AI providers for use with your Semgrep organization, click the <i class="fa-regular fa-envelope"></i> **icon** next to the AI provider of your choice to request access:
+
+- Azure OpenAI
+- AWS Bedrock
+- Google Gemini
