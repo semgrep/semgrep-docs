@@ -364,6 +364,25 @@ You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
 those constructs, e.g., Ruby).
 
+:::info
+Because literal metavariables bind to strings that may not be valid code, if you want to match them in more detail with a [`metavariable-pattern`](/writing-rules/rule-syntax/#metavariable-pattern), you must [specify `generic` language](/writing-rules/rule-syntax#metavariable-pattern-with-nested-language) inside the `metavariable-pattern`. For example:
+
+```
+rules:
+  - id: match-literal-string
+    languages:
+      - python
+    severity: INFO
+    message: Found "$STRING"
+    patterns:
+      - pattern: '"$STRING"'
+      - metavariable-pattern:
+          language: generic
+          metavariable: $STRING
+          pattern: "literal string contents"
+```
+:::
+
 ### Typed metavariables
 
 #### Syntax
@@ -431,16 +450,15 @@ The syntax for a typed metavariable in Go looks different from the syntax for Ja
 In this Go example we look for calls to the `Open` function, but only on an object of the `zip.Reader` type.
 
 ```text
-pattern: ($READER : *zip.Reader).Open($INPUT)
+pattern: |
+    ($READER : *zip.Reader).Open($INPUT)
 ```
 
 ```go
-func read_file() {
-
-    reader, _ := zip.NewReader(readerat, 18276)
+func read_file(reader *zip.Reader, filename) {
 
 	// Matched
-	reader.Open("data")
+	reader.Open(filename)
 
     dir := http.Dir("/")
 

@@ -9,13 +9,11 @@ tags:
   - Semgrep Assistant
 ---
 
-
-
 # Semgrep Assistant overview
 
 Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png)
+![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
 *Figure*. Semgrep Assistant detects a false positive.
 
 ## Support and availability
@@ -42,7 +40,7 @@ Semgrep Assistant supports [the same languages as Semgrep Code](/supported-langu
 
 By categorizing your code through component tags, Semgrep Assistant can help you prioritize **high-risk issues**, such as remediating a code finding related to payments or user authentication.
 
-![Semgrep Assistant Component tag list](/img/assistant-component-tags.png)
+![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
 
 Component tags are available in Semgrep AppSec Platform's **Findings** page.
 
@@ -52,7 +50,7 @@ Semgrep Assistant uses GPT-4's understanding of programming languages and librar
 
 Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png)
+![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
 *Figure*. Semgrep Assistant auto-triage in the Findings page.
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
@@ -68,12 +66,12 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 With Assistant enabled, every PR or MR comment Semgrep pushes includes remediation guidance with information on fixing the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
 
-![PR comments with remediation advice](/img/assistant-guidance.png)
+![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Findings detail with remediation advice](/img/assistant-guidance-ui.png)
+![Findings detail with remediation advice](/img/assistant-guidance-ui.png#md-width)
 ***Figure***. PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance.
 
 ### Memories (beta)
@@ -90,12 +88,12 @@ Assistant customizes the code snippets it provides based on previous feedback, i
 
 Autofixes are available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before applying them.
 
-![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png)
+![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
 *Figure*. Semgrep Assistant generates a potential fix in a PR comment.
 
 Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Your code** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
-![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png)
+![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
 
 The finding's details include a link to the PR or MR with the autofix, so you can go directly to the PR or MR to commit the autofix.
@@ -104,7 +102,7 @@ The finding's details include a link to the PR or MR with the autofix, so you ca
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
-### Priority inbox
+### Weekly priority emails
 
 Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
@@ -117,13 +115,12 @@ Semgrep Assistant can help you write custom rules to find patterns and vulnerabi
 Semgrep uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
 * Semgrep Assistant logs and stores the GPT prompts and responses for the sake of performance evaluation, which includes source code snippets.
-* Semgrep Assistant sends relevant lines of code to OpenAI's API, where currently, the "relevant lines of code" means lines that are part of the Semgrep finding, plus 30 lines of context on each side. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
+* Semgrep Assistant sends relevant lines of code to OpenAI's API. Currently, "relevant lines of code" means lines that are part of the Semgrep finding, plus the minimum number of lines of code required to provide enough context to produce accurate results. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains GPT's responses based on these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.
 <!-- markdown-link-check-disable -->
-* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Enterprise privacy at OpenAI](https://openai.com/enterprise-privacy).
+* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support)). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Enterprise privacy at OpenAI](https://openai.com/enterprise-privacy).
 <!-- markdown-link-check-enable -->
 * Semgrep, Inc. takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
-  * Semgrep shares code snippets with OpenAI without identifying the customer or repository name.
   * Semgrep only shares the code necessary to enlist the help of GPT in automating the resolution of each specific alert.
   * Semgrep only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
 * When using Semgrep Assistant, source code **does** leave your repository; Assistant submits part of the file with a finding to OpenAI for processing by a GPT model. OpenAI is not allowed to use the submitted code to train its models.

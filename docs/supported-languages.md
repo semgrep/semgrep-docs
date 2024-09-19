@@ -14,9 +14,6 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
-import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
-
-
 
 # Supported languages
 
@@ -28,16 +25,24 @@ This document provides information about supported languages and language maturi
 
 ## Semgrep Code and OSS
 
-Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
+Semgrep OSS is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
 
-Semgrep Code is a static application security testing (SAST) solution that makes use of proprietary Semgrep analyses, such as cross-file (interfile) and cross-function (intrafile) data flow, in addition to Semgrep OSS. This results in a [higher true positive rate than Semgrep OSS](/semgrep-code/java).
+Semgrep Code is a static application security testing (SAST) solution designed to detect complex security vulnerabilities. It makes use of proprietary Semgrep analyses, such as cross-file (interfile) dataflow analysis and framework specific analysis, in addition to Semgrep OSS. This results in a [**higher true positive rate than Semgrep OSS**](https://semgrep.dev/products/Semgrep-vs-OSS).
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
-| Product | Analysis |
-| -------   | ------ |
-| [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
-| Semgrep Code  |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
+| Product | Analysis | 
+| -------   | ------ | 
+| [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) | <ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
+| Semgrep Code  |<ul><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li><li>Framework-specific control flow analysis</li><li>All analyses in the OSS Engine</li></ul>   |
+
+
+### Semgrep Code language support
+
+Semgrep Code supports over 30 languages and counting! 🚀
+
+<SupportedLanguagesTable />
+
 
 ### Language maturity levels
 Semgrep Code languages can be classified into four maturity levels:
@@ -61,6 +66,13 @@ Their differences are outlined in the following table:
     </tr></thead>
     <tbody>
     <tr>
+        <td>Support</td>
+        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
+        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
+        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
+        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
+    </tr>
+    <tr>
         <td>Parse Rate</td>
         <td>99%+</td>
         <td>95%+</td>
@@ -78,21 +90,9 @@ Their differences are outlined in the following table:
         <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
         <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
     </tr>
-    <tr>
-        <td>Support</td>
-        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
-        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
-        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
-        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
-    </tr>
     </tbody>
 </table>
 
-### Semgrep Code language support
-
-Semgrep Code supports over 30 languages and counting! 🚀
-
-<SupportedLanguagesTable />
 
 
 ### Semgrep OSS language support
@@ -159,16 +159,16 @@ Visit the Semgrep public language dashboard to see the parse rates for each lang
 
 Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several supported lockfiles, depending on your repository's package manager. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).
+For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 
 <table>
 <thead><tr>
     <th>Language</th>
     <th>Supported package managers</th>
     <th>Lockfile</th>
-    <th>Reachability support level‡</th>
+    <th><a href="#reachability-support-level">Reachability support level</a></th>
     <th>License detection support</th>
-    <th>Time period of reachability rule coverage for CVEs/GHSAs</th>
+    <th>Period of reachability rule coverage for CVEs/GHSAs</th>
 </tr></thead>
 <tbody>
 <tr>
@@ -177,7 +177,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="12">Since May 2022</td>
+   <td rowspan="12">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -210,18 +210,18 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>Yarn, Yarn 2, Yarn 3</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
   </tr>
   <tr>
    <td>pnpm</td>
    <td><code>pnpm-lock.yaml</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
   </tr>
   <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td><code>requirements.txt</code>†† (generated by <code>pip freeze</code> for example)</td>
+   <td><code>requirements.txt</code> if used as a lockfile. The `requirements.txt` file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">✅ (PyPI packages only)</td>
   </tr>
@@ -253,7 +253,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✅</td>
-   <td rowspan="7">Not applicable due to reachability support level</td>
+   <td rowspan="8">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -271,8 +271,8 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
 </tr>
 <tr>
    <td rowspan="2">Kotlin</td>
-   <td>Gradle</td>
-   <td><code>gradle.lockfile§</code></td>
+   <td>Gradle§</td>
+   <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>--</td>
 </tr>
@@ -306,16 +306,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   </tbody>
 </table>
 
-_*Semgrep Supply Chain scans transitive dependencies for **all supported languages** but does **not** perform reachability analysis on transitive dependencies._ <br />
-_**‡Reachability support level** refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which compare a package's version against versions with known vulnerabilities._ <br />
-_**††**Semgrep Supply Chain supports `requirements.txt` when it is used as a **lockfile**. This means that `requirements.txt` must be set to exact versions (pinned dependencies) and the file must be generated automatically._ <br />
-_**§** Supply Chain does not analyze the transitivity of packages for these language or lockfile combinations. All dependencies are listed as **Unknown** transitivity._
-
-<AdmonitionSotCves />
-
-:::info Transitivity support
-For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
-:::
+_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **Unknown** transitivity._
 
 ### Maturity levels
 
@@ -353,3 +344,7 @@ Their differences are outlined in the following table:
 * The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
 * Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
 :::
+
+#### Reachability support level
+
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which compare a package's version against versions with known vulnerabilities._ <br />

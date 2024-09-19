@@ -20,7 +20,7 @@ import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-
 
 **Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-code/policies) to enforce code standards and increase code security.
 
-The Editor is free to use on all subscription tiers, but saving a rule for **private use** is a **Team/Enterprise tier feature**.
+The Editor is free to use on all subscription tiers.
 
 ## Access Semgrep Editor
 
@@ -42,14 +42,14 @@ Semgrep Editor is composed of three panes and a top menu.
     <dt>Library</dt>
     <dd>View and open rules owned by your organization or available through the <a href="https://semgrep.dev/r">Semgrep Registry</a>.</dd>
     <dt>Rule editor</dt>
-    <dd>Enter your rule's YAML schema in this pane. This pane supports both structure and advanced modes.</dd>
+    <dd>Enter your rule's YAML in this pane. This pane supports both structure and advanced modes.  This pane also contains metadata editing functionality in Structure mode, and match review functionality in Advanced mode.</dd>
     <dt>Sample code</dt>
-    <dd>Enter test code in this pane and click <strong>Run</strong> to verify that the rule performs as intended. A matches panel appears after Semgrep runs to display matches and tests. This pane also contains metadata editing and docs viewing functionalities.</dd>
+    <dd>Enter test code in this pane and click <strong>Run</strong> to verify that the rule performs as intended. A matches panel appears after Semgrep runs to display matches and tests.</dd>
     <dt>Top menu</dt>
     <dd>Save, share, and add your rule to one of your policies.</dd>
 </dl>
 
-### Group rules
+### Group Registry rules
 
 By default, Semgrep Registry rules are grouped by **directory**. Most of these directories correspond to languages. The Library can also be grouped by **rulesets**, which are rules sorted by category, such as security, best practices, and frameworks.
 
@@ -76,12 +76,12 @@ Structure mode is a UI-based ruled writing editor that guides you through the pr
 
 Structure mode features include:
 
-- **Match badges**: Match badges are visual indicators paired next to pattern operators. The match badge shows the number of matches associated with each pattern operator.
+- **Match badges**: Match badges are visual indicators paired with pattern operators. The match badge shows the number of matches associated with each pattern operator.
   ![Sample pattern with match badges](/img/match-badges.png#md-width)
 - **Automatic indentation**: When adding a new pattern to a nested operator such as `patterns` or `pattern-either`, the editor automatically indents sub-patterns correctly.
 - **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable.
   ![Sample pattern with pattern constraint](/img/pattern-and-pattern-constraint.png#md-width)
-- **Interoperability with advanced mode**: You can write a rule using structure mode and export it in YAML or you can paste in the YAML for a rule and edit it with structure mode.
+- **Interoperability with advanced mode**: You can write a rule using structure mode and view or export it in YAML, or you can paste in the YAML for a rule and edit it with structure mode.
 - **Drag and drop**" You can move around the elements of a rule using drag and drop.
 - **Pattern disabling**: You can toggle individual patterns on or off for actions like testing.
   ![Sample pattern with disable pattern toggle highlighted](/img/disable-pattern.png#md-width)
@@ -95,7 +95,7 @@ To write a **search** rule using structure mode:
 4. Optional: specify a constraint by clicking on the **filter** icon.
    1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
    2. Provide the pattern for the code for which the constraint should be applied.
-5. Select the child operator and specify its pattern, if applicable. You can add as many child elements as you need. These child elements can also have their own constraints
+5. Select the child operator and specify its pattern, if applicable. You can add as many child elements as you need. These child elements can also have their own constraints.
 6. Optional: Expand the **Rule info** panel, and update the following fields:
    1. Rule ID: the name of the rule
    2. Language: the language of the code for which this rule runs against
@@ -146,13 +146,13 @@ To write a rule in advanced mode:
 
 1. Ensure that you are in **advanced** mode.
     ![Semgrep Playground's advanced mode](/img/pleditor-advanced.png "Playground advanced mode")
-1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but  there are additional templates that can help you write more complex rules:
+1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but there are additional templates that can help you write more complex rules:
    - **Semgrep Assistant**: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/getting-started/#write-custom-rules-beta)
    - **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
    - **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
    - **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/#sanitizers).
    - **Dataflow analysis with taint labels**: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/#taint-labels-pro-)
-   - **HTTP validators**: Demonstrates how to [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
+   - **HTTP validators**: Demonstrates how to write [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
 2. Modify the template, adding and changing the keys and values needed to finish your rule.
 3. Optional: Click **Metadata** to update and enter additional metadata fields.
 4. Click **Run** or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
@@ -168,11 +168,11 @@ After you write a rule, testing it ensures it performs as expected. To test a ru
 1. Create at least one **true positive**: a code sample intended to match the rule.
 2. Above this potential match, create a comment, followed by a space (` `), followed by `ruleid:RULE_ID` which specifies the rule that should match. In the preceding example, this is `// ruleid:hardcoded-conditional`.
 3. Create at least one **true negative**: a code sample intended not to match the rule.
-4. Above this non-match, create a comment followed by a space ( ), followed by `ok:RULE_ID`. For example, `// ok:hardcoded-conditional`.
+4. Above this non-match, create a comment followed by a space (` `), followed by `ok:RULE_ID`. For example, `// ok:hardcoded-conditional`.
 5. Optional: add more code samples with their corresponding annotations.
-6. Click **Run**. Semgrep detects the annotations and validate the rule based on your tests
+6. Click **Run**. Semgrep detects the annotations and validates the rule based on your tests.
 
-In addition to testing for matches, you can test that it doesn't match what it shouldn't, preventing false positives. To do so, you can [create comment annotations for intended and unintended findings](/writing-rules/testing-rules/) in **test code**.
+In addition to testing for matches, you can test that your rule doesn't match what it shouldn't, preventing false positives. To do so, you can [create comment annotations for intended and unintended findings](/writing-rules/testing-rules/) in **test code**.
 
 Once you've written a rule and created comment annotations, you can run your rule against your comment annotations by clicking **Run**. You can also press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
@@ -215,12 +215,14 @@ To run your rule against selected repositories or projects:
 
 ## Set a rule’s visibility and share a rule
 
-Upon saving, a rule’s visibility is **unlisted** by default. This rule can be shared with anyone through an identifier, even to non-Semgrep AppSec Platform users.
+Upon saving, a rule’s visibility is **private** by default. A private rule is visible only to members within an organization.
 
-A rule can be saved as a **private rule**, which is visible only to members within an organization. You can still share a private rule, but only members of the organization can see it. Private rules are a **Team/Enterprise tier feature**.
+- To share a rule outside your organization, click **Share > Public > Confirm**. If you want to share this specific version of the rule, you can also toggle Permalink. This provides a shortlink to this version of the rule, which will not change if the rule is modified.
+- To share a private rule with those who can access it, click **Share** and copy the **URL link**.
 
-- To set a rule’s visibility to private, click **Share > Private > Confirm**.
-- To share a private or unlisted rule, click **Share** and copy the **URL link**.
+Some older rules in Semgrep AppSec Platform may be **unlisted** rather than private. These rules are marked with an icon without a lock, and can be shared with anyone, including those who cannot access Semgrep AppSec Platform.
+
+To change an unlisted rule's visibility to private for increased security, click **Share > Private > Confirm**.
 
 ## Rename a rule
 
@@ -234,7 +236,7 @@ To rename a rule, enter the new name in the YAML editor’s `id` field. The, sav
 
 The **[Policies](/semgrep-code/policies/)** page displays rules that Semgrep Cloud Platform uses to scan your project's code. Rules added to the **Policies** page become part of every Semgrep scan you run.
 
-When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
+When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
 
 To add a rule to the **Policies** page:
 
@@ -243,6 +245,10 @@ To add a rule to the **Policies** page:
 3. Select one of the following rule mode options based on the relevance of the rule: **Monitor mode**, **Comment mode**, or **Block mode**.
 
 If successful, you'll see a pop-up window indicating that your rule has been added.
+
+## Organize private rules
+
+All private rules for an organization are saved to the organization's folder. To further organize rules, consider organizational naming conventions to facilitate searching for and identifying rules. Useful naming conventions might include internal team, rule language, or vulnerability category.
 
 ## Semgrep Registry rules
 
@@ -269,7 +275,9 @@ The following example shows how [the original rule, identifying uses of `SHA-1` 
 
 <iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
 
-## Contribute to the open-source Semgrep Registry
+When you fork a rule, the copy is independent from the original. To run your new rule in your scans, [add it to a policy](#add-a-rule-to-the-policies-page). If you want your copy to replace the rule you forked, add it to a policy, then disable the original on the Policies page.
+
+### Contribute to the open-source Semgrep Registry
 
 :::info
 For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).

@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@algolia/client-search": "^4.23.3",
-    "@docusaurus/core": "^3.3.2",
-    "@docusaurus/plugin-client-redirects": "^3.3.2",
-    "@docusaurus/preset-classic": "^3.3.2",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/plugin-client-redirects": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
     "@markprompt/docusaurus-theme-search": "^0.20.7",
     "@mdx-js/react": "^3.0.1",
     "@svgr/webpack": "^8.1.0",
@@ -47,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.3.2",
+    "@docusaurus/module-type-aliases": "^3.5.2",
     "@tsconfig/docusaurus": "^2.0.3",
     "@types/react": "^18.3.1"
   }

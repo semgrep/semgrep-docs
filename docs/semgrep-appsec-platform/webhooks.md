@@ -20,7 +20,7 @@ Semgrep sends two types of JSON objects:
 <dt><code>semgrep_scan</code> JSON object</dt>
 <dd> A <code>semgrep_scan</code> object contains information about the CI job and other scan parameters, such as ignored files. Semgrep sends a single <code>semgrep_scan</code> object <strong>every time a scan is run</strong>. This includes diff-aware scans, full scans, and scans that have no findings.</dd>
 <dt><code>semgrep_finding</code> JSON object</dt>
-<dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
+<dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#set-up-webhooks">Set up webhooks</a> to learn more.</dd>
 </dl>
 
 ## Set up webhooks

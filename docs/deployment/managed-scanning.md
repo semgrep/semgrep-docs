@@ -21,8 +21,6 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 
 - Managed Scans is in **public beta** for all existing Semgrep AppSec Platform users.
 - It supports hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
-    - This guide provides self-service enablement steps for **hosted GitHub plans**.
-    - To enable Managed Scans on GitHub Enterprise Server, contact your technical account manager (TAM).
 - Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 - Managed Scans is available for all Semgrep products you have purchased, including:
     - Semgrep Code
@@ -71,15 +69,17 @@ To view all permissions, see [Pre-deployment checklist > Permissions](/deploymen
 1. Select the repositories you want to scan from the list.
 1. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
 1. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
-![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width-bordered)
+![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
 1. Click **Enable**.
+1. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
+
 <!-- vale on -->
 
-You have finished setting up a Semgrep Managed Scan.
+You have finished setting up a Semgrep managed scan.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through Managed Scans are tagged with `managed-scan `.
+- Projects scanned through Managed Scans are tagged with `managed-scan`.
 
 
 ### Troubleshoot your Semgrep GitHub app installation
@@ -91,7 +91,7 @@ _**Figure**. **Semgrep AppSec Platform > <i class="fa-solid fa-gear"></i> Settin
 
 You can also confirm a complete installation through your GitHub settings page, which should have two Semgrep apps:
 
-![GitHub settings page](/img/zcs-github-apps.png#bordered)
+![GitHub settings page](/img/zcs-github-apps.png)
 _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. The private Semgrep app follows the convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**_.
 
 ### If the page doesn't display any repositories
@@ -108,8 +108,10 @@ Repositories must be accessible to both the public Semgrep GitHub app and the pr
 
 You can immediately add any existing project to Managed Scans.
 
-1. Follow the steps in [Add a repository](#add-a-repository).
-1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository.
+1. Follow the steps in [Add a repository](#add-a-repository-to-semgrep-managed-scans).
+1. Delete the `/.github/workflows/semgrep.yml` file in your GitHub repository if appropriate.
+
+If you plan to continue running some scans in GitHub Actions (for example, using Managed Scans to run weekly full scans but GitHub Actions for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.
 
 :::tip
 Semgrep preserves your findings, scans, and triage history.
@@ -175,7 +177,9 @@ To **view** the repositories you have granted access to:
 1. Review the repositories under repository access.
 1. Perform steps 2 and 3 on the entry of your private Semgrep GitHub app.
 
-### Scan logs and statistics
+### Scan logs
+
+#### Most recent scan
 
 You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
 
@@ -185,5 +189,12 @@ _**Figure**. The Projects page. Click the project's latest scan (underlined) to 
 :::info
 It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
 :::
+
+#### All scans
+
+1. Click the project's **Details** page > **Scans** tab. 
+1. Click the **<i class="fas fa-scroll"></i>** scroll icon under **Logs** to view the log for the particular entry. 
+
+### Scan statistics
 
 **Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.

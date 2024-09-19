@@ -92,8 +92,7 @@ OPTIONS
            Output results in Emacs single-line format.
 
        --emacs-output=VAL
-           Write a copy of the emacs output to a file or post to or post to
-           URL.
+           Write a copy of the emacs output to a file or post to URL.
 
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
@@ -140,7 +139,8 @@ OPTIONS
            on configuration file format. 
 
        --files-with-matches
-           Output only the names of files containing matches
+           Output only the names of files containing matches. REQUIRES
+           --experimental
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
@@ -150,15 +150,14 @@ OPTIONS
            Output results in GitLab SAST format.
 
        --gitlab-sast-output=VAL
-           Write a copy of the GitLab SAST output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab SAST output to a file or post to URL.
 
        --gitlab-secrets
            Output results in GitLab Secrets format.
 
        --gitlab-secrets-output=VAL
-           Write a copy of the GitLab Secrets output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab Secrets output to a file or post to
+           URL.
 
        --historical-secrets
            Scans git history using Secrets rules.
@@ -182,7 +181,7 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
-           Output results incrementally.
+           Output results incrementally. REQUIRES --experimental
 
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
@@ -197,15 +196,13 @@ OPTIONS
            Output results in Semgrep's JSON format.
 
        --json-output=VAL
-           Write a copy of the json output to a file or post to or post to
-           URL.
+           Write a copy of the json output to a file or post to URL.
 
        --junit-xml
            Output results in JUnit XML format.
 
        --junit-xml-output=VAL
-           Write a copy of the JUnit XML output to a file or post to or post
-           to URL.
+           Write a copy of the JUnit XML output to a file or post to URL.
 
        -l VAL, --lang=VAL
            Parse pattern and all files in specified language. Must be used
@@ -226,16 +223,21 @@ OPTIONS
            Maximum number of lines of code that will be shown for each match
            before trimming (set to 0 for unlimited).
 
+       --max-log-list-entries=VAL (absent=100)
+           Maximum number of entries that will be shown in the log (e.g.,
+           list of rule ids, list of skipped files). A zero or negative value
+           disables this filter. Defaults to 100
+
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile
            pre-processing phase, or when running a rule on a single file. If
            set to 0, will not have memory limit. Defaults to 0. For CI scans
            that use the Pro Engine, defaults to 5000 MiB. 
 
-       --max-target-bytes=VAL (absent=-1)
+       --max-target-bytes=VAL (absent=1000000)
            Maximum size for a file to be scanned by Semgrep, e.g '1.5MB'. Any
            input program larger than this will be ignored. A zero or negative
-           value disables this filter. Defaults to -1 bytes
+           value disables this filter. Defaults to 1000000 bytes
 
        --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
@@ -290,7 +292,8 @@ OPTIONS
            optimizations off. 
 
        --oss-only
-           Run using only OSS features, even if the Semgrep Pro toggle is on.
+           Run using only the OSS engine, even if the Semgrep Pro toggle is
+           on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
            Inter-file analysis and Pro languages (currently Apex and Elixir).
@@ -321,7 +324,7 @@ OPTIONS
            a specific directory to be the project root. This is useful for
            testing or for restoring compatibility with older semgrep
            implementations that only looked for a .semgrepignore file in the
-           current directory.
+           current directory. REQUIRES --experimental
 
        -q, --quiet
            Only output findings.
@@ -330,7 +333,8 @@ OPTIONS
            Remote will quickly checkout and scan a remote git repository of
            the format "http[s]://<WEBSITE>/.../<REPO>.git". Must be run with
            --pro Incompatible with --project-root. Note this requires an
-           empty CWD as this command will clone the repository into the CWD
+           empty CWD as this command will clone the repository into the CWD.
+           REQUIRES --experimental
 
        --replacement=VAL
            An autofix expression that will be applied to any matches found
@@ -344,8 +348,7 @@ OPTIONS
            Output results in SARIF format.
 
        --sarif-output=VAL
-           Write a copy of the SARIF output to a file or post to or post to
-           URL.
+           Write a copy of the SARIF output to a file or post to URL.
 
        --scan-unknown-extensions
            If true, target files specified directly on the command line will
@@ -387,12 +390,13 @@ OPTIONS
            Output results in text format.
 
        --text-output=VAL
-           Write a copy of the text output to a file or post to or post to
-           URL.
+           Write a copy of the text output to a file or post to URL.
 
        --time
            Include a timing summary with the results. If output format is
-           json, provides times for each pair (rule, target). 
+           json, provides times for each pair (rule, target). This feature is
+           meant for internal use and may be changed or removed without
+           warning. At the current moment, --trace is better supported. 
 
        --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
@@ -407,11 +411,11 @@ OPTIONS
            is meant for internal use and may be changed or removed without
            warning. 
 
-       --trace-endpoint=VAL
+       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINTS env)
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning.
+           internal use and may be changed or removed wihtout warning. 
 
        --use-git-ignore
            Skip files ignored by git. Scanning starts from the root folder
@@ -441,15 +445,14 @@ OPTIONS
            Output results in vim single-line format.
 
        --vim-output=VAL
-           Write a copy of the vim output to a file or post to or post to
-           URL.
+           Write a copy of the vim output to a file or post to URL.
 
        --x-ls
            [INTERNAL] List the selected target files and the skipped target
            files before any rule-specific or language-specific filtering.
            Then exit. The output format is unspecified. THIS OPTION IS NOT
            PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. 
+           NOTICE. REQUIRES --experimental. 
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
@@ -479,6 +482,9 @@ ENVIRONMENT
 
        SEMGREP_FORCE_COLOR
            See option --force-color.
+
+       SEMGREP_OTEL_ENDPOINTS
+           See option --trace-endpoint.
 
        SEMGREP_RULES
            See option --config.

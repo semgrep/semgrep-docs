@@ -40,7 +40,15 @@ module.exports = {
         items: [
             'getting-started/quickstart',
             'prerequisites',
-            'supported-languages',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Supported languages',
+                link: {type: 'doc', id: 'supported-languages'},
+                items: [
+                    'semgrep-code/supported-languages-python',
+                ]
+            },
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -93,6 +101,7 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
                 },
@@ -161,25 +170,8 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/jira',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Reports',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
-          items: [
-            'semgrep-appsec-platform/dashboard',
-            'semgrep-appsec-platform/dashboard-beta'
-          ]
-        },
+        'semgrep-appsec-platform/jira',
+        'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
           label: 'IDE extensions',
@@ -211,6 +203,7 @@ module.exports = {
                 'semgrep-code/triage-remediation',
                 'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
+                'semgrep-code/semgrep-pro-engine-examples',
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
@@ -624,6 +617,8 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/august-2024',
+                'release-notes/july-2024',
                 'release-notes/june-2024',
                 'release-notes/may-2024',
                 'release-notes/april-2024',
