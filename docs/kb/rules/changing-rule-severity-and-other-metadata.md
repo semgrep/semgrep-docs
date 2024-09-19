@@ -38,7 +38,7 @@ Then, save this custom version of the rule to your organization's rules, making 
 
 ![Save a rule in the Editor](/img/kb/save_rule_editor.png)
 
-As can be seen, after the forked custom rule has been saved, it will show up in your registry.
+By default, saving the rule also includes it in the Semgrep Registry, with visibility limited to your organization.
 
 ![Custom rules in registry](/img/kb/custom_rules_in_editor.png)
 
