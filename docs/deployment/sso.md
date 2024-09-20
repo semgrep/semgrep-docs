@@ -21,6 +21,10 @@ This article walks you through single-sign on (SSO) configuration. Semgrep suppo
 
 ## OpenID Connect / OAuth 2.0
 
+:::warning
+Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. Follow the instructions for [setting up SAML SSO with Microsoft Entra ID](#set-up-saml-sso-with-microsoft-entra-id) instead.
+:::
+
 To set up SSO in Semgrep AppSec Platform:
 
 1. Sign in to Semgrep AppSec Platform.
