@@ -195,6 +195,8 @@ html[data-theme="light"] {
     box-shadow: none;
     border-radius: unset;
     height: 100%;
+    object-fit: cover;
+    width: 25%;
   }
 }
 
@@ -713,7 +715,7 @@ article > a[class*="cardContainer_"][class~="card"] {
 }
 
 .col-3-fixed > .card {
-  width: calc(33.3% - 4px);
+  width: calc(33.3% - 10px);
 }
 
 .card {
@@ -731,7 +733,6 @@ article > a[class*="cardContainer_"][class~="card"] {
 
 .card-50 {
   flex-direction: row;
-  min-height: 108px;
   flex-wrap: nowrap;
 }
 
@@ -748,6 +749,14 @@ a.card:hover {
   padding-top: 0px;
 }
 
+.card__copy {
+  width: 100%;
+  p {
+    @media screen and (max-width: 1480px) {
+      font-size: 14px;
+    }
+  }
+}
 
 a[class*=cardContainer_][class~=card]  {
   box-shadow: var(--semgrep-docs-box-shadow);
