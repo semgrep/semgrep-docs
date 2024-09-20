@@ -197,6 +197,9 @@ html[data-theme="light"] {
     height: 100%;
     object-fit: cover;
     width: 25%;
+    @media screen and (max-width: 1366px - 1px) {
+      width: 15%;
+    }
   }
 }
 
@@ -712,6 +715,9 @@ article > a[class*="cardContainer_"][class~="card"] {
 
 .col-2-fixed > .card {
   width: calc(50% - 8px);
+    @media screen and (max-width: calc(1366px - 1px)) {
+      width: 100%;
+    }
 }
 
 .col-3-fixed > .card {
@@ -754,6 +760,9 @@ a.card:hover {
   p {
     @media screen and (max-width: 1480px) {
       font-size: 14px;
+    }
+    @media screen and (max-width: 1366px - 1px) {
+      font-size: 16px;
     }
   }
 }
