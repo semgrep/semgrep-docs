@@ -70,6 +70,7 @@
   --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
   --ifm-global-radius: 0.2rem;
   --semgrep-docs-box-shadow: -0.1rem 0.1rem 0.1rem var(--semgrep-grey-300);
+  --semgrep-docs-box-shadow-dark: -0.1rem 0.1rem 0.1rem var(--ifm-color-gray-700);
   --semgrep-docs-border: 1px solid var(--semgrep-grey-300);
 
   /**************************************************************************
@@ -181,13 +182,6 @@ html[data-theme="light"] {
       color: var(--semgrep-secondary-blue03);
   }
 
-  .card {
-
-  }
-  a.card {
-
-  }
-
   .card__copy > h6 {
     color: var(--semgrep-secondary-purple01);
   }
@@ -291,11 +285,17 @@ html[data-theme="dark"] {
 
   // Dark mode cards
   a.card:hover {
-    background-color: var(--semgrep-offwhite);
+    background-color: var(--ifm-color-black);
     text-decoration: none;
   }
   .card {
-    background-color: #1b1b1d;
+    background-color: var(--ifm-color-gray-900);
+    box-shadow: var(--semgrep-docs-box-shadow-dark);
+  }
+
+  .card__body > p {
+    color: var(--ifm-color-gray-200);
+    flex-shrink:1;
   }
 
 }
