@@ -722,6 +722,9 @@ article > a[class*="cardContainer_"][class~="card"] {
 
 .col-3-fixed > .card {
   width: calc(33.3% - 10px);
+    @media screen and (max-width: calc(1280px - 1px)) {
+      width: 100%;
+    }
 }
 
 .card {
