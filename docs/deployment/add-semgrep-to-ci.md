@@ -131,7 +131,11 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 
 Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
 
+Within Semgrep, default branches are also known as **primary** branches.
+
 <DefaultBranches />
+
+You can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 
