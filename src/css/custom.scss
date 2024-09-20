@@ -181,6 +181,13 @@ html[data-theme="light"] {
       color: var(--semgrep-secondary-blue03);
   }
 
+  .card {
+
+  }
+  a.card {
+
+  }
+
   .card__copy > h6 {
     color: var(--semgrep-secondary-purple01);
   }
@@ -188,18 +195,6 @@ html[data-theme="light"] {
   .card__body > p {
     color: var(--semgrep-secondary-blue02);
     flex-shrink:1;
-  }
-
-  .card__image {
-    border: none;
-    box-shadow: none;
-    border-radius: unset;
-    height: 100%;
-    object-fit: cover;
-    width: 25%;
-    @media screen and (max-width: 1366px - 1px) {
-      width: 15%;
-    }
   }
 }
 
@@ -293,6 +288,16 @@ html[data-theme="dark"] {
     color: #444; // placeholder; replace with theme color if there's a similar one
     font-weight: 600;
   }
+
+  // Dark mode cards
+  a.card:hover {
+    background-color: var(--semgrep-offwhite);
+    text-decoration: none;
+  }
+  .card {
+    background-color: #1b1b1d;
+  }
+
 }
 
 
@@ -767,6 +772,18 @@ a.card:hover {
     @media screen and (max-width: 1366px - 1px) {
       font-size: 16px;
     }
+  }
+}
+
+.card__image {
+  border: none;
+  box-shadow: none;
+  border-radius: unset;
+  height: 100%;
+  object-fit: cover;
+  width: 25%;
+  @media screen and (max-width: 1366px - 1px) {
+    width: 15%;
   }
 }
 
