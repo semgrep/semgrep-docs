@@ -290,7 +290,7 @@ html[data-theme="dark"] {
   }
   .card {
     background-color: var(--ifm-color-gray-900);
-    box-shadow: var(--semgrep-docs-box-shadow-dark);
+    box-shadow: var(--semgrep-docs-box-shadow-dark) !important;
   }
 
   .card__body > p {
@@ -298,6 +298,9 @@ html[data-theme="dark"] {
     flex-shrink:1;
   }
 
+  /*img {
+      box-shadow: var(--semgrep-docs-box-shadow-dark);
+  }*/
 }
 
 
