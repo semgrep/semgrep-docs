@@ -52,11 +52,20 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
       token: GITLAB_PAT
 ```
 
-  The `publicKey` value should be entered precisely as shown in the example:
+The `publicKey` value should be entered precisely as shown in the example:
 
-  ```console
-  4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
-  ```
+```console
+4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
+```
+
+#### Multiple configuration files
+You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
+
+```console
+semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
+```
+
+Note that arrays are replaced, while maps are merged.
 
 ### Generate a keypair
 
@@ -183,11 +192,3 @@ inbound:
 ## Run multiple instances of the Semgrep Network Broker
 
 You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. However, you may see some noise in your logs since the Broker hasn't been architected yet for this specific configuration.
-
-You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
-
-```console
-semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
-```
-
-Note that arrays are replaced while maps are merged.
