@@ -20,7 +20,7 @@ To analyze your findings with Assistant:
 2. Click **Analyze**.
 3. In the confirmation dialog that appears, confirm that you want to analyze your findings with Assistant.
 
-After Assistant performs these functions, you can see its results on the **Code** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations in the finding details pages.
+After Assistant performs these functions, you can see its results on the **Code** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations in a finding's **Details** page.
 
 The amount of time required to analyze your findings varies. Before running the analysis, the confirmation dialog provides an estimated wait time.
 
