@@ -29,35 +29,6 @@ Semgrep Assistant:
 
 ## Features
 
-### Component tags
-
-**Component tags** use GPT-4 to categorize a finding based on its function, such as:
-
-- Payments
-- User authentication
-- Infrastructure
-
-By categorizing your code through component tags, Semgrep Assistant can help you prioritize **high-risk issues**, such as remediating a code finding related to payments or user authentication.
-
-Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
-
-![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
-_**Figure.** Semgrep AppSec Platform's Findings page showing the Component filter._
-
-### Auto-triage
-
-Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
-
-Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
-
-![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in the Findings page._
-
-Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
-
-![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in a Slack notification._
-
 ### Remediation
 
 Semgrep Assistant can provide remediation advice and autofixes, or suggested fixes, for Semgrep Code findings.
@@ -96,20 +67,40 @@ The finding's details include a link to the PR or MR with the autofix, so you ca
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
+### Component tags
+
+**Component tags** use GPT-4 to categorize a finding based on its function, such as:
+
+- Payments
+- User authentication
+- Infrastructure
+
+By categorizing your code through component tags, Semgrep Assistant can help you prioritize **high-risk issues**, such as remediating a code finding related to payments or user authentication.
+
+Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
+
+![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
+_**Figure.** Semgrep AppSec Platform's Findings page showing the Component filter._
+
+### Auto-triage
+
+Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
+
+Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
+
+![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
+_**Figure.** Semgrep Assistant auto-triage in the Findings page._
+
+Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
+
+![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
+_**Figure.** Semgrep Assistant auto-triage in a Slack notification._
+
 ### Memories (beta)
 
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 
 For example, if the code contains a hardcoded secret, Assistant might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
-
-### Weekly priority emails
-
-Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
-
-This information is also available in Semgrep AppSec Platform on the **Dashboard** page under **Assistant recommended tasks**.
-
-![Semgrep Assistant's weekly recommended tasks view in the Dashboard](/img/priority-inbox.png#md-width)
-*Figure*. Semgrep Assistant's recommended tasks Dashboard view.
 
 ### Custom rules editor (beta)
 
