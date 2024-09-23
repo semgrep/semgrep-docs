@@ -278,9 +278,6 @@ OPTIONS
        --no-suppress-errors
            negates --suppress-errors
 
-       --no-time
-           negates --time
-
        --no-trace
            negates --trace
 
