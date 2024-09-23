@@ -47,9 +47,6 @@
   --ifm-color-primary-lightest: #DFF7F0;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-lightest);
 
-  --ifm-breadcrumb-border-radius: 0.25rem;
-  --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
-
   --ifm-menu-color-active: #00c292;
   --ifm-link-color: var(--ifm-color-primary-darker);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-500);
@@ -65,6 +62,16 @@
   --ifm-font-family-monospace: "JetBrains Mono", "Menlo", "Courier New", monospace;
   --ifm-navbar-height: 78px;
 
+  /**************************************************************************
+   * 2024 August style consolidation with marketing website - GLOBALS       *
+   *************************************************************************/
+
+  --ifm-breadcrumb-border-radius: 0.25rem;
+  --ifm-breadcrumb-item-background-active: rgb(0 168 126 / 4%);
+  --ifm-global-radius: 0.2rem;
+  --semgrep-docs-box-shadow: -0.1rem 0.1rem 0.1rem var(--semgrep-grey-300);
+  --semgrep-docs-box-shadow-dark: -0.1rem 0.1rem 0.1rem var(--ifm-color-gray-700);
+  --semgrep-docs-border: 1px solid var(--semgrep-grey-300);
 
   /**************************************************************************
    * MARKPROMPT                                                             *
@@ -156,18 +163,32 @@ html[data-theme="light"] {
   --ifm-pre-background: var(--semgrep-grey-100);
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--semgrep-secondary-blue01);
+    color: var(--semgrep-secondary-blue02);
   }
 
   pre, pre > code {
     background-color: var(--semgrep-offwhite);
-    box-shadow: var(--ifm-global-shadow-lw);
+    box-shadow: var(--semgrep-docs-box-shadow);
   }
+
   img {
-      box-shadow: -2px 2px 2px var(--semgrep-grey-300);
+      box-shadow: var(--semgrep-docs-box-shadow);
       border-radius: var(--ifm-code-border-radius);
       margin-bottom: 4px;
-      border: 1px solid var(--semgrep-grey-300);
+      border: var(--semgrep-docs-border);
+  }
+
+  .home {
+      color: var(--semgrep-secondary-blue03);
+  }
+
+  .card__copy > h6 {
+    color: var(--semgrep-secondary-purple01);
+  }
+
+  .card__body > p {
+    color: var(--semgrep-secondary-blue02);
+    flex-shrink:1;
   }
 }
 
@@ -261,6 +282,25 @@ html[data-theme="dark"] {
     color: #444; // placeholder; replace with theme color if there's a similar one
     font-weight: 600;
   }
+
+  // Dark mode cards
+  a.card:hover {
+    background-color: var(--ifm-color-black);
+    text-decoration: none;
+  }
+  .card {
+    background-color: var(--ifm-color-gray-900);
+    box-shadow: var(--semgrep-docs-box-shadow-dark) !important;
+  }
+
+  .card__body > p {
+    color: var(--ifm-color-gray-200);
+    flex-shrink:1;
+  }
+
+  /*img {
+      box-shadow: var(--semgrep-docs-box-shadow-dark);
+  }*/
 }
 
 
@@ -276,9 +316,9 @@ details.alert {
  *                                                                            *
  *****************************************************************************/
 
- .menu {
+ /*.menu {
   padding: 0.5rem !important;
- }
+ } */
 
 .menu__list-item-collapsible > a:not([href]) {
     color: var(--ifm-color-primary);
@@ -666,8 +706,91 @@ article > a[class*="cardContainer_"][class~="card"] {
   content: "🏠";
   display: inline;
   padding-right: 8px;
-
 }
-/*
-.home-top-level:first-child:before{
-}*/
+
+
+/******************************************************************************
+ *                                                                            *
+ * CARDS                                                                      *
+ * 3-col layouts, flex, fixed, etc.                                           *
+ *****************************************************************************/
+
+.col-2-fixed, .col-3-fixed {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.col-2-fixed > .card {
+  width: calc(50% - 8px);
+    @media screen and (max-width: calc(1366px - 1px)) {
+      width: 100%;
+    }
+}
+
+.col-3-fixed > .card {
+  width: calc(33.3% - 10px);
+    @media screen and (max-width: calc(1280px - 1px)) {
+      width: 100%;
+    }
+}
+
+.card {
+  font-family: "Inter", sans-serif !important;
+  margin: 8px 0px 8px 0px;
+  align-items: flex-start;
+  align-content: flex-start;
+  text-align: left;
+  border: none;
+  flex-wrap: wrap;
+  box-shadow: var(--semgrep-docs-box-shadow);
+  border: var(--semgrep-docs-border);
+  background-color: var(--semgrep-secondary-mint05);
+}
+
+.card-50 {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+a.card:hover {
+  background-color: var(--semgrep-offwhite);
+  text-decoration: none;
+}
+
+.card__header {
+  margin-top: 0px;
+}
+
+.card__body {
+  padding-top: 0px;
+}
+
+.card__copy {
+  width: 100%;
+  p {
+    @media screen and (max-width: 1480px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 1366px - 1px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.card__image {
+  border: none;
+  box-shadow: none;
+  border-radius: unset;
+  height: 100%;
+  object-fit: cover;
+  width: 25%;
+  @media screen and (max-width: 1366px - 1px) {
+    width: 15%;
+  }
+}
+
+a[class*=cardContainer_][class~=card]  {
+  box-shadow: var(--semgrep-docs-box-shadow);
+  border: var(--semgrep-docs-border);
+}

@@ -12,41 +12,103 @@ description: >-
 ---
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-
 import ThemedImage from '@theme/ThemedImage'
+
+<!-- vale off -->
 
 <!---
 Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
 -->
 
-<br />
-<p align="center">
-  <a href="https://semgrep.dev">
-    <ThemedImage
-      alt="Semgrep themed logo"
-      height="105px"
-      sources={{
-        light: ('img/semgrep.svg#no-shadow'),
-        dark: ('img/semgrep.svg#no-shadow'),
-      }} />
-  </a>
-</p>
-<h3 align="center">Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
+<div style={{display: 'inline-flex', paddingTop: '32px'}}>
+<a href="https://semgrep.dev">
+  <ThemedImage
+    alt="Semgrep themed logo"
+    height="48px"
+    sources={{
+      light: ('img/semgrep.svg#no-shadow'),
+      dark: ('img/semgrep.svg#no-shadow'),
+    }} />
+</a>
+<h1>&nbsp;Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
+</div>
 
-Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. Its rules look like the code you already write -- no abstract syntax trees, regex wrestling, or painful DSLs.
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
 
-The following code editor shows a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
-<br />
+<h3>Scan with Semgrep AppSec Platform</h3>
 
-The Semgrep ecosystem includes:
+<h5 class='home'>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
 
-- [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-- [Semgrep Code](/semgrep-code/overview) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-- [Semgrep Secrets](/semgrep-secrets/conceptual-overview) - Detect and validate leaked credentials in your codebase.
-- [Semgrep Supply Chain (SSC)](/semgrep-supply-chain/overview) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
+<div class = "col-2-fixed">
+  <Card className={'card-50'} link='/getting-started/quickstart'>
+    <CardImage cardImageUrl='/img/icon-first-scan.svg' />
+    <div class="card__copy">
+        <CardHeader>Get started</CardHeader>
+        <CardBody>
+          Run your first Semgrep scan. 
+        </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/deployment/core-deployment'>
+    <CardImage cardImageUrl='/img/icon-deploy.svg' />
+    <div class="card__copy">
+        <CardHeader>Deploy Semgrep</CardHeader>
+        <CardBody>
+          Deploy Semgrep to your organization quickly and at scale.
+        </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/semgrep-code/triage-remediation'>
+    <CardImage cardImageUrl='/img/icon-triage.svg' />
+    <div class="card__copy">
+    <CardHeader>Triage and remediate</CardHeader>
+    <CardBody>
+      Triage and remediate findings; fine-tune guardrails for developers.
+    </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/writing-rules/overview'>
+    <CardImage cardImageUrl='/img/icon-rules.svg' />
+    <div class="card__copy">
+    <CardHeader>Write rules</CardHeader>
+    <CardBody>
+      Create custom rules to enforce your organization's coding standards.
+    </CardBody>
+    </div>
+  </Card>
+</div>
 
+<h3>Enhance your Semgrep experience</h3>
+
+<div class = "col-3-fixed">
+  <Card link='/semgrep-assistant/overview'>
+    <div class="card__copy">
+    <CardHeader>Semgrep Assistant</CardHeader>
+    <CardBody>
+      AI for triage, remediation, and institutional memory. 
+    </CardBody>
+    </div>
+  </Card>
+  <Card link='/secure-guardrails/secure-guardrails-in-semgrep'>
+    <div class="card__copy">
+    <CardHeader>Secure guardrails</CardHeader>
+    <CardBody>
+      Help developers write secure code in their environment.
+    </CardBody>
+    </div>
+  </Card>
+  <Card link='/deployment/managed-scanning'>
+    <div class="card__copy">
+    <CardHeader>Managed Scans</CardHeader>
+    <CardBody>
+      Onboard thousands of repositories to Semgrep.
+    </CardBody>
+    </div>
+  </Card>
+</div>
+
+<!--
 Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
 
 <h2>Language support</h2>
@@ -56,3 +118,5 @@ Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contri
 | Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code-and-oss)! 🚀 |
 | Semgrep Secrets | Semgrep Secrets detects API keys, hardcoded passwords, authentication tokens, and more in your repositories. |
 | Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and TypeScript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
+
+-->
