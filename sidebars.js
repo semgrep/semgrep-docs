@@ -147,7 +147,9 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-assistant/overview'},
           items: [
-            'semgrep-assistant/getting-started'
+            'semgrep-assistant/getting-started',
+            'semgrep-assistant/analyze',
+            'semgrep-assistant/privacy'
           ]
         },
         {
