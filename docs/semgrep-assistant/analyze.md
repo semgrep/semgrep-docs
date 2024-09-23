@@ -18,11 +18,11 @@ To analyze your findings with Assistant:
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Assistant to analyze.
 2. Click **Analyze**.
-3. In the confirmation window that appears, confirm that you want to analyze your findings with Assistant.
+3. In the confirmation dialog that appears, confirm that you want to analyze your findings with Assistant.
 
-After Assistant performs these functions, you can see your results on the **Findings** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations when viewing the finding details pages if you choose **No Grouping** instead of **Group by Rule**.
+After Assistant performs these functions, you can see its results on the **Code** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations when viewing the finding details pages if you choose **No Grouping** instead of **Group by Rule**
 
-The amount of time required to analyze your findings varies, but the UI displays a notification that provides an estimated wait time.
+The amount of time required to analyze your findings varies. Before running the analysis, the confirmation dialog provides an estimated wait time.
 
 :::info
 - For Team tier users with less than 10 contributors: There is a cap of 50 Assistant runs per month using the **Analyze** button.

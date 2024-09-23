@@ -100,7 +100,7 @@ If many new issues are found in a given scan, Assistant auto-triage and autofix 
 
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 
-For example, if the code contains a hardcoded secret, Assistant might suggest using an SDK containing credentialing handling. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
+For example, if the code contains a hardcoded secret, Assistant might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
 
 ### Weekly priority emails
 
