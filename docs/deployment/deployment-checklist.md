@@ -314,6 +314,12 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 <IpAddresses />
 
+#### Features that make use of IP addresses
+
+- [PR and MR comments](/category/pr-or-mr-comments)
+- [Semgrep Managed Scans](/deployment/managed-scanning)
+- [Semgrep Assistant](/semgrep-assistant/getting-started)
+
 ### Semgrep versions
 
 Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep AppSec Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
