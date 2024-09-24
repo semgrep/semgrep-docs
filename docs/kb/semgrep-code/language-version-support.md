@@ -7,7 +7,7 @@ tags:
     - Semgrep Code
 ---
 
-# Semgrep support for all versions of a programming language
+# Support for all versions of a programming language
 
 Semgrep language support has several levels of maturity. The **Generally available (GA)** maturity level means that Semgrep broadly supports all versions of that programming language.
 

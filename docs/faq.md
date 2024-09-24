@@ -87,11 +87,10 @@ See the following rule for a more complex example illustrating Semgrep features:
 - In the sanitizer, it removes type aware Booleans and a string convert function.
 - It leverages regex only to reduce how many patterns to write for finding dangerous functions.
 
-### Does Semgrep support all versions of a language? How?
+### Does Semgrep support all versions of a language?
 
-See Semgrep language version support.
+See [Support for all versions of a programming language](/kb/semgrep-code/support-for-language-versions).
 
-<!-- tk add link -->
 
 ## Comparisons
 
