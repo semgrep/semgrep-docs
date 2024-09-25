@@ -4,7 +4,7 @@ append_help_link: true
 description: "Customize how Semgrep Supply Chain scans your codebase's open source dependencies."
 tags:
     - Semgrep Supply Chain
-title: Scan third-party dependencies
+title: Third-party dependencies
 hide_title: true
 ---
 
