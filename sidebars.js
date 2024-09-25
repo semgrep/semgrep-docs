@@ -228,8 +228,15 @@ module.exports = {
             items: [
                 'semgrep-supply-chain/overview',
                 'semgrep-supply-chain/getting-started',
-                'semgrep-supply-chain/triage-remediation',
-                'semgrep-supply-chain/ignoring-deps',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Open source vulnerabilities',
+                  items: [
+                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/ignoring-deps',
+                  ]
+                },
                 'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/sbom',
                 'semgrep-supply-chain/license-compliance'
