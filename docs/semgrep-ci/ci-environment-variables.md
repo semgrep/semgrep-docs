@@ -65,7 +65,7 @@ If you set `SEMGREP_BASELINE_COMMIT` in CI to enable diff-aware scanning, the id
 ```bash
 export SEMGREP_BASELINE_COMMIT=$(git merge-base main feature-brach)
 ```
-To avoid harcoding the branch names, check your CI provider's documentation for available variables that provide the correct values for every CI job. For example, in a Jenkins environment:
+To avoid hardcoding the branch names, check your CI provider's documentation for available variables that provide the correct values for every CI job. For example, in a Jenkins environment, you can use:
 
 ```
 SEMGREP_BASELINE_REF=$(git merge-base $GIT_BRANCH $CHANGE_TARGET)
@@ -245,7 +245,7 @@ Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in 
 This environment variable only works with Semgrep versions 1.61.1 and later.
 :::
 
-Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information (such as [project ignores](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform)) from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
+Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
 
 ### `SEMGREP_REPO_URL`
 
