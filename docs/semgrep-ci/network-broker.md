@@ -25,7 +25,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 - The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
   - If you will be using the broker with a dedicated Semgrep tenant, please note that in your request.
 - **Docker** must be installed on the server where you install the network broker.
-- Ensure that you allocate at least 3 GB RAM for each instance of Semgrep Network Broker that you run.
+- Ensure that you allocate at least 1 CPU and 512 MB RAM for each instance of Semgrep Network Broker that you run.
 
 ## Configure Semgrep Network Broker
 
