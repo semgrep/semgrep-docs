@@ -152,7 +152,7 @@ Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name 
 * To track findings in the same branch over time
 * To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-code/findings) page)
 
-To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -178,7 +178,7 @@ Semgrep AppSec Platform normalizes the branch prefix `refs/heads/` for findings,
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -210,7 +210,7 @@ pipelines:
 
 Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI provider that Semgrep doesn't provide explicit support for](/deployment/add-semgrep-to-other-ci-providers/). For hyperlinks and PR comments to work, this name should be the same as the repository name understood by your CI provider.
 
-To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep AppSec Platform](/deployment/add-semgrep-to-other-ci-providers). In this case, there is no need to set the variable.
 
@@ -249,7 +249,7 @@ Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results a
 
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -284,7 +284,7 @@ The following environment variable enables Semgrep AppSec Platform to create com
 The following environment variable can only be set within a CI environment.
 :::
 
-Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 The following example uses Jenkins declarative syntax:
 
@@ -298,7 +298,7 @@ pipeline {
 
 ### `SEMGREP_PR_ID`
 
-Set `SEMGREP_PR_ID` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_PR_ID` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 The following example uses Azure Pipelines:
 
