@@ -794,3 +794,28 @@ a[class*=cardContainer_][class~=card]  {
   box-shadow: var(--semgrep-docs-box-shadow);
   border: var(--semgrep-docs-border);
 }
+
+
+/******************************************************************************
+ *                                                                            *
+ * GRID COLUMNS                                                               *
+ *                                                                            *
+ *****************************************************************************/
+
+.col-2-grid {
+    display:block;
+}
+
+/* columns */
+.col-2-grid > * {
+    padding: 0 0.5rem;
+}
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .col-2-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+

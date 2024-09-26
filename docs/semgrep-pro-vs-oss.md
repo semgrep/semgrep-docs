@@ -13,13 +13,13 @@ tags:
 
 You can use Semgrep AppSec Platform or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
 
-:::tip Summary
+:::tip 
 Refer to the appendix to skim all features of both offerings.
 :::
 
 ## Product terms
 
-The terms used in this document are defined as follows:
+The offerings in this document are defined as follows:
 
 <dl>
   <dt>Semgrep OSS</dt>
@@ -30,7 +30,7 @@ The terms used in this document are defined as follows:
   <dd>
     <p style={{marginBottom: '0.5rem'}}>Refers to proprietary offerings from Semgrep, Inc. These include the following products:</p>
     <dl style={{marginTop: '0px'}}>
-      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as <strong>Pro rules</strong>, that use the cross-file analysis to reduce false positives.</dd>
+      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
       <dt>Semgrep Secrets</dt><dd>A secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
     </dl>
@@ -40,6 +40,9 @@ The terms used in this document are defined as follows:
 :::note
 Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 :::
+
+<div class="col-2-grid" >
+<div>
 
 ## Semgrep OSS
 
@@ -56,11 +59,26 @@ Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan
 
 ### Scanning and analysis 
 
-Semgrep OSS provides single-function, single-file analysis. This makes it fast, at the cost of coverage and precision. It can't trace data beyond a single function or file and may find more false positives.
+<!-- 
+![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
+_**Figure**. Semgrep OSS scan process._
+-->
+
+Semgrep OSS provides the following analyses:
+
+- Single file, cross function constant propagation
+- Single function taint analysis 
+- Semantic analysis
+
+The scope makes it fast, at the cost of coverage and precision. It can't track data beyond a single function or file and may find more false positives.
+
 
 ### Triage and remediation
 
 By itself, Semgrep does not provide comprehensive triage or remediation for your findings. You can, however, output findings to various common formats, such as JSON and SARIF, then send those findings to an AppSec Posture Management (ASPM) software such as DefectDojo or GitHub Advanced Security.
+
+</div>
+<div>
 
 ## Semgrep AppSec Platform
 
@@ -86,7 +104,10 @@ tk get existing screenshot
 
 ### Rules, scans, and analysis
 
-Semgrep AppSec Platform supports SAST, SCA, and secret scans. Semgrep's 
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg) <br />
+_**Figure**. Semgrep AppSec Platform scan process._
+
+Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
 
 
 ### Triage and remediation
@@ -99,7 +120,9 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans. Semgrep's
 
 #### Reporting
 
+</div>
 
+</div>
 - Proprietary SAST, SCA, and secret scanners.
 - Greater parsing support for all languages supported by Semgrep OSS.
   - Some languages are exclusive to Semgrep AppSec Platform.
