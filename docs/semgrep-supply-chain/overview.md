@@ -49,6 +49,8 @@ Supply Chain offers two levels of support for reachability analysis, [depending 
 
 Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups all usages together by vulnerability. For each vulnerability, the UI also displays a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
+<AdmonitionSotCves />
+
 ### Transitive dependencies and reachability analysis
 
 A [transitive dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency), also known as an indirect dependency, is a dependency of a dependency. Semgrep Supply Chain scans transitive dependencies for [all supported languages](/supported-languages#semgrep-supply-chain), looking for security vulnerabilities, but it does *not* perform reachability analysis. This means that Semgrep Supply Chain doesn't check the source code of your project's dependencies to determine if their dependencies produce a reachable finding in your code.
