@@ -41,10 +41,44 @@ The offerings in this document are defined as follows:
 Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 :::
 
-<div class="col-2-grid" >
-<div>
-
 ## Semgrep OSS
+
+<div class="col-3-grid" >
+<div> 
+
+##### Deploy
+
+Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
+
+Deploying in bulk or at scale is manual: It can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
+</div>
+<div>
+##### Scan
+
+Semgrep OSS provides the following analyses:
+
+- Single file, cross function constant propagation
+- Single function taint analysis 
+- Semantic analysis
+
+The scope makes it fast, at the cost of coverage and precision.
+
+It can't track data beyond a single function or file and may find more false positives.
+
+</div>
+<div>
+##### Triage and remediate
+
+There are no features in Semgrep OSS for triage and remediation of findings.
+
+However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
+
+</div>
+</div>
+### Tune and prevent 
+### Report 
+
+<!-- 
 
 **Semgrep OSS** is comprised of an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules for use with Semgrep OSS. 
 
@@ -56,26 +90,18 @@ Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan
 
 <!-- Environments are omitted due to differences in licensing -
 `semgrep scan` can be run in IDE atm but the extension is proprietary -->
-
+<!-- 
 ### Scanning and analysis 
 
 <!-- 
 ![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
 _**Figure**. Semgrep OSS scan process._
 -->
-
-Semgrep OSS provides the following analyses:
-
-- Single file, cross function constant propagation
-- Single function taint analysis 
-- Semantic analysis
-
-The scope makes it fast, at the cost of coverage and precision. It can't track data beyond a single function or file and may find more false positives.
+<!--
 
 
 ### Triage and remediation
 
-By itself, Semgrep does not provide comprehensive triage or remediation for your findings. You can, however, output findings to various common formats, such as JSON and SARIF, then send those findings to an AppSec Posture Management (ASPM) software such as DefectDojo or GitHub Advanced Security.
 
 </div>
 <div>
@@ -123,6 +149,7 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Produ
 </div>
 
 </div>
+-->
 - Proprietary SAST, SCA, and secret scanners.
 - Greater parsing support for all languages supported by Semgrep OSS.
   - Some languages are exclusive to Semgrep AppSec Platform.
