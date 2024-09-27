@@ -41,7 +41,12 @@ The offerings in this document are defined as follows:
 Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 :::
 
-## Semgrep OSS
+## Comparison by core workflows
+
+![Scope of each offering by core workflows](/img/security-program-workflows.svg) <br />
+_**Figure**. A typical AppSec security program's core workflows and the scope of Semgrep OSS and Semgrep AppSec Platform features._
+
+### Semgrep OSS
 
 <div class="col-3-grid" >
 <div> 
@@ -51,8 +56,13 @@ Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
 
 Deploying in bulk or at scale is manual: It can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
+
+<!-- Environments are omitted due to differences in licensing -
+`semgrep scan` can be run in IDE atm but the extension is proprietary -->
+
 </div>
 <div>
+
 ##### Scan
 
 Semgrep OSS provides the following analyses:
@@ -75,8 +85,45 @@ However, you can output findings to JSON and SARIF then send those findings to a
 
 </div>
 </div>
+
+### Semgrep AppSec Platform
+
+<div class="col-3-grid" >
+<div> 
+
+##### Deploy
+
+Semgrep AppSec Platform can perform scans in the following environments:
+
+- CI
+- Web app (for Managed Scans)
+- CLI
+- IDE
+- `pre-commit`
+
+Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
+
+Users comfortable with granting Semgrep code acces, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
+
+AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, BitBucket, and Azure.
+
+</div>
+<div> 
+
+##### Scan
+
+Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
+
+</div>
+<div> 
+
+##### Triage and remediate
+
+</div>
+</div>
 ### Tune and prevent 
 ### Report 
+
 
 <!-- 
 
@@ -88,9 +135,6 @@ Semgrep OSS is best for small teams or personal projects.
 
 Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan` command. It can also scan a remote repository by running a CI job. However, you must write and configure the CI job for each repository. 
 
-<!-- Environments are omitted due to differences in licensing -
-`semgrep scan` can be run in IDE atm but the extension is proprietary -->
-<!-- 
 ### Scanning and analysis 
 
 <!-- 
@@ -149,7 +193,20 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Produ
 </div>
 
 </div>
+
+
+
+
 -->
+
+
+![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
+_**Figure**. Semgrep OSS scan process._
+
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg#full) <br />
+_**Figure**. Semgrep AppSec Platform scan process._
+
+
 - Proprietary SAST, SCA, and secret scanners.
 - Greater parsing support for all languages supported by Semgrep OSS.
   - Some languages are exclusive to Semgrep AppSec Platform.

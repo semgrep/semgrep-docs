@@ -486,6 +486,9 @@ See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matchin
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
 
+img[src*="full"] {
+  width: 100%;
+}
 img[src*="no-shadow"] {
   box-shadow: 0px 0px 0px !important;
   border: none !important;
@@ -821,6 +824,9 @@ a[class*=cardContainer_][class~=card]  {
     .col-3-grid {
         display: flex;
         justify-content: space-between;
+    }
+    p, li {
+        font-size: 14px;
     }
 }
 
