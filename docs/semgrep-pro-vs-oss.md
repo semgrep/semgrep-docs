@@ -9,38 +9,224 @@ tags:
   - Semgrep AppSec Platform
 ---
 
-# Semgrep Pro versus Semgrep OSS
+# Semgrep AppSec Platform versus Semgrep OSS
 
-You can use Semgrep Pro or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. Semgrep uses both an engine and rules to scan your code.
+You can use Semgrep AppSec Platform or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
 
-**Rules**, which are written in YAML, describe how Semgrep generates a **finding**, such as a security issue. A rule encapsulates the pattern-matching logic and is meant to be readable and customizable.
+:::tip 
+Refer to the appendix to skim all features of both offerings.
+:::
 
-Semgrep Pro includes different types of analyses, such as Semgrep Code's cross-file, cross-function analysis in Semgrep Code. Semgrep OSS runs only single-function analysis.
+## Product terms
 
-This document outlines key differences between the Semgrep OSS and Pro product lines.
-
-The terms used in this document are defined as follows:
+The offerings in this document are defined as follows:
 
 <dl>
   <dt>Semgrep OSS</dt>
   <dd>
-    Refers to Semgrep offerings with an open source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner. To run Semgrep completely on OSS, use the OSS Engine and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>, or write your own custom rules.
+    Refers to Semgrep offerings with an open source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner.
   </dd>
-  <dt>Semgrep Pro</dt>
+  <dt>Semgrep AppSec Platform</dt>
   <dd>
-    Refers to proprietary product offerings from Semgrep, Inc. These include:
-    <dl>
-      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes premium rules, known as Pro rules, that use the cross-file analysis to reduce false positives.</dd>
+    <p style={{marginBottom: '0.5rem'}}>Refers to proprietary offerings from Semgrep, Inc. These include the following products:</p>
+    <dl style={{marginTop: '0px'}}>
+      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
       <dt>Semgrep Secrets</dt><dd>A secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
-      <dt>Semgrep AppSec Platform</dt><dd>A web application for the deployment, management, and monitoring of findings from Semgrep's SAST, SCA, and secrets scanners. It integrates with continuous integration (CI) providers such as GitHub Actions, GitLab CI/CD, CircleCI, and more.</dd>
     </dl>
   </dd>
 </dl>
 
-:::tip
-All Semgrep Pro products are free for up to 10 contributors.
+:::note
+Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 :::
+
+## Comparison by core workflows
+
+![Scope of each offering by core workflows](/img/security-program-workflows.svg) <br />
+_**Figure**. A typical AppSec security program's core workflows and the scope of Semgrep OSS and Semgrep AppSec Platform features._
+
+### Semgrep OSS
+
+<div class="col-3-grid" >
+<div> 
+
+##### Deploy
+
+Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
+
+Deploying in bulk or at scale is manual: It can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
+
+<!-- Environments are omitted due to differences in licensing -
+`semgrep scan` can be run in IDE atm but the extension is proprietary -->
+
+</div>
+<div>
+
+##### Scan
+
+Semgrep OSS provides the following analyses:
+
+- Single file, cross function constant propagation
+- Single function taint analysis 
+- Semantic analysis
+
+The scope makes it fast, at the cost of coverage and precision.
+
+It can't track data beyond a single function or file and may find more false positives.
+
+</div>
+<div>
+##### Triage and remediate
+
+There are no features in Semgrep OSS for triage and remediation of findings.
+
+However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
+
+</div>
+</div>
+
+### Semgrep AppSec Platform
+
+<div class="col-3-grid" >
+<div> 
+
+##### Deploy
+
+Semgrep AppSec Platform can perform scans in the following environments:
+
+- CI
+- Web app (for Managed Scans)
+- CLI
+- IDE
+- `pre-commit`
+
+Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
+
+Users comfortable with granting Semgrep code acces, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
+
+AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, BitBucket, and Azure.
+
+</div>
+<div> 
+
+##### Scan
+
+Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
+
+</div>
+<div> 
+
+##### Triage and remediate
+
+</div>
+</div>
+### Tune and prevent 
+### Report 
+
+
+<!-- 
+
+**Semgrep OSS** is comprised of an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules for use with Semgrep OSS. 
+
+Semgrep OSS is best for small teams or personal projects.
+
+### Deployment and CI integration 
+
+Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan` command. It can also scan a remote repository by running a CI job. However, you must write and configure the CI job for each repository. 
+
+### Scanning and analysis 
+
+<!-- 
+![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
+_**Figure**. Semgrep OSS scan process._
+-->
+<!--
+
+
+### Triage and remediation
+
+
+</div>
+<div>
+
+## Semgrep AppSec Platform
+
+**Semgrep AppSec Platform** is a software suite tailored to support AppSec engineers through the entire software development life cycle (SDLC).
+
+### Deployment and CI
+
+Semgrep AppSec Platform can perform scans in the following environments:
+
+- CI
+- Web app (for Managed Scans)
+- CLI
+- IDE
+- `pre-commit`
+
+Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
+
+Users comfortable with granting Semgrep code acces, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
+
+GitHub users with admin privileges to their GitHub org can also quickly deploy Semgrep in their CI pipelines through the web app. The Semgrep web app can automatically detect repositories in your org and commit a GitHub workflow file to run Semgrep.
+
+tk get existing screenshot
+
+### Rules, scans, and analysis
+
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg) <br />
+_**Figure**. Semgrep AppSec Platform scan process._
+
+Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
+
+
+### Triage and remediation
+
+#### Prioritization
+
+#### Tuning
+
+#### Prevention
+
+#### Reporting
+
+</div>
+
+</div>
+
+
+
+
+-->
+
+
+![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
+_**Figure**. Semgrep OSS scan process._
+
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg#full) <br />
+_**Figure**. Semgrep AppSec Platform scan process._
+
+
+- Proprietary SAST, SCA, and secret scanners.
+- Greater parsing support for all languages supported by Semgrep OSS.
+  - Some languages are exclusive to Semgrep AppSec Platform.
+- More types of static analyses, such as cross-function (interprocedural) and cross-file (interfile) taint analyses.
+- Professionally maintained rules and rule maintenance for many languages.
+- Support for scanning in a variety of environments and source code managers (SCMs) such as GitHub, GitLab, BitBucket, and Azure.
+- PR or MR scans.
+- Scan customization features.
+- Scan results (findings) management
+
+Features for AppSec workflows include:
+
+- Deployment at scale.
+- Secure guardrail deployment
+- Findings management, including triage and remediation.
+- User and repository (project) management
+- AppSec triage and remediation workflows
+- SBOM export, reporting, and license detection
+- LLM (large language model) AI integration
+
 
 ## 🔎 Core scanning features
 
