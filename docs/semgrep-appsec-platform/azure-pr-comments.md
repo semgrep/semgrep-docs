@@ -59,43 +59,51 @@ PR comments are enabled by default for users who have connected their Azure DevO
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
-> **_Please Note: In the workflow file, it's crucial to export the SEMGREP_REPO_URL variable to enable PR comments. Ensure that the namespace follows the format {organization}/{project}. For example: `export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"`_**
-
-Sample Workflow File below: 
+In the Azure Pipelines configuration file, you must export the `SEMGREP_REPO_URL` variable to enable PR comments. Ensure that the namespace as part of the variable's value follows the format `{organization}/{project}`:
 
 ```
+# example
+export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"
+```
+
+<details>
+<summary>Click to see a sample workflow file</summary>
+
+```yaml
 pool:
   vmImage: ubuntu-latest
 variables:
-- group: Semgrep_Variables
-
+  - group: Semgrep_Variables
 steps:
-- checkout: self
-  clean: true
-  fetchDepth: 100000
-  persistCredentials: true
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    if [ $(Build.SourceBranchName) = "main" ]; then
-        echo "Semgrep full scan"
-        semgrep ci
-    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
-        echo "Semgrep diff scan"
-        export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
-        export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"
-        export SEMGREP_BASELINE_REF='origin/main'
-        export AZURE_TOKEN=$(System.AccessToken)
-        git fetch origin main:origin/main
-        semgrep ci 
-    fi
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # this is inline code
-      env | sort
+  - checkout: self
+    clean: true
+    fetchDepth: 100000
+    persistCredentials: true
+  - script: >
+      python -m pip install --upgrade pip
+
+      pip install semgrep
+
+      if [ $(Build.SourceBranchName) = "main" ]; then
+          echo "Semgrep full scan"
+          semgrep ci
+      elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+          echo "Semgrep diff scan"
+          export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+          export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"
+          export SEMGREP_BASELINE_REF='origin/main'
+          export AZURE_TOKEN=$(System.AccessToken)
+          git fetch origin main:origin/main
+          semgrep ci 
+      fi
+  - task: Bash@3
+    inputs:
+      targetType: inline
+      script: |
+        # this is inline code
+        env | sort
 ```
+</details>
 
 ## Disable PR comments for Supply Chain findings
 
