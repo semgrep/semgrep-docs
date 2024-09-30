@@ -4,5 +4,5 @@
 1. Click the **three-dot (...) button** at the header and click **Delete project**.
 
 :::info
-It can take up to a day **(24 hours)** for the [Dashboard](/semgrep-appsec-platform/dashboard) to correctly update and remove findings if you have recently deleted a project.
+It can take up to a day **(24 hours)** for the [Dashboard](/semgrep-appsec-platform/dashboard) to correctly update and remove findings associated with a recently deleted project.
 :::
