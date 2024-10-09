@@ -50,23 +50,23 @@ tags:
 ### Added
 
 - Semgrep Pro Engine's dataflow analysis now tracks method invocations on variables of an interface type, assuming that any implementation of the method can be called. For example, in the following code snippet, Semgrep can detect tainted input vulnerabilities in both implementation classes:
- ```java
+    ```java
     public interface MovieService {
         String vulnerableInjection(String input);
     }
 
     public class SimpleImpl implements MovieService {
-     @Override
+        @Override
         public String vulnerableInjection(String input) {
             return sink(input);
-     }
+        }
     }
 
     public class MoreImpl implements MovieService {
-     @Override
+        @Override
         public String vulnerableInjection(String input) {
             return sink(input);
-     }
+        }
     }
 
     public class AppController {
@@ -74,35 +74,35 @@ tags:
 
         public String pwnTest(String taintedInput) {
             return movieService.vulnerableInjection(taintedInput);
-     }
+        }
     }
- ```
+    ```
 - Taint analysis can now track method invocations on variables of an interface type when there is a single implementation. For example, Semgrep now detects the tainted input vulnerability in the following code snippet:
- ```java
+    ```java
     public interface MovieService {
         String vulnerableInjection(String input);
     }
 
     @Service
     public class MovieServiceImpl implements MovieService {
-     @Override
+        @Override
         public String vulnerableInjection(String input) {
             return sink(input);
-     }
+        }
     }
 
     @RestController("/")
     public class SpringController {
 
-     @Autowired
+        @Autowired
         private MovieService movieService;
 
-     @GetMapping("/pwn")
+        @GetMapping("/pwn")
         public String pwnTest(@RequestParam("input") String taintedInput) {
             return movieService.vulnerableInjection(taintedInput);
-     }
+        }
     }
- ```
+    ```
 - **Go**: added support for comparing Go pre-release versions, enabling comparisons of strict core versions, pseudo-versions, and pre-release versions.
 - **JavaScript**: uses of values imported through ECMAScript `default` imports, such as `import example from 'mod';` can now be matched by qualified name patterns, such as `mod.default`.
 - **Python**:
@@ -110,31 +110,31 @@ tags:
   - Semgrep's interfile analysis now includes information about Python's standard library, improving its ability to resolve names and types in Python code.
 - **TypeScript**: 
   - Added support for type inference for constructor parameter properties. For example, taint analysis can recognize that `sampleFunction` is defined in the `AbstractedService` class in the following code snippet:
- ```typescript
+    ```typescript
         export class AppController {
             constructor(private readonly abstractedService: AbstractedService) {}
 
             async taintTest() {
                 const src = source();
                 await this.abstractedService.sampleFunction(src);
-         }
+            }
         } 
- ```
+    ```
   - Improved inference of type information for class fields. This improves taint tracking for dependency injection, as demonstrated in the following example:
- ```typescript
+    ```typescript
         export class AppController {
             private readonly abstractedService: AbstractedService;
 
             constructor(abstractedService: AbstractedService) {
-         this.abstractedService = abstractedService;
-         }
+            this.abstractedService = abstractedService;
+            }
 
             async taintTest() {
                 const src = taintedSource();
                 await this.abstractedService.sinkInHere(src);
-         }
+            }
         }
- ```
+    ```
 
 ### Changed
 
@@ -145,7 +145,7 @@ tags:
 - Fixed an issue with type inference in Kotlin and Scala, so that constructor invocations like `Foo()` are now properly inferred to be of type `Foo`.
 - Fixed an issue where some findings were reported when a rule ID was specified, even when a `nosem` comment was present.
 - Restored missing taint findings that were possibly missed before improving index sensitivity:
- ```js
+    ```js
     def foo(t):
         x = third_party_func(t)
         return x
@@ -154,43 +154,43 @@ tags:
         t = ("ok", taint)
         y = foo(t)
         sink(y) # now it's found
- ```
+    ```
 - Fixed an issue with interfile constant propagation where some definitions were incorrectly identified as constant, even though other parts of the codebase modified them.
 - Fixed an issue in taint signature instantiation that prevented the tracking of updates to a nested object's field. For example, in the following code snippet, Semgrep identified that `Nested.update` modifies the `fld` attribute of a `Nested` object. Before this issue was fixed, Semgrep would not identify that `Wrapper.update` modified the `fld` attribute of the `nested` object attribute in a `Wrapper` object. This is no longer the case.
- ```java
+    ```java
     public class Nested {
         private String fld;
         public void update(String str) {
-     fld = str;
-     }
+        fld = str;
+        }
         // ...
     }
 
     public class Wrapper {
         private Nested nested;
         public void update(String str) {
-     this.nested.update(str);
-     }
+        this.nested.update(str);
+        }
         // ...
     }
- ```
+    ```
 - Fixed an issue with overly aggressive match deduplication that led to findings being closed and reopened in certain circumstances.
 - Fixed an issue with regex-fix numbered capture groups. Formerly, regex with numbered capture groups like `\1\2\3` would be the same as `\1\1\1`. Now, the following code:
- ```python
+    ```python
     # src.py
     12345
- ```
- and the following rule:
- ```yaml
+    ```
+    and the following rule:
+    ```yaml
     pattern: $X
     fix-regex:
         regex: (1)(2)(3)(4)(5)
         replacement: \5\4\3\2\1
- ```
- results in:
- ```
- 54321
- ```
+    ```
+    results in:
+    ```
+    54321
+    ```
 - **Docker**: `CMD $...ARGS` behaves like `CMD ...` and matches any `CMD` instruction that uses array syntax, such as `CMD ["ls"]`. This fix applies to the other command-like instructions, including RUN and ENTRYPOINT.
 - **Julia**: fixed issue regarding incorrect range matching parametrized type expressions.
 - **Python**: fixed an issue that could lead to failure to name to type imported Python symbols during interfile analysis.
