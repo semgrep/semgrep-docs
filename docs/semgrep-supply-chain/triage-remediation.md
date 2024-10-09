@@ -113,7 +113,7 @@ The triage state of the finding:
 * **Open**: Findings for which there have been no triage or remediation action.
 * **Reviewing**: Findings that require more investigation to determine what the next steps should be.
 * **Fixing**: Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.
-* **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. You can filter findings with a status of **Ignored** further by reason:  **False positive**, **Acceptable risk**, **No time to fix**.
+* **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. You can filter findings with a status of **Ignored** further by reason:  **False positive**, **Acceptable risk**, **No time to fix**, or **No triage reason**.
 * **Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
 
 > You can set the **Fixing** and **Reviewing** statuses only if you are a [Jira beta](https://semgrep.dev/docs/semgrep-appsec-platform/jira) participant.
