@@ -73,9 +73,8 @@ The [license compliance](/semgrep-supply-chain/license-compliance) feature ensur
 
 Semgrep Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform. Once your first scan is completed:
 
-* View your open source security findings by [logging in to Semgrep AppSec Platform](https://semgrep.dev/login) and navigating to [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain).
-  * [Triage and remediate](/semgrep-supply-chain/triage-and-remediation) your findings.
-  * [Customize how Semgrep Supply Chain scans your dependencies](/semgrep-supply-chain/getting-started) to support your security and business goals.
+* [View, triage, and remediate](/semgrep-supply-chain/triage-and-remediation) your findings.
+  * [Customize Semgrep Supply Chain to ignore files and dependencies](/semgrep-supply-chain/ignoring-deps) to support your security and business goals.
 * [Generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom).
 * Query for dependencies in your codebase using [dependency search](/semgrep-supply-chain/dependency-search).
 * Ensure that you're only [using open source packages whose licensing meets your organization's requirements](/semgrep-supply-chain/license-compliance).

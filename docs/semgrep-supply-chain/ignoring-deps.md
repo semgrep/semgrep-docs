@@ -3,19 +3,19 @@ slug: ignoring-lockfiles-dependencies
 append_help_link: true
 description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring lockfiles or code files."
 tags:
-    - Semgrep Supply Chain
+ - Semgrep Supply Chain
 title: Ignore lockfiles and dependencies
 hide_title: true
 ---
 
 # Ignore lockfiles and dependencies
 
-You can restrict code files or lockfiles from generating open source security findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depends on the option that best suits your organization's needs:
+You can restrict code files or lockfiles from generating open source security findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depend on the option that best suits your organization's needs:
 
 | Goal | Method |
 | ---- | ------ |
 | Prevent a code file from generating **any reachable findings**. | Include the code file's path in the repository's `.semgrepignore` file. |
-| Prevent a lockfile from generating **any unreachable findings** but still generate reachable findings from a code file. | Include a the lockfile's path in the repository's `semgrepignore` file. |
+| Prevent a lockfile from generating **any unreachable findings** but still generate reachable findings from a code file. | Include the lockfile's path in the repository's `semgrepignore` file. |
 | Prevent a code file from generating either reachable or unreachable findings. | Include the file paths of the lockfile and code files in the repository's `.semgrepignore` file. |
 
 > Unreachable findings are only generated from lockfiles, because Semgrep defines unreachable findings as the absence of a match in the code.
