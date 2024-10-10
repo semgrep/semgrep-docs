@@ -86,7 +86,7 @@ To **ignore multiple findings** in the **No grouping** view, follow these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select more findings by clicking on their checkboxes.
 3. Click the **Triage** button.
-4. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+4. Optional: Select a reason of why you are ignoring a finding. Choose one of the following options: **False positive**, **Acceptable risk**, **No time to fix**.
 5. Select **Ignored** from the dropdown menu.
 6. Click **Save**.
 

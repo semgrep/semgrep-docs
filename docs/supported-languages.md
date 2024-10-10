@@ -93,6 +93,9 @@ Their differences are outlined in the following table:
     </tbody>
 </table>
 
+:::tip
+GA languages have broad support for **[all versions of that language](/kb/semgrep-code/support-for-language-versions)**.
+:::
 
 
 ### Semgrep OSS language support

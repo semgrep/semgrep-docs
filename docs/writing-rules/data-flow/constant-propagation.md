@@ -9,7 +9,9 @@ tags:
 
 # Constant propagation
 
-Semgrep supports intra-procedural constant propagation. This analysis tracks whether a variable _must_ carry a constant value at a given point in the program. Semgrep then performs constant folding when matching literal patterns. Semgrep can track Boolean, numeric, and string constants.
+This analysis tracks whether a variable _must_ carry a constant value at a given point in the program. Semgrep then performs constant folding when matching literal patterns. Semgrep can track Boolean, numeric, and string constants.
+
+Semgrep AppSec Platform supports interprocedural (cross function), interfile (cross file) constant propagation. Semgrep OSS supports intrafile (single file) constant propagation.
 
 For example:
 
