@@ -11,14 +11,14 @@ tags:
 
 # Generate a software bill of materials
 
+:::info Prerequisite
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+:::
+
 Generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform. When generating an SBOM, Semgrep uses:
 
 - The vulnerability information from the default branch for the project
 - The dependency information from the latest full scan for the project.
-
-:::info Prerequisites
-You need at least one successful Supply Chain scan on the **trunk** branch of each repository for which you want to generate an SBOM. See [<i class="fa-regular fa-file-lines"></i> Core deployment](/deployment/core-deployment) to set up your Semgrep account and Supply Chain scans.
-:::
 
 ## Supported standards and formats
 
