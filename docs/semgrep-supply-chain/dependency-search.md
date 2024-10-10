@@ -55,7 +55,7 @@ Dependency search provides the following filters, which correspond to the data p
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**. Dependency search page with sample search query._
 
-## Troubleshooting: no dependencies appear in the Dependencies page
+## Troubleshooting: no dependencies appear on the Dependencies page
 
 If you don't see any results on the Dependencies page, ensure that:
 

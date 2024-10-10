@@ -97,11 +97,9 @@ Packages with permissive licenses have minimal restrictions on how they can be u
 
 ### Other licenses
 
-Packages tagged as **Other** are those with licenses that aren't yet categorized by Semgrep Supply Chain or aren't included in the categories mentioned in the abovementioned sections. This category includes all other standard Software Package Data Exchange (SPDX) licenses.
+Packages tagged as **Other** are those with licenses that aren't yet categorized by Semgrep Supply Chain or aren't included in the categories of weak-copyleft licenses, copyleft licenses, or permissive licenses. This category includes all other standard Software Package Data Exchange (SPDX) licenses.
 
-:::caution
 The **Other** license category may include packages with copyleft or permissive licenses. Consult your legal department before using packages in this category.
-:::
 
 ### Multiple license types
 
