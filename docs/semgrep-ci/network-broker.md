@@ -98,14 +98,14 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 For GitLab: 
 <pre class="language-console"><code>
 gitlab:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
 
 For GitHub:
 <pre class="language-console"><code>
 github:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 &nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
