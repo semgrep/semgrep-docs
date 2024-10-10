@@ -227,11 +227,21 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
-                'semgrep-supply-chain/getting-started',
-                'semgrep-supply-chain/triage-remediation',
-                'semgrep-supply-chain/ignoring-deps',
-                'semgrep-supply-chain/dependency-search',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Open source security vulnerabilities',
+                  link: {
+                    type: 'doc',
+                    id: 'semgrep-supply-chain/getting-started',
+                  },
+                  items: [
+                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/ignoring-deps',
+                  ]
+                },
                 'semgrep-supply-chain/sbom',
+                'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/license-compliance'
             ]
         },
