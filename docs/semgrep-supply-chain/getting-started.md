@@ -17,7 +17,7 @@ import DetectGhRepos from "/src/components/procedure/_detect-gh-repos.md"
 
 # Scan third-party dependencies
 
-This article walks you through the setup needed to scan your project with Semgrep Supply Chain and its configuration and customization options.
+This article walks you through the setup needed to scan your project with Semgrep Supply Chain and its configuration and customization options. Once you enable Semgrep Supply Chain, it automatically scans repositories that you have added to Semgrep AppSec Platform, but your repository must first meet the requirements for a successful scan.
 
 ## Project directory structure
 
@@ -54,16 +54,14 @@ To run a Semgrep Supply Chain scan, generate a [dependency tree for Apache Maven
 
 You can modify your CI configuration so that Semgrep Supply Chain scans your code at a specified frequency or whenever a specific event occurs, such as opening a pull request or merge request.
 
-### Schedule scans
-
+### Rule updates
 Semgrep Supply Chain frequently receives rule updates. To take advantage of these updates, adjust the frequency with which Semgrep Supply Chain scans your codebase.
 
-<CiScheduling />
-
-:::note Rule updates
-
 If a rule is updated, findings generated against the revised rule are considered **new findings**, even if the previous version generated a finding. The new finding is not affected by any triage actions on findings related to the prior version of the rule. Because the finding is new, you'll also receive notifications through the channels you've set up, such as Slack.
-:::
+
+### Schedule scans
+
+<CiScheduling />
 
 ### Event-triggered scans
 
@@ -99,7 +97,7 @@ Semgrep prints a list of findings directly to the CLI, including the finding's r
 
 You can also view your results in Semgrep AppSec Platform. It displays all of the information displayed in the CLI, but it also offers you the ability to:
 
-* See additional finding details, such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
+* [See additional finding details](/semgrep-supply-chain/view-ssc-findings), such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
 * Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
 * Use the [license compliance](/semgrep-supply-chain/license-compliance) feature
 
@@ -124,7 +122,3 @@ To enable **Scan Blocking**:
 3. Click **<i class="fa-solid fa-toggle-large-on"></i> Scan Blocking**.
 
 Alternatively, you can configure your version control system to prevent merging if Semgrep Supply Chain identifies reachable findings.
-
-## Ignore lockfiles and dependencies
-
-See [Ignore lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) for information on how to flag specific findings to be ignored by Semgrep Supply Chain using `semgrepignore`.

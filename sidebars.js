@@ -230,7 +230,7 @@ module.exports = {
                 {
                   type: 'category',
                   collapsible: true,
-                  label: 'Open source vulnerabilities',
+                  label: 'Open source security vulnerabilities',
                   link: {
                     type: 'doc',
                     id: 'semgrep-supply-chain/getting-started',
@@ -241,8 +241,8 @@ module.exports = {
                       'semgrep-supply-chain/ignoring-deps',
                   ]
                 },
-                'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/sbom',
+                'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/license-compliance'
             ]
         },
