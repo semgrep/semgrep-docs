@@ -97,7 +97,7 @@ Semgrep prints a list of findings directly to the CLI, including the finding's r
 
 You can also view your results in Semgrep AppSec Platform. It displays all of the information displayed in the CLI, but it also offers you the ability to:
 
-* [See additional finding details](/semgrep-supply-chain/view-ssc-findings), such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
+* [See additional finding details](/semgrep-supply-chain/triage-and-remediation#view-open-source-security-findings), such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
 * Use the [dependency search](/semgrep-supply-chain/dependency-search) feature
 * Use the [license compliance](/semgrep-supply-chain/license-compliance) feature
 

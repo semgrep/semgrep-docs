@@ -4,7 +4,7 @@ append_help_link: true
 description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring lockfiles or code files."
 tags:
     - Semgrep Supply Chain
-title: Ignoring lockfiles and dependencies
+title: Ignore lockfiles and dependencies
 hide_title: true
 ---
 

@@ -236,7 +236,6 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
-                      'semgrep-supply-chain/view-ssc-findings',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
