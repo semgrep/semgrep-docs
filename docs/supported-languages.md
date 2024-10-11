@@ -226,13 +226,13 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>Gradle§</td>
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
 </tr>
 <tr>
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>--</td>
+   <td>✅</td>
 </tr>
   <tr>
    <td rowspan="4">Python</td>
