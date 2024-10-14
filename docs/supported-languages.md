@@ -297,14 +297,14 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
+   <td>✅</td>
 </tr>
 <tr>
    <td>Swift</td>
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
+   <td>✅ (License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans.)</td>
 </tr>
   </tbody>
 </table>
