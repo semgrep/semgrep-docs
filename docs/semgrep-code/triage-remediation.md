@@ -157,8 +157,8 @@ To triage a finding in GitHub:
     | - | - |
     | <code>/fp <span className="placeholder">&lt;comment&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
     | <code>/ar <span className="placeholder">&lt;comment&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
-    | <code>/other <span className="placeholder">&lt;comment&gt;</span></code> | Triage a finding as **Ignored** without specifing the reason; the triage reason value is set to **No triage reason**. |
-    | <code>/open</code> | Reopen a finding that has been triaged as **Ignored**. |
+    | <code>/other <span className="placeholder">&lt;comment&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
+    | <code>/open <span className="placeholder">&lt;comment&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
     | <code>/remember <span className="placeholder">&lt;comment&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
 
 Semgrep is backward compatible with the following triage through comments commands:
