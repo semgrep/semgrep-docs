@@ -141,7 +141,7 @@ By default, projects on Managed Scans are configured with:
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
 1. Click the toggle for diff-aware scans.
 
-### Remove a project 
+### Delete a project 
 
 <DeleteAProject />
 
