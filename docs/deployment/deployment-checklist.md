@@ -314,11 +314,11 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 <IpAddresses />
 
-You may instead use the [Semgrep Network Broker](/docs/semgrep-ci/network-broker), which provides an alternative to allowlisting these IP addresses and has separate requirements.
+Alternatively, you can use the [Semgrep Network Broker](/docs/semgrep-ci/network-broker) to facilitate secure access with Semgrep instead of allowlisting these IP addresses.
 
 #### Features that require inbound network connectivity
 
-- [Source code management connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
+- [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
 - [PR and MR comments](/category/pr-or-mr-comments)
 - [Semgrep Managed Scans](/deployment/managed-scanning)
 - [Semgrep Assistant](/semgrep-assistant/getting-started)
