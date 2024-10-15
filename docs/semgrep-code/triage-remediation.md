@@ -9,6 +9,9 @@ tags:
     - Semgrep AppSec Platform
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Triage and remediate findings
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
@@ -132,23 +135,41 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 </details>
 
-## Ignore findings through GitHub PR comments
+## Ignore findings through PR and MR comments
 
-Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs by replying with another comment.
+Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs and GitLab MRs by replying with another comment.
+
+<Tabs
+    defaultValue="gh"
+    values={[
+        {label: 'GitHub', value: 'gh'},
+        {label: 'GitLab', value: 'gl'}
+    ]}
+>
+
+<TabItem value='gh'>
 
 :::info Prerequisites
 - A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 :::
 
+</TabItem>
+<TabItem value='gl'>
+
+TODO
+
+</TabItem>
+</Tabs>
+
 To enable triage through comments:
 
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding in GitHub:
+To triage a finding:
 
-1. Find an open comment created by Semgrep AppSec Platform in GitHub PR:
+1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
 
 2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<comment>` with text to help the reader understand why the status of a comment is ignored:
