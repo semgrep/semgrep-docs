@@ -105,6 +105,10 @@ The following quick filters are visible on the page:
   - Project (repository)
   - [Recommended priority](#recommended-priority) toggle
 
+:::info
+It can take up to a day **(24 hours)** for the Dashboard to correctly update and remove findings if you have recently deleted a project.
+:::
+
 To access **all** filters:
 
 1. Click **All filters** to open the filter drawer.
