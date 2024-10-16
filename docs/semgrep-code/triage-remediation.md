@@ -142,9 +142,9 @@ Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs
 <Tabs
     defaultValue="gh"
     values={[
-        {label: 'Current', value: 'current'},
-        {label: 'GitHub - beta', value: 'gh'},
-        {label: 'GitLab - beta', value: 'gl'}
+        {label: 'GitHub', value: 'current'},
+        {label: 'GitHub (beta)', value: 'gh'},
+        {label: 'GitLab (beta)', value: 'gl'}
     ]}
 >
 
@@ -183,10 +183,13 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 
 <TabItem value='gh'>
 
-:::info Prerequisites
+:::caution
+This feature is currently in private beta.
+:::
+
+## Prerequisites
 - A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
-:::
 
 To enable triage through comments:
 
@@ -196,7 +199,7 @@ To enable triage through comments:
 To triage a finding:
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
-    ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
+    ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
 
 2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<comment>` with text to help the reader understand why the status of a comment is ignored:
 
@@ -217,9 +220,12 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 </TabItem>
 <TabItem value='gl'>
 
-:::info Prerequisites
-You have completed a [Semgrep core deployment](/deployment/core-deployment).
+:::caution
+This feature is currently in private beta.
 :::
+
+## Prerequisites
+You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 To enable triage through comments:
 
