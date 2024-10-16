@@ -299,8 +299,8 @@ OPTIONS
            on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
-           Inter-file analysis and Pro languages (currently Apex and Elixir).
-           Requires Semgrep Pro Engine. See
+           Inter-file analysis and Pro languages (currently Apex, C#, and
+           Elixir. Requires Semgrep Pro Engine. See
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-intrafile
@@ -309,8 +309,9 @@ OPTIONS
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-languages
-           Enable Pro languages (currently Apex and Elixir). Requires Semgrep
-           Pro Engine. See https://semgrep.dev/products/pro-engine/ for more.
+           Enable Pro languages (currently Apex, C#, and Elixir). Requires
+           Semgrep Pro Engine. See https://semgrep.dev/products/pro-engine/
+           for more.
 
        --pro-path-sensitive
            Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
