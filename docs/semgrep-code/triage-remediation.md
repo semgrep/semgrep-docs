@@ -142,10 +142,44 @@ Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs
 <Tabs
     defaultValue="gh"
     values={[
-        {label: 'GitHub', value: 'gh'},
-        {label: 'GitLab', value: 'gl'}
+        {label: 'Current', value: 'current'},
+        {label: 'GitHub - beta', value: 'gh'},
+        {label: 'GitLab - beta', value: 'gl'}
     ]}
 >
+
+<TabItem value='current'>
+:::info Prerequisites
+- A **private** GitHub.com repository. This feature is not enabled for public GitHub.com repositories or GitHub Enterprise public and private repositories.
+- You have completed a [Semgrep core deployment](/deployment/core-deployment).
+:::
+
+To enable triage through comments:
+
+1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
+2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
+
+To triage a finding in GitHub:
+
+1. Find an open comment created by Semgrep AppSec Platform in GitHub PR:
+    ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
+
+2. In a subsequent comment, reply with:
+    <pre><code>
+    /semgrep ignore <span className="placeholder">&lt;reason&gt;</span>
+    </code></pre>
+   Substitute the colored placeholder <code><span className="placeholder">&lt;reason&gt;</span></code> with text to help the reader understand why the status of a comment is ignored. Alternatively, you can reopen a finding that was previously ignored:
+   <pre><code>
+    /semgrep open <span className="placeholder">&lt;reason&gt;</span>
+    </code></pre>
+
+Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep AppSec Platform. The GitHub conversation itself is not automatically resolved by this process.
+
+:::tip
+You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
+:::
+
+</TabItem>
 
 <TabItem value='gh'>
 
