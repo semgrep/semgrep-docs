@@ -91,7 +91,6 @@ module.exports = {
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
                         'semgrep-ci/configuring-blocking-and-errors-in-ci',
-                        'deployment/managed-scanning',
                         {
                           type: 'category',
                           label: 'Managed Scans (beta)',
@@ -99,7 +98,7 @@ module.exports = {
                           link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
                           items: [
                               'deployment/managed-scanning/github',
-                              'deployment/managed-scanning/github'
+                              'deployment/managed-scanning/gitlab'
                           ]
                       },
                         {
