@@ -140,7 +140,7 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs and GitLab MRs by replying with another comment.
 
 <Tabs
-    defaultValue="gh"
+    defaultValue="current"
     values={[
         {label: 'GitHub', value: 'current'},
         {label: 'GitHub (beta)', value: 'gh'},
