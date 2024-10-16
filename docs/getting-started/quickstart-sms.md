@@ -4,6 +4,7 @@ append_help_link: true
 title: "Quickstart: Managed Scans"
 hide_title: true
 description: Set up Semgrep Managed Scans when you sign in to Semgrep for the first time.
+toc_max_heading_level: 2
 tags:
   - Quickstart
   - Semgrep AppSec Platform
@@ -17,10 +18,12 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 
 Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
 
-Semgrep Managed Scans is in private beta for users with GitLab Cloud and GitLab self-managed plans. Contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) to obtain access.
+Semgrep Managed Scans is in private beta for users with **GitLab Cloud** and **GitLab self-managed** plans. Contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) to obtain access.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Add repositories to Semgrep Managed Scans
 
 <Tabs
     defaultValue="gh"
@@ -32,17 +35,17 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value='gh'>
 
-## Requirements
+### Requirements
 
 To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
 
 Read access is permitted through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning/overview#security) for more information on how Semgrep handles your code.
 
-## Prerequisites
+### Prerequisites
 
 Admin access to your GitHub organization.
 
-## Add repositories to Semgrep Managed Scans
+### Add a repository
 
 <!-- vale off -->
 <!-- Our in-product text reads "repos" -->
@@ -60,15 +63,15 @@ Admin access to your GitHub organization.
 </TabItem>
 <TabItem value='gl'>
 
-## Requirements
+### Requirements
 
 Read access is granted through an access token that you generate on GitLab. You can provide this token by [adding GitLab as a source code manager](/deployment/connect-scm).
 
-## Prerequisites
+### Prerequisites
 
 Admin access to your GitLab organization.
 
-## Add repositories to Semgrep Managed Scans
+### Add a repository
 
 <!-- vale off -->
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitLab**. Follow the on-screen prompts to proceed.
