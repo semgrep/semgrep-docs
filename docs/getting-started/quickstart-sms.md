@@ -17,6 +17,21 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 
 Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
 
+Semgrep Managed Scans is in private beta for users with GitLab Cloud and GitLab self-managed plans. Contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) to obtain access.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+    defaultValue="gh"
+    values={[
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'},
+    ]}
+>
+
+<TabItem value='gh'>
+
 ## Requirements
 
 To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
@@ -25,7 +40,7 @@ Read access is permitted through a private Semgrep app that you create and regis
 
 ## Prerequisites
 
-- Admin access to your GitHub organization.
+Admin access to your GitHub organization.
 
 ## Add repositories to Semgrep Managed Scans
 
@@ -36,11 +51,35 @@ Read access is permitted through a private Semgrep app that you create and regis
 1. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 1. When asked **Where do you want to scan?** click **GitHub**.
 1. Follow the steps in the **Connect GitHub to Semgrep** page. These steps install a public GitHub app, which handles PR comments, and a private GitHub app, which handles code access. You are able to select which repositories these apps have access to, and have full control over removing them or revoking their permissions.
-1. Click **Set up projects**. You are taken to the **Enable Managed Scans for GitHub repos** page.
+1. Click **Set up projects**. You are taken to the **Enable Managed Scans for repos** page.
 1. Select all the repositories you want to add to Semgrep Managed Scans for scanning.
 1. Click **Enable Managed Scans**. You are taken to the **Projects** page as your scans begin.
 
 <!-- vale on -->
+
+</TabItem>
+<TabItem value='gl'>
+
+## Requirements
+
+Read access is granted through an access token that you generate on GitLab. You can provide this token by [adding GitLab as a source code manager](/deployment/connect-scm).
+
+## Prerequisites
+
+Admin access to your GitLab organization.
+
+## Add repositories to Semgrep Managed Scans
+
+<!-- vale off -->
+1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitLab**. Follow the on-screen prompts to proceed.
+2. When prompted, click **Scan new project > Semgrep Managed Scan**.
+4. In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.
+5. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+6. Click **Enable**. You are taken to the **Projects** page as your scans begin.
+<!-- vale on -->
+
+</TabItem>
+</Tabs>
 
 You have finished setting up a Semgrep managed scan.
 
