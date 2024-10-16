@@ -98,7 +98,7 @@ The code is kept here for easy maintenance.
     </CardBody>
     </div>
   </Card>
-  <Card link='/deployment/managed-scanning'>
+  <Card link='/deployment/managed-scanning/overview'>
     <div class="card__copy">
     <CardHeader>Managed Scans</CardHeader>
     <CardBody>

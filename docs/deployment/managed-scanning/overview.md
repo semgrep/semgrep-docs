@@ -1,5 +1,5 @@
 ---
-slug: sms-overview
+slug: overview
 title: Managed Scans (beta)
 hide_title: true
 description: Semgrep Managed Scans provides an alternative to CI-based workflows. It enables you to add repositories to your Semgrep org in bulk without changing your CI workflows.

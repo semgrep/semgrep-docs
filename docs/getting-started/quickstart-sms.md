@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 
 To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
 
-Read access is permitted through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning#security) for more information on how Semgrep handles your code.
+Read access is permitted through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning/overview#security) for more information on how Semgrep handles your code.
 
 ## Prerequisites
 
@@ -97,4 +97,4 @@ Once a scan has finished, you can view your findings by clicking any of the foll
 - [<i class="fas fa-external-link fa-xs"></i> Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
 - [<i class="fas fa-external-link fa-xs"></i> Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
 
-To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning).
+To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning/overview).
