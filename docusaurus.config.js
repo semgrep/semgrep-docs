@@ -395,6 +395,8 @@ module.exports = {
           /* SEP 11, 2024 */
           { from: "/kb/rules/match-commments" , to: "/kb/rules/match-comments" },
           { from: "/semgrep-appsec-platform/dashboard-beta/"                        , to: "/semgrep-appsec-platform/dashboard" } ,
+          /* OCT 16, 2024 */
+          { from: "/deployment/managed-scanning" , to: "//deployment/managed-scanning/overview" } ,
         ]
       }
     ],
