@@ -1,8 +1,3 @@
-:::tip
-- If you do not see any findings, or there are zero findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
-- The total count of findings in the **Projects** page is based on the **primary branch**.
-:::
-
 A **single** finding may appear in several branches. These appearances are called **instances** of a finding. Several instances of the same finding may differ in which line of code (LOC) they are on or in their triage state. For example, on `production` the finding may be on line 20, but the same finding was moved further to line 26 in `feature-branch-a`.
 
 Semgrep automatically recognizes that they are fundamentally the same finding and deduplicates these instances so that you do not get an inflated count of findings per ref that the finding is present in.
@@ -10,3 +5,8 @@ Semgrep automatically recognizes that they are fundamentally the same finding an
 By default, the {props.product_name} page displays findings from the [primary branches](/deployment/primary-branch) of all repositories (projects), arranged by most recent scan. You are viewing the **primary branch's instance** of that finding, so you may see variations in LOC or triage state when comparing the finding across branches.
 
 When filtering by primary branch and triage status, the filters are applied based on the **triage status of the finding on the primary branch**. This means that on some feature branches, the instance may already be **Fixed**, but on the primary branch, the finding is still **Open**. The finding status on the primary branch is updated when the PR or MR is merged and Semgrep has scanned the code.
+
+:::tip
+- If you do not see any findings, or there are zero findings after a scan has concluded, check the **Projects** page to view the findings count, if any, and to set a [primary branch](/deployment/primary-branch), if it is not already set.
+- The total count of findings in the **Projects** page is based on the **primary branch**.
+:::
