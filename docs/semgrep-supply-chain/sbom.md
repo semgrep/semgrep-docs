@@ -40,7 +40,7 @@ SBOM generation can be performed only through Semgrep AppSec Platform.
 You have successfully downloaded an SBOM.
 
 :::note Supply Chain scans on non-primary branches
-Typically, full scans are run only on default branches. However, if your workflow differs and you run full scans on non-primary branches, this can create a mismatch between dependencies and vulnerabilities in the generated SBOM. To avoid the mismatch, ensure that the latest full scan runs on the default branch of the repository for which you want to generate an SBOM.
+Typically, full scans are run only on primary (default) branches. However, if your workflow differs and you run full scans on non-primary branches, this can create a mismatch between dependencies and vulnerabilities in the generated SBOM. To avoid the mismatch, ensure that the latest full scan runs on the primary branch of the repository for which you want to generate an SBOM.
 :::
 
 ## Semgrep-specific SBOM data fields

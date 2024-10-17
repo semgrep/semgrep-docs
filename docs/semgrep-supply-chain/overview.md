@@ -19,7 +19,7 @@ _**Figure**. Semgrep Supply Chain Vulnerabilities page._
 ## Open source security vulnerabilities
 
 Semgrep Supply Chain detects [security
-vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open-source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
+vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
 To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies, then scans your codebase using rules that specify the following information:
 
@@ -39,7 +39,7 @@ _**Figure**. Relationship between a Supply Chain rule, lockfile, CVE record, and
 Semgrep Supply Chain generates a **finding** whenever it determines that your codebase uses or imports a package containing a vulnerability. In addition, Semgrep
 Supply Chain offers two levels of support for reachability analysis, [depending on your language](/supported-languages#maturity-levels):
 
-* **GA**: Semgrep writes rules for all critical and high CVE severity levels for GA languages. That means Semgrep Supply Chain can flag all your critical/high-severity findings as either reachable or unreachable.
+* **Generally available (GA) languages**: Semgrep writes rules for all critical and high CVE severity levels for GA languages. That means Semgrep Supply Chain can flag all your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability definition, the finding is flagged as **reachable**.
       * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved in these findings.
       * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
@@ -55,7 +55,7 @@ A [transitive dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-ind
 
 However, some dependencies are vulnerable simply through their inclusion in a codebase; in such cases, Semgrep Supply Chain generates reachable findings involving these dependencies, even if they're transitive, not direct, dependencies.
 
-Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usage and flag transitive dependencies as unreachable if not used directly.
+Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag transitive dependencies as unreachable if not used directly.
 
 ## Software bill of materials
 
