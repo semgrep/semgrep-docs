@@ -3,6 +3,7 @@ slug: triage-remediation
 append_help_link: true
 title: Triage and remediation
 hide_title: false
+toc_max_heading_level: 2
 description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
     - Semgrep Code
@@ -149,12 +150,11 @@ Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs
 >
 
 <TabItem value='current'>
-:::info Prerequisites
+### Prerequisites
 - A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
-:::
 
-To enable triage through comments:
+### To enable triage through comments:
 
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
 2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
@@ -183,13 +183,15 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 
 <TabItem value='gh'>
 
-:::caution
+:::note
 This feature is currently in **private beta**. It expands on the existing ignore-by-PR-comment workflow by supporting additional commands such as adding to Assistant memories and enabling developers to include triage **reasons**.
 :::
 
 ### Prerequisites
 - A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
+
+### Enable triage through GitHub PR comments:
 
 To enable triage through comments:
 
@@ -220,12 +222,14 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 </TabItem>
 <TabItem value='gl'>
 
-:::caution
-This feature is currently in private beta.
+:::note
+This feature is currently in **private beta**. It expands on the existing ignore-by-PR-comment workflow by supporting additional commands such as adding to Assistant memories and enabling developers to include triage **reasons**.
 :::
 
 ### Prerequisites
 You have completed a [Semgrep core deployment](/deployment/core-deployment).
+
+### Enable triage through GitLab MR comments:
 
 To enable triage through comments:
 
