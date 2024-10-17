@@ -309,7 +309,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   </tbody>
 </table>
 
-_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **Unknown** transitivity._
+_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis**_
 
 ### Maturity levels
 

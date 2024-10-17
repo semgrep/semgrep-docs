@@ -58,7 +58,7 @@ To change the policies of packages based on the license:
 
 Semgrep Supply Chain can identify the following licenses and license categories.
 
-### Weak-copyleft licenses
+### Popular Weak-copyleft licenses
 
 Software using packages with weak copyleft licenses may have to maintain the same license as the package. To determine if this applies to your project, consult your legal department. Developers typically choose these packages based on individual preferences, so usage should be monitored to ensure license compliance.
 
@@ -69,7 +69,7 @@ Software using packages with weak copyleft licenses may have to maintain the sam
 * OSL-3.0
 * EUPL-1.2
 
-### Copyleft licenses
+### Popular Copyleft licenses
 
 Software using packages with copyleft licenses **must** maintain the same license as the packages. To prevent license complications, developers often avoid packages using these licenses.
 
@@ -80,7 +80,7 @@ Software using packages with copyleft licenses **must** maintain the same licens
 * CC-BY-SA-4.0
 * APSL
 
-### Permissive licenses
+### Popular Permissive licenses
 
 Packages with permissive licenses have minimal restrictions on how they can be used or modified. This makes permissive licenses popular among developers for their flexibility, ease of use, and lack of legal concerns.
 
