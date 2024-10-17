@@ -46,16 +46,16 @@ Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 ![Scope of each offering by core workflows](/img/security-program-workflows.svg) <br />
 _**Figure**. A typical AppSec security program's core workflows and the scope of Semgrep OSS and Semgrep AppSec Platform features._
 
-### Semgrep OSS
+### Deploy
 
-<div class="col-3-grid" >
+<div class="col-2-grid" >
 <div> 
 
-##### Deploy
+##### Semgrep OSS
 
 Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
 
-Deploying in bulk or at scale is manual: It can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
+Deploying in bulk or at scale is manual: it can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
 
 <!-- Environments are omitted due to differences in licensing -
 `semgrep scan` can be run in IDE atm but the extension is proprietary -->
@@ -63,35 +63,7 @@ Deploying in bulk or at scale is manual: It can scan a remote repository by runn
 </div>
 <div>
 
-##### Scan
-
-Semgrep OSS provides the following analyses:
-
-- Single file, cross function constant propagation
-- Single function taint analysis 
-- Semantic analysis
-
-The scope makes it fast, at the cost of coverage and precision.
-
-It can't track data beyond a single function or file and may find more false positives.
-
-</div>
-<div>
-##### Triage and remediate
-
-There are no features in Semgrep OSS for triage and remediation of findings.
-
-However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
-
-</div>
-</div>
-
-### Semgrep AppSec Platform
-
-<div class="col-3-grid" >
-<div> 
-
-##### Deploy
+##### Semgrep AppSec Platform 
 
 Semgrep AppSec Platform can perform scans in the following environments:
 
@@ -103,24 +75,87 @@ Semgrep AppSec Platform can perform scans in the following environments:
 
 Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
 
-Users comfortable with granting Semgrep code acces, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
+Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
 
-AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, BitBucket, and Azure.
+AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
 </div>
-<div> 
+</div>
+
+### Scan
+
+<div class="col-2-grid"> 
+<div>
+
+##### Semgrep OSS
+
+Semgrep OSS provides the following SAST analyses:
+
+- Single file, cross function constant propagation
+- Single function taint analysis 
+- Semantic analysis
+
+The scope makes it fast, at the cost of coverage and precision.
+
+It can't track data beyond a single function or file and may find more false positives.
+
+</div>
+<div>
+
+##### Semgrep AppSec Platform 
+
+Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
+
+Analyses for SAST scans include:
+
+- Cross file, cross function constant propagation
+- Cross file, cross function taint analysis 
+- Framework and language-specific semantic analysis
+
+Analyses and functions for SCA scans include:
+
+- Reachability analysis
+- Software bill of materials (SBOM) generation
+
+Analyses and functions for secret scans include:
+
+- Validation of active, leaked secrets
+- Entropy
+- Historical scanning
+
+</div>
+</div>
+
+### Triage and remediate
+
+<div class="col-2-grid"> 
+<div>
+
+##### Semgrep OSS
+
+There are no features in Semgrep OSS for triage and remediation of findings.
+
+However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
+
+</div>
+<div>
+
+##### Semgrep AppSec Platform
+
+</div>
+</div>
+
+
+##### Deploy
+
+
 
 ##### Scan
 
-Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
 
-</div>
-<div> 
 
 ##### Triage and remediate
 
-</div>
-</div>
 ### Tune and prevent 
 ### Report 
 

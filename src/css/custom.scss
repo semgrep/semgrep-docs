@@ -805,10 +805,6 @@ a[class*=cardContainer_][class~=card]  {
  *                                                                            *
  *****************************************************************************/
 
-.col-5-grid {
-    display:block;
-}
-
 /* columns */
 .col-3-grid > * {
     border-right: 1px solid var(--semgrep-grey-300);
@@ -819,9 +815,18 @@ a[class*=cardContainer_][class~=card]  {
   padding-right: 0.7rem;
 }
 
+.col-2-grid > div:first-of-type {
+    border-right: 1px solid var(--semgrep-grey-300);
+}
+
+.col-2-grid > div {
+  width: calc(50% - 0.7rem);
+  padding-right: 0.7rem;
+}
+
 /* tablet breakpoint */
 @media (min-width:768px) {
-    .col-3-grid {
+    .col-3-grid, .col-2-grid {
         display: flex;
         justify-content: space-between;
     }
