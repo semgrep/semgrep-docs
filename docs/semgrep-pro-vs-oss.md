@@ -116,6 +116,8 @@ Analyses and functions for SCA scans include:
 
 - Reachability analysis
 - Software bill of materials (SBOM) generation
+- Open source license enforcement
+- Dependency search
 
 Analyses and functions for secret scans include:
 
