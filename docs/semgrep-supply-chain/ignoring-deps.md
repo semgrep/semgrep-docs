@@ -10,7 +10,7 @@ hide_title: true
 
 # Ignore lockfiles and dependencies
 
-You can restrict code files or lockfiles from generating open source security findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depend on the option that best suits your organization's needs:
+You can restrict code files or lockfiles from generating Supply Chain findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depend on the option that best suits your organization's needs:
 
 | Goal | Method |
 | ---- | ------ |
