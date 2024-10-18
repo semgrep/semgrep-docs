@@ -13,7 +13,8 @@ tags:
 
 To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes methods to generate the following Python lockfiles:
 
-* `requirements.txt`
+* `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
+* `requirements.pip`
 * `Pipfile.lock`
 * `Poetry.lock`
 
@@ -24,10 +25,8 @@ You can use any of these three lockfiles to get a successful Semgrep Supply Chai
 ### Using `requirements.in`
 
 :::info Prerequisites
-
 * A `requirements.in` file with direct Python packages. Do not include transitive packages in `requirements.in`.
 * `pip-tools` must be installed on your machine. See the [pip-tools GitHub repository](https://github.com/jazzband/pip-tools) for installation instructions.
-
 :::
 
 
