@@ -1,5 +1,5 @@
 ```
-[4mUsage[24m: [36msemgrep [OPTIONS] COMMAND [ARGS]...[39m
+Usage: semgrep [OPTIONS] COMMAND [ARGS]...
 
   To get started quickly, run [36m`semgrep scan --config auto`[39m
 
