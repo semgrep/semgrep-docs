@@ -2,7 +2,7 @@
 slug: tags
 append_help_link: true
 description: "Guidelines on how to add or remove tags through Semgrep AppSec Platform and semgrepconfig.yml file."
-title: Tagging projects
+title: Tag projects
 hide_title: true
 tags:
     - Deployment
