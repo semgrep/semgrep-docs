@@ -18,7 +18,7 @@ Add GitLab repositories to your Semgrep organization in bulk without adding or c
 
 ## Permissions
 
-Before you can add a GitLab repository to Semgrep Managed Scans, you must create a GitLab personal access token and provide it to Semgrep. To do so, follow the instructions that apply to you:
+Before you can add a GitLab repository to Semgrep Managed Scans, you must create a GitLab personal access token (PAT) and provide it to Semgrep. To do so, follow the instructions that apply to you:
 
 - [Connect a source code manager: GitLab Cloud](/deployment/connect-scm#gitlab-cloud)
 - [Connect a source code manager: GitLab self-managed plans](/deployment/connect-scm#gitlab-self-managed-plans)
@@ -41,8 +41,8 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 5. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
 6. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
 ![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
-1. Click **Enable**.
-2. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
+7. Click **Enable**.
+8. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
 <!-- vale on -->
 
 You have finished setting up a Semgrep managed scan.
