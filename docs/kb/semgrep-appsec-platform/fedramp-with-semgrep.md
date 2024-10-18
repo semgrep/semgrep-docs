@@ -11,6 +11,6 @@ At Semgrep, we understand the importance of staying within the FedRAMP Authoriza
 
 When a code scanning service such as Semgrep scans your source code, it does not gain access to any federal data or government related meta-data if it is not contained within your source code.
 
-The FedRAMP Authorization Boundary Guidance specifically calls out that DevOps is out of FedRAMP scope so long as *“there is no federal information within this environment”*. This requirement is almost always satisfied. When Semgrep scans code for a FedRAMP compliant customer, metadata is stored about their code but nothing else (that can be related to what federal data they store). For more information around metrics collected by Semgrep, please refer to our [docs](/docs/metrics).
+The FedRAMP Authorization Boundary guidance specifically calls out that DevOps is outside of FedRAMP scope so long as *“there is no federal information within this environment”*. This requirement is almost always satisfied. When Semgrep scans code for a FedRAMP compliant customer, metadata is stored about their code but nothing else (that can be related to what federal data they store). For more information around metrics collected by Semgrep, please refer to our [docs](/docs/metrics).
 
 ![FedRAMP](/img/kb/FedRAMP.png)
