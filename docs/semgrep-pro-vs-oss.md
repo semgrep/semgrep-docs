@@ -44,7 +44,7 @@ Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 ## Comparison by core workflows
 
 ![Scope of each offering by core workflows](/img/security-program-workflows.svg) <br />
-_**Figure**. A typical AppSec security program's core workflows and the scope of Semgrep OSS and Semgrep AppSec Platform features._
+_**Figure**. A typical AppSec security program's core workflows and the scope of out-of-the-box Semgrep OSS and Semgrep AppSec Platform features._
 
 ### Deploy
 
@@ -104,29 +104,52 @@ It can't track data beyond a single function or file and may find more false pos
 
 ##### Semgrep AppSec Platform 
 
+
 Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
 
-Analyses for SAST scans include:
-
+<details>
+<summary>Click to view analyses for SAST scans</summary>
 - Cross file, cross function constant propagation
 - Cross file, cross function taint analysis 
 - Framework and language-specific semantic analysis
+</details>
 
-Analyses and functions for SCA scans include:
-
+<details>
+<summary>Click to view analyses and functions for SCA scans</summary>
 - Reachability analysis
 - Software bill of materials (SBOM) generation
 - Open source license enforcement
 - Dependency search
+</details>
 
-Analyses and functions for secret scans include:
 
+<details>
+<summary>Click to view analyses and functions for secrets scans</summary>
 - Validation of active, leaked secrets
 - Entropy
 - Historical scanning
+</details>
+
+Additionally, the Semgrep team maintains and contributes to premium rules, known as Pro rules, specifically making use of the advanced analyses listed here.
 
 </div>
 </div>
+
+<br />
+
+:::tip
+Certain languages, such as Apex, are available only on Semgrep AppSec Platform.
+:::
+
+The following diagrams summarize the differences between the two:
+
+![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
+_**Figure**. Semgrep OSS scan process._
+
+<br />
+
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg) <br />
+_**Figure**. Semgrep AppSec Platform scan process._
 
 ### Triage and remediate
 
@@ -135,7 +158,9 @@ Analyses and functions for secret scans include:
 
 ##### Semgrep OSS
 
-There are no features in Semgrep OSS for triage and remediation of findings.
+###### Triage
+
+There are no out-of-the-box features in Semgrep OSS for triaging findings.
 
 However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
 
@@ -144,23 +169,80 @@ However, you can output findings to JSON and SARIF then send those findings to a
 
 ##### Semgrep AppSec Platform
 
+###### Triage
+
+Semgrep AppSec Platform tracks a single finding throughout its lifetime from its initial creation, when its status is **Open**, to various triage states such as **Ignored**, or **Reviewing**.
+
+Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
+
+Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives. Learn more about Semgrep Assistant's accuracy.
+
+tk link to false positive
+
+###### Remediation
+
+In addition to Semgrep OSS's autofix feature, Semgrep AppSec Platform provides AI-assisted remediation with the following features:
+
+- Step-by-step remediation.
+- Can be viewed by developers and AppSec engineers in their preferred environment.
+- Ability to learn your preferred libraries and functions through Assistant Memories.
+
 </div>
 </div>
-
-
-##### Deploy
-
-
-
-##### Scan
-
-
-
-##### Triage and remediate
 
 ### Tune and prevent 
+
+Tuning refers to the improvement of Semgrep's engine, rules, and policies to improve such metrics as the true positive rate, net new findings, and findings fixed before they enter production. 
+
+Tuning assists in the prevention of vulnerabilities from entering production.
+
+<div class="col-2-grid"> 
+<div>
+
+##### Semgrep OSS
+
+Tuning is not supported in Semgrep OSS but you can customize the rules you run on your scans.
+
+Semgrep OSS does not provide any metrics that may inform you of potential performance improvements you can make.
+
+</div>
+<div>
+
+##### Semgrep AppSec Platform
+
+The Policies feature manage rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers.
+
+You are able to test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
+
+tk link to Policies
+
+</div>
+</div>
+
 ### Report 
 
+<div class="col-2-grid"> 
+<div>
+
+##### Semgrep OSS
+
+Semgrep OSS does not include any reporting features.
+
+</div>
+<div>
+
+##### Semgrep AppSec Platform
+
+Semgrep AppSec Platform's dashboard provides filters to create multiple views over different periods of time. 
+
+It is optimized to show progress towards the adoption of a **secure guardrails** approach to AppSec through the following key metrics:
+
+- Findings shown to developers
+- Findings fixed before backlog (before entering production)
+- Most findings by project
+
+</div>
+</div>
 
 <!-- 
 
@@ -173,13 +255,6 @@ Semgrep OSS is best for small teams or personal projects.
 Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan` command. It can also scan a remote repository by running a CI job. However, you must write and configure the CI job for each repository. 
 
 ### Scanning and analysis 
-
-<!-- 
-![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
-_**Figure**. Semgrep OSS scan process._
--->
-<!--
-
 
 ### Triage and remediation
 
@@ -217,52 +292,7 @@ _**Figure**. Semgrep AppSec Platform scan process._
 Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these scan types across all of your environments, preserving any configuration you have made.
 
 
-### Triage and remediation
-
-#### Prioritization
-
-#### Tuning
-
-#### Prevention
-
-#### Reporting
-
-</div>
-
-</div>
-
-
-
-
 -->
-
-
-![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
-_**Figure**. Semgrep OSS scan process._
-
-![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg#full) <br />
-_**Figure**. Semgrep AppSec Platform scan process._
-
-
-- Proprietary SAST, SCA, and secret scanners.
-- Greater parsing support for all languages supported by Semgrep OSS.
-  - Some languages are exclusive to Semgrep AppSec Platform.
-- More types of static analyses, such as cross-function (interprocedural) and cross-file (interfile) taint analyses.
-- Professionally maintained rules and rule maintenance for many languages.
-- Support for scanning in a variety of environments and source code managers (SCMs) such as GitHub, GitLab, BitBucket, and Azure.
-- PR or MR scans.
-- Scan customization features.
-- Scan results (findings) management
-
-Features for AppSec workflows include:
-
-- Deployment at scale.
-- Secure guardrail deployment
-- Findings management, including triage and remediation.
-- User and repository (project) management
-- AppSec triage and remediation workflows
-- SBOM export, reporting, and license detection
-- LLM (large language model) AI integration
 
 
 ## 🔎 Core scanning features
