@@ -237,13 +237,12 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td><code>requirements.txt</code> if used as a lockfile. The `requirements.txt` file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any lockfile in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">✅ (PyPI packages only)</td>
   </tr>
   <tr>
    <td>pip-tools</td>
-   <td><code>requirements.txt</code></td>
    <td style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
