@@ -164,7 +164,7 @@ To triage a finding in GitHub:
 1. Find an open comment created by Semgrep AppSec Platform in GitHub PR:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
 
-2. In a subsequent comment, reply with <code>/semgrep ignore <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code>. Substitute the colored placeholder <code><span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> with text to help the reader understand why the status of a comment is ignored. Alternatively, you can reopen a finding that was previously ignored using <code>/semgrep open <span className="placeholder">&lt;reason&gt;</span></code>.
+2. In a subsequent comment, reply with <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code>. Substitute the colored placeholder <code><span className="placeholder">&lt;REASON&gt;</span></code> with text to help the reader understand why the status of a comment is ignored. Alternatively, you can reopen a finding that was previously ignored using <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code>.
 
 Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep AppSec Platform. The GitHub conversation itself is not automatically resolved by this process.
 
@@ -196,19 +196,19 @@ To triage a finding:
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
 
-2. In a subsequent comment, reply with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<PLACEHOLDER>` with text to help the reader understand why the finding has been triaged as **ignored**:
+2. In a subsequent comment, reply with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
 
     | Comment | Description |
     | - | - |
-    | <code>/fp <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
-    | <code>/ar <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
-    | <code>/other <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
-    | <code>/open <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
+    | <code>/fp <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
+    | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
+    | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
+    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
+    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
 
 Semgrep is backward compatible with the following commands:
-- <code>/semgrep ignore <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> - triage a finding as **Ignored**.
-- <code>/semgrep open <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
+- <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
+- <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 
 Triaging a finding as **Ignored** through a comment in GitHub changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitHub conversation itself is not automatically resolved by this process.
 
@@ -235,15 +235,15 @@ To triage a finding:
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitLab](/img/semgrep-app-comment-gitlab.png#md-width)
 
-2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<PLACEHOLDER>` with text to help the reader understand why the finding has been triaged as **ignored**:
+2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
 
     | Comment | Description |
     | - | - |
-    | <code>/fp <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
-    | <code>/ar <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
-    | <code>/other <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
-    | <code>/open <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
+    | <code>/fp <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
+    | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
+    | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
+    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
+    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
 
 Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitLab conversation itself is not automatically resolved by this process.
 
