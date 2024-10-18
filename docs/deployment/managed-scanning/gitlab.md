@@ -23,6 +23,11 @@ Before you can add a GitLab repository to Semgrep Managed Scans, you must create
 - [Connect a source code manager: GitLab Cloud](/deployment/connect-scm#gitlab-cloud)
 - [Connect a source code manager: GitLab self-managed plans](/deployment/connect-scm#gitlab-self-managed-plans)
 
+Once you've added GitLab as a source code manager, enable incoming GitLab webhooks:
+
+1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
+2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to **Receive incoming webhooks from this GitLab Group**.
+
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
 ## Add a repository
