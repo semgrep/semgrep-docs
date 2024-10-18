@@ -257,7 +257,7 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 
 You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
-- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning).
+- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning/overview).
 - To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
 
 :::info
@@ -320,7 +320,7 @@ Alternatively, you can use the [Semgrep Network Broker](/docs/semgrep-ci/network
 
 - [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
 - [PR and MR comments](/category/pr-or-mr-comments)
-- [Semgrep Managed Scans](/deployment/managed-scanning)
+- [Semgrep Managed Scans](/deployment/managed-scanning/overview)
 - [Semgrep Assistant](/semgrep-assistant/getting-started)
 
 ### Semgrep versions
