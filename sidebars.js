@@ -452,7 +452,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep privacy policy'
+              label: 'Semgrep metrics'
             },
             {
               type: 'category',
