@@ -220,7 +220,8 @@ This feature is currently in **private beta**. It expands on the existing ignore
 :::
 
 ### Prerequisites
-You have completed a [Semgrep core deployment](/deployment/core-deployment).
+- A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans.
+- You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 ### Enable triage through GitLab MR comments:
 
@@ -243,10 +244,6 @@ To triage a finding:
     | <code>/other <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
     | <code>/open <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
     | <code>/remember <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
-
-Semgrep is backward compatible with the following commands:
-- <code>/semgrep ignore <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> - triage a finding as **Ignored**.
-- <code>/semgrep open <span className="placeholder">&lt;PLACEHOLDER&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 
 Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitLab conversation itself is not automatically resolved by this process.
 
