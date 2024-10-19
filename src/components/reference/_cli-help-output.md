@@ -1,5 +1,6 @@
 ```
 Usage: semgrep [OPTIONS] COMMAND [ARGS]...
+
   To get started quickly, run `semgrep scan --config auto`
 
   Run `semgrep SUBCOMMAND --help` for more information on each subcommand
