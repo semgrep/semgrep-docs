@@ -236,7 +236,7 @@ OPTIONS
        --max-log-list-entries=VAL (absent=100)
            Maximum number of entries that will be shown in the log (e.g.,
            list of rule ids, list of skipped files). A zero or negative value
-           disables this filter. Defaults to 100.
+           disables this filter. Defaults to 100
 
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile

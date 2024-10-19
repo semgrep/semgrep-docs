@@ -10,6 +10,7 @@ tags:
 ---
 
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
+import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 
 # Semgrep Managed Scans
 
@@ -140,12 +141,9 @@ By default, projects on Managed Scans are configured with:
 1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
 1. Click the toggle for diff-aware scans.
 
-### Remove a repository
+### Delete a project 
 
-1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
-1. Search for your repository's name.
-1. Click the **<i class="fa-solid fa-gear"></i> gear icon** to access the settings page for that repository.
-1. Click the dropdown at the header and click **Delete project**.
+<DeleteAProject />
 
 ## Revoke Semgrep's access to your repositories
 

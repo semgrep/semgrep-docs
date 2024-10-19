@@ -15,6 +15,7 @@ import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.md
 import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 
 # Add Semgrep to CI
 
@@ -122,6 +123,12 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 
 - Semgrep collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
+
+### Delete a project
+
+Deleting a project removes all of its findings, metadata, and other records from Semgrep AppSec Platform.
+
+<DeleteAProject />
 
 ## Scan scope
 
