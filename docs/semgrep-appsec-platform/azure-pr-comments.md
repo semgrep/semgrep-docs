@@ -59,7 +59,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
-In the Azure Pipelines configuration file, you must export the `SEMGREP_REPO_URL` variable to enable PR comments. Ensure that the namespace as part of the variable's value follows the format `{organization}/{project}`:
+In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format `{organization}/{project}`:
 
 ```
 # example
