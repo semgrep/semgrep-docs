@@ -11,7 +11,7 @@ hide_title: true
 
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
 
-# View, triage, and remediate dependency findings
+# View, triage, and remediate Supply Chain findings
 
 :::info Prerequisite
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
@@ -99,7 +99,7 @@ The finding's exposure to potential attacks, or whether it is reachable.
 
 ## Triage and remediate findings
 
-Once you have viewed the dependency findings identified by Semgrep Supply Chain, you can triage them for further work by your AppSec team, including remediation. Semgrep Supply Chain provides the following methods to help you assess your findings:
+Once you have viewed the Supply Chain findings, you can triage them for further work by your AppSec team, including remediation. Semgrep Supply Chain provides the following methods to help you assess your findings:
 
 <table>
  <thead>
