@@ -90,7 +90,8 @@ steps:
       elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
           echo "Semgrep diff scan"
           export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
-          export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"
+          export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/${SYSTEM_TEAMPROJECT}/_git/${BUILD_REPOSITORY_NAME}"
+          export SEMGREP_REPO_NAME="{organization}/${SYSTEM_TEAMPROJECT}/${BUILD_REPOSITORY_NAME}"
           export SEMGREP_BASELINE_REF='origin/main'
           export AZURE_TOKEN=$(System.AccessToken)
           git fetch origin main:origin/main
