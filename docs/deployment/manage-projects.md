@@ -10,9 +10,13 @@ tags:
 
 # Manage projects
 
-View, filter, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through either CI or Semgrep Managed Scans, and includes that repository's findings and metadata.
+View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through either CI or Semgrep Managed Scans, and includes that repository's findings and metadata. Manage thousands of repositories through these functions by identifying scan issues or scans with a high finding count.
 
-Each project has its own **Project detail** page, where you can configure its settings and view detailed logs for each scan that has been run.
+Additionally, the Semgrep API enables you to filter tags for additional workflows and integrations into your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See tag docs for more information.
+
+tk add link to project API page
+
+Each project has its own **Project detail** page, where you can filter scans, configure settings, and view detailed logs for each scan that has been run. 
 
 tk add screenshot
 
@@ -22,9 +26,21 @@ Use the **Project detail** page to:
 - Share information when troubleshooting scans through the **Scans** tab.
 - Update a project's tags, primary branch, and path ignores through the **Settings** tab.
 
-## View and filter projects
+## View and sort projects
 
 View all projects by navigating to [Semgrep AppSec Platform](https://semgrep.dev/login) and clicking **<i class="fa-solid fa-folder-open"></i> Projects**.
+
+To sort projects, click the attribute you want to sort by on the header row.
+
+Sort by the following attributes:
+
+- **Project**: Sort alphabetically by project; this also groups together local scans which are prefixed with `local_scan`).
+- **Last scan**: Click to toggle between sorting latest scans by ascending or descending.
+
+## View and filter a project's scans
+
+1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login) and click **<i class="fa-solid fa-folder-open"></i> Projects**.
+1. In the row of the project you want to view, click the project's **<i class="far fa-window-restore"></i> window icon** under the **Details** column.
 
 The following filters are available:
 
@@ -42,9 +58,22 @@ Scan details, such as logs, are available for scans run in the past **1 month**.
 To view the latest scan's details from the Projects page:
 
 1. Hover over the project's latest scan status. This displays the **<i class="fa-solid fa-sidebar-flip"></i> Drawer icon**.
-![DESCRIPTION-tk](/img/projects-view-scan-details.png)
-1. Click the **<i class="fa-solid fa-sidebar-flip"></i> icon** to view the scan details drawer. This drawer displays both an overview of the scan and CI or Managed Scan logs. Local scans do not have a **Logs** tab. 
+![The drawer icon revealed.](/img/projects-view-scan-details.png)
+1. Click the **<i class="fa-solid fa-sidebar-flip"></i> icon** to view the scan details drawer. This drawer displays both an **overview** of the scan and **CI or Managed Scan logs**. Local scans do not have a **Logs** tab. 
+
+:::tip Permalinks to scan details
+You can link to a specific scan's details to send to your colleagues for collaboration or troubleshooting. Click the **<i class="fa-solid fa-link"></i> link icon** on the header to copy the permalink:
+
+![Permalink in the scan details drawer.](/img/scan-details-permalink.png)
+:::
 
 ## Configure project settings
 
-tk
+You can configure a project's settings by going to the **Project details** page and clicking on the **Settings** tab.
+
+See the following pages for more information:
+
+- Configure Semgrep to ignore certain file paths.
+- For Semgrep Managed Scans users: configure your scans.
+- Set a primary branch.
+- Set tags.
