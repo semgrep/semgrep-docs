@@ -102,6 +102,7 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/manage-projects',
                         'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
