@@ -62,7 +62,7 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 1. In GitLab, go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
 1. Copy the token created in the previous step.
 
-Once you have a GitLab PAT, you can provide it to Semgrep through [Semgrep AppSec Platform's**<i class="fa-solid fa-gear"></i> Settings > Source Code Managers** tab](/deployment/connect-scm#gitlab-self-managed-plans). This tab is a central location that makes it easy for your teams to access and rotate the token if necessary. This is the recommended method, though there are two other options for providing your PAT to Semgrep:
+Once you have a GitLab PAT, you can provide it to Semgrep through [Semgrep AppSec Platform's **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers** tab](/deployment/connect-scm#gitlab-self-managed-plans). This tab is a central location that makes it easy for your teams to access and rotate the token if necessary. This is the recommended method, though there are two other options for providing your PAT to Semgrep:
 
 - In the [Network Broker configuration file](/semgrep-ci/network-broker#configure-semgrep-network-broker): If the Gitlab user requires a PAT, you can set a dummy token and assign the PAT in the Network Broker configuration file.
 - In the [CI job's configuration file](/semgrep-ci/sample-ci-configs#sample-gitlab-cicd-configuration-snippet): This is helpful if you're using Gitlab's Project Access Tokens, which are generated on a per-project basis.
@@ -107,12 +107,11 @@ For **other CI providers**:
 For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs#gitlab-cicd).
 </details>
 
-:::info MR comments with multiple GitLab groups
-If you're using Semgrep with multiple GitLab groups, ensure that you've completed one of the following steps to ensure that you see MR comments for repositories associated with all of your groups:
+#### MR comments with multiple GitLab groups
+If you're using Semgrep with multiple GitLab groups, ensure that you've completed the following steps to ensure that you see MR comments for repositories associated with all of your groups:
 
-1. Create a Semgrep account connection with each GitLab group by signing in to your Semgrep account, navigating to **Settings > Source code managers**, and adding an entry for each group. Note that you only need to add an entry for the parent group to onboard a parent group and all of its subgroups.
+1. **Required for users with GitLab self-managed plans and *optional* for users with GitLab Cloud plans:** Create a Semgrep account connection with each GitLab group by signing in to your Semgrep account, navigating to **Settings > Source code managers**, and adding an entry for each group. Note that you only need to add an entry for the parent group to onboard a parent group and all of its subgroups. 
 2. Add the `GITLAB_TOKEN` environment variable to your CI configuration. You can set `GITLAB_TOKEN` to the GitLab PAT that grants access to all of your GitLab groups, if possible, or you can use a different GitLab PAT for each of your GitLab groups.
-:::
 
 ### Define environment variables needed for other CI providers
 
@@ -123,6 +122,10 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 <PrCommentsInSast name="GitLab" comment_type="MR" />
 
 ### Receive comments in your VPN or on-premise SCM
+
+:::note
+Ensure that you've [onboarded all of your GitLab groups](/semgrep-appsec-platform/gitlab-mr-comments#mr-comments-with-multiple-gitlab-groups) to Semgrep.
+:::
 
 <ReceiveCommentsScm />
 
