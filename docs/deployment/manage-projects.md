@@ -10,7 +10,9 @@ tags:
 
 # Manage projects
 
-View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through either CI or Semgrep Managed Scans, and includes that repository's findings and metadata. Manage thousands of repositories through these functions by identifying scan issues or scans with a high finding count.
+View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through either CI or Semgrep Managed Scans, and includes that repository's findings and metadata.
+
+Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high finding count.
 
 Additionally, the Semgrep API enables you to filter tags for additional workflows and integrations into your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See [Tags](/semgrep-appsec-platform/tags) for more information.
 
