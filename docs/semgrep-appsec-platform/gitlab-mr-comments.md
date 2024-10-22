@@ -123,7 +123,7 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 
 ### Receive comments in your VPN or on-premise SCM
 
-:::note
+:::info
 Ensure that you've [onboarded all of your GitLab groups](/semgrep-appsec-platform/gitlab-mr-comments#mr-comments-with-multiple-gitlab-groups) to Semgrep.
 :::
 
