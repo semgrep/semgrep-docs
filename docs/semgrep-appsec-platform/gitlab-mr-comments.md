@@ -62,7 +62,7 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 1. In GitLab, go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
 1. Copy the token created in the previous step.
 
-Once you have a GitLab PAT, you can provide it to Semgrep through [Semgrep AppSec Platform's **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers** tab](/deployment/connect-scm#gitlab-self-managed-plans). This tab is a central location that makes it easy for your teams to access and rotate the token if necessary. This is the recommended method, though there are two other options for providing your PAT to Semgrep:
+Once you have a GitLab PAT, you can provide it to Semgrep through [Semgrep AppSec Platform's **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers** tab](/deployment/connect-scm#gitlab-cloud). This tab is a central location that makes it easy for your teams to access and rotate the token if necessary. This is the recommended method, though there are two other options for providing your PAT to Semgrep:
 
 - In the [Network Broker configuration file](/semgrep-ci/network-broker#configure-semgrep-network-broker): If the Gitlab user requires a PAT, you can set a dummy token and assign the PAT in the Network Broker configuration file.
 - In the [CI job's configuration file](/semgrep-ci/sample-ci-configs#sample-gitlab-cicd-configuration-snippet): This is helpful if you're using Gitlab's Project Access Tokens, which are generated on a per-project basis.
