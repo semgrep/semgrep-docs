@@ -76,6 +76,9 @@ OPTIONS
        --emacs-output=VAL
            Write a copy of the emacs output to a file or post to URL.
 
+       --enable-experimental-requirements
+           Experimental: support wider set of requirements lockfiles.
+
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
            a 'nosem' comment at the end. Enabled by default.
@@ -96,7 +99,7 @@ OPTIONS
 
        --exclude-minified-files
            Skip minified files. These are files that are > 7% whitespace, or
-           who have a large number of bytes per line. By defualt minified
+           who have a large number of bytes per line. By default minified
            files are scanned 
 
        --exclude-rule=VAL
@@ -233,7 +236,7 @@ OPTIONS
        --max-log-list-entries=VAL (absent=100)
            Maximum number of entries that will be shown in the log (e.g.,
            list of rule ids, list of skipped files). A zero or negative value
-           disables this filter. Defaults to 100.
+           disables this filter. Defaults to 100
 
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile
@@ -294,8 +297,8 @@ OPTIONS
            on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
-           Inter-file analysis and Pro languages (currently Apex and Elixir).
-           Requires Semgrep Pro Engine. See
+           Inter-file analysis and Pro languages (currently Apex, C#, and
+           Elixir. Requires Semgrep Pro Engine. See
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-intrafile
@@ -304,8 +307,9 @@ OPTIONS
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-languages
-           Enable Pro languages (currently Apex and Elixir). Requires Semgrep
-           Pro Engine. See https://semgrep.dev/products/pro-engine/ for more.
+           Enable Pro languages (currently Apex, C#, and Elixir). Requires
+           Semgrep Pro Engine. See https://semgrep.dev/products/pro-engine/
+           for more.
 
        --pro-path-sensitive
            Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
@@ -391,10 +395,6 @@ OPTIONS
        --text-output=VAL
            Write a copy of the text output to a file or post to URL.
 
-       --time
-           Include a timing summary with the results. If output format is
-           json, provides times for each pair (rule, target). 
-
        --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
            If set to 0 will not have time limit. Defaults to 5.0 s. 
@@ -432,6 +432,9 @@ OPTIONS
 
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
+
+       --x-dump-rule-partitions=VAL (absent=0)
+           Internal flag.
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)

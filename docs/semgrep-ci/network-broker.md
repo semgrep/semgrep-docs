@@ -25,7 +25,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
 - The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
   - If you will be using the broker with a dedicated Semgrep tenant, please note that in your request.
 - **Docker** must be installed on the server where you install the network broker.
-- Ensure that you allocate at least 3 GB RAM for each instance of Semgrep Network Broker that you run.
+- Ensure that you allocate at least 1 CPU and 512 MB RAM for each instance of Semgrep Network Broker that you run.
 
 ## Configure Semgrep Network Broker
 
@@ -98,14 +98,14 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 For GitLab: 
 <pre class="language-console"><code>
 gitlab:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
 
 For GitHub:
 <pre class="language-console"><code>
 github:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 &nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
@@ -180,7 +180,9 @@ inbound:
 
 ## Use Semgrep Network Broker with Managed Scans
 
-Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. 
+
+To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
@@ -189,6 +191,17 @@ inbound:
     - url: https://git.example.com/*
       methods: [GET, POST]
 ```
+
+Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. To ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
+
+```
+inbound:
+  allowlist:
+    # allow PATCH requests to update checks
+    - url: https://git.example.com/api/v3/repos/:owner/:repo/check-runs/:id
+      methods: [GET, POST, PATCH]
+```
+
 ## Run multiple instances of the Semgrep Network Broker
 
 You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. However, you may see some noise in your logs since the Broker hasn't been architected yet for this specific configuration.

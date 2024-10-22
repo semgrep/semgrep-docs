@@ -87,6 +87,11 @@ See the following rule for a more complex example illustrating Semgrep features:
 - In the sanitizer, it removes type aware Booleans and a string convert function.
 - It leverages regex only to reduce how many patterns to write for finding dangerous functions.
 
+### Does Semgrep support all versions of a language?
+
+See [Support for all versions of a programming language](/kb/semgrep-code/support-for-language-versions).
+
+
 ## Comparisons
 
 ### How is Semgrep different from $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?

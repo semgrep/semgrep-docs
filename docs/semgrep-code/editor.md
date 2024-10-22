@@ -186,7 +186,9 @@ Once you've written a rule and created comment annotations, you can run your rul
 Code search allows you to test a Semgrep rule by running it against one or more GitHub repositories or projects instead of just a few lines of test code. Its results highlight all instances of matching code in those target repositories, allowing you to see whether your rule works as intended or not. This rapid feedback can help you develop more accurate and effective rules.
 
 ![Code search in Semgrep Editor](/img/code-search.png)
-***Figure.*** Code search in Semgrep Editor
+_**Figure.** Code search in Semgrep Editor._
+
+The [Semgrep Network Broker](/semgrep-ci/network-broker) does not support code search at this time.
 
 ### Prerequisites
 

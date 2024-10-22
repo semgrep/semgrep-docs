@@ -314,13 +314,22 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 <IpAddresses />
 
+Alternatively, you can use the [Semgrep Network Broker](/docs/semgrep-ci/network-broker) to facilitate secure access with Semgrep instead of allowlisting these IP addresses.
+
+#### Features that require inbound network connectivity
+
+- [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
+- [PR and MR comments](/category/pr-or-mr-comments)
+- [Semgrep Managed Scans](/deployment/managed-scanning)
+- [Semgrep Assistant](/semgrep-assistant/getting-started)
+
 ### Semgrep versions
 
-Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep AppSec Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
+Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep AppSec Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 1.60.0, all versions greater than 1.50.0 are supported, while earlier versions, such as 1.49.0, can be deprecated or can result in failures.
 
 To update Semgrep, see [Update Semgrep](/update).
 
-Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up to date.
 
 ### Semgrep AppSec Platform session details
 
