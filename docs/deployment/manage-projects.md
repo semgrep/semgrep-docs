@@ -14,8 +14,6 @@ View, sort, and tag your projects through the **Projects** page. A **project** i
 
 Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high finding count.
 
-Additionally, the Semgrep API enables you to filter tags for additional workflows and integrations into your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See [Tags](/semgrep-appsec-platform/tags) for more information.
-
 Each project has its own **Project detail** page, where you can filter scans, configure settings, and view detailed logs for each scan that has been run. 
 
 ![Semgrep AppSec Platform > Projects page](/img/projects-page.png)
@@ -26,6 +24,8 @@ Use the **Project detail** page to:
 - View trends over time, such as longer or shorter scan durations.
 - Share information when troubleshooting scans through the **Scans** tab.
 - Update a project's tags, primary branch, and path ignores through the **Settings** tab.
+
+Additionally, the Semgrep API enables you to filter tags for additional workflows and integrations into your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See [Tags](/semgrep-appsec-platform/tags) for more information.
 
 ## Sort projects
 
