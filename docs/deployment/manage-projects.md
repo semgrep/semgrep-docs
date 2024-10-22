@@ -48,7 +48,7 @@ The following filters are available:
 - **Time period**: 7 days or 1 month
 - **Scan type**: Full or diff-aware scans
 - **Status**: Running, completed, error, or never finished
-- **Duration**: You can set the amount of hours or minutes
+- **Duration**: The amount of time the scan took to complete in hours or minutes
 
 :::note
 Scan details, such as logs, are available for scans run in the past **1 month**.
