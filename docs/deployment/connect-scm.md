@@ -90,6 +90,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Cloud** and enter the personal access token generated into the **Access token** field.
 1. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+1. Optional, but recommended: if you have multiple GitLab groups in your GitLab account, create a source code manager per group. Repeat steps 1, 3-4 for each GitLab group.
 1. The GitLab groups are now listed under **Source code managers**. Click **Test connection** to verify that the new integration is configured correctly.
 
 ## Connect to on-premise orgs and projects
