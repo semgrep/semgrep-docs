@@ -91,7 +91,16 @@ module.exports = {
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
                         'semgrep-ci/configuring-blocking-and-errors-in-ci',
-                        'deployment/managed-scanning',
+                        {
+                          type: 'category',
+                          label: 'Managed Scans (beta)',
+                          collapsible: true,
+                          link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
+                          items: [
+                              'deployment/managed-scanning/github',
+                              'deployment/managed-scanning/gitlab'
+                          ]
+                      },
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
