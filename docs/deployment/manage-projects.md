@@ -10,7 +10,7 @@ tags:
 
 # Manage projects
 
-View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through either CI or Semgrep Managed Scans, and includes that repository's findings and metadata.
+View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through CI or Semgrep Managed Scans, and includes that repository's findings and metadata.
 
 Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high finding count.
 
