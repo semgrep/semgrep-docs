@@ -15,6 +15,8 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 
 * `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
 * `requirements.pip`
+* `requirement.txt`, including those in a requirement folder, such as `**/requirement/*.txt`
+* `requirement.pip`
 * `Pipfile.lock`
 * `Poetry.lock`
 
@@ -35,8 +37,6 @@ To generate a `requirements.txt` file from `requirements.in`, enter the followin
 ```bash
 pip-compile -o requirements.txt
 ```
-
-> Semgrep can also use the file if you change the extension of `requirements.txt` to `requirements.pip`.
 
 Now, you have successfully generated a `requirements.txt` file with direct and transitive dependencies that Semgrep Supply Chain can scan.
 
