@@ -1,9 +1,9 @@
 ---
 slug: semgrep-pro-vs-oss
 append_help_link: true
-title: Semgrep Pro versus Semgrep OSS
+title: Semgrep AppSec Platform versus Semgrep OSS
 hide_title: true
-description: "Learn about the features and differences of Semgrep OSS and Semgrep Pro."
+description: "Learn about the features and differences of Semgrep AppSec Platform and Semgrep OSS."
 tags:
   - Support
   - Semgrep AppSec Platform
@@ -30,7 +30,7 @@ The offerings in this document are defined as follows:
   <dd>
     <p style={{marginBottom: '0.5rem'}}>Refers to proprietary offerings from Semgrep, Inc. These include the following products:</p>
     <dl style={{marginTop: '0px'}}>
-      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (interprocedural) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
+      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
       <dt>Semgrep Secrets</dt><dd>A secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
     </dl>
@@ -47,6 +47,8 @@ Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 _**Figure**. A typical AppSec security program's core workflows and the scope of out-of-the-box Semgrep OSS and Semgrep AppSec Platform features._
 
 ### Deploy
+
+_Deployment refers to the process of integrating Semgrep into your developer and infrastructure workflows._
 
 <div class="col-2-grid" >
 <div> 
@@ -75,7 +77,7 @@ Semgrep AppSec Platform can perform scans in the following environments:
 
 Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
 
-Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through Managed Scans. tk link
+Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
 
 AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
@@ -83,6 +85,8 @@ AppSec Platform supports various CI providers and source code managers (SCMs) su
 </div>
 
 ### Scan
+
+_The process of analyzing source code for findings. This section explains the analyses available to both product offerings._
 
 <div class="col-2-grid"> 
 <div>
@@ -153,6 +157,8 @@ _**Figure**. Semgrep AppSec Platform scan process._
 
 ### Triage and remediate
 
+_Triage is the process of reviewing findings and determining if a finding is a true or false positive, and whether to fix the finding or not. Remediation refers to the steps taken to resolve the finding._
+
 <div class="col-2-grid"> 
 <div>
 
@@ -175,9 +181,7 @@ Semgrep AppSec Platform tracks a single finding throughout its lifetime from its
 
 Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
 
-Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives. Learn more about Semgrep Assistant's accuracy.
-
-tk link to false positive
+Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives. [<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Assistant's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
 
 ###### Remediation
 
@@ -192,9 +196,9 @@ In addition to Semgrep OSS's autofix feature, Semgrep AppSec Platform provides A
 
 ### Tune and prevent 
 
-Tuning refers to the improvement of Semgrep's engine, rules, and policies to improve such metrics as the true positive rate, net new findings, and findings fixed before they enter production. 
+_Tuning refers to the improvement of Semgrep's engine, rules, and policies to improve such metrics as the true positive rate, net new findings, and findings fixed before they enter production._
 
-Tuning assists in the prevention of vulnerabilities from entering production.
+_Tuning assists in the prevention of vulnerabilities from entering production._
 
 <div class="col-2-grid"> 
 <div>
@@ -210,16 +214,16 @@ Semgrep OSS does not provide any metrics that may inform you of potential perfor
 
 ##### Semgrep AppSec Platform
 
-The Policies feature manage rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers.
+The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
 
 You are able to test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
-
-tk link to Policies
 
 </div>
 </div>
 
 ### Report 
+
+_Track the success of your security program and trends over time by generating reports._
 
 <div class="col-2-grid"> 
 <div>
@@ -243,6 +247,10 @@ It is optimized to show progress towards the adoption of a **secure guardrails**
 
 </div>
 </div>
+<br />
+
+![Dashboard page](/img/dashboard-fold.png)
+_**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
 
 <!-- 
 
