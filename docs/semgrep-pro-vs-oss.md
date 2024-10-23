@@ -9,6 +9,8 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import Link from '@docusaurus/Link'
+
 # Semgrep AppSec Platform versus Semgrep OSS
 
 You can use Semgrep AppSec Platform or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
@@ -24,11 +26,11 @@ The offerings in this document are defined as follows:
 <dl>
   <dt>Semgrep OSS</dt>
   <dd>
-    Refers to Semgrep offerings with an open source license, primarily the Semgrep OSS Engine, a fast and customizable static application security testing (SAST) scanner.
+    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules for use with Semgrep OSS. Semgrep OSS is best for small teams or personal projects.
   </dd>
-  <dt>Semgrep AppSec Platform</dt>
+  <dt>Semgrep AppSec Platform (Semgrep)</dt>
   <dd>
-    <p style={{marginBottom: '0.5rem'}}>Refers to proprietary offerings from Semgrep, Inc. These include the following products:</p>
+    <p style={{marginBottom: '0.5rem'}}>Refers to a proprietary software suite tailored to support AppSec engineers through the entire software development life cycle (SDLC). Best for deploying security programs throughout their organization. Many of Semgrep's features support the deployment of <Link to ='/secure-guardrails/secure-guardrails-in-semgrep'>secure guardrails</Link>. Semgrep includes the following products:</p>
     <dl style={{marginTop: '0px'}}>
       <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
@@ -75,7 +77,7 @@ Semgrep AppSec Platform can perform scans in the following environments:
 - IDE
 - `pre-commit`
 
-Your scan configuration, such as rules and policies, or type of scan (SAST, SCA, or secrets) are preserved across all environments.
+Your scan configuration, such as rules and policies, and scan analysis (SAST, SCA, or secrets) are preserved across all environments.
 
 Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
 
@@ -254,17 +256,6 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 <!-- 
 
-**Semgrep OSS** is comprised of an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules for use with Semgrep OSS. 
-
-Semgrep OSS is best for small teams or personal projects.
-
-### Deployment and CI integration 
-
-Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan` command. It can also scan a remote repository by running a CI job. However, you must write and configure the CI job for each repository. 
-
-### Scanning and analysis 
-
-### Triage and remediation
 
 
 </div>
@@ -272,7 +263,6 @@ Semgrep OSS primarily runs in your local machine's CLI through the `semgrep scan
 
 ## Semgrep AppSec Platform
 
-**Semgrep AppSec Platform** is a software suite tailored to support AppSec engineers through the entire software development life cycle (SDLC).
 
 ### Deployment and CI
 

@@ -830,7 +830,10 @@ a[class*=cardContainer_][class~=card]  {
         display: flex;
         justify-content: space-between;
     }
-    .col-3-grid, .col-2-grid > div > p, li {
+    .col-3-grid, .col-2-grid p {
+        font-size: 14px;
+    }
+    .col-3-grid, .col-2-grid li {
         font-size: 14px;
     }
 }
