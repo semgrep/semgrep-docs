@@ -21,6 +21,10 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
+       --allow-dynamic-dependency-resolution
+           Experimental: allow resolving dependencies dynamically by
+           communicating with package managers during the scan.
+
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
            semgrep.dev. Avoid running rules from origins you don't trust.
@@ -99,7 +103,7 @@ OPTIONS
 
        --exclude-minified-files
            Skip minified files. These are files that are > 7% whitespace, or
-           who have a large number of bytes per line. By default minified
+           who have a large number of bytes per line. By defualt minified
            files are scanned 
 
        --exclude-rule=VAL
@@ -408,7 +412,7 @@ OPTIONS
            is meant for internal use and may be changed or removed without
            warning. 
 
-       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINTS env)
+       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINT env)
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
@@ -434,6 +438,12 @@ OPTIONS
            Write a copy of the vim output to a file or post to URL.
 
        --x-dump-rule-partitions=VAL (absent=0)
+           Internal flag.
+
+       --x-partial-config=VAL
+           Internal flag.
+
+       --x-partial-output=VAL
            Internal flag.
 
 COMMON OPTIONS
@@ -513,7 +523,7 @@ ENVIRONMENT
        SEMGREP_JOB_URL
            See option --semgrep-job-url.
 
-       SEMGREP_OTEL_ENDPOINTS
+       SEMGREP_OTEL_ENDPOINT
            See option --trace-endpoint.
 
        SEMGREP_PR_ID
