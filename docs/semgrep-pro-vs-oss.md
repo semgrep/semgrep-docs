@@ -191,7 +191,6 @@ Assistant also provides AI-assisted remediation with the following features:
 - Step-by-step remediation.
 - Can be viewed by developers and AppSec engineers in their preferred environment.
 - Ability to learn your preferred libraries and functions through Assistant Memories.
--
 Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
 
 </div>
