@@ -486,6 +486,9 @@ See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matchin
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
 
+img[src*="full"] {
+  width: 100%;
+}
 img[src*="no-shadow"] {
   box-shadow: 0px 0px 0px !important;
   border: none !important;
@@ -794,3 +797,44 @@ a[class*=cardContainer_][class~=card]  {
   box-shadow: var(--semgrep-docs-box-shadow);
   border: var(--semgrep-docs-border);
 }
+
+
+/******************************************************************************
+ *                                                                            *
+ * GRID COLUMNS                                                               *
+ *                                                                            *
+ *****************************************************************************/
+
+/* columns */
+.col-3-grid > * {
+    border-right: 1px solid var(--semgrep-grey-300);
+}
+
+.col-3-grid > div {
+  width: calc(33.3% - 0.7rem);
+  padding-right: 0.7rem;
+}
+
+.col-2-grid > div:first-of-type {
+    border-right: 1px solid var(--semgrep-grey-300);
+}
+
+.col-2-grid > div {
+  width: calc(50% - 0.7rem);
+  padding-right: 0.7rem;
+}
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .col-3-grid, .col-2-grid {
+        display: flex;
+        justify-content: space-between;
+    }
+    .col-3-grid, .col-2-grid p {
+        font-size: 14px;
+    }
+    .col-3-grid, .col-2-grid li {
+        font-size: 14px;
+    }
+}
+
