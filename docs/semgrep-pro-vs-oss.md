@@ -219,7 +219,7 @@ Semgrep OSS does not provide any metrics that may inform you of potential perfor
 
 The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
 
-You are able to test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
+You can test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
 
 You can also write custom SAST and Secrets rules and share these rules to the rest of your organization.
 
