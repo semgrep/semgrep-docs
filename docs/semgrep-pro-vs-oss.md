@@ -101,7 +101,7 @@ Semgrep OSS provides the following SAST analyses:
 - Single function taint analysis 
 - Semantic analysis
 
-The scope makes it fast, at the cost of coverage and precision.
+The limited scope makes it fast, at the cost of coverage and precision.
 
 It can't track data beyond a single function or file and may find more false positives.
 
