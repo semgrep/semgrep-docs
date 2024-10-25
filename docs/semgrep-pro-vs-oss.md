@@ -50,7 +50,7 @@ _**Figure**. A typical AppSec security program's core workflows and the scope of
 
 ### Deployment
 
-The process of integrating Semgrep into your developer and infrastructure workflows._
+_The process of integrating Semgrep into your developer and infrastructure workflows._
 
 <div class="col-2-grid" >
 <div> 
@@ -109,7 +109,6 @@ It can't track data beyond a single function or file and may find more false pos
 <div>
 
 ##### Semgrep AppSec Platform 
-
 
 Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
 
