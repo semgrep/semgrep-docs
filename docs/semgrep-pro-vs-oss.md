@@ -289,7 +289,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 - [IDE plugins](/extensions/overview) with persistent settings across your organization
 - [`pre-commit` with persistent settings](/extensions/overview#pre-commit) across your organization
 - Connects to [GitHub, GitLab, Bitbucket, and Azure DevOps repositories](/deployment/connect-scm)
-- Secure access between your private network and Semgrep through the [Network Broker](docs/semgrep-ci/network-broker)
+- Secure access between your private network and Semgrep through the [Network Broker](/semgrep-ci/network-broker)
 - Single tenancy
 - [Managed scans](/deployment/managed-scanning)
 - [SSO](/deployment/sso) and managed authentication through GitHub or GitLab
