@@ -69,7 +69,7 @@ Deploying in bulk or at scale is manual: it can scan a remote repository by runn
 
 ##### Semgrep AppSec Platform 
 
-Semgrep AppSec Platform can perform scans in the following environments:
+Semgrep AppSec Platform can scan in the following environments:
 
 - CI
 - Web app (for Managed Scans)
