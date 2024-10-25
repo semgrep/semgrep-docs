@@ -101,7 +101,7 @@ Semgrep OSS provides the following SAST analyses:
 - Single function taint analysis 
 - Semantic analysis
 
-The scope makes it fast, at the cost of coverage and precision.
+The limited scope makes it fast, at the cost of coverage and precision.
 
 It can't track data beyond a single function or file and may find more false positives.
 
@@ -191,7 +191,6 @@ Assistant also provides AI-assisted remediation with the following features:
 - Step-by-step remediation.
 - Can be viewed by developers and AppSec engineers in their preferred environment.
 - Ability to learn your preferred libraries and functions through Assistant Memories.
--
 Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
 
 </div>
@@ -219,7 +218,7 @@ Semgrep OSS does not provide any metrics that may inform you of potential perfor
 
 The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
 
-You are able to test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
+You can test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
 
 You can also write custom SAST and Secrets rules and share these rules to the rest of your organization.
 
