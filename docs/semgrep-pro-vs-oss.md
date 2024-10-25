@@ -69,7 +69,7 @@ Deploying in bulk or at scale is manual: it can scan a remote repository by runn
 
 ##### Semgrep AppSec Platform 
 
-Semgrep AppSec Platform can perform scans in the following environments:
+Semgrep AppSec Platform can scan in the following environments:
 
 - CI
 - Web app (for Managed Scans)
@@ -79,7 +79,7 @@ Semgrep AppSec Platform can perform scans in the following environments:
 
 Your scan configuration, such as rules and policies, and scan analysis (SAST, SCA, or secrets) are preserved across all environments.
 
-Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
+Users comfortable with granting Semgrep code access can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
 
 AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
@@ -211,7 +211,7 @@ _Tuning assists in the prevention of vulnerabilities from entering production._
 
 ##### Semgrep OSS
 
-Tuning is not supported in Semgrep OSS but you can customize the rules you run on your scans.
+Tuning is not supported in Semgrep OSS, but you can customize the rules you run on your scans.
 
 Semgrep OSS does not provide any metrics that may inform you of potential performance improvements you can make.
 
