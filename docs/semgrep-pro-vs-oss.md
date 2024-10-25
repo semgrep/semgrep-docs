@@ -16,7 +16,7 @@ import Link from '@docusaurus/Link'
 You can use Semgrep AppSec Platform or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
 
 :::tip 
-Refer to the appendix to skim all features of both offerings.
+Refer to the [appendix](#appendix) to skim all features of both offerings.
 :::
 
 ## Product terms
@@ -172,7 +172,7 @@ _**Ticketing and notification integrations** are included in this workflow to in
 
 There are no out-of-the-box features in Semgrep OSS for triaging findings.
 
-However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as GitHub Advanced Security.
+However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as DefectDojo.
 
 </div>
 <div>
@@ -266,7 +266,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 ##### Semgrep OSS
 
-- Local scans 
+- [Local scans](/getting-started/cli-oss)
 - Manual CI job set up
 - IDE plugins
 - `pre-commit`
@@ -275,14 +275,14 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 ##### Semgrep AppSec Platform
 
-- Local scans
-- Supports various CI providers from within the web app
+- [Local scans](/getting-started/cli)
+- Automated set up with various CI providers through the web app along with the option for manual configuration
 - IDE plugins with persistent settings across the entire organization
 - `pre-commit` with persistent settings across the entire organization
 - Connects to GitHub, GitLab, Bitbucket, Azure Repos repositories
-- Semgrep Network broker can secure access between your private network and Semgrep
+- Secure access between your private network and Semgrep through the [Network Broker](docs/semgrep-ci/network-broker)
 - Single tenancy
-- Managed scans
+- [Managed scans](/deployment/managed-scanning)
 - SSO and managed authentication through GitHub or GitLab
 - Automated onboarding, project tagging
 - Team management
@@ -316,7 +316,8 @@ All products make use of cross file, cross function taint analysis and more
 
 - 35+ Supported languages
 - Pro (professionally written and maintained) and Community rules
-- Framework-specific and language-specific analysis
+- Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/semgrep-code/supported-languages-python)
+- [Code search](/semgrep-code/editor#code-search-beta)
 
 ###### Semgrep Supply Chain (SCA)
 
