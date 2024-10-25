@@ -123,7 +123,6 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Produ
 <details>
 <summary>Click to view Semgrep Supply Chain analyses and functions (SCA)</summary>
 - Reachability analysis
-- Software bill of materials (SBOM) generation
 - Open source license enforcement
 - Dependency search
 </details>
@@ -185,13 +184,18 @@ Semgrep AppSec Platform tracks a single finding throughout its lifetime from its
 
 Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
 
-Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives. [<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Assistant's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
-Assistant also provides AI-assisted remediation with the following features:
+Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives.
 
-- Step-by-step remediation.
-- Can be viewed by developers and AppSec engineers in their preferred environment.
-- Ability to learn your preferred libraries and functions through Assistant Memories.
-Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
+<details>
+<summary>Click to view Semgrep Assistant analyses and functions</summary>
+- Step-by-step remediation
+- Can be viewed by developers and AppSec engineers in their preferred environment
+- Ability to learn your preferred libraries and functions through **Assistant Memories**
+
+[<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Assistant's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
+</details>
+
+Lastly, Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
 
 </div>
 </div>
@@ -249,6 +253,8 @@ It is optimized to show progress towards the adoption of a **secure guardrails**
 - Findings fixed before backlog (before entering production)
 - Most findings by project
 
+Semgrep Supply Chain can export SBOMs (software bills of materials) for you to keep track of all of a codebase's dependencies.
+
 </div>
 </div>
 <br />
@@ -266,25 +272,27 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 ##### Semgrep OSS
 
 - [Local scans](/getting-started/cli-oss)
-- Manual CI job set up
-- IDE plugins
-- `pre-commit`
+- [Manual CI job set up](/deployment/oss-deployment)
+- [IDE plugins](/extensions/overview)
+- [`pre-commit`](/extensions/overview#pre-commit)
+
 </div>
 <div>
 
 ##### Semgrep AppSec Platform
 
 - [Local scans](/getting-started/cli)
-- Automated set up with various CI providers through the web app along with the option for manual configuration
-- IDE plugins with persistent settings across the entire organization
-- `pre-commit` with persistent settings across the entire organization
-- Connects to GitHub, GitLab, Bitbucket, Azure Repos repositories
+- [Automated set up with various CI providers](/deployment/add-semgrep-to-ci) through the web app
+    - [Manual configuration options](/deployment/add-semgrep-to-other-ci-providers) for other providers
+- [IDE plugins](/extensions/overview) with persistent settings across your organization
+- [`pre-commit` with persistent settings](/extensions/overview#pre-commit) across your organization
+- Connects to [GitHub, GitLab, Bitbucket, and Azure DevOps repositories](/deployment/connect-scm)
 - Secure access between your private network and Semgrep through the [Network Broker](docs/semgrep-ci/network-broker)
 - Single tenancy
 - [Managed scans](/deployment/managed-scanning)
-- SSO and managed authentication through GitHub or GitLab
-- Automated onboarding, project tagging
-- Team management
+- [SSO](/deployment/sso) and managed authentication through GitHub or GitLab
+- [Project (repository) management](/deployment/manage-projects), such as tagging, setting of a primary branch, and so on
+- [Team management](/deployment/teams)
 
 </div>
 </div>
@@ -301,8 +309,8 @@ Limited cross function, limited taint analysis
 
 ###### Semgrep OSS (SAST)
 
-- 30+ Community supported languages
-- Community rules
+- [30+ Community supported languages](/supported-languages#semgrep-code-and-oss)
+- [<i class="fas fa-external-link fa-xs"></i> Community rules](https://semgrep.dev/r?visib=Community+%28Public%29)
 
 </div>
 <div>
@@ -313,21 +321,22 @@ All products make use of cross file, cross function taint analysis and more
 
 ###### Semgrep Code (SAST)
 
-- 35+ Supported languages
-- Pro (professionally written and maintained) and Community rules
+- [35+ supported languages](/supported-languages#semgrep-code-and-oss)
+- [<i class="fas fa-external-link fa-xs"></i> Pro (professionally written and maintained)](https://semgrep.dev/r?visib=Pro+%28Login%29) and Community rules
 - Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/semgrep-code/supported-languages-python)
 - [Code search](/semgrep-code/editor#code-search-beta)
 
 ###### Semgrep Supply Chain (SCA)
 
-- 10+ Supported languages
-- Lockfile and reachability analysis
-- High and Critical CVEs covered for supported languages since 2017
+- [10+ supported languages](/supported-languages#semgrep-supply-chain)
+- [Lockfile and reachability](/semgrep-supply-chain/overview#open-source-security-vulnerabilities) analysis
+- 100% of High and Critical CVEs covered for supported languages since May 2022
 
 ###### Semgrep Secrets
 
-- Validation and entropy
+- [Entropy, semantic analysis, and validation](/semgrep-secrets/conceptual-overview) ensure that detected keys are actually active and leaked
 - 500+ credentials or keys detected by Semgrep Secrets
+- [Historical scans](/semgrep-secrets/historical-scanning)
 
 </div>
 </div>
@@ -346,14 +355,14 @@ All products make use of cross file, cross function taint analysis and more
 
 ##### Semgrep AppSec Platform
 
-- AppSec Platform tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR).
+- AppSec Platform tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
-- AI-assisted component tagging
-- AI-assisted Memories, which enable you to tell the AI organization specific libraries to suggest when guiding developers.
-- PR comments or MR comments can be sent to developers in their native environment (GitHub, GitLab, Azure Devops, Bitbucket) and developers can triage in their native development through triage commands.
-- Slack, email, and webhook notification channels
-- Creation of Jira tickets and customizable mapping of attributes
+- AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
+- AI-assisted [Memories](/semgrep-assistant/overview#memories-beta), which enable you to tell the AI organization specific libraries to suggest when guiding developers
+- [PR comments or MR comments](/category/pr-or-mr-comments) can be sent to developers in their native environment (GitHub, GitLab, Azure DevOps, Bitbucket) and developers can triage in their native development through triage commands
+- Slack, email, and webhook [notification channels](/semgrep-appsec-platform/notifications)
+- [Creation of Jira tickets](/semgrep-appsec-platform/jira) and customizable mapping of attributes
 
 </div>
 </div>
@@ -366,7 +375,7 @@ All products make use of cross file, cross function taint analysis and more
 ##### Semgrep OSS
 
 Minimal customization options to tune your scans:
-- Customize SAST scans through rule selection 
+- Customize SAST scans through the rules you run in the CLI
 - Write custom SAST rules
 
 </div>
@@ -375,15 +384,15 @@ Minimal customization options to tune your scans:
 
 ##### Semgrep AppSec Platform
 
-- Customize SAST and Secrets scans through rule selection
-- Write, save, manage, and fork custom SAST and Secrets detection rules
-- AI assistance for rule writing
-- Store rules in Semgrep AppSec Platform and deploy to your organization.
-- Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans.
-- Semgrep Code: Code search
+- Customize SAST and Secrets scans through rule selection in [policies](/semgrep-code/triage-remediation)
+- Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
+- [AI assistance for rule writing](/semgrep-assistant/getting-started#write-custom-rules-beta)
+- Store rules in Semgrep AppSec Platform and deploy to your organization
+- Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
+- Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)
 - Semgrep Supply Chain:
-    - License enforcement
-    - Dependency search
+    - [License compliance](/semgrep-supply-chain/license-compliance)
+    - [Dependency search](/semgrep-supply-chain/dependency-search)
 
 </div>
 </div>
