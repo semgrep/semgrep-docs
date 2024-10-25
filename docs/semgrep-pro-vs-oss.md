@@ -79,7 +79,7 @@ Semgrep AppSec Platform can perform scans in the following environments:
 
 Your scan configuration, such as rules and policies, and scan analysis (SAST, SCA, or secrets) are preserved across all environments.
 
-Users comfortable with granting Semgrep code access, can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
+Users comfortable with granting Semgrep code access can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
 
 AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
