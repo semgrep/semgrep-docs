@@ -59,7 +59,7 @@ _The process of integrating Semgrep into your developer and infrastructure workf
 
 Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
 
-Deploying in bulk or at scale is manual: it can scan a remote repository by running a CI job but you must write and configure the CI job for each repository. 
+Deploying in bulk or at scale is a manual task. Semgrep OSS can scan a remote repository by running as part of a CI job but you must write and configure the CI job for each repository. 
 
 <!-- Environments are omitted due to differences in licensing -
 `semgrep scan` can be run in IDE atm but the extension is proprietary -->
