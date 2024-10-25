@@ -337,7 +337,7 @@ All AppSec Platform products make use of cross file, cross function taint analys
 ###### Semgrep Secrets
 
 - [Entropy, semantic analysis, and validation](/semgrep-secrets/conceptual-overview) ensure that detected keys are actually active and leaked
-- 500+ credentials or keys detected by Semgrep Secrets
+- 630+ credentials or keys detected by Semgrep Secrets
 - [Historical scans](/semgrep-secrets/historical-scanning)
 
 </div>
