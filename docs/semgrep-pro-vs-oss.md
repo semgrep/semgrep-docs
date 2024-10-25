@@ -148,12 +148,12 @@ Certain languages, such as Apex, are available only on Semgrep AppSec Platform.
 
 The following diagrams summarize the differences between the two:
 
-![Semrep OSS scan process](/img/scan-process-oss.svg) <br />
+![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
 _**Figure**. Semgrep OSS scan process._
 
 <br />
 
-![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg) <br />
+![Semgrep AppSec Platform scan process](/img/scan-process-sap.svg#full) <br />
 _**Figure**. Semgrep AppSec Platform scan process._
 
 ### Triage and remediation
@@ -304,7 +304,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 ##### Semgrep OSS
 
-Limited cross function, limited taint analysis
+Semgrep OSS provides cross function constant propagation and single function taint analysis.
 <br />
 
 ###### Semgrep OSS (SAST)
@@ -317,7 +317,7 @@ Limited cross function, limited taint analysis
 
 ##### Semgrep AppSec Platform
 
-All products make use of cross file, cross function taint analysis and more
+All AppSec Platform products make use of cross file, cross function taint analysis and more.
 
 ###### Semgrep Code (SAST)
 
@@ -412,8 +412,8 @@ Minimal customization options to tune your scans:
 
 ##### Semgrep AppSec Platform
 
-- Dashboard
-- SBOM Export
+- [Dashboard](/semgrep-appsec-platform/dashboard)
+- [SBOM Export](/docs/semgrep-supply-chain/sbom)
 
 </div>
 </div>
