@@ -211,7 +211,7 @@ _Tuning assists in the prevention of vulnerabilities from entering production._
 
 ##### Semgrep OSS
 
-Tuning is not supported in Semgrep OSS but you can customize the rules you run on your scans.
+Tuning is not supported in Semgrep OSS, but you can customize the rules you run on your scans.
 
 Semgrep OSS does not provide any metrics that may inform you of potential performance improvements you can make.
 
