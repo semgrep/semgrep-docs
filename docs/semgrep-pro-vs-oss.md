@@ -117,6 +117,9 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Produ
 - Cross file, cross function constant propagation
 - Cross file, cross function taint analysis 
 - Framework and language-specific semantic analysis
+- **Semgrep Assistant** (AI-assisted) post-processing analysis:
+    - Reduces noise by 20%
+    - Adds contextual remediation guidance
 </details>
 
 <details>
