@@ -28,23 +28,222 @@ This document provides information about supported languages and language maturi
 * Semgrep OSS
 * Semgrep Supply Chain
 
-## Semgrep Code and OSS
+## Semgrep Code and OSS: Overview
 
-Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
+Semgrep OSS is a fast, lightweight program analysis tool that can help you detect security issues in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
+ 
 
-Semgrep Code is a static application security testing (SAST) solution that makes use of proprietary Semgrep analyses, such as cross-file (interfile) and cross-function (intrafile) data flow, in addition to Semgrep OSS. This results in a [higher true positive rate than Semgrep OSS](/semgrep-code/java).
+Semgrep Code is a static application security testing (SAST) solution that makes use of proprietary Semgrep analyses, such as cross-file (interfile) and cross-function (intrafile) data flow, in addition to Semgrep OSS. This results in a [higher true positive rate than Semgrep OSS](/semgrep-code/java). Semgrep Code provides the highest quality support by the Semgrep team: reported issues are resolved promptly.	
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
-| Product | Analysis |
-| -------   | ------ |
-| [<i class="fas fa-external-link fa-xs"></i> Semgrep OSS](https://github.com/semgrep/semgrep) |<ul><li>Single-function analysis</li><li>Single-file analysis</li></ul> |
-| Semgrep Code  |<ul><li>All analyses in the OSS Engine</li><li>Cross-file (interfile) analysis</li><li>Cross-function (interprocedural) analysis</li></ul>   |
+### Semgrep Code and Semgrep OSS: Language support
+
+Semgrep Code supports over 30 languages and counting! 🚀
+
+<table>
+    <thead><tr>
+        <td><strong>Languages</strong></td>
+        <td><strong>🚀 Semgrep Code:</strong> <a href="https://semgrep.dev/pricing">Free for small teams</a></td>
+        <td><strong>🌱 Semgrep OSS  </strong></td>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td>C / C++</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 150+ Pro rules </td>
+      <td> Community Supported <br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>C#</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • Supports up to C# 13 (latest)<br />
+         • 40+ Pro rules </td>
+      <td>Community Supported <br />
+         • Limited to single-function analysis<br />
+         • Only supports up to C# 4.0 ⚠️ <br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Go</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 60+ Pro rules </td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 160+ Pro rules </td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Javascript</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 70+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Kotlin</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • 60+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>[Python](/docs/semgrep-code/supported-languages-python)</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 300+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Typescript</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 70+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 20+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+     <tr>
+      <td>Rust</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 40+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>JSX</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 70+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules</td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 20+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+     <tr>
+      <td>Scala</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Swift</td>
+      <td><strong>✅ Generally Available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 50+ Pro rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules </td>
+    </tr>
+    <tr>
+      <td>Terraform</td>
+      <td><strong>✅ Generally Available</strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td>Community Supported<br />
+         • Limited to single-function analysis<br />
+         • Community rules</td>
+    </tr>
+    <tr>
+      <td>Generic</td>
+      <td><strong>✅ Generally Available </strong></td>
+      <td>Community Supported</td>
+    </tr>
+    <tr>
+      <td>JSON</td>
+      <td><strong>✅ Generally Available </strong></td>
+      <td>Community Supported</td>
+    </tr>
+    <tr>
+      <td>APEX</td>
+      <td><strong>Beta</strong></td>
+      <td>Not Available</td>
+    </tr>
+    <tr>
+      <td>Elixir</td>
+      <td><strong>Beta</strong></td>
+      <td>Not Available</td>
+    </tr>
+   </tbody>
+</table>
+
+
+<details>
+ <summary>Click to view experimental languages.</summary>
+- Bash
+- Cairo
+- Circom
+- Clojure
+- Dart
+- Dockerfile
+- Hack
+- HTML
+- Jsonnet
+- Julia
+- Lisp
+- Lua
+- Move on Aptos
+- Move on Sui
+- Ocaml
+- R
+- Scheme
+- Solidity
+- YAML
+- XML
+</details>
+
+
+
 
 ### Language maturity levels
 Semgrep Code languages can be classified into four maturity levels:
 
-* Generally available (GA)
+* Generally available 
 * Beta
 * Experimental
 * Community supported\*
@@ -92,56 +291,6 @@ Their differences are outlined in the following table:
 
 ### Semgrep Code language support
 
-Semgrep Code supports over 30 languages and counting! 🚀
-
-<SupportedLanguagesTable />
-
-
-### Semgrep OSS language support
-
-**All Semgrep OSS languages are community supported.** Community supported languages must meet the parse rate and syntax requirements of **experimental** support in Semgrep Code to be listed here. Semgrep OSS uses Semgrep's open source engine.
-
-Community supported languages have varying levels of rule coverage - view the registry and filter out Pro rules to see the level of coverage for OSS.
-
-<details>
- <summary>Click to view <strong>Semgrep OSS</strong> languages.</summary>
-
-- Bash
-- C
-- C++
-- C#
-- Cairo
-- Clojure
-- Dart
-- Dockerfile
-- Generic
-- Go
-- Hack
-- HTML
-- Java
-- JavaScript
-- JSON
-- Jsonnet
-- Julia
-- Lisp
-- Lua
-- Kotlin
-- Ruby
-- Rust
-- JSX
-- OCaml
-- PHP
-- Python
-- R
-- Scala
-- Scheme
-- Solidity
-- Swift
-- TypeScript
-- YAML
-- XML
-
-</details>
 
 ### More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
