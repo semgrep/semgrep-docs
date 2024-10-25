@@ -135,7 +135,7 @@ Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Produ
 - Historical scanning
 </details>
 
-Additionally, the Semgrep team maintains and contributes to premium rules, known as Pro rules, specifically making use of the advanced analyses listed here.
+Additionally, the Semgrep team maintains and contributes to premium rules, known as Pro rules, that specifically make use of the advanced analyses listed here.
 
 </div>
 </div>
