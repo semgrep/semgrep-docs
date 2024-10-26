@@ -326,7 +326,7 @@ These types of data include **scan data** and **findings data**.
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
 
-For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
+For more information and a detailed description of each data field, refer to [the relevant section in metrics.md](https://github.com/semgrep/semgrep/blob/develop/metrics.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 
