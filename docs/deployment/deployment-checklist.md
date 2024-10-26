@@ -125,7 +125,7 @@ The following checklist breaks down permissions required by Semgrep features.
 | Feature | Permission required |
 | --- | -------  |
 | Create CI jobs for repositories in bulk and detect GitHub repositories automatically. | Installing GitHub apps.         |
-| GPT-assisted triage and recommendations. | Code access. |
+| AI-assisted triage and recommendations. | Code access. |
 
 </TabItem>
 
@@ -146,7 +146,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <td>Create personal access tokens.</td>
 </tr>
 <tr>
-<td rowspan="2">GPT-assisted triage and recommendations.</td>
+<td rowspan="2">AI-assisted triage and recommendations.</td>
 <td>Create personal or project-level access tokens.</td>
 </tr>
 <tr>
