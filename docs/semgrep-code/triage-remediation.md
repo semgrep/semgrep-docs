@@ -166,17 +166,10 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
-<!--
-## Creating Jira tickets from findings
+## Triage findings in bulk through the Semgrep API
 
-Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their project or bug-tracking environment. This feature is available to Team/Enterprise Tier users.
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either  `new_triage_state` or `new_note`. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
 
-To **create a ticket**:
-
-1. Set up a Jira integration through the [Notifications](/semgrep-app/notifications) guide.
-2. Click the **three-dot icon** of the entry.
-3. Click **Create issue with Jira**.
--->
 
 ## Reduce the number of false positive findings
 
