@@ -108,8 +108,8 @@ Useful features that you can add based on your tech stack. You can integrate the
             <td>Semgrep can send notifications through the following channels:<ul><li>Slack</li> <li>Email</li><li>Webhooks</li></ul></td>
         </tr>
         <tr>
-            <td>GPT-assisted triage and remediation</td>
-            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
+            <td>AI-assisted triage and remediation</td>
+            <td>Semgrep can give AI-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
         </tr>
         <tr>
             <td>IDE integration</td>

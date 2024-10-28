@@ -11,7 +11,7 @@ tags:
 
 # Semgrep Assistant overview
 
-Semgrep Assistant provides GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
 ![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
 _**Figure.** Semgrep Assistant detects the use of untrusted, unsanitized data._
@@ -69,7 +69,7 @@ If many new issues are found in a given scan, Assistant auto-triage and autofix 
 
 ### Component tags
 
-**Component tags** use GPT-4 to categorize a finding based on its function, such as:
+**Component tags** use AI to categorize a finding based on its function, such as:
 
 - Payments
 - User authentication
@@ -84,7 +84,7 @@ _**Figure.** Semgrep AppSec Platform's Findings page showing the Component filte
 
 ### Auto-triage
 
-Semgrep Assistant uses GPT-4's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
+Semgrep Assistant uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
 Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
