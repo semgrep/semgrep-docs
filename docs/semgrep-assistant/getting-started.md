@@ -207,7 +207,7 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
 Your Azure OpenAI model is now configured for use in Semgrep.
 
 :::note
-You can switch to a different Azure OpenAI model anytime by repeating these configuration steps using the Target URI and API key for the new model.
+You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
 #### Troubleshoot issues with Azure OpenAI
