@@ -168,7 +168,7 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 
 ## Triage findings in bulk through the Semgrep API
 
-Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type` such as `sast` or `sca` and either a `new_triage_state` or `new_note`. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either  `new_triage_state` or `new_note`. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
 
 
 ## Reduce the number of false positive findings
