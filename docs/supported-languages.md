@@ -107,6 +107,8 @@ Semgrep Supply Chain parses **lockfiles** for dependencies, then scans your code
 
 For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 
+<div class="language-support-table">
+
 <table>
 <thead><tr>
     <th>Language</th>
@@ -211,7 +213,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✅</td>
-   <td rowspan="8">Not applicable due to reachability support level</td>
+   <td rowspan="6">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -250,7 +252,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
 </tr>
   </tbody>
 </table>
-
+</div>
 _**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
 
 ### Maturity levels
