@@ -3,11 +3,12 @@ slug: faq
 append_help_link: true
 hide_table_of_contents: true
 displayed_sidebar: aboutSidebar
+tags:
+  - Support
 description: >-
   Frequently asked questions about Semgrep, comparisons to similar tools,
   rule licensing, technical support, and more.
 ---
-
 
 import TOCInline from "@theme/TOCInline"
 
@@ -21,7 +22,7 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep OSS Engine
 
-The [Semgrep Engine](https://github.com/semgrep/semgrep) is open-source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
+The [Semgrep Engine](https://github.com/semgrep/semgrep) is open source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
 Semgrep offers three paid products:
 
@@ -39,7 +40,7 @@ Those rules licensed under the Commons Clause license cannot be resold without S
 
 In addition to Semgrep Community rules, [Semgrep Code](https://semgrep.dev/products/semgrep-code) includes **Pro rules** which are proprietary and only available to paying customers.
 
-### Is it ok to run Semgrep or Semgrep, Inc. rules on my work projects?
+### Is it OK to run Semgrep or Semgrep, Inc. rules on my work projects?
 
 Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are **selling** a product using rules provided in the Semgrep Registry. If that’s the case, contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com) for a license.
 
@@ -55,7 +56,7 @@ If you want to use Semgrep Code, including its proprietary cross-file (interfile
 
 Yes, you can use the Semgrep OSS Engine in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semgrep Pro Rules (see below).
 
-The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open-source software (FOSS) product. You have to open source any modifications you have done to the rules.
+The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
 You **cannot** ship the Semgrep Community or Pro rules in a commercial product without a license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
 
@@ -71,11 +72,31 @@ Embed a special version of Semgrep Playground with an `iframe`. The source is `h
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432" frameborder="0"></iframe>
 ```
 
+<!-- vale off -->
+### How does Semgrep go "beyond regex"?
+<!-- vale on -->
+
+Semgrep is semantic grep for code: it understands the **structure of code** and builds a syntax tree to search for matches. Where `grep "2"` only matches the exact string `2`, Semgrep matches other equivalent forms, such as [`x = 1; y = x + 1`](https://semgrep.dev/playground/s/5rKgj) when searching for `2`. Semgrep's [pattern syntax](/writing-rules/pattern-syntax/) provides specific mechanisms to fine-tune matches, such as the [ellipsis operator](/writing-rules/pattern-syntax#ellipsis-operator) and [metavariables](/writing-rules/pattern-syntax#metavariables).
+
+See the following rule for a more complex example illustrating Semgrep features:
+
+<iframe title="Go dangerous method usage" src="https://semgrep.dev/embed/editor?snippet=go.gorm.security.audit.gorm-dangerous-methods-usage.gorm-dangerous-method-usage" width="100%" height="432" frameborder="0"></iframe>
+
+- It uses [typed metavariables](writing-rules/pattern-syntax/#typed-metavariables) so it can specify the type `http.Request`.
+- In the sink, the rule tracks imports down to function usage.
+- In the sanitizer, it removes type aware Booleans and a string convert function.
+- It leverages regex only to reduce how many patterns to write for finding dangerous functions.
+
+### Does Semgrep support all versions of a language?
+
+See [Support for all versions of a programming language](/kb/semgrep-code/support-for-language-versions).
+
+
 ## Comparisons
 
 ### How is Semgrep different from $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
-Semgrep is an open-source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule—no program analysis Ph. D. required!
+Semgrep is an open source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule—no program analysis Ph. D. required!
 
 To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
@@ -101,15 +122,13 @@ Today Semgrep can [do even more with intraprocedural dataflow](https://semgrep.d
 
 #### Integrated: Semgrep understands Git
 
-It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [built-in support for this with Semgrep AppSec Platform](/deployment/add-semgrep-to-ci) and GitHub/GitLab/etc. integrations.
-
 It’s easy to write a new Semgrep rule and have it only apply _going forward_. You can [ignore findings](/ignoring-files-folders-code) of course, but we have [<i class="fas fa-external-link fa-xs"></i> built-in support for this with Semgrep AppSec Platform](https://semgrep.dev/manage) and various repository integrations.
 
 #### Portable: If you write a Semgrep rule, it runs anywhere
 
 Many other tools require a buildable environment or can only be run in a VM. Semgrep runs “on the metal” and has minimal dependencies around a statically linked core; our parsers are declaratively generated C libraries (we contribute to and use [tree-sitter](https://tree-sitter.github.io)).
 
-And many more: see [the Semgrep philosophy](/contributing/semgrep-philosophy) for further reading.
+See [the Semgrep philosophy](/contributing/semgrep-philosophy) for further reading.
 
 ### Comparing Semgrep to linters
 
@@ -132,6 +151,7 @@ Lastly, while many linters are extensible, you need to learn specific abstract s
 
 Both Semgrep and CodeQL use static analysis to find bugs, but there are a few differences:
 
+<!-- vale off -->
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment.
 - Semgrep provides both proprietary and open source options that can be run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code.
 - Semgrep focuses on speed and ease of use. and doesn’t require compiled code.
@@ -139,18 +159,133 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Both have publicly available rules.
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
+<!-- vale on -->
 
 See [the Semgrep development philosophy](/contributing/semgrep-philosophy/) for more about what makes Semgrep different.
 
+### Comparing Semgrep to Endor Labs
+
+#### Prioritization
+
+Both Endor Labs and Semgrep support the prioritization of findings so that AppSec teams focus on the most impactful findings. While both companies offer findings filters based on criteria like reachability and EPSS scores, Semgrep offers support for statuses in addition to the basic reachability statuses of **reachable** and **not reachable**, such as **always reachable** and **conditionally reachable**.
+
+Furthermore, Semgrep Assistant uses AI to help organization admins receive information on top backlog tasks, allowing them to prioritize findings from all products, including the SAST and SCA products, not just those resulting from dependency vulnerability scans.
+
+#### Reachability for transitive dependencies
+
+Reachability has been a fundamental part of Semgrep Supply Chain from the beginning. Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability, offering accuracy beyond that offered by Endor Labs. This coverage is offered for seven languages and counting.
+
+#### Vulnerable functions
+
+Semgrep doesn't just identify a vulnerability as reachable when a vulnerable function is called -- it also takes into account *how* the vulnerable function is called and what data flows into that function. These functions are achieved through the use of Semgrep's rule syntax; when a rule is written, all possible permutations of the vulnerability are encapsulated in the rule. This functionality is something that Endor Labs doesn't have.
+
+Semgrep's security research team doesn't just focus on analyzing a vulnerable function when writing rules. The team extends the scope of analysis to all the third-party callers of the vulnerable functions, not just the reported third-party function that's vulnerable. This extends the set of vulnerable functions greatly. The following rule demonstrates this functionality:
+
+```yaml
+---
+rules:
+  - id: ssc-a462c702-1797-4f92-a577-2232cc25ab08
+    message: Affected versions of paddlepaddle are vulnerable to Improper Limitation
+      Of A Pathname To A Restricted Directory ('Path Traversal') in the
+      `download` and `_check_exists_and_download` of `paddle.dataset.common`.
+    severity: ERROR
+    metadata:
+      confidence: HIGH
+      category: security
+      cve: CVE-2024-0818
+      cwe:
+        - "CWE-22: Improper Limitation of a Pathname to a Restricted Directory
+          ('Path Traversal')"
+      ghsa: GHSA-2rp8-hff9-c5wr
+      owasp:
+        - A01:2021 - Broken Access Control
+        - A05:2017 - Broken Access Control
+        - A06:2021 - Vulnerable and Outdated Components
+      publish-date: 2024-03-07T15:30:38Z
+      references:
+        - https://github.com/advisories/GHSA-2rp8-hff9-c5wr
+        - https://nvd.nist.gov/vuln/detail/CVE-2024-0818
+      sca-fix-versions: []
+      sca-kind: reachable
+      sca-schema: 20230302
+      sca-severity: CRITICAL
+      sca-vuln-database-identifier: CVE-2024-0818
+      technology:
+        - python
+    r2c-internal-project-depends-on:
+      depends-on-either:
+        - namespace: pypi
+          package: paddlepaddle
+          version: <=2.6.0
+    languages:
+      - python
+    patterns:
+      - pattern-either:
+          - pattern: paddle.dataset.common.download(...)
+          - pattern: paddle.dataset.common._check_exists_and_download(...)
+```
+
+The vulnerable function is `download`, as shown by the [fix commit](https://github.com/PaddlePaddle/Paddle/commit/5c50d1a8b97b310cbc36560ec36d8377d6f29d7c). The function `_check_exists_and_download` calls `download`, which you can see in the [source code](https://github.com/PaddlePaddle/Paddle/blob/5c50d1a8b97b310cbc36560ec36d8377d6f29d7c/python/paddle/dataset/common.py#L223). Thus, both functions are flagged in the rule in the final three lines.
+
+Learn more about how the security research team writes rules in [A day in the life: Supply Chain Security Researcher](https://semgrep.dev/blog/2024/a-day-in-the-life-supply-chain-security-researcher)
+
+#### Policies and flexibility
+
+Semgrep Supply Chain results in a failed CI job only when there are critical or high-severity findings. However, Semgrep supports notifications and integration with Jira to create tickets for all Supply Chain findings, and it offers the ability to only leave comments on PRs or block a change regarding license detection.
+
+The policies for Semgrep's other products, Semgrep Code and Semgrep Secrets, provide extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+
+- Only in the AppSec team’s view (monitor mode)
+- In the AppSec team's view **and** in the developer’s workflow, while not failing the CI job (comment mode)
+- In the AppSec team's view **and** in the developer’s workflow, while also failing the CI job (block mode)
+
+#### Dependency lifecycle management
+
+To help you manage your findings, Semgrep provides information, including EPSS probabilities, severity levels, transitivity information, and multiple levels of dataflow reachability.
+
+#### Accuracy of results
+
+Semgrep has reachability analysis for over 80% of critical CVEs dating back to 2017 and 100% of critical and high severity CVEs dating back to May 2022. Endor Labs' reachability data, however, dates back to 2018.
+
 ### Comparing Semgrep to Snyk
 
-For SCA, reachability analysis is critical to cut down noise and reduce false positives. Semgrep offers reachability analysis for [several languages, such as Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain) whereas Snyk only offers reachability for Java.
+#### SAST
 
-For SAST, both Semgrep and Snyk offer good solutions out of the box, however writing custom rules is easier and more scalable with Semgrep, enabling you to accommodate issues specific to your codebase that no vendor could out-of-box. Semgrep supports 30+ languages whereas Snyk supports 14.
+Both Semgrep and Snyk offer out-of-the-box SAST solutions. Semgrep makes it easier to customize the rules that run against your code. Because these rules are visible and customizable, you can analyze your results to see if the relevant vulnerabilities were caught.
 
-For secrets scanning, Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk has a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer their secret scanning to Snyk customers.
+In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
 
-See the [Semgrep vs. Snyk webpage](https://semgrep.dev/resources/semgrep-vs-snyk) for a more detailed comparison between the two.
+Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its web app, in supported IDEs, and CLI, while Semgrep displays remediation advice and guidance in its web app, CLI, supported IDEs, and in the form of PR or MR comments.
+
+Snyk and Semgrep both display prioritization metrics to help you decide which findings you should work on first. For SAST, Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides severity information, confidence in the rule to detect findings that are true positives, and likelihood that an attacker can exploit the issues found.
+
+Additionally, Semgrep provides action recommendations through Assistant, which offers AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+
+Snyk offers autofix capability for its SCA product, but not its SAST product. Semgrep offers autofix suggestions for SAST and SCA, where its [rules contain suggested fixes to resolve findings](/writing-rules/autofix). In the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can generate an autofix](/semgrep-assistant/overview#autofix).
+
+#### SCA
+
+Snyk offers reachability analysis for Java, JavaScript, and TypeScript, while Semgrep offers reachability analysis for [multiple languages, including Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain)
+
+Snyk can detect whether dependencies are direct or transitive. However, this information is only available with Enterprise plans, and the information is limited to projects using Maven or Node.js, specifically npm and Yarn packages. Semgrep Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability. Semgrep offers this coverage for seven languages and counting.
+
+Semgrep and Snyk both offer license compliance features, ensuring that the dependencies that your developers use meet the requirements set by your organization.
+
+To help you manage your findings, Semgrep provides you with the findings' EPSS probabilities, severity levels and transitivity information. Snyk assesses impact and likelihood and encapsulates this information into a risk score. 
+
+#### Policies and rules management 
+
+Semgrep Code and Semgrep Secret's policies management feature provides extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+
+- Only in the AppSec team’s view (monitor mode)
+- In the AppSec team's view **and** in the developer’s workflow, while not failing the CI job (comment mode)
+- In the AppSec team's view **and** in the developer’s workflow, while also failing the CI job (block mode)
+
+Semgrep Supply Chain results in a failed CI job only when there are critical or high-severity findings.
+
+#### Secrets detection
+
+Semgrep Secrets leverages semantic analysis, entropy analysis, and validation to accurately detect and fix secrets. Snyk maintains a [business partnership with GitGuardian](https://blog.gitguardian.com/were-teaming-up-with-snyk-to-strengthen-developer-security/) to offer secrets scanning as part of Snyk Code.
 
 ### Comparing Semgrep to SonarQube
 
@@ -180,18 +315,18 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
 
-If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/overview#privacy-and-legal-considerations) section to understand how your code is stored and retained.
+If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/privacy) section to understand how your code is stored and retained.
 
 ### What data is stored?
 
 [Semgrep](https://github.com/semgrep/semgrep) sends data to Semgrep AppSec Platform in accordance with the [metrics policy](/metrics).
 
-These types of data are **scan data** and **findings data**.
+These types of data include **scan data** and **findings data**.
 
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
 
-For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
+For more information and a detailed description of each data field, refer to [the relevant section in metrics.md](https://github.com/semgrep/semgrep/blob/develop/metrics.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 

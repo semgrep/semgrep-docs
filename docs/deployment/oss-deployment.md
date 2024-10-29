@@ -5,7 +5,7 @@ title: Semgrep OSS in CI
 description: Learn how to set up a Semgrep OSS CI environment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep OSS Engine
+  - Semgrep OSS
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
@@ -182,7 +182,7 @@ See [Writing rules](/writing-rules/overview) to learn how to write custom rules.
 
 ### Ignore files
 
-See [<i class="fa-regular fa-file-lines"></i> Ignore files, folders, and code](/ignore-oss).
+See [<i class="fa-regular fa-file-lines"></i> Ignore files, folders, and code](/ignoring-files-folders-code).
 
 <CiIgnoringFiles />
 

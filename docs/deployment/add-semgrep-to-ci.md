@@ -5,16 +5,17 @@ hide_title: true
 description: "Set up your CI pipeline with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
+  - Semgrep AppSec Platform
 ---
-
-
 
 import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
-
+import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
+import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 
 # Add Semgrep to CI
 
@@ -45,8 +46,8 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - Buildkite
 - Azure Pipelines
 
-![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#bordered)
-**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers.
+![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#md-width)
+_**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers._
 
 If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
@@ -81,7 +82,7 @@ To add a CI job to GitHub Actions:
 1. Optional: Click **Review CI config** to see Semgrep's default YAML configuration file.
 1. Click **Commit file**.
 
-You have now added a Semgrep job to GitHub Actions. A scan begins automatically after adding a new repository. Its findings are sent to Semgrep AppSec Platform for triage and remediation.
+You have now added a Semgrep job to GitHub Actions. A **full scan** begins automatically after adding a new repository. Its findings are sent to Semgrep AppSec Platform for triage and remediation.
 
 ### Detecting GitHub repositories
 
@@ -122,6 +123,26 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 
 - Semgrep collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
+
+### Delete a project
+
+Deleting a project removes all of its findings, metadata, and other records from Semgrep AppSec Platform.
+
+<DeleteAProject />
+
+## Scan scope
+
+<DiffAwareScanning />
+
+### Default branch names
+
+Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
+
+Within Semgrep, default branches are also known as **primary** branches.
+
+<DefaultBranches />
+
+You can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 

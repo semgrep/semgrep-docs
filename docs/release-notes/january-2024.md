@@ -121,7 +121,7 @@ recently added at-exit sinks work on them. Previously, delete expression at "exi
 
 ### Added
 
-- Added [legal information](/semgrep-assistant/overview#privacy-and-legal-considerations) about Semgrep Assistant. <!-- 1308 -->
+- Added [legal information](/semgrep-assistant/privacy) about Semgrep Assistant. <!-- 1308 -->
 - Added documentation about Semgrep Assistant's Component and Recommendation filters. <!-- 1324 -->
 - Knowledge base articles:
     - Troubleshoot why [SAML stops working](/kb/semgrep-appsec-platform/saml-stops-working) <!-- 1330 -->

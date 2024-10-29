@@ -5,6 +5,7 @@ hide_title: true
 description: "Set up your CI pipeline manually with Semgrep AppSec Platform for centralized rule and findings management."
 tags:
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"

@@ -6,16 +6,13 @@ hide_title: true
 description: "Receive Semgrep findings via email."
 tags:
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
+import Notifications from "/src/components/concept/_notification-deduplication.mdx"
 
+# Receive email notifications
 
-
-
-# Receiving email notifications
-
-Receive Semgrep findings through email.
+You can choose to receive notifications from Semgrep regarding new findings through email.
 
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
@@ -30,9 +27,11 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
 
-![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png#bordered)
+![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png)
 **Figure** Sample of an email sent from Semgrep with findings.
 
-:::note Number of emails
-On each scan that has at least one finding, you will receive **one email** from Semgrep with a summary of all of the findings from that scan.
-:::
+<Notifications />
+
+### Number of emails
+
+While emails are triggered only when Semgrep identifies a new finding, the emails you receive also include a summary of all findings.

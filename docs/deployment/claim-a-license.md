@@ -4,9 +4,8 @@ title: Claim a license
 hide_title: true
 description: Learn how to claim a Semgrep license.
 tags:
-  - Semgrep Code
-  - Semgrep Supply Chain
-  - Semgrep Secrets
+  - Support
+  - Semgrep AppSec Platform
 ---
 
 # Claim a license

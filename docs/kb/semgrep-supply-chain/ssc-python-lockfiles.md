@@ -13,21 +13,22 @@ tags:
 
 To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes methods to generate the following Python lockfiles:
 
-* `requirements.txt`
+* `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
+* `requirements.pip`
+* `requirement.txt`, including those in a requirement folder, such as `**/requirement/*.txt`
+* `requirement.pip`
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan.
+You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan. Your lockfiles must have one of these three names in order to be scanned.
 
 ## Generating `requirements.txt`
 
 ### Using `requirements.in`
 
 :::info Prerequisites
-
 * A `requirements.in` file with direct Python packages. Do not include transitive packages in `requirements.in`.
 * `pip-tools` must be installed on your machine. See the [pip-tools GitHub repository](https://github.com/jazzband/pip-tools) for installation instructions.
-
 :::
 
 
@@ -298,26 +299,10 @@ The generated `Poetry.lock` file contains all transitive and direct dependencies
 
 While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
 
-In Semgrep, you can use the flag `--include` to specify only one lockfile:
+When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single lockfile should be scanned. The lockfile must still have one of the supported names.
 
 ```
-semgrep --supply-chain --include=requirements.txt
-```
-
-Alternatively, your repository may already have a `requirements.txt` file, but you want to generate a fresh and updated version.
-
-However, generating a new `requirements.txt` file and running the previous command may result in the following error:
-
-```
-[ERROR] Found pending changes in tracked files. Baseline scans runs require a clean git state.
-```
-
-This is due to git conflicts between the previously committed `requirements.txt` file and the newly generated `requirements.txt` file.
-
-A solution to this issue can be to generate the new `requirements.txt` file in a different folder and then specifically include it in the Semgrep scan:
-
-```
-semgrep --supply-chain --include=ssc/requirements.txt
+semgrep ci --supply-chain --include=requirements.txt
 ```
 
 ## Conclusions

@@ -1,6 +1,8 @@
 ---
 slug: status
 append_help_link: true
+tags:
+    - Rule writing
 description: >-
   The status of the data-flow analysis.
 ---

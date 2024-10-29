@@ -3,22 +3,27 @@ slug: cli-reference
 append_help_link: true
 description: "Reference for the Semgrep command-line interface including options and exit code behavior."
 tags:
-    - Semgrep CLI
-    - Semgrep Code
-    - Team & Enterprise Tier
+    - Deployment
+    - CLI
 hide_title: true
 title: CLI reference
 ---
 
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import CLIHelpOutput from '/src/components/reference/_cli-help-output.md'
 import CLIHelpScanOutput from '/src/components/reference/_cli-help-scan-output.md'
-
-
+import CLIHelpCiOutput from '/src/components/reference/_cli-help-ci-output.md'
 
 # CLI reference
 
-This document provides the outputs of the `semgrep --help` and `semgrep scan --help` commands of the [Semgrep command-line interface (CLI)](https://github.com/semgrep/semgrep). In addition, this page also gives an overview of the Semgrep CLI exit codes.
+This document provides the outputs of the following [Semgrep CLI](https://github.com/semgrep/semgrep) tool commands:
+
+- `semgrep --help`
+- `semgrep scan --help`
+- `semgrep ci --help`
+
+In addition, this page also gives an overview of the Semgrep CLI exit codes.
 
 ## Semgrep commands
 
@@ -32,25 +37,26 @@ Command output:
 
 <CLIHelpOutput />
 
-## Semgrep scan command options
+## `semgrep scan` and `semgrep ci` command options
 
-To list all available `semgrep scan` options, run the following command:
+To list all available `semgrep scan` or `semgrep ci` options, run one of the following commands:
 
-```bash
-semgrep scan --help
-```
+<Tabs>
+  <TabItem value="semgrep scan --help" label="semgrep scan --help">
+    <CLIHelpScanOutput />
+  </TabItem>
+  <TabItem value="semgrep ci --help" label="semgrep ci --help" default>
+    <CLIHelpCiOutput />
+  </TabItem>
+</Tabs>
 
-Command output:
-
-<CLIHelpScanOutput />
-
-## Ignoring Files
+## Ignore files
 
 The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendor and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
 
 In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](/ignoring-files-folders-code).
 
-## Connecting to Semgrep Registry through a proxy
+## Connect to Semgrep Registry through a proxy
 
 Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
 

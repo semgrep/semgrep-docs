@@ -4,10 +4,8 @@ title: Semgrep Visual Studio Code extension
 hide_title: true
 description: Learn how to install and use Semgrep's extension for Visual Studio Code.
 tags:
-  - extensions
+  - Extensions
 ---
-
-
 
 # Semgrep Visual Studio Code extension
 
@@ -20,8 +18,7 @@ tags:
 ## Prerequisites
 
 - See [Supported Languages](/supported-languages) to verify that the extension supports your project.
-- Windows users must use Semgrep extension v1.6.2 or later.
-- Semgrep recommends that macOS, Linux, and WSL users [install the Semgrep command-line interface (CLI)](/getting-started/cli-oss/#set-up-semgrep) before using the Semgrep VS Code extension for a more performant and stable experience. The extension communicates with the CLI to run scans.
+- Windows users must use Semgrep VS Code extension v1.6.2 or later.
 
 ## Quickstart
 
@@ -104,5 +101,5 @@ The following experimental features should only be used upon recommendation by S
 
 - **Semgrep > Use JS**: Use the JavaScript version of the extension. Enabled by default for Windows users.
 - **Semgrep > Heap Size JS**: Set the maximum heap size in MB for the JavaScript version of the extension. Increase if the extension crashes while downloading rules.
-- **Semgrep > Ignore Cli Version**: Ignore the CLI Version and enable all extension features.
+- **Semgrep > Ignore CLI Version**: Ignore the CLI Version and enable all extension features.
 - **Semgrep > Stack Size JS**: Set the maximum stack size in KB for the JavaScript version of the extension.

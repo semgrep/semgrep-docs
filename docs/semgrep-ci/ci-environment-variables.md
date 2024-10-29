@@ -2,16 +2,12 @@
 slug: ci-environment-variables
 description: "Configure Semgrep in CI by setting various environment variables. Enable diff-aware scanning, connect to Semgrep AppSec Platform, and more."
 tags:
-    - Semgrep in CI
-    - Team & Enterprise Tier
+    - Deployment
 title: CI environment variables
 hide_title: true
 ---
 
-
 import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
-
-
 
 # Continuous integration (CI) environment variables
 
@@ -47,7 +43,7 @@ Do not set `SEMGREP_RULES` environment variable within the same CI job as `SEMGR
 
 ### `SEMGREP_BASELINE_REF`
 
-Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` refers to your codebase's default or trunk branch, such as `main` or `master`.
+Set `SEMGREP_BASELINE_REF` to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. `SEMGREP_BASELINE_REF` typically is set to your codebase's default or trunk branch, such as `main` or `master`.
 
 Example:
 
@@ -55,15 +51,28 @@ Example:
 export SEMGREP_BASELINE_REF="main"
 ```
 :::info
-`SEMGREP_BASELINE_REF` is superceded by `SEMGREP_BASELINE_COMMIT`.
+`SEMGREP_BASELINE_REF` is superseded by `SEMGREP_BASELINE_COMMIT`.
 :::
 
 ### `SEMGREP_BASELINE_COMMIT`
 
-Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. This environment variable doesn't work if you are not currently in a git directory, there are unstaged changes, or given baseline hash doesn't exist.
+Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. Generally this is used to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. 
+
+This environment variable doesn't work if you are not currently in a Git directory, there are unstaged changes, or the given baseline hash doesn't exist or is not available in the CI environment.
+
+If you set `SEMGREP_BASELINE_COMMIT` in CI to enable diff-aware scanning, the ideal value is the git merge-base between the branch being scanned and the target branch that the code will be merged into. For example:
+
+```bash
+export SEMGREP_BASELINE_COMMIT=$(git merge-base main feature-brach)
+```
+To avoid hardcoding the branch names, check your CI provider's documentation for available variables that provide the correct values for every CI job. For example, in a Jenkins environment, you can use:
+
+```
+SEMGREP_BASELINE_REF=$(git merge-base $GIT_BRANCH $CHANGE_TARGET)
+```
 
 :::info
-The value of `SEMGREP_BASELINE_COMMIT` is superceded when the option `--baseline-commit` is set as part of the scan command.
+The value of `SEMGREP_BASELINE_COMMIT` is superseded when the option `--baseline-commit` is set as part of the scan command.
 :::
 
 ### `SEMGREP_ENABLE_VERSION_CHECK`
@@ -143,7 +152,7 @@ Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name 
 * To track findings in the same branch over time
 * To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-code/findings) page)
 
-To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -165,11 +174,11 @@ commands:
   ...
 ```
 
-Semgrep AppSec Platform will normalize the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` will be treated the same way as `develop`.
+Semgrep AppSec Platform normalizes the branch prefix `refs/heads/` for findings, so the branch value `refs/heads/develop` is treated the same way as `develop`.
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -199,11 +208,12 @@ pipelines:
 
 ### `SEMGREP_REPO_NAME`
 
-Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI provider that Semgrep doesn't provide explicit support for](/deployment/add-semgrep-to-other-ci-providers/). For hyperlinks and PR comments to work, this name should be the same as your repository name understood by your CI provider.
+Set `SEMGREP_REPO_NAME` to create a repository name when scanning with a [CI provider that Semgrep doesn't provide explicit support for](/deployment/add-semgrep-to-other-ci-providers/). For hyperlinks and PR comments to work, this name should be the same as the repository name understood by your CI provider.
 
-To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Semgrep automatically detects `SEMGREP_REPO_NAME` if your [provider is listed in Semgrep AppSec Platform](/deployment/add-semgrep-to-other-ci-providers). In this case, there is no need to set the variable.
+
 Examples:
 
 Within a Bash environment:
@@ -223,7 +233,7 @@ jobs:
       # Use a CircleCI environment variable.
       # It automatically sets the current repository name the job is scanning.
       SEMGREP_REPO_NAME: '$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME'
-      ..
+      ...
 
 ```
 
@@ -235,9 +245,11 @@ Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in 
 This environment variable only works with Semgrep versions 1.61.1 and later.
 :::
 
+Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
+
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -272,7 +284,7 @@ The following environment variable enables Semgrep AppSec Platform to create com
 The following environment variable can only be set within a CI environment.
 :::
 
-Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_JOB_URL` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 The following example uses Jenkins declarative syntax:
 
@@ -286,24 +298,25 @@ pipeline {
 
 ### `SEMGREP_PR_ID`
 
-Set `SEMGREP_PR_ID` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available environment variables that can automatically detect the correct values for every CI job.
+Set `SEMGREP_PR_ID` to enable Semgrep to leave PR or MR comments in your SCM. Check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 The following example uses Azure Pipelines:
 
 ```yaml
 ...
 steps:
-  - env:
+  - script: |
+    ...
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
     ...
 ```
 
-## Environment variable for creating comments in BitBucket pull requests
+## Environment variable for creating comments in Bitbucket pull requests
 
 
 ### `BITBUCKET_TOKEN`
 
-Set `BITBUCKET_TOKEN` to enable Semgrep to leave PR or MR comments in Bitbucket Cloud. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-pr-comments) for instructions.
+**Optional**: If you're not receiving PR comments or your code hyperlinks aren't displaying in Semgrep AppSec Platform, try setting the `BITBUCKET_TOKEN` environment variable. The value of this environment variable must be a Personal Access Token (PAT) generated from Bitbucket Cloud. See [Bitbucket PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) for instructions.
 
 Example:
 

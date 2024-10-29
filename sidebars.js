@@ -19,17 +19,17 @@ module.exports = {
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
-    { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules'},
+    { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb/',
       className: 'top-category-separator'
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'Release notes'},
+    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
+    { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
+    { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep' },
   ],
   scanSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -39,8 +39,17 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart',
+            'getting-started/quickstart-sms',
             'prerequisites',
-            'supported-languages',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Supported languages',
+                link: {type: 'doc', id: 'supported-languages'},
+                items: [
+                    'semgrep-code/supported-languages-python',
+                ]
+            },
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -51,6 +60,7 @@ module.exports = {
                 'running-rules',
                 'update',
                 'deployment/local-to-scp-scans',
+                'troubleshooting/semgrep',
               ]
             },
         ]
@@ -80,6 +90,7 @@ module.exports = {
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
+                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         'deployment/managed-scanning',
                         {
                             type: 'category',
@@ -90,7 +101,10 @@ module.exports = {
                                 'semgrep-supply-chain/setup-maven',
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
-                        }
+                        },
+                        'deployment/manage-projects',
+                        'deployment/primary-branch',
+                        'troubleshooting/semgrep-app'
                     ]
                 },
                 {
@@ -99,10 +113,20 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
+                    'semgrep-appsec-platform/azure-pr-comments',
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
-                    'semgrep-appsec-platform/bitbucket-pr-comments',
-                    ]
+                    {
+                      type: 'category',
+                      label: 'Bitbucket PR comments',
+                      collapsible: true,
+                      link: {type: 'generated-index'},
+                      items: [
+                        'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
+                        'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
+                      ]
+                    }
+                  ]
                 },
                 'deployment/beyond-core-deployment'
             ]
@@ -124,7 +148,19 @@ module.exports = {
           collapsible: true,
           link: {type: 'doc', id: 'semgrep-assistant/overview'},
           items: [
-            'semgrep-assistant/getting-started'
+            'semgrep-assistant/getting-started',
+            'semgrep-assistant/analyze',
+            'semgrep-assistant/privacy'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Secure guardrails',
+          collapsible: true,
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
+          items: [
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
           ]
         },
         {
@@ -138,26 +174,8 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        {
-          type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/asana',
-            'semgrep-appsec-platform/jira',
-            'semgrep-appsec-platform/linear'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Reports',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
-          items: [
-            'semgrep-appsec-platform/dashboard'
-          ]
-        },
+        'semgrep-appsec-platform/jira',
+        'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
           label: 'IDE extensions',
@@ -189,8 +207,8 @@ module.exports = {
                 'semgrep-code/triage-remediation',
                 'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
+                'semgrep-code/semgrep-pro-engine-examples',
                 'semgrep-code/remove-duplicates',
-                'semgrep-ci/configuring-blocking-and-errors-in-ci',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
                 {
@@ -210,11 +228,21 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
-                'semgrep-supply-chain/getting-started',
-                'semgrep-supply-chain/triage-remediation',
-                'semgrep-supply-chain/ignoring-deps',
-                'semgrep-supply-chain/dependency-search',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Open source security vulnerabilities',
+                  link: {
+                    type: 'doc',
+                    id: 'semgrep-supply-chain/getting-started',
+                  },
+                  items: [
+                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/ignoring-deps',
+                  ]
+                },
                 'semgrep-supply-chain/sbom',
+                'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/license-compliance'
             ]
         },
@@ -435,7 +463,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep privacy policy'
+              label: 'Semgrep metrics'
             },
             {
               type: 'category',
@@ -603,6 +631,11 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/september-2024',
+                'release-notes/august-2024',
+                'release-notes/july-2024',
+                'release-notes/june-2024',
+                'release-notes/may-2024',
                 'release-notes/april-2024',
                 'release-notes/march-2024',
                 'release-notes/february-2024',

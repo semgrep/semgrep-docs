@@ -2,6 +2,8 @@
 append_help_link: true
 slug: rule-syntax
 description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+tags:
+  - Rule writing
 ---
 
 
@@ -47,7 +49,7 @@ The below optional fields must reside underneath a `patterns` field.
 
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
-| [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **unanchored** |
+| [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
 | [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
@@ -405,7 +407,7 @@ module.insecure3("test")
 module.secure("test")
 ```
 
-Regex matching is **unanchored**. For anchored matching, use `\A` for start-of-string anchoring and `\Z` for end-of-string anchoring. The next example, using the same expression as above but anchored, finds no matches:
+Regex matching is **left anchored**. To allow prefixes, use `.*` at the beginning of the regex. To match the end of a string, use `$`. The next example, using the same expression as above but anchored on the right, finds no matches:
 
 ```yaml
 rules:
@@ -414,7 +416,23 @@ rules:
       - pattern: module.$METHOD(...)
       - metavariable-regex:
           metavariable: $METHOD
-          regex: (^insecure$)
+          regex: (insecure$)
+    message: module using insecure method call
+    languages:
+      - python
+    severity: ERROR
+```
+
+The following example matches all of the function calls in the same code sample, returning a false positive on the `module.secure` call:
+
+```yaml
+rules:
+  - id: insecure-methods
+    patterns:
+      - pattern: module.$METHOD(...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: (.*secure)
     message: module using insecure method call
     languages:
       - python
@@ -422,7 +440,7 @@ rules:
 ```
 
 :::info
-Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet. [String matching](pattern-syntax.mdx#string-matching) functionality can also be used to search string literals.
+Include quotes in your regular expression when using `metavariable-regex` to search string literals. For more details, see [include-quotes](https://semgrep.dev/playground/s/EbDB) code snippet.
 :::
 
 ### `metavariable-pattern`
@@ -615,7 +633,7 @@ The `metavariable-comparison` operator is a mapping which requires the `metavari
 
 This matches code such as `set_port(80)` or `set_port(443)`, but not `set_port(8080)`.
 
-Comparison expressions support simple arithmetic as well as composition with [boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
+Comparison expressions support simple arithmetic as well as composition with [Boolean operators](https://docs.python.org/3/reference/expressions.html#boolean-operations) to allow for more complex matching. This is particularly useful for checking that metavariables are divisible by particular values, such as enforcing that a particular value is even or odd.
 
 ```yaml
 rules:
@@ -832,7 +850,7 @@ def func2():
 
 The above rule looks for files that are opened but never closed, possibly leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 
-The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call &mdash; it only needs to make sure `close` is called.
+The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows for any arguments to be passed to `open` and any sequence of code statements in-between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call&mdash;it only needs to make sure `close` is called.
 
 ## Metavariable matching
 
@@ -947,9 +965,11 @@ Enable, disable, or modify the following matching features:
 | `attr_expr`            | `true`  | Expression patterns (for example: `f($X)`) matches attributes (for example: `@f(a)`). |
 | `commutative_boolop`   | `false` | Treat Boolean AND/OR as commutative even if not semantically accurate. |
 | `constant_propagation` | `true`  | [Constant propagation](/writing-rules/pattern-syntax/#constants), including [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation). |
+| `decorators_order_matters` | `false` | Match non-keyword attributes (for example: decorators in Python) in order, instead of the order-agnostic default. Keyword attributes (for example: `static`, `inline`, etc) are not affected. |
 | `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are: <ul><li>`c` for traditional C-style comments (`/* ... */`). </li><li> `cpp` for modern C or C++ comments (`// ...` or `/* ... */`). </li><li> `shell` for shell-style comments (`# ...`). </li></ul> By default, the generic mode does not recognize any comments. Available since Semgrep version 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis operator `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `implicit_return`   | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
+| `symmetric_eq`      | `false` | Treat equal operations as symmetric (for example: `a == b` is equal to `b == a`). |
 | `taint_assume_safe_functions` | `false` | Experimental option which will be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
 | `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise Semgrep assumes that for example: `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling is preferred for audit rules. Currently, it is disabled by default to attain backwards compatibility, but this can change in the near future after some evaluation. |
 | `vardef_assign`        | `true`  | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
@@ -1035,7 +1055,7 @@ rules:
 
 The `min-version`/`max-version` feature is available since Semgrep
 1.38.0. It is intended primarily for publishing rules that rely on
-newly-released features without causing errors in older Semgrep
+newly released features without causing errors in older Semgrep
 installations.
 
 

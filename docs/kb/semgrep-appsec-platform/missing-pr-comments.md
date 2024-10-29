@@ -16,15 +16,14 @@ PR or MR comments are currently supported for:
 
 * All GitHub plans
 * All GitLab plans
-* Bitbucket Cloud
+* All Bitbucket plans
+* Azure DevOps Cloud repositories
 
 PR or MR comments are not supported for:
 
-* Bitbucket Data Center
-* Azure Repos
 * Any other SCM or repository provider
 
-If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Connect to on-premise GitHub or GitLab orgs](/deployment/connect-scm/#connect-to-on-premise-orgs) for more details on configuration.
+If you are using a self-hosted version of GitHub (GitHub Enterprise) or GitLab (GitLab Self-Managed), see [Connect to on-premise GitHub or GitLab orgs](/deployment/connect-scm/#connect-to-on-premise-orgs-and-projects) for more details on configuration.
 
 ## Have you configured permissions and tokens correctly?
 
@@ -42,13 +41,14 @@ GitHub relies on the Semgrep GitHub app to make comments on code. To receive com
 **Figure** Permissions for select repos. Ensure the repos you have onboarded to Semgrep AppSec Platform are included here.
 
 
-### GitLab and Bitbucket
+### Azure DevOps, GitLab, and Bitbucket
 
-For MR comments on GitLab and PR comments on Bitbucket, ensure that you have performed the following steps:
+For MR comments on GitLab and PR comments on Bitbucket or Azure DevOps, ensure that you have performed the following steps:
 
 * You have configured a token with appropriate permissions to comment on MRs or PRs.
 * You have added the token as a variable in your project or workspace configuration.
 * You have added the token value to your CI configuration.
+* For Bitbucket Data Center users: you have added Bitbucket Data Center as a source code manager in Semgrep AppSec Platform.
 
 #### GitLab
 
@@ -56,7 +56,7 @@ The GitLab token should have `api` scope and be added to the project's CI/CD set
 
 #### Bitbucket
 
-The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/docs/semgrep-appsec-platform/bitbucket-pr-comments) for details.
+The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enabling Bitbucket pull request comments](/category/bitbucket-pr-comments) for details.
 
 ## Have you placed the rule in Comment or Block?
 

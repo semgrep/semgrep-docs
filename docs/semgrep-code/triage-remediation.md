@@ -5,11 +5,11 @@ title: Triage and remediation
 hide_title: false
 description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
+    - Semgrep Code
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
-# Triage and remediate Semgrep Code findings in Semgrep AppSec Platform
+# Triage and remediate findings
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
@@ -19,7 +19,7 @@ import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore
 This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep AppSec Platform, including:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
-- **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disabling-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
+- **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 - **Triaging the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
@@ -86,7 +86,7 @@ To **ignore multiple findings** in the **No grouping** view, follow these steps:
     - Select all findings by clicking on the header row checkbox that states **Showing X open findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select more findings by clicking on their checkboxes.
 3. Click the **Triage** button.
-4. Optional: Select a reason of why you are ignoring a finding. Choose either: **False positive**, **Acceptable risk**, **No time to fix**
+4. Optional: Select a reason of why you are ignoring a finding. Choose one of the following options: **False positive**, **Acceptable risk**, **No time to fix**.
 5. Select **Ignored** from the dropdown menu.
 6. Click **Save**.
 
@@ -166,17 +166,10 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
-<!--
-## Creating Jira tickets from findings
+## Triage findings in bulk through the Semgrep API
 
-Semgrep supports the creation of Jira tickets from a finding. This enables developers and project managers to create relevant issues within their project or bug-tracking environment. This feature is available to Team/Enterprise Tier users.
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either  `new_triage_state` or `new_note`. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
 
-To **create a ticket**:
-
-1. Set up a Jira integration through the [Notifications](/semgrep-app/notifications) guide.
-2. Click the **three-dot icon** of the entry.
-3. Click **Create issue with Jira**.
--->
 
 ## Reduce the number of false positive findings
 

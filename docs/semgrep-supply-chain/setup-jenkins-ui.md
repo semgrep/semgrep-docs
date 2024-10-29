@@ -5,13 +5,9 @@ title: Jenkins UI
 hide_title: true
 description: Configure Jenkins to send the correct branch name to Semgrep AppSec Platform.
 tags:
+  - Deployment
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Set up Semgrep Supply Chain with Jenkins UI
 
@@ -42,7 +38,7 @@ To set up SSC with Jenkins UI, perform the following steps:
 1. Under **Git > Additional behaviors** click **Add**.
 1. From the drop-down box, click **Check out to specific local branch**.
 1. Enter the name of repository's mainline or trunk branch, such as `master`.
-![Location of specific local branch text box](/img/jenkins-specific-local-branch.png#bordered)
+![Location of specific local branch text box](/img/jenkins-specific-local-branch.png)
 1. Click **Save**.
 1. Optional: Click **Build Now** to test that your job can now send findings to Semgrep AppSec Platform.
 

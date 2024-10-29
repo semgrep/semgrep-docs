@@ -5,13 +5,9 @@ title: Infrastructure-specific configuration
 hide_title: true
 description: Refer to this section to set up Semgrep Supply Chain for your specific tooling or pipeline.
 tags:
+  - Deployment
   - Semgrep Supply Chain
-  - Team & Enterprise Tier
 ---
-
-
-
-
 
 # Set up Semgrep Supply Chain for your infrastructure
 
@@ -25,13 +21,13 @@ tags:
 
 Semgrep Supply Chain performs software composition analysis with reachability.
 
-Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a lock file that it can parse in continuous integration (CI).
+Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a lockfile that it can parse in continuous integration (CI).
 
-The documents in this category describe how to set up Semgrep Supply Chain for specific lock files or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
+The documents in this category describe how to set up Semgrep Supply Chain for specific lockfiles or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
 
 | CI provider                 | Issue   | Solution |
 | ----------                  | ------- | ------    |
-| Jenkins UI using **[git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep AppSec Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins-ui)          |
+| Jenkins UI using **[Git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep AppSec Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins-ui)          |
 
 | Package manager | Issue | Solution |
 | ----------     | ------- | ------    |

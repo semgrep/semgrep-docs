@@ -5,8 +5,8 @@ hide_title: true
 displayed_sidebar: scanSidebar
 description: Learn how to set up Semgrep, scan your codebase for security issues, and view your findings in the CLI.
 tags:
-  - quickstart
-  - CLI
+  - Quickstart
+  - Semgrep OSS
 ---
 
 import Install from "/src/components/procedure/_install-cli.mdx";

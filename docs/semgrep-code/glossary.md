@@ -5,14 +5,21 @@ hide_title: true
 description: Definitions of Semgrep Code product-specific terms.
 tags:
   - Semgrep Code
-  - Team & Enterprise Tier
 ---
+
+import DefaultBranches from "/src/components/reference/_default-branches.md"
 
 # Semgrep Code product terms
 
 The terms and definitions provided here are specific to Semgrep Code.
 
 For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/writing-rules/glossary).
+
+## Default branch
+
+Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches.
+
+<DefaultBranches />
 
 ## Diff-aware scan
 
@@ -34,7 +41,11 @@ Not to be confused with **policy-as-code**.
 
 A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can view the license of the rule you are using. Contributions are welcome.
 
-Rules are frequently organized by rulesets, enabling you to find related rules by framework and language.
+Rules are frequently organized by [rulesets](#ruleset), enabling you to find related rules by framework and language.
+
+## Ruleset
+
+Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry.
 
 ## Scan target
 

@@ -3,6 +3,8 @@ slug: running-rules
 append_help_link: true
 description: "Learn about Semgrep rules, how to add your custom rules and rules from Semgrep Registry, a community-contributed repository of rules to help enforce security."
 title: Run rules
+tags:
+    - Semgrep Code
 hide_title: true
 ---
 
@@ -101,7 +103,7 @@ For more information on defining custom rules, see [Writing rules](/writing-rule
 
 ## Running multiple rules simultaneously
 
-To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option let's you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
+To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option lets you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
 
 <pre class="language-bash"><code>semgrep scan --config <span className="placeholder">p/python</span> --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
 

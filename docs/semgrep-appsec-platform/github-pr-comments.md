@@ -5,10 +5,11 @@ title: GitHub PR comments
 hide_title: true
 description: "Enable pull request (PR) comments in your GitHub repositories to display Semgrep findings to developers."
 tags:
+    - Deployment
     - Semgrep AppSec Platform
-    - Team & Enterprise Tier
 ---
 
+<!-- vale off -->
 
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
@@ -19,13 +20,11 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 
-
-
+<!-- vale on -->
 
 # Set up GitHub pull request comments
-
-<!--  The entire process of setting up the GH comment is more than just "enabling it", ie. turning it on. Users have to set up the rules. So I changed the verb. -->
 
 <DeploymentJourney />
 
@@ -34,7 +33,7 @@ Semgrep can create **pull request (PR) comments** in your GitHub repository. The
 Automated comments on GitHub pull requests are displayed as follows:
 
 ![Screenshot of a GitHub PR comment](/img/gh-pr-comment.png#md-width)
-**Figure** An inline GitHub pull request comment.
+_**Figure**. An inline GitHub pull request comment._
 
 ## Conditions for PR comment creation
 
@@ -66,11 +65,11 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 4. Under **Repository access**, check that you have included the repositories that you added to Semgrep AppSec Platform. Review the following examples:
 
-![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png#bordered)
-**Figure** Permissions for all repositories.
+![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png)
+_**Figure**. Permissions for all repositories._
 
-![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
-**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected.
+![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
+_**Figure**. Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected._
 
 For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
 
@@ -100,8 +99,8 @@ You've set up PR comments! Enable optional features provided in the following se
 
 ### Dataflow traces in PR comments
 
-![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
-**Figure** An inline GitHub pull request comment with dataflow traces.
+![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png)
+_**Figure**. An inline GitHub pull request comment with dataflow traces._
 
 <DisplayTaintedDataIntro />
 
@@ -130,6 +129,10 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
     <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
 </tr>
 </table>
+
+## Disable PR comments for Supply Chain findings
+
+<DisableComments />
 
 ## Next steps
 

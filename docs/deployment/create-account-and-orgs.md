@@ -5,9 +5,8 @@ title: Create an account
 hide_title: true
 description: Create a Semgrep account and organization to prepare your deployment for the addition of repositories and team members.
 tags:
-  - Semgrep AppSec Platform
-  - Team & Enterprise Tier
   - Deployment
+  - Semgrep AppSec Platform
 ---
 
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
@@ -21,7 +20,9 @@ import TabItem from '@theme/TabItem';
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 :::
 
-* Add the rest of your organization (org) members to Semgrep.
+Create a Semgrep account by signing in to Semgrep AppSec Platform with your GitHub or GitLab account. This enables you to:
+
+* Add the rest of your GitHub or GitLab organization (org) members to Semgrep.
 * Configure Semgrep to scan repositories in other source code managers, such as Bitbucket.
 
 :::tip Using SSO for your initial sign-in
@@ -30,7 +31,7 @@ Alternatively, reach out to [<i class="fa-regular fa-envelope"></i> sales@semgre
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform is used to manage all Semgrep Pro products, where you can:
+Semgrep AppSec Platform is used to manage all Semgrep products, and it is where you can:
 
 - View and manage your Semgrep findings.
 - Customize how Semgrep scans your code.
@@ -63,7 +64,7 @@ The following steps walk you through creating a **user account** and your first 
 
 </Tabs>
 
-You have successfully created an account and your first organization.
+You have successfully created an account, your first organization, and have optionally run your first scan.
 
 ## Set up organizations
 
@@ -77,6 +78,7 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ### Next steps for Bitbucket and Azure Repos users
 
+- Connect your Semgrep org to your Bitbucket Data Center project or your Azure DevOps organization. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
 - To add members to your Semgrep organization, set up [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You can also opt to scan a repository instead.
 
@@ -115,7 +117,7 @@ The following examples illustrate what a completed organizational set-up can loo
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep AppSec Platform.
 - This is similar to a **personal account** in GitHub or GitLab.
 
-![A simple example of a single-user, single-org setup.](/img/personal-org.png#md-noborder)
+![A simple example of a single-user, single-org setup.](/img/personal-org.png)
 **Figure.** A simple example of a single-user, single-org setup (a personal account).
 
 #### Enterprise org with SSO and multiple orgs in GitHub

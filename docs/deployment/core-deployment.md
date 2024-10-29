@@ -54,7 +54,7 @@ These are the absolute minimum Semgrep features for any deployment.
         <tr>
             <td>SAST scanning</td>
             <td>Check that Semgrep:
-            <ul><li>Can scan your language and that the language's maturity matches your security needs. See <a href="/supported-languages"><i class="fa-regular fa-file-lines" /> Supported languages</a>.</li>
+            <ul><li>Can scan your language and that the language's maturity matches your security needs. See <a href="/docs/supported-languages"><i class="fa-regular fa-file-lines" /> Supported languages</a>.</li>
             <li>Provides rulesets that you can use out-of-the-box. See <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs" /> Semgrep Registry</a>.</li></ul></td>
         </tr>
         <tr>
@@ -62,8 +62,8 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Check that Semgrep supports your lockfile or package manager.</td>
         </tr>
         <tr>
-            <td>Secrets scanning (beta)</td>
-            <td>Check that your services, such as Slack or Twilio, can be validated by Semgrep. Semgrep Secrets is in beta, so you must <a href="https://get.semgrep.dev/Book-a-demo.html"><i class="fas fa-external-link fa-xs"/> Book a demo.</a></td>
+            <td>Secrets scanning</td>
+            <td>Check that your services, such as Slack or Twilio, can be validated by Semgrep. Semgrep Secrets is available through Semgrep Sales, so you must <a href="https://get.semgrep.dev/Book-a-demo.html"><i class="fas fa-external-link fa-xs"/> Book a demo.</a></td>
         </tr>
         <tr>
             <td>SSO</td>
@@ -77,11 +77,11 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>Scanning remote repositories through CI</td>
-            <td>Semgrep fully supports many popular CI providers. See <a href="/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
+            <td>Semgrep fully supports many popular CI providers. See <a href="/docs/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
         </tr>
         <tr>
             <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
-            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/docs/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
@@ -108,8 +108,8 @@ Useful features that you can add based on your tech stack. You can integrate the
             <td>Semgrep can send notifications through the following channels:<ul><li>Slack</li> <li>Email</li><li>Webhooks</li></ul></td>
         </tr>
         <tr>
-            <td>GPT-assisted triage and remediation</td>
-            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
+            <td>AI-assisted triage and remediation</td>
+            <td>Semgrep can give AI-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
         </tr>
         <tr>
             <td>IDE integration</td>
@@ -129,7 +129,7 @@ Useful features that you can add based on your tech stack. You can integrate the
     </tbody>
 </table>
 
-<!-- - Integrate Semgrep with Jira, Linear, and Asana (Private beta). -->
+<!-- - Integrate Semgrep with Jira (Private beta). -->
 
 ## Core deployment process
 
@@ -143,7 +143,8 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep AppSec Platform.
 1. **Enabling Semgrep to post PR or MR comments**.
 
-![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
+![Core deployment steps](/img/core-deployment.png)
+_**Figure**. Core deployment steps._
 
 To manage a large volume of users and repositories, you may need to perform additional steps:
 

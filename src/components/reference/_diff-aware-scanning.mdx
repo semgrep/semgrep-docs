@@ -20,17 +20,23 @@ Semgrep scans can be classified by **scope**. The scope of a scan refers to what
     <p>
       A diff-aware scan runs on your code before and after some "baseline" and
       only reports findings that are newly introduced in the commits after that
-      baseline. Diff-aware scans are triggered upon creation of a new pull
-      request or merge request.
+      baseline. Typically, Semgrep runs diff-aware scans upon the creation of a
+      new pull request or merge request.
     </p>
     <p>
       For example, imagine a hypothetical repository with 10 commits. You set
       commit number 8 as the baseline. Consequently, Semgrep only returns scan
       results introduced by changes in commits 9 and 10. This is how{" "}
       <code>semgrep ci</code> can run in pull requests and merge requests, since
-      it reports only the findings that are created by those code changes. To
-      run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF </span>semgrep ci</code>, where <span class="placeholder">REF</span> can be a commit hash, branch
-      name, or other Git reference.
+      it reports only the findings that are created by those code changes.
+    </p>
+    <p>
+      To run a diff-aware scan, use <code>SEMGREP_BASELINE_REF=<span class="placeholder">REF </span>semgrep ci</code>
+      where <span class="placeholder">REF</span> can be a commit hash, branch
+      name, or other Git reference. Note that the <code>SEMGREP_BASELINE_REF</code>
+      does not apply to GitHub Actions and GitLab CI/CD environments. This variable
+      cannot be set to turn a diff-aware scan in GitHub Actions or GitLab CI/CD into
+      a full scan.
     </p>
   </dd>
 </dl>

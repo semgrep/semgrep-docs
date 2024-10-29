@@ -4,7 +4,6 @@ append_help_link: true
 description: Definitions of Semgrep Supply Chain and software composition analysis (SCA) terms.
 tags:
     - Semgrep Supply Chain
-    - Team & Enterprise Tier
 title: Supply Chain glossary
 hide_title: true
 ---
