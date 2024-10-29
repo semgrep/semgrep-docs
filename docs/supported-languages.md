@@ -180,7 +180,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="12">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="14">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -222,15 +222,27 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>✅</td>
   </tr>
   <tr>
+   <td rowspan="2">Kotlin</td>
+   <td>Gradle§</td>
+   <td><code>gradle.lockfile</code></td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✅</td>
+</tr>
+<tr>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✅</td>
+</tr>
+  <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td><code>requirements.txt</code> if used as a lockfile. The `requirements.txt` file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any lockfile in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">✅ (PyPI packages only)</td>
   </tr>
   <tr>
    <td>pip-tools</td>
-   <td><code>requirements.txt</code></td>
    <td style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
@@ -273,19 +285,6 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>--</td>
 </tr>
 <tr>
-   <td rowspan="2">Kotlin</td>
-   <td>Gradle§</td>
-   <td><code>gradle.lockfile</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
-</tr>
-<tr>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
-</tr>
-<tr>
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
@@ -297,19 +296,19 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
+   <td>✅</td>
 </tr>
 <tr>
    <td>Swift</td>
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>--</td>
+   <td>✅ (License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans.)</td>
 </tr>
   </tbody>
 </table>
 
-_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **Unknown** transitivity._
+_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis**_
 
 ### Maturity levels
 
@@ -350,4 +349,4 @@ Their differences are outlined in the following table:
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which compare a package's version against versions with known vulnerabilities._ <br />
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which compare a package's version against versions with known vulnerabilities.

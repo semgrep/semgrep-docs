@@ -87,11 +87,11 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 ### GitLab Cloud
 
 1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
-2. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-3. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Cloud** and enter the personal access token generated into the **Access token** field.
-4. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
-5. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 1, 3-4 for each GitLab group.
-1. The GitLab groups are now listed under **Source Code organizations**. Click **Test connection** to verify that the new integration is installed correctly.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers > Add GitLab Cloud** and enter the personal access token generated into the **Access token** field.
+1. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
+1. Optional, but recommended: if you have multiple GitLab groups in your GitLab account, create a source code manager per group. Repeat steps 1, 3-4 for each GitLab group.
+1. The GitLab groups are now listed under **Source code managers**. Click **Test connection** to verify that the new integration is configured correctly.
 
 ## Connect to on-premise orgs and projects
 

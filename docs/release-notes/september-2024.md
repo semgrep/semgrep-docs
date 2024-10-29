@@ -1,12 +1,12 @@
 ---
-slug: latest
-append_help_link: true
-title: Latest release notes
+slug: september-2024
 hide_title: true
-description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
+description: >-
+ Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
+title: September 2024
 tags:
-  - Release notes
+ - Release notes
 ---
 
 # Semgrep release notes for September 2024

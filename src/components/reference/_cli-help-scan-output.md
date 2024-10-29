@@ -94,6 +94,9 @@ OPTIONS
        --emacs-output=VAL
            Write a copy of the emacs output to a file or post to URL.
 
+       --enable-experimental-requirements
+           Experimental: support wider set of requirements lockfiles.
+
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
            a 'nosem' comment at the end. Enabled by default.
@@ -117,7 +120,7 @@ OPTIONS
 
        --exclude-minified-files
            Skip minified files. These are files that are > 7% whitespace, or
-           who have a large number of bytes per line. By defualt minified
+           who have a large number of bytes per line. By default minified
            files are scanned 
 
        --exclude-rule=VAL
@@ -296,8 +299,8 @@ OPTIONS
            on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
-           Inter-file analysis and Pro languages (currently Apex and Elixir).
-           Requires Semgrep Pro Engine. See
+           Inter-file analysis and Pro languages (currently Apex, C#, and
+           Elixir. Requires Semgrep Pro Engine. See
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-intrafile
@@ -306,8 +309,9 @@ OPTIONS
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-languages
-           Enable Pro languages (currently Apex and Elixir). Requires Semgrep
-           Pro Engine. See https://semgrep.dev/products/pro-engine/ for more.
+           Enable Pro languages (currently Apex, C#, and Elixir). Requires
+           Semgrep Pro Engine. See https://semgrep.dev/products/pro-engine/
+           for more.
 
        --pro-path-sensitive
            Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
@@ -411,7 +415,7 @@ OPTIONS
            is meant for internal use and may be changed or removed without
            warning. 
 
-       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINTS env)
+       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINT env)
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
@@ -483,7 +487,7 @@ ENVIRONMENT
        SEMGREP_FORCE_COLOR
            See option --force-color.
 
-       SEMGREP_OTEL_ENDPOINTS
+       SEMGREP_OTEL_ENDPOINT
            See option --trace-endpoint.
 
        SEMGREP_RULES
