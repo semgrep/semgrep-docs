@@ -129,7 +129,7 @@ A third role, **the manager**, can be assigned within the context of a team. Man
 ![A member's view of the Projects page.](/img/access-member-view.png)
 _**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account._
 
-### Page or feature access per role
+### Page and feature access per role
 
 | Page      | Member     | Manager    | Admin | Notes |
 | ----      | ------     | -------    | ----- | ----- |
