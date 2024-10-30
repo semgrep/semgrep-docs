@@ -310,6 +310,7 @@ html[data-theme="dark"] {
 details.alert {
     background: unset;
 }
+
 /******************************************************************************
  *                                                                            *
  * SIDEBAR                                                                    *
@@ -524,7 +525,11 @@ li > img {
   padding-top: 4px;
 }
 
-/* navbar */
+/******************************************************************************
+ *                                                                            *
+ * NAVBAR                                                                     *
+ *                                                                            *
+ *****************************************************************************/
 
 /* announcement banner */
 .announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
@@ -716,6 +721,7 @@ article > a[class*="cardContainer_"][class~="card"] {
  *                                                                            *
  * CARDS                                                                      *
  * 3-col layouts, flex, fixed, etc.                                           *
+ * index.md                                                                   *
  *****************************************************************************/
 
 .col-2-fixed, .col-3-fixed {
@@ -798,7 +804,6 @@ a[class*=cardContainer_][class~=card]  {
   border: var(--semgrep-docs-border);
 }
 
-
 /******************************************************************************
  *                                                                            *
  * GRID COLUMNS                                                               *
@@ -838,6 +843,24 @@ a[class*=cardContainer_][class~=card]  {
     }
 }
 
+/******************************************************************************
+ *                                                                            *
+ * PAGE-SPECIFIC CUSTOM CLASSES                                               *
+ *                                                                            *
+ *****************************************************************************/
+
 .language-support-table table td {
     vertical-align: top;
+}
+
+.logo-index {
+  display: flex;
+  padding-top: 32px;
+  column-gap: 16px;
+  align-items: 'center';
+}
+@media (max-width:475px) {
+  .logo-index {
+      flex-direction: column;
+  }
 }

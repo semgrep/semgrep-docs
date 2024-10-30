@@ -21,17 +21,17 @@ Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
 -->
 
-<div style={{display: 'inline-flex', paddingTop: '32px'}}>
-<a href="https://semgrep.dev">
-  <ThemedImage
-    alt="Semgrep themed logo"
-    height="48px"
-    sources={{
-      light: ('img/semgrep.svg#no-shadow'),
-      dark: ('img/semgrep.svg#no-shadow'),
-    }} />
-</a>
-<h1>&nbsp;Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
+<div class='logo-index'>
+  <a href="https://semgrep.dev">
+    <ThemedImage
+      alt="Semgrep themed logo"
+      height="48px"
+      sources={{
+        light: ('img/semgrep.svg#no-shadow'),
+        dark: ('img/semgrep.svg#no-shadow'),
+      }} />
+  </a>
+  <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
 </div>
 
 <h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
