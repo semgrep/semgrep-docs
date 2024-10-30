@@ -98,7 +98,7 @@ This document walks you through the following:
 - How to create, view, update, and delete teams and subteams
 - How to assign or unassign projects to teams
 
-## Roles and visibility
+## Roles and access
 
 The Teams feature extends the existing roles defined in the **Members** tab.
 
@@ -129,28 +129,30 @@ A third role, **the manager**, can be assigned within the context of a team. Man
 ![A member's view of the Projects page.](/img/access-member-view.png)
 _**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account._
 
-### Page visibility per role
+### Page or feature access per role
 
 | Page      | Member     | Manager    | Admin | Notes |
 | ----      | ------     | -------    | ----- | ----- |
-| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | For members, scope is limited based on their teams and the project access granted to those teams. |
-| Projects  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | Projects assigned to teams are visible to members and managers of those teams. Admins can see all projects. |
-| Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   | Members can perform all triage operations on Projects assigned to them. |
-| Policies  | ❌ No         | ❌ No         | ✅ Yes   |       |
-| Editor    | 👁️&nbsp;Read-only  | 👁️&nbsp;Read-only  | ✅ Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
-| Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅ Yes   | Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of.    |
+| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | For members, scope is limited based on their teams and the project access granted to those teams. |
+| Projects  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Projects assigned to teams are visible to members and managers of those teams. Admins can see all projects. |
+| Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Members can perform all triage operations on Projects assigned to them. |
+| Policies  | ❌ No         | ❌ No         | ✅&nbsp;Yes   | Only admins can view and edit policies.      |
+| Editor    | 👁️&nbsp;Read-only  | 👁️&nbsp;Read-only  | ✅&nbsp;Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
+| Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of.    |
 
 ### Operations permitted per role
 
 | Capability              | Member | Manager | Admin | Notes |
 | ----                    | ------ | ------- | ----- | ----- |
-| Create projects         | ❌ No     | ❌ No      | ✅ Yes   |       |
-| Assign roles            | ❌ No     | ❌ No      | ✅ Yes   |       |
-| Create or edit teams    | ❌ No     | ❌ No      | ✅ Yes   |       |
-| Create or edit subteams | ❌ No     | ✅ Yes     | ✅ Yes   |       |
-| Delete teams            | ❌ No     | ❌ No      | ✅ Yes   |       |
-| Delete subteams         | ❌ No     | ✅ Yes     | ✅ Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
-| API                     | ❌ No     | ❌ No      | ✅ Yes   |       |
+| Create or edit projects         | ❌ No     | ❌ No      | ✅ Yes   |       |
+| Change policies         | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
+| Triage findings         | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted  | ✅&nbsp;Yes   |  Members can perform all triage operations on Projects assigned to them.      |
+| Assign roles            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
+| Create or edit teams    | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
+| Create or edit subteams | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   |       |
+| Delete teams            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
+| Delete subteams         | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
+| API                     | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 
 ## How team access works
 
