@@ -46,7 +46,7 @@ The code is kept here for easy maintenance.
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
         <CardBody>
-          Run your first Semgrep scan. 
+          Run your first Semgrep scan.<br />
         </CardBody>
     </div>
   </Card>

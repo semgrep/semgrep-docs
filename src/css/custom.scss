@@ -779,10 +779,13 @@ a.card:hover {
   width: 100%;
   p {
     @media screen and (max-width: 1480px) {
-      font-size: 14px;
+      font-size: 16px;
     }
     @media screen and (max-width: 1366px - 1px) {
-      font-size: 16px;
+      min-height: 48px;
+    }
+    @media screen and (max-width: 450px) {
+      font-size: 12px;
     }
   }
 }
@@ -793,10 +796,14 @@ a.card:hover {
   border-radius: unset;
   height: 100%;
   object-fit: cover;
-  width: 25%;
+  /* width: 25%; */
+    @media screen and (max-width: 450px) {
+      width: 30%;
+    }
+  /*
   @media screen and (max-width: 1366px - 1px) {
     width: 15%;
-  }
+  } */
 }
 
 a[class*=cardContainer_][class~=card]  {
@@ -858,9 +865,7 @@ a[class*=cardContainer_][class~=card]  {
   padding-top: 32px;
   column-gap: 16px;
   align-items: 'center';
-}
-@media (max-width:475px) {
-  .logo-index {
+  @media (max-width:475px) {
       flex-direction: column;
   }
 }
