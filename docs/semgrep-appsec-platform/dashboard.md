@@ -106,7 +106,8 @@ The following quick filters are visible on the page:
   - [Recommended priority](#recommended-priority) toggle
 
 :::info
-It can take up to a day **(24 hours)** for the Dashboard to correctly update and remove findings if you have recently deleted a project.
+- By default, the Dashboard displays data for projects you have access to. Admins can view findings from all the projects in the organization. See the [Teams documentation](/deployment/teams#teams-beta) for more information.
+- It can take up to a day **(24 hours)** for the Dashboard to correctly update and remove findings if you have recently deleted a project.
 :::
 
 To access **all** filters:
@@ -124,6 +125,7 @@ This displays the following filters in the filter drawer:
 - Product
 - Project
 - Tags
+- Teams
 
 ### Recommended priority
 
