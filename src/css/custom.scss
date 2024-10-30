@@ -182,6 +182,12 @@ html[data-theme="light"] {
       color: var(--semgrep-secondary-blue03);
   }
 
+  h5.home {
+      @media screen and (max-width: 450px) {
+        font-size: 18px;
+      }
+  }
+
   .card__copy > h6 {
     color: var(--semgrep-secondary-purple01);
   }
@@ -817,7 +823,9 @@ a[class*=cardContainer_][class~=card]  {
  *                                                                            *
  *****************************************************************************/
 
-/* columns */
+/* ----------------------------------------------------------------------------
+Semgrep vs Semgrep OSS
+---------------------------------------------------------------------------- */
 .col-3-grid > * {
     border-right: 1px solid var(--semgrep-grey-300);
 }
@@ -856,6 +864,10 @@ a[class*=cardContainer_][class~=card]  {
  *                                                                            *
  *****************************************************************************/
 
+
+/* ----------------------------------------------------------------------------
+Index
+---------------------------------------------------------------------------- */
 .language-support-table table td {
     vertical-align: top;
 }
@@ -864,7 +876,6 @@ a[class*=cardContainer_][class~=card]  {
   display: flex;
   padding-top: 32px;
   column-gap: 16px;
-  align-items: 'center';
   @media (max-width:475px) {
       flex-direction: column;
   }
