@@ -168,7 +168,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   </tr>
   <tr>
    <td rowspan="2">Kotlin</td>
-   <td>Gradle§</td>
+   <td>Gradle*</td>
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
@@ -253,7 +253,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   </tbody>
 </table>
 </div>
-_**§** Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
+_*Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
 
 ### Maturity levels
 
