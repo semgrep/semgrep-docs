@@ -473,7 +473,7 @@ h6 {
   font-size: 17px;
 }
 
-p, ul, li, ol, tr, td {
+p, ul, li, ol, tr, td, summary {
   @media screen and (max-width: 450px) {
     font-size: 14px;
   }
