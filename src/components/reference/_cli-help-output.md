@@ -3,7 +3,7 @@ Usage: semgrep [OPTIONS] COMMAND [ARGS]...
 
   To get started quickly, run `semgrep scan --config auto`
 
-  Run [36m`semgrep SUBCOMMAND --help`[39m for more information on each subcommand
+  Run `semgrep SUBCOMMAND --help` for more information on each subcommand
 
   If no subcommand is passed, will run [36m`scan`[39m subcommand by default
 
