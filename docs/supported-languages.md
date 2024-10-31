@@ -209,7 +209,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
   </tr>
   <tr>
    <td>Rust</td>
-   <td>Cargo§</td>
+   <td>Cargo*</td>
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✅</td>
