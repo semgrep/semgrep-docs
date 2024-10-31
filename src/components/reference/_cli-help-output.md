@@ -1,7 +1,7 @@
 ```
 Usage: semgrep [OPTIONS] COMMAND [ARGS]...
 
-  To get started quickly, run [36m`semgrep scan --config auto`[39m
+  To get started quickly, run `semgrep scan --config auto`
 
   Run [36m`semgrep SUBCOMMAND --help`[39m for more information on each subcommand
 
