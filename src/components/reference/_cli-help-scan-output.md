@@ -36,6 +36,10 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
+       --allow-dynamic-dependency-resolution
+           Experimental: allow resolving dependencies dynamically by
+           communicating with package managers during the scan.
+
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
            semgrep.dev. Avoid running rules from origins you don't trust.
@@ -451,12 +455,24 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+       --x-ignore-semgrepignore-files
+           [INTERNAL] Ignore all '.semgrepignore' files found in the project
+           tree for the purpose of selecting target files to be scanned by
+           semgrep. Other filters may still apply. REQUIRES '--experimental'.
+           THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE OR
+           DISAPPEAR WITHOUT NOTICE. 
+
        --x-ls
-           [INTERNAL] List the selected target files and the skipped target
-           files before any rule-specific or language-specific filtering.
-           Then exit. The output format is unspecified. THIS OPTION IS NOT
-           PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. REQUIRES --experimental. 
+           [INTERNAL] List the selected target files before any rule-specific
+           or language-specific filtering. Then exit. The default output
+           format is one path per line. THIS OPTION IS NOT PART OF THE
+           SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-ls-long
+           [INTERNAL] Show selected targets and skipped targets with reasons
+           why they were skipped, using an unspecified output format. Implies
+           --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
+           OR DISAPPEAR WITHOUT NOTICE. 
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
