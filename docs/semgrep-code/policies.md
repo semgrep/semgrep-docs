@@ -9,7 +9,7 @@ tags:
  - Semgrep AppSec Platform
 ---
 
-# Set rules through Policies
+# Manage policies
 
 The Policies page displays the [<i class="fa-regular fa-file-lines"></i> rules](/running-rules) that Semgrep Code uses when scanning all of your repositories.
 
