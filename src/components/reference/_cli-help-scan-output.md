@@ -124,7 +124,7 @@ OPTIONS
 
        --exclude-minified-files
            Skip minified files. These are files that are > 7% whitespace, or
-           who have a large number of bytes per line. By defualt minified
+           who have a large number of bytes per line. By default minified
            files are scanned 
 
        --exclude-rule=VAL
