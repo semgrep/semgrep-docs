@@ -1,17 +1,17 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
 
-The following code displays Semgrep in the CI configuration file for GitHub Actions (GHA) with the default setup (`run: semgrep ci`):
+The following is a sample `.semgrep.yml` file you can use with GitHub Actions. Semgrep's default behavior regarding blocking findings and errors applies here:
 
+- Semgrep returns exit code `1` if there are blocking findings
+- Semgrep returns exit code `0` if there are *no* blocking findings, even if there are internal errors. Semgrep does, however, send an anonymous report to the crash-reporting server.
+
+This means that, by default, Semgrep doesn't report statuses other than `0` or `1`.
 
 <GhaSemgrepAppSast />
 
-
-The default configuration displayed above lets Semgrep in CI **fail** on blocking findings but **pass** on internal errors. If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and exits with exit code `0`. Consequently, Semgrep in CI does not report other statuses than `0` or `1` by default (`0` reports success, `1` reports blocking findings).
-
-Optional: Define this configuration explicitly using the `--suppress-errors` flag. The resulting code is the following:
+Optionally, you can explicitly indicate that Semgrep is using the default settings by including the `--suppress-errors` flag. The modified portion of the configuration file is as follows:
  
 ```yaml
 steps:
@@ -19,20 +19,18 @@ steps:
   - name: Scan and suppress internal errors
     run: semgrep ci --suppress-errors
 ```
- 
-To change the configuration of blocking findings and errors in GitLab, insert one of the configuration options after the `script` key. For example, use `script: semgrep ci --suppress-errors` to state the default option. Similarly, use options described above, such as `script: semgrep ci --no-suppress-errors` or `script: semgrep ci || true`.
 
-The following shortened code snippets in multiple tabs display the position of the default flag in configuration files of various CI providers:
+The following code snippets display the position of the default flag in the configuration files of various CI providers:
 
 <Tabs
     defaultValue="github"
     values={[
+    {label: 'BitBucket Pipelines', value: 'bitbucket'},
+    {label: 'Buildkite', value: 'buildkite'},
+    {label: 'CircleCI', value: 'circleci'},
     {label: 'GitHub Actions', value: 'github'},
     {label: 'GitLab CI/CD', value: 'gitlab'},
     {label: 'Jenkins', value: 'jenkins'},
-    {label: 'BitBucket Pipelines', value: 'bitbucket'},
-    {label: 'CircleCI', value: 'circleci'},
-    {label: 'Buildkite', value: 'buildkite'},
     ]}>
 <TabItem value="github">
 
@@ -92,4 +90,4 @@ commands:
 </TabItem>
 </Tabs>
 
-<!-- imports: This file is currently imported to: configuration-reference.md -->
+See [Configuration options for blocking findings and errors](/semgrep-ci/configuring-blocking-and-errors-in-ci#configuration-options-for-blocking-findings-and-errors) for information about the modifications to `semgrep ci` you can make to change Semgrep's default behavior.
