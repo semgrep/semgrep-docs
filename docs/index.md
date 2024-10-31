@@ -34,7 +34,7 @@ The code is kept here for easy maintenance.
   <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
 </div>
 
-<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every&nbsp;commit.</h5>
 
 <h3>Scan with Semgrep AppSec Platform</h3>
 

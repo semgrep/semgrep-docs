@@ -896,7 +896,8 @@ Index
   display: flex;
   padding-top: 32px;
   column-gap: 16px;
-  @media (max-width:475px) {
+  @media (max-width: 475px) {
       flex-direction: column;
+      padding-top: 8px;
   }
 }
