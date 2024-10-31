@@ -473,7 +473,7 @@ h6 {
   font-size: 17px;
 }
 
-p {
+p, ul, li, ol {
   @media screen and (max-width: 450px) {
     font-size: 14px;
   }
