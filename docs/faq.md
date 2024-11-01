@@ -259,7 +259,7 @@ Both Semgrep and Snyk offer remediation advice for findings identified during sc
 
 Snyk and Semgrep both display prioritization metrics to help you decide which findings you should work on first. For SAST, Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides severity information, confidence in the rule to detect findings that are true positives, and likelihood that an attacker can exploit the issues found.
 
-Additionally, Semgrep provides action recommendations through Assistant, which offers capabilities like GPT-4-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Additionally, Semgrep provides action recommendations through Assistant, which offers AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
 Snyk offers autofix capability for its SCA product, but not its SAST product. Semgrep offers autofix suggestions for SAST and SCA, where its [rules contain suggested fixes to resolve findings](/writing-rules/autofix). In the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can generate an autofix](/semgrep-assistant/overview#autofix).
 
@@ -326,7 +326,7 @@ These types of data include **scan data** and **findings data**.
 - Scan data includes project name, CI environment, and scan meta-data.
 - Findings data are used to provide human-readable content for notifications and integrations, as well as tracking results as new, fixed, or duplicate.
 
-For more information and a detailed description of each data field, refer to [the relevant section in PRIVACY.md](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#data-collected-when-explicitly-requested).
+For more information and a detailed description of each data field, refer to [the relevant section in metrics.md](https://github.com/semgrep/semgrep/blob/develop/metrics.md#data-collected-when-explicitly-requested).
 
 ### What network requests are made?
 

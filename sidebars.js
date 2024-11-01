@@ -111,6 +111,7 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/manage-projects',
                         'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
@@ -236,11 +237,21 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
-                'semgrep-supply-chain/getting-started',
-                'semgrep-supply-chain/triage-remediation',
-                'semgrep-supply-chain/ignoring-deps',
-                'semgrep-supply-chain/dependency-search',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Open source security vulnerabilities',
+                  link: {
+                    type: 'doc',
+                    id: 'semgrep-supply-chain/getting-started',
+                  },
+                  items: [
+                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/ignoring-deps',
+                  ]
+                },
                 'semgrep-supply-chain/sbom',
+                'semgrep-supply-chain/dependency-search',
                 'semgrep-supply-chain/license-compliance'
             ]
         },
@@ -461,7 +472,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep privacy policy'
+              label: 'Semgrep metrics'
             },
             {
               type: 'category',

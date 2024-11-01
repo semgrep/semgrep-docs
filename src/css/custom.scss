@@ -174,7 +174,6 @@ html[data-theme="light"] {
   img {
       box-shadow: var(--semgrep-docs-box-shadow);
       border-radius: var(--ifm-code-border-radius);
-      margin-bottom: 4px;
       border: var(--semgrep-docs-border);
   }
 
@@ -310,6 +309,7 @@ html[data-theme="dark"] {
 details.alert {
     background: unset;
 }
+
 /******************************************************************************
  *                                                                            *
  * SIDEBAR                                                                    *
@@ -429,33 +429,54 @@ h1 {
     font-size: 45px;
     line-height: 1.1;
     letter-spacing: -0.03em;
+    @media screen and (max-width: 450px) {
+      font-size: 36px;
+    }
 }
 
 h2 {
     font-size: 36px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    @media screen and (max-width: 450px) {
+      font-size: 26px;
+    }
 }
 
 h3 {
     font-size: 30px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    @media screen and (max-width: 450px) {
+      font-size: 24px;
+    }
 }
 
 h4 {
     font-size: 24px;
     line-height: 1.3;
     letter-spacing: -0.01em;
+    @media screen and (max-width: 450px) {
+      font-size: 20px;
+    }
 }
 
 h5 {
     font-size: 20px;
     line-height: 1.4;
+    @media screen and (max-width: 450px) {
+      font-size: 17px;
+    }
 }
 
 h6 {
   font-size: 17px;
+}
+
+p, ul, li, ol, tr, td, summary, dl, dd {
+  @media screen and (max-width: 450px) {
+    font-size: 14px;
+  }
 }
 
 dt {
@@ -486,6 +507,9 @@ See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matchin
 https://www.w3.org/TR/selectors-3/#attribute-substrings
 */
 
+img[src*="full"] {
+  width: 100%;
+}
 img[src*="no-shadow"] {
   box-shadow: 0px 0px 0px !important;
   border: none !important;
@@ -521,7 +545,11 @@ li > img {
   padding-top: 4px;
 }
 
-/* navbar */
+/******************************************************************************
+ *                                                                            *
+ * NAVBAR                                                                     *
+ *                                                                            *
+ *****************************************************************************/
 
 /* announcement banner */
 .announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
@@ -713,6 +741,7 @@ article > a[class*="cardContainer_"][class~="card"] {
  *                                                                            *
  * CARDS                                                                      *
  * 3-col layouts, flex, fixed, etc.                                           *
+ * index.md                                                                   *
  *****************************************************************************/
 
 .col-2-fixed, .col-3-fixed {
@@ -770,12 +799,21 @@ a.card:hover {
   width: 100%;
   p {
     @media screen and (max-width: 1480px) {
-      font-size: 14px;
-    }
-    @media screen and (max-width: 1366px - 1px) {
       font-size: 16px;
     }
+    @media screen and (max-width: 450px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 410px) {
+      font-size: 12px;
+    }
   }
+}
+
+.card-50 > .card__copy > .card__body {
+    @media screen and (max-width: 1366px - 1px) {
+      min-height: 64px;
+    }
 }
 
 .card__image {
@@ -784,13 +822,101 @@ a.card:hover {
   border-radius: unset;
   height: 100%;
   object-fit: cover;
-  width: 25%;
+  /* width: 25%; */
+    @media screen and (max-width: 450px) {
+      width: 30%;
+    }
+  /*
   @media screen and (max-width: 1366px - 1px) {
     width: 15%;
-  }
+  } */
 }
 
 a[class*=cardContainer_][class~=card]  {
   box-shadow: var(--semgrep-docs-box-shadow);
   border: var(--semgrep-docs-border);
 }
+
+/******************************************************************************
+ *                                                                            *
+ * GRID COLUMNS                                                               *
+ *                                                                            *
+ *****************************************************************************/
+
+/* ----------------------------------------------------------------------------
+Semgrep vs Semgrep OSS
+---------------------------------------------------------------------------- */
+.col-3-grid > * {
+    border-right: 1px solid var(--semgrep-grey-300);
+}
+
+.col-3-grid > div {
+  width: calc(33.3% - 0.7rem);
+  padding-right: 0.7rem;
+}
+
+.col-2-grid > div:first-of-type {
+    border-right: 1px solid var(--semgrep-grey-300);
+}
+
+.col-2-grid > div {
+  width: calc(50% - 0.7rem);
+  padding-right: 0.7rem;
+}
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .col-3-grid, .col-2-grid {
+        display: flex;
+        justify-content: space-between;
+    }
+    .col-3-grid, .col-2-grid p {
+        font-size: 14px;
+    }
+    .col-3-grid, .col-2-grid li {
+        font-size: 14px;
+    }
+}
+
+/******************************************************************************
+ *                                                                            *
+ * PAGE-SPECIFIC CUSTOM CLASSES                                               *
+ *                                                                            *
+ *****************************************************************************/
+
+
+/* ----------------------------------------------------------------------------
+Index
+---------------------------------------------------------------------------- */
+.language-support-table table td {
+    vertical-align: top;
+}
+
+.logo-index {
+  display: flex;
+  padding-top: 32px;
+  column-gap: 16px;
+  @media (max-width: 475px) {
+      flex-direction: column;
+      padding-top: 8px;
+  }
+}
+
+
+input#search_input_react {
+  @media (max-width: 380px) {
+    width: 100%;
+  }
+} 
+.navbar__search-input {
+  @media (min-width: calc(380px + 1px)) {
+    width: 10rem !important;
+  }
+}
+
+.navbar__items--right>:last-child {
+  @media (max-width: 380px) {
+    width: 33%;
+  }
+}
+
