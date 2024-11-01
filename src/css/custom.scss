@@ -904,9 +904,12 @@ Index
 
 
 input#search_input_react {
-  width: 100%;
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 }
-
-navbarSearchContainer_node_modules-@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
-  width: 33%; 
+.navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+  @media (max-width: 380px) {
+    width: 33%;
+  }
 }
