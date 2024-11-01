@@ -79,7 +79,7 @@ Semgrep AppSec Platform can scan in the following environments:
 
 Your scan configuration, such as rules and policies, and scan analysis (SAST, SCA, or secrets) are preserved across all environments.
 
-Users comfortable with granting Semgrep code access can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning).
+Users comfortable with granting Semgrep code access can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning/overview).
 
 AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
@@ -291,7 +291,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 - Connects to [GitHub, GitLab, Bitbucket, and Azure DevOps repositories](/deployment/connect-scm)
 - Secure access between your private network and Semgrep through the [Network Broker](/semgrep-ci/network-broker)
 - Single tenancy
-- [Managed scans](/deployment/managed-scanning)
+- [Managed scans](/deployment/managed-scanning/overview)
 - [SSO](/deployment/sso) and managed authentication through GitHub or GitLab
 - [Project (repository) management](/deployment/manage-projects), such as tagging, setting of a primary branch, and so on
 - [Team management](/deployment/teams)
