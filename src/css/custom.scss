@@ -908,8 +908,9 @@ input#search_input_react {
     width: 100%;
   }
 }
-.navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+
+.navbar__items--right>:last-child {
   @media (max-width: 380px) {
     width: 33%;
   }
-}
+} 
