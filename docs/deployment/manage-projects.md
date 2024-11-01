@@ -36,12 +36,13 @@ To sort projects, click the attribute you want to sort by on the header row. You
 Sort by the following attributes:
 
 - **Project**: Click to toggle between sorting project names alphabetically in ascending or descending order. 
-- **Last scan**: Click to toggle between sorting the projects' latest scans in ascending or descending order.
+- **Last scan**: Click to toggle between sorting the projects' latest scans in ascending or descending order. The sorting is based on when the last scan **started**, regardless of its status. 
 
 ## Filter a project's scans
 
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login) and click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. In the row of the project you want to view, click the project's **<i class="far fa-window-restore"></i> window icon** under the **Details** column.
+
 
 The following filters are available:
 
