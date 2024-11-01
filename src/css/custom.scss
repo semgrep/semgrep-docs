@@ -910,7 +910,7 @@ input#search_input_react {
 } 
 .navbar__search-input {
   @media (min-width: calc(380px + 1px)) {
-    width: 10rem;
+    width: 10rem !important;
   }
 }
 
