@@ -907,10 +907,16 @@ input#search_input_react {
   @media (max-width: 380px) {
     width: 100%;
   }
+} 
+.navbar__search-input {
+  @media (min-width: calc(380px + 1px)) {
+    width: 10rem;
+  }
 }
 
 .navbar__items--right>:last-child {
   @media (max-width: 380px) {
     width: 33%;
   }
-} 
+}
+
