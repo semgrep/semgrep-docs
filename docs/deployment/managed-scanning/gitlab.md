@@ -16,17 +16,21 @@ import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
 
 Add GitLab repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. 
 
-## Permissions
+## Prerequisites and permissions
 
-Before you can add a GitLab repository to Semgrep Managed Scans, you must create a GitLab personal access token (PAT) and provide it to Semgrep. To do so, follow the instructions that apply to you:
+Before you can add a GitLab repository to Semgrep Managed Scans (SMS), you must add GitLab as a source code manager in Semgrep. During this process, you provide a GitLab personal access token (PAT) to Semgrep. The PAT must have the `api` scope assigned to it. During SMS onboarding, the user to which the PAT is assigned must have one of the following roles: `Maintainer`, `Owner`, or `Admin`. Afterwards, you can downgrade the role assigned to the token to `Developer`.
+
+To add GitLab as a source code manager in Semgrep so, follow the instructions that apply to you:
 
 - [Connect a source code manager: GitLab Cloud](/deployment/connect-scm#gitlab-cloud)
 - [Connect a source code manager: GitLab self-managed plans](/deployment/connect-scm#gitlab-self-managed-plans)
 
-Once you've added GitLab as a source code manager, enable incoming GitLab webhooks:
+## Enable webhooks
+
+Once you've added GitLab as a source code manager, enable incoming GitLab webhooks to facilitate the connection between Semgrep and GitLab:
 
 1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
-2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to **Receive incoming webhooks from this GitLab Group**.
+2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to enable **Incoming webhooks**.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
