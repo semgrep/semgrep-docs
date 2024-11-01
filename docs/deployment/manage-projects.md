@@ -36,7 +36,7 @@ To sort projects, click the attribute you want to sort by on the header row. You
 Sort by the following attributes:
 
 - **Project**: Click to toggle between sorting project names alphabetically in ascending or descending order. 
-- **Last scan**: Click to toggle between sorting the projects' latest scans in ascending or descending order. The sorting is based on when the last scan **started**, regardless of its status. 
+- **Last scan**: Click to toggle between sorting the projects' latest scans in ascending or descending order. The sorting is based on when the last scan **started**, regardless of its status. For this reason, you may see that scans with statuses such as **Not started** or **Never finished** are not necessarily grouped together.
 
 ## Filter a project's scans
 
