@@ -18,6 +18,14 @@ Add GitLab repositories to your Semgrep organization in bulk without adding or c
 
 ## Prerequisites and permissions
 
+:::info
+Semgrep Managed Scanning requires one of the following plans:
+
+- GitLab Premium
+- GitLab Ultimate
+- GitLab Self Managed
+:::
+
 Before you can add a GitLab repository to Semgrep Managed Scans (SMS), you must add GitLab as a source code manager in Semgrep. During this process, you provide a GitLab personal access token (PAT) to Semgrep. The PAT must have the `api` scope assigned to it. During SMS onboarding, the user to which the PAT is assigned must have one of the following roles: `Maintainer`, `Owner`, or `Admin`. Afterwards, you can downgrade the role assigned to the token to `Developer`.
 
 To add GitLab as a source code manager in Semgrep so, follow the instructions that apply to you:
