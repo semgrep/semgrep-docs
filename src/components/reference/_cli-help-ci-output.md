@@ -21,6 +21,10 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
+       --allow-dynamic-dependency-resolution
+           Experimental: allow resolving dependencies dynamically by
+           communicating with package managers during the scan.
+
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
            semgrep.dev. Avoid running rules from origins you don't trust.
@@ -434,6 +438,12 @@ OPTIONS
            Write a copy of the vim output to a file or post to URL.
 
        --x-dump-rule-partitions=VAL (absent=0)
+           Internal flag.
+
+       --x-partial-config=VAL
+           Internal flag.
+
+       --x-partial-output=VAL
            Internal flag.
 
 COMMON OPTIONS
