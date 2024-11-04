@@ -82,13 +82,13 @@ The code is kept here for easy maintenance.
 <h3>Supported languages</h3>
 
 | Product | Languages |
-| :-------:  | :------: |
-| Semgrep Code      |  **Generally available (GA)**<br /><br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br /><br />APEX • Elixir<br /><br />**Experimental**<br /><br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
-| Semgrep Supply Chain | **Generally available (GA) reachability**<br /><br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />**Beta or lockfile-only reachability**<br /><br />Dart • Elixir • PHP  • Rust • Scala • Swift |
+| :-------  | :------ |
+| Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
+| Semgrep Supply Chain | **Generally available (GA) reachability**<br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust • Scala • Swift |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
 See the [Supported languages](/supported-languages#semgrep-code-and-oss) documentation for more details.
-
+<!-- Please don't delete the whole Enhance... section, as we may resurrect --> <!--
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
@@ -117,6 +117,7 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
     </div>
   </Card>
 </div>
+-->
 
 <h3>September 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
