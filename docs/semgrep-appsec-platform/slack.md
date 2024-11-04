@@ -117,6 +117,14 @@ The following list describes possible ways to troubleshoot findings not appearin
 * Check your filters.
 * Check if the channel is private. You must add the Semgrep Slack App to any private channel to subscribe to notifications in that channel.
 
+### Check notifications
+
+To check that your notifications are set up, you can review notifications in two places:
+
+* On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, locate your Slack integration and expand **Channels receiving Semgrep notifications**.
+* In your Slack workspace, click **Semgrep** under **Apps** in the Slack sidebar and review the channels under **Notifications are being sent to the following channels.**
+  - In this channel list, to send a test notification, click the **three-dot menu** > **Send Test Notification**.
+
 ### Check your filters
 
 If you have set up any filter, such as filtering for a specific policy or project, all conditions of that filter must be present for the notification to be sent. Review your filters by following the steps in [Changing Slack notification settings](#change-slack-notification-settings).
