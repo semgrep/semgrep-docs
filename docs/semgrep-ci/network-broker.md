@@ -206,7 +206,7 @@ inbound:
 
 You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. 
 
-Each Semgrep deployment requires and accepts exactly one configuration file. If you run multiple instances of the Semgrep Network Broker, each instance uses the same configuration file if they're associated with the same deployment.
+Each Semgrep deployment requires and accepts exactly one configuration file. If you run multiple instances of the Semgrep Network Broker, each associated with the same deployment uses the same configuration file.
 
 You can define multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information). Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests:
 
