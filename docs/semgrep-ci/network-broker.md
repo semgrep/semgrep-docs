@@ -178,30 +178,32 @@ inbound:
     verbose: true
 ```
 
-## Use Semgrep Network Broker with Managed Scans
-
-Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. 
-
-To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
-
-```yaml
-inbound:
-  allowlist:
-    # allow GET requests from https://git.example.com/*
-    - url: https://git.example.com/*
-      methods: [GET, POST]
-```
-
-Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. To ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
-
-```
-inbound:
-  allowlist:
-    # allow PATCH requests to update checks
-    - url: https://git.example.com/api/v3/repos/:owner/:repo/check-runs/:id
-      methods: [GET, POST, PATCH]
-```
-
 ## Run multiple instances of the Semgrep Network Broker
 
-You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. However, you may see some noise in your logs since the Broker hasn't been architected yet for this specific configuration.
+You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. 
+
+Each Semgrep deployment requires and accepts exactly one configuration file. If you run multiple instances of the Semgrep Network Broker, each instance uses the same configuration file if they're associated with the same deployment.
+
+You can define multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information). Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests:
+
+```yaml
+allowlist:
+ - url: https://git.example.com/api/v3/repos/:owner/:repo
+    methods: [GET]
+    setRequestHeaders:
+      Authorization: "Bearer <GH TOKEN>"
+ - url: https://git.example.com/api/v3/repos/:owner/:repo/pulls
+    methods: [GET]
+    setRequestHeaders:
+      Authorization: "Bearer <GH TOKEN>"
+ - url: https://git.example.com/api/v3/repos/:owner/:repo/pulls/:number/comments
+    methods: [POST]
+    setRequestHeaders:
+      Authorization: "Bearer <GH TOKEN>"
+ - url: https://git.example.com/api/v3/repos/:owner/:repo/issues/:number/comments
+    methods: [POST]
+    setRequestHeaders:
+      Authorization: "Bearer <GH TOKEN>"
+```
+
+You may see some noise in your logs when using multiple Network Broker instances since the Broker hasn't been architected yet for this specific configuration.
