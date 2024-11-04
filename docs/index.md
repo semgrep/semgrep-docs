@@ -82,11 +82,12 @@ The code is kept here for easy maintenance.
 <h3>Supported languages</h3>
 
 | Product | Generally available (GA) languages |
-| :-------:  | :------: |
+| :-------- | :------- |
 | Semgrep Code      |  C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />For **beta** and **experimental** languages, see all [Supported languages](/supported-languages#semgrep-code-and-oss). |
 | Semgrep Supply Chain | C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />For beta languages and support details, see all [Supported languages](/supported-languages#semgrep-supply-chain). |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
+<!--
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
@@ -115,7 +116,7 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
 </div>
-
+-->
 <h3>September 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 - Semgrep Managed Scans (SMS) automatically scans newly created repositories if you grant code access to your GitHub repositories.
