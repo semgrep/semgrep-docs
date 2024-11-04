@@ -208,26 +208,35 @@ You can run multiple instances of the Semgrep Network Broker to manage availabil
 
 Each Semgrep deployment requires and accepts exactly one configuration file. If you run multiple instances of the Semgrep Network Broker, each instance uses the same configuration file if they're associated with the same deployment.
 
-You can define multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information). Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests:
+You can define multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
-```yaml
+<pre class="language-console"><code>
+github:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
+&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
+</code></pre>
+
+Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
+
+
+<pre class="language-console"><code>
 allowlist:
- - url: https://git.example.com/api/v3/repos/:owner/:repo
-    methods: [GET]
-    setRequestHeaders:
-      Authorization: "Bearer <GH TOKEN>"
- - url: https://git.example.com/api/v3/repos/:owner/:repo/pulls
-    methods: [GET]
-    setRequestHeaders:
-      Authorization: "Bearer <GH TOKEN>"
- - url: https://git.example.com/api/v3/repos/:owner/:repo/pulls/:number/comments
-    methods: [POST]
-    setRequestHeaders:
-      Authorization: "Bearer <GH TOKEN>"
- - url: https://git.example.com/api/v3/repos/:owner/:repo/issues/:number/comments
-    methods: [POST]
-    setRequestHeaders:
-      Authorization: "Bearer <GH TOKEN>"
-```
+&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo
+&nbsp;&nbsp;  methods: [GET]
+&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls
+&nbsp;&nbsp;  methods: [GET]
+&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls/:number/comments
+&nbsp;&nbsp;  methods: [POST]
+&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/:owner/:repo/issues/:number/comments
+&nbsp;&nbsp;  methods: [POST]
+&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+</code></pre>
 
 You may see some noise in your logs when using multiple Network Broker instances since the Broker hasn't been architected yet for this specific configuration.
