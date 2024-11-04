@@ -43,7 +43,6 @@ Sort by the following attributes:
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login) and click **<i class="fa-solid fa-folder-open"></i> Projects**.
 1. In the row of the project you want to view, click the project's **<i class="far fa-window-restore"></i> window icon** under the **Details** column.
 
-
 The following filters are available:
 
 - **Time period**: 7 days or 1 month
