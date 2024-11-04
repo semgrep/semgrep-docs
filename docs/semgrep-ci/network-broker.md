@@ -218,7 +218,6 @@ github:
 
 Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
 
-
 <pre class="language-console"><code>
 allowlist:
 &nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo
@@ -237,6 +236,7 @@ allowlist:
 &nbsp;&nbsp;  methods: [POST]
 &nbsp;&nbsp;  setRequestHeaders:
 &nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;...
 </code></pre>
 
 You may see some noise in your logs when using multiple Network Broker instances since the Broker hasn't been architected yet for this specific configuration.
