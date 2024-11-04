@@ -82,9 +82,9 @@ The code is kept here for easy maintenance.
 <h3>Supported languages</h3>
 
 | Product | Generally available (GA) languages |
-| :-------- | :------- |
-| Semgrep Code      |  C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />For **beta** and **experimental** languages, see all [Supported languages](/supported-languages#semgrep-code-and-oss). |
-| Semgrep Supply Chain | C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />For beta languages and support details, see all [Supported languages](/supported-languages#semgrep-supply-chain). |
+| :--------- | :------- |
+| Semgrep Code      |  C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />For **beta** and **experimental** languages, see [Supported languages](/supported-languages#semgrep-code-and-oss). |
+| Semgrep Supply Chain | C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />For beta languages and support details, see [Supported languages - Semgrep Supply Chain](/supported-languages#semgrep-supply-chain). |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
 <!--
