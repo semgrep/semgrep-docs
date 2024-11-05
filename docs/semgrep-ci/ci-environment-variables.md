@@ -7,8 +7,6 @@ title: CI environment variables
 hide_title: true
 ---
 
-import BlockFindingsErrorsConfigs from '/src/components/reference/_block-findings-errors-configs.mdx'
-
 # Continuous integration (CI) environment variables
 
 Use this reference to configure Semgrep's behavior in CI environments by setting environment variables. You can set these variables within a CI configuration file or your CI provider's interface. Refer to your CI provider's documentation for the correct syntax. Examples are written for a Bash environment unless otherwise stated.
