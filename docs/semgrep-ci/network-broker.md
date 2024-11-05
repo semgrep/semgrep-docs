@@ -7,6 +7,9 @@ tags:
   - Deployment
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Set up the Semgrep Network Broker
 
 The Semgrep Network Broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a WireGuard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** HTTP requests from Semgrep to your network through this tunnel. This approach allows Semgrep to interact with on-premise resources without exposing them to the public internet.
@@ -95,26 +98,45 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
 
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL, for GitHub, GitLab, or Bitbucket Data Center.
 
-For GitLab: 
+<Tabs
+    defaultValue="gh"
+    values={[
+    {label: 'Bitbucket', value: 'bb'},
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'},
+    ]}
+>
+
+<TabItem value='bb'>
+
+Bitbucket is compatible with Network Broker versions 0.20.0 and later.
+
 <pre class="language-console"><code>
-gitlab:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
+bitbucket:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 </code></pre>
 
-For GitHub:
+</TabItem>
+<TabItem value='gh'>
+
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 &nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
-For Bitbucket  - compatible with Network Broker versions 0.20.0 and later:
+</TabItem>
+<TabItem value='gl'>
+
 <pre class="language-console"><code>
-bitbucket:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
+gitlab:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
+&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
+
+</TabItem>
+</Tabs>
 
 ### Add your local address to the config
 
@@ -180,7 +202,50 @@ inbound:
 
 ## Use Semgrep Network Broker with Managed Scans
 
-Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance. 
+Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance.
+
+To enable Managed Scans when using Network Broker, ensure that you've updated your SCM information to allow code access:
+
+<Tabs
+    defaultValue="gh"
+    values={[
+    {label: 'Bitbucket', value: 'bb'},
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'},
+    ]}
+>
+
+<TabItem value='bb'>
+
+<pre class="language-console"><code>
+bitbucket:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
+&nbsp;&nbsp;allowCodeAccess: true
+</code></pre>
+
+</TabItem>
+<TabItem value='gh'>
+
+<pre class="language-console"><code>
+github:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
+&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
+&nbsp;&nbsp;allowCodeAccess: true
+</code></pre>
+
+</TabItem>
+<TabItem value='gl'>
+
+<pre class="language-console"><code>
+gitlab:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
+&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
+&nbsp;&nbsp;allowCodeAccess: true
+</code></pre>
+
+</TabItem>
+</Tabs>
 
 To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
@@ -194,7 +259,7 @@ inbound:
 
 Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. To ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
 
-```
+```yaml
 inbound:
   allowlist:
     # allow PATCH requests to update checks
