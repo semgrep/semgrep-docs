@@ -7,11 +7,11 @@ toc_max_heading_level: 2
 pagination_next: getting-started/quickstart
 description: >-
   Read the documentation and get started with Semgrep.
-  A fast, open-source, static analysis engine
-  for finding bugs, detecting dependency vulnerabilities, and enforcing code standards at editor, commit, and CI time.
+  A fast static analysis engine for finding bugs,
+  detecting dependency vulnerabilities, and enforcing
+  code standards at editor, commit, and CI time.
 ---
 
-import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import ThemedImage from '@theme/ThemedImage'
 
 <!-- vale off -->
@@ -34,11 +34,11 @@ The code is kept here for easy maintenance.
   <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
 </div>
 
-<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every&nbsp;commit.</h5>
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code. Enforce your code standards on every&nbsp;commit.</h5>
 
 <h3>Scan with Semgrep AppSec Platform</h3>
 
-<h5 class='home'>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one platform.</h5>
+<p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
 
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart'>
@@ -79,6 +79,16 @@ The code is kept here for easy maintenance.
   </Card>
 </div>
 
+<h3>Supported languages</h3>
+
+| Product | Languages |
+| :-------  | :------ |
+| Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
+| Semgrep Supply Chain | **Generally available (GA) reachability**<br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust • Scala • Swift |
+| Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
+
+See the [Supported languages](/supported-languages#semgrep-code-and-oss) documentation for more details.
+<!-- Please don't delete the whole Enhance... section, as we may resurrect --> <!--
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
@@ -107,7 +117,15 @@ The code is kept here for easy maintenance.
     </div>
   </Card>
 </div>
+-->
 
+<h3>September 2024 release notes summary</h3>
+<!-- 5-7 bullets across the product suite -->
+- Semgrep Managed Scans (SMS) automatically scans newly created repositories if you grant code access to your GitHub repositories.
+- Semgrep AppSec Platform's new **dashboard** is now GA.
+- Semgrep Assistant now provides inline code fixes that you can directly commit based on its guidance, instead of generating inline code fixes and guidance independently. 
+
+[See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
 <!--
 Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
 
