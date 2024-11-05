@@ -204,7 +204,7 @@ inbound:
 
 Semgrep Managed Scans uses Semgrep Network Broker to connect to your internal source code management instance.
 
-Ensure that you've updated your SCM information to allow code access:
+To enable Managed Scans when using Network Broker, ensure that you've updated your SCM information to allow code access:
 
 <Tabs
     defaultValue="gh"
