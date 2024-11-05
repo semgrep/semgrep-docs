@@ -18,31 +18,43 @@ Add GitLab repositories to your Semgrep organization in bulk without adding or c
 
 ## Prerequisites and permissions
 
-:::info
 Semgrep Managed Scanning requires one of the following plans:
 
 - GitLab Premium
 - GitLab Ultimate
 - GitLab Self Managed
-:::
 
-Before you can add a GitLab repository to Semgrep Managed Scans (SMS), you must add GitLab as a source code manager in Semgrep. During this process, you provide a GitLab personal access token (PAT) to Semgrep. The PAT must have the `api` scope assigned to it. During SMS onboarding, the user to which the PAT is assigned must have one of the following roles: `Maintainer`, `Owner`, or `Admin`. Afterwards, you can downgrade the role assigned to the token to `Developer`.
-
-To add GitLab as a source code manager in Semgrep so, follow the instructions that apply to you:
-
-- [Connect a source code manager: GitLab Cloud](/deployment/connect-scm#gitlab-cloud)
-- [Connect a source code manager: GitLab self-managed plans](/deployment/connect-scm#gitlab-self-managed-plans)
-
-## Enable webhooks
-
-Once you've added GitLab as a source code manager, enable incoming GitLab webhooks to facilitate the connection between Semgrep and GitLab:
-
-1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
-2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to enable **Incoming webhooks**.
+You must provide a GitLab personal access token (PAT) to Semgrep. The PAT must have the `api` scope assigned to it. During SMS onboarding, the user to which the PAT is assigned must have one of the following roles: `Maintainer`, `Owner`, or `Admin`. Afterwards, you can downgrade the role assigned to the token to `Developer`.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
-## Add a repository
+## Enable Managed Scanning and scan your first repository
+
+<!-- vale off -->
+1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
+2. Click **Scan new project > Semgrep Managed Scan**.
+3. In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.
+    1. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
+4. Click **+ Connect more**.
+5. Select **GitLab**.
+6. In the **Set up Managed Scans** page that appears, provide the information needed by Semgrep to connect to your GitLab project:
+   1. Select **GitLab Cloud** or **GitLab Self-Managed**.
+   2. Provide your **Access token**.
+   3. Provide your **GitLab group**.
+   4. *For GitLab Self-Managed users only*: provide the **GitLab URL**.
+   5. Click **Connect**.
+7. Repeat the steps above for each additional GitHub group you'd like added to Semgrep.
+<!-- vale on -->
+
+You have finished setting up a Semgrep managed scan.
+
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
+- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- Projects scanned through Managed Scans are tagged with `managed-scan`.
+
+## Add additional GitLab projects
+
+You can enabled managed scanning for additional repositories after onboarding using the following steps:
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -54,14 +66,7 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 6. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
 ![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
 7. Click **Enable**.
-8. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
 <!-- vale on -->
-
-You have finished setting up a Semgrep managed scan.
-
-- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
-- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through Managed Scans are tagged with `managed-scan`.
 
 ### If the page doesn't display any repositories
 
@@ -85,6 +90,13 @@ Semgrep preserves your findings, scans, and triage history.
 :::
 
 <ScanWithSms />
+
+## Disable webhooks
+
+Managed scanning of GitLab projects require webhooks. The webhooks are enabled by default when you add GitLab as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
+
+1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
+2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to disable **Incoming webhooks**.
 
 ## Revoke Semgrep's access to your repositories
 
