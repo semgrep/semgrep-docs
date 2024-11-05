@@ -16,7 +16,8 @@ tags:
 ### Added
 
 - Added a **Scan details** page and drawer for all completed scans. Use this page to troubleshoot or view information about individual scans. 
-- The Dashboard now provides a filter based on your Teams. Click **Dashboard > Filters** to view it. Additionally, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
+- The Dashboard now provides a Teams filter, enabling you to create views based on a selection of Teams you are a part of. Click **Dashboard > Filters** to access the filter.
+  - Additionally, the Dashboard now displays findings from teams you are a part of by default. Your finding count may differ from your colleagues based on your Teams.
 - PR comment flow triage (GitHub) tk
 - Jira API tk
 - Bulk triage findings API endpoint tk
