@@ -21,20 +21,20 @@ Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
 -->
 
-<div style={{display: 'inline-flex', paddingTop: '32px'}}>
-<a href="https://semgrep.dev">
-  <ThemedImage
-    alt="Semgrep themed logo"
-    height="48px"
-    sources={{
-      light: ('img/semgrep.svg#no-shadow'),
-      dark: ('img/semgrep.svg#no-shadow'),
-    }} />
-</a>
-<h1>&nbsp;Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
+<div class='logo-index'>
+  <a href="https://semgrep.dev">
+    <ThemedImage
+      alt="Semgrep themed logo"
+      height="48px"
+      sources={{
+        light: ('img/semgrep.svg#no-shadow'),
+        dark: ('img/semgrep.svg#no-shadow'),
+      }} />
+  </a>
+  <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
 </div>
 
-<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h5>
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every&nbsp;commit.</h5>
 
 <h3>Scan with Semgrep AppSec Platform</h3>
 
@@ -46,7 +46,7 @@ The code is kept here for easy maintenance.
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
         <CardBody>
-          Run your first Semgrep scan. 
+          Run your first Semgrep scan.<br />
         </CardBody>
     </div>
   </Card>
