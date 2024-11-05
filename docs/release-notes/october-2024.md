@@ -14,14 +14,12 @@ tags:
 
 ### Added
 
-- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
 - Added a **Scan details** page and drawer for all completed scans. Use this page to troubleshoot or view information about individual scans. 
 ![Scan details drawer with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
 _**Figure**. Scan details drawer with the permalink icon indicated in a box._
 - The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
   - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
 - Jira API tk
-- Bulk triage findings API endpoint tk
 - Semgrep now supports [Move on Sui](https://docs.sui.io/concepts/sui-move-concepts), thanks to the contributions of the Sui team.
 
 ### Changed
@@ -33,13 +31,12 @@ _**Figure**. Previous and current SCM card UI._
 - **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. 
 - The **Projects** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
 
-### Fixed
-
 ## 💻 Semgrep Code
 
 ### Added
 
-- Filter by triage reasons
+- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
+- Bulk triage findings API endpoint tk
 - Taint analysis now has support for tracking sinks through callbacks.
 
 ### Changed
@@ -77,10 +74,6 @@ _**Figure**. Previous and current SCM card UI._
 - PR comments made by Semgrep Assistant now reference the Git commits that it used to generate the fix. <!-- 17152 -->
 ![Semgrep Assistant referencing multiple commits](/img/semgrep-assistant-reference-commits.png)
 _**Figure**. Semgrep Assistant referencing multiple commits._
-
-## 🔐 Semgrep Secrets
-
-### Added
 
 ## 📝 Documentation and knowledge base
 
