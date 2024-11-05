@@ -136,20 +136,19 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 </details>
 
-## Ignore findings through PR and MR comments
+## Triage findings through PR and MR comments
 
 Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs and GitLab MRs by replying with another comment.
 
 <Tabs
-    defaultValue="current"
+    defaultValue="gh"
     values={[
-        {label: 'GitHub', value: 'current'},
-        {label: 'GitHub (beta)', value: 'gh'},
-        {label: 'GitLab (beta)', value: 'gl'}
+        {label: 'GitHub', value: 'gh'},
+        {label: 'GitLab', value: 'gl'}
     ]}
 >
 
-<TabItem value='current'>
+<!-- <TabItem value='current'>
 ### Prerequisites
 - A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
@@ -172,7 +171,7 @@ Ignoring a finding through a comment in GitHub changes the status of the finding
 You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
 :::
 
-</TabItem>
+</TabItem>  -->
 
 <TabItem value='gh'>
 
