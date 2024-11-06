@@ -89,7 +89,7 @@ withCallback(taint, unsafe_callback)
     - Azure OpenAI
     - AWS Bedrock
     - Google Gemini
- - See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
+ See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
 - PR comments made by Semgrep Assistant now reference the Git commits that it used to generate the fix. <!-- 17152 -->
 ![Semgrep Assistant referencing multiple commits](/img/semgrep-assistant-reference-commits.png)
 _**Figure**. Semgrep Assistant referencing multiple commits._
