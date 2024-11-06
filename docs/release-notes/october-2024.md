@@ -74,7 +74,7 @@ withCallback(taint, unsafe_callback)
 ### Changed
 
 - Improvements to the **Advisories** page UI. <!-- 16657 -->
-- **Dependency search**: The **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the Dependencies page now uses a Language filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
+- **Dependency search**: The **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the **Dependencies** page now uses a **Language** filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
 
 ### Fixed
 
