@@ -33,7 +33,7 @@ _**Figure**. Previous and current SCM card UI._
 
 ### Fixed
 
-- When a scan runs into an exception, Semgrep AppSec Platform is appropriately notified about the failure. Previously, within the AppSec Platform UI, it would appear to the user that the scan is still in progress.
+- When a scan runs into an exception, Semgrep AppSec Platform displays information about the failure. Previously, within the AppSec Platform UI, it would appear to the user that the scan is still in progress.
 - Fixed a bug where Semgrep would crash if `--trace` was passed.
 
 ## 💻 Semgrep Code
