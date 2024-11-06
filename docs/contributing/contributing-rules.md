@@ -109,7 +109,8 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
                   <li><code>subcategory</code></li>
                   <li><code>likelihood</code></li>
                   <li><code>impact</code></li>
-                  <li><code>subcategory</code></li>
+                  <li><code>owasp</code></li>
+                  <li><code>vulnerability_class</code></li>
               </ul>
             </td>
         </tr>
