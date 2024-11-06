@@ -19,7 +19,7 @@ tags:
 _**Figure**. Scan details drawer with the permalink icon indicated in a box._
 - The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
   - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
-- Jira API tk
+- Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
 - Semgrep now supports [Move on Sui](https://docs.sui.io/concepts/sui-move-concepts), thanks to the contributions of the Sui team.
 
 ### Changed
@@ -31,17 +31,35 @@ _**Figure**. Previous and current SCM card UI._
 - **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. 
 - The **Projects** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
 
+### Fixed
+
+- When a scan runs into an exception, Semgrep AppSec Platform is appropriately notified about the failure. Previously, within the AppSec Platform UI, it would appear to the user that the scan is still in progress.
+- Fixed a bug where Semgrep would crash if `--trace` was passed.
+
 ## 💻 Semgrep Code
 
 ### Added
 
+- Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
 - Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
-- Bulk triage findings API endpoint tk
-- Taint analysis now has support for tracking sinks through callbacks.
+- Added an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
+- Taint analysis now supports tracking sinks through callbacks for all applicable Semgrep-supported languages. For example:
 
-### Changed
+```javascript
+function unsafe_callback(x) {
+  sink(x); // Semgrep detects a finding here now!
+}
 
-### Fixed
+function withCallback(val, callback) {
+  callback(val);
+}
+
+withCallback(taint, unsafe_callback)
+```
+
+### Removed
+
+- Removed support for Vue. The `tree-sitter grammar` has not been updated in 3 years and no community rules have been added. In theory, extract mode could be a good substitute to parse Vue files.
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -51,6 +69,7 @@ _**Figure**. Previous and current SCM card UI._
 - Improved support and flexibility to Python dependency parsing (public beta):
   - Semgrep now finds non-standard `requirements.txt` names and parses them for dependencies. 
   - Semgrep parses lockfiles in a `requirements` folder.
+- `cargo.lock` parser can now associate dependencies with lockfile line numbers.
 
 ### Changed
 
@@ -59,7 +78,7 @@ _**Figure**. Previous and current SCM card UI._
 
 ### Fixed
 
-- Improved speed when fetching advisories.
+- **Advisories** page: improved speed when fetching advisories.
 
 ## 🤖 Semgrep Assistant
 
@@ -75,6 +94,37 @@ _**Figure**. Previous and current SCM card UI._
 ![Semgrep Assistant referencing multiple commits](/img/semgrep-assistant-reference-commits.png)
 _**Figure**. Semgrep Assistant referencing multiple commits._
 
+## 🔐 Semgrep Secrets
+
+- `semgrep ci` output now includes a list of all secrets rules which generated at least one blocking finding, consistent with Semgrep Code behavior.
+
 ## 📝 Documentation and knowledge base
 
 ### Added
+
+- Documented new triage workflows.
+- Improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**.
+- Updated [Supported languages](/supported-languages) with new languages and features.
+- Added new sections in Semgrep AppSec Platform vs Semgrep OSS.
+- Added a new knowledge base article: FedRAMP Authorization Guidance
+
+### Changed
+
+- Reorganized and clarified the following:
+  - Semgrep Supply Chain documentation
+  - How Semgrep's **Block** mode works
+  - GitLab SCM connections and MR comments
+- Broadened language around Semgrep Assistant AI now that Assistant supports various LLMs.
+
+### Fixed
+
+- Various fixes to mobile UI.
+
+## 🔧 OSS Engine
+
+- The following versions of the OSS Engine were released in October 2024:
+  - [<i class="fas fa-external-link fa-xs"></i> 1.91.0](https://github.com/semgrep/semgrep/releases/tag/v1.91.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.92.0](https://github.com/semgrep/semgrep/releases/tag/v1.92.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.93.0](https://github.com/semgrep/semgrep/releases/tag/v1.93.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.94.0](https://github.com/semgrep/semgrep/releases/tag/v1.94.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.95.0](https://github.com/semgrep/semgrep/releases/tag/v1.95.0)
