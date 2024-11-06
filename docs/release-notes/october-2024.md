@@ -96,7 +96,7 @@ _**Figure**. Semgrep Assistant referencing multiple commits._
 
 ## 🔐 Semgrep Secrets
 
-- `semgrep ci` output now includes a list of all secrets rules which generated at least one blocking finding, consistent with Semgrep Code behavior.
+- `semgrep ci` output now includes a list of all Secrets rules which generated at least one blocking finding. This behavior is consistent with that of Semgrep Code.
 
 ## 📝 Documentation and knowledge base
 
