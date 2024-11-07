@@ -9,237 +9,122 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for September 2024
+# Semgrep release notes for October 2024
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- **Semgrep Managed Scanning (SMS)** scans newly created repositories automatically if you grant code access to your GitHub repositories. With this feature enabled, the following steps occur whenever you create a new GitHub repository:
-  - Semgrep creates a corresponding project in Semgrep AppSec Platform.
-  - Semgrep starts scanning all pull requests to that repository.
-  - Semgrep performs full scans weekly.
- You can turn off or turn on diff-aware scans as needed.
-- Semgrep AppSec Platform's new **reporting** feature is now GA. With reporting, you can:
-  - Evaluate your AppSec program and assess your organization's deployment and adoption of secure guardrails, enabling you to know your current security risk.
-  - Gain awareness of trends and opportunities to improve your security posture.
-  - Granularly filter data on all the page's charts and view priority findings.
-- **CLI**: added the `--max-log-list-entries` flag, allowing you to set the maximum number of entries in the log.
-- **Network Broker**: added ability to turn on or off the Network Broker for each source code manager connected to the deployment.
+- Added a **Scan details** page and pane for all completed scans. Use this to troubleshoot or view information about individual scans. 
+![Scan details pane with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
+_**Figure**. Scan details pane with the permalink icon indicated in a box._
+- The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
+  - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
+- Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+- Semgrep now supports [Move on Sui](https://docs.sui.io/concepts/sui-move-concepts), thanks to the contributions of the Sui team.
 
 ### Changed
 
-- The **Projects** page displays the number of findings from the primary branch, not the most recently scanned branch.
-- Error messages originating in Semgrep scans with more than one job now include more detailed information.
-- The Semgrep CLI is now more performant. Scans, especially smaller or diff-aware scans, complete faster.
-- Semgrep now logs memory-related warnings and errors in debug mode.
-- Minor stylistic changes to Semgrep AppSec Platform.
+- Various UI improvements to the **Settings > SCM** tab.
+![Old SCM card](/img/old-scm-card.png) 
+![Updated SCM card](/img/new-scm-card.png)
+_**Figure**. Previous and current SCM card UI._
+- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. Failing open means that Semgrep scans with internal errors do not result in a failed job.
+- The **Project details** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
 
 ### Fixed
 
-- Fixed an issue where a Semgrep Supply Chain rule couldn't be opened when viewing findings details in Semgrep AppSec Platform on a smaller screen.
-- Fixed an issue where soft-deleted deployments caused problems with newly created deployments.
-- Fixed an issue where Semgrep didn't post a status update after the finding's status was updated through a pull request or merge request comment.
-- Fixed an issue where Semgrep couldn't connect to multiple GitHub cloud organizations. 
-- Fixed an issue where SSO errors weren't displayed.
-- Fixed an issue with Semgrep Editor where you could be switched unexpectedly to Advanced Mode from Structure Mode if you deleted data that Structure Mode couldn't parse.
-- Fixed an issue with Semgrep Editor where it deleted data if you attempted to load a rule containing an unknown nested key, such as taint labels.
+- When a scan runs into an exception, Semgrep AppSec Platform displays information about the failure. Previously, within the AppSec Platform UI, it would appear to the user that the scan is still in progress.
+- Fixed a bug where Semgrep would crash if `--trace` was passed.
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Semgrep Pro Engine's dataflow analysis now tracks method invocations on variables of an interface type, assuming that any implementation of the method can be called. For example, in the following code snippet, Semgrep can detect tainted input vulnerabilities in both implementation classes:
-    ```java
-    public interface MovieService {
-        String vulnerableInjection(String input);
-    }
+- Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
+- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
+- Added an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
+- Taint analysis now supports tracking sinks through callbacks for all applicable Semgrep-supported languages. For example:
+  ```javascript
+  function unsafe_callback(x) {
+    sink(x); // Semgrep detects a finding here now!
+  }
+  
+  function withCallback(val, callback) {
+    callback(val);
+  }
+  
+  withCallback(taint, unsafe_callback)
+  ```
 
-    public class SimpleImpl implements MovieService {
-        @Override
-        public String vulnerableInjection(String input) {
-            return sink(input);
-        }
-    }
+### Removed
 
-    public class MoreImpl implements MovieService {
-        @Override
-        public String vulnerableInjection(String input) {
-            return sink(input);
-        }
-    }
-
-    public class AppController {
-        private MovieService movieService;
-
-        public String pwnTest(String taintedInput) {
-            return movieService.vulnerableInjection(taintedInput);
-        }
-    }
-    ```
-- Taint analysis can now track method invocations on variables of an interface type when there is a single implementation. For example, Semgrep now detects the tainted input vulnerability in the following code snippet:
-    ```java
-    public interface MovieService {
-        String vulnerableInjection(String input);
-    }
-
-    @Service
-    public class MovieServiceImpl implements MovieService {
-        @Override
-        public String vulnerableInjection(String input) {
-            return sink(input);
-        }
-    }
-
-    @RestController("/")
-    public class SpringController {
-
-        @Autowired
-        private MovieService movieService;
-
-        @GetMapping("/pwn")
-        public String pwnTest(@RequestParam("input") String taintedInput) {
-            return movieService.vulnerableInjection(taintedInput);
-        }
-    }
-    ```
-- **Go**: added support for comparing Go pre-release versions, enabling comparisons of strict core versions, pseudo-versions, and pre-release versions.
-- **JavaScript**: uses of values imported through ECMAScript `default` imports, such as `import example from 'mod';` can now be matched by qualified name patterns, such as `mod.default`.
-- **Python**:
-  - Improved support for Python, including differentiated coverage for Django, Flask, and FastAPI, and coverage for ~100 of the most commonly used libraries.
-  - Semgrep's interfile analysis now includes information about Python's standard library, improving its ability to resolve names and types in Python code.
-- **TypeScript**: 
-  - Added support for type inference for constructor parameter properties. For example, taint analysis can recognize that `sampleFunction` is defined in the `AbstractedService` class in the following code snippet:
-    ```typescript
-        export class AppController {
-            constructor(private readonly abstractedService: AbstractedService) {}
-
-            async taintTest() {
-                const src = source();
-                await this.abstractedService.sampleFunction(src);
-            }
-        } 
-    ```
-  - Improved inference of type information for class fields. This improves taint tracking for dependency injection, as demonstrated in the following example:
-    ```typescript
-        export class AppController {
-            private readonly abstractedService: AbstractedService;
-
-            constructor(abstractedService: AbstractedService) {
-            this.abstractedService = abstractedService;
-            }
-
-            async taintTest() {
-                const src = taintedSource();
-                await this.abstractedService.sinkInHere(src);
-            }
-        }
-    ```
-
-### Changed
-
-- Semgrep attempts to recover from out-of-memory errors during interfile data flow analysis instead of immediately falling back to intrafile analysis.
-
-### Fixed
-
-- Fixed an issue with type inference in Kotlin and Scala, so that constructor invocations like `Foo()` are now properly inferred to be of type `Foo`.
-- Fixed an issue where some findings were reported when a rule ID was specified, even when a `nosem` comment was present.
-- Restored missing taint findings that were possibly missed before improving index sensitivity:
-    ```js
-    def foo(t):
-        x = third_party_func(t)
-        return x
-
-    def test1():
-        t = ("ok", taint)
-        y = foo(t)
-        sink(y) # now it's found
-    ```
-- Fixed an issue with interfile constant propagation where some definitions were incorrectly identified as constant, even though other parts of the codebase modified them.
-- Fixed an issue in taint signature instantiation that prevented the tracking of updates to a nested object's field. For example, in the following code snippet, Semgrep identified that `Nested.update` modifies the `fld` attribute of a `Nested` object. Before this issue was fixed, Semgrep would not identify that `Wrapper.update` modified the `fld` attribute of the `nested` object attribute in a `Wrapper` object. This is no longer the case.
-    ```java
-    public class Nested {
-        private String fld;
-        public void update(String str) {
-        fld = str;
-        }
-        // ...
-    }
-
-    public class Wrapper {
-        private Nested nested;
-        public void update(String str) {
-        this.nested.update(str);
-        }
-        // ...
-    }
-    ```
-- Fixed an issue with overly aggressive match deduplication that led to findings being closed and reopened in certain circumstances.
-- Fixed an issue with regex-fix numbered capture groups. Formerly, regex with numbered capture groups like `\1\2\3` would be the same as `\1\1\1`. Now, the following code:
-    ```python
-    # src.py
-    12345
-    ```
-    and the following rule:
-    ```yaml
-    pattern: $X
-    fix-regex:
-        regex: (1)(2)(3)(4)(5)
-        replacement: \5\4\3\2\1
-    ```
-    results in:
-    ```
-    54321
-    ```
-- **Docker**: `CMD $...ARGS` behaves like `CMD ...` and matches any `CMD` instruction that uses array syntax, such as `CMD ["ls"]`. This fix applies to the other command-like instructions, including RUN and ENTRYPOINT.
-- **Julia**: fixed issue regarding incorrect range matching parametrized type expressions.
-- **Python**: fixed an issue that could lead to failure to name to type imported Python symbols during interfile analysis.
+- Removed support for Vue. The `tree-sitter` grammar has not been updated in 3 years and no community rules have been added. In theory, extract mode could be a good substitute to parse Vue files.
 
 ## ⛓️ Semgrep Supply Chain
 
+### Added
+
+- Supply Chain now provides reachability analysis for Kotlin, including support for Gradle and Maven.
+- Improved support and flexibility to Python dependency parsing (public beta):
+  - Semgrep now finds non-standard `requirements.txt` names and parses them for dependencies. 
+  - Semgrep parses lockfiles in a `/requirements` folder.
+- `cargo.lock` parser can now associate dependencies with lockfile line numbers.
+
 ### Changed
 
-- Semgrep consolidates lockfile parsing logic to the beginning of the scan. This consolidated process now considers changed and unchanged lockfiles during all steps of diff-aware scans.
+- Improvements to the **Advisories** page UI. <!-- 16657 -->
+- **Dependency search**: the **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the **Dependencies** page now uses a **Language** filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
 
 ### Fixed
 
-- Fixed an issue where certain parsing errors caused by access to an unbound variable caused Semgrep Supply Chain to crash.
-- Fixed an issue where Supply Chain findings displayed in Semgrep AppSec Platform were color-coded based on the rule severity, not the finding severity.
+- **Advisories** page: improved speed when fetching advisories.
 
 ## 🤖 Semgrep Assistant
 
 ### Added
 
-- Assistant displays the message "Assistant did not find any high risk markers in this file" on a finding details page if it didn't determine a specific risk level for the finding.
+- Users can now use Semgrep Assistant with their own OpenAI API key.
+  - Enterprise users can also use the following API providers:
+    - Azure OpenAI
+    - AWS Bedrock
+    - Google Gemini
+ See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
+- PR comments made by Semgrep Assistant now reference the Git commits that it used to generate the fix. <!-- 17152 -->
+![Semgrep Assistant referencing multiple commits](/img/semgrep-assistant-reference-commits.png)
+_**Figure**. Semgrep Assistant referencing multiple commits._
 
-### Changed
+## 🔐 Semgrep Secrets
 
-- Semgrep Assistant now provides inline code fixes that you can directly commit based on its guidance, instead of generating inline code fixes and guidance independently.
-- Semgrep Assistant is now enabled by default if you allow code access to your repositories.
-- Semgrep AppSec Platform only displays **Assistant recommended tasks** information on the **Dashboard** if there are tasks for the current week.
+- `semgrep ci` output now includes a list of all Secrets rules which generated at least one blocking finding. This behavior is consistent with that of Semgrep Code.
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- New Semgrep Docs homepage.
+- Documented new triage workflows.
+- Improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**.
+- Updated [Supported languages](/supported-languages) with new languages and features.
+- Added new sections in [Semgrep AppSec Platform vs Semgrep OSS](/semgrep-pro-vs-oss).
+- Added a new knowledge base article: [FedRAMP Authorization Guidance](/kb/semgrep-appsec-platform/fedramp-with-semgrep)
 
 ### Changed
 
-- Updated theming, including colors and styling.
-- Various updates and reorganization of documentation for Semgrep Assistant.
-- Various improvements to the [Network broker](/semgrep-ci/network-broker) documentation.
+- Reorganized and clarified the following:
+  - [Semgrep Supply Chain](/semgrep-supply-chain/overview) documentation
+  - [How Semgrep's [**Block** mode works](/semgrep-ci/configuring-blocking-and-errors-in-c)
+  - [GitLab SCM connections](/deployment/connect-scm#gitlab-self-managed-plans) and MR comments
+- Broadened language around Semgrep Assistant AI now that Assistant supports various LLMs.
 
 ### Fixed
 
-- Updated and fixed various broken links.
-- Minor typographical fixes.
+- Various fixes to mobile UI.
 
 ## 🔧 OSS Engine
 
-* The following versions of the OSS Engine were released in September 2024:
-  * [<i class="fas fa-external-link fa-xs"></i>1.86.0](https://github.com/semgrep/semgrep/releases/tag/v1.86.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.87.0](https://github.com/semgrep/semgrep/releases/tag/v1.87.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.88.0](https://github.com/semgrep/semgrep/releases/tag/v1.88.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.89.0](https://github.com/semgrep/semgrep/releases/tag/v1.89.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.90.0](https://github.com/semgrep/semgrep/releases/tag/v1.90.0)
+- The following versions of the OSS Engine were released in October 2024:
+  - [<i class="fas fa-external-link fa-xs"></i> 1.91.0](https://github.com/semgrep/semgrep/releases/tag/v1.91.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.92.0](https://github.com/semgrep/semgrep/releases/tag/v1.92.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.93.0](https://github.com/semgrep/semgrep/releases/tag/v1.93.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.94.0](https://github.com/semgrep/semgrep/releases/tag/v1.94.0)
+  - [<i class="fas fa-external-link fa-xs"></i> 1.95.0](https://github.com/semgrep/semgrep/releases/tag/v1.95.0)
