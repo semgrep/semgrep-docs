@@ -29,7 +29,7 @@ _**Figure**. Scan details drawer with the permalink icon indicated in a box._
 ![Updated SCM card](/img/new-scm-card.png)
 _**Figure**. Previous and current SCM card UI._
 - **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. 
-- The **Projects** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
+- The **Project details** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
 
 ### Fixed
 
