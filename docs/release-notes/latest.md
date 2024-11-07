@@ -112,7 +112,7 @@ _**Figure**. Semgrep Assistant referencing multiple commits._
 
 - Reorganized and clarified the following:
   - [Semgrep Supply Chain](/semgrep-supply-chain/overview) documentation
-  - [How Semgrep's [**Block** mode works](/semgrep-ci/configuring-blocking-and-errors-in-c)
+  - [How Semgrep's **Block** mode works](/semgrep-ci/configuring-blocking-and-errors-in-ci)
   - [GitLab SCM connections](/deployment/connect-scm#gitlab-self-managed-plans) and MR comments
 - Broadened language around Semgrep Assistant AI now that Assistant supports various LLMs.
 
