@@ -8,6 +8,8 @@ tags:
   - Deployment
 ---
 
+import ExtensionsIdes from "/src/components/reference/_extensions-ides.md"
+
 # Prerequisites
 
 This document details the required software or services to run Semgrep products.
@@ -18,8 +20,8 @@ A programming language must be supported by Semgrep for your chosen product.
 
 | Product              | Scan type | Link   |
 | -------              | ------    | ------ |
-| Semgrep OSS          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
-| Semgrep Code         | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep OSS          | SAST      | [Supported languages](/supported-languages#semgrep-code-and-oss)  |
+| Semgrep Code         | SAST      | [Supported languages](/supported-languages#semgrep-code-and-oss)  |
 | Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages#semgrep-supply-chain)       |
 | Semgrep Secrets      | Secrets   | Language-agnostic       |
 
@@ -41,7 +43,7 @@ These requirements apply to both Semgrep Pro and Semgrep OSS.
 
 ## Semgrep AppSec Platform
 
-These requirements apply to Semgrep Pro.
+These requirements apply to Semgrep AppSec Platform.
 
 - A GitHub or GitLab cloud account. The credentials are used to authenticate and identify you.
 - A Git repository to scan, stored in any of the following source code managers:
@@ -49,6 +51,11 @@ These requirements apply to Semgrep Pro.
     - GitLab
     - Bitbucket
     - Azure DevOps
-- A CI provider and sufficient permissions to create CI jobs.
+- A CI provider and sufficient permissions to create CI jobs. Alternatively, you can grant Semgrep Code access.
 
-<!-- IDEs - to add after -->
+## IDEs
+
+Semgrep provides an official extension for the following IDEs:
+
+<ExtensionsIdes />
+

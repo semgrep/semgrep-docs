@@ -1,0 +1,3 @@
+- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
+- Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
