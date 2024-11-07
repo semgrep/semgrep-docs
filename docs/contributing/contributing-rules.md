@@ -256,10 +256,9 @@ If your rule has a `category: security`, the following metadata are required:
   <tr>
    <td><code>owasp</code></td>
    <td>An <a href="https://owasp.org/Top10/">OWASP Top 10 category</a></td>
-   <td><pre>
-    <code>owasp:<br /></code>
-    <code>  - A05:2021 - Security Misconfiguration</code>
-   </pre></td>
+   <td>
+    <pre>owasp:<br />  - A05:2021 - Security Misconfiguration</pre>
+   </td>
   </tr>
   <tr>
    <td><code>confidence</code></td>
@@ -280,20 +279,14 @@ If your rule has a `category: security`, the following metadata are required:
    <td><code>subcategory</code></td>
    <td><code>vuln</code>, <code>audit</code>, <code>secure default</code></td>
    <td>
-    <pre>
-    <code>subcategory:<br /></code>
-    <code>  - vuln</code>
-    </pre>
+    <pre>subcategory:<br />  - vuln</pre>
   </td>
   </tr>
     <tr>
    <td><code>vulnerability_class</code></td>
    <td>See [Vulnerability class](#vulnerability-class) for a list of sample values. Accepts custom values.</td>
    <td>
-    <pre>
-    <code>vulnerability_class:<br /></code>
-    <code>  - Hard-coded Secrets</code>
-    </pre>
+    <pre>vulnerability_class:<br />  - Hard-coded Secrets</pre>
   </td>
   </tr>
   </tbody>
