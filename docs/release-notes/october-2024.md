@@ -54,11 +54,11 @@ _**Figure**. Previous and current SCM card UI._
   }
   
   withCallback(taint, unsafe_callback)
-```
+  ```
 
 ### Removed
 
-- Removed support for Vue. The `tree-sitter grammar` has not been updated in 3 years and no community rules have been added. In theory, extract mode could be a good substitute to parse Vue files.
+- Removed support for Vue. The `tree-sitter` grammar has not been updated in 3 years and no community rules have been added. In theory, extract mode could be a good substitute to parse Vue files.
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -67,13 +67,13 @@ _**Figure**. Previous and current SCM card UI._
 - Supply Chain now provides reachability analysis for Kotlin, including support for Gradle and Maven.
 - Improved support and flexibility to Python dependency parsing (public beta):
   - Semgrep now finds non-standard `requirements.txt` names and parses them for dependencies. 
-  - Semgrep parses lockfiles in a `requirements` folder.
+  - Semgrep parses lockfiles in a `/requirements` folder.
 - `cargo.lock` parser can now associate dependencies with lockfile line numbers.
 
 ### Changed
 
 - Improvements to the **Advisories** page UI. <!-- 16657 -->
-- **Dependency search**: The **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the **Dependencies** page now uses a **Language** filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
+- **Dependency search**: the **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the **Dependencies** page now uses a **Language** filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
 
 ### Fixed
 
