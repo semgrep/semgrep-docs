@@ -53,7 +53,7 @@ These requirements apply to Semgrep AppSec Platform.
     - Azure DevOps
 - A CI provider and sufficient permissions to create CI jobs. Alternatively, you can grant Semgrep Code access.
 
-## IDEs
+## IDE extensions
 
 Semgrep provides an official extension for the following IDEs:
 
