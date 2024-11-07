@@ -14,9 +14,9 @@ tags:
 
 ### Added
 
-- Added a **Scan details** page and drawer for all completed scans. Use this page to troubleshoot or view information about individual scans. 
-![Scan details drawer with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
-_**Figure**. Scan details drawer with the permalink icon indicated in a box._
+- Added a **Scan details** page and pane for all completed scans. Use this to troubleshoot or view information about individual scans. 
+![Scan details pane with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
+_**Figure**. Scan details pane with the permalink icon indicated in a box._
 - The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
   - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
 - Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
@@ -28,7 +28,7 @@ _**Figure**. Scan details drawer with the permalink icon indicated in a box._
 ![Old SCM card](/img/old-scm-card.png) 
 ![Updated SCM card](/img/new-scm-card.png)
 _**Figure**. Previous and current SCM card UI._
-- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. 
+- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. Failing open means that Semgrep scans with internal errors do not result in a failed job.
 - The **Projects** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
 
 ### Fixed
@@ -44,17 +44,16 @@ _**Figure**. Previous and current SCM card UI._
 - Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
 - Added an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
 - Taint analysis now supports tracking sinks through callbacks for all applicable Semgrep-supported languages. For example:
-
-```javascript
-function unsafe_callback(x) {
-  sink(x); // Semgrep detects a finding here now!
-}
-
-function withCallback(val, callback) {
-  callback(val);
-}
-
-withCallback(taint, unsafe_callback)
+  ```javascript
+  function unsafe_callback(x) {
+    sink(x); // Semgrep detects a finding here now!
+  }
+  
+  function withCallback(val, callback) {
+    callback(val);
+  }
+  
+  withCallback(taint, unsafe_callback)
 ```
 
 ### Removed
@@ -105,15 +104,15 @@ _**Figure**. Semgrep Assistant referencing multiple commits._
 - Documented new triage workflows.
 - Improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**.
 - Updated [Supported languages](/supported-languages) with new languages and features.
-- Added new sections in Semgrep AppSec Platform vs Semgrep OSS.
-- Added a new knowledge base article: FedRAMP Authorization Guidance
+- Added new sections in [Semgrep AppSec Platform vs Semgrep OSS](/semgrep-pro-vs-oss).
+- Added a new knowledge base article: [FedRAMP Authorization Guidance](/kb/semgrep-appsec-platform/fedramp-with-semgrep)
 
 ### Changed
 
 - Reorganized and clarified the following:
-  - Semgrep Supply Chain documentation
-  - How Semgrep's **Block** mode works
-  - GitLab SCM connections and MR comments
+  - [Semgrep Supply Chain](/semgrep-supply-chain/overview) documentation
+  - [How Semgrep's [**Block** mode works](/semgrep-ci/configuring-blocking-and-errors-in-c)
+  - [GitLab SCM connections](/deployment/connect-scm#gitlab-self-managed-plans) and MR comments
 - Broadened language around Semgrep Assistant AI now that Assistant supports various LLMs.
 
 ### Fixed
