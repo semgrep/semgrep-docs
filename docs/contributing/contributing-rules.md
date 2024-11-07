@@ -288,7 +288,7 @@ If your rule has a `category: security`, the following metadata are required:
   </tr>
     <tr>
    <td><code>vulnerability_class</code></td>
-   <td>See [Vulnerability class](#vulnerability-class) for a list of accepted values.</td>
+   <td>See [Vulnerability class](#vulnerability-class) for a list of sample values. Accepts custom values.</td>
    <td>
     <pre>
     <code>vulnerability_class:<br /></code>
