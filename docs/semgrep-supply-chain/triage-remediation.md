@@ -56,7 +56,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | [**Transitivity**](#transitivity) | The transitivity of the finding. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
 | [**Reachability**](#reachability) | The finding's exposure, or whether it is reachable. |
-| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize a finding based on its function, such as payments, user authentication, and infrastructure. Available only for findings that are reachable. |
+| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize a file based on its function, such as payments, user authentication, and infrastructure. Available only for findings that are reachable. |
 | **Dependencies** | The name of the dependency involved. |
 | **Rules** | The rule that generated the finding. |
 
