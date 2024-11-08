@@ -72,7 +72,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | **Confidence**         | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
 | **Pro findings**       | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
 | **Category**           | Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
-| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize a file based on its function, such as payments, user authentication, and infrastructure. |
+| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. |
 | **Recommendation**     | Filter by recommendation offered by Semgrep Assistant's auto-triage feature. Possible values: <ul><li>Fix</li><li>Ignore</li></ul> |
 | **Action**             | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Rule**               | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |

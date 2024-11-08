@@ -102,7 +102,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | **Validation state**      | Filter by [whether the secret is actively in use or not](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
 | **Repository visibility** | Filter by whether the repository's [visibility](#repository-visibility) status. |
 | **Secret type**           | Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
-| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize a file based on its function, such as payments, user authentication, and infrastructure. |
+| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
 
 #### Triage status
