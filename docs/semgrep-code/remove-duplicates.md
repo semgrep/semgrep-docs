@@ -11,7 +11,7 @@ tags:
 
 # Remove duplicate findings
 
-Semgrep scans are performed on both mainline (trunk) and non-mainline branches. The scope of the scan can differ depending on if Semgrep is called on a mainline or non-mainline branch.
+Semgrep scans are performed on both primary (default, mainline, or trunk) and non-primary branches. The scope of the scan differs depending on which type of branch Semgrep is scanning.
 
 <dl>
     <dt>Full scan</dt>
