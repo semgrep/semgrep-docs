@@ -121,7 +121,16 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 
 <h3>October 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- 
+- Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. Failing open means that Semgrep scans with internal errors do not result in a failed job.
+- Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
+- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
+- **Semgrep Assistant**: Users can now use the Assistant with their own OpenAI API key.
+  - Enterprise users can also use the following API providers:
+    - Azure OpenAI
+    - AWS Bedrock
+    - Google Gemini
+ See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
 <!--
