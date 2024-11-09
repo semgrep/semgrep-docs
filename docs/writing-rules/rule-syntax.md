@@ -237,7 +237,11 @@ acbd
 
 ### `pattern-not-regex`
 
+<!-- markdown-link-check-disable -->
+
 The `pattern-not-regex` operator filters results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
+
+<!-- markdown-link-check-enable -->
 
 The syntax for this operator is the same as `pattern-regex`.
 
@@ -381,7 +385,11 @@ To make a list of multiple focus metavariables using set union semantics that ma
 
 ### `metavariable-regex`
 
+<!-- markdown-link-check-disable -->
+
 The `metavariable-regex` operator searches metavariables for a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+
+<!-- markdown-link-check-enable -->
 
 ```yaml
 rules:
