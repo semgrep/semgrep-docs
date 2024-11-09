@@ -119,11 +119,9 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>September 2024 release notes summary</h3>
+<h3>October 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- Semgrep Managed Scans (SMS) automatically scans newly created repositories if you grant code access to your GitHub repositories.
-- Semgrep AppSec Platform's new **dashboard** is now GA.
-- Semgrep Assistant now provides inline code fixes that you can directly commit based on its guidance, instead of generating inline code fixes and guidance independently. 
+- 
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
 <!--
