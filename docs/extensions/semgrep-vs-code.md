@@ -105,7 +105,7 @@ The following experimental features should only be used upon recommendation by S
 
 ## Limitations
 
-IDE scans use the Semgrep OSS engine for speed, primarily reducing the analysis to a single-file scope. You can still perform cross-file (interfile) scans in your machine through the CLI:
+IDE scans use the Semgrep OSS engine for speed. Scans are thus limited to single file analysis. You can still perform cross file (interfile) scans in your machine through the CLI:
 
 ```bash
 semgrep ci --pro
