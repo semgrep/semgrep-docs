@@ -96,3 +96,11 @@ Hover over a match and click the link.
 ## Support
 
 If you need our support, join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and tell us about any problems you encountered.
+
+## Limitations
+
+IDE scans use the Semgrep OSS engine for speed, primarily reducing the analysis to a single-file scope. You can still perform cross-file (interfile) scans in your machine through the CLI:
+
+```bash
+semgrep ci --pro
+```
