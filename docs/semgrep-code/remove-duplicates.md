@@ -24,6 +24,11 @@ Semgrep scans are performed on both mainline (trunk) and non-mainline branches. 
 
 Semgrep generates a finding whenever it scans a project, and one of its rules matches a piece of code in the project. Since Semgrep scans a project multiple times, it needs a way to track the same finding in a file over time. Semgrep does this using two types of fingerprints: `syntactic_id` and `match_based_id`.
 
+
+:::info
+The calculations used to determine whether findings are new are subject to change at any time as Semgrep improves its deduplication logic.
+:::
+
 ### `syntactic_id`
 
 Semgrep generates the `syntactic_id` for a finding using the following information for a finding:
