@@ -47,6 +47,8 @@ The below optional fields must reside underneath a `patterns` or `pattern-either
 
 The below optional fields must reside underneath a `patterns` field.
 
+<!-- markdown-link-check-disable -->
+
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
 | [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
@@ -55,6 +57,8 @@ The below optional fields must reside underneath a `patterns` field.
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
+
+<!-- markdown-link-check-enable -->
 
 ## Operators
 
@@ -154,12 +158,14 @@ This rule looks for usage of the Python standard library functions `hashlib.md5`
 
 ### `pattern-regex`
 
+<!-- markdown-link-check-disable -->
 The `pattern-regex` operator searches files for substrings matching the given [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) pattern. This is useful for migrating existing regular expression code search functionality to Semgrep. Perl-Compatible Regular Expressions (PCRE) is a full-featured regex library that is widely compatible with Perl, but also with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. Patterns are compiled in multiline mode, for example `^` and `$` matches at the beginning and end of lines respectively in addition to the beginning and end of input.
 
 :::caution
 PCRE2 supports [some Unicode character properties, but not some Perl properties](https://www.pcre.org/current/doc/html/pcre2pattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported but `\p{InMusicalSymbols}` isn't.
 :::
 
+<!-- markdown-link-check-enable -->
 #### Example: `pattern-regex` combined with other pattern operators
 
 ```yaml
@@ -231,7 +237,11 @@ acbd
 
 ### `pattern-not-regex`
 
+<!-- markdown-link-check-disable -->
+
 The `pattern-not-regex` operator filters results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression in multiline mode. This is most useful when combined with regular-expression only rules, providing an easy way to filter findings without having to use negative lookaheads. `pattern-not-regex` works with regular `pattern` clauses, too.
+
+<!-- markdown-link-check-enable -->
 
 The syntax for this operator is the same as `pattern-regex`.
 
@@ -375,7 +385,11 @@ To make a list of multiple focus metavariables using set union semantics that ma
 
 ### `metavariable-regex`
 
+<!-- markdown-link-check-disable -->
+
 The `metavariable-regex` operator searches metavariables for a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html) regular expression. This is useful for filtering results based on a [metavariable’s](pattern-syntax.mdx#metavariables) value. It requires the `metavariable` and `regex` keys and can be combined with other pattern operators.
+
+<!-- markdown-link-check-enable -->
 
 ```yaml
 rules:
@@ -969,6 +983,7 @@ Enable, disable, or modify the following matching features:
 | `generic_comment_style` | none   | In generic mode, assume that comments follow the specified syntax. They are then ignored for matching purposes. Allowed values for comment styles are: <ul><li>`c` for traditional C-style comments (`/* ... */`). </li><li> `cpp` for modern C or C++ comments (`// ...` or `/* ... */`). </li><li> `shell` for shell-style comments (`# ...`). </li></ul> By default, the generic mode does not recognize any comments. Available since Semgrep version 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `generic_ellipsis_max_span` | `10` | In generic mode, this is the maximum number of newlines that an ellipsis operator `...` can match or equivalently, the maximum number of lines covered by the match minus one. The default value is `10` (newlines) for performance reasons. Increase it with caution. Note that the same effect as `20` can be achieved without changing this setting and by writing `... ...` in the pattern instead of `...`. Setting it to `0` is useful with line-oriented languages (for example [INI](https://en.wikipedia.org/wiki/INI_file) or key-value pairs in general) to force a match to not extend to the next line of code. Available since Semgrep 0.96. For more information about generic mode, see [Generic pattern matching](/writing-rules/generic-pattern-matching) documentation. |
 | `implicit_return`   | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
+| `interfile`   | `false` | Set this value to `true` for Semgrep to run this rule with cross-function and cross-file analysis. It is **required** for rules that use cross-function, cross-file analysis. |
 | `symmetric_eq`      | `false` | Treat equal operations as symmetric (for example: `a == b` is equal to `b == a`). |
 | `taint_assume_safe_functions` | `false` | Experimental option which will be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
 | `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise Semgrep assumes that for example: `a[i]` is tainted if `i` is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling is preferred for audit rules. Currently, it is disabled by default to attain backwards compatibility, but this can change in the near future after some evaluation. |
