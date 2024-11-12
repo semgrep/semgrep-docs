@@ -25,3 +25,14 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 * To a limited extent, using Semgrep Assistant changes the terms of your agreement with Semgrep, Inc. Specifically, sharing code snippets with Semgrep Assistant as part of this feature expands the scope of the data to which you grant Semgrep, Inc. a limited license to provide services to you (see Section 5.1 of our Subscriber Agreement).
 
 For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+
+## OpenAI
+
+* Semgrep, Inc. is a paying customer of OpenAI and has a Data Protection Agreement signed with them (provided upon request by [contacting support](/docs/support)). The code snippets we upload are persisted by OpenAI temporarily, following their data usage policies at [Enterprise privacy at OpenAI](https://openai.com/enterprise-privacy).<!-- markdown-link-check-enable -->
+* OpenAI is not allowed to use the submitted code to train its models.
+* OpenAI doesn't obtain any rights to your source code. OpenAI retains copies of the content sent to them for a maximum of 30 days to monitor for abuse, as indicated in their API Data Usage Policies.
+* Because Semgrep Assistant accesses OpenAI's services through the API, OpenAI does not use any of the code provided to them to improve their services (see Section 3(c) of their Terms of Use).
+
+## Amazon Bedrock
+
+See [AWS Data Processing Addendum (DPA)](https://docs.aws.amazon.com/whitepapers/latest/navigating-gdpr-compliance/aws-data-processing-addendum-dpa.html) for information about Semgrep's Data Protection Agreement with Amazon Web Services.
