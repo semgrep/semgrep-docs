@@ -22,12 +22,12 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 ## Dashboard overview
 
-The dashboard is divided into several panes:
+The dashboard is divided into several sections:
 
 <table>
 <thead>
 <tr>
-<td><b>Pane</b></td>
+<td><b>Section</b></td>
 <td><b>Description</b></td>
 </tr>
 </thead>
@@ -39,7 +39,7 @@ The dashboard is divided into several panes:
 <tr>
 <td>Reporting summary top bar</td>
 <td>
-Sets the filters for all the data in the page except for the **Today's recommended priority findings** pane.
+Sets the filters for all the data in the page **except** for **Today's recommended priority findings**.
 </td>
 </tr>
 <tr>
@@ -147,10 +147,10 @@ This pane displays analytics related to findings detected in your **primary or d
 
 | Key metrics    | Description |
 | -------------- | ------ |
-| Total new      | New **Open**, **Fixing**, or **Reviewing** findings, including findings that were fixed or ignored within the time period. |
-| Total fixed    | Total **Fixed** findings. |
-| Total ignored  | Total **Ignored** findings. |
-| Total net new  | New **Open**, **Fixing**, or **Reviewing** findings that were **not** fixed or ignored within the specified time period. Lower values are better. |
+| Total opened      | Findings set to **Open**, **Fixing**, or **Reviewing** during the time period that **remained** in any of those states until the end of the time period. |
+| Total fixed    | Total **Fixed** findings during the time period that **remained** fixed until the end of the time period. |
+| Total ignored  | Total **Ignored** findings during the time period that **remained** ignored until the end of the time period. |
+| Total net new  | New **Open**, **Fixing**, or **Reviewing** findings that were **not** fixed or ignored within the specified time period. Lower values are better. This is the difference between the number of **Open**, **Fixing**, or **Reviewing** findings at the beginning of the time period and the end of the time period. |
 
 :::tip
 A low or 0 value for **Total net new** is ideal as it indicates that findings are being triaged or resolved within the time period.
