@@ -177,7 +177,7 @@ Check the log output for any hints about what the issue is.
 
 Most often, this status means that the job started and authenticated correctly, but failed or was canceled before completion. Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution. In most cases, you will see an error message with detailed instructions on what to do.
 
-Sometimes, this status may be shown when the scan has been running for a long time (more than an hour) and is still in progress. Scans that eventually produce results will always be accepted by Semgrep AppSec Platform, even if this message is shown.
+Sometimes, this status may be shown when the scan has been running for a long time (more than an hour) and is still in progress. Scans that eventually produce results will be accepted by Semgrep AppSec Platform, even if this message is shown.
 
 #### If the job is aborted due to taking too long
 
