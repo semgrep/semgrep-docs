@@ -26,4 +26,7 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 * Because Semgrep Assistant accesses OpenAI's services through the API, OpenAI does not use any of the code provided to them to improve their services (see Section 3(c) of their Terms of Use). AWS Bedrock also [doesn't use customer data to improve base models](https://aws.amazon.com/bedrock/security-compliance/).
 * To a limited extent, using Semgrep Assistant changes the terms of your agreement with Semgrep, Inc. Specifically, sharing code snippets with Semgrep Assistant as part of this feature expands the scope of the data to which you grant Semgrep, Inc. a limited license to provide services to you (see Section 5.1 of our Subscriber Agreement).
 
-For more details, see the [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+For more details, see the following resources:
+
+- [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+- [<i class="fas fa-external-link fa-xs"></i> Data Privacy Overview - Semgrep Assistant](https://drive.google.com/file/d/19a9m67TS4lRaRusMmsNlIjttTY5b1lEf/view)
