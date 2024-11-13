@@ -173,18 +173,16 @@ Check the log output for any hints about what the issue is.
   ![Screenshot of GitHub's Actions tab with workflows disabled](/img/github-workflows-disabled.png)
   - Enable workflows by clicking **I understand my workflows, go ahead and enable them** to allow Semgrep to scan.
 
-### If a project reports the last scan 'Never finished'
+### If a project reports a scan 'Never finished'
 
-This status means that your CI jobs start and authenticate correctly, but fail before completion.
+Most often, this status means that your CI jobs start and authenticate correctly, but fail or are canceled before completion. Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution. In most cases you will see an error message with detailed instructions on what to do.
 
-Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution. In most cases you will see an error message with detailed instructions on what to do.
+In some cases, it may be shown when the scan has been running for a long time (more than an hour) and is still in progress. Scans that eventually produce results will always be accepted by Semgrep AppSec Platform even if this message is shown.
 
 #### If the job is aborted due to taking too long
 
-Many CI providers have a time limit for how long a job can run. Semgrep CI also aborts itself if it runs for too long. If your CI scans regularly take too long and fail to complete:
+Many CI providers have a time limit for how long a job can run. If your CI scans regularly take too long and fail to complete:
 
-- Please [reach out](/support) to the Semgrep team for help with tracking down the cause. Semgrep scans most large projects with hundreds of rules within a few minutes, and long run times are typically caused by just one rule or source code file taking too long.
-- To drastically cut run times, you can use Semgrep's diff-aware scanning to skip scanning unchanged files. For more details, see [Semgrep's behavior](/deployment/customize-ci-jobs).
-- You can skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code).
-- You can increase Semgrep's own run time limit by setting a <code>semgrep ci --timeout <span className="placeholder"><strong>[SECONDS]</strong></span></code> flag, or by setting a <code>SEMGREP_TIMEOUT=<span className="placeholder"><strong>[SECONDS]</strong></span></code> environment variable.
-  - To fully disable the time limit, set this value to `0`.
+- Please [reach out](/support) to the Semgrep team for help with tracking down the cause. Semgrep scans most projects with hundreds of rules within a few minutes, and long run times are often caused by just one rule or source code file taking too long.
+- To optimize run times, use Semgrep's diff-aware scanning in pull and merge requests to skip scanning unchanged files. For more details, see [Semgrep's behavior](/deployment/customize-ci-jobs).
+- Skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code).
