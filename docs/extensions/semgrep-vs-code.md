@@ -34,7 +34,6 @@ tags:
    ```
 4. To see detailed vulnerability information, hover over the code underlined in yellow. You can also see the findings identified by Semgrep using <kbd>⇧Shift+Ctrl+M</kbd> or <kbd>⌘Command+⇧Shift+M</kbd> (macOS) and opening the **Problems** tab.
 
-
 ## Commands
 
 Run Semgrep extension commands through the [Visual Studio Code Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette). You can access the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS). The following list includes all available Semgrep extension commands:
@@ -103,3 +102,11 @@ The following experimental features should only be used upon recommendation by S
 - **Semgrep > Heap Size JS**: Set the maximum heap size in MB for the JavaScript version of the extension. Increase if the extension crashes while downloading rules.
 - **Semgrep > Ignore CLI Version**: Ignore the CLI Version and enable all extension features.
 - **Semgrep > Stack Size JS**: Set the maximum stack size in KB for the JavaScript version of the extension.
+
+## Limitations
+
+IDE scans use the Semgrep OSS engine for speed. Scans are thus limited to single-file analysis. You can still perform cross-file (interfile) scans on your machine through the CLI:
+
+```bash
+semgrep ci --pro
+```
