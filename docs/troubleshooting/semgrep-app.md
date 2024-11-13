@@ -175,9 +175,9 @@ Check the log output for any hints about what the issue is.
 
 ### If a project reports a scan 'Never finished'
 
-Most often, this status means that your CI jobs start and authenticate correctly, but fail or are canceled before completion. Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution. In most cases you will see an error message with detailed instructions on what to do.
+Most often, this status means that your CI jobs start and authenticate correctly, but fail or are canceled before completion. Check your CI provider (such as GitHub Actions) for the log output of the latest Semgrep job execution. In most cases, you will see an error message with detailed instructions on what to do.
 
-In some cases, it may be shown when the scan has been running for a long time (more than an hour) and is still in progress. Scans that eventually produce results will always be accepted by Semgrep AppSec Platform even if this message is shown.
+Sometimes, this status may be shown when the scan has been running for a long time (more than an hour) and is still in progress. Scans that eventually produce results will always be accepted by Semgrep AppSec Platform, even if this message is shown.
 
 #### If the job is aborted due to taking too long
 
