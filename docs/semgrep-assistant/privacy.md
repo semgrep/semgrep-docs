@@ -12,10 +12,10 @@ tags:
 
 Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
 
-* Semgrep, Inc. uses two subprocessors as model vendors for AI results: OpenAI and Amazon Bedrock. Semgrep has Data Protection Agreements with each subprocessor (provided upon request by [contacting support](/docs/support)).<!-- markdown-link-check-enable -->
 * Semgrep Assistant logs and stores AI prompts and responses for the sake of performance evaluation, which includes source code snippets.
 * Semgrep Assistant sends relevant lines of code to our AI subprocessors. Currently, "relevant lines of code" means lines that are part of the Semgrep finding, plus the minimum number of lines of code required to provide enough context to produce accurate results. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains AI responses based on these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.<!-- markdown-link-check-disable -->
+* Semgrep, Inc. uses two subprocessors as model vendors for AI results: OpenAI and Amazon Bedrock. Semgrep has Data Protection Agreements with each subprocessor (provided upon request by [contacting support](/docs/support)).<!-- markdown-link-check-enable -->
 * Semgrep, Inc. takes the following steps to protect data that is processed by AI since Assistant requires the sharing of code snippets with a third party:
   * Semgrep only shares the code necessary to enlist the help of AI in automating the resolution of each specific alert.
   * Semgrep only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
