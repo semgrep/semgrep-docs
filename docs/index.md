@@ -84,7 +84,7 @@ The code is kept here for easy maintenance.
 | Product | Languages |
 | :-------  | :------ |
 | Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
-| Semgrep Supply Chain | **Generally available (GA) reachability**<br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby<br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust • Scala • Swift |
+| Semgrep Supply Chain | **Generally available (GA) reachability**<br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala<br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust • Swift |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
 See the [Supported languages](/supported-languages#semgrep-code-and-oss) documentation for more details.
@@ -108,7 +108,7 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
     </CardBody>
     </div>
   </Card>
-  <Card link='/deployment/managed-scanning'>
+  <Card link='/deployment/managed-scanning/overview'>
     <div class="card__copy">
     <CardHeader>Managed Scans</CardHeader>
     <CardBody>
@@ -119,11 +119,18 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>September 2024 release notes summary</h3>
+<h3>October 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- Semgrep Managed Scans (SMS) automatically scans newly created repositories if you grant code access to your GitHub repositories.
-- Semgrep AppSec Platform's new **dashboard** is now GA.
-- Semgrep Assistant now provides inline code fixes that you can directly commit based on its guidance, instead of generating inline code fixes and guidance independently. 
+- Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. Failing open means that Semgrep scans with internal errors do not result in a failed job.
+- Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
+- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
+- **Semgrep Assistant**: Users can now use the Assistant with their own OpenAI API key.
+  - Enterprise users can also use the following API providers:
+    - Azure OpenAI
+    - AWS Bedrock
+    - Google Gemini
+ See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
 <!--

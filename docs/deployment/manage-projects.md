@@ -76,6 +76,6 @@ You can configure a project's settings by going to the **Project details** page 
 See the following pages for more information:
 
 - [Configure Semgrep AppSec Platform to ignore certain file paths](/ignoring-files-folders-code).
-- For Semgrep Managed Scans users: [configure your scans](/deployment/managed-scanning#scan-management-and-configuration).
+- For Semgrep Managed Scans users: [configure your scans](/deployment/managed-scanning/overview).
 - [Set a primary branch](/deployment/primary-branch).
 - [Set tags](/semgrep-appsec-platform/tags).

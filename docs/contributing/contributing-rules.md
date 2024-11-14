@@ -102,14 +102,15 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
         </tr>
         <tr>
             <td>
-              Additionally required by <code>category: security</code>:
+              Additional keys required when <code>category</code> is <code>security</code>:
               <ul>
                   <li><code>cwe</code></li>
+                  <li><code>owasp</code></li>
                   <li><code>confidence</code></li>
                   <li><code>subcategory</code></li>
                   <li><code>likelihood</code></li>
                   <li><code>impact</code></li>
-                  <li><code>subcategory</code></li>
+                  <li><code>vulnerability_class</code></li>
               </ul>
             </td>
         </tr>
@@ -249,8 +250,15 @@ If your rule has a `category: security`, the following metadata are required:
   <tbody>
   <tr>
    <td><code>cwe</code></td>
-   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>.</td>
+   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a></td>
    <td><pre>cwe: "CWE-502: Deserialization of Untrusted Data"</pre></td>
+  </tr>
+  <tr>
+   <td><code>owasp</code></td>
+   <td>An <a href="https://owasp.org/Top10/">OWASP Top 10 category</a></td>
+   <td>
+    <pre>owasp:<br />  - A05:2021 - Security Misconfiguration</pre>
+   </td>
   </tr>
   <tr>
    <td><code>confidence</code></td>
@@ -271,10 +279,14 @@ If your rule has a `category: security`, the following metadata are required:
    <td><code>subcategory</code></td>
    <td><code>vuln</code>, <code>audit</code>, <code>secure default</code></td>
    <td>
-    <pre>
-    <code>subcategory:<br /></code>
-    <code>  - vuln</code>
-    </pre>
+    <pre>subcategory:<br />  - vuln</pre>
+  </td>
+  </tr>
+    <tr>
+   <td><code>vulnerability_class</code></td>
+   <td>See [Vulnerability class](#vulnerability-class) for a list of sample values. Accepts custom values.</td>
+   <td>
+    <pre>vulnerability_class:<br />  - Hard-coded Secrets</pre>
   </td>
   </tr>
   </tbody>
@@ -430,6 +442,21 @@ LOW impact rules are rules that leverage a security issue, but the impact is not
 impact: LOW
 ```
 
+#### References
+
+References help provide more context to a developer on what the issue is, and how to remediate the vulnerability, see examples below:
+
+- A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
+    ```yaml
+    references:
+      - https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls
+    ```
+- A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+    ```yaml
+    references:
+      - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
+    ```
+
 #### Subcategory
 
 Include a subcategory to explain what is the type of the rule. See the subsections below for more details.
@@ -480,20 +507,40 @@ technology:
   - express
 ```
 
-#### References
+#### Vulnerability class
 
-References help provide more context to a developer on what the issue is, and how to remediate the vulnerability, see examples below:
+The vulnerability class defines the category to which a rule and its resulting findings belong. The categories are used to group rules in Semgrep AppSec Platform's **Policies** page to help find similar rules. The category is also displayed on the **Findings Details** pages.
 
-- A rule that is finding an issue in React: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var.react-href-var" />
-    ```yaml
-    references:
-      - https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls
-    ```
-- A rule that is detecting an issue in Express: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
-    ```yaml
-    references:
-      - https://sequelize.org/docs/v6/core-concepts/raw-queries/#replacements
-    ```
+You can provide custom values. Sample values include:
+
+- Active Debug Code
+- Code Injection
+- Command Injection
+- Cookie Security
+- Cross-Site Request Forgery (CSRF)
+- Cross-Site-Scripting (XSS)
+- Cryptographic Issues
+- Dangerous Method or Function
+- Denial-of-Service (DoS)
+- Hard-coded Secrets
+- Improper Authentication
+- Improper Authorization 
+- Improper Encoding
+- Improper Validation
+- Insecure Deserialization
+- Insecure Hashing Algorithm
+- Insufficient Logging 
+- LDAP Injection
+- Mass Assignment
+- Memory Issues
+- Mishandled Sensitive information
+- Open Redirect
+- Other Security
+- Path Traversal
+- SQL Injection
+- Server-Side Request Forgery (SSRF)
+- XML Injection
+- XPath Injection
 
 ## Updating existing open source rules in Semgrep Registry
 

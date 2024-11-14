@@ -125,7 +125,7 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="14">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="15">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -207,13 +207,20 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
   </tr>
+<tr>
+   <td>Scala</td>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+   <td style={{"text-align": "center"}}>GA</td>
+   <td>✅</td>
+</tr>
   <tr>
    <td>Rust</td>
    <td>Cargo*</td>
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>✅</td>
-   <td rowspan="6">Not applicable due to reachability support level</td>
+   <td rowspan="5">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -235,13 +242,6 @@ For some languages, such as JavaScript and Python, a manifest file is also parse
    <td><code>composer.lock</code></td>
    <td style={{"text-align": "center"}}>Lockfile-only</td>
    <td>--</td>
-</tr>
-<tr>
-   <td>Scala</td>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
-   <td>✅</td>
 </tr>
 <tr>
    <td>Swift</td>
