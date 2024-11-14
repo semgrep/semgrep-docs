@@ -48,8 +48,8 @@ The following sections show you have to manage your findings by:
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
-![Screenshot of Semgrep AppSec Platform triage menu](/img/app-findings-triage.png#md-width)
-
+![Screenshot of Semgrep AppSec Platform triage menu.](/img/app-findings-triage.png)
+_**Figure**. Screenshot of Semgrep AppSec Platform triage menu._
 ### Fix a finding
 
 To **fix a finding**, update or refactor the code such that the Semgrep rule pattern no longer matches the code.

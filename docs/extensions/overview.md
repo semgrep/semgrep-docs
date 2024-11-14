@@ -7,6 +7,7 @@ description: >-
 
 
 import Login from "/src/components/procedure/_login-activate.mdx"
+import ExtensionsIdes from "/src/components/reference/_extensions-ides.md"
 
 # Extensions
 
@@ -14,9 +15,7 @@ Several third-party tools include Semgrep extensions.
 
 ### Official IDE extensions
 
-- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
-- IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
-- Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
+<ExtensionsIdes />
 
 ### The LSP Command
 

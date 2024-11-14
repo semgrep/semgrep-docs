@@ -261,7 +261,7 @@ All private rules for an organization are saved to the organization's folder. To
 
 <ForkExistingRule />
 
-### Contribute to the open-source Semgrep Registry
+### Contribute to the open source Semgrep Registry
 
 :::info
 For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).

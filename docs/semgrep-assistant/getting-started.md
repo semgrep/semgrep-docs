@@ -111,8 +111,8 @@ If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to 
 ![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
 *Figure*. MR comment from Semgrep Assistant in GitLab.
 
-#### Missing PR and comments
-Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
+#### Missing PR comments
+Semgrep Assistant messages only appear in PR comments for rules that are set to **Comment** or **Block** mode in the Policies page. Ensure that:
 
 * You have set rules to Comment or Block mode.
   ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
