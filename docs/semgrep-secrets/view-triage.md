@@ -9,6 +9,8 @@ tags:
     - Semgrep AppSec Platform
 ---
 
+import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
+
 # Triage secrets findings in Semgrep AppSec Platform
 
 After each scan, your findings are displayed in Semgrep AppSec Platform's
@@ -21,6 +23,10 @@ Findings from local scans are differentiated from their remote counterparts thro
 ## Default Secrets page view and branch logic
 
 In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets, the **latest instance**, or the finding from the most recent branch scanned, is displayed by default. This is because, if a Secrets finding is present in **any branch**, even a non-primary (default) branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
+
+### Time period and triage
+
+<TimePeriodFilters />
 
 ## Triage findings
 
