@@ -1,6 +1,6 @@
 ---
 slug: developer-introduction
-title: tk
+title: Semgrep for developers
 hide_title: true
 description: tk
 tags:
@@ -28,7 +28,7 @@ Developers primarily use Semgrep to scan for issues in their code. Issues detect
 
 Semgrep scans can be run in various environments, including popular IDEs, on your local machine, and in CI.
 
-## Code scanning with Semgrep
+## How Semgrep scans code
 
 Semgrep enables you to:
 
@@ -36,11 +36,23 @@ Semgrep enables you to:
 - Codify those search parameters as a **rule**
 - Run the rule on every keystroke, commit, pull request, and merge
 
-### 
-### Semgrep is deterministic and transparent
+Semgrep uses various program analyses to generate findings, similar to a linter.
+
+### Syntactic and semantic examples
+
+For example, you may want to ban the use of `==` in JavaScript and instead require `===` to avoid **type coercion**.
 
 
-### Semgrep is fast
+A more complex example is detecting if unsanitized data is flowing from some source to a sink without sanitization.
+
+
+
+
+
+The following features ensure that Semgrep scans are fast and accurate:
+
+Semgrep is deterministic and transparent
+
 
 ### Semgrep is customizable
 
