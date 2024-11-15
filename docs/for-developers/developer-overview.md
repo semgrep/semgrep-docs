@@ -1,7 +1,8 @@
 ---
-slug: developer-introduction
+slug: developer-overview
 title: Semgrep for developers
 hide_title: true
+displayed_sidebar: scanSidebar
 description: tk
 tags:
   - tk
@@ -9,7 +10,7 @@ tags:
 
 # Semgrep for developers
 
-This guide to Semgrep is for developers who are using Semgrep in a team or organizational setting. Learn Semgrep to:
+This guide is for developers who are using Semgrep in a team or organizational setting. Use Semgrep to:
 
 - Lint your code
 - Triage security issues
@@ -22,7 +23,7 @@ This guide to Semgrep is for developers who are using Semgrep in a team or organ
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform, or Semgrep (**sem**antic **grep**), is a software suite for implementing and tracking the success of security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings.
+Semgrep AppSec Platform, or Semgrep (**sem**antic **grep**), is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings.
 
 Developers primarily use Semgrep to scan for issues in their code. Issues detected by Semgrep are called **findings**. Semgrep performs static analysis and several other analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 
