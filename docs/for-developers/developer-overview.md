@@ -18,6 +18,7 @@ This guide is for developers who are using Semgrep in a team or organizational s
 - Follow security practices set by security engineers
 
 This guide provides an overview of how Semgrep works for you to better understand how Semgrep may integrate into your workflows.
+
 :::note Developer and AppSec roles
 If you are a developer responsible for your **own** security program in personal projects, see the **Quickstart** and **Core deployment** docs.
 tk links
@@ -29,9 +30,15 @@ Semgrep AppSec Platform, or Semgrep (**sem**antic **grep**), is a software suite
 
 Developers primarily use Semgrep to scan for issues in their code. Issues detected by Semgrep are called **findings**. Semgrep performs static analysis and several other analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 
-### Encountering Semgrep scans and findings 
+### How Semgrep affects your workflows
 
-Developers typically perform Semgrep scans in their IDE by installing an extension or CLI through the Semgrep CLI tool. You may also run Semgrep as part of your `pre-commit` hook.
+You can run Semgrep as part of your day-to-day coding workflow in the following environments:
+
+-  IDEs (VS Code and IntelliJ)
+-  CLI
+-  `pre-commit`
+
+Your AppSec team is likely to have guidelines about Semgrep scans in these environments. Depending on your org guidelines, you may perform scans in some or none of these environments.
 
 In the broader organizational context, Semgrep is typically integrated into your CI and automatically runs on every pull request or merge request you open. These scans are **diff-aware** and only affect the scope of your PR, which keeps the scan speed fast. Your security engineer may configure Semgrep to display certain **blocking** or **non-blocking** findings to you, which you can resolve or ignore.
 
