@@ -318,7 +318,7 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 The [Semgrep Network Broker](/docs/semgrep-ci/network-broker) facilities secure access with Semgrep, and its use can replace the allowlisting of the IP addresses required for ingress. The Network Broker, however, only facilitates requests from Semgrep to your network and *doesn't* assist with requests originating from your network, including those from your network to Semgrep.
 
-In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, but depending on how restrictive your network is, you may need to add to your allowlist all of the egress IP addresses provided in [IP addresses](#ip-addresses).
+In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, but depending on how restrictive your network is, you may need to modify your allowlist to include the egress IP addresses provided in [IP addresses](#ip-addresses).
 
 #### Features that require inbound network connectivity
 
