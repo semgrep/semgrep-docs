@@ -37,7 +37,7 @@ At this point, Semgrep displays the lockfiles it has parsed and the dependencies
 
 ### View additional lockfiles
 
-By default, Semgrep only displays dependencies listed in the first **10** lockfiles of a given project. To load information from additional lockfiles:
+By default, Semgrep only displays dependencies listed in a given project's first **10** lockfiles. To load information from additional lockfiles:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to **Supply Chain > Dependencies**, and scroll to the bottom of the page.
