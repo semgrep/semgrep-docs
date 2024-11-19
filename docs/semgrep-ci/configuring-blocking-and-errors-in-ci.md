@@ -26,7 +26,7 @@ When Semgrep identifies one or more blocking findings, it returns exit code `1`.
 
 The process to enforce a block on a PR or MR after Semgrep exits with error code `1` is dependent on your CI provider. Review your CI provider's documentation for further information.
 
-If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server and returns exit code `2`. Review your CI provider's documentation for further information on how to handle this error code, such as failing the pipeline job. 
+If Semgrep encounters an internal error, it sends an anonymous crash report to a crash-reporting server. By default, it returns exit code 0 in CI. If you would prefer to catch internal errors, review the options below and the Semgrep exit codes reference to determine how you want to handle each exit code.
 
 :::info
 See [CLI reference](/cli-reference#exit-codes) for more information about Semgrep exit codes.
