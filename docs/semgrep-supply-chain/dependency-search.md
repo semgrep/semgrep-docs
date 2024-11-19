@@ -3,19 +3,19 @@ slug: dependency-search
 append_help_link: true
 title: Dependency search
 hide_title: true
-description: "Search through all your dependencies in all your onboarded repositories at any time."
+description: "View and search through all your dependencies in all your onboarded repositories at any time."
 tags:
   - Semgrep Supply Chain
   - Semgrep AppSec Platform
 ---
 
-# Search for dependencies
+# View and search for dependencies
 
 :::info Prerequisite
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+At least one project (repository) that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
-Semgrep Supply Chain's dependency search feature allows you to query for any dependency in your codebase at any time. This feature detects all transitive and direct dependencies across all of your repositories in Semgrep AppSec Platform. Dependency search lists all the versions of a dependency, as well as the repositories that use the dependency.
+Semgrep Supply Chain's dependency search feature allows you to view and query for any dependency in your project at any time. This feature detects all transitive and direct dependencies across all of your projects in Semgrep AppSec Platform. Dependency search lists all the versions of a dependency, as well as the projects that use the dependency.
 
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to see if you use the vulnerable dependency across all your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
@@ -32,8 +32,25 @@ To search your dependencies:
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it's not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
   ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) _**Figure**. The Semgrep Supply Chain Dependencies tab._
-1. Type the name of the dependency you are searching for.
-2. Optional: Apply filters as necessary for your search.
+
+At this point, Semgrep displays the lockfiles it has parsed and the dependencies included in each of the parsed lockfiles.
+
+### View additional lockfiles
+
+By default, Semgrep only displays dependencies listed in a given project's first **10** lockfiles. To load information from additional lockfiles:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Navigate to **Supply Chain > Dependencies**, and scroll to the bottom of the page.
+3. Click **Fetch more lockfiles**.
+
+## Search for dependencies
+
+To search for dependencies:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Navigate to **Supply Chain > Dependencies**.
+1. Using the **Dependency** search bar, type the name of the dependency you are searching for.
+1. Optional: Apply filters as necessary for your search.
 
 :::tip
 Search for ranges of supported versions with the `>` or `<` operators following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser greater than 1.18.0`.
