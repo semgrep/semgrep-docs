@@ -624,6 +624,18 @@ module.exports = {
       ]
     },
   ],
+  devSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+        type: 'category',
+        label: 'Semgrep for developers',
+        collapsible: false,
+        items: [
+            'for-developers/developer-overview',
+            'for-developers/resolve-findings',
+        ],
+    }
+  ],
   updatesSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {

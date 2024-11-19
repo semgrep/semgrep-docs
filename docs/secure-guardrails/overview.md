@@ -51,7 +51,7 @@ The following table lists the speed of a Semgrep cross-function scan in relation
 
 | Interface | Scope of scan | Typical speed |
 | --------- | --------------| ------------- |
-| IDE (per keystroke and on save) | Current file | In a few seconds |
+| IDE (per keystroke and on save) | Current file (single-function, single-file analysis) | In a few seconds |
 | CLI on commit (through [`pre-commit`](https://pre-commit.com/)) | Files staged for commit | Under 5 minutes |
 |PR or MR comments | All committed files and changes in the PR or MR | Under 5 minutes |
 
