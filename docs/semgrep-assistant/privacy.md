@@ -28,5 +28,5 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 
 For more details, see the following resources:
 
-- [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant).
+- [Semgrep Assistant FAQ](https://get.semgrep.dev/assistant)
 - [<i class="fas fa-external-link fa-xs"></i> Data Privacy Overview - Semgrep Assistant](https://drive.google.com/file/d/19a9m67TS4lRaRusMmsNlIjttTY5b1lEf/view)
