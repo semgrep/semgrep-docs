@@ -36,7 +36,7 @@ The **Code** page consists of:
   - The name and description of the rule used to generate the finding
   - The name of the project
   - A link to the commit where the finding was first identified
-  - A link to the line of code where the finding was most recently seen
+  - A link to the lines of code where the finding was most recently seen
 
 ### Group findings
 
