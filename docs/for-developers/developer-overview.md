@@ -3,7 +3,7 @@ slug: developer-overview
 title: Overview
 hide_title: true
 displayed_sidebar: devSidebar
-description: tk
+description: An overview of Semgrep for developers. Learn the basics of Semgrep and how it integrates into your coding workflows and environment.
 tags:
   - Developers
 ---
@@ -64,14 +64,14 @@ Semgrep enables you to:
 
 ### Transparency and determinism 
 
-Semgrep is transparent because you can inspect the rules and analyses that are run on your code. Rules establish what should match (for example, `==`) and what shouldn't match. They have the following characteristics:
+Semgrep is **transparent** because you can inspect the rules and analyses that are run on your code. Rules establish what should match (for example, `==`) and what shouldn't match. They have the following characteristics:
 
 - Rules are written in YAML. By having a single schema for all supported programming languages, you can write rules for any programming language that Semgrep supports.
   - In contrast, linters vary in customizability. Linters that let you write your own rules require to you learn that linter's rule schema, which can only be applied to that linter's programming language.
 - A rule has a **confidence level** to indicate the likelihood it is a true positive.
 - A rule includes a **message** to help you remediate or fix.
 
-Semgrep is deterministic; given the same set of inputs, such as your code and rules, and the same analyses, Semgrep always finds the same findings.
+Semgrep is **deterministic**; given the same set of inputs, such as your code and rules, and the same analyses, Semgrep always finds the same findings.
 
 ### Rule examples
 
@@ -104,8 +104,12 @@ It is a common convention to ban all uses of some language feature in user-facin
 Semgrep enables you to create a custom best practices set of rules around cases like this.
 
 <iframe title="Ban console.log external or user-facing functions" src="https://semgrep.dev/embed/editor?snippet=1AP5" width="100%" height="432px" frameBorder="0"></iframe>
+_**Figure**. Ban `console.log` in external-facing functions. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
 
-tk explanation
+Notice that only **line 4** matches. This is because only line 4 has a `console.log()` function within `someExternalFunction()`.
+
+This example defines both what matches within the external-facing function, and the external-facing function itself. This is achieved through the use of `pattern` and `pattern-inside`. The `...` **ellipsis** operator tells Semgrep to accept any number of arguments or values in `someExternalFunction()` and `console.log()`, thus capturing all possible variations of the functions.
+
 
 </details>
 
@@ -116,7 +120,10 @@ tk explanation
 
 A more complex example is detecting if **unsanitized data** is flowing from some **source**, such as saved form data, to a **sink** without sanitization.
 
-```yaml
+The following example is a simplified Semgrep rule that detects possible cross-site scripting vulnerabilities:
+
+
+```yaml showLineNumbers
 rules:
   - id: decoded-xss
     message: Untrusted input could be used to tamper with a web page rendering,
@@ -136,8 +143,64 @@ rules:
     options:
       interfile: true
       symbolic_propagation: true
+      taint_assume_safe_booleans: true
+      taint_assume_safe_numbers: true
     pattern-sources:
+      - label: DECODE
+        patterns:
+          - patterns:
+              - pattern-either:
+                  //highlight-next-line
+                  - pattern: decodeURIComponent($X)
+                  //highlight-next-line
+                  - pattern: decodeURI($X)
+   pattern-sinks:
+      - patterns:
+          - pattern-either:
+              //highlight-next-line
+              - pattern: $ELEMENT. ... .innerHTML = $X
+              - pattern: document.write($X)
+          - focus-metavariable: $X
+        requires: DECODE
+  pattern-sanitizers:
+      - patterns:
+          - pattern-either:
+              //highlight-next-line
+              - pattern: Number(...)
+              - pattern: parseInt(...)
+      - patterns:
+          //highlight-next-line
+          - pattern: sanitize(...)
 ```
+
+```javascript showLineNumbers
+const rootDiv = document.getElementById("root");
+import { sanitize } from "dompurify";
+const hash = decodeURIComponent(location.hash.substr(1));
+
+const hash1 = decodeURI(location.hash.substr(1));
+// ruleid: prook: decoded-xss
+rootDiv.innerHTML = sanitize(hash);
+// ok: decoded-xss
+rootDiv.innerHTML = Number.parseInt(hash);
+// ruleid: decoded-xss
+//highlight-next-line
+rootDiv.innerHTML = hash1;
+
+const obj2 = { foo: "baz", y: hash1 };
+
+const clonedObj = { ...obj2 };
+
+// ruleid: decoded-xss
+//highlight-next-line
+rootDiv.innerHTML = clonedObj.y;
+```
+
+In this example, **lines 11 and 18** are the only two true positives.
+- **Line 7** is not a match because `hash` has been sanitized through `sanitize(hash)`.
+- **Line 9** stores the hash as a number, and the rule has defined this as a sanitizer as well.
+
+Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives regardless by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. tk add link to rule.
 </details>
 
 ## Semgrep's approach to security: secure guardrails
