@@ -33,7 +33,9 @@ Developers primarily interact with Semgrep when Semgrep scans, then notifies use
 
 ### Developer workflows with Semgrep
 
-Your interactions with Semgrep may vary depending on your organization's deployment of it. Semgrep is almost always integrated into your CI and source code manager (SCM) and automatically runs on every pull request or merge request you open. These scans are **diff-aware** and only affect the scope of your PR, which keeps the scan speed fast. Your security engineer may configure Semgrep to display PR or MR comments about certain **blocking** or **non-blocking** findings to you, which you can resolve or ignore from within your SCM.
+Your interactions with Semgrep vary depending on your organization's deployment of it.
+
+Semgrep is almost always integrated into your CI and source code manager (SCM) and automatically runs on every pull request or merge request you open. These scans are **diff-aware** and only affect the scope of your PR, which keeps the scan speed fast. Your security engineer may configure Semgrep to display PR or MR comments about certain **blocking** or **non-blocking** findings to you, which you can resolve or ignore from within your SCM.
 
 ![A PR comment detecting a hardcoded secret](/img/guardrails-secrets.png)
 _**Figure**. A PR comment detecting a hardcoded secret._
@@ -52,8 +54,20 @@ Your security engineers are in full control of what findings are displayed to yo
 
 ## `grep`, linters, and Semgrep
 
+The following diagram provides a summary of differences between `grep`, linters, and Semgrep.
+
 ![A summary of differences between grep, linters, and Semgrep.](/img/linters-semgrep-comparison.png)
-_**Figure**. A summary of differences between `grep`, linters, and Semgrep._
+
+In addition to being a security tool, once customized, Semgrep can be used as a linter to help you and your team codify and follow best practices and to detect code smells.
+
+Because Semgrep supports many programming languages, learning Semgrep's rule-writing schema can be applied to many programming languages, instead of needing to learn how to customize for each linting tool.
+
+## Speed, scope and analysis
+
+Semgrep can perform several types of analyses on a given scope, which affects its scan speed. The following table breaks down expected runtimes in each developer interface.
+
+tk add interface
+
 ## How Semgrep scans your code
 
 Semgrep enables you to:
@@ -200,14 +214,14 @@ In this example, **lines 11 and 18** are the only two true positives.
 - **Line 7** is not a match because `hash` has been sanitized through `sanitize(hash)`.
 - **Line 9** stores the hash as a number, and the rule has defined this as a sanitizer as well.
 
-Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives regardless by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. tk add link to rule.
+Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. 
 </details>
+
+
 
 ## Further reading
 
-- Resolve findings with Semgrep
-- Advanced detection in Java
-
-tk
+- [Resolve findings with Semgrep](/for-developers/resolve-findings) - A guide to resolving Semgrep findings in various developer-native environments.
+- [Semantic detection in Java](/semgrep-code/java) - An in-depth explanation of Semgrep's semantic comprehension of Java code.
 
 
