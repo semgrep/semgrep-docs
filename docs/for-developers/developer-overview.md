@@ -203,7 +203,10 @@ In this example, **lines 11 and 18** are the only two true positives.
 Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives regardless by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. tk add link to rule.
 </details>
 
-## Semgrep's approach to security: secure guardrails
+## Further reading
+
+- Resolve findings with Semgrep
+- Advanced detection in Java
 
 tk
 
