@@ -8,6 +8,8 @@ tags:
   - Secure guardrails
 ---
 
+import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
+
 # Secure guardrails in Semgrep
 
 Secure guardrails guide **developers** towards fixing security issues in the early stages of development. By deploying secure guardrails, you can:
@@ -46,14 +48,9 @@ _**Figure**. Semgrep products provide the content of the guardrail, namely its r
 
 Scans must be quick to successfully integrate into developer workflows without slowing them down.
 
-The following table lists the speed of a Semgrep cross-function scan in relation to the environment the scan is run in:
+The following table lists the speed of a Semgrep scan in relation to the environment the scan is run in:
 
-
-| Interface | Scope of scan | Typical speed |
-| --------- | --------------| ------------- |
-| IDE (per keystroke and on save) | Current file (single-function, single-file analysis) | In a few seconds |
-| CLI on commit (through [`pre-commit`](https://pre-commit.com/)) | Files staged for commit | Under 5 minutes |
-|PR or MR comments | All committed files and changes in the PR or MR | Under 5 minutes |
+<ScanSpeedScope />
 
 ### Support for developer interfaces (pre-build)
 

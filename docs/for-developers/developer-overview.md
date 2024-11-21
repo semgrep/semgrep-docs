@@ -8,6 +8,8 @@ tags:
   - Developers
 ---
 
+import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
+
 # Semgrep for developers
 
 This guide is for developers who are using Semgrep in a team or organizational setting.
@@ -27,7 +29,7 @@ If you are a developer responsible for your **own** security program in personal
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform, or Semgrep (**sem**antic **grep**), is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings.
+Semgrep AppSec Platform, is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings. In these documenSemgrep (**sem**antic **grep**) can refer to 
 
 Developers primarily interact with Semgrep when Semgrep scans, then notifies users of issues in their code. Issues detected by Semgrep are called **findings**. The pattern-matching logic by which Semgrep detects a finding is encapsulated in a **rule**. Semgrep performs various static analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 
@@ -54,19 +56,18 @@ Your security engineers are in full control of what findings are displayed to yo
 
 ## `grep`, linters, and Semgrep
 
-The following diagram provides a summary of differences between `grep`, linters, and Semgrep.
-
 ![A summary of differences between grep, linters, and Semgrep.](/img/linters-semgrep-comparison.png)
+_**Figure**. A summary of differences between grep, linters, and Semgrep._
 
 In addition to being a security tool, once customized, Semgrep can be used as a linter to help you and your team codify and follow best practices and to detect code smells.
 
-Because Semgrep supports many programming languages, learning Semgrep's rule-writing schema can be applied to many programming languages, instead of needing to learn how to customize for each linting tool.
+You only need to learn a single rule-writing schema to write rules for many programming languages, rather than having to learn per-linter.
 
 ## Speed, scope and analysis
 
 Semgrep can perform several types of analyses on a given scope, which affects its scan speed. The following table breaks down expected runtimes in each developer interface.
 
-tk add interface
+<ScanSpeedScope />
 
 ## How Semgrep scans your code
 
