@@ -13,6 +13,7 @@ tags:
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
+import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
 
 # View findings in Semgrep AppSec Platform
 
@@ -31,10 +32,13 @@ To access the [**Code** page](https://semgrep.dev/orgs/-/findings):
 
 The **Code** page consists of:
 
+- The **top bar**, where you can set the page's grouping view and [time period](#time-period-and-triage).
 - The **filter panel**, which you can use to group and filter for specific findings
 - Information about findings identified by Semgrep Code. Each finding in the list includes:
   - The name and description of the rule used to generate the finding
-  - The name of the project, as well as links to the Git branch and source code, where Semgrep Code identified the finding
+  - The name of the project
+  - A link to the commit where the finding was first identified
+  - A link to the lines of code where the finding was most recently seen
 
 ### Group findings
 
@@ -52,6 +56,10 @@ Semgrep sorts findings by severity. For a given severity, Semgrep further sorts 
 To view findings individually, toggle **Group by Rule** to **No grouping** using the drop-down menu in the header. Findings are displayed based on the date they were found, with the most recent finding listed at the top.
 
 ![Group by Rule option](/img/cloud-platform-findings-no-grouping.png#md-width)
+
+### Time period and triage
+
+<TimePeriodFilters />
 
 ### Default Code page view
 

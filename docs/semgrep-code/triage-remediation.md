@@ -256,5 +256,5 @@ Semgrep provides an API endpoint you can use to triage findings in bulk, either 
 ## Reduce the number of false positive findings
 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
-* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.dev](mailto:support@semgrep.dev). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
+* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.com](mailto:support@semgrep.com). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
 * You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep AppSec Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep AppSec Platform provides a link after each comment for users to indicate if the finding is a false positive.
