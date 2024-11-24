@@ -36,7 +36,9 @@ The **Code** page consists of:
 - The **filter panel**, which you can use to group and filter for specific findings
 - Information about findings identified by Semgrep Code. Each finding in the list includes:
   - The name and description of the rule used to generate the finding
-  - The name of the project, as well as links to the Git branch and source code, where Semgrep Code identified the finding
+  - The name of the project
+  - A link to the commit where the finding was first identified
+  - A link to the lines of code where the finding was most recently seen
 
 ### Group findings
 

@@ -69,6 +69,8 @@ The **Secrets** page consists of:
   - Whether it has been validated by a Semgrep validator
   - Whether it is a [historical finding](/semgrep-secrets/historical-scanning)
   - For users of the Semgrep Jira integration: whether there is a Jira ticket that accompanies that finding
+  - A link to the commit where the finding was first identified
+  - A link to the lines of code where the finding was most recently seen
 
 ### Group findings
 
