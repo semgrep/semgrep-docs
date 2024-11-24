@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: devSidebar
 description: An overview of Semgrep for developers. Learn the basics of Semgrep and how it integrates into your coding workflows and environment.
 tags:
-  - Developers
+  - Developer education
 ---
 
 import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
