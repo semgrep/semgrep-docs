@@ -80,9 +80,6 @@ OPTIONS
        --emacs-output=VAL
            Write a copy of the emacs output to a file or post to URL.
 
-       --enable-experimental-requirements
-           Experimental: support wider set of requirements lockfiles.
-
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
            a 'nosem' comment at the end. Enabled by default.
@@ -438,6 +435,21 @@ OPTIONS
            Write a copy of the vim output to a file or post to URL.
 
        --x-dump-rule-partitions=VAL (absent=0)
+           Internal flag.
+
+       --x-dump-rule-partitions-dir=VAL
+           Internal flag.
+
+       --x-ignore-semgrepignore-files
+           [INTERNAL] Ignore all '.semgrepignore' files found in the project
+           tree for the purpose of selecting target files to be scanned by
+           semgrep. Other filters may still apply. THIS OPTION IS NOT PART OF
+           THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-merge-partial-results-dir=VAL
+           Internal flag.
+
+       --x-merge-partial-results-output=VAL
            Internal flag.
 
        --x-partial-config=VAL
