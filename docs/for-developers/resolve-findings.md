@@ -11,20 +11,27 @@ import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 # Resolve findings with Semgrep
 
-Once Semgrep detects and notifies you of a finding, your team or security engineer may assign you to address it. For high or critical severity findings, AppSec engineers may set the Semgrep CI job to fail to prevent you from merging your pull request or merge request until you have triaged or fixed the findings.
-
-Any of the 
+Findings resolution involves the assessment of a finding, then either fixing or triaging (ignoring) it. You can fix or triage findings from your source code manager (SCM) or from Semgrep AppSec Platform.
 
 ## Assess the finding
 
-Not all findings need to be **fixed**. False positives can be ignored. To help you assess findings, Semgrep provides the following information:
+Many factors affect whether or not a finding should be fixed: whether it is a true or false positive, if the fix can be applied within deadlines, if the finding is easily exploitable, the degree of the finding's severity, and so on.
+
+Here are some of the most common Semgrep rule attributes used to quickly assess findings:
+
+- **Severity**. Prioritize fixing critical and high severity findings.
+- **Confidence**. Higher confidence rules indicate a higher chance of true positives. 
+- **Exploit prediction scoring system (EPSS) score**. For SCA findings, higher EPSS scores should be fixed.
+- **Reachability**. Prioritize updating dependencies or refactoring code to patch reachable dependency vulnerabilities.
+
+## Triage or resolve the finding through your SCM
+
+### Autofix and remediation guidance
+
+Some Semgrep rules provide an **autofix**. If your SCM supports it, the fix can be committed automatically.
 
 
-
-
-## Triage or resolve the finding through a comment
-
-Most often, you'll be resolving findings in your code or source code manager (SCM).
+_**Figure**. GitHub enables you to commit the suggestion from Semgrep directly, fixing the finding._
 
 ## Triage or resolve the finding in Semgrep AppSec Platform
 
