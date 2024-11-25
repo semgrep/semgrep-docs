@@ -24,14 +24,21 @@ Here are some of the most common Semgrep rule attributes used to quickly assess 
 - **Exploit prediction scoring system (EPSS) score**. For SCA findings, higher EPSS scores should be fixed.
 - **Reachability**. Prioritize updating dependencies or refactoring code to patch reachable dependency vulnerabilities.
 
-## Triage or resolve the finding through your SCM
+## Triage or resolve the finding in your SCM
 
-### Autofix and remediation guidance
+### Autofix
 
 Some Semgrep rules provide an **autofix**. If your SCM supports it, the fix can be committed automatically.
 
-
+![GitHub PR comment with fix suggestion.](/img/pr-comment-autofix.png)
 _**Figure**. GitHub enables you to commit the suggestion from Semgrep directly, fixing the finding._
+
+If a line of code contains several findings, Semgrep does not provide the autofix or **Commit suggestion** feature to prevent fixes from conflicting.
+
+### Assistant (AI) remediation
+
+
+### Ignore the finding
 
 ## Triage or resolve the finding in Semgrep AppSec Platform
 
