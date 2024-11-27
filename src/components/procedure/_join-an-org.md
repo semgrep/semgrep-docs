@@ -16,7 +16,7 @@ To join an existing org in GitHub or GitLab:
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
 1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed. This creates your **personal** Semgrep account.
 1. Click **Join an existing organization**.
-1. Click your organization's name. The web app signs you in to your organization's Semgrep account.
+1. Click your organization's name. The web app signs you in to your organization's Semgrep account. You can verify this by viewing the account name in the navigation menu.
 
 </TabItem>
 
