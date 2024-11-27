@@ -18,9 +18,14 @@ Additionally, when you sign in to the Semgrep AppSec Platform web app, you can a
 
 ## Semgrep in multiple environments
 
-If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. The web app creates a **personal** account. You can then join your organization's Semgrep account, thus giving you access to your organization's Semgrep configuration.
+If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, after which you can then **join** your organization's Semgrep account, thus giving you access to your organization's Semgrep configuration.
 
 If you use Semgrep in your CLI or IDE, you must sign in those environments as well. It is recommended to sign in from these interfaces **after** you have signed in to your organization account in the web app.
+
+## Prerequisites
+
+- Confirm with your security team that there is an existing organization account for you to join.
+- For CLI and IDE scans, see [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
 ## Signing in to the web app
 
@@ -34,7 +39,6 @@ After signing in to your org's account, you can now sign in from other environme
 
 #### Prerequisites
 
-Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
 <Install />
 
