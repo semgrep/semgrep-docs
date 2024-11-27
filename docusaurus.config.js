@@ -397,6 +397,8 @@ module.exports = {
           { from: "/semgrep-appsec-platform/dashboard-beta/"                        , to: "/semgrep-appsec-platform/dashboard" } ,
           /* OCT 16, 2024 */
           { from: "/deployment/managed-scanning" , to: "/deployment/managed-scanning/overview" } ,
+          /* NOV 28, 2024 */
+          { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
         ]
       }
     ],
