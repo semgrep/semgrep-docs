@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: devSidebar
 description: An overview of Semgrep for developers. Learn the basics of Semgrep and how it integrates into your coding workflows and environment.
 tags:
-  - Developer education
+  - Guides for developers
 ---
 
 import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
@@ -21,7 +21,10 @@ Use Semgrep to:
 - Automate code reviews among your peers
 - Follow security practices set by security engineers
 
-This document provides an overview of **how** Semgrep scans and detects issues in your code. For a guide on triaging, remediating, and fixing issues with Semgrep, see [Resolve findings with Semgrep](/for-developers/resolve-findings).
+This document provides an overview of **how** Semgrep scans and detects issues in your code.
+
+- For a guide on triaging, remediating, and fixing issues with Semgrep, see [Resolve findings with Semgrep](/for-developers/resolve-findings).
+- For a guide to Semgrep AppSec Platform, such as signing in with SSO and connecting your personal Semgrep account to your Semgrep organization account, see 
 
 :::note Developer and AppSec roles
 If you are a developer responsible for your **own** security program in personal projects, see the [Quickstart](/getting-started/quickstart) and [Core deployment](/deployment/core-deployment) docs.
@@ -29,7 +32,7 @@ If you are a developer responsible for your **own** security program in personal
 
 ## Semgrep AppSec Platform
 
-Semgrep AppSec Platform, is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings. In these documenSemgrep (**sem**antic **grep**) can refer to 
+Semgrep AppSec Platform is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings. In this document, Semgrep (**sem**antic **grep**) refers to to the AppSec Platform in its entirety.
 
 Developers primarily interact with Semgrep when Semgrep scans, then notifies users of issues in their code. Issues detected by Semgrep are called **findings**. The pattern-matching logic by which Semgrep detects a finding is encapsulated in a **rule**. Semgrep performs various static analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 

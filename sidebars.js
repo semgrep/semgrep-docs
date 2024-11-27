@@ -633,6 +633,7 @@ module.exports = {
         items: [
             'for-developers/developer-overview',
             'for-developers/resolve-findings',
+            'for-developers/developer-signin',
         ],
     }
   ],
