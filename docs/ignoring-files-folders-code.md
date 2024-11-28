@@ -36,7 +36,30 @@ Without user customization, Semgrep refers to the following to define ignored fi
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
-DEFAULT_SEMGREPIGNORE_TEXT
+# Common large paths
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+.npm/
+.yarn/
+
+# Common test paths
+test/
+tests/
+testsuite/
+*_test.go
+
+# Semgrep rules folder
+.semgrep
+
+# Semgrep-action log folder
+.semgrep_logs/
+
 ```
 
 :::caution
@@ -87,6 +110,12 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 Unsupported patterns are silently removed from the pattern list (this is done so that `.gitignore` files may be included without raising errors). The removal is logged.
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
+
+:::caution
+[Semgrepignore is being revised](/semgrepignore-v2-reference) to
+support multiple `.semgrepignore` files and match the Gitignore
+specification more closely.
+:::
 
 ## Define ignored files and folders in Semgrep AppSec Platform
 
