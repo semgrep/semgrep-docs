@@ -4,7 +4,7 @@ hide_title: true
 id: Docs home
 displayed_sidebar: topLevelSidebar
 toc_max_heading_level: 2
-pagination_next: getting-started/quickstart-managed-scans
+pagination_next: quickstart-managed-scans
 description: >-
   Read the documentation and get started with Semgrep.
   A fast static analysis engine for finding bugs,
