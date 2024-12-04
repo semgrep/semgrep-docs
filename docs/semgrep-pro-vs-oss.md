@@ -111,7 +111,7 @@ It can't track data beyond a single function or file and may find more false pos
 
 ##### Semgrep AppSec Platform 
 
-Semgrep Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
+Semgrep supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
 
 <details>
 <summary>Click to view Semgrep Code analyses (SAST)</summary>
