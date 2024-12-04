@@ -21,8 +21,8 @@ most out of their Semgrep subscription.
 
 ### Support hours
 
-Semgrep technical support is available 18 hours a day, five days a week, from 6
-AM to 12 AM UTC, Monday to Friday, excluding Semgrep-recognized holidays.
+Semgrep technical support is available 18 hours a day, five days a week, from 8
+AM to 1 AM UTC, Monday to Friday, excluding Semgrep-recognized holidays.
 
 ### Contacting support
 

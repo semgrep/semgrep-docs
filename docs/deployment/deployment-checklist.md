@@ -257,7 +257,7 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 
 You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
-- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning).
+- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning/overview).
 - To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
 
 :::info
@@ -314,13 +314,17 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 <IpAddresses />
 
-Alternatively, you can use the [Semgrep Network Broker](/docs/semgrep-ci/network-broker) to facilitate secure access with Semgrep instead of allowlisting these IP addresses.
+#### Allowlists when using Semgrep Network Broker
+
+The [Semgrep Network Broker](/docs/semgrep-ci/network-broker) facilities secure access with Semgrep, and its use can replace the allowlisting of the IP addresses required for ingress. The Network Broker, however, only facilitates requests from Semgrep to your network and *doesn't* assist with requests originating from your network, including those from your network to Semgrep.
+
+In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, but depending on how restrictive your network is, you may need to modify your allowlist to include the egress IP addresses provided in [IP addresses](#ip-addresses).
 
 #### Features that require inbound network connectivity
 
 - [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
 - [PR and MR comments](/category/pr-or-mr-comments)
-- [Semgrep Managed Scans](/deployment/managed-scanning)
+- [Semgrep Managed Scans](/deployment/managed-scanning/overview)
 - [Semgrep Assistant](/semgrep-assistant/getting-started)
 
 ### Semgrep versions
