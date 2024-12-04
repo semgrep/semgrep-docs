@@ -1,19 +1,20 @@
 ---
 slug: semgrep-pro-vs-oss
 append_help_link: true
-title: Semgrep AppSec Platform versus Semgrep OSS
+title: Semgrep AppSec Platform versus Community Edition
 hide_title: true
-description: "Learn about the features and differences of Semgrep AppSec Platform and Semgrep OSS."
+description: "Learn about the features and differences of Semgrep AppSec Platform and Community Edition."
 tags:
   - Support
   - Semgrep AppSec Platform
+  - Semgrep Community Edition
 ---
 
 import Link from '@docusaurus/Link'
 
-# Semgrep AppSec Platform versus Semgrep OSS
+# Semgrep AppSec Platform versus Semgrep Community Edition
 
-You can use Semgrep AppSec Platform or Semgrep OSS to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
+You can use **Semgrep AppSec Platform (Semgrep)** or **Semgrep Community Edition (Semgrep CE)** to scan your code for security issues, bugs, and compliance to coding standards. However, there are key differences between the two offerings.
 
 :::tip 
 Refer to the [appendix](#appendix) to skim all features of both offerings.
@@ -24,15 +25,15 @@ Refer to the [appendix](#appendix) to skim all features of both offerings.
 The offerings in this document are defined as follows:
 
 <dl>
-  <dt>Semgrep OSS</dt>
+  <dt>Semgrep Community Edition (Semgrep CE)</dt>
   <dd>
-    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules for use with Semgrep OSS. Semgrep OSS is best for small teams or personal projects.
+    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules. The Community Edition is best for small teams or personal projects.
   </dd>
   <dt>Semgrep AppSec Platform (Semgrep)</dt>
   <dd>
     <p style={{marginBottom: '0.5rem'}}>Refers to a proprietary software suite tailored to support AppSec engineers through the entire software development life cycle (SDLC). Best for deploying security programs throughout their organization. Many of Semgrep's features support the deployment of <Link to ='/secure-guardrails/secure-guardrails-in-semgrep'>secure guardrails</Link>. Semgrep includes the following products:</p>
     <dl style={{marginTop: '0px'}}>
-      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep OSS. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
+      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep Community Edition. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
       <dt>Semgrep Secrets</dt><dd>A secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
     </dl>
@@ -46,7 +47,7 @@ Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
 ## Comparison by core workflows
 
 ![Scope of each offering by core workflows](/img/security-program-workflows.svg) <br />
-_**Figure**. A typical AppSec security program's core workflows and the scope of out-of-the-box Semgrep OSS and Semgrep AppSec Platform features._
+_**Figure**. A typical AppSec security program's core workflows and the scope of out-of-the-box Semgrep CE and Semgrep AppSec Platform features._
 
 ### Deployment
 
@@ -55,11 +56,11 @@ _The process of integrating Semgrep into your developer and infrastructure workf
 <div class="col-2-grid" >
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-Semgrep OSS runs in your local machine's CLI through the `semgrep scan` command.
+Semgrep CE runs in your local machine's CLI through the `semgrep scan` command.
 
-Deploying in bulk or at scale is a manual task. Semgrep OSS can scan a remote repository by running as part of a CI job but you must write and configure the CI job for each repository. 
+Deploying in bulk or at scale is a manual task. Semgrep CE can scan a remote repository by running as part of a CI job but you must write and configure the CI job for each repository. 
 
 <!-- Environments are omitted due to differences in licensing -
 `semgrep scan` can be run in IDE atm but the extension is proprietary -->
@@ -69,7 +70,7 @@ Deploying in bulk or at scale is a manual task. Semgrep OSS can scan a remote re
 
 ##### Semgrep AppSec Platform 
 
-Semgrep AppSec Platform can scan in the following environments:
+Semgrep can scan in the following environments:
 
 - CI
 - Web app (for Managed Scans)
@@ -81,7 +82,7 @@ Your scan configuration, such as rules and policies, and scan analysis (SAST, SC
 
 Users comfortable with granting Semgrep code access can quickly deploy Semgrep to thousands of repositories through [Managed Scans](/deployment/managed-scanning/overview).
 
-AppSec Platform supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
+Semgrep supports various CI providers and source code managers (SCMs) such as GitHub, GitLab, Bitbucket, and Azure.
 
 </div>
 </div>
@@ -93,9 +94,9 @@ _The process of analyzing source code for findings. This section explains the an
 <div class="col-2-grid"> 
 <div>
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-Semgrep OSS provides the following SAST analyses:
+Semgrep CE provides the following SAST analyses:
 
 - Single file, cross function constant propagation
 - Single function taint analysis 
@@ -110,7 +111,7 @@ It can't track data beyond a single function or file and may find more false pos
 
 ##### Semgrep AppSec Platform 
 
-Semgrep AppSec Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
+Semgrep Platform supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
 
 <details>
 <summary>Click to view Semgrep Code analyses (SAST)</summary>
@@ -151,7 +152,7 @@ Certain languages, such as Apex, are available only on Semgrep AppSec Platform.
 The following diagrams summarize the differences between the two:
 
 ![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
-_**Figure**. Semgrep OSS scan process._
+_**Figure**. Semgrep CE scan process._
 
 <br />
 
@@ -167,11 +168,11 @@ _**Ticketing and notification integrations** are included in this workflow to in
 <div class="col-2-grid"> 
 <div>
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
 ###### Triage
 
-There are no out-of-the-box features in Semgrep OSS for triaging findings.
+There are no out-of-the-box features in Semgrep CE for triaging findings.
 
 However, you can output findings to JSON and SARIF then send those findings to an AppSec Posture Management (ASPM) software such as DefectDojo.
 
@@ -182,11 +183,11 @@ However, you can output findings to JSON and SARIF then send those findings to a
 
 ###### Triage
 
-Semgrep AppSec Platform tracks a single finding throughout its lifetime from its initial creation, when its status is **Open**, to various triage states such as **Ignored**, or **Reviewing**.
+Semgrep tracks a single finding throughout its lifetime from its initial creation, when its status is **Open**, to various triage states such as **Ignored**, or **Reviewing**.
 
 Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
 
-Semgrep AppSec Platform provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives.
+Semgrep provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives.
 
 <details>
 <summary>Click to view Semgrep Assistant analyses and functions</summary>
@@ -211,11 +212,11 @@ _Tuning assists in the prevention of vulnerabilities from entering production._
 <div class="col-2-grid"> 
 <div>
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-Tuning is not supported in Semgrep OSS, but you can customize the rules you run on your scans.
+Tuning is not supported in Semgrep CE, but you can customize the rules you run on your scans.
 
-Semgrep OSS does not provide any metrics that may inform you of potential performance improvements you can make.
+Semgrep CE does not provide any metrics that may inform you of potential performance improvements you can make.
 
 </div>
 <div>
@@ -238,16 +239,16 @@ _Track the success of your security program and trends over time by generating r
 <div class="col-2-grid"> 
 <div>
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-Semgrep OSS does not include any reporting features.
+Semgrep CE does not include any reporting features.
 
 </div>
 <div>
 
 ##### Semgrep AppSec Platform
 
-Semgrep AppSec Platform's dashboard provides filters to create multiple views over different periods of time. 
+Semgrep's dashboard provides filters to create multiple views over different periods of time. 
 
 It is optimized to show progress towards the adoption of a **secure guardrails** approach to AppSec through the following key metrics:
 
@@ -271,7 +272,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 <div class="col-2-grid">
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
 - [Local scans](/getting-started/cli-oss)
 - [Manual CI job set up](/deployment/oss-deployment)
@@ -304,12 +305,12 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 <div class="col-2-grid">
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-Semgrep OSS provides cross function constant propagation and single function taint analysis.
+Semgrep CE provides cross function constant propagation and single function taint analysis.
 <br />
 
-###### Semgrep OSS (SAST)
+###### Semgrep Community Edition (SAST)
 
 - [30+ Community supported languages](/supported-languages#semgrep-code-and-oss)
 - [<i class="fas fa-external-link fa-xs"></i> Community rules](https://semgrep.dev/r?visib=Community+%28Public%29)
@@ -319,7 +320,7 @@ Semgrep OSS provides cross function constant propagation and single function tai
 
 ##### Semgrep AppSec Platform
 
-All AppSec Platform products make use of cross file, cross function taint analysis and more.
+All Semgrep products make use of cross file, cross function taint analysis and more.
 
 ###### Semgrep Code (SAST)
 
@@ -348,16 +349,16 @@ All AppSec Platform products make use of cross file, cross function taint analys
 <div class="col-2-grid">
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-- You must manually set up Semgrep OSS to send findings to an ASPM.
+- You must manually set up Semgrep CE to send findings to an ASPM.
 
 </div>
 <div>
 
 ##### Semgrep AppSec Platform
 
-- AppSec Platform tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
+- Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
 - AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
@@ -374,7 +375,7 @@ All AppSec Platform products make use of cross file, cross function taint analys
 <div class="col-2-grid">
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
 Minimal customization options to tune your scans:
 - Customize SAST scans through the rules you run in the CLI
@@ -404,9 +405,9 @@ Minimal customization options to tune your scans:
 <div class="col-2-grid">
 <div> 
 
-##### Semgrep OSS
+##### Semgrep Community Edition
 
-- You must manually set up Semgrep OSS to send findings to an ASPM.
+- You must manually set up Semgrep CE to send findings to an ASPM.
 
 </div>
 
