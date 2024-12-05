@@ -4,7 +4,7 @@ hide_title: true
 id: Docs home
 displayed_sidebar: topLevelSidebar
 toc_max_heading_level: 2
-pagination_next: getting-started/quickstart
+pagination_next: getting-started/quickstart-sms
 description: >-
   Read the documentation and get started with Semgrep.
   A fast static analysis engine for finding bugs,
@@ -41,7 +41,7 @@ The code is kept here for easy maintenance.
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
 
 <div class = "col-2-fixed">
-  <Card className={'card-50'} link='/getting-started/quickstart'>
+  <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
@@ -84,7 +84,7 @@ The code is kept here for easy maintenance.
 | Product | Languages |
 | :-------  | :------ |
 | Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
-| Semgrep Supply Chain | **Generally available (GA) reachability**<br />C# • Go • Java  • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala • Swift <br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust |
+| Semgrep Supply Chain | **Generally available reachability**<br />C# • Go • Java • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala • Swift<br /><br />**Beta or lockfile-only reachability**<br />Dart • Elixir • PHP  • Rust |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
 See the [Supported languages](/supported-languages#semgrep-code-and-oss) documentation for more details.
