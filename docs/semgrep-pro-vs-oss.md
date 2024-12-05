@@ -267,6 +267,7 @@ _**Figure**. The dashboard page. Hover over the charts to view data for that poi
 
 ## Appendix
 
+This section provides a comprehensive comparison of each offering's features.
 ### Deployment
 
 <div class="col-2-grid">
