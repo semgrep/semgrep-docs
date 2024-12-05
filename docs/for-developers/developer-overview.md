@@ -93,7 +93,7 @@ Semgrep is **deterministic**; given the same set of inputs, such as your code an
 
 ### Rule examples
 
-Click the following boxes to learn about Semgrep's pattern matching mechanisms and analyses. Or, continue to [Resolve findings with Semgrep]((/for-developers/resolve-findings)) to learn common developer workflows with Semgrep.
+Click the following boxes to learn about Semgrep's pattern matching mechanisms and analyses. Or, continue to [Resolve findings with Semgrep](/for-developers/resolve-findings) to learn common developer workflows with Semgrep.
 
 <details>
 <summary>Simple syntax-based example: ban the use of `==` in JavaScript</summary>
