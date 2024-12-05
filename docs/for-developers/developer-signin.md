@@ -9,23 +9,25 @@ tags:
 
 import JoinAnOrg from "/src/components/procedure/_join-an-org.md"
 import Install from "/src/components/procedure/_install-cli.mdx";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Sign in and install Semgrep
 
 Signing in to Semgrep enables you to use your organization's custom Semgrep rules and configurations when you perform local scans with Semgrep. This ensures that everyone in the organization uses the same rules and analyses.
 
-Additionally, when you sign in to the Semgrep AppSec Platform web app, you can also view findings for projects (repositories) that have been assigned to you.
+Additionally, when you sign in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login), you can also view findings for projects (repositories) that have been assigned to you.
 
 ## Semgrep in multiple environments
 
-If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, after which you can then **join** your organization's Semgrep account, thus giving you access to your organization's Semgrep configuration.
+If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, after which you can then **join** your organization's Semgrep account, which grants you access to your organization's Semgrep configuration.
 
-If you use Semgrep in your CLI or IDE, you must sign in those environments as well. It is recommended to sign in from these interfaces **after** you have signed in to your organization account in the web app.
+If you use Semgrep in your CLI or IDE, you must sign in from those environments as well. It is recommended to sign in from these interfaces **after** you have signed in to your organization account in the web app.
 
 ## Prerequisites
 
 - Confirm with your security team that there is an existing organization account for you to join.
-- For CLI and IDE scans, see [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
+- For CLI and IDE scans, see [Prerequisites > Command line tool](/prerequisites#semgrep-command-line-tool) to ensure that your machine meets Semgrep's requirements.
 
 ## Signing in to the web app
 
@@ -56,7 +58,17 @@ You are now ready to run local scans with your org's Semgrep configuration.
 
 ## Set up a Semgrep IDE extension
 
-For Visual Studio Code (VS Code) users:
+<Tabs
+    defaultValue="vs-code"
+    values={[
+    {label: 'Visual Studio Code (VS Code)', value: 'vs-code'},
+    {label: 'IntelliJ', value: 'intellij'},
+    ]}
+>
+
+<TabItem value='vs-code'>
+
+For Microsoft VS Code users:
 
 1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Semgrep VS Code extension page](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep).
 1. Click **Install**. Enter <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in:
@@ -64,10 +76,28 @@ For Visual Studio Code (VS Code) users:
 Semgrep: Sign in
 ```
 
-For Semgrep IntelliJ users:
+A Semgrep scan starts automatically after signing in.
+
+</TabItem>
+
+<TabItem value='intellij'>
+
+For JetBrains IntelliJ users:
 
 1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Semgrep IntelliJ extension page](https://plugins.jetbrains.com/plugin/22622-semgrep).
 1. Click **Get**.
 1. Click the latest version compatible with your machine.
+1. Install the plugin from your IntelliJ IDE by navigating to **Settings/Preferences > Plugins > ⚙️ > Install plugin from disk**.
+1. Sign in: Enter <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep AppSec Platform by selecting the following command:
+   ```
+   Sign in with Semgrep
+   ```
+3. Test the extension by entering <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and run the following command:
+   ```
+   Scan workspace with Semgrep
+   ```
+
+</TabItem>
+</Tabs>
 
 

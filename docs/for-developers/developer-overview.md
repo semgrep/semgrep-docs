@@ -23,8 +23,8 @@ Use Semgrep to:
 
 This document provides an overview of **how** Semgrep scans and detects issues in your code.
 
+- To learn about and set up a Semgrep account, see [Sign in and install Semgrep](/for-developers/developer-signin).
 - For a guide on triaging, remediating, and fixing issues with Semgrep, see [Resolve findings with Semgrep](/for-developers/resolve-findings).
-- For a guide to Semgrep AppSec Platform, such as signing in with SSO and connecting your personal Semgrep account to your Semgrep organization account, see 
 
 :::note Developer and AppSec roles
 If you are a developer responsible for your **own** security program in personal projects, see the [Quickstart](/getting-started/quickstart) and [Core deployment](/deployment/core-deployment) docs.
@@ -49,9 +49,9 @@ It is less frequent, but still common, for developers to run Semgrep as part of 
 
 -  IDEs (VS Code and IntelliJ)
 -  CLI
--  `pre-commit`
+    - `pre-commit`
 
-Your AppSec team is likely to have guidelines about Semgrep scans in these environments. Your organization guidelines may require you to perform scans in some of these environments, or they may be optional.
+Your AppSec team is likely to have guidelines about Semgrep scans in these environments.
 
 :::tip Noise in your pull requests or merge requests?
 Your security engineers are in full control of what findings are displayed to you. If you notice a high rate of false positives, tell your security engineers so that they can tune your scans. 
@@ -220,12 +220,3 @@ In this example, **lines 11 and 18** are the only two true positives.
 
 Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. 
 </details>
-
-
-
-## Further reading
-
-- [Resolve findings with Semgrep](/for-developers/resolve-findings) - A guide to resolving Semgrep findings in various developer-native environments.
-- [Semantic detection in Java](/semgrep-code/java) - An in-depth explanation of Semgrep's semantic comprehension of Java code.
-
-
