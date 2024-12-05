@@ -4,7 +4,7 @@ hide_title: true
 id: Docs home
 displayed_sidebar: topLevelSidebar
 toc_max_heading_level: 2
-pagination_next: getting-started/quickstart
+pagination_next: getting-started/quickstart-sms
 description: >-
   Read the documentation and get started with Semgrep.
   A fast static analysis engine for finding bugs,
@@ -41,7 +41,7 @@ The code is kept here for easy maintenance.
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
 
 <div class = "col-2-fixed">
-  <Card className={'card-50'} link='/getting-started/quickstart'>
+  <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
     <div class="card__copy">
         <CardHeader>Get started</CardHeader>
