@@ -270,7 +270,7 @@ module.exports = {
           { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
           { from: "/experiments/join-mode/overview/", to: "/writing-rules/experiments/join-mode/overview" },
           { from: "/experiments/join-mode/recursive-joins/", to: "/writing-rules/experiments/join-mode/recursive-joins" },
-          { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/extract-mode" },
+          { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on" },
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation" },
           { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
@@ -397,6 +397,8 @@ module.exports = {
           { from: "/semgrep-appsec-platform/dashboard-beta/"                        , to: "/semgrep-appsec-platform/dashboard" } ,
           /* OCT 16, 2024 */
           { from: "/deployment/managed-scanning" , to: "/deployment/managed-scanning/overview" } ,
+          /* NOV 28, 2024 */
+          { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
         ]
       }
     ],

@@ -338,7 +338,6 @@ module.exports = {
                       'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
                       'writing-rules/experiments/display-propagated-metavariable',
-                      'writing-rules/experiments/extract-mode',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
