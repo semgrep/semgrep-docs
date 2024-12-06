@@ -192,7 +192,7 @@ Cross-file analysis resolves names differently than Semgrep CE's analysis. Conse
 
 #### Semgrep Code cross-file CI scan issues
 
-To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep CE Engine. This ensures that in the vast majority of cases, scans run successfully.
+To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep CE. This ensures that in the vast majority of cases, scans run successfully.
 
 By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-function analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-function analysis. Typically, this happens because the repository is very large.
 
