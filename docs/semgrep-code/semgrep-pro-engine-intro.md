@@ -64,7 +64,7 @@ semgrep login && semgrep ci
 
 Cross-file analysis uses a separate `semgrep` binary. To update to the latest version, follow these steps:
 
-1. Update Semgrep OSS engine with the following command:
+1. Update your Semgrep CLI tool with the following command:
     <Tabs
         defaultValue="macOS"
         values={[
@@ -143,7 +143,7 @@ Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines
 
 Semgrep Code performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
 
-Interact with the rule widget to compare Semgrep OSS and Semgrep Code. In the **Rule** pane, you can remove the lines:
+Interact with the rule widget to compare Semgrep Community Edition (CE) and Semgrep Code. In the **Rule** pane, you can remove the lines:
 
 ```yaml
 options:
@@ -176,8 +176,8 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
 
 <dl>
     <dt>Cross-file (interfile) analysis</dt>
-    <dd><ul><li>Cross-file analysis finds patterns spanning multiple files to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep OSS can't find.</li>
-    <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep OSS scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
+    <dd><ul><li>Cross-file analysis finds patterns spanning multiple files to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep CE can't find.</li>
+    <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep CE scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
     <dd>
@@ -192,7 +192,7 @@ Cross-file analysis resolves names differently than Semgrep OSS's analysis. Cons
 
 #### Semgrep Code cross-file CI scan issues
 
-To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep OSS Engine. This ensures that in the vast majority of cases, scans run successfully.
+To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep CE Engine. This ensures that in the vast majority of cases, scans run successfully.
 
 By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-function analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-function analysis. Typically, this happens because the repository is very large.
 
