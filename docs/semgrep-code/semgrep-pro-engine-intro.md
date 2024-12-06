@@ -168,7 +168,7 @@ module.exports = get_user
 
 ### Regressions in cross-file analysis
 
-Cross-file analysis resolves names differently than Semgrep OSS's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep OSS. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/docs/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+Cross-file analysis resolves names differently than Semgrep CE's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep CE. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/docs/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 ## Appendix
 

@@ -9,7 +9,7 @@ toc_max_heading_level: 5
 
 This document provides an overview of Semgrep's proprietary cross-file (interfile) and cross-function (intrafile) taint analysis features through specific examples, such as its use in type inferences, class inheritance, constant propagation, and taint analysis.
 
-Differences between Semgrep and Semgrep OSS can be observed by viewing the examples in separate Playground tabs. See the following section for more information.
+Differences between Semgrep and Semgrep Community Edition (CE) can be observed by viewing the examples in separate Playground tabs. See the following section for more information.
 
 Note that Semgrep cross-file analysis implies cross-function analysis as well.
 
@@ -31,13 +31,13 @@ The following resources can help you test the code in the sections below. As you
 
 ## Taint tracking
 
-Semgrep OSS allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode) documentation.
+Semgrep CE allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode) documentation.
 
-In the examples below, see a comparison of Semgrep and Semgrep OSS  while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
+In the examples below, see a comparison of Semgrep and Semgrep CE  while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
 ### Java
 
-Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, on Semgrep OSS, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
+Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, on Semgrep CE, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Ab0Zp" width="100%" height="432" frameborder="0"></iframe>
 
@@ -53,7 +53,7 @@ Semgrep matches both dangerous calls because it does cross function boundaries. 
 
 ### JavaScript and TypeScript
 
-Here, Semgrep OSS matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, Semgrep OSS does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
+Here, Semgrep CE matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, Semgrep CE does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=kO41" width="100%" height="432" frameborder="0"></iframe>
 
@@ -112,11 +112,11 @@ semgrep --config pro.yaml . --pro
 
 ### Class inheritance
 
-This section compares the possible findings of a scan across multiple files using Semgrep OSS and Semgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
+This section compares the possible findings of a scan across multiple files using Semgrep CE and Semgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
 
 <iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=yOYk" width="100%" height="432" frameborder="0"></iframe>
 
-When using this rule, Semgrep OSS matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
+When using this rule, Semgrep CE matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
 File `example_exception.java`:
 
@@ -142,11 +142,11 @@ class BadRequest extends ExampleException {
 }
 ```
 
-Where `ExampleException` is thrown, it is also good to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep OSS, Semgrep can find `BadRequest`. Since Semgrep uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
+Where `ExampleException` is thrown, it is also good to find `BadRequest`, because `BadRequest` is a child of `ExampleException`. Unlike Semgrep CE, Semgrep can find `BadRequest`. Since Semgrep uses information from all the files in the directory it scans, it detects `BadRequest` and finds both thrown exceptions.
 
 If you are following along with the cloned [Semgrep testing repository](https://github.com/semgrep/semgrep-pro-tests), in the `docs/class_inheritance` directory, try the following commands to test the difference:
 
-1. Run Semgrep OSS:
+1. Run Semgrep CE:
     ```sh
     semgrep --config pro.yaml .
     ```
@@ -161,7 +161,7 @@ Semgrep uses cross-file class inheritance information when matching [typed metav
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" frameborder="0"></iframe>
 
-The rule searches for any variable of type `ExampleException` being logged. Semgrep OSS is **not** able to find instances of `BadRequest` being logged, unlike Semgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
+The rule searches for any variable of type `ExampleException` being logged. Semgrep CE is **not** able to find instances of `BadRequest` being logged, unlike Semgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
 :::note
 For a more realistic example where typed metavariables are used, see the following [rule written by the Semgrep community](https://semgrep.dev/playground/s/o9l6) to find code vulnerable to the log4j vulnerability.
@@ -183,7 +183,7 @@ semgrep --config pro.yaml . --pro
 
 <iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=XK9N" width="100%" height="432" frameborder="0"></iframe>
 
-Semgrep OSS matches the first and second calls as it cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
+Semgrep CE matches the first and second calls as it cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
 Now consider an example a bit more complicated to illustrate what Semgrep can do. If the `EMPLOYEE_TABLE_NAME` is imported from a global constants file with the following content:
 
