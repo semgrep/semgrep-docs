@@ -11,14 +11,14 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
-  ci                   The recommended way to run semgrep in CI
+  ci                   Run Semgrep on a git diff (for use in CI)
   install-semgrep-pro  Install the Semgrep Pro Engine
   login                Obtain and save credentials for semgrep.dev
   logout               Remove locally stored credentials to semgrep.dev
   lsp                  Start the Semgrep LSP server (useful for IDEs)
   publish              Upload rule to semgrep.dev
-  scan                 Run semgrep rules on files
-  show                 Show various information about Semgrep
+  scan                 Run Semgrep rules on local folders or files
+  show                 Show various types of information
   test                 Test the rules
   validate             Validate the rules
 ```

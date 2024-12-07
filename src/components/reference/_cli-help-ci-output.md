@@ -264,6 +264,11 @@ OPTIONS
        --no-dryrun
            negates --dryrun
 
+       --no-dynamic-dependency-resolution
+           Experimental: disable resolving dependencies dynamically by
+           communicating with package managers during the scan. This is the
+           default, so this flag currently has no effect.
+
        --no-exclude-minified-files
            negates --exclude-minified-files
 
@@ -456,6 +461,12 @@ OPTIONS
            Internal flag.
 
        --x-partial-output=VAL
+           Internal flag.
+
+       --x-validate-partial-results-actual=VAL
+           Internal flag.
+
+       --x-validate-partial-results-expected=VAL
            Internal flag.
 
 COMMON OPTIONS
