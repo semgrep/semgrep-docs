@@ -117,7 +117,7 @@ This simple rule is accurate because it only requires the syntax defined in `pat
 
 #### Complex syntax-based example
 
-It is a common convention to ban all uses of some language feature in user-facing code, such as `console.log()`, or `console.log()` may be permitted internally but not externally.
+It is a common convention either to ban all uses of some language feature in user-facing code, such as `console.log()`, or to permit `console.log()` internally but not externally.
 
 Semgrep enables you to create a custom best practices set of rules around cases like this.
 
