@@ -1,4 +1,4 @@
-The **Turbo** option runs your rule automatically against the Semgrep OSS Engine after every keystroke or change to the rule.
+The **Turbo** option runs your rule automatically against Semgrep CE after every keystroke or change to the rule.
 
 Click the <i class="fa-solid fa-toggle-large-on"></i> **Turbo mode** toggle to enable.
 
@@ -6,4 +6,4 @@ The **Run** button is hidden in Turbo mode because Semgrep scans after any chang
 
 ![Screenshot of Playground in Turbo mode](/img/playground-turbo.png)
 
-Turbo mode is unavailable with Semgrep Pro Engine.
+Turbo mode is unavailable with Semgrep cross-file analysis.

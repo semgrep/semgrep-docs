@@ -20,14 +20,14 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 This document provides information about supported languages and language maturity definitions for the following products:
 
 * Semgrep Code
-* Semgrep OSS
+* Semgrep Community Edition (CE)
 * Semgrep Supply Chain
 
-## Semgrep Code and OSS
+## Semgrep Code and Community Edition
 
-Semgrep OSS is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
+Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
 
-Semgrep Code is a static application security testing (SAST) solution designed to detect complex security vulnerabilities. It makes use of proprietary Semgrep analyses, such as cross-file (interfile) dataflow analysis and framework specific analyses, in addition to Semgrep OSS. This results in a [**higher true positive rate than Semgrep OSS**](/semgrep-pro-vs-oss). Semgrep Code provides the highest quality support by the Semgrep team: reported issues are resolved promptly.
+Semgrep Code is a static application security testing (SAST) solution designed to detect complex security vulnerabilities. It makes use of proprietary Semgrep analyses, such as cross-file (interfile) dataflow analysis and framework specific analyses, in addition to Semgrep CE. This results in a [**higher true positive rate than Semgrep CE**](/semgrep-pro-vs-oss). Semgrep Code provides the highest quality support by the Semgrep team: reported issues are resolved promptly.
 
 Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
 
@@ -281,9 +281,9 @@ Their differences are outlined in the following table:
    <td>No commitment for new rules based on the latest security advisories.</td>
   </tr>
   <tr>
-   <td>Semgrep OSS Engine <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
-   <td>Semgrep OSS Engine support is GA.</td>
-   <td>Semgrep OSS Engine support is at least Beta.</td>
+   <td>Semgrep CE <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
+   <td>Semgrep CE support is GA.</td>
+   <td>Semgrep CE support is at least Beta.</td>
   </tr>
 </table>
 

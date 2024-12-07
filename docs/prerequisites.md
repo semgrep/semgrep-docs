@@ -18,7 +18,7 @@ A programming language must be supported by Semgrep for your chosen product.
 
 | Product              | Scan type | Link   |
 | -------              | ------    | ------ |
-| Semgrep OSS          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Community Edition (CE)          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
 | Semgrep Code         | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
 | Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages#semgrep-supply-chain)       |
 | Semgrep Secrets      | Secrets   | Language-agnostic       |
@@ -27,7 +27,7 @@ A programming language must be supported by Semgrep for your chosen product.
 
 ## Semgrep command-line tool
 
-These requirements apply to both Semgrep Pro and Semgrep OSS.
+These requirements apply to both Semgrep AppSec Platform and Semgrep CE.
 
 ### Software
 
@@ -41,7 +41,7 @@ These requirements apply to both Semgrep Pro and Semgrep OSS.
 
 ## Semgrep AppSec Platform
 
-These requirements apply to Semgrep Pro.
+These requirements apply to Semgrep AppSec Platform.
 
 - A GitHub or GitLab cloud account. The credentials are used to authenticate and identify you.
 - A Git repository to scan, stored in any of the following source code managers:

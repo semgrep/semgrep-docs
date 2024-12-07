@@ -82,7 +82,7 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Semgrep OSS', value: 'gha-oss'},
+    {label: 'Semgrep CE', value: 'gha-oss'},
     ]}
 >
 
@@ -98,7 +98,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='gha-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <GhaSemgrepOssSast />
 
@@ -146,7 +146,7 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     defaultValue="glcicd-semgrep"
     values={[
     {label: 'Default', value: 'glcicd-semgrep'},
-    {label: 'Semgrep OSS', value: 'glcicd-oss'},
+    {label: 'Semgrep CE', value: 'glcicd-oss'},
     ]}
 >
 
@@ -164,7 +164,7 @@ Prefer to use GitLab group variables? See [this guide](/docs/kb/semgrep-code/git
 
 <TabItem value='glcicd-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <GlcicdSemgrepOssSast />
 
@@ -202,7 +202,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     defaultValue="jenkins-semgrep"
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
-    {label: 'Semgrep OSS', value: 'jenkins-oss'},
+    {label: 'Semgrep CE', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
     {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
@@ -223,7 +223,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='jenkins-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <JenkinsSemgrepOssSast />
 
@@ -265,7 +265,7 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
     defaultValue="bitbucket-semgrep"
     values={[
     {label: 'Default', value: 'bitbucket-semgrep'},
-    {label: 'Semgrep OSS', value: 'bitbucket-oss'},
+    {label: 'Semgrep CE', value: 'bitbucket-oss'},
     ]}
 >
 
@@ -281,7 +281,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='bitbucket-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <BitbucketSemgrepOssSast />
 
@@ -324,7 +324,7 @@ These steps can be performed within Buildkite's UI. To do so, navigate to Buildk
     defaultValue="buildkite-semgrep"
     values={[
     {label: 'Default', value: 'buildkite-semgrep'},
-    {label: 'Semgrep OSS', value: 'buildkite-oss'},
+    {label: 'Semgrep CE', value: 'buildkite-oss'},
     ]}
 >
 
@@ -360,7 +360,7 @@ You can [run specific product scans by passing the appropriate argument](/gettin
 
 <TabItem value='buildkite-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <BuildkiteSemgrepOssSast />
 
@@ -398,7 +398,7 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
     defaultValue="circleci-semgrep"
     values={[
     {label: 'Default', value: 'circleci-semgrep'},
-    {label: 'Semgrep OSS', value: 'circleci-oss'},
+    {label: 'Semgrep CE', value: 'circleci-oss'},
     ]}
 >
 
@@ -414,7 +414,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='circleci-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <CircleCiSemgrepOssSast />
 
@@ -444,7 +444,7 @@ To add Semgrep into Azure Pipelines:
     defaultValue="azure-semgrep"
     values={[
     {label: 'Default', value: 'azure-semgrep'},
-    {label: 'Semgrep OSS', value: 'azure-oss'},
+    {label: 'Semgrep CE', value: 'azure-oss'},
     ]}
 >
 
@@ -460,7 +460,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='azure-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <AzureSemgrepOssSast />
 

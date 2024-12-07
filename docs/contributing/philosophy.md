@@ -2,14 +2,14 @@
 slug: semgrep-philosophy
 description: "As you think about contributing to Semgrep, consider these design principles that have guided Semgrep CLI’s development so far."
 tags:
-  - Semgrep OSS
+  - Semgrep Community Edition
 ---
 
-# Semgrep OSS philosophy
+# Semgrep Community Edition (CE) philosophy
 
-[Semgrep](https://semgrep.dev/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
+[Semgrep CE](https://semgrep.dev/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
 
-As you think about contributing to Semgrep OSS, consider these design principles that have guided Semgrep OSS development so far:
+As you think about contributing to Semgrep CE, consider these design principles that have guided Semgrep CE development so far:
 
 1. **Free**<br/>
 “If a developer has to convince their manager to spend a few million dollars on advanced security tools each time they change jobs, the future is bleak.” — see our [introductory blog post](https://semgrep.dev/blog/2020/introducing-semgrep-and-r2c/) for more. It’s important to us (and the community) that Semgrep, Inc. is able to develop a sustainable business around Semgrep to support its development, but we strongly believe the tooling itself must always be free.
@@ -51,8 +51,8 @@ Semgrep can run without internet access so developers can write code from airpla
 Rules shouldn’t have the capability to run arbitrary code on your system, only to act as a function that produces a deterministic output message.
 
 1. **Single-file analysis**<br/>
-To stay fast and limit complexity, Semgrep OSS draws a line at crossing file boundaries during analysis. It loses the ability to detect certain complex cross-function (interprocedural) issues, but that’s an explicit tradeoff it makes.<br/><br/>
-Semgrep OSS's goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of. For a discussion of why expressive creativity is better than a powerful engine, [see this excellent blog post by Devdatta Akhawe](https://devd.me/log/posts/static-analysis/).<br/><br/>
+To stay fast and limit complexity, Semgrep CE draws a line at crossing file boundaries during analysis. It loses the ability to detect certain complex cross-function (interprocedural) issues, but that’s an explicit tradeoff it makes.<br/><br/>
+Semgrep CE's goal is to catch what a senior engineer would catch in code review: Semgrep isn’t designed to find a crazy issue that’s 300 calls from start to finish and evaded the team for 20 years. Instead, it’s designed for enforcing best-practices and automating the code review tasks that an excellent senior engineer would be capable of. For a discussion of why expressive creativity is better than a powerful engine, [see this excellent blog post by Devdatta Akhawe](https://devd.me/log/posts/static-analysis/).<br/><br/>
 As a corollary: if you design your codebase so that code in a file is safe today, it's still safe after a colleague makes a change twenty function calls away in another file.
 
 1. **Designed to run while code is being written**<br/>

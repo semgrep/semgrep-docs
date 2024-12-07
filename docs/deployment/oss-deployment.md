@@ -1,21 +1,21 @@
 ---
 slug: oss-deployment
 append_help_link: true
-title: Semgrep OSS in CI
-description: Learn how to set up a Semgrep OSS CI environment for yourself or your organization.
+title: Semgrep CE in CI
+description: Learn how to set up a Semgrep CE CI environment for yourself or your organization.
 tags:
   - Deployment
-  - Semgrep OSS
+  - Semgrep Community Edition
 ---
 
 import CiScheduling from "/src/components/reference/_ci-scheduling.mdx"
 import CiIgnoringFiles from "/src/components/reference/_ci-ignoring-files.mdx"
 
-# Semgrep OSS in CI
+# Semgrep Community Edition in CI
 
-Semgrep OSS can be set up run static application security testing (SAST) scans on repositories of any size.
+Semgrep Community Edition (CE) can be set up run static application security testing (SAST) scans on repositories of any size.
 
-This guide explains how to set up Semgrep OSS in your CI pipeline using entirely open source components, also known as a **stand-alone** CI setup. The preferred Semgrep OSS command is `semgrep scan`.
+This guide explains how to set up Semgrep CE in your CI pipeline using entirely open source components, also known as a **stand-alone** CI setup. The preferred Semgrep CE command is `semgrep scan`.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ This guide explains how to set up Semgrep OSS in your CI pipeline using entirely
 
 ## Ensure your scans use open source components
 
-This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the usage limits of Semgrep Pro. In order to remain strictly open source, you must ensure that the rules you run use open source licenses or are your own custom Semgrep rules.
+This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the usage limits of Semgrep AppSec Platform. In order to remain strictly open source, you must ensure that the rules you run use open source licenses or are your own custom Semgrep rules.
 
 To verify a rule's license, read the `license` key under the `metadata` of a Semgrep rule.
 
@@ -71,7 +71,7 @@ rules:
 ```
 </details>
 
-For a comparison of the behavior between Semgrep OSS CI scans and Semgrep Pro scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss).
+For a comparison of the behavior between Semgrep CE CI scans and Semgrep AppSec Platform scans, see [<i class="fa-regular fa-file-lines"></i> Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss).
 
 ## Set up the CI job
 
@@ -219,9 +219,9 @@ To migrate to Semgrep AppSec Platform:
 3. Follow the steps in the setup page to complete your migration.
 4. Optional: Remove the old CI job that does not use Semgrep AppSec Platform.
 
-## Semgrep OSS jobs versus Semgrep Pro jobs
+## Semgrep CE jobs versus Semgrep jobs
 
-| Feature  | Semgrep Pro CI (`semgrep ci`)| Semgrep OSS CI (`semgrep scan`) |
+| Feature  | Semgrep CI (`semgrep ci`)| Semgrep CE CI (`semgrep scan`) |
 | -------  | ------ | ------ |
 | Customized SAST scans         |  ✔️        | ✔️       |
 | [SCA (software composition analysis) scans](/semgrep-supply-chain/overview)         |  ✔️        | --       |

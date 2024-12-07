@@ -12,7 +12,7 @@ import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code
 
 ## Introduction
 
-This article documents the cross-file (interfile) dataflow analysis in Semgrep Code. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep OSS.
+This article documents the cross-file (interfile) dataflow analysis in Semgrep Code. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep Community Edition (CE).
 
 ## Viewing the path of tainted data
 

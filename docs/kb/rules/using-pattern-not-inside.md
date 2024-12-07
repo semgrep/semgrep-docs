@@ -1,7 +1,7 @@
 ---
 description: Learn how to fix issues with `pattern-not` when excluding cases in custom rules.
 tags:
-  - Semgrep OSS Engine
+  - Semgrep Community Edition
   - Semgrep Rules
 append_help_link: true
 ---

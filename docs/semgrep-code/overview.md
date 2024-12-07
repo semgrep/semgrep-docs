@@ -39,7 +39,7 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 
 By default, Semgrep Code can analyze interactions beyond a single function but within a single file, a process known as **cross-function or interprocedural analysis**. This smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 
-Semgrep OSS can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep OSS is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
+Semgrep Community Edition (CE) can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep CE is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
 
 Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
 
@@ -53,7 +53,7 @@ Subsequent scans now include Code scans.
 
 ### Run Semgrep Code scans with single-function analysis
 
-In some cases, you may want to scan using Semgrep OSS's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:
+In some cases, you may want to scan using Semgrep CE's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:
 
 ```yaml
 # Preferred; includes support for all Semgrep Code languages
