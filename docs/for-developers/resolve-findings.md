@@ -17,7 +17,7 @@ Findings are primarily presented to developers through **pull request (PR) or me
 
 Findings from these rules are meant to be **fixed** rather than ignored unless the finding is a false positive.
 
-In **typical coding workflows**, it is recommended to fix or ignore findings within your source code manager (SCM) as part of your code review process; triage or remediation in your SCM is synchronized with Semgrep AppSec Platform.
+In **typical coding workflows**, it is recommended to fix or ignore findings within your source code manager (SCM) as part of your code review process; the results of triage or remediation in your SCM are synchronized with Semgrep AppSec Platform.
 
 However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform.
 
