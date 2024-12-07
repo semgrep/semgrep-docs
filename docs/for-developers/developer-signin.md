@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Signing in to Semgrep enables you to use your organization's custom Semgrep rules and configurations when you perform local scans with Semgrep. This ensures that everyone in the organization uses the same rules and analyses.
 
-Additionally, when you sign in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login), you can also view findings for projects (repositories) that have been assigned to you.
+When you sign in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login), you can also view findings for projects (repositories) that have been assigned to you.
 
 ## Semgrep in multiple environments
 
