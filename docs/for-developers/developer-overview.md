@@ -34,7 +34,7 @@ If you are a developer responsible for your **own** security program in personal
 
 Semgrep AppSec Platform is a software suite for implementing and tracking security programs. AppSec engineers use Semgrep to detect, triage, and remediate findings. In this document, Semgrep (**sem**antic **grep**) refers to to the AppSec Platform in its entirety.
 
-Developers primarily interact with Semgrep when Semgrep scans, then notifies users of issues in their code. Issues detected by Semgrep are called **findings**. The pattern-matching logic by which Semgrep detects a finding is encapsulated in a **rule**. Semgrep performs various static analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
+Developers primarily interact with Semgrep when Semgrep scans a project, then notifies users of issues in their code. Issues detected by Semgrep are called **findings**. The pattern-matching logic by which Semgrep detects a finding is encapsulated in a **rule**. Semgrep performs various static analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 
 ### Developer workflows with Semgrep
 
