@@ -64,7 +64,7 @@ _**Figure**. A summary of differences between grep, linters, and Semgrep._
 
 In addition to being a security tool, once customized, Semgrep can be used as a linter to help you and your team codify and follow best practices and to detect code smells.
 
-You only need to learn a single rule-writing schema to write rules for many programming languages, rather than having to learn per-linter.
+You only need to learn a single rule-writing schema to write rules for many programming languages, rather than having to learn per linter.
 
 ## Speed, scope and analysis
 
