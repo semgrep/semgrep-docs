@@ -100,7 +100,7 @@ Click the following boxes to learn about Semgrep's pattern matching mechanisms a
 
 #### Simple syntax-based example
 
-For example, you may want to ban the use of `==` in JavaScript and instead require `===` to avoid **type coercion** when evaluating expressions, a common standard enforced in popular JavaScript linters. This is a simple find and replace in many text editors, because the ban is enforced for **all** usages of `==`. In Semgrep, you can create a rule codifying this find and replace operation to share or enforce this standard.
+You may want to ban the use of `==` in JavaScript and instead require `===` to avoid **type coercion** when evaluating expressions. This is a common standard enforced in popular JavaScript linters. This is a simple find and replace in many text editors, because the ban is enforced for **all** usages of `==`. In Semgrep, you can create a rule codifying this find and replace operation to share or enforce this standard.
 
 <iframe title="Prevent type coercion in JavaScript ==" src="https://semgrep.dev/embed/editor?snippet=5rUdbO1" width="100%" height="432px" frameBorder="0"></iframe>
 _**Figure**. Prevent type coercion in `==`. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
