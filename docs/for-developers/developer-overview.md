@@ -21,7 +21,7 @@ Use Semgrep to:
 - Automate code reviews among your peers
 - Follow security practices set by security engineers
 
-This document provides an overview of **how** Semgrep scans and detects issues in your code.
+This document provides an overview of **how** Semgrep scans and detects issues in your code. By understanding how Semgrep works, you are able to customize Semgrep to better suit your needs.
 
 - To learn about and set up a Semgrep account, see [Sign in and install Semgrep](/for-developers/developer-signin).
 - For a guide on triaging, remediating, and fixing issues with Semgrep, see [Resolve findings with Semgrep](/for-developers/resolve-findings).
