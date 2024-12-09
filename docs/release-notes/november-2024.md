@@ -14,15 +14,34 @@ tags:
 
 ### Added
 
+- Added the ability to filter Semgrep Code findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
+  ![Time period and status filters](/img/findings-filters.png#sm-width)
+  _**Figure**. Time period and status filters._
+- **Dashboard**:
+  - You can now view **trends**, comparing the previous time period to the current one, in the following charts:
+    - Production backlog
+    - Secure guardrails
+    - Median open finding age
+  - You can now export the Dashboard as a PDF. Click **Dashboard > Download > Download as PDF (report)**.
+
+<!--  NOT AVAILABLE
+  - You can now view findings **Filtered by Assistant** under the **Guardrails activity** chart These are findings that Assistant did not display to developers, to prevent noise from findings it thinks are false positives. -->
+
+
 ### Changed
+
+- **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for the given deployment for all Semgrep products.
+- **Teams**: You can now change roles in bulk. Click **Settings > Teams** then the **name of the team** you want to edit. Select the target users, then click **Bulk Edit**. In the drop-down box, select the new role for those users. <!-- 17549 -->
+-
 
 ### Fixed
 
+- Various improvements and fixes to Semgrep Managed Scans (SMS).
+-
 ## 💻 Semgrep Code
 
 ### Added
 
-- Added the ability to filter Semgrep Code findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
 - **C**: Semgrep Pro Engine now handles duplicate function names properly. When Semgrep finds duplicate functions, it assumes that any of them could be called. For example, if the function `foo` is defined in two files, Semgrep reports taint errors for both instances:
     ```c
     // "a/test.h"
