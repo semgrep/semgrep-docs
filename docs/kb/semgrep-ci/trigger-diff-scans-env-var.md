@@ -1,12 +1,12 @@
 ---
-title: How to trigger diff-aware scans using environment variables
+title: How to trigger diff-aware scans
 toc_max_heading_level: 2
-description: Learn how to run a diff-aware scan using set environment variables.
+description: Learn how to run a diff-aware scan.
 ---
 
-# How to trigger diff-aware scans using environment variables
+# How to trigger diff-aware scans
 
-When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)**, instead of full scans, using environment variables. Diff-aware scan runs on your code before and after some baseline and only reports findings that are newly introduced in the commits after that baseline.
+When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)**, instead of full scans. Diff-aware scan runs on your code before and after some baseline and only reports findings that are newly introduced in the commits after that baseline.
 
 
 import Tabs from '@theme/Tabs';
@@ -15,15 +15,27 @@ import TabItem from '@theme/TabItem';
 <Tabs
     defaultValue="github"
     values={[
+      {label: 'Azure DevOps', value: 'azure'},
+      {label: 'Bitbucket', value: 'bitbucket'},
       {label: 'GitHub', value: 'github'},
       {label: 'GitLab', value: 'gitlab'},
+      {label: 'Jenkins', value: 'jenkins'},
       {label: 'Other CI providers', value: 'other'}
     ]}
 >
 
+
+<TabItem value='azure'>
+Forthcoming
+</TabItem>
+
+<TabItem value='bitbucket'>
+Forthcoming
+</TabItem>
+
 <TabItem value='github'>
 
-Include the following definition when configuring your GitHub Action to enable diff-aware scanning:
+Include the following definition in your GitHub Actions configuration file to enable diff-aware scanning:
 
 ```yaml
 on:
@@ -70,8 +82,13 @@ jobs:
 </TabItem>
 <TabItem value='gitlab'>
 
-Set `$CI_MERGE_REQUEST_IID` when configuring your pipeline definition to enable diff-aware scanning.
+The `rules` section of the pipeline definition allow you to list the conditions to evaluate. The results of the evaluation determine the attributes of the job. To enable diff-aware scanning, obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
 
+```yaml
+rules:
+  # Scan changed files in MRs, (diff-aware scanning):
+  - if: $CI_MERGE_REQUEST_IID
+```
 ### Example
 
 ```yaml
@@ -96,6 +113,9 @@ semgrep:
     # GITLAB_TOKEN: $PAT
 ```
 
+</TabItem>
+<TabItem value='jenkins'>
+Forthcoming
 </TabItem>
 <TabItem value='other'>
 
