@@ -21,7 +21,7 @@ To start the process, create your initial `Jenkinsfile` in the root of the repo 
 pipeline {
   agent any
   environment {
-    // Required for a Semgrep Cloud Platform-connected scan:
+    // Required for a Semgrep AppSec Platform-connected scan:
     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
   }
   stages {
@@ -62,7 +62,7 @@ This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance crede
 
 #### On GitHub
 
-If your Jenkins instance is configured to manage webhooks automatically on GitHub, these steps are not necessary. To check the settings and view the webhook URL, go to **Manage Jenkins > Configure System > GitHub**. Expand the <question icon> next to **GitHub Server** to find the webhook URL, and check the configuration to see if hooks are managed automatically.
+If your Jenkins instance is configured to manage webhooks automatically on GitHub, these steps are not necessary. To check the settings and view the webhook URL, go to **Manage Jenkins > Configure System > GitHub**. Expand the <i class="fa-solid fa-circle-question"></i> next to **GitHub Server** to find the webhook URL, and check the configuration to see if hooks are managed automatically.
 
 1. Visit `https://github.com/<namespace>/<project>/settings/hooks`.
 2. Click **Add Webhook**.
@@ -70,13 +70,13 @@ If your Jenkins instance is configured to manage webhooks automatically on GitHu
 4. Select "application/json" for Content-Type.
 5. Select "Send me everything".
 
-With this configuration, findings in Semgrep AppSec Platform appear under the Jenkins project name, rather than under the typical GitHub name `<namespace>/<project>`. To change the name using `SEMGREP_REPO_NAME`, use this Jenkinsfile instead:
+With configuration provided previously, findings in Semgrep AppSec Platform appear under the Jenkins project name, rather than under the typical GitHub name `<namespace>/<project>`. To change the name using `SEMGREP_REPO_NAME`, use this Jenkinsfile instead:
 
 ```bash
 pipeline {
   agent any
   environment {
-    // Required for a Semgrep Cloud Platform-connected scan:
+    // Required for a Semgrep AppSec Platform-connected scan:
     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
 		// Set typical project (repo) name
     SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
@@ -98,7 +98,7 @@ pipeline {
 
 ## Full and diff-aware scans
 
-Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches. Using a Multibranch pipeline provides access to some useful variables for the configuration.
+Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches. Using a Multibranch pipeline provides access to useful variables for the configuration.
 
 ### Create the Jenkinsfile
 
@@ -156,12 +156,12 @@ pipeline {
 }
 ```
 
-The Jenkinsfile defines two Semgrep stages, each of which is run for certain branches: a diff-aware scan for PR branches, and a full scan for the main branch. This diff scan configuration uses a computed merge base, rather than setting the merge base to the default branch. This is more analogous to how Semgrep performs in GitHub actions. Setting the SEMGREP_REPO_NAME and SEMGREP_PR_ID allows Semgrep to identify the connected project and related PR.
+The Jenkinsfile defines two Semgrep stages, each of which is run for certain branches: a diff-aware scan for PR branches, and a full scan for the main branch. This diff-aware scan configuration uses a computed merge base, rather than setting the merge base to the default branch. This is more similar to how Semgrep performs in GitHub actions. Setting the SEMGREP_REPO_NAME and SEMGREP_PR_ID allows Semgrep to identify the connected project and related PR.
 
 In order to compute the merge-base, the pipeline performs some additional git commands to make the default branch available to git for computation, and cleans the workspace afterwards so those commands can always run successfully in a clean workspace.
 
 :::info
-Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to some version of `main` or `master`, you may see spurious findings in diff scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.
+Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to `main` or `master`, you may see spurious findings in diff scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.
 :::
 
 ### Configure the multibranch pipeline:
@@ -180,4 +180,4 @@ Using a computed merge base is strongly recommended. If you instead set `SEMGREP
 - Scan Repository Triggers: periodically if not otherwise run, 30 min (interval configurable)
 - Optional: Discard old items (7 days/7 items), so that you don’t lose logs for deleted branches immediately
 
-If you haven’t already, follow the [On GitHub](#on-github) instructions to configure a webhook to notify.
+If you haven’t already, follow the [On GitHub](#on-github) instructions to configure a webhook to notify Jenkins about PR events.
