@@ -11,6 +11,8 @@ tags:
 
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
+import JoinAnOrg from "/src/components/procedure/_join-an-org.md"
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -142,34 +144,7 @@ The Semgrep deployment could look like this:
 
 This section is for team members who have been invited to join a Semgrep organization.
 
-<Tabs
-    defaultValue="gh-gl"
-    values={[
-    {label: 'GitHub or GitLab', value: 'gh-gl'},
-    {label: 'SSO', value: 'sso'},
-    ]}
->
-
-<TabItem value='gh-gl'>
-
-To join an existing org in GitHub or GitLab:
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
-1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
-1. Click **Join an existing organization**.
-
-</TabItem>
-
-<TabItem value='sso'>
-
-To join an existing org through your SSO provider:
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
-2. You are automatically signed in to all organizations that your admin has set up for you.
-
-</TabItem>
-
-</Tabs>
+<JoinAnOrg />
 
 ### Delete an existing org
 
