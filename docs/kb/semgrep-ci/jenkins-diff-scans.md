@@ -15,7 +15,7 @@ Your UI (user interface) may vary depending on your Jenkins installation. These 
 
 ### Create your Jenkinsfile
 
-To start the process, create your initial `Jenkinsfile` in the root of the repo where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+To start the process, create your initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
 
 ```bash
 pipeline {
@@ -45,7 +45,7 @@ This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance crede
 #### Under General
 
 1. Check the box "GitHub Project" and enter the URL for the project, `https://github.com/<namespace>/<project>/`
-2. Under Build Triggers, check "GitHub Hook trigger for GITScm polling".
+2. Under Build Triggers, select the "GitHub Hook trigger for GITScm polling" box.
 
 #### Under Pipeline
 
@@ -62,13 +62,13 @@ This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance crede
 
 #### On GitHub
 
-If your Jenkins instance is configured to manage webhooks automatically on GitHub, these steps are not necessary. To check the settings and view the webhook URL, go to **Manage Jenkins > Configure System > GitHub**. Expand the <i class="fa-solid fa-circle-question"></i> next to **GitHub Server** to find the webhook URL, and check the configuration to see if hooks are managed automatically.
+If your Jenkins instance is configured to manage webhooks automatically on GitHub, these steps are not necessary. To review the settings and view the webhook URL, go to **Manage Jenkins > Configure System > GitHub**. Expand the <i class="fa-solid fa-circle-question"></i> next to **GitHub Server** to find the webhook URL, and review the configuration to see if hooks are managed automatically.
 
 1. Visit `https://github.com/<namespace>/<project>/settings/hooks`.
 2. Click **Add Webhook**.
-3. Under "Payload URL", enter your Jenkins' instance webhook URL. Generally this is in the form `$JENKINS_BASE_URL/github-webhook/`.
-4. Select "application/json" for Content-Type.
-5. Select "Send me everything".
+3. Under **Payload URL**, enter your Jenkins' instance webhook URL. Generally this is in the form `$JENKINS_BASE_URL/github-webhook/`.
+4. Select `application/json` for Content-Type.
+5. Select **Send me everything**.
 
 With configuration provided previously, findings in Semgrep AppSec Platform appear under the Jenkins project name, rather than under the typical GitHub name `<namespace>/<project>`. To change the name using `SEMGREP_REPO_NAME`, use this Jenkinsfile instead:
 
@@ -161,10 +161,10 @@ The Jenkinsfile defines two Semgrep stages, each of which is run for certain bra
 In order to compute the merge-base, the pipeline performs some additional git commands to make the default branch available to git for computation, and cleans the workspace afterwards so those commands can always run successfully in a clean workspace.
 
 :::info
-Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to `main` or `master`, you may see spurious findings in diff scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.
+Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to `main` or `master`, you may see spurious findings in diff-aware scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.
 :::
 
-### Configure the multibranch pipeline:
+### Configure the Multibranch pipeline:
 
 - Branch Sources: GitHub
     - Credentials: (select the appropriate credentials for your project)
