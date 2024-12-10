@@ -30,7 +30,7 @@ tags:
 
 ### Changed
 
-- **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for the given deployment for all Semgrep products.
+- **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for a given deployment for all Semgrep products.
 - **Teams**: You can now change roles in bulk. Click **Settings > Teams** then the **name of the team** you want to edit. Select the target users, then click **Bulk Edit**. In the drop-down box, select the new role for those users. <!-- 17549 -->
 
 
