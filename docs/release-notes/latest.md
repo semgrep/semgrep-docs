@@ -9,122 +9,159 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for October 2024
+# Semgrep release notes for November 2024
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- Added a **Scan details** page and pane for all completed scans. Use this to troubleshoot or view information about individual scans. 
-![Scan details pane with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
-_**Figure**. Scan details pane with the permalink icon indicated in a box._
-- The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
-  - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
-- Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
-- Semgrep now supports [Move on Sui](https://docs.sui.io/concepts/sui-move-concepts), thanks to the contributions of the Sui team.
+- Added the ability to filter all findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
+  ![Time period and status filters](/img/findings-filters.png#sm-width)
+  _**Figure**. Time period and status filters._
+- **Dashboard**:
+  - You can now view **trends**, comparing the previous time period to the current one, in the following charts:
+    - Production backlog
+    - Secure guardrails
+    - Median open finding age
+  - You can now export the Dashboard as a PDF. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), then click **Dashboard > Download > Download as PDF (report)**.
+
+<!--  NOT AVAILABLE
+  - You can now view findings **Filtered by Assistant** under the **Guardrails activity** chart These are findings that Assistant did not display to developers, to prevent noise from findings it thinks are false positives. -->
+
 
 ### Changed
 
-- Various UI improvements to the **Settings > SCM** tab.
-![Old SCM card](/img/old-scm-card.png) 
-![Updated SCM card](/img/new-scm-card.png)
-_**Figure**. Previous and current SCM card UI._
-- **Semgrep Managed Scans**: scans now follow fail open behavior, consistent with how Semgrep in CI behaves. Failing open means that Semgrep scans with internal errors do not result in a failed job.
-- The **Project details** page's **See findings** button is now a drop-down box, enabling you to select which product you want to view findings for.
+- **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for a given deployment for all Semgrep products.
+- **Teams**: You can now change roles in bulk:
+  1. Click **Settings > Teams**, then the **name of the team** you want to edit.
+  1. Select the target users, then click **Bulk Edit**.
+  1. In the drop-down box, select the new role for those users. <!-- 17549 -->
+
 
 ### Fixed
 
-- When a scan runs into an exception, Semgrep AppSec Platform displays information about the failure. Previously, within the AppSec Platform UI, it would appear to the user that the scan is still in progress.
-- Fixed a bug where Semgrep would crash if `--trace` was passed.
+- Various improvements and fixes to Semgrep Managed Scans (SMS).
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
-- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
-- Added an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
-- Taint analysis now supports tracking sinks through callbacks for all applicable Semgrep-supported languages. For example:
-  ```javascript
-  function unsafe_callback(x) {
-    sink(x); // Semgrep detects a finding here now!
-  }
-  
-  function withCallback(val, callback) {
-    callback(val);
-  }
-  
-  withCallback(taint, unsafe_callback)
-  ```
+- **C**: Semgrep cross-file analysis now handles duplicate function names properly. When Semgrep finds duplicate functions, it assumes that any of them could be called. For example, if the function `foo` is defined in two files, Semgrep reports taint errors for both instances:
+    ```c
+    // "a/test.h"
+    void foo(int x) {
+        //deepruleid: dup-symbols
+        sink(x);
+    }
 
-### Removed
+    // "b/test.h"
+    void foo(int x) {
+        //deepruleid: dup-symbols
+        sink(x);
+    }
 
-- Removed support for Vue. The `tree-sitter` grammar has not been updated in 3 years and no community rules have been added. In theory, extract mode could be a good substitute to parse Vue files.
+    // "main.c"
+    #ifdef HEADER_A
+        #include "a/test.h"
+    #else
+        #include "b/test.h"
+    #endif
+
+    int main() {
+        int x = source();
+        foo(x);
+    }
+    ```
+- **JavaScript and TypeScript**:
+  - Added Pro rules for JavaScript and TypeScript, including:
+    - Code injection rules for the `vm`, `vm2`, and puppeteer libraries
+    - NoSQL injection rules for `mongodb` and `mongoose` libraries
+    - SQL injection rules for the `knex`, `mysql`, `pg`, `sequelize`, and `sqlite` libraries
+    - Path traversal rules for `fs` and `fs-extra`
+  - Improved existing rules to have more precise sources and sinks.
+  - Improved JavaScript and TypeScript imports resolution.
+  - Added support for JavaScript callbacks.
+
+### Changed
+
+- The **Findings** page's **Projects and branches** filter now pins selected options to the top of the list for easy reference.
+- Cross-file analysis now resolves method invocations on abstract classes, enhancing dataflow tracking accuracy for dynamic method invocations.
+- Improved memory usage and time for scans with many findings due to reduced memory allocations by Semgrep while processing `nosemgrep` comments.
+- **TypeScript**: improved logic for interfile analysis for projects using [project references](https://www.typescriptlang.org/docs/handbook/project-references.html).
+
+### Fixed
+
+- Cross-file taint analysis has been optimized to scale better when there are many matched sources, propagators, sanitizers, and sinks within a function.
+- Semgrep now scans files containing special characters, as determined by Git, correctly instead of ignoring them. 
+- Semgrep no longer freezes when running on a machine with a low memory limit with tracking enabled.
+- Fixed an issue with regex parsing during ReDoS analysis when Semgrep encountered a character class starting with `[:`, such as `[:a-z]`.
+- Fixed an issue with `semgrep scan` where anchored `semgrepignore` patterns for folders such as `/tests` weren't honored. Previously, these patterns didn't affect target file filtering.
+- Fixed an issue where exceptions thrown during target processing caused the scan to fail. The scan now returns exit code `0` instead of `2`, unless the scan was invoked with the `--strict` flag.
+- Fixed an issue where input containing multiple unclosed braces on the same line resulted in exponential parsing time, causing the scan to time out.
+- Improved error handling for networking errors.
+- Fixed an issue where autofix and `nosemgrep` didn't work in Semgrep Editor.
+- **Swift**: Ellipses and metavariable ellipses can now be used as function parameters in patterns.
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
 
-- Supply Chain now provides reachability analysis for Kotlin, including support for Gradle and Maven.
-- Improved support and flexibility to Python dependency parsing (public beta):
-  - Semgrep now finds non-standard `requirements.txt` names and parses them for dependencies. 
-  - Semgrep parses lockfiles in a `/requirements` folder.
-- `cargo.lock` parser can now associate dependencies with lockfile line numbers.
+- Supply Chain now provides reachability analysis for **Scala** and **Swift**.
 
 ### Changed
 
-- Improvements to the **Advisories** page UI. <!-- 16657 -->
-- **Dependency search**: the **Ecosystem** filter has been replaced by a **Language** filter. Several languages can share the same ecosystem, such as Java and Kotlin both using Maven. For accurate filtering, the **Dependencies** page now uses a **Language** filter so that you can view that language's packages from any ecosystem supported by Semgrep for that language.
+- Parsers for `poetry.lock` and `pyproject.toml` now handle multi-line strings.
 
 ### Fixed
 
-- **Advisories** page: improved speed when fetching advisories.
+- Fixed an issue where the Gradle parser failed to parse the lockfile if it didn't start with a specific block comment. Semgrep now ignores the comment, allowing any or no comment to exist.
 
 ## 🤖 Semgrep Assistant
 
 ### Added
 
-- Users can now use Semgrep Assistant with their own OpenAI API key.
-  - Enterprise users can also use the following API providers:
-    - Azure OpenAI
-    - AWS Bedrock
-    - Google Gemini
- See the [AI provider documentation](/semgrep-assistant/getting-started#use-your-ai-provider) for more details.
-- PR comments made by Semgrep Assistant now reference the Git commits that it used to generate the fix. <!-- 17152 -->
-![Semgrep Assistant referencing multiple commits](/img/semgrep-assistant-reference-commits.png)
-_**Figure**. Semgrep Assistant referencing multiple commits._
+- Added Assistant-generated component tags for Semgrep Supply Chain and Semgrep Secrets findings.
+- Added support for Google Gemini.
 
 ## 🔐 Semgrep Secrets
 
-- `semgrep ci` output now includes a list of all Secrets rules which generated at least one blocking finding. This behavior is consistent with that of Semgrep Code.
+### Added
+
+- Added the ability to validate temporary AWS tokens.
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- Documented new triage workflows.
-- Improvements to the **[Network broker documentation](/semgrep-ci/network-broker)**.
-- Updated [Supported languages](/supported-languages) with new languages and features.
-- Added new sections in [Semgrep AppSec Platform vs Semgrep OSS](/semgrep-pro-vs-oss).
-- Added a new knowledge base article: [FedRAMP Authorization Guidance](/kb/semgrep-appsec-platform/fedramp-with-semgrep)
+- Added the following new documents, articles, and sections:
+  - A [section about **time period filters**](/semgrep-code/findings#time-period-and-triage), which you can apply to narrow down findings in the **Code**, **Supply Chain**, and **Secrets** pages. 
+  - [How to exclude a Semgrep Supply Chain rule](/kb/semgrep-supply-chain/exclude-rule)
+  - [How to set up SMS with GitLab](/deployment/managed-scanning/gitlab)
+  - [Why do new rules keep appearing in Comment or Block mode?](/kb/rules/ruleset-default-mode)
+- Added the following sections in the docs homepage:
+  - A summary of the latest release notes
+  - A summary of supported languages for all Semgrep products
 
 ### Changed
 
-- Reorganized and clarified the following:
-  - [Semgrep Supply Chain](/semgrep-supply-chain/overview) documentation
-  - [How Semgrep's **Block** mode works](/semgrep-ci/configuring-blocking-and-errors-in-ci)
-  - [GitLab SCM connections](/deployment/connect-scm#gitlab-self-managed-plans) and MR comments
-- Broadened language around Semgrep Assistant AI now that Assistant supports various LLMs.
+- Updated the following documents and sections:
+  - [Support documentation](/support)
+  - [How findings are distinguishes new and duplicate findings](/semgrep-code/remove-duplicates)
+  - [Troubleshooting if a scan "never finished"](/troubleshooting/semgrep-app)
+- Clarified default behavior and options for how Semgrep handles exit codes.
+- Clarified the relationship between ingress and egress IP addresses and the Semgrep Network Broker.
+- Updated the wording in [Semgrep Assistant > Privacy and legal considerations](/semgrep-assistant/privacy) to include other large language models (LLMs). 
 
 ### Fixed
 
-- Various fixes to mobile UI.
+- Improved site readability in mobile devices.
+
+### Removed
+
+- Removed `pattern-not` versus `pattern-not-inside` video.
 
 ## 🔧 OSS Engine
 
-- The following versions of the OSS Engine were released in October 2024:
-  - [<i class="fas fa-external-link fa-xs"></i> 1.91.0](https://github.com/semgrep/semgrep/releases/tag/v1.91.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.92.0](https://github.com/semgrep/semgrep/releases/tag/v1.92.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.93.0](https://github.com/semgrep/semgrep/releases/tag/v1.93.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.94.0](https://github.com/semgrep/semgrep/releases/tag/v1.94.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.95.0](https://github.com/semgrep/semgrep/releases/tag/v1.95.0)
+* The following versions of the OSS Engine were released in November 2024:
+  * [<i class="fas fa-external-link fa-xs"></i>1.97.0](https://github.com/semgrep/semgrep/releases/tag/v1.97.0)
+  * [<i class="fas fa-external-link fa-xs"></i>1.96.0](https://github.com/semgrep/semgrep/releases/tag/v1.96.0)

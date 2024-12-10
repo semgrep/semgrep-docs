@@ -22,7 +22,7 @@ tags:
     - Production backlog
     - Secure guardrails
     - Median open finding age
-  - You can now export the Dashboard as a PDF. Click **Dashboard > Download > Download as PDF (report)**.
+  - You can now export the Dashboard as a PDF. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), then click **Dashboard > Download > Download as PDF (report)**.
 
 <!--  NOT AVAILABLE
   - You can now view findings **Filtered by Assistant** under the **Guardrails activity** chart These are findings that Assistant did not display to developers, to prevent noise from findings it thinks are false positives. -->
