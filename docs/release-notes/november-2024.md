@@ -42,7 +42,7 @@ tags:
 
 ### Added
 
-- **C**: Semgrep Pro Engine now handles duplicate function names properly. When Semgrep finds duplicate functions, it assumes that any of them could be called. For example, if the function `foo` is defined in two files, Semgrep reports taint errors for both instances:
+- **C**: Semgrep cross-file analysis now handles duplicate function names properly. When Semgrep finds duplicate functions, it assumes that any of them could be called. For example, if the function `foo` is defined in two files, Semgrep reports taint errors for both instances:
     ```c
     // "a/test.h"
     void foo(int x) {
@@ -81,13 +81,13 @@ tags:
 ### Changed
 
 - The **Findings** page's **Projects and branches** filter now pins selected options to the top of the list for easy reference.
-- Semgrep Pro Engine now resolves method invocations on abstract classes, enhancing dataflow tracking accuracy for dynamic method invocations.
+- Cross-file analysis now resolves method invocations on abstract classes, enhancing dataflow tracking accuracy for dynamic method invocations.
 - Improved memory usage and time for scans with many findings due to reduced memory allocations by Semgrep while processing `nosemgrep` comments.
 - **TypeScript**: improved logic for interfile analysis for projects using [project references](https://www.typescriptlang.org/docs/handbook/project-references.html).
 
 ### Fixed
 
-- Semgrep Pro Engine's taint mode has been optimized to scale better when there are many matched sources, propagators, sanitizers, and sinks within a function.
+- Cross-file taint analysis has been optimized to scale better when there are many matched sources, propagators, sanitizers, and sinks within a function.
 - Semgrep now scans files containing special characters, as determined by Git, correctly instead of ignoring them. 
 - Semgrep no longer freezes when running on a machine with a low memory limit with tracking enabled.
 - Fixed an issue with regex parsing during ReDoS analysis when Semgrep encountered a character class starting with `[:`, such as `[:a-z]`.
@@ -117,7 +117,7 @@ tags:
 ### Added
 
 - Added Assistant-generated component tags for Semgrep Supply Chain and Semgrep Secrets findings.
-- Added support for Google's Gemini.
+- Added support for Google Gemini.
 
 ## 🔐 Semgrep Secrets
 
