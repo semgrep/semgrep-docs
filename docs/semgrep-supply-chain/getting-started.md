@@ -85,7 +85,7 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
  </tr>
 </table>
 
-## Scan a project without lockfiles
+## Scan a project without lockfiles (beta)
 
 :::info
 Semgrep does not support scans in CI or managed scans of projects without lockfiles.

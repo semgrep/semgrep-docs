@@ -33,7 +33,7 @@ To search your dependencies:
 2. Navigate to **Supply Chain > Dependencies**.
   ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) _**Figure**. The Semgrep Supply Chain Dependencies tab._
 
-At this point, Semgrep displays the lockfiles it has parsed and the dependencies included in each of the parsed lockfiles.
+At this point, Semgrep displays the lockfiles it has parsed or generated and the dependencies included in each of the lockfiles.
 
 ### View additional lockfiles
 
@@ -71,6 +71,21 @@ Dependency search provides the following filters, which correspond to the data p
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**. Dependency search page with sample search query._
+
+## Dependency graphs (beta)
+
+Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand how a transitive dependency was introduced and how deep it is nested in a dependency tree.
+
+Dependency graphs are available after you scan, locally, a Java project **without a lockfile** that's built using Maven or Gradle with the help of the Gradle Wrapper. You must also provide the `--allow-local-builds` flag when initiating the scan:
+
+ ```console
+ semgrep ci --allow-local-builds
+ ```
+
+You can view a dependency graph in Semgrep AppSec Platform on:
+
+- The **Finding Details** page for a transitive finding
+- The **Dependencies** tab when you view a transitive dependency -- click **Transitive** to launch the dependency graph
 
 ## Troubleshooting: no dependencies appear on the Dependencies page
 

@@ -107,7 +107,7 @@ For projects with lockfiles, Semgrep parses **lockfiles** for dependencies, then
 
 For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 
-Additionally, Semgrep supports the scanning of Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper.
+Additionally, Semgrep offers beta support for the scanning of Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper.
 
 <div class="language-support-table">
 
