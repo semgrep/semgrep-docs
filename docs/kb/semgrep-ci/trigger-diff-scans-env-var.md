@@ -26,11 +26,47 @@ import TabItem from '@theme/TabItem';
 
 
 <TabItem value='azure'>
-Forthcoming
+
+Create a `templates` folder in the repository you want to run Semgrep in. Then, commit the following template for a Semgrep diff-aware scan:
+
+```yaml
+steps:
+- checkout: self
+  clean: true
+  fetchDepth: 10000
+persistCredentials: true
+- script: |
+    echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
+    git fetch origin master:origin/master
+    python -m pip install --upgrade pip
+    pip install semgrep
+    semgrep ci
+  env:
+  SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
+  SEMGREP_BASELINE_REF: 'origin/master'
+```
+
+You must define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. This is because diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not.
+
 </TabItem>
 
 <TabItem value='bitbucket'>
-Forthcoming
+In the Bitbucket Pipelines configuration file, set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning:
+
+```yaml
+image: semgrep/semgrep:latest
+
+pipelines:
+  ...
+  pull-requests:
+    '**': # This applies to pull requests for all branches
+      - step:
+          name: Semgrep scan on PR
+          script:
+            # Change to your default branch if different from main
+            - export SEMGREP_BASELINE_REF="origin/main"
+```
+
 </TabItem>
 
 <TabItem value='github'>
@@ -82,7 +118,7 @@ jobs:
 </TabItem>
 <TabItem value='gitlab'>
 
-The `rules` section of the pipeline definition allow you to list the conditions to evaluate. The results of the evaluation determine the attributes of the job. To enable diff-aware scanning, obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
+To enable diff-aware scanning, obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request in the `rules` section of the pipeline definition, which allows you to list the conditions to evaluate. The results of the evaluation determine the attributes of the job. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
 
 ```yaml
 rules:
@@ -119,7 +155,7 @@ Forthcoming
 </TabItem>
 <TabItem value='other'>
 
-For CI providers that are **not** GitHub Actions or GitLab CI/CD, set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning.
+For all other CI providers, set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning.
 
 ### Example
 
