@@ -31,7 +31,10 @@ tags:
 ### Changed
 
 - **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for a given deployment for all Semgrep products.
-- **Teams**: You can now change roles in bulk. Click **Settings > Teams** then the **name of the team** you want to edit. Select the target users, then click **Bulk Edit**. In the drop-down box, select the new role for those users. <!-- 17549 -->
+- **Teams**: You can now change roles in bulk:
+  1. Click **Settings > Teams**, then the **name of the team** you want to edit.
+  1. Select the target users, then click **Bulk Edit**.
+  1. In the drop-down box, select the new role for those users. <!-- 17549 -->
 
 
 ### Fixed
@@ -136,7 +139,7 @@ tags:
   - [Why do new rules keep appearing in Comment or Block mode?](/kb/rules/ruleset-default-mode)
 - Added the following sections in the docs homepage:
   - A summary of the latest release notes
-  - A summary of supported languages for all Semgrep products.
+  - A summary of supported languages for all Semgrep products
 
 ### Changed
 
