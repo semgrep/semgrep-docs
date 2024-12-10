@@ -142,7 +142,7 @@ tags:
 
 - Updated the following documents and sections:
   - [Support documentation](/support)
-  - [How findings are distinguishes new and duplicate findings](/semgrep-code/duplicate-findings)
+  - [How findings are distinguishes new and duplicate findings](/semgrep-code/remove-duplicates)
   - [Troubleshooting if a scan "never finished"](/troubleshooting/semgrep-app)
 - Clarified default behavior and options for how Semgrep handles exit codes
 - Clarified the relationship between ingress and egress IP addresses and the Semgrep Network Broker.
