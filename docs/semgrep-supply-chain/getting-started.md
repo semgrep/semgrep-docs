@@ -101,17 +101,18 @@ Semgrep supports the scanning of Java projects **without lockfiles** if they're 
     ```
     Semgrep builds the project, using the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
-The `build.gradle` or `pom.xml` file used by Semgrep to build the project is listed in the scan summary after the scan completes.
+The `build.gradle` or `pom.xml` file used by Semgrep to build the project is listed in the Scan Summary after the scan completes successfully.
 
 ![Supply Chain scan summary](/img/ssc-scan-summary.png#md-width)
 _**Figure**. Supply Chain scan summary listing a manifest file._
 
+:::info
 By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
 
 ```console
 semgrep ci --allow-local-builds --verbose
 ```
-
+:::
 ## Run a scan using the CLI
 
 You can start a stand-alone Semgrep Supply Chain scan by running the following command in the CLI:
