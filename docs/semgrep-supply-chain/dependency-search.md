@@ -33,7 +33,7 @@ To search your dependencies:
 2. Navigate to **Supply Chain > Dependencies**.
   ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) _**Figure**. The Semgrep Supply Chain Dependencies tab._
 
-At this point, Semgrep displays the lockfiles it has parsed or generated and the dependencies included in each of the lockfiles.
+At this point, Semgrep displays the lockfiles or manifests that it has used to determine dependency information and the dependencies included in each of the lockfiles or manifests.
 
 ### View additional lockfiles
 
@@ -75,12 +75,17 @@ _**Figure**. Dependency search page with sample search query._
 ## Dependency graphs (beta)
 
 :::info
-Semgrep does not support the generation of dependency graphs for projects scanned in CI or managed scans of projects.
+Semgrep does not support the generation of dependency graphs for managed scans of projects.
 :::
 
 Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand how a transitive dependency was introduced and how deep it is nested in the dependency tree reflecting your project that Semgrep generates.
 
-Dependency graphs are available after you locally scan a Java project **without a lockfile** that's built using Maven or Gradle with the help of the Gradle Wrapper. You must also provide the `--allow-local-builds` flag when initiating the scan:
+Semgrep is capable of generating dependency graphs for:
+
+- Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper; ensure that the environment where you run Semgrep has the necessary dependencies required to build your project, such as Java and Maven, installed
+- Java projects that include a `maven_dep_tree.txt` file.
+
+Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan:
 
  ```console
  semgrep ci --allow-local-builds
