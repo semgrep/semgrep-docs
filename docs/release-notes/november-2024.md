@@ -129,7 +129,7 @@ tags:
 
 ### Added
 
-- Added the following new documents, articles and sections:
+- Added the following new documents, articles, and sections:
   - A [section about **time period filters**](/semgrep-code/findings#time-period-and-triage), which you can apply to narrow down findings in the **Code**, **Supply Chain**, and **Secrets** pages. 
   - [How to exclude a Semgrep Supply Chain rule](/kb/semgrep-supply-chain/exclude-rule)
   - [How to set up SMS with GitLab](/deployment/managed-scanning/gitlab)
