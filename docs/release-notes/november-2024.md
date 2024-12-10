@@ -14,7 +14,7 @@ tags:
 
 ### Added
 
-- Added the ability to filter Semgrep Code findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
+- Added the ability to filter all findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
   ![Time period and status filters](/img/findings-filters.png#sm-width)
   _**Figure**. Time period and status filters._
 - **Dashboard**:
