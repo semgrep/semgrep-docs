@@ -7,12 +7,12 @@ Our metrics for evaluating Semgrep Assistant's performance are derived from two 
 - user feedback on Assistant recommendations within the product
 - internal triage / benchmarking conducted by our security research team 
 
-This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving our product and engineering teams a holistic view into Assistant's real-world performance. 
+This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving our product and engineering teams a holistic view into Assistant's real-world performance in a variety of contexts. 
 
 ## User feedback 
 User feedback reflects performance of Assistant across **600+ customers**, providing a comprehensive real-world dataset. 
 
-The user feedback loop is baked into the product - users are prompted to "thumbs up" or "thumbs down" Assistant suggestions. 
+The user feedback loop is baked into product workflows to ensure comprehensiveness and to reduce sampling bias. Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions. 
 
 
 **Results as of December 10, 2024:**
