@@ -6,7 +6,7 @@ description: Learn how to run a diff-aware scan.
 
 # How to trigger diff-aware scans
 
-When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)**, instead of full scans. Diff-aware scan runs on your code before and after some baseline and only reports findings that are newly introduced in the commits after that baseline.
+When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** instead of full scans. Diff-aware scans run on your code before and after some baseline and only reports findings newly introduced in the commits after that baseline.
 
 
 import Tabs from '@theme/Tabs';
@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value='azure'>
 
-Create a `templates` folder in the repository you want to run Semgrep in. Then, commit the following template for a Semgrep diff-aware scan:
+Create a `templates` folder in the repository where you want to run Semgrep. Then, commit the following template for a Semgrep diff-aware scan:
 
 ```yaml
 steps:
@@ -37,13 +37,13 @@ steps:
 persistCredentials: true
 - script: |
     echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
-    git fetch origin master:origin/master
+    git fetch origin main:origin/main
     python -m pip install --upgrade pip
     pip install semgrep
     semgrep ci
   env:
   SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-  SEMGREP_BASELINE_REF: 'origin/master'
+  SEMGREP_BASELINE_REF: 'origin/main'
 ```
 
 You must define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. This is because diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not.
