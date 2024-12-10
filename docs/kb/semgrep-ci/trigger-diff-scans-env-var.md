@@ -118,7 +118,7 @@ jobs:
 </TabItem>
 <TabItem value='gitlab'>
 
-To enable diff-aware scanning, obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request in the `rules` section of the pipeline definition, which allows you to list the conditions to evaluate. The results of the evaluation determine the attributes of the job. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
+Obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request, in the `rules` section of the pipeline definition. The results of the evaluation determine the attributes of the job. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
 
 ```yaml
 rules:
@@ -155,11 +155,9 @@ Forthcoming
 </TabItem>
 <TabItem value='other'>
 
-For all other CI providers, set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning.
+Set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning:
 
-### Example
-
-```bash
+```console
 export SEMGREP_BASELINE_REF="main"
 ```
 
