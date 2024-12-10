@@ -74,18 +74,25 @@ _**Figure**. Dependency search page with sample search query._
 
 ## Dependency graphs (beta)
 
-Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand how a transitive dependency was introduced and how deep it is nested in a dependency tree.
+:::info
+Semgrep does not support the generation of dependency graphs for projects scanned in CI or managed scans of projects.
+:::
 
-Dependency graphs are available after you scan, locally, a Java project **without a lockfile** that's built using Maven or Gradle with the help of the Gradle Wrapper. You must also provide the `--allow-local-builds` flag when initiating the scan:
+Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand how a transitive dependency was introduced and how deep it is nested in the dependency tree reflecting your project that Semgrep generates.
+
+Dependency graphs are available after you locally scan a Java project **without a lockfile** that's built using Maven or Gradle with the help of the Gradle Wrapper. You must also provide the `--allow-local-builds` flag when initiating the scan:
 
  ```console
  semgrep ci --allow-local-builds
  ```
 
-You can view a dependency graph in Semgrep AppSec Platform on:
+Once the scan completes, view the dependency graph in Semgrep AppSec Platform on:
 
 - The **Finding Details** page for a transitive finding
-- The **Dependencies** tab when you view a transitive dependency -- click **Transitive** to launch the dependency graph
+- The **Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency graph
+
+![Supply Chain dependency graph](/img/ssc-dependency-graph.png#md-width)
+_**Figure**. Supply Chain findings with a dependency graph shown._
 
 ## Troubleshooting: no dependencies appear on the Dependencies page
 
