@@ -32,12 +32,12 @@ tags:
 
 - **API**: The `GET /deployments/DEPLOYMENT_ID/policies` endpoint now displays all policies for the given deployment for all Semgrep products.
 - **Teams**: You can now change roles in bulk. Click **Settings > Teams** then the **name of the team** you want to edit. Select the target users, then click **Bulk Edit**. In the drop-down box, select the new role for those users. <!-- 17549 -->
--
+
 
 ### Fixed
 
 - Various improvements and fixes to Semgrep Managed Scans (SMS).
--
+
 ## 💻 Semgrep Code
 
 ### Added
@@ -129,9 +129,32 @@ tags:
 
 ### Added
 
+- Added the following new documents, articles and sections:
+  - A [section about **time period filters**](/semgrep-code/findings#time-period-and-triage), which you can apply to narrow down findings in the **Code**, **Supply Chain**, and **Secrets** pages. 
+  - [How to exclude a Semgrep Supply Chain rule](/kb/semgrep-supply-chain/exclude-rule)
+  - [How to set up SMS with GitLab](/deployment/managed-scanning/gitlab)
+  - [Why do new rules keep appearing in Comment or Block mode?](/kb/rules/ruleset-default-mode)
+- Added the following sections in the docs homepage:
+  - A summary of the latest release notes
+  - A summary of supported languages for all Semgrep products.
+
 ### Changed
 
+- Updated the following documents and sections:
+  - [Support documentation](/support)
+  - [How findings are distinguishes new and duplicate findings](/semgrep-code/duplicate-findings)
+  - [Troubleshooting if a scan "never finished"](/troubleshooting/semgrep-app)
+- Clarified default behavior and options for how Semgrep handles exit codes
+- Clarified the relationship between ingress and egress IP addresses and the Semgrep Network Broker.
+- Updated the wording in [Semgrep Assistant > Privacy and legal considerations](/semgrep-assistant/privacy) to include other large language models (LLMs). 
+
 ### Fixed
+
+- Improved site readability in mobile devices.
+
+### Removed
+
+- Removed `pattern-not` versus `pattern-not-inside` video.
 
 ## 🔧 OSS Engine
 
