@@ -82,7 +82,7 @@ Dependency graphs allow you to view dependency paths for all transitive dependen
 
 Semgrep is capable of generating dependency graphs for:
 
-- Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper; ensure that the environment where you run Semgrep has the necessary dependencies required to build your project, such as Java and Maven, installed
+- Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Ensure that the environment where you run Semgrep has installed the necessary dependencies, such as Java and Maven, that are required to build your project
 - Java projects that include a `maven_dep_tree.txt` file.
 
 Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan:
@@ -94,7 +94,7 @@ Dependency graphs are available once you've updated your Semgrep deployment to u
 Once the scan completes, view the dependency graph in Semgrep AppSec Platform on:
 
 - The **Finding Details** page for a transitive finding
-- The **Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency graph
+- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency graph
 
 ![Supply Chain dependency graph](/img/ssc-dependency-graph.png#md-width)
 _**Figure**. Supply Chain findings with a dependency graph shown._
