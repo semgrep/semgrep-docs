@@ -139,3 +139,7 @@ It can take a few minutes for your latest scan's logs to appear. However, if the
 ### Scan statistics
 
 **Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.
+
+### Git Large File Storage
+
+Semgrep Managed Scans skips files stored in Git Large File Storage (LFS). In general, Semgrep [skips large files](/ignoring-files-folders-code#files-folders-and-code-beyond-semgreps-scope) when scanning projects.
