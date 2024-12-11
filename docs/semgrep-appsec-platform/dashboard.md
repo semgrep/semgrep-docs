@@ -16,6 +16,7 @@ The Semgrep dashboard is an overview of your organization’s security posture b
 - Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts on the page and view priority findings.
+- Export the information as a report as a PDF or CSV file.
 
 ![Dashboard page](/img/dashboard-fold.png)
 _**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
@@ -83,6 +84,11 @@ Use the **filters** to quickly generate views for a single Semgrep product or al
 
 When viewing data for a single Semgrep product, you can't group by product in **Most findings by project** and **Median open age**.
 :::
+
+## Export reports
+
+To generate reports from the current dashboard view, click **Dashboard > <i class="fa-regular fa-download"></i> Download**.
+
 ## Triage states
 
 The following triage states are displayed:
@@ -155,6 +161,7 @@ This pane displays analytics related to findings detected in your **primary or d
 :::tip
 A low or 0 value for **Total net new** is ideal as it indicates that findings are being triaged or resolved within the time period.
 :::
+
 ### Charts
 
 | Chart | Description |
