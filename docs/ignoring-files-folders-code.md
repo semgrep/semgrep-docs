@@ -88,6 +88,12 @@ Unsupported patterns are silently removed from the pattern list (this is done so
 
 For a description of `.gitignore` syntax, see [.gitignore documentation](https://git-scm.com/docs/gitignore).
 
+:::caution
+[Semgrepignore is being revised](/semgrepignore-v2-reference) to
+support multiple `.semgrepignore` files and match the Gitignore
+specification more closely.
+:::
+
 ## Define ignored files and folders in Semgrep AppSec Platform
 
 Another method for users to define ignore patterns is through a Project in Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.

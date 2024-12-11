@@ -308,6 +308,7 @@ module.exports = {
             ]
         },
         'cli-reference',
+        'semgrepignore-v2-reference',
       ]
     }
   ],
