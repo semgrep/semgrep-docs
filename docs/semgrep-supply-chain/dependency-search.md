@@ -33,7 +33,7 @@ To search your dependencies:
 2. Navigate to **Supply Chain > Dependencies**.
   ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) _**Figure**. The Semgrep Supply Chain Dependencies tab._
 
-At this point, Semgrep displays the lockfiles it has parsed and the dependencies included in each of the parsed lockfiles.
+At this point, Semgrep displays the lockfiles or manifests that it has used to determine dependency information and the dependencies included in each of the lockfiles or manifests.
 
 ### View additional lockfiles
 
@@ -71,6 +71,36 @@ Dependency search provides the following filters, which correspond to the data p
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**. Dependency search page with sample search query._
+
+## Dependency graphs (beta)
+
+:::info
+To participate in this beta, reach out to [sales@semgrep.com](mailto:sales@semgrep.com).
+:::
+
+Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand:
+
+- How a transitive dependency was introduced
+- How deep the transitive dependency is nested in the dependency tree. The dependency tree reflects your project that Semgrep generates
+
+Semgrep is capable of generating dependency graphs for:
+
+- Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Ensure that the environment where you run Semgrep has installed the necessary dependencies, such as Java and Maven, that are required to build your project
+- Java projects that include a `maven_dep_tree.txt` file.
+
+Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan from an environment with all of the project's required dependencies installed:
+
+```console
+semgrep ci --allow-local-builds
+```
+
+Once the scan completes, view the dependency graph in Semgrep AppSec Platform on:
+
+- The **Finding Details** page for a transitive finding
+- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency graph
+
+![Supply Chain dependency graph](/img/ssc-dependency-graph.png#md-width)
+_**Figure**. Supply Chain findings with a dependency graph shown._
 
 ## Troubleshooting: no dependencies appear on the Dependencies page
 
