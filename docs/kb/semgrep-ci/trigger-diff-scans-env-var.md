@@ -6,7 +6,7 @@ description: Learn how to run a diff-aware scan using set environment variables.
 
 # How to trigger diff-aware scans using environment variables
 
-When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)**, instead of full scans, using environment variables. Diff-aware scan runs on your code before and after some baseline and only reports findings that are newly introduced in the commits after that baseline.
+When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)**, instead of full scans, using environment variables. Diff-aware scans run on your code before and after some baseline, and only report findings that are newly introduced in the commits after that baseline.
 
 
 import Tabs from '@theme/Tabs';
