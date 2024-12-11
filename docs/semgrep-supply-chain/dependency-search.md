@@ -75,17 +75,20 @@ _**Figure**. Dependency search page with sample search query._
 ## Dependency graphs (beta)
 
 :::info
-Semgrep does not support the generation of dependency graphs for managed scans of projects.
+To participate in this beta, reach out to [sales@semgrep.com](mailto:sales@semgrep.com).
 :::
 
-Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand how a transitive dependency was introduced and how deep it is nested in the dependency tree reflecting your project that Semgrep generates.
+Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand:
+
+- How a transitive dependency was introduced
+- How deep the transitive dependency is nested in the dependency tree. The dependency tree reflects your project that Semgrep generates
 
 Semgrep is capable of generating dependency graphs for:
 
-- Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper; ensure that the environment where you run Semgrep has the necessary dependencies required to build your project, such as Java and Maven, installed
+- Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper; ensure that the environment where you run Semgrep has the necessary dependencies required to build your project, such as Java and Maven, installed
 - Java projects that include a `maven_dep_tree.txt` file.
 
-Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan:
+Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan from an environment with all of the project's required dependencies installed:
 
 ```console
 semgrep ci --allow-local-builds
