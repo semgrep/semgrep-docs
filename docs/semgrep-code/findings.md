@@ -14,6 +14,7 @@ import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-displ
 import DisplayTaintedDataProcedure from "/src/components/procedure/_semgrep-code-display-tainted-data.mdx"
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
 import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
+import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
 
 # View findings in Semgrep AppSec Platform
 
@@ -64,6 +65,10 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 ### Default Code page view
 
 <FindingsDefaultView product_name="Code" />
+
+### Export findings
+
+<ExportFindingsCsv />
 
 ### Filter findings
 
@@ -164,7 +169,6 @@ _**Figure**. **Details page > On <span className="placeholder">N</span> branches
 ### View dataflow traces
 
 <DisplayTaintedDataProcedure />
-
 
 ## Data retention
 
