@@ -87,9 +87,9 @@ Semgrep is capable of generating dependency graphs for:
 
 Dependency graphs are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan:
 
- ```console
- semgrep ci --allow-local-builds
- ```
+```console
+semgrep ci --allow-local-builds
+```
 
 Once the scan completes, view the dependency graph in Semgrep AppSec Platform on:
 
