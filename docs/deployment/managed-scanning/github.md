@@ -142,4 +142,4 @@ It can take a few minutes for your latest scan's logs to appear. However, if the
 
 ### Git Large File Storage
 
-Semgrep Managed Scans skips Git Large File Storage (LFS) files. In general, Semgrep [skips large files](/ignoring-files-folders-code#files-folders-and-code-beyond-semgreps-scope) when scanning projects.
+Semgrep Managed Scans skips files stored in Git Large File Storage (LFS). In general, Semgrep [skips large files](/ignoring-files-folders-code#files-folders-and-code-beyond-semgreps-scope) when scanning projects.
