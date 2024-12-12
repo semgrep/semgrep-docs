@@ -11,7 +11,7 @@ _**Figure**. The download findings CSV button._
 <summary>Click to view a description of all fields included in the CSV.</summary>
 | Field  | Description |
 | -------  | ------ |
-| Id | The unique id number of the finding. |
+| Id | The unique ID number of the finding. |
 | Rule name | The name of the rule.  |
 | Product | The Semgrep product. Possible values are **Code**, **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
