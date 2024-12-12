@@ -87,10 +87,6 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 
 ## Scan a project without lockfiles (beta)
 
-:::info
-Semgrep does not support managed scans of projects without lockfiles.
-:::
-
 Semgrep Supply Chain can scan Java projects built using Maven or Gradle Wrapper without the need for lockfiles.
 
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven.
@@ -108,11 +104,11 @@ The `build.gradle` or `pom.xml` file used by Semgrep to build the project is lis
 _**Figure**. Supply Chain scan summary listing a manifest file._
 
 :::info
-By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
-
-```console
-semgrep ci --allow-local-builds --verbose
-```
+- Semgrep Managed Scanning cannot determine the dependencies in a project when there is no lockfile, so Supply Chain scans will not return any findings.
+- By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
+    ```console
+    semgrep ci --allow-local-builds --verbose
+    ```
 :::
 ## Run a scan using the CLI
 
