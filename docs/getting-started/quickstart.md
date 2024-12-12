@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
 
 :::info prerequisites
-You must have Python 3.8 or later installed on the machine where the Semgrep CLI is running.
+You must have Python 3.9 or later installed on the machine where the Semgrep CLI is running.
 :::
 
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
