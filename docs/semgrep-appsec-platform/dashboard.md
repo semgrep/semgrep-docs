@@ -87,7 +87,7 @@ When viewing data for a single Semgrep product, you can't group by product in **
 
 ## Export reports
 
-To generate reports from the current dashboard view, click **Dashboard > <i class="fa-regular fa-download"></i> Download**.
+To generate reports from the current view, click **Dashboard > <i class="fa-regular fa-download"></i> Download**.
 
 ## Triage states
 
