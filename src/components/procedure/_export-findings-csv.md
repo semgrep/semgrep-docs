@@ -1,6 +1,6 @@
 You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. For findings greater than 10,000, you must use the [<i class="fas fa-external-link fa-xs"></i>API](https://semgrep.dev/api/v1/docs/).
 
-Findings exported in the CSV file are not affected by filters you apply in the page.
+Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 
 Export findings by navigating to the product page and clicking the **<i class="fa-regular fa-download"></i> icon** near the time filters.
 
