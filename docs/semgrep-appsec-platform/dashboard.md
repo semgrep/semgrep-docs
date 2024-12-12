@@ -16,7 +16,7 @@ The Semgrep dashboard is an overview of your organization’s security posture b
 - Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts on the page and view priority findings.
-- Export the information as a report as a PDF file.
+- Export the information as a PDF report.
 
 ![Dashboard page](/img/dashboard-fold.png)
 _**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
