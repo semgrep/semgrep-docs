@@ -308,6 +308,7 @@ module.exports = {
             ]
         },
         'cli-reference',
+        `semgrep-appsec-platform/json-and-sarif`,
       ]
     }
   ],
