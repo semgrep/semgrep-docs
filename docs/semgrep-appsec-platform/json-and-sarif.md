@@ -11,9 +11,9 @@ tags:
 
 This reference provides all Semgrep fields for JSON and SARIF output.
 
-## JSON
+For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> log in](https://semgrep.dev/login) to generate values for those fields.
 
-### Top-level fields
+## JSON
 
 <table>
 <thead>
@@ -55,7 +55,7 @@ This reference provides all Semgrep fields for JSON and SARIF output.
 </tbody></table>
 
 
-#### `results` object
+### `results` object
 
 <table>
 <thead>
@@ -96,4 +96,90 @@ This reference provides all Semgrep fields for JSON and SARIF output.
 </tr>
 </tbody></table>
 
-#### `extra` object
+### `extra` object
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>engine_kind</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>lines</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td colspan="2">See [`metadata` object](#metadata-object)</td>
+</tr>
+</tbody></table>
+
+### `metadata` object
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fingerprint</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>is_ignored</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>references</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>owasp</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>cwe</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>metavars</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>validation_state</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
