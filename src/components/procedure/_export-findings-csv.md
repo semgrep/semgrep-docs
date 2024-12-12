@@ -8,7 +8,8 @@ Export findings by navigating to the product page and clicking the **<i class="f
 _**Figure**. The download findings CSV button._
 
 <details>
-<summary>Click to view a description of all fields included in the CSV.</summary>
+<summary>Click to view a description of fields included in the CSV.</summary>
+
 | Field  | Description |
 | -------  | ------ |
 | Id | The unique ID number of the finding. |
@@ -16,11 +17,6 @@ _**Figure**. The download findings CSV button._
 | Product | The Semgrep product. Possible values are **Code**, **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
 | Status | The finding's triage status.   |
-| Confidence | The finding's confidence. Possible values are **High**, **Medium**, or **Low**.  |
-| Category | The finding's category, such as **best practices**, **security**, or **correctness**.  |
-| Is pro rule | Boolean value that returns `TRUE` if the rule that generated the finding is a pro rule.    |
-| Assistant triage result | Provides Semgrep Assistant's assessment. Possible values are `True positive` or `False positive`. These values appear only if Assistant is enabled.  |
-| Assistant triage reason | A short AI-generated reason why Assistant thinks the finding is a true or false positive. These values appear only if Assistant is enabled.  |
 | Assistant component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Assistant tags the finding with, based on the code's context.  |
 | Repository name | The name of the repository where Semgrep found the finding.  |
 | Repository URL | The repository URL.   |
@@ -33,4 +29,33 @@ _**Figure**. The download findings CSV button._
 | Triage comment | A triage comment created by the user.  |
 | Triage reason | The reason why the finding was triaged, created by the user. |
 | Rule description | The description of the rule. This is the same as the rule's `message` key.  |
+
+The following fields are exclusive to **Code** scans:
+
+| Field  | Description |
+| -------  | ------ |
+| Confidence | The finding's confidence. Possible values are **High**, **Medium**, or **Low**. <br />Only Semgrep Supply Chain and Code findings provide this field.  |
+| Category | The finding's category, such as **best practices**, **security**, or **correctness**.  |
+| Is pro rule | Boolean value that returns `TRUE` if the rule that generated the finding is a pro rule.    |
+| Assistant triage result | Provides Semgrep Assistant's assessment. Possible values are `True positive` or `False positive`. These values appear only if Assistant is enabled.  |
+| Assistant triage reason | A short AI-generated reason why Assistant thinks the finding is a true or false positive. These values appear only if Assistant is enabled.  |
+
+The following fields are exclusive to **Supply Chain** scans:
+
+| Field  | Description |
+| -------  | ------ |
+| Dependency  | The name of the dependency where the findings was found. | 
+| Reachability | The reachability status of the finding, such as **Reachable**, **No Reachability Analysis**, or **Unreachable**.    | 
+| Transitivity | States whether the finding originates from a direct or transitive dependency. | 
+| CVE  | The CVE number that the finding is assigned to. | 
+| EPSS | The EPSS score, which estimates the likelihood that a software vulnerability can be exploited in the wild. | 
+
+The following fields are exclusive to **Secrets** scans:
+
+| Field  | Description |
+| -------  | ------ |
+| Secret type | Possible values include **AI-detected**, **Generic secret**, **Connection URI**, and so on. | 
+| Validation | States whether or not the secret was validated. | 
+| Project visibility | States whether the project (repository) is public or private. This feature supports GitHub-hosted repositories only. It returns an **Unknown** value for non-GitHub SCMs. |
+
 </details>
