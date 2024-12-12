@@ -100,7 +100,7 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
     ```bash
-    # ensure that you have Python 3.8 or later installed
+    # ensure that you have Python 3.9 or later installed
     # on WSL before proceeding
 
     python3 -m pip install --upgrade semgrep
