@@ -152,7 +152,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 <td>✅</td>
 </tr>
 <tr>
-<td><code>validation_state</code>(for Secrets scans)</td>
+<td><code>validation_state</code>(for Secrets scans only)</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
