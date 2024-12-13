@@ -2,7 +2,7 @@
 slug: json-and-sarif
 title: JSON and SARIF fields
 hide_title: true
-description: tk
+description: Reference for all Semgrep JSON and SARIF export fields.
 tags:
   - Semgrep AppSec Platform
 ---
