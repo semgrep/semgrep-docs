@@ -11,7 +11,7 @@ tags:
 
 This reference provides all Semgrep fields for JSON and SARIF output.
 
-For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> log in](https://semgrep.dev/login) to generate values for those fields.
+For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login) to generate values for those fields.
 
 ## JSON
 
