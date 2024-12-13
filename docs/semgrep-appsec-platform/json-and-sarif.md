@@ -245,3 +245,101 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 <td>✅</td>
 </tr>
 </tbody></table>
+
+## SARIF
+
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$schema</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>runs</code></td>
+<td colspan="2">See [`runs` object](#runs-object)</td>
+</tr>
+</tbody></table>
+
+### `runs` object
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>invocations</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td colspan="2">See [`results` object](#results-object-1)</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>semanticVersion</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+
+
+### `results` object
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fingerprints</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>locations</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>ruleId</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
