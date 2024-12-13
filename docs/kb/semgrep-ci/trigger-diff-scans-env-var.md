@@ -59,7 +59,7 @@ image: semgrep/semgrep:latest
 pipelines:
   ...
   pull-requests:
-    **:
+    '**':
       - step:
         name: Semgrep scan on PR
         script:

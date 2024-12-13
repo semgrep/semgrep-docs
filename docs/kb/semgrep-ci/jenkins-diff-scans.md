@@ -96,9 +96,11 @@ pipeline {
 }
 ```
 
-## Full and diff-aware scans
+## Adding diff-aware scans
 
-Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches. Using a Multibranch pipeline provides access to useful variables for the configuration.
+Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile, using a full scan configuration based on the example in the preceding section. 
+
+The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches. Using a Multibranch pipeline provides access to useful variables for the configuration.
 
 ### Create the Jenkinsfile
 
