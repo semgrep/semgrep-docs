@@ -9,7 +9,6 @@ Our metrics for evaluating Semgrep Assistant's performance are derived from two 
 
 This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving our product and engineering teams a holistic view into Assistant's real-world performance. 
 
-For example, user feedback provides a comprehensive look into the accuracy of Assistant auto-triage and noise filtering capabilities. Conversely, expert-review is better suited to determine the accuracy and effectiven
 
 ## User feedback (real-world dataset)
 User feedback shows the aggregated and anonymized performance of Assistant across **1000+ customers**, providing a comprehensive real-world dataset. 
