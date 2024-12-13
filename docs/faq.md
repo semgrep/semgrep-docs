@@ -20,9 +20,9 @@ import TOCInline from "@theme/TOCInline"
 
 ### How are Semgrep and its rules licensed?
 
-#### Semgrep OSS Engine
+#### Semgrep Community Edition (CE)
 
-The [Semgrep Engine](https://github.com/semgrep/semgrep) is open source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
+[Semgrep CE](https://github.com/semgrep/semgrep) is open source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
 
 Semgrep offers three paid products:
 
@@ -46,15 +46,15 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license�
 
 ### I’m a security professional. Do I have to pay for Semgrep?
 
-If you are a security consultant and you want to use Semgrep OSS Engine with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
+If you are a security consultant and you want to use Semgrep CE with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
 If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
 If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
 
-### Can I ship my own code analysis software that uses Semgrep?
+### Can I ship my own code analysis software that uses Semgrep CE?
 
-Yes, you can use the Semgrep OSS Engine in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semgrep Pro Rules (see below).
+Yes, you can use the Semgrep CE in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semgrep Pro Rules (see below).
 
 The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open source software (FOSS) product. You have to open source any modifications you have done to the rules.
 
@@ -155,7 +155,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment.
 - Semgrep provides both proprietary and open source options that can be run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code.
 - Semgrep focuses on speed and ease of use. and doesn’t require compiled code.
-  - Semgrep OSS engine provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview). Semgrep Code's cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
+  - Semgrep CE provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview). Semgrep Code's cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
 - Both have publicly available rules.
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.

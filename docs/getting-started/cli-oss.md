@@ -6,7 +6,7 @@ displayed_sidebar: scanSidebar
 description: Learn how to set up Semgrep, scan your codebase for security issues, and view your findings in the CLI.
 tags:
   - Quickstart
-  - Semgrep OSS
+  - Semgrep CE
 ---
 
 import Install from "/src/components/procedure/_install-cli.mdx";
@@ -14,9 +14,9 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 import ExportAs from "/src/components/reference/_export-as.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx";
 
-# Local scans with Semgrep OSS Engine
+# Local scans with Semgrep Community Edition (CE)
 
-Learn how to set up Semgrep OSS, scan your codebase for security issues, and view your findings in the CLI.
+Learn how to set up Semgrep CE, scan your codebase for security issues, and view your findings in the CLI.
 
 ## Prerequisites
 
