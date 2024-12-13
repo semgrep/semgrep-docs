@@ -6,8 +6,7 @@ description: Learn how to run a diff-aware scan.
 
 # How to trigger diff-aware scans
 
-When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** instead of full scans. Diff-aware scans run on your code before and after some baseline and only reports findings newly introduced in the commits after that baseline.
-
+When working with a CI provider, you can set Semgrep to run **[diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** as well as full scans. Diff-aware scans run on your code before and after some baseline, and only report findings newly introduced in the commits after that baseline.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,30 +26,31 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value='azure'>
 
-Create a `templates` folder in the repository where you want to run Semgrep. Then, commit the following template for a Semgrep diff-aware scan:
+To add this configuration in Azure Pipelines, follow the general instructions provided in [Sample CI configurations: Azure Pipelines](/docs/semgrep-ci/sample-ci-configs#azure-pipelines). If your repository's default branch is not `main`, change the references to `main` to the name of your default branch.
 
 ```yaml
 steps:
 - checkout: self
   clean: true
-  fetchDepth: 10000
+  fetchDepth: 20
 persistCredentials: true
 - script: |
-    echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
-    git fetch origin main:origin/main
     python -m pip install --upgrade pip
     pip install semgrep
-    semgrep ci
-  env:
-  SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-  SEMGREP_BASELINE_REF: 'origin/main'
+    if [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+      echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
+      git fetch origin main:origin/main
+      export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+      export SEMGREP_BASELINE_REF='origin/main'
+      semgrep ci
 ```
 
-You must define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. This is because diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not.
+If you are also running full scans for the repository (recommended) you can either use if clauses or define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. Diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not. Full scans would typically be run on the condition `if [ $(Build.SourceBranchName) = "main" ]`.
 
 </TabItem>
 
 <TabItem value='bitbucket'>
+
 In the Bitbucket Pipelines configuration file, set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseline_ref) to enable diff-aware scanning:
 
 ```yaml
@@ -59,12 +59,16 @@ image: semgrep/semgrep:latest
 pipelines:
   ...
   pull-requests:
-    '**': # This applies to pull requests for all branches
+    **:
       - step:
-          name: Semgrep scan on PR
-          script:
-            # Change to your default branch if different from main
-            - export SEMGREP_BASELINE_REF="origin/main"
+        name: Semgrep scan on PR
+        script:
+          - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+          - export BITBUCKET_TOKEN=$PAT # Necessary for PR comments
+          # Change to your default branch if different from main
+          - export SEMGREP_BASELINE_REF="origin/main"
+          - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+          - semgrep ci
 ```
 
 </TabItem>
@@ -118,7 +122,7 @@ jobs:
 </TabItem>
 <TabItem value='gitlab'>
 
-Obtain the value of `$CI_MERGE_REQUEST_IID`, the unique project-level IID (internal ID) of the merge request, in the `rules` section of the pipeline definition. The results of the evaluation determine the attributes of the job. If `$CI_MERGE_REQUEST_IID` exists, Semgrep runs a diff-aware scan:
+Set up your `.gitlab-ci.yml` conditions (usually `rules`) to run a scan if `$CI_MERGE_REQUEST_IID` is defined. Semgrep automatically runs a diff-aware scan if the variable is present, as it is in merge request pipelines:
 
 ```yaml
 rules:
@@ -151,7 +155,14 @@ semgrep:
 
 </TabItem>
 <TabItem value='jenkins'>
-Forthcoming
+
+Jenkins is highly configurable and there are multiple approaches to setting up diff-aware scans.
+
+See the following articles for detailed guides:
+
+* [Set up Jenkins pipeline projects for Bitbucket repositories](/docs/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects)
+* [Full and diff-aware scans with GitHub and Jenkins](/docs/kb/semgrep-ci/jenkins-diff-scans)
+
 </TabItem>
 <TabItem value='other'>
 
@@ -160,6 +171,8 @@ Set [`SEMGREP_BASELINE_REF`](/semgrep-ci/ci-environment-variables#semgrep_baseli
 ```console
 export SEMGREP_BASELINE_REF="main"
 ```
+
+You may need to perform additional `git checkout` steps to ensure that the configured baseline ref is available in the scan environment along with the source branch.
 
 </TabItem>
 </Tabs>
