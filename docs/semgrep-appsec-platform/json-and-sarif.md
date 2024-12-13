@@ -267,6 +267,11 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 <td><code>runs</code></td>
 <td colspan="2">See [`runs` object](#runs-object)</td>
 </tr>
+<tr>
+<td><code>version</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
 </tbody></table>
 
 ### `runs` object
@@ -295,11 +300,6 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 </tr>
 <tr>
 <td><code>semanticVersion</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>version</code></td>
 <td>✅</td>
 <td>✅</td>
 </tr>
