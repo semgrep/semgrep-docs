@@ -21,9 +21,13 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
-       --allow-dynamic-dependency-resolution
-           Experimental: allow resolving dependencies dynamically by
-           communicating with package managers during the scan.
+       --allow-local-builds
+           Experimental: allow building projects contained in the repository.
+           This allows Semgrep to identify dependencies and dependency
+           relationships when lockfiles are not present or are insufficient.
+           However, building code may inherently require the execution of
+           code contained in the scanned project or in its dependencies,
+           which is a security risk.
 
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
@@ -264,11 +268,6 @@ OPTIONS
        --no-dryrun
            negates --dryrun
 
-       --no-dynamic-dependency-resolution
-           Experimental: disable resolving dependencies dynamically by
-           communicating with package managers during the scan. This is the
-           default, so this flag currently has no effect.
-
        --no-exclude-minified-files
            negates --exclude-minified-files
 
@@ -421,13 +420,12 @@ OPTIONS
            internal use and may be changed or removed wihtout warning. 
 
        --use-git-ignore
-           Skip files ignored by git. Scanning starts from the root folder
-           specified on the Semgrep command line. Normally, if the scanning
-           root is within a git repository, only the tracked files and the
-           new files would be scanned. Git submodules and git- ignored files
-           would normally be skipped. --no-git-ignore will disable git-aware
-           filtering. Setting this flag does nothing if the scanning root is
-           not in a git repository. 
+           '--no-git-ignore' causes semgrep to not call 'git' and not consult
+           '.gitignore' files to determine which files semgrep should scan.
+           As a result of '--no-git-ignore', gitignored files and git
+           submodules will be scanned. This flag has no effect if the
+           scanning root is not in a git repository. '--use-git-ignore' is
+           semgrep's default behavior.
 
        -v, --verbose
            Show more details about what rules are running, which files failed
