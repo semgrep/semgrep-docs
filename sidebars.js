@@ -222,7 +222,7 @@ module.exports = {
                 'semgrep-code/pro-rules',
                 {
                     type: 'category',
-                    label: 'Semgrep OSS',
+                    label: 'Semgrep Community Edition',
                     collapsible: true,
                     items: [
                         'deployment/oss-deployment',
