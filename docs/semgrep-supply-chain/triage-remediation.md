@@ -110,6 +110,10 @@ Once you have viewed the Supply Chain findings, you can triage them for further 
  </tr>
  </thead>
  <tbody>
+<tr>
+ <td>View the [dependency paths for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta).</td>
+ <td>Visible on the vulnerability entry.</td>
+ </tr>
  <tr>
  <td>View specific pattern matches in your codebase.</td>
  <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.</td>
