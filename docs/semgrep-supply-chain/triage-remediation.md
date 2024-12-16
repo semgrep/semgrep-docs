@@ -111,7 +111,7 @@ Once you have viewed the Supply Chain findings, you can triage them for further 
  </thead>
  <tbody>
 <tr>
- <td>View the dependency paths for a transitive dependency.</td>
+ <td>View the [dependency paths for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta).</td>
  <td>Visible on the vulnerability entry.</td>
  </tr>
  <tr>
