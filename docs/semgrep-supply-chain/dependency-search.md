@@ -1,7 +1,7 @@
 ---
 slug: dependency-search
 append_help_link: true
-title: Dependency search
+title: View and search for dependencies
 hide_title: true
 description: "View and search through all your dependencies in all your onboarded repositories at any time."
 tags:
@@ -72,22 +72,22 @@ Dependency search provides the following filters, which correspond to the data p
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**. Dependency search page with sample search query._
 
-## Dependency graphs (beta)
+## Dependency paths (beta)
 
 :::info
 To participate in this beta, reach out to [sales@semgrep.com](mailto:sales@semgrep.com).
 :::
 
-Dependency graphs allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand:
+Dependency paths allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand:
 
 - How a transitive dependency was introduced
 - How deep the transitive dependency is nested in the dependency tree. The dependency tree reflects your project that Semgrep generates
 
 ### Supported languages
 
-Semgrep generates dependency graphs for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
+Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
 
-Semgrep can also generate dependency graphs for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Dependency graphs for such projects are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan from an environment with all of the project's required dependencies, such as Java and Maven, installed:
+Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Dependency paths for such projects are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan from an environment with all of the project's required dependencies, such as Java and Maven, installed:
 
 ```console
 semgrep ci --allow-local-builds
