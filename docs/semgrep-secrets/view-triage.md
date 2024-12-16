@@ -10,6 +10,7 @@ tags:
 ---
 
 import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
+import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
 
 # Triage secrets findings in Semgrep AppSec Platform
 
@@ -27,6 +28,10 @@ In Semgrep, a **single** finding may appear in several branches. These appearanc
 ### Time period and triage
 
 <TimePeriodFilters />
+
+### Export findings
+
+<ExportFindingsCsv />
 
 ## Triage findings
 
