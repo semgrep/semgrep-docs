@@ -227,7 +227,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>Rust</td>
    <td>Cargo*</td>
    <td><code>cargo.lock</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td style={{"text-align": "center"}}>--</td>
    <td>✅</td>
    <td rowspan="5">Not applicable due to reachability support level</td>
 </tr>
@@ -235,21 +235,21 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>Dart</td>
    <td>Pub</td>
    <td><code>pubspec.lock</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td style={{"text-align": "center"}}>--</td>
    <td>--</td>
 </tr>
 <tr>
    <td>Elixir</td>
    <td>Hex</td>
    <td><code>mix.lock</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td style={{"text-align": "center"}}>--</td>
    <td>--</td>
 </tr>
 <tr>
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
-   <td style={{"text-align": "center"}}>Lockfile-only</td>
+   <td style={{"text-align": "center"}}>--</td>
    <td>--</td>
 </tr>
   </tbody>
@@ -296,4 +296,4 @@ Their differences are outlined in the following table:
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain uses **lockfile-only** rules, which compare a package's version against versions with known vulnerabilities.
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities
