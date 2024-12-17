@@ -440,6 +440,8 @@ To add Semgrep into Azure Pipelines:
 
 ### Sample Azure Pipelines configuration snippet
 
+This configuration snippet is tested with hosted Azure runners. If you are using self-hosted runners, you may need to make adjustments to ensure that the necessary software is available.
+
 <Tabs
     defaultValue="azure-semgrep"
     values={[
