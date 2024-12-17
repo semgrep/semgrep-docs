@@ -88,7 +88,7 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 ## Scan a project without lockfiles (beta)
 
 :::info
-To participate in this beta, reach out to [sales@semgrep.com](mailto:sales@semgrep.com).
+To participate in this beta, reach out to [support@semgrep.com](mailto:support@semgrep.com).
 :::
 
 Semgrep Supply Chain can scan Java projects built using Maven or Gradle Wrapper without the need for lockfiles.
