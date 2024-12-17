@@ -30,7 +30,7 @@ A lockfile describes a dependency tree to ensure that deployments and organizati
 
 Semgrep Supply Chain uses lockfiles as part of its analysis to determine the exact version of a dependency that a codebase is using.
 
-## Rules without reachability Analysis
+## Rules without reachability analysis
 
 Some Semgrep Supply Chain rules do not perform reachability analysis. These rules only check a package's version against versions with known vulnerabilities. These rules produce vulnerabilities similar to GitHub Dependabot's results, and have a higher false positive rate than reachability rules.
 
