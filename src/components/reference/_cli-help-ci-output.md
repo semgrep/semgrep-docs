@@ -268,11 +268,6 @@ OPTIONS
        --no-dryrun
            negates --dryrun
 
-       --no-dynamic-dependency-resolution
-           Experimental: disable resolving dependencies dynamically by
-           communicating with package managers during the scan. This is the
-           default, so this flag currently has no effect.
-
        --no-exclude-minified-files
            negates --exclude-minified-files
 
