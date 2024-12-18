@@ -77,5 +77,5 @@ To receive PR or MR comments, ensure that:
 **_Figure._** Semgrep Secrets finding in a PR comment.
 
 :::info
-Define which rules and validations states should be in allow, comment, or block mode in the [Policies](/semgrep-secrets/policies) page.
+Define which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 :::
