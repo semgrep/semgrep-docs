@@ -11,7 +11,7 @@ This guide provides two setup options: one for full Semgrep scans only, and one 
 Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
 :::
 
-## Full scans
+## Set up full scans
 
 ### Create your Jenkinsfile
 
@@ -44,8 +44,8 @@ This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance crede
 
 #### Under General
 
-1. Check the box "GitHub Project" and enter the URL for the project, `https://github.com/<namespace>/<project>/`
-2. Under Build Triggers, select the "GitHub Hook trigger for GITScm polling" box.
+1. Check the box **GitHub Project** and enter the URL for the project: `https://github.com/<namespace>/<project>/`
+2. Under **Build Triggers**, select the **GitHub Hook trigger for GITScm polling** box.
 
 #### Under Pipeline
 
@@ -55,7 +55,7 @@ This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance crede
     - Repository URL: `https://github.com/<namespace>/<project>/`
     - Credentials: (select the appropriate credentials for your project)
 4. Branches to build: `refs/heads/main`
-5. Additional Behaviours: from the dropdown, select "Check out to specific local branch"
+5. Additional Behaviours: from the drop-down box, select "Check out to specific local branch"
     - Enter `**` for Branch name.
 6. Script Path: Jenkinsfile
 7. Check box: Lightweight checkout
@@ -96,7 +96,7 @@ pipeline {
 }
 ```
 
-## Adding diff-aware scans
+## Set up full and diff-aware scans
 
 Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile, using a full scan configuration based on the example in the preceding section.
 
@@ -160,7 +160,7 @@ pipeline {
 
 The Jenkinsfile defines two Semgrep stages, each of which is run for certain branches: a diff-aware scan for PR branches, and a full scan for the main branch. This diff-aware scan configuration uses a computed merge base, rather than setting the merge base to the default branch. This is more similar to how Semgrep performs in GitHub actions. Setting the SEMGREP_REPO_NAME and SEMGREP_PR_ID allows Semgrep to identify the connected project and related PR.
 
-In order to compute the merge-base, the pipeline performs some additional git commands to make the default branch available to git for computation, and cleans the workspace afterwards so those commands can always run successfully in a clean workspace.
+To compute the merge base, the pipeline runs additional Git commands to ensure that the default branch is available to Git for computation. Afterward, the pipeline cleans the workspace so subsequent use of these commands for future scans is successful.
 
 :::info
 Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to `main` or `master`, you may see spurious findings in diff-aware scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.

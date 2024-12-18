@@ -45,7 +45,7 @@ persistCredentials: true
       semgrep ci
 ```
 
-If you are also running full scans for the repository (recommended) you can either use if clauses or define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. Diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not. Full scans would typically be run on the condition `if [ $(Build.SourceBranchName) = "main" ]`.
+If you are running both full and diff-aware scans for the repository, you can use if clauses or define separate templates for full scans and [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) in Azure Pipelines. Diff-aware scans require the use of the  `SEMGREP_PR_ID` and `SEMGREP_BASELINE_REF` variables, while full scans do not. Full scans are typically run on the condition `if [ $(Build.SourceBranchName) = "main" ]`.
 
 </TabItem>
 
