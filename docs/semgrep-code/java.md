@@ -23,7 +23,7 @@ The code examples shown here are best viewed in **a separate Semgrep Playground 
 
 Strong typing in Java, combined with its compile-time and runtime checks, reduces the likelihood that an integer or Boolean input will be exploited to perform injection-style attacks. Semgrep Pro can reduce false positives by leveraging these checks.
 
-The Semgrep OSS Engine matches based on patterns, which can result in false positives (FPs), but only proprietary Semgrep can detect Boolean and integer values and mark these as untainted, or safe, eliminating FPs.
+Semgrep Community Edition (CE) matches based on patterns, which can result in false positives (FPs), but only proprietary Semgrep can detect Boolean and integer values and mark these as untainted, or safe, eliminating FPs.
 
 ### Example: `int-bool-untainted`
 
@@ -95,7 +95,7 @@ class Test {
 **Figure**. `int-bool-untainted`. [<i class="fas fa-external-link fa-xs"></i> Open in interactive Playground](https://semgrep.dev/playground/s/r6rKR).
 
 * This example has two true positives: **line 22** and **line 28**.
-* Semgrep Pro is able to detect that **line 24 and 30 are false positives**. Semgrep OSS can't catch that distinction.
+* Semgrep Pro is able to detect that **line 24 and 30 are false positives**. Semgrep CE can't catch that distinction.
     * Line 24 is a false positive because the data in the sink is an element of an integer list.
     * Line 30 is a false positive because the data in the sink is an element in a set of Boolean values.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted.
@@ -175,7 +175,7 @@ class SQLQueryRunner {
 
 
 * This example has two true positives: **line 11** and **line 20**.
-* Semgrep Pro is able to detect that **line 14 and 17 are false positives**. Semgrep OSS can't catch that distinction.
+* Semgrep Pro is able to detect that **line 14 and 17 are false positives**. Semgrep CE can't catch that distinction.
     * Lines 14 and 17 are false positives because `input.endsWith("something")` and `input.indexOf('u')` return a Boolean and integer respectively. Semgrep Pro is able to understand `endsWith` and `indexOf` Java methods.
 * The Semgrep rule uses the fields `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to tell the engine that these types are safe and not tainted.
 
@@ -183,7 +183,7 @@ class SQLQueryRunner {
 
 Semgrep supports class inheritance in Java. You can use Semgrep to search across all subclasses. This specificity means that rules can better target your codebase, increasing true positive rates. This is achieved through the `metavariable-type` field, which can accept the name of any user-defined class.
 
-The `metavariable-type` field is available in Semgrep OSS. However, classes in Java are frequently defined across files (interfile), which is beyond the scope of Semgrep OSS's analysis. Use Semgrep Pro to perform cross-file analysis to ensure that Semgrep can detect all class and subclass definitions.
+The `metavariable-type` field is available in Semgrep CE. However, classes in Java are frequently defined across files (interfile), which is beyond the scope of Semgrep CE's analysis. Use Semgrep Pro to perform cross-file analysis to ensure that Semgrep can detect all class and subclass definitions.
 
 ### Example: `detect-pattern-in-subclass`
 

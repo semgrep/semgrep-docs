@@ -16,7 +16,7 @@ The definitions provided here are specific to Semgrep.
 
 ## Constant propagation
 
-Constant propagation is a type of analysis where values known to be constant are substituted in later uses, allowing the value to be used to detect matches. Semgrep can perform constant propagation across files, unless you are running Semgrep OSS, which can only propagate within a file.
+Constant propagation is a type of analysis where values known to be constant are substituted in later uses, allowing the value to be used to detect matches. Semgrep can perform constant propagation across files, unless you are running Semgrep Community Edition (CE), which can only propagate within a file.
 
 Constant propagation is applied to all rules unless [it is disabled](/writing-rules/data-flow/constant-propagation#disable-constant-propagation).
 
@@ -43,7 +43,7 @@ Constant propagation is one of the many analyses that differentiate Semgrep from
 
 Within Semgrep, cross-file **and** cross-function analysis is simply referred to as cross-file analysis.
 
-Semgrep OSS is limited to per-file analysis.
+Semgrep CE is limited to per-file analysis.
 
 ## Cross-function analysis
 

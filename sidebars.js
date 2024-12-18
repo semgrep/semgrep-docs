@@ -223,7 +223,7 @@ module.exports = {
                 'semgrep-code/pro-rules',
                 {
                     type: 'category',
-                    label: 'Semgrep OSS',
+                    label: 'Semgrep Community Edition',
                     collapsible: true,
                     items: [
                         'deployment/oss-deployment',
@@ -309,6 +309,7 @@ module.exports = {
             ]
         },
         'cli-reference',
+        `semgrep-appsec-platform/json-and-sarif`,
       ]
     }
   ],
@@ -653,6 +654,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/november-2024',
                 'release-notes/october-2024',
                 'release-notes/september-2024',
                 'release-notes/august-2024',

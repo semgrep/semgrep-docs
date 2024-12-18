@@ -2,10 +2,10 @@
 slug: reduce-false-positives
 title: Reduce false positives
 hide_title: true
-description: Learn different strategies to reduce false positives in your Semgrep OSS scans.
+description: Learn different strategies to reduce false positives in your Semgrep CE scans.
 tags:
   - Semgrep Code
-  - Semgrep OSS
+  - Semgrep Community Edition
 ---
 
 import ProRulesLanguageCoverage from "/src/components/reference/_pro-rules-language-coverage.mdx"
@@ -50,7 +50,7 @@ Delete the rule from the folder containing your Semgrep rules.
 
 Optimizing rules can be a time-consuming process. Often, rules are not necessarily noisy, but lack additional analysis to detect true positives while ignoring false positives.
 
-[Semgrep Code](/semgrep-code/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep OSS can't find.
+[Semgrep Code](/semgrep-code/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep Community Edition (CE) can't find.
 
 For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default once you've signed in to Semgrep.
 

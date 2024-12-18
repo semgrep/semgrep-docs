@@ -18,7 +18,7 @@ A programming language must be supported by Semgrep for your chosen product.
 
 | Product              | Scan type | Link   |
 | -------              | ------    | ------ |
-| Semgrep OSS          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Community Edition (CE)          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
 | Semgrep Code         | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
 | Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages#semgrep-supply-chain)       |
 | Semgrep Secrets      | Secrets   | Language-agnostic       |
@@ -27,11 +27,11 @@ A programming language must be supported by Semgrep for your chosen product.
 
 ## Semgrep command-line tool
 
-These requirements apply to both Semgrep Pro and Semgrep OSS.
+These requirements apply to both Semgrep AppSec Platform and Semgrep CE.
 
 ### Software
 
-- Python 3.8 or later installed on the machine you are running Semgrep on.
+- Python 3.9 or later installed on the machine you are running Semgrep on.
 
 ### Operating system
 

@@ -5,8 +5,8 @@ title: Support
 hide_title: true
 description: Learn about the support options offered by Semgrep.
 tags:
-  - support
-  - troubleshooting
+  - Support
+  - Troubleshooting
 ---
 
 # Support
@@ -47,14 +47,14 @@ your issue, you can email the Support team at
 ## Support for all Semgrep users (community support)
 
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
-Semgrep maintainers and support engineers. All users, including Semgrep OSS users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
+Semgrep maintainers and support engineers. All users, including Semgrep Community Edition (CE) users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
 
 Users interested in seeing a demo or proof of concept can also send inquiries
 through [email](mailto:support@semgrep.com).
 
-## Semgrep OSS support
+## Semgrep CE support
 
-Users of Semgrep OSS can log bugs and feature requests in the
+Users of Semgrep CE can log bugs and feature requests in the
 [semgrep](https://github.com/semgrep/semgrep/issues) repository. They can also
 ask questions regarding usage, rollouts, and deployments in the [community Slack
 group](https://go.semgrep.dev/slack)

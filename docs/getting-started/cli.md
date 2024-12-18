@@ -132,10 +132,10 @@ semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
+See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
 :::
 
-## Scan using specific Semgrep Products
+## Scan using specific Semgrep products
 
 When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep AppSec Platform. To scan your project with just one product, run:
 

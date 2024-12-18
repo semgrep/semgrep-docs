@@ -595,7 +595,7 @@ By default, Semgrep assumes that accessing an array-like object with a tainted i
 ### Assume function calls are safe
 
 :::note
-We refer to a function call as _opaque_ when Semgrep does not have access to its definition, to examine it and determine its "taint behavior" (for example, whether the function call propagates or not any taint that comes through its inputs). In Semgrep OSS, where taint analysis is intra-procedural, all function calls are opaque. In Semgrep Pro, with [inter-procedural taint analysis](#inter-procedural-analysis-pro), an opaque function could be one coming from a third-party library.
+We refer to a function call as _opaque_ when Semgrep does not have access to its definition, to examine it and determine its "taint behavior" (for example, whether the function call propagates or not any taint that comes through its inputs). In Semgrep Community Edition (CE), where taint analysis is intra-procedural, all function calls are opaque. In Semgrep Pro, with [inter-procedural taint analysis](#inter-procedural-analysis-pro), an opaque function could be one coming from a third-party library.
 :::
 
 By default Semgrep considers that an _opaque_ function call propagates any taint passed through any of its arguments to its output.
@@ -637,7 +637,7 @@ The following example demonstrates the use of source and sink metavariable unifi
 
 **Inter-procedural taint analysis is a Semgrep Pro feature.**
 
-[Semgrep Pro](/semgrep-pro-vs-oss/) can perform inter-procedural taint analysis, that is, to track taint across multiple functions.
+[Semgrep](/semgrep-pro-vs-oss/) can perform inter-procedural taint analysis, that is, to track taint across multiple functions.
 
 In the example below, `user_input` is passed to `foo` as input and, from there, flows to the sink at line 3, through a call chain involving three functions. Semgrep is able to track this and report the sink as tainted. Semgrep also provides an inter-procedural taint trace that explains how exactly `user_input` reaches the `sink(z)` statement (click "Open in Playground" then click "dataflow" in the "Matches" panel).
 
