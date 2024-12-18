@@ -129,7 +129,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 </tr>
 <tr>
 <td><code>lines</code></td>
-<td>✅</td>
+<td>❌</td>
 <td>✅</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 </tr>
 <tr>
 <td><code>rules</code></td>
-<td>❌</td>
+<td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
