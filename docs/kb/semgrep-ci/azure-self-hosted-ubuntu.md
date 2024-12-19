@@ -5,7 +5,7 @@ description: Run Semgrep on self-hosted Ubuntu runners in Azure DevOps.
 ---
 # Semgrep with self-hosted Ubuntu runners in Azure Pipelines
 
-Semgrep offers a sample configuration for Azure-hosted runners. If you use self-hosted Ubuntu Linux runners, you have significantly more control over their configuration, but as a result, they require additional preparation and configuration.
+Semgrep provides a [sample configuration for Azure-hosted runners](docs/semgrep-ci/sample-ci-configs#azure-pipelines). If you use self-hosted Ubuntu Linux runners, you have significantly more control over their configuration, but as a result, they require additional preparation and configuration to run Semgrep.
 
 Two approaches to configuring self-hosted runners that use Ubuntu:
 
