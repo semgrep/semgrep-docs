@@ -77,7 +77,7 @@ On adding or editing the `azure-pipelines.yml` file, the Semgrep scan job should
 
 ### Prepare your runner
 
-This approach uses built-in Azure DevOps tasks, including `UsePythonVersion` and `Bash`, and uses a virtual environment to install pip, another approach that prevents issues with system-managed Python vs user-installed Python.
+This approach uses built-in Azure DevOps tasks, including `UsePythonVersion` and `Bash`, and uses a virtual environment to install `pip`, another approach that prevents issues with system-managed Python vs user-installed Python.
 
 1. Ensure you have a pre-installed and configured compatible version of Python 3, following [the instructions for UsePythonVersion for self-hosted runners](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0?view=azure-pipelines#how-can-i-configure-a-self-hosted-agent-to-use-this-task).
 2. Ensure the [Azure DevOps agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops) is set up and running.
