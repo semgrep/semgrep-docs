@@ -87,7 +87,7 @@ pipeline {
   environment {
     // Required for a Semgrep AppSec Platform-connected scan:
     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-		// Set typical project (repo) name
+    // Set typical project (repo) name
     SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
   }
   stages {
@@ -167,7 +167,9 @@ pipeline {
 }
 ```
 
-The Jenkinsfile defines two Semgrep stages: one stage runs a full scan for the main branch, while the other stage runs a diff-aware scan for PR branches. The diff-aware scan configuration uses a computed merge base, rather than setting the merge base to the default branch. This is similar to how Semgrep runs in GitHub actions. Setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
+This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance credentials store. 
+
+It defines two Semgrep stages: one stage runs a full scan for the main branch, while the other stage runs a diff-aware scan for PR branches. The diff-aware scan configuration uses a computed merge base, rather than setting the merge base to the default branch. This is similar to how Semgrep runs in GitHub actions. Setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
 
 To compute the merge base, the pipeline runs additional Git commands to ensure that the default branch is available to Git for computation. Afterward, the pipeline cleans the workspace so subsequent use of these commands for future scans is successful.
 
