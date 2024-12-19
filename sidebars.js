@@ -20,6 +20,7 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
+    { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
       type: 'link',
       label: 'Knowledge base',
@@ -622,6 +623,19 @@ module.exports = {
         },
       ]
     },
+  ],
+  devSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+        type: 'category',
+        label: 'Semgrep for developers',
+        collapsible: false,
+        items: [
+            'for-developers/developer-overview',
+            'for-developers/developer-signin',
+            'for-developers/resolve-findings',
+        ],
+    }
   ],
   updatesSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
