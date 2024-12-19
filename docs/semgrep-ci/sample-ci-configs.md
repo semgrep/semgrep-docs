@@ -440,7 +440,7 @@ To add Semgrep into Azure Pipelines:
 
 ### Sample Azure Pipelines configuration snippet
 
-This configuration snippet is tested with hosted Azure runners. If you are using self-hosted runners, you may need to make adjustments to ensure that the necessary software is available.
+This configuration snippet is tested with hosted Azure runners. If you are using self-hosted runners, you may need to make adjustments to ensure that the necessary software is available. Consult [Semgrep with self-hosted Ubuntu runners in Azure Pipelines](/kb/semgrep-ci/azure-self-hosted-ubuntu) for a starting point.
 
 <Tabs
     defaultValue="azure-semgrep"
