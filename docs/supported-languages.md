@@ -115,8 +115,8 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
 <thead><tr>
     <th>Language</th>
     <th>Supported package managers</th>
-    <th>Lockfile</th>
-    <th><a href="#reachability-support-level">Reachability support level</a></th>
+    <th>Manifest file or Lockfile</th>
+    <th><a href="#reachability-support-level">Reachability</a></th>
     <th>License detection support</th>
     <th>Period of reachability rule coverage for CVEs/GHSAs</th>
 </tr></thead>
@@ -184,7 +184,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any lockfile in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any manifest file or lockfile in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">✅ (PyPI packages only)</td>
   </tr>
@@ -255,7 +255,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   </tbody>
 </table>
 </div>
-_*Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
+_*Supply Chain does not analyze the transitivity of packages for these language, manifest file, and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
 
 ### Maturity levels
 
