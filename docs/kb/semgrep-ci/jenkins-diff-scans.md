@@ -25,9 +25,9 @@ Your UI (user interface) may vary depending on your Jenkins installation. These 
 
 <TabItem value='full-scans'>
 
-## Create your Jenkinsfile
+### Create the Jenkinsfile
 
-To start the process, create your initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+To start the process, create the initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
 
 ```bash
 pipeline {
@@ -52,7 +52,7 @@ pipeline {
 
 This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance credentials store. It does not set any other variables.
 
-## Set up a pipeline
+### Set up a pipeline
 
 
 1. Under **General**, Check the box **GitHub Project** box and provide your project URL (in the format `https://github.com/<namespace>/<project>/`).
@@ -111,9 +111,9 @@ pipeline {
 
 Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The Multibranch Pipeline provides access to useful variables for the diff-aware scan configuration. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches.
 
-## Create the Jenkinsfile
+### Create the Jenkinsfile
 
-Add the following to a `Jenkinsfile` in the root of the repository. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+To start the process, create the initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
 
 ```bash
 pipeline {
@@ -177,7 +177,7 @@ To compute the merge base, the pipeline runs additional Git commands to ensure t
 Using a computed merge base is strongly recommended. If you instead set `SEMGREP_BASELINE_REF` to `main` or `master` instead, you may see spurious findings in diff-aware scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout` as shown in this example.
 :::
 
-## Configure the Multibranch pipeline
+### Configure the Multibranch pipeline
 
 1. Under **Branch Sources**, click **Add source** and select **GitHub**.
 2. Select **Repository HTTPS URL** and provide your project URL (in the format `https://github.com/<namespace>/<project>/`).
