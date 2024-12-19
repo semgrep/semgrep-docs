@@ -92,6 +92,12 @@ Add the following snippet to the `azure-pipelines.yml` for the repository.
 :::
 
 ```yaml
+variables:
+- group: Semgrep_Variables
+
+pool:
+  name: Default
+
 steps:
   - checkout: self
     clean: true
