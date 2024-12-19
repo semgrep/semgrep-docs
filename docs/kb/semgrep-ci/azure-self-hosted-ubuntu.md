@@ -43,7 +43,7 @@ Add the following snippet to the `azure-pipelines.yml` for the repository.
 * If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
 :::
 
-```
+```yaml
 variables:
 - group: Semgrep_Variables
 
@@ -91,7 +91,7 @@ Add the following snippet to the `azure-pipelines.yml` for the repository.
 * If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
 :::
 
-```
+```yaml
 steps:
   - checkout: self
     clean: true
