@@ -35,9 +35,9 @@ To search your dependencies:
 
 At this point, Semgrep displays the lockfiles or manifests that it has used to determine dependency information and the dependencies included in each of the lockfiles or manifests.
 
-### View additional lockfiles
+### View additional manifest files and lockfiles
 
-By default, Semgrep only displays dependencies listed in a given project's first **10** lockfiles. To load information from additional lockfiles:
+By default, Semgrep only displays dependencies listed in a given project's first **10** manifest files and lockfiles. To load information from additional files:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to **Supply Chain > Dependencies**, and scroll to the bottom of the page.
@@ -107,7 +107,7 @@ _**Figure**. Supply Chain findings with a dependency graph shown._
 
 If you don't see any results on the Dependencies page, ensure that:
 
-* Semgrep Supply Chain can parse your lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages and lockfiles.
+* Semgrep Supply Chain can parse your lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages, manifest files, and lockfiles.
 * You've scanned the repository at least once. If you're having trouble seeing dependencies after a scan, see [Why aren't Supply Chain findings showing?](https://semgrep.dev/docs/kb/semgrep-supply-chain/why-no-findings) for additional troubleshooting tips.
 * Your filters and search syntax are correct.
 * The scan you're searching isn't a diff-aware scan. Only dependencies detected during full scans are shown on the **Dependencies** page. 
