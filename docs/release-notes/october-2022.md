@@ -102,7 +102,7 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 The following guides are now available for Semgrep Supply Chain:
 - [Scanning open source dependencies](/semgrep-supply-chain/getting-started) - Walks the user through setting up Semgrep Supply Chain scans and how Semgrep performs reachability analysis.
 - [Triaging and remediating dependency findings](/semgrep-supply-chain/triage-and-remediation) - Provides workflows for triaging dependency findings.
-- [Ignoring lockfiles and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) - Provides commands to fine-tune what files should not be scanned.
+- [Ignoring lockfiles and dependencies](/semgrep-supply-chain/ignoring-dependencies) - Provides commands to fine-tune what files should not be scanned.
 
 The following references are available for Semgrep Supply Chain:
 - [Supported languages](/docs/supported-languages#semgrep-supply-chain) - All languages supported by Semgrep Supply Chain and their maturity levels.
