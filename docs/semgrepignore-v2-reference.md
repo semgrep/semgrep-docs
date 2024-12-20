@@ -38,7 +38,7 @@ The list of files obtained by expanding the scanning roots are called
 **target files**. To obtain target files, Semgrep follows a
 number of fixed rules and some configurable filters.
 
-For each scanning root, Semgrep infers a project root (v2 only). The
+for each scanning root, Semgrep infers a **project root** (v2 only). The
 project root determines the location of applicable `.semgrepignore`
 files as well as `.gitignore` files in Git projects. In v1 where is no
 notion of a project root, the `.semgrepignore` file is unique and
