@@ -25,7 +25,7 @@ Scanning roots are folders, individual files, or named pipes that should be
 expanded into a list of regular files to be analyzed. Symbolic links are
 allowed as scanning roots.
 
-Expanding a folder consists in listing its contents recursively with
+Expanding a folder consists of listing its contents recursively with
 the following exceptions:
 
 * Symbolic links other than the original scanning roots are ignored.
