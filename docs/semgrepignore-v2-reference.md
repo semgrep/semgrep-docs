@@ -56,7 +56,7 @@ As an experimental debugging aid, Semgrep provides the the `--x-ls` option
 to list the target files. `--x-ls-long` additionally prints excluded
 files and a brief justification. Beware that these two options are
 likely to be renamed or change their behavior in the
-future. Meanwhile, typical usage is:
+future. Meanwhile, its typical usage is:
 
 ```
 semgrep --x-ls
