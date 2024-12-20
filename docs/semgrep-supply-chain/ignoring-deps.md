@@ -1,5 +1,5 @@
 ---
-slug: ignoring-lockfiles-dependencies
+slug: ignoring-dependencies
 append_help_link: true
 description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring manifest files or code files."
 tags:
