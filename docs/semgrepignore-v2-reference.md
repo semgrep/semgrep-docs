@@ -4,7 +4,7 @@ append_help_link: true
 description: |
   Reference of the semgrepignore file fitering mechanism for Semgrep
 hide_title: true
-title: Semgrepignore reference (v2)
+title: Semgrepignore v2 reference
 ---
 
 import Tabs from '@theme/Tabs';
