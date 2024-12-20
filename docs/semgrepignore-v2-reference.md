@@ -35,7 +35,7 @@ the following exceptions:
   upcoming section.
 
 The list of files obtained by expanding the scanning roots are called
-"target files". To obtain target files, Semgrep follows a
+**target files**. To obtain target files, Semgrep follows a
 number of fixed rules and some configurable filters.
 
 For each scanning root, Semgrep infers a project root (v2 only). The
