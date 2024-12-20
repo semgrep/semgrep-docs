@@ -10,7 +10,7 @@ title: Semgrepignore v2 reference
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Semgrepignore reference (v2)
+# Semgrepignore v2 reference
 
 This document covers the Semgrepignore **v2** target filtering system that is
 currently available with the `--experimental` option of the `semgrep`
