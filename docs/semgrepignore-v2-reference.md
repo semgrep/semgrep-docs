@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 This document covers the Semgrepignore target filtering system that is
 currently available with the `--experimental` option of the `semgrep`
-command ("v2"). It differs slightly from the legacy implementation which is
+command. It differs from the legacy **v1** implementation.
 referred to as "v1".
 
 ## The target filtering process
