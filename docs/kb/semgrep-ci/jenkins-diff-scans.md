@@ -9,7 +9,12 @@ import TabItem from '@theme/TabItem';
 
 # Full and diff-aware scans with GitHub and Jenkins
 
-This guide shows you how to set up either full scans that run on the default branch, or full and diff-aware scans that run on the default branch and PR branches, respectively. Full scans use a simple Pipeline project. Full and diff-aware scans use a Multibranch Pipeline project. Both options use GitHub as the source code manager, with a repository whose default branch is `main`.
+This guide shows you how to set up:
+
+- Full scans that run on the default branch
+- Full and diff-aware scans that run on the default branch and PR branches
+
+Full scans use a simple Pipeline project. Full and diff-aware scans use a Multibranch Pipeline project. Both options use GitHub as the source code manager, with a repository whose default branch is `main`.
 
 :::info
 Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
@@ -182,7 +187,7 @@ Using a computed merge base is strongly recommended. If you instead set `SEMGREP
 1. Under **Branch Sources**, click **Add source** and select **GitHub**.
 2. Select **Repository HTTPS URL** and provide your project URL (in the format `https://github.com/<namespace>/<project>/`).
 3. Under **Behaviors**, for **Discover branches**, select **Exclude branches that are also filed as PRs** as the **Strategy**.
-4. For **Discover pull requests from origin**, select **The current pull request revision** as the **Strategy**
+4. For **Discover pull requests from origin**, select **The current pull request revision** as the **Strategy**.
 5. For **Property strategy**, select **All branches get the same properties**.
 6. Under **Build Configuration**, for **Mode**, select **by Jenkinsfile**, and enter the script path as `Jenkinsfile`.
 7. Optional: Under **Scan Multibranch Pipeline Triggers**, select **Periodically if not otherwise run** if you want to run the pipeline occasionally if it's not run for other reasons and choose the desired interval.
