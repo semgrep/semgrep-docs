@@ -6,7 +6,7 @@ description: "r2c-internal-project-depends-on lets Semgrep rules only return res
 
 # r2c-internal-project-depends-on
 
-This Semgrep rules key allows specifying third-party dependencies along with the semver (semantic version) range that should trigger the rule. The `r2c-internal-project-depends-on` filters the rule unless one of the children is matched by a lockfile. 
+This Semgrep rules key allows specifying third-party dependencies along with the semver (semantic version) range that should trigger the rule. The `r2c-internal-project-depends-on` filters the rule unless one of the children is matched by a manifest file. 
 
 We welcome external contributors to try out the key, but keep in mind there's no expectation of stability across releases yet. **The API and behavior of this feature is subject to change**.
 
@@ -15,7 +15,7 @@ In the rules.yaml, specify `r2c-internal-project-depends-on` key either as a dep
 A dependency consists of three keys:
 
 * `namespace`: The package registry where the third-party dependency is found.
-* `package`: The name of the third-party dependency as it appears in the lockfile.
+* `package`: The name of the third-party dependency as it appears in the manifest file.
 * `version`: A semantic version range. Uses [Python packaging specifiers](https://packaging.pypa.io/en/latest/specifiers.html) which support almost all NPM operators, except for `^`.
 
 So a `r2c-internal-project-depends-on` key will either look like this:
@@ -64,9 +64,9 @@ rules:
 Findings produced by rules with the `r2c-internal-project-depends-on` can be of two types: _reachable_ and _nonreachable_.
 
 - A _reachable_ finding is one with both a dependency match and a pattern match: a vulnerable dependency was found and the vulnerable part of the dependency (according to the patterns in the rule) is used somewhere in the code.
-- An _unreachable_ finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. Unreachable findings are reported as coming from the lockfile that was dependency matched. For both types of findings, Semgrep specifies whether they are unreachable or reachable along with all matched dependencies, in the `extra` field of Semgrep's JSON output, using the `dependency_match_only` and `dependency_matches` fields, respectively.
+- An _unreachable_ finding is one with only a dependency match. Reachable findings are reported as coming from the code that was pattern matched. Unreachable findings are reported as coming from the manifest file that was dependency matched. For both types of findings, Semgrep specifies whether they are unreachable or reachable along with all matched dependencies, in the `extra` field of Semgrep's JSON output, using the `dependency_match_only` and `dependency_matches` fields, respectively.
 
-A finding is only considered reachable if the file containing the pattern match actually depends on the dependencies in the lockfile containing the dependency match. A file depends on a lockfile if it is the nearest lockfile going up the directory tree.
+A finding is only considered reachable if the file containing the pattern match actually depends on the dependencies in the manifest file containing the dependency match. A file depends on a manifest file if it is the nearest manifest file going up the directory tree.
 
 ## r2c-internal-project-depends-on language support 
 
@@ -81,4 +81,4 @@ A finding is only considered reachable if the file containing the pattern match 
 
 ## Limitations
 
-Dependency resolution uses the source of dependency information with the *least amount of ambiguity* available. For all supported languages except Java, the *least amount of ambiguity* provides a lockfile, which lists exact version information for each dependency that a project uses. Dependency resolution does not scan, for example, `package.json` files, because they can contain version ranges. In the case of Java, Maven does not support the creation of lockfiles, so `pom.xml` is the least ambiguous source of information we have, and we consider only dependencies listed with exact versions.
+Dependency resolution uses the source of dependency information with the *least amount of ambiguity* available. For all supported languages except Java, the *least amount of ambiguity* provides a manifest file, which lists exact version information for each dependency that a project uses. Dependency resolution does not scan, for example, `package.json` files, because they can contain version ranges. In the case of Java, Maven does not support the creation of manifest files, so `pom.xml` is the least ambiguous source of information we have, and we consider only dependencies listed with exact versions.

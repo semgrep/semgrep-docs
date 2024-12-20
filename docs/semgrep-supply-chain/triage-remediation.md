@@ -149,7 +149,7 @@ Semgrep Supply Chain provides a snippet you can copy to update the dependency. C
 
 #### Remove the dependency and refactor the code
 
-Removing the dependency and refactoring the code is another method to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
+Removing the dependency and refactoring the code is another method to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your manifest file, and updates the status to **Fixed**.
 
 ### Ignore findings
 

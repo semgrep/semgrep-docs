@@ -21,16 +21,16 @@ _**Figure**. Semgrep Supply Chain Vulnerabilities page._
 Semgrep Supply Chain detects [security
 vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
-To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies, then scans your codebase using rules that specify the following information:
+To do this, Semgrep Supply Chain parses **manifest files** for a list of dependencies, then scans your codebase using rules that specify the following information:
 
 * The dependency versions that contain a vulnerability
 * The pattern for the vulnerable code that Semgrep compares against your code
 * The severity of the vulnerability
 
-The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and its lockfile:
+The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and its manifest file:
 
-![Relationship between a Semgrep Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
-_**Figure**. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase._
+![Relationship between a Semgrep Supply Chain rule, manifest file, CVE record, and codebase](/img/sc-reachability-analysis.png)
+_**Figure**. Relationship between a Supply Chain rule, manifest file, CVE record, and codebase._
 
 <AdmonitionSotCves />
 
@@ -45,7 +45,7 @@ Supply Chain offers two levels of support for reachability analysis, [depending 
       * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
   * If Semgrep Supply Chain determines that you don't use the vulnerable library package imported or you don't use the vulnerable piece of code of the library or package imported, the finding is flagged as **unreachable**.
   * If Semgrep Supply Chain determines that you use a vulnerable version of a dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **no reachability analysis**.
-* For **[languages where Semgrep Supply Chain doesn't currently offer rules with reachability analysis](/semgrep-supply-chain/glossary/#rules-without-reachability-analysis)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **no reachability analysis**.
+* For **[languages where Semgrep Supply Chain doesn't currently offer rules with reachability analysis](/semgrep-supply-chain/glossary/#rules-without-reachability-analysis)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your manifest file against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **no reachability analysis**.
 
 Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups all usages together by vulnerability. For each vulnerability, the UI also displays a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 

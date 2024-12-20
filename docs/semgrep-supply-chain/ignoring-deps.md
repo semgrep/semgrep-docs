@@ -1,24 +1,24 @@
 ---
 slug: ignoring-lockfiles-dependencies
 append_help_link: true
-description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring lockfiles or code files."
+description: "Prevent unwanted noise when scanning for dependency vulnerabilities by ignoring manifest files or code files."
 tags:
  - Semgrep Supply Chain
-title: Ignore lockfiles and dependencies
+title: Ignore manifest files and dependencies
 hide_title: true
 ---
 
-# Ignore lockfiles and dependencies
+# Ignore manifest files and dependencies
 
-You can restrict code files or lockfiles from generating Supply Chain findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depend on the option that best suits your organization's needs:
+You can restrict code files or manifest files from generating Supply Chain findings. To do so, you must [create a `.semgrepignore` file in your repository's root directory](/ignoring-files-folders-code/#define-ignored-files-and-folders-in-semgrep-appsec-platform) and define code files and lock files to ignore. The file paths you provide in your `.semgrepignore` file depend on the option that best suits your organization's needs:
 
 | Goal | Method |
 | ---- | ------ |
 | Prevent a code file from generating **any reachable findings**. | Include the code file's path in the repository's `.semgrepignore` file. |
-| Prevent a lockfile from generating **any unreachable findings** but still generate reachable findings from a code file. | Include the lockfile's path in the repository's `semgrepignore` file. |
-| Prevent a code file from generating either reachable or unreachable findings. | Include the file paths of the lockfile and code files in the repository's `.semgrepignore` file. |
+| Prevent a manifest file from generating **any unreachable findings** but still generate reachable findings from a code file. | Include the manifest file's path in the repository's `semgrepignore` file. |
+| Prevent a code file from generating either reachable or unreachable findings. | Include the file paths of the manifest file and code files in the repository's `.semgrepignore` file. |
 
-> Unreachable findings are only generated from lockfiles, because Semgrep defines unreachable findings as the absence of a match in the code.
+> Unreachable findings are only generated from manifest files, because Semgrep defines unreachable findings as the absence of a match in the code.
 
 ## Sample `.semgrepignore` configuration
 
