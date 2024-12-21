@@ -44,15 +44,6 @@ Semgrep AppSec Platform, or simply **Semgrep**, is a software suite for implemen
 
 **Developers** primarily interact with Semgrep when Semgrep scans a project, then notifies users of issues in their code. Issues detected by Semgrep are called **findings**. The pattern-matching logic by which Semgrep detects a finding is encapsulated in a **rule**. Semgrep performs various static analyses to detect bugs, vulnerabilities in dependencies, and leaked secrets.
 
-## Type of findings by resolution
-
-You can receive several types of findings with different ways of resolving them. 
-
-Code finding - refactor your code 
-Dependency finding - upgrade or change the library 
-License finding - change the library 
-Secrets finding - rotate the secret
-
 ## How developers use Semgrep
 
 Your interactions with Semgrep vary depending on your organization's deployment of it.
@@ -78,9 +69,33 @@ Your security engineers are in full control of what findings are displayed to yo
 
 Semgrep findings are typically posted in your PR or MR. The following image displays the parts of a Semgrep PR comment in GitHub; this example appears in a similar form in GitLab and other SCMs:
 
-_**Figure**. An example of a PR comment._
+![An example of a PR comment with various sections annotated.](/img/pr-comment-sections.png#md-width)
+_**Figure**. An example of a PR comment with various sections annotated._
 
 - **A - Block indicator**. This appears if a finding fails the CI job. Organizations typically block PRs or MRs with failed jobs.
-- **B - Finding description**. A human-written description always appears in a PR or MR comment, describing why your code is flagged.
-- **C - References**. References may appear to help you learn more about the finding.
-- **D - Resolution section**. Various options are provided to help your resolve the finding. Depending on the type of finding, resolution options may vary.
+- **B - Finding description**. A human-written description always appears in a PR or MR comment, describing why your code is flagged. **References** may also be included to help you learn more about the finding.
+- **C - Resolution section**. Various options are provided to help your resolve the finding. Depending on the [type of finding](#type-of-findings-by-resolution), resolution options may vary.
+- **D - Ignore instructions**. Click to view instructions about how to ignore the finding by replying to the comment.
+
+### Dataflow traces 
+
+Some findings are detected based on the flow of data from some source (such as a user input) into a sink, such as a database. Semgrep can detect if the data has **not** been sanitized. These findings may include a dataflow graph, which can show the **lines of code** of the sources, sinks, and traces that have been performed on the data.
+
+tk image
+
+### Type of findings by resolution
+
+<dl>
+<dt>Code finding</dt> 
+<dd>This type of finding is typically resolved by refactoring your code. This finding typically catches bugs, security issues, or violations of best practices.</dd>
+<dt>Dependency finding</dt> 
+<dd>Semgrep found that you're using a vulnerable version of a dependency. It can also detect if you're using the vulnerable function or code of the dependency.</dd>
+<dt>License finding</dt>
+<dd>Semgrep has found that you're using a dependency with a <strong>license</strong> that may violate the guidelines set by your organization.</dd>
+<dt>Secrets finding</dt>
+<dd>Semgrep has detected a leaked secret. Rotate the secret to resolve this finding.</dd>
+</dl>
+
+![Summary of findings by resolution, assuming that the finding is a true positive.](/img/finding-by-resolution.jpg#md-width)
+_**Figure**. Summary of findings by resolution, assuming that the finding is a true positive._
+

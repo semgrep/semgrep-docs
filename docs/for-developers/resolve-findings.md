@@ -1,6 +1,6 @@
 ---
 slug: resolve-findings
-title: Resolve findings in your pull or merge request
+title: Resolve findings
 hide_title: true
 description: Learn to resolve or triage findings with Semgrep in developer-native interfaces.
 tags:
@@ -11,11 +11,11 @@ import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
 # Resolve findings
 
-Findings resolution involves the assessment of a finding, then either fixing or triaging (ignoring) it. You can fix or triage findings from your source code manager (SCM) or from Semgrep AppSec Platform.
+Findings resolution involves the assessment of a finding, then either fixing or ignoring it. You can fix or triage findings from your source code manager (SCM) or from Semgrep AppSec Platform.
 
 Findings are primarily presented to developers through **pull request (PR) or merge request (MR) comments**. These findings are generated from rules that your AppSec team has vetted or approved. 
 
-Findings from these rules are meant to be **fixed** rather than ignored unless the finding is a false positive.
+Findings from these rules are meant to be **fixed** or **remediated** rather than ignored unless the finding is a false positive.
 
 In **typical coding workflows**, it is recommended to fix or ignore findings within your source code manager (SCM) as part of your code review process; the results of triage or remediation in your SCM are synchronized with Semgrep AppSec Platform.
 
@@ -37,48 +37,41 @@ Here are some of the most common Semgrep rule attributes used to quickly assess 
 - **Reachability**. Prioritize updating dependencies or refactoring code to patch reachable dependency vulnerabilities.
 -->
 
-
 ## Fix the finding through your SCM
 
 Your SCM is the most common environment in which to fix findings. Semgrep provides several features to help you fix findings quickly.
 
-### Human-written guidance
+### PR comment examples
 
-All comments include a human-written message to help you understand the finding and why it occurred. It may include tips about when it is safe to ignore a finding, or how to refactor the code.
 
-### Human-written autofix
+### Finding description
 
-Some Semgrep Code rules provide an **autofix**. The fix can be committed directly, such as by clicking **Commit suggestion** in GitHub repositories. This is the fastest way to fix a finding. 
+A human-written description **always** appears in a PR or MR comment, describing why your code is flagged.
+
+### Autofix
+
+Some Semgrep findings provide an **autofix**, which can be human-written or from Semgrep Assistant. The fix can be committed directly, such as by clicking **Commit suggestion** in GitHub repositories. This is the fastest way to fix a finding. 
 
 All Semgrep-supported SCMs provide this feature.
 
 ![GitHub PR comment with fix suggestion.](/img/pr-comment-autofix.png#md-width)
 _**Figure**. GitHub enables you to commit the suggestion from Semgrep directly, fixing the finding._
 
-
 :::info
 If a line of code contains several findings, Semgrep does not provide the autofix or **Commit suggestion** feature to prevent fixes from conflicting.
 :::
 
-### Assistant (AI) remediation
+### Semgrep Assistant fix instructions
 
-Semgrep Assistant provides AI-powered security recommendations to help you triage and remediate your Semgrep findings. Depending on your organization's settings, Semgrep Assistant may show you:
-
-- Remediation guidance
-- An AI-written code snippet or fix
-- An assessment if it thinks the finding can be safely ignored or is a false positive
-
-#### "Safe to ignore" suggestions
-
-![Semgrep Assistant suggesting that a finding is safe to ignore.](/img/ai-assessment-tp-fp.png#md-width)
-_**Figure**. Semgrep Assistant suggesting that a finding is safe to ignore._
-
-#### AI-written fixes
-
-Semgrep also provides AI-written code fixes when a human-written autofix is not available and a code fix can resolve the finding.
+Semgrep Assistant provides AI-powered security recommendations to help you triage and remediate your Semgrep findings. Semgrep Assistant can provide AI-written code fixes when a human-written autofix is not available and a code fix can resolve the finding.
 
 ![PR comment with an AI-written fix.](/img/comment-with-ai-fix.png#md-width)
 _**Figure**. PR comment with an AI-written fix._
+
+### "Safe to ignore" suggestions
+
+![Semgrep Assistant suggesting that a finding is safe to ignore.](/img/ai-assessment-tp-fp.png#md-width)
+_**Figure**. Semgrep Assistant suggesting that a finding is safe to ignore._
 
 ## Ignore the finding
 
@@ -125,9 +118,8 @@ When Semgrep performs a CLI or IDE scan, it presents findings from **all rules**
 
 You can ignore findings other environments, such as your IDE, in `pre-commit`, and the CLI, but these scans are performed **locally**. They are **not** tracked by Semgrep AppSec Platform. Semgrep does **not** save a history of ignored findings from these scans.
 
-## Appendix
+## Appendix: triage statuses
 
-### Triage statuses
 
 <details>
 <summary>Click to view all triage statuses.</summary>

@@ -31,7 +31,7 @@ If you use Semgrep in your CLI or IDE, you must sign in from those environments 
 
 ## Signing in to the web app
 
-In a typical Semgrep deployment, your security or infrastructure team will invite you to sign in to the Semgrep web app using either GitHub, GitLab, or SSO:
+In a typical Semgrep deployment, your company creates an **org** that you can sign in to and join using your GitHub, GitLab, or SSO credentials. Your organization will let you know through a notice or announcement once you can sign in.
 
  <JoinAnOrg />
 
@@ -40,7 +40,6 @@ After signing in to your org's account, you can now sign in from other environme
 ## Set up Semgrep in the CLI
 
 #### Prerequisites
-
 
 <Install />
 
@@ -56,6 +55,17 @@ To sign in to Semgrep:
 
 You are now ready to run local scans with your org's Semgrep configuration.
 
+## Run local scans
+
+To run a local scan using your organization's rules, enter:
+
+```bash
+semgrep ci --dry-run
+```
+
+The `--dry-run` flag ensures that your scans are not uploaded to the Semgrep web app. This is recommended because your code could be a work in progress, subject to change, whereas code uploaded as a PR or MR usually indicates the code is ready for review. 
+
+<!-- Move to another doc -->
 ## Set up a Semgrep IDE extension
 
 <Tabs
