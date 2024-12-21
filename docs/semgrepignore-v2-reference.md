@@ -38,11 +38,20 @@ The list of files obtained by expanding the scanning roots are called
 **target files**. To obtain target files, Semgrep follows a
 number of fixed rules and some configurable filters.
 
-for each scanning root, Semgrep infers a **project root** (v2 only). The
+For each scanning root, Semgrep infers a **project root** (v2 only). The
 project root determines the location of applicable `.semgrepignore`
 files as well as `.gitignore` files in Git projects. In v1 where is no
 notion of a project root, the `.semgrepignore` file is unique and
 looked up in the current folder.
+
+Semgrep determines the project root for each scanning root by first
+obtaining the real path (physical path) to the scanning root. Then,
+Semgrep searches up the file hierarchy for a `.git` folder or
+similar used by one of the popular file version control systems
+(Git, Mercurial, etc.) indicating a project root.
+If no project root is found this way, it
+defaults to the scanning root itself if it is a folder or to its containing
+folder if it is a regular file.
 
 <!-- TODO: explain project detection.
      Go over options to disable listing files using `git ls-files`
@@ -52,12 +61,12 @@ looked up in the current folder.
      soon as we have finer-grained replacements.
 -->
 
+:::caution
 As an experimental debugging aid, Semgrep provides the `--x-ls` option
 to list the target files. `--x-ls-long` additionally prints excluded
 files and a brief justification. Beware that these two options are
 likely to be renamed or change their behavior in the
 future. Meanwhile, its typical usage is:
-
 ```
 semgrep --x-ls
 ```
@@ -65,7 +74,7 @@ or
 ```
 semgrep --x-ls --experimental
 ```
-
+:::
 
 ## Sources of Semgrepignore patterns
 
