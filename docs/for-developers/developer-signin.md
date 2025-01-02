@@ -20,7 +20,7 @@ When you sign in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppS
 
 ## Semgrep in multiple environments
 
-If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, after which you can then **join** your organization's Semgrep account, which grants you access to your organization's Semgrep configuration.
+If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, which you can then use to **join** your organization's Semgrep account. This grants you access to your organization's Semgrep configuration.
 
 If you use Semgrep in your CLI or IDE, you must sign in from those environments as well. It is recommended to sign in from these interfaces **after** you have signed in to your organization account in the web app.
 
