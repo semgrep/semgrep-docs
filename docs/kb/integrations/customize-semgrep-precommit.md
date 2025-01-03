@@ -15,7 +15,7 @@ You can also create your own Semgrep hooks for pre-commit if you have particular
 
 ## Show the scan output
 
-By default, pre-commit does not show the scan output if the hook passes. If you're using the `semgrep-ci` hook, but want your developers to see the output even if non-blocking findings are found, you can set the `verbose` option to print the output. To prevent the output from being too chatty, redirect `stderr` to `/dev/null` so that only the findings are printed, or use `--quiet`.
+By default, pre-commit does not show the scan output if the hook passes. If you're using the `semgrep-ci` hook, but want your developers to see the output even if non-blocking findings are found, you can set the `verbose` option to print the output. To limit output to findings only (no scan information or diagnostics), redirect `stderr` to `/dev/null`, or use `--quiet`.
 
 ```yaml
 repos:
