@@ -1,6 +1,6 @@
 ---
 slug: resolve-findings
-title: Resolve findings
+title: Resolve findings in your pull or merge request
 hide_title: true
 description: Learn to resolve or triage findings with Semgrep in developer-native interfaces.
 tags:
@@ -8,8 +8,9 @@ tags:
 ---
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
+import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
-# Resolve findings
+# Resolve findings in your pull or merge request
 
 Findings resolution involves the assessment of a finding, then either fixing or ignoring it. You can fix or triage findings from your source code manager (SCM) or from Semgrep AppSec Platform.
 
@@ -21,10 +22,10 @@ In **typical coding workflows**, it is recommended to fix or ignore findings wit
 
 However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform.
 
-:::info Prerequisites and optional features
+## Prerequisites and optional features
+
 - The procedures described in this guide rely on PR or MR comments. Ensure that your security team has enabled this feature.
 - To receive AI-assisted remediation, your security team must enable the **Semgrep Assistant** feature.
-:::
 
 <!--
 Many factors affect whether or not a finding should be fixed: whether it is a true or false positive, if the fix can be applied within deadlines, if the finding is easily exploitable, the degree of the finding's severity, and so on.
@@ -37,20 +38,22 @@ Here are some of the most common Semgrep rule attributes used to quickly assess 
 - **Reachability**. Prioritize updating dependencies or refactoring code to patch reachable dependency vulnerabilities.
 -->
 
-## Fix the finding through your SCM
 
 Your SCM is the most common environment in which to fix findings. Semgrep provides several features to help you fix findings quickly.
 
-### PR comment examples
+## Parts of a PR or MR comment
 
+<PartsOfComment />
 
-### Finding description
+## Description section
 
-A human-written description **always** appears in a PR or MR comment, describing why your code is flagged.
+## Resolution section
+
+Different types of findings require different remediations. The following sections describe resolutions that Semgrep may provide.
 
 ### Autofix
 
-Some Semgrep findings provide an **autofix**, which can be human-written or from Semgrep Assistant. The fix can be committed directly, such as by clicking **Commit suggestion** in GitHub repositories. This is the fastest way to fix a finding. 
+Some Semgrep Code findings provide an **autofix**, which can be human-written or from Semgrep Assistant. The fix can be committed directly, such as by clicking **Commit suggestion** in GitHub repositories. This is the fastest way to fix a finding. 
 
 All Semgrep-supported SCMs provide this feature.
 
@@ -61,25 +64,23 @@ _**Figure**. GitHub enables you to commit the suggestion from Semgrep directly, 
 If a line of code contains several findings, Semgrep does not provide the autofix or **Commit suggestion** feature to prevent fixes from conflicting.
 :::
 
-### Semgrep Assistant fix instructions
+### Semgrep Assistant remediations
 
-Semgrep Assistant provides AI-powered security recommendations to help you triage and remediate your Semgrep findings. Semgrep Assistant can provide AI-written code fixes when a human-written autofix is not available and a code fix can resolve the finding.
+Semgrep Assistant provides the following AI-powered security recommendations:
+
+- Step-by-step instructions.
+- AI-written code fixes if a human-written autofix is not available and a code fix can resolve the finding.
+- "Safe to ignore" suggestions.
 
 ![PR comment with an AI-written fix.](/img/comment-with-ai-fix.png#md-width)
-_**Figure**. PR comment with an AI-written fix._
-
-### "Safe to ignore" suggestions
+_**Figure**. PR comment with an AI-written fix and step-by-step instructions._
 
 ![Semgrep Assistant suggesting that a finding is safe to ignore.](/img/ai-assessment-tp-fp.png#md-width)
 _**Figure**. Semgrep Assistant suggesting that a finding is safe to ignore._
 
-## Ignore the finding
+## Ignore section
 
-If the finding is a false positive, acceptable risk, or similar, you can choose to ignore the finding.
-
-### Ignore the finding through your SCM
-
-In many cases, it is easiest to ignore the finding through your SCM as part of your code review. You can ignore findings directly from your SCM by **replying** to the finding comment. 
+If the finding is a false positive, acceptable risk, or similar, you can choose to ignore the finding. You can ignore findings directly from your SCM by **replying** to the finding comment. 
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
