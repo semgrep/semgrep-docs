@@ -175,10 +175,6 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 
 <TabItem value='gh'>
 
-:::note
-This feature is currently in **private beta**. It expands on the existing ignore-by-PR-comment workflow by supporting additional commands such as adding to Assistant memories and enabling developers to include triage **reasons**.
-:::
-
 ### Prerequisites
 - A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
@@ -194,8 +190,7 @@ To triage a finding:
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
-
-2. In a subsequent comment, reply with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
+2. In a subsequent comment, reply with the action you want to take. You must provide a **reason** to help the reader understand why the finding has been triaged as **ignored**:
 
     | Comment | Description |
     | - | - |
@@ -205,7 +200,7 @@ To triage a finding:
     | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
     | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
 
-Semgrep is backward compatible with the following commands:
+Semgrep supports older versions of this functionality that used the following commands:
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
 - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 
@@ -213,10 +208,6 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 
 </TabItem>
 <TabItem value='gl'>
-
-:::note
-This feature is currently in **private beta**. It expands on the existing ignore-by-PR-comment workflow by supporting additional commands such as adding to Assistant memories and enabling developers to include triage **reasons**.
-:::
 
 ### Prerequisites
 - A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans.
