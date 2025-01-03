@@ -48,16 +48,24 @@ Semgrep Secrets is an ideal product to run before commit, since it can help prev
 
 The provided hooks include useful arguments for Semgrep that you may want to include in your hooks as well.
 
-For example, for the `semgrep` hook that runs with a provided `--config`, the arguments also include `--disable-version-check` (skips checking whether there's a new version of Semgrep, speeding things up and avoiding irrelevant output), `--quiet` (only print findings, not other messages) and `--skip-unknown-extensions` (if files are modified that aren't in a recognized language, just skip them).
+For example, for the `semgrep` hook that runs with a provided `--config`, the arguments also include:
 
-The `semgrep-ci` hook runs with the pre-commit option `pass_filenames: false` because `semgrep ci` doesn't expect a list of filenames (which is what pre-commit normally provides); it just expects to scan the folder. Adding `baseline-commit HEAD` performs a diff scan; this diff scan only scans the changes being added in the current commit (as intended for a pre-commit hook). It uses `--dry-run` so that findings that have no existence except in the local filesystem aren't added to the platform, which would otherwise result in clutter.
+ * `--disable-version-check`: skip checking whether there's a new version of Semgrep (speeds up the check and avoids irrelevant output)
+ * `--quiet`: only print findings, not other messages
+ * `--skip-unknown-extensions`: if files are modified that aren't in a recognized language, skip them
+
+The `semgrep-ci` hook runs with the pre-commit option `pass_filenames: false`. This is important because `semgrep ci` doesn't expect a list of filenames; it just expects to scan the folder, so you should preserve this option in your usage.
+
+Adding `baseline-commit HEAD` performs a diff scan; this diff scan only scans the changes being added in the current commit (as intended for a pre-commit hook). It uses `--dry-run` so that findings that have no existence except in the local filesystem aren't added to the platform, which would otherwise result in clutter.
 
 ### Entry point
 
-Both of the default hooks use `semgrep` as the `entry`, which means the command executed is just `semgrep` with the `args` provided. However, you can write your own `entry` point:
+Both of the default hooks use `semgrep` as the `entry`, which means the command executed is just `semgrep` with the `args` provided. However, you can write your own `entry` point. This approach is used in the less commonly used `semgrep-docker` hook also available in the [semgrep/pre-commit repository](https://github.com/semgrep/pre-commit/blob/develop/.pre-commit-hooks.yaml).
+
+It can also be used with a standard Semgrep execution to set environment variables in addition to (or instead of) arguments:
 
 ```bash
- entry: sh -c 'env SEMGREP_REPO_NAME=pre-commit-diff SEMGREP_BRANCH=$(git branch --show-current) semgrep ci --code --no-suppress-errors --baseline-commit HEAD'
+ entry: sh -c 'env SEMGREP_RULES=<SEMGREP_RULESET_URL> semgrep scan --code --no-suppress-errors --baseline-commit HEAD'
 ```
 
-This lets you set environment variables (like `SEMGREP_REPO_NAME`) that can’t be set as command-line arguments.
+In this case, setting `SEMGREP_RULES=<SEMGREP_RULESET_URL>` substitutes for supplying `--config` and `<SEMGREP_RULESET_URL>` in the `args`.
