@@ -45,9 +45,9 @@ Your SCM is the most common environment in which to fix findings. Semgrep provid
 
 <PartsOfComment />
 
-## Description section
+## Description
 
-## Resolution section
+## Resolution
 
 Different types of findings require different remediations. The following sections describe resolutions that Semgrep may provide.
 
@@ -78,7 +78,7 @@ _**Figure**. PR comment with an AI-written fix and step-by-step instructions._
 ![Semgrep Assistant suggesting that a finding is safe to ignore.](/img/ai-assessment-tp-fp.png#md-width)
 _**Figure**. Semgrep Assistant suggesting that a finding is safe to ignore._
 
-## Ignore section
+## Ignore
 
 If the finding is a false positive, acceptable risk, or similar, you can choose to ignore the finding. You can ignore findings directly from your SCM by **replying** to the finding comment. 
 
