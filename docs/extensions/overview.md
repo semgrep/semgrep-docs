@@ -18,11 +18,9 @@ Several third-party tools include Semgrep extensions.
 - IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
-### The LSP Command
+### Use of Language Server Protocol (LSP)
 
 All of the official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate with Semgrep. This allows the team to focus on one codebase that can be shared across most modern editor platforms.
-
-To implement a custom extension, wrap `semgrep lsp` to start the Semgrep Language Server, which communicates over `stdio`. Alternatively, this protocol is a great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to increase performance. Please let us know in our [Community Slack](https://go.semgrep.dev/slack) if you use this approach; we'd be happy to help in any way.
 
 ### Pre-commit
 

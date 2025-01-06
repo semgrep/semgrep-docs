@@ -10,12 +10,15 @@ Semgrep offers two standard pre-commit hooks [outlined here](/docs/extensions/ov
 
 * The `semgrep` hook is optimized to run with a provided set of rules, either local rules or rules from the Semgrep Registry.
 * The `semgrep-ci` hook is optimized to run with the rules from your organization in the Semgrep AppSec Platform, without sending results to the platform, since results from pre-commit are temporary and not linked to the final code in the repository.
+  * This hook requires the user be logged in locally to fetch the rules from the organization.
 
 You can also create your own Semgrep hooks for pre-commit if you have particular needs or preferences, such as if you want users to see the output of the Semgrep scan even if it passed, or if you want to limit the scan to a particular Semgrep product.
 
 ## Show the scan output
 
-By default, pre-commit does not show the scan output if the hook passes. If you're using the `semgrep-ci` hook, but want your developers to see the output even if non-blocking findings are found, you can set the `verbose` option to print the output. To limit output to findings only (no scan information or diagnostics), redirect `stderr` to `/dev/null`, or use `--quiet`.
+By default, pre-commit does not show the scan output if the hook passes. If you want your developers to see the output even if non-blocking findings are found, you can set the `verbose` option to print the output. To limit output to findings only (no scan information or diagnostics), redirect `stderr` to `/dev/null`, or use `--quiet`.
+
+This example is based on the `semgrep-ci` hook, but a similar adjustment would also work with the `semgrep` hook.
 
 ```yaml
 repos:
@@ -41,6 +44,19 @@ Semgrep Secrets is an ideal product to run before commit, since it can help prev
       pass_filenames: false
       args: ["ci", "--dry-run", "--baseline-commit", "HEAD", "--secrets"]
 ```
+
+## Scan with Pro Engine
+
+The `semgrep-ci` hook requires the user to be logged in locally and runs with the engine configured in the organization, but the standard `semgrep` hook can also take advantage of local login to run with the Pro Engine.
+
+```yaml
+- id: semgrep
+  name: semgrep
+  entry: semgrep
+  args: ["--pro", "--disable-version-check", "--quiet", "--skip-unknown-extensions"]
+```
+
+This provides analysis across modified files during the pre-commit scan, which may catch additional vulnerabilities, or prevent false positives.
 
 ## Customization tips
 
