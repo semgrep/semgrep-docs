@@ -22,7 +22,11 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep Community Edition (CE)
 
-[Semgrep CE](https://github.com/semgrep/semgrep) is a community-supported tool for code scanning. It's ideal for individuals, security auditors, and pentesters who need fast, one-off scans. You can use it at work, on private and proprietary code, no problem!
+Semgrep Community Edition is a free, community-supported code scanning tool. It's perfect for individuals, security auditors, and pentesters who need fast, one-off scans. You can use it at work, on private and proprietary code, no problem!
+
+Semgrep Community Edition includes:
+* The Semgrep [open-source engine](https://github.com/semgrep/semgrep): Governed by the [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) license
+* The Semgrep [Community Rules](https://github.com/semgrep/semgrep-rules/): Governed by the [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/)
 
 Semgrep offers three paid products, designed for Application Security teams to use in production:
 
