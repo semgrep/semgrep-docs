@@ -34,7 +34,7 @@ Semgrep offers three paid products, designed for Application Security teams to u
 
 All Semgrep maintained rules are licensed under the [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/). The source for these rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/).
 
-These rules can only be used for internal business purposes. These rules cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies cannot resell Semgrep’s rules as a competing service. 
+These rules can only be used for internal business purposes. These rules cannot be resold without permission from Semgrep, Inc. (“Semgrep”). Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies cannot resell Semgrep’s rules as a competing service. 
 
 ### Is it OK to run Semgrep or Semgrep, Inc. rules on my work projects?
 
