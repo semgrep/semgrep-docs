@@ -18,7 +18,7 @@ steps:
         export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
         export SEMGREP_BASELINE_REF='origin/master'
         git fetch origin master:origin/master
-        semgrep ci 
+        semgrep ci
     fi
   env:
     SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)

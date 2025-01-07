@@ -60,6 +60,8 @@ steps:
         export SEMGREP_BASELINE_REF='origin/master'
         semgrep ci
     fi
+  env:
+    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
 
 :::info Customizing the configuruation
