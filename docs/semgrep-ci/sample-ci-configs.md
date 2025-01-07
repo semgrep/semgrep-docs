@@ -88,7 +88,7 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
 
 <TabItem value='gha-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <GhaSemgrepAppSast />
 
@@ -152,7 +152,7 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
 
 <TabItem value='glcicd-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <GlcicdSemgrepAppSast />
 
@@ -213,7 +213,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
 :::
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <JenkinsSemgrepAppSast />
 
@@ -271,7 +271,7 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
 
 <TabItem value='bitbucket-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <BitbucketSemgrepAppSast />
 
@@ -404,7 +404,7 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
 
 <TabItem value='circleci-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <CircleCiSemgrepAppSast />
 
@@ -432,11 +432,9 @@ Scanning a project with the `semgrep ci` command requires the project to be vers
 To add Semgrep into Azure Pipelines:
 
 1. Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
-2. Copy the relevant code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
+2. Copy the code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
 3. Save the code snippet.
-4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
-5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable.
+4. Follow any additional instructions provided with the snippet.
 
 ### Sample Azure Pipelines configuration snippet
 
@@ -452,7 +450,7 @@ This configuration snippet is tested with **hosted** Azure runners. If you are u
 
 <TabItem value='azure-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <AzureSemgrepAppSast />
 

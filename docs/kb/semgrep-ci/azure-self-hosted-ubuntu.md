@@ -33,15 +33,8 @@ After completing the commands:
 
 ### Create your configuration
 
-1. Set the necessary [variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash), including `SEMGREP_APP_TOKEN` as an environment variable.
-2. Group the variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=azure-pipelines-ui%2Cclassic#create-a-variable-group) called `Semgrep_Variables`.
-
-Add the following snippet to the `azure-pipelines.yml` for the repository.
-
-:::info Customizing the configuruation
-* If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
-* If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
-:::
+1. Follow the steps provided in the [sample configuration for Azure-hosted runners](/docs/semgrep-ci/sample-ci-configs#azure-pipelines).
+2. Add the following snippet to the `azure-pipelines.yml` for the repository.
 
 ```yaml
 variables:
@@ -69,6 +62,11 @@ steps:
     fi
 ```
 
+:::info Customizing the configuruation
+* If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
+* If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
+:::
+
 ### Run a scan
 
 On adding or editing the `azure-pipelines.yml` file, the Semgrep scan job should run on the desired runner pool. Verify that the scan is successful.
@@ -86,10 +84,6 @@ This approach uses built-in Azure DevOps tasks, including `UsePythonVersion` and
 
 Add the following snippet to the `azure-pipelines.yml` for the repository.
 
-:::info Customizing the configuration
-* If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
-* If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
-:::
 
 ```yaml
 variables:
@@ -128,3 +122,8 @@ steps:
           export SEMGREP_BASELINE_REF='origin/master'
           semgrep ci
 ```
+
+:::info Customizing the configuration
+* If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
+* If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
+:::
