@@ -22,27 +22,23 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep Community Edition (CE)
 
-[Semgrep CE](https://github.com/semgrep/semgrep) is open source, licensed under [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) - you can use it at work, on private and proprietary code, no problem!
+[Semgrep CE](https://github.com/semgrep/semgrep) is a community-supported tool for code scanning. It's ideal for individuals, security auditors, and pentesters who need fast, one-off scans. You can use it at work, on private and proprietary code, no problem!
 
-Semgrep offers three paid products:
+Semgrep offers three paid products, designed for Application Security teams to use in production:
 
 * [<i class="fas fa-external-link fa-xs"></i> Semgrep Code](https://semgrep.dev/products/semgrep-code), a static application security testing (SAST) tool that can perform taint, cross-file, and cross-function analysis.
 * [<i class="fas fa-external-link fa-xs"></i> Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain/), which performs dependency scanning.
 * [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets/), which can detect and validate leaked secrets in code.
 
-#### Semgrep Registry
+#### Semgrep Rules
 
-The [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) contains rules from different contributors.
+All Semgrep maintained rules are licensed under the [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/). The source for these rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/).
 
-Semgrep **Community** rules written by the Semgrep team are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). The source for these Registry rules is available at [semgrep/semgrep-rules](https://github.com/semgrep/semgrep-rules/).
-
-Those rules licensed under the Commons Clause license cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies, like major cloud providers, cannot resell Semgrep’s rules as a competing service.
-
-In addition to Semgrep Community rules, [Semgrep Code](https://semgrep.dev/products/semgrep-code) includes **Pro rules** which are proprietary and only available to paying customers.
+These rules can only be used for internal business purposes. These rules cannot be resold without Semgrep, Inc. (“Semgrep”)’s permission. Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies cannot resell Semgrep’s rules as a competing service. 
 
 ### Is it OK to run Semgrep or Semgrep, Inc. rules on my work projects?
 
-Yes! Semgrep is safe to run on your private code. The [Semgrep Registry license’s](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE) commercial restrictions only come into effect if you are **selling** a product using rules provided in the Semgrep Registry. If that’s the case, contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com) for a license.
+Yes! Semgrep is safe to run on your private code. The [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/) restrictions only come into effect if you are **selling** a product using rules provided in the Semgrep Registry. If that’s the case, contact [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com) to learn more.
 
 ### I’m a security professional. Do I have to pay for Semgrep?
 
@@ -50,15 +46,13 @@ If you are a security consultant and you want to use Semgrep CE with the Semgrep
 
 If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
-If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
+If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
 
 ### Can I ship my own code analysis software that uses Semgrep CE?
 
-Yes, you can use the Semgrep CE in your own code analysis software, subject to the terms of the LGPL 2.1 license (among other things, you must open source any modification you make to it). If you are writing your own, original rules for your scanner, there are no further restrictions. But your rules cannot be derived from Semgrep Community Rules or Semgrep Pro Rules (see below).
+No, Semgrep Community Edition is designed for intnernal business purposes only. You cannot ship your own code analysis software using Semgrep Community Edition, without an explicit license from Semgrep, Inc. 
 
-The Semgrep Community Rules are licensed under the [Commons Clause](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE). You can use the Semgrep community rules as long as you are shipping a free and open source software (FOSS) product. You have to open source any modifications you have done to the rules.
-
-You **cannot** ship the Semgrep Community or Pro rules in a commercial product without a license from Semgrep, Inc. For more information, please contact [<i class="fa-regular fa-envelope"></i> partners@semgrep.com](mailto:partners@semgrep.com).
+For more information, please contact [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
 
 ### Contacting Semgrep support
 
@@ -96,7 +90,7 @@ See [Support for all versions of a programming language](/kb/semgrep-code/suppor
 
 ### How is Semgrep different from $OTHER\_TOOL or $GENERIC\_[SAST](https://en.wikipedia.org/wiki/Static_application_security_testing)?
 
-Semgrep is an open source tool with a simple syntax for writing rules: if you can write code, you can write a Semgrep rule—no program analysis Ph. D. required!
+Semgrep provides a simple syntax for writing rules: if you can write code, you can write a Semgrep rule—no program analysis Ph. D. required!
 
 To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
 
