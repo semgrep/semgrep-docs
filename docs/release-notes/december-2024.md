@@ -78,7 +78,7 @@ example, the following code is TypeScript, as opposed to pure JavaScript, becaus
 - **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
   - Dependency Path for Kotlin is in private beta.
   - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](https://semgrep.dev/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
   - To participate in this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
   - Semgrep now provides the flag `--allow-local-builds`, which is used to enable this feature.
 
