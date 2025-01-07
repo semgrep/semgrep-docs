@@ -98,13 +98,9 @@ To define files and folders in Semgrep AppSec Platform:
 2. From the sidebar, click **[Projects](https://semgrep.dev/orgs/-/projects)**.
 3. Find the project you want to modify, then click its **<i class="far fa-window-restore"></i> icon** under **Details**.
 4. Click the **Settings** tab.
-5. To define files and folders that Semgrep Code and Semgrep Supply Chain ignore:
-   1. Click **Code (SAST) & Supply Chain (SCA)** to expand and display the **Path Ignores** box.
-   2. Enter files and folders to ignore in the **Path Ignores** box.
-   3. Click **Save changes**.
-6. To define files and folders that Semgrep Secrets ignores:
-   1. Click **Secrets** to expand and display the **Path Ignores** box.
-   2. Enter files and folders to ignore in the **Path Ignores** box.
+5. To define files and folders that Semgrep can ignore:
+   1. Click **Code (SAST) & Supply Chain (SCA)** or **Secrets** to expand and display the **Path Ignores** box.
+   2. Enter files and folders to ignore in the relevant **Path Ignores** box.
    3. Click **Save changes**.
 
 Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
