@@ -46,7 +46,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Rules License v. 
 
 ### I’m a security professional. Do I have to pay for Semgrep?
 
-If you are a security consultant and you want to use Semgrep CE with the Semgrep Community Rules as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
+If you are a security consultant and you want to use Semgrep Community Edition as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
 If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
