@@ -79,7 +79,7 @@ example, the following code is TypeScript, as opposed to pure JavaScript, becaus
   - Added support for SwiftPM `Package.resolved` version 3.
 - **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
   - Dependency Path for Kotlin is in private beta.
-  - To join in this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+  - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 - Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](https://semgrep.dev/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
   - To participate in this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
   - Semgrep now provides the flag `--allow-local-builds`, which is used to enable this feature.
@@ -96,22 +96,27 @@ example, the following code is TypeScript, as opposed to pure JavaScript, becaus
   - Previously, Semgrep Assistant would add an additional, separate comment on the thread after the first comment from Semgrep. With this change, **all Semgrep guidance** is in one comment for clarity.
   - This change is rolling out over the course of several weeks.
 
-## 🔐 Semgrep Secrets
-
 ## 📝 Documentation and knowledge base
 
+### Added
+
 - Added the following new documents, articles and sections:
-  - DOCUMENT_NAME
-  - KB_ARTICLE_NAME
-- Minor additions and updates:
-- Major updates have been made to the following documentation:
-- Updated how the docs are organized (minor changes).
-- Various documentation presentation updates.
-- Minor documentation updates.
+  - [JSON and SARIF reference](/semgrep-appsec-platform/json-and-sarif) provides you with a list of fields supported by Semgrep CE and Semgrep AppSec Platform.
+  - [Full and diff-aware scans with GitHub and Jenkins](/kb/semgrep-ci/jenkins-diff-scans) helps you set up and troubleshoot Semgrep.
+  - The [Semgrep Supply Chain > Dependency graphs](/semgrep-supply-chain/dependency-search#dependency-paths-beta) section provides instructions on how to enable the feature.
+  - Instructions on [scanning a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) in Semgrep Supply Chain. 
+
+### Changed
+
+- Updated Quickstart links to point users to the most common methods of setting up Semgrep.
+- Updated language support details in [Supported languages > Semgrep Supply Chain](/supported-languages#semgrep-supply-chain).
+- **Extract mode** has been moved to the [Deprecated experiments](/writing-rules/experiments/deprecated-experiments) page.
+- Updated Semgrep Secrets triage documentation to include new ticketing integrations and triage states.
+- Renamed instances of Semgrep OSS to Semgrep CE, except for instances within release notes.
 
 ## 🔧 Semgrep Community Edition (CE)
 
-- Semgrep OSS has been renamed to **Semgrep Community Edition (CE)**. Semgrep CE remains free, with 2800+ rules and no login required.
+- Semgrep OSS has been renamed to **Semgrep Community Edition (CE)**. Semgrep CE remains free, with 2800+ rules and no login required. See also [<i class="fas fa-external-link fa-xs"></i> Important updates to Semgrep OSS](https://semgrep.dev/blog/2024/important-updates-to-semgrep-oss/) in the Semgrep blog.
 - Rules authored and maintained by Semgrep, Inc. are now licensed under [<i class="fas fa-external-link fa-xs"></i> Semgrep Rules License v.1.0](https://semgrep.dev/legal/rules-license/). These rules are available only for internal, non-competing, and non-Software-as-a-Service (SaaS) contexts.
 - As of Semgrep 1.100.0, certain JSON and SARIF export fields are available only for logged-in users. See the [JSON and SARIF reference](/semgrep-appsec-platform/json-and-sarif) for the list of fields.
 - The following versions of Semgrep CE were released in December 2024:
