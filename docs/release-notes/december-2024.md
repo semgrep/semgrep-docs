@@ -15,7 +15,7 @@ tags:
 
 :::info Important changes
 - The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
-- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](#semgrep-community-edition-ce) for more details.
+- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](#-semgrep-community-edition-ce) for more details.
 :::
 
 ## 🌐 Semgrep AppSec Platform
@@ -50,6 +50,7 @@ example, the following code is TypeScript, as opposed to pure JavaScript, becaus
 ### Changed
 
 - **Semgrep Managed Scans**: Cloning repositories is now faster. This improves the speed of the overall scan.
+- **Reporting**: In cases where there were **no new findings** for the selected time period, the **Guardrails adoption** chart displayed 0% adoption, which was incorrect because there was nothing to adopt as there were no new findings. To better display that there is no data on adoption, the reporting page now displays blocks of grey for periods where there are no findings.
 
 ### Removed
 
