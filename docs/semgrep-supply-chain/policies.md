@@ -45,8 +45,11 @@ Only **admins** can view, create, edit, or delete policies.
   1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope. You can select more than one.
 1. Define the conditions of the policy by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. The latter value is a broader set of conditions and typically results in more findings shown to developers.
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
-1. Ensure that the **Enable policy** toggle is enabled.
-1. Click **Save**. Your policy is applied in subsequent scans.
+1. Click **Save**. This brings you back to the Supply Chain policies tab.
+
+## Enable a policy
+
+Creating a policy does **not** enable it by default. To enable it, click the **toggle** on the policy's entry in the Supply Chain policies tab.
 
 ## Other operations
 
