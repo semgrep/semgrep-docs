@@ -18,8 +18,6 @@ This feature enables you to configure the following:
 - **Conditions**: The conditions under which **actions** are performed. These conditions are typically related to the value of a finding's severity or reachability.
 - **Actions**: Actions that are performed on the defined scope when conditions are met.
 
-By default, a new deployment has (todo - default behavior for new deployments with this feature)
-
 You can create as many policies as you need.
 
 ## Feature maturity
@@ -46,6 +44,24 @@ Only **admins** can view, create, edit, or delete policies.
 1. Ensure that the **Enable policy** toggle is enabled.
 1. Click **Save**. Your policy is applied in subsequent scans.
 
-## Edit, disable, or delete a policy
+## Other operations
 
-1. From the Supply Chain policies tab, Click the three-**Create policy**.
+### Edit a policy
+
+1. From the Supply Chain policies tab, click the **ellipsis button > Edit policy** for the policy you want to edit. This takes you to the specific policy page.
+1. Make your changes.
+1. Click **Save**.
+
+### Disable a policy
+
+From the Supply Chain policies tab, turn off the toggle for the policy you want to edit.
+
+You can also disable a policy from the policy's page:
+
+1. From the Supply Chain policies tab, click the **ellipsis button > Edit policy**.
+1. Turn off the **Enable policy** toggle.
+1. Click **Save**.
+
+### Delete a policy
+
+From the Supply Chain policies tab, click the **ellipsis button > Delete policy**, then click **Remove**.
