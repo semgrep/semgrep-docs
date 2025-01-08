@@ -45,7 +45,7 @@ Semgrep Secrets is an ideal product to run before commit, since it can help prev
       args: ["ci", "--dry-run", "--baseline-commit", "HEAD", "--secrets"]
 ```
 
-## Scan with Pro Engine
+## Scan with Pro rules and cross-function analysis
 
 The `semgrep-ci` hook requires the user to be logged in locally and runs with the engine configured in the organization, but the standard `semgrep` hook can also take advantage of local login to run with Pro rules and cross-function analysis.
 
