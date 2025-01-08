@@ -119,33 +119,17 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>November 2024 release notes summary</h3>
+<h3>December 2024 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- Semgrep Supply Chain now provides reachability analysis for **Scala** and **Swift**.
-- **Dashboard**:
-  - You can now view **trends**, comparing the previous time period to the current one, in the following charts:
-    - Production backlog
-    - Secure guardrails
-    - Median open finding age
-  - You can now export the Dashboard as a PDF. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), then click **Dashboard > Download > Download as PDF (report)**.
-- Various improvements and fixes to Semgrep Managed Scans (SMS).
-- Added **Pro rules** for JavaScript and TypeScript, including:
-  - Code injection rules for the `vm`, `vm2`, and puppeteer libraries
-  - NoSQL injection rules for `mongodb` and `mongoose` libraries
-  - SQL injection rules for the `knex`, `mysql`, `pg`, `sequelize`, and `sqlite` libraries
-  - Path traversal rules for `fs` and `fs-extra`
-- **Semgrep Assistant**: Added support for Google Gemini. To integrate Semgrep Assistant with Google Gemini, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+- The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
+- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](/release-notes/december-2024#-semgrep-community-edition-ce) for more details.
+- You can now export your findings in CSV format. Semgrep can export up to 10,000 most recent findings. For findings greater than 10,000, use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/). See [Export findings](/semgrep-code/findings#export-findings) for more information.
+- Added new **Pro rules**:
+  - 4 new rules for **Express.js** that cover SQL injection, object injection, and misconfiguration vulnerabilities.
+  - 13 new rules for **NestJS** framework vulnerabilities that cover code injection, SQL injection, path traversal, log injection, XML external entity, and cross site scripting.
+- **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
+  - Dependency Path for Kotlin is in private beta.
+  - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
-<!--
-Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
-
-<h2>Language support</h2>
-
-| Product | Language support |
-| - | - |
-| Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code-and-oss)! 🚀 |
-| Semgrep Secrets | Semgrep Secrets detects API keys, hardcoded passwords, authentication tokens, and more in your repositories. |
-| Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and TypeScript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
-
--->
