@@ -33,7 +33,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+  rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
       # See https://semgrep.dev/explore to select a ruleset and copy its URL
