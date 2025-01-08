@@ -17,7 +17,7 @@ Tokens with only the **Agent (CI)** scope can connect scans with the platform to
 You must be an `admin` to perform this operation. Member users cannot access tokens in the Semgrep AppSec Platform.
 
 1. Log in to Semgrep AppSec Platform and navigate to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/).
-3. Identify the related token, and click the <i class fa-solid fa-pen-to-square></i> icon to edit the token.
+3. Identify the related token, and click the <i class="fa-regular fa-pen-to-square"></i> icon to edit the token.
 4. Click **Web API** under **Token scopes**.
 
 If the token does not appear in the **API Tokens** section, it is a Member-scoped CLI token whose permissions cannot be escalated. Create a new token on the Settings page instead, and make sure to check the **Web API** box.
