@@ -45,7 +45,7 @@ The pre-commit can also run custom rules and rulesets from Semgrep Code, similar
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+  rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
 ```
