@@ -48,7 +48,7 @@ Only **admins** can view, create, edit, or delete policies.
 
 ### Edit a policy
 
-1. From the Supply Chain policies tab, click the **ellipsis button > Edit policy** for the policy you want to edit. This takes you to the specific policy page.
+1. From the Supply Chain policies tab, click the **three-dot (...) button > Edit policy** for the policy you want to edit. This takes you to the specific policy page.
 1. Make your changes.
 1. Click **Save**.
 
@@ -58,10 +58,10 @@ From the Supply Chain policies tab, turn off the toggle for the policy you want 
 
 You can also disable a policy from the policy's page:
 
-1. From the Supply Chain policies tab, click the **ellipsis button > Edit policy**.
+1. From the Supply Chain policies tab, click the **three-dot (...) button > Edit policy**.
 1. Turn off the **Enable policy** toggle.
 1. Click **Save**.
 
 ### Delete a policy
 
-From the Supply Chain policies tab, click the **ellipsis button > Delete policy**, then click **Remove**.
+From the Supply Chain policies tab, click the **three dot (...) button > Delete policy**, then click **Remove**.
