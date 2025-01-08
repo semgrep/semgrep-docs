@@ -24,6 +24,10 @@ You can create as many policies as you need.
 
 The Supply Chain policies feature is in **private beta**. To apply to this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 
+## Prerequisites
+
+This feature requires the `semgrep:latest` Docker image or at least version 1.101.0 of the Semgrep CLI tool.
+
 ## View your policies
 
 Only **admins** can view, create, edit, or delete policies.
