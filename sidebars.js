@@ -625,16 +625,8 @@ module.exports = {
     },
   ],
   devSidebar: [
-    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    {
-        type: 'category',
-        label: 'Overview',
-        collapsible: false,
-        items: [
-            'for-developers/developer-overview',
-            'for-developers/developer-signin',
-        ],
-    },
+    { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    { type: 'doc', id: 'for-developers/developer-overview', label: 'Overview' },
     {
         type: 'category',
         label: 'Resolve findings',
@@ -642,6 +634,14 @@ module.exports = {
         items: [
             'for-developers/resolve-findings-through-comments',
             'for-developers/resolve-findings-through-app',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'Perform local scans',
+        collapsible: false,
+        items: [
+            'for-developers/developer-signin',
         ],
     },
   ],
