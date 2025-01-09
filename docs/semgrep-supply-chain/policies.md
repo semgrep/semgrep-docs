@@ -15,7 +15,7 @@ Use Supply Chain policies to define the conditions in which developers are **not
 This feature enables you to configure the following:
 
 - **Scope**: These are the projects (repositories) that are affected by the policy.
-- **Conditions**: The conditions under which **actions** are performed. These conditions are typically related to the value of a finding's severity or reachability.
+- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding such as severity or reachability. 
 - **Actions**: Actions that are performed on the defined scope when conditions are met.
 
 You can create as many policies as you need.
