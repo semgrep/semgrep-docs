@@ -41,15 +41,13 @@ Only **admins** can view, create, edit, or delete policies.
 1. From the Supply Chain policies tab, Click **Create policy**.
 1. Provide a **Policy name**.
 1. Define the scope of the policy:
-  1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**. 
-  1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope. You can select more than one.
-1. Define the conditions of the policy by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. The latter value is a broader set of conditions and typically results in more findings shown to developers.
+    1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**.
+    1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
+1. Define the conditions of the policy by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. Selecting **Reachable** typically results in more findings shown to developers.
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
 
-## Enable a policy
-
-Creating a policy does **not** enable it by default. To enable it, click the **toggle** on the policy's entry in the Supply Chain policies tab.
+After creating a policy, it is automatically **enabled** and will be applied to subsequent scans.
 
 ## Other operations
 
