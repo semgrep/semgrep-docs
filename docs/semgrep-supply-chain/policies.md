@@ -57,14 +57,14 @@ After creating a policy, it is automatically **enabled** and will be applied to 
 1. Make your changes.
 1. Click **Save**.
 
-### Disable a policy
+### Disable or enable a policy
 
-From the Supply Chain policies tab, turn off the toggle for the policy you want to edit.
+From the Supply Chain policies tab, click the toggle for the policy you want to edit.
 
-You can also disable a policy from the policy's page:
+You can also disable or enable a policy from the policy's page:
 
 1. From the Supply Chain policies tab, click the **three-dot (...) button > Edit policy**.
-1. Turn off the **Enable policy** toggle.
+1. Turn off or on the **Enable policy** toggle.
 1. Click **Save**.
 
 ### Delete a policy
