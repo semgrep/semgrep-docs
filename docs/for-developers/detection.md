@@ -9,7 +9,6 @@ tags:
 
 # How Semgrep works
 
-
 ## `grep`, linters, and Semgrep
 
 ![A summary of differences between grep, linters, and Semgrep.](/img/linters-semgrep-comparison.png)

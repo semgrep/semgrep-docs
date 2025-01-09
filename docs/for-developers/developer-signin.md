@@ -1,10 +1,11 @@
 ---
 slug: developer-signin
-title: Sign in to Semgrep
+title: Sign in and install Semgrep
 hide_title: true
 description: Sign in to Semgrep to run scans following your organization's Semgrep deployment.
 tags:
   - Guides for developers
+  - Semgrep AppSec Platform
 ---
 
 import JoinAnOrg from "/src/components/procedure/_join-an-org.md"
@@ -12,11 +13,12 @@ import Install from "/src/components/procedure/_install-cli.mdx";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Sign in and install Semgrep
+## Sign in and install Semgrep
 
-Signing in to Semgrep enables you to use your organization's custom Semgrep rules and configurations when you perform local scans with Semgrep. This ensures that everyone in the organization uses the same rules and analyses.
+Signing in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login) enables you to:
 
-When you sign in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login), you can also view findings for projects (repositories) that have been assigned to you.
+- View and triage your findings in bulk.
+- Use your organization's custom Semgrep rules and configurations when you perform local scans with Semgrep. This ensures that everyone in the organization uses the same rules and analyses.
 
 ## Semgrep in multiple environments
 

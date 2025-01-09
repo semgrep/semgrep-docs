@@ -1,8 +1,8 @@
 ---
-slug: resolve-findings
+slug: resolve-findings-through-comments
 title: Resolve findings in your pull or merge request
 hide_title: true
-description: Learn to resolve or triage findings with Semgrep in developer-native interfaces.
+description: Learn to resolve or triage Semgrep findings through PR or MR comments.
 tags:
   - Developer education
 ---
@@ -12,15 +12,15 @@ import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
 # Resolve findings in your pull or merge request
 
-Findings resolution involves the assessment of a finding, then either fixing or ignoring it. You can fix or triage findings from your source code manager (SCM) or from Semgrep AppSec Platform.
+Findings resolution involves the assessment of a finding, then either fixing or ignoring it. You can fix or triage findings from your source code manager (SCM); fixing or triaging (ignoring) does **not** require a Semgrep AppSec Platform account.
 
 Findings are primarily presented to developers through **pull request (PR) or merge request (MR) comments**. These findings are generated from rules that your AppSec team has vetted or approved. 
 
 Findings from these rules are meant to be **fixed** or **remediated** rather than ignored unless the finding is a false positive.
 
-In **typical coding workflows**, it is recommended to fix or ignore findings within your source code manager (SCM) as part of your code review process; the results of triage or remediation in your SCM are synchronized with Semgrep AppSec Platform.
+In **typical coding workflows**, it is recommended to fix or ignore findings as part of your **code review** process; the results of triage or remediation in your SCM are synchronized with Semgrep AppSec Platform.
 
-However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform.
+However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform. See 
 
 ## Prerequisites and optional features
 
@@ -111,7 +111,8 @@ To ignore comments in bulk quickly, select and triage these findings through Sem
 1. Click on **Projects and branches**, then click the **<i class="fa-solid fa-chevron-down"></i> drop-down arrow** to view open branches, which is listed by its unique ID. For example, GitHub branches are represented by their PR number.
 1. Click your branch. This filters the displayed findings to those specific to your PR or MR.
 1. Click the findings you want to triage, then click **Triage**.
-1. In the drop-down box, select a new **Status**, typically **Ignored**, and optionally include a comment.
+1. In the drop-down box, select a new **Status**, typically **Ignored**.
+1. Optional: include a comment as to why you ignored a finding.
 
 ## Findings from other environments
 
@@ -120,7 +121,6 @@ When Semgrep performs a CLI or IDE scan, it presents findings from **all rules**
 You can ignore findings other environments, such as your IDE, in `pre-commit`, and the CLI, but these scans are performed **locally**. They are **not** tracked by Semgrep AppSec Platform. Semgrep does **not** save a history of ignored findings from these scans.
 
 ## Appendix: triage statuses
-
 
 <details>
 <summary>Click to view all triage statuses.</summary>

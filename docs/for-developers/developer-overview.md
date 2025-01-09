@@ -33,7 +33,7 @@ By understanding how Semgrep works, you are able to customize Semgrep to better 
 - For a guide on triaging, remediating, and fixing issues with Semgrep, see [Resolve findings with Semgrep](/for-developers/resolve-findings). -->
 
 :::note Developer and AppSec roles
-If you are a developer responsible for your **own** security program in personal projects, see the [Quickstart](/getting-started/quickstart) and [Core deployment](/deployment/core-deployment) docs.
+If you are a developer responsible for your **own** security program in personal projects, see the [Quickstart](/getting-started/quickstart) and [Core deployment](/deployment/core-deployment) documentation.
 :::
 
 ## Semgrep AppSec Platform

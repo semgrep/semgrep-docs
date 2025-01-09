@@ -628,14 +628,22 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
-        label: 'Semgrep for developers',
+        label: 'Overview',
         collapsible: false,
         items: [
             'for-developers/developer-overview',
-            'for-developers/resolve-findings',
             'for-developers/developer-signin',
         ],
-    }
+    },
+    {
+        type: 'category',
+        label: 'Resolve findings',
+        collapsible: false,
+        items: [
+            'for-developers/resolve-findings-through-comments',
+            'for-developers/resolve-findings-through-app',
+        ],
+    },
   ],
   updatesSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
