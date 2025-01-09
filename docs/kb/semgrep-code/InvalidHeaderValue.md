@@ -1,9 +1,8 @@
 ---
 description: Troubleshoot "invalid header value" errors in GitHub and Gitlab
 tags:
-  - Scanning
+  - Scans
   - Semgrep Code
-  - Secrets
 append_help_link: true
 ---
 
