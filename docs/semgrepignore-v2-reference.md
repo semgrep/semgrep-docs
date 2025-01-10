@@ -82,7 +82,7 @@ A Semgrepignore pattern is a glob pattern that is matched by Semgrep
 against file paths to determine whether these paths should be allowed or
 disallowed as target files.
 
-Supported sources of Semgrepignore patterns are:
+Semgrep looks up Semgrepignore patterns in the following places:
 
 * command-line `--exclude` and `--include` filters;
 * the `.semgrepignore` file in the current folder (v1 only);
