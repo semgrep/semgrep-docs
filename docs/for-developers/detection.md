@@ -11,6 +11,12 @@ import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
 
 # How Semgrep works
 
+Semgrep enables you to:
+
+- Search for code semantically
+- Codify those search parameters as a **rule**
+- Run the rule on every keystroke, commit, pull request, and merge
+
 ## `grep`, linters, and Semgrep
 
 ![A summary of differences between grep, linters, and Semgrep.](/img/linters-semgrep-comparison.png)
@@ -18,25 +24,11 @@ _**Figure**. A summary of differences between grep, linters, and Semgrep._
 
 In addition to being a security tool, once customized, Semgrep can be used as a linter to help you and your team codify and follow best practices and to detect code smells.
 
-You only need to learn a single rule-writing schema to write rules for many programming languages, rather than having to learn per linter.
+You only need to learn a single rule-writing schema to write rules for many programming languages, rather than having to learn a new schema for each linter.
 
-## Speed, scope and analysis
+## Transparency and determinism
 
-Semgrep can perform several types of analyses on a given scope, which affects its scan speed. The following table breaks down expected runtimes in each developer interface.
-
-<ScanSpeedScope />
-
-## How Semgrep scans your code
-
-Semgrep enables you to:
-
-- Search for code semantically
-- Codify those search parameters as a **rule**
-- Run the rule on every keystroke, commit, pull request, and merge
-
-### Transparency and determinism 
-
-Semgrep is **transparent** because you can inspect the rules and analyses that are run on your code. Rules establish what should match (for example, `==`) and what shouldn't match. They have the following characteristics:
+Semgrep is **transparent** because you can inspect the rules and analyses that are run on your code. Rules establish what should match (for example, you may want to look for and ban usages of `==` in JavaScript) and what shouldn't match. They have the following characteristics:
 
 - Rules are written in YAML. By having a single schema for all supported programming languages, you can write rules for any programming language that Semgrep supports.
   - In contrast, linters vary in customizability. Linters that let you write your own rules require to you learn that linter's rule schema, which can only be applied to that linter's programming language.
@@ -44,6 +36,12 @@ Semgrep is **transparent** because you can inspect the rules and analyses that a
 - A rule includes a **message** to help you remediate or fix.
 
 Semgrep is **deterministic**; given the same set of inputs, such as your code and rules, and the same analyses, Semgrep always finds the same findings.
+
+## Speed, scope and analysis
+
+Semgrep can perform several types of analyses on a given scope, which affects its scan speed. The following table breaks down expected runtimes in each developer interface.
+
+<ScanSpeedScope />
 
 ### Rule examples
 
@@ -90,83 +88,12 @@ This example defines both what matches within the external-facing function, and 
 
 #### Semantic taint analysis example
 
-A more complex example is detecting if **unsanitized data** is flowing from some **source**, such as saved form data, to a **sink** without sanitization.
+A more complex example is detecting if **unsanitized data** is flowing from some **source**, such as saved form data, to a **sink**, without sanitization.
 
 The following example is a simplified Semgrep rule that detects possible cross-site scripting vulnerabilities:
 
-
-```yaml showLineNumbers
-rules:
-  - id: decoded-xss
-    message: Untrusted input could be used to tamper with a web page rendering,
-      which can lead to a Cross-site scripting (XSS) vulnerability. XSS
-      vulnerabilities occur when untrusted input executes malicious JavaScript
-      code, leading to issues such as account compromise and sensitive
-      information leakage. To prevent this vulnerability, validate the user
-      input, perform contextual output encoding or sanitize the input.
-    severity: WARNING
-    metadata:
-      vulnerability_class:
-        - Cross-Site-Scripting (XSS)
-    languages:
-      - javascript
-      - typescript
-    mode: taint
-    options:
-      interfile: true
-      symbolic_propagation: true
-      taint_assume_safe_booleans: true
-      taint_assume_safe_numbers: true
-    pattern-sources:
-      - label: DECODE
-        patterns:
-          - patterns:
-              - pattern-either:
-                  //highlight-next-line
-                  - pattern: decodeURIComponent($X)
-                  //highlight-next-line
-                  - pattern: decodeURI($X)
-   pattern-sinks:
-      - patterns:
-          - pattern-either:
-              //highlight-next-line
-              - pattern: $ELEMENT. ... .innerHTML = $X
-              - pattern: document.write($X)
-          - focus-metavariable: $X
-        requires: DECODE
-  pattern-sanitizers:
-      - patterns:
-          - pattern-either:
-              //highlight-next-line
-              - pattern: Number(...)
-              - pattern: parseInt(...)
-      - patterns:
-          //highlight-next-line
-          - pattern: sanitize(...)
-```
-
-```javascript showLineNumbers
-const rootDiv = document.getElementById("root");
-import { sanitize } from "dompurify";
-const hash = decodeURIComponent(location.hash.substr(1));
-
-const hash1 = decodeURI(location.hash.substr(1));
-// ruleid: prook: decoded-xss
-rootDiv.innerHTML = sanitize(hash);
-// ok: decoded-xss
-rootDiv.innerHTML = Number.parseInt(hash);
-// ruleid: decoded-xss
-//highlight-next-line
-rootDiv.innerHTML = hash1;
-
-const obj2 = { foo: "baz", y: hash1 };
-
-const clonedObj = { ...obj2 };
-
-// ruleid: decoded-xss
-//highlight-next-line
-rootDiv.innerHTML = clonedObj.y;
-```
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=zdD4Z" width="100%" height="432px" frameBorder="0"></iframe>
+_**Figure**. Prevent possible cases of cross-site scripting due to unsanitized data. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
 
 In this example, **lines 11 and 18** are the only two true positives.
 - **Line 7** is not a match because `hash` has been sanitized through `sanitize(hash)`.
