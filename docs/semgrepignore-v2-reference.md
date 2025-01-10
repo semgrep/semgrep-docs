@@ -91,14 +91,28 @@ Supported sources of Semgrepignore patterns are:
 * default Semgrepignore patterns.
 
 These sources of filters are grouped into precedence levels.
-At the end of a level,
-only the selected paths will be considered for the next level. For
-example, `*.c` in the first level will exclude `hello.c` even if
-the next level de-excludes it with `!hello.c`. The levels are:
+Within a precedence level, a path can be deselected and reselected
+any number of times. After applying all the filters within a
+precedence level, only the selected paths make it to the next
+level. There are two precedence levels:
 
 1. command-line `--exclude` and `--include` filters;
 2. default Semgrepignore patterns, `.gitignore` files,
    `.semgrepignore` files.
+
+For example, consider this `.semgrepignore` file:
+```
+*.c
+!hello.c
+```
+In the absence of `--exclude` or `--include` filters,
+`hello.c` will be first deselected by `*.c` and then
+reselected by the negated pattern `!hello.c`.
+
+However, if we move the `*.c` exclusion pattern to the command line by
+invoking `semgrep --exclude *.c`,
+the file `hello.c` is deselected and ignored even if
+the `.semgrepignore` file contains `!hello.c`.
 
 In a Git project under Semgrepignore v2, `.gitignore` and
 `.semgrepignore` files are consulted in the same order as in the
