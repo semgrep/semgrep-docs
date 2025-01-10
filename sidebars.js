@@ -628,6 +628,7 @@ module.exports = {
   devSidebar: [
     { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'doc', id: 'for-developers/developer-overview', label: 'Overview' },
+    { type: 'doc', id: 'for-developers/developer-signin', label: 'Sign in to Semgrep' },
     {
         type: 'category',
         label: 'Resolve findings',
@@ -642,7 +643,15 @@ module.exports = {
         label: 'Perform local scans',
         collapsible: false,
         items: [
-            'for-developers/developer-signin',
+            'for-developers/developer-local-scans',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'References',
+        collapsible: false,
+        items: [
+            'for-developers/detection',
         ],
     },
   ],
