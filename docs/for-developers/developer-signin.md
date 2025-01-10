@@ -20,9 +20,14 @@ Signing in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Pla
 - View and triage your findings in bulk.
 - Use your organization's custom Semgrep rules and configurations when you perform local scans with Semgrep. This ensures that everyone in the organization uses the same rules and analyses.
 
+:::tip Is this document for you?
+- Not all organizations require their developers to create a Semgrep account.
+- You can resolve or triage (ignore) findings in from pull or merge request comments **without** a Semgrep account, by replying to the comment. See [Resolve findings in your pull or merge request](/for-developers/resolve-findings-through-comments).
+:::
+
 ## Semgrep in multiple environments
 
-If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a creates a **personal** account, which you can then use to **join** your organization's Semgrep account. This grants you access to your organization's Semgrep configuration.
+If you have not yet created a Semgrep account, it is **recommended** to first sign in to the Semgrep web app. This process creates a **personal** account, which you can then use to **join** your organization's Semgrep account. This lets you use your organization's Semgrep configuration, such as custom rules and scan parameters.
 
 If you use Semgrep in your CLI or IDE, you must sign in from those environments as well. It is recommended to sign in from these interfaces **after** you have signed in to your organization account in the web app.
 
@@ -37,7 +42,7 @@ In a typical Semgrep deployment, your company creates an **org** that you can si
 
  <JoinAnOrg />
 
-After signing in to your org's account, you can now sign in from other environments, such as your CLI or IDE.
+After signing in to your org's account, you can now sign in and scan with Semgrep from other environments, such as your CLI or IDE.
 
 ## Set up Semgrep in the CLI
 
