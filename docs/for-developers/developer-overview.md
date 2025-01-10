@@ -56,8 +56,7 @@ _**Figure**. A PR comment detecting a hardcoded secret._
 It is less frequent, but still common, for developers to run Semgrep as part of their day-to-day coding workflow in the following environments:
 
 -  IDEs (VS Code and IntelliJ)
--  CLI
-    - `pre-commit`
+-  CLI, including `pre-commit`
 
 Your AppSec team is likely to have guidelines about Semgrep scans in these environments.
 

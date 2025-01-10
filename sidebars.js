@@ -640,7 +640,7 @@ module.exports = {
     },
     {
         type: 'category',
-        label: 'Perform local scans',
+        label: 'Run scans',
         collapsible: false,
         items: [
             'for-developers/developer-local-scans',
