@@ -7,6 +7,8 @@ tags:
   - Developer education
 ---
 
+import ScanSpeedScope from "/src/components/reference/_scan-speed-scope.md"
+
 # How Semgrep works
 
 ## `grep`, linters, and Semgrep
