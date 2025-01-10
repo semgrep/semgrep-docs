@@ -45,7 +45,7 @@ Semgrep can perform several types of analyses on a given scope, which affects it
 
 ### Rule examples
 
-Click the following boxes to learn about Semgrep's pattern matching mechanisms and analyses. Or, continue to [Resolve findings with Semgrep](/for-developers/resolve-findings) to learn common developer workflows with Semgrep.
+Click the following boxes to learn about Semgrep's pattern matching mechanisms and analyses.
 
 <details>
 <summary>Simple syntax-based example: ban the use of `==` in JavaScript</summary>
