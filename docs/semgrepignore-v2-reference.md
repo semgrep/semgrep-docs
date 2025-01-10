@@ -90,8 +90,9 @@ Supported sources of Semgrepignore patterns are:
 * all the `.gitignore` files in the project in Git projects (v2 only);
 * default Semgrepignore patterns.
 
-These sources of filters are grouped into levels. At the end of a level,
-only selected paths will be considered for the next level. For
+These sources of filters are grouped into precedence levels.
+At the end of a level,
+only the selected paths will be considered for the next level. For
 example, `*.c` in the first level will exclude `hello.c` even if
 the next level de-excludes it with `!hello.c`. The levels are:
 
