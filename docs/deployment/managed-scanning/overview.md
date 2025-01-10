@@ -28,7 +28,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 - Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
 
 :::info
-- To receive Supply Chain findings, you must have a supported manifest file in your repository. Managed Scans does **not** support lockfile generation.
+- To receive Supply Chain findings, you must have a supported manifest file in your repository. Managed Scans does **not** support manifest file generation.
 - For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use Managed Scans. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
 :::
 

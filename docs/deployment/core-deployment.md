@@ -59,7 +59,7 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>SCA scanning</td>
-            <td>Check that Semgrep either supports your manifest file and package manager or is capable of scanning your project without a manifest file or lockfile.</td>
+            <td>Check that Semgrep either supports your manifest file and package manager or is capable of scanning your project without a manifest file.</td>
         </tr>
         <tr>
             <td>Secrets scanning</td>

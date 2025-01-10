@@ -10,7 +10,7 @@ tags:
 
 # Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline
 
-In CircleCI, you can generate a lockfile for your project as part of your pipeline jub. This step happens during the first job, then the lockfile is passed to the Semgrep scan using a [workspace](https://circleci.com/docs/workspaces/) to share files between jobs.
+In CircleCI, you can generate a lockfile for your project as part of your pipeline job. This step happens during the first job, then the lockfile is passed to the Semgrep scan using a [workspace](https://circleci.com/docs/workspaces/) to share files between jobs.
 
 The following `config.yml` file demonstrates how you can generate a lockfile and pass it to subsequent jobs using CircleCI workspaces. This example uses a `maven_dep_tree.txt` file, which [typically needs to be generated](/docs/semgrep-supply-chain/setup-maven) from a `pom.xml` for Maven dependency tracking.
 

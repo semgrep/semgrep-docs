@@ -38,7 +38,7 @@ If the scan did not complete, or failed when trying to send results, the depende
 
 Review the logs from the scan and determine whether it was successful, or ran into an issue.
 
-#### manifest file parsing failure
+#### Manifest file parsing failure
 
 The manifest file may not have been parsed successfully. The CI output should point to the line where the error occurred. Here is an example from a failed attempt to parse a `Pipfile.lock` (Python):
 

@@ -23,7 +23,7 @@ This article walks you through the setup needed to scan your project with Semgre
 
 To scan your project with Semgrep Supply Chain, it must have a manifest file and use [supported package managers and filenames](/docs/supported-languages#semgrep-supply-chain).
 
-Semgrep Supply Chain can correctly parse code files and manifest files in subfolders as well. Code files that use the dependencies in the manifest file must be nested in the same directory as the manifest file. manifest files must all use the supported file names.
+Semgrep Supply Chain can correctly parse code files and manifest files in subfolders as well. Code files that use the dependencies in the manifest file must be nested in the same directory as the manifest file. Manifest files must all use supported file names.
 
 In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
