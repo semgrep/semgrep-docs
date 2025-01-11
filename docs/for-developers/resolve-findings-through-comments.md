@@ -97,29 +97,6 @@ If the finding is a false positive, acceptable risk, or similar, you can choose 
 ![A completed triage flow.](/img/pr-comment-triage-response.png#md-width)
 _**Figure**. A completed triage flow._
 
-## Ignore the finding through Semgrep AppSec Platform
-
-:::caution
-- Not all organizations allow developers to use the AppSec Platform; ask your security team if you have access.
-- When triaging through Semgrep AppSec Platform, developers typically triage findings specific to their **branch**. Avoid triaging findings in branches that are not yours to triage.
-:::
-
-To ignore comments in bulk quickly, select and triage these findings through Semgrep AppSec Platform:
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **Code** for SAST findings, **Secrets** for secrets findings, or **Supply Chain** for SCA findings. You are taken to a page with all the findings for that product.
-1. Click on **Projects and branches**, then click the **<i class="fa-solid fa-chevron-down"></i> drop-down arrow** to view open branches, which is listed by its unique ID. For example, GitHub branches are represented by their PR number.
-1. Click your branch. This filters the displayed findings to those specific to your PR or MR.
-1. Click the findings you want to triage, then click **Triage**.
-1. In the drop-down box, select a new **Status**, typically **Ignored**.
-1. Optional: include a comment as to why you ignored a finding.
-
-## Findings from other environments
-
-When Semgrep performs a CLI or IDE scan, it presents findings from **all rules** that your AppSec team uses. For this reason, you may encounter **more false positive or low severity findings** that you can ignore.
-
-You can ignore findings other environments, such as your IDE, in `pre-commit`, and the CLI, but these scans are performed **locally**. They are **not** tracked by Semgrep AppSec Platform. Semgrep does **not** save a history of ignored findings from these scans.
-
 ## Appendix: triage statuses
 
 <details>
