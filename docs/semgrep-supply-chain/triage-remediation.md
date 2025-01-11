@@ -83,7 +83,9 @@ The transitivity of the finding:
 * **Transitive**: Your project's dependency depends on a vulnerable dependency.
 * **Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.
 
-Semgrep determines transitivity by the presence of a manifest file corresponding to the lockfile being scanned. If there is no corresponding manifest file&mdash;for example, if you use `requirements.txt` directly as a lockfile for your Python applications&mdash;the dependency transitivity is Undetermined. Undetermined dependencies are treated as direct dependencies for the purpose of reachability.
+Semgrep determines transitivity using information from the manifest. If there is no corresponding manifest file, and the information is not available in the lockfile, the dependency transitivity is Undetermined. This can occur, for example, if you use `requirements.txt` directly as a lockfile for your Python applications.
+
+Undetermined dependencies are treated as direct dependencies for the purpose of reachability.
 
 ### EPSS probability
 
