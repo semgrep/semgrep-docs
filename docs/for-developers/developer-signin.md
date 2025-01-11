@@ -1,10 +1,10 @@
 ---
 slug: developer-signin
-title: Sign in and install Semgrep
+title: Sign in to Semgrep
 hide_title: true
 description: Sign in to Semgrep to run scans following your organization's Semgrep deployment.
 tags:
-  - Guides for developers
+  - Developer education
   - Semgrep AppSec Platform
 ---
 
@@ -13,7 +13,7 @@ import Install from "/src/components/procedure/_install-cli.mdx";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Sign in and install Semgrep
+# Sign in to Semgrep
 
 Signing in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform web app](https://semgrep.dev/login) enables you to:
 

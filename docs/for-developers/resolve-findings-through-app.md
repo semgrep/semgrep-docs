@@ -21,7 +21,7 @@ This guide explains how you can view and triage findings in bulk through the Sem
 
 ## Prerequisites
 
-You must have an existing Semgrep org account. See
+You must have an existing Semgrep org account. See [Sign in to Semgrep](/for-developers/signin).
 
 ## Ignore findings in bulk
 
@@ -32,12 +32,6 @@ You must have an existing Semgrep org account. See
 1. Click the findings you want to triage, then click **Triage**.
 1. In the drop-down box, select a new **Status**, typically **Ignored**.
 1. Optional: include a comment as to why you ignored a finding.
-
-## Findings from other environments
-
-When Semgrep performs a CLI or IDE scan, it presents findings from **all rules** that your AppSec team uses. For this reason, you may encounter **more false positive or low severity findings** that you can ignore.
-
-You can ignore findings other environments, such as your IDE, in `pre-commit`, and the CLI, but these scans are performed **locally**. They are **not** tracked by Semgrep AppSec Platform. Semgrep does **not** save a history of ignored findings from these scans.
 
 ## Appendix: triage statuses
 

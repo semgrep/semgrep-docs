@@ -92,3 +92,8 @@ For JetBrains IntelliJ users:
 </TabItem>
 </Tabs>
 
+## Tracking findings from local environments 
+
+When Semgrep performs a CLI or IDE scan, it presents findings from **all rules** that your AppSec team uses. For this reason, you may encounter **more false positive or low severity findings** that you can ignore.
+
+You can ignore findings other environments, such as your IDE, in `pre-commit`, and the CLI, but these scans are performed **locally**. They are **not** tracked by Semgrep AppSec Platform. Semgrep does **not** save a history of ignored findings from these scans.
