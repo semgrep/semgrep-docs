@@ -55,9 +55,9 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    4. When prompted, click **Continue** to allow redirection to GitHub to finalize app creation. Follow the instructions to finish creating and installing a private `semgrep-app`.
 4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-   3. **Autofix suggestions for Code**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
+   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   4. **Remediation**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
 
 </TabItem>
 
@@ -82,9 +82,9 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 1. Follow the on-screen instructions to complete the setup process.
 2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
+   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   4. **Remediation**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
 
 </TabItem>
 </Tabs>
@@ -117,6 +117,13 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 * You have set rules to Comment or Block mode.
   ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
+
+### Enable weekly priority emails
+
+If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Add Memories (beta)
 

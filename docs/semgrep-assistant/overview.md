@@ -93,6 +93,10 @@ _**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts.
 
+## Weekly priority emails
+
+Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
+
 ### Memories (beta)
 
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
