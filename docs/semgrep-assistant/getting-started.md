@@ -89,12 +89,12 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 </TabItem>
 </Tabs>
 
-### Enable autofix suggestions
+### Enable remediation
 
-Assistant autofix allows you to receive AI-generated code snippets to remediate true positives. Perform the following to enable it:
+Assistant remediation allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the *Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+2. In the **Assistant** section, click the **Remediation** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
     :::tip
     Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
