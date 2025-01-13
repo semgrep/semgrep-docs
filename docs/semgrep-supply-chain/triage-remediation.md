@@ -75,15 +75,17 @@ The triage state of the finding:
 * **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. You can filter findings with a status of **Ignored** further by reason: **False positive**, **Acceptable risk**, **No time to fix**, or **No triage reason**.
 * **Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
 
-> You can set the **Fixing** and **Reviewing** statuses only if you are a [Jira beta](https://semgrep.dev/docs/semgrep-appsec-platform/jira) participant.
-
 ### Transitivity
 
-The transitivity of the finding: 
+The transitivity of the finding:
 
 * **Direct**: Your project depends directly on the dependency.
 * **Transitive**: Your project's dependency depends on a vulnerable dependency.
 * **Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.
+
+Semgrep determines transitivity using information from the manifest. If there is no corresponding manifest file, and the information is not available in the lockfile, the dependency transitivity is **Undetermined**. This can occur, for example, if you use `requirements.txt` directly as a lockfile for your Python applications.
+
+Undetermined dependencies are treated as direct dependencies for the purposes of reachability.
 
 ### EPSS probability
 
