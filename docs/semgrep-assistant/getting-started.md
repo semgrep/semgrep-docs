@@ -156,6 +156,8 @@ To add a memory during triage:
    3. Provide the **Rules** to which this memory should be applied.
    4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
    5. Click **Add memory** to save your changes.
+   ![User-provided instructions for generating a memory during the triage process.](/img/triage-memories.png#md-width)
+   ***Figure***. User-provided instructions for generating a memory during the triage process.
 
 ### Remove Memories
 

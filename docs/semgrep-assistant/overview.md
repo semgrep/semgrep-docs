@@ -91,10 +91,7 @@ Auto-triage recommendations are available in Semgrep AppSec Platform's **Finding
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
 _**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
-Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
-
-![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in a Slack notification._
+Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts.
 
 ### Memories (beta)
 
