@@ -120,14 +120,16 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ## Add Memories (beta)
 
-Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
+Assistant Memories allows admins to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
 
-Memories are enabled by default for all Assistant users.
+Memories are enabled by default for all organizations with Assistant enabled.
 
-To add a memory:
+### Add memory based on Assistant's suggested fix
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
-2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+To add a memory modifying a suggested fix presented by Assistant:
+
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
+2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use AWS Secrets Manager to manage secrets."
    ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-3.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
 3. Click **Save and regenerate**.
@@ -138,6 +140,22 @@ To add a memory:
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+
+### Add memory during triage
+
+If you identify findings that are safe to ignore and write triage notes indicating why this is so, Assistant can store this information as a memory and use it when assessing whether a similar finding should be shown to developers in the future. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+
+To add a memory during triage:
+
+1. Identify the specific finding you want to modify, and open up its finding details page.
+2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason**.
+3. Click **Ignore & add memory**. 
+4. In the **Create memory** pop-up window:
+   1. Provide your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use AWS Secrets Manager to manage secrets."
+   2. Provide the **Projects** to which this memory should be applied.
+   3. Provide the **Rules** to which this memory should be applied.
+   4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
+   5. Click **Add memory** to save your changes.
 
 ### Remove Memories
 
