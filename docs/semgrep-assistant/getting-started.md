@@ -100,6 +100,18 @@ Assistant autofix allows you to receive AI-generated code snippets to remediate 
     Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
     :::
 
+### Enable noise filtering
+
+Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+3. Select whether you want to enable PR or MR comments:
+   1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the **Code > Production backlog** page. Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
+   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
+
+Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to **Code > Production backlog**. Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
+
 ### Enable auto-triage
 
 If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:

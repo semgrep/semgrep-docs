@@ -93,7 +93,11 @@ _**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts.
 
-## Weekly priority emails
+### Noise filtering
+
+Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown to users by hiding those flagged by Assistant as likely to be false positives. Findings filtered out by Assistant can be reviewed at any time in Semgrep. Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
+
+### Weekly priority emails
 
 Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
 
