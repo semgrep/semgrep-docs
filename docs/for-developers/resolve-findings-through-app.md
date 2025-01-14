@@ -21,7 +21,7 @@ This guide explains how you can view and triage findings in bulk through the Sem
 
 ## Prerequisites
 
-You must have an existing Semgrep org account. See [Sign in to Semgrep](/for-developers/signin).
+You must have an existing Semgrep org account. See [Sign in to Semgrep](/for-developers/developer-signin).
 
 ## Ignore findings in bulk
 

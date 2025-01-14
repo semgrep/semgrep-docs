@@ -42,7 +42,7 @@ In a typical Semgrep deployment, your company creates an **org** that you can si
 
  <JoinAnOrg />
 
-After signing in to your org's account, you can now sign in and scan with Semgrep from other environments, such as your [CLI or IDE](/for-developers/developer-local-scans).
+After signing in to your org's account, you can now sign in and scan with Semgrep from other environments, such as your [CLI or IDE](/for-developers/local-scans).
 
 ## Set up Semgrep in the CLI
 
