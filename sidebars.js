@@ -644,6 +644,7 @@ module.exports = {
         collapsible: false,
         items: [
             'for-developers/developer-local-scans',
+            'for-developers/ide',
         ],
     },
     {

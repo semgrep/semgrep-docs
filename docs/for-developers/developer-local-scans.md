@@ -1,18 +1,22 @@
 ---
-slug: /for-developers/local-scans
-title: Local Semgrep scans
+slug: /for-developers/cli
+title: Run local CLI scans
 hide_title: true
-description: Scan with Semgrep
+description: Run local Semgrep CLI scans.
 tags:
   - Semgrep AppSec Platform
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Run local CLI scans
 
-# Local Semgrep scans 
+You can run local Semgrep CLI scans with the Semgrep command-line tool.
 
-## Run local CLI scans
+## Prerequisites
+
+- An existing Semgrep org account.
+- Semgrep CLI tool installed in your local machine.
+
+## Best practices
 
 It's best to run the following command for local scans:
 
@@ -25,71 +29,38 @@ semgrep ci --dry-run
 
 When Semgrep performs a CLI or IDE scan, it presents findings from **all rules** that your AppSec team uses. For this reason, you may encounter **more false positive or low severity findings** that you can ignore.
 
-### Common Semgrep commands
+## Common Semgrep commands
 
-#### `semgrep scan`
+### `semgrep scan`
 
-The following command runs a local scan with Semgrep Community Edition (CE) using pre-selected rules for a variety of languages:
+The following command runs a local scan with Semgrep's open source Community Edition (CE) using pre-selected rules for a variety of languages:
 
 ```bash
 semgrep scan
 ```
-- `semgrep scan` does not take into account your organization's settings
+- `semgrep scan` does not take into account your organization's settings.
 - You do **not** need to be logged in to run a scan.
-- It only runs SAST analyses. It does not run other Semgrep products, such as Secrets or Supply Chain. 
+- It only runs lightweight SAST analyses.
+- It does not run other Semgrep products, such as Secrets or Supply Chain. 
 
-You can run `semgrep scan` to test a custom rule on a folder, codebase, or repository:
+:::caution
+- `semgrep scan` does not run the same analyses as `semgrep ci` so you may have a higher rate of false positives.
+- You can run `semgrep scan --pro` to run advanced SAST analyses with no other Semgrep products.
+:::
 
-```bash
-semgrep scan --config [CUSTOM_RULE].yaml
-```
+#### Test a custom rule
 
-Replace `CUSTOM_RULE.yaml` with the name of your custom rule.
+You can test a custom rule by creating a test file. See [Testing rules](/writing-rules/testing-rules). 
 
-#### `semgrep ci`
+After your've tested your custom rule, you can try it on your codebase locally:
+
+1. Ensure that you're signed in to Semgrep from the CLI by entering `semgrep login`. If you have successfully signed in, you should see **API token already exists** or a similar message.
+1. Enter the following command:
+    ```bash
+    semgrep scan --pro --config [CUSTOM_RULE].yaml
+    ```
+    Replace `CUSTOM_RULE.yaml` with the name of your custom rule.
+
+### `semgrep ci`
 
 The `semgrep ci` command, without any flags, sends the results of your scan to Semgrep AppSec Platform with the slug `local-scan/PROJECT_NAME`. When using this command in a team setting, ensure that you are aware of its risks and that your team members are aware.
-
-## Set up a Semgrep IDE extension
-
-<Tabs
-    defaultValue="vs-code"
-    values={[
-    {label: 'Visual Studio Code (VS Code)', value: 'vs-code'},
-    {label: 'IntelliJ', value: 'intellij'},
-    ]}
->
-
-<TabItem value='vs-code'>
-
-For Microsoft VS Code users:
-
-1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Semgrep VS Code extension page](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep).
-1. Click **Install**. Enter <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in:
-```
-Semgrep: Sign in
-```
-
-A Semgrep scan starts automatically after signing in.
-
-</TabItem>
-
-<TabItem value='intellij'>
-
-For JetBrains IntelliJ users:
-
-1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Semgrep IntelliJ extension page](https://plugins.jetbrains.com/plugin/22622-semgrep).
-1. Click **Get**.
-1. Click the latest version compatible with your machine.
-1. Install the plugin from your IntelliJ IDE by navigating to **Settings/Preferences > Plugins > ⚙️ > Install plugin from disk**.
-1. Sign in: Enter <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep AppSec Platform by selecting the following command:
-   ```
-   Sign in with Semgrep
-   ```
-3. Test the extension by entering <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and run the following command:
-   ```
-   Scan workspace with Semgrep
-   ```
-
-</TabItem>
-</Tabs>
