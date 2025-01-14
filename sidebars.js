@@ -246,6 +246,7 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
+                      'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
@@ -308,7 +309,8 @@ module.exports = {
             ]
         },
         'cli-reference',
-        `semgrep-appsec-platform/json-and-sarif`,
+        'semgrep-appsec-platform/json-and-sarif',
+        'semgrepignore-v2-reference',
       ]
     }
   ],
@@ -640,6 +642,7 @@ module.exports = {
                     title: '2024 Release notes'
                 },
               items: [
+                'release-notes/december-2024',
                 'release-notes/november-2024',
                 'release-notes/october-2024',
                 'release-notes/september-2024',

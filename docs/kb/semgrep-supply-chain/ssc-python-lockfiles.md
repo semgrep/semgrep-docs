@@ -21,7 +21,7 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these three manifest files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names in order to be scanned.
+You can use any of these three manifest files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names to be scanned.
 
 ## Generating `requirements.txt`
 
@@ -43,7 +43,7 @@ Now, you have successfully generated a `requirements.txt` file with direct and t
 
 #### Example of `requirements.txt` generated from `requirements.in`
 
-Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies: 
+Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies:
 
 ```
 numpy
@@ -107,7 +107,7 @@ tzdata==2023.3
     # via pandas
 ```
 
-This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the supply chain scan.
+This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
 
 ### Using `pip freeze`
 
@@ -146,7 +146,7 @@ on:
     - cron: '0 1 * * 0'
 name: Semgrep
 jobs:
-  my_first_job: 
+  my_first_job:
     name: requirementsGeneration
     runs-on: ubuntu-latest
     steps:
@@ -176,7 +176,7 @@ jobs:
           name: requirementstxt
       - run: semgrep ci --supply-chain
 
-``` 
+```
 
 ## Generating `Pipfile.lock`
 

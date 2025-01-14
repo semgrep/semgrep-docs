@@ -55,7 +55,7 @@ A [transitive dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-ind
 
 However, some dependencies are vulnerable simply through their inclusion in a codebase; in such cases, Semgrep Supply Chain generates reachable findings involving these dependencies, even if they're transitive, not direct, dependencies.
 
-Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag transitive dependencies as unreachable if not used directly.
+Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
 ## Software bill of materials
 
