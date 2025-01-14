@@ -21,9 +21,9 @@ tags:
 
 Semgrep Supply Chain performs software composition analysis with reachability.
 
-Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a manifest file that it can parse in continuous integration (CI).
+Scanning third-party code with Semgrep Supply Chain may require additional steps, such as generating a manifest file or lockfile that it can parse in continuous integration (CI).
 
-The documents in this category describe how to set up Semgrep Supply Chain for specific manifest files or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
+The documents in this category describe how to set up Semgrep Supply Chain for specific manifest files, lockfiles, or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
 
 | CI provider                 | Issue   | Solution |
 | ----------                  | ------- | ------    |

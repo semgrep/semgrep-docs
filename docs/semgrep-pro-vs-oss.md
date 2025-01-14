@@ -333,7 +333,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 ###### Semgrep Supply Chain (SCA)
 
 - [10+ supported languages](/supported-languages#semgrep-supply-chain)
-- [Manifest files and reachability](/semgrep-supply-chain/overview#open-source-security-vulnerabilities) analysis
+- [Manifest files, lockfiles, and reachability](/semgrep-supply-chain/overview#open-source-security-vulnerabilities) analysis
 - 100% of High and Critical CVEs covered for supported languages since May 2022
 
 ###### Semgrep Secrets
