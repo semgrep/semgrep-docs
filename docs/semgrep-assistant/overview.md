@@ -95,7 +95,11 @@ Assistant's suggestions to ignore findings are also surfaced in PR or MR comment
 
 ### Noise filtering
 
-Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown to users by hiding those flagged by Assistant as likely to be false positives. Findings filtered out by Assistant can be reviewed at any time in Semgrep. Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
+Noise filtering increases developer velocity by reducing interruptions from potential false positives. With Noise Filtering, Assistant evaluates each finding to determine if it's a true positive using additional context. If Assistant thinks a finding may be a false positive, it prevents a PR comment from being posted in the developer workflow. 
+
+Security teams can review filtered findings at any time on the pre-production tab. Semgrep also allows you to agree or disagree with the filtering. If you agree with the suggestion, Semgrep closes the finding, but if you disagree, Semgrep reopens the finding.
+
+Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives.
 
 ### Weekly priority emails
 

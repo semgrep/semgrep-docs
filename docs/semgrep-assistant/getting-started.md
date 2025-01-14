@@ -170,7 +170,7 @@ To add a memory during triage:
 2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason**.
 3. Click **Ignore & add memory**. 
 4. In the **Create memory** pop-up window:
-   1. Provide your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use AWS Secrets Manager to manage secrets."
+   1. Provide the organization-specific reason why the finding is a false positive. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding."
    2. Provide the **Projects** to which this memory should be applied.
    3. Provide the **Rules** to which this memory should be applied.
    4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
