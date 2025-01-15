@@ -1,5 +1,5 @@
 ---
-slug: for-developers/ide
+slug: /for-developers/ide
 title: Run IDE scans
 hide_title: true
 description: Set up and run Semgrep scans within your IDE 
@@ -9,12 +9,14 @@ tags:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import IdeList from "/src/components/reference/_ide-list.md"
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
 
 # Run IDE scans
 
 Semgrep supports the following IDE extensions:
 
-tk add
+<IdeList />
 
 ## Install the extension
 
@@ -60,6 +62,6 @@ For JetBrains IntelliJ users:
 </TabItem>
 </Tabs>
 
-## Scans and analyses
+## Scan scope and limitations
 
-### Limitations
+<IdeLimitations />

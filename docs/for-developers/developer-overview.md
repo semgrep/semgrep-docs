@@ -1,5 +1,5 @@
 ---
-slug: developer-overview
+slug: /for-developers/overview
 title: Overview
 hide_title: true
 displayed_sidebar: devSidebar

@@ -5,7 +5,7 @@ description: >-
   Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
 ---
 
-
+import IdeList from "/src/components/reference/_ide-list.md"
 import Login from "/src/components/procedure/_login-activate.mdx"
 
 # Extensions
@@ -14,9 +14,7 @@ Several third-party tools include Semgrep extensions.
 
 ### Official IDE extensions
 
-- Microsoft Visual Studio Code: [`semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
-- IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
-- Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
+<IdeList />
 
 ### Use of Language Server Protocol (LSP)
 

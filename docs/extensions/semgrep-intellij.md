@@ -6,6 +6,8 @@ tags:
     - Extensions
 ---
 
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
+
 # Semgrep IntelliJ extension
 
 [Semgrep](https://semgrep.dev/) swiftly scans code and package dependencies for known issues, software vulnerabilities, and detected secrets. Run Semgrep in your developer environment with the IntelliJ extension to catch code issues as you type. By default, the Semgrep IntelliJ extension scans code whenever you change or open files.
@@ -99,8 +101,4 @@ If you need our support, join the [Semgrep community Slack workspace](http://go.
 
 ## Limitations
 
-IDE scans use Semgrep CE for speed. Scans are thus limited to single-file analysis. You can still perform cross-file (interfile) scans on your machine through the CLI:
-
-```bash
-semgrep ci --pro
-```
+<IdeLimitations />

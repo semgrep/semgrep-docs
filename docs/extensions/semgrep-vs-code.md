@@ -7,6 +7,8 @@ tags:
   - Extensions
 ---
 
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
+
 # Semgrep Visual Studio Code extension
 
 [Semgrep's Visual Studio Code (VS Code) Extension](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep) allows you to scan lines when you open and change files in your workspace. It offers:
@@ -105,8 +107,4 @@ The following experimental features should only be used upon recommendation by S
 
 ## Limitations
 
-IDE scans use Semgrep Community Edition (CE) for its speed. Scans are thus limited to single-file analysis. You can still perform cross-file (interfile) scans on your machine through the CLI:
-
-```bash
-semgrep ci --pro
-```
+<IdeLimitations />
