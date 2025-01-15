@@ -120,7 +120,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ### Enable noise filtering
 
-Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/assistant-metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
