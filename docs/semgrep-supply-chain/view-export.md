@@ -23,7 +23,6 @@ Once Semgrep Supply Chain successfully scans your repository, you can view and e
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
 _**Figure**. Semgrep Supply Chain Vulnerabilities page._
 
-
 The **Supply Chain** page displays relevant scan data using four tabs:
 - The **Vulnerabilities** tab enables you to:
     - View reachable vulnerabilities in your repositories through links to specific lines of code.
