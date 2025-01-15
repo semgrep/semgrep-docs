@@ -28,7 +28,7 @@ Add tags for specific projects in the Semgrep AppSec Platform through the follow
 To manage tags through Semgrep AppSec Platform, follow these steps:
 
 1. Go to the Semgrep AppSec Platform [Projects](https://semgrep.dev/orgs/-/projects) page.
-2. Find the project to which you want to add or remove tags, then click its **<i class="far fa-window-restore"></i> icon** under **Details**.
+2. Find the project you want to modify, then click its **<i class="far fa-window-restore"></i> icon** under **Details**.
 3. Click the **Settings** tab.
 4. Add or remove tags under the **Tags** section.
 5. Click **Save**.
