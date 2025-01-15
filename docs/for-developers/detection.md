@@ -99,5 +99,5 @@ In this example, **lines 11 and 18** are the only two true positives.
 - **Line 7** is not a match because `hash` has been sanitized through `sanitize(hash)`.
 - **Line 9** stores the hash as a number, and the rule has defined this as a sanitizer as well.
 
-Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized. View the rule in its entirety to see how the rule catches all possible cases. 
+Semgrep defines the `pattern-sources`, `pattern-sinks`, and `pattern-sanitizers` to make sure that the rule is accurate and contains no false positives or false negatives by including every possible way this type of XSS can occur and **excluding** those cases where the data has been sanitized.
 </details>
