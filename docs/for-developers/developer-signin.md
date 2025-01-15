@@ -1,5 +1,5 @@
 ---
-slug: developer-signin
+slug: for-developers/signin
 title: Sign in to Semgrep
 hide_title: true
 description: Sign in to Semgrep to run scans following your organization's Semgrep deployment.
@@ -42,7 +42,7 @@ In a typical Semgrep deployment, your company creates an **org** that you can si
 
  <JoinAnOrg />
 
-After signing in to your org's account, you can now sign in and scan with Semgrep from other environments, such as your [CLI or IDE](/for-developers/local-scans).
+After signing in to your org's account, you can now sign in and scan with Semgrep from other environments, such as your CLI or IDE.
 
 ## Set up Semgrep in the CLI
 
