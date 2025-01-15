@@ -18,7 +18,9 @@ Semgrep supports the following IDE extensions:
 
 <IdeList />
 
-## Install the extension
+## Quickstart
+
+Select your IDE in the following tabs and follow the instructions to set up your first Semgrep IDE scan. 
 
 <Tabs
     defaultValue="vs-code"
