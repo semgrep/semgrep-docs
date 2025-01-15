@@ -100,18 +100,6 @@ Assistant remediation allows you to receive AI-generated code snippets for true 
     Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
     :::
 
-### Enable noise filtering
-
-Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
-
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. Select whether you want to enable PR or MR comments:
-   1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the **Code > Production backlog** page. Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
-   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
-
-Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to **Code > Production backlog**. Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
-
 ### Enable auto-triage
 
 If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
@@ -129,6 +117,18 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 * You have set rules to Comment or Block mode.
   ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
+
+### Enable noise filtering
+
+Assistant is over 95% accurate in categorizing Semgrep Code findings as false positives, so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+3. Select whether you want to enable PR or MR comments:
+   1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
+   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
+
+Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
 
 ### Enable weekly priority emails
 
@@ -167,16 +167,21 @@ If you identify findings that are safe to ignore and write triage notes indicati
 To add a memory during triage:
 
 1. Identify the specific finding you want to modify, and open up its finding details page.
-2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason**.
+2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
 3. Click **Ignore & add memory**. 
 4. In the **Create memory** pop-up window:
-   1. Provide the organization-specific reason why the finding is a false positive. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding."
+   1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
    2. Provide the **Projects** to which this memory should be applied.
    3. Provide the **Rules** to which this memory should be applied.
    4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
    5. Click **Add memory** to save your changes.
    ![User-provided instructions for generating a memory during the triage process.](/img/triage-memories.png#md-width)
    ***Figure***. User-provided instructions for generating a memory during the triage process.
+
+### View Memories
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**. This opens a list of your organization's Memories for review.
 
 ### Remove Memories
 
