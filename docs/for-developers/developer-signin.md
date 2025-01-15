@@ -1,5 +1,5 @@
 ---
-slug: for-developers/signin
+slug: /for-developers/signin
 title: Sign in to Semgrep
 hide_title: true
 description: Sign in to Semgrep to run scans following your organization's Semgrep deployment.
