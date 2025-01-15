@@ -28,16 +28,21 @@ Semgrep Assistant users can also view the **Pre-production** list of findings. T
 ![Semgrep AppSec Platform's Pre-production backlog page](/img/pre-production.png)
 _**Figure**.Semgrep AppSec Platform's Pre-production backlog page._
 
-## Navigate to the Production backlog
+## Navigate to the Production and Pre-production backlogs
 
 To view your findings in the Production backlog:
 
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **[Code](https://semgrep.dev/orgs/-/findings)**.
 
-## Production backlog page structure
+To view your findings in the Pre-production backlog:
 
-The **Production backlog** page consists of:
+1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Click **[Code > Pre-production](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod)**.
+
+## Page structure
+
+The page structure of the Production backlog and pre-production tabs are identical. These pages consist of:
 
 - The **top bar**, where you can set the page's grouping view and [time period](#time-period-and-triage).
 - The **filter panel**, which you can use to group and filter for specific findings
@@ -68,7 +73,7 @@ To view findings individually, toggle **Group by Rule** to **No grouping** using
 
 <TimePeriodFilters />
 
-### Default Production backlog page view
+### Default page view
 
 <FindingsDefaultView product_name="Code" />
 
