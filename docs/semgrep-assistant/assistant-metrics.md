@@ -37,7 +37,7 @@ Internal benchmarks for Assistant run on the same dataset used by our security r
 
 |                        |         |
 |------------------------|---------|
-| Findings analyzed  | **X**|
+| Findings analyzed  | **2000+**|
 | Average reduction in findings[^1] | **20%**|
 | False positive confidence rate[^2]      | **96%** |
 | Remediation guidance confidence rate[^3]    | **80%** |
