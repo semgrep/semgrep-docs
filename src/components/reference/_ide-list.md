@@ -1,0 +1,3 @@
+- Microsoft Visual Studio Code: [<i class="fas fa-external-link fa-xs"></i> `semgrep-vscode`](https://marketplace.visualstudio.com/items?itemName=semgrep.semgrep)
+- IntelliJ Ultimate Idea and many other IntelliJ products: [<i class="fas fa-external-link fa-xs"></i> `semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
+- Emacs: [<i class="fas fa-external-link fa-xs"></i> `lsp-mode`](https://github.com/emacs-lsp/lsp-mode)

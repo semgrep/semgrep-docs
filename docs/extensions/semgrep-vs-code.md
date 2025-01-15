@@ -7,6 +7,9 @@ tags:
   - Extensions
 ---
 
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
+import QuickstartVSCode from "/src/components/procedure/_quickstart-vscode.md" 
+
 # Semgrep Visual Studio Code extension
 
 [Semgrep's Visual Studio Code (VS Code) Extension](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep) allows you to scan lines when you open and change files in your workspace. It offers:
@@ -22,17 +25,7 @@ tags:
 
 ## Quickstart
 
-1. [Install the Semgrep extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension). If you're unfamiliar with installing VS Code extensions, see the Extension Marketplace's article [Install an Extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension).
-2. Use <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in to Semgrep AppSec Platform:
-   ```console
-   Semgrep: Sign in
-   ```
-   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](/semgrep-code/pro-rules).
-3. Launch the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS), and scan your files by running:
-   ```console
-   Semgrep: Scan all files in workspace
-   ```
-4. To see detailed vulnerability information, hover over the code underlined in yellow. You can also see the findings identified by Semgrep using <kbd>⇧Shift+Ctrl+M</kbd> or <kbd>⌘Command+⇧Shift+M</kbd> (macOS) and opening the **Problems** tab.
+<QuickstartVSCode />
 
 ## Commands
 
@@ -105,8 +98,4 @@ The following experimental features should only be used upon recommendation by S
 
 ## Limitations
 
-IDE scans use Semgrep Community Edition (CE) for its speed. Scans are thus limited to single-file analysis. You can still perform cross-file (interfile) scans on your machine through the CLI:
-
-```bash
-semgrep ci --pro
-```
+<IdeLimitations />

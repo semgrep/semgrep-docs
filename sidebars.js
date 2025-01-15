@@ -20,6 +20,7 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
+    { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
       type: 'link',
       label: 'Knowledge base',
@@ -624,6 +625,37 @@ module.exports = {
           ]
         },
       ]
+    },
+  ],
+  devSidebar: [
+    { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    { type: 'doc', id: 'for-developers/developer-overview', label: 'Overview' },
+    { type: 'doc', id: 'for-developers/developer-signin', label: 'Sign in to Semgrep' },
+    {
+        type: 'category',
+        label: 'Resolve findings',
+        collapsible: false,
+        items: [
+            'for-developers/resolve-findings-through-comments',
+            'for-developers/resolve-findings-through-app',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'Run scans',
+        collapsible: false,
+        items: [
+            'for-developers/developer-local-scans',
+            'for-developers/ide',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'References',
+        collapsible: false,
+        items: [
+            'for-developers/detection',
+        ],
     },
   ],
   updatesSidebar: [
