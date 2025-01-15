@@ -94,6 +94,17 @@ If the finding is a false positive, acceptable risk, or similar, you can choose 
 ![A completed triage flow.](/img/pr-comment-triage-response.png#md-width)
 _**Figure**. A completed triage flow._
 
+### Re-run a job or workflow
+
+After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
+
+- [Re-run a job in GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs)
+- Re-run a job in GitLab CI/CD
+- Re-run a job in Bitbucket Pipelines
+- Re-run a job in Azure DevOps
+- Re-run a job in CircleCI
+- Re-run a job in Buildkite
+
 ## Appendix: triage statuses
 
 <details>
