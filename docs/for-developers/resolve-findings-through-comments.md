@@ -20,7 +20,7 @@ Findings from these rules are meant to be **fixed** or **remediated** rather tha
 
 In **typical coding workflows**, it is recommended to fix or ignore findings as part of your **code review** process; the results of triage or remediation in your SCM are synchronized with Semgrep AppSec Platform.
 
-However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform. See 
+However, if you have accumulated many findings to ignore, it may be faster to perform bulk triage actions in Semgrep AppSec Platform. See [Resolve findings through the Semgrep web app](/for-developers/resolve-findings-through-app).
 
 ## Prerequisites and optional features
 
