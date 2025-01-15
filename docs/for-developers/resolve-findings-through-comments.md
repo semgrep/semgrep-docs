@@ -98,10 +98,13 @@ _**Figure**. A completed triage flow._
 
 After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
 
-- [Re-run a job in GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs)
-- Re-run a job in GitLab CI/CD
-- Re-run a job in Bitbucket Pipelines
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs)
+- [<i class="fas fa-external-link fa-xs"></i> Run a pipeline in GitLab CI/CD](https://docs.gitlab.com/ee/ci/pipelines/mr_pipeline_troubleshooting.html)
+https://docs.gitlab.com/ee/ci/pipelines/#view-pipelines
+
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/view-your-pipeline/#Viewyourpipeline-CI_RerunStep)
 - Re-run a job in Azure DevOps
+- Re-run a job in Jenkins
 - Re-run a job in CircleCI
 - Re-run a job in Buildkite
 
