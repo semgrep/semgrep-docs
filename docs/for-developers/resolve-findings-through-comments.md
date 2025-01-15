@@ -98,15 +98,16 @@ _**Figure**. A completed triage flow._
 
 After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
 
-- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs)
-- [<i class="fas fa-external-link fa-xs"></i> Run a pipeline in GitLab CI/CD](https://docs.gitlab.com/ee/ci/pipelines/mr_pipeline_troubleshooting.html)
-https://docs.gitlab.com/ee/ci/pipelines/#view-pipelines
+<!-- list arranged by popularity -->
+<!-- Some of these are from the release notes because they have a screenshot or indication of where the retry menu is -->
 
-- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/view-your-pipeline/#Viewyourpipeline-CI_RerunStep)
-- Re-run a job in Azure DevOps
-- Re-run a job in Jenkins
-- Re-run a job in CircleCI
-- Re-run a job in Buildkite
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs)
+- [<i class="fas fa-external-link fa-xs"></i> View pipelines in GitLab CI/CD](https://docs.gitlab.com/ee/ci/pipelines/#view-pipelines)
+- [<i class="fas fa-external-link fa-xs"></i> View your pipeline in Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/view-your-pipeline/#Viewyourpipeline-CI_RerunStep)
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a single stage in Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/release-notes/2024/pipelines/sprint-235-update)
+- [<i class="fas fa-external-link fa-xs"></i> Restarting or rerunning a pipeline in Jenkins](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#restarting-or-rerunning-a-pipeline)
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a job in CircleCI](https://circleci.com/docs/rerun-failed-tests/)
+- [<i class="fas fa-external-link fa-xs"></i> **Retry a job**](https://buildkite.com/resources/changelog/231-retry-failed-jobs-while-builds-are-running/) from the [**Dashboard > Build view**](https://buildkite.com/docs/pipelines/dashboard-walkthrough) in Buildkite.
 
 ## Appendix: triage statuses
 
