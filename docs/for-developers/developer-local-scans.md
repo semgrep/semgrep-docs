@@ -52,7 +52,7 @@ semgrep scan
 
 You can test a custom rule by creating a test file. See [Testing rules](/writing-rules/testing-rules). 
 
-After your've tested your custom rule, you can try it on your codebase locally:
+After you've tested your custom rule, you can try it on your codebase locally:
 
 1. Ensure that you're signed in to Semgrep from the CLI by entering `semgrep login`. If you have successfully signed in, you should see **API token already exists** or a similar message.
 1. Enter the following command:
@@ -63,4 +63,4 @@ After your've tested your custom rule, you can try it on your codebase locally:
 
 ### `semgrep ci`
 
-The `semgrep ci` command, without any flags, sends the results of your scan to Semgrep AppSec Platform with the slug `local-scan/PROJECT_NAME`. When using this command in a team setting, ensure that you are aware of its risks and that your team members are aware.
+The `semgrep ci` command, without any flags, sends the results of your scan to Semgrep AppSec Platform with the slug `local-scan/PROJECT_NAME`. When using this command in a team setting, ensure that you are aware of its risks and that your team members are aware that you're uploading the results of local scans.

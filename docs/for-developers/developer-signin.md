@@ -22,7 +22,7 @@ Signing in to the [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Pla
 
 :::tip Is this document for you?
 - Not all organizations require their developers to create a Semgrep account.
-- You can resolve or triage (ignore) findings in from pull or merge request comments **without** a Semgrep account, by replying to the comment. See [Resolve findings in your pull or merge request](/for-developers/resolve-findings-through-comments).
+- You can resolve or triage (ignore) findings in pull or merge request comments, even **without** a Semgrep account, by replying to the comment. See [Resolve findings in your pull or merge request](/for-developers/resolve-findings-through-comments).
 :::
 
 ## Semgrep in multiple environments
