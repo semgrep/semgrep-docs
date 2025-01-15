@@ -23,7 +23,7 @@ Semgrep Code generates a **finding** when a rule matches a piece of code in your
 ![Semgrep AppSec Platform's Production backlog page](/img/app-findings-overview.png)
 _**Figure**. Semgrep AppSec Platform's Production backlog page._
 
-Semgrep Assistant users can also view the **Pre-production** list of findings. This beta feature allows users to see the findings that have been [filtered out by Assistant](/semgrep-assistant/overview#noise-filtering) for auditing purposes.
+Semgrep Assistant users can also view the [**Pre-production**](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod) list of findings. This beta feature allows users to see the findings that have been [filtered out by Assistant](/semgrep-assistant/overview#noise-filtering) for auditing purposes.
 
 ![Semgrep AppSec Platform's Pre-production backlog page](/img/pre-production.png)
 _**Figure**.Semgrep AppSec Platform's Pre-production backlog page._
