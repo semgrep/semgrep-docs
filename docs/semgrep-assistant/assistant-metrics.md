@@ -23,7 +23,7 @@ The user feedback loop is baked into product workflows to ensure comprehensivene
 |------------------------|---------|
 | Customers in dataset   | **1000+**|
 | Findings analyzed | **250,000+** |
-| Human-agree rate       | **95%** |
+| Human-agree rate       | **92%** |
 | Median time to resolution     | **22% faster than baseline** |
 | Average time saved per finding   | **30 minutes** |
 
