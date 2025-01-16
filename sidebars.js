@@ -97,6 +97,7 @@ module.exports = {
                           collapsible: true,
                           link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
                           items: [
+                              'deployment/managed-scanning/azure',
                               'deployment/managed-scanning/github',
                               'deployment/managed-scanning/gitlab'
                           ]
