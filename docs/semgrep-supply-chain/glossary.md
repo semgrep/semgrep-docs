@@ -38,13 +38,13 @@ Compare its opposite: [Reachability-rules](#reachability-rules).
 
 ## Manifest file
 
-A manifest file describes the dependencies used in your codebase. In a manifest file, a dependency may indicate a range of versions. A package manager reads the manifest file when installing dependencies into a specific implementation of your codebase, then generates a lockfile specifying the exact version of each dependency installed and any transitive dependencies.
+A manifest file describes the dependencies used in your codebase. In a manifest file, a dependency may indicate a range of versions. A package manager reads the manifest file when installing dependencies into a specific implementation of your codebase, then generates a manifest file specifying the exact version of each dependency installed and any transitive dependencies.
 
 Semgrep Supply Chain uses manifest files to resolve transitive dependencies for some languages. For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
 
 ## Package manager
 
-A software tool that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate lockfiles by analyzing manifest files.
+A software tool that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles by analyzing manifest files.
 
 ## Package registry
 
