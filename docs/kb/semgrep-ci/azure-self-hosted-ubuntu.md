@@ -3,6 +3,8 @@ tags:
   - Azure Pipelines
 description: Run Semgrep on self-hosted Ubuntu runners in Azure DevOps.
 ---
+import AzureVariables from "/src/components/procedure/_set-env-vars-azure.mdx"
+
 # Semgrep with self-hosted Ubuntu runners in Azure Pipelines
 
 Semgrep provides a [sample configuration for Azure-hosted runners](/docs/semgrep-ci/sample-ci-configs#azure-pipelines). If you use self-hosted Ubuntu Linux runners, you have significantly more control over their configuration, but as a result, they require additional preparation and configuration to run Semgrep.
@@ -64,14 +66,12 @@ steps:
     SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
 
-:::info Customizing the configuruation
+:::info Customizing the configuration
 * If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
 * If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
 :::
 
-### Run a scan
-
-On adding or editing the `azure-pipelines.yml` file, the Semgrep scan job should run on the desired runner pool. Verify that the scan is successful.
+<AzureVariables />
 
 ## Using pip with a virtual environment
 
@@ -129,3 +129,5 @@ steps:
 * If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
 * If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
 :::
+
+<AzureVariables />

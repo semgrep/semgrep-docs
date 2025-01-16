@@ -46,6 +46,8 @@ import CircleCiSemgrepOssSast from "/src/components/code_snippets/_circleci-semg
 <!-- Azure Pipelines -->
 import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
 import AzureSemgrepOssSast from "/src/components/code_snippets/_azure-semgrep-oss-sast.mdx"
+import AzureVariables from "/src/components/procedure/_set-env-vars-azure.mdx"
+
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -456,6 +458,8 @@ The following configuration creates a CI job that runs scans using the products 
 
 You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
+<AzureVariables />
+
 </TabItem>
 
 <TabItem value='azure-oss'>
@@ -473,7 +477,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
-**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
+**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`.
 
 By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
 
