@@ -33,7 +33,7 @@ Internal benchmarks for Assistant utilize a systemic process (the same process u
 
 Internal benchmarks for Assistant run on the same dataset used by our security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
 
-**Results as of December 10, 2024:**
+**Results as of Jan 10, 2024:**
 
 |                        |         |
 |------------------------|---------|
