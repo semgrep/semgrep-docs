@@ -18,13 +18,9 @@ Several third-party tools include Semgrep extensions.
 - IntelliJ Ultimate Idea (and most other IntelliJ products) [`semgrep-intellij`](https://plugins.jetbrains.com/plugin/22622-semgrep)
 - Emacs: [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
-### The LSP Command
+### Use of Language Server Protocol (LSP)
 
-All of our official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate
-with Semgrep. This allows us to focus on one codebase that can be shared across most modern editor platforms. To implement a custom extension,
-one can wrap `semgrep lsp` to start the Semgrep Language Server, which will communicate over `stdio`. Alternatively, this protocol is a
-great way to integrate Semgrep into a project, as it can perform incremental scans, and caches various computations to hugely increase performance.
-Please let us know on our community Slack linked below if you do, we'd be more than happy to help in anyway.
+All of the official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate with Semgrep. This allows the team to focus on one codebase that can be shared across most modern editor platforms.
 
 ### Pre-commit
 
@@ -50,6 +46,8 @@ repos:
     - id:  semgrep-ci
 ```
 
+For guidance on customizing Semgrep's behavior in pre-commit, see [Customize Semgrep in pre-commit](/docs/kb/integrations/customize-semgrep-precommit).
+
 #### Run with Semgrep Pro rules
 
 If you would like to run the pre-commit hook **locally** while using Semgrep Pro rules:
@@ -62,7 +60,7 @@ If you would like to run the pre-commit hook **locally** while using Semgrep Pro
 
 ### Semgrep as an engine
 
-Many other tools have functionality powered by Semgrep.
+Many other tools have capabilities powered by Semgrep.
 Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 
 - [DefectDojo](https://github.com/DefectDojo/django-DefectDojo/pull/2781)
