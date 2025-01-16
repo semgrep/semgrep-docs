@@ -1,7 +1,7 @@
 ---
 description: Use this reference to check why you may not be receiving Semgrep comments on PRs or MRs.
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - PR comments
   - Rule management
 ---
