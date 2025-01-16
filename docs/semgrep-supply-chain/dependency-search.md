@@ -85,6 +85,10 @@ Dependency paths allow you to view dependency paths for all transitive dependenc
 
 ### Supported languages
 
+Semgrep generates dependency paths for select Java and JavaScript projects.
+
+#### Java
+
 Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
 
 Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Dependency paths for such projects are available once you've updated your Semgrep deployment to use the `--allow-local-builds` flag when initiating the scan from an environment with all of the project's required dependencies, such as Java and Maven, installed:
@@ -92,6 +96,10 @@ Semgrep can also generate dependency paths for Java projects with lockfiles and 
 ```console
 semgrep ci --allow-local-builds
 ```
+
+#### JavaScript
+
+Semgrep generates dependency paths for JavaScript projects that utilize `pnpm` and include a `pnpm-lock.yaml` file whenever you invoke a scan using `semgrep ci`.
 
 ### View the dependency graph
 

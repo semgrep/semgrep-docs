@@ -247,6 +247,7 @@ module.exports = {
                   },
                   items: [
                       'semgrep-supply-chain/policies',
+                      'semgrep-supply-chain/view-export',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]

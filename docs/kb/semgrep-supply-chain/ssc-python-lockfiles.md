@@ -156,7 +156,7 @@ jobs:
           pip3 install pip-tools
           pip-compile -o requirements.txt
       - name: Upload Requirements File as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: requirementstxt
           path: requirements.txt
@@ -171,7 +171,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download artifact from previous job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: requirementstxt
       - run: semgrep ci --supply-chain
