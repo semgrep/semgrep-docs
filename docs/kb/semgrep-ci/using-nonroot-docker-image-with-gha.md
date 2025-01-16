@@ -2,7 +2,7 @@
 tags:
   - GitHub
   - Docker
-  - Semgrep CI
+  - Semgrep in CI
 description: How to properly configure your GitHub Actions workflow to use the `nonroot` Semgrep docker image
 append_help_link: true
 ---

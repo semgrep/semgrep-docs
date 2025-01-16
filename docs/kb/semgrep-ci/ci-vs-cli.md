@@ -1,7 +1,7 @@
 ---
 description: How to align your scan results between CI and CLI and understand differences in behavior.
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - Semgrep CLI
 ---
 

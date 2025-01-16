@@ -1,6 +1,6 @@
 ---
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - PR comments
 ---
 

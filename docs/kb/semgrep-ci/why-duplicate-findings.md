@@ -1,7 +1,7 @@
 ---
 description: To prevent duplicated findings, perform full scans only on the main branch of your repository.
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - Semgrep AppSec Platform
 ---
 
