@@ -12,7 +12,7 @@ tags:
 
 # Generating Python manifest files for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python manifest file. This article describes methods to generate the following Python manifest files:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python manifest file. This article describes methods to generate the following Python manifest files or lockfiles:
 
 * `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
 * `requirements.pip`
@@ -21,7 +21,7 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these three manifest files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names to be scanned.
+You can use any of these files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names to be scanned, or you must have a `*/requirement/*` file in the project.
 
 ## Generating `requirements.txt`
 
@@ -308,4 +308,4 @@ semgrep ci --supply-chain --include=requirements.txt
 
 ## Conclusions
 
-There are several ways to generate manifest files for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the manifest file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.
+There are several ways to generate manifest files or lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the manifest file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.

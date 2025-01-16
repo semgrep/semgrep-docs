@@ -44,7 +44,7 @@ Semgrep Supply Chain uses manifest files to resolve transitive dependencies for 
 
 ## Package manager
 
-A software tool that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files by analyzing manifest files.
+A software tool that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles by analyzing manifest files.
 
 ## Package registry
 

@@ -5,6 +5,7 @@ Semgrep Supply Chain uses manifest files or lockfiles as part of its reachabilit
 * `go.mod`
 * `gemfile.lock`
 * `package-lock.json`
+* `requirements.txt`
 
 By default, Semgrep parses manifest files or lockfiles in any directory or subdirectory. Some package managers, such as `npm` or `yarn`, have support for [Workspaces](https://yarnpkg.com/features/workspaces), which can affect Semgrep's parsing behavior. If you use workspaces, reach out to [Semgrep support](mailto:support@semgrep.com) for assistance in setting up Semgrep Supply Chain.
 
