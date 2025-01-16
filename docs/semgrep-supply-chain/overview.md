@@ -21,16 +21,16 @@ _**Figure**. Semgrep Supply Chain Vulnerabilities page._
 Semgrep Supply Chain detects [security
 vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's [reachability](/semgrep-supply-chain/glossary/#reachability).
 
-To do this, Semgrep Supply Chain parses **lockfiles** for a list of dependencies, then scans your codebase using rules that specify the following information:
+To do this, Semgrep Supply Chain parses manifest files or lockfiles for a list of dependencies, then scans your codebase using rules that specify the following information:
 
 * The dependency versions that contain a vulnerability
 * The pattern for the vulnerable code that Semgrep compares against your code
 * The severity of the vulnerability
 
-The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and its lockfile:
+The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and its manifest file or lockfile:
 
-![Relationship between a Semgrep Supply Chain rule, lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
-_**Figure**. Relationship between a Supply Chain rule, lockfile, CVE record, and codebase._
+![Relationship between a Semgrep Supply Chain rule, manifest file or lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
+_**Figure**. Relationship between a Supply Chain rule, manifest file or lockfile, CVE record, and codebase._
 
 <AdmonitionSotCves />
 
@@ -45,7 +45,7 @@ Supply Chain offers two levels of support for reachability analysis, [depending 
       * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
   * If Semgrep Supply Chain determines that you don't use the vulnerable library package imported or you don't use the vulnerable piece of code of the library or package imported, the finding is flagged as **unreachable**.
   * If Semgrep Supply Chain determines that you use a vulnerable version of a dependency, but Semgrep Supply Chain doesn't have a relevant reachability rule, it flags the finding as **no reachability analysis**.
-* For **[languages where Semgrep Supply Chain doesn't currently offer rules with reachability analysis](/semgrep-supply-chain/glossary/#rules-without-reachability-analysis)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your lockfile or manifest against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **no reachability analysis**.
+* For **[languages where Semgrep Supply Chain doesn't currently offer rules with reachability analysis](/semgrep-supply-chain/glossary/#rules-without-reachability-analysis)** languages, Semgrep Supply Chain's performance is comparable to that of [GitHub's Dependabot](https://github.com/dependabot). Semgrep Supply Chain generates these findings by checking the dependency's version listed in your manifest file or lockfile against a list of versions with known vulnerabilities, but it does not run reachability analysis. Because Semgrep Supply Chain doesn't run reachability analysis, it can't determine whether the vulnerability is reachable. Such vulnerabilities are, therefore, flagged as **no reachability analysis**.
 
 Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups all usages together by vulnerability. For each vulnerability, the UI also displays a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
@@ -55,7 +55,7 @@ A [transitive dependency](/docs/semgrep-supply-chain/glossary/#transitive-or-ind
 
 However, some dependencies are vulnerable simply through their inclusion in a codebase; in such cases, Semgrep Supply Chain generates reachable findings involving these dependencies, even if they're transitive, not direct, dependencies.
 
-Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag transitive dependencies as unreachable if not used directly.
+Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
 ## Software bill of materials
 
@@ -74,7 +74,7 @@ The [license compliance](/semgrep-supply-chain/license-compliance) feature ensur
 Semgrep Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform. Once your first scan is completed:
 
 * [View, triage, and remediate](/semgrep-supply-chain/triage-and-remediation) your Supply Chain findings.
-  * [Customize Semgrep Supply Chain to ignore files and dependencies](/semgrep-supply-chain/ignoring-lockfiles-dependencies) to support your security and business goals.
+  * [Customize Semgrep Supply Chain to ignore files and dependencies](/semgrep-supply-chain/ignoring-dependencies) to support your security and business goals.
 * [Generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom).
 * Query for dependencies in your codebase using [dependency search](/semgrep-supply-chain/dependency-search).
 * Ensure that you're only [using open source packages whose licensing meets your organization's requirements](/semgrep-supply-chain/license-compliance).

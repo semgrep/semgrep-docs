@@ -248,6 +248,7 @@ module.exports = {
                   },
                   items: [
                       'semgrep-supply-chain/policies',
+                      'semgrep-supply-chain/view-export',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
@@ -310,7 +311,8 @@ module.exports = {
             ]
         },
         'cli-reference',
-        `semgrep-appsec-platform/json-and-sarif`,
+        'semgrep-appsec-platform/json-and-sarif',
+        'semgrepignore-v2-reference',
       ]
     }
   ],

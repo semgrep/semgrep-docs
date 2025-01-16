@@ -105,7 +105,7 @@ Visit the Semgrep public language dashboard to see the parse rates for each lang
 
 For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several supported lockfiles, depending on your repository's package manager. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-For some languages, such as JavaScript and Python, a manifest file is also parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
+For some languages, such as JavaScript and Python, a lockfile or manifest file is parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 
 Additionally, Semgrep offers beta support for the scanning of Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper.
 
@@ -115,8 +115,8 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
 <thead><tr>
     <th>Language</th>
     <th>Supported package managers</th>
-    <th>Lockfile</th>
-    <th><a href="#reachability-support-level">Reachability support level</a></th>
+    <th>Manifest file or lockfile</th>
+    <th><a href="#reachability-support-level">Reachability</a></th>
     <th>License detection support</th>
     <th>Period of reachability rule coverage for CVEs/GHSAs</th>
 </tr></thead>
@@ -184,7 +184,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any lockfile in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">✅ (PyPI packages only)</td>
   </tr>
@@ -255,7 +255,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   </tbody>
 </table>
 </div>
-_*Supply Chain does not analyze the transitivity of packages for these language and lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
+_*Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
 
 ### Maturity levels
 

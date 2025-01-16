@@ -319,7 +319,7 @@ module.exports = {
           //Semgrep Supply Chain
           { from: "/semgrep-sc/scanning-open-source-dependencies/"        , to: "/semgrep-supply-chain/getting-started" }                 ,
           { from: "/semgrep-sc/sc-glossary/"                              , to: "/semgrep-supply-chain/glossary" }                        ,
-          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies" } ,
+          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-dependencies" } ,
           { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-appsec-platform/github-pr-comments" }                   ,
           { from: "/semgrep-sc/semgrep-supply-chain-overview/"            , to: "/semgrep-supply-chain/overview" }                        ,
           { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation" },
@@ -399,6 +399,8 @@ module.exports = {
           { from: "/deployment/managed-scanning" , to: "/deployment/managed-scanning/overview" } ,
           /* NOV 28, 2024 */
           { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
+          /* DEC 20, 2024 */
+          { from: "/semgrep-supply-chain/ignoring-dependencies" , to: "/semgrep-supply-chain/ignoring-dependencies" } ,
         ]
       }
     ],

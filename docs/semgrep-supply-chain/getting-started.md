@@ -21,9 +21,9 @@ This article walks you through the setup needed to scan your project with Semgre
 
 ## Project directory structure
 
-To scan your project with Semgrep Supply Chain, it must have a lockfile and use [supported lockfile ecosystems and filenames](/docs/supported-languages#semgrep-supply-chain).
+To scan your project with Semgrep Supply Chain, it must have a manifest file or lockfile and use [supported package managers and filenames](/docs/supported-languages#semgrep-supply-chain).
 
-Semgrep Supply Chain can correctly parse code files and lockfiles in subfolders as well. Code files that use the dependencies in the lockfile must be nested in the same directory as the lockfile. Lockfiles must all use the supported lockfile names.
+Semgrep Supply Chain can correctly parse code files, manifest files, and lockfiles in subfolders as well. Code files that use the dependencies in the manifest file or lockfile must be nested in the same directory as the manifest file or lockfile. Manifest files and lockfiles must all use supported file names.
 
 In the following example, Semgrep Supply Chain assumes that all code files using the dependencies in `my-project/running/lockfile.json` are nested in `my-project/running/` or deeper directories.
 
@@ -38,7 +38,7 @@ In the following example, Semgrep Supply Chain assumes that all code files using
 ├───/biking
 ```
 
-If you have code files in `my-project/biking,` Semgrep Supply Chain does not associate them with the dependencies in `my-project/running/lockfile.json.` If there is another lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+If you have code files in `my-project/biking,` Semgrep Supply Chain does not associate them with the dependencies in `my-project/running/lockfile.json.` If there is another manifest file or lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
 
 :::info Apache Maven
 To run a Semgrep Supply Chain scan, generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
@@ -108,7 +108,7 @@ The `build.gradle` or `pom.xml` file used by Semgrep to build the project is lis
 _**Figure**. Supply Chain scan summary listing a manifest file._
 
 :::info
-- Semgrep Managed Scanning cannot determine the dependencies in a project when there is no lockfile, so Supply Chain scans will not return any findings.
+- Semgrep Managed Scanning cannot determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans will not return any findings.
 - By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
     ```console
     semgrep ci --allow-local-builds --verbose
@@ -132,7 +132,7 @@ You can also view your results in Semgrep AppSec Platform. It displays all of th
 
 ## Scan a monorepo's dependencies
 
-Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [lockfiles](/semgrep-supply-chain/glossary/#lockfile) or manifest files present in the monorepo.
+Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [manifest file or lockfile](/semgrep-supply-chain/glossary/#manifest-file) present in the monorepo.
 
 ## Block pull or merge requests
 

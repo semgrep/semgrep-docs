@@ -4,14 +4,15 @@ tags:
   - Semgrep Supply Chain
   - Python
   - Lockfiles
+  - Manifest files
   - requirements.txt
   - Pipfile.lock
   - Poetry.lock
 ---
 
-# Generating Python lockfiles for Semgrep Supply Chain scans
+# Generating Python manifest files for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes methods to generate the following Python lockfiles:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python manifest file. This article describes methods to generate the following Python manifest files or lockfiles:
 
 * `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
 * `requirements.pip`
@@ -20,7 +21,7 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan. Your lockfiles must have one of these three names in order to be scanned.
+You can use any of these files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names to be scanned, or you must have a `*/requirement/*` file in the project.
 
 ## Generating `requirements.txt`
 
@@ -42,7 +43,7 @@ Now, you have successfully generated a `requirements.txt` file with direct and t
 
 #### Example of `requirements.txt` generated from `requirements.in`
 
-Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies: 
+Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies:
 
 ```
 numpy
@@ -106,7 +107,7 @@ tzdata==2023.3
     # via pandas
 ```
 
-This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the supply chain scan.
+This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
 
 ### Using `pip freeze`
 
@@ -145,7 +146,7 @@ on:
     - cron: '0 1 * * 0'
 name: Semgrep
 jobs:
-  my_first_job: 
+  my_first_job:
     name: requirementsGeneration
     runs-on: ubuntu-latest
     steps:
@@ -155,7 +156,7 @@ jobs:
           pip3 install pip-tools
           pip-compile -o requirements.txt
       - name: Upload Requirements File as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: requirementstxt
           path: requirements.txt
@@ -170,12 +171,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download artifact from previous job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: requirementstxt
       - run: semgrep ci --supply-chain
 
-``` 
+```
 
 ## Generating `Pipfile.lock`
 
@@ -295,11 +296,11 @@ poetry lock
 
 The generated `Poetry.lock` file contains all transitive and direct dependencies that the project uses.
 
-## Selecting a single lockfile among many
+## Selecting a single manifest file among many
 
-While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
+While there may already be a manifest file in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
 
-When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single lockfile should be scanned. The lockfile must still have one of the supported names.
+When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single manifest file should be scanned. The manifest file must still have one of the supported names.
 
 ```
 semgrep ci --supply-chain --include=requirements.txt
@@ -307,4 +308,4 @@ semgrep ci --supply-chain --include=requirements.txt
 
 ## Conclusions
 
-There are several ways to generate lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.
+There are several ways to generate manifest files or lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the manifest file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.

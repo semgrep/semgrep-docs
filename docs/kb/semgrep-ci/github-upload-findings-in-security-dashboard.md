@@ -1,7 +1,7 @@
 ---
 description: To prevent "resource not accessible by integration" error when running job to upload findings to GitHub's Advanced Security Dashboard
 tags:
-  - Semgrep CI
+  - Semgrep in CI
   - GitHub
 ---
 
