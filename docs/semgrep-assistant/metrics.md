@@ -1,23 +1,29 @@
-
+---
+slug: metrics
+title: Metrics and methodology
+hide_title: true
+description: Learn about Semgrep Assistant metrics and methodology.
+tags:
+  - Deployment
+  - Semgrep Assistant
+---
 
 # Semgrep Assistant metrics and methodology
 
- 
-Our metrics for evaluating Semgrep Assistant's performance are derived from two key sources:
-- **user feedback** on Assistant recommendations within the product
-- **internal triage / benchmarking** conducted by our security research team 
+Semgrep's metrics for evaluating Semgrep Assistant's performance are derived from two key sources:
 
-This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving our product and engineering teams a holistic view into Assistant's real-world performance. 
+- **User feedback** on Assistant recommendations within the product
+- **Internal triage and benchmarking** conducted by Semgreps security research team 
 
+This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving Semgrep's product and engineering teams a holistic view into Assistant's real-world performance. 
 
 ## User feedback (real-world dataset)
+
 User feedback shows the aggregated and anonymized performance of Assistant across **1000+ customers**, providing a comprehensive real-world dataset. 
 
 The user feedback loop is baked into product workflows to ensure comprehensiveness and to reduce sampling bias. Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions. 
 
-
 **Results as of Jan 10, 2024:**
-
 
 |                        |         |
 |------------------------|---------|
@@ -27,13 +33,11 @@ The user feedback loop is baked into product workflows to ensure comprehensivene
 | Median time to resolution     | **22% faster than baseline** |
 | Average time saved per finding   | **30 minutes** |
 
-
 ## Internal benchmarks (internal dataset)
-Internal benchmarks for Assistant utilize a systemic process (the same process used to evaluate our SAST engine and rule performance) in which a rotating team of security engineers conduct periodic reviews of findings and their Assistant generated triage recommendations/remediation guidance.
 
-Internal benchmarks for Assistant run on the same dataset used by our security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
+Internal benchmarks for Assistant utilize a systemic process in which a rotating team of security engineers conduct periodic reviews of findings and their Assistant generated triage recommendations/remediation guidance. This is the same process used to evaluate Semgrep's SAST engine and rule performance.
 
-**Results as of Jan 10, 2024:**
+Internal benchmarks for Assistant run on the same dataset used by Semgrep's security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
 
 |                        |         |
 |------------------------|---------|
@@ -47,4 +51,3 @@ Internal benchmarks for Assistant run on the same dataset used by our security r
 [^2]:False positive confidence rate measures how often Assistant is correct when it identifies a false positive. **A high confidence rate means users can trust when Assistant identifies a false positive - it does not mean that Assistant catches all false positives.** 
 
 [^3]:Remediation guidance is rated on a binary scale of "helpful" / "not helpful".  
-
