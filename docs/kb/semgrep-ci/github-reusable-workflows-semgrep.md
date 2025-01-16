@@ -2,7 +2,7 @@
 tags:
   - GitHub
   - Reusable workflows
-  - Semgrep CI
+  - Semgrep in CI
 description: Learn how to set up reusable GitHub workflows for Semgrep scans.
 append_help_link: true
 ---
