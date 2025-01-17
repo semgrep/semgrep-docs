@@ -70,14 +70,19 @@ A finding is only considered reachable if the file containing the pattern match 
 
 ## r2c-internal-project-depends-on language support 
 
-| Language   | Namespace  | Scans dependencies from                            |
-|:---------- |:-----------|:---------------------------------------------------|
-| Python     | pypi       | `Pipfile.lock`, `poetry.lock`, `uv.lock`           |
-| JavaScript | npm        | `yarn.lock`, `package-lock.json`, `pnpm-lock.yaml` |
-| Java       | maven      | `pom.xml`                                          |
-| Go         | gomod      | `go.mod`                                           |
-| Ruby       | gem        | `Gemfile.lock`                                     |
-| Rust       | cargo      | `Cargo.lock`                                       |
+| Language   | Namespace  | Scans dependencies from                                       |
+|:---------- |:-----------|:--------------------------------------------------------------|
+| C#         | nuget      | `packages.lock.json`                                          |
+| Dart       | pub        | `pubspec.lock`                                                |
+| Elixir     | hex        | `mix.lock`                                                    |
+| Go         | gomod      | `go.mod`                                                      |
+| Java       | maven      | `pom.xml`                                                     |
+| JavaScript | npm        | `yarn.lock`, `package-lock.json`, `pnpm-lock.yaml`            |
+| PHP        | composer   | `composer.lock`                                               |
+| Python     | pypi       | `*requirement*.txt`, `Pipfile.lock`, `poetry.lock`, `uv.lock` |
+| Ruby       | gem        | `Gemfile.lock`                                                |
+| Rust       | cargo      | `Cargo.lock`                                                  |
+| Swift      | swiftpm    | package.swift                                                 |
 
 ## Limitations
 
