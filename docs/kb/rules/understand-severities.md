@@ -29,4 +29,4 @@ In addition to severity, Supply Chain displays an [Exploit prediction scoring sy
 
 Confidence level is also set by the rule author, but intends to describe the rule, rather than the vulnerability it is trying to catch. 
 
-It reflects how confident the rule writer is that the rule patterns will capture the vulnerability and not result in too many false positive findings. Right now this is done manually. Rules that have more targeted and detailed patterns, such as advanced taint mode rules, typically are given HIGH confidence.
+The confidence level reflects how confident the rule writer is that the rule patterns capture the vulnerability without generating too many false positive findings. The rule author manually sets the appropriate confidence level. Rules that have more targeted and detailed patterns, such as advanced taint mode rules, typically are given `HIGH` confidence.
