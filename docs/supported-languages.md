@@ -109,17 +109,17 @@ This document provides information about supported languages and language maturi
     </tr>
     <tr>
       <td>Generic</td>
-      <td><strong>✅ Generally available </strong></td>
+      <td>✅ Generally available</td>
       <td>n/a</td>
     </tr>
     <tr>
       <td>JSON</td>
-      <td><strong>✅ Generally available </strong></td>
+      <td>✅ Generally available</td>
       <td>n/a</td>
     </tr>
     <tr>
       <td>APEX</td>
-      <td><strong>✅ Generally available </strong></td>
+      <td>✅ Generally available</td>
       <td>--</td>
     </tr>
     <tr>
@@ -146,68 +146,6 @@ Use either tool to scan local code or integrate it into your CI/CD pipeline to a
 Semgrep Code supports over 35 languages.
 
 <SupportedLanguagesTable />
-
-### Language maturity levels
-
-Semgrep Code languages can be classified into four maturity levels:
-
-* Generally available (GA)
-* Beta
-* Experimental
-* Community supported\*
-
-\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
-
-Their differences are outlined in the following table:
-
-<table>
-    <thead><tr>
-        <td><strong>Feature</strong></td>
-        <td><strong>GA</strong></td>
-        <td><strong>Beta</strong></td>
-        <td><strong>Experimental</strong></td>
-        <td><strong>Community supported</strong></td>
-    </tr></thead>
-    <tbody>
-    <tr>
-        <td>Support</td>
-        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
-        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
-        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
-        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
-    </tr>
-    <tr>
-        <td>Parse Rate</td>
-        <td>99%+</td>
-        <td>95%+</td>
-        <td colspan="2">90%+</td>
-    </tr>
-    <tr>
-        <td>Number of Pro rules</td>
-        <td>10+</td>
-        <td>5+</td>
-        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language.</td>
-    </tr>
-    <tr>
-        <td>Semgrep syntax</td>
-        <td>Regex, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
-        <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
-        <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
-    </tr>
-    </tbody>
-</table>
-
-### More information
-Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
-* [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
-* [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
-
-Visit the Semgrep public language dashboard to see the parse rates for each language
-* See [Parse rates by language](https://dashboard.semgrep.dev/).
-
-<!-- coupling: If you modify the features in the levels below, change also
-     /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
--->
 
 ## Semgrep Supply Chain
 
@@ -407,3 +345,65 @@ Their differences are outlined in the following table:
 #### Reachability support level
 
 Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities
+
+## Language maturity levels
+
+Semgrep Code languages can be classified into four maturity levels:
+
+* Generally available (GA)
+* Beta
+* Experimental
+* Community supported\*
+
+\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
+
+Their differences are outlined in the following table:
+
+<table>
+    <thead><tr>
+        <td><strong>Feature</strong></td>
+        <td><strong>GA</strong></td>
+        <td><strong>Beta</strong></td>
+        <td><strong>Experimental</strong></td>
+        <td><strong>Community supported</strong></td>
+    </tr></thead>
+    <tbody>
+    <tr>
+        <td>Support</td>
+        <td>Highest quality support by the Semgrep team. Reported issues are resolved promptly.</td>
+        <td>Supported by the Semgrep team. Reported issues are fixed after GA languages.</td>
+        <td>There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort.</td>
+        <td>These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized.</td>
+    </tr>
+    <tr>
+        <td>Parse Rate</td>
+        <td>99%+</td>
+        <td>95%+</td>
+        <td colspan="2">90%+</td>
+    </tr>
+    <tr>
+        <td>Number of Pro rules</td>
+        <td>10+</td>
+        <td>5+</td>
+        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language.</td>
+    </tr>
+    <tr>
+        <td>Semgrep syntax</td>
+        <td>Regex, equivalence, deep expression operators, types and typing. All features supported in Beta.</td>
+        <td>Complete metavariable support, metavariable equality. All features supported in Experimental.</td>
+        <td colspan="2">Syntax, ellipsis operator, basic metavariable functionality.</td>
+    </tr>
+    </tbody>
+</table>
+
+### More information
+Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
+* [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
+* [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
+
+Visit the Semgrep public language dashboard to see the parse rates for each language
+* See [Parse rates by language](https://dashboard.semgrep.dev/).
+
+<!-- coupling: If you modify the features in the levels below, change also
+     /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
+-->
