@@ -31,15 +31,15 @@ There are two features provided by Semgrep to split up a repo. Consider a monore
 The easiest way to split this monorepo up is into four separate scans, one for each module. To do this, use the `--subdir` flag with the relevant path to only scan files in that module's code path:
 
 ```
-semgrep ci --subdir /src/moduleA/*
+semgrep ci --subdir src/moduleA/
 ```
 
-In addition to scanning `/src/moduleA/*`, this command sends the results to a project called `monorepo/src/moduleA`. If you want to change the project name, set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
+In addition to scanning `src/moduleA/`, this command sends the results to a project called `monorepo/src/moduleA`. If you want to change the project name, set the `SEMGREP_REPO_DISPLAY_NAME` environment variable, available since Semgrep version 1.61.1.
 
 For example:
 
 ```
-SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir /src/moduleA/*
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir src/moduleA/
 ```
 
 It is important that scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
@@ -57,7 +57,7 @@ Unlike `--subdir`, `--include` and `--exclude` don't automatically direct result
 Here's an example using `--include`.
 
 ```
-SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=/src/moduleA/* --include=/src/moduleB/*
+SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleAB semgrep ci --include=src/moduleA/ --include=src/moduleB/
 ```
 
 :::info
@@ -160,7 +160,7 @@ jobs:
       # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
       - uses: actions/checkout@v4
       # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci --include=src/moduleA/**
+      - run: semgrep ci --include=src/moduleA/
         env:
           # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
           # Generate a token from Semgrep AppSec Platform > Settings
