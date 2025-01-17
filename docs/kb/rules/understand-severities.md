@@ -1,5 +1,5 @@
 ---
-description: Understand how rule severity is determined.
+description: Understand how rule severity and confidence is determined.
 tags:
  - Rules
  - Semgrep Registry
@@ -24,3 +24,9 @@ In addition to severity, Supply Chain displays an [Exploit prediction scoring sy
 * <b>High</b>: 50 - 100%
 * <b>Medium</b>: 10 - &#60;50%
 * <b>Low</b>: &#60;10%
+
+# How are confidence levels assigned to rules?
+
+Confidence level is also set by the rule author, but it is intended to describe the rule, not the vulnerability the rule catches.
+
+The confidence level reflects how confident the rule writer is that the rule patterns capture the vulnerability without generating too many false positive findings. The rule author manually sets the appropriate confidence level. Rules that have more targeted and detailed patterns, such as advanced taint mode rules, typically are given `HIGH` confidence.
