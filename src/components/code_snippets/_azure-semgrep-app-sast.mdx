@@ -18,24 +18,8 @@ steps:
         export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
         export SEMGREP_BASELINE_REF='origin/master'
         git fetch origin master:origin/master
-        semgrep ci 
+        semgrep ci
     fi
+  env:
+    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
-
-### Setting environment variables in Azure Pipelines
-
-Set these variables within Azure Pipelines UI following the steps in [Environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables):
-
-* `SEMGREP_APP_TOKEN`
-
-Set these environment variables to troubleshoot the links to the code that generated a finding or if you are not receiving PR or MR comments:
-
-* `SEMGREP_JOB_URL`
-* `SEMGREP_COMMIT`
-* `SEMGREP_BRANCH`
-* `SEMGREP_REPO_URL`
-* `SEMGREP_REPO_NAME`
-
-Set this environment variable for diff-aware scanning:
-
-* `SEMGREP_BASELINE_REF`. Its value is typically your trunkline branch, such as `main` or `master`.
