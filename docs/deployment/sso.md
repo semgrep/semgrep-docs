@@ -66,7 +66,7 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 5. Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
 6. Click **Save** to proceed.
 
-If you are using Google Workspace SAML, see [SAML Single Sign-on with Google Workspace](docs/kb/semgrep-appsec-platform/saml-google-workspace) for more specific guidance.
+If you are using Google Workspace SAML, see [SAML Single Sign-on with Google Workspace](/docs/kb/semgrep-appsec-platform/saml-google-workspace) for more specific guidance.
 
 If you encounter issues during the setup process, [reach out to support](/docs/support) for assistance.
 
