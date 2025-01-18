@@ -1,9 +1,9 @@
---
+---
 description: Learn how to set up SAML access to Semgrep AppSec Platform with Google Workspace.
 tags:
   - Semgrep AppSec Platform
   - SSO
---
+---
 
 # SAML Single Sign-on with Google Workspace
 
