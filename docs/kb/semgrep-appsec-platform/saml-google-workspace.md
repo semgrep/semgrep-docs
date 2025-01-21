@@ -7,7 +7,7 @@ tags:
 
 # SAML Single Sign-on with Google Workspace
 
-The process of setting up SAML Single Sign-on for the Semgrep AppSec Platform with Google Workspace is fundamentally similar to the process for other providers. However, there are a few quirks of Google Workspace to account for.
+This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Google Workspace, including how to set up the necessary attribute mappings.
 
 Follow these steps:
 
