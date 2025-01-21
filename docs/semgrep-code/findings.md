@@ -42,7 +42,7 @@ To view your findings in the Pre-production backlog:
 
 ## Page structure
 
-The page structure of the Production backlog and pre-production tabs are identical. These pages consist of:
+The page structure of the Production backlog and Pre-production tabs are identical. These pages consist of:
 
 - The **top bar**, where you can set the page's grouping view and [time period](#time-period-and-triage).
 - The **filter panel**, which you can use to group and filter for specific findings

@@ -143,7 +143,7 @@ Assistant Memories allows admins to tailor Assistant's remediation guidance to t
 
 Memories are enabled by default for all organizations with Assistant enabled.
 
-### Add memory based on Assistant's suggested fix
+### Add a memory based on Assistant's suggested fix
 
 To add a memory modifying a suggested fix presented by Assistant:
 
@@ -169,7 +169,7 @@ To add a memory during triage:
 1. Identify the specific finding you want to modify, and open up its finding details page.
 2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
 3. Click **Ignore & add memory**. 
-4. In the **Create memory** pop-up window:
+4. In the **Create memory** dialog box:
    1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
    2. Provide the **Projects** to which this memory should be applied.
    3. Provide the **Rules** to which this memory should be applied.
