@@ -21,6 +21,6 @@ Follow these steps:
 5. Click **Add SSO configuration** and select **SAML2 SSO**.
 6. Provide a **Display name** and your **Email domain**.
 7. Copy the **SSO URL** and **Audience URL (SP Entity ID)**, and provide them to Google Workspace as the **ACS URL** and **Entity ID**, respectively.
-8. If you have not already, from the custom SAML app in Google Workspace, copy your IDP metadata, including the SSO URL and Entity ID and the x509 certificate.
+8. Copy your IDP metadata, including the SSO URL and Entity ID and the x509 certificate, from the custom SAML app in Google Workspace.
 9. Enter these in Semgrep AppSec Platform as the **IdP SSO URL** and **IdP Issuer ID** values respectively, and upload or paste the X509 Certificate.
 10. Click **Save** to proceed.
