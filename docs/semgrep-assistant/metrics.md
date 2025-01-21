@@ -25,13 +25,28 @@ The user feedback loop is baked into product workflows to ensure comprehensivene
 
 **Results as of Jan 10, 2024:**
 
-|                        |         |
-|------------------------|---------|
-| Customers in dataset   | **1000+**|
-| Findings analyzed | **250,000+** |
-| Human-agree rate       | **92%** |
-| Median time to resolution     | **22% faster than baseline** |
-| Average time saved per finding   | **30 minutes** |
+<table>
+    <tr>
+        <td>Customers in dataset</td>
+        <td><b>1000+</b></td>
+    </tr>
+    <tr>
+        <td>Findings analyzed</td>
+        <td><b>250,000+</b></td>
+    </tr>
+    <tr>
+        <td>Human-agree rate</td>
+        <td><b>92%</b></td>
+    </tr>
+    <tr>
+        <td>Median time to resolution</td>
+        <td><b>22% faster than baseline</b></td>
+    </tr>
+    <tr>
+        <td>Average time saved per finding</td>
+        <td><b>30 minutes</b></td>
+    </tr>
+</table>
 
 ## Internal benchmarks (internal dataset)
 
@@ -39,12 +54,24 @@ Internal benchmarks for Assistant utilize a systemic process in which a rotating
 
 Internal benchmarks for Assistant run on the same dataset used by Semgrep's security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
 
-|                        |         |
-|------------------------|---------|
-| Findings analyzed  | **2000+**|
-| Average reduction in findings[^1] | **20%**|
-| False positive confidence rate[^2]      | **96%** |
-| Remediation guidance confidence rate[^3]    | **80%** |
+<table>
+    <tr>
+        <td>Findings analyzed</td>
+        <td><b>2000+</b></td>
+    </tr>
+    <tr>
+        <td>Average reduction in findings[^1]</td>
+        <td><b>20%</b></td>
+    </tr>
+    <tr>
+        <td>False positive confidence rate[^2]</td>
+        <td><b>96%</b></td>
+    </tr>
+    <tr>
+        <td>Remediation guidance confidence rate[^3]</td>
+        <td><b>80%</b></td>
+    </tr>
+</table>
 
 [^1]:The average % of SAST findings that Assistant filters out as noise.  
 
