@@ -169,7 +169,7 @@ To add a memory during triage:
 1. Identify the specific finding you want to modify, and open up its finding details page.
 2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
 3. Click **Ignore & add memory**. 
-4. In the **Create memory** dialog box:
+4. In the **Create memory** dialog:
    1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
    2. Provide the **Projects** to which this memory should be applied.
    3. Provide the **Rules** to which this memory should be applied.
