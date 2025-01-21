@@ -80,7 +80,9 @@ Semgrep preserves your findings, scans, and triage history.
 
 ## Disable webhooks
 
-Managed scanning of Azure DevOps projects requires webhooks. The webhooks are enabled by default when you add Azure DevOps as a source code manager when setting up Managed Scanning. You can turn off webhooks at any time by following these steps:
+Managed scanning of Azure DevOps projects requires webhooks. The webhooks are enabled by default when you add Azure DevOps as a source code manager when setting up Managed Scanning. Webhooks are required for diff-aware scans and triaging by PR or MR comments.
+
+You can turn off webhooks at any time by following these steps:
 
 1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
 2. Find your Azure DevOps connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to turn off **Incoming webhooks**.
