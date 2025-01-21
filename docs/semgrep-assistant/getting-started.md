@@ -118,9 +118,16 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
   ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
 
+### Enable weekly priority emails
+
+If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+
 ### Enable noise filtering
 
-Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/assistant-metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
@@ -129,13 +136,6 @@ Assistant is [over 95% accurate in categorizing Semgrep Code findings as false p
    2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
 
 Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
-
-### Enable weekly priority emails
-
-If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
-
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Add Memories (beta)
 
