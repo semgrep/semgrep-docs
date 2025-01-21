@@ -7,6 +7,7 @@ hide_title: true
 tags:
     - Deployment
     - Semgrep AppSec Platform
+    - SSO
 ---
 
 # Single-sign on (SSO) configuration
