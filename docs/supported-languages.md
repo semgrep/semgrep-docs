@@ -22,11 +22,15 @@ This document provides information about supported languages and language maturi
 * Semgrep Code (SAST)
 * [Semgrep Supply Chain](#semgrep-supply-chain) (SCA)
 
+:::tip
+Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep.dev/pricing).
+:::
+
 ## Language maturity summary
 
-The following table lists all Generally Available (GA) and Beta languages for Semgrep Code and Semgrep Supply Chain.
+The following table lists all Generally available (GA) and Beta languages for Semgrep Code and Semgrep Supply Chain.
 
-
+Languages are arranged by feature maturity and support from most to least support. Both **cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain represent the highest level of support that Semgrep provides.
 
 <table>
     <thead><tr>
@@ -36,101 +40,158 @@ The following table lists all Generally Available (GA) and Beta languages for Se
     </tr></thead>
     <tbody>
     <tr>
-      <td>C / C++</td>
-      <td><strong>✅ Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • 150+ Pro rules </td>
-      <td>--</td>
-    </tr>
-    <tr>
       <td>C#</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Supports up to C# 13<br />
+         • 40+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>Go</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 60+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>Java</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 160+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>JavaScript</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 70+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>Kotlin</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • 60+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>[Python](/docs/semgrep-code/supported-languages-python)</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 300+ Pro rules<br />
+         • See [Python-specific support details](/docs/semgrep-code/supported-languages-python)</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>Typescript</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 70+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
-      <td>Ruby</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
-    </tr>
-     <tr>
-      <td>Rust</td>
-      <td>✅ Generally available</td>
-      <td>--</td>
+      <td>C / C++</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 150+ Pro rules </td>
+      <td>N/a</td>
     </tr>
     <tr>
       <td>JSX</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 70+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
-      <td>PHP</td>
-      <td>✅ Generally available</td>
-      <td>Beta without reachability</td>
+      <td>Ruby</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 20+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
      <tr>
       <td>Scala</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
     </tr>
     <tr>
       <td>Swift</td>
-      <td>✅ Generally available</td>
-      <td>✅ Generally available</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 50+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+     <tr>
+      <td>Rust</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 40+ Pro rules</td>
+      <td><strong>Beta</strong><br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 20+ Pro rules</td>
+      <td><strong>Beta</strong></td>
     </tr>
     <tr>
       <td>Terraform</td>
-      <td>✅ Generally available</td>
-      <td>n/a</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td>N/a</td>
     </tr>
     <tr>
       <td>Generic</td>
-      <td>✅ Generally available</td>
-      <td>n/a</td>
+      <td><strong>Generally available </strong></td>
+      <td>N/a</td>
     </tr>
     <tr>
       <td>JSON</td>
-      <td>✅ Generally available</td>
-      <td>n/a</td>
+      <td><strong>Generally available </strong></td>
+      <td>N/a</td>
     </tr>
     <tr>
       <td>APEX</td>
-      <td>✅ Generally available</td>
+      <td><strong>Beta</strong></td>
       <td>--</td>
     </tr>
     <tr>
       <td>Elixir</td>
-      <td>✅ Generally available</td>
-      <td>Beta without reachability</td>
+      <td><strong>Beta</strong></td>
+      <td><strong>Beta</strong></td>
     </tr>
    </tbody>
 </table>
@@ -239,7 +300,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>pip</td>
    <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td rowspan="4">✅ (PyPI packages only)</td>
+   <td rowspan="4">(PyPI packages only)</td>
   </tr>
   <tr>
    <td>pip-tools</td>
@@ -274,7 +335,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>✅ (License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans.)</td>
+   <td>(License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans.)</td>
 </tr>
   <tr>
    <td>Rust</td>
