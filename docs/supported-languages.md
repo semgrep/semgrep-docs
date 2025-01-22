@@ -19,11 +19,14 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep Code
-* Semgrep Community Edition (CE)
-* [Semgrep Supply Chain](#semgrep-supply-chain)
+* Semgrep Code (SAST)
+* [Semgrep Supply Chain](#semgrep-supply-chain) (SCA)
 
 ## Language maturity summary
+
+The following table lists all Generally Available (GA) and Beta languages for Semgrep Code and Semgrep Supply Chain.
+
+
 
 <table>
     <thead><tr>
@@ -34,7 +37,9 @@ This document provides information about supported languages and language maturi
     <tbody>
     <tr>
       <td>C / C++</td>
-      <td>✅ Generally available</td>
+      <td><strong>✅ Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 150+ Pro rules </td>
       <td>--</td>
     </tr>
     <tr>
@@ -90,7 +95,7 @@ This document provides information about supported languages and language maturi
     <tr>
       <td>PHP</td>
       <td>✅ Generally available</td>
-      <td>--</td>
+      <td>Beta without reachability</td>
     </tr>
      <tr>
       <td>Scala</td>
@@ -125,7 +130,7 @@ This document provides information about supported languages and language maturi
     <tr>
       <td>Elixir</td>
       <td>✅ Generally available</td>
-      <td>--</td>
+      <td>Beta without reachability</td>
     </tr>
    </tbody>
 </table>
