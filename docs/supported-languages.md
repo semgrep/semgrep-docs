@@ -39,7 +39,7 @@ Languages are arranged by feature maturity from most to least mature. Both **cro
 
 See [Language maturity levels](#language-maturity-levels) to learn about GA or beta features.
 
-## Semgrep Supply Chain reachability support
+## Semgrep Supply Chain feature maturity
 
 <SscIntro/>
 
@@ -67,7 +67,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="16">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -82,6 +82,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
   </tr>
   <tr>
    <td>Maven</td>
@@ -95,6 +96,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>package-lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td rowspan="3">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
   </tr>
   <tr>
    <td>Yarn, Yarn 2, Yarn 3</td>
@@ -114,6 +116,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
 </tr>
 <tr>
    <td>Maven</td>
@@ -126,7 +129,8 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>pip</td>
    <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td rowspan="4">(PyPI packages only)</td>
+   <td rowspan="4">(PyPI only)</td>
+   <td rowspan="4">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
   </tr>
   <tr>
    <td>pip-tools</td>
@@ -148,6 +152,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>Gemfile.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td rowspan="3">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
   </tr>
 <tr>
    <td>Scala</td>
@@ -161,7 +166,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
-   <td>(License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans.)</td>
+   <td>✅<strong>†</strong></td>
 </tr>
   <tr>
    <td>Rust</td>
@@ -169,7 +174,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>cargo.lock</code></td>
    <td style={{"text-align": "center"}}>--</td>
    <td>✅</td>
-   <td rowspan="5">Not applicable due to reachability support level</td>
+   <td rowspan="4">Not applicable due to reachability support level</td>
 </tr>
 <tr>
    <td>Dart</td>
@@ -195,11 +200,12 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   </tbody>
 </table>
 </div>
-_*Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
+_<strong>*</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_<br />
+_<strong>†</strong>License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans._
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, for all beta languages, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
 
 ## Language maturity levels
 
