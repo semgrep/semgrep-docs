@@ -116,6 +116,9 @@ OPTIONS
        -f VAL, -c VAL, --config=VAL
            Not supported in 'ci' mode
 
+       --fake-backend=VAL
+           Internal flag.
+
        --files-with-matches
            Output only the names of files containing matches. REQUIRES
            --experimental
@@ -225,6 +228,9 @@ OPTIONS
 
        --legacy
            Prefer old (legacy) behavior.
+
+       --log-backend=VAL
+           Internal flag.
 
        --matching-explanations
            Add debugging information in the JSON output to trace how
@@ -378,7 +384,7 @@ OPTIONS
        --skip-unknown-extensions
            negates --scan-unknown-extensions
 
-       --subdir=VAL (absent=/src)
+       --subdir=VAL
            Scan only a subdirectory of this folder. This creates a project
            specific to the subdirectory unless SEMGREP_REPO_DISPLAY_NAME is
            set. Expects a relative path. (Note that when two scans have the
