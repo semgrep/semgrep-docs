@@ -96,6 +96,10 @@ The following steps revoke the code access you previously granted Semgrep for al
 2. Find the Azure DevOps entry on the list of **Source code managers** and click **Remove**.
 3. Click **Remove** to confirm.
 
+## Troubleshooting: multiple projects
+
+If you currently scan Azure DevOps repositories in your CI pipeline, you may see findings assigned to two separate projects once you enable Semgrep Managed Scanning. For example, findings from Managed Scanning go to the `semgrep/frontend/webpage` project, while findings from CI scans go to the `frontend/webpage` project. If this is the case, Semgrep AppSec Platform flags these findings with **Possible duplicate**. Please [contact support](/support) for addition assistance.
+
 ## Appendices
 
 <details>
