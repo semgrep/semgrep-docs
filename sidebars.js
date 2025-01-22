@@ -161,6 +161,7 @@ module.exports = {
           items: [
             'semgrep-assistant/getting-started',
             'semgrep-assistant/analyze',
+            'semgrep-assistant/metrics',
             'semgrep-assistant/privacy'
           ]
         },
