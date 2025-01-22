@@ -19,8 +19,8 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep Code (SAST)
-* [Semgrep Supply Chain](#semgrep-supply-chain) (SCA)
+* Semgrep Code (SAST) - a static application security testing (SAST) solution designed to detect complex security vulnerabilities. 
+* [Semgrep Supply Chain](#semgrep-supply-chain) (SCA) - a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 
 :::tip
 Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep.dev/pricing).
@@ -28,196 +28,22 @@ Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep
 
 ## Language maturity summary
 
-The following table lists all Generally available (GA) and Beta languages for Semgrep Code and Semgrep Supply Chain.
+The following table lists all **Generally available (GA)** and **Beta** languages for Semgrep Code and Semgrep Supply Chain.
 
-Languages are arranged by feature maturity and support from most to least support. Both **cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain represent the highest level of support that Semgrep provides.
-
-<table>
-    <thead><tr>
-        <td><strong>Languages</strong></td>
-        <td><strong>Semgrep Code</strong></td>
-        <td><strong>Semgrep Supply Chain</strong></td>
-    </tr></thead>
-    <tbody>
-    <tr>
-      <td>C#</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • Supports up to C# 13<br />
-         • 40+ Pro rules </td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Go</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • 60+ Pro rules </td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Java</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • Framework-specific control flow analysis<br />
-         • 160+ Pro rules </td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>JavaScript</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • Framework-specific control flow analysis<br />
-         • 70+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Kotlin</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-file dataflow analysis<br />
-         • 60+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>[Python](/docs/semgrep-code/supported-languages-python)</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • Framework-specific control flow analysis<br />
-         • 300+ Pro rules<br />
-         • See [Python-specific support details](/docs/semgrep-code/supported-languages-python)</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Typescript</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-file dataflow analysis<br />
-         • Framework-specific control flow analysis<br />
-         • 70+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>C / C++</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-file dataflow analysis<br />
-         • 150+ Pro rules </td>
-      <td>N/a</td>
-    </tr>
-    <tr>
-      <td>JSX</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • 70+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Ruby</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • 20+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-     <tr>
-      <td>Scala</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • Community rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>Swift</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • 50+ Pro rules</td>
-      <td><strong>Generally available</strong><br />
-         • Reachability analysis<br />
-         • Can detect open source licenses</td>
-    </tr>
-     <tr>
-      <td>Rust</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • 40+ Pro rules</td>
-      <td><strong>Beta</strong><br />
-         • Can detect open source licenses</td>
-    </tr>
-    <tr>
-      <td>PHP</td>
-      <td><strong>Generally available </strong><br />
-         • Cross-function dataflow analysis<br />
-         • 20+ Pro rules</td>
-      <td><strong>Beta</strong></td>
-    </tr>
-    <tr>
-      <td>Terraform</td>
-      <td><strong>Generally available</strong><br />
-         • Cross-function dataflow analysis<br />
-         • Community rules</td>
-      <td>N/a</td>
-    </tr>
-    <tr>
-      <td>Generic</td>
-      <td><strong>Generally available </strong></td>
-      <td>N/a</td>
-    </tr>
-    <tr>
-      <td>JSON</td>
-      <td><strong>Generally available </strong></td>
-      <td>N/a</td>
-    </tr>
-    <tr>
-      <td>APEX</td>
-      <td><strong>Beta</strong></td>
-      <td>--</td>
-    </tr>
-    <tr>
-      <td>Elixir</td>
-      <td><strong>Beta</strong></td>
-      <td><strong>Beta</strong></td>
-    </tr>
-   </tbody>
-</table>
-
-<!-- tk figure out where to put dart -->
-
-
-## Semgrep Code and Community Edition
-
-Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
-
-Semgrep Code is a static application security testing (SAST) solution designed to detect complex security vulnerabilities. It makes use of proprietary Semgrep analyses, such as cross-file (interfile) dataflow analysis and framework specific analyses, in addition to Semgrep CE. This results in a [**higher true positive rate than Semgrep CE**](/semgrep-pro-vs-oss). Semgrep Code provides the highest quality support by the Semgrep team: reported issues are resolved promptly.
-
-Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
-
-### Language support
-
-Semgrep Code supports over 35 languages.
+Languages are arranged by feature maturity from most to least mature. Both **cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain represent the highest level of support that Semgrep provides.
 
 <SupportedLanguagesTable />
 
-## Semgrep Supply Chain
+- Semgrep Code supports over 35 languages.
+- Semgrep Supply Chain supports 10 languages.
+
+See [Language maturity levels](#language-maturity-levels) to learn about GA or beta features.
+
+## Semgrep Supply Chain reachability support
 
 <SscIntro/>
 
-For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. Some languages, such as Java, have several supported lockfiles, depending on your repository's package manager. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
+For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
 For some languages, such as JavaScript and Python, a lockfile or manifest file is parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
 
@@ -371,48 +197,13 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
 </div>
 _*Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_
 
-### Maturity levels
-
-Semgrep Supply Chain has two maturity levels:
-
-* Generally available
-* Beta
-
-Their differences are outlined in the following table:
-
-<table>
-  <tr>
-   <td><strong>Feature</strong></td>
-   <td><strong>Generally available</strong></td>
-   <td><strong>Beta</strong></td>
-  </tr>
-  <tr>
-   <td>Number of reachability rules</td>
-   <td>10+</td>
-   <td>1+</td>
-  </tr>
-  <tr>
-   <td>Semgrep, Inc. rule-writing support</td>
-   <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
-   <td>No commitment for new rules based on the latest security advisories.</td>
-  </tr>
-  <tr>
-   <td>Semgrep CE <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
-   <td>Semgrep CE support is GA.</td>
-   <td>Semgrep CE support is at least Beta.</td>
-  </tr>
-</table>
-
-:::info Feature and product maturity levels
-* The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
-* Semgrep features and products documented as experimental, beta, or GA generally follow the definitions in a [Software release life cycle](https://en.wikipedia.org/wiki/Software_release_life_cycle).
-:::
-
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
 
 ## Language maturity levels
+
+### Semgrep Code
 
 Semgrep Code languages can be classified into four maturity levels:
 
@@ -423,7 +214,8 @@ Semgrep Code languages can be classified into four maturity levels:
 
 \*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
 
-Their differences are outlined in the following table:
+<details>
+<summary>Click to view table of definitions.</summary>
 
 <table>
     <thead><tr>
@@ -462,7 +254,49 @@ Their differences are outlined in the following table:
     </tbody>
 </table>
 
-### More information
+</details>
+
+### Semgrep Supply Chain
+
+Semgrep Supply Chain has two language maturity levels:
+
+* Generally available
+* Beta
+
+
+<details>
+<summary>Click to view table of definitions.</summary>
+
+<table>
+  <tr>
+   <td><strong>Feature</strong></td>
+   <td><strong>Generally available</strong></td>
+   <td><strong>Beta</strong></td>
+  </tr>
+  <tr>
+   <td>Number of reachability rules</td>
+   <td>10+</td>
+   <td>No required number</td>
+  </tr>
+  <tr>
+   <td>Semgrep, Inc. rule-writing support</td>
+   <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
+   <td>No commitment for new rules based on the latest security advisories.</td>
+  </tr>
+  <tr>
+   <td>Semgrep CE <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
+   <td>Semgrep CE support is GA.</td>
+   <td>Semgrep CE support is at least Beta.</td>
+  </tr>
+</table>
+
+</details>
+
+### Feature and product maturity levels
+
+The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
+
+## More information
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
