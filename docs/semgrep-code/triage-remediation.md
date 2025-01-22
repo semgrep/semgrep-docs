@@ -210,8 +210,9 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 <TabItem value='gl'>
 
 ### Prerequisites
-- A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans.
+- A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans. A Premium or Ultimate plan is required.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
+- This feature is in beta. Please [reach out to support](/docs/support) to have it added for your organization.
 
 ### Enable triage through GitLab MR comments:
 
