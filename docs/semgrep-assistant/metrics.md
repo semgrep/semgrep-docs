@@ -10,18 +10,18 @@ tags:
 
 # Semgrep Assistant metrics and methodology
 
-Semgrep's metrics for evaluating Semgrep Assistant's performance are derived from two key sources:
+Semgrep's metrics for evaluating Semgrep Assistant's performance are derived from two sources:
 
 - **User feedback** on Assistant recommendations within the product
 - **Internal triage and benchmarking** conducted by Semgreps security research team 
 
-This methodology ensures that Assistant is evaluated from both a user-centric perspective and through expert-driven technical scrutiny, giving Semgrep's product and engineering teams a holistic view into Assistant's real-world performance. 
+This methodology ensures that Assistant is evaluated from both a user's and expert's perspective. This gives Semgrep's product and engineering teams a holistic view into Assistant's real-world performance. 
 
 ## User feedback (real-world dataset)
 
-User feedback shows the aggregated and anonymized performance of Assistant across **1000+ customers**, providing a comprehensive real-world dataset. 
+User feedback shows the aggregated and anonymized performance of Assistant across **more than 1000 customers**, providing a comprehensive real-world dataset. 
 
-The user feedback loop is baked into product workflows to ensure comprehensiveness and to reduce sampling bias. Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions. 
+Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions as they receive Assistant suggestions in their PR or MR. This ensures that sampling bias is reduced, as both developers and AppSec engineers can provide feedback. 
 
 **Results as of Jan 10, 2024:**
 
@@ -48,9 +48,9 @@ The user feedback loop is baked into product workflows to ensure comprehensivene
     </tr>
 </table>
 
-## Internal benchmarks (internal dataset)
+## Internal benchmarks
 
-Internal benchmarks for Assistant utilize a systemic process in which a rotating team of security engineers conduct periodic reviews of findings and their Assistant generated triage recommendations/remediation guidance. This is the same process used to evaluate Semgrep's SAST engine and rule performance.
+Internal benchmarks for Assistant use a process in which a rotating team of security engineers conduct periodic reviews of findings and their Assistant generated triage recommendations or remediation guidance. This is the same process used to evaluate Semgrep's SAST engine and rule performance.
 
 Internal benchmarks for Assistant run on the same dataset used by Semgrep's security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
 
