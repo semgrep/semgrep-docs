@@ -127,7 +127,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   <tr>
    <td rowspan="4">Python</td>
    <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` file</li><li>Any file in a requirements folder, such as `**/requirements/*.txt`</li><li>`requirements.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">(PyPI only)</td>
    <td rowspan="4">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
