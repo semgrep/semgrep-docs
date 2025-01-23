@@ -128,7 +128,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 <td>✅</td>
 </tr>
 <tr>
-<td><code>lines</code></td>
+<td><code>lines</code><strong>*</strong></td>
 <td>❌</td>
 <td>✅</td>
 </tr>
@@ -157,6 +157,8 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 <td>✅</td>
 </tr>
 </tbody></table>
+
+_*<strong>`lines`</strong> refers to the **text** of the matched lines, not the line numbers themselves. See the [`results` object](#results-object) to view line numbers._
 
 ### `metadata` object
 
