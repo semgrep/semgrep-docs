@@ -14,6 +14,9 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 import SscIntro from "/src/components/concept/_ssc-intro.md"
 import LanguageMaturityCode from '/src/components/reference/_language-maturity-code.md'
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
+import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"
+import DefCrossFunction from "/src/components/concept/_def-cross-function.mdx"
+import DefReachability from "/src/components/concept/_def-reachability.md"
 
 # Supported languages
 
@@ -30,21 +33,33 @@ Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep
 
 The following table lists all **Generally available (GA)** and **Beta** languages for Semgrep Code and Semgrep Supply Chain.
 
-Languages are arranged by feature maturity from most to least mature. Both **cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain represent the highest level of support that Semgrep provides.
+Languages are arranged by feature completeness from most to least. **Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides; see [Feature definitions](#feature-definitions) for more details.
 
 <SupportedLanguagesTable />
 
 ### Feature definitions
 
-Cross-file analysis refers to tk
+<details>
+<summary>Cross-file dataflow analysis</summary>
 
-tk add definitions here for cross-file, reachability
+<DefCrossFile />
 
+</details>
 
-- Semgrep Code supports over 35 languages.
-- Semgrep Supply Chain supports 10 languages.
+<details>
+<summary>Cross-function dataflow analysis</summary>
+<DefCrossFunction />
+</details>
 
-See [Language maturity levels](#language-maturity-levels) to learn about GA or beta features.
+<details>
+<summary>Reachability analysis</summary>
+<DefReachability />
+
+</details>
+
+:::tip
+See [Language maturity levels](#language-maturity-levels) to learn which features define GA or beta language support.
+:::
 
 ## Semgrep Supply Chain feature maturity
 
