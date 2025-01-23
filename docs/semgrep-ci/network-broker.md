@@ -112,7 +112,7 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 
 <pre class="language-console"><code>
 azuredevops:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/*
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
 &nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
@@ -231,7 +231,7 @@ To enable Managed Scans when using Network Broker, ensure that you've updated yo
 
 <pre class="language-console"><code>
 azuredevops:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/*
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
 &nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
