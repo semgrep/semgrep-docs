@@ -35,6 +35,10 @@ Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions
         <td><b>250,000+</b></td>
     </tr>
     <tr>
+        <td>Average reduction in findings[^1]</td>
+        <td><b>20%</b></td>
+    </tr>
+    <tr>
         <td>Human-agree rate</td>
         <td><b>92%</b></td>
     </tr>
@@ -58,10 +62,6 @@ Internal benchmarks for Assistant run on the same dataset used by Semgrep's secu
     <tr>
         <td>Findings analyzed</td>
         <td><b>2000+</b></td>
-    </tr>
-    <tr>
-        <td>Average reduction in findings[^1]</td>
-        <td><b>20%</b></td>
     </tr>
     <tr>
         <td>False positive confidence rate[^2]</td>
