@@ -19,8 +19,8 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 This document provides information about supported languages and language maturity definitions for the following products:
 
-* Semgrep Code (SAST) - a static application security testing (SAST) solution designed to detect complex security vulnerabilities. 
-* [Semgrep Supply Chain](#semgrep-supply-chain) (SCA) - a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+* **Semgrep Code (SAST)** - a static application security testing (SAST) solution designed to detect complex security vulnerabilities. 
+* **Semgrep Supply Chain (SCA)** - a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 
 :::tip
 Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep.dev/pricing).
@@ -33,6 +33,13 @@ The following table lists all **Generally available (GA)** and **Beta** language
 Languages are arranged by feature maturity from most to least mature. Both **cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain represent the highest level of support that Semgrep provides.
 
 <SupportedLanguagesTable />
+
+### Feature definitions
+
+Cross-file analysis refers to tk
+
+tk add definitions here for cross-file, reachability
+
 
 - Semgrep Code supports over 35 languages.
 - Semgrep Supply Chain supports 10 languages.
