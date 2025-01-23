@@ -52,10 +52,6 @@ If you would like to run the pre-commit hook **locally** while using Semgrep Pro
 
 <Login />
 
-### Version management
-
-- asdf: [ASDF Semgrep](https://github.com/brentjanderson/asdf-semgrep)
-
 ### Semgrep as an engine
 
 Many other tools have capabilities powered by Semgrep.

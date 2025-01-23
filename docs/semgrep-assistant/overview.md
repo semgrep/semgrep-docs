@@ -91,10 +91,19 @@ Auto-triage recommendations are available in Semgrep AppSec Platform's **Finding
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
 _**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
-Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue without switching contexts, as well as being sent through Slack.
+Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue directly without leaving their PR or MR.
 
-![Semgrep Assistant in a Slack notification](/img/semgrep-assistant-slack.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in a Slack notification._
+### Weekly priority emails
+
+Semgrep sends weekly emails with information on Assistant's top three backlog tasks across all findings. Unlike other Assistant features, these suggestions can include information for all Semgrep products that you have enabled. The emails are sent out on Monday to all organization admins.
+
+### Noise filtering (beta)
+
+Noise filtering increases developer velocity by reducing interruptions from potential false positives. With Noise Filtering, Assistant evaluates each finding to determine if it's a true positive using additional context. If Assistant thinks a finding may be a false positive, it prevents a PR comment from being posted in the developer workflow. 
+
+Security teams can review filtered findings at any time on Semgrep's [**Code > Pre-production** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree or disagree with the filtering. If you agree with the suggestion, Semgrep closes the finding, but if you disagree, Semgrep reopens the finding.
+
+Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md).
 
 ### Memories (beta)
 
