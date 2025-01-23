@@ -23,7 +23,7 @@
       <td>C#</td>
       <td><strong>Generally available </strong><br />
          • Cross-file dataflow analysis<br />
-         • Supports up to C# 13 (latest)<br />
+         • Supports up to C# 13<br />
          • 40+ Pro rules </td>
       <td> Community supported <br />
          • Limited to single-function analysis<br />

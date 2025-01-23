@@ -1,6 +1,6 @@
 ---
 slug: semgrep-ce-languages
-title: Supported languages for Semgrep CE
+title: Supported languages
 hide_title: true
 description: 
   Semgrep CE supports more than two dozen languages. Learn about the language support differences between Semgrep CE and Semgrep Code.
@@ -12,7 +12,7 @@ tags:
 import SupportedLanguagesCe from '/src/components/reference/_supported-languages-ce.md'
 import LanguageMaturityCode from '/src/components/reference/_language-maturity-code.md'
 
-# Supported languages for Semgrep CE and Semgrep Code
+# Supported languages for Semgrep CE
 
 This document provides information about supported languages for Semgrep Community Edition (Semgrep CE) and Semgrep Code.
 
