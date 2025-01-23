@@ -44,6 +44,8 @@ Languages are arranged by feature completeness from most to least. **Cross-file 
 
 <DefCrossFile />
 
+Languages with cross-file support also include cross-function support.
+
 </details>
 
 <details>
