@@ -20,7 +20,3 @@ To fix this problem, you must be an `admin` in Semgrep AppSec Platform.
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access > [SSO](https://semgrep.dev/orgs/-/settings/access/sso)**.
 4. Check the box labeled **Check if your SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)**.
 4. Click **Save** to save this setting.
-
-:::note Admin and org owner accounts
-If you're an admin setting up SSO, Semgrep creates an SSO account for you that is a **Member** by default. To elevate the permissions granted to this account, log in to Semgrep with your admin account using the original login method, then change the role of your newly created SSO account to **Admin**.
-:::
