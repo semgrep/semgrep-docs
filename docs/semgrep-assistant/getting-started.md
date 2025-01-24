@@ -55,9 +55,9 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    4. When prompted, click **Continue** to allow redirection to GitHub to finalize app creation. Follow the instructions to finish creating and installing a private `semgrep-app`.
 4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-   3. **Autofix suggestions for Code**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
+   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   4. **Remediation**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
 
 </TabItem>
 
@@ -82,19 +82,19 @@ Semgrep Assistant requires the **API scope** to run in both GitLab SaaS and GitL
 1. Follow the on-screen instructions to complete the setup process.
 2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Autofix suggestions for Code**: Enable autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
-   3. **Auto-triage for Code**: Enable notifications whenever Assistant suggests that a finding may be safe to ignore. You can include notifications in your PR and MR comments, or you can receive them through Slack notifications.
-    ![Semgrep Assistant toggle location](/img/semgrep-assistant-enable.png#md-width)
+   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   4. **Remediation**: Enable Assistant-generated autofix suggestions in comments from Assistant. You can also set the minimum confidence level for Assistant-written fixes if the Semgrep rule doesn't include a human-written autofix.
 
 </TabItem>
 </Tabs>
 
-### Enable autofix suggestions
+### Enable remediation
 
-Assistant autofix allows you to receive AI-generated code snippets to remediate true positives. Perform the following to enable it:
+Assistant remediation allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the *Autofix suggestions for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+2. In the **Assistant** section, click the **Remediation** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
     :::tip
     Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
@@ -118,16 +118,37 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
   ![ Policies modes](/img/semgrep-assistant-comment.png#md-width)
 * You have selected PR/MR comments in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
 
+### Enable weekly priority emails
+
+If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+
+### Enable noise filtering
+
+Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
+2. In the **Assistant** section, click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
+3. Select whether you want to enable PR or MR comments:
+   1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
+   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
+
+Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
+
 ## Add Memories (beta)
 
-Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. Whenever Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
+Assistant Memories allows admins to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
 
-Memories are enabled by default for all Assistant users.
+Memories are enabled by default for all organizations with Assistant enabled.
 
-To add a memory:
+### Add a memory based on Assistant's suggested fix
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found in the finding details page or in the PR or MR comment.
-2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. The suggestion you provide can be as general as "Use AWS Secrets Manager to manage secrets."
+To add a memory modifying a suggested fix presented by Assistant:
+
+1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
+2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use AWS Secrets Manager to manage secrets."
    ![Assistant’s suggested fix for a hardcoded secret in the user’s code](/img/memories-3.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
 3. Click **Save and regenerate**.
@@ -138,6 +159,29 @@ To add a memory:
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+
+### Add memory during triage
+
+If you identify findings that are safe to ignore and write triage notes indicating why this is so, Assistant can store this information as a memory and use it when assessing whether a similar finding should be shown to developers in the future. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+
+To add a memory during triage:
+
+1. Identify the specific finding you want to modify, and open up its finding details page.
+2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
+3. Click **Ignore & add memory**. 
+4. In the **Create memory** dialog:
+   1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
+   2. Provide the **Projects** to which this memory should be applied.
+   3. Provide the **Rules** to which this memory should be applied.
+   4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
+   5. Click **Add memory** to save your changes.
+   ![User-provided instructions for generating a memory during the triage process.](/img/triage-memories.png#md-width)
+   ***Figure***. User-provided instructions for generating a memory during the triage process.
+
+### View Memories
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**. This opens a list of your organization's Memories for review.
 
 ### Remove Memories
 

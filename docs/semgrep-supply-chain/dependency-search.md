@@ -85,7 +85,7 @@ Dependency paths allow you to view dependency paths for all transitive dependenc
 
 ### Supported languages
 
-Semgrep generates dependency paths for select Java and JavaScript projects.
+Semgrep generates dependency paths for select Java, JavaScript, and Python projects.
 
 #### Java
 
@@ -100,6 +100,10 @@ semgrep ci --allow-local-builds
 #### JavaScript
 
 Semgrep generates dependency paths for JavaScript projects that utilize `pnpm` and include a `pnpm-lock.yaml` file whenever you invoke a scan using `semgrep ci`.
+
+#### Python
+
+Semgrep generates dependency paths for Python projects that utilize `poetry` and include a `poetry.lock` file whenever you invoke a scan using `semgrep ci`.
 
 ### View the dependency graph
 

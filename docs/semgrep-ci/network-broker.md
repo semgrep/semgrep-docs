@@ -101,11 +101,22 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 <Tabs
     defaultValue="gh"
     values={[
+    {label: 'Azure DevOps', value: 'ado'},
     {label: 'Bitbucket', value: 'bb'},
     {label: 'GitHub', value: 'gh'},
     {label: 'GitLab', value: 'gl'},
     ]}
 >
+
+<TabItem value='ado'>
+
+<pre class="language-console"><code>
+azuredevops:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
+&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
+</code></pre>
+
+</TabItem>
 
 <TabItem value='bb'>
 
@@ -209,11 +220,23 @@ To enable Managed Scans when using Network Broker, ensure that you've updated yo
 <Tabs
     defaultValue="gh"
     values={[
+    {label: 'Azure DevOps', value: 'ado'},
     {label: 'Bitbucket', value: 'bb'},
     {label: 'GitHub', value: 'gh'},
     {label: 'GitLab', value: 'gl'},
     ]}
 >
+
+<TabItem value='ado'>
+
+<pre class="language-console"><code>
+azuredevops:
+&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
+&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
+&nbsp;&nbsp;allowCodeAccess: true
+</code></pre>
+
+</TabItem>
 
 <TabItem value='bb'>
 
