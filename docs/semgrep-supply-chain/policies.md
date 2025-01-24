@@ -10,7 +10,9 @@ tags:
 
 # Manage policies (beta)
 
-Use Supply Chain policies to define the conditions in which developers are **notified** of a finding through a comment, or potentially **blocked** from merging their pull or merge request (PR or MR). This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
+By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving potentially irrelevant notifications.
+
+To notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
 
 This feature enables you to configure the following:
 
