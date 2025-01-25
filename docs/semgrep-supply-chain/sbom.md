@@ -56,6 +56,6 @@ In addition to the [<i class="fas fa-external-link fa-xs"></i> minimum elements 
 | Description | A short description of the vulnerability. |
 | Detail | A longer description of the vulnerability, including the affected versions. |
 | Ratings | Semgrep Supply Chain's severity rating of this vulnerability. |
-| References | Links to the specific CVE. References can come from NIST and GitHub Security Advisory. |
+| References | Links to the specific CVE. References can come from NIST, Electron release notes, and GitHub Security Advisory. |
 | Source | The primary source of this vulnerability's advisory. |
 | Tools | Details about Semgrep, the tool used to generate the SBOM. |
