@@ -22,6 +22,9 @@ on:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
     # It is recommended to change the schedule to a random time.
 
+permissions:
+  contents: read
+
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
