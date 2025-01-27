@@ -18,7 +18,7 @@ To correctly scan all dependencies in a project, Semgrep Supply Chain requires a
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these files to get a successful Semgrep Supply Chain scan. Since Semgrep 1.93.0, a `requirements.txt` file can be placed in a `**/requirements/` folder, or can have any name that matches `*requirement*.txt` or `*requirement*.txt`. 
+You can use any of these files to get a successful Semgrep Supply Chain scan. Since Semgrep 1.93.0, a `requirements.txt` file can be placed in a `**/requirements/` folder, or can have any name that matches `*requirement*.txt` or `*requirement*.pip`. 
 
 ## Generating `requirements.txt`
 
