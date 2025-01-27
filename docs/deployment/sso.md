@@ -22,6 +22,10 @@ This article walks you through single-sign on (SSO) configuration. Semgrep suppo
 
 ## OpenID Connect / OAuth 2.0
 
+:::warning
+Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. Follow the instructions to [set up SAML SSO with Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id) instead.
+:::
+
 To set up SSO in Semgrep AppSec Platform:
 
 1. Sign in to Semgrep AppSec Platform.
@@ -66,7 +70,9 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 If you encounter issues during the setup process, [reach out to support](/docs/support) for assistance.
 
 :::note Admin and org owner accounts
-If you're an admin setting up SSO, Semgrep creates an SSO account for you that is a **Member** by default. To elevate the permissions granted to this account, log in to Semgrep with your admin account using the original login method, then change the role of your newly created SSO account to **Admin**.
+By default, Semgrep creates new SSO accounts with the **Member** role assigned. You can change the default role assigned to a new user by going to [Settings > Access](https://semgrep.dev/orgs/-/settings/access/defaults).
+
+If you're an admin setting up SSO, and Semgrep creates an SSO account for you  with the role of **Member**, you can elevate the permissions granted to your SSO account. To do so, log in to Semgrep with your admin account using the original login method, then [change the role](https://semgrep.dev/orgs/-/settings/access/members) of your newly created SSO account to **Admin**.
 :::
 
 ## Turn off sign in with GitHub / GitLab
@@ -84,5 +90,5 @@ Ensure that you have at least one user who can log in through SSO before disabli
 
 ## See also
 
-- [SAML single sign-on with Google Workspace](/docs/kb/semgrep-appsec-platform/saml-google-workspace)
-- [SAML single sign-on with Microsoft Entra ID](/docs/kb/semgrep-appsec-platform/saml-microsoft-entra-id)
+- [SAML SSO with Google Workspace](/docs/kb/semgrep-appsec-platform/saml-google-workspace)
+- [SAML SSO with Microsoft Entra ID](/docs/kb/semgrep-appsec-platform/saml-microsoft-entra-id)

@@ -5,7 +5,7 @@ tags:
   - SSO
 ---
 
-# SAML single sign-on with Microsoft Entra ID
+# SAML SSO with Microsoft Entra ID
 
 This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Microsoft Entra ID.
 

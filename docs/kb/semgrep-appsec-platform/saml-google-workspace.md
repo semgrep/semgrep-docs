@@ -5,7 +5,7 @@ tags:
   - SSO
 ---
 
-# SAML single sign-on with Google Workspace
+# SAML SSO with Google Workspace
 
 This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Google Workspace, including how to set up the necessary attribute mappings.
 
