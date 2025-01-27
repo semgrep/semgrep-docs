@@ -25,9 +25,7 @@ This document provides information about supported languages and language maturi
 * **Semgrep Code (SAST)** - a static application security testing (SAST) solution designed to detect complex security vulnerabilities. 
 * **Semgrep Supply Chain (SCA)** - a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 
-:::tip
 Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep.dev/pricing).
-:::
 
 ## Language maturity summary
 
