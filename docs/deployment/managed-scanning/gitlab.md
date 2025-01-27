@@ -11,6 +11,7 @@ tags:
 ---
 
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
+import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
 
 # Add a GitLab repository to Semgrep Managed Scans
 
@@ -105,6 +106,10 @@ The following steps revoke the code access you previously granted Semgrep for al
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
 1. On the entry of the SCM you want to remove, click **Remove app**.
 1. Click **Remove** to confirm.
+
+## Turn off Managed Scans for specific repositories in Semgrep AppSec Platform
+
+<TurnOffSms />
 
 ## Appendices
 

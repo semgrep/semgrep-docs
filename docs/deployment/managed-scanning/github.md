@@ -11,6 +11,7 @@ tags:
 ---
 
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
+import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
 
 # Add a GitHub repository to Semgrep Managed Scans
 
@@ -104,6 +105,14 @@ The following steps revoke the code access you previously granted Semgrep for al
 1. On the entry of your private Semgrep GitHub app, click **Configure**.
 ![GitHub settings page](/img/zcs-github-apps.png)
 1. Under **Repository access**, de-select the repositories you no longer want to grant Semgrep access to.
+
+## Turn off Managed Scans for specific repositories in Semgrep AppSec Platform
+
+<TurnOffSms />
+
+:::warning
+If your [source code manager has Auto-scan enabled](https://semgrep.dev/orgs/-/settings/source-code) so that Semgrep automatically scans new repositories, turn off Managed Scans for specific repositories using Semgrep AppSec Platform. **Do not turn off Managed Scans by deleting the repository from Semgrep AppSec Platform.** If you have Auto-scan enabled and you delete your repository, Semgrep re-syncs the repository you deleted.
+:::
 
 ## Appendices
 
