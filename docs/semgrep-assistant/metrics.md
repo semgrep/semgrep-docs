@@ -10,16 +10,16 @@ tags:
 
 # Semgrep Assistant metrics and methodology
 
-Semgrep's metrics for evaluating Semgrep Assistant's performance are derived from two sources:
+Metrics for evaluating Semgrep Assistant's performance are derived from two sources:
 
 - **User feedback** on Assistant recommendations within the product
 - **Internal triage and benchmarking** conducted by Semgreps security research team 
 
 This methodology ensures that Assistant is evaluated from both a user's and expert's perspective. This gives Semgrep's product and engineering teams a holistic view into Assistant's real-world performance. 
 
-## User feedback (real-world dataset)
+## User feedback
 
-User feedback shows the aggregated and anonymized performance of Assistant across **more than 1000 customers**, providing a comprehensive real-world dataset. 
+User feedback shows the aggregated and anonymized performance of Assistant across **more than 1000 customers**, providing a comprehensive **real-world dataset**. 
 
 Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions as they receive Assistant suggestions in their PR or MR. This ensures that sampling bias is reduced, as both developers and AppSec engineers can provide feedback. 
 
@@ -28,23 +28,27 @@ Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions
 <table>
     <tr>
         <td>Customers in dataset</td>
-        <td><b>1000+</b></td>
+        <td><strong>1000+</strong></td>
     </tr>
     <tr>
         <td>Findings analyzed</td>
-        <td><b>250,000+</b></td>
+        <td><strong>250,000+</strong></td>
+    </tr>
+    <tr>
+        <td>Average reduction in findings[^1]</td>
+        <td><strong>20%</strong></td>
     </tr>
     <tr>
         <td>Human-agree rate</td>
-        <td><b>92%</b></td>
+        <td><strong>92%</strong></td>
     </tr>
     <tr>
         <td>Median time to resolution</td>
-        <td><b>22% faster than baseline</b></td>
+        <td><strong>22% faster than baseline</strong></td>
     </tr>
     <tr>
         <td>Average time saved per finding</td>
-        <td><b>30 minutes</b></td>
+        <td><strong>30 minutes</strong></td>
     </tr>
 </table>
 
@@ -57,24 +61,20 @@ Internal benchmarks for Assistant run on the same dataset used by Semgrep's secu
 <table>
     <tr>
         <td>Findings analyzed</td>
-        <td><b>2000+</b></td>
-    </tr>
-    <tr>
-        <td>Average reduction in findings[^1]</td>
-        <td><b>20%</b></td>
+        <td><strong>2000+</strong></td>
     </tr>
     <tr>
         <td>False positive confidence rate[^2]</td>
-        <td><b>96%</b></td>
+        <td><strong>96%</strong></td>
     </tr>
     <tr>
         <td>Remediation guidance confidence rate[^3]</td>
-        <td><b>80%</b></td>
+        <td><strong>80%</strong></td>
     </tr>
 </table>
 
-[^1]:The average % of SAST findings that Assistant filters out as noise.  
+[^1]:The average % of SAST findings that Assistant filters out as noise.
 
 [^2]:False positive confidence rate measures how often Assistant is correct when it identifies a false positive. **A high confidence rate means users can trust when Assistant identifies a false positive - it does not mean that Assistant catches all false positives.** 
 
-[^3]:Remediation guidance is rated on a binary scale of "helpful" / "not helpful".  
+[^3]:Remediation guidance is rated on a binary scale of "helpful" / "not helpful".
