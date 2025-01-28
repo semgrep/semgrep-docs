@@ -6,8 +6,6 @@ tags:
   - SAML
 ---
 
-
-
 # SAML SSO Error: Authentication method doesn't match requested
 
 When logging in to Semgrep using SAML single-sign on (SSO), you may see the error `Authentication method doesn't match requested`:
