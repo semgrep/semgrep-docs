@@ -4,78 +4,76 @@ slug: adding-a-language
 How to add support for a new language
 ==
 
-This is about adding support for a new programming language in
-semgrep using the
-[tree-sitter](https://tree-sitter.github.io/tree-sitter/)
-technology. While new languages should use tree-sitter,
-semgrep also supports some languages independently if there's a good
-legacy OCaml parser for them. Check for your language in
-[pfff](https://github.com/semgrep/pfff) and if you see it
-in there, [talk to us](/support).
-Otherwise, let's get started.
+This document is about adding support for a new programming language in Semgrep using the [tree-sitter](https://tree-sitter.github.io/tree-sitter/) technology. Most languages in semgrep use `tree-parser` though you may also need to update a `menhir` parser.
 
 Repositories involved directly:
-* [semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
-* [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
-* new repo semgrep-_X_ for the new language _X_: C/OCaml parser generated from ocaml-tree-sitter-semgrep by an admin.
 
-Submodules overview (semgrep repo)
+* [<i class="fas fa-external-link fa-xs"></i> semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
+* [<i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
+* A new repository <code>semgrep-_**LANG**_</code> for the new language _**LANG**_: C/OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
+
+## Placeholder values
+
+This document uses **_LANG_** to indicate that you should substitute the name of your language as the value in a file. For example, if your language is Ruby:
+
+> Create a new file <code>TEST_LANG_**_LANG_**.txt</code>
+
+The name of your file should be `TEST_LANG_Ruby.txt`
+
+> Create a file <code>Pretty_print.**_EXTENSION_**</code> with the filename extension of your language:
+
+The name of your file should be `Pretty_print.rb`.
+
+`semgrep` repository overview
 --
 
-There are quite a few GitHub repositories involved in porting a language.
+There are some GitHub repositories involved in porting a language.
 Here is the file hierarchy of the [semgrep
 repository](https://github.com/semgrep/semgrep):
 
-```sh
-/semgrep-core/src
-├── ocaml-tree-sitter-core  # runtime library for tree-sitter parsers
-├── pfff                    # non-tree-sitter parsers
-└── tree-sitter-lang        # generated tree-sitter parsers
-    ├── semgrep-java
+```
+/languages
+├── bash
     ...
-    └── semgrep-ruby
+├── swift
+    ├── generic
+    └── tree-sitter
+        └── semgrep-swift # generated tree-sitter parsers
 ```
 
-When done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repo semgrep-X to host the generated parser code.
-Ask someone from the Semgrep team to create one for you. For this, they should use
-the template
-[semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template)
-when creating the repo.
+When you're done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repository <code>semgrep-**_LANG_**</code> to host the generated parser code.
 
-The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep) (as indicated below). Be careful that you are always in the correct repo!
+Ask someone from the Semgrep team to create one for you. For this, they should use the template
+[semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template) when creating the repository.
 
-Setup (ocaml-tree-sitter-semgrep repo)
+The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), as indicated below. Be careful that you are always in the correct repository!
+
+Set up `ocaml-tree-sitter-semgrep`
 --
 
-As a model, you can use the existing setup for `ruby` or `javascript`. Our
-most complicated setup is for `typescript` and `tsx`.
+As a model, you can use the existing setup for `ruby` or `javascript`. The most complicated setup is for `typescript` and `tsx`.
 
 ### Expedited setup
 
-If you're lucky, the language you want to add can be added with the
-script `add-simple-lang`:
+If you're lucky, the language you want to add can be added with the script `add-simple-lang`:
 
 ```
 cd lang
 ./add-simple-lang --help
 ```
-follow the instructions from --help
 
-This often works with languages that define a single dialect using a
-`grammar.js` file at the root of the project. If this simplified
-approach fails, use the **Manual setup** instructions below to understand
-what's going on or to set things up manually.
+Follow the instructions from --help.
+
+This often works with languages that define a single dialect using a `grammar.js` file at the root of the project. If this simplified approach fails, use the [Manual setup](#manual-setup) instructions below to understand what's going on or to set things up manually.
 
 ### Manual setup
 
-From the ocaml-tree-sitter repo, do the following:
+From the `ocaml-tree-sitter` repository, do the following:
 
-1. Create a `lang/X` folder.
-2. Make a `test/ok` directory. Inside the directory,
-   create a simple `hello-world` program for the language you are porting.
+1. Create a `lang/LANG` folder.
+2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting.
    Name the program `hello-world.<ext>`.
-3. Now make a file called `extensions.txt` and input all the language extensions
-   (.rb, .kt, etc) for your language in the file.
+3. Now make a file called `extensions.txt` and input all the language extensions (.rb, .kt, etc) for your language in the file.
 4. Create a file called `fyi.list` with all the information files, such as
     `semgrep-grammars/src/tree-sitter-X/LICENSE`,
     `semgrep-grammars/src/tree-sitter-X/grammar.js`,
@@ -143,7 +141,7 @@ The files listed in `fyi.list` end up in a `fyi` folder in
 tree-sitter-lang. For example,
 [see `ruby/fyi`](https://github.com/semgrep/semgrep-ruby/tree/main).
 
-Extending the original grammar with semgrep syntax
+Extend the original grammar with semgrep syntax
 --
 
 This is best done after everything else is set up. Some constructs
@@ -169,14 +167,11 @@ For an example of how to extend a language, you can:
   This is the file [`common/define-grammar.js` in the
   tree-sitter-typescript repo](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js).
 
-Avoiding parsing conflicts is the trickiest part. Asking for help is
-encouraged.
+Avoiding parsing conflicts is the trickiest part. Asking for help is encouraged.
 
-💡 A note on the JavaScript syntax that's heavily used to define and extend
-grammars:
+💡 A note on the JavaScript syntax that's heavily used to define and extend grammars:
 
-When possible, we prefer the shorthand notation for anonymous functions
-made of a single expression:
+When possible, the development team prefers **shorthand** notation for anonymous functions made of a single expression:
 ```js
 (x) => x
 ```
@@ -196,7 +191,7 @@ the simpler way is this one:
 expression: ($, previous) => choice(previous, $.ellipsis),
 ```
 
-However, if the `previous` rule is known to be a `choice()`, we can avoid
+However, if the `previous` rule is known to be a `choice()`, you can avoid
 one level of nesting and append to the original list of choices, which
 is done as follows:
 ```js
@@ -205,8 +200,7 @@ expression: ($, previous) => choice(...previous.members, $.ellipsis),
 
 Whether to use one or the other is a matter of taste.
 
-Finally, on rare occasions where the rule body is more than a single
-expression, you'll have to use the curly-brace/return syntax:
+Finally, on rare occasions where the rule body is more than a single expression, you'll have to use the curly brace or return syntax:
 ```js
 expression: ($, previous) => {
   if (semgrep_ext)
@@ -234,7 +228,7 @@ programming language and use a constraint to select large projects,
 such as "> 100 forks". Collect the repository URLs and put them into
 `projects.txt`.
 
-Publishing generated parsers
+Publish generated parsers
 --
 
 After you have pushed your ocaml-tree-sitter changes to the main
@@ -288,38 +282,27 @@ We keep failing test cases in a `fail/` folder, preferably in the form
 of the minimal program suitable for a bug report, with a comment
 describing what was expected and what's going on.
 
-## pfff
+## Update the `semgrep` repository
 
-Pfff defines a list programming languages, some of which have parsers
-in pfff itself. Others are tree-sitter parsers which are otherwise
-independent from pfff. You need to add the new language to the list of
-languages in pfff.
+Now that you have added your new language **_LANG_** to `tree-sitter`, do the following:
 
-Look under **Adding a Language** in [pfff](https://github.com/semgrep/pfff/blob/develop/README.md)
-for step-by-step instructions.
-
-## semgrep-core
-
-Now that you have added your new language 'X' to pfff, do the following:
-1. Add the new pfff submodule to semgrep-core.
-2. In `Check_pattern.ml`, add 'X' to `lang_has_no_dollar_ids`/ If the grammar
-   has no dollar identifiers, add it above 'true'. Otherwise, add it above 'false'.
-3. In `synthesizing/Pretty_print_generic.ml`, add 'X' to the appropriate functions:
-   * print_bool
-   * if_stmt
-   * while_stmt
-   * do_while
-   * for_stmt
-   * def_stmt
-   * return
-   * break
-   * continue
-   * literal
-4. In `parsing/Test_parsing.ml`, add in 'X' to `dump_tree_sitter_cst_lang`.
+1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add _**LANG**_ to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add _**LANG**_ above 'true'. Otherwise, add it above 'false'.
+1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add **_LANG_** to the appropriate functions:
+   * `print_bool`
+   * `if_stmt`
+   * `while_stmt`
+   * `do_while`
+   * `for_stmt`
+   * `def_stmt`
+   * `return`
+   * `break`
+   * `continue`
+   * `literal`
+1. In [`/src/parsing/Test_parsing.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/tests/Test_parsing.ml), add in _**LANG**_ to `dump_tree_sitter_cst_lang`.
    You can look to the other languages as reference to what code to add.
-5. Create a file `parsing/Parse_X_tree_sitter.ml`. Add basic functionality to
+1. Create a file `parsing/Parse_LANG_tree_sitter.ml`. Add basic functionality to
    define the function `parse` and import module `Parse_tree_sitter_helpers`.
-   You can look at csharp and kotlin files in order to get a better idea of how to
+   You can look at csharp and Kotlin files to get a better idea of how to
    define the parse file function, but this file should contain something similar to:
    ```
    module H = Parse_tree_sitter_helpers
@@ -331,11 +314,10 @@ Now that you have added your new language 'X' to pfff, do the following:
             Parallel.invoke Tree_sitter_X.Parse.file file ()
         )
    ```
-6. In `parsing/tree_sitter/dune`, add `tree-sitter-lang.X`.
-7. Write a basic test case for your language in `tests/X/hello-world.X`. This can
-   just be a hello-world function.
-8. Test that the command
-   `semgrep-core/bin/semgrep-core -dump_tree_sitter_cst test/X/hello-world`
+1. In `parsing/tree_sitter/dune`, add <code>tree-sitter-lang.**_LANG_**</code>.
+1. Write a basic test case for your language in <code>tests/**_LANG_**/hello-world.**_LANG_**</code>. This can just be a hello-world function.
+1. Test that the command
+   `semgrep-core/bin/semgrep-core -dump_tree_sitter_cst test/LANG/hello-world`
    prints out a CST for your language.
 
 ## Legal concerns
