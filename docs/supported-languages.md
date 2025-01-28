@@ -227,7 +227,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, for all beta languages, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
+Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities for all beta languages.
 
 ## Language maturity levels
 
