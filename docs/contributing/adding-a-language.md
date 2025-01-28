@@ -11,10 +11,11 @@ Repositories involved directly:
 * [<i class="fas fa-external-link fa-xs"></i> semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
 * [<i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
 * A new repository <code>semgrep-_**LANG**_</code> for the new language _**LANG**_: C/OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
+* [<code><i class="fas fa-external-link fa-xs"></i> semgrep-interfaces</code>](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)
 
 ## Placeholder values
 
-This document uses **_LANG_** to indicate that you should substitute the name of your language as the value in a file. For example, if your language is Ruby:
+This document uses **_LANG_** to indicate that you should substitute the name of your language as the value in the given context. For example, if your language is Ruby:
 
 > Create a new file <code>TEST_LANG_**_LANG_**.txt</code>
 
@@ -282,10 +283,13 @@ We keep failing test cases in a `fail/` folder, preferably in the form
 of the minimal program suitable for a bug report, with a comment
 describing what was expected and what's going on.
 
+/* tried to make this more descriptive but should check with Nat if I understood the goal correctly */
+
 ## Update the `semgrep` repository
 
 Now that you have added your new language **_LANG_** to `tree-sitter`, do the following:
 
+1. Update `[generate.py](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)` in the `semgrep-interfaces` repository with your new language.
 1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add _**LANG**_ to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add _**LANG**_ above 'true'. Otherwise, add it above 'false'.
 1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add **_LANG_** to the appropriate functions:
    * `print_bool`
