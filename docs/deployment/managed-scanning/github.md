@@ -111,7 +111,7 @@ The following steps revoke the code access you previously granted Semgrep for al
 <TurnOffSms />
 
 :::warning
-If your [source code manager has Auto-scan enabled](https://semgrep.dev/orgs/-/settings/source-code) so that Semgrep automatically scans new repositories, turn off Managed Scans for specific repositories using Semgrep AppSec Platform. **Do not turn off Managed Scans by deleting the repository from Semgrep AppSec Platform.** If you have Auto-scan enabled and you delete your repository, Semgrep re-syncs the repository you deleted.
+If your [source code manager has Auto-scan enabled](https://semgrep.dev/orgs/-/settings/source-code) so that Semgrep automatically scans new repositories, turn off Managed Scans for specific repositories using Semgrep AppSec Platform. **Do not turn off Managed Scans by deleting the repository from Semgrep AppSec Platform.** If you have Auto-scan enabled and you delete your repository from the platform, Semgrep re-syncs the repository you deleted.
 :::
 
 ## Appendices
