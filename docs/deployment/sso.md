@@ -22,7 +22,7 @@ This article walks you through single-sign on (SSO) configuration. Semgrep suppo
 
 ## OpenID Connect / OAuth 2.0
 
-:::warning
+:::note Microsoft Entra ID
 Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. Follow the instructions to [set up SAML SSO with Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id) instead.
 :::
 
@@ -48,24 +48,28 @@ If you encounter issues during the setup process, please reach out to [support@s
 
 ## SAML 2.0
 
+:::note Google Workspace SAML
+If you're using Google Workspace SAML, see [SAML Single Sign-on with Google Workspace](/docs/kb/semgrep-appsec-platform/saml-google-workspace) for specific guidance.
+:::
+
 SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 
 1. Create a SAML app with your authentication provider.
     ![Creating SAML app through Okta](/img/saml-creating-app.png#md-width)
-1. With your authentication provider, add in two attribute statements: `name` and `email`.
+2. With your authentication provider, add in two attribute statements: `name` and `email`.
     ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png#md-width)
-1. Sign in to Semgrep AppSec Platform.
-1. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
-1. Click **Add SSO configuration** and select **SAML2 SSO**.
-1. Provide a **Display name** and the **Email domain**.
-2. Copy the **SSO URL** and **Audience URL (SP Entity ID)**, and provide it to your authentication provider.
+3. Sign in to Semgrep AppSec Platform.
+4. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+5. Click **Add SSO configuration** and select **SAML2 SSO**.
+6. Provide a **Display name** and the **Email domain**.
+7. Copy the **SSO URL** and **Audience URL (SP Entity ID)**, and provide it to your authentication provider.
     ![Finding Single sign on URL, and Audience URI via Semgrep AppSec Platform](/img/saml-copy-urls.png#md-width)
-3. From your authentication provider, copy your **IdP SSO URL** and **IdP Issuer ID** values, and download the **X509 Certificate**.
+8. From your authentication provider, copy your **IdP SSO URL** and **IdP Issuer ID** values, and download the **X509 Certificate**.
     ![Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta](/img/saml-copy-IdPSSO-IdPID-and-X509.png#md-width)
-4. Return to Semgrep AppSec Platform, and paste the **IdP SSO URL** and **IdP Issuer ID** values, and upload your **X509 Certificate**.
+9. Return to Semgrep AppSec Platform, and paste the **IdP SSO URL** and **IdP Issuer ID** values, and upload your **X509 Certificate**.
     ![Filling in IdP SSO URL, IdP Issuer ID, and X509 Certificate on Semgrep](/img/saml-filling-IdpSSO-IdpID-X509.png#md-width)
-5. Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
-6. Click **Save** to proceed.
+10. Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
+11. Click **Save** to proceed.
 
 If you encounter issues during the setup process, [reach out to support](/docs/support) for assistance.
 
