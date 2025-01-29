@@ -131,7 +131,7 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
 
 ### Update the config with your SCM information
 
-Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL, for GitHub, GitLab, or Bitbucket Data Center.
+Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL, for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
 
 <Tabs
     defaultValue="gh"
