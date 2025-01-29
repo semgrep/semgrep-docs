@@ -228,6 +228,7 @@ module.exports = {
                     label: 'Semgrep Community Edition',
                     collapsible: true,
                     items: [
+                        'semgrep-ce-languages',
                         'deployment/oss-deployment',
                         'getting-started/cli-oss',
                         ]
