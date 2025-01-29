@@ -160,10 +160,8 @@ Members and managers can create projects by scanning a repository using the Semg
 
 ## How team access works
 
-- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
-<!-- vale off -->
-- Members of a subteam do not have access to the projects of teams or subteams above it.
-<!-- vale on -->
+- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
+- Members of a subteam do not have access to the projects of teams or subteams above it.<!-- vale on -->
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
