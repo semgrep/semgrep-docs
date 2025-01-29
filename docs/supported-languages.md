@@ -197,30 +197,27 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>Rust</td>
    <td>Cargo*</td>
    <td><code>cargo.lock</code></td>
-   <td style={{"text-align": "center"}}>--</td>
+   <td rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
    <td>✅</td>
-   <td rowspan="4">Not applicable due to reachability support level</td>
+   <td rowspan="4">Not applicable due to reachability support level.</td>
 </tr>
 <tr>
    <td>Dart</td>
    <td>Pub</td>
    <td><code>pubspec.lock</code></td>
    <td style={{"text-align": "center"}}>--</td>
-   <td>--</td>
 </tr>
 <tr>
    <td>Elixir</td>
    <td>Hex</td>
    <td><code>mix.lock</code></td>
    <td style={{"text-align": "center"}}>--</td>
-   <td>--</td>
 </tr>
 <tr>
    <td>PHP</td>
    <td>Composer</td>
    <td><code>composer.lock</code></td>
    <td style={{"text-align": "center"}}>--</td>
-   <td>--</td>
 </tr>
   </tbody>
 </table>
@@ -230,10 +227,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language.
-
-- GA coverage means that Semgrep provides full reachability analysis for that language.
-- Beta coverage means that Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
+GA coverage means that Semgrep provides full reachability analysis for that language.
 
 #### Rule coverage support level
 
