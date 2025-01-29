@@ -300,12 +300,12 @@ Semgrep Supply Chain has two language maturity levels:
 The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
 
 ## More information
+
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
 
-Visit the Semgrep public language dashboard to see the parse rates for each language
-* See [Parse rates by language](https://dashboard.semgrep.dev/).
+To see the **parse rates** for each language, visit the Semgrep [public language dashboard](https://dashboard.semgrep.dev/).
 
 <!-- coupling: If you modify the features in the levels below, change also
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
