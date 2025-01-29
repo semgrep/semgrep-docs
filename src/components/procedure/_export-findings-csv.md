@@ -1,4 +1,4 @@
-You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. For findings greater than 10,000, you must use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/).
+You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 finds, you must use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/).
 
 Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 
