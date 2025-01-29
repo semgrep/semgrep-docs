@@ -11,12 +11,12 @@ The following filters are available:
   - Last triaged
   - Last fixed
 - Time period:
-  - Last 1 day
+  - Last day
   - Last 7 days
-  - Last 1 month
+  - Last 30 days
   - Last 3 months
   - Last 6 months
-  - Last 1 year
+  - Last year
   - All time
 
 ![Time period and status filters](/img/findings-filters.png#sm-width)

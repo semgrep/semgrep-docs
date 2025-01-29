@@ -45,16 +45,16 @@ To view your findings in the Pre-production backlog:
 The page structure of the Production backlog and Pre-production tabs are identical. These pages consist of:
 
 - The **top bar**, where you can set the page's grouping view and [time period](#time-period-and-triage).
-- The **filter panel**, which you can use to group and filter for specific findings
+- The **filter panel**, which you can use to group and filter for specific findings.
 - Information about findings identified by Semgrep Code. Each finding in the list includes:
-  - The name and description of the rule used to generate the finding
-  - The name of the project
-  - A link to the commit where the finding was first identified
-  - A link to the lines of code where the finding was most recently seen
+  - The name and description of the rule used to generate the finding.
+  - The name of the project.
+  - A link to the commit where the finding was first identified.
+  - A link to the lines of code where the finding was most recently seen.
 
 ### Group findings
 
-By default, Semgrep groups all of the findings by the rule Semgrep used to match the code. This view is called the **Group by rule** view.
+By default, Semgrep groups all of the findings by the rule Semgrep used to match the code. This view is called the **Group by Rule** view.
 
 Semgrep sorts findings by severity. For a given severity, Semgrep further sorts findings as follows:
 
@@ -87,17 +87,15 @@ Use filters to narrow down your results. The following criteria are available fo
 
 | Filter                 | Description  |
 | ---------------------  | ------------ |
-| **Projects**           | Filter by repositories connected to Semgrep AppSec Platform. |
-| **Branches**           | Filter by findings in different Git branches. |
-| **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with RBAC enabled. |
+| **Projects and branches** | Filter by repositories connected to Semgrep AppSec Platform and by findings in different Git branches. |
 | **Tags**               | Filter for findings based on the tags associated with the project. |
 | **Status**             | Filter the triage state of a finding. Refer to [Triage statuses](/semgrep-code/triage-remediation#triage-statuses) to understand triage states. You can filter findings with a status of **Ignored** further by reason: **False positive**, **Acceptable risk**, **No time to fix**, or **No triage reason**. |
 | **Severity**           | Filter by the severity of a finding. Severity is computed based on the values assigned for [Likelihood](/contributing/contributing-to-semgrep-rules-repository/#likelihood) and [Impact](/contributing/contributing-to-semgrep-rules-repository/#impact) by the rule's author. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li></ul> |
 | **Confidence**         | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
-| **Pro findings**       | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
+| **Pro findings only**       | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
 | **Category**           | Filter by the type of security issue or vulnerability the rule detects, such as `security`, `correctness`, and `maintainability`. You can select more than one category at a time. See [Finding categories](#finding-categories) for information on how Semgrep categorizes your findings. |
-| **Component**          | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. |
-| **Recommendation**     | Filter by recommendation offered by Semgrep Assistant's auto-triage feature. Possible values: <ul><li>Fix</li><li>Ignore</li></ul> |
+| **Assistant risk category** | Filter for findings based on Assistant's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
+| **Assistant autotriage** | Filter by whether [Assistant autotriage](/semgrep-assistant/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**.  |
 | **Action**             | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Rule**               | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
 | **Ruleset**            | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
@@ -114,37 +112,16 @@ A finding can be categorized in two ways:
 
     Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 2. **Finding categorization based on the validity of the match**:
-    <dl>
-       <dt>True positive</dt>
-       <dd>Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.</dd>
-       <dt>False positive</dt>
-       <dd>
-        A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be <strong>noisy</strong>.
-       </dd>
-       <dt>False negative</dt>
-       <dd>
-        A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
-        <ul>
-            <li>A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.</li>
-            <li>A bug within Semgrep itself. See the list of <a href="https://github.com/semgrep/semgrep/issues">Semgrep issues</a> to file a bug report.</li>
-        </ul>
-        </dd>
-    </dl>
+    - **True positive**: Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.
+    - **False positive**: A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be **noisy**.
+    - **False negative**: A false negative is a finding that should have been found by a rule, but was not. This can happen for two reasons:
+      1. A flaw in the rule's logic. See <a href="/docs/reporting-false-negatives">Reporting false negatives</a>.
+      2. A bug within Semgrep itself. See the list of <a href="https://github.com/semgrep/semgrep/issues">Semgrep issues</a> to file a bug report.
 
 :::tip
 You can identify findings categorized under **Security** by their badge.
 ![Screenshot of security badge](/img/findings-security-badge.png#md-width)
 :::
-
-### Display findings reported in a specific time frame
-
-By default, the **Code** page displays your results from all time. To display findings reported during a specific time frame, click the <i class="fa-solid fa-calendar-days"></i> **All time** button and select the preferred period. The following options are available:
-
-  - All time
-  - Last 1 year
-  - Last 1 month
-  - Last 7 days
-  - Last 1 day
 
 ### View findings details about a specific finding
 
