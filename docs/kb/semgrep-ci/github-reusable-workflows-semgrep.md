@@ -41,7 +41,7 @@ jobs:
 
 When using this sample configuration, be sure to update the schedule under `on` to a random time, and set repository details and path for the reusable workflow under `jobs` to match where you stored your reusable workflow.
 
-The `secrets: inherit` line passes the secrets from the calling workflow to the called workflow, so each calling repository must also have a `SEMGREP_APP_TOKEN` secret added. GitHub does not currently support passing secrets from a central reusable workflow (the called workflow) to the calling workflows.
+The `secrets: inherit` line passes the secrets from the calling workflow to the called workflow, so each calling repository must also have a `SEMGREP_APP_TOKEN` secret added. GitHub [does not currently support](https://github.com/github/roadmap/issues/636) passing secrets from a central reusable workflow (the called workflow) to the calling workflows.
 
 ## Run a scan
 
