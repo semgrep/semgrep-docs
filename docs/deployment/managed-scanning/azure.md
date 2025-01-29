@@ -11,11 +11,11 @@ tags:
 ---
 
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
+import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
 
 # Add an Azure DevOps repository to Semgrep Managed Scans
 
 Add Azure DevOps repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. 
-
 
 ## Prerequisites and permissions
 
@@ -98,6 +98,11 @@ The following steps revoke the code access you previously granted Semgrep for al
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers**.
 2. Find the Azure DevOps entry on the list of **Source code managers** and click **Remove**.
 3. Click **Remove** to confirm.
+
+## Turn off Managed Scans for specific repositories in Semgrep AppSec Platform
+
+<TurnOffSms />
+
 
 ## Troubleshooting: multiple projects
 
