@@ -16,9 +16,18 @@ tags:
 
 ## 🌐 Semgrep AppSec Platform
 
+- Links to the project settings & scans pages will now use project IDs rather than names
+- ADO SMS public beta
+- Email link to join org
+- Policy management API
+
 ## 💻 Semgrep Code
 
 ## ⛓️ Semgrep Supply Chain
+
+- C# lockfileless scanning private beta
+- Electron as a source of CVEs to write rules for
+- SSC policies automation
 
 ## 🤖 Semgrep Assistant 
 
@@ -27,13 +36,15 @@ tags:
 ## 📝 Documentation and knowledge base
 
 - Added the following new documents, articles and sections:
-  - DOCUMENT_NAME
+  - Semgrep for developers is now live. This series of documents aims to:
+    - Help AppSec engineers educate developers about Semgrep and secure coding 
+    - Inform developers of how to resolve Semgrep findings in various environments, such as their pull requests or merge requests.
   - KB_ARTICLE_NAME
 - Minor additions and updates:
   - tk
 - Major updates have been made to the following documentation:
-  tk
-- Thanks to savq for their contribution to our contributing documentation.
+  - Supported languages
+- Thanks to savq for their contribution to Semgrep's contributing documentation.
 
 ## 🔧 Semgrep Community Edition (CE)
 
