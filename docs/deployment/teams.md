@@ -144,7 +144,7 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 
 | Capability              | Member | Manager | Admin | Notes |
 | ----                    | ------ | ------- | ----- | ----- |
-| Create or edit projects         | ❌ No     | ❌ No      | ✅ Yes   |       |
+| Create or edit projects | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   |       |
 | Change policies         | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 | Triage findings         | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted  | ✅&nbsp;Yes   |  Members can perform all triage operations on Projects assigned to them.      |
 | Assign roles            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
@@ -154,12 +154,14 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 | Delete subteams         | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
 | API                     | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 
+:::info
+Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
+:::
+
 ## How team access works
 
-- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
-<!-- vale off -->
-- Members of a subteam do not have access to the projects of teams or subteams above it.
-<!-- vale on -->
+- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
+- Members of a subteam do not have access to the projects of teams or subteams above it.<!-- vale on -->
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
