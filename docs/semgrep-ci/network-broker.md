@@ -45,8 +45,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
       privateKey: YOUR_PRIVATE_KEY
       peers:
           endpoint: wireguard.semgrep.dev:51820
-    heartbeat:
-      url: http://[fdf0:59dc:33cf:9be9:0000:0000:0000:0001]/ping
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
