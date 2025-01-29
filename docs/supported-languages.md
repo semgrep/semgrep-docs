@@ -80,7 +80,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
     <th>Manifest file or lockfile</th>
     <th><a href="#reachability-support-level">Reachability</a></th>
     <th>License detection support</th>
-    <th>Period of reachability rule coverage for CVEs/GHSAs</th>
+    <th><a href="#rule-coverage-support-level">Period of reachability rule coverage for CVEs/GHSAs</a></th>
 </tr></thead>
 <tbody>
 <tr>
@@ -89,7 +89,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>packages.lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td style={{"text-align": "center"}}>GA</td>
 </tr>
 <tr>
    <td>Go</td>
@@ -97,6 +97,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>go.mod</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td style={{"text-align": "center"}}>GA</td>
   </tr>
 <tr rowspan="2">
    <td rowspan="2">Java</td>
@@ -104,7 +105,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="2" style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
    <td>Maven</td>
@@ -118,7 +119,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>package-lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="3">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="3" style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
    <td>Yarn, Yarn 2, Yarn 3</td>
@@ -138,7 +139,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>gradle.lockfile</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="2">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="2" style={{"text-align": "center"}}>GA</td>
 </tr>
 <tr>
    <td>Maven</td>
@@ -152,7 +153,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td rowspan="4">(PyPI only)</td>
-   <td rowspan="4">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td rowspan="4" style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
    <td>pip-tools</td>
@@ -174,7 +175,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>Gemfile.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
-   <td rowspan="3">80% of all critical severity CVEs since 2017 and 100% of critical and high severity CVEs since May 2022</td>
+   <td style={{"text-align": "center"}}>GA</td>
   </tr>
 <tr>
    <td>Scala</td>
@@ -182,6 +183,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
+   <td style={{"text-align": "center"}}>GA</td>
 </tr>
 <tr>
    <td>Swift</td>
@@ -189,6 +191,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅<strong>†</strong></td>
+   <td style={{"text-align": "center"}}>GA</td>
 </tr>
   <tr>
    <td>Rust</td>
@@ -228,6 +231,13 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 #### Reachability support level
 
 Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities for all beta languages.
+
+#### Rule coverage support level
+
+**GA** coverage means that Semgrep provides coverage and rules for the following:
+
+- 80% of all **critical** severity CVEs since **2017**
+- 100% of **critical** and **high** severity CVEs since **May 2022**
 
 ## Language maturity levels
 
