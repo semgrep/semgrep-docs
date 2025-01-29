@@ -36,6 +36,16 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
 ### Create the config file
 
+<Tabs
+    defaultValue="current"
+    values={[
+    {label: 'v0.25.0 and later', value: 'current'},
+    {label: 'v0.24.0 and earlier', value: 'legacy'}
+    ]}
+>
+
+<TabItem value='current'>
+
 Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
 
 ```yaml
@@ -44,12 +54,47 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
       localAddress: SEMGREP_LOCAL_ADDRESS
       privateKey: YOUR_PRIVATE_KEY
       peers:
-          endpoint: wireguard.semgrep.dev:51820
+        - endpoint: wireguard.semgrep.dev:51820
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
       token: GITLAB_PAT
 ```
+
+</TabItem>
+<TabItem value='legacy'>
+
+:::note
+Semgrep recommends that users running Network Broker v0.24.0 or earlier to upgrade to v0.25.0 or later. This enables the use of a simplified config file.
+:::
+
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
+
+```yaml
+  inbound:
+    wireguard:
+      localAddress: SEMGREP_LOCAL_ADDRESS
+      privateKey: YOUR_PRIVATE_KEY
+      peers:
+        - publicKey: 4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
+          endpoint: wireguard.semgrep.dev:51820
+          allowedIps: fdf0:59dc:33cf:9be9:0000:0000:0000:0001/128
+    heartbeat:
+      url: http://[fdf0:59dc:33cf:9be9:0000:0000:0000:0001]/ping
+    allowlist: []
+    gitlab:
+      baseUrl: YOUR_BASE_URL
+      token: GITLAB_PAT
+```
+
+The `publicKey` value should be entered precisely as shown in the example:
+
+```console
+4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
+```
+
+</TabItem>
+</Tabs>
 
 #### Multiple configuration files
 You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
