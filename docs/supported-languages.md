@@ -80,7 +80,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
     <th>Manifest file or lockfile</th>
     <th><a href="#reachability-support-level">Reachability</a></th>
     <th>License detection support</th>
-    <th><a href="#rule-coverage-support-level">Period of reachability rule coverage for CVEs/GHSAs</a></th>
+    <th><a href="#rule-coverage-support-level">Reachability rule coverage for CVEs/GHSAs</a></th>
 </tr></thead>
 <tbody>
 <tr>
@@ -230,7 +230,10 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 #### Reachability support level
 
-Reachability support level refers to the level of support for reachability analysis for the language. At the minimum, Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities for all beta languages.
+Reachability support level refers to the level of support for reachability analysis for the language.
+
+- GA coverage means that Semgrep provides full reachability analysis for that language.
+- Beta coverage means that Semgrep Supply Chain compares a package's version against a list of versions with known vulnerabilities.
 
 #### Rule coverage support level
 
