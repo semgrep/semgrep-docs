@@ -44,7 +44,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
       localAddress: SEMGREP_LOCAL_ADDRESS
       privateKey: YOUR_PRIVATE_KEY
       peers:
-        - publicKey: 4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
           endpoint: wireguard.semgrep.dev:51820
           allowedIps: fdf0:59dc:33cf:9be9:0000:0000:0000:0001/128
     heartbeat:
@@ -53,12 +52,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     gitlab:
       baseUrl: YOUR_BASE_URL
       token: GITLAB_PAT
-```
-
-The `publicKey` value should be entered precisely as shown in the example:
-
-```console
-4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
 ```
 
 #### Multiple configuration files
