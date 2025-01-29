@@ -82,7 +82,7 @@ Semgrep Pro rules are high-confidence, professionally maintained rules provided 
 
 The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce accurate, actionable findings.
 
-To see the list of languages for which Semgrep Pro rules provide improved coverage, go to [Supported languages](/supported-languages#language-support).
+To see the languages with Pro rules, go to [Supported languages](/supported-languages#language-support).
 
 #### Cross-function analysis
 
