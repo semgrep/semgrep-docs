@@ -29,7 +29,7 @@ tags:
 
 ### Added
 
-- Added support for lambdas (anonymous functions) as callbacks. This is supported for all languages that contain lambdas.
+- Added support for lambdas (anonymous functions) as callbacks. This is supported for all languages that have lambdas.
 
 ```javascript
 var tainted = source();
@@ -50,21 +50,12 @@ withCallback1(tainted, function (val) {
 - Removed **pip** from the Semgrep Docker image. If you need it, you may install it by running `apk add py3-pip`.
 
 ### Fixed
-- The `semgrep test` and `semgrep validate` commands have been correctly documented as EXPERIMENTAL in `semgrep --help`.
-Those commands are not GA yet and people should still use the semgrep scan --test and semgrep scan --validate (or
-the variants without the implicit "scan") commands (unless
-they want to experiment with getting results faster and are ok
-with incomplete coverage of the legacy semgrep --test
-and semgrep --validate). (experimental)
-Improve error handling for functionality ancillary to a scan (such as looking for nosemgrep comments and rendering autofixes) to reduce the likelihood of an unexpected error in such a component bringing down the entire scan. (saf-1737)
-Fix the behavior of semgrep when running into broken symlinks.
-If such a path is passed explicitly as a scanning root on the
-command line, it results in an error. Otherwise if it's a file discovered
-while scanning the file system, it's a warning. (saf-1776)
-Fixed another crash due to exception in lines_of_file. The code
-should now be more robust and not abort the whole scan when
-an out of bound line access happens during the nosemgrep analysis
-or when outputing the lines of a match. (saf-1778)
+
+- The `semgrep test` and `semgrep validate` commands have been correctly documented as **EXPERIMENTAL** in `semgrep --help`.
+  - Those commands are not GA. It is recommended to use the `semgrep scan --test` and `semgrep scan --validate`, or the variants without the implicit **scan** commands.
+- Improve error handling for capabilities ancillary to a scan, such as looking for `nosemgrep` comments and rendering autofixes, to reduce the likelihood of an unexpected error in such a component bringing down the entire scan.
+- Fix the behavior of semgrep when running into broken symlinks. If such a path is passed explicitly as a scanning root on the command line, it results in an error. Otherwise if it's a file discovered while scanning the file system, it's a warning.
+- Fixed another crash due to exception in `lines_of_file`. The code should now be more robust and not abort the whole scan when an out of bound line access happens during the nosemgrep analysis or when displaying the lines of a match. (saf-1778)
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -93,6 +84,7 @@ or when outputing the lines of a match. (saf-1778)
 
 ## 📝 Documentation and knowledge base
 
+### Added 
 - Added the following new documents, articles and sections:
   - [Semgrep for developers](/for-developers/overviews) is a new series of documents that aims to:
     - Help AppSec engineers educate developers about Semgrep and secure coding.
