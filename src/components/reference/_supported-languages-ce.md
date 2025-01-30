@@ -6,7 +6,7 @@
 <table>
     <thead><tr>
         <td><strong>Languages</strong></td>
-        <td><strong>🚀 Semgrep Code:</strong> <a href="">Free for small teams</a></td>
+        <td><strong>🚀 Semgrep Code:</strong> <a href="https://semgrep.dev/pricing">Free for small teams</a></td>
         <td><strong>Semgrep CE</strong></td>
     </tr></thead>
     <tbody>
