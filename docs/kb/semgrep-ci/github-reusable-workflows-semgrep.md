@@ -51,4 +51,4 @@ Once you've configured the workflows for your repositories, the reusable workflo
 
 ## Limitations
 
-As described in [Set up a reusable workflow](#set-up-a-reusable-workflow), you still need to both create a `.github/workflows/semgrep.yml` file for each repository to call the reusable workflow and add a `SEMGREP_APP_TOKEN` secret to the repository. This is in contrast to [repository rulesets](/docs/kb/semgrep-ci/github-repository-rulesets-semgrep), which only require the central workflow file to be added.
+As described in [Set up a reusable workflow](#set-up-a-reusable-workflow), you must create a `.github/workflows/semgrep.yml` file for each repository to call the reusable workflow **and** add a `SEMGREP_APP_TOKEN` secret to the repository. This is in contrast to [repository rulesets](/docs/kb/semgrep-ci/github-repository-rulesets-semgrep), which only require the central workflow file to be added.
