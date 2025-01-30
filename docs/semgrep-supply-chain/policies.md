@@ -24,7 +24,7 @@ You can create as many policies as you need.
 
 ## Feature maturity
 
-The Supply Chain policies feature is in **private beta**. To apply to this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+The Supply Chain policies feature is in **public beta**. To apply to this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 
 ## Prerequisites
 

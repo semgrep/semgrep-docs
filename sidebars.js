@@ -670,6 +670,18 @@ module.exports = {
             'release-notes/latest',
             {
               type: 'category',
+              label: '2025',
+              collapsible: true,
+                link: {
+                    type: 'generated-index',
+                    title: '2024 Release notes'
+                },
+                items: [
+                  'release-notes/january-2025',
+                ],
+            },
+            {
+              type: 'category',
               label: '2024',
               collapsible: true,
                 link: {
