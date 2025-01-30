@@ -24,7 +24,7 @@ This article walks you through enabling Semgrep Assistant for your deployment an
     defaultValue="github"
     values={[
     {label: 'Azure DevOps Cloud', value: 'ado'},
-    {label: 'Bitbucket', value: 'bitbucket'},
+    {label: 'Bitbucket Cloud', value: 'bitbucket'},
     {label: 'GitHub', value: 'github'},
     {label: 'GitLab', value: 'gitlab'},
     ]}
