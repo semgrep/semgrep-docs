@@ -40,7 +40,7 @@ This substitution works because `metavariable-pattern` tries to match the patter
 
 The following rule would elicit the "[ERROR] Pattern parse error in rule" response:
 
-```code
+```yaml
 patterns:
 - pattern-inside: app.$FUNC(...)
 - pattern-not-regex: .(middleware.csrf.validate).
@@ -56,14 +56,14 @@ patterns:
 
 To fix the error, replace
 
-```code
+```yaml
 - metavariable-pattern:
        metavariable: $FUNC
 ```
 
 with
 
-```code
+```yaml
 - metavariable-regex:
     metavariable: $FUNC
     regex: ^(post|put|delete|patch)$
