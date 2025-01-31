@@ -64,7 +64,6 @@ You must be an `admin` to perform this operation.
 1. Click **Invite members**.
 1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
 1. Click **Send invites**.
-1. Repeat this procedure until you have invited all of your team members.
 
 ### Change a user's role
 
