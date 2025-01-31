@@ -53,9 +53,9 @@ Members can't view or perform any actions in the following pages:
 - Projects
 - Settings
 
-### Invite a user through email
+### Invite a team member through email
 
-Add users easily to your organization by sending them an email. This email contains instructions for them to join your org.
+Add team members easily to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account.
 
 You must be an `admin` to perform this operation.
 
