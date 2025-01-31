@@ -42,7 +42,7 @@ For example:
 SEMGREP_REPO_DISPLAY_NAME=monorepo/moduleA semgrep ci --subdir src/moduleA/
 ```
 
-It is important that scans of different versions never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
+It is important that scans of different modules never have the same `SEMGREP_REPO_DISPLAY_NAME`. This is necessary to ensure findings have a consistent status and is helpful for developers and security engineers to understand which findings pertain to the module that they are responsible for.
 
 To scan the entire monorepo, trigger one scan for each module.
 
