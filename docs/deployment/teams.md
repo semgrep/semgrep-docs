@@ -62,7 +62,7 @@ You must be an `admin` to perform this operation.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Members** tab.
 1. Click **Invite members**.
-1. In the dialog, enter your team members' email addresses. You can invite up to 20 at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key.
+1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key.
 1. Click **Send invites**.
 1. Repeat this procedure until you have invited all of your team members.
 
