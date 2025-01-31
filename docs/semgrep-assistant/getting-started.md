@@ -49,7 +49,7 @@ Semgrep Assistant extends standard Semgrep capabilities by providing contextuall
 
 - `Projects: Read`
 - `Repositories: Read`
-- `Pull requests: Write`
+- `Pull requests: Read & Write`
 - `Webhooks: Read and write`
 
 You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud). 
