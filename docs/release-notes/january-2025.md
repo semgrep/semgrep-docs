@@ -102,7 +102,8 @@ withCallback1(tainted, function (val) {
 
 ### Changed
 
-  - Clarified language around manifest files and lockfiles.
+- Clarified language around manifest files and lockfiles.
+- Updated Semgrep rules licensing documentation.
 
 ### Removed
 
