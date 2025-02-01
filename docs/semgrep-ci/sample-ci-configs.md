@@ -491,4 +491,4 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - TeamCity CI
 - Travis CI
 
-Is your CI provider missing? Let the Semgrep team know by [filing an issue](https://github.com/semgrep/semgrep-docs/issues/).
+Is your CI provider missing? Let the Semgrep team know by [<i class="fas fa-external-link fa-xs"></i> filing an issue](https://github.com/semgrep/semgrep-docs/issues/), or [<i class="fas fa-external-link fa-xs"></i> submit a contribution](https://github.com/semgrep/semgrep-docs/pulls/).
