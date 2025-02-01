@@ -116,6 +116,9 @@ OPTIONS
        -f VAL, -c VAL, --config=VAL
            Not supported in 'ci' mode
 
+       --fake-backend=VAL
+           Internal flag.
+
        --files-with-matches
            Output only the names of files containing matches. REQUIRES
            --experimental
@@ -225,6 +228,9 @@ OPTIONS
 
        --legacy
            Prefer old (legacy) behavior.
+
+       --log-backend=VAL
+           Internal flag.
 
        --matching-explanations
            Add debugging information in the JSON output to trace how

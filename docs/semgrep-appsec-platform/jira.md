@@ -92,9 +92,7 @@ Optionally, you can customize the Jira field mappings and indicate which values 
 * Components (including Compass components)
 
 ![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
-_**Figure.** The Jira configuration screen for field data mappings._
-
-> Click **Field mapping help** to see a list of the Semgrep fields available for mapping.
+_**Figure.** The Jira configuration screen for field data mappings. Click **Field mapping help** to see a list of the Semgrep fields available for mapping._
 
 The integration supports the use of custom Jira issue types and custom fields. However, it does not support field types other than those listed above. If you have a required field of a different type in your project, it will not be possible for Semgrep to map a value to that field, and issue creation will fail.
 
@@ -109,6 +107,18 @@ Repeat these steps for each mapping you want to create. When done, click **Save 
 
 :::warning
 Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep values.
+:::
+
+#### Multiple labels
+
+You can map multiple labels to a single Semgrep field when creating a field mapping. In the **Add mapping** dialog:
+
+1. Select **Labels** under **Jira fields**.
+1. Select **Set a static value** under **Semgrep fields**. A text box appears.
+1. Enter each label, separated by a comma. Each of these labels are then added to the ticket.
+
+:::tip
+The **Project tag** Semgrep field also creates multiple labels.
 :::
 
 ### Example mapping

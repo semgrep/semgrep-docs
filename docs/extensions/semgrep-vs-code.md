@@ -1,6 +1,6 @@
 ---
 slug: semgrep-vs-code
-title: Semgrep Visual Studio Code extension
+title: Visual Studio Code extension
 hide_title: true
 description: Learn how to install and use Semgrep's extension for Visual Studio Code.
 tags:

@@ -11,7 +11,7 @@ tags:
 
 # Manage user access to projects
 
-Use the **Access** page to manage access to Semgrep resources, such as scans, projects, and findings. **Projects** are repositories or codebases you have added to SCP for scanning.
+Use the **Access** page to manage membership and access to Semgrep resources, such as scans, projects, and findings. **Projects** are repositories or codebases you have added to SCP for scanning.
 
 ## User roles and access
 
@@ -53,12 +53,24 @@ Members can't view or perform any actions in the following pages:
 - Projects
 - Settings
 
+### Invite a team member through email
+
+Add team members easily to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account.
+
+You must be an `admin` to perform this operation.
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Members** tab.
+1. Click **Invite members**.
+1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
+1. Click **Send invites**.
+
 ### Change a user's role
 
 You must be an `admin` to perform this operation.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings > Members**.
+2. Click **<i class="fa-solid fa-gear"></i> Settings > Access**.
 3. Search for the member whose role will be changed.
 4. Click on the member's current role, under the role header. A drop-down box appears.
 5. Select the new role for the member.
@@ -144,7 +156,7 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 
 | Capability              | Member | Manager | Admin | Notes |
 | ----                    | ------ | ------- | ----- | ----- |
-| Create or edit projects         | ❌ No     | ❌ No      | ✅ Yes   |       |
+| Create or edit projects | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   |       |
 | Change policies         | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 | Triage findings         | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted  | ✅&nbsp;Yes   |  Members can perform all triage operations on Projects assigned to them.      |
 | Assign roles            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
@@ -154,12 +166,14 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 | Delete subteams         | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
 | API                     | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 
+:::info
+Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
+:::
+
 ## How team access works
 
-- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.
-<!-- vale off -->
-- Members of a subteam do not have access to the projects of teams or subteams above it.
-<!-- vale on -->
+- Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
+- Members of a subteam do not have access to the projects of teams or subteams above it.<!-- vale on -->
 
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
