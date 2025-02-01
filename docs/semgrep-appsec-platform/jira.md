@@ -111,7 +111,7 @@ Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep va
 
 #### Multiple labels
 
-You can map multiple labels when creating a field mapping. In the **Add mapping** dialog:
+You can map multiple labels to a single Semgrep field when creating a field mapping. In the **Add mapping** dialog:
 
 1. Select **Labels** under **Jira fields**.
 1. Select **Set a static value** under **Semgrep fields**. A text box appears.
