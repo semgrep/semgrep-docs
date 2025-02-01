@@ -142,9 +142,13 @@ The Semgrep deployment could look like this:
 
 ### Join an existing org
 
-This section is for team members who have been invited to join a Semgrep organization.
+Team members can join a Semgrep organization by logging in through the auth provider specified by their AppSec engineer:
 
 <JoinAnOrg />
+
+:::tip
+AppSec engineers can also [send developers invites to join their Semgrep org](/deployment/teams#invite-a-team-member-through-email).
+:::
 
 ### Delete an existing org
 

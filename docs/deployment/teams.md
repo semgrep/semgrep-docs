@@ -11,7 +11,7 @@ tags:
 
 # Manage user access to projects
 
-Use the **Access** page to manage access to Semgrep resources, such as scans, projects, and findings. **Projects** are repositories or codebases you have added to SCP for scanning.
+Use the **Access** page to manage membership and access to Semgrep resources, such as scans, projects, and findings. **Projects** are repositories or codebases you have added to SCP for scanning.
 
 ## User roles and access
 
@@ -53,12 +53,24 @@ Members can't view or perform any actions in the following pages:
 - Projects
 - Settings
 
+### Invite a team member through email
+
+Add team members easily to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account.
+
+You must be an `admin` to perform this operation.
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Members** tab.
+1. Click **Invite members**.
+1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
+1. Click **Send invites**.
+
 ### Change a user's role
 
 You must be an `admin` to perform this operation.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings > Members**.
+2. Click **<i class="fa-solid fa-gear"></i> Settings > Access**.
 3. Search for the member whose role will be changed.
 4. Click on the member's current role, under the role header. A drop-down box appears.
 5. Select the new role for the member.
