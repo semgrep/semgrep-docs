@@ -104,15 +104,28 @@ withCallback1(tainted, function (val) {
 
 ### Added 
 - Added the following new documents, articles and sections:
-  - [Semgrep for developers](/for-developers/overviews) is a new series of documents that aims to:
+  - Set up Semgrep Managed Scans with Azure DevOps and Bitbucket.
+  - [Semgrep for developers](/for-developers/overviews), a new series of documents that aims to:
     - Help AppSec engineers educate developers about Semgrep and secure coding.
     - Inform developers of how to resolve Semgrep findings in various environments, such as their pull requests or merge requests.
-  - KB_ARTICLE_NAME
+  - [Semgrep Assistant metrics](/semgrep-assistant/metrics), which explains how Assistant's metrics and benchmarks are analyzed.
+  - [SAML single-sign on with Google Workspace](/kb/semgrep-appsec-platform/saml-google-workspace).
+  - [Reference for Semgrepignore v2](/semgrepignore-v2-reference).
+  - [Customize semgrep in `pre-commit`](/kb/integrations/customize-semgrep-precommit).
 - Minor additions and updates:
-  - tk
+  - Added instructions to remove projects scanned with Semgrep Managed Scans.
 - Major updates have been made to the following documentation:
-  - Supported languages
+  - [Supported languages](/supported-languages) now provides a summary table for both Code and Supply Chain features for each language.
 - Thanks to savq for their improvements to Semgrep's contributing documentation.
+
+### Changed
+
+- Clarified language around manifest files and lockfiles.
+- Updated Semgrep rules licensing documentation.
+
+### Removed
+
+- Removed references to the asdf-semgrep plugin.
 
 ## 🔧 Semgrep Community Edition (CE)
 
