@@ -83,7 +83,7 @@ tags:
 
 ### Changed
 
-- Semgrep Supply Chain [Policies](/supply-chain/policies) are now in public beta. Creating a policy enables you to:
+- Semgrep Supply Chain [Policies](/semgrep-supply-chain/policies) are now in public beta. Creating a policy enables you to:
   - Customize when Semgrep sends a finding as a PR or MR comment or fails the CI job.
   - Customize the projects and conditions that send a comment or fail a CI job.
 
@@ -103,7 +103,7 @@ tags:
 ### Added 
 - Added the following new documents, articles, and sections:
   - Set up [Semgrep Managed Scans with Azure DevOps](/deployment/managed-scanning/azure).
-  - [Semgrep for developers](/for-developers/overviews), a new series of documents that aims to:
+  - [Semgrep for developers](/for-developers/overview), a new series of documents that aims to:
     - Help AppSec engineers educate developers about Semgrep and secure coding.
     - Inform developers of how to resolve Semgrep findings in various environments, such as their pull requests or merge requests.
   - [Semgrep Assistant metrics](/semgrep-assistant/metrics), which explains how Assistant's metrics and benchmarks are analyzed.
