@@ -30,7 +30,7 @@ tags:
 ## Changed
 
 - The **search bar** in the **Projects** page now loads faster.  <!-- 18697 -->
-- Links to the Project Settings and Scans pages now use project IDs instead of project names. Existing links using project names continue to function normally.
+- Links to the **Project Settings** and **Scans** pages now use project IDs instead of project names. Existing links using project names continue to function normally.
 
 ## Fixed
 
@@ -44,31 +44,31 @@ tags:
 ### Added
 
 - Added support for lambdas (anonymous functions) as callbacks. This is supported for all languages that have lambdas.
- ```javascript
-  var tainted = source();
+  ```javascript
+    var tainted = source();
 
-  function withCallback1(val, callback) {
-      if (val) {
-          callback(val);
-     }
-  }
+    function withCallback1(val, callback) {
+        if (val) {
+            callback(val);
+      }
+    }
 
-  withCallback1(tainted, function (val) {
-      sink(val); // finding !
-  });
- ```
+    withCallback1(tainted, function (val) {
+        sink(val); // finding !
+    });
+  ```
 
 ### Changed
 
-- Removed **pip** from the Semgrep Docker image. If you need it, you can install it by running `apk add py3-pip`.
+- Removed **pip** from the Semgrep Docker image. If necessary, you can install it by running `apk add py3-pip`.
 
 ### Fixed
 
 - The `semgrep test` and `semgrep validate` commands have been correctly documented as **EXPERIMENTAL** in `semgrep --help`.
-  - Those commands are not GA. It is recommended to use the `semgrep scan --test` and `semgrep scan --validate`, or the variants without the implicit **scan** commands.
+  - Those commands are not GA. It is recommended to use the `semgrep scan --test` and `semgrep scan --validate`.
 - Improve error handling for capabilities ancillary to a scan, such as looking for `nosemgrep` comments and rendering autofixes, to reduce the likelihood of an unexpected error in such a component causing the scan to error.
 - Fix the behavior of Semgrep when running into broken symlinks. If such a path is passed explicitly as a scanning root on the command line, it results in an error. Otherwise, if it's a file discovered while scanning the file system, it's a warning.
-- Fixed another crash due to exception in `lines_of_file`. The code should now be more robust and not stop the whole scan when an out-of-bound line access happens during `nosemgrep` analysis or when displaying the lines of a match.
+- Fixed an issue with crashes due to an exception in `lines_of_file`. The code should now be more robust and not stop the whole scan when an out-of-bound line access happens during `nosemgrep` analysis or when displaying the lines of a match.
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -76,10 +76,10 @@ tags:
 
 <!-- Dependency graphs? -->
 - [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available for the following languages and package managers:
-  - JavaScript: all package managers are supported by Semgrep.
-  - Python: Only Poetry is supported.
+  - **JavaScript**: all package managers are supported by Semgrep.
+  - **Python**: Only Poetry is supported.
 - **C#**: Semgrep can now scan NuGet codebases without the need for a lockfile. This feature is in **private beta**. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta). Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to join the beta program.
-- Semgrep Supply Chain now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
+- Semgrep now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
 
 ### Changed
 
