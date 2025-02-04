@@ -115,14 +115,14 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   </tr>
   <tr>
    <td rowspan="3">JavaScript or TypeScript</td>
-   <td>npm (Node.js)</td>
+   <td>npm</td>
    <td><code>package-lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
    <td rowspan="3" style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
-   <td>Yarn, Yarn 2, Yarn 3</td>
+   <td>Yarn</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
