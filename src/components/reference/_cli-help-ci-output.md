@@ -127,44 +127,6 @@ OPTIONS
            Always include ANSI color in the output, even if not writing to a
            TTY; defaults to using the TTY status 
 
-       --gh-token=VAL (absent GH_TOKEN env)
-           The GitHub token.
-
-       --github-api-url=VAL (absent GITHUB_API_URL env)
-           The GitHub API URL.
-
-       --github-event-name=VAL (absent GITHUB_EVENT_NAME env)
-           The GitHub event name.
-
-       --github-event-path=VAL (absent GITHUB_EVENT_PATH env)
-           The GitHub event path.
-
-       --github-head-ref=VAL (absent GITHUB_HEAD_REF env)
-           The GitHub HEAD ref.
-
-       --github-ref=VAL (absent GITHUB_REF env)
-           The GitHub ref.
-
-       --github-repository=VAL (absent GITHUB_REPOSITORY env)
-           The GitHub repository.
-
-       --github-repository-id=VAL (absent GITHUB_REPOSITORY_ID env)
-           The ID of the repository.
-
-       --github-repository-owner-id=VAL (absent GITHUB_REPOSITORY_OWNER_ID
-       env)
-           The repository owner's account ID.
-
-       --github-run-id=VAL (absent GITHUB_RUN_ID env)
-           The GitHub run ID.
-
-       --github-server-url=VAL (absent=https://github.com or
-       GITHUB_SERVER_URL env)
-           The GitHub server URL.
-
-       --github-sha=VAL (absent GITHUB_SHA env)
-           The GitHub commit.
-
        --gitlab-sast
            Output results in GitLab SAST format.
 
@@ -208,7 +170,7 @@ OPTIONS
            it defaults to 3 hours.
 
        --internal-ci-scan-results
-           <internal, do not use>
+           Internal flag.
 
        -j VAL, --jobs=VAL (absent=4)
            Number of subprocesses to use to run checks in parallel. Defaults
@@ -355,32 +317,6 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
-       --semgrep-branch=VAL (absent SEMGREP_BRANCH env)
-           The Git branch.
-
-       --semgrep-commit=VAL (absent SEMGREP_COMMIT env)
-           The commit of the Git repository.
-
-       --semgrep-job-url=VAL (absent SEMGREP_JOB_URL env)
-           The job URL.
-
-       --semgrep-pr-id=VAL (absent SEMGREP_PR_ID env)
-           The PR/MR ID.
-
-       --semgrep-pr-title=VAL (absent SEMGREP_PR_TITLE env)
-           The PR/MR title.
-
-       --semgrep-repo-display-name=VAL (absent SEMGREP_REPO_DISPLAY_NAME env)
-           The name the repository should be displayed as for this scan.
-           Setting it allows users to scan individual repos in one monorepo
-           separately.
-
-       --semgrep-repo-name=VAL (absent SEMGREP_REPO_NAME env)
-           The name of the Git repository.
-
-       --semgrep-repo-url=VAL (absent SEMGREP_REPO_URL env)
-           The URL of the Git repository.
-
        --skip-unknown-extensions
            negates --scan-unknown-extensions
 
@@ -423,7 +359,7 @@ OPTIONS
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning. 
+           internal use and may be changed or removed without warning. 
 
        --use-git-ignore
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
@@ -467,6 +403,12 @@ OPTIONS
        --x-partial-output=VAL
            Internal flag.
 
+       --x-upload-partial-results=VAL
+           Internal flag.
+
+       --x-upload-partial-results-scan-id=VAL
+           Internal flag.
+
        --x-validate-partial-results-actual=VAL
            Internal flag.
 
@@ -493,53 +435,11 @@ EXIT STATUS
 ENVIRONMENT
        These environment variables affect the execution of semgrep ci:
 
-       GH_TOKEN
-           See option --gh-token.
-
-       GITHUB_API_URL
-           See option --github-api-url.
-
-       GITHUB_EVENT_NAME
-           See option --github-event-name.
-
-       GITHUB_EVENT_PATH
-           See option --github-event-path.
-
-       GITHUB_HEAD_REF
-           See option --github-head-ref.
-
-       GITHUB_REF
-           See option --github-ref.
-
-       GITHUB_REPOSITORY
-           See option --github-repository.
-
-       GITHUB_REPOSITORY_ID
-           See option --github-repository-id.
-
-       GITHUB_REPOSITORY_OWNER_ID
-           See option --github-repository-owner-id.
-
-       GITHUB_RUN_ID
-           See option --github-run-id.
-
-       GITHUB_SERVER_URL
-           See option --github-server-url.
-
-       GITHUB_SHA
-           See option --github-sha.
-
        SEMGREP_AUDIT_ON
            See option --audit-on.
 
        SEMGREP_BASELINE_COMMIT
            See option --baseline-commit.
-
-       SEMGREP_BRANCH
-           See option --semgrep-branch.
-
-       SEMGREP_COMMIT
-           See option --semgrep-commit.
 
        SEMGREP_ENABLE_VERSION_CHECK
            See option --enable-version-check.
@@ -547,26 +447,8 @@ ENVIRONMENT
        SEMGREP_FORCE_COLOR
            See option --force-color.
 
-       SEMGREP_JOB_URL
-           See option --semgrep-job-url.
-
        SEMGREP_OTEL_ENDPOINT
            See option --trace-endpoint.
-
-       SEMGREP_PR_ID
-           See option --semgrep-pr-id.
-
-       SEMGREP_PR_TITLE
-           See option --semgrep-pr-title.
-
-       SEMGREP_REPO_DISPLAY_NAME
-           See option --semgrep-repo-display-name.
-
-       SEMGREP_REPO_NAME
-           See option --semgrep-repo-name.
-
-       SEMGREP_REPO_URL
-           See option --semgrep-repo-url.
 
        SEMGREP_SEND_METRICS
            See option --metrics.
