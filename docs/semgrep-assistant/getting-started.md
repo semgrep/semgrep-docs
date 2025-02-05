@@ -23,10 +23,38 @@ This article walks you through enabling Semgrep Assistant for your deployment an
 <Tabs
     defaultValue="github"
     values={[
+    {label: 'Azure DevOps Cloud', value: 'ado'},
+    {label: 'Bitbucket Cloud', value: 'bitbucket'},
     {label: 'GitHub', value: 'github'},
     {label: 'GitLab', value: 'gitlab'},
     ]}
 >
+
+<TabItem value='ado'>
+
+Semgrep Assistant extends standard Semgrep capabilities by providing contextually aware AI-generated suggestions. Building that context requires Azure DevOps permissions, specifically code access granted through an access token you generate through Azure DevOps. Ensure that the token has the following scopes:
+
+- `Code: Read & write`
+- `Pull Request Threads: Read & write`
+
+You can provide this token to Semgrep by adding [Azure DevOps as a source code manager](/deployment/connect-scm#azure-devops-cloud).
+
+Semgrep recommends using a service account, not a personal account, to [generate the personal access token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) provided to Semgrep. Regardless of whether you use a personal or service account, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization.
+
+</TabItem>
+
+<TabItem value='bitbucket'>
+
+Semgrep Assistant extends standard Semgrep capabilities by providing contextually aware AI-generated suggestions. Building that context requires Bitbucket permissions, specifically code access granted through an access token you generate through Bitbucket. Your token must be a [Workspace Access Token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/), which are available to users with a Bitbucket Cloud Premium plan or higher. The token must have the following scopes:
+
+- `Projects: Read`
+- `Repositories: Read`
+- `Pull requests: Read & Write`
+- `Webhooks: Read and write`
+
+You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud). 
+
+</TabItem>
 
 <TabItem value='github'>
 
