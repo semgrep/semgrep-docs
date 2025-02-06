@@ -72,7 +72,7 @@ tags:
 
 <!-- Dependency graphs? -->
 - [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in **public beta** for the following languages and package managers:
-  - **JavaScript**: npm, pnpm, and Yarn are supported.
+  - **JavaScript**: npm, pnpm, and yarn are supported.
   - **Python**: Only Poetry is supported.
   Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to join the beta program.
 - **C#**: Semgrep can now scan NuGet codebases without the need for a lockfile. This feature is in **private beta**. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta). Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to join the beta program.
