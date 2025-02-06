@@ -8,7 +8,7 @@ tags:
   - Semgrep AppSec Platform
 ---
 
-# Manage policies (beta)
+# Manage policies
 
 By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving notifications while you evaluate the tool.
 
@@ -21,10 +21,6 @@ This feature enables you to configure the following:
 - **Actions**: Actions that are performed on the defined scope when conditions are met.
 
 You can create as many policies as you need.
-
-## Feature maturity
-
-The Supply Chain policies feature is in **private beta**. To apply to this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 
 ## Prerequisites
 
