@@ -46,7 +46,7 @@ would give similar results to `semgrep ci`.
 
 When using `semgrep ci` with Semgrep AppSec Platform, you can configure whether the scan uses cross-file analysis in [Settings](https://semgrep.dev/orgs/-/settings). If you enable cross-file analysis, Semgrep performs interfile and interprocedural analysis for supported Pro languages.
 
-If Pro Engine is not enabled for Semgrep scans, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
+If cross-file analysis is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run using cross-function analysis within single files.
 
 To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
