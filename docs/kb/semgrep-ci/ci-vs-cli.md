@@ -48,7 +48,7 @@ When using `semgrep ci` with Semgrep AppSec Platform, you can configure whether 
 
 If cross-file analysis is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run using cross-function analysis within single files.
 
-To perform a CLI scan using cross-file-analysis, ensure you've used `install-semgrep-pro` to [install the additional semgrep binary](/docs/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
+To perform a CLI scan using cross-file-analysis, ensure you've run `semgrep install-semgrep-pro` to [install the additional semgrep binary](/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
 ```bash
 semgrep --config auto --pro
