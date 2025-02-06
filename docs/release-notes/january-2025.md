@@ -1,12 +1,11 @@
 ---
-slug: latest
-append_help_link: true
-title: Latest release notes
+slug: january-2025
+title: January 2025
 hide_title: true
-description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
-toc_max_heading_level: 3
+description: >-
+ Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 tags:
-  - Release notes
+ - Release notes
 ---
 
 # Semgrep release notes for January 2025
