@@ -675,7 +675,7 @@ module.exports = {
               collapsible: true,
                 link: {
                     type: 'generated-index',
-                    title: '2024 Release notes'
+                    title: '2025 Release notes'
                 },
                 items: [
                   'release-notes/january-2025',
