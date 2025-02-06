@@ -10,10 +10,6 @@ tags:
 
 # Semgrep release notes for January 2025
 
-<!-- Remember to update latest endpoint -->
-<!-- Remember to update index page -->
-
-
 ## 🌐 Semgrep AppSec Platform
 
 - The **Policy Management API** is now generally available. The Policy Management API allows you to automate tasks such as:
