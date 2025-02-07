@@ -126,8 +126,8 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
   - Apply rules in different modes, such as monitor, comment, block, or disable, to align with security workflows.
   - Integrate policy management into CI/CD pipelines to ensure consistent enforcement during software development.
 - [Semgrep Managed Scans](/deployment/managed-scanning/azure) for repositories hosted by **Azure DevOps** is now in public beta.
-- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available for the following languages and package managers:
-  - **JavaScript**: all package managers are supported by Semgrep.
+- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in public beta for the following languages and package managers:
+  - **JavaScript**: npm, pnpm, and yarn are supported.
   - **Python**: Only Poetry is supported.
 - Semgrep now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
 - [Noise filtering](/semgrep-assistant/overview#noise-filtering-beta) is now in public beta. With Noise Filtering, Assistant evaluates each Semgrep Code finding to determine if it's a true positive using additional context and prevents a PR comment from being posted in the developer workflow if it's not.

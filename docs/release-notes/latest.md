@@ -72,9 +72,10 @@ tags:
 ### Added
 
 <!-- Dependency graphs? -->
-- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available for the following languages and package managers:
-  - **JavaScript**: all package managers are supported by Semgrep.
+- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in **public beta** for the following languages and package managers:
+  - **JavaScript**: npm, pnpm, and Yarn are supported.
   - **Python**: Only Poetry is supported.
+  Reach out to [Semgrep Support](/docs/support) to join the beta program.
 - **C#**: Semgrep can now scan NuGet codebases without the need for a lockfile. This feature is in **private beta**. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta). Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to join the beta program.
 - Semgrep now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
 
