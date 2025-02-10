@@ -156,7 +156,7 @@ Depending on the file sizes in your project, you may need to increase the timeou
 
 ```console
 # increase timeout to 45 seconds, try only 2 times
-semgrep ci --timeout 30 --timeout-threshold 2
+semgrep ci --timeout 45 --timeout-threshold 2
 ```
 
 ## Improve performance for large codebases
