@@ -71,7 +71,6 @@ This often works with languages that define a single dialect using a `grammar.js
 
 From the `ocaml-tree-sitter` repository, do the following:
 
-<<<<<<< HEAD
 1. Create a `lang/LANG` folder.
 2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting. Name the program `hello-world.<span class="placeholder">EXTENSION</span>`.
 3. Now make a file called `extensions.txt` and input all the language extensions (.rb, .kt, etc) for your language in the file.
@@ -289,7 +288,6 @@ describing what was expected and what's going on.
 
 Now that you have added your new language **_LANG_** to `tree-sitter`, do the following:
 
-<<<<<<< HEAD
 1. Update `[generate.py](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)` in the `semgrep-interfaces` repository with your new language.
 1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add _**LANG**_ to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add _**LANG**_ above 'true'. Otherwise, add it above 'false'.
 1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add **_LANG_** to the appropriate functions:
