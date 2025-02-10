@@ -44,7 +44,7 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
    3. Provide your **GitLab group**.
    4. *For GitLab Self-Managed users only*: provide the **GitLab URL**.
    5. Click **Connect**.
-7. Repeat the steps above for each additional GitHub group you'd like added to Semgrep.
+7. Repeat the steps above for each additional GitLab group you'd like added to Semgrep.
 <!-- vale on -->
 
 You have finished setting up a Semgrep managed scan.
