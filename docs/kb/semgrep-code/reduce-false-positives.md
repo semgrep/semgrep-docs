@@ -8,7 +8,6 @@ tags:
   - Semgrep Community Edition
 ---
 
-import ProRulesLanguageCoverage from "/src/components/reference/_pro-rules-language-coverage.mdx"
 import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"
 import DefCrossFunction from "/src/components/concept/_def-cross-function.mdx"
 
@@ -81,9 +80,9 @@ The following features are enabled by default and help reduce false positives.
 
 Semgrep Pro rules are high-confidence, professionally maintained rules provided exclusively by Semgrep.
 
-<ProRulesLanguageCoverage />
-
 The goal of Pro rules is to provide a set of well-supported rules with improved coverage across languages and vulnerability types. Semgrep Pro rules are written using Semgrep’s latest features and, in general, target users who are looking to produce accurate, actionable findings.
+
+To see the languages with Pro rules, go to [Supported languages](/supported-languages#language-maturity-summary).
 
 #### Cross-function analysis
 

@@ -1,5 +1,5 @@
 ---
-description: Generate various Python lock files to run Semgrep Supply Chain scans successfully.
+description: Generate Python lockfiles to run Semgrep Supply Chain scans successfully.
 tags:
   - Semgrep Supply Chain
   - Python
@@ -10,18 +10,15 @@ tags:
   - Poetry.lock
 ---
 
-# Generating Python manifest files for Semgrep Supply Chain scans
+# Generating Python lockfiles for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python manifest file. This article describes methods to generate the following Python manifest files or lockfiles:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile: a file with specific versions of all dependencies. This article describes methods to generate the following supported Python lockfiles:
 
-* `requirements.txt`, including those in a requirements folder, such as `**/requirements/*.txt`
-* `requirements.pip`
-* `requirement.txt`, including those in a requirement folder, such as `**/requirement/*.txt`
-* `requirement.pip`
+* `requirements.txt`
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these files to get a successful Semgrep Supply Chain scan. Your manifest files must have one of these three names to be scanned, or you must have a `*/requirement/*` file in the project.
+You can use any of these files to get a successful Semgrep Supply Chain scan. Since Semgrep 1.93.0, a `requirements.txt` file can be placed in a `**/requirements/` folder, or can have any name that matches `*requirement*.txt` or `*requirement*.pip`. 
 
 ## Generating `requirements.txt`
 
@@ -31,7 +28,6 @@ You can use any of these files to get a successful Semgrep Supply Chain scan. Yo
 * A `requirements.in` file with direct Python packages. Do not include transitive packages in `requirements.in`.
 * `pip-tools` must be installed on your machine. See the [pip-tools GitHub repository](https://github.com/jazzband/pip-tools) for installation instructions.
 :::
-
 
 To generate a `requirements.txt` file from `requirements.in`, enter the following command in the root of your project directory:
 
@@ -112,10 +108,8 @@ This file has all direct and transitive dependencies of the example project and 
 ### Using `pip freeze`
 
 :::info Prerequisites
-
 * The `pip freeze` utility uses dependencies from packages already installed in your current environment to generate `requirements.txt`. You must be in an isolated or [virtual environment](https://docs.python.org/3/library/venv.html).
 * An existing `setup.py` file.
-
 :::
 
 To generate `requirements.txt` through `pip freeze`, enter the following commands:
@@ -296,16 +290,17 @@ poetry lock
 
 The generated `Poetry.lock` file contains all transitive and direct dependencies that the project uses.
 
-## Selecting a single manifest file among many
+## Selecting a single file among many
 
-While there may already be a manifest file in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
+While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
 
-When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single manifest file should be scanned. The manifest file must still have one of the supported names.
+When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single lockfile should be scanned. The manifest file must still have one of the supported names.
 
 ```
 semgrep ci --supply-chain --include=requirements.txt
 ```
+However, if you have multiple `requirements.txt` files that are in supported locations, you do not need to generate a new unified lockfile. Semgrep will scan files from all supported locations.
 
 ## Conclusions
 
-There are several ways to generate manifest files or lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the manifest file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.
+There are several ways to generate lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.

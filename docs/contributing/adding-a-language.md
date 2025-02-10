@@ -71,23 +71,23 @@ This often works with languages that define a single dialect using a `grammar.js
 
 From the `ocaml-tree-sitter` repository, do the following:
 
+<<<<<<< HEAD
 1. Create a `lang/LANG` folder.
-2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting.
-   Name the program `hello-world.<ext>`.
+2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting. Name the program `hello-world.<span class="placeholder">EXTENSION</span>`.
 3. Now make a file called `extensions.txt` and input all the language extensions (.rb, .kt, etc) for your language in the file.
 4. Create a file called `fyi.list` with all the information files, such as
-    `semgrep-grammars/src/tree-sitter-X/LICENSE`,
-    `semgrep-grammars/src/tree-sitter-X/grammar.js`,
-    `semgrep-grammars/src/semgrep-X/grammar.js`, etc.
+    `semgrep-grammars/src/tree-sitter-LANG/LICENSE`,
+    `semgrep-grammars/src/tree-sitter-LANG/grammar.js`,
+    `semgrep-grammars/src/semgrep-LANG/grammar.js`, etc.
    to bundle with the final OCaml/C project.
 5. Link the Makefile.common to a Makefile in the directory with:
    `ln -s ../Makefile.common Makefile`
 6. Create a test corpus. You can do this by:
-   * Running `most-starred-for-language` in order to gather projects
+   * Running `most-starred-for-language` to gather projects
      on which to run parsing stats. Run with the following command:
      `./scripts/most-starred-for-language <lang> <github_username> <api_key>`
    * Using github advanced search to find the most starred or most forked repositories.
-7. Copy the generated `projects.txt` file into the `lang/X` directory.
+7. Copy the generated `projects.txt` file into the `lang/LANG` directory.
 8. Add in extra projects and extra input sets as you see necessary.
 
 Here's the file hierarchy for Ruby:
@@ -115,7 +115,7 @@ then run some tests for the parser. Full instructions for this
 are given in [updating-a-grammar](updating-a-grammar.md) under
 "Testing". The short instructions are:
 1. For the first time, build everything with `./scripts/rebuild-everything`.
-2. Subsequently, work from the `lang/X` folder and run
+2. Subsequently, work from the `lang/LANG` folder and run
    `make` and `make test`.
 
 ### The `fyi.list` file
@@ -153,20 +153,20 @@ the semgrep ellipsis `...` usually needs to be added as well.
 You'll need to learn [how to create tree-sitter
 grammars](https://tree-sitter.github.io/tree-sitter/creating-parsers).
 
-1. Work from `semgrep-grammars/src/semgrep-X` and use `make` and
+1. Work from `semgrep-grammars/src/semgrep-LANG` and use `make` and
    `make test` to build and test.
 2. Add new test cases to `test/corpus/semgrep.text`.
 3. Edit `grammar.js`.
 4. Refer to the original grammar in
-   `semgrep-grammars/src/tree-sitter-X` to determine which rules to
+   `semgrep-grammars/src/tree-sitter-LANG` to determine which rules to
    extend.
 
 For an example of how to extend a language, you can:
 * Look at what was done for the semgrep extensions of other languages
   in their respective `semgrep-*` folders.
-* Look at how tree-sitter-typescript extends the javascript grammar.
+* Look at how tree-sitter-typescript extends the JavaScript grammar.
   This is the file [`common/define-grammar.js` in the
-  tree-sitter-typescript repo](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js).
+  tree-sitter-typescript repository](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js).
 
 Avoiding parsing conflicts is the trickiest part. Asking for help is encouraged.
 
@@ -238,9 +238,9 @@ branch, do the following:
    applicable) look clean and have minimal external dependencies.
 2. In `ocaml-tree-sitter/lang/Makefile`, add language under
    'SUPPORTED_LANGUAGES' and 'STAT_LANGUAGES'.
-3. In `ocaml-tree-sitter/lang` directory, run `./release X --dry-run`.
+3. In `ocaml-tree-sitter/lang` directory, run `./release LANG --dry-run`.
    If this looks good, please [ask someone from the Semgrep team](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
-   publish the code using `./release X`.
+   publish the code using `./release LANG`.
 
 ### Troubleshooting
 
@@ -262,7 +262,7 @@ Here are some known types of parsing errors:
 
 * A syntax error. The input program is in the wrong syntax or uses a
   recent feature that's not supported yet: `make test` or directly the
-  `parse_X` program will show the tree produced by tree-sitter with
+  `parse_LANG` program will show the tree produced by tree-sitter with
   one or more `ERROR` nodes.
 * A "reparsing" error. It's an error generated after the first
   successful parsing pass by the tree-sitter parser, during the
@@ -289,6 +289,7 @@ describing what was expected and what's going on.
 
 Now that you have added your new language **_LANG_** to `tree-sitter`, do the following:
 
+<<<<<<< HEAD
 1. Update `[generate.py](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)` in the `semgrep-interfaces` repository with your new language.
 1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add _**LANG**_ to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add _**LANG**_ above 'true'. Otherwise, add it above 'false'.
 1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add **_LANG_** to the appropriate functions:

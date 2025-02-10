@@ -1,12 +1,11 @@
 ---
-slug: latest
-append_help_link: true
-title: Latest release notes
+slug: january-2025
+title: January 2025
 hide_title: true
-description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
-toc_max_heading_level: 3
+description: >-
+ Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 tags:
-  - Release notes
+ - Release notes
 ---
 
 # Semgrep release notes for January 2025
@@ -73,7 +72,7 @@ tags:
 
 <!-- Dependency graphs? -->
 - [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in **public beta** for the following languages and package managers:
-  - **JavaScript**: npm, pnpm, and Yarn are supported.
+  - **JavaScript**: npm, pnpm, and yarn are supported.
   - **Python**: Only Poetry is supported.
   Reach out to [Semgrep Support](/docs/support) to join the beta program.
 - **C#**: Semgrep can now scan NuGet codebases without the need for a lockfile. This feature is in **private beta**. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta). Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to join the beta program.

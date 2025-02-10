@@ -7,7 +7,7 @@ description: Set up GitHub required workflows to efficiently implement Semgrep s
 
 # Use GitHub repository rulesets to implement Semgrep
 
-Use [GitHub repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to quickly implement Semgrep scans across hundreds or thousands of repositories in your GitHub organization. 
+Use [GitHub repository rulesets](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#introduction) to quickly implement Semgrep scans across hundreds or thousands of repositories in your GitHub organization.
 
 Repository rulesets allow you to add a Semgrep scan as a workflow that is [required for pull requests to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging). Formerly, this feature was called [required workflows](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
@@ -17,7 +17,7 @@ Repository rulesets use a centralized workflow file to execute the Semgrep scan 
 
 To use the Semgrep workflow in other repositories, you can create a new repository with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
 
-1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo). 
+1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo).
   1. Name the repository `semgrep-workflow`.
   2. Choose the repository visibility that matches the widest visibility of the repositories you want to run the workflow in. For example, if you want to run Semgrep on public, internal, and private repositories, the repository containing the workflow file must be public.
 2. Add the Semgrep workflow file to the repository at `.github/workflows/semgrep.yml`. You can use the [sample configuration](/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) provided in the documentation, or a [custom configuration](/deployment/customize-ci-jobs).
@@ -26,11 +26,19 @@ To use the Semgrep workflow in other repositories, you can create a new reposito
 
 The example repository is internal, so it can only be used to store workflows that run on internal and private repositories.
 
+### Behavior with bot-initiated commits
+
+The default Semgrep GitHub Actions configuration excludes any PRs or commits from GitHub's `dependabot` to prevent permissions errors. If you have other bots or automations active in your organization's workflows, consider excluding these bots as well. Otherwise, the action may error due to bot permissions, or it may simply not be useful to run a Semgrep scan on changes made by an automation. For example, to exclude both `dependabot` and other GitHub Actions, include:
+
+```yaml
+if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions'
+```
+
 ### Recommended configuration with merge queues
 
-If you use [merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) for repositories that will be scanned with this workflow, your config must include `merge_group` as a trigger in the `on:` block. Otherwise, [the workflow cannot run in the merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#triggering-merge-group-checks-with-github-actions) and can block the queue.
+If you use [merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) for repositories scanned with this workflow, your config must include `merge_group` as a trigger in the `on:` block. Otherwise, [the workflow cannot run in the merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#triggering-merge-group-checks-with-github-actions) and can block the queue.
 
-Unlike for `pull_request` event types, Semgrep does not have any automatic configuration to run diff scans on `merge_group` events, so additional configuration is needed to run diff scans in this environment. The most straightforward solution is to configure the workflow to be skipped during the merge group check, since the primary goal of a Semgrep diff scan is to inform the developer **before** merging if they are introducing security issues.
+Unlike for `pull_request` event types, Semgrep does not have any automatic configuration to run diff-aware scans on `merge_group` events, so additional configuration is needed to run diff-aware scans in this environment. The most straightforward solution is to configure the workflow to be skipped during the merge group check, since the primary goal of a Semgrep diff-aware scan is to inform the developer **before** merging if they are introducing security issues.
 
 With the recommended alterations and removal of event types that do not occur with repository rulesets, the [sample configuration](/docs/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file) would look like this:
 
@@ -63,7 +71,7 @@ jobs:
 
 ## Configure repository workflow access
 
-The repository containing the Semgrep workflow must allow access to workflows from other repositories in the organization. 
+The repository containing the Semgrep workflow must allow access to workflows from other repositories in the organization.
 
 To configure access:
 
@@ -123,6 +131,6 @@ The required workflow allows merge if the scan is successful, or blocks the pull
 
 ## Limitations
 
-Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which only scans changed files. 
+Workflows required by repository rulesets are only triggered by `pull_request` or `merge_group` events. When triggered for a pull request, Semgrep runs a [diff-aware scan](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which only scans changed files.
 
 To run full scans (scan all files) for your organization's repositories as well, you would need to supplement this setup with another approach, such as [reusable workflows](/docs/kb/semgrep-ci/github-reusable-workflows-semgrep).

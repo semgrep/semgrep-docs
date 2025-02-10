@@ -119,17 +119,18 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>December 2024 release notes summary</h3>
+<h3>January 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
-- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](/release-notes/december-2024#-semgrep-community-edition-ce) for more details.
-- You can now export your findings in CSV format. Semgrep can export up to 10,000 most recent findings. For findings greater than 10,000, use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/). See [Export findings](/semgrep-code/findings#export-findings) for more information.
-- Added new **Pro rules**:
-  - 4 new rules for **Express.js** that cover SQL injection, object injection, and misconfiguration vulnerabilities.
-  - 13 new rules for **NestJS** framework vulnerabilities that cover code injection, SQL injection, path traversal, log injection, XML external entity, and cross site scripting.
-- **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
-  - Dependency Path for Kotlin is in private beta.
-  - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+- The [Policy Management API](https://semgrep.dev/api/v1/docs/#tag/PoliciesService) is now generally available. The Policy Management API allows you to automate tasks such as:
+  - Add, update, and disable rules across multiple policies.
+  - Apply rules in different modes, such as monitor, comment, block, or disable, to align with security workflows.
+  - Integrate policy management into CI/CD pipelines to ensure consistent enforcement during software development.
+- [Semgrep Managed Scans](/deployment/managed-scanning/azure) for repositories hosted by **Azure DevOps** is now in public beta.
+- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in public beta for the following languages and package managers:
+  - **JavaScript**: npm, pnpm, and yarn are supported.
+  - **Python**: Only Poetry is supported.
+- Semgrep now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
+- [Noise filtering](/semgrep-assistant/overview#noise-filtering-beta) is now in public beta. With Noise Filtering, Assistant evaluates each Semgrep Code finding to determine if it's a true positive using additional context and prevents a PR comment from being posted in the developer workflow if it's not.
+- [Auto-triage Memories](/semgrep-assistant/getting-started#add-memory-during-triage) is now in public beta. With this feature, you can identify findings that are safe to ignore and write triage notes indicating why this is so. Assistant then stores this information as a memory and uses it to assess whether similar findings are shown to developers in the future. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)

@@ -228,6 +228,7 @@ module.exports = {
                     label: 'Semgrep Community Edition',
                     collapsible: true,
                     items: [
+                        'semgrep-ce-languages',
                         'deployment/oss-deployment',
                         'getting-started/cli-oss',
                         ]
@@ -668,6 +669,18 @@ module.exports = {
         link: {type: 'doc', id: 'release-notes/introduction'},
         items: [
             'release-notes/latest',
+            {
+              type: 'category',
+              label: '2025',
+              collapsible: true,
+                link: {
+                    type: 'generated-index',
+                    title: '2025 Release notes'
+                },
+                items: [
+                  'release-notes/january-2025',
+                ],
+            },
             {
               type: 'category',
               label: '2024',
