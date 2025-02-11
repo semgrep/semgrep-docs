@@ -4,22 +4,24 @@ slug: adding-a-language
 How to add support for a new language
 ==
 
+import PL from '@site/src/components/Placeholder';
+
 This document is about adding support for a new programming language in Semgrep using the [tree-sitter](https://tree-sitter.github.io/tree-sitter/) technology. Most languages in semgrep use `tree-parser` though you may also need to update a `menhir` parser.
 
 Repositories involved directly:
 
-* [<i class="fas fa-external-link fa-xs"></i> semgrep](https://github.com/semgrep/semgrep): the semgrep command line program;
-* [<i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep;
-* A new repository <code>semgrep-_**LANG**_</code> for the new language _**LANG**_: C/OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
-* [<code><i class="fas fa-external-link fa-xs"></i> semgrep-interfaces</code>](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)
+* [<strong><i class="fas fa-external-link fa-xs"></i> semgrep</strong>](https://github.com/semgrep/semgrep): the semgrep command line program.
+* [<strong><i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep</strong>](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep.
+* A new repository <strong>semgrep-<PL>LANG</PL></strong> for the language you're adding: this is a C or OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
+* [<strong><i class="fas fa-external-link fa-xs"></i> semgrep-interfaces</strong>](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)
 
 ## Placeholder values
 
-This document uses **_LANG_** to indicate that you should substitute the name of your language as the value in the given context. For example, if your language is Ruby:
+This document uses the placeholder <PL>LANG</PL> to indicate that you should substitute the name of your language as the value in the given context. For example, if your language is Ruby:
 
-> Create a new file <code>TEST_LANG_**_LANG_**.txt</code>
+> Create a new file <code>TEST_LANG_<PL>LANG</PL>.txt</code> where <PL>LANG</PL> is in small caps.
 
-The name of your file should be `TEST_LANG_Ruby.txt`
+The name of your file should be `TEST_LANG_ruby.txt`
 
 > Create a file <code>Pretty_print.**_EXTENSION_**</code> with the filename extension of your language:
 
@@ -42,7 +44,7 @@ repository](https://github.com/semgrep/semgrep):
         └── semgrep-swift # generated tree-sitter parsers
 ```
 
-When you're done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repository <code>semgrep-**_LANG_**</code> to host the generated parser code.
+When you're done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repository **semgrep-<PL>LANG</PL>** to host the generated parser code.
 
 Ask someone from the Semgrep team to create one for you. For this, they should use the template
 [semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template) when creating the repository.
@@ -71,22 +73,22 @@ This often works with languages that define a single dialect using a `grammar.js
 
 From the `ocaml-tree-sitter` repository, do the following:
 
-1. Create a `lang/LANG` folder.
-2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting. Name the program `hello-world.<span class="placeholder">EXTENSION</span>`.
+1. Create a <code>lang/<PL>LANG</PL></code> folder.
+2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting. Name the program <code>hello-world.<PL>EXTENSION</PL></code>.
 3. Now make a file called `extensions.txt` and input all the language extensions (.rb, .kt, etc) for your language in the file.
 4. Create a file called `fyi.list` with all the information files, such as
-    `semgrep-grammars/src/tree-sitter-LANG/LICENSE`,
-    `semgrep-grammars/src/tree-sitter-LANG/grammar.js`,
-    `semgrep-grammars/src/semgrep-LANG/grammar.js`, etc.
+    <code>semgrep-grammars/src/tree-sitter-<PL>LANG</PL>/LICENSE</code>,
+    <code>semgrep-grammars/src/tree-sitter-<PL>LANG/grammar.js</PL></code>,
+    <code>semgrep-grammars/src/semgrep-<PL>LANG</PL>/grammar.js</code>, etc.
    to bundle with the final OCaml/C project.
 5. Link the Makefile.common to a Makefile in the directory with:
    `ln -s ../Makefile.common Makefile`
 6. Create a test corpus. You can do this by:
    * Running `most-starred-for-language` to gather projects
      on which to run parsing stats. Run with the following command:
-     `./scripts/most-starred-for-language <lang> <github_username> <api_key>`
+     <code>./scripts/most-starred-for-language <PL>LANG</PL> <PL>YOUR_USERNAME</PL> <PL>API_KEY</PL></code>
    * Using github advanced search to find the most starred or most forked repositories.
-7. Copy the generated `projects.txt` file into the `lang/LANG` directory.
+7. Copy the generated `projects.txt` file into the <code>lang/<PL>LANG</PL></code> directory.
 8. Add in extra projects and extra input sets as you see necessary.
 
 Here's the file hierarchy for Ruby:
@@ -114,7 +116,7 @@ then run some tests for the parser. Full instructions for this
 are given in [updating-a-grammar](updating-a-grammar.md) under
 "Testing". The short instructions are:
 1. For the first time, build everything with `./scripts/rebuild-everything`.
-2. Subsequently, work from the `lang/LANG` folder and run
+2. Subsequently, work from the <code>lang/<PL>LANG</PL></code> folder and run
    `make` and `make test`.
 
 ### The `fyi.list` file
@@ -152,12 +154,12 @@ the semgrep ellipsis `...` usually needs to be added as well.
 You'll need to learn [how to create tree-sitter
 grammars](https://tree-sitter.github.io/tree-sitter/creating-parsers).
 
-1. Work from `semgrep-grammars/src/semgrep-LANG` and use `make` and
+1. Work from <code>semgrep-grammars/src/semgrep-<PL>LANG</PL></code> and use `make` and
    `make test` to build and test.
 2. Add new test cases to `test/corpus/semgrep.text`.
 3. Edit `grammar.js`.
 4. Refer to the original grammar in
-   `semgrep-grammars/src/tree-sitter-LANG` to determine which rules to
+   <code>semgrep-grammars/src/tree-sitter-<PL>LANG</PL></code> to determine which rules to
    extend.
 
 For an example of how to extend a language, you can:
@@ -237,9 +239,9 @@ branch, do the following:
    applicable) look clean and have minimal external dependencies.
 2. In `ocaml-tree-sitter/lang/Makefile`, add language under
    'SUPPORTED_LANGUAGES' and 'STAT_LANGUAGES'.
-3. In `ocaml-tree-sitter/lang` directory, run `./release LANG --dry-run`.
+3. In `ocaml-tree-sitter/lang` directory, run <code>./release <PL>LANG</PL> --dry-run</code>.
    If this looks good, please [ask someone from the Semgrep team](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md) to
-   publish the code using `./release LANG`.
+   publish the code using <code>./release <PL>LANG</PL></code>.
 
 ### Troubleshooting
 
@@ -261,7 +263,7 @@ Here are some known types of parsing errors:
 
 * A syntax error. The input program is in the wrong syntax or uses a
   recent feature that's not supported yet: `make test` or directly the
-  `parse_LANG` program will show the tree produced by tree-sitter with
+  <code>parse_<PL>LANG</PL></code> program will show the tree produced by tree-sitter with
   one or more `ERROR` nodes.
 * A "reparsing" error. It's an error generated after the first
   successful parsing pass by the tree-sitter parser, during the
@@ -275,22 +277,19 @@ Here are some known types of parsing errors:
   that reproduces the problem would be nice.
   See https://github.com/semgrep/ocaml-tree-sitter-semgrep/issues/65
 
-Parsing errors that are due
-to an incomplete or incorrect grammar should be recorded, and
-eventually reported and/or fixed in the upstream project.
-We keep failing test cases in a `fail/` folder, preferably in the form
-of the minimal program suitable for a bug report, with a comment
-describing what was expected and what's going on.
+Parsing errors that are due to an incomplete or incorrect grammar should be recorded, and eventually reported or fixed in the upstream project.
+
+We keep failing test cases in a `fail/` folder, preferably in the form of the minimal program suitable for a bug report, with a comment describing what was expected and what's going on.
 
 /* tried to make this more descriptive but should check with Nat if I understood the goal correctly */
 
 ## Update the `semgrep` repository
 
-Now that you have added your new language **_LANG_** to `tree-sitter`, do the following:
+Now that you have added your new language <PL>LANG</PL> to `tree-sitter`, do the following:
 
 1. Update `[generate.py](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)` in the `semgrep-interfaces` repository with your new language.
-1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add _**LANG**_ to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add _**LANG**_ above 'true'. Otherwise, add it above 'false'.
-1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add **_LANG_** to the appropriate functions:
+1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add <PL>LANG</PL> to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add <PL>LANG</PL> above 'true'. Otherwise, add it above 'false'.
+1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add <PL>LANG</PL> to the appropriate functions:
    * `print_bool`
    * `if_stmt`
    * `while_stmt`
@@ -301,9 +300,9 @@ Now that you have added your new language **_LANG_** to `tree-sitter`, do the fo
    * `break`
    * `continue`
    * `literal`
-1. In [`/src/parsing/Test_parsing.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/tests/Test_parsing.ml), add in _**LANG**_ to `dump_tree_sitter_cst_lang`.
+1. In [`/src/parsing/Test_parsing.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/tests/Test_parsing.ml), add in <PL>LANG</PL> to `dump_tree_sitter_cst_lang`.
    You can look to the other languages as reference to what code to add.
-1. Create a file `parsing/Parse_LANG_tree_sitter.ml`. Add basic functionality to
+1. Create a file <code>parsing/Parse_<PL>LANG</PL>_tree_sitter.ml</code>. Add basic functionality to
    define the function `parse` and import module `Parse_tree_sitter_helpers`.
    You can look at csharp and Kotlin files to get a better idea of how to
    define the parse file function, but this file should contain something similar to:
@@ -317,10 +316,10 @@ Now that you have added your new language **_LANG_** to `tree-sitter`, do the fo
             Parallel.invoke Tree_sitter_X.Parse.file file ()
         )
    ```
-1. In `parsing/tree_sitter/dune`, add <code>tree-sitter-lang.**_LANG_**</code>.
-1. Write a basic test case for your language in <code>tests/**_LANG_**/hello-world.**_LANG_**</code>. This can just be a hello-world function.
+1. In `parsing/tree_sitter/dune`, add <code>tree-sitter-lang.<PL>LANG</PL></code>.
+1. Write a basic test case for your language in <code>tests/<PL>LANG</PL>/hello-world.<PL>LANG</PL></code>. This can just be a hello-world function.
 1. Test that the command
-   `semgrep-core/bin/semgrep-core -dump_tree_sitter_cst test/LANG/hello-world`
+   <code>semgrep-core/bin/semgrep-core -dump_tree_sitter_cst test/<PL>LANG</PL>/hello-world</code>
    prints out a CST for your language.
 
 ## Legal concerns
