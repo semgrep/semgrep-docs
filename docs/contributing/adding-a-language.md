@@ -1,8 +1,13 @@
 ---
 slug: adding-a-language
+title: Add support for a new language
+hide_title: true
+description: tk
+tags:
+  - Contributing to Semgrep
 ---
-How to add support for a new language
-==
+
+# How to add support for a new language
 
 import PL from '@site/src/components/Placeholder';
 
