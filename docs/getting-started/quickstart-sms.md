@@ -10,20 +10,15 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import SmsSupport from "/src/components/reference/_sms-support.mdx"
+
 # Quickstart for Semgrep Managed Scans
 
 Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale with Semgrep. Instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
 
 ## Supported source code managers
 
-Semgrep Managed Scans is available for **GitHub-hosted (GitHub.com) and GitHub Enterprise Server** plans.
-
-Semgrep Managed Scans is in public beta for users with:
-
-* **GitLab Cloud** or **GitLab self-managed** plans and a Premium or Ultimate subscription
-* **Azure DevOps Cloud**
-
-Contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) to obtain access.
+<SmsSupport />
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
