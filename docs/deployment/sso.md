@@ -20,6 +20,8 @@ tags:
 
 This article walks you through single-sign on (SSO) configuration. Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth-20) and [SAML 2.0](#saml-20).
 
+After setting up SSO, users are provisioned and managed on your IdP. Semgrep grants access to the deployment to any user at the configured domain who logs in and has the correct permissions in the IdP.
+
 ## OpenID Connect / OAuth 2.0
 
 :::note Microsoft Entra ID
@@ -44,7 +46,7 @@ To set up SSO in Semgrep AppSec Platform:
    - **Userinfo URI**
 9.  Click **Save** to proceed.
 
-If you encounter issues during the setup process, please reach out to [support@semgrep.com](mailto:support@semgrep.com) for assistance.
+If you encounter issues during the setup process, please [reach out to support](/docs/support) for assistance.
 
 ## SAML 2.0
 
