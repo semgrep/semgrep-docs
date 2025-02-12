@@ -35,7 +35,7 @@ The Semgrep Jira integration provides the following capabilities:
 
 ## Limitations
 
-- You can create only **one Jira integration** per Semgrep account or deployment.
+- You can only create **one Jira integration** per Semgrep account or deployment.
 - You can only use **one subdomain** per Jira integration.
 - The Semgrep Jira integration does not support bi-directional or two-way status syncing.
 
@@ -67,7 +67,7 @@ _**Figure.** The Jira configuration screen._
 :::tip Automatic creation of tickets
 - Tickets are created only for **high severity, high confidence findings** only. This ensures that the noise is kept to a minimum.
 - For Supply Chain findings, tickets are created for **reachable findings**.
-- Automated ticket creation can be configured on a per-product setting.
+- Automated ticket creation is configured on a per-product basis.
 :::
 
 ### Automatic detection of other Jira projects
@@ -78,7 +78,7 @@ The Jira integration automatically detects other Jira projects in your subdomain
 - Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
 
 :::caution Same name, different ID
-Issue types may have the same name, but a different Issue type ID. If you can't view or select other Jira projects when creating tickets, check that your Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
+Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
 :::
 
 ### Create mappings
@@ -170,7 +170,7 @@ To create tickets:
 
 :::info
 - Creating tickets for many findings at once may take some time. Tickets that take longer than 10 seconds to create are shown in Semgrep once you refresh the page.
-- If ticket creation **fails**, Semgrep automatically retries several times over the next day to provide robustness against outages and down time in third-party services.
+- If ticket creation **fails**, Semgrep automatically retries several times over the next day to provide robustness against outages and downtime in third-party services.
 :::
 
 ![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
@@ -213,10 +213,14 @@ To create tickets:
 
 <!-- vale off -->
 
-1. Select one or more findings listed in Secrets.
-2. Click **Triage**.
-3. Select **Create <span className="placeholder">NUMBER_OF_TICKETS</span> JIRA tickets**.
-4. Click **Creat ticket** to proceed.
+1. If you're on the [**Secrets**](https://semgrep.dev/orgs/-/secrets) page, select the findings for which you want tickets created; you can select and create tickets for individual findings or all findings for a given rule. Otherwise, proceed to step 2.
+1. Click **Triage**.
+1. Set the status to **Open**, **Fixing**, or **Reviewing**. Select **Fixing** if it is a known issue that needs to be fixed or **Reviewing** if the finding needs more investigation.
+1. Select the **Create tickets...** checkbox.
+    1. Optional: Click the first drop-down list to choose between making a ticket for **groups of findings** or an individual ticket for **each finding**.
+    1. Optional: Click the **JIRA project** drop-down list to select which Jira project to add the findings to. You can choose any project that is associated with the issue type configured in your integration settings.
+1. Optional: You can add **Comments** in the text box.
+1. Click **Submit** to proceed.
 
 <!-- vale on -->
 
