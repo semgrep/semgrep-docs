@@ -46,7 +46,7 @@ To set up SSO in Semgrep AppSec Platform:
    - **Userinfo URI**
 9.  Click **Save** to proceed.
 
-If you encounter issues during the setup process, please [reach out to support](/docs/support) for assistance.
+If you encounter issues during the setup process, please [reach out to support](/support) for assistance.
 
 ## SAML 2.0
 
