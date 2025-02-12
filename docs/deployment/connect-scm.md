@@ -9,6 +9,9 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Connect a source code manager
 
 :::note Your deployment journey
@@ -36,10 +39,12 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 ### Azure DevOps Cloud
 
 1. Sign in to Semgrep AppSec Platform.
-1. On the sidebar, click the account name to open the drop-down menu.
-1. Using the drop-down menu, select the account you want to make a connection for.
-1. Go to **Settings** > **Source Code Managers**, and click **Add Azure DevOps**.
-![Source code manager tab](/img/source-code-manager.png#md-width)
+1. Optional: If you have created more than one account or org, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.
+1. Go to **Settings > Source Code Manager > Add > Azure DevOps**.
+<div class='col-2-grid'>
+<div>1</div>
+<div>2</div>
+</div>
 1. In the **Connect your Azure DevOps organization** dialog box, provide:
    - The **Name of your Azure DevOps organization**
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
