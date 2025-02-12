@@ -42,7 +42,7 @@ To install the Semgrep Slack app, follow these steps:
 To set up or subscribe to notifications for findings in your Slack workspace, perform the following steps:
 
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
-  * If you use a private channel for notifications, first invite the Semgrep app by typing `@Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
+  * If you use a private channel for notifications, first invite the Semgrep app by entering the command `/invite @Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
 3. In the selected Slack channel, enter the following command: `/semgrep_subscribe`. 
 4. Optional: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only. The project must be entered as it is shown in Semgrep AppSec Platform, typically:
     <br />
