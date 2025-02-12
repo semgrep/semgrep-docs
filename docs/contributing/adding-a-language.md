@@ -2,7 +2,7 @@
 slug: adding-a-language
 title: Add support for a new language
 hide_title: true
-description: tk
+description: Add a new language to Semgrep.
 tags:
   - Contributing to Semgrep
 ---
@@ -15,10 +15,10 @@ This document is about adding support for a new programming language in Semgrep 
 
 Repositories involved directly:
 
-* [<strong><i class="fas fa-external-link fa-xs"></i> semgrep</strong>](https://github.com/semgrep/semgrep): the semgrep command line program.
-* [<strong><i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep</strong>](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep.
-* A new repository <strong>semgrep-<PL>LANG</PL></strong> for the language you're adding: this is a C or OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
-* [<strong><i class="fas fa-external-link fa-xs"></i> semgrep-interfaces</strong>](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)
+* [<code><strong><i class="fas fa-external-link fa-xs"></i> semgrep</strong></code>](https://github.com/semgrep/semgrep): the semgrep command line program.
+* [<code><strong><i class="fas fa-external-link fa-xs"></i> ocaml-tree-sitter-semgrep</strong></code>](https://github.com/semgrep/ocaml-tree-sitter-semgrep): language-specific setup, generates C/OCaml parsers for semgrep.
+* A new repository <code><strong>semgrep-<PL>LANG</PL></strong></code> for the language you're adding: this is a C or OCaml parser generated from `ocaml-tree-sitter-semgrep` by a Semgrep administrator.
+* [<code><strong><i class="fas fa-external-link fa-xs"></i> semgrep-interfaces</strong></code>](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)
 
 ## Placeholder values
 
