@@ -49,6 +49,7 @@ Semgrep recommends setting up and configuring Semgrep with an Azure DevOps servi
 - `Project and Team: Read & write`
 - `Code: Read`
 - `Pull Request Threads: Read & write`
+- `Service Hooks: Read & manage`
 
 ### Add a repository
 
