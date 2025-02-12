@@ -36,7 +36,7 @@ The name of your file should be `Pretty_print.rb`.
 --
 
 There are some GitHub repositories involved in porting a language.
-Here is the file hierarchy of the [semgrep
+Here is the file hierarchy of the [`semgrep`
 repository](https://github.com/semgrep/semgrep):
 
 ```
@@ -49,12 +49,12 @@ repository](https://github.com/semgrep/semgrep):
         └── semgrep-swift # generated tree-sitter parsers
 ```
 
-When you're done with the work in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repository **semgrep-<PL>LANG</PL>** to host the generated parser code.
+When you're done with the work in [`ocaml-tree-sitter-semgrep`](https://github.com/semgrep/ocaml-tree-sitter-semgrep), you'll need a new repository <strong><code>semgrep-<PL>LANG</PL></code></strong> to host the generated parser code.
 
 Ask someone from the Semgrep team to create one for you. For this, they should use the template
-[semgrep-lang-template](https://github.com/semgrep/semgrep-lang-template) when creating the repository.
+[`semgrep-lang-template`](https://github.com/semgrep/semgrep-lang-template) when creating the repository.
 
-The instructions for adding a language start in [ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep), as indicated below. Be careful that you are always in the correct repository!
+The instructions for adding a language start in [`ocaml-tree-sitter-semgrep`](https://github.com/semgrep/ocaml-tree-sitter-semgrep), as indicated below. Be careful that you are always in the correct repository!
 
 Set up `ocaml-tree-sitter-semgrep`
 --
