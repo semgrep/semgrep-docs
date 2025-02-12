@@ -22,7 +22,7 @@ Repositories involved directly:
 
 ## Placeholder values
 
-This document uses the placeholder <PL>LANG</PL> to indicate that you should substitute the name of your language as the value in the given context. For example, if your language is Ruby:
+This document uses the placeholder <PL>LANG</PL> to indicate that you should substitute the name of your language as the value in the given context. For example, if your language is Ruby, and the document's instructions read:
 
 > Create a new file <code>TEST_LANG_<PL>LANG</PL>.txt</code> where <PL>LANG</PL> is in small caps.
 
