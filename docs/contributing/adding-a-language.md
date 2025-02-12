@@ -11,7 +11,7 @@ tags:
 
 import PL from '@site/src/components/Placeholder';
 
-This document is about adding support for a new programming language in Semgrep using the [tree-sitter](https://tree-sitter.github.io/tree-sitter/) technology. Most languages in semgrep use `tree-parser` though you may also need to update a `menhir` parser.
+This document is about adding support for a new programming language in Semgrep using the [tree-sitter](https://tree-sitter.github.io/tree-sitter/) technology. Most languages in semgrep use `tree-parser` though you may also need to update the `menhir` parser.
 
 Repositories involved directly:
 
