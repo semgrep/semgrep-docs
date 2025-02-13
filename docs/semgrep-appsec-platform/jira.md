@@ -224,7 +224,7 @@ To create tickets:
 
 <!-- vale on -->
 
-![Create a Jira ticket for a Semgrep Secrets finding](/img/secrets-jira.png#md-width)
+![Create a Jira ticket for a Semgrep Secrets finding](/img/jira-secrets-findings.png#md-width)
 _**Figure.** Secrets triage flow._
 
 ![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
