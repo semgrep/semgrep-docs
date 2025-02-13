@@ -21,7 +21,7 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
   * Semgrep only shares the code necessary to enlist the help of the AI subprocessor in automating the resolution of each specific alert.
   * Semgrep only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
 * When using Semgrep Assistant, source code **does** leave your repository; Assistant submits part of the file with a finding to the AI subprocessor for processing by an AI model. The AI subprocessor is not allowed to use the submitted code to train its models.
-* There is strong isolation between semgrep deployments and data and code from one customer is never co-mingled with another customer.
+* There is strong isolation between semgrep deployments. Data and code from one customer is never co-mingled with another customer.
 * Regarding your data privacy, none of your personal information is shared with the AI subprocessor as a part of the Semgrep Assistant feature.
 * Semgrep, Inc. and its AI subprocessors do not obtain any rights to your source code. Your source code remains yours, and Semgrep and its AI subprocessors access it to the limited extent necessary to provide the Semgrep Assistant service. Once the results are returned to you, Semgrep Assistant deletes the shared snippets.
 * Because Semgrep Assistant accesses OpenAI's services through the API, OpenAI does not use any of the code provided to them to improve their services (see Section 3(c) of their Terms of Use). AWS Bedrock also [doesn't use customer data to improve base models](https://aws.amazon.com/bedrock/security-compliance/).
