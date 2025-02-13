@@ -3,7 +3,7 @@ slug: connect-scm
 title: Connect a source code manager
 hide_title: true
 description: Connect a source code manager for use with Semgrep.
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 tags:
   - Deployment
   - Semgrep AppSec Platform
@@ -126,8 +126,6 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 <TabItem value='bitbucket-data-center'>
 
-### Bitbucket Data Center
-
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
@@ -142,8 +140,6 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 </TabItem>
 <TabItem value='github-enterprise'>
 
-### GitHub Enterprise Server
-
 This section is applicable to users on a **GitHub Enterprise Server** plan. 
 
 The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
@@ -153,7 +149,7 @@ and orgs in your GHE deployment. There are two primary installation steps:
    that "owns" the app.
 2. Install the app for additional GHE orgs.
 
-#### Initial Semgrep App installation
+### Initial Semgrep App installation
 
 If your deployment contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
@@ -189,7 +185,7 @@ At this point, you've successfully installed the GHE Semgrep App on the owner GH
 
 ![App installation page](/img/ghe-11.png#md-width)
 
-#### Install the app for subsequent GHE orgs
+### Install the app for subsequent GHE orgs
 
 You can install the Semgrep app onto additional GHE orgs at any time. To do so:
 
@@ -205,8 +201,6 @@ You have successfully connected Semgrep to your GitHub Enterprise Server.
 
 </TabItem>
 <TabItem value='gitlab-sm'>
-
-### GitLab Self-Managed Plans
 
 This section is applicable to users with subscriptions to any **GitLab self-managed plan**.
 
