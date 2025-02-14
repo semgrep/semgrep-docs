@@ -73,3 +73,10 @@ If you switch to `pattern-not-inside`:
 ```
 
 The rule successfully matches the example code.
+
+## Further information
+
+See this video for more information about the difference between `pattern-not` and  `pattern-not-inside`.
+
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/JBEKaTTrhTY?si=aw7Sv1bz8l-a-4ZR" frameborder="0" allowfullscreen></iframe>
+
