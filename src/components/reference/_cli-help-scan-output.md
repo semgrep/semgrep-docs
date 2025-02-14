@@ -279,6 +279,9 @@ OPTIONS
        --no-secrets-validation
            Disables secret validation.
 
+       --no-semgrepignore-v2
+           negates --semgrepignore-v2
+
        --no-strict
            negates --strict
 
@@ -381,6 +384,9 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
+       --semgrepignore-v2
+           Under development. Not currently recommended.
+
        --severity=VAL
            Report findings only from rules matching the supplied severity
            level. By default all applicable rules are run. Can add multiple
@@ -433,7 +439,7 @@ OPTIONS
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning. 
+           internal use and may be changed or removed without warning. 
 
        --use-git-ignore
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
@@ -478,6 +484,9 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-tr
+           <internal, do not use>
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)
