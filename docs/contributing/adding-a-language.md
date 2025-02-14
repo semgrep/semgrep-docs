@@ -292,7 +292,7 @@ We keep failing test cases in a `fail/` folder, preferably in the form of the mi
 
 Now that you have added your new language <PL>LANG</PL> to `tree-sitter`, do the following:
 
-1. Update `[generate.py](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py)` in the `semgrep-interfaces` repository with your new language.
+1. Update [`generate.py`](https://github.com/semgrep/semgrep-interfaces/blob/main/generate.py) in the `semgrep-interfaces` repository with your new language.
 1. In the `semgrep` repository, go to [`/semgrep/src/parsing/Check_pattern.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/Check_pattern.ml), and add <PL>LANG</PL> to `lang_has_no_dollar_ids`. If the grammar has no dollar identifiers, add <PL>LANG</PL> above 'true'. Otherwise, add it above 'false'.
 1. In [`/src/printing/Pretty_print_AST.ml`](https://github.com/semgrep/semgrep/blob/develop/src/printing/Pretty_print_AST.ml), add <PL>LANG</PL> to the appropriate functions:
    * `print_bool`
