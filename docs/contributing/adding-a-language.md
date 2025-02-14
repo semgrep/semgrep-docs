@@ -76,7 +76,7 @@ This often works with languages that define a single dialect using a `grammar.js
 
 ### Manual setup
 
-From the `ocaml-tree-sitter` repository, do the following:
+From the `ocaml-tree-sitter-semgrep` repository, do the following:
 
 1. Create a <code>lang/<PL>LANG</PL></code> folder.
 2. Make a `test/ok` directory. Inside the directory, create a simple `hello-world` program for the language you are porting. Name the program <code>hello-world.<PL>EXTENSION</PL></code>.
@@ -115,8 +115,8 @@ lang/ruby               # language name of the form [a-z][a-z0-9]*
         └── rating.rb
 ```
 
-To test a language in ocaml-tree-sitter, you must build the
-ocaml-tree-sitter OCaml code generator, run it to produce a parser,
+To test a language in `ocaml-tree-sitter-semgrep`, you must build the
+`ocaml-tree-sitter-semgrep` OCaml code generator, run it to produce a parser,
 then run some tests for the parser. Full instructions for this
 are given in [updating-a-grammar](updating-a-grammar.md) under
 "Testing". The short instructions are:
@@ -138,7 +138,7 @@ Example:
 # Comments are allowed on their own line.
 # Blank lines are ok.
 
-# Each path is relative to ocaml-tree-sitter/lang
+# Each path is relative to ocaml-tree-sitter-semgrep/lang
 semgrep-grammars/src/tree-sitter-ruby/LICENSE
 semgrep-grammars/src/tree-sitter-ruby/grammar.js
 semgrep-grammars/src/semgrep-ruby/grammar.js
@@ -170,7 +170,7 @@ grammars](https://tree-sitter.github.io/tree-sitter/creating-parsers).
 For an example of how to extend a language, you can:
 * Look at what was done for the semgrep extensions of other languages
   in their respective `semgrep-*` folders.
-* Look at how tree-sitter-typescript extends the JavaScript grammar.
+* Look at how `tree-sitter-typescript` extends the JavaScript grammar.
   This is the file [`common/define-grammar.js` in the
   tree-sitter-typescript repository](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js).
 
@@ -238,7 +238,7 @@ such as "> 100 forks". Collect the repository URLs and put them into
 Publish generated parsers
 --
 
-After you have pushed your ocaml-tree-sitter changes to the main
+After you have pushed your ocaml-tree-sitter-semgrep changes to the main
 branch, do the following:
 1. Check that the original `grammar.js`, `src/scanner.c`/`.cc` (if
    applicable) look clean and have minimal external dependencies.
@@ -261,7 +261,7 @@ JavaScript. Check for `require()` calls in `grammar.js` and learn how
 this NodeJS primitive resolves paths.
 
 There may also be errors when generating or compiling
-OCaml code. These are likely bugs in ocaml-tree-sitter and they should
+OCaml code. These are likely bugs in ocaml-tree-sitter-semgrep and they should
 be reported or fixed right away.
 
 Here are some known types of parsing errors:
@@ -276,7 +276,7 @@ Here are some known types of parsing errors:
   `Parse.ml` file.  The error message should tell you something like
   "cannot interpret tree-sitter's output", with details on what code
   failed to match what pattern. This is most likely a bug in
-  ocaml-tree-sitter.
+  `ocaml-tree-sitter-semgrep`.
 * A segmentation fault. This could be due to a bug in the
   OCaml/tree-sitter C bindings and should be fixed. A simple test case
   that reproduces the problem would be nice.
