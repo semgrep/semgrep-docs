@@ -186,7 +186,15 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        'semgrep-appsec-platform/jira',
+        {
+          type: 'category',
+          label: 'Integrations',
+          collapsible: true,
+          items: [
+            'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/wiz'
+          ]
+        },
         'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
