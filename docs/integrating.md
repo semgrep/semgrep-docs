@@ -13,7 +13,7 @@ We're excited that you're integrating Semgrep into your tooling! Our goal with S
 
 ## Requirements for integrators
 
-* Do not resell rules from the Registry, unless you acquire an explicit license from Semgrep, Inc. Semgrep rules are [released under the Commons Clause License](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE), which prohibits redistribution in a commercial product.
+* Do not resell rules from the Registry, unless you acquire an explicit license from Semgrep, Inc. Semgrep rules are [released under the Semgrep Rules License](https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE), which prohibits redistribution in a commercial product.
 * State that you are using Semgrep; refer to Semgrep as capital S with the trademark: Semgrep™
 * Link to [semgrep.dev/login](https://semgrep.dev/login) to allow users to get an API token to pass to Semgrep so they can access the Pro Engine and rules.
 * Set `SEMGREP_INTEGRATION_NAME` in your environment to your domain name (for example, "xyz.com"). This helps us reproduce and debug issues with Semgrep in your environment.

@@ -12,13 +12,15 @@ tags:
 
 The Semgrep Registry is a [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can view the individual license of the rule you are using. Contributions are welcome.
 
-Rules are frequently organized by [rulesets](#ruleset), enabling you to find related rules by framework and language.
-
-The Registry is stored in the `[<i class="fas fa-external-link fa-xs"></i> semgrep-rules](https://github.com/semgrep/semgrep-rules)` repository.
+Rules are frequently organized by rulesets, enabling you to find related rules by framework and language.
 
 ## Sources of rules
 
-The Registry contains rules pulled from other repositories. These include rules authored by other individuals or groups, such as Trail of Bits and GitLab.
+The Registry contains rules pulled from various repositories. These include rules authored by other individuals or groups, such as Trail of Bits and GitLab.
+
+tk - add diagram here
+
+Semgrep-authored rules are pulled from the `semgrep-rules` repository.
 
 The authors of these rules set the license of these rules; many of the licenses are open source, but you should check a rule's `license` key to ensure the license meets your needs.
 

@@ -6,7 +6,6 @@ toc_max_heading_level: 4
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
 # Contributing rules
