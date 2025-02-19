@@ -255,13 +255,13 @@ All private rules for an organization are saved to the organization's folder. To
 
 ## Semgrep Registry rules
 
-[Semgrep Registry](https://semgrep.dev/explore/) is an open-source, community-driven repository of rules. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for various languages and frameworks. You can fork an existing rule to use as a starting point for writing your own.
+The [Semgrep Registry](https://semgrep.dev/explore/) is a community-driven repository of rules. Many of these rules are open source. These rules can detect OWASP vulnerabilities, best practice violations, and security issues for various languages and frameworks. You can fork an existing rule to use as a starting point for writing your own.
 
 ### Write a new rule by forking an existing rule
 
 <ForkExistingRule />
 
-### Contribute to the open-source Semgrep Registry
+### Contribute to the Semgrep Registry
 
 :::info
 For general contributing guidelines, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).

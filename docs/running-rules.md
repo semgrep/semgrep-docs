@@ -16,7 +16,7 @@ When Semgrep reports code using specified rules, the detected code is called a *
 
 Semgrep findings can help you find security, performance, or correctness issues, and enforce best practices. You can define custom rules through Semgrep's rule syntax or rely on rules created by the community or Semgrep, Inc.
 
-Public rules are stored in the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep Registry is stored in an [open source repository](https://github.com/semgrep/semgrep-rules).
+Public rules are stored in the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) which enables you to scan code without the need to write anything custom. Semgrep-maintained rules are stored in [<code><i class="fas fa-external-link fa-xs"></i> semgrep-rules</code>](https://github.com/semgrep/semgrep-rules).
 
 Rules can be organized in **rulesets**. Rulesets are rules related through a programming language, OWASP category, or framework. The rulesets are curated by the team at Semgrep and updated as new rules are added to the [Semgrep Registry](https://semgrep.dev/explore).
 
@@ -113,7 +113,7 @@ See [Ignoring findings](/ignoring-files-folders-code/) for details on suppressin
 
 ## Next steps
 
-Find out how to contribute to [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) guide.
+Find out how to contribute to the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) by reading [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) guide.
 
 ## Number of Semgrep Registry rules
 
