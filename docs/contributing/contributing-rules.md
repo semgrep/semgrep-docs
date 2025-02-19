@@ -10,20 +10,21 @@ import RequiredRuleFields from "/src/components/reference/_required-rule-fields.
 
 # Contributing rules
 
-Publish rules in the open source Semgrep Registry and share them with the Semgrep community to help others benefit from your rule-writing efforts and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
+Publish rules to the Semgrep Registry to share them with the Semgrep community and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
     <dt>For users of Semgrep AppSec Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contributing through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contribute through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
     <dt>For contributors to the repository through GitHub</dt>
-    <dd>Contribute rules to the Semgrep Registry through a pull request. See the <a href="#contributing-through-github"> Contributing through GitHub</a> section for detailed information.</dd>
+    <dd>Contribute rules to the Semgrep Registry through a pull request to `semgrep-rules`. See the <a href="#contributing-through-github"> Contribute through GitHub</a> section for detailed information.</dd>
 </dl>
 
-## Contributing through Semgrep AppSec Platform (recommended)
+## Contribute through Semgrep AppSec Platform (recommended)
 
 To contribute and publish rules to the Semgrep Registry through Semgrep AppSec Platform, follow these steps:
 
-1. Go to [Playground](https://semgrep.dev/playground/new).
+1. Sign in to Semgrep AppSec Platform.
+1. Go to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Playground](https://semgrep.dev/playground/new).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 1. Choose one of the following:
     - Create a new rule and test code by clicking <i class="fa-solid fa-circle-plus"></i> **plus** icon, select **New rule** and then click <i className="fa-solid fa-floppy-disk inline_svg"></i> **Save**. Note: The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
