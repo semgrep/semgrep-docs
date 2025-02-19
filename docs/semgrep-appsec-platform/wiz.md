@@ -23,8 +23,6 @@ To send Semgrep Code findings to Wiz:
     2. Copy the Client ID and Client Secret provided. You must provide this information to Semgrep at a later stage.
 - You must have a Wiz user account with sufficient permissions to create a service account, if needed, and integrations.
 
-- TODO: allowlisting/Network Broker updates?
-
 ## Limitations
 
 Currently, Semgrep supports the sending of Semgrep Code findings originating from full scans. Semgrep doesn't send data originating from diff-aware scans.
