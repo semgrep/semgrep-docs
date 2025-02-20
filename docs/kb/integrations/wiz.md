@@ -28,7 +28,7 @@ To send Semgrep Code findings to Wiz:
 
 ## Limitations
 
-Currently, Semgrep sends data to Wiz after every successful full scan; Semgrep does not send data from diff-aware scans. Wiz batches and syncs your data once every 24 hours.
+Semgrep sends data to Wiz after every successful full scan; Semgrep does not send data from diff-aware scans. Wiz batches and syncs your data once every 24 hours.
 
 By default, the Code findings that Semgrep sends are:
 
@@ -47,7 +47,7 @@ To add the Semgrep integration from the Wiz Integration Network:
 3. Using the navigation bar, go to **Settings > Integrations**.
 4. lick **Add Integration**.
 5. Find the **Semgrep** integration card and click **Add**.
-6. Follow the on-screen steps provided by Wiz to complete setup of the Semgrep integration. Ensure that you save the following information when provided by Wiz: 
+6. Follow the on-screen steps provided by Wiz to complete the setup of the Semgrep integration. Ensure that you save the following information when provided by Wiz: 
    1. API Endpoint URL
    2. Authentication URL
 
