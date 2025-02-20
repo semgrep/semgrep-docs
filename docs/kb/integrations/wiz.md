@@ -54,7 +54,7 @@ Findings previously sent but not included in submissions are marked as fixed in 
 4. Click **Connect**.
 5. If Semgrep successfully creates the connection, a dialog pops up that says, "Wiz credential created successfully." Semgrep also lists Wiz as an integration; you can verify the connection again by clicking **Test connection**.
 
-<!-- ![image info](semgrep-docs/build/img/wiz-semgrep-integration.png) -->
+![image info](/img/kb/wiz-semgrep-integration.png)
 
 ## Edit the integration
 
