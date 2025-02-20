@@ -4,6 +4,7 @@ append_help_link: true
 title: View Semgrep findings in Wiz's Security Graph
 hide_title: true
 description: "Learn how to view Semgrep findings in Wiz's Security Graph."
+unlisted: true
 tags:
  - Wiz
  - Semgrep AppSec Platform
