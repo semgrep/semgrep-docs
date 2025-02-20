@@ -28,13 +28,13 @@ To send Semgrep Code findings to Wiz:
 
 ## Limitations
 
-Currently, Semgrep supports the sending of Semgrep Code findings from default branches originating from full scans. Semgrep doesn't send data originating from diff-aware scans.
+Currently, Semgrep sends data to Wiz after every successful full scan; Semgrep does not send data from diff-aware scans. Wiz batches and syncs your data once every 24 hours.
 
-Semgrep sends data to Wiz after every successful full scan, which Wiz batches and syncs once every 24 hours. By default, the Code findings that Semgrep sends are:
+By default, the Code findings that Semgrep sends are:
 
-  - High severity
-  - From full scans
-  - From the default branch of each repository
+- High severity
+- From full scans
+- From the default branch of each repository
 
 Semgrep sends findings from all repositories in your organization. Findings previously sent but not included in submissions are marked as fixed in Wiz.
 
