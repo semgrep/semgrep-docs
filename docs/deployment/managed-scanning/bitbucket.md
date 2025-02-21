@@ -21,7 +21,7 @@ Add Bitbucket repositories to your Semgrep organization in bulk without adding o
 
 Semgrep Managed Scanning requires one of the following plans:
 
-- Bitbucket Cloud (Premium)
+- Bitbucket Cloud Premium
 - Bitbucket Data Center
 
 You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Managed Scanning fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
