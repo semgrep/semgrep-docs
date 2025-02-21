@@ -46,7 +46,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Rules License v. 
 
 ### How does the `semgrep/semgrep-rules` repository differ from the Semgrep Registry?
 
-The Semgrep Registry can import rules from various sources aside from the `semgrep/semgrep-rules` repository. Other sources include the [<i class="fas fa-external-link fa-xs"></i> Trail of Bits rules](https://github.com/trailofbits/semgrep-rules). These rules have their own licenses. 
+The Semgrep Registry can import rules from sources other than the `semgrep/semgrep-rules` repository, such as [<i class="fas fa-external-link fa-xs"></i> Trail of Bits](https://github.com/trailofbits/semgrep-rules). These rules have their own licenses. 
 
 
 ### I’m a security professional. Do I have to pay for Semgrep?
@@ -59,9 +59,7 @@ If you want to use Semgrep Code, including its proprietary cross-file (interfile
 
 ### Can I ship my own code analysis software that uses Semgrep CE?
 
-No, Semgrep Community Edition is designed for intnernal business purposes only. You cannot ship your own code analysis software using Semgrep Community Edition, without an explicit license from Semgrep, Inc. 
-
-For more information, please contact [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
+Because Semgrep Community Edition is licensed under the GNU Lesser General Public License v2.1, you can ship your own code analysis software using Semgrep Community Edition without an explicit license from Semgrep, Inc.
 
 ### Contacting Semgrep support
 
