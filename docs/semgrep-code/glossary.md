@@ -43,6 +43,12 @@ A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available S
 
 Rules are frequently organized by [rulesets](#ruleset), enabling you to find related rules by framework and language.
 
+### Sources of rules
+
+The Registry contains rules imported from various repositories. These include rules authored by other individuals or groups, such as Trail of Bits and GitLab.
+
+You can view a rule's `license` key to ensure the license meets your needs.
+
 ## Ruleset
 
 Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry.
