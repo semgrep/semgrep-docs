@@ -44,11 +44,16 @@ These rules can only be used for internal business purposes. These rules cannot 
 
 Yes! Semgrep is safe to run on your private code. The [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/) restrictions only come into effect if you are **selling** a product using rules provided in the Semgrep Registry. If that’s the case, contact [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com) to learn more.
 
+### How does the `semgrep/semgrep-rules` repository differ from the Semgrep Registry?
+
+The Semgrep Registry can import rules from various sources aside from the `semgrep/semgrep-rules` repository. Other sources include the [<i class="fas fa-external-link fa-xs"></i> Trail of Bits rules](https://github.com/trailofbits/semgrep-rules). These rules have their own licenses. 
+
+
 ### I’m a security professional. Do I have to pay for Semgrep?
 
 If you are a security consultant and you want to use Semgrep Community Edition as part of your assessments, that’s great and you don’t have to pay. Feel free to refer your clients to our [Semgrep](https://semgrep.dev/) product suite.
 
-If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
+If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [<i class="fas fa-external-link fa-xs"></i> semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
 If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
 
