@@ -64,6 +64,6 @@ By default, projects on Managed Scans are configured with:
 Learn how to add a repository to Semgrep Managed Scans:
 
 - [Azure DevOps](/deployment/managed-scanning/azure)
+- [Bitbucket](/deployment/managed-scanning/bitbucket)
 - [GitHub](/deployment/managed-scanning/github)
 - [GitLab](/deployment/managed-scanning/gitlab)
-- [Bitbucket](/deployment/managed-scanning/bitbucket)

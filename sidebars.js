@@ -99,9 +99,9 @@ module.exports = {
                           link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
                           items: [
                               'deployment/managed-scanning/azure',
+                              'deployment/managed-scanning/bitbucket',
                               'deployment/managed-scanning/github',
-                              'deployment/managed-scanning/gitlab',
-                              'deployment/managed-scanning/bitbucket'
+                              'deployment/managed-scanning/gitlab'
                           ]
                       },
                         {

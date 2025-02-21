@@ -29,9 +29,9 @@ import TabItem from '@theme/TabItem';
     defaultValue="gh"
     values={[
     {label: 'Azure DevOps', value: 'ado'},
+    {label: 'Bitbucket', value: 'bb'},
     {label: 'GitHub', value: 'gh'},
-    {label: 'GitLab', value: 'gl'},
-    {label: 'Bitbucket', value: 'bb'}
+    {label: 'GitLab', value: 'gl'}
     ]}
 >
 
@@ -122,9 +122,9 @@ Admin access to your Bitbucket organization.
 
 ### Requirements
 
-Read access is granted through a workspace access token you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud).
+Read access is granted through a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud).
 
-The user generating the workspace token must be a **Product Admin** role for the workspace. The scopes you must assign to the token include:
+The user generating the workspace token must be a **Product Admin** for the workspace. The scopes you must assign to the token include:
 
 - `webhook (read and write)`
 - `repository (read and write)`
