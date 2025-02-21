@@ -59,9 +59,7 @@ If you want to use Semgrep Code, including its proprietary cross-file (interfile
 
 ### Can I ship my own code analysis software that uses Semgrep CE?
 
-No, Semgrep Community Edition is designed for intnernal business purposes only. You cannot ship your own code analysis software using Semgrep Community Edition, without an explicit license from Semgrep, Inc. 
-
-For more information, please contact [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
+Because Semgrep Community Edition is licensed under the GNU Lesser General Public License v2.1, you can ship your own code analysis software using Semgrep Community Edition without an explicit license from Semgrep, Inc.
 
 ### Contacting Semgrep support
 
