@@ -26,7 +26,7 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 ## Auto-triage
 
-If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to get notifications whenever Assistant indicates a finding may be safe to ignore, isn't enabled for your deployment, you can do so as follows:
+[Auto-triage](/semgrep-assistant/overview/#auto-triage) allows you to get notifications whenever Assistant indicates a finding may be safe to ignore. You can enable auto-triage, if it isn't already, as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Auto-triage for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
@@ -36,6 +36,7 @@ If [auto-triage](/semgrep-assistant/overview/#auto-triage), which allows you to 
 *Figure*. MR comment from Semgrep Assistant in GitLab.
 
 ### Missing PR and comments
+
 Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
@@ -44,7 +45,7 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 ## Weekly priority emails
 
-If [weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails), which allows organization admins to receive information on top backlog tasks according to Assistant, isn't enabled for your deployment, you can do so as follows:
+[Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Assistant. If this feature isn't enabled for your deployment, you can do so as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
 2. In the **Assistant** section, click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
