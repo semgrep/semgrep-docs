@@ -283,7 +283,18 @@ module.exports = {
               'semgrep-assistant/privacy'
             ]
           },
-          'semgrep-assistant/getting-started',
+          {
+            type: 'category',
+            label: 'Getting started',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/getting-started'
+            },
+            items: [
+              'semgrep-assistant/customize'
+            ]
+          },
           'semgrep-assistant/analyze'
           ]
       },
