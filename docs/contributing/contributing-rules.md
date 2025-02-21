@@ -2,14 +2,14 @@
 slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep Registry."
 hide_title: true
-title: Contribute rules
+title: Contribute rules to the Semgrep Registry
 toc_max_heading_level: 4
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
-# Contribute rules
+# Contribute rules to the Semgrep Registry
 
 Publish rules to the Semgrep Registry to share them with the Semgrep community and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
