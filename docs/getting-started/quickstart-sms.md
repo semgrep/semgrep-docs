@@ -29,8 +29,9 @@ import TabItem from '@theme/TabItem';
     defaultValue="gh"
     values={[
     {label: 'Azure DevOps', value: 'ado'},
+    {label: 'Bitbucket', value: 'bb'},
     {label: 'GitHub', value: 'gh'},
-    {label: 'GitLab', value: 'gl'},
+    {label: 'GitLab', value: 'gl'}
     ]}
 >
 
@@ -112,6 +113,37 @@ Read access is granted through an access token that you generate on GitLab. You 
 <!-- vale on -->
 
 </TabItem>
+
+<TabItem value='bb'>
+
+### Prerequisites
+
+Admin access to your Bitbucket organization.
+
+### Requirements
+
+Read access is granted through a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud).
+
+The user generating the workspace token must be a **Product Admin** for the workspace. The scopes you must assign to the token include:
+
+- `webhook (read and write)`
+- `repository (read and write)`
+- `pullrequest (read and write)`
+- `project (admin)`
+- `account (read)`
+
+### Add a repository
+
+<!-- vale off -->
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
+2. Navigate to **Projects**, and click **Scan new project > Semgrep Managed Scan**.
+3. In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.
+4. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+5. Click **Enable**. You are taken to the **Projects** page as your scans begin.
+<!-- vale on -->
+
+</TabItem>
+
 </Tabs>
 
 You have finished setting up a Semgrep managed scan.
