@@ -100,7 +100,8 @@ module.exports = {
                           items: [
                               'deployment/managed-scanning/azure',
                               'deployment/managed-scanning/github',
-                              'deployment/managed-scanning/gitlab'
+                              'deployment/managed-scanning/gitlab',
+                              'deployment/managed-scanning/bitbucket'
                           ]
                       },
                         {

@@ -66,3 +66,4 @@ Learn how to add a repository to Semgrep Managed Scans:
 - [Azure DevOps](/deployment/managed-scanning/azure)
 - [GitHub](/deployment/managed-scanning/github)
 - [GitLab](/deployment/managed-scanning/gitlab)
+- [Bitbucket](/deployment/managed-scanning/bitbucket)
