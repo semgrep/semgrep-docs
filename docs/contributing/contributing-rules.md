@@ -53,7 +53,7 @@ Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-ru
 The Semgrep Registry can import rules from different repositories. These repositories can enforce their own licensing for rules. If you'd like to enforce a specific license, such as the MIT license or GNU Lesser GPL:
 
 1. Create a GitHub repository and store your rules there.
-1. Reach out to the Semgrep team through the [<i class="fas fa-external-link fa-xs"></i> Community Slack](https://go.semgrep.dev/slack)  or [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com)
+1. Reach out to the Semgrep team through the [<i class="fas fa-external-link fa-xs"></i> Community Slack](https://go.semgrep.dev/slack)  or [Support](/support)
 
 
 ## Write a rule for Semgrep Registry
