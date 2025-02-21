@@ -13,6 +13,7 @@ tags:
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
@@ -53,7 +54,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 ### Configure comments for Semgrep Code
 
-<PrCommentsInSast name="Azure" comment_type="PR" />
+<PrCommentsInSecrets name="Azure" comment_type="PR" />
 
 :::info
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
@@ -105,6 +106,10 @@ steps:
         env | sort
 ```
 </details>
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="Azure" comment_type="PR" />
 
 ## Disable PR comments for Supply Chain findings
 
