@@ -24,7 +24,8 @@ Semgrep Managed Scanning requires one of the following plans:
 - Bitbucket Cloud (Premium)
 - Bitbucket Data Center
 
-You must provide a Bitbucket workspace access token to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Managed Scanning fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
+You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Managed Scanning fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
+
 - `webhook (read and write)`
 - `repository (read and write)`
 - `pullrequest (read and write)`
@@ -37,18 +38,16 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
-2. Click **Scan new project > Semgrep Managed Scan**.
-3. In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.
-    1. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
-4. Click **Manage Connections** and then **+ Connect more**.
-5. Select **Bitbucket**.
-6. In the **Set up Managed Scans** page that appears, provide the information needed by Semgrep to connect to your Bitbucket project:
-   1. Select **Bitbucket Cloud** or **Bitbucket Data Center**.
-   2. Provide your **Access token**.
-   3. Provide your **Bitbucket workspace**.
-   4. *For Bitbucket Data Center users only*: provide the **Bitbucket URL**.
-   5. Click **Connect**.
-7. Repeat the steps above for each additional Bitbucket workspace you'd like added to Semgrep.
+1. Click **Scan new project > Semgrep Managed Scan**.
+1. Click **Manage Connections** and then **+ Connect more**.
+1. Select **Bitbucket**.
+1. In the **Set up Managed Scans** page that appears, provide the information needed by Semgrep to connect to your Bitbucket project:
+   1. Select **Bitbucket** or **Bitbucket Data Center**.
+   1. Provide your **Access token**.
+   1. Provide the name of your **Bitbucket workspace**.
+   1. *For Bitbucket Data Center users only*: provide the **Bitbucket Data Center URL**.
+   1. Click **Connect**.
+1. Repeat the steps above for each additional Bitbucket workspace you'd like added to Semgrep.
 <!-- vale on -->
 
 You have finished setting up a Semgrep managed scan.
@@ -59,7 +58,7 @@ You have finished setting up a Semgrep managed scan.
 
 ## Add additional Bitbucket projects
 
-You can enabled managed scanning for additional repositories after onboarding using the following steps:
+You can enable managed scanning for additional repositories after onboarding using the following steps:
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -98,7 +97,7 @@ Semgrep preserves your findings, scans, and triage history.
 
 ## Disable webhooks
 
-Managed scanning of Bitbucket projects require webhooks. The webhooks are enabled by default when you add Bitbucket as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
+Managed scanning of Bitbucket projects requires webhooks. The webhooks are enabled by default when you add Bitbucket as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
 
 1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
 2. Find your Bitbucket connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to disable **Incoming webhooks**.
