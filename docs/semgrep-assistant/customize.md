@@ -10,7 +10,7 @@ tags:
 
 # Customize Semgrep Assistant
 
-Once you have enabled Semgrep Assistant, you can enable and use the features detailed on this page.
+You can customize Semgrep Assistant by enabling and using the features detailed on this page.
 
 ## Remediation
 
