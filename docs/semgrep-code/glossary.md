@@ -39,7 +39,7 @@ Not to be confused with **policy-as-code**.
 
 ## Registry (Semgrep Registry)
 
-A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can view the license of the rule you are using. Contributions are welcome.
+A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. [<i class="fas fa-external-link fa-xs"></i> Contributions are welcome](contributing-to-semgrep-rules-repository). 
 
 Rules are frequently organized by [rulesets](#ruleset), enabling you to find related rules by framework and language.
 

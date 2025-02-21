@@ -10,7 +10,7 @@ tags:
 
 # Semgrep Registry
 
-The Semgrep Registry is a [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can view the individual license of the rule you are using. Contributions are welcome.
+The Semgrep Registry is a [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on.
 
 Rules are frequently organized by rulesets, enabling you to find related rules by framework and language.
 
