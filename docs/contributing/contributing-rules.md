@@ -2,28 +2,27 @@
 slug: contributing-to-semgrep-rules-repository
 description: "This article outlines how to contribute to Semgrep Registry."
 hide_title: true
+title: Contribute rules
 toc_max_heading_level: 4
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
-# Contributing rules
+# Contribute rules
 
 Publish rules to the Semgrep Registry to share them with the Semgrep community and contribute to the field of software security. There are two ways in which you can contribute rules to the Semgrep Registry:
 
 <dl>
     <dt>For users of Semgrep AppSec Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contributing-through-semgrep-appsec-platform-recommended"> Contribute through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
+    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contribute-through-semgrep-appsec-platform-recommended"> Contribute through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
     <dt>For contributors to the repository through GitHub</dt>
-    <dd>Contribute rules to the Semgrep Registry through a pull request to `semgrep-rules`. See the <a href="#contributing-through-github"> Contribute through GitHub</a> section for detailed information.</dd>
+    <dd>Contribute rules to the Semgrep Registry through a pull request to `semgrep-rules`. See the <a href="#contribute-through-github"> Contribute through GitHub</a> section for detailed information.</dd>
 </dl>
 
 ## Contribute through Semgrep AppSec Platform (recommended)
 
-To contribute and publish rules to the Semgrep Registry through Semgrep AppSec Platform, follow these steps:
-
-1. Sign in to Semgrep AppSec Platform.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Go to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Playground](https://semgrep.dev/playground/new).
 1. Click <i className="fa-solid fa-file-plus-minus inline_svg"></i> **Create New Rule**.
 1. Choose one of the following:
@@ -38,17 +37,26 @@ This workflow automatically creates a pull request in the GitHub [Semgrep Regist
 
 You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules) documentation for more information.
 
-## Contributing through GitHub
+## Contribute through GitHub
 
-Fork our repository and make a pull request. Sign our Contributor License Agreement (CLA) on GitHub before Semgrep, Inc. can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) with two files:
-1. The semgrep pattern (as YAML file).
-2. The test file (with the file extension of the language or framework). The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
+Fork the [<i class="fas fa-external-link fa-xs"></i> semgrep](https://github.com/semgrep/semgrep) repository and make a pull request. Sign the Contributor License Agreement (CLA) on GitHub; this is required before Semgrep can accept your contributions. Make a pull request to the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) with two files:
+
+1. The Semgrep rule saved as a YAML file.
+2. The test file with the file extension of the language or framework. The test file must contain at least one true positive and one true negative test case to be approved. See the [Tests](#tests) section of this document for more information.
 
 Pull requests require the approval of at least one maintainer and successfully passed [CI jobs](https://github.com/semgrep/semgrep-rules/actions).
 
 Find more about the Semgrep Registry by reading the [Rule writing](#writing-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
-## Writing a rule for Semgrep Registry
+## Licensing
+
+The Semgrep Registry can import rules from different repositories. These repositories can enforce their own licensing for rules. If you'd like to enforce a specific license, such as the MIT license or GNU Lesser GPL:
+
+1. Create a GitHub repository and store your rules there.
+1. Reach out to the Semgrep team through the [<i class="fas fa-external-link fa-xs"></i> Community Slack](https://go.semgrep.dev/slack)  or [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com)
+
+
+## Write a rule for Semgrep Registry
 
 The following sections document necessary fields in rule files of Semgrep Registry, provide information about rule messages, inform about test files, mention rule quality checkers, and describe additional fields required by rules in the security category.
 
@@ -175,7 +183,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 - Cross-file (interfile) analysis requires `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions).
 :::
 
-### Understanding rule namespacing
+### Understand rule namespacing
 
 The namespacing format for contributing rules in the [Semgrep Registry](https://github.com/semgrep/semgrep-rules) is `<language>/<framework>/<category>/$MORE`. If the rule does not belong to a particular framework, add it to the language directory, which uses the word `lang` in place of the `<framework>` - `<language>/<lang>`.
 
@@ -235,7 +243,7 @@ For an example of a good rule message, see: [this rule for Django's `mark_safe`]
 
 When you contribute rules to the Semgrep Registry, our quality checkers (linters) evaluate if the rule conforms to Semgrep, Inc. standards. The `semgrep-rule-lints` job runs linters on a new rule to check for mistakes, performance problems, and best practices for submitting to the Semgrep Registry. To improve your rule writing, use Semgrep itself to [scan semgrep-rules](https://semgrep.dev/blog/2021/how-we-made-semgrep-rules-run-on-semgrep-rules/).
 
-### Including fields required by security category
+### Fields required by the `security` category
 
 Rules in category `security` in the Semgrep Registry require specific metadata fields that ensure consistency across the ecosystem in both Semgrep AppSec Platform and Semgrep CLI. Nest these metadata under the `metadata` field.
 
@@ -542,9 +550,7 @@ You can provide custom values. Sample values include:
 - XML Injection
 - XPath Injection
 
-## Updating existing open source rules in Semgrep Registry
-
-To update an existing open source rule, follow these steps:
+## Update existing rules in Semgrep Registry
 
 1. Find a rule you want to update in the [semgrep-rules](https://github.com/semgrep/semgrep-rules/) repository.
 2. Submit a PR to the repository with your new update.
