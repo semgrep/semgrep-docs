@@ -132,7 +132,20 @@ To do so:
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
-## Use your own OpenAI API key
+## Use your AI provider
+
+By default, Semgrep Assistant uses OpenAI with Semgrep's API key. You can, however, opt to:
+
+- Use OpenAI with your own API key
+- Use Azure OpenAI
+- Use Google Gemini.
+
+If you would like to use AWS Bedrock with your Semgrep organization, contact [Support](/support) to request access.
+
+![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
+_**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
+
+### OpenAI API with your own key
 
 If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
 
@@ -148,13 +161,15 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 - Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
 
-## Use your AI provider
+### Google Gemini
 
-If you would like access to the following AI providers for use with your Semgrep organization, click the <i class="fa-regular fa-envelope"></i> **icon** next to the AI provider of your choice to request access:
+To use Google Gemini with Semgrep Assistant:
 
-- Azure OpenAI
-- AWS Bedrock
-- Google Gemini
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Google Gemini**.
+4. Paste in your API key.
+5. Click **Save** to proceed.
 
 ### Azure OpenAI
 
@@ -171,8 +186,6 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
    4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**.
    5. Paste the API key you copied from Azure into **Your Azure OpenAI API key**.
    6. Click **Save** to proceed.
-
-Your Azure OpenAI model is now configured for use in Semgrep.
 
 :::note
 You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
