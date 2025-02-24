@@ -87,7 +87,7 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 
 ### Add memory during triage
 
-If you identify findings that are safe to ignore and write triage notes indicating why this is so, Assistant can store this information as a memory and use it when assessing whether a similar finding should be shown to developers in the future. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+When you identify findings that are safe to ignore, Semgrep Assistant can store your triage notes and create a **memory**, which it will then use to assess if a similar finding should be shown to developers. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
 
 To add a memory during triage:
 
