@@ -194,7 +194,7 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
     <TriageReason />
 
-Triaging a finding as **Ignored** through a comment in Azure DevOps changes the status of the finding to **Ignored** in the Semgrep. However, the Azure DevOps conversation itself is not automatically resolved by this process.
+Triaging a finding as **Ignored** through a comment in Azure DevOps changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the Azure DevOps conversation itself is **not** automatically resolved by this process.
 
 </TabItem>
 
