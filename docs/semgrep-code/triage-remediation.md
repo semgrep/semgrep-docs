@@ -143,6 +143,7 @@ Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs
 <Tabs
     defaultValue="gh"
     values={[
+        {label: 'Azure DevOps', value: 'ado'},
         {label: 'GitHub', value: 'gh'},
         {label: 'GitLab', value: 'gl'}
     ]}
@@ -172,6 +173,39 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 :::
 
 </TabItem>  -->
+
+<TabItem value='ado'>
+
+### Prerequisites
+
+- You have one or more repositories hosted by Azure DevOps Cloud.
+- You have completed a [Semgrep core deployment](/deployment/core-deployment).
+
+### Enable triage through Azure DevOps PR comments:
+
+To enable triage through comments:
+
+1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
+2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+
+### Triage a finding
+
+To triage a finding through PR comments:
+
+1. Find an open comment created by Semgrep in your pull request:
+    ![Azure DevOps PR comment with Semgrep triage options](/img/ado-pr-comment.png#md-width)
+2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+    | Comment | Description |
+    | - | - |
+    | <code>/fp <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
+    | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
+    | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
+    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
+    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/customize#add-memories-beta). |
+
+Triaging a finding as **Ignored** through a comment in Azure DevOps changes the status of the finding to **Ignored** in the Semgrep. However, the Azure DevOps conversation itself is not automatically resolved by this process.
+
+</TabItem>
 
 <TabItem value='gh'>
 
