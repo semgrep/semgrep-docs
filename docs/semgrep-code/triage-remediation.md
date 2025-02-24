@@ -181,7 +181,7 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 - You have one or more repositories hosted by Azure DevOps Cloud.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
-### Enable triage through Azure DevOps PR comments:
+### Enable triage through Azure DevOps PR comments
 
 To enable triage through comments:
 
