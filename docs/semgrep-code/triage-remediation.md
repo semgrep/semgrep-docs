@@ -198,7 +198,7 @@ To triage a finding:
     | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
     | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
     | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
+    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/customize#add-memories-beta). |
 
 Semgrep supports older versions of this functionality that used the following commands:
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
@@ -233,7 +233,7 @@ To triage a finding:
     | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
     | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
     | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
+    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/customize#add-memories-beta). |
 
 Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitLab conversation itself is not automatically resolved by this process.
 

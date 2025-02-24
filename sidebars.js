@@ -156,18 +156,6 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'AI-assisted triage and autofix',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-assistant/overview'},
-          items: [
-            'semgrep-assistant/getting-started',
-            'semgrep-assistant/analyze',
-            'semgrep-assistant/metrics',
-            'semgrep-assistant/privacy'
-          ]
-        },
-        {
-          type: 'category',
           label: 'Secure guardrails',
           collapsible: true,
           link: {type: 'doc', id: 'secure-guardrails/overview'},
@@ -278,7 +266,40 @@ module.exports = {
           },
         ]
       },
-    {
+      {
+        type: 'category',
+        label: 'Semgrep Assistant',
+        collapsible: false,
+        items: [
+          {
+            type: 'category',
+            label: 'Overview',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/overview'
+            },
+            items: [
+              'semgrep-assistant/metrics',
+              'semgrep-assistant/privacy'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Getting started',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/getting-started'
+            },
+            items: [
+              'semgrep-assistant/customize'
+            ]
+          },
+          'semgrep-assistant/analyze'
+          ]
+      },
+      {
       type: 'category',
       label: 'References',
       collapsible: false,
