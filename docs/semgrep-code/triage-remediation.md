@@ -220,7 +220,7 @@ Semgrep supports older versions of this functionality that used the following co
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
 - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 
-Triaging a finding as **Ignored** through a comment in GitHub changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitHub conversation itself is not automatically resolved by this process.
+Triaging a finding as **Ignored** through a comment in GitHub changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the GitHub conversation itself is **not** automatically resolved by this process.
 
 </TabItem>
 <TabItem value='gl'>
@@ -242,7 +242,7 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
     <TriageReason />
 
-Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitLab conversation itself is not automatically resolved by this process.
+Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the GitLab conversation itself is **not** automatically resolved by this process.
 
 </TabItem>
 </Tabs>
