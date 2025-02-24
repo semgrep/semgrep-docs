@@ -184,14 +184,10 @@ You can also reopen a finding that was previously ignored. To do so, in step 2. 
 
 ### Enable triage through Azure DevOps PR comments
 
-To enable triage through comments:
-
 1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
 ### Triage a finding
-
-To triage a finding through PR comments:
 
 1. Find an open comment created by Semgrep in your pull request:
     ![Azure DevOps PR comment with Semgrep triage options](/img/ado-pr-comment.png#md-width)
@@ -210,12 +206,10 @@ Triaging a finding as **Ignored** through a comment in Azure DevOps changes the 
 
 ### Enable triage through GitHub PR comments:
 
-To enable triage through comments:
-
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding:
+### Triage a finding
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
@@ -235,14 +229,12 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 - A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
-### Enable triage through GitLab MR comments:
-
-To enable triage through comments:
+### Enable triage through GitLab MR comments
 
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding:
+### Triage a finding
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitLab](/img/semgrep-app-comment-gitlab.png#md-width)
