@@ -118,7 +118,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 
 Semgrep's benchmarking process involves scanning open source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by the Semgrep security research team to monitor and improve rule performance.
 
-Results as of February 25, 2025:
+Results as of **February 25, 2025**:
 
 | Benchmark | Value |
 | :---- | :---- |
