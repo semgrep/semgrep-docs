@@ -100,6 +100,11 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 
 <TabItem value='non-gh'>
 
+:::info
+These instructions are for orgs that set up a non-GitHub SSO **before** performing any of the steps in this document.
+:::
+
+
 1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) through your SSO.
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
