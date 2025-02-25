@@ -48,6 +48,7 @@ module.exports = {
                 label: 'Supported languages',
                 link: {type: 'doc', id: 'supported-languages'},
                 items: [
+                    'languages/javascript',
                     'semgrep-code/supported-languages-python',
                 ]
             },
