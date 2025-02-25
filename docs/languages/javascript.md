@@ -35,7 +35,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 | NestJS               | Web framework     |
 
 <details>
-<summary>**In addition, Semgrep Code supports 50+ libraries & frameworks based on their overall popularity.**</summary>
+<summary>**Semgrep Code supports 50+ libraries & frameworks based on their overall popularity.**</summary>
 
 | Supported libraries           | Type of library                          |
 | -------                       | ------                                   |
