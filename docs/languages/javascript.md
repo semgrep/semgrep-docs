@@ -11,7 +11,7 @@ tags:
 # JavaScript frameworks and analyses
 
 :::tip 
-Semgrep’s Python coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
+Semgrep’s JavaScript coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
 :::
 
 ## Semgrep Code analyses
