@@ -25,8 +25,8 @@ Add Azure DevOps repositories to your Semgrep organization in bulk without addin
   - Once you have Managed Scanning fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
     - `Project and Team: Read & write`
     - `Code: Read`
+    - `Code: Status`
     - `Pull Request Threads: Read & write`
-    - `Service Hooks: Read & manage`
 
 ## Enable Managed Scans and scan your first repository
 
