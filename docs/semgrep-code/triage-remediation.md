@@ -190,7 +190,8 @@ Triaging a finding as **Ignored** through a comment in Azure DevOps changes the 
 
 ### Triage a finding
 
-1. Find an open comment created by Semgrep in your pull request
+1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
+    ![Semgrep AppSec Platform PR comment in Bitbucket](/img/bb-triage-by-pr.png#md-width)
 2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
     <TriageReason />
 
