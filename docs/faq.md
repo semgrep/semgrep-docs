@@ -22,10 +22,10 @@ import TOCInline from "@theme/TOCInline"
 
 #### Semgrep Community Edition (CE)
 
-Semgrep Community Edition is a free, community-supported code scanning tool. It's perfect for individuals, security auditors, and pentesters who need fast, one-off scans. You can use it at work, on private and proprietary code, no problem!
+Semgrep Community Edition is a free, community-supported code scanning tool. It's perfect for individuals, security auditors, and penetration testers who need fast, one-off scans. You can use it at work, on private and proprietary code, no problem!
 
 Semgrep Community Edition includes:
-* The Semgrep [open-source engine](https://github.com/semgrep/semgrep): Governed by the [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) license
+* The Semgrep [open source engine](https://github.com/semgrep/semgrep): Governed by the [LGPL 2.1](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) license
 * The Semgrep [Community Rules](https://github.com/semgrep/semgrep-rules/): Governed by the [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/)
 
 Semgrep offers three paid products, designed for Application Security teams to use in production:
@@ -38,7 +38,7 @@ Semgrep offers three paid products, designed for Application Security teams to u
 
 All Semgrep maintained rules are licensed under the [Semgrep Rules License v. 1.0](https://semgrep.dev/legal/rules-license/). The source for these rules is available at the [`semgrep/semgrep-rules` repository](https://github.com/semgrep/semgrep-rules/).
 
-These rules can only be used for internal business purposes. These rules cannot be resold without permission from Semgrep, Inc. (“Semgrep”). Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies cannot resell Semgrep’s rules as a competing service. 
+These rules can only be used for internal business purposes. These rules cannot be resold without permission from Semgrep, Inc. (“Semgrep”). Since Semgrep offers a paid, hosted application, it’s important to have this restriction so other companies cannot resell Semgrep’s rules as a competing service.
 
 ### Is it OK to run Semgrep or Semgrep, Inc. rules on my work projects?
 
@@ -46,7 +46,7 @@ Yes! Semgrep is safe to run on your private code. The [Semgrep Rules License v. 
 
 ### How does the `semgrep/semgrep-rules` repository differ from the Semgrep Registry?
 
-The Semgrep Registry can import rules from sources other than the `semgrep/semgrep-rules` repository, such as [<i class="fas fa-external-link fa-xs"></i> Trail of Bits](https://github.com/trailofbits/semgrep-rules). These rules have their own licenses. 
+The Semgrep Registry can import rules from sources other than the `semgrep/semgrep-rules` repository, such as [<i class="fas fa-external-link fa-xs"></i> Trail of Bits](https://github.com/trailofbits/semgrep-rules). These rules have their own licenses.
 
 
 ### I’m a security professional. Do I have to pay for Semgrep?
@@ -272,9 +272,9 @@ Snyk can detect whether dependencies are direct or transitive. However, this inf
 
 Semgrep and Snyk both offer license compliance features, ensuring that the dependencies that your developers use meet the requirements set by your organization.
 
-To help you manage your findings, Semgrep provides you with the findings' EPSS probabilities, severity levels and transitivity information. Snyk assesses impact and likelihood and encapsulates this information into a risk score. 
+To help you manage your findings, Semgrep provides you with the findings' EPSS probabilities, severity levels and transitivity information. Snyk assesses impact and likelihood and encapsulates this information into a risk score.
 
-#### Policies and rules management 
+#### Policies and rules management
 
 Semgrep Code and Semgrep Secret's policies management feature provides extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
 
@@ -300,6 +300,27 @@ Both Semgrep and SonarQube use static analysis to find bugs, but there are a few
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 
 See [the Semgrep development philosophy](/contributing/semgrep-philosophy) for more about what makes Semgrep different
+
+### Comparing Semgrep to Opengrep
+
+#### What is Opengrep?
+Opengrep is a fork of the Semgrep Community Edition (CE) engine, formerly known as Semgrep OSS (Semgrep Open Source).
+
+#### How is Opengrep licensed?
+The Opengrep engine is licensed under LGPL 2.1. This means that any copies of the Opengrep engine must include a copy of the full license text and the original copyright notice, must make available the source code when a derivative work is distributed, and such derivative works must be licensed under the same or later version of the LGPL.
+
+#### What is Semgrep Community Edition (CE)?
+Semgrep Community Edition is the collective name for the open source Semgrep engine (formerly known as the Semgrep OSS engine) and the collection of rules published and maintained by the Semgrep community and Semgrep, Inc.
+
+#### How is Semgrep CE licensed?
+The Semgrep CE engine is licensed under LGPL 2.1. This license has remained unchanged since Semgrep, Inc. began development on the Semgrep engine in early 2020.
+
+Semgrep maintains a collection of rules written by the community and Semgrep, Inc., and they are licensed under the [Semgrep Rule license](https://semgrep.dev/legal/rules-license/). This license limits their use to internal, non-competing, and non-SaaS contexts, and explicitly limits certain commercial usage. This applies to all rules authored by Semgrep and those contributed to our public repositories.
+
+#### What changed with Semgrep’s licensing in December, 2024?
+The license for Semgrep's Community Edition engine remains unchanged: LGPL 2.1.
+
+Licensing for Semgrep-maintained rules changed from Commons Clause w/ LGPL 2.1 to the [Semgrep Rule license](https://semgrep.dev/legal/rules-license/).
 
 ## Privacy and Security
 
