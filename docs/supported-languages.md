@@ -233,8 +233,13 @@ GA coverage means that Semgrep provides full reachability analysis for that lang
 
 **GA** coverage means that Semgrep provides coverage and rules for the following:
 
-- 80% of all **critical** severity CVEs since **2017**
-- 100% of **critical** and **high** severity CVEs since **May 2022**
+- 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
+- 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
+
+##### Supported sources
+
+- [<i class="fas fa-external-link fa-xs" /> Reviewed GitHub Security Advisories](https://github.com/advisories?query=type%3Areviewed)
+- [<i class="fas fa-external-link fa-xs" /> Electron release notes](https://releases.electronjs.org/releases/stable)
 
 ## Language maturity levels
 
