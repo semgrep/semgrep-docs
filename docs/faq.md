@@ -311,6 +311,7 @@ Opengrep is a fork of the Semgrep Community Edition (CE) engine, formerly known 
 The Opengrep engine is licensed under LGPL 2.1. This means that any copies of the Opengrep engine must include a copy of the full license text and the original copyright notice, must make available the source code when a derivative work is distributed, and such derivative works must be licensed under the same or later version of the LGPL.
 
 #### What is Semgrep Community Edition (CE)?
+
 Semgrep Community Edition is the collective name for the open source Semgrep engine (formerly known as the Semgrep OSS engine) and the collection of rules published and maintained by the Semgrep community and Semgrep, Inc.
 
 #### How is Semgrep CE licensed?
