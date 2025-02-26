@@ -69,7 +69,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - The **Name of your Bitbucket Workspace**
    - Your **Access token**. Semgrep requires a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
 1. Click **Connect** to save and proceed.
-1. The Bitbucket project is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
+1. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='github-cloud'>
