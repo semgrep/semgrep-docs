@@ -54,7 +54,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 ### Configure comments for Semgrep Code
 
-<PrCommentsInSecrets name="Azure" comment_type="PR" />
+<PrCommentsInSast name="Azure" comment_type="PR" />
 
 :::info
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
