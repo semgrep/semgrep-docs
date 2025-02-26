@@ -316,6 +316,7 @@ Semgrep Community Edition is the collective name for the open source Semgrep eng
 
 #### How is Semgrep CE licensed?
 
+
 The Semgrep CE engine is licensed under LGPL 2.1. This license has remained unchanged since Semgrep, Inc. began development on the Semgrep engine in early 2020.
 
 Semgrep maintains a collection of rules written by the community and Semgrep, Inc., and they are licensed under the [Semgrep Rule license](https://semgrep.dev/legal/rules-license/). This license limits their use to internal, non-competing, and non-SaaS contexts, and explicitly limits certain commercial usage. This applies to all rules authored by Semgrep and those contributed to our public repositories.
