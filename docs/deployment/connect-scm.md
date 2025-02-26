@@ -56,7 +56,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - The **Name of your Azure DevOps organization**
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
-3. The Azure DevOps organization is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
+3. The Azure DevOps organization is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='bitbucket-cloud'>
