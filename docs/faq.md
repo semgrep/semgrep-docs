@@ -304,6 +304,7 @@ See [the Semgrep development philosophy](/contributing/semgrep-philosophy) for m
 ### Comparing Semgrep to Opengrep
 
 #### What is Opengrep?
+
 Opengrep is a fork of the Semgrep Community Edition (CE) engine, formerly known as Semgrep OSS (Semgrep Open Source).
 
 #### How is Opengrep licensed?
