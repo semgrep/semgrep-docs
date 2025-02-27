@@ -20,16 +20,16 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 1. On the **General** page, go to the **Source Code Management** section. Select **Git**. Add your Bitbucket **Repository URL**, select the **Credentials** needed to check out sources, and select the **Branches to build**.
 ![Filled-out repository details](/img/kb/bitbucket-jenkins-freestyle-repository-details.png)
 1. In the **Build Triggers** section, click **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. 
-1. In **Triggers > Select an Action** select **Created**, **Updated** and **Push**.
+1. In **Triggers > Select an Action** select **Created**, **Updated**, and **Push**.
 ![Build triggers for the freestyle project](/img/kb/bitbucket-jenkins-freestyle-events.png)
-1. In the **Build environment** section declare the `SEMGREP_APP_TOKEN` selecting the option **Use secret text or file.**
+1. In the **Build environment** section, declare the `SEMGREP_APP_TOKEN` by selecting **Use secret text or file.** Set **Variable** to `SEMGREP_APP_TOKEN` and **Credentials > Specific credentials** to your token value. Click **Add** to save your changes.
 ![Filled-out the secrets text option](/img/kb/bitbucket-jenkins-freestyle-token.png)
 :::note
 The `SEMGREP_APP_TOKEN` must be defined as a credential in Jenkins settings.
 :::
 
-## Running full scans 
-In the section **Build Steps** add a new **Execute Shell** step with the logic explained in the steps below:
+## Run full scans 
+In the **Build Steps** section, add an **Execute Shell** step with the logic below:
 ```
 #!/bin/bash
 
@@ -52,7 +52,7 @@ docker run \
 :::
 
 
-Now, after a push to the main branch a new Semgrep full scan runs.
+Now, a full scan runs when you push changes to the main branch.
 
 ## Running pull requests scans (diff-aware scans)
 
