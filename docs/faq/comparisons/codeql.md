@@ -6,8 +6,7 @@ displayed_sidebar: aboutSidebar
 tags:
   - Support
 description: >-
-  Frequently asked questions about Semgrep, comparisons to similar tools,
-  rule licensing, technical support, and more.
+  See how Semgrep compares to CodeQL.
 ---
 
 import TOCInline from "@theme/TOCInline"

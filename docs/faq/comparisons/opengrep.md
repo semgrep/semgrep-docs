@@ -6,8 +6,7 @@ displayed_sidebar: aboutSidebar
 tags:
   - Support
 description: >-
-  Frequently asked questions about Semgrep, comparisons to similar tools,
-  rule licensing, technical support, and more.
+  See how Semgrep compares to Opengrep.
 ---
 
 import TOCInline from "@theme/TOCInline"
@@ -33,10 +32,10 @@ Semgrep Community Edition is the collective name for the open source Semgrep eng
 
 The Semgrep CE engine is licensed under LGPL 2.1. This license has remained unchanged since Semgrep, Inc. began development on the Semgrep engine in early 2020.
 
-Semgrep maintains a collection of rules written by the community and Semgrep, Inc., and they are licensed under the [Semgrep Rule license](https://semgrep.dev/legal/rules-license/). This license limits their use to internal, non-competing, and non-SaaS contexts, and explicitly limits certain commercial usage. This applies to all rules authored by Semgrep and those contributed to our public repositories.
+Semgrep maintains a collection of rules written by the community and Semgrep, Inc., and they are licensed under the [Semgrep Rules License](https://semgrep.dev/legal/rules-license/). This license limits their use to internal, non-competing, and non-SaaS contexts, and explicitly limits certain commercial usage. This applies to all rules authored by Semgrep and those contributed to our public repositories.
 
 ## What changed with Semgrep’s licensing in December, 2024?
 
 The license for Semgrep's Community Edition engine remains unchanged: LGPL 2.1.
 
-Licensing for Semgrep-maintained rules changed from Commons Clause w/ LGPL 2.1 to the [Semgrep Rule license](https://semgrep.dev/legal/rules-license/).
+Licensing for Semgrep-maintained rules changed from Commons Clause w/ LGPL 2.1 to the [Semgrep Rules License](https://semgrep.dev/legal/rules-license/).
