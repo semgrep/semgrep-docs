@@ -83,7 +83,7 @@ See the following rule for a more complex example illustrating Semgrep features:
 
 <iframe title="Go dangerous method usage" src="https://semgrep.dev/embed/editor?snippet=go.gorm.security.audit.gorm-dangerous-methods-usage.gorm-dangerous-method-usage" width="100%" height="432" frameborder="0"></iframe>
 
-- It uses [typed metavariables](writing-rules/pattern-syntax/#typed-metavariables) so it can specify the type `http.Request`.
+- It uses [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables) so it can specify the type `http.Request`.
 - In the sink, the rule tracks imports down to function usage.
 - In the sanitizer, it removes type aware Booleans and a string convert function.
 - It leverages regex only to reduce how many patterns to write for finding dangerous functions.

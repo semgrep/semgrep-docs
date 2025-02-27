@@ -33,7 +33,7 @@ Snyk offers autofix capability for its SCA product, but not its SAST product. Se
 
 ## SCA
 
-Snyk offers reachability analysis for Java, JavaScript, and TypeScript, while Semgrep offers reachability analysis for [multiple languages, including Java, JavaScript, and Ruby](supported-languages/#semgrep-supply-chain)
+Snyk offers reachability analysis for Java, JavaScript, and TypeScript, while Semgrep offers reachability analysis for [multiple languages, including Java, JavaScript, and Ruby](/supported-languages/#semgrep-supply-chain)
 
 Snyk can detect whether dependencies are direct or transitive. However, this information is only available with Enterprise plans, and the information is limited to projects using Maven or Node.js, specifically npm and Yarn packages. Semgrep Supply Chain offers advanced reachability analysis for direct dependencies in the form of dataflow reachability. Semgrep offers this coverage for seven languages and counting.
 
