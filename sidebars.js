@@ -29,7 +29,7 @@ module.exports = {
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
+    { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -493,7 +493,7 @@ module.exports = {
             'support',
             'security',
             'licensing',
-            'faq',
+            'faq/overview',
             'integrating',
             'usage-and-billing',
             'deployment/claim-a-license',

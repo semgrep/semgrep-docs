@@ -129,7 +129,7 @@ didn't work properly when adding a new file or renaming an existing file.
 ### Changed
 
 - Renamed occurrences of Semgrep Cloud Platform to Semgrep AppSec Platform.
-- Edited the [Semgrep FAQ](/faq) for clarity and correctness.
+- Edited the [Semgrep FAQ](/faq/overview) for clarity and correctness.
 - Renamed instances of Pro Engine to cross-file or interfile analysis.
 - Rearranged documents under Semgrep Code to better reflect the user journey.
 - Updated documentation on how Semgrep differentiates between **Fixed** and **Removed** statuses.
