@@ -42,7 +42,7 @@ Now, after a push to the main branch a new Semgrep full scan runs.
 
 For this approach, it is required to set some Environment variables that you would typically see natively in Bitbucket but not on the Jenkins side. For Semgrep to integrate natively, the following environment variables are needed:
 SEMGREP_REPO_URL
-SEMGREP_REPO_NAME
+`SEMGREP_REPO_NAME`
 SEMGREP_BRANCH
 SEMGREP_PR_ID
 SEMGREP_BASELINE_REF
