@@ -17,7 +17,7 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 1. From the Jenkins **Dashboard**, click **New Item**.
 1. Type a project name and select **Freestyle project**. Click **OK**.
 ![Filled-out item name and Freestyle option](/img/kb/bitbucket-jenkins-freestyle.png)
-1. In the **General** section, add the Bitbucket repository details: repository URL, credentials and main branch.
+1. On the **General** page, go to the **Source Code Management** section. Select **Git**. Add your Bitbucket **Repository URL**, select the **Credentials** needed to check out sources, and select the **Branches to build**.
 ![Filled-out repository details](/img/kb/bitbucket-jenkins-freestyle-repository-details.png)
 1. In the **Build Triggers** section, click the **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. Alternatively, the plugin can also be called **Bitbucket Cloud Pull Request** or **Bitbucket Server Pull Request**.
 1. In **Triggers > Select an Action** select **Created**, **Updated** and **Push**.
