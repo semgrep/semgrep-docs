@@ -80,5 +80,5 @@ fi
 ```
 
 :::note
-- The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example: `main`.
+- The variable `SEMGREP_BASELINE_REF` must be set to the main branch, which, in the example, is `main`.
 :::
