@@ -9,7 +9,7 @@ tags:
 
 ## Semgrep Code and Secrets
 
-Semgrep Code and Secrets rules have one of three severity levels: `ERROR` (High), `WARNING` (Medium), or `INFO` (Low). The severity indicates how critical the issues that a rule potentially detects are.
+Semgrep Code and Secrets rules have one of four severity levels: Critical, High, Medium, and Low. The severity indicates how critical the issues that a rule potentially detects are.
 
 The rule author assigns the rule severity. The severity assignment of custom and third-party rules is the source of truth.
 
