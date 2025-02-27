@@ -15,7 +15,7 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 ## Create a Jenkins Freestyle project
 
 1. From the Jenkins **Dashboard**, click **New Item**.
-1. Type a project name and select the **Freestyle project** option. Click **Ok** button.
+1. Type a project name and select **Freestyle project**. Click **OK**.
 ![Filled-out item name and Freestyle option](/img/kb/bitbucket-jenkins-freestyle.png)
 1. In the **General** section, add the Bitbucket repository details: repository URL, credentials and main branch.
 ![Filled-out repository details](/img/kb/bitbucket-jenkins-freestyle-repository-details.png)
