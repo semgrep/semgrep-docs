@@ -19,7 +19,7 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 ![Filled-out item name and Freestyle option](/img/kb/bitbucket-jenkins-freestyle.png)
 1. On the **General** page, go to the **Source Code Management** section. Select **Git**. Add your Bitbucket **Repository URL**, select the **Credentials** needed to check out sources, and select the **Branches to build**.
 ![Filled-out repository details](/img/kb/bitbucket-jenkins-freestyle-repository-details.png)
-1. In the **Build Triggers** section, click **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. Alternatively, the plugin can also be called **Bitbucket Cloud Pull Request** or **Bitbucket Server Pull Request**.
+1. In the **Build Triggers** section, click **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. 
 1. In **Triggers > Select an Action** select **Created**, **Updated** and **Push**.
 ![Build triggers for the freestyle project](/img/kb/bitbucket-jenkins-freestyle-events.png)
 1. In the **Build environment** section declare the `SEMGREP_APP_TOKEN` selecting the option **Use secret text or file.**
@@ -31,23 +31,34 @@ The `SEMGREP_APP_TOKEN` must be defined as a credential in Jenkins settings.
 ## Running full scans 
 In the section **Build Steps** add a new **Execute Shell** step with the logic explained in the steps below:
 ```
+#!/bin/bash
+
+REPO_URL=$GIT_URL
+REPO_NAME=$(echo "$GIT_URL" | awk -F'/' '{print $(NF-1)"/"$(NF)}' | sed 's/.git$//')
+
 docker run \
     -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+    -e SEMGREP_REPO_URL=$REPO_URL \
+    -e SEMGREP_REPO_NAME=$REPO_NAME \
     -v "$(pwd):$(pwd)" --workdir $(pwd) \
     semgrep/semgrep semgrep ci
 ```
+:::note
+- The variable `SEMGREP_REPO_URL` is helpful to link the Semgrep findings with the repository.
+:::
+
+:::note
+- Setting the variable `SEMGREP_REPO_NAME` is a good practice as it allows to specify an accurate name to the Semgrep project.
+:::
+
+
 Now, after a push to the main branch a new Semgrep full scan runs.
 
-## Running pull requests scans (diff scans)
+## Running pull requests scans (diff-aware scans)
 
-For this approach, it is required to set some Environment variables that you would typically see natively in Bitbucket but not on the Jenkins side. For Semgrep to integrate natively, the following environment variables are needed:
-SEMGREP_REPO_URL
-`SEMGREP_REPO_NAME`
-`SEMGREP_BRANCH`
-`SEMGREP_PR_ID`
-`SEMGREP_BASELINE_REF`
+The diff-aware scan configuration uses a computed merge base. To achieve that it is needed to specify the source branch: `SEMGREP_BRANCH` and the target branch: `SEMGREP_BASELINE_REF`. In addition, setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
 
-One possible version of the shell script is:
+Said that, one possible version of the shell script is:
 
 ```
 #!/bin/bash
