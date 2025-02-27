@@ -44,7 +44,7 @@ For this approach, it is required to set some Environment variables that you wou
 SEMGREP_REPO_URL
 `SEMGREP_REPO_NAME`
 `SEMGREP_BRANCH`
-SEMGREP_PR_ID
+`SEMGREP_PR_ID`
 SEMGREP_BASELINE_REF
 
 So a final shell script could like this:
