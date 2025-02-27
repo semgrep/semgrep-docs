@@ -327,7 +327,7 @@ inbound:
 
 ## Run multiple instances of the Semgrep Network Broker
 
-You should not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is currently less reliable than running a single instance.
+Do not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
 
 ## Allowlist multiple source code managers with one configuration file
 
