@@ -329,7 +329,7 @@ inbound:
 
 You should not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is currently less reliable than running a single instance.
 
-## Allowlisting multiple source code managers with one configuration file
+## Allowlist multiple source code managers with one configuration file
 
 It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
