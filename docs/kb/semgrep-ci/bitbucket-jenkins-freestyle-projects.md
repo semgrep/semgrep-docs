@@ -12,7 +12,7 @@ description: Set up Jenkins freestyle projects for Bitbucket repositories.
 
 Ensure you have set up [triggering events from Bitbucket to Jenkins](https://semgrep.dev/docs/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins/).
 
-## Create a Jenkins freestyle project
+## Create a Jenkins Freestyle project
 
 1. From the **Jenkins Dashboard** click on create a **New Item**.
 1. Type a project name and select the **Freestyle project** option. Click **Ok** button.
