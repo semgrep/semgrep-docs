@@ -47,7 +47,7 @@ SEMGREP_REPO_URL
 `SEMGREP_PR_ID`
 `SEMGREP_BASELINE_REF`
 
-So a final shell script could like this:
+One possible version of the shell script is:
 
 ```
 #!/bin/bash
