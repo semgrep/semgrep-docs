@@ -25,7 +25,7 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 1. In the **Build environment** section, declare the `SEMGREP_APP_TOKEN` by selecting **Use secret text or file.** Set **Variable** to `SEMGREP_APP_TOKEN` and **Credentials > Specific credentials** to your token value. Click **Add** to save your changes.
 ![Filled-out the secrets text option](/img/kb/bitbucket-jenkins-freestyle-token.png)
 :::note
-The `SEMGREP_APP_TOKEN` must be defined as a credential in Jenkins settings.
+Ensure that you have [defined `SEMGREP_APP_TOKEN` as a credential](https://www.jenkins.io/doc/book/using/using-credentials/#configuring-credentials) in Jenkins.
 :::
 
 ## Run full scans 
