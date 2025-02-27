@@ -6,7 +6,7 @@ tags:
 description: Set up Jenkins freestyle projects for Bitbucket repositories.
 ---
 
-# Set up Jenkins freestyle projects for Bitbucket repositories
+# Set up Jenkins Freestyle projects for Bitbucket repositories
 
 ## Requirements
 
