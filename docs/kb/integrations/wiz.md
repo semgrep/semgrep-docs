@@ -12,20 +12,35 @@ tags:
 
 # View Semgrep findings in Wiz's Security Graph
 
-Semgrep integrates with Wiz by calling Wiz’s GraphQL API endpoints and uploading your static analysis (SAST) vulnerability findings to a dedicated Amazon S3 bucket. Your Semgrep SAST vulnerability findings are mapped to the same correlated repository scanned by Wiz and enriched by any available inventory and runtime-related data, such as clusters, pods, containers, cloud configurations, and more. Semgrep's goal is to give you a holistic view of your code and infrastructure security so that you can focus on what matters most.
+Semgrep integrates with Wiz by establishing a secure connection with Wiz's API endpoints. If your Wiz instance has a security graph enrichment integration, you can view SAST vulnerabilities that Semgrep identifies in the repositories it scans and are also present in your cloud-native application protection platform (CNAPP). Semgrep's goal is to give you a holistic view of your code and infrastructure security so that you can focus on what matters most.
+
+![A list of Semgrep findings in Wiz](/img/semgrep-findings-in-wiz.png#md-width)
+_**Figure**. A list of Semgrep findings in Wiz._
+
+![Detailed information for a finding sent by Semgrep to Wiz](/img/wiz-finding-details-2.png#md-width)
+_**Figure**. Detailed information for a finding sent by Semgrep to Wiz._
 
 ## Prerequisites and requirements
 
-This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code). 
+This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
 
 To send Semgrep Code findings to Wiz:
 
-- You must have a Wiz service account with sufficient permissions to create a service account, if needed, and integrations. The service account must be able to provide Semgrep with the following scopes: `create:external_data_ingestion`, `read:system_activities`, and `read:resources`. If you don't have a service account:
-    1. Create a [Wiz service account](https://docs.wiz.io/wiz-docs/docs/service-accounts-settings?lng=en). When prompted to select the **Type** of the service account, select **Custom Integration (GraphQL API)**.
-    2. Copy the Wiz **Client ID** and **Client Secret** provided. You must provide this information to Semgrep at a later stage.
+- You must [connect your source code manager to Semgrep](https://semgrep.dev/docs/deployment/connect-scm). At this time, Wiz [supports the use of the following](https://win.wiz.io/docs/sast-app-vuln-findings-schema#schema-fields):
+  - GitHub Cloud
+  - GitHub Enterprise Server
+  - GitLab Cloud
+  - GitLab Self-managed
+- You must have a Wiz service account with sufficient permissions to create a service account, if needed, and integrations. The service account must be able to provide Semgrep with the following scopes: `create:external_data_ingestion`, `read:system_activities`, and `read:resources`. You must also have [the client ID and the client secret that accompanies the service account](https://docs.wiz.io/wiz-docs/docs/semgrep-integration).
 - You must add the [Semgrep integration](https://app.wiz.io/settings/automation/integrations) from the Wiz Integration Network. During this process, save the following values shown to you:
    1. API Endpoint URL
    2. Authentication URL
+   
+   You can find both values at a later date under [tenant info](https://app.wiz.io/tenant-info/general).
+
+:::note 
+For Wiz users with a [Code Security](https://www.wiz.io/platform/wiz-code) license: this integration takes effect automatically when you create a Wiz Cloud Insights account.
+:::
 
 ## Limitations
 
@@ -33,24 +48,19 @@ Semgrep sends data to Wiz after every successful full scan; Semgrep does not sen
 
 By default, the Code findings that Semgrep sends are:
 
-- High severity
+- Critical or high severity
 - From full scans
 - From the default branch of each repository
 
 Semgrep sends findings from all repositories in your organization. Findings previously sent but not included in submissions are marked as fixed in Wiz.
 
+:::caution
+Due to [a limitation of how Wiz handles external enrichment data](https://win.wiz.io/docs/limitations#external-enrichment-limitations), you must run a new SAST scan on your Semgrep project once a week to maintain the data displayed in Wiz.
+:::
+
 ## Add the Semgrep integration from the Wiz Integration Network
 
-To add the Semgrep integration from the Wiz Integration Network:
-
-1. Sign in to [Wiz](https://app.wiz.io/login).
-2. Ensure that the account you're using has been assigned the `create:integrations` access scope.
-3. Using the navigation bar, go to **Settings > Integrations**.
-4. lick **Add Integration**.
-5. Find the **Semgrep** integration card and click **Add**.
-6. Follow the on-screen steps provided by Wiz to complete the setup of the Semgrep integration. Ensure that you save the following information when provided by Wiz: 
-   1. API Endpoint URL
-   2. Authentication URL
+To learn how to add the Semgrep integration from the Wiz Integration Network, review [Wiz Docs' Semgrep Integration](https://docs.wiz.io/wiz-docs/docs/semgrep-integration).
 
 ## Configure the integration in Semgrep
 
