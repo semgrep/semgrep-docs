@@ -11,7 +11,7 @@ description: >-
 
 import TOCInline from "@theme/TOCInline"
 
-# Comparing Semgrep to Endor Labs
+# Compare Semgrep to Endor Labs
 
 <TOCInline toc={toc} />
 

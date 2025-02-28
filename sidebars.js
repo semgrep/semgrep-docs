@@ -500,6 +500,18 @@ module.exports = {
             'contributing/philosophy',
             'semgrep-pro-vs-oss',
             {
+              type: 'category',
+              label: 'Comparisons with other tools',
+              collapsible: true,
+              items: [
+                  'faq/comparisons/codeql',
+                  'faq/comparisons/endor-labs',
+                  'faq/comparisons/opengrep',
+                  'faq/comparisons/snyk',
+                  'faq/comparisons/sonarqube',
+                ]
+            },
+            {
               type: 'doc',
               id: 'metrics',
               label: 'Semgrep metrics'

@@ -12,7 +12,7 @@ description: >-
 import TOCInline from "@theme/TOCInline"
 
 
-# Comparing Semgrep to Snyk
+# Compare Semgrep to Snyk
 
 <TOCInline toc={toc} />
 

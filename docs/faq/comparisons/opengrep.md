@@ -11,7 +11,7 @@ description: >-
 
 import TOCInline from "@theme/TOCInline"
 
-# Comparing Semgrep to Opengrep
+# Compare Semgrep to Opengrep
 
 <TOCInline toc={toc} />
 

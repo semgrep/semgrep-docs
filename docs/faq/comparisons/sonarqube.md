@@ -11,7 +11,7 @@ description: >-
 
 import TOCInline from "@theme/TOCInline"
 
-# Comparing Semgrep to SonarQube
+# Compare Semgrep to SonarQube
 
 <TOCInline toc={toc} />
 

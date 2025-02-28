@@ -11,7 +11,7 @@ description: >-
 
 import TOCInline from "@theme/TOCInline"
 
-# Comparing Semrep to CodeQL
+# Compare Semrep to CodeQL
 
 <TOCInline toc={toc} />
 
