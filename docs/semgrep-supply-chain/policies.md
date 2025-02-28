@@ -12,7 +12,7 @@ tags:
 
 By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving notifications while you evaluate the tool.
 
-Once you are ready to to notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
+Once you are ready to notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
 
 This feature enables you to configure the following:
 
@@ -41,11 +41,26 @@ Only **admins** can view, create, edit, or delete policies.
 1. Define the scope of the policy:
     1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**.
     1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
-1. Define the conditions of the policy by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. Selecting **Reachable** typically results in more findings shown to developers.
+1. Define the conditions of the policy. See the Policy conditions section for more information. You can create more than one condition.
+    - Within a condition, you can select multiple **values**. The policy is applied when **any** of those values are met.
+    - Each additional condition is additive (`AND`). The policy is applied when **all** conditions are met.
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
 
 After creating a policy, it is automatically **enabled** and will be applied to subsequent scans.
+
+## Policy conditions
+
+| Condition | Values|
+| -------  | ------ |
+| Reachability         | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> </ul>       |
+| Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
+| Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
+| Transitivity  | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| EPSS probability  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
+
+ by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. Selecting **Reachable** typically results in more findings shown to developers.
+
 
 ## Other operations
 
