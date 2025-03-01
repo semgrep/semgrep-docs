@@ -70,11 +70,11 @@ The following table lists available conditions and their values.
 
 | Condition | Values|
 | -------  | ------ |
-| Reachability      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> </ul>       |
+| [Reachability](/semgrep-supply-chain/glossary#reachability)      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
-| Transitivity  | <ul><li>Direct</li> <li>Transitive</li></ul> |
-| EPSS probability  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
+| [Transitivity](/semgrep-supply-chain/glossary#transitivity)  | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| [EPSS probability](/semgrep-supply-chain/glossary#epss-probability)  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 
 ## Other operations
 

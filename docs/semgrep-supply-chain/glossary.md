@@ -60,7 +60,7 @@ A package registry stores dependencies and provides a means to upload or downloa
 
 ## Reachable finding (and reachable vulnerability)
 
-A reachable finding means that you are using both a vulnerable piece of code (the **usage**) and the vulnerable version of a dependency. Within Semgrep Supply Chain, specific findings (usages) are grouped together by their vulnerability.
+A reachable finding means that you are using both a vulnerable code pattern (the **usage**) and the vulnerable version of a dependency. Within Semgrep Supply Chain, specific findings (usages) are grouped together by their vulnerability.
 
 Continuous integration scans with Semgrep Supply Chain rules can block pull or merge requests upon detecting any reachable findings.
 
@@ -72,7 +72,7 @@ See also [Reachability](#reachability).
 
 ## Reachability rules
 
-A type of Semgrep Supply Chain rule that performs reachability analysis. A reachability rule can determine if the vulnerable piece of code from a dependency is used in the codebase that imports it.
+A type of Semgrep Supply Chain rule that performs reachability analysis. A reachability rule can determine if the vulnerable code pattern from a dependency is used in the codebase that imports it.
 
 Compare its opposite: [rules without reachability analysis](#rules-without-reachability-analysis)
 
