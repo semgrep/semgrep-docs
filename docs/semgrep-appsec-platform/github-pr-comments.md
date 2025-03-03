@@ -70,17 +70,23 @@ _**Figure**. Permissions for all repositories._
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
 _**Figure**. Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected._
 
-For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
+For GitHub Actions users, no further steps need to be undertaken. Continue setting up PR comments by configuring comments for Semgrep Code.
 
 ### Required environment variables
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Code and Secrets
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
+
+### Configure comments for Semgrep Supply Chain
+
+To configure comments for Supply Chain, you must define a Supply Chain policy. This policy lets you set the specific conditions, such as transitivity and reachability, trigger a comment. These conditions are unique to Supply Chain findings.
+
+See the [Policies documentation](/semgrep-supply-chain/policies) for more information.
 
 ### Receive comments in your VPN or on-premise SCM
 
