@@ -13,6 +13,7 @@ tags:
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
@@ -105,6 +106,10 @@ steps:
         env | sort
 ```
 </details>
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="Azure" comment_type="PR" />
 
 ## Disable PR comments for Supply Chain findings
 
