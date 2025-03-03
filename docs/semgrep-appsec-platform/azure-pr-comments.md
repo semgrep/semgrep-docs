@@ -15,6 +15,7 @@ import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -50,13 +51,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Azure DevOps org exists and is correct.
 
-### Configure comments for Semgrep Code
-
-<PrCommentsInSast name="Azure" comment_type="PR" />
-
-:::info
-Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
-:::
+### Set up the configuration file
 
 In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format `{organization}/{project}`:
 
@@ -104,6 +99,15 @@ steps:
         env | sort
 ```
 </details>
+
+### Configure comments for Semgrep Code
+
+<PrCommentsInSast name="Azure" comment_type="PR" />
+
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ## Next steps
 

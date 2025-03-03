@@ -20,6 +20,7 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -76,7 +77,7 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
-### Configure comments for Semgrep Code and Secrets
+### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
@@ -84,9 +85,7 @@ If you are using **GitHub Actions** to run Semgrep, no extra changes are needed 
 
 ### Configure comments for Semgrep Supply Chain
 
-To configure comments for Supply Chain, you must define a Supply Chain policy. This policy lets you set the specific conditions, such as transitivity and reachability, trigger a comment. These conditions are unique to Supply Chain findings.
-
-See the [Policies documentation](/semgrep-supply-chain/policies) for more information.
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 

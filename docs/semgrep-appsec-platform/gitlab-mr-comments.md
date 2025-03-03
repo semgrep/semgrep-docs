@@ -21,6 +21,7 @@ import DefineConnectionVariables from "/src/components/reference/_define-connect
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -119,6 +120,10 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 

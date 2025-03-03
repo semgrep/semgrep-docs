@@ -19,6 +19,7 @@ import NextAfterComments from "/src/components/procedure/_next-after-comments.md
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -183,6 +184,10 @@ pipelines:
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 
