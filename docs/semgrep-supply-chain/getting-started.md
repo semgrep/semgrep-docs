@@ -136,5 +136,4 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull or merge requests
 
-
-tk - update
+You can comment or potentially block pull or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).
