@@ -96,9 +96,13 @@ specification more closely.
 
 ## Define ignored files and folders in Semgrep AppSec Platform
 
-Another method for users to define ignore patterns is through a Project in Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section.
+Another method for users to define ignore patterns is through a Project in Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can define patterns for individual projects, or you can define them at the organization level so that they're applied to all projects owned by that organization.
 
-To define files and folders in Semgrep AppSec Platform:
+Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
+
+Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
+
+### Define files and folders for a specific project
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
 2. From the sidebar, click **[Projects](https://semgrep.dev/orgs/-/projects)**.
@@ -109,9 +113,14 @@ To define files and folders in Semgrep AppSec Platform:
    2. Enter files and folders to ignore in the relevant **Path Ignores** box.
    3. Click **Save changes**.
 
-Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
+### Define files and folders for all projects of an organization
 
-Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+2. Go to **Settings > Deployment** and navigate to the **Global ignore paths** section.
+3. To define files and folders that Semgrep can ignore:
+   1. Click **Code (SAST) & Supply Chain (SCA)** or **Secrets** to expand and display the **Path Ignores** box.
+   2. Enter files and folders to ignore in the relevant path ignores box.
+   3. Click **Save changes**.
 
 ### Add items to `.semgrepignore` during findings triage
 
