@@ -11,7 +11,7 @@ tags:
 
 # Tag projects
 
-Tagging enables you to group together projects based on your organization's unique business structure or needs. By tagging projects, you are able to quickly apply Supply Chain policies and other Semgrep features to specific groups.
+Tagging enables you to group projects together based on your organization's unique business structure or needs. By tagging projects, you are able to quickly apply Supply Chain policies and other Semgrep features to specific groups.
 
 Add tags for specific projects in the Semgrep AppSec Platform through the following methods:
 
