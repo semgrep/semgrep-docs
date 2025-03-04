@@ -54,7 +54,7 @@ After adding the script, a full scan runs when you push changes to the main bran
 
 The diff-aware scan configuration uses a computed merge base. To achieve that it is needed to specify the source branch: `SEMGREP_BRANCH` and the target branch: `SEMGREP_BASELINE_REF`. In addition, setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
 
-Said that, one possible version of the shell script is:
+One possible way to modify the shell script to include diff-aware scans is:
 
 ```
 #!/bin/bash
