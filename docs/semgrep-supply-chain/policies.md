@@ -33,13 +33,12 @@ Only **admins** can view, create, edit, or delete policies.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. From the navigation menu, click **Rules** to expand the drop-down box, then click **Policies**.
 1. Click **Supply Chain**. This takes you to the Supply Chain policies tab. Your policies are arranged as cards.
+    ![Policies > Semgrep Supply Chain](/img/ssc-policies-card.png#md-width)
+    _**Figure**. A single card within the Semgrep Supply Chain Policies page._
 
-![Policies > Semgrep Supply Chain](/img/ssc-policies-card.png#md-width)
-_**Figure**. The Semgrep Supply Chain Policies page._
+- To view and edit an existing policy, click its **name** or **the three-dot ellipsis (...) > Edit policy**.
+- View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
 
-- To view and edit an existing policy, click its **name**.
-- You can view a popup of a policy's conditions and values by clicking on its **summary**, next to the list of project tags.
-- Click the projects tag count to view the list of project tags, if any. Project tags are a quick way to group projects affected by a policy.
 
 ## Create a policy
 
@@ -48,10 +47,10 @@ _**Figure**. The Semgrep Supply Chain Policies page._
 1. Define the scope of the policy:
     1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**.
     1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
-1. Define the conditions of the policy. See the Policy conditions section for more information. You can create more than one condition.
+1. Define the conditions of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition.
     - For each condition, you can select multiple **values**. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
-    - tk add screenshot
+      ![Policies > Semgrep Supply Chain](/img/ssc-policies-many-conditions.png)
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
 
@@ -66,7 +65,7 @@ After creating a policy, it is automatically **enabled** and will be applied to 
 
 ## Policy conditions
 
-The following table lists available conditions and their values.
+The following table lists available conditions and their values:
 
 | Condition | Values|
 | -------  | ------ |
