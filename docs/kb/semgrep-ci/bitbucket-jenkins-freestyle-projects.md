@@ -44,15 +44,11 @@ docker run \
     semgrep/semgrep semgrep ci
 ```
 :::note
-- The variable `SEMGREP_REPO_URL` is helpful to link the Semgrep findings with the repository.
+- The variable `SEMGREP_REPO_URL` links the Semgrep project and findings with the Bitbucket repository.
+- The variable `SEMGREP_REPO_NAME` provides an accurate and meaningful name to the Semgrep project.
 :::
 
-:::note
-- Setting the variable `SEMGREP_REPO_NAME` is a good practice as it allows to specify an accurate name to the Semgrep project.
-:::
-
-
-Now, a full scan runs when you push changes to the main branch.
+After adding the script, a full scan runs when you push changes to the main branch.
 
 ## Run scans on pull requests (diff-aware scans)
 
