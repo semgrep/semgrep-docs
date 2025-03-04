@@ -79,7 +79,7 @@ tags:
 ### Added
 
 - Added the following new documents, articles, and sections:
-    - [View Semgrep findings in Wiz's Security Graph](/kb/integrations/wiz).
+    - [View Semgrep findings in Wiz's Security Graph](/semgrep-appsec-platform/wiz).
     - [JavaScript frameworks and analyses](/languages/javascript).
     - [Triage findings through PR comments with repositories hosted by Azure DevOps and Bitbucket Cloud](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments).
 
