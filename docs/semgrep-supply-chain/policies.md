@@ -12,7 +12,7 @@ tags:
 
 By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving notifications while you evaluate the tool.
 
-Once you are ready to to notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
+Once you are ready to notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
 
 This feature enables you to configure the following:
 
@@ -32,20 +32,52 @@ Only **admins** can view, create, edit, or delete policies.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. From the navigation menu, click **Rules** to expand the drop-down box, then click **Policies**.
-1. Click **Supply Chain**. This takes you to the Supply Chain policies tab.
+1. Click **Supply Chain**. This takes you to the Supply Chain policies tab. Your policies are arranged as cards.
+    ![Policies > Semgrep Supply Chain](/img/ssc-policies-card.png#md-width)
+    _**Figure**. A single card within the Semgrep Supply Chain Policies page._
+
+- To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy**.
+- View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
 
 ## Create a policy
 
-1. From the Supply Chain policies tab, Click **Create policy**.
+1. From the Supply Chain policies tab, Click **<i class="fa-solid fa-plus"></i> Create policy**.
 1. Provide a **Policy name**.
 1. Define the scope of the policy:
-    1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**.
+    1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**. Note that you can only select either a scope based on projects or tags, but not both.
     1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
-1. Define the conditions of the policy by selecting either **Reachable** or **Critical or high severity, reachable, upgrades available**. Selecting **Reachable** typically results in more findings shown to developers.
+1. Define the conditions of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
+    - For each condition, you can select multiple values by clicking on the **plus sign (<i class="fa-solid fa-plus"></i>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
+    - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
+      ![Policies > Semgrep Supply Chain](/img/ssc-policies-many-conditions.png)
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
+1. After creating a policy, it is **not** automatically enabled. Click the **<i class="fa-solid fa-toggle-large-on"></i> toggle** to enable a policy. This applies the policy to future scans.
 
-After creating a policy, it is automatically **enabled** and will be applied to subsequent scans.
+## Common use cases for policies
+
+- Blocking reachable findings with upgradeable dependencies. This is a reasonable policy as it provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
+- Leaving a comment for:
+  - Reachable findings without upgradeable dependencies, to make the developer aware of the risk.
+  - Reachable, yet transitive findings; depending on your organization's policies, these may need to be flagged for risk.
+
+## Policy scopes
+
+A policy's scope can consist of tags or projects, but not both. If you need to create a policy with both tags and projects, simply make another policy.
+
+If a project or project tag that's included in a policy scope gets deleted, it is **removed from the policy scope**. If all projects or all project tags are deleted for a given policy, you must edit the policy for it to be applied to a valid scope.
+
+## Policy conditions
+
+The following table lists available conditions and their values:
+
+| Condition | Values|
+| -------  | ------ |
+| [Reachability](/semgrep-supply-chain/glossary#reachability)      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> </ul>       |
+| Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
+| Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
+| [Transitivity](/semgrep-supply-chain/glossary#transitivity)  | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| [EPSS probability](/semgrep-supply-chain/glossary#epss-probability)  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 
 ## Other operations
 
@@ -68,3 +100,8 @@ You can also disable or enable a policy from the policy's page:
 ### Delete a policy
 
 From the Supply Chain policies tab, click the **three dot (...) button > Delete policy**, then click **Remove**.
+
+Note that: 
+
+- This does not remove comments from existing PRs or MRs with findings.
+- If a policy is the **sole culprit** for blocking a PR, deleting it **and** re-running a scan unblocks the PR or MR.

@@ -248,8 +248,8 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
-                      'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/view-export',
+                      'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
