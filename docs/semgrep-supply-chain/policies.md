@@ -65,7 +65,7 @@ Only **admins** can view, create, edit, or delete policies.
 
 A policy's scope can consist of tags or projects, but not both. If you need to create a policy with both tags and projects, simply make another policy.
 
-If a project or project tag that's included in a policy scope gets deleted, it is **removed from the policy scope**. If all projects or all project tags are deleted for a given policy, users must edit the policy for it to be applied to a valid scope.
+If a project or project tag that's included in a policy scope gets deleted, it is **removed from the policy scope**. If all projects or all project tags are deleted for a given policy, you must edit the policy for it to be applied to a valid scope.
 
 ## Policy conditions
 
