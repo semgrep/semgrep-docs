@@ -315,7 +315,7 @@ inbound:
       methods: [GET, POST]
 ```
 
-Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. To ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
+Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. If you are running `v0.30.0` or earlier of the broker: to ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
 
 ```yaml
 inbound:
@@ -324,6 +324,8 @@ inbound:
     - url: https://git.example.com/api/v3/repos/:owner/:repo/check-runs/:id
       methods: [GET, POST, PATCH]
 ```
+
+In broker `v0.31.0` and later, this URL is part of the default allowlist.
 
 ## Run multiple instances of the Semgrep Network Broker
 
