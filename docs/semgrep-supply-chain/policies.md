@@ -36,9 +36,8 @@ Only **admins** can view, create, edit, or delete policies.
     ![Policies > Semgrep Supply Chain](/img/ssc-policies-card.png#md-width)
     _**Figure**. A single card within the Semgrep Supply Chain Policies page._
 
-- To view and edit an existing policy, click its **name** or **the three-dot ellipsis (...) > Edit policy**.
+- To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy**.
 - View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
-
 
 ## Create a policy
 
@@ -48,12 +47,12 @@ Only **admins** can view, create, edit, or delete policies.
     1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**. Note that you can only select either a scope based on projects or tags, but not both.
     1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
 1. Define the conditions of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
-    - For each condition, you can select multiple values by clicking on the **plus sign** on the same row. The policy is applied when **any** of those values are met (`OR`).
+    - For each condition, you can select multiple values by clicking on the **plus sign (<i class="fa-solid fa-plus"></i>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
       ![Policies > Semgrep Supply Chain](/img/ssc-policies-many-conditions.png)
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
-1. After creating a policy, it is **not** automatically enabled. Click the **toggle** to enable a policy. This applies the policy to future scans.
+1. After creating a policy, it is **not** automatically enabled. Click the **<i class="fa-solid fa-toggle-large-on"></i> toggle** to enable a policy. This applies the policy to future scans.
 
 ## Common use cases for policies
 
@@ -61,6 +60,12 @@ Only **admins** can view, create, edit, or delete policies.
 - Leaving a comment for:
   - Reachable findings without upgradeable dependencies, to make the developer aware of the risk.
   - Reachable, yet transitive findings; depending on your organization's policies, these may need to be flagged for risk.
+
+## Policy scopes
+
+A policy's scope can consist of tags or projects, but not both. If you need to create a policy with both tags and projects, simply make another policy.
+
+If a project or project tag that's included in a policy scope gets deleted, it is **removed from the policy scope**. If all projects or all project tags are deleted for a given policy, users must edit the policy for it to be applied to a valid scope.
 
 ## Policy conditions
 
