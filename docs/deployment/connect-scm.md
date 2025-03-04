@@ -92,7 +92,7 @@ These steps are for users that sign in to Semgrep through GitHub.
 
 ### GitHub Cloud with non-GitHub SSO
 
-These instructions are for orgs that set up a non-GitHub SSO **before** performing any of the steps in this document.
+These steps are for users that sign in to Semgrep through a **non-GitHub** SSO provider.
 
 1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using SSO.
