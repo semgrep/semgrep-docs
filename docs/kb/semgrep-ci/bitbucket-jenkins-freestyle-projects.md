@@ -52,7 +52,7 @@ After adding the script, a full scan runs when you push changes to the main bran
 
 ## Run scans on pull requests (diff-aware scans)
 
-The diff-aware scan configuration uses a computed merge base. To achieve that it is needed to specify the source branch: `SEMGREP_BRANCH` and the target branch: `SEMGREP_BASELINE_REF`. In addition, setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
+The diff-aware scan configuration must specify a merge base to compare the PR changes against. To achieve that, specify the pull request target branch as `SEMGREP_BASELINE_REF`, and set `SEMGREP_BRANCH` to the pull request source branch to ensure it's correctly identified. Set the `SEMGREP_REPO_NAME` as described above for full scans, and add `SEMGREP_PR_ID` so Semgrep can send comments to the related PR.
 
 One possible way to modify the shell script to include diff-aware scans is:
 
