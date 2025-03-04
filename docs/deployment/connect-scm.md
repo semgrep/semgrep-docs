@@ -56,7 +56,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    - The **Name of your Azure DevOps organization**
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
-3. The Azure DevOps organization is now listed under **Source Code managers**. Click **Test** to verify that the new integration is installed correctly.
+3. The Azure DevOps organization is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='bitbucket-cloud'>
@@ -67,18 +67,22 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers > Add > Bitbucket Cloud**.
 1. In the **Connect your Bitbucket Workspace** dialog box, provide:
    - The **Name of your Bitbucket Workspace**
-   - Your **Access token**. Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
+   - Your **Access token**. Semgrep requires a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/).
 1. Click **Connect** to save and proceed.
-1. The Bitbucket project is now listed under **Source Code managers**. Click **Test** to verify that the new integration is installed correctly.
+1. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='github-cloud'>
+
+### GitHub Cloud with GitHub SSO
+
+These steps are for users that sign in to Semgrep through GitHub.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
-1. Click **Connect to GitHub**.
+1. Click **Add > GitHub**.
 1. Review the permissions requested by Semgrep, then click **Continue**.
 1. Click the organization you want to install Semgrep on.
 1. Choose to authorize and install Semgrep for **<i class="fa-regular fa-circle-dot"></i> All repositories** or **<i class="fa-regular fa-circle-dot"></i> Only select repositories**.
@@ -86,15 +90,23 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. After a successful link, you are signed out of Semgrep AppSec Platform automatically, as your credentials have changed after linking an organization.
 1. Sign back in to Semgrep AppSec Platform.
 
+### GitHub Cloud with non-GitHub SSO
+
+These steps are for users that sign in to Semgrep through a **non-GitHub** SSO provider.
+
+1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using SSO.
+1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
+   <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
+1. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
+1. Click **Add > GitHub**.
+1. In the **Name of your GitHub Organization** field, enter the slug of the org that the app was installed on in step 1. For example, if the GitHub URL of your org is `https://github.com/acme-corp`, then the slug is typically `acme-corp`.
+1. Leave the access token field empty.
+1. Click **Connect**.
+1. Your GitHub org is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
+
 </TabItem>
 
-<!-- removed temporarily because we're using the "old flow"
-:::tip
-- Getting Assistant recommendations grants Semgrep **code access**.
-- **Leave PR comments** refers to Semgrep's capability to post findings to developers in PRs.
-:::
-
--->
 
 <TabItem value='gitlab-cloud'>
 
@@ -106,7 +118,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. Enter the personal access token generated into the **Access token** field.
 1. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
 1. Optional, but recommended: if you have multiple GitLab groups in your GitLab account, create a source code manager per group. Repeat steps 1, 3-4 for each GitLab group.
-1. The GitLab groups are now listed under **Source code managers**. Click **Test** to verify that the new integration is configured correctly.
+1. The GitLab groups are now listed under **Source code managers**. Click **Test** to verify that the new connection is configured correctly.
 
 You have successfully connected an org in Semgrep AppSec Platform with an organization in your source code management tool.
 
@@ -135,7 +147,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
    - The **URL** to access your installation of Bitbucket Data Center
    - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
 2. Click **Connect** to save and proceed.
-3. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new integration was installed correctly.
+3. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
 
 </TabItem>
 <TabItem value='github-enterprise'>
@@ -214,7 +226,7 @@ Connect Semgrep and GitLab Self-Managed accounts by creating a PAT and providing
 1. Enter your GLSM base URL into the **URL** field.
 1. Enter your GitLab group's name into the **Name of your GitLab Group** field. If your repositories are organized in subgroups, you only need to provide the name of the top-level group.
 1. If you have multiple GitLab groups in your GitLab account, you need to create a source code manager per group. Repeat steps 1, 3-5 for each GitLab group.
-1. The GitLab groups are now listed under **Source Code managers**. Click **Test** to verify that the new integration is installed correctly.
+1. The GitLab groups are now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 </Tabs>
