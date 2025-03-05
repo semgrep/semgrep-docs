@@ -321,7 +321,12 @@ OPTIONS
            support@semgrep.com for more information.
 
        --semgrepignore-v2
-           Under development. Not currently recommended.
+           '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
+           implementation for discovering and filtering target files.
+           Conversely, '--no-semgrepignore-v2' is the deprecated option that
+           forces the use of the legacy Semgrepignore v1. If you must use
+           '--no-semgrepignore-v2', please let us know so we can fix problems
+           and help you migrate smoothly. 
 
        --skip-unknown-extensions
            negates --scan-unknown-extensions
