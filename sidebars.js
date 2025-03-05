@@ -722,6 +722,7 @@ module.exports = {
                 },
                 items: [
                   'release-notes/january-2025',
+                  'release-notes/february-2025',
                 ],
             },
             {
