@@ -113,6 +113,9 @@ Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override 
    2. Enter files and folders to ignore in the relevant **Path Ignores** box.
    3. Click **Save changes**.
 
+![Set ignore paths for a project in Semgrep AppSec Platform.](/img/per-project-ignores.png#md-width)
+_**Figure**. Set ignore paths for a project in Semgrep AppSec Platform._
+
 ### Define files and folders for all projects of an organization
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
@@ -121,6 +124,9 @@ Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override 
    1. Click **Code (SAST) & Supply Chain (SCA)** or **Secrets** to expand and display the **Path Ignores** box.
    2. Enter files and folders to ignore in the relevant path ignores box.
    3. Click **Save changes**.
+
+![Set global ignore paths for all projects of an organization in Semgrep AppSec Platform.](/img/global-ignore-paths.png#md-width)
+_**Figure**. Set global ignore paths for all projects of an organization in Semgrep AppSec Platform._
 
 ### Add items to `.semgrepignore` during findings triage
 
