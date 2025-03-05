@@ -15,7 +15,7 @@ tags:
 ### Added
 
 - Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.
-- You can now manage enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
+- You can now manage your projects' enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
 - A new **My teams** view for managers is now in private beta. To join this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com). This view enables managers to view all the teams they are a manager of.
 
 ### Changed
@@ -30,16 +30,16 @@ tags:
 - Fixed an issue in Semgrep Editor's Structure Mode where some of the larger language icons overlapped due to limited space.
 - Fixed an issue where the instruction links for adding a CI job all lead to GitHub-specific instructions.
 - Fixed an issue where the Median Open Age chart didn't display all relevant findings.
-- Fixed an issue where Semgrep scans did not complete if there were failures involving `git worktree remove`; instead of erring out, Semgrep completes the scan, but logs the error.
+- Fixed an issue where Semgrep scans did not complete if there were failures involving `git worktree remove`; instead of erring out, Semgrep completes the scan but logs the error.
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Added support for **Critical** severity level to denote the highest level of severity for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can identify rules that generate critical severity findings by the red circle <i class="fa-solid fa-circle"></i> badge. 
+- Added support for **Critical** severity level to denote the highest severity level for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry. <!-- Copied this over from Secrets since these two notes are almost identical. -->
   - Semgrep Pro rules, which are included in p/default, have been updated to use this new severity level.
 - New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
--  Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
+- Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
 
 ### Changed
 
@@ -75,7 +75,7 @@ tags:
 
 ### Changed
 
-- Extended the amount of time for which the error message is shown if Assistant can't parse or save a memory you provide. This error message includes a link to edit the memory.
+- Extended the amount of time you see the error message shown if Assistant can't parse or save a memory you provide. This error message includes a link to edit the memory.
 
 ### Fixed
 
@@ -86,11 +86,7 @@ tags:
 
 ### Added
 
-- Added support for **Critical** severity level to denote the highest level of severity for a Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can identify rules that generate critical severity findings by the red circle <i class="fa-solid fa-circle"></i> badge. 
-
-### Changed
-
-### Fixed
+- Added support for **Critical** severity level to denote the highest severity level for a Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry.
 
 ## 📝 Documentation and knowledge base
 
