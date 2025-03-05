@@ -37,7 +37,7 @@ tags:
 ### Added
 
 - Added support for **Critical** severity level to denote the highest severity level for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry. <!-- Copied this over from Secrets since these two notes are almost identical. -->
-  - Semgrep Pro rules, which are included in p/default, have been updated to use this new severity level.
+  - Semgrep Pro rules, which are included in `p/default`, have been updated to use this new severity level.
 - New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
 - Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
 
@@ -62,10 +62,6 @@ tags:
   - You can have `.package` values with no URL, like this: `.package(name: "package", path: "foo/bar")`
 - Semgrep can now dynamically resolve dependencies for Python projects using pip, allowing it to determine transitive dependencies automatically. 
 - Various parser updates for SwiftPM and Yarn.
-      
-### Changed
-
-### Fixed
 
 ## 🤖 Semgrep Assistant
 
@@ -99,7 +95,7 @@ tags:
 
 ### Changed
 
-- Major updates to [Contributing documentation](/contributing/contributing) and information about the [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry).
+- Major updates to [Add support for a new language](/contributing/adding-a-language) and information about the [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry).
 - Minor clarifications involving:
   - Network Broker usage.
   - Required scopes for Managed Scans of Azure DevOps repositories.
