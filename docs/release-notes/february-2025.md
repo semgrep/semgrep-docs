@@ -95,7 +95,10 @@ tags:
 
 ### Changed
 
-- Major updates to [Add support for a new language](/contributing/adding-a-language) and information about the [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry).
+- Major updates to the following documents and sections:
+    - [Add support for a new language](/contributing/adding-a-language).
+    - [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
+    - [Semgrep Supply Chain Policies](/semgrep-supply-chain/policies).
 - Minor clarifications involving:
   - Network Broker usage.
   - Required scopes for Managed Scans of Azure DevOps repositories.
