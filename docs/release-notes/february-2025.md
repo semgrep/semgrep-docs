@@ -16,7 +16,9 @@ tags:
 
 - Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.
 - You can now manage your projects' enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
-
+- A new **My teams** view for managers is now in private beta. To join this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com). This view enables managers to view all the teams they are a manager of.
+<!-- Clickable charts 19056 -->
+    
 ### Changed
 
 - The Semgrep AppSec Platform-specific metadata fields `semgrep.dev:` and `semgrep.policy:` are now filtered from the JSON output if you aren't signed into your Semgrep account. See [Semgrep JSON and SARIF fields](https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif#json) for more information.
@@ -36,8 +38,14 @@ tags:
 ### Added
 
 - Added support for **Critical** severity level to denote the highest severity level for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry. <!-- Copied this over from Secrets since these two notes are almost identical. -->
+  - Semgrep Pro rules, which are included in p/default, have been updated to use this new severity level.
+- New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
+- Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
 
 ### Changed
+
+- Improved detection for JavaScript and TypeScript dependency injection, import resolution, and dataflow through callbacks.
+- Upgrade from OCaml 4.14.0 to OCaml 5.2.1 for Semgrep PyPI and Homebrew distributions. Note that Docker images have been built with OCaml 5.2.1 since Semgrep 1.107.0.
 
 ### Fixed
 
@@ -45,6 +53,17 @@ tags:
 
 ### Added
 
+- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
+    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
+    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
+- Updated `Package.swift` parser to support:
+  - The url value in a `.package` entry doesn't have to end with `.git`
+  - You can have an exact field that looks like `exact: "1.0.0"` instead of `.exact("1.0.0")`
+  - The exact version can be an object like `Version(1,2,3)` instead of a string
+  - You can have `.package` values with no URL, like this: `.package(name: "package", path: "foo/bar")`
+- Semgrep can now dynamically resolve dependencies for Python projects using pip, allowing it to determine transitive dependencies automatically. 
+- Various parser updates for SwiftPM and Yarn.
+      
 ### Changed
 
 ### Fixed
