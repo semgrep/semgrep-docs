@@ -166,6 +166,14 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 | Delete subteams         | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
 | API                     | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
 
+### Assistant features per role
+
+| Page      | Member     | Manager    | Admin | Notes |
+| ----      | ------     | -------    | ----- | ----- |
+| Add a memory |  |  | ✅&nbsp;Yes   |  |
+| Receive weekly priority emails |  |  | ✅&nbsp;Yes   |  |
+| Add a memory during triage | | | |
+
 :::info
 Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
 :::
