@@ -16,6 +16,7 @@ tags:
 
 - Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.
 - You can now manage enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
+- A new **My teams** view for managers is now in private beta. To join this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com). This view enables managers to view all the teams they are a manager of.
 
 ### Changed
 
@@ -36,14 +37,22 @@ tags:
 ### Added
 
 - Added support for **Critical** severity level to denote the highest level of severity for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can identify rules that generate critical severity findings by the red circle <i class="fa-solid fa-circle"></i> badge. 
+  - Semgrep Pro rules, which are included in p/default, have been updated to use this new severity level.
+- New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
 
 ### Changed
+
+- Improved detection for JavaScript and TypeScript dependency injection, import resolution, and dataflow through callbacks.
 
 ### Fixed
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
+
+- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
+    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
+    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
 
 ### Changed
 
