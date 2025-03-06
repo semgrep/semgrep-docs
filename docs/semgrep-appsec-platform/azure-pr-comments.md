@@ -46,7 +46,7 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 ### Confirm your Semgrep account's connection
 
-PR comments are enabled by default for users who have connected their Azure DevOps organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
+PR comments are enabled by default for users who have connected their Azure DevOps project to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Azure DevOps org exists and is correct.
