@@ -53,7 +53,7 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers > Add > Azure DevOps**. 
 1. In the **Connect your Azure DevOps Project** dialog box, provide:
-   - The **Name of your Azure DevOps Project**. Ensure that the value you provide follows the format `{organization}/{project}`.
+   - The **Name of your Azure DevOps Project**. Ensure that the value you provide follows the format `{organization}/{project}`. This information can be seen in the project URL, for example `https://dev.azure.com/{organization}/{project}`. 
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
 3. The Azure DevOps project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
