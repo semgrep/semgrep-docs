@@ -215,6 +215,16 @@ Managers cannot remove themselves from their team. Admins and co-managers of the
 ![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
 
+#### Assign team members to projects
+
+:::info
+This feature is in **private beta**. To gain access to this feature, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+:::
+
+Managers can view their subteams through the **Settings > Access > My teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
+
+Note that this feature enables managers to view **all projects**, even projects they are not assigned to, in the **Projects** page. While they are able to view all projects, they still can't perform any admin-level operations, including assigning projects they're not a manager of.
+
 ## Enable teams
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
