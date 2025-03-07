@@ -206,6 +206,10 @@ Managers cannot remove themselves from their team. Admins and co-managers of the
 ![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
 
+#### My teams view
+
+Managers can view their subteams through the **Settings > Access My teams** view. tk 
+
 ## Enable teams
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
