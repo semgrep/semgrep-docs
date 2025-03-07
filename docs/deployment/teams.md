@@ -214,7 +214,7 @@ This feature is in **private beta**. To gain access to this feature, reach out t
 
 Managers can view their subteams through the **Settings > Access > My teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
 
-Note that this feature enables managers to view **all projects**, even projects they are not the manager of, in the **Projects** page. While they are able to view all projects, they are still restricted from assigning projects that they are not a manager of, nor can they perform any admin-level operations.
+Note that this feature enables managers to view **all projects**, even projects they are not assigned to, in the **Projects** page. While they are able to view all projects, they still can't perform any admin-level operations, including assigning projects they're not a manager of.
 
 ## Enable teams
 
