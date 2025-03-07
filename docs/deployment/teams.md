@@ -170,6 +170,15 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
 :::
 
+### Semgrep Assistant features permitted per role
+
+| Page      | Member     | Manager    | Admin | 
+| ----      | ------     | -------    | ----- | 
+| Add a memory | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
+| Receive weekly priority emails | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
+| Add a memory during triage | ❌ No   | ❌ No   |✅&nbsp;Yes |
+
+
 ## How team access works
 
 - Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
