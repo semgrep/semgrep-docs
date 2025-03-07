@@ -11,6 +11,7 @@ tags:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PL from '@site/src/components/Placeholder';
 
 # Connect a source code manager
 
@@ -52,11 +53,11 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers > Add > Azure DevOps**. 
-1. In the **Connect your Azure DevOps organization** dialog box, provide:
-   - The **Name of your Azure DevOps organization**
+1. In the **Connect your Azure DevOps Project** dialog box, provide:
+   - The **Name of your Azure DevOps Project**. Ensure that the value you provide follows the format <PL>organization</PL>/<PL>project</PL>. This information can be seen in the project URL, for example `https://dev.azure.com/organization/project`. 
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
-3. The Azure DevOps organization is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
+3. The Azure DevOps project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='bitbucket-cloud'>

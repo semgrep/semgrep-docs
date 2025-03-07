@@ -16,6 +16,7 @@ import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import PL from '@site/src/components/Placeholder';
 
 <!-- vale on -->
 
@@ -46,14 +47,14 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 ### Confirm your Semgrep account's connection
 
-PR comments are enabled by default for users who have connected their Azure DevOps organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
+PR comments are enabled by default for users who have connected their Azure DevOps project to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
-2. Check that an entry for your Azure DevOps org exists and is correct.
+2. Check that an entry for your Azure DevOps project exists and is correct.
 
 ### Set up the configuration file
 
-In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format `{organization}/{project}`:
+In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format <PL>organization</PL>/<PL>project</PL>:
 
 ```
 # example
