@@ -15,12 +15,14 @@ Publish rules to the Semgrep Registry to share them with the Semgrep community a
 
 <dl>
     <dt>For users of Semgrep AppSec Platform</dt>
-    <dd>Contribute rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contribute-through-semgrep-appsec-platform-recommended"> Contribute through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
+    <dd>Contribute new rules to the Semgrep Registry through Semgrep AppSec Platform. This workflow is recommended. See <a href="#contribute-through-semgrep-appsec-platform-recommended"> Contribute through Semgrep AppSec Platform (recommended)</a>. This workflow creates the necessary pull request for you and streamlines the whole process.</dd>
     <dt>For contributors to the repository through GitHub</dt>
-    <dd>Contribute rules to the Semgrep Registry through a pull request to `semgrep-rules`. See the <a href="#contribute-through-github"> Contribute through GitHub</a> section for detailed information.</dd>
+    <dd>Contribute rules to the Semgrep Registry, or suggest changes to existing rules, through a pull request to `semgrep-rules`. See the <a href="#contribute-through-github"> Contribute through GitHub</a> section for detailed information.</dd>
 </dl>
 
 ## Contribute through Semgrep AppSec Platform (recommended)
+
+This is the recommended path for adding a new rule. To suggest a change to an existing rule, see [Update existing rules in Semgrep Registry](#update-existing-rules-in-semgrep-registry).
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Go to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Playground](https://semgrep.dev/playground/new).
