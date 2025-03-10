@@ -2,7 +2,7 @@
 slug: malicious-dependencies
 title: Detect and remove malicious dependencies
 hide_title: true
-description: tk
+description: Learn how Semgrep detects malicious dependencies and enable malicious dependency detection in your Supply Chain scans.
 tags:
   - Semgrep Supply Chain
 ---
@@ -10,7 +10,7 @@ tags:
 # Detect and remove malicious dependencies
 
 :::info
-This feature is in private beta. To join, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+This feature is in private beta. To join, reach out to [support](/support).
 :::
 
 **Malicious dependencies** are intentionally dangerous packages, designed to compromise systems, unlike vulnerable dependencies, which are accidentally risky. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. In some of these cases, the maliciousness of a package affects a specific range of versions.
@@ -62,8 +62,7 @@ Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> tog
 
 ## Remediate malicious dependencies
 
-* Does Semgrep give suggestions (i.e. in the case of typo squatting) of how to fix?  
-* How is our remediation advice presented?
+* Currently, our remediation advice all seems to say the same thing - to remove the dependency immediately. Are we going to have more granular remediation advice? Do we always provide an alternative?
 
 ## Advisories for malicious dependencies
 
