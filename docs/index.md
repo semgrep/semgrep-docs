@@ -123,8 +123,8 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 <!-- 5-7 bullets across the product suite -->
 - [Semgrep Managed Scans](/deployment/managed-scanning/bitbucket) for repositories hosted by **Bitbucket Cloud** is now in public beta.
 - You can now manage your projects' enrollment in Semgrep Managed Scans through the [Semgrep API's `/project` and `/project/managed-scan` endpoints](https://semgrep.dev/api/v1/docs/#tag/Project).
-- Added support for **Critical** severity level to denote the highest severity level for a Code or Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry.
-- New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
+- Added support for **Critical** severity level to denote the highest severity level for a Code or Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can [filter for and identify rules that generate critical severity findings](https://semgrep.dev/r?sev=CRITICAL) in the Semgrep Registry.
+- New rules for JavaScript and TypeScript have been added to [Semgrep's default ruleset, `p/default`](https://semgrep.dev/p/default). The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
 - You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
     - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
     - Policies can have different scopes, which are the projects or project tags the policies are applied to.
