@@ -721,7 +721,8 @@ module.exports = {
                     title: '2025 Release notes'
                 },
                 items: [
-                  'release-notes/january-2025',
+                  'release-notes/february-2025',
+                  'release-notes/january-2025'
                 ],
             },
             {
