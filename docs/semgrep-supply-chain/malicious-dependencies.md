@@ -62,7 +62,7 @@ Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> tog
 
 ## Remediate malicious dependencies
 
-* Currently, our remediation advice all seems to say the same thing - to remove the dependency immediately. Are we going to have more granular remediation advice? Do we always provide an alternative?
+* Currently, our remediation advice all seems to say the same thing - to remove the dependency immediately. Are we going to have more granular remediation advice?
 
 ## Advisories for malicious dependencies
 
