@@ -104,6 +104,27 @@ The following steps revoke the code access you previously granted Semgrep for al
 
 <TurnOffSms />
 
+## Enable status checks
+
+To enable status checks in Azure DevOps to protect branches whose repositories are automatically scanned by Semgrep:
+
+1. Sign in to Azure DevOps and navigate to the Azure DevOps project you've connected to Semgrep.
+2. Go to **Repos > Branches**. 
+3. Find the branch to which the status check should be applied, and click the <i class="fa-solid fa-ellipsis-vertical"></i> three vertical dots to open up the **More options** dialog. Select **Branch policies**.
+4. Ensure that the branch to which you want the status check applied is selected. Navigate to **Status Checks**, and click the **Add +** button to proceed.
+   ![Configure status checks for a branch in Azure DevOps](/img/ado-status-checks-setup.png#md-width)
+    _**Figure**. Configure status checks for a branch in Azure DevOps._
+5. In the dialog that appears:
+   1. In the **Status to check** box, select the service for which you want to create a policy from the list. If this is a new policy, you can provide its name instead of selecting it from the pre-existing list.
+   2. Choose whether the status check needs to succeed or not to complete pull requests. Selecting **Required** means that a status of `succeeded` is necessary to complete pull requests. Selecting **Optional** means that a status of `failed` will not block the completion of pull requests.
+6. Click **Save** to proceed.
+
+At this point, all subsequent pull requests opened against this branch are subject to the status check you created.
+
+![PR notification after a status check passes.](/img/ado-status-checks.png#md-width)
+_**Figure**. PR notification after a status check passes.._
+
+See [Configure a branch policy for an external service](https://learn.microsoft.com/en-us/azure/devops/repos/git/pr-status-policy?view=azure-devops) for additional information about status checks.
 
 ## Troubleshooting: multiple projects
 
