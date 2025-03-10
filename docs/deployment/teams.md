@@ -209,7 +209,7 @@ Managers cannot remove themselves from their team. Admins and co-managers of the
 #### Assign team members to projects
 
 :::info
-This feature is in **private beta**. To gain access to this feature, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+This feature is in **private beta**. To gain access to this feature, reach out to [Support](/support).
 :::
 
 Managers can view their subteams through the **Settings > Access > My teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
