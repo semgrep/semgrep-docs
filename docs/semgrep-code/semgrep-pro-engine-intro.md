@@ -192,11 +192,11 @@ Cross-file analysis resolves names differently than Semgrep CE's analysis. Conse
 
 #### Semgrep Code cross-file CI scan issues
 
-To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep CE. This ensures that in the vast majority of cases, scans run successfully.
+To provide reliably completed scans, Semgrep Code can **fall back** from cross-file analysis to single-file analysis. This ensures that in the vast majority of cases, scans run successfully.
 
 By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-file analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-file analysis. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --pro-intrafile`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-file analysis.
+If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --pro-intrafile`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-file, cross-function analysis.
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
