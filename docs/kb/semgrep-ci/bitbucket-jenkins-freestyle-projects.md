@@ -22,7 +22,7 @@ Ensure you have set up [triggering events from Bitbucket to Jenkins](https://sem
 1. In the **Build Triggers** section, click **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. 
 1. In **Triggers > Select an Action** select **Created**, **Updated**, and **Push**.
 ![Build triggers for the freestyle project](/img/kb/bitbucket-jenkins-freestyle-events.png)
-1. In the **Build environment** section, declare the `SEMGREP_APP_TOKEN` by selecting **Use secret text or file.** Set **Variable** to `SEMGREP_APP_TOKEN` and **Credentials > Specific credentials** to your token value. Click **Add** to save your changes.
+1. In the **Build environment** section, declare the `SEMGREP_APP_TOKEN` by selecting **Use secret text or file.** Set **Variable** to `SEMGREP_APP_TOKEN` and **Credentials > Specific credentials** to the defined credential for the Semgrep token. Click **Add** to save your changes.
 ![Filled-out the secrets text option](/img/kb/bitbucket-jenkins-freestyle-token.png)
 :::note
 Ensure that you have [defined `SEMGREP_APP_TOKEN` as a credential](https://www.jenkins.io/doc/book/using/using-credentials/#configuring-credentials) in Jenkins.
@@ -48,7 +48,7 @@ docker run \
 - The variable `SEMGREP_REPO_NAME` provides an accurate and meaningful name to the Semgrep project.
 :::
 
-After adding the script, a full scan runs when you push changes to the main branch.
+After adding the script, a full scan runs when you push changes to the default branch.
 
 ## Run scans on pull requests (diff-aware scans)
 
@@ -87,5 +87,5 @@ fi
 ```
 
 :::note
-- The variable `SEMGREP_BASELINE_REF` must be set to the main branch, which, in the example, is `main`.
+- The variable `SEMGREP_BASELINE_REF` must be set to the default branch, which, in the example, is `main`.
 :::
