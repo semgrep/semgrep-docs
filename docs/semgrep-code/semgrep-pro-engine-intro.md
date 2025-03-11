@@ -176,7 +176,7 @@ Cross-file analysis resolves names differently than Semgrep CE's analysis. Conse
 
 <dl>
     <dt>Cross-file (interfile) analysis</dt>
-    <dd><ul><li>Cross-file analysis finds patterns spanning multiple files to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep CE can't find.</li>
+    <dd><ul><li>Cross-file analysis finds patterns spanning multiple files within a project to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep CE can't find.</li>
     <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep CE scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
     <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
@@ -194,9 +194,9 @@ Cross-file analysis resolves names differently than Semgrep CE's analysis. Conse
 
 To provide reliably completed scans, Semgrep Code can **fall back** to the use of Semgrep CE. This ensures that in the vast majority of cases, scans run successfully.
 
-By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-function analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-function analysis. Typically, this happens because the repository is very large.
+By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-file analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-file analysis. Typically, this happens because the repository is very large.
 
-If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --oss-only`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-function analysis.
+If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --pro-intrafile`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-file analysis.
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings](https://semgrep.dev/orgs/-/settings)** page of your organization.
@@ -209,4 +209,4 @@ Cross-file analysis is different from [join mode](/writing-rules/experiments/joi
 
 ### Feedback for Semgrep Code's advanced analyses
 
-The team at Semgrep is excited to hear what’s on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
+The team at Semgrep is excited to hear what's on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.
