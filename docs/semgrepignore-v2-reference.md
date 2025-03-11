@@ -153,8 +153,9 @@ testsuite/
 
 ## Semgrepignore pattern syntax
 
-In Semgrepignore v2, the pattern syntax conforms strictly to the
-[Gitignore pattern syntax](https://git-scm.com/docs/gitignore#_pattern_format).
+In Semgrepignore v2, the pattern syntax conforms to the
+[Gitignore pattern
+syntax](https://git-scm.com/docs/gitignore#_pattern_format).
 They are glob patterns which support `*` and `**` with their usual
 meanings. For example, pattern `**/tmp/*.js` matches paths `tmp/foo.js` and
 `src/tmp/bar.js`.
@@ -165,15 +166,21 @@ the pattern or any of its subfolders). For
 example, `/a` and `a/b` are anchored patterns but not `a/`. Please
 consult the Gitignore documentation for details.
 
-In Semgrepignore v1, the following exceptions to the Gitignore
+As a deviation from the Gitignore syntax, Semgrepignore syntax supports
+`:include` directives. `:include` followed by an unquoted file path
+relative to the path of folder of the source `.semgrepignore` file
+(the current folder in v1) will insert patterns read from that file.
+A common use case is to insert the line `:include .gitignore` at the
+beginning of a `.semgrepignore` file so as to avoid duplicating the
+Gitignore patterns. Included files may not contain include
+directives.
+
+## Legacy Semgrepignore v1
+
+In Semgrepignore v1, the following exceptions to the v2
 specification apply:
 
 * unsupported: pattern negation with `!`
 * unsupported: character ranges such as `[a-z]`
-* extension:
-  `:include` followed by an unquoted file path relative to the path of
-  folder of the source `.semgrepignore` file (the current folder in v1)
-  will insert patterns read from that file. A common use case was
-  `:include .gitignore` but it has become unnecessary in v2 where
-  `.gitignore` files are consulted automatically.
-  Include directives are deprecated in v2.
+* only one `.semgrepignore` file is supported and it must be in the
+  current folder
