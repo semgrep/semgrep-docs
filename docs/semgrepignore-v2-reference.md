@@ -169,7 +169,7 @@ consult the Gitignore documentation for details.
 As a deviation from the Gitignore syntax, Semgrepignore syntax supports
 `:include` directives. `:include` followed by an unquoted file path
 relative to the path of folder of the source `.semgrepignore` file
-(the current folder in v1) will insert patterns read from that file.
+(the current folder in v1) inserts patterns from that file.
 A common use case is to insert the line `:include .gitignore` at the
 beginning of a `.semgrepignore` file so as to avoid duplicating the
 Gitignore patterns. Included files may not contain include
