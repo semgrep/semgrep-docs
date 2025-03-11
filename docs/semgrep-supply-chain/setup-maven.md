@@ -147,7 +147,7 @@ jobs:
   semgrep:
     needs: buildmavenDepTree
     name: Scan
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     container:
