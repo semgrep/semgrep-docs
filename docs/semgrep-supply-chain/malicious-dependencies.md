@@ -63,7 +63,7 @@ Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> tog
 ## Triage and remediation for malicious dependencies
 
 - **Remove** the malicious dependency from your codebase and re-run a Supply Chain scan to remediate or fix this type of finding.
-- You can still apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
+- Apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
 
 ## Advisories for malicious dependencies
 
