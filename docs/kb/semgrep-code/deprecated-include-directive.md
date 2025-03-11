@@ -5,7 +5,7 @@ tags:
 description: How to migrate away from :include directives in Semgrepignore files
 ---
 
-# How to migrate away from :include directives in Semgrepignore files
+# How to migrate away from `:include` directives in Semgrepignore files
 
 If you're getting the following warning, you're in the right place:
 
