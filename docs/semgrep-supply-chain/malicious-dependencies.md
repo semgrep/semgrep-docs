@@ -13,7 +13,7 @@ tags:
 This feature is in private beta. To join, reach out to [support](/support).
 :::
 
-**Malicious dependencies** are intentionally dangerous packages, designed to compromise systems, unlike vulnerable dependencies, which are accidentally risky. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. In some of these cases, the maliciousness of a package affects a specific range of versions.
+**Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
 
 Semgrep is able to detect malicious dependencies in your projects and in pull requests (PRs) or merge requests (MRs).
 
@@ -60,10 +60,15 @@ _**Figure**. A malicious dependency finding._
 
 Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> toggle** to filter for malicious dependencies detected in your projects. Ensure that you don't have other filters enabled as this may inadvertently hide findings.
 
-## Remediate malicious dependencies
+## Triage and remediation for malicious dependencies
 
-* Currently, our remediation advice all seems to say the same thing - to remove the dependency immediately. Are we going to have more granular remediation advice?
+- **Remove** the malicious dependency from your codebase and re-run a Supply Chain scan to remediate or fix this type of finding.
+- You can still apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
 
 ## Advisories for malicious dependencies
 
 You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious package** filter.
+
+## Beta program limitations
+
+- Malicious dependency findings do not appear in pull or merge request comments.
