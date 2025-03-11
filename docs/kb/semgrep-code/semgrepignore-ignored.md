@@ -36,7 +36,7 @@ To ensure you're using Semgrepignore v2, pass the flag
 `--semgrepignore-v2` to `semgrep scan` or to `semgrep
 ci`. To use the legacy Semgrepignore v1 implementation, use
 `--no-semgrepignore-v2`. These options are for troubleshooting the
-migration from v1 to v2. They will disappear soon as v2 becomes the
+migration from v1 to v2. These flags will be removed when v2 becomes
 only implementation available.
 
 ## Best practices
