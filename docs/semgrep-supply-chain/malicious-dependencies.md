@@ -39,7 +39,7 @@ The following table lists the languages for which Supply Chain can detect malici
 | PHP | \-- |
 | Rust | \-- |
 
-## About malicious dependency findings
+## Malicious dependency findings
 
 Malicious dependency findings are treated as **critical severity** findings.
 
