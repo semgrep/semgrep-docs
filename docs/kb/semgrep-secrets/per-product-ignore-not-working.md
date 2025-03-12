@@ -10,4 +10,4 @@ The Semgrep AppSec Platform allows you to [define ignore patterns](https://semgr
 
 If you use an older version of Semgrep, the path ignores for Semgrep Secrets that are set in Semgrep AppSec Platform are not applied. Instead, the system applies the path ignores from SAST and SCA to your Secrets scan as well.
 
-Additionally, if you have [historical scanning](https://semgrep.dev/docs/semgrep-secrets/historical-scanning) enabled, the path ignores defined under Semgrep Secrets in the Semgrep AppSec Platform are not applied.
+Additionally, if you have [historical scanning](/semgrep-secrets/historical-scanning) enabled, the path ignores defined under Semgrep Secrets in the Semgrep AppSec Platform are not applied.
