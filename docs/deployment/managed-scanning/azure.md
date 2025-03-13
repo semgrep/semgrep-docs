@@ -115,8 +115,15 @@ To enable status checks in Azure DevOps to protect branches whose repositories a
    ![Configure status checks for a branch in Azure DevOps](/img/ado-status-checks-setup.png#md-width)
     _**Figure**. Configure status checks for a branch in Azure DevOps._
 5. In the dialog that appears:
-   1. In the **Status to check** box, select the service for which you want to create a policy from the list. If this is a new policy, you can provide its name instead of selecting it from the pre-existing list.
-   2. Choose whether the status check needs to succeed or not to complete pull requests. Selecting **Required** means that a status of `succeeded` is necessary to complete pull requests. Selecting **Optional** means that a status of `failed` will not block the completion of pull requests.
+   1. Leave the **Status to check** box blank, since this value is auto-populated as you provide values in subsequent steps.
+   2. Select the **Enter genre/name separately** box. Provide the following values:
+      1. **Genre**: `security`
+      2. **Name**: `semgrep-cloud-platform/scan`
+      
+      Once you provide the **Genre** and **Name**, Azure DevOps auto-populates **Status to check**. 
+   3. Choose whether the status check needs to succeed or not to complete pull requests. Selecting **Required** means that a status of `succeeded` is necessary to complete pull requests. Selecting **Optional** means that a status of `failed` will not block the completion of pull requests.
+   ![Add status policy dialog in Azure DevOps.](/img/ado-add-status-policy.png#md-width)
+   _**Figure**. Add status policy dialog in Azure DevOps._
 6. Click **Save** to proceed.
 
 At this point, all subsequent pull requests opened against this branch are subject to the status check you created.
