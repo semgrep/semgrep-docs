@@ -21,7 +21,7 @@ This feature is enabled after opting in to the beta program.
 
 ## Supported package managers and sources of information
 
-Semgrep ingests data from Open Source Vulnerabilities ([<i class="fas fa-external-link fa-xs"></i>  osv.dev](https://osv.dev/)).
+Semgrep ingests data from <i class="fas fa-external-link fa-xs"></i>[Open Source Vulnerabilities](https://osv.dev/)).
 
 The following table lists the languages for which Supply Chain can detect malicious dependencies.
 
