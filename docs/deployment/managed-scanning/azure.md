@@ -106,11 +106,12 @@ The following steps revoke the code access you previously granted Semgrep for al
 
 ## Enable status checks
 
-To enable status checks in Azure DevOps to protect branches whose repositories are automatically scanned by Semgrep:
+To protect branches whose repositories are automatically scanned by Semgrep, enable Azure DevOps status checks:
 
 1. Sign in to Azure DevOps and navigate to the Azure DevOps project you've connected to Semgrep.
 2. Go to **Repos > Branches**. 
-3. Find the branch to which the status check should be applied, and click the <i class="fa-solid fa-ellipsis-vertical"></i> three vertical dots to open up the **More options** dialog. Select **Branch policies**.
+3. Find the branch to which the status check should be applied, and click the <i class="fa-solid fa-ellipsis-vertical"></i> three vertical dots to open up the **More options** dialog.
+4. Select **Branch policies**.
 4. Ensure that the branch to which you want the status check applied is selected. Navigate to **Status Checks**, and click the **Add +** button to proceed.
    ![Configure status checks for a branch in Azure DevOps](/img/ado-status-checks-setup.png#md-width)
     _**Figure**. Configure status checks for a branch in Azure DevOps._
