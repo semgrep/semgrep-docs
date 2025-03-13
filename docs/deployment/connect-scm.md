@@ -146,7 +146,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 1. In the **Connect your Bitbucket project (key)** dialog box, provide:
    - The **Name of your Bitbucket project (key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
    - The **URL** to access your installation of Bitbucket Data Center
-   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects a [workspace-level access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/)
+   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects an [HTTP access token](https://confluence.atlassian.com/bitbucketserverm0930/http-access-tokens-1431540960.html).
 2. Click **Connect** to save and proceed.
 3. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
 
