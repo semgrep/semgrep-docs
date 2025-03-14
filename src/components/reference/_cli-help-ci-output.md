@@ -372,7 +372,7 @@ OPTIONS
            '.gitignore' files to determine which files semgrep should scan.
            As a result of '--no-git-ignore', gitignored files and git
            submodules will be scanned. This flag has no effect if the
-           scanning root is not in a git repository. '--use-git-ignore' is
+           scan root is not in a git repository. '--use-git-ignore' is
            semgrep's default behavior.
 
        -v, --verbose

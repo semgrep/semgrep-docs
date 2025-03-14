@@ -336,10 +336,10 @@ OPTIONS
            option forces the project root to be a specific folder and assumes
            a local project without version control (novcs). This option is
            useful to ensure the '.semgrepignore' file that may exist at the
-           project root is consulted when the scanning root is not the
+           project root is consulted when the scan root is not the
            current folder '.'. A valid project root must be a folder (path
            referencing a directory) whose physical path is a prefix of the
-           physical path of the scanning roots passed on the command line.
+           physical path of the scan roots passed on the command line.
            For example, the command 'semgrep scan --project-root . src' is
            valid if '.' is '/home/me' and 'src' is a directory or a symbolic
            link to a '/home/me/sources' directory or a symbolic link to a
@@ -446,7 +446,7 @@ OPTIONS
            '.gitignore' files to determine which files semgrep should scan.
            As a result of '--no-git-ignore', gitignored files and git
            submodules will be scanned. This flag has no effect if the
-           scanning root is not in a git repository. '--use-git-ignore' is
+           scan root is not in a git repository. '--use-git-ignore' is
            semgrep's default behavior.
 
        -v, --verbose
