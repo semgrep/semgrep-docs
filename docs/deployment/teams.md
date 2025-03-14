@@ -178,7 +178,7 @@ Members and managers can create projects by scanning a repository using the Semg
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
 
-![Team scopes diagram](/img/access-diagram.png#md-width)
+![Team scopes diagram](/img/access-diagram.png#sm-width)
 
 - The members Alexis, Pam, and Raj have access to the following projects:
     - App
