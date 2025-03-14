@@ -43,7 +43,7 @@ The following table lists the languages for which Supply Chain can detect malici
 
 Malicious dependency findings are treated as **critical severity** findings.
 
-If you have set up your Supply Chain policies to block with these conditions, malicious dependency findings block a PR or MR in the same way as any other Supply Chain finding.
+If you have set up your Supply Chain policies to block with this condition, malicious dependency findings block a PR or MR in the same way as any other Supply Chain finding.
 
 <!--  No way to do this currently
 ## Enable or disable malicious dependency detection
@@ -62,13 +62,18 @@ Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> tog
 
 ## Triage and remediation for malicious dependencies
 
-- **Remove** the malicious dependency from your codebase and re-run a Supply Chain scan to remediate or fix this type of finding.
-- Apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
+- If there is no fix available, **remove** the malicious dependency from your codebase and re-run a Supply Chain scan to fix it.
+- If there is a safe version to update to, you can fix the finding by updating the dependency and re-running a Supply Chain scan.
+- You can apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
+
+:::caution
+If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > Triage via code review comments**, your developers are able to triage these findings as **Ignored**.
+:::
 
 ## Advisories for malicious dependencies
 
 You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious package** filter.
 
-## Beta program limitations
+## Disable malicious dependency detection
 
-- Malicious dependency findings do not appear in pull or merge request comments.
+Reach out to [support](/support) to disable this feature.
