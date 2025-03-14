@@ -1105,7 +1105,7 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "**/*.jinja2"
+        - "src/**/*.jinja2"
         - "*_test.go"
         - "project/tests"
         - project/static/*.js
