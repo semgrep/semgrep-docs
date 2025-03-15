@@ -19,38 +19,38 @@ referred to as "v1".
 
 ## The target filtering process
 
-A `semgrep scan` command takes one or more scanning roots as
-arguments. The default scanning root is the current folder, `.`.
-Scanning roots are folders, individual files, or named pipes that should be
+A `semgrep scan` command takes one or more scan roots as
+arguments. The default scan root is the current folder, `.`.
+Scan roots are folders, individual files, or named pipes that should be
 expanded into a list of regular files to be analyzed. Symbolic links are
-allowed as scanning roots.
+allowed as scan roots.
 
 Expanding a folder consists of listing its contents recursively with
 the following exceptions:
 
-* Symbolic links other than the original scanning roots are ignored.
+* Symbolic links other than the original scan roots are ignored.
 * In Git projects, Git submodules are ignored.
 * Paths excluded via Semgrepignore patterns are ignored. Semgrepignore
   patterns can be of different sources which are detailed in the
   upcoming section.
 
-The list of files obtained by expanding the scanning roots are called
+The list of files obtained by expanding the scan roots are called
 **target files**. To obtain target files, Semgrep follows a
 number of fixed rules and some configurable filters.
 
-For each scanning root, Semgrep infers a **project root** (v2 only). The
+For each scan root, Semgrep infers a **project root** (v2 only). The
 project root determines the location of applicable `.semgrepignore`
 files as well as `.gitignore` files in Git projects. In v1 where is no
 notion of a project root, the `.semgrepignore` file is unique and
 looked up in the current folder.
 
-Semgrep determines the project root for each scanning root by first
-obtaining the real path (physical path) to the scanning root. Then,
+Semgrep determines the project root for each scan root by first
+obtaining the real path (physical path) to the scan root. Then,
 Semgrep searches up the file hierarchy for a `.git` folder or
 similar used by one of the popular file version control systems
 (Git, Mercurial, etc.) indicating a project root.
 If no project root is found this way, it
-defaults to the scanning root itself if it is a folder or to its containing
+defaults to the scan root itself if it is a folder or to its containing
 folder if it is a regular file.
 
 <!-- TODO: explain project detection.
