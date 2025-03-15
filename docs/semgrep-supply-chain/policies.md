@@ -56,10 +56,15 @@ Only **admins** can view, create, edit, or delete policies.
 
 ## Common use cases for policies
 
-- Blocking reachable findings with upgradeable dependencies. This is a reasonable policy as it provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
-- Leaving a comment for:
+The following lists provide suggestions for setting up policies. These are merely guidelines to help you create policies that align with your business and organizational needs.
+
+- Block PRs or MRs with the following conditions:
+  - **Reachable findings with upgradeable dependencies**. This is a reasonable policy as it provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
+- Leave a comment for:
   - Reachable findings without upgradeable dependencies, to make the developer aware of the risk.
   - Reachable, yet transitive findings; depending on your organization's policies, these may need to be flagged for risk.
+- Monitor the following conditions for triage by AppSec engineers only, that is, avoid creating policies for the following conditions:
+  - tk
 
 ## Policy scopes
 
