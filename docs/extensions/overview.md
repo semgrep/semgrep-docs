@@ -11,15 +11,19 @@ import IdeList from "/src/components/reference/_ide-list.md"
 
 Several third-party tools include Semgrep extensions.
 
-### Official IDE extensions
+## Official IDE extensions
 
 <IdeList />
 
-### Use of Language Server Protocol (LSP)
+## Use of Language Server Protocol (LSP)
 
-All of the official extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate with Semgrep. This allows the team to focus on one codebase that can be shared across most modern editor platforms.
+All of the official IDE extensions use the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to communicate with Semgrep. This allows the team to focus on one codebase that can be shared across most modern editor platforms.
 
-### Semgrep as an engine
+## `pre-commit`
+
+Prevent secrets or security issues from entering your Git source control history by running Semgrep as a [<i class="fas fa-external-link fa-xs"></i> pre-commit](http://localhost:3000/docs/extensions/overview) hook. See [`pre-commit` documentation](/extensions/pre-commit) for details.
+
+## Semgrep as an engine
 
 Many other tools have capabilities powered by Semgrep.
 Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
@@ -28,7 +32,7 @@ Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 - [Dracon](https://github.com/thought-machine/dracon)
 - [GitLab SAST](https://docs.gitlab.com/ee/user/application_security/sast/#multi-project-support)
 - [GuardDog](https://github.com/datadog/guarddog)
-- [libsast](https://github.com/ajinabraham/libsast)
+- [litbsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 - [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce)
