@@ -1082,8 +1082,20 @@ Provide a category for users of the rule. For example: `best-practice`, `correct
 
 ### Excluding a rule in paths
 
-To ignore a specific rule on specific files, set the `paths:` key with one or more filters. Paths are relative to the root directory of the scanned project.
+To ignore a specific rule on specific files, set the `paths:` key with
+one or more filters. The patterns apply to the full file paths
+relative to the project root.
 
+<!--
+  The current behavior is inconsistent with the Gitignore specification
+  which is used for Semgrepignore patterns in .semgrepignore files
+  and --exclude/--include command-line filters.
+  The pattern `/foo` should match the path `foo` and not `bar/foo` but
+  it matches neither.
+  The pattern `a/b` should match the path `a/b` but not `c/a/b`
+  but it matches both.
+  If we decide we'll never fix this, we should clarify these discrepancies.
+-->
 
 Example:
 
@@ -1093,7 +1105,7 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "**/*.jinja2"
+        - "src/**/*.jinja2"
         - "*_test.go"
         - "project/tests"
         - project/static/*.js
