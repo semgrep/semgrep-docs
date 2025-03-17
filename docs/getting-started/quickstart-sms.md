@@ -122,15 +122,20 @@ Admin access to your Bitbucket organization.
 
 ### Requirements
 
-Read access is granted through a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud).
+#### Bitbucket Cloud
 
-The user generating the workspace token must be a **Product Admin** for the workspace. The scopes you must assign to the token include:
+- Read access is granted through a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs).
+- The user generating the workspace token must be a **Product Admin** for the workspace. The scopes you must assign to the token include:
+  - `webhook (read and write)`
+  - `repository (read and write)`
+  - `pullrequest (read and write)`
+  - `project (admin)`
+  - `account (read)`
 
-- `webhook (read and write)`
-- `repository (read and write)`
-- `pullrequest (read and write)`
-- `project (admin)`
-- `account (read)`
+#### Bitbucket Data Center
+
+- Read access is granted through an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud).
+- The user generating the workspace token must be a **Product Admin** for the workspace. The token must be created with `PROJECT_ADMIN` permissions.
 
 ### Add a repository
 
