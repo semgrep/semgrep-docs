@@ -19,9 +19,7 @@ Semgrep is able to detect malicious dependencies in your projects and in pull re
 
 This feature is enabled after opting in to the beta program.
 
-## Supported package managers and sources of information
-
-Semgrep ingests data from <i class="fas fa-external-link fa-xs"></i>[Open Source Vulnerabilities](https://osv.dev/)).
+## Supported package managers
 
 The following table lists the languages for which Supply Chain can detect malicious dependencies.
 
