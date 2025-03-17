@@ -28,7 +28,7 @@ Semgrep sends two types of JSON objects:
 Perform these steps in Semgrep AppSec Platform to set up webhooks:
 
 1. Create a webhook integration:
-    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add**.
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
