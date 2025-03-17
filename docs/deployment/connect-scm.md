@@ -49,6 +49,13 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 
 <TabItem value='azure-devops-cloud'>
 
+The following roles are **required** to connect Azure DevOps with Semgrep:
+
+- Admin access to your Azure DevOps organization.
+- Semgrep recommends setting up and configuring Semgrep with an Azure DevOps service account, not a personal account. Regardless of whether you use a personal or service account, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization.
+
+To connect AzureDevOps with Semgrep:
+
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
@@ -56,12 +63,18 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 1. In the **Connect your Azure DevOps Project** dialog box, provide:
    - The **Name of your Azure DevOps Project**. Ensure that the value you provide follows the format <PL>organization</PL>/<PL>project</PL>. This information can be seen in the project URL, for example `https://dev.azure.com/organization/project`. 
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
+   - If you are setting up [Semgrep Managed Scanning](/deployment/managed-scanning/overview), you must assign the following scopes to the token:
+     - `Project and Team: Read & write`
+     - `Code: Read`
+     - `Pull Request Threads: Read & write`
+     - `Service Hooks: Read & manage`
 2. Click **Connect** to save and proceed.
 3. The Azure DevOps project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
 
 </TabItem>
 <TabItem value='bitbucket-cloud'>
 
+1. 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
