@@ -139,7 +139,7 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 ## Triage findings through PR and MR comments
 
-Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs and GitLab MRs by replying with another comment.
+Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
 
 <Tabs
     defaultValue="gh"
@@ -202,7 +202,7 @@ Triaging a finding as **Ignored** through a comment in Bitbucket changes the sta
 <TabItem value='gh'>
 
 ### Prerequisites
-- A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
+- A **private** GitHub Free or Team cloud-hosted repository or GitHub Enterprise repository. This feature is not enabled for public GitHub Cloud repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 ### Enable triage through GitHub PR comments:
