@@ -45,7 +45,7 @@ To enable the Jira integration, follow these steps:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
-3. If this is your first integration, click **Set up First Integration**. Otherwise, click **Add integration**. In the drop-down menu that appears, select **Jira**.
+3. If this is your first integration, click **Set up First Integration**. Otherwise, click **Add**. In the drop-down menu that appears, select **Jira**.
 4. Follow the on-screen instructions to grant Semgrep the necessary permissions and set up the integration.
 5. When prompted, select the Jira instance you want to connect to. If you have multiple Jira instances, choose one instance from the **Use app on** drop-down menu.
    * **For deployments that have used a previous version of the Jira integration**: Ensure you're connecting to the same Jira instance you previously connected to. Please contact Semgrep if you want to connect to a different Jira instance.
