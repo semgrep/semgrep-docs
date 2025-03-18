@@ -122,15 +122,13 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
 
-<<<<<<< HEAD
 ### Configure comments for Semgrep Secrets
 
 <PrCommentsInSecrets name="GitLab" comment_type="MR" />
-=======
+
 ### Configure comments for Semgrep Supply Chain
 
 <CommentsInSupplyChain />
->>>>>>> main
 
 ### Receive comments in your VPN or on-premise SCM
 
