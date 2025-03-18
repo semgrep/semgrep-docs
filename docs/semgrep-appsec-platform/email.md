@@ -17,7 +17,7 @@ You can choose to receive notifications from Semgrep regarding new findings thro
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
 1. Create an email integration:
-    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add**.
     2. Click on **Email**.
     3. Enter a **Name** for the integration.
     4. Enter the **Email address** to receive Semgrep findings.

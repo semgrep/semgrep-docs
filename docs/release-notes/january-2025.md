@@ -63,7 +63,7 @@ tags:
 - The `semgrep test` and `semgrep validate` commands have been correctly documented as **EXPERIMENTAL** in `semgrep --help`.
   - Those commands are not GA. It is recommended to use the `semgrep scan --test` and `semgrep scan --validate`.
 - Improve error handling for capabilities ancillary to a scan, such as looking for `nosemgrep` comments and rendering autofixes, to reduce the likelihood of an unexpected error in such a component causing the scan to error.
-- Fix the behavior of Semgrep when running into broken symlinks. If such a path is passed explicitly as a scanning root on the command line, it results in an error. Otherwise, if it's a file discovered while scanning the file system, it's a warning.
+- Fix the behavior of Semgrep when running into broken symlinks. If such a path is passed explicitly as a scan root on the command line, it results in an error. Otherwise, if it's a file discovered while scanning the file system, it's a warning.
 - Fixed an issue with crashes due to an exception in `lines_of_file`. The code should now be more robust and not stop the whole scan when an out-of-bound line access happens during `nosemgrep` analysis or when displaying the lines of a match.
 
 ## ⛓️ Semgrep Supply Chain

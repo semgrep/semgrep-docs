@@ -279,6 +279,9 @@ OPTIONS
        --no-secrets-validation
            Disables secret validation.
 
+       --no-semgrepignore-v2
+           negates --semgrepignore-v2
+
        --no-strict
            negates --strict
 
@@ -290,6 +293,12 @@ OPTIONS
 
        --no-trace
            negates --trace
+
+       --novcs
+           Assume the project is not managed by a version control system
+           (VCS), even if the project appears to be under version control
+           based on the presence of files such as '.git' or similar. REQUIRES
+           --experimental or --semgrepignore-v2.
 
        -o VAL, --output=VAL
            Save search results to a file or post to URL. Default is to print
@@ -333,16 +342,16 @@ OPTIONS
            option forces the project root to be a specific folder and assumes
            a local project without version control (novcs). This option is
            useful to ensure the '.semgrepignore' file that may exist at the
-           project root is consulted when the scanning root is not the
+           project root is consulted when the scan root is not the
            current folder '.'. A valid project root must be a folder (path
            referencing a directory) whose physical path is a prefix of the
-           physical path of the scanning roots passed on the command line.
+           physical path of the scan roots passed on the command line.
            For example, the command 'semgrep scan --project-root . src' is
            valid if '.' is '/home/me' and 'src' is a directory or a symbolic
            link to a '/home/me/sources' directory or a symbolic link to a
            'sources' directory but not if it is a symbolic link to a
            directory '/var/sources' (assuming '/var' is not a symbolic link).
-           REQUIRES --experimental
+           REQUIRES --experimental or --semgrepignore-v2.
 
        -q, --quiet
            Only output findings.
@@ -380,6 +389,14 @@ OPTIONS
            Run Semgrep Secrets product, including support for secret
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
+
+       --semgrepignore-v2
+           '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
+           implementation for discovering and filtering target files.
+           Conversely, '--no-semgrepignore-v2' is the deprecated option that
+           forces the use of the legacy Semgrepignore v1. If you must use
+           '--no-semgrepignore-v2', please let us know so we can fix problems
+           and help you migrate smoothly. 
 
        --severity=VAL
            Report findings only from rules matching the supplied severity
@@ -433,14 +450,14 @@ OPTIONS
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning. 
+           internal use and may be changed or removed without warning. 
 
        --use-git-ignore
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
            '.gitignore' files to determine which files semgrep should scan.
            As a result of '--no-git-ignore', gitignored files and git
            submodules will be scanned. This flag has no effect if the
-           scanning root is not in a git repository. '--use-git-ignore' is
+           scan root is not in a git repository. '--use-git-ignore' is
            semgrep's default behavior.
 
        -v, --verbose
@@ -478,6 +495,9 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-tr
+           <internal, do not use>
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)

@@ -7,7 +7,7 @@ description: >-
 hide_title: true
 tags:
     - Semgrep Code 
-title: Python frameworks and analyses
+title: Python
 ---
 
 import SupportedLibrariesTable from '/src/components/reference/_supported-libraries-python-table.md'
@@ -18,14 +18,15 @@ import SupportedLibrariesTable from '/src/components/reference/_supported-librar
 Semgrep’s Python coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
 :::
 
-## Semgrep Code: Analysis capabilities for Python
+## Semgrep Code analyses
+
 * Framework-specific control flow analysis 
 * Inter-file analysis (cross-file)
 * Inter-procedural analysis (cross-function)
 
 ## Coverage 
-_Semgrep's coverage ethos: comprehensive and accurate detection of common, OWASP Top 10 issues in source code_
 
+Semgrep aims to provide comprehensive and accurate detection of common OWASP Top 10 issues in source code.
 
 In addition to rules, the Semgrep engine itself can analyze code and implicit dataflows in the context of the following supported frameworks:
 
@@ -57,9 +58,9 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 
 </details>
 
-### Benchmark results (_exclusive of_ [AI](https://semgrep.dev/docs/semgrep-assistant/overview) processing): 
+### Benchmark results exclusive of [AI](https://semgrep.dev/docs/semgrep-assistant/overview) processing
 
-Our benchmarking process involves scanning open-source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by our security research team to monitor and improve rule performance.
+Semgrep's benchmarking process involves scanning open source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by the Semgrep security research team to monitor and improve rule performance.
 
 Results as of **September 9, 2024**:
 

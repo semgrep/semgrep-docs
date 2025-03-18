@@ -29,7 +29,7 @@ module.exports = {
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
+    { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -48,6 +48,7 @@ module.exports = {
                 label: 'Supported languages',
                 link: {type: 'doc', id: 'supported-languages'},
                 items: [
+                    'languages/javascript',
                     'semgrep-code/supported-languages-python',
                 ]
             },
@@ -156,18 +157,6 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'AI-assisted triage and autofix',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-assistant/overview'},
-          items: [
-            'semgrep-assistant/getting-started',
-            'semgrep-assistant/analyze',
-            'semgrep-assistant/metrics',
-            'semgrep-assistant/privacy'
-          ]
-        },
-        {
-          type: 'category',
           label: 'Secure guardrails',
           collapsible: true,
           link: {type: 'doc', id: 'secure-guardrails/overview'},
@@ -187,7 +176,6 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
-        'semgrep-appsec-platform/jira',
         'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
@@ -200,6 +188,15 @@ module.exports = {
           items: [
             'extensions/semgrep-vs-code',
             'extensions/semgrep-intellij'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Integrations',
+          collapsible: true,
+          items: [
+            'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/wiz'
           ]
         },
       ]
@@ -251,15 +248,16 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
-                      'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/view-export',
+                      'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
                 },
                 'semgrep-supply-chain/sbom',
                 'semgrep-supply-chain/dependency-search',
-                'semgrep-supply-chain/license-compliance'
+                'semgrep-supply-chain/license-compliance',
+                'semgrep-supply-chain/malicious-dependencies'
             ]
         },
         {
@@ -278,7 +276,40 @@ module.exports = {
           },
         ]
       },
-    {
+      {
+        type: 'category',
+        label: 'Semgrep Assistant',
+        collapsible: false,
+        items: [
+          {
+            type: 'category',
+            label: 'Overview',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/overview'
+            },
+            items: [
+              'semgrep-assistant/metrics',
+              'semgrep-assistant/privacy'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Getting started',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/getting-started'
+            },
+            items: [
+              'semgrep-assistant/customize'
+            ]
+          },
+          'semgrep-assistant/analyze'
+          ]
+      },
+      {
       type: 'category',
       label: 'References',
       collapsible: false,
@@ -471,12 +502,24 @@ module.exports = {
             'support',
             'security',
             'licensing',
-            'faq',
+            'faq/overview',
             'integrating',
             'usage-and-billing',
             'deployment/claim-a-license',
             'contributing/philosophy',
             'semgrep-pro-vs-oss',
+            {
+              type: 'category',
+              label: 'Comparisons with other tools',
+              collapsible: true,
+              items: [
+                  'faq/comparisons/codeql',
+                  'faq/comparisons/endor-labs',
+                  'faq/comparisons/opengrep',
+                  'faq/comparisons/snyk',
+                  'faq/comparisons/sonarqube',
+                ]
+            },
             {
               type: 'doc',
               id: 'metrics',
@@ -679,7 +722,8 @@ module.exports = {
                     title: '2025 Release notes'
                 },
                 items: [
-                  'release-notes/january-2025',
+                  'release-notes/february-2025',
+                  'release-notes/january-2025'
                 ],
             },
             {

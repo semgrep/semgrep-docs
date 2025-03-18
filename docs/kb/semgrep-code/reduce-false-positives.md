@@ -26,7 +26,7 @@ If you notice that a specific Semgrep Community rule generates a high rate of fa
 
 To have more granular control over the rules in a ruleset, you must add the ruleset to your machine, then configure Semgrep to use those local rules.
 
-1. Navigate to the [<i class="fas fa-external-link fa-xs"></i> Semgrep community rules repository](https://github.com/semgrep/semgrep-rules).
+1. Navigate to the repository that hosts the rule. Usually, the [<i class="fas fa-external-link fa-xs"></i> Semgrep community rules repository](https://github.com/semgrep/semgrep-rules) hosts the rule, but Semgrep also imports rules from other repositories. From the rule's entry in the Registry, check the author of the rule to confirm the source. 
 1. Fork or clone the repository to create a local copy of all the rules.
   1. To clone, click **Code** then copy and run the cloning command in your CLI. This creates a `semgrep-rules` repository.
   1. To fork, click **Fork** and follow the steps provided by GitHub. You must also clone the forked repository to your machine.

@@ -251,6 +251,9 @@ OPTIONS
        --no-secrets-validation
            Disables secret validation.
 
+       --no-semgrepignore-v2
+           negates --semgrepignore-v2
+
        --no-suppress-errors
            negates --suppress-errors
 
@@ -317,6 +320,14 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
+       --semgrepignore-v2
+           '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
+           implementation for discovering and filtering target files.
+           Conversely, '--no-semgrepignore-v2' is the deprecated option that
+           forces the use of the legacy Semgrepignore v1. If you must use
+           '--no-semgrepignore-v2', please let us know so we can fix problems
+           and help you migrate smoothly. 
+
        --skip-unknown-extensions
            negates --scan-unknown-extensions
 
@@ -359,14 +370,14 @@ OPTIONS
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning. 
+           internal use and may be changed or removed without warning. 
 
        --use-git-ignore
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
            '.gitignore' files to determine which files semgrep should scan.
            As a result of '--no-git-ignore', gitignored files and git
            submodules will be scanned. This flag has no effect if the
-           scanning root is not in a git repository. '--use-git-ignore' is
+           scan root is not in a git repository. '--use-git-ignore' is
            semgrep's default behavior.
 
        -v, --verbose
@@ -402,6 +413,9 @@ OPTIONS
 
        --x-partial-output=VAL
            Internal flag.
+
+       --x-tr
+           <internal, do not use>
 
        --x-upload-partial-results=VAL
            Internal flag.

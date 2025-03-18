@@ -170,6 +170,15 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
 :::
 
+### Semgrep Assistant features permitted per role
+
+| Page      | Member     | Manager    | Admin | 
+| ----      | ------     | -------    | ----- | 
+| Add a memory | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
+| Receive weekly priority emails | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
+| Add a memory during triage | ❌ No   | ❌ No   |✅&nbsp;Yes |
+
+
 ## How team access works
 
 - Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
@@ -178,7 +187,7 @@ Members and managers can create projects by scanning a repository using the Semg
 In the following diagram, team 1 gains access to subteam 1b's projects, but team 1b does not gain access to projects from team 1.
 
 
-![Team scopes diagram](/img/access-diagram.png#md-width)
+![Team scopes diagram](/img/access-diagram.png#sm-width)
 
 - The members Alexis, Pam, and Raj have access to the following projects:
     - App
@@ -205,6 +214,18 @@ Managers cannot remove themselves from their team. Admins and co-managers of the
 
 ![A manager's view of the Projects page.](/img/access-manager-view.png)
 **Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
+
+#### Assign team members to projects
+
+:::info
+This feature is in **private beta**. To gain access to this feature, reach out to [Support](/support).
+:::
+
+Managers can view their subteams through the **Settings > Access > My teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
+
+For example, if Bob is a manager of `Team A` (assigned to projects `Foo` and `Bar`) and `Team B` (assigned to project `Baz`), Bob has access to all three projects: `Foo`, `Bar`, and `Baz`. Bob can also assign `Baz` to `Team A`.
+
+Note that this feature enables managers to view **all projects**, even projects they are not assigned to, in the **Edit teams** panel. While they are able to view projects in this panel, they still can't perform any admin-level operations, including assigning projects they're not a manager of.
 
 ## Enable teams
 

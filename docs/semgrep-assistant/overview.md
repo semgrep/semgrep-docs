@@ -1,7 +1,7 @@
 ---
 slug: overview
 append_help_link: true
-title: AI-assisted triage and autofix
+title: Overview
 hide_title: true
 description: Learn how Semgrep Assistant can provide recommendations for triage and remediation of Semgrep findings.
 tags:

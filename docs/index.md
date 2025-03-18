@@ -119,18 +119,15 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>January 2025 release notes summary</h3>
+<h3>February 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- The [Policy Management API](https://semgrep.dev/api/v1/docs/#tag/PoliciesService) is now generally available. The Policy Management API allows you to automate tasks such as:
-  - Add, update, and disable rules across multiple policies.
-  - Apply rules in different modes, such as monitor, comment, block, or disable, to align with security workflows.
-  - Integrate policy management into CI/CD pipelines to ensure consistent enforcement during software development.
-- [Semgrep Managed Scans](/deployment/managed-scanning/azure) for repositories hosted by **Azure DevOps** is now in public beta.
-- [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path) are now available in public beta for the following languages and package managers:
-  - **JavaScript**: npm, pnpm, and yarn are supported.
-  - **Python**: Only Poetry is supported.
-- Semgrep now ingests CVE information from [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable). This information is used to generate rules that can detect if you're affected by CVEs from this source.
-- [Noise filtering](/semgrep-assistant/overview#noise-filtering-beta) is now in public beta. With Noise Filtering, Assistant evaluates each Semgrep Code finding to determine if it's a true positive using additional context and prevents a PR comment from being posted in the developer workflow if it's not.
-- [Auto-triage Memories](/semgrep-assistant/getting-started#add-memory-during-triage) is now in public beta. With this feature, you can identify findings that are safe to ignore and write triage notes indicating why this is so. Assistant then stores this information as a memory and uses it to assess whether similar findings are shown to developers in the future. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+- [Semgrep Managed Scans](/deployment/managed-scanning/bitbucket) for repositories hosted by **Bitbucket Cloud** is now in public beta.
+- You can now manage your projects' enrollment in Semgrep Managed Scans through the [Semgrep API's `/project` and `/project/managed-scan` endpoints](https://semgrep.dev/api/v1/docs/#tag/Project).
+- Added support for **Critical** severity level to denote the highest severity level for a Code or Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can [filter for and identify rules that generate critical severity findings](https://semgrep.dev/r?sev=CRITICAL) in the Semgrep Registry.
+- New rules for JavaScript and TypeScript have been added to [Semgrep's default ruleset, `p/default`](https://semgrep.dev/p/default). The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
+- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
+    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
+    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
+- [Semgrep Assistant](/semgrep-assistant/overview) is now available for users with repositories hosted by Bitbucket Cloud and Azure DevOps.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)

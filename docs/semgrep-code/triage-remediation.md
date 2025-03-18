@@ -16,6 +16,7 @@ import TabItem from '@theme/TabItem';
 # Triage and remediate findings
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
+import TriageReason from "/src/components/reference/_triage-reason.mdx"
 import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 
@@ -138,73 +139,89 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 ## Triage findings through PR and MR comments
 
-Triage your Semgrep AppSec Platform findings displayed as comments in GitHub PRs and GitLab MRs by replying with another comment.
+Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
 
 <Tabs
     defaultValue="gh"
     values={[
+        {label: 'Azure DevOps', value: 'ado'},
+        {label: 'Bitbucket', value: 'bb'},
         {label: 'GitHub', value: 'gh'},
         {label: 'GitLab', value: 'gl'}
     ]}
 >
 
-<!-- <TabItem value='current'>
+<TabItem value='ado'>
+
 ### Prerequisites
-- A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
+
+- You have one or more repositories hosted by Azure DevOps Cloud.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
-### To enable triage through comments:
+### Enable triage through Azure DevOps PR comments
 
-1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/projects/-/repo-to-scan) page.
-2. Enable the **Triage via comment** <i class="fa-solid fa-toggle-large-on"></i> toggle.
+1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
+2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding in GitHub:
+### Triage a finding
 
-1. Find an open comment created by Semgrep AppSec Platform in GitHub PR:
-    ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github.png#md-width)
+1. Find an open comment created by Semgrep in your pull request:
+    ![Azure DevOps PR comment with Semgrep triage options](/img/ado-pr-comment.png#md-width)
+2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+    <TriageReason />
 
-2. In a subsequent comment, reply with <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code>. Substitute the colored placeholder <code><span className="placeholder">&lt;REASON&gt;</span></code> with text to help the reader understand why the status of a comment is ignored. Alternatively, you can reopen a finding that was previously ignored using <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code>.
+Triaging a finding as **Ignored** through a comment in Azure DevOps changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the Azure DevOps conversation itself is **not** automatically resolved by this process.
 
-Ignoring a finding through a comment in GitHub changes the status of the finding to **ignored** in the Semgrep AppSec Platform. The GitHub conversation itself is not automatically resolved by this process.
+</TabItem>
 
-:::tip
-You can also reopen a finding that was previously ignored. To do so, in step 2. of the preceding procedure, use `/semgrep open`. For `/semgrep open` the reason field is optional.
-:::
+<TabItem value='bb'>
 
-</TabItem>  -->
+<!-- tk -->
+
+### Prerequisites
+
+- You have one or more repositories hosted by Bitbucket Cloud Premium.
+- You have completed a [Semgrep core deployment](/deployment/core-deployment). Particularly, you must have a successful connection to Bitbucket.
+
+### Enable triage through Bitbucket PR comments
+
+1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
+2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+
+### Triage a finding
+
+1. Find an open comment created by Semgrep AppSec Platform in your pull request:
+    ![Semgrep AppSec Platform PR comment in Bitbucket](/img/bb-triage-by-pr.png#md-width)
+2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+    <TriageReason />
+
+Triaging a finding as **Ignored** through a comment in Bitbucket changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the Bitbucket conversation itself is **not** automatically resolved by this process.
+
+</TabItem>
 
 <TabItem value='gh'>
 
 ### Prerequisites
-- A **private** GitHub Free or Team cloud-hosted repository. This feature is not enabled for public GitHub repositories or GitHub Enterprise public and private repositories.
+- A **private** GitHub Free or Team cloud-hosted repository or GitHub Enterprise repository. This feature is not enabled for public GitHub Cloud repositories.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 ### Enable triage through GitHub PR comments:
 
-To enable triage through comments:
-
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding:
+### Triage a finding
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitHub](/img/semgrep-app-comment-github-beta.png#md-width)
 2. In a subsequent comment, reply with the action you want to take. You must provide a **reason** to help the reader understand why the finding has been triaged as **ignored**:
-
-    | Comment | Description |
-    | - | - |
-    | <code>/fp <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
-    | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
-    | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
-    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
+    <TriageReason />
 
 Semgrep supports older versions of this functionality that used the following commands:
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
 - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 
-Triaging a finding as **Ignored** through a comment in GitHub changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitHub conversation itself is not automatically resolved by this process.
+Triaging a finding as **Ignored** through a comment in GitHub changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the GitHub conversation itself is **not** automatically resolved by this process.
 
 </TabItem>
 <TabItem value='gl'>
@@ -213,29 +230,20 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 - A repository hosted by GitLab. Semgrep supports the use of both GitLab.com and GitLab self-managed plans.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
-### Enable triage through GitLab MR comments:
-
-To enable triage through comments:
+### Enable triage through GitLab MR comments
 
 1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
 2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
-To triage a finding:
+### Triage a finding
 
 1. Find an open comment created by Semgrep AppSec Platform in your pull request or merge request:
     ![Screenshot of Semgrep AppSec Platform comment in GitLab](/img/semgrep-app-comment-gitlab.png#md-width)
 
 2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
+    <TriageReason />
 
-    | Comment | Description |
-    | - | - |
-    | <code>/fp <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. |
-    | <code>/ar <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. |
-    | <code>/other <span className="placeholder">&lt;REASON&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. |
-    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. The comment is optional. |
-    | <code>/remember <span className="placeholder">&lt;REASON&gt;</span></code> | [Add Assistant Memories](/semgrep-assistant/getting-started#add-memories-beta). |
-
-Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in the Semgrep AppSec Platform. However, the GitLab conversation itself is not automatically resolved by this process.
+Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the GitLab conversation itself is **not** automatically resolved by this process.
 
 </TabItem>
 </Tabs>
@@ -247,5 +255,5 @@ Semgrep provides an API endpoint you can use to triage findings in bulk, either 
 ## Reduce the number of false positive findings
 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
-* If a rule from Semgrep Registry is useful, but it captures too many false positives, you can reach out to [support@semgrep.com](mailto:support@semgrep.com). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
+* If a rule authored by the Semgrep team, available on the Registry, is useful, but captures too many false positives, you can reach out to [Support](/support). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
 * You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep AppSec Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep AppSec Platform provides a link after each comment for users to indicate if the finding is a false positive.

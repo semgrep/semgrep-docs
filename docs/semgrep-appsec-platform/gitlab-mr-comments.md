@@ -22,7 +22,7 @@ import DefineConnectionVariables from "/src/components/reference/_define-connect
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
-import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -66,10 +66,10 @@ Creating a PAT grants the API scope to Semgrep, which lets it post comments.
 Once you have a GitLab PAT, you can provide it to Semgrep through [Semgrep AppSec Platform's **<i class="fa-solid fa-gear"></i> Settings > Source Code Managers** tab](/deployment/connect-scm#gitlab-cloud). This tab is a central location that makes it easy for your teams to access and rotate the token if necessary. This is the recommended method, though there are two other options for providing your PAT to Semgrep:
 
 - In the [Network Broker configuration file](/semgrep-ci/network-broker#configure-semgrep-network-broker): You can set a dummy token and assign the PAT in the Network Broker configuration file. This information is stored on your infrastructure, and you can manage it using the secret storage program of your choice.
-- In the [CI job's configuration file](/semgrep-ci/sample-ci-configs#sample-gitlab-cicd-configuration-snippet): This is helpful if you're using Gitlab's Project Access Tokens, which are generated on a per-project basis.
+- In the [CI job's configuration file](/semgrep-ci/sample-ci-configs#sample-gitlab-cicd-configuration-snippet): This is helpful if you're using GitLab's Project Access Tokens, which are generated on a per-project basis.
 
 <details>
-<summary>Click to learn how to use the Gitlab PAT in CI jobs.</summary>
+<summary>Click to learn how to use the GitLab PAT in CI jobs.</summary>
 
 For GitLab CI/CD users:
 
@@ -122,9 +122,15 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
 
+<<<<<<< HEAD
 ### Configure comments for Semgrep Secrets
 
 <PrCommentsInSecrets name="GitLab" comment_type="MR" />
+=======
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
+>>>>>>> main
 
 ### Receive comments in your VPN or on-premise SCM
 
@@ -160,10 +166,6 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - To obtain meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
-
-## Disable MR comments for Supply Chain findings
-
-<DisableComments />
 
 ## Next steps
 

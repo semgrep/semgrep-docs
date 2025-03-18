@@ -94,7 +94,7 @@ tags:
 
 ### Added
 
-- Documentation for providing your [own OpenAI API key](/semgrep-assistant/getting-started#use-your-own-openai-api-key) for use with Semgrep Assistant.
+- Documentation for providing your [own OpenAI API key](/semgrep-assistant/customize#use-your-own-openai-api-key) for use with Semgrep Assistant.
 - EPSS documentation.
 - Sections for various source code manager additions, such as:
   - Support for multiple GitHub Enterprise Server organizations.
