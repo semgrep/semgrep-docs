@@ -71,7 +71,8 @@ Semgrep displays transitive reachability information in the CLI results as follo
           Transitivity: Found usages in third-party code in 2 files:                                             
             /index.js:14, /index.js:9                          
           test                                                                                                          
-           16┆ "node_modules/foo": {
+           16┆ "node_modules/foo":
+           ...
 ```
 
 ## Triage and remediation
