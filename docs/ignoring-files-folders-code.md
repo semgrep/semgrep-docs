@@ -70,7 +70,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. Any file that isn't matched is excluded. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
-| To scan all files within Semgrep's scope each time you run Semgrep (only files in `.git` and the `.gitignore` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory, and for `semgrep ci` scans, [remove any entries listed in your project's **Path Ignores** list](#define-ignored-files-and-folders-in-semgrep-appsec-platform)  in Semgrep AppSec Platform. |
+| To scan all files within Semgrep's scope each time you run Semgrep (only files in `.git` and the `.gitignore` are ignored). | Create an empty `.semgrepignore` file in your repository root directory or in your project's working directory, and for `semgrep ci` scans, [remove any entries listed in your **Path Ignores** list](#define-ignored-files-and-folders-in-semgrep-appsec-platform) in Semgrep AppSec Platform. |
 | To include files or folders defined within a `.gitignore` for a particular scan. | Run Semgrep with the flag `--no-git-ignore`. |
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](/writing-rules/rule-syntax#paths).
 
@@ -96,7 +96,7 @@ specification more closely.
 
 ## Define ignored files and folders in Semgrep AppSec Platform
 
-Another method for users to define ignore patterns is through a Project in Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can define patterns for individual projects, or you can define them at the organization level so that they're applied to all projects owned by that organization.
+Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can define patterns for individual projects, or you can define them at the organization level so that they're applied to all projects owned by that organization.
 
 Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
 
