@@ -17,6 +17,7 @@ import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-displ
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
@@ -120,6 +121,10 @@ If you're using Semgrep with multiple GitLab groups, ensure that you've complete
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="GitLab" comment_type="MR" />
 
 ### Configure comments for Semgrep Supply Chain
 
