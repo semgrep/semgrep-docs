@@ -41,6 +41,7 @@ semgrep:
   artifacts:
     paths:
       - semgrep.log
+    when: always
 ```
 
 You can [download the full log](https://docs.gitlab.com/ee/ci/jobs/job_artifacts.html#download-job-artifacts) from several locations, including the "Job artifacts" area in the job.
