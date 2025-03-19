@@ -56,15 +56,19 @@ Only **admins** can view, create, edit, or delete policies.
 
 ## Common use cases for policies
 
-The following lists provide suggestions for setting up policies. These are merely guidelines to help you create policies that align with your business and organizational needs.
+Use the following recommendations to help you create policies. These are merely guidelines to help you ensure that policies align with your business and organizational needs.
 
-- Block PRs or MRs with the following conditions:
-  - **Reachable findings with upgradeable dependencies**. This is a reasonable policy as it provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
-- Leave a comment for:
-  - Reachable findings without upgradeable dependencies, to make the developer aware of the risk.
-  - Reachable, yet transitive findings; depending on your organization's policies, these may need to be flagged for risk.
-- Monitor the following conditions for triage by AppSec engineers only, that is, avoid creating policies for the following conditions:
-  - tk
+### Recommended conditions for blocking PRs or MRs
+
+- **Always reachable and reachable findings with upgradeable dependencies**. This is a reasonable policy as it provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
+
+### Recommended conditions for leaving a comment
+
+- **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
+- **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
+- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
+- **Critical and high EPSS probability**. There is a chance of these findings being exploited regardless of reachability.
+- **Critical severity findings with any reachability type**. Showing developers critical severity findings regardless of its reachability type may be controversial due to the chance of increased noise and needs to be weighed against compliance policies.
 
 ## Policy scopes
 
