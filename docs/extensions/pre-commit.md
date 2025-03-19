@@ -15,7 +15,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-
 
 ## Prerequisites
 
-- [The `pre-commit` framework]((https://pre-commit.com/#install)).
+- [<i class="fas fa-external-link fa-xs"></i> The `pre-commit` framework](https://pre-commit.com).
 
 ## `pre-commit` with Semgrep CE (no login)
 
