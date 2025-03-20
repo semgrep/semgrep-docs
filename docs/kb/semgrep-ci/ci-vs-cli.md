@@ -54,7 +54,12 @@ To perform a CLI scan using cross-file analysis, ensure you've run `semgrep inst
 semgrep --config auto --pro
 ```
 
-To scan without Pro Engine in CI, even if it is enabled in Semgrep AppSec Platform, use:
+To disable cross-file analysis in CI while still using Pro Engine, use:
+
+```bash
+semgrep ci --pro-intrafile
+```
+If you want to fully revert to OSS-only analysis, disregarding Pro Engine entirely, use:
 
 ```bash
 semgrep ci --oss-only
