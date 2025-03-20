@@ -26,16 +26,20 @@ The following table lists the languages for which Supply Chain can detect malici
 | Language | Package manager or ecosystem |
 | :---- | :---- |
 | C\# | NuGet |
-| Dart | Pub |
-| Elixir | Hex |
 | Go | `go.mod` |
-| Java | Maven |
+| JavaScript | npm |
 | Python | PyPi |
 | Ruby | RubyGems |
-| Scala | Maven |
-| Swift | SwiftPM |
-| PHP | \-- |
 | Rust | \-- |
+
+<!--
+| Dart | Pub | 
+| Elixir | Hex | 
+| Java | Maven | 
+| Scala | Maven | 
+| Swift | SwiftPM | 
+| PHP | \-- | 
+-->
 
 ## Malicious dependency findings
 
