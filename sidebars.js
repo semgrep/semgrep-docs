@@ -179,7 +179,7 @@ module.exports = {
         'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
-          label: 'IDE extensions',
+          label: 'Extensions',
           collapsible: true,
           link: {
             type: 'doc',
@@ -187,7 +187,8 @@ module.exports = {
           },
           items: [
             'extensions/semgrep-vs-code',
-            'extensions/semgrep-intellij'
+            'extensions/semgrep-intellij',
+            'extensions/pre-commit',
           ]
         },
         {
