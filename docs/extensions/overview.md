@@ -21,7 +21,7 @@ All of the official IDE extensions use the [Language Server Protocol](https://mi
 
 ## `pre-commit`
 
-Prevent secrets or security issues from entering your Git source control history by running Semgrep as a [<i class="fas fa-external-link fa-xs"></i> pre-commit](http://localhost:3000/docs/extensions/overview) hook. See [`pre-commit` documentation](/extensions/pre-commit) for details.
+Prevent secrets or security issues from entering your Git source control history by running Semgrep as a [<i class="fas fa-external-link fa-xs"></i> pre-commit](https://pre-commit.com/) hook. See [`pre-commit` documentation](/extensions/pre-commit) for details.
 
 ## Semgrep as an engine
 
