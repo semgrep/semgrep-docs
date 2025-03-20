@@ -26,16 +26,20 @@ The following table lists the languages for which Supply Chain can detect malici
 | Language | Package manager or ecosystem |
 | :---- | :---- |
 | C\# | NuGet |
-| Dart | Pub |
-| Elixir | Hex |
 | Go | `go.mod` |
-| Java | Maven |
+| JavaScript | npm |
 | Python | PyPi |
 | Ruby | RubyGems |
-| Scala | Maven |
-| Swift | SwiftPM |
-| PHP | \-- |
-| Rust | \-- |
+| Rust | `cargo.lock` |
+
+<!--
+| Dart | Pub | 
+| Elixir | Hex | 
+| Java | Maven | 
+| Scala | Maven | 
+| Swift | SwiftPM | 
+| PHP | \-- | 
+-->
 
 ## Malicious dependency findings
 
@@ -51,7 +55,7 @@ If you have set up your Supply Chain policies to block with this condition, mali
 
 ## View malicious dependencies
 
-Malicious dependencies appear in [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time), alongside other Supply Chain findings. They are denoted by the **Malicious** badge.
+Malicious dependencies appear in [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time), alongside other Supply Chain findings. They are denoted by the **MAL** badge.
 
 ![Malicious dependency finding with badge](/img/findings-maldeps.png)
 _**Figure**. A malicious dependency finding._
