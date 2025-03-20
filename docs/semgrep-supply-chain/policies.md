@@ -56,7 +56,7 @@ Only **admins** can view, create, edit, or delete policies.
 
 ## Common use cases for policies
 
-Use the following recommendations to help you create policies. These are merely guidelines to help you ensure that policies align with your business and organizational needs.
+Use the following recommendations to help you create policies. These guidelines help ensure your policies align with your business and organizational needs.
 
 ### Recommended conditions for blocking PRs or MRs
 
