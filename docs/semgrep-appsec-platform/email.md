@@ -20,8 +20,8 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
     1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
     2. Click on **Email**.
     3. Enter a **Name** for the integration.
-    4. Enter the **Email address** to receive Semgrep findings.
-    5. Click **Save.**
+    4. Enter the **Email** address to receive Semgrep findings.
+    5. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
