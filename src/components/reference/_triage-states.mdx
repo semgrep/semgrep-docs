@@ -18,7 +18,7 @@ Findings can also be **removed**. Semgrep considers a finding removed if it is n
 Your removed findings do not count toward the fix rate or the number of findings. The removed findings also do not appear in Semgrep AppSec Platform.
 
 :::info Findings triaged across refs
-- Findings triaged (ignored, reopened) in a specific branch, PR, or MR are **not** automatically triaged in all other branches, PRs, and MRs of a particular repository.
+- Findings that are triaged as ignored or reopened in a specific branch, PR, or MR are **not** automatically triaged in all other branches, PRs, and MRs of a particular repository.
 - If you filter for [Git references](https://git-scm.com/book/en/v2/Git-Internals-Git-References) (refs) on the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, then triage a finding, the finding is **NOT** automatically triaged in all other branches, PRs, MRs, and refs.
     - Triaging a finding on the default branch **does** affect all related non-default refs or branch-specific refs with an instance of the finding **when the finding was triaged**.
 - Future instances of a finding found at a later date aren't automatically triaged, even if the finding on the default has been triaged.
