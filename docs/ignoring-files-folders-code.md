@@ -102,6 +102,8 @@ Including files and folders through this method is **additive**. When you run a 
 
 Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
 
+All files and folders defined using Semgrep AppSec Platform's **Path Ignores** feature, both for a specific project and globally, are additive.
+
 ### Define files and folders for a specific project
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
