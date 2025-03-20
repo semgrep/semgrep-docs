@@ -11,6 +11,7 @@ tags:
 ---
 
 import SmsSupport from "/src/components/reference/_sms-support.mdx"
+import GitlabRequirements from "/src/components/reference/_gitlab-sms-requirements.mdx"
 
 # Quickstart for Semgrep Managed Scans
 
@@ -39,9 +40,7 @@ import TabItem from '@theme/TabItem';
 
 ### Prerequisites
 
-Admin access to your Azure DevOps organization.
-
-### Requirements
+You must have admin access to your Azure DevOps organization.
 
 Read access is granted through an access token you generate on Azure DevOps. You can provide this token by [adding Azure DevOps as a source code manager](/deployment/connect-scm#azure-devops-cloud).
 
@@ -68,9 +67,7 @@ Semgrep recommends setting up and configuring Semgrep with an Azure DevOps servi
 
 ### Prerequisites
 
-Admin access to your GitHub organization.
-
-### Requirements
+You must have admin access to your GitHub organization.
 
 To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
 
@@ -96,11 +93,7 @@ Read access is permitted through a private Semgrep app that you create and regis
 
 ### Prerequisites
 
-Admin access to your GitLab organization.
-
-### Requirements
-
-Read access is granted through an access token that you generate on GitLab. You can provide this token by [adding GitLab as a source code manager](/deployment/connect-scm).
+<GitlabRequirements />
 
 ### Add a repository
 
@@ -118,9 +111,7 @@ Read access is granted through an access token that you generate on GitLab. You 
 
 ### Prerequisites
 
-Admin access to your Bitbucket organization.
-
-### Requirements
+You must have admin access to your Bitbucket organization.
 
 #### Bitbucket Cloud
 
