@@ -11,7 +11,7 @@ import Login from "/src/components/procedure/_login-activate.mdx"
 
 # Run scans on `pre-commit`
 
-The [pre-commit framework](https://pre-commit.com/) can run `semgrep` at commit-time. This is helpful to prevent secrets and security issues from leaking onto your Git history.
+The [pre-commit framework](https://pre-commit.com/) can run `semgrep` when you commit changes. This is helpful in preventing secrets and security issues from leaking into your Git history.
 
 ## Prerequisites
 
