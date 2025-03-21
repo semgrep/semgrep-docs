@@ -10,6 +10,7 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import GitlabRequirements from "/src/components/reference/_gitlab-sms-requirements.mdx"
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
 import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
 
@@ -19,13 +20,7 @@ Add GitLab repositories to your Semgrep organization in bulk without adding or c
 
 ## Prerequisites and permissions
 
-Semgrep Managed Scanning requires one of the following plans:
-
-- GitLab Premium
-- GitLab Ultimate
-- GitLab Self Managed
-
-You must provide a GitLab group access token or personal access token to Semgrep. The token must have the `api` scope assigned to it. During SMS onboarding, the group or user to which the token is assigned must have one of the following roles: `Maintainer`, `Owner`, or `Admin`. Afterwards, you can downgrade the role assigned to the token to `Developer`.
+<GitlabRequirements />
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 

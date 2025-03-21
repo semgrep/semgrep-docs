@@ -35,7 +35,7 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 * Customize how Semgrep Code scans your repositories
 * Manage your users and facilitate team collaboration in remediating security issues
 
-## OSS versus Semgrep Code analysis
+## Semgrep CE versus Semgrep Code analysis
 
 By default, Semgrep Code can analyze interactions beyond a single function but within a single file, a process known as **cross-function or interprocedural analysis**. This smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 

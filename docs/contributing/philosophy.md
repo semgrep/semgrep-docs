@@ -7,7 +7,7 @@ tags:
 
 # Semgrep Community Edition (CE) philosophy
 
-[Semgrep CE](https://semgrep.dev/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
+[Semgrep CE](https://github.com/semgrep/semgrep/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
 
 As you think about contributing to Semgrep CE, consider these design principles that have guided Semgrep CE development so far:
 

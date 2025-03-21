@@ -44,17 +44,22 @@ would give similar results to `semgrep ci`.
 
 ## Pro analysis
 
-When using `semgrep ci` with Semgrep AppSec Platform, the Semgrep scan reflects the Pro Engine options configured in Semgrep AppSec Platform at https://semgrep.dev/orgs/-/settings. If Pro Engine is enabled, and the scanned code includes [supported Pro languages](/docs/supported-languages/#semgrep-code-language-support), then interfile and interprocedural analysis is performed.
+When using `semgrep ci` with Semgrep AppSec Platform, you can configure whether the scan uses cross-file analysis in [Settings](https://semgrep.dev/orgs/-/settings). If you enable cross-file analysis, Semgrep performs cross-file and cross-function analysis for [supported languages](/supported-languages#language-maturity-summary).
 
-If Pro Engine is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run as OSS rules, using only intrafile and intraprocedural analysis.
+If cross-file analysis is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run using cross-function analysis within single files.
 
-To perform a CLI scan using Pro Engine, ensure you've [installed Pro Engine](/docs/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
+To perform a CLI scan using cross-file analysis, ensure you've run `semgrep install-semgrep-pro` to [install the additional semgrep binary](/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
 ```bash
 semgrep --config auto --pro
 ```
 
-To scan without Pro Engine in CI, even if it is enabled in Semgrep AppSec Platform, use:
+To disable cross-file analysis in CI while still using Pro Engine, use:
+
+```bash
+semgrep ci --pro-intrafile
+```
+If you want to fully revert to OSS-only analysis, disabling Pro Engine entirely, use:
 
 ```bash
 semgrep ci --oss-only

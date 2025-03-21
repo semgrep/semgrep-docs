@@ -278,7 +278,7 @@ This section provides a comprehensive comparison of each offering's features.
 - [Local scans](/getting-started/cli-oss)
 - [Manual CI job set up](/deployment/oss-deployment)
 - [IDE plugins](/extensions/overview)
-- [`pre-commit`](/extensions/overview#pre-commit)
+- [`pre-commit`](/extensions/pre-commit)
 
 </div>
 <div>

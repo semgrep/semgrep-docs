@@ -34,7 +34,7 @@ You can select the channels in your Slack workspace that receive finding notific
 To install the Semgrep Slack app, follow these steps:
 
 1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
-2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add Integration** (or **Setup First Integration** if this is your first integration), and then select **Slack**.
+2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, click **Add** (or **Setup First Integration** if this is your first integration), and then select **Slack**.
 3. Click **Allow**.
 
 ## Set up notifications for findings in Slack
