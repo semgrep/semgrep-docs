@@ -59,7 +59,7 @@ To disable cross-file analysis in CI while still using Pro Engine, use:
 ```bash
 semgrep ci --pro-intrafile
 ```
-If you want to fully revert to OSS-only analysis, disregarding Pro Engine entirely, use:
+If you want to fully revert to OSS-only analysis, disabling Pro Engine entirely, use:
 
 ```bash
 semgrep ci --oss-only
