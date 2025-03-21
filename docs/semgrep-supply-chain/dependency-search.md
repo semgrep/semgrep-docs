@@ -105,12 +105,12 @@ Semgrep generates dependency paths for JavaScript projects that utilize `pnpm` a
 
 Semgrep generates dependency paths for Python projects that utilize `poetry` and include a `poetry.lock` file whenever you invoke a scan using `semgrep ci`.
 
-### View the dependency graph
+### View the dependency path
 
-Once the scan completes, view the dependency graph in Semgrep AppSec Platform on:
+Once the scan completes, view the dependency path in Semgrep AppSec Platform on:
 
 - The **Finding Details** page for a transitive finding
-- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency graph
+- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to launch the dependency path
 
 ![Supply Chain dependency graph](/img/ssc-dependency-graph.png#md-width)
 _**Figure**. Supply Chain findings with a dependency graph shown._

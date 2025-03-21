@@ -315,7 +315,7 @@ inbound:
       methods: [GET, POST]
 ```
 
-Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. To ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
+Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. If you are running `v0.30.0` or earlier of the broker: to ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
 
 ```yaml
 inbound:
@@ -325,13 +325,15 @@ inbound:
       methods: [GET, POST, PATCH]
 ```
 
+In broker `v0.31.0` and later, this URL is part of the default allowlist.
+
 ## Run multiple instances of the Semgrep Network Broker
 
-You can run multiple instances of the Semgrep Network Broker to manage availability. Semgrep handles multiple requests accordingly, preventing issues like duplicate PR or MR comments. 
+Do not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
 
-Each Semgrep deployment requires and accepts exactly one configuration file. If you run multiple instances of the Semgrep Network Broker, each associated with the same deployment uses the same configuration file.
+## Allowlist multiple source code managers with one configuration file
 
-You can define multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
+It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
 <pre class="language-console"><code>
 github:
@@ -361,5 +363,3 @@ allowlist:
 &nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
 &nbsp;...
 </code></pre>
-
-You may see some noise in your logs when using multiple Network Broker instances since the Broker hasn't been architected yet for this specific configuration.

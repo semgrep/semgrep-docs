@@ -10,7 +10,6 @@ tags:
 
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
-import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
 
@@ -93,11 +92,7 @@ semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output
 
 Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
-### Scan your project with a specific ruleset
-
-<ScanRuleset />
-
-#### Test custom rules
+## Test custom rules
 
 Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
@@ -105,7 +100,7 @@ Semgrep includes features to [test the custom rules that you write](/writing-rul
 semgrep scan --test
 ```
 
-#### Publish custom rules
+### Publish custom rules
 
 To share your rules by adding them to the Semgrep Registry:
 
@@ -113,7 +108,7 @@ To share your rules by adding them to the Semgrep Registry:
 semgrep publish <path/to/rules>
 ```
 
-### Scan without sending results to Semgrep
+## Scan without sending results to Semgrep
 
 To scan your project using the configuration you've set up in Semgrep AppSec Platform **without** sending scan results to Semgrep, use:
 
@@ -123,7 +118,7 @@ semgrep ci --dry-run
 
 This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
 
-### Scan using OSS-only analysis (single-function)
+## Scan using Semgrep CE analysis (single-function)
 
 To scan your project using exclusively open source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
@@ -156,7 +151,7 @@ Depending on the file sizes in your project, you may need to increase the timeou
 
 ```console
 # increase timeout to 45 seconds, try only 2 times
-semgrep ci --timeout 30 --timeout-threshold 2
+semgrep ci --timeout 45 --timeout-threshold 2
 ```
 
 ## Improve performance for large codebases

@@ -115,14 +115,14 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
   </tr>
   <tr>
    <td rowspan="3">JavaScript or TypeScript</td>
-   <td>npm (Node.js)</td>
+   <td>npm</td>
    <td><code>package-lock.json</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
    <td rowspan="3" style={{"text-align": "center"}}>GA</td>
   </tr>
   <tr>
-   <td>Yarn, Yarn 2, Yarn 3</td>
+   <td>Yarn</td>
    <td><code>yarn.lock</code></td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅</td>
@@ -233,8 +233,13 @@ GA coverage means that Semgrep provides full reachability analysis for that lang
 
 **GA** coverage means that Semgrep provides coverage and rules for the following:
 
-- 80% of all **critical** severity CVEs since **2017**
-- 100% of **critical** and **high** severity CVEs since **May 2022**
+- 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
+- 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
+
+##### Supported sources
+
+- [<i class="fas fa-external-link fa-xs" /> Reviewed GitHub Security Advisories](https://github.com/advisories?query=type%3Areviewed)
+- [<i class="fas fa-external-link fa-xs" /> Electron release notes](https://releases.electronjs.org/releases/stable)
 
 ## Language maturity levels
 

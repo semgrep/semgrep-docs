@@ -401,6 +401,17 @@ module.exports = {
           { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
           /* DEC 20, 2024 */
           { from: "/semgrep-supply-chain/ignoring-dependencies" , to: "/semgrep-supply-chain/ignoring-dependencies" } ,
+          /* FEB 26, 2025 */
+          { from: "/faq" , to: "/faq/overview" },
+          /* MAR 4, 2025 */
+          { from: "/kb/integrations/wiz" , to: "/semgrep-appsec-platform/wiz" },
+          /* MAR 19, 2025 */
+          { from: "/kb/semgrep-cloud-platform/inline-pr-comments" , to: "/kb/semgrep-appsec-platform/inline-pr-comments" },
+          { from: "/kb/semgrep-cloud-platform/missing-pr-comments" , to: "/kb/semgrep-appsec-platform/missing-pr-comments" },
+          { from: "/kb/semgrep-cloud-platform/saml-attributestatement" , to: "/kb/semgrep-appsec-platform/saml-attributestatement" },
+          { from: "/kb/semgrep-cloud-platform/saml-bad-signature" , to: "/kb/semgrep-appsec-platform/saml-bad-signature" },
+          { from: "/kb/semgrep-cloud-platform/saml-stops-working" , to: "/kb/semgrep-appsec-platform/saml-stops-working" },
+          { from: "/kb/semgrep-cloud-platform/sso-attribute-error" , to: "/kb/semgrep-appsec-platform/sso-attribute-error" },
         ]
       }
     ],

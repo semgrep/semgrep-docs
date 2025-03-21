@@ -9,116 +9,107 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for December 2024
-
-:::info Important changes
-- The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
-- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](#-semgrep-community-edition-ce) for more details.
-:::
+# Semgrep release notes for February 2025
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- **Policy management API** is now in private beta. This API enables you to add, update, and turn off rules for selected policies in your chosen mode.
-- You can now export your findings in CSV format. Semgrep can export up to 10,000 most recent findings. For findings greater than 10,000, use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/). See [Export findings](/semgrep-code/findings#export-findings) for more information.
-  ![The download findings CSV button](/img/download-csv.png#md-width)
-  _**Figure**. The download findings CSV button._
-- Semgrep now tracks individual fields or keys in record or dict expressions. For example:
-  ```python
-  def foo():
-      return { 0: "safe", 1: taint }
-  
-  def test():
-      t = foo()
-      sink(t[0]) # safe; this is not a finding
-      sink(t[1]) # this produces a finding
-  ```
-- **TypeScript**: Semgrep now supports ellipses in function parameters. For
-example, the following code is TypeScript, as opposed to pure JavaScript, because it uses decorators on function parameters:
-  ```typescript
-  foo(x, @Bar() y, z): string { return ''; }
-  ```
-  - You can match this method using the following pattern:
-  ```typescript
-  function $FN(..., @Bar(...) $X, ...) { ... }
-  ```
-- C#: Patterns such as new `$T(...)` now matches C# target-typed new expressions such as `new ()`.
+- Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.
+- You can now manage your projects' enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
+- A new **My teams** view for managers is now in private beta. To join this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com). This view enables managers to view all the teams they are a manager of.
 
 ### Changed
 
-- **Semgrep Managed Scans**: Cloning repositories is now faster. This improves the speed of the overall scan.
-- **Reporting**: In cases where there were **no new findings** for the selected time period, the **Guardrails adoption** chart displayed 0% adoption, which was incorrect because there was nothing to adopt as there were no new findings. To better display that there is no data on adoption, the reporting page now displays blocks of grey for periods where there are no findings.
+- The Semgrep AppSec Platform-specific metadata fields `semgrep.dev:` and `semgrep.policy:` are now filtered from the JSON output if you aren't signed into your Semgrep account. See [Semgrep JSON and SARIF fields](https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif#json) for more information.
+- The Semgrep Docker image has been updated to use Python 3.12 and OCaml 5.2.1.
+- **CLI**: The output generated from running `semgrep ci --help` no longer includes information about experimental features and flags.
+- **Jira**: Jira tickets for Supply Chain findings now display recommended versions of packages in the description.
 
-### Removed
+### Fixed
 
-- Removed the `use-osemgrep-sarif` flag.
+- Fixed an issue in Semgrep Editor's Structure Mode where some of the larger language icons overlapped due to limited space.
+- Fixed an issue where the instruction links for adding a CI job all lead to GitHub-specific instructions.
+- Fixed an issue where the Median Open Age chart didn't display all relevant findings.
+- Fixed an issue where Semgrep scans did not complete if there were failures involving `git worktree remove`; instead of erring out, Semgrep completes the scan but logs the error.
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Added new **Pro rules**:
-  - 4 new rules for **Express.js** that cover SQL injection, object injection, and misconfiguration vulnerabilities.
-  - 13 new rules for **NestJS** framework vulnerabilities that cover code injection, SQL injection, path traversal, log injection, XML external entity, and cross site scripting.
+- Added support for **Critical** severity level to denote the highest severity level for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry. <!-- Copied this over from Secrets since these two notes are almost identical. -->
+  - Semgrep Pro rules, which are included in `p/default`, have been updated to use this new severity level.
+- New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
+- Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
 
-### Fixed
+### Changed
 
-<!-- vale off -->
-- Fixed the date format used in `--gitlab-sast` option to match the specification and not use RFC 3339. Thanks to Elias Haeussler for the fix.
-- Fixed what is considered a sink when a sink formula matches a lambda expression: it is the lambda itself that is the sink, not the individual statements in the lambda.
-<!-- vale on -->
+- Improved detection for JavaScript and TypeScript dependency injection, import resolution, and dataflow through callbacks.
+- Upgrade from OCaml 4.14.0 to OCaml 5.2.1 for Semgrep PyPI and Homebrew distributions. Note that Docker images have been built with OCaml 5.2.1 since Semgrep 1.107.0.
+
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
 
-- Semgrep now supports reachability for **Swift**. For CLI users, ensure that you are using Semgrep **1.98.0 or higher**. Swift is the tenth language Semgrep supports with reachability analysis.
-  - Added support for SwiftPM `Package.resolved` version 3.
-- **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
-  - Dependency Path for Kotlin is in private beta.
-  - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-  - To participate in this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-  - Semgrep now provides the flag `--allow-local-builds`, which is used to enable this feature.
+- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
+    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
+    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
+- Updated `Package.swift` parser to support the following:
+  - The URL value in a `.package` entry doesn't have to end with `.git`
+  - You can have an exact field that looks like `exact: "1.0.0"` instead of `.exact("1.0.0")`
+  - The exact version can be an object like `Version(1,2,3)` instead of a string
+  - You can have `.package` values with no URL, like this: `.package(name: "package", path: "foo/bar")`
+- Semgrep can now dynamically resolve dependencies for Python projects using pip, allowing it to determine transitive dependencies automatically. 
+- Various parser updates for SwiftPM and Yarn.
+
+## 🤖 Semgrep Assistant
+
+### Added
+
+- Semgrep Assistant is now available for users with repositories hosted by Bitbucket Cloud and Azure DevOps.
 
 ### Changed
 
-- Improved `pnpm-lock.yaml` parsing.
+- Extended the amount of time you see the error message shown if Assistant can't parse or save a memory you provide. This error message includes a link to edit the memory.
 
-## 🤖 Semgrep Assistant 
+### Fixed
 
-### Changed
+- Fixed an issue with the Assistant Analyze button on Semgrep Code's Findings page hiding after analysis.
+- Fixed an issue where remediation guidance included secret key values if present in the source code.
 
-- Semgrep Assistant is in the process of integrating its remediation guidelines into a single PR or MR comment. This means that you receive only one comment per finding, not including summary comments.
-  - Previously, Semgrep Assistant would add an additional, separate comment on the thread after the first comment from Semgrep. With this change, **all Semgrep guidance** is in one comment for clarity.
-  - This change is rolling out over the course of several weeks.
+## 🔐 Semgrep Secrets
+
+### Added
+
+- Added support for **Critical** severity level to denote the highest severity level for a Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry.
 
 ## 📝 Documentation and knowledge base
 
 ### Added
 
-- Added the following new documents, articles and sections:
-  - [JSON and SARIF reference](/semgrep-appsec-platform/json-and-sarif) provides you with a list of fields supported by Semgrep CE and Semgrep AppSec Platform.
-  - [Full and diff-aware scans with GitHub and Jenkins](/kb/semgrep-ci/jenkins-diff-scans) helps you set up and troubleshoot Semgrep.
-  - The [Semgrep Supply Chain > Dependency graphs](/semgrep-supply-chain/dependency-search#dependency-paths-beta) section provides instructions on how to enable the feature.
-  - Instructions on [scanning a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) in Semgrep Supply Chain. 
+- Added the following new documents, articles, and sections:
+    - [View Semgrep findings in Wiz's Security Graph](/semgrep-appsec-platform/wiz).
+    - [JavaScript frameworks and analyses](/languages/javascript).
+    - [Triage findings through PR comments with repositories hosted by Azure DevOps and Bitbucket Cloud](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments).
 
 ### Changed
 
-- Updated Quickstart links to point users to the most common methods of setting up Semgrep.
-- Updated language support details in [Supported languages > Semgrep Supply Chain](/supported-languages#semgrep-supply-chain).
-- **Extract mode** has been moved to the [Deprecated experiments](/writing-rules/experiments/deprecated-experiments) page.
-- Updated Semgrep Secrets triage documentation to include new ticketing integrations and triage states.
-- Renamed instances of Semgrep OSS to Semgrep CE, except for instances within release notes.
+- Major updates to the following documents and sections:
+    - [Add support for a new language](/contributing/adding-a-language).
+    - [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
+    - [Semgrep Supply Chain Policies](/semgrep-supply-chain/policies).
+- Minor clarifications involving:
+  - Network Broker usage.
+  - Required scopes for Managed Scans of Azure DevOps repositories.
+  - Semgrep's Jira integration.
+  - Supported languages.
+- Reorganization of Semgrep Assistant documentation.
 
-## 🔧 Semgrep Community Edition (CE)
+## 🔧 OSS Engine
 
-- Semgrep OSS has been renamed to **Semgrep Community Edition (CE)**. Semgrep CE remains free, with 2800+ rules and no login required. See also [<i class="fas fa-external-link fa-xs"></i> Important updates to Semgrep OSS](https://semgrep.dev/blog/2024/important-updates-to-semgrep-oss/) in the Semgrep blog.
-- Rules authored and maintained by Semgrep, Inc. are now licensed under [<i class="fas fa-external-link fa-xs"></i> Semgrep Rules License v.1.0](https://semgrep.dev/legal/rules-license/). These rules are available only for internal, non-competing, and non-Software-as-a-Service (SaaS) contexts.
-- As of Semgrep 1.100.0, certain JSON and SARIF export fields are available only for logged-in users. See the [JSON and SARIF reference](/semgrep-appsec-platform/json-and-sarif) for the list of fields.
-- The following versions of Semgrep CE were released in December 2024:
-  - [<i class="fas fa-external-link fa-xs"></i> 1.98.0](https://github.com/semgrep/semgrep/releases/tag/v1.98.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.99.0](https://github.com/semgrep/semgrep/releases/tag/v1.99.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.100.0](https://github.com/semgrep/semgrep/releases/tag/v1.100.0)
-  - [<i class="fas fa-external-link fa-xs"></i> 1.101.0](https://github.com/semgrep/semgrep/releases/tag/v1.101.0)
+* The following versions of the OSS Engine were released in February 2025:
+  * [<i class="fas fa-external-link fa-xs"></i>v1.107.0](https://github.com/semgrep/semgrep/releases/tag/v1.107.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.108.0](https://github.com/semgrep/semgrep/releases/tag/v1.108.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.109.0](https://github.com/semgrep/semgrep/releases/tag/v1.109.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.110.0](https://github.com/semgrep/semgrep/releases/tag/v1.110.0)

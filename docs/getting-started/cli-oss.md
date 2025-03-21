@@ -32,6 +32,12 @@ See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's 
 
 ### Scan your codebase with a specific ruleset
 
+You can scan your codebase using `--config auto` to run Semgrep with rules that apply to your programming languages and frameworks:
+
+```console
+semgrep scan --config auto
+```
+
 <ScanRuleset />
 
 #### Test custom rules

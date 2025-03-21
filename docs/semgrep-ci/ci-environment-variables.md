@@ -54,7 +54,7 @@ export SEMGREP_BASELINE_REF="main"
 
 ### `SEMGREP_BASELINE_COMMIT`
 
-Set `SEMGREP_BASELINE_COMMIT` to a commit hash to only show results that are **not** found in that hash. Generally this is used to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. 
+Set `SEMGREP_BASELINE_COMMIT` to a commit hash to use that hash as a baseline for the scan. This means the scan will only show findings that were **not** already present at that hash; any findings that were already present in that hash will not be reported. Generally this is used to enable **[diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans)** for CI providers that are **not** GitHub Actions or GitLab CI/CD. 
 
 This environment variable doesn't work if you are not currently in a Git directory, there are unstaged changes, or the given baseline hash doesn't exist or is not available in the CI environment.
 

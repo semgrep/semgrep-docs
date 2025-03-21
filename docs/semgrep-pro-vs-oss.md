@@ -278,7 +278,7 @@ This section provides a comprehensive comparison of each offering's features.
 - [Local scans](/getting-started/cli-oss)
 - [Manual CI job set up](/deployment/oss-deployment)
 - [IDE plugins](/extensions/overview)
-- [`pre-commit`](/extensions/overview#pre-commit)
+- [`pre-commit`](/extensions/pre-commit)
 
 </div>
 <div>
@@ -390,7 +390,7 @@ Minimal customization options to tune your scans:
 
 - Customize SAST and Secrets scans through rule selection in [policies](/semgrep-code/triage-remediation)
 - Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
-- [AI assistance for rule writing](/semgrep-assistant/getting-started#write-custom-rules-beta)
+- [AI assistance for rule writing](/semgrep-assistant/customize#write-custom-rules-beta)
 - Store rules in Semgrep AppSec Platform and deploy to your organization
 - Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
 - Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)

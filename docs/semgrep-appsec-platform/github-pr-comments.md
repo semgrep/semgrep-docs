@@ -17,10 +17,11 @@ import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-displ
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
-import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -71,7 +72,7 @@ _**Figure**. Permissions for all repositories._
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
 _**Figure**. Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected._
 
-For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
+For GitHub Actions users, no further steps need to be undertaken. Continue setting up PR comments by configuring comments for Semgrep Code.
 
 ### Required environment variables
 
@@ -82,6 +83,14 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="GitHub" comment_type="PR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 
@@ -129,10 +138,6 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
     <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
 </tr>
 </table>
-
-## Disable PR comments for Supply Chain findings
-
-<DisableComments />
 
 ## Next steps
 

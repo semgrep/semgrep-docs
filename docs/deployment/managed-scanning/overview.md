@@ -9,28 +9,31 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import SmsSupport from "/src/components/reference/_sms-support.mdx"
+
 # Semgrep Managed Scans
 
 Add repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. Similar to CI workflows, Managed Scans also integrates into developer workflows through PR comments.
 
 This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-to-ci). Instead of adding a Semgrep job or workflow to your CI/CD pipeline, repositories are added to Semgrep AppSec Platform.
 
-
 ## Feature maturity and support
 
-- Managed Scans is in **public beta** for all existing Semgrep AppSec Platform users with hosted GitHub (GitHub.com) and GitHub Enterprise Server plans.
-- Managed Scans is in **private beta** for all existing Semgrep AppSec Platform users with GitLab Cloud and GitLab self-managed plans. Contact your Semgrep account executive or email the Support team at [support@semgrep.com](mailto:support@semgrep.com) to obtain access.
-- Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
-- Managed Scans is available for all Semgrep products you have purchased, including:
-    - Semgrep Code
-    - Semgrep Supply Chain
-    - Semgrep Secrets
-- Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
+<SmsSupport />
+
+Managed Scans is available for all Semgrep products you have purchased, including:
+  - Semgrep Code
+  - Semgrep Supply Chain
+  - Semgrep Secrets
+
+Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
 
 :::info
 - To receive Supply Chain findings, you must have a supported manifest file or lockfile in your repository. Managed Scans does **not** support generation of these files.
 - For existing Semgrep projects, custom `semgrep.yml` configurations are not copied or detected when you use Managed Scans. If you have additional build steps when scanning, use [Semgrep in CI instead](/deployment/add-semgrep-to-ci).
 :::
+
+Please leave feedback by either contacting your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
 ## Security
 
@@ -61,5 +64,6 @@ By default, projects on Managed Scans are configured with:
 Learn how to add a repository to Semgrep Managed Scans:
 
 - [Azure DevOps](/deployment/managed-scanning/azure)
+- [Bitbucket](/deployment/managed-scanning/bitbucket)
 - [GitHub](/deployment/managed-scanning/github)
 - [GitLab](/deployment/managed-scanning/gitlab)

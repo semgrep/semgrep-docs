@@ -119,17 +119,15 @@ See the [Supported languages](/supported-languages#semgrep-code-and-oss) documen
 </div>
 -->
 
-<h3>December 2024 release notes summary</h3>
+<h3>February 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
-- Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](/release-notes/december-2024#-semgrep-community-edition-ce) for more details.
-- You can now export your findings in CSV format. Semgrep can export up to 10,000 most recent findings. For findings greater than 10,000, use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/). See [Export findings](/semgrep-code/findings#export-findings) for more information.
-- Added new **Pro rules**:
-  - 4 new rules for **Express.js** that cover SQL injection, object injection, and misconfiguration vulnerabilities.
-  - 13 new rules for **NestJS** framework vulnerabilities that cover code injection, SQL injection, path traversal, log injection, XML external entity, and cross site scripting.
-- **Dependency Path**, which displays how transitive dependencies are imported into your code, is now in public beta for Java Gradle and Maven package managers.
-  - Dependency Path for Kotlin is in private beta.
-  - To join this beta, contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
-- Semgrep can now scan your Java Gradle and Maven codebases without the need for a lockfile. This feature is in public beta for Java and private beta for Kotlin Gradle and Maven. See also [Scan a project without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+- [Semgrep Managed Scans](/deployment/managed-scanning/bitbucket) for repositories hosted by **Bitbucket Cloud** is now in public beta.
+- You can now manage your projects' enrollment in Semgrep Managed Scans through the [Semgrep API's `/project` and `/project/managed-scan` endpoints](https://semgrep.dev/api/v1/docs/#tag/Project).
+- Added support for **Critical** severity level to denote the highest severity level for a Code or Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can [filter for and identify rules that generate critical severity findings](https://semgrep.dev/r?sev=CRITICAL) in the Semgrep Registry.
+- New rules for JavaScript and TypeScript have been added to [Semgrep's default ruleset, `p/default`](https://semgrep.dev/p/default). The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
+- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
+    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
+    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
+- [Semgrep Assistant](/semgrep-assistant/overview) is now available for users with repositories hosted by Bitbucket Cloud and Azure DevOps.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)

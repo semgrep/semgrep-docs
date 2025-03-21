@@ -8,6 +8,8 @@ title: Supply Chain glossary
 hide_title: true
 ---
 
+import TransitivityTypes from "/src/components/concept/_transitivity-types.md"
+import EpssTypes from "/src/components/concept/_epss-types.md"
 import DefReachability from "/src/components/concept/_def-reachability.md"
 
 # Semgrep Supply Chain glossary
@@ -25,6 +27,10 @@ Publicly available code used as a part of your application. Common examples incl
 ## Exploitability
 
 Exploitability is the practical assessment of a vulnerability's threat, typically proved with a real proof of exploit. Proving exploitability is often the last step of triaging a vulnerability.
+
+## EPSS probability
+
+<EpssTypes />
 
 ## Lockfile
 
@@ -54,7 +60,7 @@ A package registry stores dependencies and provides a means to upload or downloa
 
 ## Reachable finding (and reachable vulnerability)
 
-A reachable finding means that you are using both a vulnerable piece of code (the **usage**) and the vulnerable version of a dependency. Within Semgrep Supply Chain, specific findings (usages) are grouped together by their vulnerability.
+A reachable finding means that you are using both a vulnerable code pattern (the **usage**) and the vulnerable version of a dependency. Within Semgrep Supply Chain, specific findings (usages) are grouped together by their vulnerability.
 
 Continuous integration scans with Semgrep Supply Chain rules can block pull or merge requests upon detecting any reachable findings.
 
@@ -66,7 +72,7 @@ See also [Reachability](#reachability).
 
 ## Reachability rules
 
-A type of Semgrep Supply Chain rule that performs reachability analysis. A reachability rule can determine if the vulnerable piece of code from a dependency is used in the codebase that imports it.
+A type of Semgrep Supply Chain rule that performs reachability analysis. A reachability rule can determine if the vulnerable code pattern from a dependency is used in the codebase that imports it.
 
 Compare its opposite: [rules without reachability analysis](#rules-without-reachability-analysis)
 
@@ -87,6 +93,12 @@ See also [NIST definition of threat](https://csrc.nist.gov/glossary/term/threat)
 A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. An example would be a codebase that uses [Cloudinary](https://www.npmjs.com/package/cloudinary), which is dependent on Lodash. In this example, Lodash is a transitive dependency of the codebase.
 
 For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
+
+## Transitivity
+
+Pertains to a dependency's relationship to your codebase or first-party code.
+
+<TransitivityTypes />
 
 ## Usage
 

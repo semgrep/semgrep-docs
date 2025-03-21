@@ -19,7 +19,9 @@ import NextAfterComments from "/src/components/procedure/_next-after-comments.md
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -59,9 +61,13 @@ Confirm that you have the correct connection and access:
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />
 
-:::info
-Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
-:::
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="Bitbucket" comment_type="PR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ## Disable PR comments for Supply Chain findings
 
