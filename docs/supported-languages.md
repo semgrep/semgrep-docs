@@ -87,7 +87,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
    <td>C#</td>
    <td>NuGet</td>
    <td><code>packages.lock.json</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
+   <td style={{"text-align": "center"}}>✅</td>
    <td>✅</td>
    <td style={{"text-align": "center"}}>GA</td>
 </tr>
