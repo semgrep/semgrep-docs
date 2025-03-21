@@ -342,7 +342,7 @@ OPTIONS
            option forces the project root to be a specific folder and assumes
            a local project without version control (novcs). This option is
            useful to ensure the '.semgrepignore' file that may exist at the
-           project root is consulted when the scanning root is not the
+           project root is consulted when the scan root is not the
            current folder '.'. A valid project root must be a folder (path
            referencing a directory) whose physical path is a prefix of the
            physical path of the scanning roots passed on the command line.
