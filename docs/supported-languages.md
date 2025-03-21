@@ -35,215 +35,9 @@ Languages are arranged by feature completeness from most to least. **Cross-file 
 
 <SupportedLanguagesTable />
 
-### Feature definitions
+### Language maturity levels
 
-<details>
-<summary>Cross-file dataflow analysis</summary>
-
-<DefCrossFile />
-
-Languages with cross-file support also include cross-function support.
-
-</details>
-
-<details>
-<summary>Cross-function dataflow analysis</summary>
-<DefCrossFunction />
-</details>
-
-<details>
-<summary>Reachability analysis</summary>
-<DefReachability />
-
-</details>
-
-:::tip
-See [Language maturity levels](#language-maturity-levels) to learn which features define GA or beta language support.
-:::
-
-## Semgrep Supply Chain feature maturity
-
-<SscIntro/>
-
-For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
-
-For some languages, such as JavaScript and Python, a lockfile or manifest file is parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
-
-Additionally, Semgrep offers beta support for the scanning of Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper.
-
-<div class="language-support-table">
-
-<table>
-<thead><tr>
-    <th>Language</th>
-    <th>Supported package managers</th>
-    <th>Manifest file or lockfile</th>
-    <th><a href="#reachability-support-level">Reachability</a></th>
-    <th>License detection support</th>
-    <th><a href="#rule-coverage-support-level">Reachability rule coverage for CVEs/GHSAs</a></th>
-</tr></thead>
-<tbody>
-<tr>
-   <td>C#</td>
-   <td>NuGet</td>
-   <td><code>packages.lock.json</code></td>
-   <td style={{"text-align": "center"}}>✅</td>
-   <td>✅</td>
-   <td style={{"text-align": "center"}}>GA</td>
-</tr>
-<tr>
-   <td>Go</td>
-   <td>Go modules (<code>go mod</code>)</td>
-   <td><code>go.mod</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td style={{"text-align": "center"}}>GA</td>
-  </tr>
-<tr rowspan="2">
-   <td rowspan="2">Java</td>
-   <td>Gradle</td>
-   <td><code>gradle.lockfile</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td rowspan="2" style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-  </tr>
-  <tr>
-   <td rowspan="3">JavaScript or TypeScript</td>
-   <td>npm</td>
-   <td><code>package-lock.json</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td rowspan="3" style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>Yarn</td>
-   <td><code>yarn.lock</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-  </tr>
-  <tr>
-   <td>pnpm</td>
-   <td><code>pnpm-lock.yaml</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-  </tr>
-  <tr>
-   <td rowspan="2">Kotlin</td>
-   <td>Gradle</td>
-   <td><code>gradle.lockfile</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td rowspan="2" style={{"text-align": "center"}}>GA</td>
-</tr>
-<tr>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-</tr>
-  <tr>
-   <td rowspan="4">Python</td>
-   <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td rowspan="4">(PyPI only)</td>
-   <td rowspan="4" style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>pip-tools</td>
-   <td style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>Pipenv</td>
-   <td><code>Pipfile.lock</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>Poetry</td>
-   <td><code>poetry.lock</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-  </tr>
-  <tr>
-   <td>Ruby</td>
-   <td>RubyGems</td>
-   <td><code>Gemfile.lock</code></td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td style={{"text-align": "center"}}>GA</td>
-  </tr>
-<tr>
-   <td>Scala</td>
-   <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅</td>
-   <td style={{"text-align": "center"}}>GA</td>
-</tr>
-<tr>
-   <td>Swift</td>
-   <td>SwiftPM</td>
-   <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
-   <td style={{"text-align": "center"}}>GA</td>
-   <td>✅<strong>†</strong></td>
-   <td style={{"text-align": "center"}}>GA</td>
-</tr>
-  <tr>
-   <td>Rust</td>
-   <td>Cargo*</td>
-   <td><code>cargo.lock</code></td>
-   <td rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
-   <td>✅</td>
-   <td rowspan="4">Not applicable due to reachability support level.</td>
-</tr>
-<tr>
-   <td>Dart</td>
-   <td>Pub</td>
-   <td><code>pubspec.lock</code></td>
-   <td style={{"text-align": "center"}}>--</td>
-</tr>
-<tr>
-   <td>Elixir</td>
-   <td>Hex</td>
-   <td><code>mix.lock</code></td>
-   <td style={{"text-align": "center"}}>--</td>
-</tr>
-<tr>
-   <td>PHP</td>
-   <td>Composer</td>
-   <td><code>composer.lock</code></td>
-   <td style={{"text-align": "center"}}>--</td>
-</tr>
-  </tbody>
-</table>
-</div>
-_<strong>*</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_<br />
-_<strong>†</strong>License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans._
-
-#### Reachability support level
-
-GA coverage means that Semgrep provides full reachability analysis for that language.
-
-#### Rule coverage support level
-
-**GA** coverage means that Semgrep provides coverage and rules for the following:
-
-- 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
-- 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
-
-##### Supported sources
-
-- [<i class="fas fa-external-link fa-xs" /> Reviewed GitHub Security Advisories](https://github.com/advisories?query=type%3Areviewed)
-- [<i class="fas fa-external-link fa-xs" /> Electron release notes](https://releases.electronjs.org/releases/stable)
-
-## Language maturity levels
-
-### Semgrep Code
+#### Semgrep Code
 
 Semgrep Code languages can be classified into four maturity levels:
 
@@ -261,7 +55,7 @@ Semgrep Code languages can be classified into four maturity levels:
 
 </details>
 
-### Semgrep Supply Chain
+#### Semgrep Supply Chain
 
 Semgrep Supply Chain has two language maturity levels:
 
@@ -297,6 +91,260 @@ Semgrep Supply Chain has two language maturity levels:
 
 </details>
 
+### Feature definitions
+
+<details>
+<summary>Cross-file dataflow analysis</summary>
+
+<DefCrossFile />
+
+Languages with cross-file support also include cross-function support.
+
+</details>
+
+<details>
+<summary>Cross-function dataflow analysis</summary>
+<DefCrossFunction />
+</details>
+
+<details>
+<summary>Reachability analysis</summary>
+<DefReachability />
+
+</details>
+
+:::tip
+See [Language maturity levels](#language-maturity-levels) to learn which features define GA or beta language support.
+:::
+
+## Semgrep Supply Chain feature support
+
+<SscIntro/>
+
+For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
+
+For some languages, such as JavaScript and Python, a lockfile or manifest file is parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
+
+Additionally, Semgrep offers beta support for the scanning of Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper.
+
+### Package manager support
+
+The following table lists all Semgrep-supported package managers for each language. Languages  with **reachability** support are listed first.
+
+<div class="language-support-table">
+
+<table>
+<thead><tr>
+    <th>Language</th>
+    <th>Supported package managers</th>
+    <th>Manifest file or lockfile</th>
+</tr></thead>
+<tbody>
+<tr>
+   <td>C#</td>
+   <td>NuGet</td>
+   <td><code>packages.lock.json</code></td>
+</tr>
+<tr>
+   <td>Go</td>
+   <td>Go modules (<code>go mod</code>)</td>
+   <td><code>go.mod</code></td>
+</tr>
+<tr rowspan="2">
+   <td rowspan="2">Java</td>
+   <td>Gradle</td>
+   <td><code>gradle.lockfile</code></td>
+  </tr>
+  <tr>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+  </tr>
+  <tr>
+   <td rowspan="3">JavaScript or TypeScript</td>
+   <td>npm</td>
+   <td><code>package-lock.json</code></td>
+  </tr>
+  <tr>
+   <td>Yarn</td>
+   <td><code>yarn.lock</code></td>
+  </tr>
+  <tr>
+   <td>pnpm</td>
+   <td><code>pnpm-lock.yaml</code></td>
+  </tr>
+  <tr>
+   <td rowspan="2">Kotlin</td>
+   <td>Gradle</td>
+   <td><code>gradle.lockfile</code></td>
+</tr>
+<tr>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+</tr>
+  <tr>
+   <td rowspan="4">Python</td>
+   <td>pip</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+  </tr>
+  <tr>
+   <td>pip-tools</td>
+  </tr>
+  <tr>
+   <td>Pipenv</td>
+   <td><code>Pipfile.lock</code></td>
+  </tr>
+  <tr>
+   <td>Poetry</td>
+   <td><code>poetry.lock</code></td>
+  </tr>
+  <tr>
+   <td>Ruby</td>
+   <td>RubyGems</td>
+   <td><code>Gemfile.lock</code></td>
+  </tr>
+<tr>
+   <td>Scala</td>
+   <td>Maven</td>
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
+</tr>
+<tr>
+   <td>Swift</td>
+   <td>SwiftPM</td>
+   <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
+</tr>
+  <tr>
+   <td>Rust</td>
+   <td>Cargo*</td>
+   <td><code>cargo.lock</code></td>
+</tr>
+<tr>
+   <td>Dart</td>
+   <td>Pub</td>
+   <td><code>pubspec.lock</code></td>
+</tr>
+<tr>
+   <td>Elixir</td>
+   <td>Hex</td>
+   <td><code>mix.lock</code></td>
+</tr>
+<tr>
+   <td>PHP</td>
+   <td>Composer</td>
+   <td><code>composer.lock</code></td>
+</tr>
+  </tbody>
+</table>
+</div>
+
+_<strong>*</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_<br />
+
+### Feature support
+
+The following table lists all Supply Chain features for each language. Languages with **reachability** support are listed first.
+
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Reachability (see also Rule coverage)</th>
+<th>License detection</th>
+<th>Malicious dependency detection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C#</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>✅</td>
+<td>✅</td>
+<td>--</td>
+</tr>
+<tr>
+<td>JavaScript or TypeScript</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Kotlin</td>
+<td>✅</td>
+<td>✅</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>✅</td>
+<td>✅ For PyPi only</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>✅</td>
+<td>✅†</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>✅</td>
+<td>✅</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td width="240px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+
+_<strong>†</strong>License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans._
+
+#### Rule coverage
+
+Semgrep provides coverage and rules for the following:
+
+- 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
+- 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
+
+##### Supported sources
+
+- [<i class="fas fa-external-link fa-xs" /> Reviewed GitHub Security Advisories](https://github.com/advisories?query=type%3Areviewed)
+- [<i class="fas fa-external-link fa-xs" /> Electron release notes](https://releases.electronjs.org/releases/stable)
+
+
 ### Feature and product maturity levels
 
 The detailed specifications previously provided apply only to language support. Language maturity levels differ from feature and product maturity levels.
@@ -311,4 +359,23 @@ To see the **parse rates** for each language, visit the Semgrep [public language
 
 <!-- coupling: If you modify the features in the levels below, change also
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
+-->
+
+
+<!-- markdown for easy visualization
+| Language                 | Reachability | License detection | Malicious dependency detection |
+| -------                  | ------       | ------            | ------                         |
+| C#                       | ✅           | ✅                | ✅                             |
+| Go                       | ✅           | ✅                | ✅                             |
+| Java                     | ✅           | ✅                | --                             |
+| JavaScript or TypeScript | ✅           | ✅                | ✅                             |
+| Kotlin                   | ✅           | ✅                | --                             |
+| Python                   | ✅           | ✅ For PyPi only  | ✅                             |
+| Ruby                     | ✅           | ✅                | ✅                             |
+| Scala                    | ✅           | ✅†               | --                             |
+| Swift                    | ✅           | ✅                | --                             |
+| Rust                     | --           | ✅                | ✅                             |
+| Dart                     | --           | --                | --                             |
+| Elixir                   | --           | --                | --                             |
+| PHP                      | --           | --                | --                             |
 -->
