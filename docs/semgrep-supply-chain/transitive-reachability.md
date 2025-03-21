@@ -4,7 +4,7 @@ title: Transitive reachability
 hide_title: true
 description: Learn how transitive reachability identifies vulnerabilities introduced by third-party packages.
 tags:
-  - Semgrep Supply Chain
+ - Semgrep Supply Chain
 ---
 
 # Transitive reachability
@@ -16,7 +16,7 @@ This feature is in private beta. To join, reach out to [support](/support).
 Semgrep Supply Chains' transitive reachability feature helps you identify vulnerabilities introduced by third-party packages and their dependencies. 
 
 <!-- NEW STATUSES 
-- **Undetermined**: no meaningful analysis on the vulnerability's usage
+- **Undetermined**: no meaningful analysis of the vulnerability's usage
 - **Unreachable**: vulnerabilities that Semgrep can confirm aren't used in a vulnerable way anywhere in the first- or third-party code
 -->
 
@@ -26,28 +26,35 @@ Semgrep Supply Chains' transitive reachability feature helps you identify vulner
 
 ## How transitive reachability works
 
-Semgrep Supply Chain uses rules to identify vulnerabilities present in first-party code, but with transitive reachability, it can also scan third-party code to see if it calls and uses vulnerable packages.
-
 :::note
-For the purposes of this article:
+For this article:
 - **First-party code**: first-party code refers to your project, which includes the code that Semgrep scans
-- **Third-party code**: third-party code refers to the dependencies that the first-party code calls or imports, and then uses
+- **Third-party code**: third-party code refers to the dependencies that the first-party code calls or imports and then uses
 :::
 
-To do this, Semgrep uses its Dependency Path feature to determine the set of packages, which are a subset of the third-party code, that call on vulnerable packages. Semgrep then downloads the source code for the third-party dependencies called by your first-party code for analysis. <!-- TBD on whether we add a new CLI flag to control this behavior:`--allow-package-manager-install-deps` -->
+Semgrep uses two overarching categories for project dependencies:
 
-Once Semgrep downloads the source code for the third-party dependencies, it scans this third-party code with the same rules it uses against first-party code. If Semgrep identifies no matches, then the finding is unreachable. However, if the scanned code does introduce a vulnerable usage of the vulnerable package, then Semgrep flags the finding as **may be reachable**. This is because Semgrep can't determine that the first-party code triggers the vulnerable usage identified.
+- **Direct**: direct dependencies are those explicitly added by the developer, then called in the first-party code. Direct dependencies can be visualized or reviewed using the project's configuration file, such as the lockfile or the manifest file. Semgrep can also generate visual dependency graphs for projects that it scans.
+- **Transitive**: transitive dependencies are those that are included indirectly. For example, the developer directly adds a dependency, but the dependency that they add then calls another dependency. In other words, a transitive dependency is one that is added and then called by the third-party code.
+
+Semgrep Supply Chain uses rules to identify vulnerabilities present in first-party code, but it can also scan third-party code to see if it calls and uses vulnerable packages in a vulnerable way. This is called **transitive reachability analysis**.
+
+To do this, Semgrep uses its Dependency Path feature to determine the set of packages, a subset of the third-party code, that call on vulnerable packages. Semgrep then downloads the source code for the third-party dependencies called by your first-party code for analysis. <!-- TBD on whether we add a new CLI flag to control this behavior:`--allow-package-manager-install-deps` -->
+
+Once Semgrep downloads the source code for the third-party dependencies, it scans this third-party code using the same rules it uses against the first-party code. 
+
+If Semgrep identifies no matches, then the finding is unreachable. However, if the scanned code introduces a vulnerable usage of the vulnerable package, Semgrep flags the finding as **may be reachable**. This is because Semgrep can't determine whether the first-party code triggers the identified vulnerable usage.
 
 ### Example
 
 The following example demonstrates how Semgrep can identify a security vulnerability in a transitive dependency that could compromise your codebase.
 
-In this example, the first-party code implements date selection capability using a package called `demoDep`. `demoDep`, however, implements the date selection capability used by the first-party code, using another dependency, `calendarPlugin`. The logic to implement the calendar itself is in `calendars.js`, and in this file, there is a security vulnerability.
+In this example, the first-party code implements date selection capability using a package called `demoDep`. `demoDep`, however, implements the date selection capability used by the first-party code, using another dependency, `calendarPlugin`. The logic for implementing the calendar itself is in `calendars.js`, and there is a security vulnerability in this file.
 
 ![Example of how a security vulnerability in a transitive dependency can be called by third-party code, which is then called by first-party code](/img/transitive-reachability.png#md-width)
 _**Figure**. Example of how a security vulnerability in a transitive dependency can be called by third-party code, which is then called by first-party code._
 
-The code that you scan with Supply Chain is referred to as first-party code. With transitive reachability, Supply Chain also scans third-party code, which, in this case, is `demoDep`. This is done by acquiring the source code, then scanning it using the same rules run against your first-party code. This allows Semgrep to determine if there's a vulnerable usage introduced by the third-party code based on its use of any additional packages.
+The code that you scan with Supply Chain is referred to as first-party code. With transitive reachability, Supply Chain also scans third-party code, which, in this case, is `demoDep`. This is done by acquiring the source code and then scanning it using the same rules run against your first-party code. This allows Semgrep to determine if there's a vulnerable usage introduced by the third-party code based on its use of any additional packages.
 
 ## Findings
 
@@ -66,13 +73,13 @@ Semgrep displays transitive reachability information in the CLI results as follo
 │ 1 Reachable Supply Chain Finding │
 └──────────────────────────────────┘
                                     
-    package-lock.json
-   ❯❯❱ dont-do-bad-stuff
-          Transitivity: Found usages in third-party code in 2 files:                                             
-            /index.js:14, /index.js:9                          
-          test                                                                                                          
-           16┆ "node_modules/foo":
-           ...
+ package-lock.json
+ ❯❯❱ dont-do-bad-stuff
+ Transitivity: Found usages in third-party code in 2 files:                                             
+ /index.js:14, /index.js:9                          
+ test                                                                                                          
+ 16┆ "node_modules/foo":
+ ...
 ```
 
 ## Triage and remediation
