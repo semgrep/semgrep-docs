@@ -246,7 +246,7 @@ The following table lists all Supply Chain features for each language. Languages
 <thead>
 <tr>
 <th>Language</th>
-<th>Reachability (see also Rule coverage)</th>
+<th>Reachability (see <a href="#cve-coverage">CVE coverage</a>)</th>
 <th>License detection</th>
 <th>Malicious dependency detection</th>
 </tr>
@@ -332,9 +332,9 @@ The following table lists all Supply Chain features for each language. Languages
 
 _<strong>†</strong>License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans._
 
-#### Rule coverage
+#### CVE coverage
 
-Semgrep provides coverage and rules for the following:
+Semgrep's reachability analysis covers the following CVEs:
 
 - 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
 - 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
@@ -343,7 +343,6 @@ Semgrep provides coverage and rules for the following:
 
 - [<i class="fas fa-external-link fa-xs" /> Reviewed GitHub Security Advisories](https://github.com/advisories?query=type%3Areviewed)
 - [<i class="fas fa-external-link fa-xs" /> Electron release notes](https://releases.electronjs.org/releases/stable)
-
 
 ### Feature and product maturity levels
 
