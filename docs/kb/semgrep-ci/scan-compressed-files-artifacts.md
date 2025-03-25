@@ -19,6 +19,6 @@ When implementing this method, it's optimal to place the compressed files in a c
 
 ### What are the limitations of this approach?
 
-When possible, Semgrep AppSec Platform generates [hyperlinks](/docs/semgrep-code/findings#code-page-structure) to a finding's location within a repository and file. If the file is not persistent in the repository, and is scanned at a temporary path, then the hyperlink will lead to that temporary path and will not work properly. This may make it more difficult for developers to identify where and how to fix issues identified in the temporary files.
+When possible, Semgrep AppSec Platform generates hyperlinks to a finding's location within a repository and file. If the file is not persistent in the repository, and is scanned at a temporary path, then the hyperlink will lead to that temporary path and will not work properly. This may make it more difficult for developers to identify where and how to fix issues identified in the temporary files.
 
 Currently, it is not possible to uncompress files before running a scan in [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview).

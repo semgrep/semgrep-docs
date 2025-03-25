@@ -125,7 +125,7 @@ This displays the following filters in the filter drawer:
 
 - [Severity](/writing-rules/rule-syntax#required)
 - [Confidence](/contributing/contributing-to-semgrep-rules-repository#confidence)
-- [Reachability](/semgrep-supply-chain/triage-and-remediation#filters)
+- [Reachability](/semgrep-supply-chain/view-export#reachability)
 - [Validation](/semgrep-secrets/getting-started#validation)
 - Time period
 - Product
@@ -171,7 +171,7 @@ A low or 0 value for **Total net new** is ideal as it indicates that findings ar
 
 ## Secure guardrails
 
-This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/overview#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/customize#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
 
 ![Secure guardrails pane](/img/dashboard-guardrails.png)
 _**Figure**. Secure guardrails pane. Hover over the charts to view data for that point in time. Click on Filtered by Assistant data to view filtered findings on Code > Pre-production._
