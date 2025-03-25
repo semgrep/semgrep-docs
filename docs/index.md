@@ -87,7 +87,7 @@ The code is kept here for easy maintenance.
 | Semgrep Supply Chain | **Generally available reachability**<br />C# • Go • Java • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala • Swift<br /><br />**Beta or languages without support for reachability analysis**<br />Dart • Elixir • PHP  • Rust |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
-See the [Supported languages](/supported-languages#semgrep-code-and-oss) documentation for more details.
+See the [Supported languages](/supported-languages#language-maturity-summary) documentation for more details.
 <!-- Please don't delete the whole Enhance... section, as we may resurrect --> <!--
 <h3>Enhance your Semgrep experience</h3>
 
