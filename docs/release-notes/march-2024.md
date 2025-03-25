@@ -133,7 +133,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
     - [<i class="fa-regular fa-file-lines"></i> Packages in the Semgrep Docker image](/semgrep-ci/packages-in-semgrep-docker/): Lists the packages including in the Semgrep docker image in addition to the Semgrep binary.
     - [<i class="fa-regular fa-file-lines"></i> Semgrep OSS in CI](/docs/deployment/oss-deployment/): A guide to using only open source Semgrep in your CI jobs.
 - New Knowledge base article: [Generate lockfiles for Semgrep Supply Chain in a Circle CI pipeline](/kb/semgrep-supply-chain/ssc-lockfiles-circleci).
-- Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm/#github-enterprise-server) to connect to your GitHub orgs.
+- Added information on [installing and using the Semgrep App for GitHub Enterprise](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) to connect to your GitHub orgs.
 
 ### Changed
 
