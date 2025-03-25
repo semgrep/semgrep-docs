@@ -143,5 +143,5 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
   - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
 - Updated Semgrep Pro Engine documentation to clarify what is enabled by the **cross-file analysis** toggle in **Semgrep Cloud Platform > Settings**.
 - Updated [**Findings** page information](/semgrep-code/findings).
-- Updated SSO documentation with latest steps to integrate with [Microsoft Entra ID](/docs/deployment/sso/#set-up-saml-sso-with-microsoft-entra-id).
+- Updated SSO documentation with latest steps to integrate with [Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id).
 - GitHub Actions configuration snippets have been updated to use `actions/checkout@v4`.
