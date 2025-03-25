@@ -76,6 +76,6 @@ This means that the count of findings in your Code, Secrets, or Supply Chain pag
 
 The following links explain how Semgrep presents findings for each Semgrep product in their respective page:
 
-- [Semgrep Code default view](/docs/semgrep-code/findings#defaul-page-view)
+- [Semgrep Code default view](/docs/semgrep-code/findings#default-page-view)
 - [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation)
 - [Semgrep Secrets default view](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)
