@@ -92,7 +92,7 @@ You can enable managed scanning for additional repositories after onboarding usi
 
 You can immediately add any existing project to Managed Scans.
 
-1. Follow the steps in [Add a repository](#add-a-repository).
+1. Follow the steps in [Enable managed scanning](#enable-managed-scanning-and-scan-your-first-repository).
 1. Delete the `bitbucket-pipelines.yml` file in your Bitbucket repository if appropriate.
 
 If you plan to continue running some scans in Bitbucket CI/CD Pipelines (for example, using Managed Scans to run weekly full scans but Bitbucket CI/CD Pipelines for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.
