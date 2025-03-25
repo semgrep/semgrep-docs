@@ -36,10 +36,9 @@ _**Figure**. Relationship between a Supply Chain rule, manifest file or lockfile
 
 ### Types of Semgrep Supply Chain findings
 
-Semgrep Supply Chain generates a **finding** whenever it determines that your codebase uses or imports a package containing a vulnerability. In addition, Semgrep
-Supply Chain offers two levels of support for reachability analysis, [depending on your language](/supported-languages#maturity-levels):
+Semgrep Supply Chain generates a **finding** whenever it determines that your codebase uses or imports a package containing a vulnerability. In addition, Semgrep supports **reachability** for [generally available (GA) languages](/docs/supported-languages#language-maturity-summary):
 
-* **Generally available (GA) languages**: Semgrep writes rules for all critical and high CVE severity levels for GA languages. That means Semgrep Supply Chain can flag all your critical/high-severity findings as either reachable or unreachable.
+* **GA languages**: Semgrep writes rules for all critical and high CVE severity levels for GA languages. That means Semgrep Supply Chain can flag all your critical/high-severity findings as either reachable or unreachable.
   * If there's a code pattern in the codebase that matches the vulnerability definition, the finding is flagged as **reachable**.
       * A finding is **always reachable** if the only way to fix the vulnerability is to upgrade the dependency. Semgrep strongly recommends upgrading the dependencies involved in these findings.
       * A finding is **conditionally reachable** if the vulnerability can be exploited when specific conditions are met. The finding is reachable if, in addition to the dataflow reachability in code, additional factors, such as the use of a specific operating system, are met. Semgrep cannot determine whether such factors are true, so conditionally reachable findings require manual review.
