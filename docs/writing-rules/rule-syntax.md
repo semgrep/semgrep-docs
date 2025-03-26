@@ -52,11 +52,12 @@ The below optional fields must reside underneath a `patterns` field.
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
 | [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
-| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
+| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
+| [`metavariable-name`](#metavariable-name) | `map` | Matches metavariables against constraints on what they name |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
-| [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
+| [`pattern-not-inside`](#pattern-not-inside) | `string` | Keep findings that do not lie inside this pattern |
+| [`pattern-not-regex`](#pattern-not-regex) | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 <!-- markdown-link-check-enable -->
 
@@ -758,6 +759,63 @@ int("2147483646")
 ```
 
 This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
+
+### `metavariable-name`
+
+The `metavariable-name` operator adds a constraint to the types of identifiers a metavariable is able to match. Currently the only constraint supported is on module or namespace an identifier originates from. This is useful for filtering results in languages which don't have a native syntax for fully qualified names, or languages where module names may contain characters which are not legal in identifiers (e.g., JavaScript, TypeScript). 
+
+:::info
+The `metavariable-name` operator requires the Pro engine, since it requires additional name resolution information. Moreover, name resolution information is higher fidelity with interfile enabled, and thus `metavariable-name` will be more accurate with interfile naming.
+:::
+
+```yaml
+rules:
+  - id: insecure-method
+    patterns:
+      - pattern: $MODULE.method(...)
+      - metavariable-name:
+          metavariable: $MODULE
+          module: "@foo-bar"
+    message: Uses insecure method from @foo-bar.
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```javascript
+import * as lib from '@foo-bar';
+import * as lib2 from 'myotherlib';
+
+// ruleid: insecure-method
+// highlight-next-line
+lib.method("test")
+// ok: insecure-method
+lib.method2("test")
+// ok: insecure-method
+lib2.method("test")
+```
+
+In the event that a match should occur if the metavariable matches one of a variety of matches, there is also a shorthand `modules` key, which takes a list of module names.
+
+```yaml
+rules:
+  - id: insecure-method
+    patterns:
+      - pattern: $MODULE.method(...)
+      - metavariable-regex:
+          metavariable: $MODULE
+          modules:
+           - foo
+           - bar
+    message: Uses insecure method from @foo-bar.
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+This can be useful in instances where there may be multiple API-compatible packages which share an issue.
 
 ### `pattern-not`
 
