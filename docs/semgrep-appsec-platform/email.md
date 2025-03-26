@@ -12,7 +12,7 @@ import Notifications from "/src/components/concept/_notification-deduplication.m
 
 # Receive email notifications
 
-You can choose to receive notifications from Semgrep regarding new findings through email.
+You can receive notifications from Semgrep regarding new findings and failed scans through email.
 
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
