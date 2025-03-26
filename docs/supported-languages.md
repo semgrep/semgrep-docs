@@ -246,86 +246,86 @@ The following table lists all Supply Chain features for each language. Languages
 <thead>
 <tr>
 <th>Language</th>
-<th>Reachability (see <a href="#cve-coverage">CVE coverage</a>)</th>
+<th align="center">Reachability<br />(see <a href="#cve-coverage">CVE coverage</a>)</th>
 <th>License detection</th>
-<th>Malicious dependency detection</th>
+<th>Malicious dependency<br />detection</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>C#</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Go</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Java</td>
-<td>✅</td>
-<td>✅</td>
-<td>--</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>JavaScript or TypeScript</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Kotlin</td>
-<td>✅</td>
-<td>✅</td>
-<td>--</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>Python</td>
-<td>✅</td>
-<td>✅ For PyPi only</td>
-<td>✅</td>
+<td align="center">✅</td>
+<td align="center">✅<br /> For PyPi only</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Ruby</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Scala</td>
-<td>✅</td>
-<td>✅†</td>
-<td>--</td>
+<td align="center">✅</td>
+<td align="center">✅†</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>Swift</td>
-<td>✅</td>
-<td>✅</td>
-<td>--</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>Rust</td>
-<td width="240px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
-<td>✅</td>
-<td>✅</td>
+<td align="center" width="180px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Dart</td>
-<td>--</td>
-<td>--</td>
+<td align="center">--</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>Elixir</td>
-<td>--</td>
-<td>--</td>
+<td align="center">--</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>PHP</td>
-<td>--</td>
-<td>--</td>
+<td align="center">--</td>
+<td align="center">--</td>
 </tr>
 </tbody>
 </table>
