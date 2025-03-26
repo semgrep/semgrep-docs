@@ -772,7 +772,7 @@ The `metavariable-name` operator requires the Pro engine, since it requires addi
 rules:
   - id: insecure-method
     patterns:
-      - pattern: $MODULE.method(...)
+      - pattern: $MODULE.insecure(...)
       - metavariable-name:
           metavariable: $MODULE
           module: "@foo-bar"
@@ -785,16 +785,27 @@ rules:
 The pattern immediately above matches the following:
 
 ```javascript
+// ECMAScript modules
 import * as lib from '@foo-bar';
 import * as lib2 from 'myotherlib';
 
+// CommonJS modules
+const { insecure } = require('@foo-bar');
+const lib3 = require('myotherlib');
+
 // ruleid: insecure-method
 // highlight-next-line
-lib.method("test")
+lib.insecure("test");
+// ruleid: insecure-method
+// highlight-next-line
+insecure("test");
+
 // ok: insecure-method
-lib.method2("test")
+lib.secure("test");
 // ok: insecure-method
-lib2.method("test")
+lib2.insecure("test");
+// ok: insecure-method
+lib3.insecure("test");
 ```
 
 In the event that a match should occur if the metavariable matches one of a variety of matches, there is also a shorthand `modules` key, which takes a list of module names.
