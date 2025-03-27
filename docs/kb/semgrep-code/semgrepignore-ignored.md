@@ -9,7 +9,7 @@ description: Why am I getting findings in files that should be ignored?
 
 If you don't have already a `.semgrepignore` file, refer to our [guide on how to exclude files from Semgrep scans](/docs/ignoring-files-folders-code). 
 
-If you already have a `.semgrepignore` file and are not seeing the results you expect, you may be seeing the effect of changes in Semgrep 1.112.0 and above. Starting with Semgrep CE 1.112.0, the Semgrepignore specification has changed slightly to better align with Git and Gitignore and to offer more flexibility. The new specification is referred to as [Semgrepignore v2](/docs/semgrepignore-v2-reference). 
+If you already have a `.semgrepignore` file and are not seeing the results you expect, you may be seeing the effect of changes in Semgrep 1.117.0 and above. Starting with Semgrep 1.117.0, the Semgrepignore specification has changed slightly to better align with Git and Gitignore and to offer more flexibility. The new specification is referred to as [Semgrepignore v2](/docs/semgrepignore-v2-reference). 
 
 ## Requirements for Semgrepignore v2
 
