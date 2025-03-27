@@ -3,7 +3,7 @@ slug: email-notifications
 append_help_link: true
 title: Email
 hide_title: true
-description: "Receive Semgrep findings via email."
+description: "Receive Semgrep findings through email."
 tags:
     - Semgrep AppSec Platform
 ---
@@ -12,7 +12,7 @@ import Notifications from "/src/components/concept/_notification-deduplication.m
 
 # Receive email notifications
 
-You can receive notifications from Semgrep regarding new findings and failed scans through email.
+You can receive emails from Semgrep regarding **new findings** and **failed scans**.
 
 Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
 
@@ -27,11 +27,14 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
 
-![Screenshot of Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png)
-**Figure** Sample of an email sent from Semgrep with findings.
+![Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png)
+_**Figure** Sample of an email sent from Semgrep with findings._
+
+![Scan failure email](/img/email-failure.png)
+_**Figure** Scan failure email message._
 
 <Notifications />
 
 ### Number of emails
-
-While emails are triggered only when Semgrep identifies a new finding, the emails you receive also include a summary of all findings.
+ 
+Emails about new findings are triggered only once. These emails also include a **summary** of current open findings.
