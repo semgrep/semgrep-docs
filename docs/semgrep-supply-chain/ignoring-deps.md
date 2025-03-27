@@ -15,8 +15,8 @@ You can restrict code files or manifest files or lockfiles from generating Suppl
 | Goal | Method |
 | ---- | ------ |
 | Prevent a code file from generating **any reachable findings**. | Include the code file's path in the repository's `.semgrepignore` file. |
-| Prevent a manifest file or lockfile from generating **any unreachable findings** but still generate reachable findings from a code file. | Include the manifest file's path or the lockfile's path in the repository's `semgrepignore` file. |
-| Prevent a code file from generating either reachable or unreachable findings. | Include the file paths of the manifest file or lockfile and code files in the repository's `.semgrepignore` file. |
+| Prevent any findings from being generated using the dependencies in a manifest file or lockfile | Include the file paths of the manifest file or lockfile in the repository's `.semgrepignore` files |
+
 
 > Unreachable findings are only generated from manifest files or lockfiles, because Semgrep defines unreachable findings as the absence of a match in the code.
 
@@ -27,24 +27,16 @@ Given a repository with the following files:
 * A file `codefile_with_vuln.js` that generates reachable and unreachable findings due to a vulnerable dependency.
 * A `package-lock.json` file that lists the vulnerable dependency.
 
-If you add `codefile_with_vuln.js` to the `.semgrepignore` file, Semgrep ignores any reachable findings generated when scanning `codefile_with_vuln.js`:
+If you add `codefile_with_vuln.js` to the `.semgrepignore` file, Semgrep ignores any reachable findings generated when scanning `codefile_with_vuln.js`, but can still generate findings from `package-lock.json`:
 
 ```
 # .semgrepignore
 codefile_with_vuln.js
 ```
 
-If you add `package-lock.json` to the `.semgrepignore` file, Semgrep presents reachable findings generated when scanning `codefile_with_vuln.js`, but ignores unreachable findings.
+If you add `package-lock.json` to the `.semgrepignore` file, Semgrep will not scan dependencies from this lockfile, so no Supply Chain findings will be generated in either `codefile_with_vuln.js` or `package-lock.json`:
 
 ```
 # .semgrepignore
-package-lock.json
-```
-
-If you add `codefile_with_vuln.js` and `package-lock.json` to the `.semgrepignore` file, Semgrep ignores reachable and unreachable findings generated when scanning `codefile_with_vuln.js`:
-
-```
-# .semgrepignore
-codefile_with_vuln.js
 package-lock.json
 ````
