@@ -248,7 +248,7 @@ The following table lists all Supply Chain features for each language. Languages
 <th>Language</th>
 <th align="center">Reachability<br />(see <a href="#cve-coverage">CVE coverage</a>)</th>
 <th>License detection</th>
-<th>Malicious dependency<br />detection</th>
+<th>Malicious dependency<br />detection (beta)</th>
 </tr>
 </thead>
 <tbody>
