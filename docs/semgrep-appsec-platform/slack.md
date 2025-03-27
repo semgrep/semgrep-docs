@@ -104,7 +104,9 @@ This removes **all** Semgrep notifications in **all** channels in your Slack wor
 
 1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. On the **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)** page, find the Slack integration you want to remove.
-3. Click **Remove integration** > **Remove**.
+3. Expand the **Channels receiving Semgrep notifications** section and review the channels receiving notifications.
+4. In the related channels in your Slack workspace, use the `/semgrep_unsubscribe` command to unsubscribe from those notifications.
+5. After completing this step for all channels, click **Remove integration** > **Remove**.
 
 ## Troubleshooting
 
