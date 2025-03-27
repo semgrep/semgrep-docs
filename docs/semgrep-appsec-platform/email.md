@@ -30,7 +30,7 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
 ![Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png)
 _**Figure** Sample of an email sent from Semgrep with findings._
 
-![Scan failure email](/img/email-failure.png)
+![Scan failure email](/img/email-failure.png#md-width)
 _**Figure** Scan failure email message._
 
 <Notifications />
