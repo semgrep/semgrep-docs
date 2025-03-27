@@ -12,8 +12,8 @@ If you don't have already a `.semgrepignore` file, refer to our
 scans](/docs/ignoring-files-folders-code). Otherwise, if
 you already have a `.semgrepignore` file, read on.
 
-Starting with Semgrep CE 1.112.0, the Semgrepignore specification has
-changed slightly to better align with Git and Gitignore and to offer
+Starting with Semgrep 1.117.0, the Semgrepignore specification
+changes slightly to better align with Git and Gitignore and to offer
 more flexibility.
 The new specification is referred to as
 [Semgrepignore v2](/docs/semgrepignore-v2-reference).
