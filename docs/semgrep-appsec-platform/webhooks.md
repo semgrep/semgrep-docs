@@ -32,7 +32,7 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
-    5. (Optional) If your organization has the [Semgrep Network Broker](/semgrep-ci/network-broker) enabled, you will see a **Use Network Broker** switch. Enable this if your webhook URL is only accessible from your private network.
+    5. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
     6. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
