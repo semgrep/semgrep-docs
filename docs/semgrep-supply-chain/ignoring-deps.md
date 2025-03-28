@@ -15,7 +15,7 @@ You can restrict code files or manifest files or lockfiles from generating Suppl
 | Goal | Method |
 | ---- | ------ |
 | Prevent a code file from generating **any reachable findings**. | Include the code file's path in the repository's `.semgrepignore` file. |
-| Prevent any findings from being generated using the dependencies in a manifest file or lockfile | Include the file paths of the manifest file or lockfile in the repository's `.semgrepignore` file |
+| Prevent any findings from being generated using the dependencies in a manifest file or lockfile | Include the file paths of the manifest file or lockfile in the repository's `.semgrepignore` file. |
 
 
 > Unreachable findings are only generated from manifest files or lockfiles, because Semgrep defines unreachable findings as the absence of a match in the code.
