@@ -27,7 +27,7 @@ The offerings in this document are defined as follows:
 <dl>
   <dt>Semgrep Community Edition (Semgrep CE)</dt>
   <dd>
-    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules. The Community Edition is best for small teams or personal projects.
+    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules. Semgrep CE also includes the Visual Studio Code (VS Code) and IntelliJ extensions. The Community Edition is best for small teams or personal projects.
   </dd>
   <dt>Semgrep AppSec Platform (Semgrep)</dt>
   <dd>
