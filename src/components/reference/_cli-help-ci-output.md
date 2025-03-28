@@ -400,6 +400,9 @@ OPTIONS
        --x-dump-rule-partitions-dir=VAL
            Internal flag.
 
+       --x-dump-rule-partitions-strategy=VAL
+           Internal flag.
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by
