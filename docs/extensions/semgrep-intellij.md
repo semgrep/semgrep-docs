@@ -15,10 +15,6 @@ import QuickstartIntelliJ from "/src/components/procedure/_quickstart-intellij.m
 
 [Semgrep](https://semgrep.dev/) swiftly scans code and package dependencies for known issues, software vulnerabilities, and detected secrets. Run Semgrep in your developer environment with the IntelliJ extension to catch code issues as you type. By default, the Semgrep IntelliJ extension scans code whenever you change or open files.
 
-## License
-
-The Semgrep IntelliJ extension is licensed under the LGPL 2.1 license.
-
 ## Prerequisites
 
 The Semgrep IntelliJ extension communicates with Semgrep command-line interface (CLI) to run scans. Install Semgrep CLI before you can use the extension. To install Semgrep CLI:
@@ -92,3 +88,7 @@ If you need our support, join the [Semgrep community Slack workspace](http://go.
 ## Limitations
 
 <IdeLimitations />
+
+## License
+
+The Semgrep IntelliJ extension is licensed under the LGPL 2.1 license.
