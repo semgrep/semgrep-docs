@@ -17,7 +17,7 @@ import QuickstartIntelliJ from "/src/components/procedure/_quickstart-intellij.m
 
 ## License
 
-The Semgrep VS Code extension is licensed under the LGPL 2.1 license.
+The Semgrep IntelliJ extension is licensed under the LGPL 2.1 license.
 
 ## Prerequisites
 
