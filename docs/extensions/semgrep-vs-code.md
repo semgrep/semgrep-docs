@@ -20,7 +20,7 @@ import QuickstartVSCode from "/src/components/procedure/_quickstart-vscode.md"
 
 ## License
 
-The Semgrep VS Code is licensed under the LGPL 2.1 license.
+The Semgrep VS Code extension is licensed under the LGPL 2.1 license.
 
 ## Prerequisites
 
