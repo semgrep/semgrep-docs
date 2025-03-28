@@ -18,6 +18,10 @@ import QuickstartVSCode from "/src/components/procedure/_quickstart-vscode.md"
 - Inline results and problem highlighting, as well as quick links to the definitions of the rules underlying the findings
 - Autofix, which allows you to apply Semgrep's suggested resolution for the findings
 
+## License
+
+The Semgrep VS Code is licensed under the LGPL 2.1 license.
+
 ## Prerequisites
 
 - See [Supported Languages](/supported-languages) to verify that the extension supports your project.
