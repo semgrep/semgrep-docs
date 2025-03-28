@@ -324,9 +324,10 @@ OPTIONS
            '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
            implementation for discovering and filtering target files.
            Conversely, '--no-semgrepignore-v2' is the deprecated option that
-           forces the use of the legacy Semgrepignore v1. If you must use
-           '--no-semgrepignore-v2', please let us know so we can fix problems
-           and help you migrate smoothly. 
+           forces the use of the legacy Semgrepignore v1.
+           '--semgrepignore-v2' is the default for Semgrep Community Edition,
+           and for now '--no-semgrepignore-v2' is still the default when
+           using the '--pro*' options. 
 
        --skip-unknown-extensions
            negates --scan-unknown-extensions
@@ -373,12 +374,15 @@ OPTIONS
            internal use and may be changed or removed without warning. 
 
        --use-git-ignore
+           '--use-git-ignore' is Semgrep's default behavior. Under the
+           default behavior, Git-tracked files are not excluded by Gitignore
+           rules and only untracked files are excluded by Gitignore rules.
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
            '.gitignore' files to determine which files semgrep should scan.
-           As a result of '--no-git-ignore', gitignored files and git
-           submodules will be scanned. This flag has no effect if the
-           scanning root is not in a git repository. '--use-git-ignore' is
-           semgrep's default behavior.
+           As a result of '--no-git-ignore', gitignored files and Git
+           submodules will be scanned unless excluded by other means
+           ('.semgrepignore', '--exclude', etc.). This flag has no effect if
+           the scanning root is not in a Git repository.
 
        -v, --verbose
            Show more details about what rules are running, which files failed

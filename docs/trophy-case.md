@@ -9,11 +9,12 @@ tags:
 # Semgrep trophy case
 
 This is a list of vulnerabilities found and security fixes made with Semgrep.
-Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
+Add yours [with a pull request](https://github.com/semgrep/semgrep-docs/blob/main/docs/trophy-case.md)!
 
 |CVEs	|	|	|	|
 |---	|---	|---	|---	|
 |**CVE**	|**Semgrep rule**	|**Affected software**	|**Description**	|
+|[CVE-2025-29783](https://nvd.nist.gov/vuln/detail/CVE-2025-29783)	|[python.lang.security.deserialization.pickle.avoid-pickle](https://semgrep.dev/r?q=python.lang.security.deserialization.pickle.avoid-pickle)	|vLLM < v0.8.2	|Unsafe deserialization allowed execution of remote code on distributed hosts using Mooncake. |
 |[CVE-2019-5479](https://nvd.nist.gov/vuln/detail/CVE-2019-5479)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|larbitbase-api < v0.5.5	|An unintended require vulnerability in &lt;v0.5.5 larvitbase-api may allow an attacker to load arbitrary non-production code (JavaScript file).	|
 |[CVE-2020-8128](https://nvd.nist.gov/vuln/detail/CVE-2020-8128)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|jsreport < 2.5.0	|An unintended require and server-side request forgery vulnerabilities in jsreport version 2.5.0 and earlier allow attackers to execute arbitrary code.	|
 |[CVE-2020-8129](https://nvd.nist.gov/vuln/detail/CVE-2020-8129)	|[javascript.lang.security.detect-non-literal-require](https://semgrep.dev/r?q=javascript.lang.security.detect-non-literal-require)	|script-manager < 0.8.6	|An unintended require vulnerability in script-manager npm package version 0.8.6 and earlier may allow attackers to execute arbitrary code.	|

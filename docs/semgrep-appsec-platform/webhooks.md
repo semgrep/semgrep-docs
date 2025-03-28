@@ -28,17 +28,24 @@ Semgrep sends two types of JSON objects:
 Perform these steps in Semgrep AppSec Platform to set up webhooks:
 
 1. Create a webhook integration:
-    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add**.
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
-    5. Optional: To ensure that Semgrep can post to your URL, click **Test**. The following screenshot displays the result of a successful webhook integration.
-    ![Successful webhook integration test](/img/webhook-successful-test.png)
-    6. Click **Save.**
+    5. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+
+## Test webhooks
+
+To verify that Semgrep can post to your URL:
+1. Navigate to **<i class="fa-solid fa-gear"></i> Settings > Integrations**
+2. Click the **Test** button of the webhook integration you want to test.
+
+The following screenshot displays an example request body of a webhook test:
+![Successful webhook integration test](/img/webhook-successful-test.png)
 
 <Notifications />
 
