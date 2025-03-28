@@ -14,6 +14,10 @@ import Notifications from "/src/components/concept/_notification-deduplication.m
 
 Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
+:::tip For Slack integrations
+- To integrate with Slack, use the [Semgrep Slack app](/semgrep-appsec-platform/slack-notifications). The webhook setup described in this guide does not work for Slack integrations.
+:::
+
 Semgrep sends two types of JSON objects:
 
 <dl>
