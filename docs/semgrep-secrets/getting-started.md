@@ -64,7 +64,7 @@ The **Secrets** page consists of:
 - The **filter panel**, which you can use to group and filter for specific findings
 - Information about findings identified by Semgrep Secrets. Each finding in the list includes:
   - When the finding was created
-  - The [type of secret](#secret-type) found and where in the code it is located, including its Project and branch information
+  - The type of secret found and where in the code it is located, including its Project and branch information
   - Its severity level
   - Whether it has been validated by a Semgrep validator
   - Whether it is a [historical finding](/semgrep-secrets/historical-scanning)

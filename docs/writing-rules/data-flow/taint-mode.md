@@ -645,7 +645,7 @@ In the example below, `user_input` is passed to `foo` as input and, from there, 
 
 Using the CLI option `--pro-intrafile`, Semgrep will perform inter-procedural (across functions) _intra_-file (within one file) analysis. That is, it will track taint across functions, but it will not cross file boundaries. This is supported for essentially every language, and performance is very close to that of intra-procedural taint analysis.
 
-Using the CLI option `--pro`, Semgrep will perform inter-procedural (across functions) as well as *inter*-file (across files) analysis. Inter-file analysis is only supported for [a subset of languages](/supported-languages/#semgrep-code-language-support). For a rule to run inter-file it also needs to set `interfile: true`:
+Using the CLI option `--pro`, Semgrep will perform inter-procedural (across functions) as well as *inter*-file (across files) analysis. Inter-file analysis is only supported for [a subset of languages](/supported-languages#language-maturity-summary). For a rule to run interfile it also needs to set `interfile: true`:
 
 ```yaml
 options:

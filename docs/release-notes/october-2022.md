@@ -18,7 +18,7 @@ Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chai
 ### Additions
 
 - New demo project allows you to try out Semgrep App workflows. If your organization in Semgrep App does not have any projects assigned in the [Projects](https://semgrep.dev/orgs/-/projects) page, you can add the new demo project by clicking **Explore a demo project**.
-- You can now triage through PR comments, for more information see [Ignoring findings through comments](/semgrep-code/triage-remediation#ignore-findings-through-github-pr-comments) documentation.
+- You can now triage through PR comments, for more information see [Ignoring findings through comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) documentation.
 - Semgrep Playground now displays its version number. To see the exact version that Semgrep Playground uses, click the <i class="fa-regular fa-ellipsis-vertical"></i> three-dot button, and then see the version number after the <i class="fa-solid fa-code-commit"></i> icon.
 
     ![Semgrep Playground version number.](/img/semgrep-app-latest-version.png "Semgrep Playground version number.")
@@ -110,7 +110,7 @@ The following references are available for Semgrep Supply Chain:
 
 #### Semgrep App
 
-- [Ignoring findings through comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments) section documents how to triage findings through GitHub comments.
+- [Ignoring findings through comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) section documents how to triage findings through GitHub comments.
 
 #### Semgrep CLI
 

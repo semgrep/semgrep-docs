@@ -1029,7 +1029,7 @@ rules:
 ```
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
-Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#fields-required-by-the-security-category) for more information.
 
 ## `min-version` and `max-version`
 

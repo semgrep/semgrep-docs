@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 
 :::note Language support
-Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#semgrep-code-language-support) to see languages supported by Semgrep Code.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-summary) to see languages supported by Semgrep Code.
 :::
 
 ## Run cross-file analysis

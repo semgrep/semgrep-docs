@@ -58,9 +58,11 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 1. Repeat the steps above for each additional Bitbucket workspace you'd like added to Semgrep.
 <!-- vale on -->
 
+<!-- For Katie: How does this add a repository? I followed the instructions up to **Set up Managed Scans** but did I miss the part where the user selects repositories? Or does this add ALL repositories? -->
+
 You have finished setting up a Semgrep managed scan.
 
-- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories. <!-- in the workspace? -->
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects scanned through Managed Scans are tagged with `managed-scan`.
 
@@ -92,7 +94,7 @@ You can enable managed scanning for additional repositories after onboarding usi
 
 You can immediately add any existing project to Managed Scans.
 
-1. Follow the steps in [Add a repository](#add-a-repository).
+1. Follow the steps in [Enable managed scanning](#enable-managed-scanning-and-scan-your-first-repository).
 1. Delete the `bitbucket-pipelines.yml` file in your Bitbucket repository if appropriate.
 
 If you plan to continue running some scans in Bitbucket CI/CD Pipelines (for example, using Managed Scans to run weekly full scans but Bitbucket CI/CD Pipelines for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.

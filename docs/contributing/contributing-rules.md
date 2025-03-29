@@ -87,7 +87,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
                 <code>metadata</code>
             </td>
             <td rowspan="2">
-                All rules require <code>technology</code>, <code>category</code>, and <code>references</code>. The <code>category: security</code> has more requirements. See <a href="#including-fields-required-by-security-category"> Including fields required by security category.</a>
+                All rules require <code>technology</code>, <code>category</code>, and <code>references</code>. The <code>category: security</code> has more requirements. See <a href="#fields-required-by-the-security-category"> Including fields required by security category.</a>
             </td>
             <td>
                Required by all Semgrep Registry rules:
@@ -149,7 +149,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.</td>
+   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#fields-required-by-the-security-category"> Including fields required by security category</a>.</td>
    <td>
     <ul>
       <li><code>best-practice</code></li>
@@ -181,7 +181,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
 </table>
 
 :::info
-- If you use category <code>security</code>, include additional metadata. See <a href="#including-fields-required-by-security-category"> Including fields required by security category</a>.
+- If you use category <code>security</code>, include additional metadata. See <a href="#fields-required-by-the-security-category"> Including fields required by security category</a>.
 - Cross-file (interfile) analysis requires `interfile: true` under the `options` key in YAML rules. For more information, see [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions).
 :::
 

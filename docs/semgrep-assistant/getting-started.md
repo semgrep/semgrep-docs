@@ -38,7 +38,7 @@ Semgrep Assistant extends standard Semgrep capabilities by providing contextuall
 - `Code: Read & write`
 - `Pull Request Threads: Read & write`
 
-You can provide this token to Semgrep by adding [Azure DevOps as a source code manager](/deployment/connect-scm#azure-devops-cloud).
+You can provide this token to Semgrep by adding [Azure DevOps as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs).
 
 Semgrep recommends using a service account, not a personal account, to [generate the personal access token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) provided to Semgrep. Regardless of whether you use a personal or service account, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization.
 
@@ -53,7 +53,7 @@ Semgrep Assistant extends standard Semgrep capabilities by providing contextuall
 - `Pull requests: Read & Write`
 - `Webhooks: Read and write`
 
-You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#bitbucket-cloud). 
+You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs). 
 
 </TabItem>
 

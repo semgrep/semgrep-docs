@@ -148,7 +148,7 @@ To write a rule in advanced mode:
 1. Ensure that you are in **advanced** mode.
     ![Semgrep Playground's advanced mode](/img/pleditor-advanced.png "Playground advanced mode")
 1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but there are additional templates that can help you write more complex rules:
-   - **Semgrep Assistant**: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/getting-started/#write-custom-rules-beta)
+   - **Semgrep Assistant**: use Semgrep Assistant to [generate custom rules](/semgrep-assistant/customize#write-custom-rules-beta)
    - **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
    - **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
    - **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/#sanitizers).

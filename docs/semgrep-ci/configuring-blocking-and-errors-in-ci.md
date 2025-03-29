@@ -52,9 +52,7 @@ script:
     semgrep ci --suppress-errors
 ```
 
-If you use any other CI provider, refer to its documentation for information on where to provide this information. 
-See the [Examples of blocking findings and errors configuration](#examples-of-blocking-findings-and-errors-configuration) below.
-
+If you use any other CI provider, refer to its documentation for information on where to provide this information. Additionally, see the sample configurations in the following section.
 
 ## Sample configurations for blocking findings and errors
 
