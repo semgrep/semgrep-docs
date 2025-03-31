@@ -188,7 +188,7 @@ Additionally, Semgrep offers beta support for the scanning of Java projects **wi
 <tr>
    <td>Swift</td>
    <td>SwiftPM</td>
-   <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> lockfile.</td>
    <td style={{"text-align": "center"}}>GA</td>
    <td>✅<strong>†</strong></td>
    <td style={{"text-align": "center"}}>GA</td>
