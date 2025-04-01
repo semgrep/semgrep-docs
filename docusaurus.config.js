@@ -399,8 +399,6 @@ module.exports = {
           { from: "/deployment/managed-scanning" , to: "/deployment/managed-scanning/overview" } ,
           /* NOV 28, 2024 */
           { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
-          /* DEC 20, 2024 */
-          { from: "/semgrep-supply-chain/ignoring-dependencies" , to: "/semgrep-supply-chain/ignoring-dependencies" } ,
           /* FEB 26, 2025 */
           { from: "/faq" , to: "/faq/overview" },
           /* MAR 4, 2025 */
