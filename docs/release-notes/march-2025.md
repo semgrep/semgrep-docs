@@ -30,6 +30,8 @@ tags:
 - Dataflow traces now provide cross-file code snippets, centralizing context from several files into the dataflow graph. <!-- SEC-1534 -->
 - The **Finding details** page now has a new triage button with options to ignore, fix, and reopen findings.
 - Added [<i class="fas fa-external-link fa-xs"></i> `llms.txt`](https://semgrep.dev/llms.txt).
+- Added an [integration with Wiz](/semgrep-appsec-platform/wiz) that enables you to view Semgrep Code findings in Wiz's Security Graph.
+- Added the ability to [define the files and folders Semgrep ignores](/ignoring-files-folders-code#define-files-and-folders-for-all-projects-of-an-organization) during scans at the organization level.
 
 ### Changed
 
@@ -45,7 +47,10 @@ tags:
 
 ### Added
 
-### Changed
+- Added the Custom Condition Builder for use in creating block and comment policies for Supply Chain.
+- Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
+- Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
+- Added the ability to [obtain SBOM exports using the Semgrep API](https://semgrep.dev/api/v1/ui/#/Beta/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export).
 
 ### Fixed
 
@@ -53,6 +58,17 @@ tags:
 ![Warning message when projects or tags in a policy have been deleted](/img/policy-zero-project-state.png)
 
 ## 🤖 Semgrep Assistant 
+
+### Added
+
+- **Auto-memories**: If you triage a finding as **Ignored** and provide an explanation of why you change the finding's status to **Ignored**, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
+- Added the ability to select multiple AI providers.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Fixed the JSON produced by the `--gitlab-secrets` flag so that it is parsed correctly by GitLab.
 
 ## 📝 Documentation and knowledge base
 
