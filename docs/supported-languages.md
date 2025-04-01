@@ -79,8 +79,8 @@ Semgrep Supply Chain has two language maturity levels:
   </tr>
   <tr>
    <td>Semgrep, Inc. rule-writing support</td>
-   <td>Quickly release new rules for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
-   <td>No commitment for new rules based on the latest security advisories.</td>
+   <td>Quickly support CVE coverage with reachability analysis for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
+   <td>Coverage for CVEs but without reachability analysis.</td>
   </tr>
   <tr>
    <td>Semgrep CE <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
