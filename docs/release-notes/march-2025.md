@@ -1,5 +1,5 @@
 ---
-slug: march-2023
+slug: march-2025
 hide_title: true
 description: >-
   Release notes include the changes, fixes, and additions in specific versions of Semgrep.
@@ -86,3 +86,8 @@ tags:
 
 * The following versions of Semgrep CE were released in March 2025:
 
+  * [<i class="fas fa-external-link fa-xs"></i>v1.111.0](https://github.com/semgrep/semgrep/releases/tag/v1.111.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.112.0](https://github.com/semgrep/semgrep/releases/tag/v1.112.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.113.0](https://github.com/semgrep/semgrep/releases/tag/v1.113.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.114.0](https://github.com/semgrep/semgrep/releases/tag/v1.114.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.116.0](https://github.com/semgrep/semgrep/releases/tag/v1.116.0)
