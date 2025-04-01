@@ -7,6 +7,9 @@ tags:
   - Semgrep Supply Chain
 ---
 
+<!-- check obsidian & notion -->
+
+
 # Click to fix with breaking change guidance
 
 
