@@ -11,7 +11,7 @@ The following explains how to build `semgrep-core` so you can make and test chan
 ```bash
 brew install opam
 opam init
-opam switch create semgrep 5.2.1
+opam switch create semgrep 5.3.0
 eval $(opam env)
 ```
 
