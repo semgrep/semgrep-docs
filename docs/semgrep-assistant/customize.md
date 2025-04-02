@@ -87,21 +87,13 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 
 ### Add memory during triage
 
-When you identify findings that are safe to ignore, Semgrep Assistant can store your triage notes and create a **memory**, which it will then use to assess if a similar finding should be shown to developers. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant determines whether your changes should be stored as a memory. If Assistant creates a new memory, which is used to assess if similar findings should be shown to developers, it then reanalyzes similar findings in your backlog and suggests issues that may be safe to close.
 
-To add a memory during triage:
+To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
 1. Identify the specific finding you want to modify, and open up its finding details page.
-2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
-3. Click **Ignore & add memory**. 
-4. In the **Create memory** dialog:
-   1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
-   2. Provide the **Projects** to which this memory should be applied.
-   3. Provide the **Rules** to which this memory should be applied.
-   4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
-   5. Click **Add memory** to save your changes.
-   ![User-provided instructions for generating a memory during the triage process.](/img/triage-memories.png#md-width)
-   ***Figure***. User-provided instructions for generating a memory during the triage process.
+2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
+3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
 ### View Memories
 
