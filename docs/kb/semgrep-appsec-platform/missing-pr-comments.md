@@ -46,7 +46,7 @@ For MR comments on GitLab and PR comments on Bitbucket or Azure DevOps, ensure t
 
 #### Azure DevOps
 
-See [Enable Azure pull request comments](docs/semgrep-appsec-platform/azure-pr-comments) for token and configuration guidelines.
+See [Enable Azure pull request comments](/docs/semgrep-appsec-platform/azure-pr-comments) for token and configuration guidelines.
 
 #### GitLab
 
@@ -62,7 +62,7 @@ For Managed Scans, Semgrep always runs diff-aware scans on pull request events, 
 
 For GitHub Actions and GitLab CI/CD, if you are using the recommended configuration, Semgrep typically runs diff-aware scans on pull or merge requests by default.
 
-Other SCMs or CI systems, or unusual pipeline configurations, may require additional setup. Review the [configuration instructions](https://semgrep.dev/docs/category/pr-or-mr-comments) for your SCM or [custom configuration for your CI jobs](https://semgrep.dev/docs/deployment/customize-ci-jobs#set-up-diff-aware-scans) and ensure you have configured your scans correctly.
+Other SCMs or CI systems, or unusual pipeline configurations, may require additional setup. Review the [configuration instructions](/category/pr-or-mr-comments) for your SCM or [custom configuration for your CI jobs](/deployment/customize-ci-jobs#set-up-diff-aware-scans) and ensure you have configured your scans correctly.
 
 ### Identifying a diff-aware scan
 
