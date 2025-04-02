@@ -271,7 +271,7 @@ jobs:
       ...
 ```
 
-## Environment variable for creating comments in pull request or merge requests
+## Environment variable for creating comments in pull requests or merge requests
 
 The following environment variable enables Semgrep AppSec Platform to create comments within your source code management (SCM) tool when Semgrep scans a pull request or merge request. These comments can include code suggestions to fix a finding.
 

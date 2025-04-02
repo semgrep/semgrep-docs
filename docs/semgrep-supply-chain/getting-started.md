@@ -134,6 +134,6 @@ You can also view your results in Semgrep AppSec Platform. It displays all of th
 
 Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [manifest file or lockfile](/semgrep-supply-chain/glossary/#manifest-file) present in the monorepo.
 
-## Block pull request or merge requests
+## Block pull requests or merge requests
 
-You can comment on or potentially block pull request or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).
+You can comment on or potentially block pull requests or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).

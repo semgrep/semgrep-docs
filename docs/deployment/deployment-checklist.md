@@ -99,7 +99,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <td>Being a <strong>Slack workspace owner</strong>; alternatively, coordinate with the team responsible.</td>
 </tr>
 <tr>
-<td>Send pull request or merge requests to your SCM.</td>
+<td>Send pull requests or merge requests to your SCM.</td>
 <td>Editing firewall or VPN allowlist for self-hosted repositories.</td>
 </tr>
 </tbody>
