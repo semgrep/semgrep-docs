@@ -14,6 +14,10 @@ import Notifications from "/src/components/concept/_notification-deduplication.m
 
 Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
+:::tip For Slack integrations
+- To integrate with Slack, use the [Semgrep Slack app](/semgrep-appsec-platform/slack-notifications). The webhook setup described in this guide does not work for Slack integrations.
+:::
+
 Semgrep sends two types of JSON objects:
 
 <dl>
@@ -32,13 +36,21 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
-    5. Optional: To ensure that Semgrep can post to your URL, click **Test**. The following screenshot displays the result of a successful webhook integration.
-    ![Successful webhook integration test](/img/webhook-successful-test.png)
-    6. Click **Save.**
+    5. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
+    6. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+
+## Test webhooks
+
+To verify that Semgrep can post to your URL:
+1. Navigate to **<i class="fa-solid fa-gear"></i> Settings > Integrations**
+2. Click the **Test** button of the webhook integration you want to test.
+
+The following screenshot displays an example request body of a webhook test:
+![Successful webhook integration test](/img/webhook-successful-test.png)
 
 <Notifications />
 

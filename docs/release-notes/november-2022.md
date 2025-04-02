@@ -70,7 +70,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 #### General documentation additions
 
-- The [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) documentation now provides sections with [General rule requirements](/contributing/contributing-to-semgrep-rules-repository#general-rule-requirements), [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository#semgrep-registry-rule-requirements), and [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository#including-fields-required-by-security-category).
+- The [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) documentation now provides sections with [General rule requirements](/contributing/contributing-to-semgrep-rules-repository#general-rule-requirements), [Semgrep registry rule requirements](/contributing/contributing-to-semgrep-rules-repository#semgrep-registry-rule-requirements), and [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository#fields-required-by-the-security-category).
 - You may now also log in to Semgrep App from the documentation website. The **Login** button is available next to the docs search bar.
 
 #### Semgrep App

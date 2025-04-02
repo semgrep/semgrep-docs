@@ -102,6 +102,8 @@ Including files and folders through this method is **additive**. When you run a 
 
 Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
 
+All files and folders defined using Semgrep AppSec Platform's **Path Ignores** feature, both for a specific project and globally, are additive.
+
 ### Define files and folders for a specific project
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
@@ -217,8 +219,8 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 **Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
-* [Ignore findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings)
-* [Ignore findings through GitHub PR comments](/semgrep-code/triage-remediation/#ignore-findings-through-github-pr-comments)
+* [Manage findings](/semgrep-code/triage-remediation#manage-findings)
+* [Ignore findings through PR and MR comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments)
 
 ## Troubleshooting
 
