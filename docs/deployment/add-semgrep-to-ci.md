@@ -31,7 +31,7 @@ Semgrep is integrated into CI environments by creating a **job** that is run by 
 By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at various events, such as:
 
 - Push events
-- Pull or merge requests (PRs or MRs)
+- Pull request or merge requests (PRs or MRs)
 - User-initiated events (such as GitHub Action's `workflow_dispatch`)
 
 ## Guided setup for CI providers in Semgrep AppSec Platform

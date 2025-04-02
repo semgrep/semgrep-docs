@@ -74,7 +74,7 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
  <td><strong>Dependency rule set</strong></td>
  </tr>
  <tr>
- <td>Pull or merge request</td>
+ <td>Pull request or merge request</td>
  <td><a href="/docs/deployment/customize-ci-jobs#set-up-diff-aware-scans">Diff-aware scan</a></td>
  <td>All dependency rules</td>
  </tr>
@@ -134,6 +134,6 @@ You can also view your results in Semgrep AppSec Platform. It displays all of th
 
 Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [manifest file or lockfile](/semgrep-supply-chain/glossary/#manifest-file) present in the monorepo.
 
-## Block pull or merge requests
+## Block pull request or merge requests
 
-You can comment on or potentially block pull or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).
+You can comment on or potentially block pull request or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).

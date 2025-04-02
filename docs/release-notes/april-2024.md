@@ -139,7 +139,7 @@ didn't work properly when adding a new file or renaming an existing file.
     - Findings retention policy.
 - The following knowledge base articles have been updated:
     - [Scan a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
-    - [Failed to run a Git command during a pull or merge request scan](/kb/semgrep-ci/git-command-errors)
+    - [Failed to run a Git command during a pull request or merge request scan](/kb/semgrep-ci/git-command-errors)
 
 ### Fixed
 
