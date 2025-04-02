@@ -44,7 +44,7 @@ tags:
 	- **Deployment creation**. The Semgrep team has made improvements to Semgrep account creation and connecting your source code manager, such as GitHub or GitLab.
 	- **Onboarding checklist.** This helps you troubleshoot and resolve any issues early on in your journey.
 	- **Tour of features**. Make the most of your Semgrep experience by learning what features are available to you.
-- Logging into Semgrep Cloud Platform through the CLI associates your CLI user ID to your Semgrep Cloud Platform account. See the [<i class="fas fa-external-link fa-xs"></i> Anonymous User ID](https://github.com/semgrep/semgrep/blob/develop/PRIVACY.md#anonymous-user-id) section for more details.
+- Logging into Semgrep Cloud Platform through the CLI associates your CLI user ID to your Semgrep Cloud Platform account. See the [<i class="fas fa-external-link fa-xs"></i> Anonymous User ID](https://github.com/semgrep/semgrep/blob/develop/metrics.md#anonymous-user-id) section for more details.
 
 ### Changed
 
