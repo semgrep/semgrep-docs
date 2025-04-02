@@ -87,7 +87,7 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 
 ### Add memory during triage
 
-When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant determines whether your changes should be stored as a memory. If Assistant creates a new memory, it then uses the memory to assess if similar findings are safe to ignore and not shown to developers.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant determines whether your changes should be stored as a memory. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hidden from developers.
 
 To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
