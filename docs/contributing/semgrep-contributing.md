@@ -14,17 +14,16 @@ Most Python development is done inside the `cli` directory:
 cd cli
 ```
 
-We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
-You can install it like this on MacOS:
+We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual
+environment. You can learn how to install it
+[https://pipenv.pypa.io/en/latest/installation.html](here).  Ensure `pipenv` is
+on your PATH before proceeding.
 
-```bash
-brew install pipenv
-```
-
-Next we need to initialize and enter the environment. This command will install
-dev dependencies such as pytest and will also install semgrep in editable mode
-in the pipenv.  From the `cli` directory, run `pipenv shell`.  By convention,
-your shell prompt will be prepended with `(cli)` when the environment is active.
+Next, we need to initialize and enter the virtual environment. This command
+will install dev dependencies such as pytest and will also install semgrep in
+editable mode in the pipenv.  From the `cli` directory, run `pipenv shell`.  By
+convention, your shell prompt will be prepended with `(cli)` when the
+environment is active.
 
 Next, install the Python dependencies:
 
