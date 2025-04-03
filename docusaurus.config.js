@@ -47,6 +47,7 @@ module.exports = {
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
+        { to: '/releases', label: 'Releases', position: 'left' },
         {
           type: 'dropdown',
           label: 'Products',
@@ -220,6 +221,47 @@ module.exports = {
           editUrl:
             'https://github.com/semgrep/semgrep-docs/edit/main',
           routeBasePath: '/'
+        },
+        blog: {
+          path: 'releases',
+          blogTitle: 'Blog title',
+          blogDescription: 'Blog',
+          blogSidebarCount: 5,
+          blogSidebarTitle: 'All our posts',
+          routeBasePath: 'releases',
+          include: ['**/*.{md,mdx}'],
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
+          postsPerPage: 10,
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          remarkPlugins: [],
+          rehypePlugins: [],
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+          truncateMarker: /<!--\s*(truncate)\s*-->/,
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            title: '',
+            description: '',
+            copyright: '',
+            language: undefined,
+            createFeedItems: async (params) => {
+              const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
