@@ -6,7 +6,7 @@ The `semgrep-cli` name refers to the project which exposes the actual `semgrep` 
 You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
 ## Setting up the environment
 
-You will need Python >= 3.7.
+You will need Python >= 3.8.
 
 Most Python development is done inside the `cli` directory:
 
@@ -15,22 +15,30 @@ cd cli
 ```
 
 We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
-You can install it like this:
+You can install it like this on MacOS:
 
 ```bash
-python -m pip install pipenv
+brew install pipenv
 ```
 
-Next we need to initialize the environment.
-This command will install dev dependencies such as pytest and will also install semgrep in editable mode in the pipenv.
+Next we need to initialize and enter the environment. This command will install
+dev dependencies such as pytest and will also install semgrep in editable mode
+in the pipenv.  From the `cli` directory, run `pipenv shell`.  By convention,
+your shell prompt will be prepended with `(cli)` when the environment is active.
+
+Next, install the Python dependencies:
+
 
 ```bash
-SEMGREP_SKIP_BIN=true python -m pipenv install --dev
+SEMGREP_SKIP_BIN=true pipenv install --dev
 ```
 
 :::note
 SEMGREP_SKIP_BIN` tells the installer that we will bring our own semgrep-core; see below.*
 :::
+
+Running `which semgrep` should return a path within your virtual environment
+(on MacOS, possibly contained within `$HOME/.local/share/virtualenvs/`).
 
 ## Getting the `semgrep-core` binary
 

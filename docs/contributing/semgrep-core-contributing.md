@@ -4,9 +4,32 @@ The following explains how to build `semgrep-core` so you can make and test chan
 
 ## Building `semgrep-core`
 
+This document assumes you are building on MacOS and have already installed the
+Homebrew package manager.  Installation commands and package names for
+different OSs may vary slightly.
+
+### Checking out the code
+
+Begin by cloning the Semgrep repo from Git.  Each parser's tree-sitter code is
+managed as a separate submodule, so pass `--recurse-submodules` to ensure they
+are cloned as well.
+
+```bash
+git clone --recurse-submodules https://github.com/semgrep/semgrep
+cd semgrep
+```
+
+If you have already cloned without submodules, you can check
+them out as a second separate step from the root of the repo:
+
+```bash
+git submodule update --init --recursive
+```
 ### Requirements
 
-`semgrep-core` is written primarily in OCaml. You will need to [install OCaml](https://opam.ocaml.org/doc/Install.html) and its package manager OPAM. On macOS, it should consist in doing:
+`semgrep-core` is written primarily in OCaml. You will need to [install
+OCaml](https://opam.ocaml.org/doc/Install.html) and its package manager OPAM,
+and pin the current compiler version. On MacOS, it is done via:
 
 ```bash
 brew install opam
@@ -15,10 +38,22 @@ opam switch create semgrep 5.3.0
 eval $(opam env)
 ```
 
-Install `pkg-config` in your environment. On a mac this is
+Next, install some base packages required for setup and compilation.
 
 ```bash
-brew install pkg-config
+brew install pkg-config bash
+```
+
+Lastly, you will almost certainly want the Python environment for `semgrep-cli`
+configured before proceeding.  Please refer to the "Setting up the environment"
+section of the [semgrep-cli page](semgrep-contributing.md) for details.
+
+Once you've returned here, ensure that your shell is able to enter the Python
+virtual environment.
+
+```bash
+cd cli; pipenv shell # enter the virtual environment
+cd ..                # from within the virtual environment, return to the repo root
 ```
 
 ### Installing for the first time
@@ -27,12 +62,11 @@ The root `Makefile` contains targets that take care of building the
 right things. It is commented. Please refer to it and keep it
 up-to-date.
 
-Run the below commands at the repository root, inside your pipenv shell.
+To install all necessary dependencies, run
 
-To link all necessary dependencies, run
-
-```
+```bash
 make dev-setup
+make setup
 ```
 
 Next, to install `semgrep-core`, run
@@ -47,9 +81,10 @@ Finally, test the installation with
 bin/semgrep-core -help
 ```
 
-At this point, you have the `semgrep-core` binary, so if you would like to finish the Semgrep installation, go to the [Python-side instructions](semgrep-contributing.md).
+If you would like to finish the Semgrep installation, return to the
+[Python-side instructions](semgrep-contributing.md).
 
-### Installing after a change
+### Rebuilding after a change
 
 Unless there is a significant dependency change, you will not need to run `make dev-setup` again. 
 
@@ -125,9 +160,15 @@ make copy-core-for-cli
 `make test` in the repository root directory will run tests that check code is correctly parsed
 and patterns perform as expected. To add a test in an appropriate language subdirectory, `tests/patterns/[LANG]`, create a target file (expected file extension given language) and a .sgrep file with a pattern. The testing suite will check that all places with a comment with `ERROR` were matches found by the .sgrep file. See existing tests for more clarity.
 
+If you are diagnosing test failures, it is time-consuming to re-run the entire test suite.
+`make retest` will only re-run tests that failed.
+
 ### Development environment
 
-You can use Visual Studio Code \(vscode\) to edit the code of Semgrep. The [reason-vscode](https://marketplace.visualstudio.com/items?itemName=jaredly.reason-vscode) Marketplace extension adds support for OCaml/Reason.
+OCaml installations include a language server that most modern editors like
+Neovim and Emacs support out of the box.
+
+You can also use Visual Studio Code \(vscode\) to edit the code of Semgrep. The [reason-vscode](https://marketplace.visualstudio.com/items?itemName=jaredly.reason-vscode) Marketplace extension adds support for OCaml/Reason.
 
 The [OCaml and Reason IDE extension](https://github.com/reasonml-editor/vscode-reasonml) by @freebroccolo is another valid extension, but it seems not as actively maintained as reason-vscode.
 
