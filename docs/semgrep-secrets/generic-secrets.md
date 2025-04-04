@@ -10,7 +10,7 @@ tags:
 
 import PL from '@site/src/components/Placeholder';
 
-# Generic secrets
+# Generic secrets (beta)
 
 :::info
 Generic secrets is in beta. Please contact [Support](/support) to request access to this feature.
