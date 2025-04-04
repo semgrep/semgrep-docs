@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+#
+# Inject Semgrep version info and other variable data into the documentation.
+#
+# 'foo.md.template' becomes 'foo.md' which is ready to be processed by the
+# documentation server.
+#
 
 import subprocess
 import json
