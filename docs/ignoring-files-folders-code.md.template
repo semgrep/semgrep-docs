@@ -7,6 +7,8 @@ hide_title: true
 tags:
     - Semgrep AppSec Platform
 ---
+<!-- IMPORTANT: Make sure to edit the .md.template source file, not the
+     generated .md file -->
 
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 

@@ -4,6 +4,8 @@ append_help_link: true
 description: >-
   Learn how to use Semgrep in an editor, in pre-commit, and in other tools.
 ---
+<!-- IMPORTANT: Make sure to edit the .md.template source file, not the
+     generated .md file -->
 
 import IdeList from "/src/components/reference/_ide-list.md"
 
