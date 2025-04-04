@@ -44,7 +44,7 @@ Follow the steps in this section only for the following CI providers:
 - CI providers without guidance from Semgrep AppSec Platform
 :::
 
-Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull request or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
+Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull requests or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
 
 1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-1).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
