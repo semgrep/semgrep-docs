@@ -352,7 +352,7 @@ In order for this configuration to run the correct type of scan for each conditi
 
 #### Build on pull requests
 
-To run diff-aware scans, your pipeline must run builds on pull requests or merge requests. Buildkite integrates with several source code managers and each one has different options to handle pull request or merge requests. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull requests or merge requests.
+To run diff-aware scans, your pipeline must run builds on pull requests or merge requests. Buildkite integrates with several source code managers and each one has different options to handle PRs or MRs. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull requests or merge requests.
 
 <BuildkiteSemgrepAppSast />
 
