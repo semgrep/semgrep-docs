@@ -13,6 +13,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Replace:
+    """A search-and-replace query.
+    The output file is 'dst_file'.
+    The input file has an extra ".template" extension.
+    """
     dst_file: str
     find: str
     replace: str
@@ -33,8 +37,7 @@ DEFAULT_SEMGREPIGNORE = subprocess.run(["curl","https://raw.githubusercontent.co
 RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/semgrep/semgrep/releases/latest"], capture_output=True).stdout)["tag_name"]
 
 
-## List of text replacements to occur when building the docs
-## {"file":FILE,"find":FIND,"replace":REPLACE} will find the text FIND in FILE and replace it with REPLACE
+# List of text replacements to occur when building the docs
 replacements = [
     Replace(
         dst_file="docs/cli-reference.md",
