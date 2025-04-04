@@ -1,5 +1,6 @@
 ---
 slug: march-2025
+title: March 2025
 hide_title: true
 description: >-
   Release notes include the changes, fixes, and additions in specific versions of Semgrep.
@@ -21,7 +22,7 @@ tags:
 - Added the capability to delete projects through the Semgrep API. Deleting a project also deletes all of its findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> API documentation](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.repository.openapi_delete_project).
 - You can now view the `cwe_names` and `owasp_names` for findings fetched through the Semgrep API. See the [<i class="fas fa-external-link fa-xs"></i> API documentation](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
 - Added `external_discussion_id` and `external_note_id` to findings returned by the Semgrep API. Use these fields to build links, put together dashboards, or other functionalities.
-- Various performance enhancements around full scans performed by Semgrep Managed Scans. <!-- tk check proper name -->
+- Various performance enhancements around full scans performed by Semgrep Managed Scans.
 - **Teams**: Members are able to view the **Project details** page. This enables them to view the scan logs for diff-aware scans. <!-- FS1564 -->
 - Added a warning notification when you disable **all** rules. Disabling all rules means no findings will be detected in subsequent scans. <!-- This is true for Code and Secrets, so broadly including it in AppSec Platform -->
 - Added a tooltip explaining the reason for why checkboxes for certain findings cannot be selected. Typically this is because the finding has been fixed.
@@ -72,15 +73,28 @@ tags:
 
 ## 📝 Documentation and knowledge base
 
-- Added the following new documents, articles and sections:
-  - DOCUMENT_NAME
-  - KB_ARTICLE_NAME
-- Minor additions and updates:
+### Added
+- Added new documents, articles and sections on the following topics:
+  - Global path ignores: Applying path ignores to all projects in an organization
+- Minor additions include:
+  - Semgrep Assistant features permitted based on roles
+  - Semgrep Managed Scans: Bitbucket support
+- Added CVE-2025-29783 to trophy case.
 
-- Major updates have been made to the following documentation:
-- Updated how the docs are organized (minor changes).
-- Various documentation presentation updates.
-- Minor documentation updates.
+### Changed
+
+- The **Supported languages > Semgrep Supply Chain** section has been reorganized for clarity. Product features and supported package managers have been separated into discrete tables.
+- Expanded on PR comments in Semgrep Secrets, particularly validation state policies.
+- Documentation about Semgrep Supply Chain's ignore behavior has been updated.
+- Clarified various procedures regarding:
+  - How to remove a Slack integration
+  - How triage behaves across different refs or branches
+- Various redirects have been updated.
+
+### Fixed
+
+- Various section links have been fixed.
+- Minor acronym and product terminology fixes.
 
 ## 🔧 Semgrep Community Edition (CE)
 
