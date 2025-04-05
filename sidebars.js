@@ -269,6 +269,7 @@ module.exports = {
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/historical-scanning',
+                'semgrep-secrets/generic-secrets',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
