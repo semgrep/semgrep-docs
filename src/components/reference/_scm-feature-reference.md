@@ -13,7 +13,7 @@ The following list defines the above features.
 
 <dl>
     <dt>Diff-aware scanning</dt>
-    <dd>Semgrep AppSec Platform can scan only changes in files when running on a pull or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
+    <dd>Semgrep AppSec Platform can scan only changes in files when running on a pull request or merge request (PR or MR). This keeps the scan fast and reduces finding duplication.</dd>
     <dt>Hyperlinks to code</dt>
     <dd>Semgrep AppSec Platform collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (Github, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding.</dd>
     <dt>Receiving results (findings) as PR or MR comments</dt>

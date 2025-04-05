@@ -24,7 +24,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 Customize your CI job to achieve the following goals:
 
 * **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
-* **Run Semgrep when an event triggers**. Run Semgrep when a pull or merge request (PR or MR) is created.
+* **Run Semgrep when an event triggers**. Run Semgrep when a pull request or merge request (PR or MR) is created.
 - **Set a timeout to increase or decrease Semgrep's overall runtime.** If scans are taking too long, or rules aren't running, customize your per-rule timeout.
 
 <!--
@@ -44,7 +44,7 @@ Follow the steps in this section only for the following CI providers:
 - CI providers without guidance from Semgrep AppSec Platform
 :::
 
-Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
+Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull requests or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
 
 1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-1).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.

@@ -77,7 +77,7 @@ These release notes include upgrades for versions ranging between 0.116.0 and 0.
 
 ### Changes
 
-- Previously, Semgrep overrode user-defined environment variables with values it detected from the CI provider. Now, user-defined environment variables take precedence (override) Semgrep's detected values. By enabling you to override CI variables, you are able to troubleshoot issues such as hyperlinks to code in the Findings page and receiving comments in pull or merge requests.
+- Previously, Semgrep overrode user-defined environment variables with values it detected from the CI provider. Now, user-defined environment variables take precedence (override) Semgrep's detected values. By enabling you to override CI variables, you are able to troubleshoot issues such as hyperlinks to code in the Findings page and receiving comments in pull requests or merge requests.
      - This change affects the following CI providers:
         - Azure Pipelines
         - BitBucket Pipelines

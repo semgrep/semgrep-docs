@@ -1,6 +1,6 @@
 ---
 slug: resolve-findings-through-comments
-title: Resolve findings in your pull or merge request
+title: Resolve findings in your pull request or merge request
 hide_title: true
 description: Learn to resolve or triage Semgrep findings through PR or MR comments.
 tags:
@@ -10,7 +10,7 @@ tags:
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
-# Resolve findings in your pull or merge request
+# Resolve findings in your pull request or merge request
 
 Findings resolution involves the assessment of a finding, then either fixing or ignoring it. You can fix or triage findings from your source code manager (SCM); fixing or triaging (ignoring) does **not** require a Semgrep AppSec Platform account.
 

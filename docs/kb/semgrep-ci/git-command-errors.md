@@ -6,9 +6,9 @@ tags:
 
 
 
-# Failed to run a git command during a pull or merge request scan
+# Failed to run a git command during a pull request or merge request scan
 
-When running Semgrep in CI with a pull or merge request as the triggering event, Semgrep runs some additional `git` commands to determine the behavior for the scan. The scan exits with an error if these commands fail. A message like the following shows in the output:
+When running Semgrep in CI with a pull request or merge request as the triggering event, Semgrep runs some additional `git` commands to determine the behavior for the scan. The scan exits with an error if these commands fail. A message like the following shows in the output:
 
 ```
 [ERROR] Command failed with exit code: 128
@@ -31,11 +31,11 @@ In addition to the potential reasons included in the message, there are a few ot
 
 ## Clone depth is too shallow
 
-If a shallow git clone of the repository is used to fetch code, and the branch to be scanned has had many commits added since it was branched off the base branch, Semgrep may not be able to identify the base branch commit to compare the current pull or merge request branch with. In this case, the command that failed is typically:
+If a shallow git clone of the repository is used to fetch code, and the branch to be scanned has had many commits added since it was branched off the base branch, Semgrep may not be able to identify the base branch commit to compare the current pull request or merge request branch with. In this case, the command that failed is typically:
 
 <pre class="language-bash"><code>git merge-base --all <span className="placeholder">SHA</span> FETCH_HEAD</code></pre>
 
-Semgrep uses the merge-base command to compare the tip of the pull or merge request branch with the base branch and determine where it branched off, so that it can accurately scan for changes made in the merge request rather than in the base branch.
+Semgrep uses the merge-base command to compare the tip of the pull request or merge request branch with the base branch and determine where it branched off, so that it can accurately scan for changes made in the merge request rather than in the base branch.
 
 If there isn't enough history to identify the branch point, this comparison can fail. This is most common if the git clone performed is shallow by default, or if the depth has been set to a small value via command line argument `--depth` or environment variable `GIT_DEPTH`.
 

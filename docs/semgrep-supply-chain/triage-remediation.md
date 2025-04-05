@@ -66,7 +66,7 @@ Remediate (or resolve) true positives in Semgrep Supply Chain through the follow
 
 ### Updating the dependency
 
-Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
+Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull request or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
 -->
 
 #### Remove the dependency and refactor the code
@@ -82,6 +82,6 @@ The **Vulnerabilities** tab allows you to identify the reachable, true positives
 3. Select **Ignore** and click **Continue**.
 4. Select an **Ignore reason**, provide a optional comment, and click **Ignore**.
 
-## Block pull or merge requests
+## Block pull request or merge requests
 
-To block or leave comments on pull or merge requests, see the [Supply Chain Policies](/semgrep-supply-chain/policies) document.
+To block or leave comments on pull request or merge requests, see the [Supply Chain Policies](/semgrep-supply-chain/policies) document.

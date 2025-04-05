@@ -145,7 +145,7 @@ variables:
 
 ### How to get GitLab assistance
 
-If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com/).
+If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com).
 
 ## Project-specific issues
 
@@ -184,5 +184,5 @@ Sometimes, this status may be shown when the scan has been running for a long ti
 Many CI providers have a time limit for how long a job can run. If your CI scans regularly take too long and fail to complete:
 
 - Please [reach out](/support) to the Semgrep team for help with tracking down the cause. Semgrep scans most projects with hundreds of rules within a few minutes, and long run times are often caused by just one rule or source code file taking too long.
-- To optimize run times, use Semgrep's diff-aware scanning in pull and merge requests to skip scanning unchanged files. For more details, see [Semgrep's behavior](/deployment/customize-ci-jobs).
+- To optimize run times, use Semgrep's diff-aware scanning in pull requests and merge requests to skip scanning unchanged files. For more details, see [Semgrep's behavior](/deployment/customize-ci-jobs).
 - Skip scanning large and complex source code files (such as minified JS or generated code) if you know their path by adding a `.semgrepignore` file. See [how to ignore files & directories in Semgrep CI](/ignoring-files-folders-code).
