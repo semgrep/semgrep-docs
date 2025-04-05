@@ -46,6 +46,18 @@ For GitHub users, access to your code is facilitated by a **private Semgrep GitH
 
 Managed scans are specifically designed to limit the amount of time that code remains within Semgrep infrastructure.
 
+### Code security measures
+
+Semgrep’s Managed Scans infrastructure ensures that customer code is scanned in a vacuum and inaccessible from other Kubernetes cluster resources. Semgrep does this by employing the following features and best practices:
+
+- **Ephemeral pods**
+  - Each scan creates a new pod from scratch, ensuring there is never leftover data from previous scans.
+  - Customer code is cloned into the new pod, scanned, and deleted once the scan is completed. The pod is then destroyed. 
+  - Pods do not share volumes and do not persist after a scan is completed. Once a pod is destroyed, its volume and the data it contains are destroyed as well.
+- **Network isolation**
+  - Pod network capabilities are completely locked down to ensure only allowed IP addresses are accessible.
+  - Pods are unable to access other pods within the cluster. This ensures that the customer code cloned to one pod is not accessible from another pod. 
+
 ### Life cycle of a managed scan
 
 1. When a scan begins, Semgrep creates an ephemeral container and clones the repository into it.
