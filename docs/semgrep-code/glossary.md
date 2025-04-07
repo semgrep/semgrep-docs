@@ -15,7 +15,7 @@ For rule-writing and SAST (static application security testing) terms, see the [
 
 ## Default branch
 
-Also known as a **mainline**, **primary**, or **trunk** branch. In many cases, Semgrep automatically detects primary branches when it first scans your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
+Also known as a **mainline**, **primary**, or **trunk** branch. In many cases, Semgrep automatically detects these branches as primary branches when it first scans your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
 
 ## Diff-aware scan
 
