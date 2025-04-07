@@ -135,13 +135,7 @@ Deleting a project removes all of its findings, metadata, and other records from
 
 ### Default branch names
 
-Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
-
-Within Semgrep, default branches are also known as **primary** branches.
-
-<DefaultBranches />
-
-You can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
+When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on the primary, or default, branches. In many cases, Semgrep automatically detects primary branches. However, you can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 
