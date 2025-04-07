@@ -58,7 +58,7 @@ Once you have enabled the Jira integration, you must complete the following step
 1. Select the **Default project** where the Jira tickets will be created.
 1. Select the **Issue type** you want created with your Semgrep findings.
 1. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
-1. Optional: Click **Customize ticket creation**, then select **<i class="fa-solid fa-square-check"></i> Automatically create tickets for high severity, high confidence findings on the default branch** to allow Semgrep to automatically create tickets.
+1. Optional: Click **Customize ticket creation**, then select **<i class="fa-solid fa-square-check"></i> Automatically create tickets for high severity, high confidence findings on the primary branch** to allow Semgrep to automatically create tickets.
 1. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)

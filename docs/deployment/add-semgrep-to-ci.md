@@ -12,7 +12,6 @@ import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
-import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
