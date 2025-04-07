@@ -135,7 +135,7 @@ Deleting a project removes all of its findings, metadata, and other records from
 
 ### Default branch names
 
-When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on the primary, or default, branches. In many cases, Semgrep automatically detects primary branches. However, you can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
+When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on the primary, or default, branches. In many cases, Semgrep automatically detects these branches as primary branches. However, you can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 
