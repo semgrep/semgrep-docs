@@ -12,7 +12,6 @@ import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
-import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
@@ -136,13 +135,7 @@ Deleting a project removes all of its findings, metadata, and other records from
 
 ### Default branch names
 
-Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
-
-Within Semgrep, default branches are also known as **primary** branches.
-
-<DefaultBranches />
-
-You can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
+When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on the primary, or default, branches. In many cases, Semgrep automatically detects these branches as primary branches. However, you can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 
