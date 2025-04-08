@@ -36,9 +36,9 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
-    5. Optional: If a signature secret is provided, a signature header (`X-Semgrep-Signature-256`) will be sent along with the payload. The secret needs to be at least 15 characters long.
-    5. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
-    6. Click **Subscribe**.
+    5. Optional: Provide a **Signature Secret**. The secret must be at least 15 characters long. If you provide a secret, Semgrep sends an `X-Semgrep-Signature-256` signature header with the payload.
+    6. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
+    7. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
@@ -49,26 +49,23 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
 To verify that Semgrep can post to your URL:
 1. Navigate to **<i class="fa-solid fa-gear"></i> Settings > Integrations**
 2. Click the **Test** button of the webhook integration you want to test.
-
-The following screenshot displays an example request body of a webhook test:
-![Successful webhook integration test](/img/webhook-successful-test.png)
-
+    The following screenshot displays an example request body of a webhook test:
+    ![Successful webhook integration test](/img/webhook-successful-test.png)
 3. The following sample code in Python shows how to verify the signature in the `X-Semgrep-Signature-256` header:
 
-```python
-provided_signature = request.headers['X-Semgrep-Signature-256']
+    ```python
+    provided_signature = request.headers['X-Semgrep-Signature-256']
 
-secret = "this_is_a_secret"
-payload_str = json.dumps(request.get_json(), separators=(',', ':'))
-computed_sig = hmac.new(
-    secret.encode('utf-8'),
-    payload_str.encode('utf-8'),
-    hashlib.sha256
-).hexdigest()
+    secret = "this_is_a_secret"
+    payload_str = json.dumps(request.get_json(), separators=(',', ':'))
+    computed_sig = hmac.new(
+        secret.encode('utf-8'),
+        payload_str.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
 
-logger.info(f"valid signature: {hmac.compare_digest(provided_sig, computed_sig)}")
-```
-
+    logger.info(f"valid signature: {hmac.compare_digest(provided_sig, computed_sig)}")
+    ```
 
 <Notifications />
 
