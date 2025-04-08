@@ -116,3 +116,9 @@ For example, if the code contains a hardcoded secret, Assistant might suggest us
 ### Custom rules editor (beta)
 
 Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
+
+## Reliability
+
+Assistant supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-assistant/customize#select-your-ai-provider).
+
+Enabling additional model providers for your Semgrep organization can improve performance in some scenarios, while removing them could result in reduced performance.
