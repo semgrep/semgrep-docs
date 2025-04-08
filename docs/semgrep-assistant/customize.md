@@ -134,7 +134,7 @@ By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API key
 - Use Google Gemini.
 - Use xAI.
 
-Additionally, Semgrep Assistant supports the selection and use of multiple AI models.
+Additionally, Semgrep Assistant supports the use of multiple AI models.
 
 ![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
 _**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
@@ -197,6 +197,8 @@ To use Google Gemini with Semgrep Assistant:
 3. Select **Google Gemini**.
 4. Paste in your API key.
 5. Click **Save** to proceed.
+
+> Semgrep Assistant only supports Google Gemini with Google AI Studio, not Vertex AI.
 
 ### xAI
 
