@@ -119,15 +119,13 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>February 2025 release notes summary</h3>
+<h3>March 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- [Semgrep Managed Scans](/deployment/managed-scanning/bitbucket) for repositories hosted by **Bitbucket Cloud** is now in public beta.
-- You can now manage your projects' enrollment in Semgrep Managed Scans through the [Semgrep API's `/project` and `/project/managed-scan` endpoints](https://semgrep.dev/api/v1/docs/#tag/Project).
-- Added support for **Critical** severity level to denote the highest severity level for a Code or Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can [filter for and identify rules that generate critical severity findings](https://semgrep.dev/r?sev=CRITICAL) in the Semgrep Registry.
-- New rules for JavaScript and TypeScript have been added to [Semgrep's default ruleset, `p/default`](https://semgrep.dev/p/default). The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
-- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
-    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
-    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
-- [Semgrep Assistant](/semgrep-assistant/overview) is now available for users with repositories hosted by Bitbucket Cloud and Azure DevOps.
+- Added an [integration with Wiz](/semgrep-appsec-platform/wiz) that enables you to view Semgrep Code findings in Wiz's Security Graph.
+- Added the ability to [define the files and folders Semgrep ignores](/ignoring-files-folders-code#define-files-and-folders-for-all-projects-of-an-organization) during scans at the organization level.
+- Dataflow traces now provide cross-file code snippets, centralizing context from several files into the dataflow graph. <!-- SEC-1534 -->
+- Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
+- Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
+- Assistant Auto-memories: If you triage a finding as Ignored and provide an explanation of why you change the finding's status to Ignored, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)

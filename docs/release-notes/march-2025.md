@@ -1,15 +1,19 @@
 ---
-slug: latest
-append_help_link: true
-title: Latest release notes
+slug: march-2025
+title: March 2025
 hide_title: true
-description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
+description: >-
+  Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
 tags:
   - Release notes
 ---
 
 # Semgrep release notes for March 2025
+
+<!-- Remember to update latest endpoint -->
+<!-- Remember to update index page -->
+
 
 ## 🌐 Semgrep AppSec Platform
 
