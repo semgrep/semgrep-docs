@@ -29,6 +29,9 @@ module.exports = {
           indexName: 'docs',
         },
       },
+      chat: {
+        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
+      }
     },
     docs: {
       sidebar: {
