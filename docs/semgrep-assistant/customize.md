@@ -125,7 +125,7 @@ To do so:
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
-## Use your AI provider
+## Change your AI provider
 
 By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. You can, however, opt to:
 
@@ -134,7 +134,7 @@ By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API key
 - Use Google Gemini.
 - Use xAI.
 
-Additionally, Semgrep Assistant supports the use of multiple AI models.
+Additionally, Semgrep Assistant supports the selection and use of multiple AI models.
 
 ![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
 _**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
