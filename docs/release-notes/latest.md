@@ -9,107 +9,94 @@ tags:
   - Release notes
 ---
 
-# Semgrep release notes for February 2025
+# Semgrep release notes for March 2025
 
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
 
-- Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.
-- You can now manage your projects' enrollment in Semgrep Managed Scans through the Semgrep API's `/project` and `/project/managed-scan` endpoints.
-- A new **My teams** view for managers is now in private beta. To join this beta, reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com). This view enables managers to view all the teams they are a manager of.
+- Added the capability to delete projects through the Semgrep API. Deleting a project also deletes all of its findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> API documentation](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.repository.openapi_delete_project).
+- You can now view the `cwe_names` and `owasp_names` for findings fetched through the Semgrep API. See the [<i class="fas fa-external-link fa-xs"></i> API documentation](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues).
+- Added `external_discussion_id` and `external_note_id` to findings returned by the Semgrep API. Use these fields to build links, put together dashboards, or other functionalities.
+- Various performance enhancements around full scans performed by Semgrep Managed Scans.
+- **Teams**: Members are able to view the **Project details** page. This enables them to view the scan logs for diff-aware scans. <!-- FS1564 -->
+- Added a warning notification when you disable **all** rules. Disabling all rules means no findings will be detected in subsequent scans. <!-- This is true for Code and Secrets, so broadly including it in AppSec Platform -->
+- Added a tooltip explaining the reason for why checkboxes for certain findings cannot be selected. Typically this is because the finding has been fixed.
+![Tooltip for findings in off state](/img/tooltip-disabled-finding.png#sm-width)
+- Added a **Use Network Broker** toggle <i class="fa-solid fa-toggle-large-on"></i> within the webhook integration dialog. This enables you to control access to the network broker on a per-webhook basis.
+- Dataflow traces now provide cross-file code snippets, centralizing context from several files into the dataflow graph. <!-- SEC-1534 -->
+- The **Finding details** page now has a new triage button with options to ignore, fix, and reopen findings.
+- Added [<i class="fas fa-external-link fa-xs"></i> `llms.txt`](https://semgrep.dev/llms.txt).
+- Added an [integration with Wiz](/semgrep-appsec-platform/wiz) that enables you to view Semgrep Code findings in Wiz's Security Graph.
+- Added the ability to [define the files and folders Semgrep ignores](/ignoring-files-folders-code#define-files-and-folders-for-all-projects-of-an-organization) during scans at the organization level.
 
 ### Changed
 
-- The Semgrep AppSec Platform-specific metadata fields `semgrep.dev:` and `semgrep.policy:` are now filtered from the JSON output if you aren't signed into your Semgrep account. See [Semgrep JSON and SARIF fields](https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif#json) for more information.
-- The Semgrep Docker image has been updated to use Python 3.12 and OCaml 5.2.1.
-- **CLI**: The output generated from running `semgrep ci --help` no longer includes information about experimental features and flags.
-- **Jira**: Jira tickets for Supply Chain findings now display recommended versions of packages in the description.
-
-### Fixed
-
-- Fixed an issue in Semgrep Editor's Structure Mode where some of the larger language icons overlapped due to limited space.
-- Fixed an issue where the instruction links for adding a CI job all lead to GitHub-specific instructions.
-- Fixed an issue where the Median Open Age chart didn't display all relevant findings.
-- Fixed an issue where Semgrep scans did not complete if there were failures involving `git worktree remove`; instead of erring out, Semgrep completes the scan but logs the error.
+- When findings are specifically ignored through a `nosemgrep` comment, Semgrep now informs the user why. Previously, there was no context provided when ignoring through a comment.  <!-- SEC2877 -->
+- Improved pagination performance.
+- Improved performance when fetching data for large teams.
 
 ## 💻 Semgrep Code
 
-### Added
-
-- Added support for **Critical** severity level to denote the highest severity level for a Code finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry. <!-- Copied this over from Secrets since these two notes are almost identical. -->
-  - Semgrep Pro rules, which are included in `p/default`, have been updated to use this new severity level.
-- New rules for JavaScript and TypeScript have been added to Semgrep's default ruleset, `p/default`. The new rules cover the OWASP Top 10 and the most popular server-side frameworks, like Express, NestJS, Hapi, and Koa.
-- Cross-file (interfile) analysis now processes JavaScript and TypeScript files together, so that dataflow can be tracked across both languages.
-
-### Changed
-
-- Improved detection for JavaScript and TypeScript dependency injection, import resolution, and dataflow through callbacks.
-- Upgrade from OCaml 4.14.0 to OCaml 5.2.1 for Semgrep PyPI and Homebrew distributions. Note that Docker images have been built with OCaml 5.2.1 since Semgrep 1.107.0.
-
+- Updates in Semgrep AppSec Platform regarding findings and rules also apply to Semgrep Code.
 
 ## ⛓️ Semgrep Supply Chain
 
 ### Added
 
-- You can now [configure policies](/semgrep-supply-chain/policies) for Supply Chain findings. These policies let you set certain conditions by which developers are notified of findings through a PR or MR comment, or potentially blocked from merging a PR or MR.
-    - For example, you can create a policy to block a PR or MR from merging when a reachable finding with an available fix (upgrade) is detected.
-    - Policies can have different scopes, which are the projects or project tags the policies are applied to.
-- Updated `Package.swift` parser to support the following:
-  - The URL value in a `.package` entry doesn't have to end with `.git`
-  - You can have an exact field that looks like `exact: "1.0.0"` instead of `.exact("1.0.0")`
-  - The exact version can be an object like `Version(1,2,3)` instead of a string
-  - You can have `.package` values with no URL, like this: `.package(name: "package", path: "foo/bar")`
-- Semgrep can now dynamically resolve dependencies for Python projects using pip, allowing it to determine transitive dependencies automatically. 
-- Various parser updates for SwiftPM and Yarn.
-
-## 🤖 Semgrep Assistant
-
-### Added
-
-- Semgrep Assistant is now available for users with repositories hosted by Bitbucket Cloud and Azure DevOps.
-
-### Changed
-
-- Extended the amount of time you see the error message shown if Assistant can't parse or save a memory you provide. This error message includes a link to edit the memory.
+- Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
+- Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
+- Added the ability to [download SBOM exports using the Semgrep API](https://semgrep.dev/api/v1/ui/#/Beta/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export).
 
 ### Fixed
 
-- Fixed an issue with the Assistant Analyze button on Semgrep Code's Findings page hiding after analysis.
-- Fixed an issue where remediation guidance included secret key values if present in the source code.
+- Improved how Semgrep handles policies when projects or tags associated with the policy have been deleted. Semgrep now displays a warning when all projects or tags associated with a policy have been deleted:
+![Warning message when projects or tags in a policy have been deleted](/img/policy-zero-project-state.png)
 
-## 🔐 Semgrep Secrets
+## 🤖 Semgrep Assistant 
 
 ### Added
 
-- Added support for **Critical** severity level to denote the highest severity level for a Secrets finding. You can now filter by Critical severity level in Semgrep AppSec Platform, and you can filter for and identify rules that generate critical severity findings in the Semgrep Registry.
+- **Auto-memories**: If you triage a finding as **Ignored** and provide an explanation of why you change the finding's status to **Ignored**, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
+- Added the ability to select multiple AI providers.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Fixed the JSON produced by the `--gitlab-secrets` flag so that it is parsed correctly by GitLab.
 
 ## 📝 Documentation and knowledge base
 
 ### Added
-
-- Added the following new documents, articles, and sections:
-    - [View Semgrep findings in Wiz's Security Graph](/semgrep-appsec-platform/wiz).
-    - [JavaScript frameworks and analyses](/languages/javascript).
-    - [Triage findings through PR comments with repositories hosted by Azure DevOps and Bitbucket Cloud](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments).
+- Added new documents, articles and sections on the following topics:
+  - Global path ignores: Applying path ignores to all projects in an organization
+- Minor additions include:
+  - Semgrep Assistant features permitted based on roles
+  - Semgrep Managed Scans: Bitbucket support
+- Added CVE-2025-29783 to trophy case.
 
 ### Changed
 
-- Major updates to the following documents and sections:
-    - [Add support for a new language](/contributing/adding-a-language).
-    - [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
-    - [Semgrep Supply Chain Policies](/semgrep-supply-chain/policies).
-- Minor clarifications involving:
-  - Network Broker usage.
-  - Required scopes for Managed Scans of Azure DevOps repositories.
-  - Semgrep's Jira integration.
-  - Supported languages.
-- Reorganization of Semgrep Assistant documentation.
+- The **Supported languages > Semgrep Supply Chain** section has been reorganized for clarity. Product features and supported package managers have been separated into discrete tables.
+- Expanded on PR comments in Semgrep Secrets, particularly validation state policies.
+- Documentation about Semgrep Supply Chain's ignore behavior has been updated.
+- Clarified various procedures regarding:
+  - How to remove a Slack integration
+  - How triage behaves across different refs or branches
+- Various redirects have been updated.
 
-## 🔧 OSS Engine
+### Fixed
 
-* The following versions of the OSS Engine were released in February 2025:
-  * [<i class="fas fa-external-link fa-xs"></i>v1.107.0](https://github.com/semgrep/semgrep/releases/tag/v1.107.0)
-  * [<i class="fas fa-external-link fa-xs"></i>v1.108.0](https://github.com/semgrep/semgrep/releases/tag/v1.108.0)
-  * [<i class="fas fa-external-link fa-xs"></i>v1.109.0](https://github.com/semgrep/semgrep/releases/tag/v1.109.0)
-  * [<i class="fas fa-external-link fa-xs"></i>v1.110.0](https://github.com/semgrep/semgrep/releases/tag/v1.110.0)
+- Various section links have been fixed.
+- Minor acronym and product terminology fixes.
+
+## 🔧 Semgrep Community Edition (CE)
+
+* The following versions of Semgrep CE were released in March 2025:
+
+  * [<i class="fas fa-external-link fa-xs"></i>v1.111.0](https://github.com/semgrep/semgrep/releases/tag/v1.111.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.112.0](https://github.com/semgrep/semgrep/releases/tag/v1.112.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.113.0](https://github.com/semgrep/semgrep/releases/tag/v1.113.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.114.0](https://github.com/semgrep/semgrep/releases/tag/v1.114.0)
+  * [<i class="fas fa-external-link fa-xs"></i>v1.116.0](https://github.com/semgrep/semgrep/releases/tag/v1.116.0)
