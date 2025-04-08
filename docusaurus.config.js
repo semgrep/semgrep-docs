@@ -20,6 +20,7 @@ module.exports = {
       trigger: { floating: false },
       systemPrompt: 'You are a kind AI who loves to help people!',
       model: 'gpt-4',
+      display: 'dialog',
       search: {
         enabled: true,
         provider: {
