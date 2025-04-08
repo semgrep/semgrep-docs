@@ -19,7 +19,7 @@ Also known as a **mainline**, **primary**, or **trunk** branch. In many cases, S
 
 ## Diff-aware scan
 
-A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull or merge request is opened.
+A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull request or merge request is opened.
 
 ## Full scan
 

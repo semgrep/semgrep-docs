@@ -12,7 +12,7 @@ tags:
 
 By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving notifications while you evaluate the tool.
 
-Once you are ready to notify developers through a **comment**, or potentially **block** them from merging a pull or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
+Once you are ready to notify developers through a **comment**, or potentially **block** them from merging a pull request or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
 
 This feature enables you to configure the following:
 
