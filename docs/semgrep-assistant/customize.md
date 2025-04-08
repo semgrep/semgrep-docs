@@ -125,7 +125,7 @@ To do so:
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
-## Change your AI provider
+## Select your AI provider
 
 By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. You can, however, opt to:
 

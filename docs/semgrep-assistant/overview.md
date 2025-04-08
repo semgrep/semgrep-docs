@@ -119,6 +119,6 @@ Semgrep Assistant can help you write custom rules to find patterns and vulnerabi
 
 ## Reliability
 
-Assistant supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-assistant/customize#change-your-ai-provider).
+Assistant supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-assistant/customize#select-your-ai-provider).
 
 Enabling additional model providers for your Semgrep organization can improve performance in some scenarios, while removing them could result in reduced performance.
