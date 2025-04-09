@@ -8,6 +8,13 @@ toc_max_heading_level: 3
 title: October 2023
 tags:
   - Release notes
+authors:
+  - name: Sara S
+    title: Technical writer
+    url: https://github.com/s-santillan
+    image_url: https://github.com/s-santillan.png
+hide_table_of_contents: false
+date: 2023-10-30T10:00
 ---
 
 # October 2023 release notes

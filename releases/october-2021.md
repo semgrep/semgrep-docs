@@ -1,10 +1,20 @@
 ---
-slug: octoberzs-2021
+slug: octobers-2021
 append_help_link: true
 hide_title: true
 description: >-
   Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
+authors:
+  - name: Adam K
+    title: Technical writer
+    url: https://github.com/adamkvitek
+    image_url: https://github.com/adamkvitek.png
+tags: 
+  - Release notes
+hide_table_of_contents: false
+date: 2021-10-31T10:00
+title: October 2021
 ---
 
 # October 2021

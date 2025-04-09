@@ -4,18 +4,14 @@ description: Release notes include the changes, fixes, and additions in specific
 slug: april-2021
 append_help_link: true
 authors:
-  - name: Sara S
+  - name: Adam K
     title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
+    url: https://github.com/adamkvitek
+    image_url: https://github.com/adamkvitek.png
 tags: 
   - Release notes
 hide_table_of_contents: false
-date: 2021-04-01T10:00
+date: 2021-04-30T10:00
 ---
 
 # April 2021

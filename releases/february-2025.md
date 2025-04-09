@@ -11,9 +11,10 @@ authors:
     title: Technical writer
     url: https://github.com/khorne3
     image_url: https://github.com/khorne3.png
+hide_table_of_contents: false
 tags: 
   - Release notes
-hide_table_of_contents: false
+date: 2025-02-28T10:00
 ---
 
 # Semgrep release notes for February 2025
