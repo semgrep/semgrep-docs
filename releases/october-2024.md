@@ -6,6 +6,16 @@ description: >-
     Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 tags:
   - Release notes
+authors:
+  - name: Sara S
+    title: Technical writer
+    url: https://github.com/s-santillan
+    image_url: https://github.com/s-santillan.png
+  - name: Katie H
+    title: Technical writer
+    url: https://github.com/khorne3
+    image_url: https://github.com/khorne3.png
+date: 2024-10-30T10:00
 ---
 
 # Semgrep release notes for October 2024
