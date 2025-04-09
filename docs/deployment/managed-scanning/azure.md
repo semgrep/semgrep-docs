@@ -26,6 +26,7 @@ Add Azure DevOps repositories to your Semgrep organization in bulk without addin
     - `Project and Team: Read & write`
     - `Code: Read`
     - `Code: Status`
+    - `Member Entitlement Management: Read`
     - `Pull Request Threads: Read & write`
 
 ## Enable Managed Scans and scan your first repository
