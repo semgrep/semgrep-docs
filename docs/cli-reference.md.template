@@ -8,6 +8,8 @@ tags:
 hide_title: true
 title: CLI reference
 ---
+<!-- IMPORTANT: Make sure to edit the .md.template source file, not the
+     generated .md file -->
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
