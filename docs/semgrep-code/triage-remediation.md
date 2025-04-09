@@ -32,7 +32,7 @@ Additionally, if you have Semgrep Assistant enabled, you receive AI-powered secu
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, shown in Semgrep AppSec Platform.
 - Remediation guidance with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes
-- [Component tagging](/overview#component-tags) to help identify high-priority issues.
+- [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues.
 
 Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggesting whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
 
