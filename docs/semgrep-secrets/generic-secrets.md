@@ -25,7 +25,7 @@ To scan your code for generic secrets, you must have the following:
 - [Repositories hosted by GitHub.com onboarded to Semgrep using Semgrep Managed Scans](/deployment/managed-scanning/github)
 - Access to [Semgrep Secrets](/semgrep-secrets/getting-started)
 - [Semgrep Assistant](/semgrep-assistant/getting-started) enabled
-- Semgrep CLI version `1.86.0` or higher
+- Semgrep CLI version `1.86.0` or higher running in your CI environment
 
 Generic secrets does *not* work with local scans initiated by running the `semgrep ci` command.
 
@@ -35,7 +35,7 @@ Generic secrets does *not* work with local scans initiated by running the `semgr
 2. Go to **Settings > Deployment** and navigate to the **Secrets** section.
 3. Click the **Generic secrets** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on generic secrets.
 
-Once you have enabled generic secrets, your Semgrep Secrets scans automatically run with generic secrets rules. Semgrep also returns the following CLI message indicating that generic secrets detection has started: 
+Once you have enabled generic secrets, your subsequent Semgrep Secrets scans automatically run with generic secrets rules. Semgrep also returns the following CLI message indicating that generic secrets detection has started: 
 
 > Your deployment has generic secrets enabled. <PL>X</PL> potential line locations
 will be uploaded to the Semgrep platform and then analyzed by Semgrep Assistant.
