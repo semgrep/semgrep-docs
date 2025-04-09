@@ -39,7 +39,7 @@ These release notes include upgrades for versions ranging between 0.108.0 and 0.
 
 - Semgrep now provides experimental support for the **Swift** language. See all languages that Semgrep supports in [Supported languages](/supported-languages).
 - Add configuration options for using the tree-sitter library installed anywhere on the system.
-- Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics.md) for more details.
+- Metrics now include language-aggregated parse rates (files, bytes). The purpose of this is to continue with parsing improvements. See [Semgrep privacy policy](/metrics) for more details.
 - Semgrep CI now accepts more formats of Git URLs for metadata that are sent to semgrep.dev. This work in progress functionality enables working links from the Semgrep App Findings page. The user provides a fallback for repository name (`SEMGREP_REPO_NAME`) and repository URL (`SEMGREP_REPO_URL`) if these values are undefined by the CI job. We appreciate any bug reports or suggestions as this feature is still in development.
 
 ### Changes
