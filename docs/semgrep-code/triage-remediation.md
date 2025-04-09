@@ -28,6 +28,14 @@ This article shows you how to triage and manage findings identified by Semgrep C
 - **Triaging the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
+Additionally, if you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings, including:
+
+- [Remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, shown in Semgrep AppSec Platform.
+- Remediation guidance with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes
+- [Component tagging](/overview#component-tags) to help identify high-priority issues.
+
+Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggesting whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+
 ## Triage statuses
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
@@ -257,3 +265,4 @@ Semgrep provides an API endpoint you can use to triage findings in bulk, either 
 * One way to address false positives is to improve the rule. Create [test cases](/docs/writing-rules/testing-rules) to ensure that the rule performs as intended.
 * If a rule authored by the Semgrep team, available on the Registry, is useful, but captures too many false positives, you can reach out to [Support](/support). This helps Semgrep's rule-writing efforts and improves the quality of rules that you run.
 * You can report rules with a high false positive rate from your source code manager (SCM) if you [enable Semgrep AppSec Platform to leave comments in PRs or MRs](/category/pr-or-mr-comments). Semgrep AppSec Platform provides a link after each comment for users to indicate if the finding is a false positive.
+* Semgrep Assistant's [noise filtering](/semgrep-assistant/overview#noise-filtering-beta) feature can minimize the number of false positives shown to developers.
