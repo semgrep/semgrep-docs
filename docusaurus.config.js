@@ -20,6 +20,7 @@ module.exports = {
       trigger: { floating: false },
       systemPrompt: 'You are a kind AI who loves to help people!',
       model: 'gpt-4',
+      display: 'dialog',
       search: {
         enabled: true,
         provider: {
@@ -29,6 +30,9 @@ module.exports = {
           indexName: 'docs',
         },
       },
+      chat: {
+        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
+      }
     },
     docs: {
       sidebar: {
