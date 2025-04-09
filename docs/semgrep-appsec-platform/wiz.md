@@ -59,7 +59,6 @@ Currently, findings from repositories on SCMs other than GitHub and GitLab are n
 Due to [a limitation of how Wiz handles external enrichment data](https://win.wiz.io/docs/limitations#external-enrichment-limitations), you must run a new SAST scan on your Semgrep project once a week to maintain the data displayed in Wiz.
 :::
 
-
 ## Add the Semgrep integration from the Wiz Integration Network
 
 To learn how to add the Semgrep integration from the Wiz Integration Network, review [Wiz Docs' Semgrep Integration](https://docs.wiz.io/wiz-docs/docs/semgrep-integration).
