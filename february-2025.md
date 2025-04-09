@@ -1,7 +1,7 @@
 ---
 title: February 2025
 description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
-slug: welcome
+slug: february-2025
 authors:
   - name: Sara S
     title: Technical writer
@@ -11,11 +11,14 @@ authors:
     title: Technical writer
     url: https://github.com/khorne3
     image_url: https://github.com/khorne3.png
-tags: [hello, docusaurus-v2]
+tags: 
+  - Release notes
 hide_table_of_contents: false
 ---
 
 # Semgrep release notes for February 2025
+
+<!-- truncate -->
 
 ## 🌐 Semgrep AppSec Platform
 

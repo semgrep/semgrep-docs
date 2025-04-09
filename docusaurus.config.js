@@ -230,7 +230,7 @@ module.exports = {
           path: 'releases',
           blogTitle: 'Blog title',
           blogDescription: 'Blog',
-          blogSidebarCount: 5,
+          blogSidebarCount: 50,
           blogSidebarTitle: 'All our posts',
           routeBasePath: 'releases',
           include: ['**/*.{md,mdx}'],
