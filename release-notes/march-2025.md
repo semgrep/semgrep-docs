@@ -7,15 +7,6 @@ description: >-
 toc_max_heading_level: 3
 tags:
   - Release notes
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
 hide_table_of_contents: false
 date: 2025-03-30T10:00
 ---
