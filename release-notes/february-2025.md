@@ -2,15 +2,6 @@
 title: February 2025
 description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 slug: february-2025
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
 hide_table_of_contents: false
 tags: 
   - Release notes
@@ -19,10 +10,11 @@ date: 2025-02-28T10:00
 
 # Semgrep release notes for February 2025
 
+The following updates were made to Semgrep in February 2025.
+
 <!-- truncate -->
 
 ## 🌐 Semgrep AppSec Platform
-
 ### Added
 
 - Semgrep Managed Scans for repositories hosted by **Bitbucket Cloud** is now in public beta.

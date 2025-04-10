@@ -7,15 +7,6 @@ toc_max_heading_level: 3
 title: December 2024
 tags:
   - Release notes
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
 date: 2024-12-30T10:00
 ---
 
@@ -25,6 +16,8 @@ date: 2024-12-30T10:00
 - The Semgrep CLI tool requires a minimum version of **Python 3.9** as of Semgrep 1.100.0.
 - Semgrep OSS is now **Semgrep Community Edition (CE)**. Read the [Semgrep CE section](#-semgrep-community-edition-ce) for more details.
 :::
+
+The following updates were made to Semgrep in December 2024.
 
 <!-- truncate -->
 
