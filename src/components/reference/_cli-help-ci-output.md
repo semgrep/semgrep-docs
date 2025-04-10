@@ -403,6 +403,9 @@ OPTIONS
        --x-dump-rule-partitions-strategy=VAL
            Internal flag.
 
+       --x-eio
+           [INTERNAL] Rely on an EIO based implementation for the -j flag
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by
@@ -420,6 +423,9 @@ OPTIONS
 
        --x-partial-output=VAL
            Internal flag.
+
+       --x-pro-naming
+           <internal, do not use>
 
        --x-tr
            <internal, do not use>
