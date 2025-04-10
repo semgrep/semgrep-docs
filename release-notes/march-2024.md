@@ -7,19 +7,14 @@ description: >-
 toc_max_heading_level: 3
 tags:
   - Release notes
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
 date: 2024-03-30T10:00
 ---
 
 # Semgrep release notes for March 2024
+
+The following updates were made to Semgrep in March 2024.
+
+<!-- truncate -->
 
 ## 🔧 OSS Engine
 

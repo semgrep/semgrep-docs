@@ -5,24 +5,18 @@ hide_title: true
 description: >-
   Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Adam K
-    title: Technical writer
-    url: https://github.com/adamkvitek
-    image_url: https://github.com/adamkvitek.png
 tags: 
   - Release notes
 hide_table_of_contents: false
-date: 2022-01-30T10:00
+date: 2022-10-30T10:00
 title: October 2022
 ---
 
 # October 2022
 
+The following updates were made to Semgrep in October 2022.
+
+<!-- truncate -->
 ## Semgrep Supply Chain
 
 Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Learn more about [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain).

@@ -8,16 +8,15 @@ description: >-
 toc_max_heading_level: 3
 tags:
   - Release notes
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
 hide_table_of_contents: false
 date: 2023-09-30T10:00
 ---
 
 # September 2023 release notes
+
+The following updates were made to Semgrep in September 2023.
+
+<!-- truncate -->
 
 :::info
 * Moving forward, these release notes cover the following products:

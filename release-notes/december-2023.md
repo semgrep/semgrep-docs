@@ -8,20 +8,15 @@ toc_max_heading_level: 3
 title: December 2023
 tags:
   - Release notes
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Katie H
-    title: Technical writer
-    url: https://github.com/khorne3
-    image_url: https://github.com/khorne3.png
 hide_table_of_contents: false
 date: 2023-12-30T10:00
 ---
 
 # Semgrep release notes for December 2023
+
+The following updates were made to Semgrep in December 2023.
+
+<!-- truncate -->
 
 ## 🔧 OSS Engine
 

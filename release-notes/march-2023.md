@@ -5,15 +5,6 @@ hide_title: true
 description: >-
   Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 toc_max_heading_level: 3
-authors:
-  - name: Sara S
-    title: Technical writer
-    url: https://github.com/s-santillan
-    image_url: https://github.com/s-santillan.png
-  - name: Adam K
-    title: Technical writer
-    url: https://github.com/adamkvitek
-    image_url: https://github.com/adamkvitek.png
 tags: 
   - Release notes
 hide_table_of_contents: false
@@ -22,6 +13,10 @@ title: March 2023
 ---
 
 # March 2023
+
+The following updates were made to Semgrep in March 2023.
+
+<!-- truncate -->
 
 ## Semgrep OSS Engine
 

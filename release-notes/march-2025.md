@@ -25,6 +25,7 @@ date: 2025-03-30T10:00
 <!-- Remember to update latest endpoint -->
 <!-- Remember to update index page -->
 
+The following updates were made to Semgrep in March 2025.
 
 ## 🌐 Semgrep AppSec Platform
 

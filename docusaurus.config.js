@@ -227,8 +227,8 @@ module.exports = {
         },
         blog: {
           path: 'release-notes',
-          blogTitle: 'Blog title',
-          blogDescription: 'Blog',
+          blogTitle: 'Release notes',
+          blogDescription: 'Release notes include the changes, fixes, and additions in specific versions of Semgrep.',
           blogSidebarCount: 12,
           blogSidebarTitle: 'Most recent posts',
           routeBasePath: 'release-notes',

@@ -3,11 +3,6 @@ title: April 2021
 description: Release notes include the changes, fixes, and additions in specific versions of Semgrep.
 slug: april-2021
 append_help_link: true
-authors:
-  - name: Adam K
-    title: Technical writer
-    url: https://github.com/adamkvitek
-    image_url: https://github.com/adamkvitek.png
 tags: 
   - Release notes
 hide_table_of_contents: false
@@ -15,6 +10,10 @@ date: 2021-04-30T10:00
 ---
 
 # April 2021
+
+The following updates were made to Semgrep in April 2021.
+
+<!-- truncate -->
 
 ## Version 0.49.0
 
