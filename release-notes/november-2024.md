@@ -20,6 +20,8 @@ date: 2024-11-30T10:00
 ---
 # Semgrep release notes for November 2024
 
+<!-- truncate -->
+
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
