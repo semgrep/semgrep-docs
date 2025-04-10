@@ -128,4 +128,4 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 - Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
 - Assistant Auto-memories: If you triage a finding as Ignored and provide an explanation of why you change the finding's status to Ignored, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
 
-[See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes/latest)
+[See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
