@@ -19,7 +19,7 @@ _**Figure**. A list of Semgrep findings in Wiz._
 ![Detailed information for a finding sent by Semgrep to Wiz](/img/wiz-finding-details-2.png#md-width)
 _**Figure**. Detailed information for a finding sent by Semgrep to Wiz._
 
-## Prerequisites and requirements
+## Prerequisites
 
 This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
 
@@ -53,7 +53,7 @@ By default, the Code findings that Semgrep sends are:
 
 Semgrep sends findings from all repositories on supported SCMs in your organization. Findings previously sent but not included in submissions are marked as fixed in Wiz.
 
-Currently, findings from repositories on SCMs other than GitHub and GitLab are not supported, as indicated in [Prerequisites and requirements](#prerequisites-and-requirements).
+Currently, findings from repositories on SCMs other than GitHub and GitLab are not supported, as indicated in [Prerequisites](#prerequisites).
 
 :::caution
 Due to [a limitation of how Wiz handles external enrichment data](https://win.wiz.io/docs/limitations#external-enrichment-limitations), you must run a new SAST scan on your Semgrep project once a week to maintain the data displayed in Wiz.

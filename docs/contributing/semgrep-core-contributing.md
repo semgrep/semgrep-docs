@@ -4,7 +4,7 @@ The following explains how to build `semgrep-core` so you can make and test chan
 
 ## Building `semgrep-core`
 
-### Requirements
+### Prerequisites
 
 `semgrep-core` is written primarily in OCaml. You will need to [install OCaml](https://opam.ocaml.org/doc/Install.html) and its package manager OPAM. On macOS, it should consist in doing:
 
