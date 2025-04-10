@@ -934,5 +934,8 @@ Blog
 div[role="group"]:last-of-type::after {
     content: "test";
 }
-
 */
+
+h1.blog {
+    font-size: 3rem;
+}
