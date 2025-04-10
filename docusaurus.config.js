@@ -51,7 +51,6 @@ module.exports = {
       items: [
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
-        { to: '/releases', label: 'Releases', position: 'left' },
         {
           type: 'dropdown',
           label: 'Products',
@@ -148,8 +147,8 @@ module.exports = {
               href: 'https://semgrep.dev/about'
             },
             {
-              label: 'Semgrep release updates',
-              href: 'https://twitter.com/semgrepreleases'
+              label: 'Semgrep product updates',
+              href: 'https://semgrep.dev/products/product-updates'
             }
           ],
         },
