@@ -28,7 +28,7 @@ module.exports = {
       className: 'top-category-separator'
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
-    { type: 'link', href: '/releases', label: 'Release notes', className: 'top-category'},
+    { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
     { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],

@@ -226,12 +226,12 @@ module.exports = {
           routeBasePath: '/'
         },
         blog: {
-          path: 'releases',
+          path: 'release-notes',
           blogTitle: 'Blog title',
           blogDescription: 'Blog',
           blogSidebarCount: 12,
           blogSidebarTitle: 'All our posts',
-          routeBasePath: 'releases',
+          routeBasePath: 'release-notes',
           include: ['**/*.{md,mdx}'],
           exclude: [
             '**/_*.{js,jsx,ts,tsx,md,mdx}',
