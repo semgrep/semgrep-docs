@@ -99,6 +99,8 @@ To add rules, follow these steps:
 
 To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
 
+If you have Semgrep Assistant enabled for your organization, [Assistant can help you write custom rules](/semgrep-assistant/overview#custom-rules-editor-beta) to find patterns and vulnerabilities specific to your codebase.
+
 ### Add rulesets to your Policies from the Registry
 
 Instead of adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework. The Semgrep team curates the rulesets.
