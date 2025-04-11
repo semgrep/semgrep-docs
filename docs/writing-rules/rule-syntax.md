@@ -762,8 +762,9 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 
 ### `metavariable-name`
 
-:::info
-`metavariable-name` requires a Semgrep account and **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
+:::tip
+- `metavariable-name` requires a Semgrep account.
+- While optional, you can improve the performance of `metavariable-name` by enabling **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
 :::
 
 The `metavariable-name` operator adds a constraint to the types of identifiers a metavariable is able to match. Currently the only constraint supported is on module or namespace an identifier originates from. This is useful for filtering results in languages which don't have a native syntax for fully qualified names, or languages where module names may contain characters which are not legal in identifiers (e.g., JavaScript, TypeScript). 
