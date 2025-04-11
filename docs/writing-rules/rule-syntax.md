@@ -763,15 +763,12 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 ### `metavariable-name`
 
 :::tip
-- `metavariable-name` requires a Semgrep account and the use of Semgrep's proprietary engine. This means that it does **not** work with the `--oss-only` flag.
-- While optional, you can improve the performance of `metavariable-name` by enabling **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
+- `metavariable-name` requires a Semgrep account and the use of Semgrep's proprietary engine since it requires name resolution information. This means that it does **not** work with the `--oss-only` flag.
+- While optional, you can improve the accuracy of `metavariable-name` by enabling **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
 :::
 
 The `metavariable-name` operator adds a constraint to the types of identifiers a metavariable is able to match. Currently the only constraint supported is on module or namespace an identifier originates from. This is useful for filtering results in languages which don't have a native syntax for fully qualified names, or languages where module names may contain characters which are not legal in identifiers (e.g., JavaScript, TypeScript). 
 
-:::info
-The `metavariable-name` operator requires the Pro engine, since it requires additional name resolution information. Moreover, name resolution information is higher fidelity with interfile enabled, and thus `metavariable-name` will be more accurate with interfile naming.
-:::
 
 ```yaml
 rules:
