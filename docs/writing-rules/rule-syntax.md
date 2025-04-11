@@ -763,7 +763,7 @@ This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable c
 ### `metavariable-name`
 
 :::tip
-- `metavariable-name` requires a Semgrep account.
+- `metavariable-name` requires a Semgrep account and the use of Semgrep's proprietary engine. This means that it does **not** work with the `--oss-only` flag.
 - While optional, you can improve the performance of `metavariable-name` by enabling **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
 :::
 
