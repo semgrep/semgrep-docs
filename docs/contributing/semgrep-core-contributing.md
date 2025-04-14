@@ -25,7 +25,9 @@ them out as a second separate step from the root of the repo:
 ```bash
 git submodule update --init --recursive
 ```
-### Requirements
+
+### Prerequisites
+
 
 `semgrep-core` is written primarily in OCaml. You will need to [install
 OCaml](https://opam.ocaml.org/doc/Install.html) and its package manager OPAM,

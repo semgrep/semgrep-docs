@@ -920,3 +920,22 @@ input#search_input_react {
   }
 }
 
+
+/* ----------------------------------------------------------------------------
+Blog
+---------------------------------------------------------------------------- */
+
+/*
+[class^="sidebarItemTitle"] {
+    display: none;
+}
+
+
+div[role="group"]:last-of-type::after {
+    content: "test";
+}
+*/
+
+h1.blog {
+    font-size: 3rem;
+}

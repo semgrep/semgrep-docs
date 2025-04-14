@@ -125,15 +125,16 @@ To do so:
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
-## Use your AI provider
+## Select your AI provider
 
-By default, Semgrep Assistant uses OpenAI with Semgrep's API key. You can, however, opt to:
+By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. You can, however, opt to:
 
 - Use OpenAI with your own API key
 - Use Azure OpenAI
 - Use Google Gemini.
+- Use xAI.
 
-If you would like to use AWS Bedrock with your Semgrep organization, contact [Support](/support) to request access.
+Additionally, Semgrep Assistant supports the use of multiple AI models.
 
 ![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
 _**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
@@ -153,16 +154,6 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 - Semgrep’s fine-tuned models that can increase the quality of results.
 - Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
-
-### Google Gemini
-
-To use Google Gemini with Semgrep Assistant:
-
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
-2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
-3. Select **Google Gemini**.
-4. Paste in your API key.
-5. Click **Save** to proceed.
 
 ### Azure OpenAI
 
@@ -196,3 +187,25 @@ If you can't save the endpoint and API key when configuring Semgrep, Semgrep can
 
 1. Ensure that the endpoint URL is correctly formatted. It should look something like `https://<YOUR_DEPLOYMENT_NAME>.openai.azure.com/openai/deployments/mymodel/chat/completions?api-version=2023-05-06-preview`.
 1. Verify that your API key is correct.
+
+### Google Gemini
+
+To use Google Gemini with Semgrep Assistant:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Google Gemini**.
+4. Paste in your API key.
+5. Click **Save** to proceed.
+
+> Semgrep Assistant only supports Google Gemini with Google AI Studio, not Vertex AI.
+
+### xAI
+
+To use xAI with Semgrep Assistant, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **xAI**.
+4. Paste in your API key and API endpoint.
+5. Click **Save** to proceed.

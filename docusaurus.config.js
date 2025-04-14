@@ -20,6 +20,7 @@ module.exports = {
       trigger: { floating: false },
       systemPrompt: 'You are a kind AI who loves to help people!',
       model: 'gpt-4',
+      display: 'dialog',
       search: {
         enabled: true,
         provider: {
@@ -29,6 +30,9 @@ module.exports = {
           indexName: 'docs',
         },
       },
+      chat: {
+        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
+      }
     },
     docs: {
       sidebar: {
@@ -143,8 +147,8 @@ module.exports = {
               href: 'https://semgrep.dev/about'
             },
             {
-              label: 'Semgrep release updates',
-              href: 'https://twitter.com/semgrepreleases'
+              label: 'Semgrep product updates',
+              href: 'https://semgrep.dev/products/product-updates'
             }
           ],
         },
@@ -221,6 +225,47 @@ module.exports = {
             'https://github.com/semgrep/semgrep-docs/edit/main',
           routeBasePath: '/'
         },
+        blog: {
+          path: 'release-notes',
+          blogTitle: 'Release notes',
+          blogDescription: 'Release notes include the changes, fixes, and additions in specific versions of Semgrep.',
+          blogSidebarCount: 12,
+          blogSidebarTitle: 'Most recent posts',
+          routeBasePath: 'release-notes',
+          include: ['**/*.{md,mdx}'],
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
+          postsPerPage: 10,
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          remarkPlugins: [],
+          rehypePlugins: [],
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+          truncateMarker: /<!--\s*(truncate)\s*-->/,
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            title: '',
+            description: '',
+            copyright: '',
+            language: undefined,
+            createFeedItems: async (params) => {
+              const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -264,7 +309,6 @@ module.exports = {
           { from: "/cli-usage/", to: "/cli-reference" },
           { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview" },
           { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
-          { from: "/release-notes/", to: "/release-notes/introduction" },
           { from: "/rule-updates/", to: "/release-notes/rule-updates" },
           { from: "/experiments/overview/", to: "/writing-rules/experiments/introduction" },
           { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
