@@ -732,3 +732,18 @@ Interestingly, you can (ab)use taint labels to write some [typestate analyses](h
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=DYxo" border="0" frameBorder="0" width="100%" height="432"></iframe>
 -->
+
+### Multiple `requires` expressions in taint labels
+
+You can assign an independent `requires` expression to each metavariable matched by a sink. Given `$OBJ.foo($ARG)` you can easily require that `$OBJ` has some label `XYZ` and `$ARG` has some label TAINTED, and at the same time `focus-metavariable: $ARG`:
+
+```
+pattern-sinks:
+  - patterns:
+      - pattern: $OBJ.foo($SINK, $ARG)
+      - focus-metavariable: $SINK
+    requires:
+      - $SINK: BAD
+      - $OBJ: AAA
+      - $ARG: BBB
+```
