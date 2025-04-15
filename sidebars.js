@@ -356,7 +356,7 @@ module.exports = {
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
-            label: 'Write rules',
+            label: 'Write rules for Semgrep Code and Supply Chain',
             collapsible: false,
             items: [
                 'writing-rules/overview',
@@ -390,7 +390,7 @@ module.exports = {
                       'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
-                    ]
+                    ],
                   },
             {
                 type: 'category',
@@ -405,6 +405,15 @@ module.exports = {
                 'writing-rules/glossary'
             ]
         },
+        {
+          type: 'category',
+          label: 'Write rules for Semgrep Secrets',
+          collapsible: false,
+          items: [
+              'semgrep-secrets/rules',
+              'semgrep-secrets/validators'
+          ]
+        }
   ],
   cheatsheetSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
