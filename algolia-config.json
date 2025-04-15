@@ -54,7 +54,8 @@
       "teams",
       "terms",
       "IdP",
-      "IDE"
+      "IDE",
+      "Jira"
     ],
     "separatorsToIndex": "_",
     "attributesForFaceting": [
@@ -115,6 +116,10 @@
       [
         "Identity provider",
         "IdP"
+      ],
+      [
+        "Jira integration",
+        "Jira"
       ]
     ]
   },
