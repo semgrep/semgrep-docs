@@ -103,7 +103,12 @@ Semgrep generates dependency paths for JavaScript projects that utilize `pnpm` a
 
 #### Python
 
-Semgrep generates dependency paths for Python projects that utilize `poetry` and include a `poetry.lock` file whenever you invoke a scan using `semgrep ci`.
+Semgrep generates dependency paths for Python projects that use the following package managers:
+
+- `poetry` and `poetry.lock` file
+- `pip`
+- `pip-env`
+- `piptools`
 
 ### View the dependency path
 

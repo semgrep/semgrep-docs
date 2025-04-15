@@ -1,6 +1,6 @@
 ---
 slug: validators
-title: Write custom validators
+title: Custom validators
 hide_title: true
 description: Learn about validators used in Semgrep Secrets rules.
 tags:

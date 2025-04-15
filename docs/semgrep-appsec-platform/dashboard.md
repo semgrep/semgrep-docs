@@ -112,7 +112,7 @@ The following quick filters are visible on the page:
   - [Recommended priority](#recommended-priority) toggle
 
 :::info
-- By default, the Dashboard displays data for projects you have access to. Admins can view findings from all the projects in the organization. See the [Teams documentation](/deployment/teams#teams-beta) for more information.
+- By default, the Dashboard displays data for projects that members or managers have access to. Admins can view findings from all the projects in the organization. See the [Teams documentation](/deployment/teams#teams-beta) for more information.
 - It can take up to a day **(24 hours)** for the Dashboard to correctly update and remove findings if you have recently deleted a project.
 :::
 
@@ -166,8 +166,9 @@ A low or 0 value for **Total net new** is ideal as it indicates that findings ar
 
 | Chart | Description |
 | -------  | ------ |
-| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. |
-| Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. |
+| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by product for the selected time period. |
+| Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+
 
 ## Secure guardrails
 
@@ -182,7 +183,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Key metrics    | Description |
 | -------------- | ------ |
 | Findings shown to devs      | Number of findings shown to developers in PR or MR comments (the numerator) against the total findings count (denominator). An upward or stable trend is better. |
-| Findings fixed before backlog      | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period. An upward or stable trend is better. |
+| Findings fixed in development   | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period (denominator). An upward or stable trend is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period.  |
 
 <!-- vale on -->
 
@@ -191,7 +192,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 ## Most findings by project
 
