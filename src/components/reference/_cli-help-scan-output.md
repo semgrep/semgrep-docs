@@ -482,6 +482,9 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+       --x-eio
+           [INTERNAL] Rely on an EIO based implementation for the -j flag
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by
@@ -499,6 +502,9 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-pro-naming
+           <internal, do not use>
 
        --x-tr
            <internal, do not use>

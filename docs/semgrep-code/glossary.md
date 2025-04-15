@@ -7,8 +7,6 @@ tags:
   - Semgrep Code
 ---
 
-import DefaultBranches from "/src/components/reference/_default-branches.md"
-
 # Semgrep Code product terms
 
 The terms and definitions provided here are specific to Semgrep Code.
@@ -17,13 +15,11 @@ For rule-writing and SAST (static application security testing) terms, see the [
 
 ## Default branch
 
-Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches.
-
-<DefaultBranches />
+Also known as a **mainline**, **primary**, or **trunk** branch. In many cases, Semgrep automatically detects these branches as primary branches when it first scans your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
 
 ## Diff-aware scan
 
-A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull or merge request is opened.
+A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull request or merge request is opened.
 
 ## Full scan
 

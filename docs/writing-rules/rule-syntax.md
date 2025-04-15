@@ -52,11 +52,12 @@ The below optional fields must reside underneath a `patterns` field.
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
 | [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
-| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula  |
+| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
+| [`metavariable-name`](#metavariable-name) | `map` | Matches metavariables against constraints on what they name |
 | [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
-| [`pattern-not-inside`](#pattern-not-inside)     | `string` | Keep findings that do not lie inside this pattern |
-| [`pattern-not-regex`](#pattern-not-regex)   | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
+| [`pattern-not-inside`](#pattern-not-inside) | `string` | Keep findings that do not lie inside this pattern |
+| [`pattern-not-regex`](#pattern-not-regex) | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 <!-- markdown-link-check-enable -->
 
@@ -759,6 +760,76 @@ int("2147483646")
 
 This removes quotes (`'`, `"`, and `` ` ``) from both ends of the metavariable content. As a result, Semgrep detects `"2147483648"`, but it does **not** detect `"2147483646"`. This is useful when you expect strings to contain integer or float data.
 
+### `metavariable-name`
+
+:::tip
+- `metavariable-name` requires a Semgrep account and the use of Semgrep's proprietary engine since it requires name resolution information. This means that it does **not** work with the `--oss-only` flag.
+- While optional, you can improve the accuracy of `metavariable-name` by enabling **[cross-file analysis](/docs/getting-started/cli#enable-cross-file-analysis)**. 
+:::
+
+The `metavariable-name` operator adds a constraint to the types of identifiers a metavariable is able to match. Currently the only constraint supported is on the module or namespace an identifier originates from. This is useful for filtering results in languages which don't have a native syntax for fully qualified names, or languages where module names may contain characters which are not legal in identifiers, such as JavaScript or TypeScript. 
+
+
+```yaml
+rules:
+  - id: insecure-method
+    patterns:
+      - pattern: $MODULE.insecure(...)
+      - metavariable-name:
+          metavariable: $MODULE
+          module: "@foo-bar"
+    message: Uses insecure method from @foo-bar.
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+The pattern immediately above matches the following:
+
+```javascript
+// ECMAScript modules
+import * as lib from '@foo-bar';
+import * as lib2 from 'myotherlib';
+
+// CommonJS modules
+const { insecure } = require('@foo-bar');
+const lib3 = require('myotherlib');
+
+// ruleid: insecure-method
+// highlight-next-line
+lib.insecure("test");
+// ruleid: insecure-method
+// highlight-next-line
+insecure("test");
+
+// ok: insecure-method
+lib.secure("test");
+// ok: insecure-method
+lib2.insecure("test");
+// ok: insecure-method
+lib3.insecure("test");
+```
+
+In the event that a match should occur if the metavariable matches one of a variety of matches, there is also a shorthand `modules` key, which takes a list of module names.
+
+```yaml
+rules:
+  - id: insecure-method
+    patterns:
+      - pattern: $MODULE.method(...)
+      - metavariable-regex:
+          metavariable: $MODULE
+          modules:
+           - foo
+           - bar
+    message: Uses insecure method from @foo-bar.
+    languages:
+      - javascript
+    severity: ERROR
+```
+
+This can be useful in instances where there may be multiple API-compatible packages which share an issue.
+
 ### `pattern-not`
 
 The `pattern-not` operator is the opposite of the `pattern` operator. It finds code that does not match its expression. This is useful for eliminating common false positives.
@@ -1029,7 +1100,7 @@ rules:
 ```
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
-Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#including-fields-required-by-security-category) for more information.
+Rules with `category: security` have additional metadata requirements. See [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#fields-required-by-the-security-category) for more information.
 
 ## `min-version` and `max-version`
 

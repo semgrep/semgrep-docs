@@ -87,21 +87,13 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 
 ### Add memory during triage
 
-When you identify findings that are safe to ignore, Semgrep Assistant can store your triage notes and create a **memory**, which it will then use to assess if a similar finding should be shown to developers. Assistant also takes that memory, reanalyzes similar findings in your backlog, and suggests issues that may be safe to close.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant determines whether your changes should be stored as a memory. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hidden from developers.
 
-To add a memory during triage:
+To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
 1. Identify the specific finding you want to modify, and open up its finding details page.
-2. Change the status of the finding to **Ignored**, and optionally, select an **Ignore reason** and provide **Comments** on why you're changing the finding's status as **Ignored**.
-3. Click **Ignore & add memory**. 
-4. In the **Create memory** dialog:
-   1. In **Memory**, provide the organization-specific reason why the finding is a false positive. If you provided a comment when setting the status of the finding, Semgrep copies the comment into this field. Your suggestion can be as general as "When there's a function that sanitizes user input, SQL injection is mitigated and developers shouldn't see the finding." Note that Assistant may modify the Memory's text for clarity after you save your changes.
-   2. Provide the **Projects** to which this memory should be applied.
-   3. Provide the **Rules** to which this memory should be applied.
-   4. Select the **Apply to <span className="placeholder">X</span> existing findings in scope** box if you would like Semgrep to apply this memory to any existing findings automatically.
-   5. Click **Add memory** to save your changes.
-   ![User-provided instructions for generating a memory during the triage process.](/img/triage-memories.png#md-width)
-   ***Figure***. User-provided instructions for generating a memory during the triage process.
+2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
+3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
 ### View Memories
 
@@ -133,15 +125,16 @@ To do so:
 5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
    ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
-## Use your AI provider
+## Select your AI provider
 
-By default, Semgrep Assistant uses OpenAI with Semgrep's API key. You can, however, opt to:
+By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. You can, however, opt to:
 
 - Use OpenAI with your own API key
 - Use Azure OpenAI
 - Use Google Gemini.
+- Use xAI.
 
-If you would like to use AWS Bedrock with your Semgrep organization, contact [Support](/support) to request access.
+Additionally, Semgrep Assistant supports the use of multiple AI models.
 
 ![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
 _**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
@@ -161,16 +154,6 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 - Semgrep’s fine-tuned models that can increase the quality of results.
 - Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
-
-### Google Gemini
-
-To use Google Gemini with Semgrep Assistant:
-
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
-2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
-3. Select **Google Gemini**.
-4. Paste in your API key.
-5. Click **Save** to proceed.
 
 ### Azure OpenAI
 
@@ -204,3 +187,25 @@ If you can't save the endpoint and API key when configuring Semgrep, Semgrep can
 
 1. Ensure that the endpoint URL is correctly formatted. It should look something like `https://<YOUR_DEPLOYMENT_NAME>.openai.azure.com/openai/deployments/mymodel/chat/completions?api-version=2023-05-06-preview`.
 1. Verify that your API key is correct.
+
+### Google Gemini
+
+To use Google Gemini with Semgrep Assistant:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **Google Gemini**.
+4. Paste in your API key.
+5. Click **Save** to proceed.
+
+> Semgrep Assistant only supports Google Gemini with Google AI Studio, not Vertex AI.
+
+### xAI
+
+To use xAI with Semgrep Assistant, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
+2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **xAI**.
+4. Paste in your API key and API endpoint.
+5. Click **Save** to proceed.

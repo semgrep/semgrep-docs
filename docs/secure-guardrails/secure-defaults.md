@@ -27,7 +27,7 @@ Semgrep Code provides secure default rules for the following languages:
 - C#
 - Python (Flask, FastAPI, and Django frameworks)
 
-Custom rules to deploy secure default rules can be written in any of [Semgrep Code’s supported languages](/supported-languages#semgrep-code-and-oss).
+Custom rules to deploy secure default rules can be written in any of [Semgrep Code’s supported languages](/supported-languages#language-maturity-summary).
 
 ## View Semgrep secure default rules
 

@@ -125,7 +125,7 @@ This displays the following filters in the filter drawer:
 
 - [Severity](/writing-rules/rule-syntax#required)
 - [Confidence](/contributing/contributing-to-semgrep-rules-repository#confidence)
-- [Reachability](/semgrep-supply-chain/triage-and-remediation#filters)
+- [Reachability](/semgrep-supply-chain/view-export#reachability)
 - [Validation](/semgrep-secrets/getting-started#validation)
 - Time period
 - Product
@@ -138,7 +138,7 @@ This displays the following filters in the filter drawer:
 This refers to any finding that is **Critical** or **High** severity in **addition** to being:
 
 - [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
-- [Reachable](/semgrep-supply-chain/triage-and-remediation#filters) - if the finding is from Semgrep Supply Chain.
+- [Reachable](/semgrep-supply-chain/view-export#reachability) - if the finding is from Semgrep Supply Chain.
 - [Valid](/semgrep-secrets/getting-started#validation) - if the finding is from Semgrep Secrets.
 
 By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority** filters are enabled.
@@ -171,7 +171,7 @@ A low or 0 value for **Total net new** is ideal as it indicates that findings ar
 
 ## Secure guardrails
 
-This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/overview#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/customize#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
 
 ![Secure guardrails pane](/img/dashboard-guardrails.png)
 _**Figure**. Secure guardrails pane. Hover over the charts to view data for that point in time. Click on Filtered by Assistant data to view filtered findings on Code > Pre-production._
@@ -191,7 +191,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/overview#noise-filtering). A greater **Fixed** value is better. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better. |
 
 ## Most findings by project
 

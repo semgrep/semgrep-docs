@@ -19,6 +19,6 @@ Commands:
   publish              Upload rule to semgrep.dev
   scan                 Run Semgrep rules on local folders or files
   show                 Show various types of information
-  test                 Test the rules
-  validate             Validate the rules
+  test                 Test the rules (EXPERIMENTAL improvements over scan --test)
+  validate             Validate the rules (EXPERIMENTAL improvements scan --validate)
 ```
