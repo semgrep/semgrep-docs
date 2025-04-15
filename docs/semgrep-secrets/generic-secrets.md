@@ -13,7 +13,7 @@ import PL from '@site/src/components/Placeholder';
 # Generic secrets (beta)
 
 :::info
-Generic secrets is in beta. Please contact [Support](/support) to request access to this feature.
+Generic secrets is in public beta. Please contact [Support](/support) to request access to this feature.
 :::
 
 Like Semgrep Secrets, which scans for specific secrets, **generic secrets detection** scans your code for the inadvertent inclusion of credentials, such as API keys, passwords, and access tokens using rules. However, generic secrets detection looks for common keywords, such as auth, key, or passwords, and flags anything nearby that appears to be a secret. It then analyzes the results to eliminate false positives, so you only see high-signal results likely to be true positives.
