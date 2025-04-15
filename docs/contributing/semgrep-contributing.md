@@ -15,9 +15,7 @@ cd cli
 ```
 
 We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual
-environment. You can learn how to install it
-[https://pipenv.pypa.io/en/latest/installation.html](here).  Ensure `pipenv` is
-on your PATH before proceeding.
+environment. Learn how to install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html).  Ensure `pipenv` is on your `$PATH` before proceeding.
 
 Next, we need to initialize and enter the virtual environment. This command
 will install dev dependencies such as pytest and will also install semgrep in
