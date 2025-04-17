@@ -26,18 +26,12 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 ## Auto-triage
 
-[Auto-triage](/semgrep-assistant/overview/#auto-triage) allows you to get notifications whenever Assistant indicates a finding may be safe to ignore. You can enable auto-triage, if it isn't already, as follows:
-
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Auto-triage for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. Select whether you want alerts included in your **PR/MR comments** and **Slack notifications**.
+[Auto-triage](/semgrep-assistant/overview/#auto-triage) allows you to get notifications whenever Assistant indicates a finding may be safe to ignore. This feature is available by default once you [enable Assistant](/semgrep-assistant/getting-started). 
 
 ![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
 *Figure*. MR comment from Semgrep Assistant in GitLab.
 
-### Missing PR and comments
-
-Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
+Because Semgrep Assistant messages only appear in your PR or MR comments for rules set to **Comment** or **Block** mode on the Rule Management page, ensure that:
 
 * You have set rules to Comment or Block mode.
   ![Policies modes](/img/semgrep-assistant-comment.png#md-width)
