@@ -939,3 +939,7 @@ div[role="group"]:last-of-type::after {
 h1.blog {
     font-size: 3rem;
 }
+
+h2[class^="title"] {
+    font-size: 2.6rem;
+}
