@@ -78,7 +78,12 @@ Once you've enabled this feature, Semgrep Assistant analyzes the findings after 
 
 ### Guidance
 
-- Only Semgrep rules that **provide a fixed version** can mark a finding as **Safe to upgrade** or with **Breaking changes**.
+- Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
+- Findings without any fixed versions 
+
+### Multiple pull requests
+
+- Does Semgrep make 1 PR per finding? If so, won't the code file have plenty of pull requests?
 
 ## Questions around implementation
 
