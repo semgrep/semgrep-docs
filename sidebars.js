@@ -141,7 +141,44 @@ module.exports = {
                     }
                   ]
                 },
-                'deployment/beyond-core-deployment'
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Beyond core deployment',
+                  link: {type: 'doc', id: 'deployment/beyond-core-deployment'},
+                  items: [
+                      {
+                        type: 'category',
+                        label: 'Ignore files, folders, and code',
+                        collapsible: true,
+                        items: [
+                          {
+                            type: 'doc',
+                            id: 'ignoring-files-folders-code',
+                            label: 'Semgrep Code',
+                          },
+                          {
+                            type: 'doc',
+                            id: 'semgrep-supply-chain/ignoring-deps',
+                            label: 'Semgrep Supply Chain',
+                          },
+                        ]
+                      },
+                      'semgrep-code/semgrep-pro-engine-intro',
+                      'semgrep-code/policies',
+                      'semgrep-supply-chain/license-compliance',
+                      {
+                        type: 'doc',
+                        id: 'semgrep-assistant/overview', // document ID
+                        label: 'Enable Assistant', // sidebar label
+                      },
+                      {
+                        type: 'doc',
+                        id: 'writing-rules/overview', // document ID
+                        label: 'Write custom rules', // sidebar label
+                      },
+                  ]
+                },
             ]
         },
         {
@@ -216,7 +253,6 @@ module.exports = {
                 'semgrep-code/findings',
                 'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
-                'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
                 'semgrep-code/semgrep-pro-engine-examples',
                 'semgrep-code/remove-duplicates',
