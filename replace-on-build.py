@@ -32,8 +32,11 @@ def replace_in_file(rep: Replace):
     with open(rep.dst_file,"w") as f:
         f.write(out_data)
 
-
-DEFAULT_SEMGREPIGNORE = subprocess.run(["curl","https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore"],capture_output=True).stdout.decode("utf-8")
+DEFAULT_SEMGREPIGNORE_URL = "https://raw.githubusercontent.com/semgrep/semgrep/develop/src/targeting/default.semgrepignore"
+DEFAULT_SEMGREPIGNORE = subprocess.run(
+    ["curl", DEFAULT_SEMGREPIGNORE_URL],
+    capture_output=True
+).stdout.decode("utf-8")
 RELEASE_NAME = json.loads(subprocess.run(["curl","https://api.github.com/repos/semgrep/semgrep/releases/latest"], capture_output=True).stdout)["tag_name"]
 
 
