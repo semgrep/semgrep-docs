@@ -12,10 +12,10 @@ tags:
 
 Once you've purchased a subscription, you should receive an email from Semgrep with your license information. Follow the instructions provided in the email to claim your license and begin onboarding your Semgrep products.
 
-## License key holders or manual license claims
+## For license key holders or manual license claims
 
-:::tip
-For single-tenant users, reach out to the [Semgrep Support Team](https://semgrep.dev/docs/support) directly. Please do not attempt to claim a license manually.
+:::caution
+For **single-tenant** users, reach out to the [Semgrep Support Team](https://semgrep.dev/docs/support) directly. Please do not attempt to claim a license manually.
 :::
 
 If you have been provided a license key by Semgrep or if you would like to claim a license manually:
