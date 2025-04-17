@@ -13,6 +13,7 @@ import SearchMetadata from '@theme/SearchMetadata';
 import type {Props} from '@theme/BlogListPage';
 import BlogPostItems from '@theme/BlogPostItems';
 import BlogListPageStructuredData from '@theme/BlogListPage/StructuredData';
+import ThemedImage from '@theme/ThemedImage'
 
 function BlogListPageMetadata(props: Props): ReactNode {
   const {metadata} = props;
@@ -34,7 +35,19 @@ function BlogListPageContent(props: Props): ReactNode {
   const {metadata, items, sidebar} = props;
   return (
     <BlogLayout sidebar={sidebar}>
-        <h1 class="blog">Semgrep release notes</h1>
+        <nav class="theme-doc-breadcrumbs">Return to docs</nav>
+        <div class='logo-index'>
+          <a href="https://semgrep.dev">
+            <ThemedImage
+              alt="Semgrep themed logo"
+              height="48px"
+              sources={{
+                light: ('img/semgrep.svg#no-shadow'),
+                dark: ('img/semgrep.svg#no-shadow'),
+              }} />
+          </a>
+          <h1>Semgrep <span style={{color: "#624DEF"}}>release notes</span></h1>
+        </div>
         <hr />
       <BlogPostItems items={items} />
       <BlogListPaginator metadata={metadata} />
