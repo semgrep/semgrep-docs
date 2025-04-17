@@ -392,7 +392,7 @@ module.exports = {
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
-            label: 'Write rules for Semgrep Code and Supply Chain',
+            label: 'Write rules for Semgrep Code',
             collapsible: false,
             items: [
                 'writing-rules/overview',
