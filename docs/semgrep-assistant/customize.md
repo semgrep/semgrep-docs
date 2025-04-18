@@ -24,25 +24,6 @@ Assistant remediation allows you to receive AI-generated code snippets for true 
 Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
 :::
 
-## Auto-triage
-
-[Auto-triage](/semgrep-assistant/overview/#auto-triage) allows you to get notifications whenever Assistant indicates a finding may be safe to ignore. You can enable auto-triage, if it isn't already, as follows:
-
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > Deployment**.
-2. In the **Assistant** section, click the **Auto-triage for Code** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. Select whether you want alerts included in your **PR/MR comments** and **Slack notifications**.
-
-![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
-*Figure*. MR comment from Semgrep Assistant in GitLab.
-
-### Missing PR and comments
-
-Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
-
-* You have set rules to Comment or Block mode.
-  ![Policies modes](/img/semgrep-assistant-comment.png#md-width)
-* You have selected **PR/MR comments** in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
-
 ## Weekly priority emails
 
 [Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Assistant. If this feature isn't enabled for your deployment, you can do so as follows:
@@ -174,19 +155,6 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
 :::note
 You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
 :::
-
-#### Troubleshoot issues with Azure OpenAI
-
-If you see **Error 429 - Max Tokens Exceeded**:
-
-1. Go to **Azure OpenAI Studio > Deployments** and select your active deployment.
-1. Under **Details**, click **Edit** and increase the **Tokens per Minute Rate Limit** to the maximum value.
-1. If the error persists, contact Microsoft Azure support to request a quota upgrade.
-
-If you can't save the endpoint and API key when configuring Semgrep, Semgrep cannot establish a connection with Azure OpenAI.
-
-1. Ensure that the endpoint URL is correctly formatted. It should look something like `https://<YOUR_DEPLOYMENT_NAME>.openai.azure.com/openai/deployments/mymodel/chat/completions?api-version=2023-05-06-preview`.
-1. Verify that your API key is correct.
 
 ### Google Gemini
 
