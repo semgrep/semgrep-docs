@@ -33,7 +33,7 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 
 ## Stay up-to-date on new Semgrep features
 
-Subscribe to:
+Subscribe to the:
 
 - [<i class="fa-solid fa-rss"></i> Semgrep release notes feed](https://semgrep.dev/docs/release-notes/rss.xml)
 - [<i class="fa-solid fa-rss"></i> Semgrep product updates feed](https://semgrep.dev/products/product-updates/rss/)
