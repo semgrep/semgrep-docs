@@ -35,8 +35,14 @@ function BlogListPageContent(props: Props): ReactNode {
   const {metadata, items, sidebar} = props;
   return (
     <BlogLayout sidebar={sidebar}>
-        <nav class="theme-doc-breadcrumbs">Return to docs</nav>
-        <div class='logo-index'>
+        <nav class="theme-doc-breadcrumbs breadcrumbs__blog">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs__item breadcrumbs__item--active">
+                    <a href="/docs"><span class="breadcrumbs__link">Return to docs</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class='logo-index blog-index'>
           <a href="https://semgrep.dev">
             <ThemedImage
               alt="Semgrep themed logo"
@@ -48,7 +54,6 @@ function BlogListPageContent(props: Props): ReactNode {
           </a>
           <h1>Semgrep <span style={{color: "#624DEF"}}>release notes</span></h1>
         </div>
-        <hr />
       <BlogPostItems items={items} />
       <BlogListPaginator metadata={metadata} />
     </BlogLayout>
