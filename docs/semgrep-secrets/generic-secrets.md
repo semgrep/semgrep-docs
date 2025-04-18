@@ -35,7 +35,7 @@ Once you have enabled generic secrets, your subsequent Semgrep Secrets scans aut
 ```console
 SECRETS RULES
 -------------
-Generic Secrets AI is enabled for this deployment and will run during this scan.
+AI augmented rules are active for secrets detection.
 ```
 
 If there are findings, Semgrep returns the following CLI message: 
