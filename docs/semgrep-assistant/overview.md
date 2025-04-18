@@ -69,6 +69,10 @@ The finding's details include a link to the PR or MR with the autofix, so you ca
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
 :::
 
+#### Dependency upgrade guidance
+
+tk
+
 ### Component tags
 
 **Component tags** use AI to categorize a finding based on its function, such as:
