@@ -24,19 +24,6 @@ Assistant remediation allows you to receive AI-generated code snippets for true 
 Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
 :::
 
-## Auto-triage
-
-[Auto-triage](/semgrep-assistant/overview/#auto-triage) allows you to get notifications whenever Assistant indicates a finding may be safe to ignore. This feature is available by default once you [enable Assistant](/semgrep-assistant/getting-started). 
-
-![MR comment from Semgrep Assistant in GitLab](/img/assistant-gl-comment.png#md-width)
-*Figure*. MR comment from Semgrep Assistant in GitLab.
-
-Because Semgrep Assistant messages only appear in your PR or MR comments for rules set to **Comment** or **Block** mode on the Rule Management page, ensure that:
-
-* You have set rules to Comment or Block mode.
-  ![Policies modes](/img/semgrep-assistant-comment.png#md-width)
-* You have selected **PR/MR comments** in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
-
 ## Weekly priority emails
 
 [Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Assistant. If this feature isn't enabled for your deployment, you can do so as follows:
