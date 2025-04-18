@@ -169,19 +169,6 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
 You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
-#### Troubleshoot issues with Azure OpenAI
-
-If you see **Error 429 - Max Tokens Exceeded**:
-
-1. Go to **Azure OpenAI Studio > Deployments** and select your active deployment.
-1. Under **Details**, click **Edit** and increase the **Tokens per Minute Rate Limit** to the maximum value.
-1. If the error persists, contact Microsoft Azure support to request a quota upgrade.
-
-If you can't save the endpoint and API key when configuring Semgrep, Semgrep cannot establish a connection with Azure OpenAI.
-
-1. Ensure that the endpoint URL is correctly formatted. It should look something like `https://<YOUR_DEPLOYMENT_NAME>.openai.azure.com/openai/deployments/mymodel/chat/completions?api-version=2023-05-06-preview`.
-1. Verify that your API key is correct.
-
 ### Google Gemini
 
 To use Google Gemini with Semgrep Assistant:
