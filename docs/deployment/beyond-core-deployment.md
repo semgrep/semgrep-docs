@@ -30,3 +30,10 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 | I want my developers to use Semgrep on their IDE.    | Install and set up available [IDE extensions](/extensions/overview).  |
 | I'm scanning too many projects (repositories onboarded to Semgrep) and want to group them somehow.         | [Tag your projects](/docs/semgrep-appsec-platform/tags).   |
 | I'd like to manage access to the resources that developers can view or change in Semgrep AppSec Platform.         | Configure [roles and users](/docs/deployment/teams).  |
+
+## Stay up-to-date on new Semgrep features
+
+Subscribe to:
+
+- [<i class="fa-solid fa-rss"></i> Semgrep release notes feed](https://semgrep.dev/docs/release-notes/rss.xml)
+- [<i class="fa-solid fa-rss"></i> Semgrep product updates feed](https://semgrep.dev/products/product-updates/rss/)
