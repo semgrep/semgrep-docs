@@ -48,9 +48,12 @@ After enabling dependency guidance, Semgrep performs post-scan analysis and mark
 - Frequency: this analysis is performed after every diff-aware or full scan.
 - Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
+![DESCRIPTION-tk](/img/no-patch-available.png)
+
+
+The following chart shows the steps Semgrep performs from scanning to analysis and the actions you can take based on the advice it shows.
 
 ![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/img/upgrade-guidance-flowchart.png)
-_**Figure**. How Semgrep provides upgrade guidance and possible actions to take based on its advice._
 
 ## Enable dependency upgrade guidance
 
@@ -76,9 +79,6 @@ tk these are the PR comments
 
 
 
-:::info
-There is no shortcut to create PRs in bulk for findings with marked **safe to upgrade**.
-:::
 
 
 ### Multiple pull requests
@@ -102,3 +102,9 @@ If you can't see any **Breaking changes** or **Safe to upgrade** badges or findi
 - Your you have not set the `contents: write` permission within your GitHub workflow file, typically `semgrep.yml`.
 - Your findings don't have safe versions to upgrade to yet
 - You have no findings within the supported scope of this feature
+
+
+## TK Other docs to update:
+
+- Triage remediate
+- Semgrep assistant overview
