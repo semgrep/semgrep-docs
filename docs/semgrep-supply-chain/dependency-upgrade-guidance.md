@@ -47,6 +47,7 @@ After enabling dependency guidance, Semgrep performs post-scan analysis and mark
 
 - Frequency: this analysis is performed after every diff-aware or full scan.
 - Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
+![DESCRIPTION-tk](/img/safe-click-to-fix.png)
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
 ![DESCRIPTION-tk](/img/no-patch-available.png)
 
