@@ -129,3 +129,5 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 - Assistant Auto-memories: If you triage a finding as Ignored and provide an explanation of why you change the finding's status to Ignored, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
+
+<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div>
