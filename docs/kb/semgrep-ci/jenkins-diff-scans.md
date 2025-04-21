@@ -144,7 +144,7 @@ pipeline {
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
             -e SEMGREP_BASELINE_REF=$(git merge-base $GIT_BRANCH $CHANGE_TARGET) \
-            -e SEMGREP_PR_ID = "${env.CHANGE_ID}"
+            -e SEMGREP_PR_ID="$CHANGE_ID"
             -v "$(pwd):$(pwd)" --workdir $(pwd) \
             semgrep/semgrep semgrep ci '''
       }
