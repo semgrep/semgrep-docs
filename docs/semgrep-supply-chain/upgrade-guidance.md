@@ -12,11 +12,11 @@ tags:
 
 Know if you or your developers can safely and reliably update a vulnerable package or dependency to a fixed version. From there, choose to:
 
-- Have Semgrep open a pull request or merge request (PR or MR)
+- Have Semgrep open a pull request
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. From there, it is able to create a PR or MR to upgrade the package.
+Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep can also create a PR to upgrade the package.
 
 ## Feature maturity
 
