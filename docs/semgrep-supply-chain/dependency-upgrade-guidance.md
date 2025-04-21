@@ -16,30 +16,41 @@ Know if a vulnerable package or dependency can be easily and reliably upgraded t
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be safely upgraded or if solely upgrading the package can cause breaking changes. From there, it is able to create a PR or MR that addresses the breaking changes, if any, while also upgrading the package.
+Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be safely upgraded or if upgrading the package can cause breaking changes. From there, it is able to create a PR or MR that addresses the breaking changes, if any, while also upgrading the package.
 
 ## Feature maturity
 
-This feature is in **private beta**. TK: How do users join?
+This feature is in **private beta**. TK: How do users join? Will we have a settings toggle?
 
 ## Supported languages and package managers
 
-Semgrep supports **Python** codebases with the following package managers:
+- **Python** codebases with the following package managers:
   - `pip`
   - `pip-tools`
   - `pipenv`
   - Poetry
+- Java codebases using the **Maven** package manager
 
 Semgrep supports the following source code managers
 
 - GitHub Cloud and GitHub Enterprise Server (self-hosted)
 - **TK: Does this feature work with SMS?**
+- **TK: Does this feature work with lockfileless scanning?**
 
 ## Prerequisites
 
 - At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
-- __Does this feature require code access? Is that what `contents: write` does?__
+- __TK: Does this feature require code access?__
+- Your public GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
+
+### Grant `Read and write` access
+
+To change your Semgrep app's permission:
+
+1. Navigate to to the settings page of the Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app] for steps.
+1. In the **Repository permissions** section, search for `Contents`.
+1. Click the drop-down menu and select **Read and write**.
 
 ## How it works
 
