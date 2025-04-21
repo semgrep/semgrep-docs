@@ -1,6 +1,6 @@
 ---
-slug: dependency-upgrade-guidance
-title: Dependency upgrade guidance
+slug: upgrade-guidance
+title: Upgrade guidance
 hide_title: true
 description: Know if a vulnerable package or dependency can be easily and reliably upgraded to a fixed version.
 tags:
@@ -8,15 +8,15 @@ tags:
   - Semgrep AppSec Platform
 ---
  
-# Dependency upgrade guidance
+# Upgrade guidance
 
-Know if a vulnerable package or dependency can be easily and reliably upgraded to a fixed version. From there, choose to:
+Know if you or your developers can safely and reliably update a vulnerable package or dependency to a fixed version. From there, choose to:
 
 - Have Semgrep open a pull request or merge request (PR or MR)
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be safely upgraded or if upgrading the package can cause breaking changes. From there, it is able to create a PR or MR that addresses the breaking changes, if any, while also upgrading the package.
+Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. From there, it is able to create a PR or MR to upgrade the package.
 
 ## Feature maturity
 
@@ -31,7 +31,7 @@ This feature is in **private beta**. TK: How do users join? Will we have a setti
   - Poetry
 - Java codebases using the **Maven** package manager
 
-Semgrep supports the following source code managers
+Semgrep supports the following source code managers:
 
 - GitHub Cloud and GitHub Enterprise Server (self-hosted)
 - **TK: Does this feature work with SMS?**
@@ -42,9 +42,9 @@ Semgrep supports the following source code managers
 - At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
 - __TK: Does this feature require code access?__
-- Your public GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
+- Your **public** GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
 
-### Grant `Read and write` access
+### Grant **Read and write** access
 
 To change your Semgrep app's permission:
 
@@ -58,9 +58,9 @@ After enabling dependency guidance, Semgrep performs post-scan analysis and mark
 
 - Frequency: this analysis is performed after every diff-aware or full scan.
 - Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
-![DESCRIPTION-tk](/img/safe-click-to-fix.png)
+![Finding with a fixed version that is safe to upgrade](/img/safe-click-to-fix.png)
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
-![DESCRIPTION-tk](/img/no-patch-available.png)
+![Finding with no fixed version available](/img/no-patch-available.png)
 
 
 The following chart shows the steps Semgrep performs from scanning to analysis and the actions you can take based on the advice it shows.
