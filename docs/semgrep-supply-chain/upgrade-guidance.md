@@ -29,7 +29,7 @@ This feature is in **private beta**. TK: How do users join? Will we have a setti
   - `pip-tools`
   - `pipenv`
   - Poetry
-- Java codebases using the **Maven** package manager
+- **Java** codebases using the **Maven** package manager
 
 Semgrep supports the following source code managers:
 
@@ -41,14 +41,14 @@ Semgrep supports the following source code managers:
 
 - At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
-- __TK: Does this feature require code access?__
-- Your **public** GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
+- Your **public** GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps. TK: Confirm this is the public Semgrep GH app, NOT the private app that confers code access
+- __TK: Does this feature require code access? I would think, no, actually, but I'm not sure.__
 
 ### Grant **Read and write** access
 
 To change your Semgrep app's permission:
 
-1. Navigate to to the settings page of the Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app] for steps.
+1. Navigate to to the settings page of the Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app](https://docs.github.com/en/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app) for steps.
 1. In the **Repository permissions** section, search for `Contents`.
 1. Click the drop-down menu and select **Read and write**.
 
@@ -88,10 +88,7 @@ tk these are the PR comments
 
 ## Remediate or triage the finding
 
-
-
-
-
+TK
 
 ### Multiple pull requests
 
@@ -99,8 +96,7 @@ tk these are the PR comments
 
 ## TK: Questions around implementation
 
-- Can I get this feature enabled for deployment named `s-santillan`?
-- We need screenshots of the PR comments generated! Are those available? If they are, should I try it on my personal org?
+- Can I get this feature enabled for a deployment named `s-santillan`?
 - Do we use prefab or a feature flag for this?
 
 ## Troubleshooting
@@ -119,4 +115,3 @@ If you can't see any **Breaking changes** or **Safe to upgrade** badges or findi
 ## TK Other docs to update:
 
 - Triage remediate
-- Semgrep assistant overview
