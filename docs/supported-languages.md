@@ -334,10 +334,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 #### CVE coverage
 
-Semgrep's reachability analysis covers the following CVEs:
-
-- 80% of all **critical** severity CVEs since **2017** from [supported sources](#supported-sources)
-- 100% of **critical** and **high** severity CVEs since **May 2022** from [supported sources](#supported-sources)
+Semgrep's reachability analysis covers all **critical severity** CVEs from [supported sources](#supported-sources) starting 2017 onwards, for all customers with an active, paid subscription.
 
 ##### Supported sources
 
