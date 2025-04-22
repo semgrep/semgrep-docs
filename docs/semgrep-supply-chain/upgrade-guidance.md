@@ -107,11 +107,6 @@ If you can't see any **Breaking changes** or **Safe to upgrade** badges or findi
 
 - Your language or package ecosystem isn't supported
 - Your source code manager isn't supported
-- Your you have not set the `contents: write` permission within your GitHub workflow file, typically `semgrep.yml`.
+- Your you have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access)
 - Your findings don't have safe versions to upgrade to yet
 - You have no findings within the supported scope of this feature
-
-
-## TK Other docs to update:
-
-- Triage remediate
