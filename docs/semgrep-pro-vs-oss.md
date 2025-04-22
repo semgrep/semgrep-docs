@@ -27,7 +27,7 @@ The offerings in this document are defined as follows:
 <dl>
   <dt>Semgrep Community Edition (Semgrep CE)</dt>
   <dd>
-    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules. The Community Edition is best for small teams or personal projects.
+    Includes an open source, lightweight SAST scanner and rules in the <a href="https://semgrep.dev/r/"><i class="fas fa-external-link fa-xs"></i> Semgrep Registry</a> with <strong>open source licenses</strong>. You can also write your own custom rules. Semgrep CE also includes the Visual Studio Code (VS Code) and IntelliJ extensions. The Community Edition is best for small teams or personal projects.
   </dd>
   <dt>Semgrep AppSec Platform (Semgrep)</dt>
   <dd>
@@ -278,7 +278,7 @@ This section provides a comprehensive comparison of each offering's features.
 - [Local scans](/getting-started/cli-oss)
 - [Manual CI job set up](/deployment/oss-deployment)
 - [IDE plugins](/extensions/overview)
-- [`pre-commit`](/extensions/overview#pre-commit)
+- [`pre-commit`](/extensions/pre-commit)
 
 </div>
 <div>
@@ -313,7 +313,7 @@ Semgrep CE provides cross function constant propagation and single function tain
 
 ###### Semgrep Community Edition (SAST)
 
-- [30+ Community supported languages](/supported-languages#semgrep-code-and-oss)
+- [30+ Community supported languages](/semgrep-ce-languages#semgrep-code-and-community-edition)
 - [<i class="fas fa-external-link fa-xs"></i> Community rules](https://semgrep.dev/r?visib=Community+%28Public%29)
 
 </div>
@@ -325,7 +325,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 
 ###### Semgrep Code (SAST)
 
-- [35+ supported languages](/supported-languages#semgrep-code-and-oss)
+- [35+ supported languages](/semgrep-ce-languages#semgrep-code-and-community-edition)
 - [<i class="fas fa-external-link fa-xs"></i> Pro (professionally written and maintained)](https://semgrep.dev/r?visib=Pro+%28Login%29) and Community rules
 - Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/semgrep-code/supported-languages-python)
 - [Code search](/semgrep-code/editor#code-search-beta)

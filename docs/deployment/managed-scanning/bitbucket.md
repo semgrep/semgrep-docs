@@ -24,6 +24,8 @@ Semgrep Managed Scanning requires one of the following plans:
 - Bitbucket Cloud Premium
 - Bitbucket Data Center
 
+### Bitbucket Cloud
+
 You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Managed Scanning fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
 
 - `webhook (read and write)`
@@ -31,6 +33,12 @@ You must provide a Bitbucket [workspace access token](https://support.atlassian.
 - `pullrequest (read and write)`
 - `project (admin)`
 - `account (read)`
+
+See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
+
+### Bitbucket Data Center
+
+You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
@@ -52,7 +60,7 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 
 You have finished setting up a Semgrep managed scan.
 
-- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories in the workspace.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects scanned through Managed Scans are tagged with `managed-scan`.
 
@@ -84,7 +92,7 @@ You can enable managed scanning for additional repositories after onboarding usi
 
 You can immediately add any existing project to Managed Scans.
 
-1. Follow the steps in [Add a repository](#add-a-repository).
+1. Follow the steps in [Enable managed scanning](#enable-managed-scanning-and-scan-your-first-repository).
 1. Delete the `bitbucket-pipelines.yml` file in your Bitbucket repository if appropriate.
 
 If you plan to continue running some scans in Bitbucket CI/CD Pipelines (for example, using Managed Scans to run weekly full scans but Bitbucket CI/CD Pipelines for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.

@@ -10,7 +10,7 @@ tags:
 # Detect and remove malicious dependencies
 
 :::info
-This feature is in private beta. To join, reach out to [support](/support).
+This feature is in public beta. To join, reach out to [support](/support).
 :::
 
 **Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
@@ -19,25 +19,27 @@ Semgrep is able to detect malicious dependencies in your projects and in pull re
 
 This feature is enabled after opting in to the beta program.
 
-## Supported package managers and sources of information
-
-Semgrep ingests data from <i class="fas fa-external-link fa-xs"></i>[Open Source Vulnerabilities](https://osv.dev/)).
+## Supported package managers
 
 The following table lists the languages for which Supply Chain can detect malicious dependencies.
 
 | Language | Package manager or ecosystem |
 | :---- | :---- |
 | C\# | NuGet |
-| Dart | Pub |
-| Elixir | Hex |
 | Go | `go.mod` |
-| Java | Maven |
+| JavaScript | npm |
 | Python | PyPi |
 | Ruby | RubyGems |
-| Scala | Maven |
-| Swift | SwiftPM |
-| PHP | \-- |
-| Rust | \-- |
+| Rust | `cargo.lock` |
+
+<!--
+| Dart | Pub | 
+| Elixir | Hex | 
+| Java | Maven | 
+| Scala | Maven | 
+| Swift | SwiftPM | 
+| PHP | \-- | 
+-->
 
 ## Malicious dependency findings
 
@@ -53,7 +55,7 @@ If you have set up your Supply Chain policies to block with this condition, mali
 
 ## View malicious dependencies
 
-Malicious dependencies appear in [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time), alongside other Supply Chain findings. They are denoted by the **Malicious** badge.
+Malicious dependencies appear in [**Supply Chain > Vulnerabilities**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time), alongside other Supply Chain findings. They are denoted by the **MAL** badge.
 
 ![Malicious dependency finding with badge](/img/findings-maldeps.png)
 _**Figure**. A malicious dependency finding._

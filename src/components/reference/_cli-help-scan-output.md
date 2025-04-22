@@ -342,10 +342,10 @@ OPTIONS
            option forces the project root to be a specific folder and assumes
            a local project without version control (novcs). This option is
            useful to ensure the '.semgrepignore' file that may exist at the
-           project root is consulted when the scan root is not the
+           project root is consulted when the scanning root is not the
            current folder '.'. A valid project root must be a folder (path
            referencing a directory) whose physical path is a prefix of the
-           physical path of the scan roots passed on the command line.
+           physical path of the scanning roots passed on the command line.
            For example, the command 'semgrep scan --project-root . src' is
            valid if '.' is '/home/me' and 'src' is a directory or a symbolic
            link to a '/home/me/sources' directory or a symbolic link to a
@@ -394,9 +394,10 @@ OPTIONS
            '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
            implementation for discovering and filtering target files.
            Conversely, '--no-semgrepignore-v2' is the deprecated option that
-           forces the use of the legacy Semgrepignore v1. If you must use
-           '--no-semgrepignore-v2', please let us know so we can fix problems
-           and help you migrate smoothly. 
+           forces the use of the legacy Semgrepignore v1.
+           '--semgrepignore-v2' is the default for Semgrep Community Edition,
+           and for now '--no-semgrepignore-v2' is still the default when
+           using the '--pro*' options. 
 
        --severity=VAL
            Report findings only from rules matching the supplied severity
@@ -453,12 +454,15 @@ OPTIONS
            internal use and may be changed or removed without warning. 
 
        --use-git-ignore
+           '--use-git-ignore' is Semgrep's default behavior. Under the
+           default behavior, Git-tracked files are not excluded by Gitignore
+           rules and only untracked files are excluded by Gitignore rules.
            '--no-git-ignore' causes semgrep to not call 'git' and not consult
            '.gitignore' files to determine which files semgrep should scan.
-           As a result of '--no-git-ignore', gitignored files and git
-           submodules will be scanned. This flag has no effect if the
-           scan root is not in a git repository. '--use-git-ignore' is
-           semgrep's default behavior.
+           As a result of '--no-git-ignore', gitignored files and Git
+           submodules will be scanned unless excluded by other means
+           ('.semgrepignore', '--exclude', etc.). This flag has no effect if
+           the scanning root is not in a Git repository.
 
        -v, --verbose
            Show more details about what rules are running, which files failed
@@ -478,6 +482,9 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+       --x-eio
+           [INTERNAL] Rely on an EIO based implementation for the -j flag
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by
@@ -495,6 +502,9 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-pro-naming
+           <internal, do not use>
 
        --x-tr
            <internal, do not use>

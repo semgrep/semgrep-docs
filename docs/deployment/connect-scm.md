@@ -54,7 +54,8 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers > Add > Azure DevOps**. 
 1. In the **Connect your Azure DevOps Project** dialog box, provide:
-   - The **Name of your Azure DevOps Project**. Ensure that the value you provide follows the format <PL>organization</PL>/<PL>project</PL>. This information can be seen in the project URL, for example `https://dev.azure.com/organization/project`. 
+   - The **Name of your Azure DevOps Organization**.
+   - The **Name of your Azure DevOps Project**. The name of your Azure DevOps organization and project can be seen in the project URL, for example `https://dev.azure.com/organization/project`. 
    - Your **Access token**. See [User personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for information on generating a token.
 2. Click **Connect** to save and proceed.
 3. The Azure DevOps project is now listed under **Source code managers**. Click **Test** to verify that the new connection is installed correctly.
@@ -139,16 +140,21 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 <TabItem value='bitbucket-data-center'>
 
+
+1. Create an HTTP Access Token for your project following the steps outlined in [<i class="fas fa-external-link fa-xs"></i> Bitbucket Data Center documentation](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Ensure that the access token is created with `PROJECT_ADMIN` permissions.
+1. Copy the token for use in the next steps.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. Go to **<i class="fa-solid fa-gear"></i> Settings** > **Source code managers**, and click **Add > Bitbucket Data Center**.
 1. In the **Connect your Bitbucket project (key)** dialog box, provide:
    - The **Name of your Bitbucket project (key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
-   - The **URL** to access your installation of Bitbucket Data Center
-   - The **Access Token** that [grants Semgrep permission to communicate with your project](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Semgrep expects an [HTTP access token](https://confluence.atlassian.com/bitbucketserverm0930/http-access-tokens-1431540960.html).
-2. Click **Connect** to save and proceed.
-3. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
+   - The **URL** to access your installation of Bitbucket Data Center; this is your fully-qualified domain name.
+   - The **Access Token** that grants Semgrep permission to communicate with your project. Semgrep expects an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) with `PROJECT_ADMIN` permissions.
+1. Click **Connect** to save and proceed.
+1. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
+1. To enable merge request comments, click **<i class="fa-solid fa-toggle-large-on"></i> Incoming webhooks**.
+1. Optional: Click **Auto scan** to onboard all current and future repositories under your project to Semgrep Managed Scanning.
 
 </TabItem>
 <TabItem value='github-enterprise'>

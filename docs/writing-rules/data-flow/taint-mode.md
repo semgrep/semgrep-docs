@@ -645,7 +645,7 @@ In the example below, `user_input` is passed to `foo` as input and, from there, 
 
 Using the CLI option `--pro-intrafile`, Semgrep will perform inter-procedural (across functions) _intra_-file (within one file) analysis. That is, it will track taint across functions, but it will not cross file boundaries. This is supported for essentially every language, and performance is very close to that of intra-procedural taint analysis.
 
-Using the CLI option `--pro`, Semgrep will perform inter-procedural (across functions) as well as *inter*-file (across files) analysis. Inter-file analysis is only supported for [a subset of languages](/supported-languages/#semgrep-code-language-support). For a rule to run inter-file it also needs to set `interfile: true`:
+Using the CLI option `--pro`, Semgrep will perform inter-procedural (across functions) as well as *inter*-file (across files) analysis. Inter-file analysis is only supported for [a subset of languages](/supported-languages#language-maturity-summary). For a rule to run interfile it also needs to set `interfile: true`:
 
 ```yaml
 options:
@@ -732,3 +732,18 @@ Interestingly, you can (ab)use taint labels to write some [typestate analyses](h
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=DYxo" border="0" frameBorder="0" width="100%" height="432"></iframe>
 -->
+
+### Multiple `requires` expressions in taint labels
+
+You can assign an independent `requires` expression to each metavariable matched by a sink. Given `$OBJ.foo($ARG)` you can easily require that `$OBJ` has some label `XYZ` and `$ARG` has some label TAINTED, and at the same time `focus-metavariable: $ARG`:
+
+```
+pattern-sinks:
+  - patterns:
+      - pattern: $OBJ.foo($SINK, $ARG)
+      - focus-metavariable: $SINK
+    requires:
+      - $SINK: BAD
+      - $OBJ: AAA
+      - $ARG: BBB
+```

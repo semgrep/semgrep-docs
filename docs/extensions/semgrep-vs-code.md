@@ -99,3 +99,7 @@ The following experimental features should only be used upon recommendation by S
 ## Limitations
 
 <IdeLimitations />
+
+## License
+
+The Semgrep VS Code extension is licensed under the LGPL 2.1 license.

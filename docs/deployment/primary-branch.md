@@ -9,7 +9,7 @@ tags:
 
 # Set a primary branch
 
-A **primary branch** is the base or target branch for pull and merge requests. It is usually referred to as a **default branch** or **trunk** by your source code manager (SCM). Typical names for a primary branch include `dev`, `production`, or `develop`.
+A **primary branch** is the base or target branch for pull requests and merge requests. It is usually referred to as a **default branch** or **trunk** by your source code manager (SCM). Typical names for a primary branch include `dev`, `production`, or `develop`.
 
 In many cases, Semgrep automatically detects primary branches when they first scan your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
 
@@ -76,6 +76,6 @@ This means that the count of findings in your Code, Secrets, or Supply Chain pag
 
 The following links explain how Semgrep presents findings for each Semgrep product in their respective page:
 
-- [Semgrep Code default view](/docs/semgrep-code/findings#default-code-page-view)
-- [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation#default-supply-chain--vulnerabilities-tab-view)
+- [Semgrep Code default view](/docs/semgrep-code/findings#default-page-view)
+- [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation)
 - [Semgrep Secrets default view](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)

@@ -147,10 +147,6 @@ semgrep:
     # Generate a token from Semgrep AppSec Platform > Settings
     # and add it as a variable in your GitLab CI/CD project settings.
     SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-
-    # Optional variable to receive MR comments. Setup instructions:
-    # https://semgrep.dev/docs/semgrep-appsec-platform/gitlab-mr-comments
-    # GITLAB_TOKEN: $PAT
 ```
 
 </TabItem>

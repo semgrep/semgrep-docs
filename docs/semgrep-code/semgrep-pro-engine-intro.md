@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 
 :::note Language support
-Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#semgrep-code-language-support) to see languages supported by Semgrep Code.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-summary) to see languages supported by Semgrep Code.
 :::
 
 ## Run cross-file analysis
@@ -41,7 +41,7 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 ![Cross-file analysis toggle](/img/cross-file-analysis-toggle.png#md-width)
 1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
 
-**Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that cross-file analysis does **not** currently run on diff-aware (pull or merge request) scans.
+**Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that cross-file analysis does **not** currently run on diff-aware (pull request or merge request) scans.
 
 ### Run cross-file analysis in the CLI
 

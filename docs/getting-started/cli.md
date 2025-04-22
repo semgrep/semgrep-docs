@@ -10,7 +10,6 @@ tags:
 
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
-import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
 
@@ -44,7 +43,7 @@ To enable [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which a
 
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
-- `semgrep scan` - This is the recommended command for [scanning local codebases or scanning a project when you don't have a Semgrep account](/getting-started/cli-oss). It is also recommended for [writing and testing custom rules](#scan-your-project-with-a-specific-ruleset).
+- `semgrep scan` - This is the recommended command for [scanning local codebases or scanning a project when you don't have a Semgrep account](/getting-started/cli-oss). It is also recommended for [writing and testing custom rules](/writing-rules/testing-rules).
 - `semgrep ci` - This is the recommended command if you are scanning Git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
@@ -93,11 +92,7 @@ semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output
 
 Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
-### Scan your project with a specific ruleset
-
-<ScanRuleset />
-
-#### Test custom rules
+## Test custom rules
 
 Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
@@ -105,7 +100,7 @@ Semgrep includes features to [test the custom rules that you write](/writing-rul
 semgrep scan --test
 ```
 
-#### Publish custom rules
+### Publish custom rules
 
 To share your rules by adding them to the Semgrep Registry:
 
@@ -113,7 +108,7 @@ To share your rules by adding them to the Semgrep Registry:
 semgrep publish <path/to/rules>
 ```
 
-### Scan without sending results to Semgrep
+## Scan without sending results to Semgrep
 
 To scan your project using the configuration you've set up in Semgrep AppSec Platform **without** sending scan results to Semgrep, use:
 
@@ -123,7 +118,7 @@ semgrep ci --dry-run
 
 This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
 
-### Scan using OSS-only analysis (single-function)
+## Scan using Semgrep CE analysis (single-function)
 
 To scan your project using exclusively open source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
