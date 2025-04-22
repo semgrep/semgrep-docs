@@ -337,7 +337,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 Semgrep's reachability analysis covers the following:
 
 - All **critical severity** CVEs from [supported sources](#supported-sources) starting 2017 onwards, for packages used by customers with an active, paid subscription.
-- All **high severity** CVEs from supported sources starting May 2022 onwards, for packages used by customers with an active, paid subscription.
+- All **high and critical severity** CVEs from supported sources starting May 2022 onwards, for packages used by customers with an active, paid subscription.
 
 ##### Supported sources
 
