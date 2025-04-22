@@ -51,7 +51,7 @@ The following filters are available:
 - **Duration**: The amount of time the scan took to complete in hours or minutes
 
 :::note
-Scan details, such as logs, are available for scans run in the past **1 month**.
+Scan details, such as logs, are available for scans run in the past **1 month**. The Semgrep UI does not display scans that are older than 30 days. Expanding it significantly would introduce performance issues due to the increased volume of stored scan data.
 :::
 
 ## Scan details and logs
