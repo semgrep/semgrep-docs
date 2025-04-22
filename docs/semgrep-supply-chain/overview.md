@@ -68,6 +68,10 @@ Semgrep Supply Chain's [dependency search](/semgrep-supply-chain/dependency-sear
 
 The [license compliance](/semgrep-supply-chain/license-compliance) feature ensures that you're only using open source packages whose licensing meets your organization's requirements.
 
+## Malicious dependencies detection
+
+Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
+
 ## Next steps
 
 Semgrep Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform. Once your first scan is completed:
