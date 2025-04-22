@@ -16,8 +16,9 @@ The Semgrep Network Broker facilitates secure access between Semgrep and your pr
 
 Examples of inbound traffic include:
 
-- Pull request (PR) or merge request (MR) comments
-- Webhooks
+- [Pull request (PR) or merge request (MR) comments](/docs/category/pr-or-mr-comments)
+- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
+- Code access for [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) if enabled
 
 :::info Tier availability
 The Semgrep Network Broker is available to Enterprise tier users.
