@@ -48,8 +48,8 @@ function BlogListPageContent(props: Props): ReactNode {
               alt="Semgrep themed logo"
               height="48px"
               sources={{
-                light: ('img/semgrep.svg#no-shadow'),
-                dark: ('img/semgrep.svg#no-shadow'),
+                  light: ('https://semgrep.dev/docs/img/semgrep.svg#no-shadow'),
+                dark: ('https://semgrep.dev/docs/img/semgrep.svg#no-shadow'),
               }} />
           </a>
           <h1>Semgrep <span style={{color: "#624DEF"}}>release notes</span></h1>
