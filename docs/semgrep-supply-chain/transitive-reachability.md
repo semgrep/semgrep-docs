@@ -40,13 +40,13 @@ Semgrep uses two overarching categories for project dependencies:
 Semgrep's reachability analysis determines whether there's a vulnerability in your codebase by checking your code, specifically the functions used and the function calls made. Then, Semgrep checks if the vulnerability is reachable by checking to see if:
 
 - The relevant function is called, which means that the code is used
-- The relevant funciton is called in a potentially unsafe way
+- The relevant function is called in a potentially unsafe way
 
 If neither condition is met, then Semgrep categorizes the vulnerability as **Unreachable**.
 
 The patterns that Semgrep Supply Chain uses to identify vulnerabilities present in first-party code are encapsulated in **rules**. With transitive reachability analysis, Semgrep extends its reachability analysis to the dependencies of dependencies to see if this code calls and uses vulnerable packages in a vulnerable way.
 
-To do this, Semgrep uses its Dependency Path feature to determine the set of packages, a subset of the third-party code, that call on vulnerable packages. Semgrep then downloads the source code for the third-party dependencies called by your first-party code for analysis. <!-- TBD on whether we add a new CLI flag to control this behavior:`--allow-package-manager-install-deps` -->
+To do this, Semgrep uses its Dependency Path feature to determine the set of packages, a subset of the third-party code, that calls on vulnerable packages. Semgrep then downloads the source code for the third-party dependencies called by your first-party code for analysis. <!-- TBD on whether we add a new CLI flag to control this behavior:`--allow-package-manager-install-deps` -->
 
 Once Semgrep downloads the source code for the third-party dependencies, it scans this third-party code using the same rules it uses against the first-party code. 
 
@@ -74,8 +74,8 @@ To view your findings in Semgrep AppSec Platform:
 
 Opening up an individual finding displays additional details for your review:
 
-![The finding details page showing that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png)
-_**Figure**. The finding details page showing that the Supply Chain finding is unreachable._
+![The finding details page shows that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png)
+_**Figure**. The finding details page shows that the Supply Chain finding is unreachable._
 
 ### CLI
 
