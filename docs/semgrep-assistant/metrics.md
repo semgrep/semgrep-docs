@@ -21,7 +21,7 @@ This methodology ensures that Assistant is evaluated from both a user's and expe
 
 User feedback shows the aggregated and anonymized performance of Assistant across **more than 1000 customers**, providing a comprehensive **real-world dataset**. 
 
-Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions as they receive Assistant suggestions in their PR or MR. This ensures that sampling bias is reduced, as both developers and AppSec engineers can provide feedback. 
+Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions in their PR or MR. This ensures that sampling bias is reduced - in fact, research shows that users are more likely to "thumbs down" bad suggestions due to negativity bias. 
 
 **Results as of Jan 10, 2024:**
 
@@ -40,7 +40,7 @@ Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions
     </tr>
     <tr>
         <td>Human-agree rate</td>
-        <td><strong>92%</strong></td>
+        <td><strong>95%</strong></td>
     </tr>
     <tr>
         <td>Median time to resolution</td>
