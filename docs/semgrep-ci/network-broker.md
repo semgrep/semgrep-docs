@@ -213,7 +213,7 @@ You can check the logs for Semgrep Network Broker by running:
 The Semgrep Network broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
 
 :::warning Performance impact
-Please only enable these settings while working to identify issues. Otherwise significant memory in the tunnel may be used on large request bodies and response bodies.
+Please enable these settings only while working to identify issues. Otherwise, significant memory in the tunnel is used on large request and response bodies.
 :::
 
 ```yaml
