@@ -89,13 +89,7 @@ _**Figure**. Various panels of the **Details** page._
 <dd>Click this button to open a PR with the command to upgrade the dependency to a safe version, if any.</dd>
 </dl>
 
-## Remediate or triage the finding
-
-TK
-
-### Multiple pull requests
-
-- TK:Does Semgrep make 1 PR per finding? If so, won't the code file have plenty of pull requests?
+### PR comments
 
 ## Troubleshooting
 
