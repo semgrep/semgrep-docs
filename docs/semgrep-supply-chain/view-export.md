@@ -14,6 +14,7 @@ import EpssTypes from "/src/components/concept/_epss-types.md"
 import ReachabilityTypes from "/src/components/concept/_reachability-types.md"
 import FindingsDefaultView from "/src/components/concept/_findings-default-view.mdx"
 import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
+import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
 
 # View and export Supply Chain findings
 
@@ -46,6 +47,10 @@ _**Figure**. A single vulnerability entry in Semgrep Supply Chain._
 You can also view the findings individually by clicking the drop-down box on the header and clicking **No grouping**.
 
 <FindingsDefaultView product_name="Supply Chain" />
+
+### Full details of a finding
+
+<ViewDetailsSsc />
 
 ## Filter findings
 

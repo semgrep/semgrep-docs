@@ -68,13 +68,6 @@ Remediate (or resolve) true positives in Semgrep Supply Chain through the follow
 This feature is in private beta. For users with an existing Semgrep plan, reach out to [support](/support) to join the beta.
 :::
 
-<!-- Feature has been disabled for the time being. See https://github.com/semgrep/semgrep-app/pull/10186
-
-### Updating the dependency
-
-Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull request or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
--->
-
 #### Remove the dependency and refactor the code
 
 Removing the dependency and refactoring the code is another method to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your manifest file or lockfile, and updates the status to **Fixed**.

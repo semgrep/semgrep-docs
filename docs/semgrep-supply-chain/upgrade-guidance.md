@@ -7,6 +7,8 @@ tags:
   - Semgrep Supply Chain
   - Semgrep AppSec Platform
 ---
+
+import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
  
 # Upgrade guidance
 
@@ -20,7 +22,7 @@ Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be **s
 
 ## Feature maturity
 
-This feature is in **private beta**. TK: How do users join? Will we have a settings toggle?
+This feature is in **private beta**. To join the beta, reach out to the [Semgrep support team](/support).
 
 ## Supported languages and package managers
 
@@ -55,9 +57,9 @@ After enabling dependency guidance, Semgrep performs post-scan analysis and mark
 
 - Frequency: this analysis is performed every **two hours** on the latest **full scan**.
 - Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
-![Finding with a fixed version that is safe to upgrade](/img/safe-click-to-fix.png)
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
-![Finding with no fixed version available](/img/no-patch-available.png)
+  ![Finding with no fixed version available](/img/no-patch-available.png#md-width)
+  _**Figure**. **Details** page for a finding that has no available fix._
 
 The following chart shows the steps Semgrep performs from scanning to analysis and the actions you can take based on the advice it shows.
 
@@ -65,10 +67,27 @@ The following chart shows the steps Semgrep performs from scanning to analysis a
 
 ## Details provided by upgrade guidance
 
-tk these are the PR comments
+You can review a finding's details in two places:
 
-- Safe to upgrade
--
+- The finding's **Details** page
+- The PR comment created by Semgrep
+
+### Details page
+
+<ViewDetailsSsc />
+
+![SSC details page panels](/img/vuln-panels-ssc.png)
+_**Figure**. Various panels of the **Details** page._
+<dl>
+<dt>A - Upgrade badge</dt>
+<dd>Indicates if an upgrade is safe or may break your codebase.</dd>
+<dt>B - The line of code (LOC) of the finding</dt>
+<dd>This shows the LOC that caused the finding; this does <strong>not</strong> show the LOC where the breaking changes occur.</dd>
+<dt>C - Link to change list drawer</dt>
+<dd>Clicking this link displays the LOC where a breaking change may occur.</dd>
+<dt>D - Open fix PR button</dt>
+<dd>Click this button to open a PR with the command to upgrade the dependency to a safe version, if any.</dd>
+</dl>
 
 ## Remediate or triage the finding
 
