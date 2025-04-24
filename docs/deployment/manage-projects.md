@@ -51,7 +51,7 @@ The following filters are available:
 - **Duration**: The amount of time the scan took to complete in hours or minutes
 
 :::note
-Scan details, such as logs, are available for scans run in the past **1 month**.
+Scan details, such as logs, are available for scans run in the past **1 month**. Semgrep AppSec Platform does not display scan details older than 30 days, since this introduces performance issues due to the increased volume of stored scan data.
 :::
 
 ## Scan details and logs
