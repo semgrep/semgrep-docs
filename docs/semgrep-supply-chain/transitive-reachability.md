@@ -86,7 +86,7 @@ _**Figure**. The finding details page showing a reachable transitive finding and
 
 ### CLI
 
-Semgrep displays transitive reachability information in the CLI results as follows:
+When running Semgrep using the CLI or a CI System, Semgrep displays transitive reachability information in the output as follows:
 
 ```console
 ┌──────────────────────────────────┐
