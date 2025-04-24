@@ -7,13 +7,14 @@ tags:
  - Semgrep Supply Chain
 ---
 
-# Transitive reachability
-
-:::info
-This feature is in private beta. To join, reach out to [support](/support).
-:::
+# Transitive reachability (beta)
 
 Semgrep Supply Chains' transitive reachability analysis helps you identify vulnerabilities introduced by third-party packages and their dependencies. 
+
+
+:::info
+This feature is in private beta. To join, contact [support](/support).
+:::
 
 <!-- NEW STATUSES 
 - **Undetermined**: no meaningful analysis of the vulnerability's usage
@@ -74,8 +75,13 @@ To view your findings in Semgrep AppSec Platform:
 
 Opening up an individual finding displays additional details for your review:
 
-![The finding details page shows that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png)
-_**Figure**. The finding details page shows that the Supply Chain finding is unreachable._
+![The finding details page showing that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png#md-width)
+_**Figure**. The finding details page showing that the Supply Chain finding is unreachable._
+
+You can use **Dependency path** to see how Semgrep determined if a finding is transitive.
+
+![The finding details page showing a reachable transitive finding and its dependency path](/img/reachable-transitive-vuln-dep-path.png#md-width)
+_**Figure**. The finding details page showing a reachable transitive finding and its dependency path._
 
 ### CLI
 
@@ -102,7 +108,3 @@ For findings that may be reachable:
 - If the vulnerable package has an update that fixes the issue, and the dependency that your first-party code calls utilizes the updated package, you can update the dependency version used. Then, re-run Supply Chain to update your vulnerabilities list.
 - If there's no fix available, remove the dependency from your code base and re-run Supply Chain to update your vulnerabilities list.
 - If necessary, you can apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings) to the finding, such as **Ignored**, though this isn't recommended.
-
-## Advisories
-
-[TODO]
