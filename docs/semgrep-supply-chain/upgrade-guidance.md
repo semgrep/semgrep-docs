@@ -14,7 +14,7 @@ import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
 
 Know if you or your developers can safely and reliably update a vulnerable package or dependency to a fixed version. From there, choose to:
 
-- Have Semgrep open a pull request
+- Have Semgrep open a pull request (PR)
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
@@ -70,7 +70,7 @@ The following chart shows the steps Semgrep performs from scanning to analysis a
 You can review a finding's details in two places:
 
 - The finding's **Details** page
-- The PR comment created by Semgrep
+- The pull request created by Semgrep
 
 ### Details page
 
@@ -86,10 +86,32 @@ _**Figure**. Various panels of the **Details** page._
 <dt>C - Link to change list drawer</dt>
 <dd>Clicking this link displays the LOC where a breaking change may occur.</dd>
 <dt>D - Open fix PR button</dt>
-<dd>Click this button to open a PR with the command to upgrade the dependency to a safe version, if any.</dd>
+<dd>Click this button to open a PR with the code to upgrade the dependency to a safe version, if any.</dd>
 </dl>
 
-### PR comments
+![Drawer showing all lines of code that must be changed](/img/upgrade-guidance-drawer.png#md-width)
+_**Figure**. Drawer showing all the lines of code that must be changed or are safe._
+
+### Pull request with fix
+
+A pull request includes:
+
+- The code change to upgrade the dependency
+- The context necessary for developers to fix potentially breaking changes
+
+The following context is included in the pull request description:
+
+- The severity and reachability of the finding
+- All the pieces of code, typically functions, which make use of the dependency
+  - Unchanged (safe) pieces of code
+  - Potentially breaking pieces of code
+- The specific version of the dependency that the PR upgrades to
+- Release notes of the dependency related to the change
+
+## Remediation: create a pull request
+
+1. Navigate to the **Details** page of the finding for which you want to make a pull request.
+1. Click **Fix** > **Open fix PR**.
 
 ## Troubleshooting
 
