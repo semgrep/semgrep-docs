@@ -7,7 +7,7 @@ The details page is divided into several panels:
 
 - General information: 
   - The name of the package and a description of the finding
-  - Its reachability, if it is direct or transitive, its CVE number, EPSS, and severity
+  - Its reachability, whether it is direct or transitive, its CVE number, EPSS, and severity
   - Its remediation version, if any
   - Links to references
   - A badge indicating if it can cause breaking changes or not (beta)
