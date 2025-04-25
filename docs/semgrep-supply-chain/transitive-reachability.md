@@ -24,12 +24,12 @@ Semgrep currently performs transitive reachability analysis for JavaScript proje
 
 For this article:
 - **First-party code**: first-party code refers to your project, which includes the code that Semgrep scans
-- **Third-party code**: third-party code refers to the dependencies that the first-party code calls or imports and then uses
+- **Third-party code**: third-party code refers to the dependencies that the first-party code calls or imports
 
 Semgrep uses two overarching categories for project dependencies:
 
 - **Direct**: direct dependencies are those explicitly added by the developer, then called in the first-party code. You can visualize and review direct dependencies using the project's configuration file, such as the lockfile or the manifest file. Semgrep can also generate visual dependency graphs for projects that it scans.
-- **Transitive**: transitive dependencies are those that you include indirectly. For example, this happens when you directly add a dependency, but the dependency that you add then calls another dependency. In other words, a transitive dependency is one that third-party code adds and calls.
+- **Transitive**: transitive dependencies are those that you include indirectly. For example, this happens when you directly add a dependency, but the dependency that you add then calls another dependency. In other words, a transitive dependency is one that third-party code adds.
 
 ## How transitive reachability analysis works
 
@@ -79,7 +79,7 @@ Opening up an individual finding displays additional details for your review:
 ![The finding details page showing that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png#md-width)
 _**Figure**. The finding details page showing that the Supply Chain finding is unreachable._
 
-Semgrep also provides information about other dependencies that may result in volunerabilities.
+Semgrep also provides information about other dependencies that may result in vulnerabilities.
 
 ![The finding details page links to a list of dependencies analyzed.](/img/dependencies-analyzed.png)
 _**Figure**. The finding details page links to a list of dependencies analyzed._
