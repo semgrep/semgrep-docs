@@ -55,7 +55,7 @@ To change your Semgrep app's permission:
 
 After enabling dependency guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
 
-- Frequency: this analysis is performed every **two hours** on the latest **full scan**.
+- This analysis is performed every **two hours** on the latest **full scan**.
 - Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
   ![Finding with no fixed version available](/img/no-patch-available.png#md-width)
