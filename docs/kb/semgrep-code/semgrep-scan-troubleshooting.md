@@ -35,7 +35,7 @@ The first step to improving Semgrep's speed is limiting its run to only the file
 After addressing files to ignore:
 
 * If you suspect the presence of a large file slowing Semgrep's analysis, decrease the maximum size of files scanned with `--max-target-bytes BYTES`.
-* Run Semgrep with the `--time` flag. This outputs a list of the rules and files that took the longest.
+* Run `semgrep scan --time` locally. This outputs a list of the rules and files that took the longest.
   * Identify the slowest files from the list. You may find that you can add some of those files to your ignore list as well.
   * Identify the slowest rules from the list. You may find that some of them don't apply to your codebase and can be skipped.
 
