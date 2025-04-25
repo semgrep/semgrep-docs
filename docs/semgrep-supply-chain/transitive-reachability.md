@@ -16,9 +16,9 @@ Semgrep Supply Chains' transitive reachability analysis helps you identify vulne
 This feature is in private beta. To join, contact [support](/support).
 :::
 
-## Supported package managers and sources of information
+## Supported languages
 
-[TODO]
+Semgrep currently performs transitive reachability analysis for JavaScript projects.
 
 ## Definitions
 
@@ -78,6 +78,11 @@ Opening up an individual finding displays additional details for your review:
 
 ![The finding details page showing that the Supply Chain finding is unreachable.](/img/unreachable-finding-details.png#md-width)
 _**Figure**. The finding details page showing that the Supply Chain finding is unreachable._
+
+Semgrep also provides information about other dependencies that may result in volunerabilities.
+
+![The finding details page links to a list of dependencies analyzed.](/img/dependencies-analyzed.png)
+_**Figure**. The finding details page links to a list of dependencies analyzed._
 
 You can use **Dependency path** to see how Semgrep determined if a finding is transitive.
 
