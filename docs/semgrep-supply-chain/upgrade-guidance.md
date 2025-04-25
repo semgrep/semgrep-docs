@@ -85,7 +85,10 @@ _**Figure**. Useful details that provide upgrade guidance._
 ![Drawer showing all lines of code that must be changed](/img/upgrade-guidance-drawer.png#md-width)
 _**Figure**. Drawer showing all the lines of code that must be changed or are safe._
 
-### Pull request with fix
+## Create a pull request with fixes
+
+1. Navigate to the **Details** page of the finding for which you want to make a pull request.
+1. Click **Fix** > **Open fix PR**.
 
 A pull request includes:
 
@@ -94,17 +97,20 @@ A pull request includes:
 
 The following context is included in the pull request description:
 
-- The severity and reachability of the finding
-- All the pieces of code, typically functions, which make use of the dependency
+- Summary
+  - Severity and reachability of the finding
+  - The specific version of the dependency that the PR upgrades to
+- Vulnerability details
+  - A description of the vulnerability and links to its CVE references
+- Upgrade guidance
+  - All the pieces of code, typically functions, which make use of the dependency
   - Unchanged (safe) pieces of code
   - Potentially breaking pieces of code
-- The specific version of the dependency that the PR upgrades to
-- Release notes of the dependency related to the change
+- Dependency references
+  - Release notes, changelogs, and commits of the dependency which may be useful to resolve the breaking changes
 
-## Remediation: create a pull request
-
-1. Navigate to the **Details** page of the finding for which you want to make a pull request.
-1. Click **Fix** > **Open fix PR**.
+![PR comment with upgrade guidance](/img/upgrade-guidance-pr.png#md-width)
+_**Figure**. PR comment with upgrade guidance._
 
 ## Troubleshooting
 
