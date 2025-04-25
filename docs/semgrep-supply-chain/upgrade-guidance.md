@@ -65,19 +65,12 @@ The following chart shows the steps Semgrep performs from scanning to analysis a
 
 ![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/img/upgrade-guidance-flowchart.png)
 
-## Details provided by upgrade guidance
-
-You can review a finding's details in two places:
-
-- The finding's **Details** page
-- The pull request created by Semgrep
-
-### Details page
+## Review a finding's upgrade guidance 
 
 <ViewDetailsSsc />
 
-![SSC details page panels](/img/vuln-panels-ssc.png)
-_**Figure**. Various panels of the **Details** page._
+![SSC details that provide upgrade guidance.](/img/vuln-panels-ssc.png)
+_**Figure**. Useful details that provide upgrade guidance._
 <dl>
 <dt>A - Upgrade badge</dt>
 <dd>Indicates if an upgrade is safe or may break your codebase.</dd>
