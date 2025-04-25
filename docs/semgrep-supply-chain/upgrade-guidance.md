@@ -31,9 +31,6 @@ This feature is in **private beta**. To join the beta, reach out to the [Semgrep
   - `pip-tools`
   - `pipenv`
   - Poetry
-
-Semgrep supports the following source code managers:
-
 - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - This **includes** projects added to Semgrep through Semgrep Managed Scans 
 
@@ -41,9 +38,9 @@ Semgrep supports the following source code managers:
 
 - At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
-- Your **private** GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
+- Your **private** GitHub Semgrep app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-ap#grant-read-and-write-access-to-a-private-github-semgrep-appp).
 
-### Grant **Read and write** access
+### Grant **Read and write** access to a private GitHub Semgrep app
 
 To change your Semgrep app's permission:
 
@@ -56,7 +53,7 @@ To change your Semgrep app's permission:
 After enabling dependency guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
 
 - This analysis is performed every **two hours** on the latest **full scan**.
-- Only findings **with fixed versions** are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
+- Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
 - Findings without any fixed versions have no badge; instead they say **no patch available**.
   ![Finding with no fixed version available](/img/no-patch-available.png#md-width)
   _**Figure**. **Details** page for a finding that has no available fix._
