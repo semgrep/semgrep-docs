@@ -72,7 +72,7 @@ To view your findings in Semgrep AppSec Platform:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities)**.
-3. Use the **Transitivity** filter to select for **Transitive** findings. You can further filter your results using the **Reachability** filter to select for findings that are **Reachable**, **Unreachable**, or **Needs review**.
+3. Use the **Transitivity** filter to select for **Transitive** findings. You can further filter your results using the **Reachability** filter. For example, you can filter for **Unreachable** findings to identify all of the ones that can be deprioritized, allowing your AppSec team to focus on high priority issues.
 
 Opening up an individual finding displays additional details for your review:
 
