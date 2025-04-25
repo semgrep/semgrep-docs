@@ -33,21 +33,14 @@ Semgrep uses two overarching categories for project dependencies:
 
 ## How transitive reachability analysis works
 
-Semgrep's reachability analysis determines whether there's a vulnerability in your codebase by checking your code, specifically the functions used and the function calls made. Then, Semgrep checks if the vulnerability is reachable by checking to see if:
-
-- The relevant function is called, which means that the code is used
-- The relevant function is called in a potentially unsafe way
-
-If neither condition is met, then Semgrep categorizes the vulnerability as **Unreachable**.
-
-Occasionally, Semgrep flags a finding as **needs review**. These findings are conditionally reachable, and you must manually review your code to validate whether the vulnerability is reachable or not.
+Semgrep's reachability analysis determines whether there's a vulnerability in your codebase by checking your code. Then, Semgrep checks if the vulnerability is reachable or not. See [Types of Semgrep Supply Chain findings](/semgrep-supply-chain/overview#types-of-semgrep-supply-chain-findings) for more about reachability.
 
 ![A Supply Chain finding that needs review. Semgrep provides reachability details and remediation advice.](/img/vuln-needs-review.png#md-width)
 _**Figure**. A Supply Chain finding that needs review. Semgrep provides reachability details and remediation advice._
 
 The patterns that Semgrep Supply Chain uses to identify vulnerabilities present in first-party code are encapsulated in **rules**. With transitive reachability analysis, Semgrep extends its reachability analysis to the dependencies of dependencies to see if this code calls and uses vulnerable packages in a vulnerable way.
 
-To do this, Semgrep uses its Dependency Path feature to determine the set of packages, a subset of the third-party code, that calls on vulnerable packages. Semgrep then downloads the source code for the third-party dependencies called by your first-party code for analysis. <!-- TBD on whether we add a new CLI flag to control this behavior:`--allow-package-manager-install-deps` -->
+To do this, Semgrep uses its Dependency Path feature to determine the set of packages, a subset of the third-party code, that calls on vulnerable packages. Semgrep then downloads a copy of the third-party dependencies to its servers for scanning. It scans the third-party code using the same rules it uses against the first party code.
 
 Once Semgrep downloads the source code for the third-party dependencies, it scans this third-party code using the same rules it uses against the first-party code. 
 
@@ -63,6 +56,16 @@ In this example, the first-party code implements date selection capability using
 _**Figure**. Example of how a security vulnerability in a transitive dependency can be called by third-party code, which is then called by first-party code._
 
 The code that you scan with Supply Chain is referred to as first-party code. With transitive reachability, Supply Chain also scans third-party code, which, in this case, is `demoDep`. This is done by acquiring the source code and then scanning it using the same rules run against your first-party code. This allows Semgrep to determine if there's a vulnerable usage introduced by the third-party code based on its use of any additional packages.
+
+## Scan your project
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+2. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings**. This brings you to the **Deployment** page.
+3. In the **Supply Chain (SCA)** section, ensure that you have the **Supply Chain scans** <i class="fa-solid fa-toggle-large-on"></i> toggle enabled.
+4. Ensure that you initiate all subsequent Semgrep scans with the `--allow-local-builds` flag. For example:
+    ```console
+    semgrep ci --allow-local-builds
+    ```
 
 ## Findings
 
