@@ -17,5 +17,5 @@ The details page is divided into several panels:
   - AI analysis performed, if any
 - Graphs and code:
   - **Your code**: the source file in which a match was detected; the highlight indicates where the match was found
-  - **Dependency path**: displays the path of dependencies, useful when analyzing transitive dependencies
+  - **Dependency path**: displays the path of dependencies; useful when analyzing transitive dependencies
   - **Pattern** and **Rule**: the pattern and rule logic that determined the match 
