@@ -18,7 +18,7 @@ Know if you or your developers can safely and reliably update a vulnerable packa
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep can also create a PR to upgrade the package.
+Semgrep's dependency upgrade guidance uses [Assistant](/semgrep-assistant/overview) to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep can also create a PR to upgrade the package.
 
 ## Feature maturity
 
