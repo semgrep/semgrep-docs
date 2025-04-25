@@ -39,7 +39,7 @@ Semgrep supports the following source code managers:
 
 ## Prerequisites
 
-- At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+- At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
 - Your **private** GitHub Semgrep app must have **Read and write** access on the **Contents** permission. Refer to the following section for steps.
 
