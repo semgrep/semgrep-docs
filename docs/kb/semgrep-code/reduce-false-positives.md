@@ -94,7 +94,7 @@ To see the languages with Pro rules, go to [Supported languages](/supported-lang
 
 Languages such as Java and frameworks such as Django, FastAPI, and Flask have specific improvements that take into account language features and implicit dataflows. To learn more:
 
-- [Supported languages > Python](/semgrep-code/supported-languages-python)
+- [Supported languages > Python](/languages/python)
 - [Semantic detection in Java](/semgrep-code/java)
 
 ### Enable cross-file analysis

@@ -454,6 +454,9 @@ module.exports = {
           { from: "/kb/semgrep-cloud-platform/saml-bad-signature" , to: "/kb/semgrep-appsec-platform/saml-bad-signature" },
           { from: "/kb/semgrep-cloud-platform/saml-stops-working" , to: "/kb/semgrep-appsec-platform/saml-stops-working" },
           { from: "/kb/semgrep-cloud-platform/sso-attribute-error" , to: "/kb/semgrep-appsec-platform/sso-attribute-error" },
+          /* APR 28, 2025 */
+          { from: "/semgrep-code/supported-languages-python" , to: "/languages/python" },
+          { from: "/deployment/overview" , to: "/deployment/core-deployment" },
         ]
       }
     ],

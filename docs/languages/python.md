@@ -1,6 +1,6 @@
 ---
-slug: supported-languages-python
-id: supported-languages-python
+slug: python
+id: python
 append_help_link: true
 description: >-
   Detailed documentation for Semgrep's Python support. 

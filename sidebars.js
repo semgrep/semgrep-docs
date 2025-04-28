@@ -49,7 +49,7 @@ module.exports = {
                 link: {type: 'doc', id: 'supported-languages'},
                 items: [
                     'languages/javascript',
-                    'semgrep-code/supported-languages-python',
+                    'languages/python',
                 ]
             },
             {

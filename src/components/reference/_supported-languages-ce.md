@@ -60,12 +60,12 @@
          • 60+ Pro rules</td>
     </tr>
     <tr>
-      <td>[Python](/docs/semgrep-code/supported-languages-python)</td>
+      <td>[Python](/docs/languages/python)</td>
       <td><strong>Generally available</strong><br />
          • Cross-file dataflow analysis<br />
          • Framework-specific control flow analysis<br />
          • 300+ Pro rules<br />
-         • See [Python-specific support details](/docs/semgrep-code/supported-languages-python)</td>
+         • See [Python-specific support details](/docs/languages/python)</td>
     </tr>
     <tr>
       <td>Typescript</td>
