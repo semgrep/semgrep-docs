@@ -327,7 +327,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 
 - [35+ supported languages](/semgrep-ce-languages#semgrep-code-and-community-edition)
 - [<i class="fas fa-external-link fa-xs"></i> Pro (professionally written and maintained)](https://semgrep.dev/r?visib=Pro+%28Login%29) and Community rules
-- Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/semgrep-code/supported-languages-python)
+- Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/languages/python)
 - [Code search](/semgrep-code/editor#code-search-beta)
 
 ###### Semgrep Supply Chain (SCA)
