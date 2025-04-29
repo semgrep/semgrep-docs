@@ -58,7 +58,8 @@ The following analyses and features are available for JavaScript:
 The Semgrep Registry provides the following popular JavaScript rule sets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-<!-- confir tk
+
+<!-- config
 -  [<i class="fas fa-external-link fa-xs"></i> `p/javascript`](https://semgrep.dev/p/javascript)
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
 
