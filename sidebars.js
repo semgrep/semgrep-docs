@@ -50,6 +50,7 @@ module.exports = {
                 items: [
                     'languages/javascript',
                     'languages/python',
+                    'languages/csharp',
                 ]
             },
             {
