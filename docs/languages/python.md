@@ -12,13 +12,13 @@ title: Python
 
 import SupportedLibrariesTable from '/src/components/reference/_supported-libraries-python-table.md'
 
-# Python frameworks and analyses
+# Python support
 
 :::tip 
 Semgrep’s Python coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
 :::
 
-## Semgrep Code analyses
+## Semgrep Code frameworks and analyses
 
 * Framework-specific control flow analysis 
 * Inter-file analysis (cross-file)

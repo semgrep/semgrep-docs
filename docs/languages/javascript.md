@@ -9,27 +9,30 @@ tags:
   - Semgrep Supply Chain
 ---
 
-# JavaScript frameworks and analyses
+import LangCallout from "/src/components/concept/_lang-callout.md"
+import LangCoverage from "/src/components/concept/_lang-coverage.md"
+import LangDefCode from "/src/components/concept/_lang-def-code.md"
+import LangDefSsc from "/src/components/concept/_lang-def-ssc.md"
+import LangCeIntro from "/src/components/concept/_lang-ce-intro.md"
+import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
-:::tip 
-Semgrep’s JavaScript coverage leverages framework-specific analysis capabilities that are not present in Semgrep CE. As a result, many framework specific Pro rules will **fail** to return findings if run on Semgrep CE. To ensure full security coverage, run: `semgrep login && semgrep ci`.
-:::
+# JavaScript support
 
-## Semgrep Code
+<LangCallout />
 
-Semgrep Code is a static application security testing (SAST) tool that detects security vulnerabilities in your first-party code.
+## JavaScript support in Semgrep Code
 
-### Semgrep Code analyses for JavaScript
+<LangDefCode />
+
+### Analyses and frameworks
 
 - Framework-specific control flow analysis
-- Inter-file analysis (cross-file)
-- Inter-procedural analysis (cross-function)
+- Interfile analysis (cross-file)
+- Interprocedural analysis (cross-function)
 
-#### Coverage
+### Coverage
 
-Semgrep aims to provide comprehensive and accurate detection of common OWASP Top 10 issues in source code. Semgrep uses **rules**, which are instructions based on which it detects patterns in code. These rules are usually organized in rulesets.
-
-By default, Semgrep Code provides you the [<i class="fas fa-external-link fa-xs"></i> `p/comment`](https://semgrep.dev/p/comment) and [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default) rulesets. These rulesets provide the most accurate and comprehensive coverage across Semgrep's supported languages.
+<LangCoverage />
 
 In addition to rules, the Semgrep engine itself can analyze code and implicit dataflows in the context of the following supported frameworks:
 
@@ -120,7 +123,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 
 </details>
 
-### Benchmark results exclusive of [AI](https://semgrep.dev/docs/semgrep-assistant/overview) processing
+#### Benchmark results exclusive of [AI](/semgrep-assistant/overview) processing
 
 Semgrep's benchmarking process involves scanning open source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by the Semgrep security research team to monitor and improve rule performance.
 
@@ -133,9 +136,11 @@ Results as of **February 25, 2025**:
 | Repositories scanned | 153 |
 | Findings triaged to date | ~600 |
 
-## Semgrep Supply Chain
+## JavaScript support in Semgrep Supply Chain
 
 Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+
+<LangDefSsc />
 
 ### Supported package managers
 
@@ -149,34 +154,13 @@ Semgrep supports the following JavaScript package managers:
 
 The following analyses and features are available for JavaScript:
 
-<dl>
-<dt>Reachability analysis</dt>
-<dd></dd>
-<dt>License detection</dt>
-<dd></dd>
-<dt>Malicious dependency detection</dt>
-<dd></dd>
-<dt>SBOM generation</dt>
-<dd></dd>
-</dl>
+<LangSscFeatures />
 
-## Semgrep CE
+## JavaScript support in Semgrep CE
 
+<LangCeIntro />
 <!-- use a component here -->
 
-Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
-
-### Analyses
-
-- Single file, cross function constant propagation
-- Single function taint analysis
-- Semantic analysis 
-
-### Coverage
-
-:::tip
-- Check the `license` of a rule to ensure it meets your licensing requirements. See [Licensing](/licensing) for more details.
-:::
 
 The Semgrep Registry provides the following popular JavaScript rule sets:
 
@@ -189,4 +173,3 @@ Sample usage:
 ```bash
 semgrep scan --config p/javascript
 ```
-
