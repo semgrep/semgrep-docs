@@ -308,7 +308,8 @@ module.exports = {
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
-                'semgrep-secrets/validators'
+                'semgrep-secrets/validators',
+                'semgrep-secrets/glossary'
             ]
           },
         ]
