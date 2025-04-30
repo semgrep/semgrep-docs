@@ -89,7 +89,7 @@ _**Figure**. Drawer showing all the lines of code that must be changed or are sa
 
 A pull request includes:
 
-- The code change to upgrade the dependency
+- The manifest or lockfile changes necessary to upgrade the dependency
 - The context necessary for developers to fix potentially breaking changes
 
 The following context is included in the pull request description:
