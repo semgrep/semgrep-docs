@@ -38,7 +38,7 @@ The Semgrep Registry contains rules imported from various repositories, includin
 
 ## Revocation
 
-Revoking a secret makes it inactive. This can be done when a secret isn't required anymore or if a secret becomes compromised.
+Revoking a secret makes it inactive. This is done when a secret isn't required anymore or if a secret becomes compromised.
 
 ## Rotation
 
