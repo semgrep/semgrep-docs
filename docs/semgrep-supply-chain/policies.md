@@ -81,7 +81,7 @@ The following table lists available conditions and their values:
 
 | Condition | Values|
 | -------  | ------ |
-| [Reachability](/semgrep-supply-chain/glossary#reachability)      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> </ul>       |
+| [Reachability](/semgrep-supply-chain/glossary#reachability)      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
 | [Transitivity](/semgrep-supply-chain/glossary#transitivity)  | <ul><li>Direct</li> <li>Transitive</li></ul> |
