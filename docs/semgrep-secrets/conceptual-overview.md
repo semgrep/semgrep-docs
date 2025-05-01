@@ -8,7 +8,7 @@ tags:
   - Semgrep Secrets
 ---
 
-
+import ValidationStates from '/src/components/reference/_validation-states.mdx'
 
 # Semgrep Secrets overview
 
@@ -104,17 +104,7 @@ All validations, such as API calls, are done **locally** in your environment. No
    for, Semgrep notes that there is **No validator** finding for the secret.
 3. Semgrep Secrets performs an API
   call if the validator supports the service. The following outcomes can occur:
-   1. **Confirmed valid:** Semgrep made
-   an HTTP request using the secret, and it returned an HTTP status code of 200 or
-   similar **and** some indication of valid access. For example, a service can
-   include a `"message": "ok"` in the response body.
-   2. **Confirmed invalid:** Semgrep made an HTTP request using the secret and
-   it returned an HTTP status code of 401 or similar.
-   3. **Validation error:** Semgrep made an HTTP request using the secret, but
-   either the network request could not be made, a timeout occurred, or
-   the HTTP status code returned a different HTTP status code. In this case,
-   the Semgrep Team recommends manually reviewing the finding.
-   4. **No Validator:** The rule does not have a validator.
+   <ValidationStates />
 
 By performing this validation check, you can prioritize and triage the most
 high-priority, active findings.

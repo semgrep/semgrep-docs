@@ -3,9 +3,11 @@ slug: glossary
 description: Definitions of Semgrep Secrets product-specific terms.
 tags:
     - Semgrep Secrets
-title: Secrets glossary
+title: Glossary
 hide_title: true
 ---
+
+import ValidationStates from '/src/components/reference/_validation-states.mdx'
 
 import ScanTarget from '/src/components/reference/_scan-target.mdx'
 import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
@@ -65,10 +67,7 @@ Semantic analysis refers to Semgrep Secrets' ability to understand how data is u
 
 The validation state of a secret provides information on whether a secret, if leaked, poses an immediate security threat. Current Semgrep validation states for a secret include:
 
-- **Confirmed valid:** Semgrep made an HTTP request using the secret, and it returned an HTTP status code of 200 or similar **and** some indication of valid access. For example, a service can include a `"message": "ok"` in the response body.
-- **Confirmed invalid:** Semgrep made an HTTP request using the secret and it returned an HTTP status code of 401 or similar.
-- **Validation error:** Semgrep made an HTTP request using the secret, but either the network request could not be made, a timeout occurred, or the HTTP status code returned a different HTTP status code. In this case, the Semgrep Team recommends manually reviewing the finding.
-- **No Validator:** The rule does not have a validator.
+<ValidationStates />
 
 ## Validator
 
