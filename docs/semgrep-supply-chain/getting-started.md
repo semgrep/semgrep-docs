@@ -91,10 +91,14 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 To participate in this beta, reach out to [support@semgrep.com](mailto:support@semgrep.com).
 :::
 
-Semgrep Supply Chain can scan Java projects built using Maven or Gradle Wrapper without the need for lockfiles.
+Semgrep Supply Chain can scan projects without the need for lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available for the following languages:
+
+- Java projects built using Maven or Gradle Wrapper without the need for lockfiles
+- Python
+- Kotlin
+- C#
 
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven.
-
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag:
     ```console
     semgrep ci --allow-local-builds
@@ -136,4 +140,3 @@ Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project
 
 ## Block pull requests or merge requests
 
-You can comment on or potentially block pull requests or merge requests by defining a [Supply Chain Policy](/semgrep-supply-chain/policies).
