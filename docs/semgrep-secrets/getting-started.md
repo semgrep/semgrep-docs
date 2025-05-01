@@ -8,6 +8,8 @@ tags:
   - Semgrep Secrets
 ---
 
+import ValidationStates from '/src/components/reference/_validation-states.mdx'
+
 # Scan for secrets
 
 Semgrep Secrets allows you to detect and triage leaked secrets and credentials
@@ -128,12 +130,7 @@ Severity is assigned based on how sensitive or crucial the exposed web service i
 
 Refers to whether or not a secret is active and can be used to grant resources or authentication, or if a secret is inactive.
 
-| Validation | Description |
-| -----------  | ------------ |
-| Confirmed valid | Semgrep made an API call using the secret and it returned an HTTP response of 200 or similar and granted authentication. |
-| Confirmed invalid | Semgrep made an API call using the secret and it returned an HTTP response of 403 or similar. |
-| Validation error | Semgrep made an API call but it returned and HTTP response of 400 or similar; a server error, such as a timeout, occurred. The Semgrep Team recommends manually reviewing the finding. |
-| No validator | Semgrep does not perform any validation on this finding. You must manually review the finding. |
+<ValidationStates />
 
 #### Repository visibility
 
