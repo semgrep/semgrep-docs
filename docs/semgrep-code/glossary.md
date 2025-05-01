@@ -8,6 +8,7 @@ tags:
 ---
 
 import ScanTarget from '/src/components/reference/_scan-target.mdx'
+import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
 
 # Semgrep Code product terms
 
@@ -29,11 +30,7 @@ A full scan scans the entire codebase or Git repository in its current state. It
 
 ## Policy
 
-A policy refers to the set of rules that Semgrep runs and the workflow actions undertaken when a rule from the policy generates a finding.
-
-A workflow action is an action that is performed by Semgrep when a finding is detected, such as notifying Slack channels or posting a comment in the PR or MR that generated the finding.
-
-Not to be confused with **policy-as-code**.
+<PolicyDefinition />
 
 ## Registry (Semgrep Registry)
 

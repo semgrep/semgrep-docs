@@ -8,6 +8,7 @@ hide_title: true
 ---
 
 import ScanTarget from '/src/components/reference/_scan-target.mdx'
+import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
 
 # Semgrep Secrets glossary
 
@@ -27,12 +28,12 @@ A scan of your Git commit history to see if there are valid secrets publicly ava
 
 ## Policy
 
-A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action performed by Semgrep when it detects a finding can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding.
+<PolicyDefinition />
 
 ## Registry (Semgrep Registry)
 
 A [<i class="fas fa-external-link fa-xs"></i> collection of rules](https://semgrep.dev/r) that you can download. Semgrep offers a 
-<i class="fas fa-external-link fa-xs"></i> Secrets-specific ruleset(https://semgrep.dev/p/secrets).
+<i class="fas fa-external-link fa-xs"></i> [Secrets-specific ruleset](https://semgrep.dev/p/secrets).
 
 ### Sources of rules
 
