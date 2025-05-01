@@ -291,7 +291,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>Python</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅<br /> For PyPi only</td>
 <td align="center">✅</td>
 </tr>

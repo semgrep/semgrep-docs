@@ -93,8 +93,7 @@ To participate in this beta, reach out to [support@semgrep.com](mailto:support@s
 
 Semgrep Supply Chain can scan projects without the need for lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available for the following languages:
 
-- Java projects built using Maven or Gradle Wrapper without the need for lockfiles
-- Python
+- Java projects built using Maven or Gradle Wrapper
 - Kotlin
 - C#
 
