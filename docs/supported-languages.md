@@ -247,6 +247,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <th>Language</th>
 <th align="center">Reachability<br />(see <a href="#cve-coverage">CVE coverage</a>)</th>
+<th><a href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Scan without lockfiles (beta)</a></th>
 <th>License detection</th>
 <th>Malicious dependency<br />detection (beta)</th>
 </tr>
@@ -257,10 +258,12 @@ The following table lists all Supply Chain features for each language. Languages
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>Go</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
@@ -268,11 +271,13 @@ The following table lists all Supply Chain features for each language. Languages
 <td>Java</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>JavaScript or TypeScript</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
@@ -280,35 +285,41 @@ The following table lists all Supply Chain features for each language. Languages
 <td>Kotlin</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Python</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅<br /> For PyPi only</td>
 <td align="center">✅</td>
 </tr>
 <tr>
 <td>Ruby</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
 <tr>
 <td>Scala</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅†</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Swift</td>
 <td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Rust</td>
 <td align="center" width="180px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
@@ -316,14 +327,17 @@ The following table lists all Supply Chain features for each language. Languages
 <td>Dart</td>
 <td align="center">--</td>
 <td align="center">--</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>Elixir</td>
 <td align="center">--</td>
 <td align="center">--</td>
+<td align="center">--</td>
 </tr>
 <tr>
 <td>PHP</td>
+<td align="center">--</td>
 <td align="center">--</td>
 <td align="center">--</td>
 </tr>
