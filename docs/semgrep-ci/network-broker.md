@@ -30,6 +30,7 @@ The Semgrep Network Broker is available to Enterprise tier users.
   - If you will be using the broker with a dedicated Semgrep tenant, please note that in your request.
 - **Docker** must be installed on the server where you install the network broker.
 - Ensure that you allocate at least 1 CPU and 512 MB RAM for each instance of Semgrep Network Broker that you run.
+- Ensure that you allow outbound access to `wireguard.semgrep.dev` on UDP port `51820`.
 
 ## Configure Semgrep Network Broker
 
