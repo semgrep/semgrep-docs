@@ -11,12 +11,16 @@ title: Python
 ---
 
 import SupportedLibrariesTable from '/src/components/reference/_supported-libraries-python-table.md'
+import LangCallout from "/src/components/concept/_lang-callout.md"
+import LangCoverage from "/src/components/concept/_lang-coverage.md"
+import LangDefCode from "/src/components/concept/_lang-def-code.md"
+import LangDefSsc from "/src/components/concept/_lang-def-ssc.md"
+import LangCeIntro from "/src/components/concept/_lang-ce-intro.md"
+import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 # Python support
 
-:::tip 
-Semgrep’s Python coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
-:::
+<LangCallout name="Python" />
 
 ## Semgrep Code frameworks and analyses
 
