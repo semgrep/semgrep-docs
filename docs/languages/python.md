@@ -22,7 +22,11 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="Python" />
 
-## Semgrep Code frameworks and analyses
+## Python support in Semgrep Code
+
+<LangDefCode />
+
+### Analyses and frameworks
 
 * Framework-specific control flow analysis 
 * Inter-file analysis (cross-file)
@@ -30,7 +34,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Coverage 
 
-Semgrep aims to provide comprehensive and accurate detection of common OWASP Top 10 issues in source code.
+<LangCoverage />
 
 In addition to rules, the Semgrep engine itself can analyze code and implicit dataflows in the context of the following supported frameworks:
 
@@ -89,3 +93,42 @@ Results as of **September 9, 2024**:
     
     </tbody>
 </table>
+
+## Python support in Semgrep Supply Chain
+
+<LangDefSsc />
+
+### Supported package managers
+
+Semgrep supports the following Python package managers:
+
+- pip
+- pip-tools
+- Pipenv
+- Poetry
+
+### Analyses and features
+
+The following analyses and features are available for Python:
+
+<LangSscFeatures />
+
+## Python support in Semgrep CE
+
+<LangCeIntro />
+<!-- use a component here -->
+
+
+The Semgrep Registry provides the following JavaScript rulesets:
+
+- [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
+-  [<i class="fas fa-external-link fa-xs"></i> `p/python`](https://semgrep.dev/p/python)
+- [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
+- [<i class="fas fa-external-link fa-xs"></i> `p/xss`](https://semgrep.dev/p/trailofbits)
+
+Sample usage:
+
+```bash
+semgrep scan --config p/python
+```
+
