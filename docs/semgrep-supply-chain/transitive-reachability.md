@@ -9,7 +9,7 @@ tags:
 
 # Transitive reachability (beta)
 
-Semgrep Supply Chains' transitive reachability analysis helps you identify vulnerabilities introduced by third-party packages and their dependencies. 
+Semgrep Supply Chain's transitive reachability analysis helps you see vulnerabilities introduced by third-party packages and their dependencies. 
 
 
 :::info
@@ -29,7 +29,7 @@ For this article:
 Semgrep uses two overarching categories for project dependencies:
 
 - **Direct**: direct dependencies are those explicitly added by the developer, then called in the first-party code. You can visualize and review direct dependencies using the project's configuration file, such as the lockfile or the manifest file. Semgrep can also generate visual dependency graphs for projects that it scans.
-- **Transitive**: transitive dependencies are those that you include indirectly. For example, this happens when you directly add a dependency, but the dependency that you add then calls another dependency. In other words, a transitive dependency is one that third-party code adds.
+- **Transitive**: transitive dependencies are those not explicitly added by the developer, but included indirectly. For example, this happens when you directly add a dependency, but the dependency that you add then calls another dependency. In other words, a transitive dependency is one that third-party code adds.
 
 ## How transitive reachability analysis works
 
