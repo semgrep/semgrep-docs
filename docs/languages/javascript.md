@@ -18,7 +18,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 # JavaScript support
 
-<LangCallout />
+<LangCallout name="JavaScript" />
 
 ## JavaScript support in Semgrep Code
 
@@ -162,11 +162,12 @@ The following analyses and features are available for JavaScript:
 <!-- use a component here -->
 
 
-The Semgrep Registry provides the following popular JavaScript rule sets:
+The Semgrep Registry provides the following JavaScript rule sets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
 -  [<i class="fas fa-external-link fa-xs"></i> `p/javascript`](https://semgrep.dev/p/javascript)
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
+- [<i class="fas fa-external-link fa-xs"></i> `p/xss`](https://semgrep.dev/p/trailofbits)
 
 Sample usage:
 

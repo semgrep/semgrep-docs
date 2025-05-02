@@ -19,9 +19,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 # C# support
 
-:::tip 
-Semgrep’s C# coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
-:::
+<LangCallout name="C#" />
 
 ## Semgrep Code analyses
 
@@ -33,6 +31,12 @@ Semgrep’s C# coverage leverages framework-specific analysis capabilities that 
 
 <LangCoverage />
 
+Some examples of rules include:
+
+- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use formatted strings in SQL statements; prefer prepared statements](https://semgrep.dev/playground/r/csharp.lang.security.sqli.csharp-sqli.csharp-sqli?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-90: LDAP injection. Avoid LDAP queries constructed dynamically on user-controlled input](https://semgrep.dev/playground/r/csharp.dotnet.security.audit.ldap-injection.ldap-injection?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-347: Improper verification of cryptographic signature. Use signed security tokens](https://semgrep.dev/playground/r/csharp.lang.security.cryptography.unsigned-security-token.unsigned-security-token?editorMode=advanced)
+
 ## C# support in Semgrep Supply Chain
 
 Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
@@ -41,13 +45,13 @@ Semgrep Supply Chain is a software composition analysis (SCA) tool that detects 
 
 ### Supported package managers
 
-Semgrep supports the following C# package managers:
+Semgrep supports the following C# package manager:
 
-ADD tk
+- NuGet
 
 ### Analyses and features
 
-The following analyses and features are available for JavaScript:
+The following analyses and features are available for C#:
 
 <LangSscFeatures />
 
@@ -55,14 +59,15 @@ The following analyses and features are available for JavaScript:
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following popular JavaScript rule sets:
+The Semgrep Registry provides the following  C# rule sets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
+- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
+- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
 
 <!-- config
--  [<i class="fas fa-external-link fa-xs"></i> `p/javascript`](https://semgrep.dev/p/javascript)
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
-
+- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
 -->
 Sample usage:
 
