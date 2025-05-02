@@ -23,15 +23,20 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
+* Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 
 ## Coverage 
 
 <LangCoverage />
 
-Some examples of rules include:
+The following is an example of a Kotlin rule:
 
-tk
+- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. NullCipher does not encrypt anything; avoid](https://semgrep.dev/playground/r/kotlin.lang.security.no-null-cipher.no-null-cipher?editorMode=advanced)
+
+Many, but not all Kotlin rules require a Semgrep account. Sign in to Semgrep AppSec Platform to view this rule:
+
+- [<i class="fas fa-external-link fa-xs"></i> CWE-776: XML entity expansion. Securely configure your XML parser](https://semgrep.dev/orgs/-/editor/r/kotlin.xxe.xmlreader-xxe.xmlreader-xxe?editorMode=advanced)
 
 ## Kotlin support in Semgrep Supply Chain
 
@@ -45,11 +50,12 @@ Kotlin projects can be scanned **without** the need for lockfiles. See [Scan a p
 
 Semgrep supports the following Kotlin package manager:
 
+- Gradle
 - Maven
 
 ### Analyses and features
 
-The following analyses and features are available for Scala:
+The following analyses and features are available for Kotlin:
 
 <dl>
 <dt>Reachability analysis</dt>
@@ -66,16 +72,14 @@ Semgrep enables you to generate a software bill of materials (SBOM) to assess yo
 </dd>
 </dl>
 
-## Scala support in Semgrep CE
+## Kotlin support in Semgrep CE
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following Scala rule sets:
+The Semgrep Registry provides the following Kotlin rule sets (many rules require a Semgrep account):
 
-tk
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
+- [<i class="fas fa-external-link fa-xs"></i> `p/kotlin`](https://semgrep.dev/p/kotlin)
 
 <!-- config
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
@@ -84,5 +88,5 @@ tk
 Sample usage:
 
 ```bash
-semgrep scan --config p/scala
+semgrep scan --config p/kotlin
 ```

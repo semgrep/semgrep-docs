@@ -1,3 +1,4 @@
+---
 append_help_link: true
 description: >-
   Detailed documentation for Semgrep's Swift support. 
