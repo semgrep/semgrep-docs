@@ -53,6 +53,10 @@ The following analyses and features are available for C#:
 
 <LangSscFeatures />
 
+:::tip No need for lockfiles
+C# projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+:::
+
 ## C# support in Semgrep CE
 
 <LangCeIntro />

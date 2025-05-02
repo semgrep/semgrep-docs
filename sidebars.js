@@ -52,6 +52,7 @@ module.exports = {
                     'languages/go',
                     'languages/java',
                     'languages/javascript',
+                    'languages/kotlin',
                     'languages/python',
                     'languages/ruby',
                     'languages/scala',

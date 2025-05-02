@@ -23,8 +23,6 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
-* Framework-specific control flow analysis 
-* Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 
 ## Coverage 
@@ -33,34 +31,44 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use formatted strings in SQL statements; prefer prepared statements](https://semgrep.dev/playground/r/csharp.lang.security.sqli.csharp-sqli.csharp-sqli?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-90: LDAP injection. Avoid LDAP queries constructed dynamically on user-controlled input](https://semgrep.dev/playground/r/csharp.dotnet.security.audit.ldap-injection.ldap-injection?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-347: Improper verification of cryptographic signature. Use signed security tokens](https://semgrep.dev/playground/r/csharp.lang.security.cryptography.unsigned-security-token.unsigned-security-token?editorMode=advanced)
+tk
 
-## C# support in Semgrep Supply Chain
-
-Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+## Swift support in Semgrep Supply Chain
 
 <LangDefSsc />
 
 ### Supported package managers
 
-Semgrep supports the following C# package manager:
+Semgrep supports the following Swift package manager:
 
-- NuGet
+- SwiftPM
 
 ### Analyses and features
 
-The following analyses and features are available for C#:
+The following analyses and features are available for Swift:
 
-<LangSscFeatures />
+<dl>
+<dt>Reachability analysis</dt>
+<dd>
+Reachability refers to whether or not a vulnerable code pattern from a dependency is used in the codebase that imports it. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable.
+</dd>
+<dt>License detection</dt>
+<dd>
+Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
+</dd>
+<dt>SBOM generation</dt>
+<dd>
+Semgrep enables you to generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform.
+</dd>
+</dl>
 
-## C# support in Semgrep CE
+## Swift support in Semgrep CE
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following  C# rule sets:
+The Semgrep Registry provides the following Swift rule sets:
 
+tk
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
 - [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
 - [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
@@ -71,6 +79,7 @@ The Semgrep Registry provides the following  C# rule sets:
 -->
 Sample usage:
 
+tk
 ```bash
 semgrep scan --config p/csharp
 ```

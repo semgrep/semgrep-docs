@@ -1,13 +1,13 @@
 ---
-slug: java
+slug: kotlin
 append_help_link: true
 description: >-
-  Detailed documentation for Semgrep's Java support. 
+  Detailed documentation for Semgrep's Kotlin support. 
 hide_title: true
 tags:
     - Semgrep Code
     - Semgrep Supply Chain
-title: Java
+title: Kotlin
 ---
 
 import LangCallout from "/src/components/concept/_lang-callout.md"
@@ -17,14 +17,12 @@ import LangDefSsc from "/src/components/concept/_lang-def-ssc.md"
 import LangCeIntro from "/src/components/concept/_lang-ce-intro.md"
 import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
-# Java support
+# Kotlin support
 
-<LangCallout name="Java" />
+<LangCallout name="Kotlin" />
 
 ## Semgrep Code analyses
 
-* [Language-specific analysis](/semgrep-code/java)
-* Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 
 ## Coverage 
@@ -33,23 +31,25 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. Don't use the `none` algorithm](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.java-jwt.security.jwt-none-alg.java-jwt-none-alg?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-78: OS command injection. Sanitize your variables before using them as input to a `java.lang.Runtime` call](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call?editorMode=advanced)
+tk
 
-## Java support in Semgrep Supply Chain
+## Kotlin support in Semgrep Supply Chain
 
 <LangDefSsc />
 
+:::tip No need for lockfiles
+Kotlin projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+:::
+
 ### Supported package managers
 
-Semgrep supports the following Java package managers:
+Semgrep supports the following Kotlin package manager:
 
-- Gradle
 - Maven
 
 ### Analyses and features
 
-The following analyses and features are available for Java:
+The following analyses and features are available for Scala:
 
 <dl>
 <dt>Reachability analysis</dt>
@@ -66,19 +66,16 @@ Semgrep enables you to generate a software bill of materials (SBOM) to assess yo
 </dd>
 </dl>
 
-:::tip No need for lockfiles
-Java projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-:::
-
-## Java support in Semgrep CE
+## Scala support in Semgrep CE
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following Java rulesets:
+The Semgrep Registry provides the following Scala rule sets:
 
+tk
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/java`](https://semgrep.dev/p/java)
-- [<i class="fas fa-external-link fa-xs"></i> `p/findsecbugs`](https://semgrep.dev/p/findsecbugs)
+- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
+- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
 
 <!-- config
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
@@ -87,5 +84,5 @@ The Semgrep Registry provides the following Java rulesets:
 Sample usage:
 
 ```bash
-semgrep scan --config p/java
+semgrep scan --config p/scala
 ```
