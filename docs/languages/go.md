@@ -32,8 +32,8 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use user input to manually construct an SQL string](https://semgrep.dev/orgs/ooo_semgrep/editor/r/go.aws-lambda.security.tainted-sql-string.tainted-sql-string?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-943: Improper neutralization of special elements in data query. Avoid NoSQL Injection in Mongo with Gin](https://semgrep.dev/orgs/ooo_semgrep/editor/r/go.gin.nosql.gin-mongo-nosql-taint.gin-mongo-nosqli-taint?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use user input to manually construct an SQL string](https://semgrep.dev/playground/r/go.aws-lambda.security.tainted-sql-string.tainted-sql-string?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-943: Improper neutralization of special elements in data query. Avoid NoSQL Injection in Mongo with Gin](https://semgrep.dev/playground/r/go.gin.nosql.gin-mongo-nosql-taint.gin-mongo-nosqli-taint?editorMode=advanced)
 
 ## Go support in Semgrep Supply Chain
 

@@ -31,7 +31,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-tk
+- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Avoid using unsanitized user input when generating SQL strings](https://semgrep.dev/playground/r/scala.play.security.tainted-slick-sqli.tainted-slick-sqli?editorMode=advanced)
 
 ## Scala support in Semgrep Supply Chain
 
@@ -70,8 +70,7 @@ The Semgrep Registry provides the following Scala rule sets:
 
 tk
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
+- [<i class="fas fa-external-link fa-xs"></i> `p/scala`](https://semgrep.dev/p/scala)
 
 <!-- config
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)

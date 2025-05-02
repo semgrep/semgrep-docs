@@ -31,8 +31,8 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-502: Deserialization of untrusted data. Using `load` and `object_load` can cause remote code execution; use JSON securely instead](https://semgrep.dev/orgs/ooo_semgrep/editor/r/ruby.lang.security.bad-deserialization.bad-deserialization?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-185: Incorrect regular expression. Incorrectly-bounded regex should be terminated correctly](https://semgrep.dev/orgs/ooo_semgrep/editor/r/ruby.rails.security.brakeman.check-validation-regex.check-validation-regex?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-502: Deserialization of untrusted data. Using `load` and `object_load` can cause remote code execution; use JSON securely instead](https://semgrep.dev/playground/r/ruby.lang.security.bad-deserialization.bad-deserialization?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-185: Incorrect regular expression. Incorrectly-bounded regex should be terminated correctly](https://semgrep.dev/playground/r/ruby.rails.security.brakeman.check-validation-regex.check-validation-regex?editorMode=advanced)
 
 ## Ruby support in Semgrep Supply Chain
 

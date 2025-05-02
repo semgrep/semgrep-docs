@@ -33,8 +33,8 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. Don't use the `none` algorithm](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.java-jwt.security.jwt-none-alg.java-jwt-none-alg?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-78: OS command injection. Sanitize your variables before using them as input to a `java.lang.Runtime` call](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. Don't use the `none` algorithm](https://semgrep.dev/playground/r/java.java-jwt.security.jwt-none-alg.java-jwt-none-alg?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-78: OS command injection. Sanitize your variables before using them as input to a `java.lang.Runtime` call](https://semgrep.dev/playground/r/java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call?editorMode=advanced)
 
 ## Java support in Semgrep Supply Chain
 
