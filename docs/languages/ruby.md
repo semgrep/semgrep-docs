@@ -23,8 +23,6 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
-* Framework-specific control flow analysis 
-* Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 
 ## Coverage 
@@ -33,37 +31,34 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use formatted strings in SQL statements; prefer prepared statements](https://semgrep.dev/playground/r/csharp.lang.security.sqli.csharp-sqli.csharp-sqli?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-90: LDAP injection. Avoid LDAP queries constructed dynamically on user-controlled input](https://semgrep.dev/playground/r/csharp.dotnet.security.audit.ldap-injection.ldap-injection?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-347: Improper verification of cryptographic signature. Use signed security tokens](https://semgrep.dev/playground/r/csharp.lang.security.cryptography.unsigned-security-token.unsigned-security-token?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-502: Deserialization of untrusted data. Using `load` and `object_load` can cause remote code execution; use JSON securely instead](https://semgrep.dev/orgs/ooo_semgrep/editor/r/ruby.lang.security.bad-deserialization.bad-deserialization?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-185: Incorrect regular expression. Incorrectly-bounded regex should be terminated correctly](https://semgrep.dev/orgs/ooo_semgrep/editor/r/ruby.rails.security.brakeman.check-validation-regex.check-validation-regex?editorMode=advanced)
 
-## C# support in Semgrep Supply Chain
-
-Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+## Ruby support in Semgrep Supply Chain
 
 <LangDefSsc />
 
 ### Supported package managers
 
-Semgrep supports the following C# package manager:
+Semgrep supports the following Ruby package manager:
 
-- NuGet
+- RubyGems
 
 ### Analyses and features
 
-The following analyses and features are available for C#:
+The following analyses and features are available for Ruby:
 
 <LangSscFeatures />
 
-## C# support in Semgrep CE
+## Ruby support in Semgrep CE
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following  C# rule sets:
+The Semgrep Registry provides the following Ruby rulesets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
+- [<i class="fas fa-external-link fa-xs"></i> `p/ruby`](https://semgrep.dev/p/ruby)
+- [<i class="fas fa-external-link fa-xs"></i> `p/brakeman`](https://semgrep.dev/p/brakeman)
 
 <!-- config
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
@@ -71,6 +66,7 @@ The Semgrep Registry provides the following  C# rule sets:
 -->
 Sample usage:
 
+
 ```bash
-semgrep scan --config p/csharp
+semgrep scan --config p/ruby
 ```

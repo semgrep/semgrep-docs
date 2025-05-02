@@ -23,7 +23,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
-* Framework-specific control flow analysis 
+* [Language-specific analysis](/semgrep-code/java)
 * Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 
@@ -33,37 +33,48 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-- [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Don't use formatted strings in SQL statements; prefer prepared statements](https://semgrep.dev/playground/r/csharp.lang.security.sqli.csharp-sqli.csharp-sqli?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-90: LDAP injection. Avoid LDAP queries constructed dynamically on user-controlled input](https://semgrep.dev/playground/r/csharp.dotnet.security.audit.ldap-injection.ldap-injection?editorMode=advanced)
-- [<i class="fas fa-external-link fa-xs"></i> CWE-347: Improper verification of cryptographic signature. Use signed security tokens](https://semgrep.dev/playground/r/csharp.lang.security.cryptography.unsigned-security-token.unsigned-security-token?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. Don't use the `none` algorithm](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.java-jwt.security.jwt-none-alg.java-jwt-none-alg?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-78: OS command injection. Sanitize your variables before using them as input to a `java.lang.Runtime` call](https://semgrep.dev/orgs/ooo_semgrep/editor/r/java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call?editorMode=advanced)
 
-## C# support in Semgrep Supply Chain
-
-Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+## Java support in Semgrep Supply Chain
 
 <LangDefSsc />
 
 ### Supported package managers
 
-Semgrep supports the following C# package manager:
+Semgrep supports the following Java package managers:
 
-- NuGet
+- Gradle
+- Maven
 
 ### Analyses and features
 
-The following analyses and features are available for C#:
+The following analyses and features are available for Java:
 
-<LangSscFeatures />
+<dl>
+<dt>Reachability analysis</dt>
+<dd>
+Reachability refers to whether or not a vulnerable code pattern from a dependency is used in the codebase that imports it. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable.
+</dd>
+<dt>License detection</dt>
+<dd>
+Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
+</dd>
+<dt>SBOM generation</dt>
+<dd>
+Semgrep enables you to generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform.
+</dd>
+</dl>
 
-## C# support in Semgrep CE
+## Java support in Semgrep CE
 
 <LangCeIntro />
 
-The Semgrep Registry provides the following  C# rule sets:
+The Semgrep Registry provides the following Java rulesets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
+- [<i class="fas fa-external-link fa-xs"></i> `p/java`](https://semgrep.dev/p/java)
+- [<i class="fas fa-external-link fa-xs"></i> `p/findsecbugs`](https://semgrep.dev/p/findsecbugs)
 
 <!-- config
 - [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
@@ -72,5 +83,5 @@ The Semgrep Registry provides the following  C# rule sets:
 Sample usage:
 
 ```bash
-semgrep scan --config p/csharp
+semgrep scan --config p/java
 ```

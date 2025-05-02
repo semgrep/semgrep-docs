@@ -37,8 +37,6 @@ Some examples of rules include:
 
 ## Go support in Semgrep Supply Chain
 
-Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
-
 <LangDefSsc />
 
 ### Supported package managers

@@ -138,8 +138,6 @@ Results as of **February 25, 2025**:
 
 ## JavaScript support in Semgrep Supply Chain
 
-Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
-
 <LangDefSsc />
 
 ### Supported package managers
@@ -162,7 +160,7 @@ The following analyses and features are available for JavaScript:
 <!-- use a component here -->
 
 
-The Semgrep Registry provides the following JavaScript rule sets:
+The Semgrep Registry provides the following JavaScript rulesets:
 
 - [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
 -  [<i class="fas fa-external-link fa-xs"></i> `p/javascript`](https://semgrep.dev/p/javascript)

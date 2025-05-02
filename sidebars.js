@@ -48,9 +48,14 @@ module.exports = {
                 label: 'Supported languages',
                 link: {type: 'doc', id: 'supported-languages'},
                 items: [
+                    'languages/csharp',
+                    'languages/go',
+                    'languages/java',
                     'languages/javascript',
                     'languages/python',
-                    'languages/csharp',
+                    'languages/ruby',
+                    'languages/scala',
+                    'languages/swift',
                 ]
             },
             {
