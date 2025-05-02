@@ -1,5 +1,3 @@
----
-slug: swift
 append_help_link: true
 description: >-
   Detailed documentation for Semgrep's Swift support. 
@@ -31,7 +29,10 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 Some examples of rules include:
 
-tk
+- [<i class="fas fa-external-link fa-xs"></i> CWE-477: Use of obsolete function. `ptrace` API is forbidden from iOS applications](https://semgrep.dev/orgs/-/editor/r/swift.lang.forbidden.forbidden-ios-api.swift-forbidden-ios-apis?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-327: Use of a broken or risky cryptographic algorithm. Avoid MD2](https://semgrep.dev/orgs/-/editor/r/swift.commoncrypto.insecure-hashing-algorithm-md2.insecure-hashing-algorithm-md2?editorMode=advanced)
+
+To view these rules, sign in to Semgrep AppSec Platform.
 
 ## Swift support in Semgrep Supply Chain
 
@@ -62,24 +63,3 @@ Semgrep enables you to generate a software bill of materials (SBOM) to assess yo
 </dd>
 </dl>
 
-## Swift support in Semgrep CE
-
-<LangCeIntro />
-
-The Semgrep Registry provides the following Swift rule sets:
-
-tk
-- [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
-- [<i class="fas fa-external-link fa-xs"></i> `p/csharp`](https://semgrep.dev/p/csharp)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
-
-<!-- config
-- [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
-- [<i class="fas fa-external-link fa-xs"></i> `p/gitlab`](https://semgrep.dev/p/gitlab)
--->
-Sample usage:
-
-tk
-```bash
-semgrep scan --config p/csharp
-```

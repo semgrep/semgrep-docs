@@ -32,6 +32,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 Some examples of rules include:
 
 - [<i class="fas fa-external-link fa-xs"></i> CWE-89: SQL injection. Avoid using unsanitized user input when generating SQL strings](https://semgrep.dev/playground/r/scala.play.security.tainted-slick-sqli.tainted-slick-sqli?editorMode=advanced)
+- [<i class="fas fa-external-link fa-xs"></i> CWE-78: OS command injection. Sanitize variables that are used in external processes.](https://semgrep.dev/playground/r/scala.lang.security.audit.dangerous-seq-run.dangerous-seq-run)
 
 ## Scala support in Semgrep Supply Chain
 
