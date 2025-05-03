@@ -25,6 +25,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 * Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
+* All analyses performed by [Semgrep CE](#kotlin-support-in-semgrep-ce)
 
 ## Coverage 
 

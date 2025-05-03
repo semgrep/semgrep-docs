@@ -23,6 +23,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 ## Semgrep Code analyses
 
 * Interprocedural analysis (cross-function)
+* All analyses performed by [Semgrep CE](#swift-support-in-semgrep-ce)
 
 ## Coverage 
 

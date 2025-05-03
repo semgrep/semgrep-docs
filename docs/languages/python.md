@@ -29,8 +29,9 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 ### Analyses and frameworks
 
 * Framework-specific control flow analysis 
-* Inter-file analysis (cross-file)
-* Inter-procedural analysis (cross-function)
+* Interfile analysis (cross-file)
+* Interprocedural analysis (cross-function)
+* All analyses performed by [Semgrep CE](#python-support-in-semgrep-ce)
 
 ## Coverage 
 
