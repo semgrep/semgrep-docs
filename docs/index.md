@@ -81,6 +81,15 @@ The code is kept here for easy maintenance.
 
 <h3>Supported languages</h3>
 
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
+
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- the supported languages page
+*************************************************************************** -->
+
 | Product | Languages |
 | :-------  | :------ |
 | Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
