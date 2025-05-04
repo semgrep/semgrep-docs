@@ -22,17 +22,26 @@ The following updates were made to Semgrep in April 2025.
 
 ### Added
 
+- Added the following information in the Semgrep API:
+  - Rule author information under the `registry_source` field in the Semgrep API. For example, if the source or author of the rule is Semgrep, the value returned is `semgrep`. <!-- 20189 -->
+  - CWE information.
+  - OWASP categories.
+  - Technology values, such as `bash` or `curl`.
+- Semgrep Managed Scans now run when a pull request or merge request is reopened.
+  
 ### Changed
 
+- Jira labels can now support special characters.
+
 ### Fixed
+
+- Various fixes and improvements to Teams (role-based access control).
 
 ## 💻 Semgrep Code
 
 ### Added
 
-### Changed
-
-### Fixed
+- Added a new ruleset to detect **unauthorized** use of AI or LLM libraries, that is, the use of AI without going through security reviews or approval processes. This includes direct API calls, such as `api.openapi.com`, `api.anthropic.com` and libraries in code such as `langchain` and `transformers`. See the [<i class="fas fa-external-link fa-xs"></i> Semgrep Shadow AI](https://semgrep.dev/shadowAI) page to learn more.
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -44,10 +53,14 @@ The following updates were made to Semgrep in April 2025.
     1. Bump the version.
     2. Lets the developer know if the upgrade is safe or if there are breaking changes and what those changes are.
 - **Transitive reachability** is now in **private beta**. For JavaScript projects, Semgrep reachability now extends to transitive dependencies.
+- Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
 
 ### Changed
 
 - Increased the rate limit for SBOM exports through the Semgrep API.
+- Improved Supply Chain PR comments by adding separate templates for conditionally reachable and always reachable findings, as well as manual review advice for conditionally reachable findings. <!-- 20446 -->
+- Improved the user introduction to Supply Chain to focus on reachable findings. <!-- 20290 --> 
+- Improved the Supply Chain > Details page. <!-- 20236 -->
 
 ## 🤖 Semgrep Assistant
 
