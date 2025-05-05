@@ -66,11 +66,11 @@ The following updates were made to Semgrep in April 2025.
 
 ### Added
 
-- Semgrep Assistant now attempts to create a memory during triage if possible.
+- Semgrep Assistant now attempts to create a memory during triage if possible. If Semgrep creates a memory, you'll see a dialog appear, indicating that this has happened, along with a link to the list of your organization's memories for review.
 - Assistant Memories v2 is now in **private beta**:
   - Managing memories in Semgrep AppSec Platform now occurs under **Policies**, not **Settings**.
   - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings affected
-  - Assistant now provides **suggested memories**, which are those that Assistant has generated based on your past triage actions. For each suggestion, you can choose one of the following actions:
+  - Assistant now provides **suggested memories**, which are those that Assistant has generated based on your past triage actions. You can view these memories at any time in Semgrep AppSec Platform by navigating to **Rules & Policies > Assistant Memories > Suggested**. For each suggestion, you can choose one of the following actions:
     - Activate the suggested memory to inform Assistant's future advice.
     - Edit the memory, then activate it.
     - Delete the memory.
