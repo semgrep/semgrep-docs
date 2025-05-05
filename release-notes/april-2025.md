@@ -47,10 +47,10 @@ The following updates were made to Semgrep in April 2025.
 
 ### Added
 
-- [SBOM exports through the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
-- Malicious dependency detection is now in **public beta**. Semgrep can detect malicious dependencies in your projects and in pull requests (PRs) or merge requests (MRs), allowing you to investigate its impact, identify indicators of compromise or security breach, and mitigate the threats.
-- **Upgrade guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and Semgrep Assistant enabled. With upgrade guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:
-    1. Bump the version.
+- [SBOM export through the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
+- [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You are also able to filter for malicious dependency findings, which assists in identification and removal of these dependencies.
+- **Upgrade guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and with Semgrep Assistant enabled. With upgrade guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:
+    1. Upgrade the dependency to a safe version.
     2. Lets the developer know if the upgrade is safe or if there are breaking changes and what those changes are.
 - **Transitive reachability** is now in **private beta**. For JavaScript projects, Semgrep reachability now extends to transitive dependencies.
 - Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
