@@ -188,7 +188,7 @@ Triaging a finding as **Ignored** through a comment in Azure DevOps changes the 
 
 ### Prerequisites
 
-- You have one or more repositories hosted by Bitbucket Cloud Premium.
+- You have one or more repositories hosted by Bitbucket Cloud Premium, or Bitbucket Data Center v8.8 or above.
 - You have completed a [Semgrep core deployment](/deployment/core-deployment). Particularly, you must have a successful connection to Bitbucket.
 
 ### Enable triage through Bitbucket PR comments
