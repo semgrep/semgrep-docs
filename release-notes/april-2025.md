@@ -48,19 +48,19 @@ The following updates were made to Semgrep in April 2025.
 ### Added
 
 - [SBOM export through the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
-- [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You are also able to filter for malicious dependency findings, which assists in identification and removal of these dependencies.
+- [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You can also filter for malicious dependency findings, which assists in identifying and removing these dependencies.
+- Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
 - **Upgrade guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and with Semgrep Assistant enabled. With upgrade guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:
     1. Upgrade the dependency to a safe version.
     2. Lets the developer know if the upgrade is safe or if there are breaking changes and what those changes are.
 - **Transitive reachability** is now in **private beta**. For JavaScript projects, Semgrep reachability now extends to transitive dependencies.
-- Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
 
 ### Changed
 
 - Increased the rate limit for SBOM exports through the Semgrep API.
 - Improved Supply Chain PR comments by adding separate templates for conditionally reachable and always reachable findings, as well as manual review advice for conditionally reachable findings. <!-- 20446 -->
 - Improved the user introduction to Supply Chain to focus on reachable findings. <!-- 20290 --> 
-- Improved the Supply Chain > Details page. <!-- 20236 -->
+- Improved the **Supply Chain > Details** page. <!-- 20236 -->
 
 ## 🤖 Semgrep Assistant
 
