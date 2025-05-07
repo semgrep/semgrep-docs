@@ -241,7 +241,7 @@ Semgrep provides an API endpoint you can use to create Jira tickets, either by p
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. In the navigation bar, click the product whose findings you want to see.
 3. Identify the finding associated with the Jira ticket, and open its findings details page.
-4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>Ticket ID</PL>**.
+4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>TICKET ID</PL>**.
 
 ![The findings details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
 _**Figure**. The findings details page with the option to unlink a Jira ticket displayed._
