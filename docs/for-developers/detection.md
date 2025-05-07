@@ -31,7 +31,7 @@ You only need to learn a single rule-writing schema to write rules for many prog
 Semgrep is **transparent** because you can inspect the rules and analyses that are run on your code. Rules establish what should match (for example, you may want to look for and ban usages of `==` in JavaScript) and what shouldn't match. They have the following characteristics:
 
 - Rules are written in YAML. By having a single schema for all supported programming languages, you can write rules for any programming language that Semgrep supports.
-  - In contrast, linters vary in customizability. Linters that let you write your own rules require to you learn that linter's rule schema, which can only be applied to that linter's programming language.
+  - In contrast, linters vary in customizability. Linters that let you write your own rules require you to learn that linter's rule schema, which can only be applied to that linter's programming language.
 - A rule has a **confidence level** to indicate the likelihood it is a true positive.
 - A rule includes a **message** to help you remediate or fix.
 
