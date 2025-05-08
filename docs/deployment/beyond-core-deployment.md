@@ -7,7 +7,7 @@ tags:
   - Deployment
 ---
 
-# Beyond core deployment
+# Customize a core deployment
 
 Now that you've finished your Semgrep core deployment, you can either customize Semgrep's scan behavior or continue to enable additional deployment features. The following sections list common tasks after you've finished your core deployment.
 
@@ -15,7 +15,7 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 
 | Concern | Guide |
 | -------  | ------ |
-| Semgrep Code scans irrelevant files.         | [Ignore files, folders, or code](/ignoring-files-folders-code).  |
+| Semgrep scans irrelevant files.         | [Ignore files, folders, or code](/ignoring-files-folders-code).  |
 | Semgrep Code is too noisy.         | Enable [cross-file (interfile) analysis](/semgrep-code/semgrep-pro-engine-intro) or remove rules and rulesets through the [Policies page](/semgrep-code/policies).  |
 | I want my developers to see certain security issues in their pull request or merge request.         | Configure [Comment mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in the Policies page.  |
 | I want to prevent developers from using dependencies with certain licenses. | Set up [license compliance](/docs/semgrep-supply-chain/license-compliance).|
