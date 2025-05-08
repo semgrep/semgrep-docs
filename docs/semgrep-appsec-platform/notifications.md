@@ -59,7 +59,6 @@ To view all integrations available to you in Semgrep AppSec Platform, follow the
 
 1. Sign in to your [Semgrep AppSec Platform ](https://semgrep.dev/orgs/-/settings/integrations) account.
 1. Click **Settings > Integrations**.
-1. Click **Add**.
     ![Integrations page while adding the first integration.](/img/integrations.png#md-width)
     _**Figure**_. The integrations available in Semgrep AppSec Platform.
 
