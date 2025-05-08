@@ -144,7 +144,7 @@ module.exports = {
                 {
                   type: 'category',
                   collapsible: true,
-                  label: 'Beyond core deployment',
+                  label: 'Customize core deployment',
                   link: {type: 'doc', id: 'deployment/beyond-core-deployment'},
                   items: [
                       {
