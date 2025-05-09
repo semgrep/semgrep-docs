@@ -2,7 +2,7 @@ Semgrep CE is a fast, lightweight program analysis tool that can help you detect
 
 ### Analyses
 
-- Single file, cross function constant propagation
+- Single-file, cross-function constant propagation
 - Single-function taint analysis
 - Semantic analysis 
 
