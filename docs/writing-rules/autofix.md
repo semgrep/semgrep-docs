@@ -13,7 +13,7 @@ Semgrep's rule format supports a `fix:` key that supports the replacement of met
 You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
 
 ```tip
-Rule-based autofix is deterministic and separate from the Semgrep Assistant autofix feature. The Assistant autofix feature uses AI to generate a fix.
+Rule-based autofix is deterministic and separate from the [Semgrep Assistant autofix feature](/semgrep-assistant/overview#autofix). The Assistant autofix feature uses AI to generate a suggested code fix.
 ```
 
 ## Example autofix snippet
