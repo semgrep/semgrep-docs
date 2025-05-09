@@ -49,7 +49,7 @@ Kotlin projects can be scanned **without** the need for lockfiles. See [Scan a p
 
 ### Supported package managers
 
-Semgrep supports the following Kotlin package manager:
+Semgrep supports the following Kotlin package managers:
 
 - Gradle
 - Maven
