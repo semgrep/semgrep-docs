@@ -23,7 +23,6 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
-* Framework-specific control flow analysis 
 * Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 * All analyses performed by [Semgrep CE](#c-support-in-semgrep-ce)
