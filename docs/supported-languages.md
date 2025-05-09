@@ -33,6 +33,15 @@ The following table lists all **Generally available (GA)** and **Beta** language
 
 Languages are arranged by feature completeness from most to least. **Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides; see [Feature definitions](#feature-definitions) for more details.
 
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
+
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- and most importantly, the index!!
+*************************************************************************** -->
+
 <SupportedLanguagesTable />
 
 ### Language maturity levels
@@ -239,6 +248,16 @@ The following table lists all Semgrep-supported package managers for each langua
 _<strong>*</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No Reachability Analysis.**_<br />
 
 ### Feature support
+
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
+
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- and most importantly, the index!!
+*************************************************************************** -->
+
 
 The following table lists all Supply Chain features for each language. Languages with **reachability** support are listed first.
 
