@@ -5,7 +5,7 @@ Reachability refers to whether or not a vulnerable code pattern from a dependenc
 </dd>
 <dt>License detection</dt>
 <dd>
-Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
+Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license. Semgrep can help enforce this restriction.
 </dd>
 <dt>Malicious dependency detection</dt>
 <dd>
