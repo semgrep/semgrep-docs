@@ -49,6 +49,15 @@ Assistant Memories allows admins to tailor Assistant's remediation guidance to t
 
 Memories are enabled by default for all organizations with Assistant enabled.
 
+### Add a memory
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+3. Click **New Memory**.
+4. In **Memory**, enter your preferred remediation approach and secure default.
+5. Select the **Projects** and the **Rules** to which the memory should be applied.
+6. Click **Add memory** to save your changes and proceed.
+
 ### Add a memory based on Assistant's suggested fix
 
 To add a memory modifying a suggested fix presented by Assistant:
@@ -76,16 +85,27 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
 3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
-### View Memories
+### View and edit memories
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
-2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**. This opens a list of your organization's Memories for review.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 
-### Remove Memories
+![Assistant Memories overview in Semgrep AppSec Platform](/img/assistant-memories.png)
+_**Figure**. Assistant Memories overview in Semgrep AppSec Platform._
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Deployment**](https://semgrep.dev/orgs/-/settings).
-2. In the **Assistant** section, click the <i class="fa-solid fa-gear"></i> **icon** next to **Customize with memories**.
-3. Click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
+There are two tabs on the **Assistant Memories** page for your review:
+
+- The **Active** tab displays a list of memories that Assistant is actively using to generate triage advice
+- The **Suggested** tab displays a list of memories Assistant has generated based on your past triage actions. For each suggestion, you can:
+  - Activate the suggested memory to inform Assistant's future advice
+  - Edit the memory, then activate it
+  - Delete the memory
+
+### Remove memories
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+3. Identify the memory you would like to delete, then click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
 
 ## Write custom rules (beta)
 
