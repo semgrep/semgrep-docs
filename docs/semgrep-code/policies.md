@@ -9,6 +9,8 @@ tags:
  - Semgrep AppSec Platform
 ---
 
+import Name from "/src/components/reference/_rule-modes.md"
+
 # Manage rules and policies
 
 The Policies page displays the [<i class="fa-regular fa-file-lines"></i> rules](/running-rules) that Semgrep Code uses when scanning all of your repositories.
@@ -82,7 +84,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul> |
 | Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
 | Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul> |
-| Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning. | See [Rule modes](#block-a-pr-or-mr-through-rule-modes) documentation. |
+| Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 
 ## Add rules
 
@@ -126,7 +128,7 @@ If Semgrep adds rules to the ruleset in the future, they will automatically be a
 
 See [Triage and remediate findings](/semgrep-code/triage-remediation#disable-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
 
-## Block a PR or MR through rule modes
+## Rule modes
 
 Semgrep enables you to choose a **workflow action** based on the presence of a finding. Workflow actions include:
 
@@ -136,15 +138,11 @@ Semgrep enables you to choose a **workflow action** based on the presence of a f
 
 Semgrep Code provides three rule modes:
 
-| Rule mode | Description |
-| -------   | ------ |
-| Monitor   | Rules in **Monitor mode** display findings only in: <ul><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules to this mode to evaluate their true positive rate and other criteria you may have. By keeping rules in Monitor, developers do not receive potentially noisy findings in their PRs or MRs.  |
-| Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
-| Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Code detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li>User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
+<RuleModes />
 
 Semgrep Code provides first-time users with the [<i class="fas fa-external-link fa-xs"></i> Default ruleset](https://semgrep.dev/p/default). These rules are initially placed in the Monitor column. As you develop confidence in these rules, you are able to change their modes to Comment or Block, ensuring that developers remain free of friction from false positives.
 
-### Example: change rule modes to block MRs or PRs with high severity findings
+## Block a PR or MR through rule modes
 
 The following instructions walk you through changing the rule mode for rules that generate high severity findings to **block**. Whenever Semgrep identifies such findings, it returns exit code `1`. 
 
