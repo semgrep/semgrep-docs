@@ -31,7 +31,7 @@ If you are using a self-hosted version of your SCM, see [Connect to on-premise o
 
 GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
 
-* You have [onboarded](/deployment/add-semgrep-to-ci) the project to Semgrep AppSec Platform.
+* You have [onboarded](/docs/category/scan-repositories-with-the-appsec-platform) the project to Semgrep AppSec Platform.
 * You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-appsec-platform/github-pr-comments) for details, or review the following examples:
 
 ![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png)
@@ -50,7 +50,9 @@ See [Enable Azure pull request comments](/docs/semgrep-appsec-platform/azure-pr-
 
 #### GitLab
 
-The GitLab token should have `api` scope and be added to the project's CI/CD settings. See [Enable GitLab merge request comments](/docs/semgrep-appsec-platform/gitlab-mr-comments) for details.
+The GitLab token should have `api` scope. See [Enable GitLab merge request comments](/docs/semgrep-appsec-platform/gitlab-mr-comments) for details.
+
+Previously, it was possible to supply an `api` scoped token via the GitLab CI/CD pipeline, rather than through the SCM connection, but this is no longer supported.
 
 #### Bitbucket
 
@@ -58,7 +60,7 @@ The Bitbucket token should be a repository access token (or workspace access tok
 
 ## Are you running diff-aware scans?
 
-For Managed Scans, Semgrep always runs diff-aware scans on pull request events, and standard full scans only at intervals.
+For Managed Scans, Semgrep always runs diff-aware scans on pull request events. (Standard full scans are run at scheduled intervals.)
 
 For GitHub Actions and GitLab CI/CD, if you are using the recommended configuration, Semgrep typically runs diff-aware scans on pull or merge requests by default.
 
@@ -91,16 +93,19 @@ would not typically indicate a diff-aware scan. Scheduled scans are typically fu
 In the scan log, this appears as:
 
 ```
-Scanning 1002 files tracked by git with 1971 Code rules, 858 Secrets rules, 3619 Supply Chain rules:
-```
-
-If the repository's total number of files is around 1000, then this most likely is not a diff-aware scan, whereas:
-
-```
 Scanning 2 files tracked by git with 1194 Code rules, 860 Secrets rules, 768 Supply Chain rules:
 ```
 
-would most likely be a diff-aware scan, unless you are doing a test on a very small repository.
+This would most likely be a diff-aware scan, unless you are doing a test on a very small repository.
+
+However, if you instead see something like:
+
+```
+Scanning 1002 files tracked by git with 1971 Code rules, 858 Secrets rules, 3619 Supply Chain rules:
+```
+
+and the repository's total number of files is around 1000, then this most likely is not a diff-aware scan.
+
 
 3. Finally, during the process of a diff-aware scan, Semgrep actually conducts two scans: one at the current tip or head of the PR, and one at the baseline ref or commit.
 
