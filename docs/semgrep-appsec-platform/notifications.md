@@ -10,6 +10,8 @@ tags:
     - Semgrep AppSec Platform
 ---
 
+import RuleModes from "/src/components/reference/_rule-modes.md"
+
 # Alerts and notifications
 
 You can receive notifications for Semgrep Code and Supply Chain findings in the following channels:
@@ -49,9 +51,14 @@ Setting up notifications involves the following steps:
 </tbody>
 </table>
 
-Semgrep Code **rule modes** define workflow actions (**Monitor**, **Comment**, or **Block**) that Semgrep Code performs when a rule detects a finding. For example, a rule in the **Comment** rule mode means that Semgrep leaves a comment in the pull request or merge request if a finding is generated from that rule.
+Semgrep Code **rule modes** define workflow actions (**Monitor**, **Comment**, or **Block**) that Semgrep Code performs when a rule detects a finding. In addition to these workflow actions, you can also configure Semgrep to send notifications on any rule mode.
 
-In addition to these workflow actions, you can also configure Semgrep to send notifications on any rule mode.
+<details>
+<summary>Click to expand table of rule modes</summary>
+
+<RuleModes />
+
+</details>
 
 ## View integrations 
 
