@@ -42,11 +42,11 @@ Setting up notifications involves the following steps:
 </tr>
 <tr>
 <td>Email</td>
-<td>--</td>
+<td>Not available</td>
 </tr>
 <tr>
 <td>Webhooks</td>
-<td>--</td>
+<td>Not available</td>
 </tr>
 </tbody>
 </table>
