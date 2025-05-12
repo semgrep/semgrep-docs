@@ -29,7 +29,7 @@ Some SCMs offer security features that limit access to your resources. Additiona
 | Bitbucket Cloud Free | ^Semgrep Assistant<br /> ^Semgrep Managed Scan |
 | Bitbucket Cloud Standard | ^Semgrep Assistant<br /> ^Semgrep Managed Scan |
 | Bitbucket Cloud Premium | - |
-| Bitbucket Data Center | Semgrep Assistant.<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later. |
+| Bitbucket Data Center | Semgrep Assistant<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later. |
 
 ^Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
