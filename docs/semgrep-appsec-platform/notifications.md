@@ -37,8 +37,8 @@ Setting up notifications involves the following steps:
 <tbody>
 <tr>
 <td>Slack</td>
-<td rowspan="3">Customize through rule modes in Policies page</td>
-<td>Not customizable; configured by default to send notifications on <strong>reachable</strong> findings</td>
+<td rowspan="3">Customize through rule modes in [Policies page](/semgrep-code/policies)</td>
+<td>Limited customizability; configured by default to send notifications on <strong>reachable</strong> findings</td>
 </tr>
 <tr>
 <td>Email</td>

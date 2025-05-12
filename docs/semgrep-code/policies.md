@@ -9,7 +9,7 @@ tags:
  - Semgrep AppSec Platform
 ---
 
-import Name from "/src/components/reference/_rule-modes.md"
+import RuleModes from "/src/components/reference/_rule-modes.md"
 
 # Manage rules and policies
 
