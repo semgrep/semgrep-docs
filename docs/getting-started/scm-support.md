@@ -13,7 +13,7 @@ tags:
 
 Semgrep supports the following source code managers (SCM) and plans to varying degrees. Please review the information for your specific SCM and plan to see what Semgrep features are available to you.
 
-Some SCMs offer security features that limit access to your resources. Additionally, self-hosted SMCs may be subject to network access restrictions. If either case applies to you, you may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker).
+Some SCMs offer security features that limit access to your resources. Additionally, self-hosted SCMs may be subject to network access restrictions. If either case applies to you, you may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker).
 
 ## Azure DevOps
 
