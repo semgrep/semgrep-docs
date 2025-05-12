@@ -19,7 +19,7 @@ Add GitHub repositories to your Semgrep organization in bulk without adding or c
 
 ## Permissions
 
-To add a repository, you must create and register a public Semgrep GitHub app and a private Semgrep GitHub App.
+To add a repository, you must install the public Semgrep GitHub app and create and install a private Semgrep GitHub App.
 
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
 - The private Semgrep GitHub app is required to enable code access for Managed Scans.
