@@ -9,6 +9,8 @@ tags:
   - Semgrep AppSec Platform
 ---
 
+import RuleModes from "/src/components/reference/_rule-modes.md"
+
 # Manage Semgrep Secrets rules using the Policies page
 
 The **Policies** page visually represents the rules Semgrep Secrets uses for scanning.
@@ -73,11 +75,7 @@ This section defines the columns of the rule entries in the Policies page:
 
 Semgrep Secrets provides three rule modes. These can be used to trigger **workflow options** whenever Semgrep Secrets identifies a finding based on the rule:
 
-| Rule mode | Description |
-| -------   | ------ |
-| Monitor   | Rules in **Monitor mode** display findings only in: <ul><li>Semgrep AppSec Platform</li><li><strong>For Semgrep Code and Supply Chain</strong>: User-defined notifications</li></ul>Set rules to this mode to evaluate their true positive rate and other criteria you may have. By keeping rules in Monitor, developers do not receive potentially noisy findings in their PRs or MRs.  |
-| Comment   | Rules in **Comment mode** display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li><strong>For Semgrep Code and Supply Chain</strong>: User-defined notifications</li></ul>Set rules that have met your performance criteria to this mode when you are ready to display findings to developers.     |
-| Block     | Rules in **Block mode** cause the scan job to fail with an exit code of `1` if Semgrep Secrets detects a finding from these rules. You can use this result to enforce a block on the PR or MR. For example, GitHub users can enable branch protection and set the PR to fail if the Semgrep step fails. <br />These rules display findings in:<ul><li>Developers' PRs or MRs</li><li>Semgrep AppSec Platform</li><li><strong>For Semgrep Code and Supply Chain</strong>: User-defined notifications</li></ul>These are typically high-confidence, high-severity rules. |
+<RuleModes />
 
 If you're encountering issues getting PR comments for Semgrep Secrets:
 
