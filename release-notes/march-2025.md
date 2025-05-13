@@ -13,10 +13,9 @@ date: 2025-03-30T10:00
 
 # Semgrep release notes for March 2025
 
-<!-- Remember to update latest endpoint -->
-<!-- Remember to update index page -->
-
 The following updates were made to Semgrep in March 2025.
+
+<!-- truncate -->
 
 ## 🌐 Semgrep AppSec Platform
 

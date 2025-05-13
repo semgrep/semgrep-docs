@@ -81,6 +81,15 @@ The code is kept here for easy maintenance.
 
 <h3>Supported languages</h3>
 
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
+
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- the supported languages page
+*************************************************************************** -->
+
 | Product | Languages |
 | :-------  | :------ |
 | Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
@@ -119,14 +128,13 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>March 2025 release notes summary</h3>
+<h3>April 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- Added an [integration with Wiz](/semgrep-appsec-platform/wiz) that enables you to view Semgrep Code findings in Wiz's Security Graph.
-- Added the ability to [define the files and folders Semgrep ignores](/ignoring-files-folders-code#define-files-and-folders-for-all-projects-of-an-organization) during scans at the organization level.
-- Dataflow traces now provide cross-file code snippets, centralizing context from several files into the dataflow graph. <!-- SEC-1534 -->
-- Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
-- Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
-- Assistant Auto-memories: If you triage a finding as Ignored and provide an explanation of why you change the finding's status to Ignored, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage) for you. Assistant uses memories to tailor its remediation guidance for your projects.
+- Added a new ruleset to detect **unauthorized** use of AI or LLM libraries, that is, the use of AI without going through security reviews or approval processes. This includes direct API calls, such as `api.openapi.com`, `api.anthropic.com` and libraries in code such as `langchain` and `transformers`. See the [<i class="fas fa-external-link fa-xs"></i> Semgrep Shadow AI](https://semgrep.dev/shadowAI) page to learn more.
+- [SBOM export through the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
+- [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You can also filter for malicious dependency findings, which assists in identifying and removing these dependencies.
+- Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
+- Semgrep Assistant now attempts to create a memory during triage if possible. If Semgrep creates a memory, you'll see a dialog appear, indicating that this has happened, along with a link to the list of your organization's memories for review.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

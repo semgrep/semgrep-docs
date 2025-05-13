@@ -22,7 +22,7 @@ Add Bitbucket repositories to your Semgrep organization in bulk without adding o
 Semgrep Managed Scanning requires one of the following plans:
 
 - Bitbucket Cloud Premium
-- Bitbucket Data Center
+- Bitbucket Data Center (v8.8 or above for diff-aware scans)
 
 ### Bitbucket Cloud
 

@@ -10,6 +10,8 @@ tags:
     - Semgrep AppSec Platform
 ---
 
+import PL from '@site/src/components/Placeholder';
+
 # Create Jira tickets
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code, Supply Chain, and Secrets findings.
@@ -230,10 +232,19 @@ _**Figure.** Secrets triage flow._
 ![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
 _**Figure.** Secrets ticket created._
 
-
 ## Create tickets through the Semgrep API
 
 Semgrep provides an API endpoint you can use to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+
+## Unlink a ticket from its associated Jira ticket
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. In the navigation bar, click the product whose findings you want to see.
+3. Identify the finding associated with the Jira ticket, and open its findings details page.
+4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>TICKET ID</PL>**.
+
+![The findings details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
+_**Figure**. The findings details page with the option to unlink a Jira ticket displayed._
 
 ## Remove the Jira integration
 

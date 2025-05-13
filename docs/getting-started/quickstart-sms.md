@@ -126,6 +126,7 @@ You must have admin access to your Bitbucket organization.
 
 #### Bitbucket Data Center
 
+- v8.8 or above for diff-aware scans
 - Read access is granted through an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects).
 - The user generating the workspace token must be a **Product Admin** for the workspace. The token must be created with `PROJECT_ADMIN` permissions.
 

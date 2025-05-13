@@ -62,12 +62,11 @@ Remediate (or resolve) true positives in Semgrep Supply Chain through the follow
 * Update the dependency to a safe version that does not contain the vulnerability.
 * Remove the dependency and refactor all usages in the codebase.
 
-<!-- Feature has been disabled for the time being. See https://github.com/semgrep/semgrep-app/pull/10186
+:::tip
+[Upgrade guidance](/semgrep-supply-chain/upgrade-guidance) uses AI to analyze Semgrep scans to see if the fixed versions of a dependency are **safe to upgrade to** or may cause **breaking changes** in the code. It can create a PR to upgrade the dependency to the fixed version.
 
-### Updating the dependency
-
-Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull request or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
--->
+This feature is in private beta. For users with an existing Semgrep plan, reach out to [support](/support) to join the beta.
+:::
 
 #### Remove the dependency and refactor the code
 

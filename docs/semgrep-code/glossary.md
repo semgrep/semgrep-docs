@@ -7,6 +7,9 @@ tags:
   - Semgrep Code
 ---
 
+import ScanTarget from '/src/components/reference/_scan-target.mdx'
+import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
+
 # Semgrep Code product terms
 
 The terms and definitions provided here are specific to Semgrep Code.
@@ -27,11 +30,7 @@ A full scan scans the entire codebase or Git repository in its current state. It
 
 ## Policy
 
-A policy refers to the set of rules that Semgrep runs and the workflow actions undertaken when a rule from the policy generates a finding.
-
-A workflow action is an action that is performed by Semgrep when a finding is detected, such as notifying Slack channels or posting a comment in the PR or MR that generated the finding.
-
-Not to be confused with **policy-as-code**.
+<PolicyDefinition />
 
 ## Registry (Semgrep Registry)
 
@@ -49,18 +48,4 @@ You can view a rule's `license` key to ensure the license meets your needs.
 
 Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry.
 
-## Scan target
-
-A scan target is any file, or collection of files and directories that Semgrep can scan. While Semgrep can scan **any** text file through `generic` mode, Semgrep primarily scans the following:
-
-### Codebase
-
-Any code files within a specified directory and its subdirectories.
-
-### Project
-
-A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources.
-
-### Repository
-
-A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories.
+<ScanTarget />

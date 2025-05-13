@@ -42,14 +42,22 @@ module.exports = {
             'getting-started/quickstart',
             'getting-started/quickstart-sms',
             'prerequisites',
+            'getting-started/scm-support',
             {
                 type: 'category',
                 collapsible: true,
                 label: 'Supported languages',
                 link: {type: 'doc', id: 'supported-languages'},
                 items: [
+                    'languages/csharp',
+                    'languages/go',
+                    'languages/java',
                     'languages/javascript',
+                    'languages/kotlin',
                     'languages/python',
+                    'languages/ruby',
+                    'languages/scala',
+                    'languages/swift',
                 ]
             },
             {
@@ -144,7 +152,7 @@ module.exports = {
                 {
                   type: 'category',
                   collapsible: true,
-                  label: 'Beyond core deployment',
+                  label: 'Customize core deployment',
                   link: {type: 'doc', id: 'deployment/beyond-core-deployment'},
                   items: [
                       {
@@ -288,6 +296,7 @@ module.exports = {
                       'semgrep-supply-chain/view-export',
                       'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/upgrade-guidance',
                       'semgrep-supply-chain/ignoring-deps',
                   ]
                 },
@@ -308,7 +317,8 @@ module.exports = {
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
-                'semgrep-secrets/validators'
+                'semgrep-secrets/validators',
+                'semgrep-secrets/glossary'
             ]
           },
         ]

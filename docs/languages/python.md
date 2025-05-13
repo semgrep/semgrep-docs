@@ -11,22 +11,31 @@ title: Python
 ---
 
 import SupportedLibrariesTable from '/src/components/reference/_supported-libraries-python-table.md'
+import LangCallout from "/src/components/concept/_lang-callout.md"
+import LangCoverage from "/src/components/concept/_lang-coverage.md"
+import LangDefCode from "/src/components/concept/_lang-def-code.md"
+import LangDefSsc from "/src/components/concept/_lang-def-ssc.md"
+import LangCeIntro from "/src/components/concept/_lang-ce-intro.md"
+import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
-# Python frameworks and analyses
+# Python support
 
-:::tip 
-Semgrep’s Python coverage leverages framework-specific analysis capabilities that are not present in OSS. As a result, many framework specific Pro rules will **fail** to return findings if run on OSS. To ensure full security coverage, run: `semgrep login && semgrep ci`.
-:::
+<LangCallout name="Python" />
 
-## Semgrep Code analyses
+## Python support in Semgrep Code
+
+<LangDefCode />
+
+### Analyses and frameworks
 
 * Framework-specific control flow analysis 
-* Inter-file analysis (cross-file)
-* Inter-procedural analysis (cross-function)
+* Interfile analysis (cross-file)
+* Interprocedural analysis (cross-function)
+* All analyses performed by [Semgrep CE](#python-support-in-semgrep-ce)
 
 ## Coverage 
 
-Semgrep aims to provide comprehensive and accurate detection of common OWASP Top 10 issues in source code.
+<LangCoverage />
 
 In addition to rules, the Semgrep engine itself can analyze code and implicit dataflows in the context of the following supported frameworks:
 
@@ -85,3 +94,42 @@ Results as of **September 9, 2024**:
     
     </tbody>
 </table>
+
+## Python support in Semgrep Supply Chain
+
+<LangDefSsc />
+
+### Supported package managers
+
+Semgrep supports the following Python package managers:
+
+- pip
+- pip-tools
+- Pipenv
+- Poetry
+
+### Analyses and features
+
+The following analyses and features are available for Python:
+
+<LangSscFeatures />
+
+## Python support in Semgrep CE
+
+<LangCeIntro />
+<!-- use a component here -->
+
+
+The Semgrep Registry provides the following JavaScript rulesets:
+
+- [<i class="fas fa-external-link fa-xs"></i> `p/default`](https://semgrep.dev/p/default)
+-  [<i class="fas fa-external-link fa-xs"></i> `p/python`](https://semgrep.dev/p/python)
+- [<i class="fas fa-external-link fa-xs"></i> `p/trailofbits`](https://semgrep.dev/p/trailofbits)
+- [<i class="fas fa-external-link fa-xs"></i> `p/xss`](https://semgrep.dev/p/trailofbits)
+
+Sample usage:
+
+```bash
+semgrep scan --config p/python
+```
+
