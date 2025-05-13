@@ -286,7 +286,7 @@ Parsing errors that are due to an incomplete or incorrect grammar should be reco
 
 We keep failing test cases in a `fail/` folder, preferably in the form of the minimal program suitable for a bug report, with a comment describing what was expected and what's going on.
 
-/* tried to make this more descriptive but should check with Nat if I understood the goal correctly */
+<!-- tried to make this more descriptive but should check with Nat if I understood the goal correctly -->
 
 ## Update the `semgrep` repository
 
