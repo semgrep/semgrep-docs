@@ -42,6 +42,7 @@ module.exports = {
             'getting-started/quickstart',
             'getting-started/quickstart-sms',
             'prerequisites',
+            'getting-started/scm-support',
             {
                 type: 'category',
                 collapsible: true,
