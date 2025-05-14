@@ -1196,7 +1196,7 @@ The glob syntax conforms to the
 and Gitignore specifications. Patterns are
 matched against the normalized file path relative to the project root as
 well as all its parent directories. Beware that the presence of
-a leading slash (e.g. `/*.c`) or a slash in the middle of the pattern
+a leading slash (such as `/*.c`) or a slash in the middle of the pattern
 (e.g. `a/*.c`) anchors the pattern to the project root. `a/*.c` is
 equivalent to `/a/*.c` and will match the path `/a/b.c` but won't
 match `/x/a/b.c`. All other patterns are unanchored e.g.
