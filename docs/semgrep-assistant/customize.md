@@ -52,7 +52,7 @@ Memories are enabled by default for all organizations with Assistant enabled.
 ### Add a memory
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 3. Click **New Memory**.
 4. In **Memory**, enter your preferred remediation approach and secure default.
 5. Select the **Projects** and the **Rules** to which the memory should be applied.
@@ -88,7 +88,7 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 
 ![Assistant Memories overview in Semgrep AppSec Platform](/img/assistant-memories.png)
 _**Figure**. Assistant Memories overview in Semgrep AppSec Platform._
