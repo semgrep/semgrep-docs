@@ -153,7 +153,7 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
    6. Click **Save** to proceed.
 
 :::note
-You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
+As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Assistant features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
 ### Google Gemini
