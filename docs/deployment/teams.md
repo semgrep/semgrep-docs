@@ -32,7 +32,7 @@ Optionally, you can appoint members to a third role: the **manager** role. Manag
 * Users are assigned a role based on your [organization's default](#set-a-default-role). New organizations are created with a default role of `admin`.
 :::
 
-### Member permissions and visibility
+### User permissions and visibility
 
 Admins have full permissions, scopes, and visibility into all aspects of Semgrep.
 
@@ -60,8 +60,8 @@ Add team members easily to your organization by sending them an email. This emai
 You must be an `admin` to perform this operation.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
-1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Members** tab.
-1. Click **Invite members**.
+1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Users** tab.
+1. Click **Invite users**.
 1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
 1. Click **Send invites**.
 
@@ -71,9 +71,9 @@ You must be an `admin` to perform this operation.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access**.
-3. Search for the member whose role will be changed.
-4. Click on the member's current role, under the role header. A drop-down box appears.
-5. Select the new role for the member.
+3. Search for the user whose role will be changed.
+4. Click on the user's current role, under the role header. A drop-down box appears.
+5. Select the new role for the user.
 
 :::note
 You cannot change your own role.
@@ -93,16 +93,16 @@ _**Figure**. Default user role._
 
 ## Teams (beta)
 
-The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Members** feature](#member-permissions-and-visibility).
+The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Users** feature](#member-permissions-and-visibility).
 
-You can quickly assign projects to large groups of members by first assigning members to teams and subteams within your organization.
+You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization.
 
 ![The Teams tab within the Settings page](/img/access-teams.png)
 _**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams._
 
 This feature helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
 
-When you limit a member's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their total finding count is based on the total number of findings of the projects they can access.
+When you limit a user's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their total finding count is based on the total number of findings of the projects they can access.
 
 This document walks you through the following:
 
@@ -112,7 +112,7 @@ This document walks you through the following:
 
 ## Roles and access
 
-The Teams feature extends the existing roles defined in the **Members** tab.
+The Teams feature extends the existing roles defined in the **Users** tab.
 
 <dl>
 <dt>Admin</dt>
