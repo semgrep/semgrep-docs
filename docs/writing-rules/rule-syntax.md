@@ -1197,7 +1197,7 @@ and Gitignore specifications. Patterns are
 matched against the normalized file path relative to the project root as
 well as all its parent directories. Beware that the presence of
 a leading slash (such as `/*.c`) or a slash in the middle of the pattern
-(e.g. `a/*.c`) anchors the pattern to the project root. `a/*.c` is
+(such as `a/*.c`) anchors the pattern to the project root. `a/*.c` is
 equivalent to `/a/*.c` and will match the path `/a/b.c` but won't
 match `/x/a/b.c`. All other patterns are unanchored e.g.
 `*.c` matches all of `/b.c`, `/a/b.c`, and `/x/a/b.c`.
