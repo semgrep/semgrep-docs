@@ -34,11 +34,11 @@ GitHub relies on the Semgrep GitHub app to make comments on code. To receive com
 * You have [onboarded](/docs/category/scan-repositories-with-the-appsec-platform) the project to Semgrep AppSec Platform.
 * You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-appsec-platform/github-pr-comments) for details, or review the following examples:
 
-![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png)
-**Figure** Permissions for all repositories.
+  ![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png#md-width)
+  _**Figure.** Grant permissions for access to all repositories._
 
-![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
-**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are included here.
+  ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#md-width)
+  _**Figure.** Grant permissions for access to select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are included here._
 
 ### Azure DevOps, GitLab, and Bitbucket
 
