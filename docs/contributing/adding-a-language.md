@@ -305,12 +305,21 @@ Now that you have added your new language <PL>LANG</PL> to `tree-sitter`, do the
    * `break`
    * `continue`
    * `literal`
-1. In [`/src/parsing/Test_parsing.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/tests/Test_parsing.ml), add in <PL>LANG</PL> to `dump_tree_sitter_cst_lang`.
-   You can look to the other languages as reference to what code to add.
-1. Create a file <code>parsing/Parse_<PL>LANG</PL>_tree_sitter.ml</code>. Add basic functionality to
-   define the function `parse` and import module `Parse_tree_sitter_helpers`.
-   You can look at csharp and Kotlin files to get a better idea of how to
-   define the parse file function, but this file should contain something similar to:
+1. In [`/src/parsing/tests/Test_parsing.ml`](https://github.com/semgrep/semgrep/blob/develop/src/parsing/tests/Test_parsing.ml), add in <PL>LANG</PL> to `dump_tree_sitter_cst_lang`.
+1. Inspect the other languages in `/languages` as a reference for what
+   code to add. Create a new folder for your language.
+1. Add the <code>semgrep-<PL>LANG</PL></code> repository as a submodule under
+   <code>/languages/<PL>LANG</PL>/tree-sitter/</code> (`git submodule add ...`).
+1. Create a file
+   <code>/languages/<PL>LANG</PL>/tree-sitter/Parse_<PL>LANG</PL>_tree_sitter.ml</code>
+   by copying the generated template `Boilerplate.ml` that you'll find
+   in the <code>semgrep-<PL>LANG</PL></code> submodule.
+   Add basic functionality to
+   define the function `parse` and import the module
+   `Parse_tree_sitter_helpers`.
+   Look at other languages to get a better idea of how to
+   define the parse file function. This file should contain something
+   similar to:
    ```
    module H = Parse_tree_sitter_helpers
 
@@ -321,11 +330,24 @@ Now that you have added your new language <PL>LANG</PL> to `tree-sitter`, do the
             Parallel.invoke Tree_sitter_X.Parse.file file ()
         )
    ```
-1. In `parsing/tree_sitter/dune`, add <code>tree-sitter-lang.<PL>LANG</PL></code>.
-1. Write a basic test case for your language in <code>tests/<PL>LANG</PL>/hello-world.<PL>LANG</PL></code>. This can just be a hello-world function.
+1. Create the missing `dune` files wherever you have OCaml source
+   files (`.ml`, `.mli`) by imitating what was done for other
+   languages.
+1. Write a basic test case for your language in
+    <code>tests/<PL>LANG</PL>/hello-world.<PL>EXT</PL></code>. This
+    can just be a hello-world function.
+1. Try to build the project using the usual commands
+   (`make` or `make dev`).
 1. Test that the command
    <code>semgrep-core/bin/semgrep-core -dump_tree_sitter_cst test/<PL>LANG</PL>/hello-world</code>
    prints out a CST for your language.
+
+At this point, you're ready to start writing the translator from
+the CST produced by the tree-sitter parser for <PL>LANG</PL>
+into the generic AST used by Semgrep, accommodating all the languages
+in a single AST type. It's recommended but not required to first
+translate the CST into a language-specific AST before translating it
+into the generic AST in a second step.
 
 ## Legal concerns
 
