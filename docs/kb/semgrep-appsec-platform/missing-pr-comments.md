@@ -56,7 +56,7 @@ The `api` scoped token must be provided to Semgrep through the SCM connection. S
 
 #### Bitbucket
 
-The Bitbucket token should be a repository access token (or workspace access token, for Bitbucket Cloud Premium only). See [Enable Bitbucket pull request comments](/category/bitbucket-pr-comments) for details.
+The Bitbucket token must be a repository access token or a workspace access token. See [Enable Bitbucket pull request comments](/category/bitbucket-pr-comments) for details.
 
 ## Are you running diff-aware scans?
 
