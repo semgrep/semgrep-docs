@@ -60,16 +60,16 @@ Once you have enabled the Jira integration, you must complete the following step
 1. Select the **Default project** where the Jira tickets will be created.
 1. Select the **Issue type** you want created with your Semgrep findings.
 1. Optional: To see an example of the content Semgrep populates your Jira ticket with, click **See preview**.
-1. Optional: Click **Customize ticket creation**, then select **<i class="fa-solid fa-square-check"></i> Automatically create tickets for high severity, high confidence findings on the primary branch** to allow Semgrep to automatically create tickets.
-1. Click **Save changes** to proceed.
+2. Optional: Click **Customize ticket creation**, then select the product whose tickets you want to customize. Automated ticket creation is configured on a per-product basis. For each **Jira field** available on the Jira ticket, you can map to it a **Semgrep or static field** value. See [Create mappings](#create-mappings) for more information.
+3. Click **Save changes** to proceed.
 
 ![Jira configuration screen](/img/jira-subdomain.png#md-width)
 _**Figure.** The Jira configuration screen._
 
 :::tip Automatic creation of tickets
-- Tickets are created only for **high severity, high confidence findings** only. This ensures that the noise is kept to a minimum.
-- For Supply Chain findings, tickets are created for **reachable findings**.
-- Automated ticket creation is configured on a per-product basis.
+- For Code, Semgrep automatically creates tickets for **high severity, high confidence findings** on the **primary** branch.
+- For Supply Chain, Semgrep automatically creates tickets for **critical or high severity reachable findings** on the **primary** branch.
+- For Secrets, Semgrep automatically creates tickets for **critical or high severity validated secrets** on **any** branch.
 :::
 
 ### Automatic detection of other Jira projects
@@ -111,6 +111,45 @@ Repeat these steps for each mapping you want to create. When done, click **Save 
 :::warning
 Ensure a 1:1 mapping between the Jira issue type field values and the Semgrep values.
 :::
+
+#### Available field mappings
+
+<details>
+<summary>Click to see the list of Semgrep fields available for mapping to Jira ticket fields.</summary>
+
+The following Semgrep fields are available to map to Jira fields for **all** products:
+
+- Any static value of your choice
+- Project name
+- Project tags
+- Finding timestamp
+- Commit URL
+- Rule name
+- Severity
+- Language
+- Rule eescription
+- Semgrep AppSec Platform link to the finding
+- Type (e.g., Code, Secrets, Supply Chain)
+
+The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
+
+- Assistant triage
+- Assistant component
+- Rule confidence
+
+The following Semgrep fields are available to map to Jira fields for Semgrep Supply Chain findings:
+
+- Reachability
+- Transitivity
+- CVE
+- EPSS probability
+
+The following Semgrep fields are available to map to Jira fields for Semgrep Secrets findings:
+
+- Validation
+- Project visibility
+
+</details>
 
 #### Multiple labels
 
