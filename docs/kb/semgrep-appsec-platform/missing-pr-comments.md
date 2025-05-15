@@ -42,7 +42,7 @@ GitHub relies on the Semgrep GitHub app to make comments on code. To receive com
 
 ### Azure DevOps, GitLab, and Bitbucket
 
-For MR comments on GitLab and PR comments on Bitbucket or Azure DevOps, ensure that you have [set up a connection to your SCM organization or project](/deployment/connect-scm), including a token with appropriate permissions to comment on MRs or PRs.
+For MR comments on GitLab and PR comments on Bitbucket or Azure DevOps, ensure that you have [set up a connection to your SCM organization or project](/deployment/connect-scm) and provided Semgrep with a token that has the required permissions to comment on MRs or PRs.
 
 #### Azure DevOps
 
@@ -52,7 +52,7 @@ See [Enable Azure pull request comments](/docs/semgrep-appsec-platform/azure-pr-
 
 The GitLab token should have `api` scope. See [Enable GitLab merge request comments](/docs/semgrep-appsec-platform/gitlab-mr-comments) for details.
 
-Previously, it was possible to supply an `api` scoped token via the GitLab CI/CD pipeline, rather than through the SCM connection, but this is no longer supported.
+The `api` scoped token must be provided to Semgrep through the SCM connection. Semgrep no longer supports tokens provided in the GitLab CI/CD pipeline.
 
 #### Bitbucket
 
@@ -60,19 +60,19 @@ The Bitbucket token should be a repository access token (or workspace access tok
 
 ## Are you running diff-aware scans?
 
-For Managed Scans, Semgrep always runs diff-aware scans on pull request events. (Standard full scans are run at scheduled intervals.)
+For Managed Scans, Semgrep always runs diff-aware scans on pull request events. Full scans are run at scheduled intervals.
 
 For GitHub Actions and GitLab CI/CD, if you are using the recommended configuration, Semgrep typically runs diff-aware scans on pull or merge requests by default.
 
 Other SCMs or CI systems, or unusual pipeline configurations, may require additional setup. Review the [configuration instructions](/category/pr-or-mr-comments) for your SCM or [custom configuration for your CI jobs](/deployment/customize-ci-jobs#set-up-diff-aware-scans) and ensure you have configured your scans correctly.
 
-### Identifying a diff-aware scan
+### Identify a diff-aware scan
 
 Semgrep diff-aware scans are most easily identified by reviewing three items in the scan log:
 
 * The triggering event
 * The number of files scanned
-* Whether a baseline scan is conducted.
+* Whether a baseline scan is conducted
 
 1. The triggering event for the scan in GitHub or GitLab should typically be `pull_request`. This is the easiest to find but the least reliable, since it's possible to configure diff-aware scans on other event types. In the scan log, this appears as:
 
