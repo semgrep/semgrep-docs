@@ -60,11 +60,11 @@ The Bitbucket token must be a repository access token or a workspace access toke
 
 ## Are you running diff-aware scans?
 
-For Managed Scans, Semgrep always runs diff-aware scans on pull request events. Full scans are run at scheduled intervals.
+In Managed Scans: Semgrep always runs diff-aware scans on pull request events. Full scans are run at scheduled intervals.
 
-For GitHub Actions and GitLab CI/CD, if you are using the recommended configuration, Semgrep typically runs diff-aware scans on pull or merge requests by default.
+In GitHub Actions and GitLab CI/CD: Semgrep runs diff-aware scans on pull or merge requests by default if you are using the recommended configuration.
 
-Other SCMs or CI systems, or unusual pipeline configurations, may require additional setup. Review the [configuration instructions](/category/pr-or-mr-comments) for your SCM or [custom configuration for your CI jobs](/deployment/customize-ci-jobs#set-up-diff-aware-scans) and ensure you have configured your scans correctly.
+In other SCMs or CI systems, or with unusual pipeline configurations: diff-aware scans may require additional setup. Review the [configuration instructions](/category/pr-or-mr-comments) for your SCM or [custom configuration for your CI jobs](/deployment/customize-ci-jobs#set-up-diff-aware-scans) and ensure you have configured your scans correctly.
 
 ### Identify a diff-aware scan
 
