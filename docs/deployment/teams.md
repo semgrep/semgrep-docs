@@ -15,18 +15,19 @@ Use the **Access** page to manage membership and access to Semgrep resources, su
 
 ## User roles and access
 
-Accounts enable you to manage access to Semgrep resources, such as scans, projects, and findings, with varying levels of collaboration and visibility. Basic access control is managed through the **Members** tab.
+Accounts enable you to manage access to Semgrep resources, such as scans, projects, and findings, with varying levels of collaboration and visibility. Basic access control is managed through the **Users** tab.
 
 ![Role-based access control](/img/rbac-overview.png)<br />
 
 A user is any person who has been added to your organization in Semgrep.
 
-Semgrep primarily divides users into two roles:
+Semgrep primarily divides users into three roles:
 
 * `admin`
 * `member`
+* `readonly`
 
-Optionally, you can appoint members to a third role: the **manager** role. Managers are a subset of members with some additional capabilities and scopes. In particular, they are able to assign specific projects to members through the creation of [teams](#teams-beta).
+Optionally, you can appoint members to a fourth role: the **manager** role. Managers are a subset of members with some additional capabilities and scopes. In particular, they are able to assign specific projects to members through the creation of [teams](#teams-beta).
 
 :::info
 * Users are assigned a role based on your [organization's default](#set-a-default-role). New organizations are created with a default role of `admin`.
@@ -126,9 +127,13 @@ The Teams feature extends the existing roles defined in the **Users** tab.
 <li>Members can scan their local or personal repositories through a personal account.</li>
 <li>Members can also be assigned as <strong>Managers</strong> within a team.</li>
 </ul>
+<dt>Readonly</dt>
+<ul>
+<li>A user who can only view projects and issues of their Semgrep deployment.</li>
+</ul>
 </dl>
 
-A third role, **the manager**, can be assigned within the context of a team. Managers are a subset of members:
+A fourth role, **the manager**, can be assigned within the context of a team. Managers are a subset of members:
 
 <dl>
 <dt>Manager</dt>
@@ -143,28 +148,28 @@ _**Figure**. A member's view of the Projects page. It displays projects that are
 
 ### Page and feature access per role
 
-| Page      | Member     | Manager    | Admin | Notes |
-| ----      | ------     | -------    | ----- | ----- |
-| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | For members, scope is limited based on their teams and the project access granted to those teams. |
-| Projects  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Projects assigned to teams are visible to members and managers of those teams. Admins can see all projects. |
-| Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Members can perform all triage operations on Projects assigned to them. |
-| Policies  | ❌ No         | ❌ No         | ✅&nbsp;Yes   | Only admins can view and edit policies.      |
-| Editor    | 👁️&nbsp;Read-only  | 👁️&nbsp;Read-only  | ✅&nbsp;Yes   | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account.      |
-| Settings  | ❌ No         | ⚠️&nbsp;Restricted | ✅&nbsp;Yes   | Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of.    |
+| Page      | Readonly          | Member            | Manager           | Admin            | Notes                                                                                                                                    |
+|-----------|-------------------|-------------------|-------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| Dashboard | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      | For non-admins, scope is limited based on their teams and the project access granted to those teams.                                        |
+| Projects  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      | Projects assigned to teams are visible to users assigned to those teams. Admins can see all projects.                              |
+| Findings  | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      | Members can perform all triage operations on Projects assigned to them.                                                                  |
+| Policies  | ❌&nbsp;No         | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      | Only admins can view and edit policies.                                                                                                  |
+| Editor    | ❌&nbsp;No         | 👁️&nbsp;Read-only | 👁️&nbsp;Read-only | ✅&nbsp;Yes      | Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account. |
+| Settings  | ❌&nbsp;No         | ❌&nbsp;No         | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      | Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of.  |
 
 ### Operations permitted per role
 
-| Capability              | Member | Manager | Admin | Notes |
-| ----                    | ------ | ------- | ----- | ----- |
-| Create or edit projects | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅ Yes   |       |
-| Change policies         | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
-| Triage findings         | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted  | ✅&nbsp;Yes   |  Members can perform all triage operations on Projects assigned to them.      |
-| Assign roles            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
-| Create or edit teams    | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
-| Create or edit subteams | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   |       |
-| Delete teams            | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
-| Delete subteams         | ❌ No     | ✅ Yes     | ✅&nbsp;Yes   | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam.      |
-| API                     | ❌ No     | ❌ No      | ✅&nbsp;Yes   |       |
+| Capability              | Readonly     | Member            | Manager           | Admin            | Notes                                                                                                                                     |
+|------------------------|--------------|-------------------|-------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Create or edit projects | ❌&nbsp;No    | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      |                                                                                                                                           |
+| Change policies         | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ❌&nbsp;No       |                                                                                                                                           |
+| Triage findings         | ❌&nbsp;No    | ⚠️&nbsp;Restricted | ⚠️&nbsp;Restricted | ✅&nbsp;Yes      | Members can perform all triage operations on Projects assigned to them.                                                                   |
+| Assign roles            | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
+| Create or edit teams    | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
+| Create or edit subteams | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ✅&nbsp;Yes      |                                                                                                                                           |
+| Delete teams            | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
+| Delete subteams         | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ✅&nbsp;Yes      | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam. |
+| API                     | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
 
 :::info
 Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
@@ -172,11 +177,11 @@ Members and managers can create projects by scanning a repository using the Semg
 
 ### Semgrep Assistant features permitted per role
 
-| Page      | Member     | Manager    | Admin | 
-| ----      | ------     | -------    | ----- | 
-| Add a memory | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
-| Receive weekly priority emails | ❌ No    | ❌ No    | ✅&nbsp;Yes   |
-| Add a memory during triage | ❌ No   | ❌ No   |✅&nbsp;Yes |
+| Page                      | Readonly     | Member       | Manager      | Admin        | 
+|---------------------------|--------------|--------------|--------------|--------------| 
+| Add a memory              | ❌&nbsp;No    | ❌&nbsp;No    | ❌&nbsp;No    | ✅&nbsp;Yes   |
+| Receive weekly priority emails | ❌&nbsp;No | ❌&nbsp;No    | ❌&nbsp;No    | ✅&nbsp;Yes   |
+| Add a memory during triage | ❌&nbsp;No   | ❌&nbsp;No    | ❌&nbsp;No    | ✅&nbsp;Yes   |
 
 
 ## How team access works
@@ -235,7 +240,7 @@ Note that this feature enables managers to view **all projects**, even projects 
 1. Click **Enable**.
 1. Read the dialog box to ensure that your settings are correct, then click **Enable beta**.
 
-When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Members** feature; all current members retain their existing projects.
+When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Users** feature; all current members retain their existing projects.
 
 ## Tips for creating teams and subteams
 
@@ -260,7 +265,7 @@ You must be an admin or manager to view the **Teams** tab.
 1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **New team**. The **Create New Team** form appears.
 1. Enter a **Name** for the team.
 1. The **Projects** tab opens. Click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
-1. Click the **Members** tab, then click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the team members you want to add. You can also use the **Search** box to help you find members.
+1. Click the **Users** tab, then click the <i class="fa-solid fa-square-check"></i> checkbox next to the name of the team members you want to add. You can also use the **Search** box to help you find members.
 1. Optional: Appoint a manager. Under the **Role** column, click the drop-down box and select **Manager**.
 1. Click **Create**.
 
@@ -269,7 +274,7 @@ You must be an admin or manager to view the **Teams** tab.
 1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **<i class="fa-solid fa-plus"></i> Add subteam** next to the name of the top-level team you want to create a subteam for. The **Create new subteam** form appears.
 1. Enter a **Name** for the subteam.
 1. The **Projects** tab opens. Click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
-1. Click the **Members** tab, then click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the team members you want to add. You can also use the Search box to help you find members.
+1. Click the **Users** tab, then click the **<i class="fa-solid fa-square-check"></i> checkbox** next to the name of the team members you want to add. You can also use the Search box to help you find members.
 1. Optional: Appoint a manager. Under the Role column, click the drop-down box and select **Manager**.
 1. Click **Create**.
 
@@ -296,7 +301,7 @@ You must be an admin or manager to view the **Teams** tab.
 To set a member as a manager for a subteam:
 
 1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
-1. Click on the **Members** tab.
+1. Click on the **Users** tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
 ![Add a manager](/img/access-add-manager.png#md-width)
 1. Click **Review**.
@@ -328,16 +333,16 @@ Token scopes enable you to limit or grant permissions as necessary. Tokens can a
 
 The following table displays token scopes and their permissions:
 
-| Token scope | Send findings from a remote repository | Send findings from a local repository |  Send PR or MR comments | Connect to Semgrep API |
-| ----------- | ------- | --- | --| -- |
-| Agent (CI)  |   ✔️  Yes    |  ✔️ Yes  | ✔️  Yes | ❌ No |
-| Web API     |  ❌ No    |  ❌ No | ✔️  Yes  | ✔️ Yes  |
-| Member      |    ❌ No   |  ✔️ Yes  | ❌ No |❌ No |
+| Token scope | Send findings from a remote repository | Send findings from a local repository | Send PR or MR comments | Connect to Semgrep API |
+|-------------|----------------------------------------|---------------------------------------|------------------------|------------------------|
+| Agent (CI)  | ✔️&nbsp;Yes                            | ✔️&nbsp;Yes                           | ✔️&nbsp;Yes            | ❌&nbsp;No             |
+| Web API     | ❌&nbsp;No                             | ❌&nbsp;No                            | ✔️&nbsp;Yes            | ✔️&nbsp;Yes            |
+| Member      | ❌&nbsp;No                             | ✔️&nbsp;Yes                           | ❌&nbsp;No             | ❌&nbsp;No             |
 
 The following table displays typical uses for token scopes:
 
-| Token scope |Typical uses |
-| ----------- | ----------- |
+| Token scope | Typical uses                                                                                                                             |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | Agent (CI)  | Generated by Semgrep AppSec Platform when onboarding (adding) a repository to Semgrep AppSec Platform. For non-GitHub Actions users, you may have to copy and paste the token value into your CI provider's interface. |
-| Web API     | Used to access Semgrep's API. |
+| Web API     | Used to access Semgrep's API.                                                                                                            |
 | Member      | Auto-generated by Semgrep CLI when a member is logging in through Semgrep CLI. Use this scope to scan your code locally using your organization's configured Policies, including private rules. The permissions of these tokens cannot be escalated. |

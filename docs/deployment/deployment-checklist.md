@@ -53,16 +53,16 @@ Monorepos may take longer to finish scanning. Semgrep provides several options t
 
 ## Roles
 
-Semgrep provides two primary roles: **admin** and **member**.
+Semgrep provides three primary roles: **admin**, **member**, and **readonly**.
 
-Deployments can also enable a third role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
+Deployments can also enable a fourth role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
 
 For **single-user deployments**, you are the sole **admin** of your deployment.
 
 For **multi-user deployments**, determine the following:
 
 - The administrators (**admins**) that own the Semgrep deployment.
-- For `members`, ensure that they have a sign-in method:
+- For **members**, ensure that they have a sign-in method:
     - SSO
     - GitHub Cloud
     - GitLab Cloud
