@@ -67,7 +67,7 @@ Dependency search provides the following filters, which correspond to the data p
 | Transitivity | The relationship of the dependency to your codebase. |
 | License Policy | The License Policy you set. Determines whether a dependency can be used based on its license. |
 | License | The dependency's license type. |
-| Ecosystem | The language of the dependency. |
+| Language | The language of the dependency. |
 
 ![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
 _**Figure**. Dependency search page with sample search query._
