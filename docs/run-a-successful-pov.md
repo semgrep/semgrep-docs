@@ -10,8 +10,8 @@ tags:
 
 # Run a successful proof-of-value (POV) with Semgrep
 
-:::tip Start a POV
-For any questions or concerns about starting a proof-of-value (POV), reach out to [<i class="fa-regular fa-envelope"></i>sales@semgrep.com](mailto:sales@semgrep.com).
+:::note Start a POV
+For any questions or concerns about starting a proof-of-value (POV), reach out to [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
 :::
 
 Run a POV to learn more about Semgrep solutions and receive support that is specific to your infrastructure and business needs. During a POV, you receive dedicated sales, engineering, and support resources to ensure that every Semgrep feature that supports your infrastructure can be implemented quickly and reliably.
@@ -56,17 +56,55 @@ The Semgrep team prepares for the POV with the following tasks:
 - Semgrep sets up a **dedicated Slack channel** where you can reach out to the team during the POV.
 - Creating an account in Semgrep AppSec Platform for your organization.
 - Connecting your source code manager, such as GitHub or Bitbucket, to Semgrep.
-- Setting up SSO.
+- Setting up SSO if you require it.
 - For on-premise environments, Semgrep sets up the Network Broker to facilitate secure access between Semgrep and your private network.
 
 ### Formal POV period
 
-This is a **two-week** period in which Semgrep assists you in deployment, scanning, triage, reporting, and all other related functions for a successful security program. 
+This is a **two-week** period in which Semgrep assists you in deployment, scanning, triage, reporting, and all other related functions for a successful security program.
+
+It is broken into three phases.
+
+#### Semgrep deployment rollout
+
+- Onboarding w/ SMS (Default) OR Onboarding in CI completed
+- Repos that are in scope for testing are onboarded and findings are seen in Semgrep Platform for products in scope of the POV 
+- Assistant enabled and analyzing full scan findings w/Assistant
+- Understand the plan for enabling PR comments and getting developers involved
+
+#### Detection and remediation of findings
+
+- Highlighting quality of findings with out of the box rules
+- Showcase filtering out findings noise with:
+    - Assistant Memories and triage for Code
+    - Direct and transitive reachability for Supply chain
+    - Secrets validation for Secrets
+- Improved developer experience with contextual, actionable vulnerability information 
+    - Inline PR comments
+    - Tailored remediation guidance in PR comments
+    - Breaking changes and upgrade guidance for Supply chain findings
+- Testing out integrations (JIRA, Slack) if part of the success criteria 	
+
+#### Semgrep return-on-investment
+
+tk
+
+### Optional POV activities
+
+#### Roadmap call
+
+tk
+
+#### Rule-writing session
+
+tk
 
 ### POV conclusion
 
-When the POV ends, Semgrep sets up a wrap-up call to go over the POV. The wrap-up call provides an opportunity for you and your team to give feedback as well.
+When the POV ends, Semgrep sets up a wrap-up call that discusses the following:
 
+- Semgrep's performance measured against the evaluation criteria
+- Your feedback about Semgrep
 
 ## Trial license duration
 
@@ -85,7 +123,7 @@ The following sections provide a sample of common questions you and your team ma
 - Does Semgrep support the organization's source code manager?
 - Does the team need to send scan results to a reporting or application security posture management (ASPM) tool?
 - Does Semgrep support the org's bug-tracker or ticketing tool?
-    
+
 ### Usage
 
 - How easy was it to set up Semgrep to scan the organization's repositories?
