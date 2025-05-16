@@ -207,7 +207,7 @@ Given a security engineer who is a manager of **team A** but a member of **team 
 
 Additionally, the manager role is able to perform the following:
 
-- Scan new projects through the **Projects** page.
+- Scan, including managed scans on new projects through the **Projects** page.
 - Edit projects that their team is assigned to.
 
 Managers cannot remove themselves from their team. Admins and co-managers of the same team or subteam can remove other managers.
