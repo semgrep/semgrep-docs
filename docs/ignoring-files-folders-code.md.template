@@ -247,7 +247,8 @@ Because Semgrep ignore logic is configured at the file, repository, and platform
 
 - It is recommended to only create an custom, user-defined `.semgrepignore` file if you are **overriding** the Semgrep defaults. This means defining all other items to ignore through the global or project path ignores.
   - This method works well if your organization primarily scans using the `semgrep ci` command.
-- Be aware that creating a user-defined `.semgrepignore` file enables developers to edit it. Don't exclude the `.semgrepignore` file from Git tracking to keep a log of changes to it.
+- Be aware that creating a user-defined `.semgrepignore` file enables developers to edit it.
+- Include the `.semgrepignore` file in Git tracking to keep a log of changes and ensure it's applied consistently.
 - To **include** a file or folder for scanning, ensure that you have checked the following places:
   - Global path ignores
   - Project path ignores
