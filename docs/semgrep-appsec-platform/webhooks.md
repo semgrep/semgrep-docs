@@ -71,6 +71,8 @@ To verify that Semgrep can post to your URL:
 
 ## Semgrep findings object
 
+Currently, only SAST (Code) findings are sent in webhooks. The `numeric_id` field represents the finding's ID in the Semgrep AppSec Platform.
+
 The following is an example of a `semgrep_finding` object sent by Semgrep:
 
 ```json
