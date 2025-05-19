@@ -179,7 +179,7 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 
 ## Create tickets
 
-After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets.
+After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets. Jira tickets cannot be created for [findings with a status of **Fixed**](/semgrep-code/triage-remediation#triage-statuses) or [removed findings](/semgrep-code/triage-remediation#removed-findings), since those findings no longer require action to address.
 
 ### Component Mappings
 
