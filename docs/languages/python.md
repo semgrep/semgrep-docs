@@ -107,6 +107,7 @@ Semgrep supports the following Python package managers:
 - pip-tools
 - Pipenv
 - Poetry
+- uv
 
 ### Analyses and features
 
