@@ -31,6 +31,7 @@ This feature is in **private beta**. To join the beta, reach out to the [Semgrep
   - `pip-tools`
   - `pipenv`
   - Poetry
+  - uv
 - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - This **includes** projects added to Semgrep through Semgrep Managed Scans 
 

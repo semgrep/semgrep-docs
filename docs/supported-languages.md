@@ -191,7 +191,7 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
 </tr>
   <tr>
-   <td rowspan="4">Python</td>
+   <td rowspan="5">Python</td>
    <td>pip</td>
    <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
   </tr>
@@ -205,6 +205,10 @@ The following table lists all Semgrep-supported package managers for each langua
   <tr>
    <td>Poetry</td>
    <td><code>poetry.lock</code></td>
+  </tr>
+  <tr>
+   <td>uv</td>
+   <td><code>uv.lock</code></td>
   </tr>
   <tr>
    <td>Ruby</td>
