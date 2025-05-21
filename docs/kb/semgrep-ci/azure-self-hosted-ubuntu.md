@@ -52,14 +52,14 @@ steps:
   persistCredentials: true
 - script: |
     pipx install semgrep
-    if [ $(Build.SourceBranchName) = "master" ]; then
-        echo "Semgrep full scan"
-        semgrep ci
-    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+    if [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
         echo "Semgrep diff scan"
         git fetch origin master:origin/master
         export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
         export SEMGREP_BASELINE_REF='origin/master'
+        semgrep ci
+    else
+        echo "Semgrep full scan"
         semgrep ci
     fi
   env:
@@ -113,15 +113,14 @@ steps:
         python3 -m pip install --upgrade pip
         pip install semgrep
 
-        if [ $(Build.SourceBranchName) = "master" ]; then
-          export SEMGREP_BRANCH=$(Build.SourceBranchName)
-          echo "Semgrep full scan of master"
-          semgrep ci
-        elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+        if [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
           echo "Semgrep diff scan"
           git fetch origin master:origin/master
           export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
           export SEMGREP_BASELINE_REF='origin/master'
+          semgrep ci
+        else 
+          echo "Semgrep full scan of master"
           semgrep ci
        fi
 ```
