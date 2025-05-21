@@ -85,6 +85,8 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
 3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
+Note that this feature is only available to users assigned the `admin` role in Semgrep.
+
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
@@ -100,6 +102,8 @@ There are two tabs on the **Assistant Memories** page for your review:
   - Activate the suggested memory to inform Assistant's future advice
   - Edit the memory, then activate it
   - Delete the memory
+
+Note that only users assigned the `admin` role in Semgrep can activate suggested memories.
 
 ### Remove memories
 
