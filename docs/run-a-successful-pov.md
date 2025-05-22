@@ -23,8 +23,8 @@ These are some of the requirements the Semgrep team needs from your organization
 - **The number of trial licenses**
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
 - **A method to scan the repositories used in the POV**
-    - **Recommended: Code access**
-        - This is the fastest way to deploy Semgrep to the repositories you want to scan, even after the POV has concluded. See the supported source code managers. (tk link)
+    - **Recommended: Semgrep Managed Scans (SMS)**
+        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See the supported source code managers. Learn more about SMS code access. tk link
     - **CI/CD**
         - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be set for all the repositories you want to scan.
 - **The team involved in running the POV**
@@ -33,8 +33,8 @@ These are some of the requirements the Semgrep team needs from your organization
     - You must decide on and communicate the repositories you want Semgrep to scan for the POV.
     - Communicate to Semgrep your account management, infra, and tech needs.
 
-:::tip Benefits of code access
-Code access enables Semgrep to manage your scans without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. Semgrep Managed Scans enables you to onboard repositories for scanning in the least number of clicks. [Review the required permissions](/deployment/checklist#permissions).
+:::tip Benefits of Semgrep Managed Scans
+SMS enables Semgrep to manage your scans without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. It enables you to onboard repositories for scanning in the least number of clicks. It requires code access. [Review the required permissions](/deployment/checklist#permissions).
 :::
 
 ## Summary
@@ -91,23 +91,27 @@ It is broken into three smaller phases.
 
 #### Semgrep deployment rollout
 
-- Onboarding w/ SMS (Default) OR Onboarding in CI completed
-- Repos that are in scope for testing are onboarded and findings are seen in Semgrep Platform for products in scope of the POV 
-- Assistant enabled and analyzing full scan findings w/Assistant
-- Understand the plan for enabling PR comments and getting developers involved
+In this phase, the Semgrep team assists you to complete the following tasks:
+
+- Onboard with SMS or Onboarding in CI
+- Repos that are in scope for testing are onboarded and findings are seen in Semgrep Platform for products in the POV scope
+- Assistant has been enabled and is analyzing full scan findings
+- Plan for enabling PR comments and involving developers in Semgrep
 
 #### Detection and remediation of findings
 
-- Highlighting quality of findings with out of the box rules
-- Showcase filtering out findings noise with:
+In this phase, the Semgrep team assists you to complete the following tasks:
+
+- Review the quality of findings with out-of-the-box rules
+- Show how Semgrep **filters out noise** with:
     - Assistant Memories and triage for Code
     - Direct and transitive reachability for Supply chain
     - Secrets validation for Secrets
-- Improved developer experience with contextual, actionable vulnerability information 
+- Improve developer experience through contextual, actionable vulnerability information 
     - Inline PR comments
     - Tailored remediation guidance in PR comments
     - Breaking changes and upgrade guidance for Supply chain findings
-- Testing out integrations (JIRA, Slack) if part of the success criteria 	
+- Integrate Jira and Slack if part of the success criteria
 
 #### Semgrep return-on-investment
 
@@ -129,7 +133,7 @@ When the POV ends, Semgrep sets up a wrap-up call that discusses the following:
 
 The trial license duration lasts for 30 days.
 
-## Common questions and evaluation criteria
+## Appendix: common questions and evaluation criteria
 
 The following sections provide a sample of common questions you and your team may ask to identify specific needs and criteria to evaluate Semgrep:
 
