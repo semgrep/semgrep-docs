@@ -392,9 +392,17 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
+        {
+            type: 'category',
+            label: 'Experimental features',
+            collapsible: true,
+            link: {type: 'generated-index'},
+            items: [
+                'semgrepignore-v2-reference'
+            ]
+        },
         'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif',
-        'semgrepignore-v2-reference',
+        'semgrep-appsec-platform/json-and-sarif'
       ]
     }
   ],
