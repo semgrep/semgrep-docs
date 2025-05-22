@@ -123,6 +123,7 @@ steps:
           export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
           export SEMGREP_BASELINE_REF='origin/master'
           semgrep ci
+        fi
 ```
 
 :::info Customizing the configuration
