@@ -93,6 +93,9 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
     ```bash
     python3 -m pip install --upgrade semgrep
+
+    # users on Ubuntu 24.04 or later must use `pipx` instead of `pip`
+    python3 -m pipx install --upgrade semgrep
     ```
 
     </TabItem>
