@@ -52,14 +52,14 @@ steps:
   persistCredentials: true
 - script: |
     pipx install semgrep
-    if [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+    if [ $(Build.SourceBranchName) = "master" ]; then
+        echo "Semgrep full scan"
+        semgrep ci
+    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
         echo "Semgrep diff scan"
         git fetch origin master:origin/master
         export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
         export SEMGREP_BASELINE_REF='origin/master'
-        semgrep ci
-    else
-        echo "Semgrep full scan"
         semgrep ci
     fi
   env:
