@@ -18,18 +18,40 @@ Run a POV to learn more about Semgrep solutions and receive support that is spec
 
 ## POV requirements
 
-These are some of the requirements the Semgrep team needs from your organization to run a POV.
+These are some of the requirements the Semgrep team needs from your organization to run a POV. You must decide on these factors.
 
-- The number of trial licenses. How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
--
+- **The number of trial licenses**
+    - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
+- **A method to scan the repositories used in the POV**
+    - **Recommended: Code access**
+        - This is the fastest way to deploy Semgrep to the repositories you want to scan, even after the POV has concluded. See the supported source code managers. (tk link)
+    - **CI/CD**
+        - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be set for all the repositories you want to scan.
+- **The team involved in running the POV**
+    - Semgrep creates accounts for everyone on the team who is involved in the POV.
+- **The technical resources**
+    - You must decide on and communicate the repositories you want Semgrep to scan for the POV.
+    - Communicate to Semgrep your account management, infra, and tech needs.
 
 :::tip Benefits of code access
-Code access enables Semgrep to manage your scans without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. Semgrep Managed Scans enables you to onboard repositories for scanning in the least number of clicks.
+Code access enables Semgrep to manage your scans without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. Semgrep Managed Scans enables you to onboard repositories for scanning in the least number of clicks. [Review the required permissions](/deployment/checklist#permissions).
 :::
+
+## Summary
+
+Refer to this section for a short summary of the POV process.
+
+| Step | Activities |
+| -------  | ------ |
+| Both parties agree to run a POV | <ul><li>Verification that your technical stack is supported by Semgrep.</li><li>You have begun gathering necessary permissions from your organization for **technical resources** to run the POV.</li></ul>  |
+| Pre-POV kickoff call and preparation |  <ul><li>Both parties establish success criteria and alignment of the POV goals through a **kickoff call**.</li><li>Semgrep prepares for the POV by creating a dedicated Slack channel and other nessary accounts.</li></ul>      |
+| Formal POV period | <ul><li>Semgrep deployment rollout</li><li>Detection and remediation of findings</li><li>Semgrep ROI</li></ul>       |
+| Optional POV activities | <ul><li>A roadmap call with the Semgrep product team.</li><li>A rule-writing session where you can learn how to write custom Semgrep rules.</li></ul> |
+| POV conclusion | When the POV ends, Semgrep sets up a wrap-up call that discusses Semgrep's performance and your feedback about Semgrep. |
 
 ## General steps 
 
-Running a proof-of-value involves the following steps:
+Running a POV involves the following steps:
 
 ### Both parties agree to running a POV
 
@@ -38,32 +60,34 @@ Running a proof-of-value involves the following steps:
     - Programming languages
     - Source code managers
     - Account management
-    - And other factors
-- **Optional**: At this point, if you'd like a technical deep dive of Semgrep from a sales engineer, you can request for one through your account executive.
-- It is recommended that the buyer (you) start gathering and gaining approvals from your organization for resources needed to run the POV, such as repository access. 
+    - Other factors
+- **Optional**: If you'd like a **technical deep dive** of Semgrep from a sales engineer, you can request for one through your account executive.
+- Semgrep recommends that **the buyer (you) start gathering and gaining approvals** from your organization for resources needed to run the POV, such as repository access. 
 
-### Pre-POV kickoff call
+### Pre-POV
 
-- During the pre-POV kickoff call, both parties set **success criteria**
+#### Kickoff call
+
+- During the pre-POV kickoff call, both parties set **success criteria**.
 - You and your organization can define the success criteria, or Semgrep can assist you in creating one. 
 - The pre-POV kickoff call ensures that all stakeholders are aligned for the goals of the POV.
 - It also ensures that the technical requirements for both parties are clearly communicated.
 
-### Pre-POV preparation
+#### Preparation for POV
 
-The Semgrep team prepares for the POV with the following tasks:
+In preparation for the POV, Semgrep performs the following tasks:
 
-- Semgrep sets up a **dedicated Slack channel** where you can reach out to the team during the POV.
-- Creating an account in Semgrep AppSec Platform for your organization.
-- Connecting your source code manager, such as GitHub or Bitbucket, to Semgrep.
-- Setting up SSO if you require it.
+- Sets up a **dedicated Slack channel** where you can reach out to the team during the POV.
+- Creates an account in Semgrep AppSec Platform for your organization.
+- Connects your source code manager, such as GitHub or Bitbucket, to Semgrep.
+- Sets up SSO if you require it.
 - For on-premise environments, Semgrep sets up the Network Broker to facilitate secure access between Semgrep and your private network.
 
 ### Formal POV period
 
 This is a **two-week** period in which Semgrep assists you in deployment, scanning, triage, reporting, and all other related functions for a successful security program.
 
-It is broken into three phases.
+It is broken into three smaller phases.
 
 #### Semgrep deployment rollout
 
@@ -91,13 +115,8 @@ tk
 
 ### Optional POV activities
 
-#### Roadmap call
-
-tk
-
-#### Rule-writing session
-
-tk
+- **Roadmap call**. You can request a call with the Product team to learn about Semgrep's upcoming features and approaches.
+- **Rule-writing session**. Learn how to write Semgrep rules to customize Semgrep for your organization's unique code standards.
 
 ### POV conclusion
 
