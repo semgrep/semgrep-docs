@@ -27,8 +27,8 @@ All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-d
 | Method  | Usage    |
 |:--------|:---------|
 | To ignore blocks of code: Add a `nosemgrep` annotation | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. <br /><br />For example:<br /><br />` // nosemgrep` &nbsp; &nbsp; &nbsp;<br />`// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| For **teams or organizations** deploying Semgrep as part of a security program: <br /><br /><ul><li>Ignore files and folders through the use of Semgrep AppSec Platform's **Project or Global ignores**</li><li>Override the implicit ignorelist through the use of a `.semgrepignore` file.</li></ul> | Navigate to **Projects > <PL>PROJECT_NAME</PL> > Details > Settings > Path ignores**.<br /><br /> ![Set ignore paths for a project in Semgrep AppSec Platform.](/img/per-project-ignores.png) |
-| For **individuals** scanning repositories or local codebases, or Semgrep CE users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| For Semgrep AppSec Platform users: <br /><br /><ul><li>Ignore files and folders through the use of Semgrep AppSec Platform's **Project or Global ignores**</li><li>Override the implicit ignorelist through the use of a `.semgrepignore` file.</li></ul> | Navigate to **Projects > <PL>PROJECT_NAME</PL> > Details > Settings > Path ignores**.<br /><br /> ![Set ignore paths for a project in Semgrep AppSec Platform.](/img/per-project-ignores.png) |
+| For Semgrep CE users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
  
 
 ## Understand Semgrep defaults
@@ -37,13 +37,15 @@ Without user customization, Semgrep refers to the following to define ignored fi
 
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
-* For Semgrep AppSec Platform users: each project (repository) in Semgrep **includes** a list of ignored files and folders by default in the **Path ignores** list
+* For Semgrep AppSec Platform users: each project (repository) in Semgrep has a list of ignored files and folders in its project details page.
 
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
 ```
+```
+
 
 ## Override defaults
 
@@ -52,7 +54,7 @@ The default `.semgrepignore` file causes Semgrep to skip these folders:
 * `/tests`, `/test`
 * `/vendors`
 
-To include these folders or override the defaults:
+To include these folders:
 
 1. Create a `.semgrepignore` file at the repository root without those paths.
 1. For Platform users: remove the folders from the project ignore list in **Projects > <PL>PROJECT_NAME</PL> > Details page > Settings > Path ignores > Code (SAST) & Supply Chain (SCA)**.
@@ -245,7 +247,7 @@ This section focuses on ignoring as excluding or skipping files, not as a triage
 
 Because Semgrep ignore logic is configured at the file, repository, and platform level, you may sometimes encounter unexpected behavior.
 
-- It is recommended to only create an custom, user-defined `.semgrepignore` file if you are **overriding** the Semgrep defaults. This means defining all other items to ignore through the global or project path ignores.
+- It is recommended to only create an custom, user-defined `.semgrepignore` file if you are **overriding** the Semgrep defaults, if possible. This means defining all other items to ignore through the global or project path ignores.
   - This method works well if your organization primarily scans using the `semgrep ci` command.
 - Be aware that creating a user-defined `.semgrepignore` file enables developers to edit it.
 - Include the `.semgrepignore` file in Git tracking to keep a log of changes and ensure it's applied consistently.
