@@ -44,7 +44,6 @@ In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repo
 ```
 DEFAULT_SEMGREPIGNORE_TEXT
 ```
-```
 
 
 ## Override defaults
