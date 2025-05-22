@@ -24,7 +24,7 @@ These are some of the requirements the Semgrep team needs from your organization
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
 - **A method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
-        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See the supported source code managers. Learn more about SMS code access. tk link
+        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review its requirements.
     - **CI/CD**
         - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be set for all the repositories you want to scan.
 - **The team involved in running the POV**
@@ -34,7 +34,7 @@ These are some of the requirements the Semgrep team needs from your organization
     - Communicate to Semgrep your account management, infra, and tech needs.
 
 :::tip Benefits of Semgrep Managed Scans
-SMS enables Semgrep to manage your scans without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. It enables you to onboard repositories for scanning in the least number of clicks. It requires code access. [Review the required permissions](/deployment/checklist#permissions).
+SMS enables Semgrep to scan your repositories without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. It enables you to onboard repositories for scanning in the least number of clicks. It requires code access. [Review the required permissions](/deployment/checklist#permissions).
 :::
 
 ## Summary
@@ -115,9 +115,18 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 
 #### Semgrep return-on-investment
 
-tk
+In the last phase, the Semgrep team will provide you with data regarding the return-on-investment Semgrep provides, compared against your existing security program.
+
+Some metrics include:
+
+- The number of developers in your company and the cost per developer per hour
+- Number of hours **reduced** per developer, per year in triage time, research and fix time by having Semgrep Assistant provide autofix and triage recommendations
+- Number of hours reduced in triage time per developer by having the ability to detect if secrets are valid or invalid
+- Reduction in review time with Semgrep Supply Chain Reachability Analysis
 
 ### Optional POV activities
+
+Feel free to request for the following:
 
 - **Roadmap call**. You can request a call with the Product team to learn about Semgrep's upcoming features and approaches.
 - **Rule-writing session**. Learn how to write Semgrep rules to customize Semgrep for your organization's unique code standards.
@@ -135,18 +144,29 @@ The trial license duration lasts for 30 days.
 
 ## Appendix: common questions and evaluation criteria
 
-The following sections provide a sample of common questions you and your team may ask to identify specific needs and criteria to evaluate Semgrep:
+<details>
+<summary>
+Click to view a sample of common questions you and your team may ask to identify specific needs and criteria to evaluate Semgrep.
+</summary>
 
-### General coverage 
+- **Feature set**
+  - What features and language support do you need?
+  - How easy is it to set up a Semgrep POV environment?
+- **Deployment**
+  - Does Semgrep support your unique infrastructure or network needs?
+  - Does Semgrep support your SCM and CI provider? Can you easily deploy Semgrep through SMS?
+- **Integrations and notifications**
+  - Do the Semgrep integrations support your workflows for that tool? For example, does Semgrep support your custom fields in Jira?
+  - Are your custom workflows supported by the Semgrep API? 
+- **Findings and reports**
+  - What percent of findings are true positives? How does this compare with previous tools? 
+  - Is Semgrep Assistant (AI) able to reduce false positives? 
+  - Does the dashboard assist you in tracking secure guardrails?
+- **Security**
+  - Ensuring that the tool can handle sensitive data securely.
+  - Can Semgrep successfully block PRs based on the criteria you need to set?
+- **Support and documentation**
+    - How easy is it to work with the Semgrep support team? Do they respond within the timeframe provided to you?
+    - Does the documentation provide you with a clear explanation of the product and features? Was it easy for you to find answers?
 
-- Does the business need a static application security testing (SAST) tool?
-- Does the business need a software composition analysis (SCA) tool?
-- Does the business need a secrets scanner?
-- Does Semgrep support the organization's languages?
-- Does Semgrep support the organization's source code manager?
-- Does the team need to send scan results to a reporting or application security posture management (ASPM) tool?
-- Does Semgrep support the org's bug-tracker or ticketing tool?
-
-### Usage
-
-- How easy was it to set up Semgrep to scan the organization's repositories?
+</details>
