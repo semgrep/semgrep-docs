@@ -60,7 +60,7 @@ Memories are enabled by default for all organizations with Assistant enabled.
 
 ### Add a memory based on Assistant's suggested fix
 
-To add a memory modifying a suggested fix presented by Assistant:
+To add a memory based on a suggested fix presented by Assistant:
 
 1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
 2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use AWS Secrets Manager to manage secrets."
@@ -85,7 +85,7 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
 3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
-Note that this feature is only available to users assigned the `admin` role in Semgrep.
+Note that creating memories is only available to users assigned the `admin` role in Semgrep.
 
 ### View and edit memories
 
@@ -98,10 +98,10 @@ _**Figure**. Assistant Memories overview in Semgrep AppSec Platform._
 There are two tabs on the **Assistant Memories** page for your review:
 
 - The **Active** tab displays a list of memories that Assistant is actively using to generate triage advice
-- The **Suggested** tab displays a list of memories Assistant has generated based on your past triage actions. For each suggestion, you can:
-  - Activate the suggested memory to inform Assistant's future advice
+- The **Suggested** tab displays a list of memories Assistant has generated based on your past triage actions and developer feedback. For each suggestion, you can:
+  - Activate the suggested memory to inform Assistant's advice on current and future findings
   - Edit the memory, then activate it
-  - Delete the memory
+  - Delete the suggested memory
 
 Note that only users assigned the `admin` role in Semgrep can activate suggested memories.
 
