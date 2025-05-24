@@ -10,23 +10,27 @@ toc_max_heading_level: 4
 
 # Semgrep JSON and SARIF fields
 
-This reference provides all Semgrep fields for JSON and SARIF output.
+This reference provides Semgrep fields for JSON and SARIF output.
 
 For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login) to generate values for those fields.
 
 ## Semgrep Code
 
-### Simplified schema
+### JSON
+
+#### JSON example output
+ 
+The following snippet displays a sample JSON output. The snippet displays all fields that are provided.
 
 ```json
 {
-  "check_id": "STRING",
+  "check_id": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
   "path": "STRING",
   "start": 
   {
-    "line": NUMBER,
-    "col": NUMBER,
-    "offset": NUMBER
+    "line": 18,
+    "col": 9,
+    "offset": 300
   },
   "end": {
     "line": 18,
@@ -79,29 +83,29 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
         "Command Injection"
       ],
       "source": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection",
-      "shortlink": "https://sg.run/pkzk",
+      "shortlink": "https://sg.run/11zk",
       "semgrep.dev": {
         "rule": {
           "origin": "community",
           "r_id": 13162,
-          "rule_id": "v8UjQj",
-          "rv_id": 1025998,
-          "url": "https://semgrep.dev/playground/r/QkT0Wyp/yaml.github-actions.security.run-shell-injection.run-shell-injection",
-          "version_id": "QkT0Wyp"
+          "rule_id": "v8UQj2",
+          "rv_id": 1025108,
+          "url": "https://semgrep.dev/playground/r/akTViyp/yaml.github-actions.security.run-shell-injection.run-shell-injection",
+          "version_id": "akTViyp"
         }
       },
       "dev.semgrep.actions": [
         "comment"
       ],
       "semgrep.policy": {
-        "id": 38225,
+        "id": 91181987,
         "name": "Rule Board - PR Comments column",
         "slug": "rule-board-pr-comments"
       },
       "semgrep.url": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection"
     },
     "severity": "ERROR",
-    "fingerprint": "ed184f570e121fd62774716df70aa1826ee41f2fc2e5b4e05565faae6797e9102d4512eb849eb33dc660c40e8c55bcb61a920253adca21de706e1833f9208295_0",
+    "fingerprint": "...",
     "lines": "      - run: echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\"",
     "is_ignored": false,
     "validation_state": "NO_VALIDATOR",
@@ -110,7 +114,9 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 }
 ```
 
-### JSON
+#### JSON top-level fields
+
+These tables provide a **partial** overview of the fields available to Semgrep CE and Semgrep AppSec Platform. Refer to the sample schema for all the fields. 
 
 <table>
 <thead>
@@ -447,7 +453,11 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 Semgrep Supply Chain fields are available only through Semgrep AppSec Platform.
 :::
 
-See the following schema snippet for a general structure of a Semgrep Supply Chain SARIF file.
+### SARIF
+
+#### SARIF example output
+
+The following snippet displays a sample SARIF output for Semgrep Supply Chain. The snippet displays all fields that are provided.
 
 ```json
 {
