@@ -15,6 +15,101 @@ This reference provides all Semgrep fields for JSON and SARIF output.
 For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login) to generate values for those fields.
 
 ## Semgrep Code
+
+### Simplified schema
+
+```json
+{
+  "check_id": "STRING",
+  "path": "STRING",
+  "start": 
+  {
+    "line": NUMBER,
+    "col": NUMBER,
+    "offset": NUMBER
+  },
+  "end": {
+    "line": 18,
+    "col": 82,
+    "offset": 373
+  },
+  "extra": {
+    "metavars": {
+      "$SHELL": {
+        "start": {
+          "line": 18,
+          "col": 14,
+          "offset": 305
+        },
+        "end": {
+          "line": 18,
+          "col": 82,
+          "offset": 373
+        },
+        "abstract_content": "echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\""
+      }
+    },
+    "message": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+    "metadata": {
+      "category": "security",
+      "cwe": [
+        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+      ],
+      "owasp": [
+        "A01:2017 - Injection",
+        "A03:2021 - Injection"
+      ],
+      "references": [
+        "https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections",
+        "https://securitylab.github.com/research/github-actions-untrusted-input/"
+      ],
+      "technology": [
+        "github-actions"
+      ],
+      "cwe2022-top25": true,
+      "cwe2021-top25": true,
+      "subcategory": [
+        "vuln"
+      ],
+      "likelihood": "HIGH",
+      "impact": "HIGH",
+      "confidence": "HIGH",
+      "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+      "vulnerability_class": [
+        "Command Injection"
+      ],
+      "source": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection",
+      "shortlink": "https://sg.run/pkzk",
+      "semgrep.dev": {
+        "rule": {
+          "origin": "community",
+          "r_id": 13162,
+          "rule_id": "v8UjQj",
+          "rv_id": 1025998,
+          "url": "https://semgrep.dev/playground/r/QkT0Wyp/yaml.github-actions.security.run-shell-injection.run-shell-injection",
+          "version_id": "QkT0Wyp"
+        }
+      },
+      "dev.semgrep.actions": [
+        "comment"
+      ],
+      "semgrep.policy": {
+        "id": 38225,
+        "name": "Rule Board - PR Comments column",
+        "slug": "rule-board-pr-comments"
+      },
+      "semgrep.url": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection"
+    },
+    "severity": "ERROR",
+    "fingerprint": "ed184f570e121fd62774716df70aa1826ee41f2fc2e5b4e05565faae6797e9102d4512eb849eb33dc660c40e8c55bcb61a920253adca21de706e1833f9208295_0",
+    "lines": "      - run: echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\"",
+    "is_ignored": false,
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "PRO"
+  }
+}
+```
+
 ### JSON
 
 <table>
@@ -356,47 +451,43 @@ See the following schema snippet for a general structure of a Semgrep Supply Cha
 
 ```json
 {
-    "version": "x.y.z",
-    "runs": [
-    {
+    "version":"2.1.0",
+    "runs": [{
         "invocations": [
         {
-           "executionSuccessful": BOOLEAN_VALUE
-            "toolExecutionNotifications":[...]
+            "executionSuccessful":true,
+            "toolExecutionNotifications":[]
         }
-    }],
-    "results": [
+    ],
+    "results":[
     {
-        "fingerprints": { ... }
-        "locations": [
+        "fingerprints":
         {
+            "matchBasedId/v1": "..."
+        },
+        "locations":[{
             "physicalLocation":{
                 "artifactLocation":{
-                    "uri": "STRING",
-                    "uriBaseId":"STRING"
+                    "uri":"go.mod",
+                    "uriBaseId":"%SRCROOT%"
                 },
-                "region":
-                {
-                    "endColumn": NUMBER,
-                    "endLine": NUMBER,
-                    "snippet":
-                    {
-                        "text":"STRING"
+                "region":{
+                    "endColumn":1,
+                    "endLine":6,
+                    "snippet":{
+                        "text":"\tgithub.com/gin-gonic/gin v1.6.3 // indirect"
                     },
-                    "startColumn": NUMBER,
-                    "startLine": NUMBER
+                    "startColumn":1,
+                    "startLine":6
                 }
             }
         }],
-        "message":
-        {
-            "text":"STRING"
+        "message":{
+            "text":"Affected versions of github.com/gin-gonic/gin are vulnerable to..."
         },
-        "properties":
-        {
+        "properties":{
             "exposure":"undetermined"
         },
-        "ruleId":"ssc-parity-0ddf890152a281f12fd6d01c3953da8d88ce2e7b"
-    }]
-}
+        "ruleId":"ssc-parity-xxx"
+    },
 ```
