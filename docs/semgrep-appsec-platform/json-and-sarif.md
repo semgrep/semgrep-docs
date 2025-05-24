@@ -5,6 +5,7 @@ hide_title: true
 description: Reference for all Semgrep JSON and SARIF export fields.
 tags:
   - Semgrep AppSec Platform
+toc_max_heading_level: 4
 ---
 
 # Semgrep JSON and SARIF fields
@@ -13,7 +14,8 @@ This reference provides all Semgrep fields for JSON and SARIF output.
 
 For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login) to generate values for those fields.
 
-## JSON
+## Semgrep Code
+### JSON
 
 <table>
 <thead>
@@ -54,8 +56,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 </tr>
 </tbody></table>
 
-
-### `results` object
+#### `results` object
 
 <table>
 <thead>
@@ -96,7 +97,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 </tr>
 </tbody></table>
 
-### `extra` object
+#### `extra` object
 
 <table>
 <thead>
@@ -160,7 +161,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 
 _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the line numbers themselves. See the [`results` object](#results-object) to view line numbers._
 
-### `metadata` object
+#### `metadata` object
 
 <table>
 <thead>
@@ -248,8 +249,7 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 </tr>
 </tbody></table>
 
-## SARIF
-
+### SARIF
 
 <table>
 <thead>
@@ -276,7 +276,7 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 </tr>
 </tbody></table>
 
-### `runs` object
+#### `runs` object
 <table>
 <thead>
 <tr>
@@ -308,7 +308,7 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 </tbody></table>
 
 
-### `results` object
+#### `results` object
 
 <table>
 <thead>
@@ -345,3 +345,58 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 <td>✅</td>
 </tr>
 </tbody></table>
+
+## Semgrep Supply Chain
+
+:::info
+Semgrep Supply Chain fields are available only through Semgrep AppSec Platform.
+:::
+
+See the following schema snippet for a general structure of a Semgrep Supply Chain SARIF file.
+
+```json
+{
+    "version": "x.y.z",
+    "runs": [
+    {
+        "invocations": [
+        {
+           "executionSuccessful": BOOLEAN_VALUE
+            "toolExecutionNotifications":[...]
+        }
+    }],
+    "results": [
+    {
+        "fingerprints": { ... }
+        "locations": [
+        {
+            "physicalLocation":{
+                "artifactLocation":{
+                    "uri": "STRING",
+                    "uriBaseId":"STRING"
+                },
+                "region":
+                {
+                    "endColumn": NUMBER,
+                    "endLine": NUMBER,
+                    "snippet":
+                    {
+                        "text":"STRING"
+                    },
+                    "startColumn": NUMBER,
+                    "startLine": NUMBER
+                }
+            }
+        }],
+        "message":
+        {
+            "text":"STRING"
+        },
+        "properties":
+        {
+            "exposure":"undetermined"
+        },
+        "ruleId":"ssc-parity-0ddf890152a281f12fd6d01c3953da8d88ce2e7b"
+    }]
+}
+```
