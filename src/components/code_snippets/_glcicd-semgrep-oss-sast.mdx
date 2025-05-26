@@ -3,7 +3,7 @@ semgrep:
   # A Docker image with Semgrep installed.
   image: semgrep/semgrep
   # Run the "semgrep scan" command on the command line of the docker image.
-  script: semgrep ci --config auto .
+  script: semgrep scan --config auto .
 
   rules:
   # Scan changed files in MRs, (diff-aware scanning):
