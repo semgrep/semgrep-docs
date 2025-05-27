@@ -95,7 +95,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 
 - Onboard with SMS or onboard in CI
 - View findings in Semgrep AppSec Platform for repos that are in scope for testing and have been onboarded.
-- Assistant has been enabled and is analyzing full scan findings
+- Enable Assistant, ensuring that it's analyzing full scan findings
 - Plan for enabling PR comments and involving developers in Semgrep
 
 #### Detection and remediation of findings
