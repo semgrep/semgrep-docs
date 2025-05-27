@@ -34,7 +34,7 @@ To run a successful POV, the Semgrep team needs decisions regarding the followin
     - You must decide on and communicate to Semgrep your account management, infra, and tech needs.
 
 :::tip Benefits of Semgrep Managed Scans
-SMS enables Semgrep to scan your repositories without the need for a CI integration. This is the **fastest** and **most scalable** deployment method. It enables you to onboard repositories for scanning in the least number of clicks. It requires code access. [Review the required permissions](/deployment/checklist#permissions).
+SMS is the **fastest** and **most scalable** deployment method, since it enables you to onboard repositories for scanning without the need for CI integrations. However, SMS requires code access. [Review the required permissions](/deployment/checklist#permissions).
 :::
 
 ## Summary
