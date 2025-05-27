@@ -69,7 +69,7 @@ Running a POV involves the following steps:
 #### Kickoff call
 
 - During the pre-POV kickoff call, both parties set **success criteria**.
-- You and your organization can define the success criteria, or Semgrep can assist you in creating one. 
+- You and your organization can define the success criteria, or Semgrep can assist you in creating them. 
 - The pre-POV kickoff call ensures that all stakeholders are aligned for the goals of the POV.
 - It also ensures that the technical requirements for both parties are clearly communicated.
 
