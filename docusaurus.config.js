@@ -77,7 +77,7 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Community',
@@ -91,13 +91,33 @@ module.exports = {
               href: 'https://github.com/semgrep/semgrep'
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/semgrep',
+              label: 'File an issue',
+              href: 'https://github.com/semgrep/semgrep/issues',
             },
           ],
         },
         {
-          title: 'Learn',
+          title: 'Products',
+          items: [
+            {
+              label: 'Semgrep Code',
+              to: 'https://semgrep.dev/products/semgrep-code/',
+              target: '_blank'
+            },
+            {
+              label: 'Semgrep Supply Chain',
+              to: 'https://semgrep.dev/products/semgrep-supply-chain/',
+              target: '_blank'
+            },
+            {
+              label: 'Semgrep AppSec Platform',
+              to: 'https://semgrep.dev/products/semgrep-appsec-platform/',
+              target: '_blank'
+            },
+          ],
+        },
+        {
+          title: 'Resources',
           items: [
             {
               label: 'Docs',
@@ -105,51 +125,50 @@ module.exports = {
               target: '_self'
             },
             {
-              label: 'Examples',
-              to: '/docs/writing-rules/rule-ideas/',
-              target: '_self'
+              label: 'Blog',
+              to: 'https://semgrep.dev/blog',
+              target: '_blank'
             },
             {
-              label: 'Tour',
-              to: 'https://semgrep.dev/learn',
-              target: '_self'
+              label: 'Product updates',
+              href: 'https://semgrep.dev/products/product-updates',
+              target: '_blank'
             },
-          ],
-        },
-        {
-          title: 'Product',
-          items: [
+            {
+              label: 'Pricing',
+              to: 'https://semgrep.dev/pricing/',
+              target: '_blank'
+            },
             {
               label: 'Privacy',
               to: 'https://semgrep.dev/privacy',
               target: '_self'
             },
             {
-              label: 'Issues',
-              href: 'https://github.com/semgrep/semgrep/issues',
-            },
-            {
               label: 'Terms of service',
               to: 'https://semgrep.dev/terms',
-              target: '_self'
+              target: '_blank'
             },
           ],
         },
         {
-          title: 'About',
+          title: 'Company',
           items: [
             {
-              label: 'Semgrep blog',
-              href: 'https://semgrep.dev/blog/',
+              label: 'About',
+              href: 'https://semgrep.dev/about',
+              target: '_blank'
             },
             {
-              label: 'About us',
-              href: 'https://semgrep.dev/about'
+              label: 'Careers',
+              href: 'https://semgrep.dev/about/careers',
+              target: '_blank'
             },
             {
-              label: 'Semgrep product updates',
-              href: 'https://semgrep.dev/products/product-updates'
-            }
+              label: 'Careers',
+              href: 'https://semgrep.dev/contact-us',
+              target: '_blank'
+            },
           ],
         },
       ],
