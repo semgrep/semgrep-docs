@@ -94,7 +94,7 @@ It is broken into three smaller phases.
 In this phase, the Semgrep team assists you to complete the following tasks:
 
 - Onboard with SMS or onboard in CI
-- View findings in Semgrep AppSec Platform for repos that are in scope for testing and have been onboarded.
+- View findings in Semgrep AppSec Platform for repositories that are in scope for testing and have been onboarded.
 - Enable Assistant, ensuring that it's analyzing full scan findings
 - Plan for enabling PR comments and involving developers in Semgrep
 
