@@ -163,7 +163,7 @@ Click to view a sample of common questions you and your team may ask to identify
   - Is Semgrep Assistant (AI) able to reduce false positives? 
   - Does the dashboard assist you in tracking secure guardrails?
 - **Security**
-  - Ensuring that the tool can handle sensitive data securely.
+  - Can Semgrep handle your sensitive data securely?
   - Can Semgrep successfully block PRs based on the criteria you need to set?
 - **Support and documentation**
     - How easy is it to work with the Semgrep support team? Do they respond within the timeframe provided to you?
