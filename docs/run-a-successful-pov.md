@@ -106,7 +106,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 - Show how Semgrep **filters out noise** with:
     - Assistant Memories and triage for Semgrep Code
     - Direct and transitive reachability for Semgrep Supply Chain
-    - Secrets validation for Secrets
+    - Secrets validation for Semgrep Secrets
 - Improve developer experience through contextual, actionable vulnerability information 
     - Inline PR comments
     - Tailored remediation guidance in PR comments
