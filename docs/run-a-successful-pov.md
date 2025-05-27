@@ -24,7 +24,7 @@ To run a successful POV, the Semgrep team needs decisions regarding the followin
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
 - **A method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
-        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review its requirements.
+        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review SMS requirements.
     - **CI/CD**
         - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be set for all the repositories you want to scan.
 - **The team involved in running the POV**
