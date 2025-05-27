@@ -111,7 +111,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
     - Inline PR comments
     - Tailored remediation guidance in PR comments
     - Breaking changes and upgrade guidance for Supply chain findings
-- Integrate Jira and Slack if part of the success criteria
+- Integrate Jira for ticket creation and Slack for notifications if part of the success criteria
 
 #### Semgrep return-on-investment
 
