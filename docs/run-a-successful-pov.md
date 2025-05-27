@@ -115,7 +115,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 
 #### Semgrep return-on-investment
 
-In the last phase, the Semgrep team will provide you with data regarding the return-on-investment Semgrep provides, compared against your existing security program.
+In the final phase, the Semgrep team provides you with data on the return on investment that Semgrep provides, compared to your existing security program.
 
 Some metrics include:
 
