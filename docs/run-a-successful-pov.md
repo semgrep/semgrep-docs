@@ -22,7 +22,7 @@ To run a successful POV, the Semgrep team needs decisions regarding the followin
 
 - **The number of trial licenses**
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
-- **A method to scan the repositories used in the POV**
+- **The method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
         - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review SMS requirements.
     - **CI/CD**
