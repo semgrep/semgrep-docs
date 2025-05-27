@@ -18,7 +18,7 @@ Run a POV to learn more about Semgrep solutions and receive support that is spec
 
 ## POV requirements
 
-These are some of the requirements the Semgrep team needs from your organization to run a POV. You must decide on these factors.
+To run a successful POV, the Semgrep team needs decisions regarding the following factors from your organization:
 
 - **The number of trial licenses**
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
