@@ -165,7 +165,7 @@ module.exports = {
               target: '_blank'
             },
             {
-              label: 'Careers',
+              label: 'Contact us',
               href: 'https://semgrep.dev/contact-us',
               target: '_blank'
             },
