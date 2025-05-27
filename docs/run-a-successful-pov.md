@@ -22,13 +22,13 @@ To run a successful POV, the Semgrep team needs decisions regarding the followin
 
 - **The number of trial licenses**
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
+- **The team involved in running the POV**
+    - Semgrep creates accounts for everyone on the team who is involved in the POV.
 - **The method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
         - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review SMS requirements.
     - **CI/CD**
-        - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be set for all the repositories you want to scan.
-- **The team involved in running the POV**
-    - Semgrep creates accounts for everyone on the team who is involved in the POV.
+        - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be created for all of the repositories you want to scan.
 - **The technical resources**
     - You must decide on and communicate the repositories you want Semgrep to scan for the POV.
     - You must decide on and communicate to Semgrep your account management, infra, and tech needs.
@@ -43,7 +43,7 @@ The following table includes a short summary of the POV process.
 
 | Step | Activities |
 | -------  | ------ |
-| Both parties agree to run a POV | <ul><li>Verification that your technical stack is supported by Semgrep.</li><li>You have begun gathering necessary permissions from your organization for **technical resources** to run the POV.</li></ul>  |
+| Both parties agree to run a POV | <ul><li>Verify that your technical stack is supported by Semgrep.</li><li>Begin gathering necessary permissions from your organization for **technical resources** to run the POV.</li></ul>  |
 | Pre-POV kickoff call and preparation |  <ul><li>Both parties establish success criteria and alignment of the POV goals through a **kickoff call**.</li><li>Semgrep prepares for the POV by creating a dedicated Slack channel and other nessary accounts.</li></ul>      |
 | Formal POV period | <ul><li>Semgrep deployment rollout.</li><li>Detection and remediation of findings.</li><li>Analysis of Semgrep ROI.</li></ul>       |
 | Optional POV activities | <ul><li>A roadmap call with the Semgrep product team.</li><li>A rule-writing session where you can learn how to write custom Semgrep rules.</li></ul> |
