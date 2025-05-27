@@ -329,14 +329,14 @@ The following table lists all Supply Chain features for each language. Languages
 <td>Scala</td>
 <td align="center">✅</td>
 <td align="center">--</td>
-<td align="center">✅†</td>
+<td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Swift</td>
 <td align="center">✅</td>
 <td align="center">--</td>
-<td align="center">✅</td>
+<td align="center">✅†</td>
 <td align="center">--</td>
 </tr>
 <tr>
