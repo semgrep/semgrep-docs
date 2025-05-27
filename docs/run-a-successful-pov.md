@@ -122,7 +122,7 @@ Some metrics include:
 - The number of developers in your company and the cost per developer per hour
 - Number of hours **reduced** per developer, per year in triage time, research and fix time by having Semgrep Assistant provide autofix and triage recommendations
 - Number of hours reduced in triage time per developer by having the ability to detect if secrets are valid or invalid
-- Reduction in review time with Semgrep Supply Chain Reachability Analysis
+- Reduction in review time with Semgrep Supply Chain reachability analysis
 
 ### Optional POV activities
 
