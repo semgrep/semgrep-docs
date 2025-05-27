@@ -39,7 +39,7 @@ SMS is the **fastest** and **most scalable** deployment method, since it enables
 
 ## Summary
 
-Refer to this section for a short summary of the POV process.
+The following table includes a short summary of the POV process.
 
 | Step | Activities |
 | -------  | ------ |
