@@ -14,7 +14,7 @@ tags:
 For any questions or concerns about starting a proof-of-value (POV), reach out to [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
 :::
 
-Run a POV to learn more about Semgrep solutions and receive support that is specific to your infrastructure and business needs. During a POV, you receive dedicated sales, engineering, and support resources to ensure that every Semgrep feature that supports your infrastructure can be implemented quickly and reliably.
+Run a POV to learn more about Semgrep solutions and receive support that is specific to your infrastructure and business needs. During a POV, you receive dedicated sales, engineering, and support resources to ensure that every Semgrep feature that supports your infrastructure is implemented quickly and reliably.
 
 ## POV requirements
 
