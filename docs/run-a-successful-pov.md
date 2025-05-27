@@ -104,7 +104,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 
 - Review the quality of findings with out-of-the-box rules
 - Show how Semgrep **filters out noise** with:
-    - Assistant Memories and triage for Code
+    - Assistant Memories and triage for Semgrep Code
     - Direct and transitive reachability for Supply chain
     - Secrets validation for Secrets
 - Improve developer experience through contextual, actionable vulnerability information 
