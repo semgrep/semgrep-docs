@@ -110,7 +110,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 - Improve developer experience through contextual, actionable vulnerability information 
     - Inline PR comments
     - Tailored remediation guidance in PR comments
-    - Breaking changes and upgrade guidance for Supply chain findings
+    - Breaking changes and upgrade guidance for Supply Chain findings
 - Integrate Jira for ticket creation and Slack for notifications if part of the success criteria
 
 #### Semgrep return-on-investment
