@@ -96,7 +96,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 - Onboard with SMS or onboard in CI
 - Repos that are in scope for testing are onboarded and findings are seen in Semgrep Platform for products in the POV scope
 - Assistant has been enabled and is analyzing full scan findings
-- Plan for enabling PR comments and involving developers in Semgrep
+- Prepare to set up PR comments and involve developers in Semgrep
 
 #### Detection and remediation of findings
 
@@ -107,7 +107,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
     - Assistant Memories and triage for Semgrep Code
     - Direct and transitive reachability for Semgrep Supply Chain
     - Secrets validation for Semgrep Secrets
-- Improve developer experience through contextual, actionable vulnerability information 
+- Improve developer experience through contextual, actionable vulnerability information:
     - Inline PR comments
     - Tailored remediation guidance in PR comments
     - Breaking changes and upgrade guidance for Supply Chain findings
