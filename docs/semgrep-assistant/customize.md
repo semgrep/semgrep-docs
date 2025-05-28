@@ -84,7 +84,7 @@ Semgrep Assistant also suggests memories based on the triage feedback it receive
 - If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory, that needs an admin to activate it. 
 
 :::tip
-**Suggested memories** are a beta feature. The Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. **Automatic memory generation** is available for all Assistant users once Assistant has been enabled.
+**Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback going forward.
 :::
 
 ### View Memories
