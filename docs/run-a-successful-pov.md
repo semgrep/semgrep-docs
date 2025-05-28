@@ -108,8 +108,8 @@ In this phase, the Semgrep team assists you to complete the following tasks:
     - Direct and transitive reachability for Semgrep Supply Chain
     - Secrets validation for Semgrep Secrets
 - Improve developer experience through contextual, actionable vulnerability information:
-    - Inline PR or MR comments
-    - Tailored remediation guidance in PR or MR comments
+    - Inline PR comments or MR comments
+    - Tailored remediation guidance in PR comments or MR comments
     - Breaking changes and upgrade guidance for Supply Chain findings
 - Integrate Jira for ticket creation and Slack for notifications if these are part of the success criteria
 
