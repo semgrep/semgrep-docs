@@ -130,8 +130,8 @@ module.exports = {
               target: '_blank'
             },
             {
-              label: 'Product updates',
-              href: 'https://semgrep.dev/products/product-updates',
+              label: 'Book a demo',
+              to: 'https://semgrep.dev/contact/demo',
               target: '_blank'
             },
             {
