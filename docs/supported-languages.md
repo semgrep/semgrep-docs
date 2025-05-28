@@ -340,8 +340,14 @@ The following table lists all Supply Chain features for each language. Languages
 <td align="center">--</td>
 </tr>
 <tr>
-<td>Rust</td>
+<td>PHP</td>
 <td align="center" width="180px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td align="center">--</td>
+<td align="center">✅</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td>Rust</td>
 <td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -354,12 +360,6 @@ The following table lists all Supply Chain features for each language. Languages
 </tr>
 <tr>
 <td>Elixir</td>
-<td align="center">--</td>
-<td align="center">--</td>
-<td align="center">--</td>
-</tr>
-<tr>
-<td>PHP</td>
 <td align="center">--</td>
 <td align="center">--</td>
 <td align="center">--</td>
