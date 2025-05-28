@@ -78,7 +78,7 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 
 ### Receive memory suggestions from Assistant
 
-Semgrep Assistant also suggests memories based on the triage feedback it receives from you. It can start suggesting memories from the very first triage feedback it receives, or it may generate feedback from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context.
+Semgrep Assistant also suggests memories based on the triage feedback it receives from you. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context.
 
 - Automatic generation of memories: if you are an **admin** user, Assistant immediately tries to generate **active** memories from your triage feedback.
 - If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory, that needs an admin to activate it. 
