@@ -96,7 +96,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 - Add repositories for scanning through SMS or through a CI/CD job
 - View findings in Semgrep AppSec Platform for scanned repositories within the POV's scope
 - Enable Assistant, ensuring that it's analyzing full scan findings
-- Prepare to set up PR comments and involve developers in Semgrep
+- Prepare to set up pull request or merge request comments (PR or MR comments) and involve developers in Semgrep
 
 #### Detection and remediation of findings
 
@@ -108,8 +108,8 @@ In this phase, the Semgrep team assists you to complete the following tasks:
     - Direct and transitive reachability for Semgrep Supply Chain
     - Secrets validation for Semgrep Secrets
 - Improve developer experience through contextual, actionable vulnerability information:
-    - Inline PR comments
-    - Tailored remediation guidance in PR comments
+    - Inline PR or MR comments
+    - Tailored remediation guidance in PR or MR comments
     - Breaking changes and upgrade guidance for Supply Chain findings
 - Integrate Jira for ticket creation and Slack for notifications if these are part of the success criteria
 
