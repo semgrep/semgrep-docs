@@ -34,7 +34,7 @@ To run a successful POV, the Semgrep team needs decisions regarding the followin
     - You must decide on and communicate to Semgrep your account management, infra, and tech needs.
 
 :::tip Benefits of Semgrep Managed Scans
-SMS is the **fastest** and **most scalable** deployment method, since it enables you to onboard repositories for scanning without the need for CI integrations. However, SMS requires code access. [Review the required permissions](/deployment/checklist#permissions).
+SMS is the **fastest** and **most scalable** deployment method, since it enables you to add repositories for scanning without the need for CI integrations. However, SMS requires code access. [Review the required permissions](/deployment/checklist#permissions).
 :::
 
 ## Summary
@@ -93,10 +93,10 @@ It is broken into three smaller phases.
 
 In this phase, the Semgrep team assists you to complete the following tasks:
 
-- Onboard with SMS or onboard in CI
-- View findings in Semgrep AppSec Platform for repositories that are in scope for testing and have been onboarded.
+- Add repositories for scanning through SMS or through a CI/CD job
+- View findings in Semgrep AppSec Platform for scanned repositories within the POV's scope
 - Enable Assistant, ensuring that it's analyzing full scan findings
-- Plan for enabling PR comments and involving developers in Semgrep
+- Prepare to set up PR comments and involve developers in Semgrep
 
 #### Detection and remediation of findings
 
@@ -111,7 +111,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
     - Inline PR comments
     - Tailored remediation guidance in PR comments
     - Breaking changes and upgrade guidance for Supply Chain findings
-- Integrate Jira for ticket creation and Slack for notifications if part of the success criteria
+- Integrate Jira for ticket creation and Slack for notifications if these are part of the success criteria
 
 #### Semgrep return-on-investment
 
