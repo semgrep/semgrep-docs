@@ -562,18 +562,18 @@ li > img {
 /* rest of navbar */
 
 .navbar.navbar--fixed-top {
-  padding: 0;
+  padding: 0 rem 1rem;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   width: 100%;
+  /*height: unset;*/
 }
 
 .navbar__inner {
   position: sticky;
   left: 5px;
-  top: 30px;
   padding: 0 20px;
 }
 
