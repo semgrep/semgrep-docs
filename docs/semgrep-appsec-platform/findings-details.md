@@ -27,7 +27,7 @@ Analyze and triage complex findings by reviewing the finding's specific details 
 
 ### Added to v2
 
-- **Alert boxes** now appear at the top of the page. If a finding is reachable, or if Semgrep Assistant thinks a finding is false positive, or if a secret finding is validated, Semgrep immediately places this information at the top of the page.
+- **Alert boxes** now appear at the top of the page. If a finding is reachable, if Semgrep Assistant thinks a finding is false positive, or if a secret finding is validated, Semgrep immediately places this information at the top of the page.
 - An **Analyze** button provides you with the option to generate an Assistant fix if one doesn't exist.
 - The following fields have been added to **Rule details**:
     - CWE or CVE
