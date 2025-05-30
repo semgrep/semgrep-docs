@@ -23,7 +23,7 @@ Analyze and triage complex findings by reviewing the finding's specific details 
 - Information about the vulnerability detected by the finding, such as its OWASP category, CWE or CVE, or severity.
 - Details about the relevant lines of code, including data flow traces.
 
-## Differences between the v1 and v2 details page
+## Differences between the v1 and v2 details pages
 
 ### Added to v2
 
