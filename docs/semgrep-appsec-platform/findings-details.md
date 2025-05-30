@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: scanSidebar
 slug: details-page
 title: Details page v2
 hide_title: true
@@ -15,9 +16,13 @@ This document describes the **details page v2**, a feature which is in **private
 Refer to this document to understand changes between the two versions. 
 :::
 
-Each finding in Semgrep has its own details page, which provides the following information:
+Analyze and triage complex findings by reviewing the finding's specific details page, which contains the following information:
 
-- tk
+- Critical data about the finding's severity that may affect triage actions and remediation. This includes its reachability if it is a Supply Chain finding, or if it is a validated secret for Semgrep Secrets findings.
+- Any activity performed on the finding: when it was opened, triaged, reopened, or fixed as well as the user responsible for the activity.
+- Information about the vulnerability detected by the finding, such as its OWASP category, CWE, or severity.
+- Details about the relevant lines of code, including data flow traces.
+
 
 ## Differences between the v1 and v2 details page
 
@@ -26,10 +31,13 @@ Each finding in Semgrep has its own details page, which provides the following i
 - **Alert boxes** now appear at the top of the page. If a finding is reachable, or if Semgrep Assistant thinks a finding is false positive, or if a secret finding is validated, Semgrep immediately places this information at the top of the page.
 - An **Analyze** button provides you with the option to generate an Assistant fix if one doesn't exist.
 - The following fields have been added to **Rule details**:
-    - 
+    - `cwe`
+    - `owasp` categories
+
 
 ### Changed or moved
 
+- The details page has been unified for all Semgrep products.
 - Various elements have been moved.
     - **Rule details** are now at the right-side column and provide additional information, such as the **CWE or CVE**.
     - **Finding details** are now at the right-side column. 
