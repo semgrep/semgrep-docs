@@ -11,7 +11,7 @@ tags:
 # Details page for findings v2
 
 :::info
-This document describes the **details page v2**, a feature which is in **private beta**. This feature supercedes the current findings details page, hereafter referred to as v1.
+This document describes the **findings details page v2**, a feature which is in **private beta**. This feature supercedes the current findings details page, hereafter referred to as v1.
 
 Refer to this document to understand changes between the two versions. 
 :::
