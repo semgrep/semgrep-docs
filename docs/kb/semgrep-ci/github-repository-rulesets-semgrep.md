@@ -2,7 +2,7 @@
 tags:
   - GitHub
   - Repository rulesets
-description: Set up GitHub required workflows to efficiently implement Semgrep scans across many repositories.
+description: Set up GitHub repository rulesets to implement Semgrep scans across many repositories in an organization.
 ---
 
 # Use GitHub repository rulesets to implement Semgrep
@@ -15,7 +15,7 @@ Repository rulesets use a centralized workflow file to execute the Semgrep scan 
 
 ## Set up the central Semgrep scan workflow
 
-To use the Semgrep workflow in other repositories, you can create a new repository with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
+To use the Semgrep workflow in other repositories in your organization, you can create a new repository in the organization with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
 
 1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo).
   1. Name the repository `semgrep-workflow`.
@@ -24,7 +24,7 @@ To use the Semgrep workflow in other repositories, you can create a new reposito
 
 ![Semgrep repository with workflow file](/img/kb/semgrep-workflow-repo.png)
 
-The example repository is internal, so it can only be used to store workflows that run on internal and private repositories.
+This example repository is internal, so it can only be used to store workflows that run on internal and private repositories.
 
 ### Behavior with bot-initiated commits
 
