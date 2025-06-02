@@ -18,7 +18,7 @@ Run a POV to learn more about Semgrep solutions and receive support that is spec
 
 ## POV requirements
 
-To run a successful POV, the Semgrep team needs decisions regarding the following factors from your organization:
+To run a successful POV, the Semgrep team needs your organization's decisions regarding these factors:
 
 - **The number of trial licenses**
     - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
@@ -53,6 +53,18 @@ The following table includes a short summary of the POV process.
 
 Running a POV involves the following steps:
 
+1. POV agreement between both parties
+1. Pre-POV or kickoff period
+1. Formal POV period
+1. POV conclusion
+
+You can also participate in optional activities:
+
+- Roadmap call
+- Rule-writing session
+
+Refer to the following sections for details.
+
 ### Both parties agree to running a POV
 
 - From your end (the buyer), a need has been identified and budget has been allocated.
@@ -64,7 +76,7 @@ Running a POV involves the following steps:
 - **Optional**: If you'd like a **technical deep dive** of Semgrep from a sales engineer, you can request for one through your account executive.
 - Semgrep recommends that **the buyer (you) start gathering and gaining approvals** from your organization for resources needed to run the POV, such as repository access. 
 
-### Pre-POV
+### Pre-POV stage
 
 #### Kickoff call
 
