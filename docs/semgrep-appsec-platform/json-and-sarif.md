@@ -352,6 +352,118 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 
 ### SARIF
 
+#### SARIF example output
+
+The following snippet is a SARIF output example with all the fields for Semgrep Code.
+
+```json
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "..."
+          },
+          "fixes": [
+            {
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "Dockerfile"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "endColumn": 15,
+                        "endLine": 39,
+                        "startColumn": 1,
+                        "startLine": 39
+                      },
+                      "insertedContent": {
+                        "text": "USER non-root\nCMD [\"./main\"]"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "description": {
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n Autofix: Semgrep rule suggested fix"
+              }
+            }
+          ],
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 15,
+                  "endLine": 39,
+                  "snippet": {
+                    "text": "CMD [\"./main\"]"
+                  },
+                  "startColumn": 1,
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "Semgrep OSS",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
+              },
+              "help": {
+                "markdown": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/dockerfile.security.missing-user.missing-user)\n - [https://owasp.org/Top10/A04_2021-Insecure_Design](https://owasp.org/Top10/A04_2021-Insecure_Design)\n",
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
+              },
+              "helpUri": "https://semgrep.dev/r/dockerfile.security.missing-user.missing-user",
+              "id": "dockerfile.security.missing-user.missing-user",
+              "name": "dockerfile.security.missing-user.missing-user",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-250: Execution with Unnecessary Privileges",
+                  "MEDIUM CONFIDENCE",
+                  "OWASP-A04:2021 - Insecure Design",
+                  "rule-board-pr-comments",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: dockerfile.security.missing-user.missing-user"
+              }
+            }
+          ],
+          "semanticVersion": "1.122.0"
+        }
+      }
+    }
+  ],
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json"
+}
+```
+
+#### SARIF top-level fields
+
 <table>
 <thead>
 <tr>
