@@ -413,5 +413,5 @@ To see the **parse rates** for each language, visit the Semgrep [public language
 | Rust                     | --           | ✅                | ✅                             |
 | Dart                     | --           | --                | --                             |
 | Elixir                   | --           | --                | --                             |
-| PHP                      | --           | --                | --                             |
+| PHP                      | ✅ (Beta)    | --                | --                             |
 -->
