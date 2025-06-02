@@ -15,7 +15,7 @@ Repository rulesets use a centralized workflow file to execute the Semgrep scan 
 
 ## Set up the central Semgrep scan workflow
 
-To use the Semgrep workflow in other repositories in your organization, you can create a new repository in the organization with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
+To use the Semgrep workflow in other repositories owned by your organization, you can create a new repository in the organization with the Semgrep workflow file, or add it to an existing repository where you store common workflows. This example describes creating the workflow in a new repository called `semgrep-workflow`.
 
 1. Create a new repository following the [GitHub documentation](https://docs.github.com/en/get-started/quickstart/create-a-repo).
   1. Name the repository `semgrep-workflow`.
