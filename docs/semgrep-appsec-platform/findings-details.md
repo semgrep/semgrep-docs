@@ -46,14 +46,21 @@ Analyze and triage complex findings by reviewing the finding's specific details 
 - Semgrep Assistant's component tags have been moved to the **Finding details** panel.
 - **Branch or ref** information is now visible in **Findings details**.
 
+### Removed from v2
+
+- Rule pattern information. Previously, the **Pattern** tab in the code snippets panel provided the full rule pattern.
+- Rule metadata as a YAML snippet. Certain metadata fields, such as its `cwe` and `owasp` categories have been added to the **Rule details** panel.
+
+### Screenshots
+
 ![Findings details page v1](/img/findings-details-v1.png)
 _**Figure**. Findings details page v1 (old)._
 ![Findings details page v2](/img/findings-details-v2.png)
 _**Figure**. Findings details page v2 (new)._
 
 <dl>
-<dt>A - Alert boxes display critical triage information.</dt>
-<dd></dd>
+<dt>A - Alert boxes</dt>
+<dd>Alert boxes now display critical triage information.</dd>
 <dt>B - Rule details and finding details </dt>
 <dd>These details are now presented at the right sidebar and provide additional metadata.</dd>
 <dt>C - Your code and dataflow panels</dt>
@@ -65,7 +72,3 @@ _**Figure**. Findings details page v2 (new)._
 </dl>
 
 
-### Removed from v2
-
-- Rule pattern information. Previously, the **Pattern** tab in the code snippets panel provided the full rule pattern.
-- Rule metadata as a YAML snippet. Certain metadata fields, such as its `cwe` and `owasp` categories have been added to the **Rule details** panel.
