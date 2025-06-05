@@ -341,7 +341,7 @@ The following table lists all Supply Chain features for each language. Languages
 </tr>
 <tr>
 <td>PHP</td>
-<td align="center"><strong>Beta</strong></td>
+<td align="center">Beta</td>
 <td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">--</td>
