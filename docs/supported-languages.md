@@ -83,8 +83,8 @@ Semgrep Supply Chain has two language maturity levels:
   </tr>
   <tr>
    <td>Number of reachability rules</td>
-   <td>10+</td>
-   <td>No required number</td>
+   <td>As defined by <a href="#cve-coverage">CVE coverage</a>.</td>
+   <td>All critical severity CVEs from <a href="#supported-sources">supported sources</a> starting 2022 onwards, for packages used by customers with an active, paid subscription.</td>
   </tr>
   <tr>
    <td>Semgrep, Inc. rule-writing support</td>
@@ -341,13 +341,14 @@ The following table lists all Supply Chain features for each language. Languages
 </tr>
 <tr>
 <td>PHP</td>
-<td align="center" width="180px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td align="center">Beta</td>
 <td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Rust</td>
+<td align="center" width="180px" rowspan="3">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
 <td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
