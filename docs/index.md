@@ -128,13 +128,23 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>April 2025 release notes summary</h3>
+<h3>May 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
-- Added a new ruleset to detect **unauthorized** use of AI or LLM libraries, that is, the use of AI without going through security reviews or approval processes. This includes direct API calls, such as `api.openapi.com`, `api.anthropic.com` and libraries in code such as `langchain` and `transformers`. See the [<i class="fas fa-external-link fa-xs"></i> Semgrep Shadow AI](https://semgrep.dev/shadowAI) page to learn more.
-- [SBOM export through the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
-- [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You can also filter for malicious dependency findings, which assists in identifying and removing these dependencies.
-- Added support for PR comments warning users that they may be adding malicious dependencies. <!-- 20447 -->
-- Semgrep Assistant now attempts to create a memory during triage if possible. If Semgrep creates a memory, you'll see a dialog appear, indicating that this has happened, along with a link to the list of your organization's memories for review.
+
+- **Java and Kotlin**: Projects can now be scanned without lockfiles through Semgrep Managed Scans.
+- Assistant Memories v2 is now in **public beta**:
+  - Managing memories in Semgrep AppSec Platform now occurs under **Rules & Policies**, not **Settings**.
+  - Semgrep AppSec Platform displays data on the scope and impact of memories, including the number of findings affected and which findings affected
+  - Assistant now provides **suggested memories**, which are those that Assistant has generated based on your past triage actions. You can view these memories at any time in Semgrep AppSec Platform by navigating to **Rules & Policies > Assistant Memories > Suggested**. For each suggestion, you can choose one of the following actions:
+    - Activate the suggested memory to inform Assistant's future advice.
+    - Edit the memory, then activate it.
+    - Delete the memory.
+- Improved the Supply Chain UX in various pages:
+    - If the finding has a function call that proves the finding is reachable, this function call is highlighted in the code in the finding's **Details** page.
+    - Added context in PR comments as to **why** a finding is reachable, under the section **Why this is reachable**. This alerts developers to the impact of a reachable finding. 
+    - Improved how filters are presented in the **Supply Chain > Vulnerabilities** page.
+    - Unreachable findings are hidden by default from the findings list.
+- Improved performance of Semgrep Secret scans due to back-end updates.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
