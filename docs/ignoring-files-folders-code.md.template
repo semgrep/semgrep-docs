@@ -26,7 +26,7 @@ All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-d
 
 | Method  | Usage    |
 |:--------|:---------|
-| To ignore blocks of code: Add a `nosemgrep` annotation | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. <br /><br />For example:<br /><br />` // nosemgrep` &nbsp; &nbsp; &nbsp;<br />`// nosemgrep: rule-id` <br /> `# nosemgrep` |
+| To ignore blocks of code: Add a `nosemgrep` annotation | Create a comment, followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. <br /><br />For example:<br /><br />` // nosemgrep` &nbsp; &nbsp; &nbsp;<br />`// nosemgrep: rule-id` <br /> `# nosemgrep` |
 | For Semgrep AppSec Platform users: <br /><br /><ul><li>Ignore files and folders through the use of Semgrep AppSec Platform's **Project or Global ignores**</li><li>Override the implicit ignorelist through the use of a `.semgrepignore` file.</li></ul> | Navigate to **Projects > <PL>PROJECT_NAME</PL> > Details > Settings > Path ignores**.<br /><br /> ![Set ignore paths for a project in Semgrep AppSec Platform.](/img/per-project-ignores.png) |
 | For Semgrep CE users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
  
@@ -158,7 +158,7 @@ You can also add files to `.semgrepignore` while triaging individual findings us
 
 ## Ignore code through nosemgrep
 
-To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
+To ignore blocks of code, define an **inline comment**, followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
 
 :::caution
 Ignoring code through this method still generates a finding. The finding is automatically set to the **Ignored** triage state.
@@ -190,9 +190,6 @@ bad_func3(   // nosemgrep
 
 ```
 
-:::info
-The space (` `) before `nosemgrep` is required for Semgrep to detect this annotation.
-:::
 
 To ignore blocks of code for a **particular rule**, enter its `rule-id` as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list. `rule-ids` must be referenced with their namespace.
 
