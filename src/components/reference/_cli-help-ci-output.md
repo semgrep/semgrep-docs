@@ -56,12 +56,6 @@ OPTIONS
        --develop
            Living on the edge.
 
-       --diff-depth=VAL (absent=2)
-           The depth of the Pro (interfile) differential scan, the number of
-           steps (both in the caller and callee sides) from the targets in
-           the call graph tracked by the deep preprocessor. Only applied in
-           differential scan mode. Default to 2. 
-
        --disable-nosem
            negates --enable-nosem
 
@@ -103,9 +97,9 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --exclude-minified-files
-           Skip minified files. These are files that are > 7% whitespace, or
-           who have a large number of bytes per line. By default minified
-           files are scanned 
+           Skip minified files. These are files that are < 7% whitespace, or
+           which have an average of > 1000 bytes per line. By default
+           minified files are scanned. 
 
        --exclude-rule=VAL
            Skip any rule with the given id. Can add multiple times.
@@ -173,8 +167,10 @@ OPTIONS
            Internal flag.
 
        -j VAL, --jobs=VAL (absent=4)
-           Number of subprocesses to use to run checks in parallel. Defaults
-           to the number of cores detected on the system (1 if using --pro). 
+           Number of subprocesses to use to run checks in parallel. The
+           default is based on a best effort to determine the number of
+           logical CPUs that are available to the user and that semgrep can
+           take advantage of (1 if using --pro, 1 on Windows). 
 
        --json
            Output results in Semgrep's JSON format.
@@ -225,10 +221,11 @@ OPTIONS
        --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
            'auto', metrics are sent whenever the --config value pulls from
-           the Semgrep server. If 'on', metrics are always sent. If 'off',
-           metrics are disabled altogether and not sent. If absent, the
-           SEMGREP_SEND_METRICS environment variable value will be used. If
-           no environment variable, defaults to 'auto'. 
+           the Semgrep server or if the user is logged in. If 'on', metrics
+           are always sent. If 'off', metrics are disabled altogether and not
+           sent. If absent, the SEMGREP_SEND_METRICS environment variable
+           value will be used. If no environment variable, defaults to
+           'auto'. 
 
        --no-autofix
            negates -a/--autofix
@@ -250,9 +247,6 @@ OPTIONS
 
        --no-secrets-validation
            Disables secret validation.
-
-       --no-semgrepignore-v2
-           negates --semgrepignore-v2
 
        --no-suppress-errors
            negates --suppress-errors
@@ -321,13 +315,11 @@ OPTIONS
            support@semgrep.com for more information.
 
        --semgrepignore-v2
-           '--semgrepignore-v2' forces the use of the newer Semgrepignore v2
-           implementation for discovering and filtering target files.
-           Conversely, '--no-semgrepignore-v2' is the deprecated option that
-           forces the use of the legacy Semgrepignore v1.
-           '--semgrepignore-v2' is the default for Semgrep Community Edition,
-           and for now '--no-semgrepignore-v2' is still the default when
-           using the '--pro*' options. 
+           [DEPRECATED] '--semgrepignore-v2' used to force the use of the
+           newer Semgrepignore v2 implementation for discovering and
+           filtering target files. It is now the default and only behavior.
+           The transitional option '--no-semgrepignore-v2' is no longer
+           available. 
 
        --skip-unknown-extensions
            negates --scan-unknown-extensions
@@ -426,6 +418,12 @@ OPTIONS
 
        --x-pro-naming
            <internal, do not use>
+
+       --x-semgrepignore-filename=FILENAME
+           [INTERNAL] Files named FILENAME shall be consulted instead of the
+           files named '.semgrepignore'. This option can be useful for
+           testing semgrep on intentionally broken code that should normally
+           be ignored.
 
        --x-tr
            <internal, do not use>
