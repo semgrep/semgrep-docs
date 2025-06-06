@@ -93,7 +93,7 @@ Don't forget to update:
 | Product | Languages |
 | :-------  | :------ |
 | Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
-| Semgrep Supply Chain | **Generally available reachability**<br />C# • Go • Java • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala • Swift<br /><br />**Beta or languages without support for reachability analysis**<br />Dart • Elixir • PHP  • Rust |
+| Semgrep Supply Chain | **Generally available reachability**<br />C# • Go • Java • JavaScript and TypeScript • Kotlin • Python • Ruby • Scala • Swift • PHP<br /><br />**Languages without support for reachability analysis**<br />Dart • Elixir • Rust |
 | Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
 
 See the [Supported languages](/supported-languages#language-maturity-summary) documentation for more details.
