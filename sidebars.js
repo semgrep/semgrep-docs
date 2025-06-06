@@ -403,7 +403,8 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif'
+        'semgrep-appsec-platform/json-and-sarif',
+        'semgrep-appsec-platform/scm-code-access'
       ]
     }
   ],
