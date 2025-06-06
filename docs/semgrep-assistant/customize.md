@@ -87,6 +87,19 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 
 Note that creating memories is only available to users assigned the `admin` role in Semgrep.
 
+### Receive memory suggestions from Assistant
+
+Semgrep Assistant also suggests memories based on the triage feedback it receives from you. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context.
+
+- Automatic generation of memories: if you are an **admin** user, Assistant immediately tries to generate **active** memories from your triage feedback.
+- If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory that needs an admin to activate it. 
+
+:::tip
+**Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback going forward.
+:::
+
+### View Memories
+
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
@@ -177,7 +190,7 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
    6. Click **Save** to proceed.
 
 :::note
-You can switch to a different Azure OpenAI model any time by repeating these configuration steps using the Target URI and API key for the new model.
+As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Assistant features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
 ### Google Gemini

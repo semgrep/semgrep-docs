@@ -22,6 +22,7 @@ import DefineConnectionVariables from "/src/components/reference/_define-connect
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
 <!-- vale on -->
 
@@ -31,7 +32,9 @@ import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-c
 
 Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
-Automated comments on GitHub pull requests are displayed as follows:
+<PartsOfComment />
+
+Depending on the features you have enabled, your PR comment can also appear more straightforward:
 
 ![Screenshot of a GitHub PR comment](/img/gh-pr-comment.png#md-width)
 _**Figure**. An inline GitHub pull request comment._
