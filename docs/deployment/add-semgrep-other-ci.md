@@ -66,6 +66,7 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 1. Add Semgrep to your CI pipeline. Do either of the following:
     1. Reference or add the [Semgrep Docker image](https://hub.docker.com/r/semgrep/semgrep). This is the recommended method.
     2. Add `pip install semgrep` into your configuration file as a step or command, depending on your CI provider's syntax.
+      - If you're on Ubuntu 24.04 or later, use `pipx install semgrep`.
 2. Add `semgrep ci` as a step or command.
 3. Set the `SEMGREP_APP_TOKEN` environment variable within your configuration file.
 
