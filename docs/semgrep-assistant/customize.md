@@ -98,7 +98,6 @@ Semgrep Assistant also suggests memories based on the triage feedback it receive
 **Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback going forward.
 :::
 
-### View Memories
 
 ### View and edit memories
 
