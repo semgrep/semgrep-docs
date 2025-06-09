@@ -60,7 +60,7 @@ The Bitbucket token must be a repository access token or a workspace access toke
 
 ## Are you running diff-aware scans?
 
-In Managed Scans: Semgrep always runs diff-aware scans on pull request events. Full scans are run at scheduled intervals.
+In Managed Scans: Semgrep always runs diff-aware scans on pull and merge request events. Full scans run at scheduled intervals.
 
 In GitHub Actions and GitLab CI/CD: Semgrep runs diff-aware scans on pull or merge requests by default if you are using the recommended configuration.
 
@@ -148,19 +148,15 @@ If you review the scans that are not generating comments and find that they are 
 
 ## Have you correctly configured your policies?
 
-### Code: rule in Comment or Block
+### Code: The rule is in Comment or Block mode
 
-In order to receive comments for a Code or Secrets rule, the rule must be placed in a policy mode that can generate comments.
+To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
-For Code, these [policy modes](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) are Comment and Block.
+### Secrets: The Rule is in Comment or Block mode, and the secret is valid
 
-If the rule is in the Monitor policy mode, it does not generate comments.
+For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block, and the secret must be valid unless you have customized your validation settings. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
 
-### Secrets: rule in Comment or Block, validation aligned
-
-For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block, and the secret usually must also be valid. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
-
-### Supply Chain: does the finding meet your criteria for commenting or blocking?
+### Supply Chain: The finding meets your criteria for commenting or blocking
 
 Supply Chain provides flexible policy configuration based on a variety of criteria. When setting up a policy, you can choose the actions "Leave a comment" or "Block and leave a comment". These actions are similar to the Comment and Block modes of Code and Secrets policies. If a finding meets your configured criteria for commenting, then it should result in a comment on the PR or MR.
 
