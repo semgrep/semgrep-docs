@@ -38,6 +38,8 @@ If you don't know the name of your app slug, you can find it on the [**Settings 
 _**Figure**. Add a description here._
 :::
 
+<!-- markdown-link-check-disable -->
+
 1. Navigate to the GitHub Application permissions and events page. GitHub Enterprise users must replace the `https://github.com` base URL with the base URL of the GitHub Enterprise instance.
     1. For organization accounts, go to <code>https://github.com/organizations/<PL>ORGANIZATION_NAME</PL>/settings/apps/<PL>APP_SLUG</PL>/permissions</code>.
     1. For user accounts, go to <code>https://github.com/settings/apps/<PL>APP_SLUG</PL>/permissions</code>
@@ -45,6 +47,8 @@ _**Figure**. Add a description here._
 3. Under **Contents**, change the access level to **Read and write**.
 4. Click **Save Changes**.
 5. At this point, GitHub sends you or your GitHub admin an email to approve the permissions changes. Once approved, Semgrep has code access to your GitHub instance.
+
+<!-- markdown-link-check-enable -->
 
 ## Grant code access to Semgrep with an access token
 
