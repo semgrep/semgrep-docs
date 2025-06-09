@@ -56,7 +56,7 @@ Members can't view or perform any actions in the following pages:
 
 ### Invite a team member through email
 
-Add team members easily to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account. The invitation does not grant access to users who are not provisioned in the configured auth provider.
+Add team members easily to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account. The invitation only facilitates access for users who are already provisioned in the configured auth provider.
 
 You must be an `admin` to perform this operation.
 
