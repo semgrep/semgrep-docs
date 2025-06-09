@@ -152,7 +152,7 @@ If you review the scans that are not generating comments and find that they are 
 
 To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
-### Secrets: The Rule is in Comment or Block mode, and the secret is valid
+### Secrets: The rule is in Comment or Block mode, and the secret is valid
 
 For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block, and the secret must be valid unless you have customized your validation settings. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
 
