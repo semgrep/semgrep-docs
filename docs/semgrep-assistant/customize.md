@@ -77,7 +77,7 @@ While Assistant Memories is in **public beta**, memories are scoped to remediati
 
 ### Add memory during triage and receive memory suggestions from Assistant
 
-When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant can use this triage feedback to suggest memories. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hidden from developers.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant can use this triage feedback to suggest memories. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hide from developers.
 
 To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
