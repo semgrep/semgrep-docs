@@ -75,29 +75,24 @@ To add a memory based on a suggested fix presented by Assistant:
 
 While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
 
-### Add memory during triage
+### Add memory during triage and receive memory suggestions from Assistant
 
-When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant determines whether your changes should be stored as a memory. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hidden from developers.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant can use this triage feedback to suggest memories. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hidden from developers.
 
 To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
 1. Identify the specific finding you want to modify, and open up its finding details page.
 2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
-3. Click **Ignore**. Assistant attempts to create a memory with the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
+3. Click **Ignore**. Assistant attempts to create a memory using the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
-Note that creating memories is only available to users assigned the `admin` role in Semgrep.
-
-### Receive memory suggestions from Assistant
-
-Semgrep Assistant also suggests memories based on the triage feedback it receives from you. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context.
+Permissions:
 
 - Automatic generation of memories: if you are an **admin** user, Assistant immediately tries to generate **active** memories from your triage feedback.
 - If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory that needs an admin to activate it. 
 
 :::tip
-**Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback going forward.
+**Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback in the future.
 :::
-
 
 ### View and edit memories
 
