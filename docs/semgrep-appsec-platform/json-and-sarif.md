@@ -18,102 +18,6 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 
 ### JSON
 
-#### JSON example output
- 
-The following snippet is a JSON output example with all the fields for Semgrep Code.
-
-```json
-{
-  "check_id": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
-  "path": "STRING",
-  "start": 
-  {
-    "line": 18,
-    "col": 9,
-    "offset": 300
-  },
-  "end": {
-    "line": 18,
-    "col": 82,
-    "offset": 373
-  },
-  "extra": {
-    "metavars": {
-      "$SHELL": {
-        "start": {
-          "line": 18,
-          "col": 14,
-          "offset": 305
-        },
-        "end": {
-          "line": 18,
-          "col": 82,
-          "offset": 373
-        },
-        "abstract_content": "echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\""
-      }
-    },
-    "message": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
-    "metadata": {
-      "category": "security",
-      "cwe": [
-        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-      ],
-      "owasp": [
-        "A01:2017 - Injection",
-        "A03:2021 - Injection"
-      ],
-      "references": [
-        "https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections",
-        "https://securitylab.github.com/research/github-actions-untrusted-input/"
-      ],
-      "technology": [
-        "github-actions"
-      ],
-      "cwe2022-top25": true,
-      "cwe2021-top25": true,
-      "subcategory": [
-        "vuln"
-      ],
-      "likelihood": "HIGH",
-      "impact": "HIGH",
-      "confidence": "HIGH",
-      "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
-      "vulnerability_class": [
-        "Command Injection"
-      ],
-      "source": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection",
-      "shortlink": "https://sg.run/11zk",
-      "semgrep.dev": {
-        "rule": {
-          "origin": "community",
-          "r_id": 13162,
-          "rule_id": "v8UQj2",
-          "rv_id": 1025108,
-          "url": "https://semgrep.dev/playground/r/akTViyp/yaml.github-actions.security.run-shell-injection.run-shell-injection",
-          "version_id": "akTViyp"
-        }
-      },
-      "dev.semgrep.actions": [
-        "comment"
-      ],
-      "semgrep.policy": {
-        "id": 91181987,
-        "name": "Rule Board - PR Comments column",
-        "slug": "rule-board-pr-comments"
-      },
-      "semgrep.url": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection"
-    },
-    "severity": "ERROR",
-    "fingerprint": "...",
-    "lines": "      - run: echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\"",
-    "is_ignored": false,
-    "validation_state": "NO_VALIDATOR",
-    "engine_kind": "PRO"
-  }
-}
-```
-
 #### JSON top-level fields
 
 These tables provide a **partial** overview of the fields available to Semgrep CE and Semgrep AppSec Platform. Refer to the sample schema for all the fields. 
@@ -350,7 +254,200 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 </tr>
 </tbody></table>
 
+#### JSON example output
+ 
+The following snippet is a JSON output example with all the fields for Semgrep Code.
+
+```json
+{
+  "check_id": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+  "path": "STRING",
+  "start": 
+  {
+    "line": 18,
+    "col": 9,
+    "offset": 300
+  },
+  "end": {
+    "line": 18,
+    "col": 82,
+    "offset": 373
+  },
+  "extra": {
+    "metavars": {
+      "$SHELL": {
+        "start": {
+          "line": 18,
+          "col": 14,
+          "offset": 305
+        },
+        "end": {
+          "line": 18,
+          "col": 82,
+          "offset": 373
+        },
+        "abstract_content": "echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\""
+      }
+    },
+    "message": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+    "metadata": {
+      "category": "security",
+      "cwe": [
+        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+      ],
+      "owasp": [
+        "A01:2017 - Injection",
+        "A03:2021 - Injection"
+      ],
+      "references": [
+        "https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections",
+        "https://securitylab.github.com/research/github-actions-untrusted-input/"
+      ],
+      "technology": [
+        "github-actions"
+      ],
+      "cwe2022-top25": true,
+      "cwe2021-top25": true,
+      "subcategory": [
+        "vuln"
+      ],
+      "likelihood": "HIGH",
+      "impact": "HIGH",
+      "confidence": "HIGH",
+      "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+      "vulnerability_class": [
+        "Command Injection"
+      ],
+      "source": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection",
+      "shortlink": "https://sg.run/11zk",
+      "semgrep.dev": {
+        "rule": {
+          "origin": "community",
+          "r_id": 13162,
+          "rule_id": "v8UQj2",
+          "rv_id": 1025108,
+          "url": "https://semgrep.dev/playground/r/akTViyp/yaml.github-actions.security.run-shell-injection.run-shell-injection",
+          "version_id": "akTViyp"
+        }
+      },
+      "dev.semgrep.actions": [
+        "comment"
+      ],
+      "semgrep.policy": {
+        "id": 91181987,
+        "name": "Rule Board - PR Comments column",
+        "slug": "rule-board-pr-comments"
+      },
+      "semgrep.url": "https://semgrep.dev/r/yaml.github-actions.security.run-shell-injection.run-shell-injection"
+    },
+    "severity": "ERROR",
+    "fingerprint": "...",
+    "lines": "      - run: echo \"was the box ticked? ${BOX_TICKED}! (${{ inputs.box_ticked }})\"",
+    "is_ignored": false,
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "PRO"
+  }
+}
+```
+
 ### SARIF
+
+#### SARIF top-level fields
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$schema</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>runs</code></td>
+<td colspan="2">See [`runs` object](#runs-object)</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+
+#### `runs` object
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>invocations</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td colspan="2">See [`results` object](#results-object-1)</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>semanticVersion</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+
+
+#### `results` object
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Semgrep CE</th>
+<th>Semgrep AppSec Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fingerprints</code></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>locations</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>ruleId</code></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
 
 #### SARIF example output
 
@@ -461,103 +558,6 @@ The following snippet is a SARIF output example with all the fields for Semgrep 
   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json"
 }
 ```
-
-#### SARIF top-level fields
-
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Semgrep CE</th>
-<th>Semgrep AppSec Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>$schema</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>runs</code></td>
-<td colspan="2">See [`runs` object](#runs-object)</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-</tbody></table>
-
-#### `runs` object
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Semgrep CE</th>
-<th>Semgrep AppSec Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>invocations</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>results</code></td>
-<td colspan="2">See [`results` object](#results-object-1)</td>
-</tr>
-<tr>
-<td><code>rules</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>semanticVersion</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-</tbody></table>
-
-
-#### `results` object
-
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Semgrep CE</th>
-<th>Semgrep AppSec Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>fingerprints</code></td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>locations</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>message</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>properties</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>ruleId</code></td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-</tbody></table>
 
 ## Semgrep Supply Chain
 
