@@ -87,7 +87,7 @@ Refer to the following sections for details.
 
 In preparation for the POV, Semgrep performs the following tasks:
 
-- Set up **one (1) trial license** for your organization.
+- Sets up **one (1) trial license** for your organization.
 - Sets up a **dedicated Slack channel** where you can reach out to the team during the POV.
 - Creates an account in Semgrep AppSec Platform for your organization.
 - Connects your source code manager, such as GitHub or Bitbucket, to Semgrep.
