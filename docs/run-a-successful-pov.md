@@ -65,7 +65,7 @@ Refer to the following sections for details.
 
 ### Both parties agree to running a POV
 
-- From your end (the buyer), a need has been identified and budget has been allocated.
+- From your end (the buyer), a need has been identified and a budget has been allocated.
 - From Semgrep's end, the team has verified, with your help, that your technical stack is supported by Semgrep. This includes:
     - Programming languages
     - Source code managers
