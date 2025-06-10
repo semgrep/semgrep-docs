@@ -71,7 +71,7 @@ Refer to the following sections for details.
     - Source code managers
     - Account management
     - Other factors
-- **Optional**: If you'd like a **technical deep dive** of Semgrep from a sales engineer, you can request for one through your account executive.
+- **Optional**: If you'd like a **technical deep dive** of Semgrep from a sales engineer, you can request one through your account executive.
 - Semgrep recommends that **the buyer (you) start gathering and gaining approvals** from your organization for resources needed to run the POV, such as repository access. 
 
 ### Pre-POV stage
