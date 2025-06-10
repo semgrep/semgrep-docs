@@ -20,15 +20,13 @@ Run a POV to learn more about Semgrep solutions and receive support that is spec
 
 To run a successful POV, the Semgrep team needs your organization's decisions regarding these factors:
 
-- **The number of trial licenses**
-    - How many trial licenses are needed? Who among your organization will be evaluating Semgrep?
 - **The team involved in running the POV**
-    - Semgrep creates accounts for everyone on the team who is involved in the POV.
+    - Who among your organization will be evaluating Semgrep? Semgrep creates accounts for everyone on the team who is involved in the POV.
 - **The method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
         - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review SMS requirements.
     - **CI/CD**
-        - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be created for all of the repositories you want to scan.
+        - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be created for each repository you want to scan.
 - **The technical resources**
     - You must decide on and communicate the repositories you want Semgrep to scan for the POV.
     - You must decide on and communicate to Semgrep your account management, infra, and tech needs.
@@ -89,6 +87,7 @@ Refer to the following sections for details.
 
 In preparation for the POV, Semgrep performs the following tasks:
 
+- Set up **one (1) trial license** for your organization.
 - Sets up a **dedicated Slack channel** where you can reach out to the team during the POV.
 - Creates an account in Semgrep AppSec Platform for your organization.
 - Connects your source code manager, such as GitHub or Bitbucket, to Semgrep.
