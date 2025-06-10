@@ -137,7 +137,7 @@ Some metrics include:
 
 ### Optional POV activities
 
-Feel free to request for the following:
+Feel free to request the following:
 
 - **Roadmap call**. You can request a call with the Product team to learn about Semgrep's upcoming features and approaches.
 - **Rule-writing session**. Learn how to write Semgrep rules to customize Semgrep for your organization's unique code standards.
