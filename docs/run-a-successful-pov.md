@@ -42,7 +42,7 @@ The following table includes a short summary of the POV process.
 | Step | Activities |
 | -------  | ------ |
 | Both parties agree to run a POV | <ul><li>Verify that your technical stack is supported by Semgrep.</li><li>Begin gathering necessary permissions from your organization for **technical resources** to run the POV.</li></ul>  |
-| Pre-POV kickoff call and preparation |  <ul><li>Both parties establish success criteria and alignment of the POV goals through a **kickoff call**.</li><li>Semgrep prepares for the POV by creating a dedicated Slack channel and other nessary accounts.</li></ul>      |
+| Pre-POV kickoff call and preparation |  <ul><li>Both parties establish success criteria and alignment of the POV goals through a **kickoff call**.</li><li>Semgrep prepares for the POV by creating a dedicated Slack channel and other necessary accounts.</li></ul>      |
 | Formal POV period | <ul><li>Semgrep deployment rollout.</li><li>Detection and remediation of findings.</li><li>Analysis of Semgrep ROI.</li></ul>       |
 | Optional POV activities | <ul><li>A roadmap call with the Semgrep product team.</li><li>A rule-writing session where you can learn how to write custom Semgrep rules.</li></ul> |
 | POV conclusion | Semgrep sets up a wrap-up call that discusses Semgrep's performance and your feedback about Semgrep. |
