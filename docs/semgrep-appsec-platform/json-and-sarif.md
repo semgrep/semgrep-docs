@@ -562,7 +562,7 @@ The following snippet is a SARIF output example with all the fields for Semgrep 
 ## Semgrep Supply Chain
 
 :::info
-Semgrep Supply Chain fields are available only through Semgrep AppSec Platform.
+You must log in to Semgrep to scan with Semgrep Supply Chain.
 :::
 
 ### JSON
