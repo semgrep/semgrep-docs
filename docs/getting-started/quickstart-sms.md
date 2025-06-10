@@ -15,7 +15,9 @@ import GitlabRequirements from "/src/components/reference/_gitlab-sms-requiremen
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale with Semgrep. Instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
+Semgrep Managed Scans (beta) is the fastest method to scan projects at scale with Semgrep. A **project** is any codebase, repository, or folder within a monorepo that is added to Semgrep for scanning.
+
+With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
 
 ## Supported source code managers
 
@@ -24,7 +26,7 @@ Semgrep Managed Scans (beta) is the fastest method to scan repositories at scale
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Add repositories to Semgrep Managed Scans
+## Add projects to Semgrep Managed Scans
 
 <Tabs
     defaultValue="gh"
@@ -52,7 +54,7 @@ Semgrep recommends setting up and configuring Semgrep with an Azure DevOps servi
 - `Project and Team: Read & write`
 - `Pull Request Threads: Read & write`
 
-### Add a repository
+### Add a project
 
 <!-- vale off -->
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
@@ -70,11 +72,11 @@ Semgrep recommends setting up and configuring Semgrep with an Azure DevOps servi
 
 You must have admin access to your GitHub organization.
 
-To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add repositories to Semgrep Managed Scans](#add-repositories-to-semgrep-managed-scans).
+To enable and use this feature, you must grant Semgrep **Read access** to your code. Steps are provided in [Add projects to Semgrep Managed Scans](#add-projects-to-semgrep-managed-scans).
 
 Read access is permitted through a private Semgrep app that you create and register yourself. See [Managed Scans > Security](/deployment/managed-scanning/overview#security) for more information on how Semgrep handles your code.
 
-### Add a repository
+### Add a project
 
 <!-- vale off -->
 <!-- Our in-product text reads "repos" -->
@@ -96,7 +98,7 @@ Read access is permitted through a private Semgrep app that you create and regis
 
 <GitlabRequirements />
 
-### Add a repository
+### Add a project
 
 <!-- vale off -->
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitLab**. Follow the on-screen prompts to proceed.
@@ -126,11 +128,11 @@ You must have admin access to your Bitbucket organization.
 
 #### Bitbucket Data Center
 
-- v8.8 or above for diff-aware scans
+- V8.8 or above for diff-aware scans.
 - Read access is granted through an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects).
 - The user generating the workspace token must be a **Product Admin** for the workspace. The token must be created with `PROJECT_ADMIN` permissions.
 
-### Add a repository
+### Add a project
 
 <!-- vale off -->
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
@@ -149,7 +151,7 @@ You have finished setting up a Semgrep managed scan.
 Here are some behaviors and characteristics of a managed scan:
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories that have been added to it.
-- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- In general, once a git repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects scanned through Managed Scans are tagged with `managed-scan`.
 
 ## Next steps
