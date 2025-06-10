@@ -74,7 +74,9 @@ Semgrep diff-aware scans are most easily identified by reviewing three items in 
 * The number of files scanned
 * Whether a baseline scan is conducted
 
-1. The triggering event for the scan in GitHub or GitLab should typically be `pull_request`. This is the easiest to find but the least reliable, since it's possible to configure diff-aware scans on other event types. In the scan log, this appears as:
+#### The triggering event for the scan
+
+The triggering event for the scan in GitHub or GitLab should typically be `pull_request`. This is the easiest to find but the least reliable, since it's possible to configure diff-aware scans on other event types. In the scan log, this appears as:
 
 ```
 environment - running in environment github-actions, triggering event is pull_request
@@ -88,7 +90,9 @@ environment - running in environment github-actions, triggering event is schedul
 
 would not typically indicate a diff-aware scan. Scheduled scans are typically full scans of all code in the repository.
 
-2. The number of files scanned should be approximately the number of files modified in the PR, and should not include all files in the repository.
+#### The number of files scanned
+
+The number of files scanned should be approximately the number of files modified in the PR, and should not include all files in the repository.
 
 In the scan log, this appears as:
 
@@ -106,8 +110,9 @@ Scanning 1002 files tracked by git with 1971 Code rules, 858 Secrets rules, 3619
 
 and the repository's total number of files is around 1000, then this most likely is not a diff-aware scan.
 
+#### Whether a baseline scan is conducted
 
-3. Finally, during the process of a diff-aware scan, Semgrep actually conducts two scans: one at the current tip or head of the PR, and one at the baseline ref or commit.
+Finally, during the process of a diff-aware scan, Semgrep actually conducts two scans: one at the current tip or head of the PR, and one at the baseline ref or commit.
 
 The following log is anonymized and truncated for clarity, and the exact format of the log may evolve over time. It shows the key item to review, the two distinct `Scan Status` entries:
 
@@ -143,6 +148,14 @@ Creating git worktree from '104...950' to scan baseline.
 ```
 
 The initial scan, which occurs at the current commit for the pull request `fcc...d21`, scans 52 files and identifies 60 findings. The baseline scan, which occurs at `104...950`, scans 4 files. Baseline scans typically scan fewer files than the original scan, as they only need to scan files and rules that have findings in the initial scan to determine which of those findings were present before the changes made in the pull or merge request.
+
+This also means that baseline scans are not conducted if all findings in the current commit that are in files added by the PR or MR, because those findings could not have been present before. This information is logged as:
+
+```
+Skipping baseline scan, because all current findings are in files that didn't exist in the baseline commit.
+```
+
+If the baseline scan is skipped, the scan is still diff-aware; the baseline scan just isn't necessary.
 
 If you review the scans that are not generating comments and find that they are not diff-aware, and you have followed the preceding guidance, feel free to [reach out to Semgrep support](/docs/support) for help.
 
