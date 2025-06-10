@@ -1,14 +1,14 @@
 ---
 slug: run-a-successful-pov
-title: Run a successful POV with Semgrep
+title: Run a successful trial with Semgrep
 hide_title: true
-description: Explore and deploy the Semgrep platform through a proof-of-value (POV) trial. Semgrep dedicates support and engineering resources to ensure you are able to run Semgrep smoothly.
+description: Explore and deploy the Semgrep platform through a proof-of-value (POV) or proof-of-concept (POC) trial. Semgrep dedicates support and engineering resources to ensure you are able to run Semgrep smoothly.
 tags:
   - Semgrep AppSec Platform
   - Support
 ---
 
-# Run a successful proof-of-value (POV) with Semgrep
+# Run a successful proof-of-value (POV) trial with Semgrep
 
 :::note Start a POV
 To start a proof-of-value (POV), contact Sales at [<i class="fa-regular fa-envelope"></i> sales@semgrep.com](mailto:sales@semgrep.com).
