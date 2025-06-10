@@ -102,7 +102,7 @@ It is broken into three smaller phases.
 
 #### Semgrep deployment rollout
 
-In this phase, the Semgrep team assists you to complete the following tasks:
+In this phase, the Semgrep team assists you in completing the following tasks:
 
 - Add repositories for scanning through SMS or through a CI/CD job
 - View findings in Semgrep AppSec Platform for scanned repositories within the POV's scope
