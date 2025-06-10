@@ -111,7 +111,7 @@ In this phase, the Semgrep team assists you to complete the following tasks:
 
 #### Detection and remediation of findings
 
-In this phase, the Semgrep team assists you to complete the following tasks:
+In this phase, the Semgrep team assists you in completing the following tasks:
 
 - Review the quality of findings with out-of-the-box rules
 - Show how Semgrep **filters out noise** with:
