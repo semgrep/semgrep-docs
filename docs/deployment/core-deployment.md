@@ -10,6 +10,8 @@ tags:
 
 Semgrep can be set up to scan repositories of any size.
 
+Once added to Semgrep, a codebase, repository, or subfolder within a monorepo is referred to as a **project**.
+
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
 Deployment includes:
@@ -136,7 +138,7 @@ Useful features that you can add based on your tech stack. You can integrate the
 At the minimum, your deployment of Semgrep consists of the following steps:
 
 1. **Creating a Semgrep account**. Each user of Semgrep has one account.
-1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
+1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related projects and users.
 1. **Setting up membership**:
     - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
     - You can also use SSO to manage user authentication.
@@ -146,7 +148,7 @@ At the minimum, your deployment of Semgrep consists of the following steps:
 ![Core deployment steps](/img/core-deployment.png)
 _**Figure**. Core deployment steps._
 
-To manage a large volume of users and repositories, you may need to perform additional steps:
+To manage a large volume of users and projects, you may need to perform additional steps:
 
 - Role management
 - Tagging projects

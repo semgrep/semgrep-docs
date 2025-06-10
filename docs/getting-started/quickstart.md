@@ -3,7 +3,7 @@ slug: quickstart
 append_help_link: true
 title: Quickstart
 hide_title: false
-description: Learn how to set up Semgrep and scan your first repository.
+description: Learn how to set up Semgrep and scan your first project.
 displayed_sidebar: scanSidebar
 tags:
   - quickstart
@@ -13,7 +13,7 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
+Learn how to set up Semgrep, scan your first project for security issues, and view your findings. A **project** can be any codebase, repository, or folder within a monorepo.
 
 :::info prerequisites
 You must have Python 3.9 or later installed on the machine where the Semgrep CLI is running.
@@ -61,7 +61,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the CLI, navigate to the root of your repository, and run your first scan:
+    4. Return to the CLI, navigate to the root of your project, and run your first scan:
 
         ```console
         semgrep ci
@@ -89,7 +89,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the CLI, navigate to the root of your repository, and run your first scan:
+    4. Return to the CLI, navigate to the root of your project, and run your first scan:
 
         ```console
         semgrep ci
@@ -121,7 +121,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     3. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the WSL interface, navigate to the root of your repository, and run your first scan:
+    4. Return to the WSL interface, navigate to the root of your project, and run your first scan:
 
         ```console
         semgrep ci
@@ -154,13 +154,13 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI and copy the login token that's shown.
 
-        3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
+        3. Navigate into the root of your project, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" semgrep/semgrep semgrep ci
             ```
 
-            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
 
     3. For users running Docker on **Windows**:
 
@@ -172,13 +172,13 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
         2. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI, and copy the login token that's shown.
 
-        3. Navigate into the root of your repository, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
+        3. Navigate into the root of your project, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
 
             ```console
             docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" semgrep/semgrep semgrep ci
             ```
 
-            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different repository or provide a specific local directory in the command to scan a different project.
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
 
     </TabItem>
 

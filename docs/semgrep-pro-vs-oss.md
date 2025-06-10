@@ -295,7 +295,7 @@ This section provides a comprehensive comparison of each offering's features.
 - Single tenancy
 - [Managed scans](/deployment/managed-scanning/overview)
 - [SSO](/deployment/sso) and managed authentication through GitHub or GitLab
-- [Project (repository) management](/deployment/manage-projects), such as tagging, setting of a primary branch, and so on
+- [Project management](/deployment/manage-projects), such as tagging, setting of a primary branch, and so on; a project can either be a repository or a folder within a monorepo
 - [Team management](/deployment/teams)
 
 </div>

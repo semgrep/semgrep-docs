@@ -33,7 +33,7 @@ To aid in debugging, you can reproduce some aspects of your Semgrep CI job local
 
 <br />
 When running `semgrep ci`, Semgrep fetches rules and any other configurations specific to your CI environment. Setting `SEMGREP_REPO_NAME` is optional, but ensures that:
-- Results are sent to the same project (repository) in Semgrep AppSec Platform.
+- Results are sent to the same project (either a repository or folder in a monorepo) in Semgrep AppSec Platform.
 - Any project-specific configurations, such as file ignores, are also respected.
 
 ## Troubleshooting GitHub
