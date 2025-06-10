@@ -12,3 +12,4 @@ Semgrep minimally requires the variable `SEMGREP_APP_TOKEN` in order to report r
     * `SEMGREP_JOB_URL`
 4. Set variables for diff-aware scanning. The provided config sets `SEMGREP_PR_ID` to the system variable `System.PullRequest.PullRequestId` and `SEMGREP_BASELINE_REF` to `origin/master` within the `script` section of the config. The value of `SEMGREP_BASELINE_REF` is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as `main` or `master`.
     * If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the `elif` section of the `script` step.
+5. For diff-aware scans: add a [build validation policy](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser#build-validation). Adding and enabling a branch policy for build validation is required to trigger Azure Pipelines on pull requests.

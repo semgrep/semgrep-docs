@@ -31,6 +31,7 @@ The following table lists the languages for which Supply Chain can detect malici
 | Python | PyPi |
 | Ruby | RubyGems |
 | Rust | `cargo.lock` |
+| TypeScript | npm |
 
 <!--
 | Dart | Pub | 

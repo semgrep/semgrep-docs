@@ -83,8 +83,8 @@ Semgrep Supply Chain has two language maturity levels:
   </tr>
   <tr>
    <td>Number of reachability rules</td>
-   <td>10+</td>
-   <td>No required number</td>
+   <td>As defined by <a href="#cve-coverage">CVE coverage</a>.</td>
+   <td>All critical severity CVEs from <a href="#supported-sources">supported sources</a> starting 2022 onwards, for packages used by customers with an active, paid subscription.</td>
   </tr>
   <tr>
    <td>Semgrep, Inc. rule-writing support</td>
@@ -191,7 +191,7 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
 </tr>
   <tr>
-   <td rowspan="4">Python</td>
+   <td rowspan="5">Python</td>
    <td>pip</td>
    <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
   </tr>
@@ -205,6 +205,10 @@ The following table lists all Semgrep-supported package managers for each langua
   <tr>
    <td>Poetry</td>
    <td><code>poetry.lock</code></td>
+  </tr>
+  <tr>
+   <td>uv</td>
+   <td><code>uv.lock</code></td>
   </tr>
   <tr>
    <td>Ruby</td>
@@ -325,19 +329,26 @@ The following table lists all Supply Chain features for each language. Languages
 <td>Scala</td>
 <td align="center">✅</td>
 <td align="center">--</td>
-<td align="center">✅†</td>
+<td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Swift</td>
 <td align="center">✅</td>
 <td align="center">--</td>
+<td align="center">✅†</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td align="center">Beta</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">--</td>
 </tr>
 <tr>
 <td>Rust</td>
-<td align="center" width="180px" rowspan="4">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
+<td align="center" width="180px" rowspan="3">No reachability analysis. However, Semgrep can compare a package's version against a list of versions with known vulnerabilities.</td>
 <td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -350,12 +361,6 @@ The following table lists all Supply Chain features for each language. Languages
 </tr>
 <tr>
 <td>Elixir</td>
-<td align="center">--</td>
-<td align="center">--</td>
-<td align="center">--</td>
-</tr>
-<tr>
-<td>PHP</td>
 <td align="center">--</td>
 <td align="center">--</td>
 <td align="center">--</td>

@@ -314,6 +314,7 @@ module.exports = {
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/historical-scanning',
+                'semgrep-secrets/generic-secrets',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
@@ -392,9 +393,18 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
+        {
+            type: 'category',
+            label: 'Experimental features',
+            collapsible: true,
+            link: {type: 'generated-index'},
+            items: [
+                'semgrepignore-v2-reference'
+            ]
+        },
         'cli-reference',
         'semgrep-appsec-platform/json-and-sarif',
-        'semgrepignore-v2-reference',
+        'semgrep-appsec-platform/scm-code-access'
       ]
     }
   ],
