@@ -124,7 +124,7 @@ Not on head ref: fcc...d21; checking that out now.
 
   CONNECTION
 Using 104...950 as the merge-base of f5e...1a7 and fcc...d21
-  Initializing scan (deployment=testdep, scan_id=29062823)
+  Initializing scan (deployment=testsemgrep, scan_id=29062823)
   Enabled products: Code, Supply Chain
 ...
 ┌─────────────┐
@@ -152,9 +152,9 @@ If you review the scans that are not generating comments and find that they are 
 
 To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
-### Secrets: The rule is in Comment or Block mode, and the secret is valid
+### Secrets: The rule is in Comment or Block mode, and validation settings match
 
-For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block, and the secret must be valid unless you have customized your validation settings. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
+For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block. The secret must also be valid, unless you have customized your validation state policy. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
 
 ### Supply Chain: The finding meets your criteria for commenting or blocking
 
