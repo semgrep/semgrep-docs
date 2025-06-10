@@ -91,7 +91,7 @@ If you have SSO enabled, you can turn off login using GitHub or GitLab credentia
 4. GitLab users: Click the **GitLab SSO** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn off logins using GitLab.
 
 :::warning
-Ensure that you have at least one user who can log in through SSO before disabling sign in with GitHub or GitLab.
+Ensure that you have at least one user who can log in as an admin through SSO before disabling sign in with GitHub or GitLab.
 :::
 
 ## See also

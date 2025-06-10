@@ -11,6 +11,7 @@ tags:
      generated .md file -->
 
 import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
+import PL from '@site/src/components/Placeholder';
 
 # Ignore files, folders, and code
 
@@ -23,10 +24,12 @@ All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-d
 
 ## Reference summary
 
-| Method  | Usage    | Examples |
-|:--------|:---------|:---------|
-| To ignore blocks of code: `nosemgrep` | Create a comment, followed by a space (` `), followed by `nosemgrep` at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. | ` // nosemgrep` &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `// nosemgrep: rule-id` <br /> `# nosemgrep` |
-| To ignore files and folders: `.semgrepignore` | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| Method  | Usage    |
+|:--------|:---------|
+| To ignore blocks of code: Add a `nosemgrep` annotation | Create a comment, followed by `nosemgrep`, at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. <br /><br />For example:<br /><br />` // nosemgrep` &nbsp; &nbsp; &nbsp;<br />`// nosemgrep: rule-id` <br /> `# nosemgrep` |
+| For Semgrep AppSec Platform users: <br /><br /><ul><li>Ignore files and folders through the use of Semgrep AppSec Platform's **Project or Global ignores**</li><li>Override the implicit ignorelist through the use of a `.semgrepignore` file.</li></ul> | Navigate to **Projects > <PL>PROJECT_NAME</PL> > Details > Settings > Path ignores**.<br /><br /> ![Set ignore paths for a project in Semgrep AppSec Platform.](/img/per-project-ignores.png) |
+| For Semgrep CE users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+ 
 
 ## Understand Semgrep defaults
 
@@ -34,6 +37,7 @@ Without user customization, Semgrep refers to the following to define ignored fi
 
 * Semgrep's default `.semgrepignore` file
 * Your repository's `.gitignore` file (if it exists)
+* For Semgrep AppSec Platform users: each project (repository) in Semgrep has a list of ignored files and folders in its project details page.
 
 In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repository's default template](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore):
 
@@ -41,14 +45,19 @@ In the absence of a user-generated `.semgrepignore`, Semgrep refers to [its repo
 DEFAULT_SEMGREPIGNORE_TEXT
 ```
 
-:::caution
+
+## Override defaults
+
 The default `.semgrepignore` file causes Semgrep to skip these folders:
 
 * `/tests`, `/test`
 * `/vendors`
 
-To include these folders, create a `.semgrepignore` file without those paths.
-:::
+To include these folders:
+
+1. Create a `.semgrepignore` file at the repository root without those paths.
+1. For Platform users: remove the folders from the project ignore list in **Projects > <PL>PROJECT_NAME</PL> > Details page > Settings > Path ignores > Code (SAST) & Supply Chain (SCA)**.
+
 
 ## Files, folders, and code beyond Semgrep's scope
 
@@ -100,11 +109,15 @@ specification more closely.
 
 Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can define patterns for individual projects, or you can define them at the organization level so that they're applied to all projects owned by that organization.
 
-Including files and folders through this method is **additive**. When you run a scan using `semgrep ci`, Semgrep looks for a `.semgrepignore` within the repository. If no `.semgrepignore` file is found, Semgrep temporarily creates one and adds items from Semgrep AppSec Platform's Path Ignores.
+Ignoring files and folders through this method is **additive**.
 
-Adding items to Semgrep AppSec Platform's **Path Ignores** box doesn't override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. However, items added to `.semgrepignore` override default Semgrep CLI patterns.
+Adding items to Semgrep AppSec Platform's **Path Ignores** box **doesn't** override default Semgrep ignore patterns included with its CLI tool, since the patterns are additive. To override a Semgrep default, both an existing local `.semgrepignore` file and the **Path ignores** box must be configured. See [Override defaults](#override-defaults).
 
 All files and folders defined using Semgrep AppSec Platform's **Path Ignores** feature, both for a specific project and globally, are additive.
+
+:::tip
+This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can only define ignored files and folders through `.semgrepignore`.
+:::
 
 ### Define files and folders for a specific project
 
@@ -145,7 +158,7 @@ You can also add files to `.semgrepignore` while triaging individual findings us
 
 ## Ignore code through nosemgrep
 
-To ignore blocks of code, define an **inline comment**, followed by a **space** (` `), followed by the word `nosemgrep` at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
+To ignore blocks of code, define an **inline comment**, followed by the word `nosemgrep`, at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
 
 :::caution
 Ignoring code through this method still generates a finding. The finding is automatically set to the **Ignored** triage state.
@@ -177,9 +190,6 @@ bad_func3(   // nosemgrep
 
 ```
 
-:::info
-The space (` `) before `nosemgrep` is required for Semgrep to detect this annotation.
-:::
 
 To ignore blocks of code for a **particular rule**, enter its `rule-id` as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list. `rule-ids` must be referenced with their namespace.
 
@@ -223,8 +233,27 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 * [Manage findings](/semgrep-code/triage-remediation#manage-findings)
 * [Ignore findings through PR and MR comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments)
-
 ## Troubleshooting
+
+### Tips to prevent unexpected ignore behavior
+
+:::tip
+This section focuses on ignoring as excluding or skipping files, not as a triage action. 
+:::
+
+Because Semgrep ignore logic is configured at the file, repository, and platform level, you may sometimes encounter unexpected behavior.
+
+- It is recommended to only create an custom, user-defined `.semgrepignore` file if you are **overriding** the Semgrep defaults, if possible. This means defining all other items to ignore through the global or project path ignores.
+  - This method works well if your organization primarily scans using the `semgrep ci` command.
+- Be aware that creating a user-defined `.semgrepignore` file enables developers to edit it.
+- Include the `.semgrepignore` file in Git tracking to keep a log of changes and ensure it's applied consistently.
+- To **include** a file or folder for scanning, ensure it's not in any of the following places:
+  - Global path ignores
+  - Project path ignores
+  - User-defined `.semgrepignore`
+  - Semgrep defaults (implicit) `.semgrepignore`
+
+### `SAST_EXCLUDED_PATHS`
 
 **For GitLab users**: if you use [the `SAST_EXCLUDED_PATHS` variable](https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters) to specify paths excluded from analysis, you may find that Semgrep doesn't honor these items. This is due to default Semgrep behavior. To explicitly exclude files, you must do one of the following steps:
 

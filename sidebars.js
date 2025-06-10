@@ -314,6 +314,7 @@ module.exports = {
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/historical-scanning',
+                'semgrep-secrets/generic-secrets',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
@@ -402,7 +403,8 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif'
+        'semgrep-appsec-platform/json-and-sarif',
+        'semgrep-appsec-platform/scm-code-access'
       ]
     }
   ],
