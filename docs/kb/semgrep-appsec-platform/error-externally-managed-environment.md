@@ -9,7 +9,7 @@ tags:
 
 # error: externally-managed-environment
 
-If your Python environment is [externally managed by a package manager]((https://packaging.python.org/en/latest/specifications/externally-managed-environments/)), you can't use `pip` for system-wide installations. This results in the `externally-managed-environment` when you try to use `pip` to install Semgrep.
+If your Python environment is [externally managed by a package manager](https://packaging.python.org/en/latest/specifications/externally-managed-environments/), you can't use `pip` for system-wide installations. This results in the `externally-managed-environment` when you try to use `pip` to install Semgrep.
 
 Error message on macOS:
 
