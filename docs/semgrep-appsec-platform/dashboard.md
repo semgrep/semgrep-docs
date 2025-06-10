@@ -108,7 +108,7 @@ Configurations set here apply to the entire page.
 The following quick filters are visible on the page:
   - Time period
   - Semgrep product or type of scan (SAST, SCA, or Secrets)
-  - Project (a repository or subfolder in monorepo)
+  - Project (a repository or a subfolder of a monorepo)
   - [Recommended priority](#recommended-priority) toggle
 
 :::info
