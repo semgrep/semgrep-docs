@@ -63,7 +63,7 @@ You can also participate in optional activities:
 
 Refer to the following sections for details.
 
-### Both parties agree to running a POV
+### Both parties agree to run a POV
 
 - From your end (the buyer), a need has been identified and a budget has been allocated.
 - From Semgrep's end, the team has verified, with your help, that your technical stack is supported by Semgrep. This includes:
