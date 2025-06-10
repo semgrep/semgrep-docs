@@ -52,10 +52,10 @@ If your provider is **not** on this list, you can still integrate Semgrep into y
 
 ## Projects
 
-Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each Project can be individually configured to send notifications or tickets.
+Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each project can be individually configured to send notifications or tickets.
 
 ![Semgrep Projects page](/img/projects-page.png)
-_**Figure.** Semgrep **Projects** page. This displays all the repositories you have successfully added a Semgrep job to._
+_**Figure.** Semgrep **Projects** page. This displays all the projects you have successfully added to Semgrep._
 
 ## Add Semgrep to CI
 
