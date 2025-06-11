@@ -39,9 +39,20 @@ Command output:
 
 <CLIHelpOutput />
 
-## `semgrep scan` and `semgrep ci` command options
+## `semgrep ci` and `semgrep scan` command options
 
-To list all available `semgrep scan` or `semgrep ci` options, run one of the following commands:
+You can invoke Semgrep using the CLI with either `semgrep ci` or `semgrep scan`.
+
+<details>
+<summary>Differences between `semgrep ci` and `semgrep scan`</summary>
+
+The `semgrep scan` command is primarily used for local scans and is suitable if you want to scan your codebase for security issues without requiring a Semgrep account. You can run scans using specific rules or rulesets. For example, to use the default ruleset, the command would be `semgrep scan --config "p/default"`. By default, these scans don't return failing error codes on findings for further handling.
+
+The `semgrep ci` command is primarily used in CI pipelines for both full scans of codebases, as well as diff-aware scans that are initiated in the context of a pull request or a merge request. With `semgrep ci`, Semgrep uses the policies and rules defined by your organization. It also uses cross-file (interfile) and cross-function (intrafile) analysis for improved results. By default, these scans return failing error codes on findings for further handling.
+
+</details>
+
+You can list all available `semgrep ci` or `semgrep scan` options by running `semgrep ci --help` or `semgrep scan --help`, respectively. The available options are also listed below; **select the tab that best fits the command that you're using.**
 
 <Tabs>
   <TabItem value="semgrep scan --help" label="semgrep scan --help">
