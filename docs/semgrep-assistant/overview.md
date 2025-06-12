@@ -107,7 +107,7 @@ Security teams can review filtered findings at any time on Semgrep's [**Code > P
 
 Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md).
 
-### Memories (beta)
+### Memories
 
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 

@@ -363,7 +363,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
 - AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
-- AI-assisted [Memories](/semgrep-assistant/overview#memories-beta), which enable you to tell the AI organization specific libraries to suggest when guiding developers
+- AI-assisted [Memories](/semgrep-assistant/overview#memories), which enable you to tell the AI organization specific libraries to suggest when guiding developers
 - [PR comments or MR comments](/category/pr-or-mr-comments) can be sent to developers in their native environment (GitHub, GitLab, Azure DevOps, Bitbucket) and developers can triage in their native development through triage commands
 - Slack, email, and webhook [notification channels](/semgrep-appsec-platform/notifications)
 - [Creation of Jira tickets](/semgrep-appsec-platform/jira) and customizable mapping of attributes
