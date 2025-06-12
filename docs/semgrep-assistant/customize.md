@@ -90,10 +90,6 @@ Permissions:
 - Automatic generation of memories: if you are an **admin** user, Assistant immediately tries to generate **active** memories from your triage feedback.
 - If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory that needs an admin to activate it. 
 
-:::tip
-**Suggested memories** are a beta feature. At first, the Semgrep team performs a one-time generation of suggested memories based on your triage feedback history. Then Assistant begins creating memories from user feedback in the future.
-:::
-
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
