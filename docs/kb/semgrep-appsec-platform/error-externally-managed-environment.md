@@ -76,14 +76,8 @@ hint: See PEP 668 for the detailed specification.
 
 ## How to fix this error
 
-To fix this error and successfully install Semgrep:
+For most users, the simplest solution is to install [`pipx`](https://github.com/pypa/pipx) and then `pipx install semgrep`. `pipx` automatically manages virtual environments for standalone Python applications.
 
-1. Install Semgrep using `homebrew` instead of `pip`. Note that there are several drawbacks to this option that you should be aware of:
-   1. The Semgrep version available on `homebrew` might be older than versions available through `pip`, because `homebrew` requires package approval, while `pip` doesn't.
-   2. Linux users may not already have `homebrew`.
-2. Install Semgrep using [`pipx`](https://github.com/pypa/pipx). `pipx` creates a virtual environment for you and installs Semgrep in the newly created virtual environment.
+If you're already using a custom Python virtual environment, you can install Semgrep in your existing virtual environment instead.
 
-The following options are also available for bypassing this error message, though Semgrep recommends neither of these:
-
-1. Manually set up a virtual environment using `venv` and install Semgrep in the virtual environment.
-2. Ignore and bypass the error message using the `--break-system-packages` flag.
+You can also install Semgrep using [`homebrew`](https://brew.sh/) instead of `pip`.
