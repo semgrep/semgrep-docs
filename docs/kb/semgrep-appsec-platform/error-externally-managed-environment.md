@@ -76,8 +76,8 @@ hint: See PEP 668 for the detailed specification.
 
 ## How to fix this error
 
-For most users, the simplest solution is to install [`pipx`](https://github.com/pypa/pipx) and then `pipx install semgrep`. `pipx` automatically manages virtual environments for standalone Python applications.
+For most users, the simplest solution is to install [`pipx`](https://github.com/pypa/pipx), then run `pipx install semgrep` to install Semgrep. `pipx` automatically creates and manages virtual environments for standalone Python applications.
 
-If you're already using a custom Python virtual environment, you can install Semgrep in your existing virtual environment instead.
+You can also install Semgrep using [`homebrew`](https://brew.sh/).
 
-You can also install Semgrep using [`homebrew`](https://brew.sh/) instead of `pip`.
+If you're already using a custom Python virtual environment, you can install Semgrep in this existing environment instead.
