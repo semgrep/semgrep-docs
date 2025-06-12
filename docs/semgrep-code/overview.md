@@ -69,7 +69,7 @@ semgrep ci --oss-only
 
 - Provide [remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
 - Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
-  - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories-beta).
+  - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
 - [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
 - [Auto-triage findings](/semgrep-assistant/overview#auto-triage) and suggest whether a finding can safely be ignored.
 - [Filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
