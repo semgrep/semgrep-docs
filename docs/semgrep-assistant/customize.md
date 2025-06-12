@@ -43,7 +43,7 @@ Assistant is [over 95% accurate in categorizing Semgrep Code findings as false p
 
 Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
 
-## Add Memories (beta)
+## Add Memories
 
 Assistant Memories allows admins to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
 
@@ -73,7 +73,7 @@ To add a memory based on a suggested fix presented by Assistant:
    ![Regenerated Assistant fix using the user-provided instructions.](/img/memories-1.png#md-width)
    ***Figure***. Regenerated Assistant fix using the user-provided instructions.
 
-While Assistant Memories is in **public beta**, memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+Memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
 
 ### Add memory during triage and receive memory suggestions from Assistant
 
