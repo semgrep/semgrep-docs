@@ -47,7 +47,7 @@ Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-eng
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
-2. Click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
+1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
 
 Subsequent scans now include Code scans.
 

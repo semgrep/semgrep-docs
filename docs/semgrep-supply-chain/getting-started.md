@@ -47,8 +47,8 @@ To run a Semgrep Supply Chain scan, generate a [dependency tree for Apache Maven
 ## Enable Semgrep Supply Chain
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
-1. In the **Deployment** tab, navigate to **Supply Chain (SCA)**, and click the **<i class="fa-solid fa-toggle-large-on"></i> Supply Chain scans** toggle if it is not already enabled.
+1. Go to **[Settings > General > Supply Chain](https://semgrep.dev/orgs/-/settings/general/supplyChain)**.
+1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Supply Chain scans** toggle if it is not already enabled.
 
 ## Scan frequency
 
