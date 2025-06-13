@@ -82,7 +82,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
    2. Click **Review permissions** to see the permissions requested by Semgrep.
    3. Click **Register GitHub App** to proceed.
    4. When prompted, click **Continue** to allow redirection to GitHub to finalize app creation. Follow the instructions to finish creating and installing a private `semgrep-app`.
-4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
+4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **General > Assistant** page. Verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
    2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
    3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.

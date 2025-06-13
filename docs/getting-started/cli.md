@@ -36,7 +36,7 @@ Semgrep scans triggered using `semgrep ci` fail if you aren't signed in to your 
 To enable [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
 
 1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login) if you haven't already.
-2. Navigate to [Settings > Deployment](https://semgrep.dev/orgs/-/settings).
+2. Navigate to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
 3. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable cross-file analysis.
 
 ## Scan your project

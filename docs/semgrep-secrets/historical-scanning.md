@@ -40,8 +40,8 @@ If possible, [test historical scans locally](#run-a-local-test-scan) to create a
 :::
 
 1. Sign in to Semgrep AppSec Platform.
-1. Click **<i class="fa-solid fa-gear"></i> Settings**.
-1. Under Deployment, click the **<i class="fa-solid fa-toggle-large-on"></i> Historical scanning** toggle.
+1. Go to **Settings > General > Secrets**.
+2. Click the **<i class="fa-solid fa-toggle-large-on"></i> Historical scanning** toggle.
 ![Historical scanning settings toggle](/img/historical-scanning-settings.png#md-width)
 
 Subsequent Semgrep full scans now include historical scanning.

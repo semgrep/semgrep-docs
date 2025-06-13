@@ -10,4 +10,4 @@ Semgrep Assistant messages only appear in your PR comments for rules that are se
 
 * You have set rules to Comment or Block mode.
   ![Policies modes](/img/semgrep-assistant-comment.png#md-width)
-* You have selected **PR/MR comments** in **Semgrep AppSec Platform > Settings > Deployment** in the **Code** section.
+* You have turned on the **Triage via code review comments** toggle in Semgrep AppSec Platform by going to **Settings > General > Code**..
