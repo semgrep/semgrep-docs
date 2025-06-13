@@ -77,6 +77,9 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         # install through pip
         python3 -m pip install semgrep
 
+        # users on Ubuntu 24.04 or later must use `pipx` instead of `pip`
+        python3 -m pipx install semgrep
+
         # confirm installation succeeded by printing the currently installed version
         semgrep --version
         ```

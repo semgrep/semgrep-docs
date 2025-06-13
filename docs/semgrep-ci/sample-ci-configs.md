@@ -477,7 +477,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
-**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`.
+**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`. If you're on Ubuntu 24.04 or later, use `pipx install semgrep`.
 
 By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
 
