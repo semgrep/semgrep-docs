@@ -38,8 +38,8 @@ You have completed a [Semgrep core deployment](/deployment/core-deployment).
 :::
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-gear"></i> Settings**.
-3. On the **Deployment** tab, navigate to the **Secrets** section, and click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets scans** toggle to enable.
+2. Go to **Settings > General > Secrets**.
+3. Click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets scans** toggle to enable.
 
 Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning.
 
