@@ -77,6 +77,9 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         # install through pip
         python3 -m pip install semgrep
 
+        # if you get the following error "error: externally-managed-environment",
+        # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
+
         # confirm installation succeeded by printing the currently installed version
         semgrep --version
         ```

@@ -32,6 +32,10 @@ brew upgrade semgrep
 # macOS, Linux, or Windows Subsystem for Linux (WSL) users, using pip
 python3 -m pip install --upgrade semgrep
 
+# If you get the following error "error: externally-managed-environment", see
+# semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment
+python3 -m pipx install --upgrade semgrep
+
 # confirm your Semgrep installation
 semgrep --version
 ```

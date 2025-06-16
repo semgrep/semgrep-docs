@@ -477,7 +477,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
-**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`.
+**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`. If you see an error during the installation process due to your Python environment being externally managed by a package manager, see [Semgrep's article for instructions on how to proceed](/kb/semgrep-appsec-platform/error-externally-managed-environment).
 
 By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
 
