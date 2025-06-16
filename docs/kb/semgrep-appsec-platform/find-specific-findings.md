@@ -5,7 +5,7 @@ hide_title: true
 description: Learn to retrieve a rule ID and apply it to filter for findings from a specific rule across all your projects.
 tags:
   - Semgrep Supply Chain
-  - Semgrep Secrets
+  - Semgrep Code
 ---
 
 # Search for specific findings by rule or CVE
