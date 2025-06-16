@@ -23,7 +23,7 @@ Install a specific Semgrep version using pip's version syntax:
 
 <pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
-If you're on Ubuntu 24.04 or later, use `pipx` instead of `pip`.
+If you see an error during the installation process due to your Python environment being externally managed by a package manager, see [Semgrep's article for instructions on how to proceed](/kb/semgrep-appsec-platform/error-externally-managed-environment).
 
 Confirm installation:
 

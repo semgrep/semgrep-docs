@@ -11,8 +11,8 @@ brew install semgrep
 # macOS, Linux, or Windows Subsystem for Linux (WSL) users
 python3 -m pip install semgrep
 
-# users on Ubuntu 24.04 or later must use `pipx` instead of `pip`
-python3 -m pipx install semgrep
+# if you get the following error "error: externally-managed-environment",
+# see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
 
 # confirm
 semgrep --version

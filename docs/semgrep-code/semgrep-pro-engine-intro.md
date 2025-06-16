@@ -94,8 +94,8 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
     ```bash
     python3 -m pip install --upgrade semgrep
 
-    # users on Ubuntu 24.04 or later must use `pipx` instead of `pip`
-    python3 -m pipx install --upgrade semgrep
+    # if you get the following error "error: externally-managed-environment",
+    # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
     ```
 
     </TabItem>
