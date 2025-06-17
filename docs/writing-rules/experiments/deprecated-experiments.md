@@ -147,6 +147,6 @@ While extract mode can help to enable rules which try and track taint across a l
 As of June 16th, 2025, Turbo Mode has been deprecated and removed from the Semgrep Playground. 
 :::
 
-Turbo Mode was a feature in the Semgrep Editor that automatically ran your rule against Semgrep CE after every keystroke or change to the rule. 
+Turbo Mode was a feature in Semgrep Editor that automatically ran your rule against Semgrep CE after every keystroke or change to the rule. 
 
 
