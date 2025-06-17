@@ -12,6 +12,7 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
@@ -113,6 +114,10 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - To obtain meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
+
+### Customize MR comments
+
+<CustomComments comment_type="MR" />
 
 ## Next steps
 

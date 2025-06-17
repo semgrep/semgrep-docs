@@ -11,6 +11,7 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
@@ -72,6 +73,10 @@ Confirm that you have the correct connection and access:
 ## Disable PR comments for Supply Chain findings
 
 <DisableComments />
+
+## Customize PR comments
+
+<CustomComments comment_type="PR" />
 
 ## Next steps
 

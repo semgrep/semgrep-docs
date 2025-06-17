@@ -10,6 +10,7 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
@@ -114,6 +115,10 @@ steps:
 ### Configure comments for Semgrep Supply Chain
 
 <CommentsInSupplyChain />
+
+## Customize PR comments
+
+<CustomComments comment_type="PR" />
 
 ## Next steps
 
