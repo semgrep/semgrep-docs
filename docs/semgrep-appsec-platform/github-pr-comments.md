@@ -11,6 +11,7 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
@@ -141,6 +142,10 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
     <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
 </tr>
 </table>
+
+### Customize PR comments
+
+<CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 
