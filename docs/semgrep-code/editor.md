@@ -18,7 +18,7 @@ import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
 
 ![Semgrep Editor's splash screen](/img/editor-splashscreen.png)
 
-**Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization's [Policies page](/semgrep-code/policies) to enforce code standards and increase code security.
+**Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-code/policies) to enforce code standards and increase code security.
 
 The Editor is free to use on all subscription tiers.
 
@@ -28,7 +28,7 @@ The Editor is free to use on all subscription tiers.
 2. Click **Rules > Editor**.
 3. Do any of the following steps:
     1. To create a new rule, click on the <i class="fa-solid fa-circle-plus"></i> **(+) plus sign** or <i class="fa-solid fa-file-plus"></i> **Create new rule** button.
-    2. To open any rule you've recently edited, select it from the **Recent** list.
+    2. To open any rule you’ve recently edited, select it from the **Recent** list.
     3. To view a sample rule, select it from the **Examples** list. The rule renders within the Editor.
     4. To start a tutorial or read the docs, select it from the **Learn** list. This navigates you away from the Editor.
 
@@ -141,7 +141,7 @@ Advanced mode is a YAML editor that allows you to write rules using [Semgrep syn
 :::info Rules syntax
 Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor's library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization's use by [forking](#write-a-new-rule-by-forking-an-existing-rule) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization's use by [forking](#write-a-new-rule-by-forking-an-existing-rule) them.
 :::
 
 To write a rule in advanced mode:
@@ -215,20 +215,20 @@ To run your rule against selected repositories or projects:
 ![Code search results in Semgrep Editor](/img/code-search-results.png)
 ***Figure.*** Code search results in Semgrep Editor
 
-## Set a rule's visibility and share a rule
+## Set a rule’s visibility and share a rule
 
-Upon saving, a rule's visibility is **private** by default. A private rule is visible only to members within an organization.
+Upon saving, a rule’s visibility is **private** by default. A private rule is visible only to members within an organization.
 
 - To share a rule outside your organization, click **Share > Public > Confirm**. If you want to share this specific version of the rule, you can also toggle Permalink. This provides a shortlink to this version of the rule, which will not change if the rule is modified.
 - To share a private rule with those who can access it, click **Share** and copy the **URL link**.
 
 Some older rules in Semgrep AppSec Platform may be **unlisted** rather than private. These rules are marked with an icon without a lock, and can be shared with anyone, including those who cannot access Semgrep AppSec Platform.
 
-To change an unlisted rule's visibility to private for increased security, click **Share > Private > Confirm**.
+To change an unlisted rule’s visibility to private for increased security, click **Share > Private > Confirm**.
 
 ## Rename a rule
 
-To rename a rule, enter the new name in the YAML editor's `id` field. The, save the rule by entering <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on Mac) or clicking the **Save** button.
+To rename a rule, enter the new name in the YAML editor’s `id` field. The, save the rule by entering <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on Mac) or clicking the **Save** button.
 
 ## Delete a rule
 
