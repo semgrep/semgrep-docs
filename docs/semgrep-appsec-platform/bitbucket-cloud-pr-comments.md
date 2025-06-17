@@ -208,7 +208,7 @@ Only rules set to the **Comment** and **Block** rule modes in the [Policies page
 
 ## Customize PR comments
 
-<CustomComments comment_type="PR" />
+<CustomComments comment_type="PR" link_type="Markdown and plaintext" />
 
 ## Next steps
 

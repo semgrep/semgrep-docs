@@ -76,7 +76,7 @@ Confirm that you have the correct connection and access:
 
 ## Customize PR comments
 
-<CustomComments comment_type="PR" />
+<CustomComments comment_type="PR" link_type="Markdown and plaintext" />
 
 ## Next steps
 

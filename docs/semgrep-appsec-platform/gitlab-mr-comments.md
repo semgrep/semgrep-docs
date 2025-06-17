@@ -117,7 +117,7 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 
 ### Customize MR comments
 
-<CustomComments comment_type="MR" />
+<CustomComments comment_type="MR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 

@@ -145,7 +145,7 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 
 ### Customize PR comments
 
-<CustomComments comment_type="PR" />
+<CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 

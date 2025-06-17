@@ -118,7 +118,7 @@ steps:
 
 ## Customize PR comments
 
-<CustomComments comment_type="PR" />
+<CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 
