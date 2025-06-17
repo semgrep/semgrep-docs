@@ -97,7 +97,7 @@ These steps are for users that sign in to Semgrep through GitHub.
 These steps are for users that sign in to Semgrep through a **non-GitHub** SSO provider.
 
 1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
-2. [<i class="fas fa-external-link fa-xs"></i> Contact Support](https://semgrep.dev/docs/support#contact-support) and inform them which Semgrep account needs to be connected to the GitHub org. Support will finalize the connection.
+2. [<i class="fas fa-external-link fa-xs"></i> Contact Support](/support#contact-support) and inform them which Semgrep account needs to be connected to the GitHub org. Support will finalize the connection.
 3. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using SSO.
 4. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
 5. Your GitHub org is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
