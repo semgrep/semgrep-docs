@@ -140,3 +140,13 @@ The value of `reduce` key must be one of the following:
 Although extract mode supports JSON array decoding with the `json` key, it does not support other additional processing for the extracted text, such as unescaping strings.
 
 While extract mode can help to enable rules which try and track taint across a language boundary within a file, taint rules cannot have a source and sink split across the original file and extracted text.
+
+## Turbo Mode
+
+:::note 
+As of June 16th, 2025, Turbo Mode has been deprecated and removed from the Semgrep Playground. 
+:::
+
+Turbo Mode was a feature in Semgrep Editor that automatically ran your rule against Semgrep CE after every keystroke or change to the rule. 
+
+
