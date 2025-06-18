@@ -220,7 +220,10 @@ _**Figure.** Code triage flow._
 Once a ticket has been created, a link appears on the **Findings** page and along the top of an individual finding's details page.
 
 ![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
-_**Figure.** Code ticket created._
+_**Figure.** Ticket created and its ID shown on the finding listed on the Code page._
+
+![Jira ticket created - Finding Details](/img/jira-ticket-finding-details.png#md-width)
+_**Figure.** Ticket created and its ID shown on the finding details page._
 
 ### Supply Chain
 
@@ -279,11 +282,11 @@ Semgrep provides an API endpoint you can use to create Jira tickets, either by p
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. In the navigation bar, click the product whose findings you want to see.
-3. Identify the finding associated with the Jira ticket, and open its findings details page.
+3. Identify the finding associated with the Jira ticket, and open its finding details page.
 4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>TICKET ID</PL>**.
 
-![The findings details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
-_**Figure**. The findings details page with the option to unlink a Jira ticket displayed._
+![The finding details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
+_**Figure**. The finding details page with the option to unlink a Jira ticket displayed._
 
 ## Remove the Jira integration
 

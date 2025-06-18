@@ -519,7 +519,7 @@ technology:
 
 #### Vulnerability class
 
-The vulnerability class defines the category to which a rule and its resulting findings belong. The categories are used to group rules in Semgrep AppSec Platform's **Policies** page to help find similar rules. The category is also displayed on the **Findings Details** pages.
+The vulnerability class defines the category to which a rule and its resulting findings belong. The categories are used to group rules in Semgrep AppSec Platform's **Policies** page to help find similar rules. The category is also displayed on the **Finding Details** pages.
 
 You can provide custom values. Sample values include:
 
