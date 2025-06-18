@@ -123,15 +123,16 @@ You can identify findings categorized under **Security** by their badge.
 ![Screenshot of security badge](/img/findings-security-badge.png#md-width)
 :::
 
-### View findings details about a specific finding
+### View finding details about a specific finding
 
 To view in-depth information about a specific finding:
 
-1. Select the finding whose details you want to view details:
+1. Select the finding whose details you want to view:
     - If the default **Group by Rule** is enabled, click the <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png#md-width)
-    - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
+    - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is labeled **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
+
 #### Add notes to findings
 
 To **add notes** to the activity history of a finding:
@@ -139,16 +140,9 @@ To **add notes** to the activity history of a finding:
 1. Select a finding where you want to view details or add notes, and then do one of the following actions:
     - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
         ![Click View details if Group by Rule is enabled](/img/cloud-platform-findings-group-by-rule-view-details.png#md-width)
-    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example on the screenshot below, it is the **detected-generic-api-key**.
+    - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is labeled **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
-2. View, or add the notes in the **Activity** section. To add a new note, click plus **New note**.
-    ![Semgrep AppSec Platform finding details page](/img/cloud-platform-finding-details.png#md-width)
-### View branches that contain the finding
-
-To view all the branches that contain the finding, click the finding's **details page**. You can see all the branches on the **On <span className="placeholder">N</span> branches** pane.
-
-![Details page > On N branches](/img/details-on-n-branches.png#sm-width)
-_**Figure**. **Details page > On <span className="placeholder">N</span> branches** pane._
+2. View or add the notes in the **Activity** section. To add a new note, click **New note**.
 
 ## Dataflow traces
 
