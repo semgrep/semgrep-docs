@@ -177,7 +177,7 @@ module.exports = {
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
-                        id: 'semgrep-assistant/overview', // document ID
+                        id: 'semgrep-assistant/getting-started', // document ID
                         label: 'Enable Assistant', // sidebar label
                       },
                       {
