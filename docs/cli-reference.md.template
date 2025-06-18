@@ -100,7 +100,7 @@ Semgrep can finish with the following exit codes:
 - **7**: At least one rule in the configuration is invalid.
 - **8**: Semgrep does not understand specified language.
 - **13**: The API key is invalid.
-- **14**: Semgrep scan failed.
+- **14**: [Deprecated] Semgrep scan failed.
 
 :::tip
 To view the exit code when running `semgrep scan`, enter the following command immediately after the Semgrep scan finishes:
