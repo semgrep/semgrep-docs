@@ -88,7 +88,15 @@ module.exports = {
             items: [
                 'deployment/deployment-checklist',
                 'deployment/create-account-and-orgs',
-                'deployment/connect-scm',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Connect a source code manager',
+                    link: {type: 'doc', id: 'deployment/connect-scm'},
+                    items: [
+                      'semgrep-appsec-platform/scm-code-access'
+                    ]
+                },
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
                 'deployment/sso',
                 {
@@ -259,6 +267,15 @@ module.exports = {
             items: [
                 'semgrep-code/overview',
                 'semgrep-code/findings',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'View findings',
+                    link: {type: 'doc', id: 'semgrep-code/findings',},
+                    items: [
+                      'semgrep-appsec-platform/details-page',
+                    ]
+                },
                 'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
                 'semgrep-code/semgrep-pro-engine-intro',
@@ -403,8 +420,7 @@ module.exports = {
             ]
         },
         'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif',
-        'semgrep-appsec-platform/scm-code-access'
+        'semgrep-appsec-platform/json-and-sarif'
       ]
     }
   ],
