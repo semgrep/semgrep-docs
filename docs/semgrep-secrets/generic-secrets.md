@@ -27,7 +27,7 @@ Generic secrets does *not* work with local scans initiated by running the `semgr
 ## Enable generic secrets
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to **Settings > Deployment** and navigate to the **Secrets** section.
+2. Go to **Settings > General > Secrets**.
 3. Click the **Generic secrets** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on generic secrets.
 
 Once you have enabled generic secrets, your subsequent Semgrep Secrets scans automatically run with generic secrets rules. You can confirm that this is the case by looking for the following confirmation message in the CLI output:

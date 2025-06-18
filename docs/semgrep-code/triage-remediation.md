@@ -168,8 +168,8 @@ Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MR
 
 ### Enable triage through Azure DevOps PR comments
 
-1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
-2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+1. Sign in to Semgrep, and go to your organization's [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code) page.
+2. Click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
 ### Triage a finding
 
@@ -193,8 +193,8 @@ Triaging a finding as **Ignored** through a comment in Azure DevOps changes the 
 
 ### Enable triage through Bitbucket PR comments
 
-1. Sign in to Semgrep, and go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
-2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+1. Sign in to Semgrep, and go to your organization's [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code) page.
+2. Click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
 ### Triage a finding
 
@@ -215,8 +215,8 @@ Triaging a finding as **Ignored** through a comment in Bitbucket changes the sta
 
 ### Enable triage through GitHub PR comments:
 
-1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
-2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+1. Sign in to Semgrep, and go to your organization's [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code) page.
+2. Click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
 ### Triage a finding
 
@@ -240,8 +240,8 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 
 ### Enable triage through GitLab MR comments
 
-1. In Semgrep AppSec Platform, go to your organization's [Settings](https://semgrep.dev/orgs/-/settings) page.
-2. Under **Code (SAST)**, click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
+1. Sign in to Semgrep, and go to your organization's [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code) page.
+2. Click the **Triage via code review comments** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn on this feature.
 
 ### Triage a finding
 

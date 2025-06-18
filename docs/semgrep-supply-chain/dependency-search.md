@@ -27,7 +27,7 @@ _**Figure**. Default dependency search page._
 To search your dependencies:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to **Settings > Deployment** and navigate to the **Supply Chain (SCA)** section.
+2. Go to **Settings > General > Supply Chain**.
   ![Semgrep Supply Chain Settings tab](/img/sc-settings.png#md-width) _**Figure**. The Semgrep Supply Chain Settings tab._
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it's not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
