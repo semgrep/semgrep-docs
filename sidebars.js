@@ -574,6 +574,7 @@ module.exports = {
             'deployment/claim-a-license',
             'contributing/philosophy',
             'semgrep-pro-vs-oss',
+            'run-a-successful-pov',
             {
               type: 'category',
               label: 'Comparisons with other tools',

@@ -11,6 +11,7 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
@@ -204,6 +205,10 @@ Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access co
 :::info
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
+
+## Customize PR comments
+
+<CustomComments comment_type="PR" link_type="Markdown and plaintext" />
 
 ## Next steps
 

@@ -10,7 +10,6 @@ tags:
 description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
 
-import EnableTurboMode from "/src/components/procedure/_enable-turbo-mode.md"
 import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 import InstallPrivateGitHubApp from "/src/components/procedure/_install-private-github-app.mdx"
 import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
@@ -142,7 +141,7 @@ Advanced mode is a YAML editor that allows you to write rules using [Semgrep syn
 :::info Rules syntax
 Refer to [Rule syntax](/writing-rules/rule-syntax) for all possible fields and values to create a rule.
 
-To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization’s use by [forking](#write-a-new-rule-by-forking-an-existing-rule) them.
+To quickly learn Semgrep patterns and syntax, explore the Editor’s library of rules from the **public [Rule Registry](https://semgrep.dev/explore)**. Rules from the Registry can detect OWASP vulnerabilities, best practice violations, and security issues for a wide variety of languages and frameworks. Semgrep Editor enables you to **adapt these rules** for your own organization's use by [forking](#write-a-new-rule-by-forking-an-existing-rule) them.
 :::
 
 To write a rule in advanced mode:
@@ -179,9 +178,7 @@ In addition to testing for matches, you can test that your rule doesn't match wh
 
 Once you've written a rule and created comment annotations, you can run your rule against your comment annotations by clicking **Run**. You can also press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on Mac).
 
-### Turbo mode (beta)
 
-<EnableTurboMode />
 
 ## Code search (beta)
 
@@ -227,7 +224,7 @@ Upon saving, a rule’s visibility is **private** by default. A private rule is 
 
 Some older rules in Semgrep AppSec Platform may be **unlisted** rather than private. These rules are marked with an icon without a lock, and can be shared with anyone, including those who cannot access Semgrep AppSec Platform.
 
-To change an unlisted rule's visibility to private for increased security, click **Share > Private > Confirm**.
+To change an unlisted rule’s visibility to private for increased security, click **Share > Private > Confirm**.
 
 ## Rename a rule
 
