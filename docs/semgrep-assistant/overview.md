@@ -44,7 +44,7 @@ _**Figure.** PR comment displaying the rule message followed by a comment that c
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding) page.
 
-![Findings detail with remediation advice](/img/assistant-guidance-ui.png#md-width)
+![Findings detail with remediation advice](/img/memories-1.png#md-width)
 _**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
 #### Autofix
@@ -58,12 +58,10 @@ Autofixes are available in PR and MR comments, so developers can review and veri
 ![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
 _**Figure.** Semgrep Assistant generates a potential fix in a PR comment._
 
-Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
+Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
 
 ![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
-
-The finding's details include a link to the PR or MR with the autofix, so you can go directly to the PR or MR to commit the autofix.
 
 :::info
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
