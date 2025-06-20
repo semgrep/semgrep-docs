@@ -80,7 +80,7 @@ The Jira integration automatically detects other Jira projects in your subdomain
 - Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
 
 :::caution Same name, different ID
-Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
+Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> How to identify the Jira Issue ID in Cloud](https://support.atlassian.com/jira/kb/how-to-identify-the-jira-issue-id-in-cloud/) for details.
 :::
 
 ### Create mappings
