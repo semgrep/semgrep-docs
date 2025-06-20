@@ -12,7 +12,7 @@ The details page is divided into several panels:
   - Links to references
   - A badge indicating if it can cause breaking changes or not (beta)
 - Branch and finding history information
-  - Which branches it can be found
+  - Branches in which it can be found
   - Where it was first detected
   - AI analysis performed, if any
 - Graphs and code:

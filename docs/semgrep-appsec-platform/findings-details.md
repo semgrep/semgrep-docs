@@ -1,7 +1,8 @@
 ---
 displayed_sidebar: scanSidebar
 slug: details-page
-title: Details page v2
+id: details-page
+title: Finding details page v2
 hide_title: true
 description: Each finding in Semgrep has its own details page which provides you with the information and tools to analyze and triage the finding.
 tags:
@@ -11,7 +12,7 @@ tags:
 # Details page for findings v2
 
 :::info
-This document describes the **findings details page v2**, a feature which is in **private beta**. This feature supercedes the current findings details page, hereafter referred to as v1.
+This document describes the **findings details page v2**, a feature generally available as of 20 June 2025. This feature supercedes the earlier finding details page, hereafter referred to as v1.
 
 Refer to this document to understand changes between the two versions. 
 :::

@@ -80,7 +80,7 @@ The Jira integration automatically detects other Jira projects in your subdomain
 - Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
 
 :::caution Same name, different ID
-Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Jira documentation](https://confluence.atlassian.com/jirasoftwarecloud/finding-the-issue-type-id-in-jira-cloud-1333825937.html) for details.
+Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> How to identify the Jira Issue ID in Cloud](https://support.atlassian.com/jira/kb/how-to-identify-the-jira-issue-id-in-cloud/) for details.
 :::
 
 ### Create mappings
@@ -220,7 +220,10 @@ _**Figure.** Code triage flow._
 Once a ticket has been created, a link appears on the **Findings** page and along the top of an individual finding's details page.
 
 ![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
-_**Figure.** Code ticket created._
+_**Figure.** Ticket created and its ID shown on the finding listed on the Code page._
+
+![Jira ticket created - Finding Details](/img/jira-ticket-finding-details.png#md-width)
+_**Figure.** Ticket created and its ID shown on the finding details page._
 
 ### Supply Chain
 
@@ -279,11 +282,11 @@ Semgrep provides an API endpoint you can use to create Jira tickets, either by p
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. In the navigation bar, click the product whose findings you want to see.
-3. Identify the finding associated with the Jira ticket, and open its findings details page.
+3. Identify the finding associated with the Jira ticket, and open its finding details page.
 4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>TICKET ID</PL>**.
 
-![The findings details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
-_**Figure**. The findings details page with the option to unlink a Jira ticket displayed._
+![The finding details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
+_**Figure**. The finding details page with the option to unlink a Jira ticket displayed._
 
 ## Remove the Jira integration
 
