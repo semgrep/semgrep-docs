@@ -69,6 +69,16 @@ Use the following recommendations to help you create policies. These guidelines 
 - **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
 - **Critical and high EPSS probability**. There is a chance of these findings being exploited regardless of reachability.
 
+### Turn off PR and MR comments
+
+By default, Semgrep pull request (PR) and merge request (MR) comments include both Semgrep Code and Semgrep Supply Chain (SSC) findings information. However, if you would like to turn off PR or MR comments for reachable SSC findings, you can do so as follows:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to [Rules & Policies > Policies > Supply Chain](https://semgrep.dev/orgs/-/policies/supply-chain).
+1. Click <i class="fa-solid fa-toggle-large-on"></i> **Comment on reachable Supply Chain findings** to turn off the SSC policy supporting comments.
+
+> Turning off PR/MR comments doesn't turn off notifications regarding [license policy violations](/semgrep-supply-chain/license-compliance).
+
 ## Policy scopes
 
 A policy's scope can consist of tags or projects, but not both. If you need to create a policy with both tags and projects, simply make another policy.
