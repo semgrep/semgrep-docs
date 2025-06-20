@@ -123,7 +123,7 @@ You can identify findings categorized under **Security** by their badge.
 ![Screenshot of security badge](/img/findings-security-badge.png#md-width)
 :::
 
-### View finding details about a specific finding
+### View details about a specific finding
 
 To view in-depth information about a specific finding:
 
