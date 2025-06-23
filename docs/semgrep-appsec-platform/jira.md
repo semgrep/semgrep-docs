@@ -127,9 +127,9 @@ The following Semgrep fields are available to map to Jira fields for **all** pro
 - Rule name
 - Severity
 - Language
-- Rule eescription
+- Rule description
 - Semgrep AppSec Platform link to the finding
-- Type (e.g., Code, Secrets, Supply Chain)
+- Type (for example, Code, Secrets, Supply Chain)
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
 
@@ -277,6 +277,18 @@ _**Figure.** Secrets ticket created._
 ## Create tickets through the Semgrep API
 
 Semgrep provides an API endpoint you can use to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+
+## Ticket creation information
+
+You can see a Jira ticket's creation information using the relevant finding's details page. The **Activity** section of the finding details page displays information about the successful ticket creation attempt, including the ticket ID:
+
+![Finding details' Activity section showing that a Jira ticket was successfully created.](/img/jira-ticket-created-successfully.png#md-width)
+_**Figure**. Finding details' Activity section showing that a Jira ticket was successfully created._
+
+If the ticket wasn't successfully created, you can see the status update and accompanying error message:
+
+![Finding details' Activity section showing that a Jira ticket wasn't successfully created and the accompanying error message.](/img/jira-ticket-created-unsuccessfully.png#md-width)
+_**Figure**. Finding details' Activity section showing that a Jira ticket wasn't successfully created and the accompanying error message._
 
 ## Unlink a ticket from its associated Jira ticket
 
