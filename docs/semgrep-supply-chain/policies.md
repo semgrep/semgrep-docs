@@ -86,7 +86,7 @@ The following table lists available conditions and their values:
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
 | [Transitivity](/semgrep-supply-chain/glossary#transitivity)  | <ul><li>Direct</li> <li>Transitive</li></ul> |
 | [EPSS probability](/semgrep-supply-chain/glossary#epss-probability)  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
-| [CVE](https://www.cve.org/) | Manually provide a CVE ID or a rule name, or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
+| [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
 
 ## Other operations
 
