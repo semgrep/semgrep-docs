@@ -55,7 +55,7 @@ Memories are enabled by default for all organizations with Assistant enabled.
 2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 3. Click **New Memory**.
 4. In **Memory**, enter your preferred remediation approach and secure default.
-5. Select the **Projects** and the **Rules** to which the memory should be applied.
+5. Select the **Projects** and the **Rules** to which the memory should be applied. Note that the **Rules** selection list includes vulnerability classes--selecting a vulnerability class ensures that the memory applies to *all* rules.
 6. Click **Add memory** to save your changes and proceed.
 
 ### Add a memory based on Assistant's suggested fix
@@ -71,7 +71,7 @@ To add a memory based on a suggested fix presented by Assistant:
 3. Click **Save and regenerate**.
 4. Assistant regenerates the suggested fix to reflect the instructions you provided.
 
-Memories are scoped to remediation guidance on a per-project and per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
+Memories are scoped to remediation guidance on a per-project, per-vulnerability class, or per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
 
 ### Add memory during triage and receive memory suggestions from Assistant
 
