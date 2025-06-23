@@ -24,7 +24,7 @@ Semgrep Assistant:
 - Supports [the same languages as Semgrep Code](/supported-languages)
 - Is available to users of the following source code managers (SCMs):
   - Azure DevOps Cloud
-  - Bitbucket Cloud Premium 
+  - Bitbucket Cloud Premium and Bitbucket Data Center
   - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - GitLab, including SaaS and self-managed plans
 - Requires the Semgrep AppSec Platform for its use
