@@ -249,6 +249,7 @@ module.exports = {
           label: 'Integrations',
           collapsible: true,
           items: [
+            'mcp',
             'semgrep-appsec-platform/jira',
             'semgrep-appsec-platform/wiz'
           ]
