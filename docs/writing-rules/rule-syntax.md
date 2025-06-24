@@ -856,6 +856,54 @@ db_query("SELECT * FROM ...")
 db_query("SELECT * FROM ...", verify=True, env="prod")
 ```
 
+Additionally, `pattern-not` accepts one `pattern` or `patterns` property, which negates the entire `pattern` or `patterns` construction:
+
+```yaml
+rules:
+  - id: gcp-backend-service-missing-hsts
+    languages:
+      - hcl
+    severity: ERROR
+    message: GCP backend service missing HSTS header in custom_response_headers
+    patterns:
+      - pattern: |-
+          resource "google_compute_backend_service" $_ {
+            ...
+          }
+      - pattern-not:
+          patterns:
+            - pattern-inside: |-
+                resource "google_compute_backend_service" $_ { ...
+                custom_response_headers = [ ..., "$HSTS", ... ] ... }
+            - metavariable-regex:
+                metavariable: $HSTS
+                regex: "Strict-Transport-Security: .*"
+```
+
+The rule immediately above matches the following code flagged as `#fail`:
+
+```code
+#pass
+resource "google_compute_backend_service" "good_with_hsts" {
+  name = "good-backend"
+  
+  custom_response_headers = [
+    "Strict-Transport-Security: max-age=31536000; includeSubDomains",
+    "X-Frame-Options: DENY"
+  ]
+}
+
+#fail
+resource "google_compute_backend_service" "bad_without_hsts" {
+  name = "bad-backend"
+  port_name = "http"
+
+    custom_response_headers = [
+      "X-Frame-Options: DENY"
+  ]
+}
+```
+
 ### `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
