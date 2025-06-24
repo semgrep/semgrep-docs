@@ -66,7 +66,8 @@ You can enabled managed scanning for additional repositories after onboarding us
 
 ### If the page doesn't display any repositories
 
-1. Ensure that you've connected your GitLab account by following the steps in [Connect a source code manager](/deployment/connect-scm) and confirm the PAT is created with the required `API` scope and [a role of, at minimum, Reporter](https://docs.gitlab.com/ee/user/permissions.html#roles).
+1. Ensure that you've connected your GitLab account by following the steps in [Connect a source code manager](/deployment/connect-scm) and confirm the [PAT is created with the required `API` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) by someone assigned the [role of **Maintainer** or **Owner**](https://docs.gitlab.com/ee/user/permissions.html#roles).
+   1. Once you successfully create the connection, the role for the person who owns the token can be downgraded to **Developer**.
 2. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
 3. If the page doesn't display the repository you want to add, click **Can't find your project? > Sync projects**.
 4. If the page doesn't display any repositories, click **Sync projects**.

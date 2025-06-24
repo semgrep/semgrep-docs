@@ -57,7 +57,7 @@ To enable MR comments, connect your GitLab organization to Semgrep AppSec Platfo
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
 1. Go to **Settings > Source code managers**.
 1. Click **Add connection** and select **GitLab**.
-3. Create a GitLab personal access token (PAT) with `api` scope:
+3. Create a GitLab [personal access token (PAT) with `api` scope](https://docs.gitlab.com/ee/user/permissions.html#roles):
    1. Log in to your GitLab account, and go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens).
    2. Add a token with `api` scope.
    3. Copy the generated token.
