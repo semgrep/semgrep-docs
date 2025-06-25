@@ -48,7 +48,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
 <TabItem value='current'>
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
@@ -181,6 +181,9 @@ github:
 gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
+
+The GitLab [personal access token (PAT) must have the `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) and be created using an account [assigned a role of `Developer` or higher](https://docs.gitlab.com/user/permissions/#roles).
+
 </code></pre>
 
 </TabItem>
@@ -305,6 +308,8 @@ gitlab:
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
+
+The GitLab [personal access token (PAT) must have the `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) and be created using an account [assigned a role of role of **Maintainer** or **Owner**](https://docs.gitlab.com/user/permissions/#roles).
 
 </TabItem>
 </Tabs>
