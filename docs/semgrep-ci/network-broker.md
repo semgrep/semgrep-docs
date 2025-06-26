@@ -153,6 +153,11 @@ azuredevops:
 &nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
+Semgrep recommends setting up and configuring Semgrep with an Azure DevOps service account, not a personal account. Regardless, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization, and the scopes you must assign to the personal access token include:
+
+- `Code: Read`
+- `Pull Request Threads: Read & write`
+
 </TabItem>
 
 <TabItem value='bb'>
@@ -173,6 +178,9 @@ github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 &nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
+
+- **Bitbucket Cloud**: The Bitbucket token must be a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) with [**Read** and **Write** permissions for the **Pull requests** scope](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-token-permissions/#Pull-requests).
+- **Bitbucket Data Center**: The Bitbucket token must be an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Ensure that the HTTP access token that you create has been granted **Project write** permission. 
 
 </TabItem>
 <TabItem value='gl'>
