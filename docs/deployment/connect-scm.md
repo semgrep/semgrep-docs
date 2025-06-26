@@ -49,6 +49,8 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 
 <TabItem value='azure-devops-cloud'>
 
+### Azure DevOps Cloud
+
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
@@ -62,6 +64,8 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
 
 </TabItem>
 <TabItem value='bitbucket-cloud'>
+
+### Bitbucket Cloud
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
@@ -107,6 +111,8 @@ These steps are for users that sign in to Semgrep through a **non-GitHub** SSO p
 
 <TabItem value='gitlab-cloud'>
 
+### GitLab Cloud
+
 1. Create a PAT by following the steps outlined in this [guide to creating a PAT](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). Ensure that the PAT is created with the required `api` scope.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
@@ -135,6 +141,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 
 <TabItem value='bitbucket-data-center'>
 
+### Bitbucket Data Center
 
 1. Create an HTTP Access Token for your project following the steps outlined in [<i class="fas fa-external-link fa-xs"></i> Bitbucket Data Center documentation](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Ensure that the access token is created with `PROJECT_ADMIN` permissions.
 1. Copy the token for use in the next steps.
@@ -154,6 +161,8 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 </TabItem>
 <TabItem value='github-enterprise'>
 
+### GitHub Enterprise
+
 This section is applicable to users on a **GitHub Enterprise Server** plan. 
 
 The **Semgrep App for GitHub Enterprise (GHE)** creates a connection between Semgrep
@@ -163,7 +172,7 @@ and orgs in your GHE deployment. There are two primary installation steps:
    that "owns" the app.
 2. Install the app for additional GHE orgs.
 
-### Initial Semgrep App installation
+#### Initial Semgrep App installation
 
 If your deployment contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
@@ -199,7 +208,7 @@ At this point, you've successfully installed the GHE Semgrep App on the owner GH
 
 ![App installation page](/img/ghe-11.png#md-width)
 
-### Install the app for subsequent GHE orgs
+#### Install the app for subsequent GHE orgs
 
 You can install the Semgrep app onto additional GHE orgs at any time. To do so:
 
@@ -215,6 +224,8 @@ You have successfully connected Semgrep to your GitHub Enterprise Server.
 
 </TabItem>
 <TabItem value='gitlab-sm'>
+
+### GitLab Self-Managed
 
 This section is applicable to users with subscriptions to any **GitLab self-managed plan**.
 
