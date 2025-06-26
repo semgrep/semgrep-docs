@@ -37,7 +37,7 @@
       "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
     }
   },
-  "strip_chars": " .,;:#",
+  "strip_chars": " .,;:#()",
   "custom_settings": {
     "indexLanguages" : [
       "en"
@@ -72,6 +72,7 @@
       "url_without_anchor",
       "type"
     ],
+    "type": "synonym",
     "synonyms": [
       [
         "taint mode",
