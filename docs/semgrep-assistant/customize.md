@@ -133,14 +133,16 @@ To do so:
 
 ## Select your AI provider
 
-By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. You can, however, opt to:
+By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. 
+
+Semgrep evaluates available models from multiple providers and selects the most performant option for each Assistant feature, based on the providers enabled for your organization. For optimal results, keep both OpenAI and AWS Bedrock enabled. Enabling additional model providers can further improve performance.
+
+You can opt to:
 
 - Use OpenAI with your own API key
 - Use Azure OpenAI
 - Use Google Gemini.
 - Use xAI.
-
-Additionally, Semgrep Assistant supports the use of multiple AI models.
 
 ![Semgrep Assistant settings](/img/assistant-api-keys.png#md-width)
 _**Figure**. Semgrep Assistant settings featuring the option to change the API provider._
