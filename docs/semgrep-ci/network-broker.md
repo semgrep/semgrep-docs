@@ -153,11 +153,8 @@ azuredevops:
 &nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
-:::info Access token
-Semgrep recommends setting up and configuring Semgrep with an Azure DevOps service account, not a personal account. Regardless, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization, and the scopes you must assign to the personal access token include:
-
-- `Code: Read`
-- `Pull Request Threads: Read & write`
+:::info Access tokens
+See [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
 :::
 </TabItem>
 
@@ -171,9 +168,10 @@ bitbucket:
 &nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 </code></pre>
 
-:::info Access token
-- **Bitbucket Cloud**: The Bitbucket token must be a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) with [**Read** and **Write** permissions for the **Pull requests** scope](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-token-permissions/#Pull-requests).
-- **Bitbucket Data Center**: The Bitbucket token must be an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). Ensure that the HTTP access token that you create has been granted **Project write** permission. 
+:::info Access tokens
+See Prerequisites for access token requirements:
+- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#create-and-add-a-workspace-access-token)
+- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-data-center-pr-comments#prerequisites)
 :::
 
 </TabItem>
@@ -195,7 +193,7 @@ gitlab:
 </code></pre>
 
 :::info Access token
-The GitLab [personal access token (PAT) must have the `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) and be created using an account [assigned a role of `Developer` or higher](https://docs.gitlab.com/user/permissions/#roles).
+See [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
 :::
 
 </TabItem>
@@ -290,14 +288,8 @@ azuredevops:
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
-:::info Access token
-Semgrep recommends setting up and configuring Semgrep with an Azure DevOps service account, not a personal account. Regardless, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization, and the scopes you must assign to the personal access token include:
-
-- `Code: Read`
-- `Code: Status`
-- `Member Entitlement Management: Read`
-- `Project and Team: Read & write`
-- `Pull Request Threads: Read & write`
+:::info Access tokens
+See [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -311,14 +303,8 @@ bitbucket:
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
-:::info Access token
-- **Bitbucket Cloud**: The user generating the workspace token must be a **Product Admin** for the workspace. The token must be a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) with the following [scopes assigned](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-token-permissions/):
-  - `webhook (read and write)`
-  - `repository (read and write)`
-  - `pullrequest (read and write)`
-  - `project (admin)`
-  - `account (read)`
-- **Bitbucket Data Center**: The user generating the workspace token must be a **Product Admin** for the workspace. The token must be an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) with `PROJECT_ADMIN` permissions.
+:::info Access tokens
+See [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -343,6 +329,10 @@ gitlab:
 
 :::info Access token
 The GitLab [personal access token (PAT) must have the `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) and be created using an account [assigned a role of role of **Maintainer** or **Owner**](https://docs.gitlab.com/user/permissions/#roles).
+:::
+
+:::info Access tokens
+See [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
