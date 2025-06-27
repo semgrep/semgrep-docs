@@ -220,11 +220,15 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
 </tr>
-<tr>
-   <td>Swift</td>
+<tr rowspan="2">
+   <td rowspan="2">Swift</td>
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
 </tr>
+<tr>
+   <td>CocoaPods</td>
+   <td><code>Podfile.lock</code></td>
+</tr>  
   <tr>
    <td>Rust</td>
    <td>Cargo*</td>
@@ -314,14 +318,14 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>Python</td>
 <td align="center">✅</td>
-<td align="center">--</td>
+<td align="center">✅</td>
 <td align="center">✅<br /> For PyPi only</td>
 <td align="center">✅</td>
 </tr>
 <tr>
 <td>Ruby</td>
 <td align="center">✅</td>
-<td align="center">--</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
