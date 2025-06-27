@@ -227,7 +227,7 @@ The following table lists all Semgrep-supported package managers for each langua
 </tr>
 <tr>
    <td>CocoaPods</td>
-   <td><code>Podfile.lock</code>code></td>
+   <td><code>Podfile.lock</code></td>
 </tr>  
   <tr>
    <td>Rust</td>
