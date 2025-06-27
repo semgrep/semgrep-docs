@@ -24,7 +24,7 @@
       <td><strong>Generally available </strong><br />
          • Cross-file dataflow analysis<br />
          • Supports up to C# 13<br />
-         • 1700+ Pro rules </td>
+         • 170+ Pro rules </td>
       <td> Community supported <br />
          • Limited to single-function analysis<br />
          • Community rules <br />
