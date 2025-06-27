@@ -327,10 +327,6 @@ gitlab:
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
-:::info Access token
-The GitLab [personal access token (PAT) must have the `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes) and be created using an account [assigned a role of role of **Maintainer** or **Owner**](https://docs.gitlab.com/user/permissions/#roles).
-:::
-
 :::info Access tokens
 See [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
 :::
