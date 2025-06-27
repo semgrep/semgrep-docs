@@ -15,7 +15,7 @@ Metrics for evaluating Semgrep Assistant's performance are derived from two sour
 - **User feedback** on Assistant recommendations within the product
 - **Internal triage and benchmarking** conducted by Semgrep's security research team 
 
-This methodology ensures that Assistant is evaluated from both a user and expert perspective. This gives Semgrep's product and engineering teams a holistic view into Assistant's real-world performance.[^1]
+This methodology ensures that Assistant is evaluated from both user and expert perspectives. This gives Semgrep's product and engineering teams a holistic view into Assistant's real-world performance.[^1]
 
 ## User feedback
 
