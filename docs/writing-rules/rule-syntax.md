@@ -856,6 +856,8 @@ db_query("SELECT * FROM ...")
 db_query("SELECT * FROM ...", verify=True, env="prod")
 ```
 
+Additionally, `pattern-not` accepts one `pattern` or `patterns` property, which negates the entire `pattern` or `patterns` construction.
+
 ### `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
