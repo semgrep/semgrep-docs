@@ -44,7 +44,7 @@ Many, but not all Kotlin rules require a Semgrep account. Sign in to Semgrep App
 <LangDefSsc />
 
 :::tip No need for lockfiles
-Kotlin projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+åKotlin projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 :::
 
 ### Supported package managers
