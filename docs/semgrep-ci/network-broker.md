@@ -154,7 +154,7 @@ azuredevops:
 </code></pre>
 
 :::info Access tokens
-See [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
 :::
 </TabItem>
 
@@ -169,7 +169,7 @@ bitbucket:
 </code></pre>
 
 :::info Access tokens
-See Prerequisites for access token requirements:
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see Prerequisites for access token requirements:
 - [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#create-and-add-a-workspace-access-token)
 - [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-data-center-pr-comments#prerequisites)
 :::
@@ -193,7 +193,7 @@ gitlab:
 </code></pre>
 
 :::info Access token
-See [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
 :::
 
 </TabItem>
@@ -289,7 +289,7 @@ azuredevops:
 </code></pre>
 
 :::info Access tokens
-See [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -304,7 +304,7 @@ bitbucket:
 </code></pre>
 
 :::info Access tokens
-See [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -328,7 +328,7 @@ gitlab:
 </code></pre>
 
 :::info Access tokens
-See [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
