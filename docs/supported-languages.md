@@ -331,7 +331,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>Ruby</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
