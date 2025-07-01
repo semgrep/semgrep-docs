@@ -97,9 +97,8 @@ Semgrep Supply Chain can scan projects without the need for lockfiles. This simp
 - Java projects built using Maven or Gradle Wrapper
 - Kotlin
 - Python
-- Ruby
 
-1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and Poetry.
+1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag:
     ```console
     semgrep ci --allow-local-builds
@@ -108,7 +107,7 @@ Semgrep Supply Chain can scan projects without the need for lockfiles. This simp
     Semgrep builds the project, using the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
 :::info
-- Semgrep Managed Scanning can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans doesn't return any findings.
+- Semgrep Managed Scanning can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans don't return any findings.
 - By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
     ```console
     semgrep ci --allow-local-builds --verbose

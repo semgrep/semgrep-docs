@@ -85,7 +85,7 @@ Dependency paths allow you to view dependency paths for all transitive dependenc
 
 ### Supported languages
 
-Semgrep generates dependency paths for select C#, Java, JavaScript, Kotlin, and Python projects.
+Semgrep generates dependency paths for most C#, Java, JavaScript, Kotlin, and Python projects.
 
 #### C#
 
