@@ -48,7 +48,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 
 <TabItem value='current'>
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
@@ -153,6 +153,9 @@ azuredevops:
 &nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
+:::info Access tokens
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
+:::
 </TabItem>
 
 <TabItem value='bb'>
@@ -164,6 +167,12 @@ bitbucket:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
 &nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 </code></pre>
+
+:::info Access tokens
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see Prerequisites for access token requirements:
+- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#create-and-add-a-workspace-access-token)
+- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-data-center-pr-comments#prerequisites)
+:::
 
 </TabItem>
 <TabItem value='gh'>
@@ -182,6 +191,10 @@ gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
+
+:::info Access token
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
+:::
 
 </TabItem>
 </Tabs>
@@ -275,6 +288,10 @@ azuredevops:
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
+:::info Access tokens
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
+:::
+
 </TabItem>
 
 <TabItem value='bb'>
@@ -285,6 +302,10 @@ bitbucket:
 &nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
+
+:::info Access tokens
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
+:::
 
 </TabItem>
 <TabItem value='gh'>
@@ -305,6 +326,10 @@ gitlab:
 &nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
+
+:::info Access tokens
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
+:::
 
 </TabItem>
 </Tabs>
