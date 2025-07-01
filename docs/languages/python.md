@@ -99,6 +99,10 @@ Results as of **September 9, 2024**:
 
 <LangDefSsc />
 
+:::tip No need for lockfiles
+Some Python projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+:::
+
 ### Supported package managers
 
 Semgrep supports the following Python package managers:

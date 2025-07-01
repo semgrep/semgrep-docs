@@ -132,9 +132,15 @@ See [Language maturity levels](#language-maturity-levels) to learn which feature
 
 For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-For some languages, such as JavaScript and Python, a lockfile or manifest file is parsed to determine [transitivity](/docs/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). For more information on transitivity, see [Transitive dependencies and reachability analysis](/docs/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis).
+For some languages, a lockfile or manifest file is parsed to determine [transitivity](/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
-Additionally, Semgrep offers beta support for the scanning of Java or Kotlin projects **without lockfiles**.
+Additionally, Semgrep offers beta support for the scanning of projects written in the following languages **without lockfiles**:
+
+- C#
+- Java
+- Kotlin
+- Python
+- Ruby
 
 ### Package manager support
 
@@ -325,7 +331,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>Ruby</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">--</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
