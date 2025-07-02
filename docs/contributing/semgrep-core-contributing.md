@@ -30,7 +30,7 @@ git submodule update --init --recursive
 brew install opam
 opam init
 opam switch create semgrep 5.3.0
-eval $(opam env)
+eval $(opam env --switch=semgrep)
 ```
 
 Next, install some base packages required for setup and compilation.
@@ -175,7 +175,7 @@ Note that dune and ocamlmerlin must be in your PATH for vscode to correctly buil
 
 ```bash
 cd /path/to/semgrep
-eval $(opam env)
+eval $(opam env --switch=semgrep)
 dune        --version # just checking dune is in your PATH
 ocamlmerlin -version  # just checking ocamlmerlin is in your PATH
 code .
