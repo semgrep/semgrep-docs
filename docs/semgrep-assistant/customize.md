@@ -141,6 +141,7 @@ You can opt to:
 
 - Use OpenAI with your own API key
 - Use Azure OpenAI
+- Use AWS Bedrock
 - Use Google Gemini.
 - Use xAI.
 
@@ -183,6 +184,17 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
 As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Assistant features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
+### AWS Bedrock
+
+To use AWS Bedrock with Semgrep Assistant:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **AWS Bedrock**.
+4. Click **Save** to proceed.
+
+> As of now, Semgrep supports access to AWS Bedrock model using it’s own managed API key and integration with customer-managed Bedrock accounts is not currently supported.
+   
 ### Google Gemini
 
 To use Google Gemini with Semgrep Assistant:
