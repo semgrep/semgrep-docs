@@ -120,10 +120,6 @@
       [
         "Jira integration",
         "Jira"
-      ],
-      [
-        "lockfileless",
-        "without lockfiles"
       ]
     ]
   },
