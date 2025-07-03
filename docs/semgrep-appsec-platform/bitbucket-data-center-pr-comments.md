@@ -47,8 +47,13 @@ PR comments appear for the following types of scans under these conditions:
 ### Prerequisites
 
 In addition to finishing the previous steps in your deployment journey, it is recommended that you complete a **full scan** on your **default branch** for the repository in which you want to receive comments.
-- You must have a Bitbucket Data Center HTTP access token. Ensure that the [HTTP access token that you create](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) has been granted **Project write** permissions. You'll provide this token to your CI provider during the setup process.
-- Semgrep has been tested with Bitbucket Data Center v8.19. If you are using a different version of BBDC and there are issues, please contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
+
+- For Bitbucket Server/Data Center <7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
+
+- For Bitbucket Server/Data Center 7.18+, you must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
+
+
+- Semgrep has been tested with Bitbucket Data Center v8.8+. If you are using a different version of BBDC and there are issues, please contact [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com).
 
 ### Confirm your Semgrep account's connection
 
