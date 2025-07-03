@@ -856,7 +856,7 @@ db_query("SELECT * FROM ...")
 db_query("SELECT * FROM ...", verify=True, env="prod")
 ```
 
-Alternatively, `pattern-not` accepts a `patterns` or `pattern-either` property, and negates everything inside it.
+Alternatively, `pattern-not` accepts a `patterns` or `pattern-either` property and negates everything inside the property.
 
 ```yaml
 rules:
@@ -873,6 +873,7 @@ rules:
     severity: ERROR
     languages:
       - python
+```
 
 ### `pattern-inside`
 
