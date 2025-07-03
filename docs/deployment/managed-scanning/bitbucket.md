@@ -22,7 +22,7 @@ Add Bitbucket repositories to your Semgrep organization in bulk without adding o
 Semgrep Managed Scanning requires one of the following plans:
 
 - Bitbucket Cloud Premium
-- Bitbucket Data Center (v8.8 or above for diff-aware scans)
+- Bitbucket Server/Data Center (see details below)
 
 ### Bitbucket Cloud
 
@@ -38,7 +38,14 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 
 ### Bitbucket Data Center
 
-You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
+- Version 7.17+ Supported
+- Server/Data Center 8.8+: Project-level webhooks available
+- Server/Data Center <8.8: Repository-level webhook support is in BETA
+
+For Bitbucket Server/Data Center <7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
+
+For Bitbucket Server/Data Center 7.18+, you must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
+
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
