@@ -26,7 +26,7 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 | Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Only versions 7.17+ are supported.</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Diff-aware scans to support versions prior to 8.8 are in BETA.</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| Bitbucket Data Center | <ul><li>Query console</li><li>Only versions 7.17+ are supported.</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Diff-aware scans to support versions prior to 8.8 are avalable via Support.</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitHub Free | - |
 | GitHub Pro | - |
 | GitHub Team | - |
