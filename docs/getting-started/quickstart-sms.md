@@ -128,9 +128,12 @@ You must have admin access to your Bitbucket organization.
 
 #### Bitbucket Data Center
 
-- V8.8 or above for diff-aware scans.
-- Read access is granted through an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects).
-- The user generating the workspace token must be a **Product Admin** for the workspace. The token must be created with `PROJECT_ADMIN` permissions.
+- Server/Data Center 8.8+: Project-level webhooks available
+- Server/Data Center <8.8: Repository-level webhook support is in BETA
+
+For Bitbucket Server/Data Center <7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
+
+For Bitbucket Server/Data Center 7.18+, you must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
 
 ### Add a project
 
