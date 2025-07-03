@@ -27,15 +27,17 @@ You can automate private rules deployment using the Semgrep API using the follow
 
  ```console
  --> Uploading rules/examples/private-rule.yml (test cases: [])
- >     Published VisibilityState.ORG_PRIVATE rule at https://semgrep.dev/r/r2c_david.private-rule
+ >     Published VisibilityState.ORG_PRIVATE rule at https://semgrep.dev/r/docs.private-rule
  ```
 
 ## Considerations
 
-- You can publish rules from a higher-level path, but the actual folder structure doesn't affect the rules published. For example, if you have two rules in `./rules/examples/`, and you publish them using `semgrep publish ./rules`, there aren't mentions of `examples` in Semgrep AppSec Platform even though it's in the repository path:
+- The folder structure of your rules repository doesn't affect the rules published. For example, if you have two rules in `./rules/examples/`, and you publish them using `semgrep publish ./rules`, there aren't mentions of `examples` in Semgrep AppSec Platform even though it's in the repository path:
 
   ![Sample custom rules folder structure](/img/publish-custom-rules-1.png#md-width)
   _**Figure**. Sample custom rules folder structure._
+
+  Two rules with the same ID can cause confusion, since the newer rule is the one reflected in Semgrep AppSec Platform.
 
 - Strings in the rule ID separated by periods `.` are treated by Semgrep as labels. For example, if the rule ID is `dw3.go-xfile-sink-example`, the displayed rule name is `go-xfile-sink-example`:
 
