@@ -129,9 +129,9 @@ You must have admin access to your Bitbucket organization.
 #### Bitbucket Data Center
 
 - Server/Data Center 8.8+: Project-level webhooks available
-- Server/Data Center <8.8: Repository-level webhook support is in BETA
+- Server/Data Center less than 8.8: Repository-level webhook support is in BETA
 
-For Bitbucket Server/Data Center <7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
+For Bitbucket Server/Data Center less than 7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
 
 For Bitbucket Server/Data Center 7.18+, you must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
 
