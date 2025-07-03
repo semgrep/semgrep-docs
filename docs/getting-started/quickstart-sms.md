@@ -128,8 +128,8 @@ You must have admin access to your Bitbucket organization.
 
 #### Bitbucket Data Center
 
-- Server/Data Center 8.8+: Project-level webhooks available
-- Server/Data Center less than 8.8: Repository-level webhook support is in BETA
+- Server/Data Center 8.8+: Project-level webhooks available to support Diff-aware scanning in Semgrep Managed Scans
+- For Server/Data Center less than 8.8 please contact your Semgrep Account Manager or [Semgrep Support](https://semgrep.dev/docs/support)
 
 For Bitbucket Server/Data Center less than 7.18, you must provide a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver0717/personal-access-tokens-1087535496.html) to Semgrep, with 'PROJECT_ADMIN' permissions.
 
