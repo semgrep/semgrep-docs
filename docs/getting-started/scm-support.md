@@ -26,7 +26,7 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 | Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| Bitbucket Data Center | <ul><li>Query console</li><li>Only versions 7.17+ are supported.</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Diff-aware scans to support versions prior to 8.8 are in BETA.</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitHub Free | - |
 | GitHub Pro | - |
 | GitHub Team | - |
@@ -59,7 +59,7 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 | Bitbucket Cloud Free | †Semgrep Assistant<br /> †Semgrep Managed Scan |
 | Bitbucket Cloud Standard | †Semgrep Assistant<br /> †Semgrep Managed Scan |
 | Bitbucket Cloud Premium | - |
-| Bitbucket Data Center | Semgrep Assistant<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later. |
+| Bitbucket Data Center | Semgrep Assistant<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later.<br /> Diff-aware scans to support versions prior to 8.8 are in BETA. |
 
 †Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
