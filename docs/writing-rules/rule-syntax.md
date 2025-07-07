@@ -856,6 +856,25 @@ db_query("SELECT * FROM ...")
 db_query("SELECT * FROM ...", verify=True, env="prod")
 ```
 
+Alternatively, `pattern-not` accepts a `patterns` or `pattern-either` property and negates everything inside the property.
+
+```yaml
+rules:
+  - id: unverified-db-query
+    patterns:
+      - pattern: db_query(...)
+      - pattern-not:
+          pattern-either:
+            - pattern: db_query(..., verify=True, ...)
+            - pattern-inside: |
+                with ensure_verified(db_query):
+                  db_query(...)
+    message: Found unverified db query
+    severity: ERROR
+    languages:
+      - python
+```
+
 ### `pattern-inside`
 
 The `pattern-inside` operator keeps matched findings that reside within its expression. This is useful for finding code inside other pieces of code like functions or if blocks.
