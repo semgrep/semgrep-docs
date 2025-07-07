@@ -68,6 +68,7 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
         values={[
         {label: 'macOS', value: 'macOS'},
         {label: 'Linux', value: 'Linux'},
+        {label: 'Windows', value: 'Windows'},
         {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
         ]}
@@ -98,6 +99,17 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
     </TabItem>
 
+    <TabItem value='Windows'>
+
+    ```bash
+    # ensure that you have Python 3.9 or later installed
+    # before proceeding
+
+    python3 -m pip install --upgrade semgrep
+    ```
+
+    </TabItem>
+
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
     ```bash
@@ -119,11 +131,11 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
     </Tabs>
 
-1. Log in to Semgrep AppSec Platform:
+2. Log in to Semgrep AppSec Platform:
     ```sh
     semgrep login
     ```
-1. Update the Semgrep cross-file binary:
+3. Update the Semgrep cross-file binary:
     ```sh
     semgrep install-semgrep-pro
     ```

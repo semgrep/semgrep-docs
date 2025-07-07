@@ -29,6 +29,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         values={[
         {label: 'macOS', value: 'macOS'},
         {label: 'Linux', value: 'Linux'},
+        {label: 'Windows', value: 'Windows'},
         {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
         ]}
@@ -100,6 +101,37 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     </TabItem>
 
+    <TabItem value='Windows'>
+
+    1. Install the Semgrep CLI and confirm the installation:
+
+        ```console
+        # install through pip
+        python3 -m pip install semgrep
+
+        # if you get the following error "error: externally-managed-environment",
+        # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
+
+        # confirm installation succeeded by printing the currently installed version
+        semgrep --version
+        ```
+
+    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+
+        ```console
+        semgrep login
+        ```
+
+    3. In the **Semgrep CLI login**, click **Activate** to proceed.
+
+    4. Return to the CLI, navigate to the root of your project, and run your first scan:
+
+        ```console
+        semgrep ci
+        ```
+
+    </TabItem>
+
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
     :::info Prerequisites
@@ -138,7 +170,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
     Ensure that you have [Docker installed](https://docs.docker.com/desktop/) before proceeding.
     :::
 
-    1. Pull the latest image and confirm the version:
+    13. Pull the latest image and confirm the version:
 
         ```console
         docker pull semgrep/semgrep
@@ -147,7 +179,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         docker run --rm semgrep/semgrep semgrep --version
         ```
 
-    2. For users running Docker on **macOS or Linux** Docker:
+    14. For users running Docker on **macOS or Linux** Docker:
 
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
@@ -165,7 +197,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
 
-    3. For users running Docker on **Windows**:
+    15. For users running Docker on **Windows**:
 
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
@@ -187,7 +219,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     </Tabs>
 
-4. Once you've scanned your first application, return to Semgrep AppSec Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in Semgrep AppSec Platform's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
+2. Once you've scanned your first application, return to Semgrep AppSec Platform, and click **View findings** to see the security vulnerabilities in your project. Alternatively, you can view your results in Semgrep AppSec Platform's **Dashboard** page. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
 
     :::info
     **Code is not uploaded.** Only **findings** are sent to Semgrep AppSec Platform.
