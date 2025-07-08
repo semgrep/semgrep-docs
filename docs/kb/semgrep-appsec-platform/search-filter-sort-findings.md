@@ -33,6 +33,9 @@ Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](
 
 Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Supply Chain**. Find the **Rules** filter, and enter the CVE value in which you're interested. Click the rule related to the CVE to see only the related findings.
 
+![Search by CVE using the Rules filter.](/img/ssc-search-by-cve.png#md-width)
+_**Figure**. Search by CVE using the Rules filter._
+
 ## Search for specific findings by rule or CVE
 
 This guide walks you through finding the specific rule ID in Semgrep, then applying it as a filter. You can then combine this filter with other filters, such as **Projects** or **Status**.
@@ -42,9 +45,11 @@ This method can be used for Semgrep Code and Supply Chain.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to either the **Code** or **Supply Chain** page depending on which type of finding you're looking for.
     1. For Semgrep Code findings, the Rule ID is the heading of each group of findings. Copy this value.
-    ![Rule ID and Rule filter placement.](/img/code-ruleID.png)
+    ![Rule ID and Rule filter placement.](/img/code-ruleID.png#md-width)
+    _**Figure**. Rule ID and Rule filter placement._
     2. For Semgrep Supply Chain findings, the **CVE** or **MAL** ID is shown on the upper-right heading of each group of findings. Copy this value. Add a dash between the prefix, such as MAL or CVE, and the numerical value.
-    ![Rule ID and Rules filter placement.](/img/sca-ruleid.png)
+    ![Rule ID and Rules filter placement.](/img/sca-ruleid.png#md-width)
+    _**Figure**. Rule ID and Rules filter placement._
 3. Enter the value you copied in the **Rule** filter for Semgrep Code or **Rules** filter for Semgrep Supply Chain. This narrows down the findings to that specific rule or CVE.
 4. You can continue adding values to the rules filter. The rules filter includes findings from **any** of the values indicated.
 
