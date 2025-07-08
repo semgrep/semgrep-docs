@@ -77,7 +77,7 @@ If you have configured your policies to display malicious dependency findings to
 
 You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious package** filter.
 
-Currently, advsories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory may indicate that only certain sources of the dependency may have been affected by the compromise. If you do not use those sources, and never have, then it may be appropriate to mark findings for that advisory as ignored.
+Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 
 ## Disable malicious dependency detection
 
