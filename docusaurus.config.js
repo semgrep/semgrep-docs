@@ -478,6 +478,8 @@ module.exports = {
           /* APR 28, 2025 */
           { from: "/semgrep-code/supported-languages-python" , to: "/languages/python" },
           { from: "/deployment/overview" , to: "/deployment/core-deployment" },
+          /* JUL 8, 2025 */
+          { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
         ]
       }
     ],
