@@ -29,13 +29,6 @@ Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](
 1. Navigate to **Code**.
 1. Find the **Assistant autotriage** filter, and click **False positive**. 
 
-## Filter for findings by CVE
-
-Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Supply Chain**. Find the **Rules** filter, and enter the CVE value in which you're interested. Click the rule related to the CVE to see only the related findings.
-
-![Search by CVE using the Rules filter.](/img/ssc-search-by-cve.png#md-width)
-_**Figure**. Search by CVE using the Rules filter._
-
 ## Search for specific findings by rule or CVE
 
 This guide walks you through finding the specific rule ID in Semgrep, then applying it as a filter. You can then combine this filter with other filters, such as **Projects** or **Status**.
