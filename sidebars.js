@@ -267,7 +267,6 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
-                'semgrep-code/findings',
                 {
                     type: 'category',
                     collapsible: true,
