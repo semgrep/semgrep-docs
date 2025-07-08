@@ -37,6 +37,7 @@ These requirements apply to both Semgrep AppSec Platform and Semgrep CE.
 
 - macOS
 - Linux
+- Windows (beta)
 - Windows Subsystem for Linux (WSL)
 
 ## Semgrep AppSec Platform

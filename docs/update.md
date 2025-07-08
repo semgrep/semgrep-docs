@@ -29,7 +29,7 @@ You can also use the following commands in either your CLI or CI environment:
 # macOS users only, using Homebrew
 brew upgrade semgrep
 
-# macOS, Linux, or Windows Subsystem for Linux (WSL) users, using pip
+# macOS, Linux, Windows, or Windows Subsystem for Linux (WSL) users, using pip
 python3 -m pip install --upgrade semgrep
 
 # If you get the following error "error: externally-managed-environment", see
