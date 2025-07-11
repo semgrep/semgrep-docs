@@ -32,6 +32,27 @@ repos:
       pass_filenames: false
 ```
 
+To limit the noise of these outputs, you can customize the scan ouput printed using shell-based text tools like awk:
+
+```yaml
+repos:
+- repo: https://github.com/semgrep/pre-commit
+  rev: 'v1.101.0'
+  hooks:
+      - id: semgrep-scan-summary-only
+        entry: bash
+        args:
+          - -c
+          - |
+            semgrep ci --dry-run --baseline-commit HEAD 2>&1 \
+              | awk '/Scan Summary/,/^CI scan completed successfully\./'
+        pass_filenames: false
+        language: system
+        always_run: true
+        verbose: true
+```
+The example above only prints the scan summary portion of the scan log. 
+
 ## Limit the scan to a particular product
 
 Semgrep Secrets is an ideal product to run before commit, since it can help prevent secrets from ever making it into the Git history, even locally. To run only Secrets in pre-commit, add the product flag to the `args`:
