@@ -32,7 +32,7 @@ repos:
       pass_filenames: false
 ```
 
-To limit the noise of these outputs, you can customize the scan ouput printed using shell-based text tools like awk:
+To print only a portion of the scan output, consider using shell-based text tools such as `awk`:
 
 ```yaml
 repos:
