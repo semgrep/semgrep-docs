@@ -37,7 +37,7 @@ To limit the noise of these outputs, you can customize the scan ouput printed us
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+  rev: 'v1.126.0'
   hooks:
       - id: semgrep-scan-summary-only
         entry: bash
