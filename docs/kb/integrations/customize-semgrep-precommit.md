@@ -32,6 +32,26 @@ repos:
       pass_filenames: false
 ```
 
+To print only a portion of the scan output, consider using shell-based text tools such as `awk`:
+
+```yaml
+repos:
+- repo: https://github.com/semgrep/pre-commit
+  rev: 'v1.126.0'
+  hooks:
+      - id: semgrep-scan-summary-only
+        entry: bash
+        args:
+          - -c
+          - |
+            semgrep ci --dry-run --baseline-commit HEAD 2>&1 \
+              | awk '/Scan Summary/,/^CI scan completed successfully\./'
+        pass_filenames: false
+        language: system
+        verbose: true
+```
+This example only prints the scan summary portion of the scan log. Using this approach, scan debugging output on `stderr` is redirected to `stdout` so that findings and debugging information appear in the same output stream. Then, the portion to show (the Semgrep scan summary) is selected using `awk`.
+
 ## Limit the scan to a particular product
 
 Semgrep Secrets is an ideal product to run before commit, since it can help prevent secrets from ever making it into the Git history, even locally. To run only Secrets in pre-commit, add the product flag to the `args`:
