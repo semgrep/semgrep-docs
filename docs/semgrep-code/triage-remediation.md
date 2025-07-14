@@ -178,6 +178,8 @@ Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MR
 2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
     <TriageReason />
     Semgrep replies to your comment if it successfully triages the finding.
+    ![Sample Semgrep response comment after successfully triaging the finding.](/img/semgrep-triage-response.png#md-width)
+    _**Figure**. Semgrep response comment after successfully triaging the finding._
 
 Triaging a finding as **Ignored** through a comment in Azure DevOps changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the Azure DevOps conversation itself is **not** automatically resolved by this process.
 
@@ -204,6 +206,8 @@ Triaging a finding as **Ignored** through a comment in Azure DevOps changes the 
 2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
     <TriageReason />
     Semgrep replies to your comment if it successfully triages the finding.
+    ![Sample Semgrep response comment after successfully triaging the finding.](/img/semgrep-triage-response.png#md-width)
+    _**Figure**. Semgrep response comment after successfully triaging the finding._
 
 Triaging a finding as **Ignored** through a comment in Bitbucket changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the Bitbucket conversation itself is **not** automatically resolved by this process.
 
@@ -227,6 +231,8 @@ Triaging a finding as **Ignored** through a comment in Bitbucket changes the sta
 2. In a subsequent comment, reply with the action you want to take. You must provide a **reason** to help the reader understand why the finding has been triaged as **ignored**:
     <TriageReason />
     Semgrep replies to your comment if it successfully triages the finding.
+    ![Sample Semgrep response comment after successfully triaging the finding.](/img/semgrep-triage-response.png#md-width)
+    _**Figure**. Semgrep response comment after successfully triaging the finding._
 
 Semgrep supports older versions of this functionality that used the following commands:
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
@@ -254,6 +260,8 @@ Triaging a finding as **Ignored** through a comment in GitHub changes the status
 2. In a subsequent comment, reply with the corresponds with the action you want to take. If necessary, ensure that you substitute the colored placeholder `<REASON>` with text to help the reader understand why the finding has been triaged as **ignored**:
     <TriageReason />
     Semgrep replies to your comment if it successfully triages the finding.
+    ![Sample Semgrep response comment after successfully triaging the finding.](/img/semgrep-triage-response.png#md-width)
+    _**Figure**. Semgrep response comment after successfully triaging the finding._
 
 Triaging a finding as **Ignored** through a comment in GitLab changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the GitLab conversation itself is **not** automatically resolved by this process.
 
