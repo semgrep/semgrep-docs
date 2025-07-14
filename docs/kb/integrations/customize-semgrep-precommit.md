@@ -48,7 +48,6 @@ repos:
               | awk '/Scan Summary/,/^CI scan completed successfully\./'
         pass_filenames: false
         language: system
-        always_run: true
         verbose: true
 ```
 This example only prints the scan summary portion of the scan log. Using this approach, scan debugging output on `stderr` is redirected to `stdout` so that findings and debugging information appear in the same output stream. Then, the portion to show (the Semgrep scan summary) is selected using `awk`.
