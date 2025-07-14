@@ -51,7 +51,7 @@ repos:
         always_run: true
         verbose: true
 ```
-The example above only prints the scan summary portion of the scan log. Using this approach, scan debugging output on `stderr` is redirected to `stdout` so that findings and debugging information appear in the same output stream, and then the portion to show (the Semgrep scan summary) is selected using `awk`.
+This example only prints the scan summary portion of the scan log. Using this approach, scan debugging output on `stderr` is redirected to `stdout` so that findings and debugging information appear in the same output stream. Then, the portion to show (the Semgrep scan summary) is selected using `awk`.
 
 ## Limit the scan to a particular product
 
