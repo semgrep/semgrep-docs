@@ -22,8 +22,8 @@ This example is based on the `semgrep-ci` hook, but a similar adjustment would a
 
 ```yaml
 repos:
-- repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+- repo: local
+  rev: 'v1.126.0'
   hooks:
     - id: semgrep-verbose
       entry: semgrep
@@ -36,7 +36,7 @@ To print only a portion of the scan output, consider using shell-based text tool
 
 ```yaml
 repos:
-- repo: https://github.com/semgrep/pre-commit
+- repo: local
   rev: 'v1.126.0'
   hooks:
       - id: semgrep-scan-summary-only
@@ -57,8 +57,8 @@ This example only prints the scan summary portion of the scan log. Using this ap
 Semgrep Secrets is an ideal product to run before commit, since it can help prevent secrets from ever making it into the Git history, even locally. To run only Secrets in pre-commit, add the product flag to the `args`:
 
 ```yaml
-- repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+- repo: local
+  rev: 'v1.126.0'
   hooks:
     - id:  semgrep-secrets
       pass_filenames: false
