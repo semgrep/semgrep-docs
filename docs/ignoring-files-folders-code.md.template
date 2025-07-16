@@ -89,7 +89,6 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 `.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
 
-* "Include" patterns (lines starting with `!`) are unsupported.
 * "Character range" patterns (lines including a collection of characters inside brackets) are unsupported.
 * An `:include ...` directive is added, which allows another file to be included in the ignore pattern list; typically this included file would be the project `.gitignore`. No attempt at cycle detection is made.
 * Any line that begins with a colon, but not `:include`, raises an error.
