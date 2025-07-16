@@ -23,11 +23,11 @@ This example is based on the `semgrep-ci` hook, but a similar adjustment would a
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+  rev: 'v1.128.0'
   hooks:
-    - id: semgrep-verbose
+    - id: semgrep-ci
       entry: semgrep
-      args: ["ci", "--dry-run", "--baseline-commit", "HEAD" "2>/dev/null"]
+      args: ["ci", "--dry-run", "--baseline-commit", "HEAD","--quiet"]
       verbose: true
       pass_filenames: false
 ```
@@ -37,7 +37,7 @@ To print only a portion of the scan output, consider using shell-based text tool
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.126.0'
+  rev: 'v1.128.0'
   hooks:
       - id: semgrep-scan-summary-only
         entry: bash
@@ -58,7 +58,7 @@ Semgrep Secrets is an ideal product to run before commit, since it can help prev
 
 ```yaml
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.101.0'
+  rev: 'v1.128.0'
   hooks:
     - id:  semgrep-secrets
       pass_filenames: false
