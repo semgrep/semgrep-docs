@@ -1,6 +1,6 @@
 ### Enable fail open to prevent diff-aware scans from blocking pull requests and merge requests
 
-You can set diff-aware managed scans to **fail open** if a scan errors out or takes too long. If **fail open** is enabled, diff-aware scans are marked as successful on the pull request (PR) or merge request (MR) even if they haven't completed after the specified timeout. This allows you to include the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR.
+You can set diff-aware managed scans to **fail open** if a scan errors out or takes too long. If **fail open** is enabled, diff-aware scans are marked as successful on the pull request (PR) or merge request (MR) even if they haven't completed after the specified timeout. This allows you to make the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
 
 ![Sample pull request showing the status of a diff-aware scan.](/img/pr-status-check.png#md-width)
 _**Figure**. Sample pull request showing the status of a diff-aware scan._
