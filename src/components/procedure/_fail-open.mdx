@@ -1,0 +1,20 @@
+## Enable fail open to prevent diff-aware scans from blocking pull requests and merge requests
+
+You can set diff-aware managed scans to **fail open** if a scan errors out or takes too long. If **fail open** is enabled, diff-aware scans are marked as successful on the pull request (PR) or merge request (MR) even if they haven't completed after the specified timeout. This allows you to include the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR.
+
+### How fail open works
+
+1. If enabled, the fail open feature is triggered whenever you open a PR or MR.
+2. Initially, Semgrep sends an update to mark the PR or MR as `pending`.
+3. Once the diff-aware scan begins, the PR or MR is updated to a status of `running`.
+4. The diff-aware scan completes, and the PR or MR is updated to a status of `succeeded` or `failed`.
+5. If the diff-aware scan is in `pending` or `running` status longer than the configured timeout, then the fail open process updates the PR or MR to display a status of `succeeded`. This prevents the Semgrep scan from blocking the developer from merging their changes.
+
+If Semgrep marks a PR or MR as `succeeded`, you can merge the PR or MR without waiting for the diff-aware scan to complete. However, if the PR or MR is still open and the scan completes *after* the fail open timeout is reached, Semgrep can still report the findings and mark the status as `failed`. 
+
+### Enable fail open
+
+1. Sign in to Semgrep AppSec Platform.
+1. Go to **Settings > General > Managed Scans**.
+1. Toggle **Fail open** to enable.
+1. Set the **Timeout** value in minutes. The default value is **10 minutes**, the minimum value is **1 minute**, and the maximum value is **60 minutes**.

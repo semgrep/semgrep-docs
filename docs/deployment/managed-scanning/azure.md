@@ -12,6 +12,8 @@ tags:
 
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
 import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
+import FailOpen from "/src/components/procedure/_fail_open.mdx"
+
 
 # Add an Azure DevOps repository to Semgrep Managed Scans
 
@@ -83,6 +85,8 @@ Semgrep preserves your findings, scans, and triage history.
 :::
 
 <ScanWithSms />
+
+<FailOpen />
 
 ## Disable webhooks
 

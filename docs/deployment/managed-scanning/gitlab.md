@@ -13,6 +13,7 @@ tags:
 import GitlabRequirements from "/src/components/reference/_gitlab-sms-requirements.mdx"
 import ScanWithSms from "/src/components/procedure/_scan-with-sms.mdx"
 import TurnOffSms from "/src/components/procedure/_turn-off-sms-in-semgrep-appsec-platform.mdx"
+import FailOpen from "/src/components/procedure/_fail_open.mdx"
 
 # Add a GitLab repository to Semgrep Managed Scans
 
@@ -87,6 +88,8 @@ Semgrep preserves your findings, scans, and triage history.
 :::
 
 <ScanWithSms />
+
+<FailOpen />
 
 ## Disable webhooks
 
