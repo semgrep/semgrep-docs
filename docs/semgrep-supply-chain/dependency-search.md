@@ -117,6 +117,7 @@ Semgrep generates dependency paths for Python projects that use the following pa
 - `pip`
 - `pip-env`
 - `piptools`
+- `uv` (requires Semgrep version `1.127.0` or later)
 
 ### View the dependency path
 
