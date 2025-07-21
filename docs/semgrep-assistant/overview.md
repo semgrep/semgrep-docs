@@ -58,7 +58,7 @@ Autofixes are available in PR and MR comments, so developers can review and veri
 ![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
 _**Figure.** Semgrep Assistant generates a potential fix in a PR comment._
 
-Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
+Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 ![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
 *Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.

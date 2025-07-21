@@ -71,10 +71,6 @@ PR comments are enabled by default for users who have connected their GitLab gro
 
 ### Receive comments in your VPN or on-premise SCM
 
-:::info
-Ensure that you've [onboarded all of your GitLab groups](/semgrep-appsec-platform/gitlab-mr-comments#mr-comments-with-multiple-gitlab-groups) to Semgrep.
-:::
-
 <ReceiveCommentsScm />
 
 You've set up MR comments! Enable optional features provided in the following sections, or see [Next steps](#next-steps).
