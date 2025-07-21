@@ -152,4 +152,4 @@ AppSec engineers can also [send developers invites to join their Semgrep org](/d
 
 ### Delete an existing org
 
-Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
+Reach out to [Support](/support) to delete an organization.

@@ -75,7 +75,7 @@ _**Figure**. Dependency search page with sample search query._
 ## Dependency paths (beta)
 
 :::info
-To participate in this beta, reach out to [support@semgrep.com](mailto:support@semgrep.com).
+To participate in this beta, reach out to [Support](/support).
 :::
 
 Dependency paths allow you to view dependency paths for all transitive dependencies, up to seven layers deep, introduced in a project. With this information, you can understand:
