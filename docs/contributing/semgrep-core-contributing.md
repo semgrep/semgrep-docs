@@ -570,11 +570,11 @@ Now, make the rest of your pull request for `semgrep-core` as usual.
 
 If you haven't changed `pfff`, don't worry about this. Just make a pull request with your changes.
 
-Remember to add test cases so that future changes don't break your example! See [Testing `semgrep-core`](#testing-semgrep-core)
+Remember to add test cases so that future changes don't break your example! See [Test `semgrep-core`](#test-semgrep-core)
 
 ### Fix a Tree-sitter parse error
 
-There is more information in [Adding Support for a Language](#adding-support-for-a-language) on tree-sitter which will be helpful. Also, see `semgrep-core/src/parsing/tree-sitter/`.  
+There is more information in [Add Support for a Language](#add-support-for-a-language) on tree-sitter which will be helpful. Also, see `semgrep-core/src/parsing/tree-sitter/`.  
 
 ## Fix a match error
 
@@ -600,7 +600,7 @@ Once you've isolated the parts that aren't matching, try to figure out where the
 
 When you are sure you know what ought to have happened, make it happen. If two pieces of code should match but don't, change `Generic_vs_generic.ml` to tell it that pattern should match the target.
 
-Oftentimes, a matching error is actually a parsing error. You may want to change how `Parser_python.mly` reduces the construct or how it gets converted in `Python_to_generic.ml`. Refer to [Fixing a Parse Error](#fixing-a-parse-error) for advice.
+Oftentimes, a matching error is actually a parsing error. You may want to change how `Parser_python.mly` reduces the construct or how it gets converted in `Python_to_generic.ml`. Refer to [Fix a Parse Error](#fix-a-parse-error) for advice.
 
 At the end, confirm the match with
 
@@ -616,7 +616,7 @@ Autofix runs through both `semgrep-core` and `semgrep`, but the most common auto
 sc -full_token_info -dump_ast [your_target].py -lang py
 ```
 
-See [Fixing a Parse Error](#fixing-a-parse-error) for more on parsing 
+See [Fix a Parse Error](#fix-a-parse-error) for more on parsing 
 
 ## Debugging resources
 
