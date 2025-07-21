@@ -50,24 +50,12 @@ MR comments appear for the following types of scans under these conditions:
 
 In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 
-### Connect your GitLab organization to Semgrep AppSec Platform
+### Confirm your Semgrep account's connection
 
-To enable MR comments, connect your GitLab organization to Semgrep AppSec Platform:
+PR comments are enabled by default for users who have connected their GitLab group to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
-1. Go to **Settings > Source code managers**.
-1. Click **Add connection** and select **GitLab**.
-3. Create a GitLab [personal access token (PAT) with `api` scope](https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes):
-   1. Ensure that you're using an account that has been [assigned a role of `Developer` or higher](https://docs.gitlab.com/user/permissions/#roles), and log in to GitLab.
-   2. Go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens).
-   3. Add a token with `api` scope.
-   4. Copy the generated token.
-4. Return to Semgrep AppSec Platform, and in the **Add connection** form:
-   1. Enter the **Name of your GitHub Organization**.
-   2. Paste the PAT you created in **Access token**.
-   3. Click **Connect**.
-
-Once connected, Semgrep automatically posts comments to your merge requests without any additional CI/CD configuration.
+1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
+2. Check that an entry for your GitLab group exists and is correct.
 
 ### Configure comments for Semgrep Code
 

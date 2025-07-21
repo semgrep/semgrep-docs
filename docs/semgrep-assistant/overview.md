@@ -42,7 +42,7 @@ With Assistant enabled, every PR or MR comment Semgrep pushes includes remediati
 ![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
 _**Figure.** PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance._
 
-Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/docs/semgrep-code/findings/#view-findings-details-about-a-specific-finding) page.
+Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
 ![Findings detail with remediation advice](/img/memories-1.png#md-width)
 _**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._

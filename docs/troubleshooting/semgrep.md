@@ -29,4 +29,4 @@ Review troubleshooting steps for slow scans at [Semgrep scan troubleshooting: Sl
 
 Thank you! Check out the [Contributing docs](/docs/contributing/contributing) to get started.
 
-The section [Exploring results from a slow run of Semgrep](/docs/contributing/semgrep-core-contributing/#exploring-results-from-a-slow-run-of-semgrep) is helpful if you haven't previously investigated Semgrep performance.
+The section [Explore results from a slow run of Semgrep](/contributing/semgrep-core-contributing#explore-results-from-a-slow-run-of-semgrep) is helpful if you haven't previously investigated Semgrep performance.

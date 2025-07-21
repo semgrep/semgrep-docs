@@ -94,7 +94,7 @@ _**Figure**. Default user role._
 
 ## Teams (beta)
 
-The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Users** feature](#member-permissions-and-visibility).
+The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Users** feature](#user-permissions-and-visibility).
 
 You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization.
 

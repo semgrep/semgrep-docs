@@ -39,7 +39,7 @@ This feature is in **private beta**. To join the beta, reach out to the [Semgrep
 
 - At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant must be [enabled](/semgrep-assistant/getting-started).
-- Your **private** GitHub Semgrep app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-ap#grant-read-and-write-access-to-a-private-github-semgrep-appp).
+- Your **private** GitHub Semgrep app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
 
 ### Grant **Read and write** access to a private GitHub Semgrep app
 
@@ -118,6 +118,6 @@ If you can't see any **Breaking changes** or **Safe to upgrade** badges or findi
 
 - Your language or package ecosystem isn't supported
 - Your source code manager isn't supported
-- Your you have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access)
+- Your you have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access-to-a-private-github-semgrep-app)
 - Your findings don't have safe versions to upgrade to yet
 - You have no findings within the supported scope of this feature
