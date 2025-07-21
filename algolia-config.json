@@ -124,6 +124,14 @@
       [
         "lockfileless",
         "without lockfiles"
+      ],
+      [
+        "node.js",
+        "JavaScript"
+      ],
+      [
+        "nodejs",
+        "JavaScript"
       ]
     ]
   },
