@@ -13,8 +13,6 @@ import RuleModes from "/src/components/reference/_rule-modes.md"
 
 # Manage Semgrep Secrets rules using the policies page
 
-<!-- TODO: Add a quick description of what's in the page.  -->
-
 ![Overview of Semgrep Secrets policies view](/img/secrets-policies-page.png)
 
 To access the policies page for Semgrep Secrets:
@@ -25,9 +23,6 @@ To access the policies page for Semgrep Secrets:
 
 ## Global rule behavior 
 The **Global rule behavior** page visually represents the rules Semgrep Secrets uses for scanning.
-
-
-
 
 ![Overview of Semgrep Secrets policies view](/img/secrets-rules-management.png)
 
@@ -87,8 +82,6 @@ If you're encountering issues getting PR comments for Semgrep Secrets:
 * Review the [PR or MR comments guide for your SCM](/docs/category/pr-or-mr-comments)
 * Explore [other reasons you may not see PR or MR comments](/docs/kb/semgrep-appsec-platform/missing-pr-comments)
 
-
-<!-- TODO: Move this in the global rule policies page g -->
 ### Block a PR or MR through rule modes
 
 Semgrep enables you to set a **workflow action** based on the presence of a finding. Workflow actions include:
@@ -98,7 +91,6 @@ Semgrep enables you to set a **workflow action** based on the presence of a find
 * [Notifying select channels](/semgrep-appsec-platform/notifications), such as private Slack channels or webhooks.
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
-
 
 ### Add custom rules
 
@@ -115,9 +107,8 @@ To disable rules:
 
 You can also select individual rules under the **Mode** column and disable them individually.
 
-
 ## Invalid findings 
-You can define how Semgrep handles findings that it categorizes as invalid. Invalid findings include secrets that, during validation, were identified as revoked, or were never functional.
+You can define how Semgrep handles findings that it categorizes as invalid. Invalid findings include secrets that, during validation, were identified as revoked or were never functional.
 
 ## Validation errors
 You can define how Semgrep handles findings that result in a validation error. Validation errors occur when there are difficulties reaching the secrets provider or when Semgrep receives an unexpected response from the API.
@@ -129,7 +120,7 @@ Once you are ready to notify developers of Secrets findings on Slack app, define
 This feature enables you to configure the following:
 
 - **Scope**: These are the projects (repositories) that are affected by the policy.
-- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding such as severity or validation. 
+- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding, such as severity or validation. 
 - **Actions**: Actions that are performed on the defined scope when conditions are met.
 
 You can create as many policies as you need.
@@ -140,8 +131,6 @@ This feature requires the `semgrep:latest` Docker image or at least version 1.10
 
 ### View your policies 
 
-
-
 Only **admins** can view, create, edit, or delete policies. Your policies are arranged as cards. 
 
 ![Policies > Semgrep Supply Chain](/img/secrets-policies-card.png)
@@ -149,8 +138,6 @@ _**Figure**. A single card within the Semgrep Secrets Policies page._
 
 - To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy**.
 - View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
-
-
 
 ### Create a policy
 
@@ -169,8 +156,6 @@ _**Figure**. A single card within the Semgrep Secrets Policies page._
 
     ![Policies > Semgrep Secrets](/img/secrets-policies-choose-channel.png)
     
-
-
 1. Click **Save**. This brings you back to the Secrets policies tab.
 1. After creating a policy, it is **not** automatically enabled. Click the **<i class="fa-solid fa-toggle-large-on"></i> toggle** to enable a policy. This applies the policy to future scans.
 
@@ -193,12 +178,6 @@ The following table lists available conditions and their values:
 | Repository Visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unkown</li> </ul> Note: Repository Visibility is only available for GitHub repositories. |
 | Secret type | Manually provide a Secret type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
 
-
-<!-- TODO: if no channels, subscribed, etc -->
-
-
-
-
 ### Other operations
 
 #### Edit a policy
@@ -219,6 +198,6 @@ You can also disable or enable a policy from the policy's page:
 
 #### Delete a policy
 
-From the Secrets policies tab, click the **three dot (...) button > Delete policy**, then click **Remove**.
+From the Secrets policies tab, click the **three-dot (...) button > Delete policy**, then click **Remove**.
 
 Note that this does not remove existing notifications. 

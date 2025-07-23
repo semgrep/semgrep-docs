@@ -138,7 +138,7 @@ To unsubscribe a channel:
 3. Select the target organization to unsubscribe from.
 4. Click **Unsubscribe**.
 
-Unsubscribing removes this channel from your list of available channels for all Semgrep Secrets policies. You will no longer be able to create policies using this channel and it will be removed from existing policies, stopping all notifications to this channel. 
+Unsubscribing removes this channel from your list of available channels for all Semgrep Secrets policies. You will no longer be able to create policies using this channel, and it will be removed from existing policies, stopping all notifications to this channel. 
 
 
 <Notifications />
