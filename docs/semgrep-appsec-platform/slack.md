@@ -46,17 +46,18 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
   * If you use a private channel for notifications, first invite the Semgrep app by entering the command `/invite @Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
-3. In the selected Slack channel, enter the following command: `/semgrep_subscribe`. 
-4. Optional: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only. The project must be entered as it is shown in Semgrep AppSec Platform, typically:
+1. In the selected Slack channel, enter the following command: `/semgrep_subscribe`. 
+1. Optional: Enter the name of a specific project after `/semgrep_subscribe` to receive findings for that specific project only. The project must be entered as it is shown in Semgrep AppSec Platform, typically:
     <br />
     <code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code>
-5. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
+1. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
     ![Semgrep Slack app dialog box for subscribing to notifications](/img/semgrep-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to notifications")
-6. Optional: Set up additional filters.
+1. Optional: Set up additional filters.
     1. For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
     2. Select any number of policies to receive findings for under the **Selected Policies** field. By default, you are subscribed to all policies, including the Monitor policy. This can potentially result in many notifications (noise).
-7. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your projects in Semgrep AppSec Platform.
-8. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
+1. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your projects in Semgrep AppSec Platform.
+
+1. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 6. The Semgrep Slack integration is set up on a per-workspace basis.
 
 You have successfully set up notifications for Semgrep findings. The Semgrep Slack app reports new findings after every scan but does not report findings that were previously discovered.
 
@@ -105,19 +106,44 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 
 1. In your Slack workspace, find or create a channel for Semgrep notifications.
   * If you use a private channel for notifications, first invite the Semgrep app by entering the command `/invite @Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
-2. In the selected Slack channel, enter the following command: `/semgrep_subscribe_secrets`. 
-3. Choose an organization in the list under **Select target organization**. 
+1. In the selected Slack channel, enter the following command: `/semgrep_subscribe_secrets`. 
+1. Choose an organization in the list under **Select target organization**. 
     ![Semgrep Slack app dialog box for subscribing to Secrets notifications](/img/semgrep-secrets-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to Secrets notifications")
-4. Click **Subscribe**. You can now configure Semgrep Secrets notifications for this channel. 
-5. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 4. The Semgrep Slack integration is set up on a per-workspace basis.
+1. Click **Subscribe**. You can now configure Semgrep Secrets notifications for this channel. 
+1. This channel is now ready to receive Semgrep Secrets notifications. To configure when notifications are sent, create a [**Semgrep Secrets policy**](/semgrep-secrets/policies#manage-policies). 
+1. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 4. The Semgrep Slack integration is set up on a per-workspace basis.
 
-This channel is now ready to receive Semgrep Secrets notifications. To configure when notifications are sent, create a [**Semgrep Secrets Policy**](/semgrep-secrets/policies). 
+
 
 
 ![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-secrets-findings-message.png#md-width "Message from Semgrep Slack app consolidating findings after a scan")
 _**Figure**. A sample Slack message with Semgrep Secrets findings._
 
+### Remove notifications for findings in Slack
+
+:::note
+This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstall the Semgrep Slack App](#uninstall-the-semgrep-slack-app).
+:::
+
+To stop notifications: 
+1. From the Secrets policies tab, click the **three-dot(...) button > Edit policy** for the policies that trigger notifications in this channel.
+1. Unselect the desired channel(s) from the policy.
+1. Click **Save changes**. 
+
+
+To unsubscribe a channel:
+
+1. In Slack, enter the channel that you want to unsubscribe from Semgrep Supply Chain findings.
+2. Type `/semgrep_unsubscribe_secrets`.
+3. Select the target organization to unsubscribe from.
+4. Click **Unsubscribe**.
+
+Unsubscribing removes this channel from your list of available channels for all Semgrep Secrets policies. You will no longer be able to create policies using this channel and it will be removed from existing policies, stopping all notifications to this channel. 
+
+
 <Notifications />
+
+
 
 ## Uninstall the Semgrep Slack App
 
