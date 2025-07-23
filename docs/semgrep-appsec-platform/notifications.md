@@ -30,7 +30,7 @@ You can receive notifications for Semgrep findings in the following channels:
 <td>[Slack](/semgrep-appsec-platform/slack-notifications)</td>
 <td rowspan="3">Integrate with Semgrep through **Settings > Integrations**. Customize through rule modes in [Policies page](/semgrep-code/policies).</td>
 <td>Integrate with Semgrep through **Settings > Integrations**. Limited customizability; configured by default to send notifications on <strong>reachable</strong> findings</td>
-<td>Integrate with Semgrep through **Settings > Integrations**. Customize through policies in [Policies page](/semgrep-code/policies) </td>
+<td>Integrate with Semgrep through **Settings > Integrations**. Customize through policies in [Policies page](/semgrep-secrets/policies) </td>
 </tr>
 <tr>
 <td>[Email](/semgrep-appsec-platform/email-notifications)</td>
