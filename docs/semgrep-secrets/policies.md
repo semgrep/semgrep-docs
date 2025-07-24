@@ -1,7 +1,7 @@
 ---
 slug: policies
 append_help_link: true
-title: Manage rules
+title: Manage rules and policies
 hide_title: true
 description: The Policies page is a visual representation of the rules that Semgrep Secrets uses to scan code.
 tags:
@@ -174,7 +174,7 @@ The following table lists available conditions and their values:
 | Condition | Values|
 | -------  | ------ |
 | Severity      | <ul><li>Critical</li><li>High</li><li>Medium</li> <li>Low</li> </ul>       |
-| Validation         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
+| [Validation](/semgrep-secrets/glossary#validation-state)         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
 | Repository Visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unkown</li> </ul> Note: Repository Visibility is only available for GitHub repositories. |
 | Secret type | Manually provide a Secret type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
 
