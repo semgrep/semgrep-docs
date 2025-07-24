@@ -1,1 +1,1 @@
-IDE scans use Semgrep Community Edition (CE) for its speed. Scans are thus limited to single-file analysis. You may encounter a higher rate of false positives.
+Semgrep's VS Code extension supports the Pro Engine and cross-file analysis. Other IDE scans use Semgrep Community Edition (CE) for its speed with those scans limited to single-file analysis. As a result, you may encounter a higher rate of false positives.
