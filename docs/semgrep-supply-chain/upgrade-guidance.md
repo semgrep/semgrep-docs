@@ -1,6 +1,6 @@
 ---
 slug: upgrade-guidance
-title: Upgrade guidance
+title: Upgrade guidance and click to fix
 hide_title: true
 description: Know if a vulnerable package or dependency can be easily and reliably upgraded to a fixed version.
 tags:
@@ -10,7 +10,7 @@ tags:
 
 import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
  
-# Upgrade guidance
+# Upgrade guidance and click-to-fix pull requests
 
 Know if you or your developers can safely and reliably update a vulnerable package or dependency to a fixed version. From there, choose to:
 
@@ -18,7 +18,7 @@ Know if you or your developers can safely and reliably update a vulnerable packa
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance utilizes [Assistant](/semgrep-assistant/overview) to determine if a finding can be safely upgraded or if upgrading the package will cause breaking changes. Semgrep can also create a PR to upgrade the package.
+Semgrep's dependency upgrade guidance utilizes [Assistant](/semgrep-assistant/overview) to determine if a finding can be safely upgraded or if upgrading the package will cause breaking changes. Semgrep can then create a PR to upgrade the package, offering a one-click solution to you.
 
 :::info Feature maturity
 This feature is in **public beta**. To join the beta, contact the [Semgrep support team](/support).
@@ -26,6 +26,7 @@ This feature is in **public beta**. To join the beta, contact the [Semgrep suppo
 
 ## Supported languages and package managers
 
+- **Go** projects using the `gomod` package manager
 - **Python** codebases with the following package managers:
   - `pip`
   - `pip-tools`
@@ -37,7 +38,7 @@ This feature is in **public beta**. To join the beta, contact the [Semgrep suppo
 
 ## Prerequisites
 
-To enable all upgrade guidance and click to fix features, you must have:
+To access all upgrade guidance and click to fix features, you must have:
 
 - At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).

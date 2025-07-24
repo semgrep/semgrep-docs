@@ -5,7 +5,7 @@ description: "Perform triage and remediation of dependency vulnerabilities throu
 tags:
  - Semgrep Supply Chain
  - Semgrep AppSec Platform
-title: Triage and remediate
+title: Triage and remediation
 hide_title: true
 ---
 
