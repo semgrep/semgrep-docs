@@ -59,7 +59,6 @@ up-to-date.
 To install all necessary dependencies, run
 
 ```bash
-make dev-setup
 make setup
 ```
 
