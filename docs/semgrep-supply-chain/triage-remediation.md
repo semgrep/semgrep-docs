@@ -77,7 +77,7 @@ The **Vulnerabilities** tab allows you to identify the reachable, true positives
 3. Select **Ignore** and click **Continue**.
 4. Select an **Ignore reason**, provide a optional comment, and click **Ignore**.
 
-### Upgrade guidance and click-to-fix pull requests
+## Upgrade guidance and click-to-fix pull requests
 
 If the remediation for a finding is to upgrade the package, **[upgrade guidance](/semgrep-supply-chain/upgrade-guidance)** uses AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
@@ -99,7 +99,7 @@ Semgrep's dependency upgrade guidance utilizes [Assistant](/semgrep-assistant/ov
 - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - This **includes** projects added to Semgrep through Semgrep Managed Scans 
 
-#### Prerequisites
+### Prerequisites
 
 To access all upgrade guidance and click to fix features, you must have:
 
@@ -109,7 +109,7 @@ To access all upgrade guidance and click to fix features, you must have:
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
 - [Connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports the use of Python registries only.
 
-#### Features and permissions
+### Features and permissions
 
 The following table summarizes the features available to you depending on the prerequisites you meet:
 
@@ -121,7 +121,7 @@ The following table summarizes the features available to you depending on the pr
 | All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
 | All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
 
-#### How it works
+### How it works
 
 After enabling dependency guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
 
@@ -135,7 +135,7 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 
 ![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/img/upgrade-guidance-flowchart.png)
 
-#### Review a finding's upgrade guidance 
+### Review a finding's upgrade guidance 
 
 <ViewDetailsSsc />
 
@@ -155,7 +155,7 @@ _**Figure**. Useful details that provide upgrade guidance._
 ![Drawer showing all lines of code that must be changed](/img/upgrade-guidance-drawer.png#md-width)
 _**Figure**. Drawer showing all the lines of code that must be changed or are safe._
 
-#### Create a pull request with fixes
+### Create a pull request with fixes
 
 1. Navigate to the **Details** page of the finding for which you want to make a pull request.
 1. Click **Fix** > **Open fix PR**.
