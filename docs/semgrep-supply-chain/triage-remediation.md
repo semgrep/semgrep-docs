@@ -79,7 +79,7 @@ The **Vulnerabilities** tab allows you to identify the reachable, true positives
 
 ## Upgrade guidance and click-to-fix pull requests
 
-If the remediation for a finding is to upgrade the package, **[upgrade guidance](/semgrep-supply-chain/upgrade-guidance)** uses AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
+If the remediation for a finding is to upgrade the package, **upgrade guidance** uses AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
 - Have Semgrep open a pull request (PR)
 - Create a Jira ticket
