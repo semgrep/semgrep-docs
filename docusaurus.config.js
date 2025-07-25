@@ -480,6 +480,8 @@ module.exports = {
           { from: "/deployment/overview" , to: "/deployment/core-deployment" },
           /* JUL 8, 2025 */
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
+          /* JUL 25, 2025 */
+          { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-remediation" },
         ]
       }
     ],
