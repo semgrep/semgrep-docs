@@ -133,7 +133,7 @@ To stop notifications:
 
 To unsubscribe a channel:
 
-1. In Slack, enter the channel that you want to unsubscribe from Semgrep Supply Chain findings.
+1. In Slack, enter the channel that you want to unsubscribe from Semgrep Secrets findings.
 2. Type `/semgrep_unsubscribe_secrets`.
 3. Select the target organization to unsubscribe from.
 4. Click **Unsubscribe**.
