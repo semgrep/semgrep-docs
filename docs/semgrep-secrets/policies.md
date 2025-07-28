@@ -115,7 +115,7 @@ You can define how Semgrep handles findings that result in a validation error. V
 
 ## Manage Policies
 
-Once you are ready to notify developers of Secrets findings on Slack app, define a **Secrets policy**. This feature helps you manage noise and ensures that developers are only notified based on the conditions you set. 
+Once you are ready to notify developers of Secrets findings on Slack, define a **Secrets policy**. This feature helps you manage noise and ensures that developers are only notified based on the conditions you set. 
 
 This feature enables you to configure the following:
 
@@ -127,13 +127,13 @@ You can create as many policies as you need.
 
 ### Prerequisites
 
-This feature requires the `semgrep:latest` Docker image or at least version 1.101.0 of the Semgrep CLI tool.
+This feature requires the `semgrep:latest` Docker image or at least version 1.101.0 of the Semgrep CLI.
 
 ### View your policies 
 
 Only **admins** can view, create, edit, or delete policies. Your policies are arranged as cards. 
 
-![Policies > Semgrep Supply Chain](/img/secrets-policies-card.png)
+![Policies > Semgrep Secrets](/img/secrets-policies-card.png)
 _**Figure**. A single card within the Semgrep Secrets Policies page._
 
 - To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy**.
