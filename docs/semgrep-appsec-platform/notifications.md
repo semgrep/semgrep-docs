@@ -22,6 +22,7 @@ You can receive notifications for Semgrep findings in the following channels:
 <th>Channel</th>
 <th>Semgrep Code</th>
 <th>Semgrep Supply Chain</th>
+<th>Semgrep Secrets</th>
 </tr>
 </thead>
 <tbody>
@@ -29,13 +30,16 @@ You can receive notifications for Semgrep findings in the following channels:
 <td>[Slack](/semgrep-appsec-platform/slack-notifications)</td>
 <td rowspan="3">Integrate with Semgrep through **Settings > Integrations**. Customize through rule modes in [Policies page](/semgrep-code/policies).</td>
 <td>Integrate with Semgrep through **Settings > Integrations**. Limited customizability; configured by default to send notifications on <strong>reachable</strong> findings</td>
+<td>Integrate with Semgrep through **Settings > Integrations**. Customize through policies in [Policies page](/semgrep-secrets/policies) </td>
 </tr>
 <tr>
 <td>[Email](/semgrep-appsec-platform/email-notifications)</td>
 <td>Not available</td>
+<td>Not available</td>
 </tr>
 <tr>
 <td>[Webhooks](/semgrep-appsec-platform/webhooks)</td>
+<td>Not available</td>
 <td>Not available</td>
 </tr>
 </tbody>
