@@ -357,13 +357,14 @@ OPTIONS
        --trace
            Record traces from Semgrep scans to help debugging. This feature
            is meant for internal use and may be changed or removed without
-           warning. 
+           warning. Currently only used by `semgrep lsp`. 
 
-       --trace-endpoint=VAL (absent SEMGREP_OTEL_ENDPOINT env)
+       --trace-endpoint=VAL
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed without warning. 
+           internal use and may be changed or removed without warning.
+           Currently only used by `semgrep lsp`. 
 
        --use-git-ignore
            '--use-git-ignore' is Semgrep's default behavior. Under the
@@ -471,9 +472,6 @@ ENVIRONMENT
 
        SEMGREP_FORCE_COLOR
            See option --force-color.
-
-       SEMGREP_OTEL_ENDPOINT
-           See option --trace-endpoint.
 
        SEMGREP_SEND_METRICS
            See option --metrics.
