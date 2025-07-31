@@ -66,7 +66,7 @@ Use filters to narrow down your results. The following criteria are available fo
 | [**Transitivity**](#transitivity) | The transitivity of the finding. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
 | **Assistant risk assessment** | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. Available only for findings that are reachable. |
-| **Upgrade guidance** | The impact of a dependency upgrade on your project as determined by Assistant. |
+| **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Assistant. |
 | **Dependencies** | The name of the dependency involved. |
 | **Advisory** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
 
