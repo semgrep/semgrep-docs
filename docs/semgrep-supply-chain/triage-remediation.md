@@ -96,7 +96,7 @@ Semgrep's dependency upgrade guidance utilizes [Assistant](/semgrep-assistant/ov
   - `pipenv`
   - `poetry`
   - `uv`
-- GitHub Cloud and GitHub Enterprise Server (self-hosted)
+- GitHub Cloud
   - This **includes** projects added to Semgrep through Semgrep Managed Scans 
 
 ### Prerequisites
@@ -208,6 +208,10 @@ To change your Semgrep app's permission:
       1. If you select **Username and password**, provide the required **Username** and **Password**.
       2. If you select **API token**, provide the required token value.
 5. Click **Connect** to save your changes and proceed.
+
+:::info
+Semgrep currently supports integrations with Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+:::
 
 ### Troubleshooting: Semgrep is not displaying any upgrade guidance or click to fix functionality
 
