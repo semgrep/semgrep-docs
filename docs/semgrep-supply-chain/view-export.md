@@ -65,9 +65,20 @@ Use filters to narrow down your results. The following criteria are available fo
 | **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the source of the rule, such as [GitHub Advisory Database](https://github.com/advisories).  |
 | [**Transitivity**](#transitivity) | The transitivity of the finding. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
-| Assistant risk assessment | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. Available only for findings that are reachable.  |
+| **Assistant risk assessment** | Filter by [Semgrep Assistant component tags](/semgrep-assistant/overview#component-tags). Semgrep Assistant uses AI to categorize the file where the finding was identified based on its function, such as payments, user authentication, and infrastructure. Available only for findings that are reachable. |
+| **Upgrade guidance** | The impact of a dependency upgrade on your project as determined by Assistant. |
 | **Dependencies** | The name of the dependency involved. |
-| **Rules** | The rule that generated the finding. |
+| **Advisory** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
+
+### EPSS probability
+
+<EpssTypes />
+
+### Reachability
+
+The finding's exposure to potential attacks, or whether it is reachable.
+
+<ReachabilityTypes />
 
 ### Status
 
@@ -87,15 +98,12 @@ The transitivity of the finding:
 
 <TransitivityTypes />
 
-### EPSS probability
+### Upgrade guidance (beta)
 
-<EpssTypes />
+The impact of a dependency upgrade on your project as determined by Assistant:
 
-### Reachability
-
-The finding's exposure to potential attacks, or whether it is reachable.
-
-<ReachabilityTypes />
+- **Safe**: There are unlikely to be breaking changes.
+- **Breaking**: Introduces breaking changes; code modifications required.
 
 ## Export findings
 
