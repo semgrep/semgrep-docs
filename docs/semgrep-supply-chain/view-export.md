@@ -62,7 +62,6 @@ Use filters to narrow down your results. The following criteria are available fo
 | **Tags** | The tags associated with the project. |
 | [**Status**](#status) | The triage state of a finding. |
 | [**Reachability**](#reachability) | The finding's exposure, or whether it is reachable. |
-| [**Malicious dependencies only**](/semgrep-supply-chain/malicious-dependencies) | Findings that indicate the use of dangerous packages, or dangerous versions of packages, that are designed to compromise systems |
 | **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the source of the rule, such as [GitHub Advisory Database](https://github.com/advisories).  |
 | [**Transitivity**](#transitivity) | The transitivity of the finding. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
