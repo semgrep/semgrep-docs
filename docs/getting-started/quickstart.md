@@ -29,7 +29,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         values={[
         {label: 'macOS', value: 'macOS'},
         {label: 'Linux', value: 'Linux'},
-        {label: 'Windows', value: 'Windows'},
+        {label: 'Windows (beta)', value: 'Windows'},
         {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
         ]}
