@@ -103,11 +103,19 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
     <TabItem value='Windows'>
 
-    1. Install the Semgrep CLI and confirm the installation:
+    1. [Download](https://www.python.org/downloads/) and install Python. Make sure to check the box to add python.exe to the PATH, otherwise you will have difficulty running Pip and Semgrep.
+
+    2. Configure your system to run Python with UTF-8 text encodings by default. In PowerShell, run:
+
+        ```console
+        [System.Environment]::SetEnvironmentVariable('PYTHONUTF8', '1', 'User')
+        ```
+
+    3. Install the Semgrep CLI and confirm the installation. In PowerShell, run:
 
         ```console
         # install through pip
-        python3 -m pip install semgrep
+        pip install –upgrade semgrep
 
         # if you get the following error "error: externally-managed-environment",
         # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
@@ -116,15 +124,15 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         semgrep --version
         ```
 
-    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+    4. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
         ```console
         semgrep login
         ```
 
-    3. In the **Semgrep CLI login**, click **Activate** to proceed.
+    5. In the **Semgrep CLI login**, click **Activate** to proceed.
 
-    4. Return to the CLI, navigate to the root of your project, and run your first scan:
+    6. Return to the CLI, navigate to the root of your project, and run your first scan:
 
         ```console
         semgrep ci
