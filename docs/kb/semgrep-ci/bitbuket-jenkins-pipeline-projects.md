@@ -65,7 +65,11 @@ pipeline {
 
 :::note
 - Ensure that you have defined a `SEMGREP_APP_TOKEN` as a credential in Jenkins.
-- The variable SEMGREP_BASELINE_REF must be set to the main branch, in the example: `origin/master`.
+- The variable `SEMGREP_BASELINE_REF` must be set to the main branch, in the example: `origin/master`.
+- You may need to set additional variables, depending on your environment configuration, such as;
+    - `SEMGREP_REPO_NAME` -> An exact, case-sensitive match, to the repository name in Bitbucket
+    - `SEMGREP_REPO_URL` -> The web link to your repository (not the `.git` one)
+    - `SEMGREP_COMMIT` -> Specifically for PRs / diff scans, set this to the HEAD commit of the PR
 :::
 
 ## Test the new Jenkins pipeline project
