@@ -52,7 +52,7 @@ The following is an example that shows dataflow traces traversing multiple files
 test2.java
     test-spring-insecure-bean-validation
      Passing user input to context.buildConstraintViolationWithTemplate() function may lead to
-     execution of arbitary commands.
+     execution of arbitrary commands.
 
       8┆ context.buildConstraintViolationWithTemplate(template).addConstraintViolation();
 
