@@ -2,7 +2,7 @@
 slug: semgrepignore-v2-reference
 append_help_link: true
 description: |
-  Reference of the semgrepignore file fitering mechanism for Semgrep
+  Reference of the semgrepignore file filtering mechanism for Semgrep
 hide_title: true
 title: Semgrepignore v2
 ---

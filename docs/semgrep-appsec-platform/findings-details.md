@@ -12,7 +12,7 @@ tags:
 # Details page for findings v2
 
 :::info
-This document describes the **findings details page v2**, a feature generally available as of 20 June 2025. This feature supercedes the earlier finding details page, hereafter referred to as v1.
+This document describes the **findings details page v2**, a feature generally available as of 20 June 2025. This feature supersedes the earlier finding details page, hereafter referred to as v1.
 
 Refer to this document to understand changes between the two versions. 
 :::

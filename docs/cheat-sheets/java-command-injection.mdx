@@ -27,12 +27,12 @@ Example:
  // exec example
 Runtime.getRuntime().exec("ls -la")
 
-// Vunerable
+// Vulnerable
 String input = "&& cat /etc/passwd"; // value supplied by user input
 Runtime r = Runtime.getRuntime();
 r.exec("some_tool -t param1 param2 " + input);
 
-// Vunerable
+// Vulnerable
 String input = "cat /etc/passwd"; // value supplied by user input
 Runtime.getRuntime().exec("bash", "-c", input);
 ```
@@ -71,7 +71,7 @@ Example:
  // ProcessBuilder example
 Process builder = new ProcessBuilder("ls", "-la").start();
 
-// Vunerable
+// Vulnerable
 String input = "cat /etc/passwd"; // value supplied by user input
 ProcessBuilder builder = new ProcessBuilder();
 builder.command("bash", "-c", "some_tool -t param1 param2 " + input)

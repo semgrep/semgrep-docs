@@ -149,7 +149,7 @@ In addition to the fields mentioned above, rules submitted to Semgrep Registry h
   </tr>
   <tr>
    <td><code>category</code></td>
-   <td>Nested under the <code>metadata</code> field. If you use catagory <code>security</code>, include additional metadata. See <a href="#fields-required-by-the-security-category"> Including fields required by security category</a>.</td>
+   <td>Nested under the <code>metadata</code> field. If you use category <code>security</code>, include additional metadata. See <a href="#fields-required-by-the-security-category"> Including fields required by security category</a>.</td>
    <td>
     <ul>
       <li><code>best-practice</code></li>

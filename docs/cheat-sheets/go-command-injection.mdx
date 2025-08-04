@@ -38,7 +38,7 @@ func main() {
   // Not vulnerable
   cmd := exec.Command("echo", "1; cat /etc/passwd")
 
-  // Vunerable
+  // Vulnerable
   userInput :=  "echo 1 | cat /etc/passwd" // value supplied by user input
   out, _ = exec.Command("sh", "-c", userInput).Output()
 
@@ -102,7 +102,7 @@ func main() {
   cmd.Start();
   cmd.Wait();
 
-  // Args can be also ommited and {Path} will be used by default
+  // Args can be also omitted and {Path} will be used by default
   cmd := &exec.Cmd {
     Path: "/bin/echo"
   }

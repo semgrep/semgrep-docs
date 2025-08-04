@@ -28,7 +28,7 @@ const {exec} = require('child_process')
 
 const userInput = "$(dangerous command)" // Value supplied by user input
 
-// Vunerable
+// Vulnerable
 exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
   console.log(stdout)
 })

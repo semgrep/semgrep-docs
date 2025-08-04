@@ -132,6 +132,10 @@
       [
         "nodejs",
         "JavaScript"
+      ],
+      [
+        "click to fix",
+        "click-to-fix"
       ]
     ]
   },

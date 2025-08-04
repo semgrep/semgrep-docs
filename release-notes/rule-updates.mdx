@@ -342,13 +342,13 @@ Semgrep, Inc is adding new metadata fields to better communicate the intent and 
 - **Subcategory**: A list of subcategories that allows the author to specify the intent of the rule. Current values are:
     - **Audit**: This rule indicates the possible presence of a vulnerability, provided other conditions are present
     - **Vuln**: This rule is specifically looking for an exploitable vulnerability
-- Addtionally, language rulesets (such as `p/javascript`) have been altered to include only rules that match the following conditions:
+- Additionally, language rulesets (such as `p/javascript`) have been altered to include only rules that match the following conditions:
     - Subcategory: Vuln
     - Impact: HIGH
 
 #### Updated community tier rules
 
-- PyYAML rule updated for modern versions of PyYAML. This can lower the occurence of false positive findings. Thanks @shivankar-madaan: python.lang.security.deserialization.avoid-pyyaml-load
+- PyYAML rule updated for modern versions of PyYAML. This can lower the occurrence of false positive findings. Thanks @shivankar-madaan: python.lang.security.deserialization.avoid-pyyaml-load
 - Added new case for C use-after-free where freed var is used in conditional. Thanks @zhengsidie. c.lang.security.use-after-free
 - Additional user input added. Thanks @jbergler! ruby.lang.security.no-eval
 - Reduced false positives by filtering safe attributes. Thanks @luisfontes19! python.flask.security.open-redirect
