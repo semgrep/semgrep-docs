@@ -79,13 +79,13 @@ The **Vulnerabilities** tab allows you to identify the reachable, true positives
 
 ## Upgrade guidance and click-to-fix pull requests
 
-If the remediation for a finding is to upgrade the package, **upgrade guidance** uses AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
+If the remediation for a finding is to upgrade the package, **upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Have Semgrep open a pull request (PR)
+- Have Semgrep open a pull request (PR) that updates the version used by your repository and provide guidance to the developer on the breaking changes in the PR description
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance utilizes [Assistant](/semgrep-assistant/overview) to determine if a finding can be safely upgraded or if upgrading the package causes breaking changes. Semgrep can then create a PR to upgrade the package, offering a one-click solution to you.
+Semgrep's dependency upgrade guidance can determine if the package upgrade needed to remediate the finding causes breaking changes. Semgrep can then create a PR to upgrade the package, offering a one-click solution to you.
 
 #### Supported languages and package managers
 
@@ -107,7 +107,7 @@ To access all upgrade guidance and click to fix features, you must have:
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
-- [Connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports the use of private Python registries only.
+- [Optionally: connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports the use of private Python registries only.
 
 ### Features and permissions
 
@@ -123,7 +123,7 @@ The following table summarizes the features available to you depending on the pr
 
 ### How it works
 
-After enabling dependency guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
+After enabling Upgrade guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
 
 - This analysis is performed every **two hours** on the latest **full scan**.
 - Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
@@ -162,7 +162,7 @@ _**Figure**. Drawer showing all the lines of code that must be changed or are sa
 
 A pull request includes:
 
-- The manifest or lockfile changes necessary to upgrade the dependency
+- The manifest and/or lockfile changes necessary to upgrade the dependency
 - The context necessary for developers to fix potentially breaking changes
 
 The following context is included in the pull request description:
@@ -173,7 +173,7 @@ The following context is included in the pull request description:
 - Vulnerability details
   - A description of the vulnerability and links to its CVE references
 - Upgrade guidance
-  - All the pieces of code, typically functions, which make use of the dependency
+  - All the pieces of code, typically files and functions, which make use of the dependency
   - Unchanged (safe) pieces of code
   - Potentially breaking pieces of code
 - Dependency references
@@ -190,7 +190,7 @@ To block or leave comments on pull request or merge requests, see the [Supply Ch
 
 ### Grant **Read and write** access to a private GitHub Semgrep app
 
-To change your Semgrep app's permission:
+If you are an **existing** Semgrep user and you need to change your Semgrep app's permissions:
 
 1. Navigate to the settings page of your private Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app](https://docs.github.com/en/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app) for instructions.
 1. In the **Repository permissions** section, search for `Contents`.
@@ -210,7 +210,7 @@ To change your Semgrep app's permission:
 5. Click **Connect** to save your changes and proceed.
 
 :::info
-Semgrep currently supports integrations with Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+Semgrep currently supports integrations with private Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 :::
 
 ### Troubleshooting: Semgrep is not displaying any upgrade guidance or click to fix functionality

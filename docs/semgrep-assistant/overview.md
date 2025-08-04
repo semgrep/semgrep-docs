@@ -119,7 +119,7 @@ Semgrep Assistant can help you write custom rules to find patterns and vulnerabi
 
 Semgrep Supply Chain's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep's click to fix capability can then create a PR to upgrade the package.
 
-Read more about [upgrade guidance and click to fix](/semgrep-supply-chain/triage-and-remediation).
+Read more about [Upgrade guidance and Click to fix](/semgrep-supply-chain/triage-and-remediation).
 
 ## Reliability
 
