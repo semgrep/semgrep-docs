@@ -67,7 +67,7 @@ To add a memory based on a suggested fix presented by Assistant:
 1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
    ![Assistant’s suggested fix for SQL injection issue in the user’s code](/img/memories-1.png#md-width)
    ***Figure***. Assistant’s suggested fix for a hardcoded secret in the user’s code.
-   - If Assistant used existing memories to generate the guidance, you can click on **References <PL>X</PL> memories while writing this guidance** to see the memories used.
+   - If Assistant used existing memories to generate the guidance, you can click on **Referenced <PL>X</PL> memories while writing this guidance** to see the memories used.
       ![The memories Assistant used to generate the current guidance.](/img/memories-1a.png#md-width)
 2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use X library to sanitize SQL queries."
    ![User-provided custom instruction that Assistant uses to improve future guidance.](/img/memories-2.png#md-width)
