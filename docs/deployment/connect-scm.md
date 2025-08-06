@@ -98,13 +98,18 @@ These steps are for users that sign in to Semgrep through GitHub.
 
 ### GitHub Cloud with non-GitHub SSO
 
-These steps are for users that sign in to Semgrep through a **non-GitHub** SSO provider.
+These steps are for users that sign in to Semgrep through a **non-GitHub** SSO provider.  You can still connect to GitHub using the Semgrep Github app and either a personal access token or your individual GitHub account.
 
 1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
-2. [<i class="fas fa-external-link fa-xs"></i> Contact Support](/support#contact-support) and inform them which Semgrep account needs to be connected to the GitHub org. Support will finalize the connection.
-3. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using SSO.
-4. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
-5. Your GitHub org is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using your non-GitHub SSO provider.
+1. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
+1. Click **Add > GitHub**.
+1. In the **Connect your GitHub Organization** modal, enter the name of your github organization and:
+    - either enter a GitHub personal access token and click **Connect**
+    - or click the **Authenticate with GitHub** button without entering a token
+1. Your GitHub org is now listed under **Source Code managers**. Click **Test** to verify that the new connection is installed correctly.
+
+Alternatively, after setting up the Semgrep GitHub app (step 1, above), you can  [<i class="fas fa-external-link fa-xs"></i> Contact Support](/support#contact-support) and inform them which Semgrep account needs to be connected to the GitHub org. Support will finalize the connection.
 
 </TabItem>
 
