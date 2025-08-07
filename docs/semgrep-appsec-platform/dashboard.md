@@ -34,13 +34,9 @@ The dashboard is divided into several sections:
 </thead>
 <tbody>
 <tr>
-  <td>Today's recommended priority findings</td>
-  <td>Provides a count of [priority](#recommended-priority) findings for all of your Semgrep products. Clicking any of the values takes you to the product's Findings page with those filters applied.</td>
-</tr>
-<tr>
 <td>Reporting summary top bar</td>
 <td>
-Sets the filters for all the data in the page **except** for **Today's recommended priority findings**.
+Sets the filters for all the data in the page **except**.
 </td>
 </tr>
 <tr>
