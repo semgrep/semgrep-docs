@@ -36,7 +36,7 @@ The dashboard is divided into several sections:
 <tr>
 <td>Reporting summary top bar</td>
 <td>
-Sets the filters for all the data in the page **except**.
+Sets the filters for all the data in the page.
 </td>
 </tr>
 <tr>
