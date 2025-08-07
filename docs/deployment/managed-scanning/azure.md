@@ -47,7 +47,7 @@ You have finished setting up a Semgrep managed scan. Click **Back to Managed Sca
 
 - After enabling Managed Scans, Semgrep performs a full scan on all the repositories in batches.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A Semgrep AppSec Platform project includes all the repository's findings, history, and scan metadata.
-- Projects scanned through Managed Scans are tagged with `managed-scan`.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
 
 ## Add additional Azure DevOps projects
 

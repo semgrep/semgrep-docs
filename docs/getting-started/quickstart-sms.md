@@ -154,7 +154,7 @@ Here are some behaviors and characteristics of a managed scan:
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories that have been added to it.
 - In general, once a git repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects scanned through Managed Scans are tagged with `managed-scan`.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
 
 ## Next steps
 
