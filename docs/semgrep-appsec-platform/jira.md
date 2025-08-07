@@ -300,6 +300,38 @@ _**Figure**. Finding details' Activity section showing that a Jira ticket wasn't
 ![The finding details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
 _**Figure**. The finding details page with the option to unlink a Jira ticket displayed._
 
+## One-way Sync (Semgrep to Jira)
+
+One way syncing for Semgrep to Jira is now supported. When Semgrep detects that a finding has been fixed, we will try to apply the configured transition to the Jira ticket associated with that finding. 
+
+### Set-Up:
+
+1. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations)
+2. Scroll down to the Jira integration (if you need to set one up please go to ![enable the jira integration](#enable-the-jira-integration))
+3. In the Jira integration card, there should appear a new section called **Jira Sync**
+![New Setup Card](/img/jira-sync-setup-card.png#md-width)
+4. If workflows are set up in Jira for the default project, then you should be able to select one in the drop down
+![Drop Down expanded](/img/jira-sync-transition-expanded.png)
+5. If you have **None Selected** as the transition option, then **no transition** will be triggered
+6. Select the desired transition which you want to trigger when a sync is triggered
+7. Hit save
+
+
+### Re-Auth: 
+
+If you have an exsiting Jira integration configured, please navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations) and click the "Re-authorize to enable Jira Sync" button at the bottom of the Jira settings set up section. We need to do this as we need additional permissions to retrive and trigger Jira transitions.
+
+![Button to trigger re-authentication for Jira Sync.](/img/jira-sync-reauth.png#md-width)
+
+### Limitations:
+- Only works on Code product
+- Fixed is the only Semgrep supported status
+- Only itmes with a 1:1 mapping between Semgrep findings and Jira work items will be synced
+- Only the default Project & Issue Type are supported for syncing
+- You can only trigger one Jira transition
+- If your selected transition gets removed in Jira, we will not be able to sync or replay any sync attempts during that time
+
+
 ## Remove the Jira integration
 
 To remove the Jira integration from your Semgrep organization:
