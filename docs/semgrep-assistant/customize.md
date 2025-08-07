@@ -144,6 +144,7 @@ Semgrep evaluates available models from multiple providers and selects the most 
 You can opt to:
 
 - Use OpenAI with your own API key
+- Use AWS Bedrock on your own account
 - Use Azure OpenAI
 - Use Google Gemini.
 - Use xAI.
@@ -166,6 +167,18 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 - Semgrep’s fine-tuned models that can increase the quality of results.
 - Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
+
+### AWS Bedrock on your account
+
+If you want to keep all data within your own AWS account, you may choose to use your own AWS Bedrock instance. To provide your own AWS Bedrock account:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
+3. Select **AWS Bedrock** then **Your AWS account**, and provide your AWS IAM role details.
+
+Note that the IAM role that is being used should have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
+
+Assistant is constantly evaluating new models for features and will swap out requested models frequently so it is advised to always have the most recent models in Bedrock enabled. Currently Assistant is using the model arn ***us.anthropic.claude-sonnet-4-20250514-v1:0***
 
 ### Azure OpenAI
 
