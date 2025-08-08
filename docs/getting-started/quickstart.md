@@ -19,7 +19,7 @@ Learn how to set up Semgrep, scan your first project for security issues, and vi
 You must have Python 3.9 or later installed on the machine where the Semgrep CLI is running.
 :::
 
-1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub** or **Sign in with GitLab**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
+1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Continue with GitHub** or **Continue with GitLab**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
 1. Provide the **Organization display name** you'd like to use, then click **Create new organization**.
 1. When asked **Where do you want to scan?** click **Run on CLI**.
 1. Launch your CLI, and follow the instructions on the [**Scan a project on your machine**](https://semgrep.dev/onboarding/scan) page. For your convenience, the same information is presented below, along with instructions for Windows users.
@@ -178,7 +178,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
     Ensure that you have [Docker installed](https://docs.docker.com/desktop/) before proceeding.
     :::
 
-    13. Pull the latest image and confirm the version:
+    1. Pull the latest image and confirm the version:
 
         ```console
         docker pull semgrep/semgrep
@@ -187,7 +187,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         docker run --rm semgrep/semgrep semgrep --version
         ```
 
-    14. For users running Docker on **macOS or Linux** Docker:
+    2. For users running Docker on **macOS or Linux** Docker:
 
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
@@ -205,7 +205,7 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
 
             The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
 
-    15. For users running Docker on **Windows**:
+    3. For users running Docker on **Windows**:
 
         1. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
 
