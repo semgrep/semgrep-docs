@@ -132,7 +132,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <!-- 5-7 bullets across the product suite -->
 
 - Support for running Semgrep natively on Windows is now in **public beta**. This applies to running Semgrep through the CLI and an IDE such as Cursor, VS Code, and IntelliJ.
-- Supply Chain support for PHP is now **generally available (GA)**.
+- Supply Chain support for PHP reachability analysis is now **generally available (GA)**.
 - Beginning with Semgrep v1.127.0, `uv` is a supported package manager for [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path). This means that `uv` is a supported package manager across all Supply Chain features.
 - You can now see which memories were used by Semgrep Assistant when it generated remediation guidance for a specific finding. Semgrep displays this information on the finding details page.
 - Semgrep Secrets now makes up to three attempts when validating Amazon Web Services (AWS) credentials that failed due to possibly transient reasons.
