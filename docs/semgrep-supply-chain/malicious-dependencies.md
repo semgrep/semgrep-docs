@@ -61,7 +61,10 @@ Malicious dependencies appear in [**Supply Chain > Vulnerabilities**](https://se
 ![Malicious dependency finding with badge](/img/findings-maldeps.png)
 _**Figure**. A malicious dependency finding._
 
-Use the **Malicious dependencies <i class="fa-solid fa-toggle-large-on"></i> toggle** to filter for malicious dependencies detected in your projects. Ensure that you don't have other filters enabled as this may inadvertently hide findings.
+To view malicious dependencies detected in your projects:
+1. Navigate to [Supply Chain > Vulnerabilities](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities).
+2. Using the navigation bar, expand the **Reachable** drop-down menu.
+3. Ensure that you've selected the **Malicious dependency** filter.
 
 ## Triage and remediation for malicious dependencies
 
@@ -75,7 +78,7 @@ If you have configured your policies to display malicious dependency findings to
 
 ## Advisories for malicious dependencies
 
-You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious package** filter.
+You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
 
 Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 
