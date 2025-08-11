@@ -53,7 +53,7 @@ replacements = [
         replace=DEFAULT_SEMGREPIGNORE,
     ),
     Replace(
-        dst_file="docs/extensions/overview.md",
+        dst_file="docs/extensions/pre-commit.md",
         find="SEMGREP_VERSION_LATEST",
         replace=RELEASE_NAME,
     ),
