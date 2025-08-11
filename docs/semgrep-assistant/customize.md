@@ -144,7 +144,7 @@ Semgrep evaluates available models from multiple providers and selects the most 
 You can opt to:
 
 - Use OpenAI with your own API key
-- Use AWS Bedrock on your own account
+- Use your own AWS Bedrock account
 - Use Azure OpenAI
 - Use Google Gemini.
 - Use xAI.
@@ -170,11 +170,12 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 
 ### Your own AWS Bedrock account
 
-If you want to keep all data within your own AWS account, you may choose to use your own AWS Bedrock instance. To provide your own AWS Bedrock account:
+If you want to keep all data within your AWS account, you can use your own AWS Bedrock instance:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
-3. Select **AWS Bedrock** then **Your AWS account**, and provide your AWS IAM role details.
+3. Select **AWS Bedrock** then **Your AWS account**
+4. Provide your AWS IAM role details.
 
 Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
 
