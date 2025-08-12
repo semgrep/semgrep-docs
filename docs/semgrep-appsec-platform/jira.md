@@ -286,6 +286,8 @@ Currently, the following limitations apply to one-way sync:
 - One-way sync only works with Semgrep Code findings with a status of **Fixed**.
 - The only items synced are those with a 1:1 mapping between the Semgrep finding and the Jira ticket.
 - Only the default project and issue types are supported.
+- Only Jira team managed projects are supported. 
+  - Company managed projects are only supported if your Jira Admin originally set up Semgrep integration. 
 - You can only trigger one Jira transition.
   - If your selected transition is removed in Jira, Semgrep is unable to sync or replay any sync attempts while the transition is removed.
 
