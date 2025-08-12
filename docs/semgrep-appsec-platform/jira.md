@@ -290,7 +290,7 @@ Currently, the following limitations apply to one-way sync:
 
 ### Enable one-way sync for new integrations
 
-::: note
+:::note
 Before proceeding, ensure that you have [enabled a Jira integration](#enable-the-jira-integration) for your Semgrep organization.
 :::
 
