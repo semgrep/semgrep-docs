@@ -27,7 +27,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 The Semgrep Jira integration provides the following capabilities:
 
 - You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
-- You can create a single ticket for multiple findings (up to 50) that were detected by a single rule in the same project, or create individual tickets per finding.
+- You can create a single ticket for multiple findings (up to 75) that were detected by a single rule in the same project, or create individual tickets per finding.
 - You can automate the creation of tickets for high severity, high confidence findings in your [primary branch](/deployment/primary-branch).
   - Automated ticket creation can be configured on a per-product setting.
   - For Supply Chain findings, tickets are created for reachable findings.
@@ -49,6 +49,7 @@ To enable the Jira integration, follow these steps:
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 3. If this is your first integration, click **Set up First Integration**. Otherwise, click **Add**. In the drop-down menu that appears, select **Jira**.
 4. Follow the on-screen instructions to grant Semgrep the necessary permissions and set up the integration.
+* In order for us to perform neccessary actions in Jira we will need **read:jira-work**, **write:jira-work**, and **manage:jira-configuration** 
 5. When prompted, select the Jira instance you want to connect to. If you have multiple Jira instances, choose one instance from the **Use app on** drop-down menu.
    * **For deployments that have used a previous version of the Jira integration**: Ensure you're connecting to the same Jira instance you previously connected to. Please contact Semgrep if you want to connect to a different Jira instance.
 
@@ -308,22 +309,12 @@ To set up one-way sync from Semgrep to Jira:
 
 ### Enable one-way sync for existing integrations
 
-If you have an exsiting Jira integration configured, you must reauthorize Jira to enable one-way sync. This step is necessary because Semgrep requires additional permissions to retrive and trigger Jira transitions.
+If you have an exsiting Jira integration configured, you must reauthorize Jira to enable one-way sync. This step is necessary because Semgrep requires additional permissions (**manage:jira-configuration**) to retrive and trigger Jira transitions.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 2. Find your Jira integration, then expand **Customize ticket creation** so that you can locate the **Jira Sync** section.
 3. Click **Re-authorize to enable Jira Sync**.
-
-### Limitations
-
-Currently, the following limitations apply to one-way sync:
-
-- One-way sync only works with Semgrep Code findings with a status of **Fixed**.
-- The only items synced are those with a 1:1 mapping between the Semgrep finding and the Jira ticket.
-- Only the default project and issue types are supported.
-- You can only trigger one Jira transition.
-  - If your selected transition is removed in Jira, Semgrep is unable to sync or replay any sync attempts while the transition is removed.
 
 ## Create tickets through the Semgrep API
 
