@@ -35,15 +35,11 @@ You must provide a Bitbucket [workspace access token](https://support.atlassian.
 - `project (admin)`
 - `account (read)`
 
-See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
-
 ### Bitbucket Data Center
 
 You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
 
 Project-level webhooks are required to support diff-aware scans.
-
-See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
 ## Enable Managed Scanning and scan your first repository
 

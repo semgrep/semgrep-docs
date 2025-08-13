@@ -24,7 +24,7 @@ To run a successful POV, the Semgrep team needs your organization's decisions re
     - Who among your organization will be evaluating Semgrep? Semgrep creates accounts for everyone on the team who is involved in the POV.
 - **The method to scan the repositories used in the POV**
     - **Recommended: Semgrep Managed Scans (SMS)**
-        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires code access, which can be limited to only certain repositories. See [Permissions](/deployment/checklist#permissions) to review SMS requirements.
+        - This is the fastest way to deploy Semgrep to the repositories you want to scan. It requires access to your code, which can be limited to only certain repositories.
     - **CI/CD**
         - This method relies on a CI configuration file, such as a GitHub Actions workflow file. A CI/CD job must be created for each repository you want to scan.
 - **The technical resources**
@@ -32,7 +32,7 @@ To run a successful POV, the Semgrep team needs your organization's decisions re
     - You must decide on and communicate to Semgrep your account management, infra, and tech needs.
 
 :::tip Benefits of Semgrep Managed Scans
-SMS is the **fastest** and **most scalable** deployment method, since it enables you to add repositories for scanning without the need for CI integrations. However, SMS requires code access. [Review the required permissions](/deployment/checklist#permissions).
+SMS is the **fastest** and **most scalable** deployment method, since it enables you to add repositories for scanning without the need for CI integrations. However, SMS requires access to your code.
 :::
 
 ## Summary
