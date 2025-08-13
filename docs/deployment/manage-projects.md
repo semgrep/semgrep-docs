@@ -2,30 +2,27 @@
 slug: manage-projects
 title: Manage projects
 hide_title: true
-description: View projects, detailed logs and information for any scan.
+description: View projects, detailed logs, and information for any scan.
 tags:
-    - Deployment
-    - Semgrep AppSec Platform
+ - Deployment
+ - Semgrep AppSec Platform
 ---
 
 # Manage projects
 
-View, sort, and tag your projects through the **Projects** page. A **project** is any repository that you have scanned with Semgrep AppSec Platform through CI or Semgrep Managed Scans, and includes that repository's findings and metadata.
+View, sort, and tag your projects through the **Projects** page. Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high number of findings.
 
-Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high finding count.
+:::note What is a project?
+A **project** is any repository that you have scanned with Semgrep AppSec Platform through CI or Semgrep Managed Scans. It includes that repository's findings and metadata.
+:::
 
-Each project has its own **Project detail** page, where you can filter scans, configure settings, and view detailed logs for each scan that has been run. 
+The **Projects** page features two components:
+
+- The **Scanning** page lists projects that are actively being scanned by Semgrep. These scans are either manually started by you, triggered by your CI/CD system, or automatically scanned by Semgrep Managed Scanning.
+- The **Not scanning** page lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. The **Not scanning** page also lists projects where you've archived the corresponding GitHub repositories.
 
 ![Semgrep AppSec Platform > Projects page](/img/projects-page.png)
 _**Figure**. Semgrep AppSec Platform > Projects page._
-
-Use the **Project detail** page to:
-
-- View trends over time, such as longer or shorter scan durations.
-- Share information when troubleshooting scans through the **Scans** tab.
-- Update a project's tags, primary branch, and path ignores through the **Settings** tab.
-
-Additionally, the Semgrep API enables you to filter tags for additional workflows and integrations into your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See [Tags](/semgrep-appsec-platform/tags) for more information.
 
 ## Sort projects
 
@@ -56,7 +53,7 @@ Scan details, such as logs, are available for scans run in the past **1 month**.
 
 ## Scan details and logs
 
-To view the latest scan's details from the Projects page:
+To view the latest scan's details from the **Projects** page:
 
 1. Hover over the project's latest scan status. This displays the **<i class="fa-solid fa-sidebar-flip"></i> Drawer icon**.
 ![The drawer icon revealed.](/img/projects-view-scan-details.png)
@@ -69,13 +66,23 @@ You can link to a specific scan's details to send to your colleagues for collabo
 ![Scan details drawer with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
 _**Figure**. Scan details drawer with the permalink icon indicated in a box._
 
-## Configure project settings
+## Project details page
 
-You can configure a project's settings by going to the **Project details** page and clicking on the **Settings** tab.
+Each project listed on the **Projects** page has its own **Project detail** page, which you can access by clicking the **<i class="far fa-window-restore"></i> window icon** under the **Details** column. The **Project detail** page is where you can filter scans, configure settings, and view detailed logs for each scan that has been run. Use the **Project detail** page to:
+
+- View trends over time, such as longer or shorter scan durations.
+- Share information when troubleshooting scans through the **Scans** tab.
+- Update a project's tags, primary branch, and path ignores through the **Settings** tab.
+
+Additionally, the Semgrep API allows you to filter tags for use in additional workflows and integrations within your own systems. Create tags based on engineering or department teams, external-facing or internal codebases, and so on. See [Tags](/semgrep-appsec-platform/tags) for more information.
+
+### Configure project settings
+
+You can configure a project's settings by going to the **Project details** page and clicking the **Settings** tab.
 
 See the following pages for more information:
 
-- [Configure Semgrep AppSec Platform to ignore certain file paths](/ignoring-files-folders-code).
+- [Configure Semgrep AppSec Platform to ignore specific file paths](/ignoring-files-folders-code).
 - For Semgrep Managed Scans users: [configure your scans](/deployment/managed-scanning/overview).
 - [Set a primary branch](/deployment/primary-branch).
 - [Set tags](/semgrep-appsec-platform/tags).
