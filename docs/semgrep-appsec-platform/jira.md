@@ -48,8 +48,8 @@ To enable the Jira integration, follow these steps:
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 3. If this is your first integration, click **Set up First Integration**. Otherwise, click **Add**. In the drop-down menu that appears, select **Jira**.
 4. Follow the on-screen instructions to grant Semgrep the necessary permissions and set up the integration.
-* In order for Semgrep to perform necessary actions in Jira, you must grant the following permissions: **read:jira-work**, **write:jira-work**, and **manage:jira-configuration** 
-1. When prompted, select the Jira instance you want to connect to. If you have multiple Jira instances, choose one instance from the **Use app on** drop-down menu.
+   * In order for Semgrep to perform necessary actions in Jira, you must grant the following permissions: `read:jira-work`, `write:jira-work`, and `manage:jira-configuration`.
+5. When prompted, select the Jira instance you want to connect to. If you have multiple Jira instances, choose one instance from the **Use app on** drop-down menu.
    * **For deployments that have used a previous version of the Jira integration**: Ensure you're connecting to the same Jira instance you previously connected to. Please contact Semgrep if you want to connect to a different Jira instance.
 
 ## Configure the integration
