@@ -48,6 +48,9 @@ import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-ap
 import AzureSemgrepOssSast from "/src/components/code_snippets/_azure-semgrep-oss-sast.mdx"
 import AzureVariables from "/src/components/procedure/_set-env-vars-azure.mdx"
 
+<!-- Semaphore -->
+import SemaphoreSemgrepAppSast from "/src/components/code_snippets/_semaphore-semgrep-app-sast.mdx"
+import SemaphoreSemgrepOssSast from "/src/components/code_snippets/_semaphore-semgrep-oss-sast.mdx"
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -122,6 +125,7 @@ push:
   paths:
     - .github/workflows/semgrep.yml
 ```
+
 :::
 
 #### Upload findings to GitHub Advanced Security Dashboard
@@ -303,6 +307,7 @@ pipelines:
         script:
           - echo "This step gets double the memory!"
 ```
+
 :::
 
 ## Buildkite
@@ -344,10 +349,10 @@ In order for this configuration to run the correct type of scan for each conditi
 
 1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
     ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png#md-width)
-    _**Figure.**_ Buildkite pipeline settings with using GitHub as the SCM.
+    ***Figure.*** Buildkite pipeline settings with using GitHub as the SCM.
 2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
     ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png#md-width)
-    _**Figure.**_ Branch limiting settings with main as the example branch.
+    ***Figure.*** Branch limiting settings with main as the example branch.
 3. Click **Save Branch Limiting**.
 
 #### Build on pull requests
@@ -467,6 +472,55 @@ You can **run specific product scans** by passing an argument, such as `--supply
 The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <AzureSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+
+</TabItem>
+</Tabs>
+
+## Semaphore
+
+To add Semgrep into Semaphore:
+
+1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with your `SEMGREP_APP_TOKEN`
+2. Open the YAML pipeline using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor)
+3. Press **+Add Block**
+4. Enable the secret created on Step 1
+5. Add the following commands to perform a full scan
+
+   ```shell
+   checkout
+   sudo pip install semgrep
+   semgrep ci
+   ```
+
+6. Press **Run the workflow** to save changes and run the pipeline
+
+### Sample Semaphore configuration snippet
+
+<Tabs
+    defaultValue="semaphore-semgrep"
+    values={[
+    {label: 'Default', value: 'semaphore-semgrep'},
+    {label: 'Semgrep CE', value: 'semaphore-oss'},
+    ]}
+>
+
+<TabItem value='semaphore-semgrep'>
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+<SemaphoreSemgrepAppSast />
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</TabItem>
+
+<TabItem value='semaphore-oss'>
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+<SemaphoreSemgrepOssSast />
 
 You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
 

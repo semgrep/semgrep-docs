@@ -13,6 +13,7 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 # Add Semgrep manually to CI providers
 
 :::note Your deployment journey
+
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
@@ -27,16 +28,17 @@ Skip this guide if you have already configured a CI job.
 
 The steps provided here are known to work with the following CI providers:
 
-* AppVeyor
-* Bamboo
-* Bitrise
-* Buildbot
-* Codeship
-* Codefresh
-* Drone CI
-* Nomad
-* TeamCity CI
-* Travis CI
+- AppVeyor
+- Bamboo
+- Bitrise
+- Buildbot
+- Codeship
+- Codefresh
+- Drone CI
+- Nomad
+- TeamCity CI
+- Travis CI
+- Semaphore
 
 ## General steps
 

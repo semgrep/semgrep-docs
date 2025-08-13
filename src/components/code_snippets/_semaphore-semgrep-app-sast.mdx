@@ -1,0 +1,29 @@
+```yaml
+version: v1.0
+name: Semaphore Semgrep Example
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: Semgrep
+    task:
+      jobs:
+        # Job performing a full scan
+        - name: Semgrep Full Scan
+          commands:
+            - checkout
+            - sudo pip install semgrep
+            - semgrep ci
+        # Job performing a diff scan for PR/branches
+        - name: Semgrep Diff Scan
+          commands:
+            - checkout
+            - export SEMGREP_BRANCH=$SEMAPHORE_GIT_BRANCH
+            - export SEMGREP_BASELINE_COMMIT=$SEMAPHORE_GIT_SHA
+            - sudo pip install semgrep
+            - semgrep ci
+      # import a secret named 'semgrep' with the SEMGREP_APP_TOKEN
+      secrets:
+        - name: semgrep
+```
