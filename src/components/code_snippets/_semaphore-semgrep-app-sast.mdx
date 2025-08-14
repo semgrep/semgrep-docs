@@ -16,7 +16,7 @@ blocks:
             - sudo pip install semgrep
             - semgrep ci
         # Job performing a diff scan for PR/branches
-        - name: Semgrep Diff Scan
+        - name: Semgrep Diff-aware Scan
           commands:
             - checkout
             - export SEMGREP_BRANCH=$SEMAPHORE_GIT_BRANCH
