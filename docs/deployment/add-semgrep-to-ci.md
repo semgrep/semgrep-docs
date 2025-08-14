@@ -112,13 +112,13 @@ Refer to the following table for links to sample CI configuration snippets:
 
 | In-app CI provider   | Sample CI configuration snippet |
 | :------------------- | :-----------------------------  |
+| Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
+| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines) |
+| Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
+| CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
 | GitHub Actions       |  [`semgrep.yml`](/semgrep-ci/sample-ci-configs/#github-actions) |
 | GitLab CI/CD         | [`.gitlab-ci.yml`](/semgrep-ci/sample-ci-configs/#gitlab-cicd) |
 | Jenkins              | [`Jenkinsfile`](/semgrep-ci/sample-ci-configs/#jenkins) |
-| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines) |
-| CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
-| Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
-| Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
 | Semaphore            | [`semaphore.yml`](/semgrep-ci/sample-ci-configs/#semaphore) |
 
 ### Data collected by Semgrep
