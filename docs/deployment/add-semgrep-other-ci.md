@@ -36,9 +36,9 @@ The steps provided here are known to work with the following CI providers:
 - Codefresh
 - Drone CI
 - Nomad
+- Semaphore
 - TeamCity CI
 - Travis CI
-- Semaphore
 
 ## General steps
 
