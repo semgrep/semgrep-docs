@@ -19,6 +19,7 @@ import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 # Add Semgrep to CI
 
 :::note Your deployment journey
+
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
@@ -44,6 +45,7 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - CircleCI
 - Buildkite
 - Azure Pipelines
+- Semaphore
 
 ![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#md-width)
 _**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers._
@@ -98,8 +100,10 @@ You have now added a Semgrep job to GitHub Actions. A **full scan** begins autom
 
 :::tip
 You can edit your configuration files to send findings to **GitHub Advanced Security Dashboard (GHAS)** and **GitLab SAST Dashboard**. Refer to the following samples:
+
 - [GitHub Advanced Security Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-github-advanced-security-dashboard)
 - [GitLab SAST Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-gitlab-security-dashboard)
+
 :::
 
 ### Sample CI configuration snippets
@@ -115,6 +119,7 @@ Refer to the following table for links to sample CI configuration snippets:
 | CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
 | Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
 | Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
+| Semaphore            | [`semaphore.yml`](/semgrep-ci/sample-ci-configs/#semaphore) |
 
 ### Data collected by Semgrep
 
