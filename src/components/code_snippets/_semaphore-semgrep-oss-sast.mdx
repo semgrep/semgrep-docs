@@ -14,13 +14,5 @@ blocks:
           commands:
             - checkout
             - sudo pip install semgrep
-            # Save report using JUnit to present results in the test dashboard
-            - semgrep scan --junit-xml --output=report.xml
-            - '[[ -f report.xml ]] && test-results publish report.xml'
-after_pipeline:
-  task:
-    jobs:
-      - name: Publish Results
-        commands:
-          - test-results gen-pipeline-report
+            - semgrep scan
 ```

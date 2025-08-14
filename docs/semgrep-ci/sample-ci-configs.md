@@ -482,19 +482,19 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To add Semgrep into Semaphore:
 
-1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with your `SEMGREP_APP_TOKEN`.
-2. Open the YAML pipeline using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
-3. Clock **+Add Block**.
-4. Enable the secret created in **Step 1**.
-5. Add the following commands to perform a full scan:
+1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with [your `SEMGREP_APP_TOKEN`](https://semgrep.dev/orgs/-/settings/tokens).
+2. Open the YAML pipeline for your project using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
+3. Click **+Add Block**.
+5. Expand **Jobs**, and add the following commands to perform a full scan:
 
-   ```shell
+   ```console
    checkout
    sudo pip install semgrep
    semgrep ci
    ```
+4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
 
-6. Click **Run the workflow** to save your changes and run the pipeline job.
+6. Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
 
 ### Sample Semaphore configuration snippet
 
