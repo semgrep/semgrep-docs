@@ -297,7 +297,7 @@ To set up one-way sync from Semgrep to Jira:
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 3. [Enable a Jira integration](#enable-the-jira-integration) for your Semgrep organization.
-4. Expand **Customize ticket creation** so that you can locate the **Jira Sync** section.
+4. Expand **Customize ticket creation** and locate the **Jira Sync** section.
 5. Select a workflow that you have set up in Jira for the default project using the drop-down menu.
     ![New Setup Card](/img/jira-sync-setup-card.png#md-width)
 6. Select the transition, or change, that you want to occur when a sync is triggered. Note that, if you select **None Selected** as the transition option, **no transition** is triggered.
