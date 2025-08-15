@@ -278,16 +278,8 @@ _**Figure.** Secrets ticket created._
 
 One-way sync allows Semgrep to update the Jira ticket associated with a finding when Semgrep determines that you have fixed the finding.
 
-:::note One-way sync limitations
-Currently, the following limitations apply to one-way sync:
-
-- One-way sync only works with Semgrep Code findings with a status of **Fixed**.
-- The only items synced are those with a 1:1 mapping between the Semgrep finding and the Jira ticket.
-- Only the default project and issue types are supported.
-- Team-managed projects are supported for all users. 
-  - Company-managed projects are supported only if your Jira administrator set up the Semgrep Jira integration initially. 
-- You can only trigger one [Jira transition](https://support.atlassian.com/jira-software-cloud/docs/transition-an-issue/).
-  - If your selected transition is removed in Jira, Semgrep is unable to sync or replay any sync attempts while the transition is removed.
+:::info
+One-way sync is currently in **private beta**. Please contact [Support](/support) for access to this feature.
 :::
 
 ### Enable one-way sync for new integrations
@@ -316,6 +308,18 @@ If you have an existing Jira integration configured, you must reauthorize Jira t
 1. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 2. Find your Jira integration, then expand **Customize ticket creation** so that you can locate the **Jira Sync** section.
 3. Click **Re-authorize to enable Jira Sync**.
+
+:::note One-way sync limitations
+Currently, the following limitations apply to one-way sync:
+
+- One-way sync only works with Semgrep Code findings with a status of **Fixed**.
+- The only items synced are those with a 1:1 mapping between the Semgrep finding and the Jira ticket.
+- Only the default project and issue types are supported.
+- Team-managed projects are supported for all users. 
+  - Company-managed projects are supported only if your Jira administrator set up the Semgrep Jira integration initially. 
+- You can only trigger one [Jira transition](https://support.atlassian.com/jira-software-cloud/docs/transition-an-issue/).
+  - If your selected transition is removed in Jira, Semgrep is unable to sync or replay any sync attempts while the transition is removed.
+:::
 
 ## Create tickets through the Semgrep API
 
