@@ -284,17 +284,13 @@ Currently, the following limitations apply to one-way sync:
 - One-way sync only works with Semgrep Code findings with a status of **Fixed**.
 - The only items synced are those with a 1:1 mapping between the Semgrep finding and the Jira ticket.
 - Only the default project and issue types are supported.
-- Only team-managed projects are supported. 
-  - Company-managed projects are supported only if your Jira administrator set up Semgrep integration initially. 
-- You can only trigger one Jira transition.
+- Team-managed projects are supported for all users. 
+  - Company-managed projects are supported only if your Jira administrator set up the Semgrep Jira integration initially. 
+- You can only trigger one [Jira transition](https://support.atlassian.com/jira-software-cloud/docs/transition-an-issue/).
   - If your selected transition is removed in Jira, Semgrep is unable to sync or replay any sync attempts while the transition is removed.
 :::
 
 ### Enable one-way sync for new integrations
-
-:::info
-Before proceeding, ensure that you have [enabled a Jira integration](#enable-the-jira-integration) for your Semgrep organization.
-:::
 
 To set up one-way sync from Semgrep to Jira:
 
@@ -309,6 +305,10 @@ To set up one-way sync from Semgrep to Jira:
 7. Click **Save**.
 
 ### Enable one-way sync for existing integrations
+
+:::info
+Before proceeding, ensure that you have [enabled a Jira integration](#enable-the-jira-integration) for your Semgrep organization.
+:::
 
 If you have an existing Jira integration configured, you must reauthorize Jira to enable one-way sync. This step is necessary because Semgrep requires an additional permission `manage:jira-configuration` to retrieve and trigger Jira transitions.
 
