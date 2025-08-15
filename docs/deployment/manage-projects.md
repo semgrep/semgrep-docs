@@ -13,12 +13,12 @@ tags:
 View, sort, and tag your projects through the **Projects** page. Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high number of findings.
 
 :::note What is a project?
-A **project** is any repository that you have scanned with Semgrep AppSec Platform through CI or Semgrep Managed Scans. It includes that repository's findings and metadata.
+A **project** is a repository, or part of a repository, that you can scan through Semgrep AppSec Platform, either using CI or Semgrep Managed Scans. Its scans can be viewed on the **Project details** page, and its findings can be viewed on the individual Semgrep products' **Finding** pages.
 :::
 
 The **Projects** page features two components:
 
-- The **Scanning** page lists projects that are actively being scanned by Semgrep. These scans are either manually started by you, triggered by your CI/CD system, or automatically scanned by Semgrep Managed Scanning.
+The **Scanning** page lists all projects that have ever been provisioned or scanned by Semgrep, regardless of whether the project is actively being scanned. For active scans, they are either manually started by you, triggered by your CI/CD system, or automatically scanned by Semgrep Managed Scanning. This page also lists inactive projects *if* the repository hasn't been archived by the source code manager (SCM).
 - The **Not scanning** page lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. The **Not scanning** page also lists projects where you've archived the corresponding GitHub repositories.
 
 ![Semgrep AppSec Platform > Projects page](/img/projects-page.png)
