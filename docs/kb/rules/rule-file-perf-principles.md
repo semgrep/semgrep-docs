@@ -50,7 +50,7 @@ of `--timeout 5` `--timeout-threshold 3` means that a file times out if:
 
 You can configure these flags to skip long files after a shorter timeout period
 or when a smaller number of rules timeout. Usually, Semgrep matches files pretty
-quickly, but minified Javascript files can cause significant performance issues.
+quickly, but minified JavaScript files can cause significant performance issues.
 
 Semgrep sets a limit of 1 MB for each file scanned, but you can modify this
 setting using the `--max-target-bytes` flag. For example, if your flag is
