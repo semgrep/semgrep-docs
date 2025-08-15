@@ -150,8 +150,8 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
 
 Before proceeding, ensure that you have:
-    - One or more repositories hosted by a source code manager supported by Semgrep. See [PR or MR comments](/category/pr-or-mr-comments) for requirements information specific to your source code manager (SCM).
-    - Completed a [Semgrep core deployment](/deployment/core-deployment)
+    - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
+    - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
 
 To triage a finding:
 
@@ -164,8 +164,8 @@ To triage a finding:
 
 Triaging a finding as **Ignored** through a comment changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the pull request or merge request conversation itself is **not** automatically resolved by this process.
 
-:::info GitHub legacy commends
-For GitHub users, Semgrep supports older versions of this functionality that used the following commands:
+:::info Legacy commands
+Semgrep supports older versions of this feature that used the following commands:
 - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
 - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
 :::
