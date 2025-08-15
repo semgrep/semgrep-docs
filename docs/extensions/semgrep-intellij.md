@@ -27,7 +27,7 @@ $ brew install semgrep
 $ python3 -m pip install semgrep
 ```
 
-> Semgrep's IntelliJ extension doesn't currently work on Windows machines.
+> Semgrep's IntelliJ extension for Windows users is currently in **public beta**.
 
 ## Quickstart
 
