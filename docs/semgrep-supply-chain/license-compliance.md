@@ -17,7 +17,7 @@ At least one repository that scans for dependencies through Semgrep Supply Chain
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
-Whenever Semgrep determines that a dependency with a disallowed package has been added, it can notify you of this in a pull request or merge request comment:
+Whenever Semgrep determines that a dependency or version with a disallowed package has been added, it can notify you of this in a pull request or merge request comment:
 
 ![MR comment with license compliance information shown](/img/license-compliance-pr-comment.png#md-width)
 _**Figure**. GitLab merge request comment featuring license compliance information._
