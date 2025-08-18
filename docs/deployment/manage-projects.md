@@ -13,7 +13,7 @@ tags:
 View, sort, and tag your projects through the **Projects** page. Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high number of findings.
 
 :::note What is a project?
-A **project** is a repository, or part of a repository, that you scan through Semgrep AppSec Platform, either using CI or Semgrep Managed Scans. This also includes local CLI scans whose results you have sent for viewing on Semgrep AppSec Platform. A project's scans can be viewed on the **Project details** page, and its findings can be viewed on the individual Semgrep products' **Finding** pages.
+A **project** is a repository, or part of a repository, that you scan through Semgrep AppSec Platform, either using CI or Semgrep Managed Scans. This also includes local CLI scans whose results you have sent for viewing on Semgrep AppSec Platform. A project's scans can be viewed on the **Project details** page, and its findings can be viewed on the individual Semgrep products' **Findings** pages.
 :::
 
 The **Projects** page features two components:
