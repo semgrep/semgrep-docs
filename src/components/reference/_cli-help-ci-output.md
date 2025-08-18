@@ -411,6 +411,10 @@ OPTIONS
        --x-merge-partial-results-output=VAL
            Internal flag.
 
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
+
        --x-partial-config=VAL
            Internal flag.
 
