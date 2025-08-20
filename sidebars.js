@@ -23,6 +23,12 @@ module.exports = {
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
       type: 'link',
+      label: 'Tutorials',
+      href: '/tutorials',
+      className: 'top-category-separator'
+    },
+    {
+      type: 'link',
       label: 'Knowledge base',
       href: '/kb',
       className: 'top-category-separator'
