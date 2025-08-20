@@ -26,6 +26,12 @@ module.exports = {
       href: '/kb/',
       className: 'top-category-separator'
     },
+    {
+      type: 'link',
+      label: 'Tutorials',
+      href: '/tutorials/',
+      className: 'top-category-separator'
+    },    
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
     { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
