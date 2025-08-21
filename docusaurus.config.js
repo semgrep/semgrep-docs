@@ -74,7 +74,7 @@ module.exports = {
         },
         */
         { to: 'kb', label: 'Knowledge base', position: 'left'},
-        { to: 'https://academy.semgrep.dev', label: 'Semgrep Academy', position: 'left'},
+        { to: 'academy', label: 'Semgrep Academy', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-', label: 'Login', position: 'right', target: '_self' },
       ],
     },
