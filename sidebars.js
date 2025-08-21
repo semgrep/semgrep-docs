@@ -22,9 +22,9 @@ module.exports = {
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
-      type: 'link',
-      label: 'Tutorials',
-      href: '/tutorials',
+      type: 'ref',
+      id: 'academy/overview',
+      label: 'Academy',
       className: 'top-category-separator'
     },
     {
@@ -808,4 +808,66 @@ module.exports = {
         ],
     },
   ],
+  academySidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+      type: 'category',
+      label: 'Semgrep Academy',
+      collapsible: false,
+      items: [
+        {
+          type: 'link',
+          label: 'Video Courses',
+          href: 'https://academy.semgrep.dev'
+        },
+        {
+          type: 'category',
+          label: 'Security Foundations',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'academy/security-foundations/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'SAST',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'academy/security-foundations/sast/overview'
+              },
+              items: [
+                'academy/security-foundations/sast/static-application-security-testing',  
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Secrets',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'academy/security-foundations/secrets/overview'
+              },
+              items: [
+                'academy/security-foundations/secrets/secrets-detection',  
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Supply Chain',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'academy/security-foundations/supply-chain/overview'
+              },
+              items: [
+                'academy/security-foundations/supply-chain/supply-chain-security',  
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 };
