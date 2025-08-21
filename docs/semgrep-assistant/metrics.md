@@ -36,7 +36,7 @@ Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions
     </tr>
     <tr>
         <td>Average reduction in findings[^2]</td>
-        <td><strong>50%</strong></td>
+        <td><strong>60%</strong></td>
     </tr>
     <tr>
         <td>Human-agree rate</td>
