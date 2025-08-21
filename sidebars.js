@@ -816,6 +816,11 @@ module.exports = {
       collapsible: false,
       items: [
         {
+          type: 'doc',
+          id: 'academy/overview',
+          label: 'Academy Overview'
+        },
+        {
           type: 'link',
           label: 'Video Courses',
           href: 'https://academy.semgrep.dev'
