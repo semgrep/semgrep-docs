@@ -23,24 +23,24 @@ User feedback shows the aggregated and anonymized performance of Assistant acros
 
 Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions as they receive Assistant suggestions in their PR or MR. This ensures that sampling bias is reduced, as both developers and AppSec engineers can provide feedback. 
 
-**Results as of Jan 10, 2024:**
+**Results as of Aug 21, 2025:**
 
 <table>
     <tr>
         <td>Customers in dataset</td>
-        <td><strong>1000+</strong></td>
+        <td><strong>3500+</strong></td>
     </tr>
     <tr>
         <td>Findings analyzed</td>
-        <td><strong>250,000+</strong></td>
+        <td><strong>6,500,000+</strong></td>
     </tr>
     <tr>
         <td>Average reduction in findings[^2]</td>
-        <td><strong>20%</strong></td>
+        <td><strong>60%</strong></td>
     </tr>
     <tr>
         <td>Human-agree rate</td>
-        <td><strong>92%</strong></td>
+        <td><strong>96%</strong></td>
     </tr>
     <tr>
         <td>Median time to resolution</td>
