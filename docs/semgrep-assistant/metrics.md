@@ -28,7 +28,7 @@ Users are prompted in-line to "thumbs up" or "thumbs down" Assistant suggestions
 <table>
     <tr>
         <td>Customers in dataset</td>
-        <td><strong>1000+</strong></td>
+        <td><strong>3500+</strong></td>
     </tr>
     <tr>
         <td>Findings analyzed</td>
