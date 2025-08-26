@@ -2,7 +2,7 @@
 title: Semgrep Academy
 description: Learn Semgrep through comprehensive, hands-on courses and practical examples
 hide_title: false
-displayed_sidebar: academySidebar
+displayed_sidebar: learnSidebar
 slug: /academy
 hide_table_of_contents: true
 ---

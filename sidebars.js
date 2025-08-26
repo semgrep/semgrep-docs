@@ -23,7 +23,7 @@ module.exports = {
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
       type: 'ref',
-      id: 'academy/overview',
+      id: 'learn/overview',
       label: 'Academy',
       className: 'top-category-separator'
     },
@@ -808,17 +808,17 @@ module.exports = {
         ],
     },
   ],
-  academySidebar: [
+  learnSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
       type: 'category',
-      label: 'Semgrep Academy',
+      label: 'Semgrep Learn',
       collapsible: false,
       items: [
         {
           type: 'doc',
-          id: 'academy/overview',
-          label: 'Academy Overview'
+          id: 'learn/overview',
+          label: 'Learn Overview'
         },
         {
           type: 'link',
@@ -831,7 +831,7 @@ module.exports = {
           collapsible: true,
           link: {
             type: 'doc',
-            id: 'academy/security-foundations/overview'
+            id: 'learn/security-foundations/overview'
           },
           items: [
             {
@@ -840,10 +840,10 @@ module.exports = {
               collapsible: true,
               link: {
                 type: 'doc',
-                id: 'academy/security-foundations/sast/overview'
+                id: 'learn/security-foundations/sast/overview'
               },
               items: [
-                'academy/security-foundations/sast/static-application-security-testing',  
+                'learn/security-foundations/sast/static-application-security-testing',  
               ]
             },
             {
@@ -852,10 +852,10 @@ module.exports = {
               collapsible: true,
               link: {
                 type: 'doc',
-                id: 'academy/security-foundations/secrets/overview'
+                id: 'learn/security-foundations/secrets/overview'
               },
               items: [
-                'academy/security-foundations/secrets/secrets-detection',  
+                'learn/security-foundations/secrets/secrets-detection',  
               ]
             },
             {
@@ -864,10 +864,10 @@ module.exports = {
               collapsible: true,
               link: {
                 type: 'doc',
-                id: 'academy/security-foundations/supply-chain/overview'
+                id: 'learn/security-foundations/supply-chain/overview'
               },
               items: [
-                'academy/security-foundations/supply-chain/supply-chain-security',  
+                'learn/security-foundations/supply-chain/supply-chain-security',  
               ]
             }
           ]
