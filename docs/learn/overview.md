@@ -1,9 +1,9 @@
 ---
-title: Semgrep Academy
+title: Semgrep Learn
 description: Learn Semgrep through comprehensive, hands-on courses and practical examples
 hide_title: false
 displayed_sidebar: learnSidebar
-slug: /academy
+slug: /learn
 hide_table_of_contents: true
 ---
 
@@ -30,7 +30,7 @@ Learn a new skill, tool, or change careers completely, the choice is up to you. 
         </CardBody>
     </div>
   </Card>
-  <Card className={'card-50'} link='/academy/security-foundations/sast/overview'>
+  <Card className={'card-50'} link='/learn/security-foundations/sast/overview'>
     <CardImage cardImageUrl='/img/icon-rules.svg' />
     <div class="card__copy">
         <CardHeader>Security Foundations</CardHeader>

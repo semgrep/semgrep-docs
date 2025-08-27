@@ -24,7 +24,7 @@ module.exports = {
     {
       type: 'ref',
       id: 'learn/overview',
-      label: 'Academy',
+      label: 'Semgrep Learn',
       className: 'top-category-separator'
     },
     {
@@ -846,30 +846,6 @@ module.exports = {
                 'learn/security-foundations/sast/static-application-security-testing',  
               ]
             },
-            {
-              type: 'category',
-              label: 'Secrets',
-              collapsible: true,
-              link: {
-                type: 'doc',
-                id: 'learn/security-foundations/secrets/overview'
-              },
-              items: [
-                'learn/security-foundations/secrets/secrets-detection',  
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Supply Chain',
-              collapsible: true,
-              link: {
-                type: 'doc',
-                id: 'learn/security-foundations/supply-chain/overview'
-              },
-              items: [
-                'learn/security-foundations/supply-chain/supply-chain-security',  
-              ]
-            }
           ]
         }
       ]
