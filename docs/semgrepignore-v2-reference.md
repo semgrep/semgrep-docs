@@ -84,7 +84,7 @@ Semgrep looks up Semgrepignore patterns in the following places:
 * command-line `--exclude` and `--include` filters;
 * the `.semgrepignore` file in the current folder (v1 only);
 * all the `.semgrepignore` files in the project (v2 only);
-* all the `.gitignore` files in the project in Git projects (v2 only);
+* all the `.gitignore` files in the project (v2 only);
 * default Semgrepignore patterns.
 
 These sources of filters are grouped into precedence levels.
