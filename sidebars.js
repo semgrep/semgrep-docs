@@ -411,7 +411,7 @@ module.exports = {
         },
         'semgrepignore-v2-reference',
         'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif'rm -rf ~/.cursor*
+        'semgrep-appsec-platform/json-and-sarif'
       ]
     }
   ],
