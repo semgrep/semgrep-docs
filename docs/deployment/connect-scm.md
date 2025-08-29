@@ -43,7 +43,6 @@ If you opted to scan a GitHub or GitLab repository when you initially signed in,
     {label: 'Azure DevOps Cloud', value: 'azure-devops-cloud'},
     {label: 'Bitbucket Cloud', value: 'bitbucket-cloud'},
     {label: 'GitHub Cloud', value: 'github-cloud'},
-    {label: 'GitHub Enterprise Cloud', value: 'ghec'},
     {label: 'GitLab Cloud', value: 'gitlab-cloud'},
     ]}
 >
@@ -112,9 +111,7 @@ These steps are for users who sign in to Semgrep through a **non-GitHub** SSO pr
 
 Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev). Then, [<i class="fas fa-external-link fa-xs"></i> contact Support](/support#contact-support) and inform them which Semgrep account needs to be connected to the GitHub org. Support can help you finalize the connection.
 
-</TabItem>
-
-<TabItem value='ghec'>
+### GitHub Enterprise Cloud with data residency
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
@@ -132,7 +129,7 @@ Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Se
    1. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
    1. After you name your app, choose the GHE org to which you want it installed.
    1. Select the org that you want to act as the owner of the app, and click **Install**.
-   1. Wait for the installation to complete. When done, you will be redirected to Semgrep.
+   1. Wait for the installation to complete. When done, you are redirected to Semgrep.
    1. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your SCM shows a **Connected** badge.
    1. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
       - You can click **Configure** to choose the repositories to which the app has access. Additionally, you can go to **App settings** to customize the permissions granted to the app.
@@ -183,7 +180,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 1. Go to **<i class="fa-solid fa-gear"></i> Settings** > **Source code managers**, and click **Add > Bitbucket Data Center**.
 1. In the **Connect your Bitbucket project (key)** dialog box, provide:
    - The **Name of your Bitbucket project (key)**. This must be the project key, which you can find by navigating to `<YOUR_BITBUCKET_DATA_CENTER_BASE_URL>/projects`.
-   - The **URL** to access your installation of Bitbucket Data Center; this is your fully-qualified domain name.
+   - The **URL** to access your installation of Bitbucket Data Center; this is your fully qualified domain name.
    - The **Access Token** that grants Semgrep permission to communicate with your project. Semgrep expects an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) with `PROJECT_ADMIN` permissions.
 1. Click **Connect** to save and proceed.
 1. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
