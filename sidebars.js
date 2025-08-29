@@ -844,7 +844,15 @@ module.exports = {
               },
               items: [
                 'learn/security-foundations/sast/static-application-security-testing',
-                'learn/security-foundations/sast/security-testing-workflow'
+                'learn/security-foundations/sast/security-testing-workflow',
+                {
+                  type: 'category',
+                  label: 'Vulnerabilities',
+                  collapsible: true,
+                  items: [
+                    'learn/security-foundations/sast/vulnerabilities/xml-security'
+                  ]
+                }
               ]
             },
           ]

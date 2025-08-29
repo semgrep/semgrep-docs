@@ -1,6 +1,6 @@
 ---
 title: Incorporating security testing into developer workflows
-description: Learn how to implement SAST with Semgrep to find security vulnerabilities in your code
+description: Learn how to incorporating security testing into developer workflows
 hide_title: false
 displayed_sidebar: learnSidebar
 ---
