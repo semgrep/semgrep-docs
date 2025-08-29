@@ -22,6 +22,12 @@ module.exports = {
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
+      type: 'ref',
+      id: 'learn/overview',
+      label: 'Semgrep Learn',
+      className: 'top-category-separator'
+    },
+    {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb',
@@ -794,4 +800,56 @@ module.exports = {
         ],
     },
   ],
+  learnSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+      type: 'category',
+      label: 'Semgrep Learn',
+      collapsible: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'learn/overview',
+          label: 'Learn Overview'
+        },
+        {
+          type: 'link',
+          label: 'Video Courses',
+          href: 'https://academy.semgrep.dev'
+        },
+        {
+          type: 'category',
+          label: 'Security Foundations',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/security-foundations/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'SAST',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/sast/overview'
+              },
+              items: [
+                'learn/security-foundations/sast/static-application-security-testing',
+                'learn/security-foundations/sast/security-testing-workflow',
+                {
+                  type: 'category',
+                  label: 'Vulnerabilities',
+                  collapsible: true,
+                  items: [
+                    'learn/security-foundations/sast/vulnerabilities/xml-security'
+                  ]
+                }
+              ]
+            },
+          ]
+        }
+      ]
+    }
+  ]
 };
