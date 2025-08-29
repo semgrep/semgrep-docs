@@ -12,7 +12,7 @@ A [Static Application Security Testing (SAST)](https://semgrep.dev/products/sem
 
 Some key features of a good SAST tool:
 
-- The static analysis engine should **support whole program taint analysis** which tracks the ****flow of tainted data such as untrusted user input and any expressions that operate upon it that may be exploited.
+- The static analysis engine should **support whole program taint analysis** which tracks the flow of tainted data such as untrusted user input and any expressions that operate upon it that may be exploited.
 - **Support many programming language and frameworks** used during development, this includes core programming languages, infrastructure as code, and scripts
 - Work and **integrate seamlessly with any existing developer tooling** like IDEs, pre-commit, PR/MR comments, CI/CD pipelines, etc. Finding data should be exportable into common formats such as proprietary JSON, SARIF, or CSV so information can be sent to vulnerability management systems and for viewing metrics/trends overtime.
 - Support **easy to create customization**, which is crucial to be able to detect vulnerabilities for internally developed libraries and frameworks that out-of-the box solutions would miss.
@@ -39,7 +39,7 @@ An example of **vulnerable** **sinks**:
 - File Input/Output system operations
 - Serialization/deserialization methods
 
-![image.png](assets/image.png)
+![dataflow example](assets/dataflow.png)
 
 Just finding the usage of a vulnerable function such as `exec(...)` could uncover issues, but that will produce a significant amount more of false positives than being able to reason through findings which come from actionable locations such as user-controlled input.
 
@@ -57,30 +57,13 @@ Modern development teams don’t use just one language, your SAST solution shoul
 
 To get teams to action on SAST findings they need to be surfaced in the places people will look at them, which is your development and deployment workflows.  
 
-### Local Development
+## Local Development & Integrations
 
-Getting vulnerabilities in-front of developers as code is being written will lead to vulnerabilities being resolved before they are even pushed to a source-code management system such as GitHub. A SAST solution should be a fast feedback loop on developers local machines otherwise it won’t be used and will be usually circumvented to enable developer velocity, the places you can enforce SAST during local development are:
+Effective SAST implementation requires integration at multiple stages of development. For developers to adopt security scanning, it must fit seamlessly into their workflow.
 
-- Having IDE support, developers are more likely to resolve issues in their IDE, they are more likely to fix the issue if the warning is showing up the code they have just written
-- The ability to trigger a scan manually via the CLI
-- Offering a local or remote MCP server when leveraging LLMs to aid in local development
-- Tracked changes ready to be pushed via git can be quickly scanned via `pre-commit` hooks these can be set-up to fail for specific rules or categories of issues
-- Before the server accepts incoming PRs, if supported you can also perform quick-scans via `pre-receive` hooks if the platform supports it which will help before others may review the PRs which will be one less issue for them to review
+At the local development stage, SAST tools should provide immediate feedback as code is being written. This helps catch vulnerabilities before they even reach your repository. Later in the pipeline, integrations with your CI/CD systems ensure thorough scanning before deployment.
 
-### Integrations
-
-Once code has been pushed to remote repositories you can configure SAST solutions to perform either fast, or more thorough in-depth scan configurations to ensure 
-
-- Integrate with Source code management (SCM) platforms to automatically comment on pull/merge requests
-- Configureable CI/CD scan configurations before release
-- Full codebase scans for thorough coverage
-
-For reporting purposes, you may want to also ensure findings are sent to a platform that can be used to track issues over time, and integrate for reporting or compliance:
-
-- Results should be exportable to standardized formats (SARIF, JSON, CSV) for integration with other tools such as vulnerability management systems or ASPMs
-- Findings should be configurable to send to a centralized dashboard so findings can be tracked over time
-- Have the ability to send findings to teams via ticketing systems such as Jira and Linear
-- Have the ability to trigger webhooks or send notifications via slack or teams with new vulnerabilities
+For a comprehensive guide on how to effectively incorporate security testing throughout your development lifecycle, check out our detailed article on [Incorporating security testing into developer workflows](./security-testing-workflow.md).
 
 ## Customization
 

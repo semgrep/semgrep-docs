@@ -843,7 +843,8 @@ module.exports = {
                 id: 'learn/security-foundations/sast/overview'
               },
               items: [
-                'learn/security-foundations/sast/static-application-security-testing',  
+                'learn/security-foundations/sast/static-application-security-testing',
+                'learn/security-foundations/sast/security-testing-workflow'
               ]
             },
           ]
