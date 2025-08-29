@@ -57,8 +57,6 @@ Modern development teams don’t use just one language, your SAST solution shoul
 
 To get teams to action on SAST findings they need to be surfaced in the places people will look at them, which is your development and deployment workflows.  
 
-## Local Development & Integrations
-
 Effective SAST implementation requires integration at multiple stages of development. For developers to adopt security scanning, it must fit seamlessly into their workflow.
 
 At the local development stage, SAST tools should provide immediate feedback as code is being written. This helps catch vulnerabilities before they even reach your repository. Later in the pipeline, integrations with your CI/CD systems ensure thorough scanning before deployment.
