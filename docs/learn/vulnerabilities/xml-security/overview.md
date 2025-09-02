@@ -3,6 +3,7 @@ title: XML Security
 description: Learn about XML Security
 hide_title: false
 displayed_sidebar: learnSidebar
+slug: /learn/vulnerabilities/xml-security
 ---
 
 # XML Security
@@ -164,6 +165,4 @@ We covered the basics of XML, walked through the common attacks of entity expans
 
 To dive deeper, explore the [Semgrep XML Security resources](https://semgrep.dev/docs/cheat-sheets/java-xxe) and consider scanning your code with Semgrep to catch risky configurations before attackers do.
 
-Just like the OWASP top 10 reflects, XML risks haven’t disappeared—they’ve just become part of a broader story about secure configuration.
-
-#
+Just like the OWASP top 10 reflects, XML risks haven't disappeared—they've just become part of a broader story about secure configuration.

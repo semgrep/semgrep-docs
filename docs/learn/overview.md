@@ -14,11 +14,18 @@ import CardHeader from '@site/src/components/Card/CardHeader'
 import CardImage from '@site/src/components/Card/CardImage'
 
 
-Welcome to Semgrep Academy, your one stop shop for Application Security Foundations, Secure Coding, Functional Programming, Secure Guardrails and more! Whether you are a seasoned developer, security professional, or just starting your journey, Semgrep Academy is here to equip you with the skills and knowledge needed to excel in our rapidly growing industry. 
+Welcome to Semgrep Learn, your comprehensive resource for application security knowledge, rule writing expertise, and static analysis fundamentals! Whether you're a seasoned security engineer, a developer looking to improve code quality, or just starting your AppSec journey, Semgrep Learn provides the resources you need to excel.
 
-At Semgrep, we believe that knowledge and education should be accessible to everyone. That's why our academy is completely free for the whole world. Regardless of your background or experience level, you can find a course in our academy that meets you where you’re at. We offer a certificate of completion for you to show off when you finish a course, hands-on exercises, quizzes to test your knowledge, videos, PDF downloads, and so much more. 
+At Semgrep, we believe security knowledge should be accessible to everyone. That's why our learning platform offers free, in-depth content covering:
 
-Learn a new skill, tool, or change careers completely, the choice is up to you. So what are you waiting for? Browse through our courses and join the learning party! 
+- **SAST Fundamentals**: Understand how static analysis security testing works and why it matters
+- **Writing Semgrep Rules**: Master the art of creating custom rules to find vulnerabilities in your codebase
+- **Vulnerability Topics**: Deep dives into common security issues like SQL injection, XSS, and more
+- **Secure Coding Practices**: Learn how to write code that's secure by design
+
+Our platform includes interactive tutorials, practical examples, downloadable resources, and step-by-step guides to help you implement what you've learned. Whether you want to become a rule-writing expert or simply understand how to better secure your applications, Semgrep Learn meets you where you are.
+
+Ready to enhance your security knowledge? Explore our articles and tutorials today and join the growing community of Semgrep security experts!
 
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='https://academy.semgrep.dev'>
@@ -35,7 +42,7 @@ Learn a new skill, tool, or change careers completely, the choice is up to you. 
     <div class="card__copy">
         <CardHeader>Security Foundations</CardHeader>
         <CardBody>
-          Learn the fundamentals of SAST, SCA, and Secrets.
+          Learn the fundamentals of SAST.
         </CardBody>
     </div>
   </Card>
@@ -45,6 +52,15 @@ Learn a new skill, tool, or change careers completely, the choice is up to you. 
         <CardHeader>Rules</CardHeader>
         <CardBody>
           Learn to write rules through interactive learning.
+        </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/learn/vulnerabilities/overview'>
+    <CardImage cardImageUrl='/img/icon-rules.svg' />
+    <div class="card__copy">
+        <CardHeader>Vulnerabilities</CardHeader>
+        <CardBody>
+          Learn about common security vulnerabilities and how to prevent them.
         </CardBody>
     </div>
   </Card>

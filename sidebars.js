@@ -31,7 +31,7 @@ module.exports = {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb',
-      className: 'top-category-separator'
+      className: 'top-category'
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
@@ -821,11 +821,6 @@ module.exports = {
           label: 'Learn Overview'
         },
         {
-          type: 'link',
-          label: 'Video Courses',
-          href: 'https://academy.semgrep.dev'
-        },
-        {
           type: 'category',
           label: 'Security Foundations',
           collapsible: true,
@@ -843,18 +838,32 @@ module.exports = {
                 id: 'learn/security-foundations/sast/overview'
               },
               items: [
-                'learn/security-foundations/sast/static-application-security-testing',
-                'learn/security-foundations/sast/security-testing-workflow',
-                {
-                  type: 'category',
-                  label: 'Vulnerabilities',
-                  collapsible: true,
-                  items: [
-                    'learn/security-foundations/sast/vulnerabilities/xml-security'
-                  ]
-                }
+                'learn/security-foundations/sast/security-testing-workflow'
               ]
             },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Vulnerabilities',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/vulnerabilities/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'XML Security',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/xml-security/overview'
+              },
+              items: [
+                // Additional XML security topics can be added here
+              ]
+            }
           ]
         }
       ]

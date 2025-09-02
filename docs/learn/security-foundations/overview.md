@@ -7,4 +7,8 @@ displayed_sidebar: learnSidebar
 
 # Security Foundations
 
-TODO
+Welcome to our comprehensive guide on application security essentials. Explore the fundamental concepts that will strengthen your organization's security posture.
+
+*Featured Articles*
+
+* [Static Application Security Testing (SAST)](sast/overview): Identify vulnerabilities in source code before deployment with tools that analyze code without execution
