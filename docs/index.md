@@ -128,14 +128,17 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>July 2025 release notes summary</h3>
+<h3>August 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Support for running Semgrep natively on Windows is now in **public beta**. This applies to running Semgrep through the CLI and an IDE such as Cursor, VS Code, and IntelliJ.
-- Supply Chain support for PHP reachability analysis is now **generally available (GA)**.
-- Beginning with Semgrep v1.127.0, `uv` is a supported package manager for [Dependency Paths](/semgrep-supply-chain/dependency-search#view-the-dependency-path). This means that `uv` is a supported package manager across all Supply Chain features.
-- You can now see which memories were used by Semgrep Assistant when it generated remediation guidance for a specific finding. Semgrep displays this information on the finding details page.
-- Semgrep Secrets now makes up to three attempts when validating Amazon Web Services (AWS) credentials that failed due to possibly transient reasons.
+- Added support for interfile analysis for Scala projects.
+- **Jira integration:**
+  - The labels `Malicious Dependency` and `Non-malicious Vulnerability` have been changed to `Malicious Dependency` and `Not Malicious`, respectively.
+  - Jira tickets created for malicious dependency findings now feature more prominent visual features, such as bolded rule messages, than other reachable findings.
+  - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 70.
+- Supply Chain's reachability analysis now covers all high and critical severity CVEs from supported sources starting 2017 and onward for Python packages.
+- Supply Chain policies now support the exclusion of conditions. For example, you can define a condition such as `When Reachability is not Always reachable`.
+- Added support for the use of custom AWS Bedrock keys for use with Semgrep Assistant.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
