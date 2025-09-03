@@ -10,14 +10,12 @@ tags:
 # Detect and remove malicious dependencies
 
 :::info
-This feature is in public beta. To join, reach out to [support](/support).
+This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
 **Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
 
 Semgrep is able to detect malicious dependencies in your projects and in pull requests (PRs) or merge requests (MRs).
-
-This feature is enabled after opting in to the beta program.
 
 ## Supported package managers
 
