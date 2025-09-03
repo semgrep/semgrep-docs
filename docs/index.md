@@ -134,9 +134,9 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 - Added support for interfile analysis for Scala projects.
 - **Jira integration:**
   - The labels `Malicious Dependency` and `Non-malicious Vulnerability` have been changed to `Malicious Dependency` and `Not Malicious`, respectively.
-  - Jira tickets created for malicious dependency findings now feature more prominent visual features, such as bolded rule messages, than other reachable findings.
+  - Jira tickets created for malicious dependency findings now include more prominent visuals, such as bolded rule messages, to help them stand out from other reachable findings.
   - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 70.
-- Supply Chain's reachability analysis now covers all high and critical severity CVEs from supported sources starting 2017 and onward for Python packages.
+- Supply Chain's reachability analysis now covers all high and critical severity CVEs in Python packages from supported sources starting 2017 and onward.
 - Supply Chain policies now support the exclusion of conditions. For example, you can define a condition such as `When Reachability is not Always reachable`.
 - Added support for the use of custom AWS Bedrock keys for use with Semgrep Assistant.
 
