@@ -25,7 +25,7 @@ The following updates were made to Semgrep in August 2025.
   - Jira tickets created for malicious dependency findings now include more prominent visuals, such as bolded rule messages, to help them stand out from other reachable findings.
   - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 70.
 - You can now connect to your GitHub repositories without needing to contact Semgrep Support, even if you don't use GitHub as your SSO provider with Semgrep.
-- You can now view a project's details page even if the scan hasn't finished.
+- You can now view a project's details page while the scan is still in progress.
 
 ### Fixed
 
@@ -49,7 +49,7 @@ The following updates were made to Semgrep in August 2025.
 ### Changed
 
 - Semgrep scans no longer attempt to parse `tsconfig` files for non-TypeScript scans.
-- **CLI**: the `--json` output of Semgrep's CLI now includes a `time` field or object with some profiling data.
+- **CLI**: the `--json` output of Semgrep's CLI now includes a `time` field or `time` object with profiling data.
 
 ### Fixed
 
@@ -63,7 +63,7 @@ ensure keys for match-based IDs are stable.
 
 ### Added
 
-- Supply Chain's reachability analysis now covers all high and critical severity CVEs from supported sources starting 2017 and onward for Python packages.
+- Supply Chain's reachability analysis now covers all high and critical severity CVEs in Python packages from supported sources starting 2017 and onward.
 - Supply Chain policies now support the exclusion of conditions. For example, you can define a condition such as `When Reachability is not Always reachable`.
 
 ## 🤖 Semgrep Assistant
