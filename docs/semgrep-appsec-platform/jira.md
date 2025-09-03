@@ -27,7 +27,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 The Semgrep Jira integration provides the following capabilities:
 
 - You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
-- You can create a single ticket for multiple findings (up to 50) that were detected by a single rule in the same project, or create individual tickets per finding.
+- You can create a single ticket for multiple findings (up to 75) that were detected by a single rule in the same project, or create individual tickets per finding.
 - You can automate the creation of tickets for high severity, high confidence findings in your [primary branch](/deployment/primary-branch).
   - Automated ticket creation can be configured on a per-product setting.
   - For Supply Chain findings, tickets are created for reachable findings.
