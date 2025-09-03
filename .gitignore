@@ -31,4 +31,3 @@ yarn-error.log*
 
 # Ignore .history
 /.history/
-docs/extensions/pre-commit.md
