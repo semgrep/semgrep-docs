@@ -854,6 +854,42 @@ module.exports = {
           items: [
             {
               type: 'category',
+              label: 'Command Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/command-injection/overview'
+              },
+              items: [
+                'learn/vulnerabilities/command-injection/argo-injection'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Open Redirect',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/open-redirect/overview'
+              },
+              items: [
+                // Additional Open Redirect topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Server Side Request Forgery',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/server-side-request-forgery/overview'
+              },
+              items: [
+                // Additional SSRF topics can be added here
+              ]
+            },
+            {
+              type: 'category',
               label: 'XML Security',
               collapsible: true,
               link: {
