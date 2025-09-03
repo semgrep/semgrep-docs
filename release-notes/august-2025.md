@@ -23,7 +23,7 @@ The following updates were made to Semgrep in August 2025.
 - **Jira:**
   - The labels `Malicious Dependency` and `Non-malicious Vulnerability` have been changed to `Malicious Dependency` and `Not Malicious`, respectively.
   - Jira tickets created for malicious dependency findings now include more prominent visuals, such as bolded rule messages, to help them stand out from other reachable findings.
-  - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 70.
+  - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 75.
 - You can now connect to your GitHub repositories without needing to contact Semgrep Support, even if you don't use GitHub as your SSO provider with Semgrep.
 - You can now view a project's details page while the scan is still in progress.
 
