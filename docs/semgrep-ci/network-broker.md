@@ -116,7 +116,7 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
 1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the network broker version number:
 
-  <pre class="language-console"><code>echo <span className="placeholder">YOUR_PRIVATE_KEY</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
+  <pre class="language-console"><code>echo <span className="placeholder">"YOUR_PRIVATE_KEY"</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
   :::info Key sharing
   Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
