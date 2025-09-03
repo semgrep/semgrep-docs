@@ -16,9 +16,12 @@ import PL from '@site/src/components/Placeholder';
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code, Supply Chain, and Secrets findings.
 
+:::info
+The Jira integration is currently in beta.
+:::
+
 ## Prerequisites
 
-- The Jira integration is in **public beta** for all existing Semgrep AppSec Platform users.
 - You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
 - You must have at least one Jira project to set as the default location where tickets will be created.
 
