@@ -136,4 +136,4 @@ If you don't see any results on the Dependencies page, ensure that:
 * Semgrep Supply Chain supports your manifest file or lockfile. Refer to [Supported languages](/supported-languages) for a list of supported languages, manifest files, and lockfiles.
 * You've scanned the repository at least once. If you're having trouble seeing dependencies after a scan, see [Why aren't Supply Chain findings showing?](https://semgrep.dev/docs/kb/semgrep-supply-chain/why-no-findings) for additional troubleshooting tips.
 * Your filters and search syntax are correct.
-* The scan you're searching isn't a diff-aware scan. Only dependencies detected during full scans are shown on the **Dependencies** page. 
+* The scan you're searching is a diff-aware scan. Only dependencies detected during full scans are shown on the **Dependencies** page. 
