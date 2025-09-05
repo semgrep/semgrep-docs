@@ -39,7 +39,7 @@ In the examples below, see a comparison of Semgrep and Semgrep CE  while searchi
 
 Semgrep matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, on Semgrep CE, it does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Ab0Zp" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=Ab0Zp" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 Semgrep matches both dangerous calls because it does cross function boundaries. In fact, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
@@ -55,7 +55,7 @@ Semgrep matches both dangerous calls because it does cross function boundaries. 
 
 Here, Semgrep CE matches `dangerous(“Select * from “ + user_input)`, because `user_input` is obtained by calling `get_user_input`. However, Semgrep CE does not match the similar call using `still_user_input`, because its analysis does not cross function boundaries to know that `still_user_input` is a wrapper function for `user_input`.
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=kO41" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=kO41" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 Semgrep matches both dangerous calls because it does cross function boundaries. In fact, with Semgrep Pro, the taint rule can track calls to `get_user_input` over multiple jumps in multiple files.
 
@@ -114,7 +114,7 @@ semgrep --config pro.yaml . --pro
 
 This section compares the possible findings of a scan across multiple files using Semgrep CE and Semgrep. The file `app.java` includes two check functions that throw exceptions. This example looks for methods that throw a particular exception, `ExampleException`.
 
-<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=yOYk" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints"src="https://semgrep.dev/embed/editor?snippet=yOYk" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 When using this rule, Semgrep CE matches code that throws `ExampleException` but not `BadRequest`. Check other files in the `docs/class_inheritance` directory. In the context of all files, you can find that this match does **not** capture the whole picture. The `BadRequest` extends `ExampleException`:
 
@@ -159,7 +159,7 @@ If you are following along with the cloned [Semgrep testing repository](https://
 
 Semgrep uses cross-file class inheritance information when matching [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables). Continuing the example from the previous section, see the following example file, which has defined some exceptions and includes their logging:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=14bk" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 The rule searches for any variable of type `ExampleException` being logged. Semgrep CE is **not** able to find instances of `BadRequest` being logged, unlike Semgrep. Allowing typed metavariables to access information from the entire program enables users to query any variable for its type and use that information in conjunction with the rest of the code resulting in more accurate findings.
 
@@ -181,7 +181,7 @@ semgrep --config pro.yaml . --pro
 
 #### Java
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=XK9N" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=XK9N" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 Semgrep CE matches the first and second calls as it cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
@@ -208,7 +208,7 @@ semgrep --config pro.yaml . --pro
 
 #### JavaScript and TypeScript
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=odGx" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=odGx" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 Semgrep matches the first and second calls because Semgrep cannot find a constant value for either `user_input` or `EMPLOYEE_TABLE_NAME`.
 
@@ -235,7 +235,7 @@ In the previous example, it only mattered whether the string was constant or not
 
 #### Java
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=YqyD" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=YqyD" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently.
 
@@ -247,7 +247,7 @@ semgrep --config pro.yaml . --pro
 
 #### JavaScript and TypeScript
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pORk" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=pORk" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 
 With Semgrep, this rule matches the last three calls to `dangerous`, since these calls are selected from the `Employees` table, though each one obtains the table name differently.
 

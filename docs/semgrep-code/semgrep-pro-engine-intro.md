@@ -149,7 +149,7 @@ To create rules that analyze across files and functions, add `interfile: true` u
 
 The following example shows how to define the `interfile` key (see the **Rule** pane) and the resulting cross-function analysis in the **Test code** pane.
 
-<iframe title="Interfile key example" src="https://semgrep.dev/embed/editor?snippet=lRZ5" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Interfile key example" src="https://semgrep.dev/embed/editor?snippet=lRZ5" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 <br />
 
 Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines 27-30.

@@ -54,7 +54,7 @@ Click the following boxes to learn about Semgrep's pattern matching mechanisms a
 
 You may want to ban the use of `==` in JavaScript and instead require `===` to avoid **type coercion** when evaluating expressions. This is a common standard enforced in popular JavaScript linters. This is a simple find and replace in many text editors, because the ban is enforced for **all** usages of `==`. In Semgrep, you can create a rule codifying this find and replace operation to share or enforce this standard.
 
-<iframe title="Prevent type coercion in JavaScript ==" src="https://semgrep.dev/embed/editor?snippet=5rUdbO1" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Prevent type coercion in JavaScript ==" src="https://semgrep.dev/embed/editor?snippet=5rUdbO1" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 _**Figure**. Prevent type coercion in `==`. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
 
 This simple rule is accurate because it only requires the syntax defined in `pattern` to match, not the semantics. The **metavariables** $A and $B always evaluate to some value on the left and right hand side of the `==` operator, and that is all that matters, not the meaning or of $A and $B themselves.
@@ -73,7 +73,7 @@ It is a common convention either to ban all uses of some language feature in use
 
 Semgrep enables you to create a custom best practices set of rules around cases like this.
 
-<iframe title="Ban console.log external or user-facing functions" src="https://semgrep.dev/embed/editor?snippet=1AP5" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Ban console.log external or user-facing functions" src="https://semgrep.dev/embed/editor?snippet=1AP5" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 _**Figure**. Ban `console.log` in external-facing functions. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
 
 Notice that only **line 4** matches. This is because only line 4 has a `console.log()` function within `someExternalFunction()`.
@@ -92,7 +92,7 @@ A more complex example is detecting if **unsanitized data** is flowing from some
 
 The following example is a simplified Semgrep rule that detects possible cross-site scripting vulnerabilities:
 
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=zdD4Z" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=zdD4Z" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 _**Figure**. Prevent possible cases of cross-site scripting due to unsanitized data. Click **<i class="fa-solid fa-play"></i> Run** to view the findings._
 
 In this example, **lines 11 and 18** are the only two true positives.

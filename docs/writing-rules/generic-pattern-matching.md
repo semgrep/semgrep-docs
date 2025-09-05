@@ -325,7 +325,7 @@ You can peruse [existing generic rules](https://semgrep.dev/r?lang=generic&sev=E
 ## Cheat sheet
 Some examples of what will and will not match on the `generic` tab of the Semgrep cheat sheet below:
 
-<iframe src="https://semgrep.dev/embed/cheatsheet" scrolling="0" width="100%" height="800"  frameBorder="0"></iframe>
+<iframe src="https://semgrep.dev/embed/cheatsheet" scrolling="0" width="100%" height="800" loading="lazy" frameBorder="0"></iframe>
 <br />
 
 ## Hidden bonus
