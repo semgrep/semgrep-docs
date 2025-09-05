@@ -26,7 +26,7 @@ If we tried to match the pattern `pandas.DataFrame(...).index.set_value(...)` ag
 
 Symbolic propagation is a generalization of [constant propagation](/writing-rules/data-flow/constant-propagation) that addresses this limitation. It enables Semgrep to perform matching modulo variable assignments. Thus, Semgrep is then able to match both `test1` and `test2` with the same simple pattern. This feature needs to be enabled explicitly via rule `options:` by setting `symbolic_propagation: true`.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=JeBP" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=JeBP" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
 ## Limitations of symbolic propagation
 

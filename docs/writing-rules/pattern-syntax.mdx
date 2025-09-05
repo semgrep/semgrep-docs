@@ -170,6 +170,7 @@ The `...` ellipsis operator matches everything in its current scope. The current
   frameBorder="0"
   width="100%"
   height="432"
+  loading="lazy"
 ></iframe>
 
 Semgrep matches the first occurrence of `bar` and `baz` in the test code as these objects fall under the scope of `foo` and `...`. The ellipsis operator does not match the second occurrence of `bar` and `baz` as they are not inside of the function definition, therefore these objects in their second occurrence are not inside the scope of the ellipsis operator.
@@ -596,6 +597,7 @@ Run the following example in Semgrep Playground to see the message (click **Open
   src="https://semgrep.dev/embed/editor?snippet=6KpK"
   width="100%"
   height="432"
+  loading="lazy"
   frameborder="0"
 ></iframe>
 

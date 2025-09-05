@@ -142,7 +142,7 @@ Much of the remediation guidance originates from the rule itself, which is also 
 
 The following example illustrates a basic Semgrep rule.
 
-<iframe title="Semgrep example for message, fix, and basic metadata fields" src="https://semgrep.dev/embed/editor?snippet=Abrx2" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Semgrep example for message, fix, and basic metadata fields" src="https://semgrep.dev/embed/editor?snippet=Abrx2" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 _**Figure**. A simple Semgrep rule that illustrates the common fields or keys used to create guardrails. Scroll through the **Rule** pane to view all the fields used to define the rule._
 
 <details>

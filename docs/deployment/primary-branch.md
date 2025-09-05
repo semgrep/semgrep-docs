@@ -17,7 +17,7 @@ A primary branch enables Semgrep to filter your findings by branch and to accura
 
 The following video provides an introduction and walkthrough:
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/gUjiVXLqK70" frameborder="0" allowfullscreen></iframe>
+<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/gUjiVXLqK70" frameborder="0" loading="lazy" allowfullscreen></iframe>
 
 ## Prerequisite
 

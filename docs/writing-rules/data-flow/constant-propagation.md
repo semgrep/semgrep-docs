@@ -15,7 +15,7 @@ Semgrep AppSec Platform supports interprocedural (cross function), interfile (cr
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Gw7z" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Gw7z" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
 ## `metavariable-comparison`
 
@@ -23,7 +23,7 @@ Using constant propagation, the [`metavariable-comparison`](/writing-rules/rule-
 
 For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Dyzd" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Dyzd" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
 ## Mutable objects
 
@@ -31,7 +31,7 @@ In general, Semgrep assumes that constant objects are immutable and won't be mod
 
 The only exceptions are method calls whose returning value is ignored. In these cases, Semgrep assumes that the method call may be mutating the callee object. This helps reducing false positives in Ruby. For example:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=08yB" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=08yB" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
 If constant propagation doesn't seem to work, consider whether the constant may be unexpectedly mutable. For example, given the following rule designed to taint the `REGEX` class variable:
 
@@ -97,4 +97,4 @@ public final String REGEX = "(a+)+$";
 
 You can disable constant propagation in a per-rule basis using rule [`options:`](/writing-rules/rule-syntax/#options) by setting `constant_propagation: false`.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=jwvn" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=jwvn" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>

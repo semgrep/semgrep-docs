@@ -70,7 +70,7 @@ All users can contact Semgrep support. Regardless if you are a free tier or paid
 Embed a special version of Semgrep Playground with an `iframe`. The source is `https://semgrep.dev/embed/editor?snippet=<snippet-id>` where the `snippet-id` is either the short identifier generated when you share a Playground link (this usually looks like `DzKv`) or the named identifier from a saved rule (this usually looks like `username:rule-name`).
 
 ```html
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432" loading="lazy" frameborder="0"></iframe>
 ```
 
 <!-- vale off -->
@@ -81,7 +81,7 @@ Semgrep is semantic grep for code: it understands the **structure of code** and 
 
 See the following rule for a more complex example illustrating Semgrep features:
 
-<iframe title="Go dangerous method usage" src="https://semgrep.dev/embed/editor?snippet=go.gorm.security.audit.gorm-dangerous-methods-usage.gorm-dangerous-method-usage" width="100%" height="432" frameborder="0"></iframe>
+<iframe title="Go dangerous method usage" src="https://semgrep.dev/embed/editor?snippet=go.gorm.security.audit.gorm-dangerous-methods-usage.gorm-dangerous-method-usage" width="100%" loading="lazy" height="432" frameborder="0"></iframe>
 
 - It uses [typed metavariables](/writing-rules/pattern-syntax/#typed-metavariables) so it can specify the type `http.Request`.
 - In the sink, the rule tracks imports down to function usage.

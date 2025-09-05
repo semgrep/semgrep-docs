@@ -68,7 +68,7 @@ reassigned, or used in a function in such a way that a secret is exposed.
 <!-- TODO, rewrite this to be more relevant and use a better example-->
 See the following rule and JavaScript test code for an example.
 
-<iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="AWS hardcoded access key" src="https://semgrep.dev/embed/editor?snippet=EPj5" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 <br />
 
 <!--

@@ -15,6 +15,6 @@ For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing
 
 The following example shows how [the original rule, identifying uses of `SHA-1` and `MD5`, has been modified to find uses of MD2](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms) and the severity of such findings is increased from `WARNING` to `ERROR`.
 
-<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 
 When you fork a rule, the copy is independent from the original. To run your new rule in your scans, [add it to a policy](/semgrep-code/policies#add-rules). If you want your copy to replace the rule you forked, add it to a policy, then disable the original on the Policies page.

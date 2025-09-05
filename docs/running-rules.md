@@ -120,5 +120,5 @@ Find out how to contribute to the [Semgrep Registry](https://github.com/semgrep/
 Semgrep supports a large number of languages and rules! Their number is continuously expanding.
 
 <div className="lang-container" style={{marginBottom: '20px'}}>
-  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/registry.rules.num/graph"></iframe>
+  <iframe width="900" height="400" frameBorder="0" src="https://dashboard.semgrep.dev/metric/registry.rules.num/graph" loading="lazy"></iframe>
 </div>

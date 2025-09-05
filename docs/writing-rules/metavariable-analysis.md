@@ -19,7 +19,7 @@ metavariable-analysis:
 ```
 RegEx denial of service is caused by poorly constructed regular expressions that exhibit exponential runtime when fed specifically crafted inputs. The `redos` analyzer uses known RegEx antipatterns to determine if the target expression is potentially vulnerable to catastrophic backtracking.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=2Aoj" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=2Aoj" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
 ## Entropy
 
@@ -30,4 +30,4 @@ metavariable-analysis:
 ```
 Entropy is a common approach for detecting secret strings - many existing tools leverage a combination of entropy calculations and RegEx for secret detection. This analyzer returns `true` if a metavariable has high entropy (randomness) relative to the English language.
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=GgZG" border="0" frameBorder="0" width="100%" height="432"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=GgZG" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
