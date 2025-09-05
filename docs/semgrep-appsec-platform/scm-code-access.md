@@ -59,7 +59,7 @@ If you onboarded your repositories using an access token, then you can follow th
     values={[
     {label: 'Azure DevOps Cloud', value: 'ado'},
     {label: 'Bitbucket Cloud', value: 'bitbucket'},
-    {label: 'Bitbucket Cloud', value: 'bitbucket_datacenter'},
+    {label: 'Bitbucket Data Center', value: 'bitbucket_datacenter'},
     {label: 'GitHub', value: 'github'},
     {label: 'GitLab', value: 'gitlab'},
     ]}
