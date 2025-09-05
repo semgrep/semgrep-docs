@@ -21,7 +21,7 @@ To have the user record removed from your Semgrep organization as well:
     - The user's email address and sign-in method(s).
     - Your Semgrep organization name or ID.
 
-## Managing available identity provides GitHub and GitLab users
+## Managing available identity providers
 
 If you have multiple identity providers enabled in your Semgrep organization, and want to prevent users from logging in using their GitHub or GitLab credentials:
 
