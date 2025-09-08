@@ -478,6 +478,9 @@ OPTIONS
        --x-eio
            [INTERNAL] Rely on an EIO based implementation for the -j flag
 
+       --x-group-taint-rules
+           <internal, do not use>
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by
@@ -495,6 +498,10 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
 
        --x-pro-naming
            <internal, do not use>
