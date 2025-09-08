@@ -17,11 +17,11 @@ However, their user record may still appear in your Semgrep organization's membe
 To have the user record removed from your Semgrep organization as well:
 
 1. Ensure that you have removed the user from connected groups in the identity provider.
-2. [Contact Semgrep Support](/support) to have the user removed from their association with your organization. Provide the following information in your request:
+2. [Contact Semgrep Support](/support) to have the user removed from your organization. Provide the following information in your request:
     - The user's email address and sign-in method(s).
     - Your Semgrep organization name or ID.
 
-## Managing available identity providers
+## Manage available identity providers
 
 If you have multiple identity providers enabled in your Semgrep organization, and want to prevent users from logging in using their GitHub or GitLab credentials:
 
