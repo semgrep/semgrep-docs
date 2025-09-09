@@ -128,7 +128,7 @@ Choose another account by clicking the **account name** and selecting an account
    - The **URL** used to access the GitHub organization
 1. Add the Semgrep GitHub App:
    1. Under **Enter GitHub information**, indicate that you want to install the app on your **Organization**, and select the **Organization name** where the app is installed. If you have multiple GitHub organizations that you'd like to use with Semgrep, ensure that you select the **Use for multiple GitHub orgs** box.
-   2. Under **Select features to enable**, indicate whether you would like to grant Semgrep code access.
+   2. Under **Select features to enable**, indicate whether you would like to grant code access to Semgrep.
    3. Review the permissions requested by Semgrep.
    4. Click **Register a Semgrep GitHub App**. Semgrep asks if you'd like to be redirected to GitHub to continue creating the app. Click **Continue** to proceed.
    5. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
