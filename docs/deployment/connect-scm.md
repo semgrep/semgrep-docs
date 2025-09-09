@@ -113,7 +113,7 @@ Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Se
 
 ### GitHub Enterprise Cloud with data residency
 
-If your deployment contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
+If your GitHub Enterprise instance contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
 
 Ensure that you have selected the intended owner by viewing the account name in the navigation bar:
 <img src="/docs/img/more-accounts-dropdown.png" height="350px" /><br />
