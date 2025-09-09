@@ -135,7 +135,7 @@ Choose another account by clicking the **account name** and selecting an account
    6. After you name your app, choose the GHE org to which you want it installed.
    7. Select the org that you want to act as the owner of the app, and click **Install**.
    8. Wait for the installation to complete. When done, you are redirected to Semgrep.
-   9. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your SCM shows a **Connected** badge.
+   9. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your GitHub organization shows a **Connected** badge.
    10. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
       - You can click **Configure** to choose the repositories to which the app has access. Additionally, you can go to **App settings** to customize the permissions granted to the app.
 1. If you have additional GHE orgs you'd like to add, you can do so by repeating the previous steps 1-6.
