@@ -423,24 +423,53 @@ module.exports = {
             collapsible: false,
             items: [
                 'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
+                {
+                    type: 'category',
+                    label: 'Rule syntax',
+                    link: {type: 'doc', id: 'writing-rules/rule-syntax'},
+                    items: [
+                        'writing-rules/pattern-syntax',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Rule examples',
+                    link: {type: 'doc', id: 'writing-rules/pattern-examples'},
+                    items: [
+                        'writing-rules/rule-ideas',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Advanced rule-writing techniques',
+                    items: [
+                        'writing-rules/autofix',
+                        {
+                            type: 'category',
+                            label: 'Data-flow analysis',
+                            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            items: [
+                                'writing-rules/data-flow/constant-propagation',
+                                'writing-rules/data-flow/taint-mode',
+                                'writing-rules/data-flow/status'
+                            ]
+                        },
+                        'writing-rules/generic-pattern-matching',
+                        'writing-rules/metavariable-analysis',
+                        'writing-rules/testing-rules',
+                    ]
+                },
                 'writing-rules/private-rules',
-                'writing-rules/autofix',
-                'writing-rules/generic-pattern-matching',
-                'writing-rules/metavariable-analysis',
                 'troubleshooting/rules',
+                'writing-rules/glossary',
                 {
                     type: 'category',
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/introduction',
                       'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -448,24 +477,14 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
-                      'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ],
                   },
-            {
-                type: 'category',
-                label: 'Data-flow analysis',
-                link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-                items: [
-                    'writing-rules/data-flow/constant-propagation',
-                    'writing-rules/data-flow/taint-mode',
-                    'writing-rules/data-flow/status'
-                ]
-            },
-                'writing-rules/glossary'
             ]
         },
         {

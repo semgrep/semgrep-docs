@@ -9,7 +9,7 @@ tags:
 
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
-# Testing rules
+# Testing
 
 Semgrep provides a convenient testing mechanism for your rules. You can simply write code and provide a few annotations to let Semgrep know where you are or aren't expecting findings. Semgrep provides the following annotations:
 
