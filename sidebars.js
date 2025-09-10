@@ -866,6 +866,18 @@ module.exports = {
             },
             {
               type: 'category',
+              label: 'Insecure Deserialization',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-deserialization/overview'
+              },
+              items: [
+                'learn/vulnerabilities/insecure-deserialization/python-deserialization'
+              ]
+            },
+            {
+              type: 'category',
               label: 'Open Redirect',
               collapsible: true,
               link: {
