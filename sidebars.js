@@ -428,15 +428,15 @@ module.exports = {
                     label: 'Rule syntax',
                     link: {type: 'doc', id: 'writing-rules/rule-syntax'},
                     items: [
-                        'writing-rules/pattern-syntax',
+                        'writing-rules/rule-ideas',
                     ]
                 },
                 {
                     type: 'category',
-                    label: 'Rule examples',
-                    link: {type: 'doc', id: 'writing-rules/pattern-examples'},
+                    label: 'Pattern syntax',
+                    link: {type: 'doc', id: 'writing-rules/pattern-syntax'},
                     items: [
-                        'writing-rules/rule-ideas',
+                        'writing-rules/pattern-examples',
                     ]
                 },
                 {
@@ -456,10 +456,10 @@ module.exports = {
                         },
                         'writing-rules/generic-pattern-matching',
                         'writing-rules/metavariable-analysis',
-                        'writing-rules/testing-rules',
                     ]
                 },
                 'writing-rules/private-rules',
+                'writing-rules/testing-rules',
                 'troubleshooting/rules',
                 'writing-rules/glossary',
                 {

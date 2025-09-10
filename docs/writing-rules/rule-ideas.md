@@ -5,7 +5,7 @@ tags:
   - Rule writing
 ---
 
-# Custom rule examples
+# Rule examples
 
 Not sure what to write a rule for? Below are some common questions, ideas, and topics to spur your imagination. Happy hacking! 💡
 
