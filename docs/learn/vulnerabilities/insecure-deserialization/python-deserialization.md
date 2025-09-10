@@ -79,5 +79,5 @@ We have seen how serialization works in Python, why features like `pickle` intro
 
 As the deprecation of Django’s `PickleSerializer` illustrates, the community has recognized the risks of insecure deserialization. By taking a disciplined approach to the libraries you use and by applying tools like Semgrep, you can ensure your Python applications remain resilient against this class of vulnerabilities.
 
-For more guidance and practical rules, see the Semgrep documentation and consider scanning your codebase with our Pro rules. Identifying and fixing insecure deserialization today will save you from severe problems tomorrow.
+For more guidance and practical rules, see the [Semgrep documentation](/getting-started/quickstart) and consider scanning your codebase with our [Pro rules](/semgrep-code/pro-rules). Identifying and fixing insecure deserialization today will save you from severe problems tomorrow.
 
