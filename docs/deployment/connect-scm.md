@@ -118,7 +118,8 @@ If your GitHub Enterprise instance contains many orgs, you must **choose an org*
 Perform the following steps to set up the connection:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.
+1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />	1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.
+   <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
 1. From the **Navigation bar**, click **<i class="fa-solid fa-gear"></i> Settings > Source code managers**.
 1. Click **Add > GitHub Enterprise**.
 1. In the **Connect your GitHub Organization** dialog that appears, provide:
