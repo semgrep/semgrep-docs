@@ -1,11 +1,10 @@
 ---
 append_help_link: true
 slug: rule-syntax
-description: "This document describes the YAML rule syntax of Semgrep including required and optional fields. Just getting started with Semgrep rule writing? Check out the Semgrep Tutorial at https://semgrep.dev/learn"
+description: "This document describes the YAML rule syntax of Semgrep, including required and optional fields."
 tags:
   - Rule writing
 ---
-
 
 import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
@@ -32,30 +31,30 @@ This document describes the YAML rule syntax of Semgrep.
 
 | Field      | Type     | Description                         |
 | :--------- | :------- | :---------------------------------- |
-| [`options`](#options)   | `object` | Options object to enable/disable certain matching features |
+| [`options`](#options)   | `object` | Options object to turn on or turn off matching features |
 | [`fix`](#fix)           | `object` | Simple search-and-replace autofix functionality  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
-| [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with this rule |
-| [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with this rule |
-| [`paths`](#paths)       | `object` | Paths to include or exclude when running this rule |
+| [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with the rule |
+| [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with the rule |
+| [`paths`](#paths)       | `object` | Paths to include or exclude when running the rule |
 
-The below optional fields must reside underneath a `patterns` or `pattern-either` field.
+The follow field is optional, but if used, it must be nested underneath a `patterns` or `pattern-either` field.
 
 | Field                | Type     | Description              |
 | :------------------- | :------- | :----------------------- |
 | [`pattern-inside`](#pattern-inside)             | `string` | Keep findings that lie inside this pattern                                                                              |
 
-The below optional fields must reside underneath a `patterns` field.
+The follow fields are optional, but if used, they must be nested underneath a `patterns` field.
 
 <!-- markdown-link-check-disable -->
 
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
 | [`metavariable-regex`](#metavariable-regex)         | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
-| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matches metavariables with a pattern formula |
+| [`metavariable-pattern`](#metavariable-pattern)     | `map` | Matche metavariables with a pattern formula |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
-| [`metavariable-name`](#metavariable-name) | `map` | Matches metavariables against constraints on what they name |
-| [`pattern-not`](#pattern-not) | `string` | Logical NOT - remove findings matching this expression |
+| [`metavariable-name`](#metavariable-name) | `map` | Matche metavariables against constraints on what they name |
+| [`pattern-not`](#pattern-not) | `string` | Logical `NOT` - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside) | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex) | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
@@ -90,7 +89,7 @@ digest = hashlib.sha256(b"test")
 
 ### `patterns`
 
-The `patterns` operator performs a logical AND operation on one or more child patterns. This is useful for chaining multiple patterns together that all must be true.
+The `patterns` operator performs a logical `AND` operation on one or more child patterns. This is useful for chaining multiple patterns together where all patterns must be true.
 
 ```yaml
 rules:
@@ -116,18 +115,18 @@ db_query("SELECT * FROM ...", verify=True, env="prod")
 
 #### `patterns` operator evaluation strategy
 
-Note that the order in which the child patterns are declared in a `patterns` operator has no effect on the final result. A `patterns` operator is always evaluated in the same way:
+The order in which the child patterns are declared in a `patterns` operator has no effect on the final result. A `patterns` operator is always evaluated in the same way:
 
-1. Semgrep evaluates all _positive_ patterns, that is [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by each one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range `$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
-2. Semgrep evaluates all _negative_ patterns, that is [`pattern-not-inside`](#pattern-not-inside)s, [`pattern-not`](#pattern-not)s, and [`pattern-not-regex`](#pattern-not-regex)es. This gives a set of _negative ranges_ which are used to filter the positive ranges. This results in a strict subset of the positive ranges computed in the previous step.
-3. Semgrep evaluates all _conditionals_, that is [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s and [`metavariable-comparison`](#metavariable-comparison)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1, that passed through the filter of negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
-4. Semgrep applies all [`focus-metavariable`](#focus-metavariable)s, by computing the intersection of each positive range with the range of the metavariable on which we want to focus. Again, the only metavariables available to focus on are those bound by positive patterns.
+1. Semgrep evaluates all _positive_ patterns, including [`pattern-inside`](#pattern-inside)s, [`pattern`](#pattern)s, [`pattern-regex`](#pattern-regex)es, and [`pattern-either`](#pattern-either)s. Each range matched by one of these patterns is intersected with the ranges matched by the other operators. The result is a set of _positive_ ranges. The positive ranges carry _metavariable bindings_. For example, in one range ,`$X` can be bound to the function call `foo()`, and in another range `$X` can be bound to the expression `a + b`.
+2. Semgrep evaluates all _negative_ patterns, including [`pattern-not-inside`](#pattern-not-inside)s, [`pattern-not`](#pattern-not)s, and [`pattern-not-regex`](#pattern-not-regex)es. This gives a set of _negative ranges_ which are used to filter the positive ranges. This results in a strict subset of the positive ranges computed in the previous step.
+3. Semgrep evaluates all _conditionals_, including [`metavariable-regex`](#metavariable-regex)es, [`metavariable-pattern`](#metavariable-pattern)s, and [`metavariable-comparison`](#metavariable-comparison)s. These conditional operators can only examine the metavariables bound in the positive ranges in step 1 and have been passed through the filter of negative patterns in step 2. Note that metavariables bound by negative patterns are _not_ available here.
+4. Semgrep applies all [`focus-metavariable`](#focus-metavariable)s by computing the intersection of each positive range with the range of the metavariable on which you want to focus. Again, the only metavariables available to focus on are those bound by positive patterns.
 
 <!-- TODO: Add example to illustrate all of the above -->
 
 ### `pattern-either`
 
-The `pattern-either` operator performs a logical OR operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
+The `pattern-either` operator performs a logical `OR` operation on one or more child patterns. This is useful for chaining multiple patterns together where any may be true.
 
 ```yaml
 rules:
