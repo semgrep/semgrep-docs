@@ -124,7 +124,7 @@ Perform the following steps to set up the connection:
 1. Click **Add > GitHub Enterprise**.
 1. In the **Connect your GitHub Organization** dialog that appears, provide:
    - The **Name of your GitHub Organization**
-   - The **URL** used to access the GitHub organization
+   - The **URL** used to access the GitHub instance
 1. Add the Semgrep GitHub App:
    1. Under **Enter GitHub information**, indicate that you want to install the app on your **Organization**, and select the **Organization name** where the app is installed. If you have multiple GitHub organizations that you'd like to use with Semgrep, ensure that you select the **Use for multiple GitHub orgs** box.
    1. Under **Select features to enable**, indicate whether you would like to grant code access to Semgrep.
