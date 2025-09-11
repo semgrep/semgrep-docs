@@ -2,5 +2,7 @@
 
 python3 replace-on-build.py
 bash copy-metrics-md
-# commenting out for now just incase this leads to issues, requires manual call to update-vulnerability-categories.js
+
+echo "testtest123"
+echo "$ALGOLIA_ID"
 # node scripts/update-vulnerability-categories.js
