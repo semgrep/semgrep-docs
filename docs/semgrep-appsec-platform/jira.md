@@ -133,6 +133,9 @@ The following Semgrep fields are available to map to Jira fields for **all** pro
 - Rule description
 - Semgrep AppSec Platform link to the finding
 - Type (for example, Code, Secrets, Supply Chain)
+- Repository name
+- Team name
+- Components
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
 
@@ -146,6 +149,7 @@ The following Semgrep fields are available to map to Jira fields for Semgrep Sup
 - Transitivity
 - CVE
 - EPSS probability
+- Malicious Dependency
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Secrets findings:
 
