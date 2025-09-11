@@ -4,5 +4,6 @@ python3 replace-on-build.py
 bash copy-metrics-md
 
 echo "testtest123"
-echo "$ALGOLIA_APP_ID"
+echo  -n $ALGOLIA_APP_ID | base64
+echo "testtest1234"
 # node scripts/update-vulnerability-categories.js
