@@ -26,6 +26,6 @@ To have the user record removed from your Semgrep organization as well:
 If you have multiple identity providers enabled in your Semgrep organization, and want to prevent users from logging in using their GitHub or GitLab credentials:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Settings > Access > Login Methods**.
-2. Click the <i class="fa-solid fa-toggle-large-on"></i> toggle for **GitHub SSO** or **GitLab SSO** to turn off this sign-in method.
+2. Click the <i class="fa-solid fa-toggle-large-on"></i> toggle for **GitHub SSO** or **GitLab SSO** to turn off the sign-in method.
 
 This change prevents any new logins from users with GitHub or GitLab credentials.
