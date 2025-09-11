@@ -6,6 +6,7 @@
   import CardFooter from '@site/src/components/Card/CardFooter';
   import CardHeader from '@site/src/components/Card/CardHeader';
   import CardImage from '@site/src/components/Card/CardImage';
+  import VulnerabilityCategories from '@site/src/components/VulnerabilityCategories';
   export default {
     // Reusing the default mapping
     ...MDXComponents,
@@ -13,5 +14,6 @@
     CardHeader, 
     CardBody, 
     CardFooter,
-    CardImage, 
+    CardImage,
+    VulnerabilityCategories, 
   };
