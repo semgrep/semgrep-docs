@@ -29,7 +29,7 @@ For example, the following sample rule detects the use of `is` when comparing Py
 
 <iframe title="Semgrep example Python is comparison" src="https://semgrep.dev/embed/editor?snippet=Ppde" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 
-### Next steps
+## Next steps
 
 The following articles guide you through rule-writing basics and act as references:
 
