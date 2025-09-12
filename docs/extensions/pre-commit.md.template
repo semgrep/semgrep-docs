@@ -17,7 +17,7 @@ The [pre-commit framework](https://pre-commit.com/) can run `semgrep` when you c
 
 [<i class="fas fa-external-link fa-xs"></i> The `pre-commit` framework](https://pre-commit.com).
 
-## `pre-commit` with Semgrep CE (no login)
+## `pre-commit` with Semgrep Community Edition (no login)
 
 Use these instructions to run `pre-commit` without logging in. You can still use custom rules or rules from the Semgrep Registry.
 

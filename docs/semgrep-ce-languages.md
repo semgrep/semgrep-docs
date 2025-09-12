@@ -12,11 +12,11 @@ tags:
 import SupportedLanguagesCe from '/src/components/reference/_supported-languages-ce.md'
 import LanguageMaturityCode from '/src/components/reference/_language-maturity-code.md'
 
-# Supported languages for Semgrep CE
+# Supported languages for Semgrep Community Edition (CE)
 
-This document provides information about supported languages for Semgrep Community Edition (Semgrep CE) and Semgrep Code.
+This document provides information about supported languages for Semgrep Code and Semgrep CE.
 
-## Semgrep Code and Community Edition
+## Semgrep Code and CE
 
 Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
 

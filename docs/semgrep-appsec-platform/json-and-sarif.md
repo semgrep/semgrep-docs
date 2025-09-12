@@ -20,7 +20,7 @@ For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fa
 
 #### JSON top-level fields
 
-These tables provide a **partial** overview of the fields available to Semgrep CE and Semgrep AppSec Platform. Refer to the sample schema for all the fields. 
+These tables provide a **partial** overview of the fields available to Semgrep Community Edition (CE) and Semgrep AppSec Platform. Refer to the sample schema for all the fields. 
 
 <table>
 <thead>

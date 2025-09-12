@@ -33,8 +33,8 @@ The following is a list of products offered by Semgrep, Inc., along with their l
   <dt>Semgrep Supply Chain</dt>
     <dd>Proprietary. See <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
     <br />
-  <dt>Semgrep Community Edition</dt>
-  <dd>The Semgrep Community Edition engine is an open source project licensed under <a href="https://github.com/semgrep/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep CE is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
+  <dt>Semgrep Community Edition (CE)</dt>
+  <dd>The Semgrep CE engine is an open source project licensed under <a href="https://github.com/semgrep/semgrep/blob/develop/LICENSE">LGPL 2.1</a>. The proprietary extension of Semgrep CE is Semgrep Code, see also <a href="https://semgrep.dev/terms">Terms of Service</a>.</dd>
 </dl>
 
 ## License Semgrep for use
