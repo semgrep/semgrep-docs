@@ -32,7 +32,7 @@ This document describes the YAML rule syntax of Semgrep.
 | Field      | Type     | Description                         |
 | :--------- | :------- | :---------------------------------- |
 | [`options`](#options) | `object` | Options object to turn on or turn off matching features |
-| [`fix`](#fix) | `object` | Simple search-and-replace autofix functionality  |
+| [`fix`](#fix) | `object` | Simple search-and-replace autofix capability  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
 | [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with the rule |
 | [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with the rule |
@@ -51,9 +51,9 @@ The following fields are optional, but if used, they must be nested underneath a
 | Field            | Type     | Description           |
 | :--------------- | :------- | :-------------------- |
 | [`metavariable-regex`](#metavariable-regex) | `map` | Search metavariables for [Python `re`](https://docs.python.org/3/library/re.html#re.match) compatible expressions; regex matching is **left anchored** |
-| [`metavariable-pattern`](#metavariable-pattern) | `map` | Matche metavariables with a pattern formula |
+| [`metavariable-pattern`](#metavariable-pattern) | `map` | Match metavariables with a pattern formula |
 | [`metavariable-comparison`](#metavariable-comparison) | `map` | Compare metavariables against basic [Python expressions](https://docs.python.org/3/reference/expressions.html#comparisons) |
-| [`metavariable-name`](#metavariable-name) | `map` | Matche metavariables against constraints on what they name |
+| [`metavariable-name`](#metavariable-name) | `map` | Match metavariables against constraints on what they name |
 | [`pattern-not`](#pattern-not) | `string` | Logical `NOT` - remove findings matching this expression |
 | [`pattern-not-inside`](#pattern-not-inside) | `string` | Keep findings that do not lie inside this pattern |
 | [`pattern-not-regex`](#pattern-not-regex) | `string` | Filter results using a [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
@@ -76,7 +76,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 import hashlib
@@ -103,7 +103,7 @@ rules:
  - python
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: unverified-db-query
@@ -140,7 +140,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 import hashlib
@@ -159,7 +159,7 @@ This rule checks for the use of Python standard library functions `hashlib.md5` 
 ### `pattern-regex`
 
 <!-- markdown-link-check-disable -->
-The `pattern-regex` operator searches files for substrings matching the given [Perl-Compatible Regular Expressions (PCRE)](https://www.pcre.org/current/doc/html/pcre2pattern.html) pattern. PCRE is a full-featured regular expression (regex) library that is widely compatible with Perl, as well as with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. This is useful for migrating existing regular expression code search functionality to Semgrep. Patterns are compiled in multiline mode. For example, `^` and `$` match at the beginning and end of lines, respectively, in addition to the beginning and end of input.
+The `pattern-regex` operator searches files for substrings matching the given [Perl-Compatible Regular Expressions (PCRE)](https://www.pcre.org/current/doc/html/pcre2pattern.html) pattern. PCRE is a full-featured regular expression (regex) library that is widely compatible with Perl, as well as with the respective regex libraries of Python, JavaScript, Go, Ruby, and Java. This is useful for migrating existing regular expression code search capability to Semgrep. Patterns are compiled in multiline mode. For example, `^` and `$` match at the beginning and end of lines, respectively, in addition to the beginning and end of input.
 
 :::caution
 PCRE2 supports [some Unicode character properties, but not some Perl properties](https://www.pcre.org/current/doc/html/pcre2pattern.html#uniextseq). For example, `\p{Egyptian_Hieroglyphs}` is supported, but `\p{InMusicalSymbols}` isn't.
@@ -180,7 +180,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 import boto3
@@ -202,7 +202,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: legacy-eval-search
@@ -227,7 +227,7 @@ rules:
     severity: WARNING
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # highlight-next-line
@@ -259,7 +259,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: detect-only-foo-package
@@ -283,7 +283,7 @@ pattern: |
 
 This works, but it matches the entire function definition. Sometimes, this is not desirable. If the definition spans hundreds of lines, they are all matched. In particular, if you are using [Semgrep AppSec Platform](https://semgrep.dev/login) and you have triaged a finding generated by this pattern, the same finding shows up again as new if you make any change to the definition of the function!
 
-To specify that you are only interested in the code matched by a particular metavariable, which, in our example, is `$ARG`, use `focus-metavariable`.
+To specify that you are only interested in the code matched by a particular metavariable, which, in the example, is `$ARG`, use `focus-metavariable`.
 
 ```yaml
 rules:
@@ -300,7 +300,7 @@ rules:
     severity: WARNING
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # highlight-next-line
@@ -308,7 +308,7 @@ def f(x : bad):
     return x
 ```
 
-Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x`, which is not what we want! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
+Note that `focus-metavariable: $ARG` is not the same as `pattern: $ARG`! Using `pattern: $ARG` finds all the uses of the parameter `x`, which is not the desired behavior! (Note that `pattern: $ARG` does not match the formal parameter declaration, because in this context `$ARG` only matches expressions.)
 
 ```yaml
 rules:
@@ -325,7 +325,7 @@ rules:
     severity: WARNING
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 def f(x : bad):
@@ -362,7 +362,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: intersect-focus-metavariable
@@ -404,7 +404,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: insecure-methods
@@ -484,7 +484,7 @@ rules:
     severity: WARNING
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 function bad() {
@@ -546,7 +546,7 @@ rules:
     severity: WARNING
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 from django.http import HttpResponseRedirect
@@ -595,7 +595,7 @@ rules:
 
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 <!-- ruleid:test -->
@@ -625,7 +625,7 @@ rules:
     severity: INFO
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # highlight-next-line
@@ -662,7 +662,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ok: superuser-port
@@ -719,7 +719,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: excessive-permissions
@@ -746,7 +746,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: int-overflow
@@ -782,7 +782,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```javascript
 // ECMAScript modules
@@ -844,7 +844,7 @@ rules:
  - python
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 # ruleid: unverified-db-query
@@ -894,7 +894,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 class A:
@@ -932,7 +932,7 @@ rules:
     severity: ERROR
 ```
 
-The pattern immediately above matches the following:
+The preceding pattern matches the following:
 
 ```python
 def func1():
@@ -950,7 +950,7 @@ def func2():
     return results
 ```
 
-The above rule identifies files that are opened but never closed, potentially leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
+The preceding rule identifies files that are opened but never closed, potentially leading to resource exhaustion. It looks for the `open(...)` pattern _and not_ a following `close()` pattern.
 
 The `$F` metavariable ensures that the same variable name is used in the `open` and `close` calls. The ellipsis operator allows any arguments to be passed to `open` and any sequence of code statements to be executed between the `open` and `close` calls. The rule ignores how `open` is called or what happens up to a `close` call; it only needs to make sure `close` is called.
 
@@ -1008,7 +1008,7 @@ rules:
     severity: ERROR
 ```
 
-The above rule matches both examples below:
+The preceding rule matches both examples below:
 
 ```python
 insecure_func1(something)
@@ -1036,7 +1036,7 @@ patterns:
  - pattern: baz($X)
 ```
 
-The above rule matches both examples below:
+The preceding rule matches both examples below:
 
 ```python
 def foo(something):
@@ -1073,7 +1073,7 @@ Enable, disable, or modify the following matching features:
 | `implicit_return` | `true` | Return statement patterns (for example `return $E`) match expressions that may be evaluated last in a function as if there was a return keyword in front of those expressions. Only applies to certain expression-based languages, such as Ruby and Julia. |
 | `interfile` | `false` | Set this value to `true` for Semgrep to run this rule with cross-function and cross-file analysis. It is **required** for rules that use cross-function, cross-file analysis. |
 | `symmetric_eq` | `false` | Treat equal operations as symmetric (for example: `a == b` is equal to `b == a`). |
-| `taint_assume_safe_functions` | `false` | Experimental option which will be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
+| `taint_assume_safe_functions` | `false` | Experimental option which are be subject to future changes. Used in taint analysis. Assume that function calls do **not** propagate taint from their arguments to their output. Otherwise, Semgrep always assumes that functions may propagate taint. Can replace **not-conflicting** sanitizers added in v0.69.0 in the future. |
 | `taint_assume_safe_indexes` | `false` | Used in taint analysis. Assume that an array-access expression is safe even if the index expression is tainted. Otherwise, Semgrep assumes that, for example, `a[i]` is tainted if `i is tainted, even if `a` is not. Enabling this option is recommended for high-signal rules, whereas disabling it is preferred for audit rules. Currently, it is disabled by default to maintain backward compatibility, but this may change in the near future after further evaluation. |
 | `vardef_assign` | `true` | Assignment patterns (for example `$X = $E`) match variable declarations (for example `var x = 1;`). |
 | `xml_attrs_implicit_ellipsis` | `true` | Any XML/JSX/HTML element patterns have implicit ellipsis for attributes (for example: `<div />` matches `<div foo="1">`. |
@@ -1136,12 +1136,12 @@ rules:
     pattern: |
  ENV ... GOFLAGS='-tags=dynamic -buildvcs=false' ...
     languages: [dockerfile]
-    message: "We should not use these flags"
+    message: "Do not not use these flags"
     severity: WARNING
 ```
 
 Another use case is when a newer version of a rule works better than
-before but relies on a new feature. In this case, we could use
+before but relies on a new feature. In this case, you can use
 `min-version` and `max-version` to ensure that either the older or the
 newer rule is used, but not both. The rules would look like this:
 
@@ -1198,7 +1198,7 @@ rules:
  - project/static/*.js
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, the above rule runs on files inside `project/`, but no results are returned for:
+When invoked with `semgrep -f rule.yaml project/`, the preceding rule runs on files inside `project/`, but no results are returned for:
 
 - any file with a `.jinja2` file extension
 - any file whose name ends in `_test.go`, such as `project/backend/server_test.go`
@@ -1247,7 +1247,7 @@ paths:
   exclude: "*_internal.py"
 ```
 
-The above rule returns results from `project/schemata/scan.py` but not from `project/schemata/scan_internal.py`.
+The preceding rule returns results from `project/schemata/scan.py` but not from `project/schemata/scan_internal.py`.
 
 ## Additional examples
 
@@ -1277,7 +1277,7 @@ rules:
     message: "useless comparison operation `$X == $X` or `$X != $X`"
 ```
 
-The above rule makes use of many operators. It utilizes `pattern-either`, `patterns`, `pattern`, and `pattern-inside` to carefully consider different cases, and employs `pattern-not-inside` and `pattern-not` to exclude specific unnecessary comparisons.
+The preceding rule makes use of many operators. It utilizes `pattern-either`, `patterns`, `pattern`, and `pattern-inside` to carefully consider different cases, and employs `pattern-not-inside` and `pattern-not` to exclude specific unnecessary comparisons.
 
 ## Full specification
 
