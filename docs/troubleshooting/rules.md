@@ -6,8 +6,7 @@ tags:
 description: "Follow these troubleshooting steps when your pattern fails to parse, your rule doesn't match its intended code, and other rule writing pitfalls."
 ---
 
-
-# Troubleshooting rules
+# Troubleshooting
 
 This page intends to help rule authors fix common mistakes when writing Semgrep rules. If you have a problem while running a rule you didn't write yourself, please [open a GitHub issue in the Semgrep Registry](https://github.com/semgrep/semgrep-rules/issues/new/choose) repository.
 

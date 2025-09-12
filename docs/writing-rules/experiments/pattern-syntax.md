@@ -1,6 +1,6 @@
 ---
 slug: pattern-syntax
-title: Pattern syntax (Experimental)
+title: Pattern syntax (experimental)
 hide_title: true
 description: Learn how to use Semgrep's experimental pattern syntax to search code for a specific code pattern.
 tags:
