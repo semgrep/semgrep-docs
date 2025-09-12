@@ -35,11 +35,11 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 * Customize how Semgrep Code scans your repositories
 * Manage your users and facilitate team collaboration in remediating security issues
 
-## Semgrep CE versus Semgrep Code analysis
+## Semgrep Community Edition (CE) versus Semgrep Code analysis
 
 By default, Semgrep Code can analyze interactions beyond a single function but within a single file, a process known as **cross-function or interprocedural analysis**. This smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 
-Semgrep Community Edition (CE) can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep CE is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
+Semgrep CE can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep CE is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
 
 Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
 
