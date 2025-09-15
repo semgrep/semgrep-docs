@@ -1,9 +1,9 @@
-In principle, the data-flow analysis engine (which provides taint tracking, constant propagation, and symbolic propagation) can run on any language [supported by Semgrep](/docs/supported-languages). However, the level of support is lower than for the regular Semgrep matching engine.
+In principle, the dataflow analysis engine, which provides taint tracking, constant propagation, and symbolic propagation, can run on any language [supported by Semgrep](/supported-languages). However, the level of support is lower than for the regular Semgrep matching engine.
 
-When Semgrep performs an analysis of the code, it creates an **abstract syntax tree** (AST) which is then translated into an analysis-friendly **intermediate language** (IL). Subsequently, Semgrep runs mostly language-agnostic analysis on IL. However, this translation is not fully complete.
+When Semgrep performs an analysis of the code, it creates an **abstract syntax tree** (AST), which is then translated into an analysis-friendly **intermediate language** (IL). Subsequently, Semgrep runs mostly language-agnostic analysis on IL. However, this translation is not fully complete.
 
 :::caution
 There can be features of some languages that Semgrep does not analyze correctly while using dataflow analysis. Consequently, Semgrep does not fail even if it finds an unsupported construct. The analysis continues while the construct is ignored. This can result in Semgrep not matching some code that should be matched (false negatives) or matching a code that should not be matched (false positives).
 :::
 
-Please, help us to improve and report any issues you encounter by creating an issue on Semgrep [GitHub](https://github.com/semgrep/semgrep/issues/new/choose) page.
+Please help Semgrep improve by [reporting any issues you encounter](https://github.com/semgrep/semgrep/issues/new/choose).
