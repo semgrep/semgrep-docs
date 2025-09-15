@@ -7,7 +7,7 @@ tags:
 
 # How does Semgrep assign severity levels to rules?
 
-All Semgrep rules have one of four severity levels: Critical, High, Medium, or Low. The levels `ERROR`, `WARN` and `INFO` used in existing rules are older values that correspond to High, Medium, and Low, respectively.
+All Semgrep rules have one of four severity levels: Critical, High, Medium, or Low. The levels `ERROR`, `WARNING` and `INFO` used in existing rules are older values that correspond to High, Medium, and Low, respectively.
 
 ## Semgrep Code and Secrets
 
