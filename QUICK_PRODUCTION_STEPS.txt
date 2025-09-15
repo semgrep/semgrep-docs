@@ -1,0 +1,51 @@
+🚀 QUICK PRODUCTION DEPLOYMENT - STEPS 1-3
+
+===============================================
+STEP 1: Infrastructure Setup (Choose One)
+===============================================
+
+Option A: Meilisearch Cloud (Recommended - $29/month)
+- Sign up at cloud.meilisearch.com
+- Get production API keys
+- Zero maintenance required
+
+Option B: Self-Hosted (More complex but cheaper)
+- Deploy Docker container on your server
+- Set up SSL, backups, monitoring
+
+===============================================
+STEP 2: Environment Variables
+===============================================
+
+Create production .env file:
+
+# Required for search to work
+REACT_APP_MEILISEARCH_HOST_URL=https://your-meilisearch-instance.com
+REACT_APP_MEILISEARCH_SEARCH_KEY=your-search-only-key
+
+# Optional for AI chat
+REACT_APP_MARKPROMPT_PROJECT_KEY=your-markprompt-key
+
+# For indexing (server-side only)
+MEILISEARCH_API_KEY=your-master-key
+
+===============================================
+STEP 3: Deploy & Index
+===============================================
+
+# Build for production
+yarn build
+
+# Index your docs to production Meilisearch
+yarn index-production
+
+# Deploy to your hosting (Netlify, Vercel, etc.)
+
+===============================================
+NOTES:
+===============================================
+
+- Your components are already updated to use environment variables
+- The system works perfectly with just Steps 1-3
+- AI chat is optional (demo mode works without API key)
+- Complete guide is in PRODUCTION_DEPLOYMENT.md

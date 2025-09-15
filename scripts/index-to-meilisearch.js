@@ -55,9 +55,15 @@ const config = {
 
 class MeilisearchIndexer {
   constructor() {
+    const host = process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700';
+    const apiKey = process.env.MEILISEARCH_API_KEY || '';
+    
+    console.log(`🔌 Connecting to Meilisearch at: ${host}`);
+    console.log(`🔑 Using API key: ${apiKey ? '***' + apiKey.slice(-4) : 'None'}`);
+    
     this.client = new MeiliSearch({
-      host: process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700',
-      apiKey: process.env.MEILISEARCH_API_KEY || ''
+      host,
+      apiKey
     });
     this.index = null;
     this.documents = [];
