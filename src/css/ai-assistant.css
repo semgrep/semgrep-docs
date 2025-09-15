@@ -1,0 +1,75 @@
+/* Import Markprompt default styles */
+@import '@markprompt/css';
+
+/* Global AI Assistant overrides */
+:root {
+  --ai-assistant-primary: var(--ifm-color-primary);
+  --ai-assistant-primary-dark: var(--ifm-color-primary-dark);
+  --ai-assistant-background: var(--ifm-background-color);
+  --ai-assistant-border: var(--ifm-color-emphasis-300);
+}
+
+/* Ensure AI Assistant appears above all other elements */
+.ai-assistant-fab,
+.ai-assistant-container,
+.ai-assistant-backdrop {
+  z-index: 9999 !important;
+}
+
+/* Markprompt global overrides for better integration */
+[data-markprompt-global] {
+  --markprompt-background: var(--ifm-background-color) !important;
+  --markprompt-foreground: var(--ifm-color-content) !important;
+  --markprompt-muted: var(--ifm-color-content-secondary) !important;
+  --markprompt-border: var(--ifm-color-emphasis-300) !important;
+  --markprompt-input: var(--ifm-background-color) !important;
+  --markprompt-primary: var(--ifm-color-primary) !important;
+  --markprompt-primary-foreground: #ffffff !important;
+  --markprompt-secondary: var(--ifm-color-emphasis-100) !important;
+  --markprompt-secondary-foreground: var(--ifm-color-content) !important;
+  --markprompt-accent: var(--ifm-color-primary-lightest) !important;
+  --markprompt-accent-foreground: var(--ifm-color-primary-darkest) !important;
+  --markprompt-destructive: var(--ifm-color-danger) !important;
+  --markprompt-destructive-foreground: #ffffff !important;
+  --markprompt-ring: var(--ifm-color-primary) !important;
+  --markprompt-radius: 0.5rem !important;
+}
+
+/* Dark theme support */
+[data-theme='dark'] [data-markprompt-global] {
+  --markprompt-background: var(--ifm-background-color) !important;
+  --markprompt-foreground: var(--ifm-color-content) !important;
+  --markprompt-muted: var(--ifm-color-content-secondary) !important;
+  --markprompt-border: var(--ifm-color-emphasis-500) !important;
+  --markprompt-input: var(--ifm-background-color) !important;
+}
+
+/* Ensure proper font family inheritance */
+.markprompt *,
+.ai-assistant-container * {
+  font-family: var(--ifm-font-family-base) !important;
+}
+
+/* Smooth animations */
+.ai-assistant-fab,
+.ai-assistant-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hide scrollbars in chat area for cleaner look */
+.markprompt-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.markprompt-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.markprompt-content::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 2px;
+}
+
+.markprompt-content::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-400);
+}

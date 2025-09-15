@@ -11,9 +11,9 @@ export default function NavbarSearch({className}: Props): ReactNode {
       <SemanticSearchBar 
         hostUrl="http://localhost:7700"
         apiKey=""
-        indexUid="docs_semantic"
+        indexUid="docs"
         placeholder="🔍 Search docs..."
-        hybridSearch={true}
+        hybridSearch={false}
         semanticWeight={0.7}
       />
     </div>

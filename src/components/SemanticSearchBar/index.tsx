@@ -36,9 +36,42 @@ const SemanticSearchBar: React.FC<SemanticSearchBarProps> = ({
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchMode, setSearchMode] = useState<'hybrid' | 'keyword' | 'semantic'>('hybrid');
+  const [searchMode, setSearchMode] = useState<'hybrid' | 'keyword' | 'semantic'>('keyword');
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Smart query preprocessing for better search results
+  const preprocessQuery = (query: string): string => {
+    if (!query) return query;
+    
+    // Common question words that can dilute search results
+    const questionWords = ['what', 'is', 'how', 'do', 'does', 'can', 'where', 'when', 'why', 'which'];
+    const stopWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'];
+    
+    // Extract meaningful terms
+    const words = query.toLowerCase().split(/\s+/);
+    const importantWords = words.filter(word => 
+      !questionWords.includes(word) && 
+      !stopWords.includes(word) && 
+      word.length > 2
+    );
+    
+    // If we have important terms, use them; otherwise use original query
+    if (importantWords.length > 0) {
+      // Add quotes around important terms for exact matching when beneficial
+      const processedTerms = importantWords.map(word => {
+        // Known Semgrep acronyms/terms that should be searched exactly
+        if (['sms', 'scp', 'ssc', 'oss', 'pro', 'ce', 'ci', 'cd', 'api', 'ide', 'sso', 'saml'].includes(word)) {
+          return `"${word.toUpperCase()}"`;
+        }
+        return word;
+      });
+      
+      return processedTerms.join(' ');
+    }
+    
+    return query;
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -61,15 +94,21 @@ const SemanticSearchBar: React.FC<SemanticSearchBarProps> = ({
 
     setIsLoading(true);
     try {
-      console.log('🔍 Searching for:', searchQuery, 'Mode:', searchMode);
+      console.log('🔍 Original query:', searchQuery, 'Mode:', searchMode);
+      
+      // Improve query processing for better results
+      const processedQuery = preprocessQuery(searchQuery);
+      console.log('⚡ Processed query:', processedQuery);
       
       const requestBody: any = {
-        q: searchQuery,
+        q: processedQuery,
         limit: 10,
         attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
         attributesToCrop: ['content:100'],
         cropLength: 100,
         showRankingScore: true,
+        // Improve ranking for better relevance
+        rankingScoreThreshold: 0.1,
       };
 
       // Configure search based on mode
