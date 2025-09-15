@@ -12,17 +12,17 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "index-meilisearch": "node scripts/index-to-meilisearch.js"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.23.3",
     "@docusaurus/core": "^3.8.1",
     "@docusaurus/plugin-client-redirects": "^3.8.1",
     "@docusaurus/preset-classic": "^3.8.1",
-    "@markprompt/docusaurus-theme-search": "0.32.4",
     "@mdx-js/react": "^3.0.1",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
+    "docs-searchbar.js": "^2.5.0",
     "docusaurus-plugin-sass": "^0.2.5",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^2.3.1",
@@ -49,6 +49,9 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.1",
     "@tsconfig/docusaurus": "^2.0.3",
-    "@types/react": "^18.3.1"
+    "@types/react": "^18.3.1",
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
+    "meilisearch": "^0.53.0"
   }
 }
