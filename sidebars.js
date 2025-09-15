@@ -22,10 +22,16 @@ module.exports = {
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
+      type: 'ref',
+      id: 'learn/overview',
+      label: 'Semgrep Learn',
+      className: 'top-category-separator'
+    },
+    {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb',
-      className: 'top-category-separator'
+      className: 'top-category'
     },
     { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
@@ -794,4 +800,113 @@ module.exports = {
         ],
     },
   ],
+  learnSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+      type: 'category',
+      label: 'Semgrep Learn',
+      collapsible: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'learn/overview',
+          label: 'Learn Overview'
+        },
+        {
+          type: 'category',
+          label: 'Security Foundations',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/security-foundations/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'SAST',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/sast/overview'
+              },
+              items: [
+                'learn/security-foundations/sast/security-testing-workflow'
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Vulnerabilities',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/vulnerabilities/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Command Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/command-injection/overview'
+              },
+              items: [
+                'learn/vulnerabilities/command-injection/argo-injection'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Deserialization',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-deserialization/overview'
+              },
+              items: [
+                'learn/vulnerabilities/insecure-deserialization/python-deserialization'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Open Redirect',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/open-redirect/overview'
+              },
+              items: [
+                // Additional Open Redirect topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Server Side Request Forgery',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/server-side-request-forgery/overview'
+              },
+              items: [
+                // Additional SSRF topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'XML Security',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/xml-security/overview'
+              },
+              items: [
+                // Additional XML security topics can be added here
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 };
