@@ -2,7 +2,7 @@
 slug: data-flow-overview
 append_help_link: true
 description: >-
-  Semgrep can run data-flow analyses on your code, this is used for constant propagation and for taint tracking.
+  Semgrep can run dataflow analyses on your code, this is used for constant propagation and for taint tracking.
 sidebar_label: Engine overview
 tags:
   - Rule writing
@@ -10,19 +10,19 @@ tags:
 
 import DataFlowStatus from "/src/components/concept/_data-flow-status.mdx"
 
-# Data-flow analysis engine overview
+# Dataflow analysis engine overview
 
-Semgrep provides an intra-procedural data-flow analysis engine that opens various Semgrep capabilities. Semgrep provides the following data-flow analyses:
+Semgrep provides an intra-procedural dataflow analysis engine that opens various Semgrep capabilities. Semgrep provides the following dataflow analyses:
 - [Constant propagation](/writing-rules/data-flow/constant-propagation) allows Semgrep to, for example, match `return 42` against `return x` when `x` can be reduced to `42` by constant folding. There is also a specific experimental feature of [Constant propagation](/writing-rules/data-flow/constant-propagation), called [Symbolic propagation](/writing-rules/experiments/symbolic-propagation).
 - [Taint tracking (known also as taint analysis)](/writing-rules/data-flow/taint-mode/) enables you to write simple rules that catch complex [injection bugs](https://owasp.org/www-community/Injection_Flaws), such as those that can result in [cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
-In principle, all data flow related features are available for any of Semgrep's [supported languages](/supported-languages). Interfile (cross-file) analysis also supports data-flow analysis. For more details, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro) documentation.
+In principle, all data flow related features are available for any of Semgrep's [supported languages](/supported-languages). Interfile (cross-file) analysis also supports dataflow analysis. For more details, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro) documentation.
 
 :::info
-Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the data-flow engine. For further details, see also the [data-flow status](#data-flow-status).
+Ensure that you understand the [design trade-offs](#design-trade-offs) and limitations of the dataflow engine. For further details, see also the [dataflow status](#data-flow-status).
 :::
 
-Semgrep provides no user-friendly way of specifying a new data-flow analysis. Please [let us know if you have suggestions](https://github.com/semgrep/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/contributing/contributing) documentation for more details.
+Semgrep provides no user-friendly way of specifying a new dataflow analysis. Please [let us know if you have suggestions](https://github.com/semgrep/semgrep/issues/new/choose). If you can code in OCaml, your contribution is welcome. See [Contributing](/contributing/contributing) documentation for more details.
 
 ## Design trade-offs
 
@@ -34,6 +34,6 @@ Semgrep strives for simplicity and delivers a lightweight, and fast static analy
 
 Expect both false positives and false negatives. You can remove false positives in different ways, for example, using [pattern-not](/writing-rules/rule-syntax#pattern-not) and [pattern-not-inside](/writing-rules/rule-syntax#pattern-not-inside). We want to provide you with a way of eliminating false positives, so [create an issue](https://github.com/semgrep/semgrep/issues/new/choose) if run into any problems. We are happy to trade false negatives for simplicity and fewer false positives, but you are welcome to open a feature request if Semgrep misses some difficult bug you want to catch.
 
-## Data-flow status
+## Dataflow status
 
 <DataFlowStatus />

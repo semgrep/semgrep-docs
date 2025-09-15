@@ -44,7 +44,7 @@ To avoid sending test data to Semgrep AppSec Platform and potentially confoundin
 
 When testing locally, adding `--dataflow-traces` allows you to see the taint traces as you would in the Semgrep AppSec Platform UI.
 
-#### Sample taint data-flow reporting
+#### Sample taint dataflow reporting
 
 The following is an example that shows dataflow traces traversing multiple files, demonstrating interfile taint tracking:
 

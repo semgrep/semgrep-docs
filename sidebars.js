@@ -446,7 +446,7 @@ module.exports = {
                         'writing-rules/autofix',
                         {
                             type: 'category',
-                            label: 'Data-flow analysis',
+                            label: 'Dataflow analysis',
                             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
                             items: [
                                 'writing-rules/data-flow/constant-propagation',

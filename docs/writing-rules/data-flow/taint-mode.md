@@ -9,7 +9,7 @@ description: >-
 
 # Taint analysis
 
-Semgrep supports [taint analysis](https://en.wikipedia.org/wiki/Taint_checking) (or taint tracking) through taint rules (specified by adding `mode: taint` to your rule). Taint analysis is a data-flow analysis that tracks the flow of untrusted, or **tainted** data throughout the body of a function or method. Tainted data originate from tainted **sources**. If tainted data is not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function, called a **sink**. Tainted data flow from sources to sinks through **propagators**, such as assignments, or function calls.
+Semgrep supports [taint analysis](https://en.wikipedia.org/wiki/Taint_checking) (or taint tracking) through taint rules (specified by adding `mode: taint` to your rule). Taint analysis is a dataflow analysis that tracks the flow of untrusted, or **tainted** data throughout the body of a function or method. Tainted data originate from tainted **sources**. If tainted data is not transformed or checked accordingly (**sanitized**), taint analysis reports a finding whenever tainted data reach a vulnerable function, called a **sink**. Tainted data flow from sources to sinks through **propagators**, such as assignments, or function calls.
 
 The following video provides a quick overview of taint mode:
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
