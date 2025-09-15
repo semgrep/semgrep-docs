@@ -1,0 +1,312 @@
+.semantic-search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.semantic-search-input {
+  width: 100%;
+  outline: none;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.semantic-search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.search-mode-toggle {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.search-mode-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-mode-button:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.search-loading {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-top: 2px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 4px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.search-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.search-mode-indicator {
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.results-count {
+  color: var(--ifm-color-content-secondary);
+}
+
+.search-results {
+  padding: 0;
+  margin: 0;
+}
+
+.search-result-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  transition: background-color 0.15s ease;
+  position: relative;
+}
+
+.search-result-item:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.result-hierarchy {
+  font-size: 12px;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.hierarchy-lvl0 {
+  color: var(--ifm-color-primary);
+}
+
+.hierarchy-lvl1 {
+  color: var(--ifm-color-content-secondary);
+}
+
+.hierarchy-lvl2 {
+  color: var(--ifm-color-content);
+}
+
+.hierarchy-separator {
+  color: var(--ifm-color-emphasis-400);
+  font-weight: normal;
+}
+
+.result-content {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ifm-color-content);
+  margin-bottom: 8px;
+}
+
+.result-content mark {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.result-scores {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.score-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ranking-score {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  border: 1px solid var(--ifm-color-primary-light);
+}
+
+.semantic-score {
+  background: var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success-darkest);
+  border: 1px solid var(--ifm-color-success-light);
+}
+
+.no-results {
+  padding: 16px;
+  text-align: center;
+  color: var(--ifm-color-content-secondary);
+  font-style: italic;
+}
+
+/* Enhanced search mode indicators */
+.search-mode-button {
+  position: relative;
+}
+
+.search-mode-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.search-mode-button:hover::after {
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .semantic-search-input {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .search-dropdown {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-500);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .search-results-header {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .search-result-item:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .result-content mark {
+  background: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .search-mode-button:hover {
+  background: var(--ifm-color-emphasis-300);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .semantic-search-input {
+    min-width: 200px;
+  }
+  
+  .search-dropdown {
+    max-height: 400px;
+  }
+  
+  .result-scores {
+    flex-wrap: wrap;
+  }
+  
+  .score-badge {
+    font-size: 9px;
+  }
+}
+
+/* Animation for smooth transitions */
+.search-dropdown {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-result-item {
+  animation: fadeIn 0.1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Highlight different search modes with subtle visual cues */
+.semantic-search-container[data-mode="hybrid"] .semantic-search-input {
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.semantic-search-container[data-mode="semantic"] .semantic-search-input {
+  border-left: 3px solid var(--ifm-color-success);
+}
+
+.semantic-search-container[data-mode="keyword"] .semantic-search-input {
+  border-left: 3px solid var(--ifm-color-warning);
+}
