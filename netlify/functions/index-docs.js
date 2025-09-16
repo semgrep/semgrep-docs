@@ -1,6 +1,6 @@
 const { MeiliSearch } = require('meilisearch');
 const axios = require('axios');
-const cheerio = require('cheerio');
+const { JSDOM } = require('jsdom');
 
 exports.handler = async (event, context) => {
   // Set CORS headers
@@ -84,11 +84,13 @@ exports.handler = async (event, context) => {
     // Get sitemap
     try {
       const sitemapResponse = await axios.get('https://semgrep.dev/docs/sitemap.xml');
-      const $ = cheerio.load(sitemapResponse.data, { xmlMode: true });
+      const dom = new JSDOM(sitemapResponse.data, { contentType: 'text/xml' });
+      const document = dom.window.document;
       
-      $('url > loc').each((_, element) => {
-        const url = $(element).text();
-        if (url.startsWith('https://semgrep.dev/docs')) {
+      const urlElements = document.querySelectorAll('url > loc');
+      urlElements.forEach(element => {
+        const url = element.textContent;
+        if (url && url.startsWith('https://semgrep.dev/docs')) {
           visitedUrls.add(url);
         }
       });
@@ -108,20 +110,29 @@ exports.handler = async (event, context) => {
           }
         });
 
-        const $ = cheerio.load(response.data);
-        const title = $('h1').first().text().trim() || $('title').text().trim();
+        const dom = new JSDOM(response.data);
+        const document = dom.window.document;
+        
+        const h1Element = document.querySelector('h1');
+        const titleElement = document.querySelector('title');
+        const title = (h1Element ? h1Element.textContent : '') || (titleElement ? titleElement.textContent : '');
+
+        const breadcrumbElement = document.querySelector('.breadcrumbs > li:nth-child(2) span, .breadcrumbs__link');
+        const lvl1Element = document.querySelector('article h1, .theme-doc-markdown h1');
+        const lvl2Element = document.querySelector('article h2, .theme-doc-markdown h2');
+        const lvl3Element = document.querySelector('article h3, .theme-doc-markdown h3');
 
         const hierarchy = {
-          lvl0: $('.breadcrumbs > li:nth-child(2) span, .breadcrumbs__link').first().text().trim() || 'Semgrep Documentation',
-          lvl1: $('article h1, .theme-doc-markdown h1').first().text().trim() || title,
-          lvl2: $('article h2, .theme-doc-markdown h2').first().text().trim() || '',
-          lvl3: $('article h3, .theme-doc-markdown h3').first().text().trim() || ''
+          lvl0: (breadcrumbElement ? breadcrumbElement.textContent : '') || 'Semgrep Documentation',
+          lvl1: (lvl1Element ? lvl1Element.textContent : '') || title,
+          lvl2: lvl2Element ? lvl2Element.textContent : '',
+          lvl3: lvl3Element ? lvl3Element.textContent : ''
         };
 
         // Extract content sections
-        const contentElements = $('article p, article li, article code, article td, article pre, article blockquote');
-        contentElements.each((index, element) => {
-          const text = $(element).text().trim();
+        const contentElements = document.querySelectorAll('article p, article li, article code, article td, article pre, article blockquote');
+        contentElements.forEach((element, index) => {
+          const text = element.textContent ? element.textContent.trim() : '';
           if (text && text.length > 20) {
             const id = `semgrep_doc_${Buffer.from(url).toString('base64').replace(/[^a-zA-Z0-9]/g, '')}_${index}`;
             
