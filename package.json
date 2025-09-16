@@ -41,7 +41,7 @@
     "webpack": "^5.91.0",
     "meilisearch": "^0.53.0",
     "axios": "^1.12.2",
-    "cheerio": "^1.1.2"
+    "cheerio": "^1.0.0-rc.12"
   },
   "browserslist": {
     "production": [
