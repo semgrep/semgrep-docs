@@ -1,193 +1,143 @@
-# 🔍 Meilisearch + Netlify Previews Setup
+# 🚀 Netlify Meilisearch Setup
 
-This guide shows how to add Meilisearch search functionality to your existing Netlify preview deployments.
+Deploy Meilisearch with Semgrep docs to your existing Netlify site!
 
-## 🎯 **How It Works**
+## 🎯 **What We're Building**
 
-Your current setup:
-- ✅ **Netlify** automatically creates preview deployments for PRs
-- ✅ **Static site** builds and deploys successfully
-- ❌ **Search functionality** is missing from previews
+✅ **Netlify Functions**: Serverless Meilisearch proxy  
+✅ **Semgrep Docs Index**: Full documentation search  
+✅ **Public Search**: Available on all Netlify previews  
+✅ **Local Development**: Works with local Meilisearch  
 
-**New setup:**
-- ✅ **Netlify** continues creating preview deployments
-- ✅ **GitHub Actions** indexes content to Meilisearch
-- ✅ **Search works** automatically in all previews
+## 🚀 **Setup Steps**
 
-## 🚀 **Quick Setup (5 minutes)**
+### **1. Deploy to Netlify**
 
-### **Step 1: Set up Meilisearch Instance**
+Your site is already connected to Netlify, so just push the changes:
 
-Choose one option:
-
-#### Option A: Meilisearch Cloud (Recommended)
-1. Go to [cloud.meilisearch.com](https://cloud.meilisearch.com)
-2. Create a new project: "semgrep-docs-previews"
-3. Get your API keys:
-   - **Master key** (for indexing)
-   - **Search-only key** (for frontend)
-
-#### Option B: Self-hosted
 ```bash
-docker run -d \
-  --name meilisearch-previews \
-  -p 7701:7700 \
-  -e MEILI_MASTER_KEY=your-preview-master-key \
-  getmeili/meilisearch:v1.20
+git add .
+git commit -m "Add Netlify Meilisearch functions"
+git push origin meilisearch-testing-clean
 ```
 
-### **Step 2: Add GitHub Secrets**
+### **2. Set Environment Variables**
 
-In your GitHub repository:
-1. Go to **Settings** → **Secrets and variables** → **Actions**
-2. Add these repository secrets:
-   - `MEILISEARCH_STAGING_HOST_URL` = `https://your-meilisearch-instance.com`
-   - `MEILISEARCH_STAGING_API_KEY` = `your-master-key-here`
+In your Netlify dashboard:
 
-### **Step 3: Test It**
+1. **Go to Site Settings → Environment Variables**
+2. **Add these variables**:
 
-1. **Create a PR** to trigger the workflow
-2. **Check the PR comment** - it will show search status
-3. **Wait for Netlify preview** to deploy
-4. **Test search** in the preview URL
-
-## 🔧 **How the Integration Works**
-
-### **Automatic Flow:**
 ```
-1. You create/update a PR
-   ↓
-2. GitHub Actions runs (indexes to Meilisearch)
-   ↓
-3. Netlify builds and deploys preview
-   ↓
-4. Search automatically works in preview
+MEILISEARCH_HOST_URL = http://localhost:7700
+MEILISEARCH_API_KEY = your-master-key-here
 ```
 
-### **Environment Detection:**
-The search component automatically detects Netlify previews by checking:
-- `window.location.hostname.includes('deploy-preview')`
-- `window.location.hostname.includes('netlify.app')`
+**Note**: For production, you'll need a hosted Meilisearch instance.
 
-### **Configuration:**
-- **Development:** Uses `localhost:7700`
-- **Netlify Previews:** Uses your staging Meilisearch instance
-- **Production:** Uses your production Meilisearch instance
+### **3. Index the Documentation**
 
-## 📊 **What You'll See**
+After deployment, trigger the indexing:
 
-### **In GitHub Actions:**
-```
-🔍 Indexing to preview Meilisearch...
-✅ Meilisearch indexing completed for preview
-```
-
-### **In PR Comments:**
-```
-## 🔍 Meilisearch Search Status
-
-**Preview Search:** ✅ Configured
-- **Search Index:** `docs_staging`
-- **Preview URL:** Will be available after Netlify deployment
-- **Search will work automatically** when preview is live
-```
-
-### **In Netlify Previews:**
-- Search bar appears in navbar
-- Search works immediately
-- Results come from your staging Meilisearch index
-
-## 🎨 **Customization Options**
-
-### **Different Meilisearch Instance per Branch:**
-```javascript
-// In src/theme/Navbar/Search/index.tsx
-const getMeilisearchConfig = () => {
-  const branch = process.env.GITHUB_REF_NAME || 'main';
-  
-  if (branch === 'staging') {
-    return {
-      hostUrl: "https://staging-meilisearch.semgrep.dev",
-      indexUid: "docs_staging"
-    };
-  }
-  // ... other configurations
-};
-```
-
-### **Preview-Specific Index Names:**
-```javascript
-// Use PR number for unique indexes
-const prNumber = process.env.GITHUB_PR_NUMBER;
-const indexUid = prNumber ? `docs_pr_${prNumber}` : 'docs_staging';
-```
-
-## 🔒 **Security & Best Practices**
-
-### **API Key Security:**
-- ✅ Use **search-only keys** for frontend
-- ✅ Use **master keys** only for indexing
-- ✅ Store keys in **GitHub Secrets**
-- ❌ Never commit keys to repository
-
-### **CORS Configuration:**
-```javascript
-// In your Meilisearch instance
-{
-  "corsOrigins": [
-    "https://semgrep-docs.netlify.app",
-    "https://deploy-preview-*.netlify.app"
-  ]
-}
-```
-
-### **Rate Limiting:**
-- Set up rate limiting on your Meilisearch instance
-- Monitor usage to prevent abuse
-- Use different limits than production
-
-## 🆘 **Troubleshooting**
-
-### **Search Not Working in Preview:**
-1. **Check GitHub Actions logs** for indexing errors
-2. **Verify environment variables** are set correctly
-3. **Check browser console** for CORS or connection errors
-4. **Test Meilisearch instance** directly
-
-### **Index Empty:**
 ```bash
-# Check if indexing worked
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-  "https://your-meilisearch.com/indexes/docs_staging/stats"
+# Call the indexing function
+curl -X POST https://your-site.netlify.app/.netlify/functions/index-docs
 ```
 
-### **CORS Errors:**
-- Add `*.netlify.app` to CORS origins
-- Check if preview URL is accessible
-- Verify API key permissions
+Or visit: `https://your-site.netlify.app/.netlify/functions/index-docs`
+
+### **4. Test the Search**
+
+Visit your Netlify preview and test the search with:
+- "custom rules"
+- "CI integration"
+- "secrets detection"
+- "supply chain security"
+
+## 🔧 **How It Works**
+
+### **Netlify Functions**:
+
+1. **`/netlify/functions/meilisearch.js`**:
+   - Proxies search requests to Meilisearch
+   - Handles CORS for cross-origin requests
+   - Provides health checks and stats
+
+2. **`/netlify/functions/index-docs.js`**:
+   - Scrapes Semgrep documentation
+   - Indexes content to Meilisearch
+   - Configures search settings and synonyms
+
+### **Search Component**:
+- Automatically detects Netlify vs local environment
+- Uses Netlify function on deployed sites
+- Falls back to local Meilisearch for development
+
+## 🎯 **Production Setup**
+
+For a production Meilisearch instance:
+
+### **Option 1: Meilisearch Cloud**
+```bash
+# Set in Netlify environment variables
+MEILISEARCH_HOST_URL = https://your-project.meilisearch.io
+MEILISEARCH_API_KEY = your-master-key
+```
+
+### **Option 2: Self-hosted**
+```bash
+# Deploy to Railway/Render/Fly.io
+MEILISEARCH_HOST_URL = https://your-meilisearch-instance.com
+MEILISEARCH_API_KEY = your-master-key
+```
+
+## 🔄 **Automated Indexing**
+
+Set up GitHub Actions for automatic re-indexing:
+
+```yaml
+name: Update Semgrep Docs Index
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM
+  workflow_dispatch:
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify function
+        run: |
+          curl -X POST ${{ secrets.NETLIFY_SITE_URL }}/.netlify/functions/index-docs
+```
 
 ## 🎉 **Benefits**
 
-### **For Developers:**
-- ✅ **Full search functionality** in every preview
-- ✅ **No manual setup** required
-- ✅ **Consistent experience** across all environments
-- ✅ **Automatic indexing** of new content
+✅ **No Additional Hosting**: Uses existing Netlify setup  
+✅ **Serverless**: Functions scale automatically  
+✅ **Free Tier**: Netlify functions are free for reasonable usage  
+✅ **Easy Updates**: Just push to GitHub  
+✅ **Local Development**: Works with local Meilisearch  
 
-### **For Reviewers:**
-- ✅ **Test search features** before merging
-- ✅ **Verify search results** are correct
-- ✅ **No broken search** in previews
-- ✅ **Complete documentation experience**
+## 🔍 **Testing**
 
-### **For Team:**
-- ✅ **Faster feedback** on search changes
-- ✅ **Better PR reviews** with working search
-- ✅ **Reduced production issues**
-- ✅ **Improved developer experience**
+### **Local Development**:
+```bash
+yarn dev
+# Search uses local Meilisearch at localhost:7700
+```
+
+### **Netlify Preview**:
+- Search uses Netlify function
+- Automatically indexes Semgrep docs
+- Full search functionality
+
+### **Production**:
+- Set up hosted Meilisearch instance
+- Update environment variables
+- Deploy and test
 
 ---
 
-🎯 **Result:** Every Netlify preview now has fully functional search, automatically!
-
-The search will work seamlessly with your existing Netlify preview system - no changes to your current deployment process needed.
+🎯 **Result**: A fully functional Semgrep docs search powered by Meilisearch, deployed on your existing Netlify infrastructure!

@@ -14,47 +14,70 @@ const MeilisearchSearchBar: React.FC<{
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const searchMeilisearch = async (searchQuery: string) => {
-    if (!searchQuery.trim()) {
-      setResults([]);
-      setIsOpen(false);
-      return;
-    }
+      const searchMeilisearch = async (searchQuery: string) => {
+        if (!searchQuery.trim()) {
+          setResults([]);
+          setIsOpen(false);
+          return;
+        }
 
-    setIsLoading(true);
-    try {
-      const response = await fetch(`${hostUrl}/indexes/${indexUid}/search`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(apiKey && { 'Authorization': `Bearer ${apiKey}` }),
-        },
-        body: JSON.stringify({
-          q: searchQuery,
-          limit: 5,
-          attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
-          attributesToCrop: ['content:100'],
-          cropLength: 100,
-        }),
-      });
+        setIsLoading(true);
+        try {
+          // Check if we're using Netlify function or direct Meilisearch
+          const isNetlifyFunction = hostUrl.includes('/.netlify/functions/');
+          
+          let response;
+          if (isNetlifyFunction) {
+            // Use Netlify function
+            response = await fetch(hostUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                index: indexUid,
+                q: searchQuery,
+                limit: 5,
+                attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+                attributesToCrop: ['content:100'],
+                cropLength: 100,
+              }),
+            });
+          } else {
+            // Use direct Meilisearch API
+            response = await fetch(`${hostUrl}/indexes/${indexUid}/search`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                ...(apiKey && { 'Authorization': `Bearer ${apiKey}` }),
+              },
+              body: JSON.stringify({
+                q: searchQuery,
+                limit: 5,
+                attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+                attributesToCrop: ['content:100'],
+                cropLength: 100,
+              }),
+            });
+          }
 
-      if (response.ok) {
-        const data = await response.json();
-        setResults(data.hits || []);
-        setIsOpen(true);
-      } else {
-        console.error('Search failed:', response.status);
-        setResults([]);
-        setIsOpen(false);
-      }
-    } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
-      setIsOpen(false);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+          if (response.ok) {
+            const data = await response.json();
+            setResults(data.hits || []);
+            setIsOpen(true);
+          } else {
+            console.error('Search failed:', response.status);
+            setResults([]);
+            setIsOpen(false);
+          }
+        } catch (error) {
+          console.error('Search error:', error);
+          setResults([]);
+          setIsOpen(false);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -171,12 +194,18 @@ export default function NavbarSearch({className}: Props): ReactNode {
     
     if (isNetlifyPreview || isTestingBranch || isDevelopment) {
       // Enable Meilisearch on testing branches and previews
+      const isNetlify = typeof window !== 'undefined' && 
+                       (window.location.hostname.includes('netlify.app') || 
+                        window.location.hostname.includes('deploy-preview'));
+      
       return {
         enabled: true,
-        hostUrl: "https://demo.meilisearch.com", // Using demo instance for testing
-        apiKey: "", // Demo instance doesn't require API key
-        indexUid: "movies", // Demo index
-        placeholder: "🔍 Search docs... (Meilisearch Demo)"
+        hostUrl: isNetlify ? 
+          `${window.location.origin}/.netlify/functions/meilisearch` : // Netlify function
+          "http://localhost:7700", // Local Meilisearch
+        apiKey: "", // No API key needed
+        indexUid: isNetlify ? "semgrep_docs" : "docs", // Different index names
+        placeholder: "🔍 Search Semgrep docs... (Meilisearch powered!)"
       };
     } else {
       // All other branches - disable Meilisearch
