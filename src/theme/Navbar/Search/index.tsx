@@ -202,10 +202,10 @@ export default function NavbarSearch({className}: Props): ReactNode {
         enabled: true,
         hostUrl: isNetlify ? 
           `${window.location.origin}/.netlify/functions/meilisearch` : // Netlify function
-          "http://localhost:7700", // Local Meilisearch
-        apiKey: "", // No API key needed
-        indexUid: isNetlify ? "semgrep_docs" : "docs", // Different index names
-        placeholder: "🔍 Search Semgrep docs... (Meilisearch powered!)"
+          "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
+        apiKey: "", // No API key needed for Netlify function
+        indexUid: "semgrep_docs", // Use same index name everywhere
+        placeholder: "🔍 Search Semgrep docs... (Meilisearch Cloud powered!)"
       };
     } else {
       // All other branches - disable Meilisearch

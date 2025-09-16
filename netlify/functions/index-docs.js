@@ -31,8 +31,8 @@ exports.handler = async (event, context) => {
   try {
     // Initialize Meilisearch client
     const client = new MeiliSearch({
-      host: process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700',
-      apiKey: process.env.MEILISEARCH_API_KEY || ''
+      host: process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io',
+      apiKey: process.env.MEILISEARCH_API_KEY || 'b7c62c6347d5a3032f73043eaa40546825c99bc6'
     });
 
     const indexName = 'semgrep_docs';
