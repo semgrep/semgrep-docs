@@ -89,6 +89,7 @@ exports.handler = async (event, context) => {
         console.log('ℹ️  Embedder already exists, continuing...');
       } else {
         console.log('⚠️  Could not configure embedder:', error.message);
+        console.log('⚠️  Error details:', error);
       }
     }
 

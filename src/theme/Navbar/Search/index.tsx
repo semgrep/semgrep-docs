@@ -42,10 +42,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
-                hybrid: {
-                  semanticRatio: 0.7,
-                  embedder: "default"
-                }
+                // hybrid: {
+                //   semanticRatio: 0.7,
+                //   embedder: "default"
+                // }
               }),
             });
           } else {
@@ -62,10 +62,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
-                hybrid: {
-                  semanticRatio: 0.7,
-                  embedder: "default"
-                }
+                // hybrid: {
+                //   semanticRatio: 0.7,
+                //   embedder: "default"
+                // }
               }),
             });
           }
