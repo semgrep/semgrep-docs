@@ -1,9 +1,25 @@
 import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import type {Props} from '@theme/Navbar/Search';
-import SemanticSearchBar from '@site/src/components/SemanticSearchBar';
 
-import styles from './styles.module.css';
+// Simple fallback search component for testing
+const FallbackSearchBar: React.FC<{placeholder: string}> = ({placeholder}) => {
+  return (
+    <div style={{padding: '8px', border: '1px solid #ccc', borderRadius: '4px', minWidth: '200px'}}>
+      <input 
+        type="search" 
+        placeholder={placeholder}
+        disabled
+        style={{
+          width: '100%',
+          border: 'none',
+          outline: 'none',
+          background: 'transparent'
+        }}
+      />
+    </div>
+  );
+};
 
 export default function NavbarSearch({className}: Props): ReactNode {
   // Environment-based configuration
@@ -20,23 +36,20 @@ export default function NavbarSearch({className}: Props): ReactNode {
     if (isTestingBranch) {
       // Only enable Meilisearch on the testing branch
       return {
-        hostUrl: "http://localhost:7700",
-        apiKey: "",
-        indexUid: "docs_testing"
+        enabled: true,
+        placeholder: "🔍 Search docs... (Meilisearch Testing)"
       };
     } else if (isDevelopment) {
       // Development fallback
       return {
-        hostUrl: "http://localhost:7700",
-        apiKey: "",
-        indexUid: "docs"
+        enabled: true,
+        placeholder: "🔍 Search docs... (Development)"
       };
     } else {
       // All other branches - disable Meilisearch
       return {
-        hostUrl: "",
-        apiKey: "",
-        indexUid: ""
+        enabled: false,
+        placeholder: "🔍 Search docs... (Disabled)"
       };
     }
   };
@@ -44,15 +57,8 @@ export default function NavbarSearch({className}: Props): ReactNode {
   const config = getMeilisearchConfig();
 
   return (
-    <div className={clsx(className, styles.navbarSearchContainer)}>
-      <SemanticSearchBar 
-        hostUrl={config.hostUrl}
-        apiKey={config.apiKey}
-        indexUid={config.indexUid}
-        placeholder="🔍 Search docs..."
-        hybridSearch={false}
-        semanticWeight={0.7}
-      />
+    <div className={className}>
+      <FallbackSearchBar placeholder={config.placeholder} />
     </div>
   );
 }
