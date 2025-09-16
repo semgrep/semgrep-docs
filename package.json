@@ -17,7 +17,11 @@
     "index-semantic": "node scripts/index-with-embeddings.js",
     "index-production": "NODE_ENV=production node scripts/index-to-meilisearch.js",
     "index-semantic-production": "NODE_ENV=production node scripts/index-with-embeddings.js",
-    "deploy": "yarn build && yarn index-production"
+    "index-staging": "NODE_ENV=staging node scripts/index-staging.js",
+    "index-testing": "NODE_ENV=testing node scripts/index-staging.js",
+    "deploy": "yarn build && yarn index-production",
+    "deploy-staging": "yarn build && yarn index-staging",
+    "deploy-testing": "yarn build && yarn index-testing"
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.1",
