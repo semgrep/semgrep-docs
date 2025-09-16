@@ -1,0 +1,88 @@
+name: Index Meilisearch for Testing Branch
+
+on:
+  push:
+    branches: [meilisearch-testing]
+  pull_request:
+    branches: [meilisearch-testing]
+
+jobs:
+  index-meilisearch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Build documentation
+        run: yarn build
+        
+      - name: Index to Preview Meilisearch
+        env:
+          MEILISEARCH_STAGING_HOST_URL: ${{ secrets.MEILISEARCH_STAGING_HOST_URL }}
+          MEILISEARCH_STAGING_API_KEY: ${{ secrets.MEILISEARCH_STAGING_API_KEY }}
+        run: |
+          if [ -n "$MEILISEARCH_STAGING_HOST_URL" ] && [ -n "$MEILISEARCH_STAGING_API_KEY" ]; then
+            echo "🔍 Indexing to preview Meilisearch..."
+            echo "Preview URL will be available after Netlify deployment"
+            yarn index-staging
+            echo "✅ Meilisearch indexing completed for preview"
+          else
+            echo "⚠️  Skipping Meilisearch indexing - preview credentials not configured"
+            echo "   Set MEILISEARCH_STAGING_HOST_URL and MEILISEARCH_STAGING_API_KEY secrets"
+          fi
+          
+      - name: Comment on PR with search info
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('🔍 Meilisearch Search')
+            );
+            
+            const searchInfo = `
+            ## 🔍 Meilisearch Search Status
+            
+            **Preview Search:** ${process.env.MEILISEARCH_STAGING_HOST_URL ? '✅ Configured' : '❌ Not configured'}
+            
+            ${process.env.MEILISEARCH_STAGING_HOST_URL ? 
+              `- **Search Index:** \`docs_staging\`
+            - **Preview URL:** Will be available after Netlify deployment
+            - **Search will work automatically** when preview is live` : 
+              `To enable search in previews, add these repository secrets:
+            - \`MEILISEARCH_STAGING_HOST_URL\`
+            - \`MEILISEARCH_STAGING_API_KEY\``}
+            `;
+            
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: searchInfo
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: searchInfo
+              });
+            }
