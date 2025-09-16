@@ -128,8 +128,8 @@ exports.handler = async (event, context) => {
        url.includes('/cheat-sheets/'))
     );
     
-    // Combine important URLs first, then others
-    const urlsToScrape = [...importantUrls, ...allUrls.filter(url => !importantUrls.includes(url))].slice(0, 200);
+    // Combine important URLs first, then others (limit to 100 for Netlify timeout)
+    const urlsToScrape = [...importantUrls, ...allUrls.filter(url => !importantUrls.includes(url))].slice(0, 100);
     
     for (const url of urlsToScrape) {
       try {
@@ -178,8 +178,8 @@ exports.handler = async (event, context) => {
           }
         });
 
-        // Add delay to be respectful
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Add delay to be respectful (reduced for faster indexing)
+        await new Promise(resolve => setTimeout(resolve, 50));
 
       } catch (error) {
         console.error(`Error scraping ${url}:`, error.message);
