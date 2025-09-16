@@ -15,9 +15,6 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "index-staging": "NODE_ENV=staging node scripts/index-staging.js",
     "index-testing": "NODE_ENV=testing node scripts/index-staging.js",
-    "export-index": "node scripts/export-index.js",
-    "import-to-cloud": "node scripts/import-to-cloud.js",
-    "create-dump": "node scripts/create-dump.js",
     "deploy-testing": "yarn build && yarn index-testing"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 import React, {type ReactNode, useState, useEffect} from 'react';
 import clsx from 'clsx';
 import type {Props} from '@theme/Navbar/Search';
+import {Markprompt} from '@markprompt/react';
 
 // Working Meilisearch component for testing
 const MeilisearchSearchBar: React.FC<{
@@ -41,6 +42,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           } else {
@@ -57,6 +62,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           }
@@ -205,7 +214,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
           "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
         apiKey: "", // No API key needed for Netlify function
         indexUid: "semgrep_docs", // Use same index name everywhere
-        placeholder: "🔍 Search Semgrep docs... (Meilisearch Cloud powered!)"
+        placeholder: "🔍 Search docs... (Hybrid Search + AI Chat)"
       };
     } else {
       // All other branches - disable Meilisearch
@@ -241,14 +250,47 @@ export default function NavbarSearch({className}: Props): ReactNode {
     );
   }
 
-  return (
-    <div className={className}>
-      <MeilisearchSearchBar 
-        hostUrl={config.hostUrl}
-        apiKey={config.apiKey}
-        indexUid={config.indexUid}
-        placeholder={config.placeholder}
-      />
-    </div>
-  );
+      return (
+        <div className={className}>
+          <div style={{display: 'flex', gap: '8px', alignItems: 'center'}}>
+            <MeilisearchSearchBar 
+              hostUrl={config.hostUrl}
+              apiKey={config.apiKey}
+              indexUid={config.indexUid}
+              placeholder={config.placeholder}
+            />
+            <Markprompt
+              projectKey="semgrep-docs"
+              trigger={{
+                element: (
+                  <button 
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid #ccc',
+                      borderRadius: '4px',
+                      background: 'white',
+                      cursor: 'pointer',
+                      fontSize: '14px'
+                    }}
+                    title="Ask AI about Semgrep"
+                  >
+                    🤖 AI
+                  </button>
+                )
+              }}
+              search={{
+                enabled: false // We'll use Meilisearch for search
+              }}
+              chat={{
+                enabled: true,
+                showRelatedQuestions: true
+              }}
+              references={{
+                getHref: (reference) => reference.file?.path || '#',
+                getLabel: (reference) => reference.title || reference.file?.path || 'Document'
+              }}
+            />
+          </div>
+        </div>
+      );
 }

@@ -77,6 +77,21 @@ exports.handler = async (event, context) => {
       'deployment': ['deployment', 'setup', 'configuration', 'installation']
     });
 
+    // Configure embedder for hybrid search
+    try {
+      await client.createEmbedder('default', {
+        source: 'huggingface',
+        model: 'sentence-transformers/all-MiniLM-L6-v2'
+      });
+      console.log('✅ Embedder configured for hybrid search');
+    } catch (error) {
+      if (error.cause?.code === 'embedder_already_exists') {
+        console.log('ℹ️  Embedder already exists, continuing...');
+      } else {
+        console.log('⚠️  Could not configure embedder:', error.message);
+      }
+    }
+
     // Scrape Semgrep docs
     const documents = [];
     const visitedUrls = new Set();
