@@ -114,8 +114,22 @@ exports.handler = async (event, context) => {
       console.error('Error fetching sitemap:', error.message);
     }
 
-    // Scrape pages (limit to first 50 for demo)
-    const urlsToScrape = Array.from(visitedUrls).slice(0, 50);
+    // Prioritize important documentation sections
+    const allUrls = Array.from(visitedUrls);
+    const importantUrls = allUrls.filter(url => 
+      !url.includes('/release-notes/') && 
+      (url.includes('/writing-rules/') || 
+       url.includes('/getting-started/') || 
+       url.includes('/semgrep-ci/') || 
+       url.includes('/semgrep-code/') || 
+       url.includes('/semgrep-secrets/') || 
+       url.includes('/semgrep-supply-chain/') ||
+       url.includes('/kb/') ||
+       url.includes('/cheat-sheets/'))
+    );
+    
+    // Combine important URLs first, then others
+    const urlsToScrape = [...importantUrls, ...allUrls.filter(url => !importantUrls.includes(url))].slice(0, 200);
     
     for (const url of urlsToScrape) {
       try {
