@@ -188,18 +188,23 @@ const MeilisearchSearchBar: React.FC<{
               onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f5'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
             >
-              <div style={{fontWeight: 'bold', fontSize: '14px', marginBottom: '4px'}}>
-                {result._formatted?.title || result.title || result.hierarchy?.lvl1 || 'Document'}
-              </div>
+              <div 
+                style={{fontWeight: 'bold', fontSize: '14px', marginBottom: '4px'}}
+                dangerouslySetInnerHTML={{
+                  __html: result._formatted?.title || result.title || result.hierarchy?.lvl1 || 'Document'
+                }}
+              />
               {result.hierarchy?.lvl1 && result.hierarchy.lvl1 !== result.title && (
                 <div style={{fontSize: '11px', color: '#888', marginBottom: '2px'}}>
                   {result.hierarchy.lvl1}
                 </div>
               )}
-              <div style={{fontSize: '12px', color: '#666', lineHeight: '1.4'}}>
-                {result._formatted?.content || result.content?.substring(0, 150)}
-                {result.content && result.content.length > 150 && '...'}
-              </div>
+              <div 
+                style={{fontSize: '12px', color: '#666', lineHeight: '1.4'}}
+                dangerouslySetInnerHTML={{
+                  __html: result._formatted?.content || result.content?.substring(0, 150) + (result.content && result.content.length > 150 ? '...' : '')
+                }}
+              />
             </div>
           ))}
         </div>
