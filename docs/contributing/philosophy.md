@@ -5,7 +5,7 @@ tags:
   - Semgrep Community Edition
 ---
 
-# Semgrep Community Edition (CE) Philosophy
+# Semgrep Community Edition (CE) philosophy
 
 [Semgrep CE](https://github.com/semgrep/semgrep/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
 
