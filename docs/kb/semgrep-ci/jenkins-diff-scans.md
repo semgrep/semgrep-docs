@@ -114,7 +114,7 @@ pipeline {
 
 <TabItem value='full-and-diff-scans'>
 
-Semgrep diff-aware scans can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The Multibranch Pipeline provides access to useful variables for the diff-aware scan configuration. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches.
+Semgrep [diff-aware scans](/docs/semgrep-code/glossary#diff-aware-scan) can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The Multibranch Pipeline provides access to useful variables for the diff-aware scan configuration. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches.
 
 ### Create the Jenkinsfile
 
@@ -207,6 +207,10 @@ If they are not, follow these steps:
 3. In **Payload URL**, enter your Jenkins' instance webhook URL. Generally this is in the form `$JENKINS_BASE_URL/github-webhook/`.
 4. For **Content type**, Select `application/json`.
 5. Select **Send me everything**.
+
+:::info
+Unlike full scans, diff-aware scans only consider changes within modified files. At this time, cross-file analysis is not supported for diff-aware scans.
+:::
 
 </TabItem>
 
