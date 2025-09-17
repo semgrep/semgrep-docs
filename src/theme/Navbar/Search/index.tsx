@@ -42,10 +42,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
-                // hybrid: {
-                //   semanticRatio: 0.7,
-                //   embedder: "default"
-                // }
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           } else {
@@ -62,10 +62,10 @@ const MeilisearchSearchBar: React.FC<{
                 attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
                 attributesToCrop: ['content:100'],
                 cropLength: 100,
-                // hybrid: {
-                //   semanticRatio: 0.7,
-                //   embedder: "default"
-                // }
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           }
@@ -214,7 +214,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
           "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
         apiKey: "", // No API key needed for Netlify function
         indexUid: "semgrep_docs", // Use same index name everywhere
-        placeholder: "🔍 Search docs... (Hybrid Search + AI Chat)"
+        placeholder: "🔍 Search docs... (Hybrid Search: 70% semantic + 30% keyword)"
       };
     } else {
       // All other branches - disable Meilisearch
