@@ -11,7 +11,7 @@ tags:
 
 # Write rules
 
-You can write rules that:
+Semgrep uses rules, which encapsulate pattern matching logic and data flow analysis, to scan your code for security issues, style violations, bugs, and more. In addition to rules available to you in the Semgrep Registry, you can write custom rules to determine what Semgrep detects in your repositories. You can write rules that:
 
 - Automate code review comments.
 - Identify secure coding violations.
