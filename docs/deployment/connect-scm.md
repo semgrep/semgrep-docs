@@ -113,7 +113,7 @@ Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Se
 
 ### GitHub Enterprise Cloud with data residency
 
-If your GitHub Enterprise instance contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app.
+If your GitHub Enterprise instance contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app. Throughout the setup process, ensure that you select this org consistently when prompted.
 
 Perform the following steps to set up the connection:
 
@@ -132,7 +132,7 @@ Perform the following steps to set up the connection:
    1. Click **Register a Semgrep GitHub App**. Semgrep asks if you'd like to be redirected to GitHub to continue creating the app. Click **Continue** to proceed.
    1. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
    1. After you name your app, choose the GHE org you want to install it on.
-   1. Select the org that you want to act as the owner of the app, and click **Install**.
+   1. Select the org, then click **Install**.
    1. Wait for the installation to complete. When done, you are redirected to Semgrep.
    1. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your GitHub organization shows a **Connected** badge.
    1. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
