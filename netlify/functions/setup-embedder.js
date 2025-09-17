@@ -33,12 +33,25 @@ exports.handler = async (event, context) => {
       apiKey: process.env.MEILISEARCH_API_KEY || 'b7c62c6347d5a3032f73043eaa40546825c99bc6'
     });
 
-    // Create embedder for hybrid search
+    // Create embedder for hybrid search using direct API call
     try {
-      await client.createEmbedder('default', {
-        source: 'huggingface',
-        model: 'sentence-transformers/all-MiniLM-L6-v2'
+      const response = await fetch(`${process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io'}/embedders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.MEILISEARCH_API_KEY || 'b7c62c6347d5a3032f73043eaa40546825c99bc6'}`
+        },
+        body: JSON.stringify({
+          embedder: 'default',
+          source: 'huggingface',
+          model: 'sentence-transformers/all-MiniLM-L6-v2'
+        })
       });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
+      }
       
       return {
         statusCode: 200,
@@ -51,7 +64,7 @@ exports.handler = async (event, context) => {
         })
       };
     } catch (error) {
-      if (error.cause?.code === 'embedder_already_exists') {
+      if (error.message.includes('already exists') || error.message.includes('409')) {
         return {
           statusCode: 200,
           headers,
