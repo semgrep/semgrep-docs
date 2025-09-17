@@ -2,6 +2,7 @@
 append_help_link: true
 tags:
  - Rule writing
+description: Learn how to use Semgrep rules' autofix key to provide suggested fixes for matched patterns through pull request or merge request comments.
 ---
 
 # Autofix

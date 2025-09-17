@@ -425,7 +425,7 @@ module.exports = {
                 'writing-rules/overview',
                 {
                     type: 'category',
-                    label: 'Rule syntax',
+                    label: 'Rule structure syntax',
                     link: {type: 'doc', id: 'writing-rules/rule-syntax'},
                     items: [
                         'writing-rules/rule-ideas',
@@ -433,7 +433,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Pattern syntax',
+                    label: 'Rule pattern syntax',
                     link: {type: 'doc', id: 'writing-rules/pattern-syntax'},
                     items: [
                         'writing-rules/pattern-examples',
@@ -456,13 +456,7 @@ module.exports = {
                         },
                         'writing-rules/generic-pattern-matching',
                         'writing-rules/metavariable-analysis',
-                    ]
-                },
-                'writing-rules/private-rules',
-                'writing-rules/testing-rules',
-                'troubleshooting/rules',
-                'writing-rules/glossary',
-                {
+                        {
                     type: 'category',
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
@@ -484,7 +478,13 @@ module.exports = {
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ],
-                  },
+                  }
+                    ]
+                },
+                'writing-rules/private-rules',
+                'writing-rules/testing-rules',
+                'troubleshooting/rules',
+                'writing-rules/glossary',
             ]
         },
         {

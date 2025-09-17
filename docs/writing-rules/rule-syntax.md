@@ -1,6 +1,7 @@
 ---
 append_help_link: true
 slug: rule-syntax
+title: Rule structure syntax
 description: "This document describes the YAML rule syntax of Semgrep, including required and optional fields."
 tags:
   - Rule writing
@@ -9,7 +10,7 @@ tags:
 import LanguageExtensionsLanguagesKeyValues from '/src/components/reference/_language-extensions-languages-key-values.mdx'
 import RequiredRuleFields from "/src/components/reference/_required-rule-fields.mdx"
 
-# Rule syntax
+# Rule structure syntax
 
 :::tip
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓

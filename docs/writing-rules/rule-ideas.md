@@ -3,9 +3,10 @@ append_help_link: true
 slug: rule-ideas
 tags:
   - Rule writing
+description: See sample Semgrep rules for various use cases.
 ---
 
-# Rule examples
+# Rule structure syntax examples
 
 Not sure what to write a rule for? Below are some common questions, ideas, and topics to spur your imagination. Happy hacking! 💡
 
