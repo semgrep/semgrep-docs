@@ -94,7 +94,7 @@ Semgrep Supply Chain has two language maturity levels:
   <tr>
    <td>Semgrep Community Edition <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
    <td>Semgrep Community Edition support is GA.</td>
-   <td>Semgrep Community Edition support is at least Beta.</td>
+   <td>Semgrep CE support is at least Beta.</td>
   </tr>
 </table>
 
