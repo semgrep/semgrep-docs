@@ -6,6 +6,7 @@ description: Learn different strategies to reduce false positives in your Semgre
 tags:
   - Semgrep Code
   - Semgrep Community Edition
+  - Semgrep CE
 ---
 
 import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"

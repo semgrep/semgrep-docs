@@ -103,7 +103,7 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='gha-oss'>
 
-The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep Community Edition (CE) scans using rules configured for your programming language.
 
 <GhaSemgrepOssSast />
 
