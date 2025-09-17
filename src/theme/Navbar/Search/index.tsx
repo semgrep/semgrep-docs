@@ -2,6 +2,7 @@ import React, {type ReactNode, useState, useEffect} from 'react';
 import clsx from 'clsx';
 import type {Props} from '@theme/Navbar/Search';
 import {Markprompt} from '@markprompt/react';
+import '@markprompt/css';
 
 // Working Meilisearch component for testing
 const MeilisearchSearchBar: React.FC<{
@@ -262,6 +263,8 @@ export default function NavbarSearch({className}: Props): ReactNode {
             />
             <Markprompt
               projectKey="semgrep-docs"
+              defaultView="chat"
+              display="sheet"
               trigger={{
                 element: (
                   <button 
@@ -284,7 +287,16 @@ export default function NavbarSearch({className}: Props): ReactNode {
               }}
               chat={{
                 enabled: true,
-                showRelatedQuestions: true
+                showRelatedQuestions: true,
+                defaultView: {
+                  message: "Hello! I'm an AI assistant for Semgrep documentation. How can I help you?",
+                  prompts: [
+                    'What is Semgrep?',
+                    'How do I write custom rules?',
+                    'How do I set up CI/CD with Semgrep?',
+                    'What are secure guardrails?'
+                  ]
+                }
               }}
               references={{
                 getHref: (reference) => reference.file?.path || '#',
