@@ -1,6 +1,6 @@
 ---
 slug: glossary
-title: SAST and rule-writing glossary
+title: Glossary
 hide_title: true
 description: Definitions of static analysis and Semgrep rule-writing terms.
 tags:
