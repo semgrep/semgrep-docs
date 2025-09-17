@@ -107,7 +107,18 @@ const MeilisearchSearchBar: React.FC<{
     setIsOpen(false);
     
     if (result.url) {
-      window.location.href = result.url;
+      // Convert live site URLs to current preview environment URLs
+      const currentOrigin = window.location.origin;
+      const liveUrl = result.url;
+      
+      // If it's a live semgrep.dev URL, convert it to the current preview environment
+      if (liveUrl.includes('https://semgrep.dev/docs/')) {
+        const path = liveUrl.replace('https://semgrep.dev', '');
+        window.location.href = `${currentOrigin}${path}`;
+      } else {
+        // For other URLs, use as-is
+        window.location.href = liveUrl;
+      }
     }
   };
 
