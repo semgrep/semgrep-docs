@@ -60,10 +60,10 @@ const MeilisearchSearchBar: React.FC<{
                 cropLength: 150,
                 showMatchesPosition: true,
                 matchingStrategy: 'all',
-                // hybrid: {
-                //   semanticRatio: 0.7,
-                //   embedder: "default"
-                // }
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           } else {
@@ -82,10 +82,10 @@ const MeilisearchSearchBar: React.FC<{
                 cropLength: 150,
                 showMatchesPosition: true,
                 matchingStrategy: 'all',
-                // hybrid: {
-                //   semanticRatio: 0.7,
-                //   embedder: "default"
-                // }
+                hybrid: {
+                  semanticRatio: 0.7,
+                  embedder: "default"
+                }
               }),
             });
           }
@@ -154,7 +154,11 @@ const MeilisearchSearchBar: React.FC<{
         boxShadow: isFocused ? '0 2px 8px rgba(0,123,255,0.15)' : 'none'
       }}>
         <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-          <span style={{fontSize: '16px', color: '#666'}}>📊</span>
+          {/* Graph/Chart Icon */}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{color: '#666'}}>
+            <path d="M3 3v18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
           <input 
             type="search" 
             placeholder={placeholder}
@@ -177,7 +181,11 @@ const MeilisearchSearchBar: React.FC<{
               transition: 'font-size 0.3s ease'
             }}
           />
-          <span style={{fontSize: '16px', color: '#666'}}>🧠</span>
+          {/* Brain/AI Icon */}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{color: '#666'}}>
+            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1 .34-4.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" stroke="currentColor" strokeWidth="2"/>
+            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0-.34-4.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" stroke="currentColor" strokeWidth="2"/>
+          </svg>
           {isLoading && <span style={{fontSize: '16px'}}>⏳</span>}
         </div>
       </div>
@@ -212,7 +220,7 @@ const MeilisearchSearchBar: React.FC<{
               fontSize: '11px',
               color: '#888'
             }}>
-              <span>Keyword Search</span>
+              <span>Hybrid Search</span>
               <span>{results.length} results</span>
             </div>
           </div>
@@ -360,7 +368,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
           "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
         apiKey: "", // No API key needed for Netlify function
         indexUid: "semgrep_docs", // Use same index name everywhere
-        placeholder: "🔍 Search docs... (Full Documentation Indexed!)"
+            placeholder: "🔍 Search docs... (Hybrid: 70% semantic + 30% keyword)"
       };
     } else {
       // All other branches - disable Meilisearch

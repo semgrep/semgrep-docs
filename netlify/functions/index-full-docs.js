@@ -77,6 +77,23 @@ exports.handler = async (event, context) => {
       'deployment': ['deployment', 'setup', 'configuration', 'installation']
     });
 
+    // Set up OpenAI embedder for hybrid search
+    try {
+      await client.createEmbedder('default', {
+        source: 'openai',
+        model: 'text-embedding-3-small',
+        apiKey: process.env.OPENAI_API_KEY
+      });
+      console.log('✅ OpenAI embedder configured for hybrid search');
+    } catch (error) {
+      if (error.cause?.code === 'embedder_already_exists') {
+        console.log('ℹ️  OpenAI embedder already exists, continuing...');
+      } else {
+        console.log('⚠️  Could not configure OpenAI embedder:', error.message);
+        console.log('⚠️  Error details:', error);
+      }
+    }
+
     // Get all URLs from sitemap
     const visitedUrls = new Set();
     
