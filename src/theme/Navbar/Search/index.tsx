@@ -173,38 +173,118 @@ const MeilisearchSearchBar: React.FC<{
           borderRadius: '4px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
           zIndex: 1000,
-          maxHeight: '300px',
+          maxHeight: '400px',
           overflowY: 'auto'
         }}>
+          {/* Search Header */}
+          <div style={{
+            padding: '8px 12px',
+            borderBottom: '1px solid #eee',
+            background: '#f8f9fa'
+          }}>
+            <div style={{fontSize: '12px', color: '#666', marginBottom: '2px'}}>
+              {query}
+            </div>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              fontSize: '11px',
+              color: '#888'
+            }}>
+              <span>Keyword Search</span>
+              <span>{results.length} results</span>
+            </div>
+          </div>
+          
           {results.map((result, index) => (
             <div
               key={result.id || index}
               onClick={() => handleResultClick(result)}
               style={{
-                padding: '8px 12px',
+                padding: '12px',
                 borderBottom: '1px solid #eee',
                 cursor: 'pointer'
               }}
               onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f5'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
             >
+              {/* Main Title */}
               <div 
-                style={{fontWeight: 'bold', fontSize: '14px', marginBottom: '4px'}}
+                style={{
+                  fontWeight: 'bold', 
+                  fontSize: '14px', 
+                  marginBottom: '4px',
+                  lineHeight: '1.3'
+                }}
                 dangerouslySetInnerHTML={{
                   __html: result._formatted?.title || result.title || result.hierarchy?.lvl1 || 'Document'
                 }}
               />
-              {result.hierarchy?.lvl1 && result.hierarchy.lvl1 !== result.title && (
-                <div style={{fontSize: '11px', color: '#888', marginBottom: '2px'}}>
-                  {result.hierarchy.lvl1}
+              
+              {/* Breadcrumb/Category */}
+              {result.hierarchy?.lvl2 && (
+                <div style={{
+                  fontSize: '11px', 
+                  color: '#888', 
+                  marginBottom: '6px',
+                  fontWeight: '500'
+                }}>
+                  {result.hierarchy.lvl2}
                 </div>
               )}
+              
+              {/* Description */}
               <div 
-                style={{fontSize: '12px', color: '#666', lineHeight: '1.4'}}
+                style={{
+                  fontSize: '12px', 
+                  color: '#666', 
+                  lineHeight: '1.4',
+                  marginBottom: '8px'
+                }}
                 dangerouslySetInnerHTML={{
-                  __html: result._formatted?.content || result.content?.substring(0, 150) + (result.content && result.content.length > 150 ? '...' : '')
+                  __html: result._formatted?.content || result.content?.substring(0, 120) + (result.content && result.content.length > 120 ? '...' : '')
                 }}
               />
+              
+              {/* Visual Bar Chart */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <div style={{
+                  width: '40px',
+                  height: '4px',
+                  background: '#e9ecef',
+                  borderRadius: '2px',
+                  overflow: 'hidden',
+                  display: 'flex'
+                }}>
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    background: '#28a745'
+                  }}></div>
+                </div>
+                <span style={{fontSize: '10px', color: '#666'}}>100%</span>
+                
+                <div style={{
+                  width: '40px',
+                  height: '4px',
+                  background: '#e9ecef',
+                  borderRadius: '2px',
+                  overflow: 'hidden',
+                  display: 'flex'
+                }}>
+                  <div style={{
+                    width: '0%',
+                    height: '100%',
+                    background: '#dc3545'
+                  }}></div>
+                </div>
+                <span style={{fontSize: '10px', color: '#666'}}>0%</span>
+              </div>
             </div>
           ))}
         </div>
