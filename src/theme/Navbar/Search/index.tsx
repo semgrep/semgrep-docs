@@ -1,4 +1,4 @@
-import React, {type ReactNode, useState, useEffect} from 'react';
+import React, {type ReactNode, useState, useEffect, useRef} from 'react';
 import clsx from 'clsx';
 import type {Props} from '@theme/Navbar/Search';
 import {Markprompt} from '@markprompt/react';
@@ -15,9 +15,23 @@ const MeilisearchSearchBar: React.FC<{
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [isFocused, setIsFocused] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
-      const searchMeilisearch = async (searchQuery: string) => {
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        setIsFocused(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const searchMeilisearch = async (searchQuery: string) => {
         if (!searchQuery.trim()) {
           setResults([]);
           setIsOpen(false);
@@ -98,21 +112,6 @@ const MeilisearchSearchBar: React.FC<{
     const value = e.target.value;
     setQuery(value);
     
-    // Show suggestions for short queries
-    if (value.length >= 2 && value.length < 4) {
-      const commonTerms = [
-        'custom rules', 'writing rules', 'ci integration', 'github actions',
-        'autofix', 'playground', 'private rules', 'testing rules',
-        'patterns', 'metavariables', 'taint analysis', 'guardrails',
-        'secrets', 'supply chain', 'deployment', 'configuration'
-      ];
-      const filtered = commonTerms.filter(term => 
-        term.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(filtered.slice(0, 5));
-    } else {
-      setSuggestions([]);
-    }
     
     // Debounce search
     const timeoutId = setTimeout(() => {
@@ -126,6 +125,7 @@ const MeilisearchSearchBar: React.FC<{
     setQuery('');
     setResults([]);
     setIsOpen(false);
+    setIsFocused(false);
     
     if (result.url) {
       // Convert live site URLs to current preview environment URLs
@@ -144,19 +144,35 @@ const MeilisearchSearchBar: React.FC<{
   };
 
   return (
-    <div style={{position: 'relative', minWidth: '250px'}}>
-      <div style={{padding: '8px', border: '1px solid #ccc', borderRadius: '4px'}}>
+    <div ref={searchContainerRef} style={{position: 'relative', minWidth: isFocused ? '400px' : '250px', transition: 'min-width 0.3s ease'}}>
+      <div style={{
+        padding: '8px', 
+        border: `1px solid ${isFocused ? '#007bff' : '#ccc'}`, 
+        borderRadius: '4px',
+        background: isFocused ? '#fff' : '#f8f9fa',
+        transition: 'all 0.3s ease',
+        boxShadow: isFocused ? '0 2px 8px rgba(0,123,255,0.15)' : 'none'
+      }}>
         <input 
           type="search" 
           placeholder={placeholder}
           value={query}
           onChange={handleInputChange}
-          onFocus={() => query && setIsOpen(true)}
+          onFocus={() => {
+            setIsFocused(true);
+            if (query) setIsOpen(true);
+          }}
+          onBlur={() => {
+            // Delay to allow clicking on results
+            setTimeout(() => setIsFocused(false), 200);
+          }}
           style={{
             width: '100%',
             border: 'none',
             outline: 'none',
-            background: 'transparent'
+            background: 'transparent',
+            fontSize: isFocused ? '16px' : '14px',
+            transition: 'font-size 0.3s ease'
           }}
         />
         {isLoading && <span style={{float: 'right'}}>⏳</span>}
@@ -290,46 +306,8 @@ const MeilisearchSearchBar: React.FC<{
         </div>
       )}
       
-          {isOpen && suggestions.length > 0 && query.length >= 2 && query.length < 4 && (
-            <div style={{
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              right: 0,
-              background: 'white',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-              zIndex: 1000,
-              maxHeight: '200px',
-              overflowY: 'auto'
-            }}>
-              <div style={{padding: '8px 12px', fontSize: '12px', color: '#666', borderBottom: '1px solid #eee'}}>
-                Suggestions:
-              </div>
-              {suggestions.map((suggestion, index) => (
-                <div
-                  key={index}
-                  onClick={() => {
-                    setQuery(suggestion);
-                    searchMeilisearch(suggestion);
-                    setSuggestions([]);
-                  }}
-                  style={{
-                    padding: '8px 12px',
-                    cursor: 'pointer',
-                    fontSize: '13px'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f5'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
-                >
-                  {suggestion}
-                </div>
-              ))}
-            </div>
-          )}
           
-          {isOpen && results.length === 0 && query && !isLoading && suggestions.length === 0 && (
+          {isOpen && results.length === 0 && query && !isLoading && (
             <div style={{
               position: 'absolute',
               top: '100%',
