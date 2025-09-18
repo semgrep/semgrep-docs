@@ -153,29 +153,33 @@ const MeilisearchSearchBar: React.FC<{
         transition: 'all 0.3s ease',
         boxShadow: isFocused ? '0 2px 8px rgba(0,123,255,0.15)' : 'none'
       }}>
-        <input 
-          type="search" 
-          placeholder={placeholder}
-          value={query}
-          onChange={handleInputChange}
-          onFocus={() => {
-            setIsFocused(true);
-            if (query) setIsOpen(true);
-          }}
-          onBlur={() => {
-            // Delay to allow clicking on results
-            setTimeout(() => setIsFocused(false), 200);
-          }}
-          style={{
-            width: '100%',
-            border: 'none',
-            outline: 'none',
-            background: 'transparent',
-            fontSize: isFocused ? '16px' : '14px',
-            transition: 'font-size 0.3s ease'
-          }}
-        />
-        {isLoading && <span style={{float: 'right'}}>⏳</span>}
+        <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+          <span style={{fontSize: '16px', color: '#666'}}>📊</span>
+          <input 
+            type="search" 
+            placeholder={placeholder}
+            value={query}
+            onChange={handleInputChange}
+            onFocus={() => {
+              setIsFocused(true);
+              if (query) setIsOpen(true);
+            }}
+            onBlur={() => {
+              // Delay to allow clicking on results
+              setTimeout(() => setIsFocused(false), 200);
+            }}
+            style={{
+              flex: 1,
+              border: 'none',
+              outline: 'none',
+              background: 'transparent',
+              fontSize: isFocused ? '16px' : '14px',
+              transition: 'font-size 0.3s ease'
+            }}
+          />
+          <span style={{fontSize: '16px', color: '#666'}}>🧠</span>
+          {isLoading && <span style={{fontSize: '16px'}}>⏳</span>}
+        </div>
       </div>
       
       {isOpen && results.length > 0 && (
