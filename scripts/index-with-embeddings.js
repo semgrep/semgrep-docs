@@ -14,6 +14,7 @@ const config = {
   embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
   batchSize: 100,
   maxTokens: 8000, // Limit for embedding model
+  semanticRatio: 0.7, // Balance between semantic (0.7) and keyword (0.3) search
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
     'https://semgrep.dev/docs/rule-updates', 
@@ -85,26 +86,28 @@ class SemanticMeilisearchIndexer {
   async configureIndex() {
     console.log('Configuring index for semantic search...');
 
-    // Configure embeddings
+    // Configure embeddings with document templates for better semantic understanding
     if (this.embeddingMethod === 'openai') {
       await this.index.updateEmbedders({
         default: {
           source: 'userProvided',
-          dimensions: 1536 // text-embedding-3-small dimensions
+          dimensions: 1536, // text-embedding-3-small dimensions
+          documentTemplate: '{{hierarchy.lvl0}} > {{hierarchy.lvl1}} > {{hierarchy.lvl2}}: {{content}}'
         }
       });
-      console.log('✅ OpenAI embeddings configured');
+      console.log('✅ OpenAI embeddings configured with document template');
     } else if (this.embeddingMethod === 'local') {
       await this.index.updateEmbedders({
         default: {
           source: 'userProvided',
-          dimensions: 384 // sentence-transformers/all-MiniLM-L6-v2 dimensions
+          dimensions: 384, // sentence-transformers/all-MiniLM-L6-v2 dimensions
+          documentTemplate: '{{hierarchy.lvl0}} > {{hierarchy.lvl1}} > {{hierarchy.lvl2}}: {{content}}'
         }
       });
-      console.log('✅ Local embeddings configured');
+      console.log('✅ Local embeddings configured with document template');
     }
 
-    // Set searchable attributes
+    // Set searchable attributes with enhanced content types
     await this.index.updateSearchableAttributes([
       'hierarchy.lvl0',
       'hierarchy.lvl1', 
@@ -114,16 +117,27 @@ class SemanticMeilisearchIndexer {
       'hierarchy.lvl5',
       'hierarchy.lvl6',
       'content',
+      'searchableText',
+      'context',
       'type',
       'url'
     ]);
 
-    // Set filterable attributes
+    // Set filterable attributes for better filtering
     await this.index.updateFilterableAttributes([
       'type',
+      'priority',
       'language',
       'version',
       'docusaurus_tag',
+      'hierarchy.lvl0',
+      'hierarchy.lvl1',
+      'hierarchy.lvl2'
+    ]);
+
+    // Set sortable attributes for better ranking
+    await this.index.updateSortableAttributes([
+      'priority',
       'hierarchy.lvl0',
       'hierarchy.lvl1'
     ]);
@@ -131,50 +145,93 @@ class SemanticMeilisearchIndexer {
     // Set enhanced synonyms for Semgrep-specific terms
     await this.index.updateSynonyms({
       // Core Semgrep concepts
-      'semgrep': ['semgrep', 'static analysis', 'security scanning', 'code analysis', 'sast tool'],
-      'rules': ['rules', 'patterns', 'detectors', 'custom rules', 'rule writing'],
-      'findings': ['findings', 'issues', 'vulnerabilities', 'results', 'matches', 'detections'],
+      'semgrep': ['semgrep', 'static analysis', 'security scanning', 'code analysis', 'sast tool', 'code security tool'],
+      'rules': ['rules', 'patterns', 'detectors', 'custom rules', 'rule writing', 'semgrep rules', 'detection rules'],
+      'findings': ['findings', 'issues', 'vulnerabilities', 'results', 'matches', 'detections', 'security issues'],
+      'registry': ['registry', 'semgrep registry', 'rule registry', 'ruleset', 'rulesets'],
       
       // CI/CD and deployment
-      'ci': ['ci', 'continuous integration', 'pipeline', 'github actions', 'gitlab ci', 'automation'],
-      'deployment': ['deployment', 'setup', 'configuration', 'installation', 'integration'],
-      'workflow': ['workflow', 'pipeline', 'automation', 'ci/cd', 'devops'],
+      'ci': ['ci', 'continuous integration', 'pipeline', 'github actions', 'gitlab ci', 'automation', 'cicd'],
+      'deployment': ['deployment', 'setup', 'configuration', 'installation', 'integration', 'onboarding'],
+      'workflow': ['workflow', 'pipeline', 'automation', 'ci/cd', 'devops', 'build pipeline'],
+      'pr': ['pr', 'pull request', 'merge request', 'mr', 'code review'],
       
       // Security concepts
-      'sast': ['sast', 'static application security testing', 'code security', 'security analysis'],
-      'sca': ['sca', 'supply chain', 'dependencies', 'vulnerabilities', 'dependency scanning'],
-      'secrets': ['secrets', 'api keys', 'tokens', 'credentials', 'sensitive data'],
-      'taint': ['taint', 'taint analysis', 'data flow', 'taint mode', 'taint tracking'],
+      'sast': ['sast', 'static application security testing', 'code security', 'security analysis', 'static analysis'],
+      'sca': ['sca', 'supply chain', 'dependencies', 'vulnerabilities', 'dependency scanning', 'supply chain analysis'],
+      'secrets': ['secrets', 'api keys', 'tokens', 'credentials', 'sensitive data', 'secret detection'],
+      'taint': ['taint', 'taint analysis', 'data flow', 'taint mode', 'taint tracking', 'taint propagation'],
+      'reachability': ['reachability', 'reachable', 'unreachable', 'dead code', 'code reachability'],
       
-      // Semgrep products
-      'sms': ['sms', 'semgrep managed scanning', 'managed scans', 'cloud scanning'],
-      'scp': ['scp', 'semgrep cloud platform', 'semgrep app', 'semgrep platform'],
-      'ssc': ['ssc', 'semgrep supply chain', 'supply chain security', 'dependency security'],
-      'oss': ['oss', 'open source', 'community edition', 'free version'],
-      'pro': ['pro', 'semgrep pro', 'commercial', 'paid version', 'enterprise'],
+      // Semgrep products and editions
+      'sms': ['sms', 'semgrep managed scanning', 'managed scans', 'cloud scanning', 'managed service'],
+      'scp': ['scp', 'semgrep cloud platform', 'semgrep app', 'semgrep platform', 'appsec platform'],
+      'ssc': ['ssc', 'semgrep supply chain', 'supply chain security', 'dependency security', 'supply chain analysis'],
+      'oss': ['oss', 'open source', 'community edition', 'free version', 'semgrep ce', 'community'],
+      'pro': ['pro', 'semgrep pro', 'commercial', 'paid version', 'enterprise', 'professional'],
+      'ce': ['ce', 'community edition', 'open source', 'free', 'oss'],
       
       // Technical concepts
-      'metavariables': ['metavariables', 'variables', 'placeholders', 'pattern variables'],
-      'autofix': ['autofix', 'automatic fixes', 'remediation', 'code fixes'],
-      'patterns': ['patterns', 'rules', 'expressions', 'syntax patterns'],
+      'metavariables': ['metavariables', 'variables', 'placeholders', 'pattern variables', 'metavars'],
+      'autofix': ['autofix', 'automatic fixes', 'remediation', 'code fixes', 'auto fix', 'fix suggestions'],
+      'patterns': ['patterns', 'rules', 'expressions', 'syntax patterns', 'semgrep patterns'],
+      'cross-file': ['cross-file', 'interfile', 'cross file', 'inter-file', 'multi-file'],
+      'cross-function': ['cross-function', 'interfunction', 'cross function', 'inter-function', 'multi-function'],
+      'reachability': ['reachability', 'reachable', 'unreachable', 'dead code', 'code reachability'],
       
       // Integration & auth
-      'sso': ['sso', 'single sign-on', 'single sign on', 'authentication'],
-      'saml': ['saml', 'identity provider', 'idp', 'federation'],
-      'github': ['github', 'git', 'version control', 'repository'],
-      'gitlab': ['gitlab', 'git', 'version control', 'repository'],
+      'sso': ['sso', 'single sign-on', 'single sign on', 'authentication', 'identity'],
+      'saml': ['saml', 'identity provider', 'idp', 'federation', 'saml sso'],
+      'github': ['github', 'git', 'version control', 'repository', 'github.com'],
+      'gitlab': ['gitlab', 'git', 'version control', 'repository', 'gitlab.com'],
+      'bitbucket': ['bitbucket', 'atlassian', 'bitbucket cloud', 'bitbucket server'],
       
       // File types and languages
-      'javascript': ['javascript', 'js', 'node.js', 'nodejs', 'typescript', 'ts'],
-      'python': ['python', 'py', 'django', 'flask'],
-      'java': ['java', 'spring', 'maven', 'gradle'],
-      'go': ['go', 'golang'],
+      'javascript': ['javascript', 'js', 'node.js', 'nodejs', 'typescript', 'ts', 'ecmascript'],
+      'python': ['python', 'py', 'django', 'flask', 'python3', 'python2'],
+      'java': ['java', 'spring', 'maven', 'gradle', 'jvm', 'kotlin'],
+      'go': ['go', 'golang', 'golang.org'],
+      'csharp': ['csharp', 'c#', 'dotnet', '.net', 'microsoft'],
+      'php': ['php', 'laravel', 'symfony', 'wordpress'],
+      'ruby': ['ruby', 'rails', 'ruby on rails', 'gem'],
+      'rust': ['rust', 'cargo', 'rustlang'],
+      'cpp': ['cpp', 'c++', 'c plus plus', 'cxx'],
+      'c': ['c', 'c language', 'ansi c'],
       
       // Common terms
-      'config': ['config', 'configuration', 'settings', 'setup'],
-      'policy': ['policy', 'policies', 'governance', 'compliance'],
-      'ignore': ['ignore', 'exclude', 'suppress', 'disable'],
-      'scan': ['scan', 'scanning', 'analysis', 'check', 'run']
+      'config': ['config', 'configuration', 'settings', 'setup', 'yaml', 'yml'],
+      'policy': ['policy', 'policies', 'governance', 'compliance', 'rule policy'],
+      'ignore': ['ignore', 'exclude', 'suppress', 'disable', 'skip', 'semgrepignore'],
+      'scan': ['scan', 'scanning', 'analysis', 'check', 'run', 'execute'],
+      'baseline': ['baseline', 'baseline scan', 'initial scan', 'first scan'],
+      'diff': ['diff', 'differential', 'incremental', 'changed code', 'pr scan'],
+      'full': ['full', 'complete', 'entire', 'whole', 'full scan'],
+      
+      // Semgrep-specific features
+      'click-to-fix': ['click-to-fix', 'click to fix', 'autofix', 'one-click fix', 'quick fix'],
+      'lockfileless': ['lockfileless', 'without lockfiles', 'no lockfile', 'lockfile free'],
+      'rbac': ['rbac', 'roles', 'role-based access', 'permissions', 'access control'],
+      'jira': ['jira', 'atlassian jira', 'jira integration', 'ticket system'],
+      'slack': ['slack', 'slack integration', 'notifications', 'alerts'],
+      'webhook': ['webhook', 'webhooks', 'api integration', 'callback'],
+      
+      // Vulnerability types
+      'injection': ['injection', 'sql injection', 'code injection', 'command injection', 'xss'],
+      'xss': ['xss', 'cross-site scripting', 'script injection', 'dom xss'],
+      'xxe': ['xxe', 'xml external entity', 'xml injection', 'billion laughs'],
+      'deserialization': ['deserialization', 'unserialize', 'pickle', 'java deserialization'],
+      'path-traversal': ['path traversal', 'directory traversal', 'file inclusion', 'lfi', 'rfi'],
+      'csrf': ['csrf', 'cross-site request forgery', 'request forgery'],
+      'ssrf': ['ssrf', 'server-side request forgery', 'request smuggling'],
+      
+      // Framework-specific
+      'express': ['express', 'express.js', 'node express', 'express framework'],
+      'spring': ['spring', 'spring boot', 'spring framework', 'java spring'],
+      'django': ['django', 'django framework', 'python django'],
+      'laravel': ['laravel', 'php laravel', 'laravel framework'],
+      'react': ['react', 'react.js', 'reactjs', 'facebook react'],
+      'angular': ['angular', 'angularjs', 'angular framework'],
+      'nextjs': ['nextjs', 'next.js', 'next js', 'vercel next']
     });
 
     // Configure ranking rules for hybrid search
@@ -249,13 +306,28 @@ class SemanticMeilisearchIndexer {
     for (let i = 0; i < documents.length; i += embeddingBatchSize) {
       const batch = documents.slice(i, i + embeddingBatchSize);
       
-      // Prepare texts for embedding
+      // Prepare texts for embedding with enhanced context
       const texts = batch.map(doc => {
-        // Combine hierarchy and content for better semantic understanding
+        // Combine hierarchy, context, and content for better semantic understanding
         const hierarchyText = Object.values(doc.hierarchy)
           .filter(v => v && v.trim())
           .join(' > ');
-        return `${hierarchyText}: ${doc.content}`.trim();
+        
+        // Create enhanced text for technical documentation
+        const contextText = doc.context ? `Context: ${doc.context}` : '';
+        const typeText = doc.type ? `Type: ${doc.type}` : '';
+        const priorityText = doc.priority ? `Priority: ${doc.priority}` : '';
+        
+        // Combine all elements for comprehensive semantic understanding
+        const enhancedText = [
+          hierarchyText,
+          contextText,
+          typeText,
+          priorityText,
+          doc.content
+        ].filter(Boolean).join(' | ');
+        
+        return enhancedText.trim();
       });
 
       try {
@@ -331,6 +403,94 @@ class SemanticMeilisearchIndexer {
     });
   }
 
+  extractSemanticSections($, hierarchy, url) {
+    const documents = [];
+    const urlHash = Buffer.from(url).toString('base64').replace(/[^a-zA-Z0-9]/g, '');
+    
+    // Extract different types of content with semantic understanding
+    const contentTypes = [
+      {
+        type: 'code_example',
+        selector: 'article pre code, article .code-block, article .highlight',
+        priority: 0.9
+      },
+      {
+        type: 'procedure',
+        selector: 'article ol li, article ul li',
+        priority: 0.8
+      },
+      {
+        type: 'definition',
+        selector: 'article dl dt, article dl dd',
+        priority: 0.8
+      },
+      {
+        type: 'warning_tip',
+        selector: 'article .admonition, article .alert, article .tip, article .warning',
+        priority: 0.7
+      },
+      {
+        type: 'heading',
+        selector: 'article h1, article h2, article h3, article h4, article h5, article h6',
+        priority: 0.9
+      },
+      {
+        type: 'paragraph',
+        selector: 'article p',
+        priority: 0.6
+      }
+    ];
+
+    contentTypes.forEach(({ type, selector, priority }) => {
+      $(selector).each((index, element) => {
+        const text = $(element).text().trim();
+        if (text && text.length > 15) {
+          const id = `doc_${urlHash}_${type}_${index}`;
+          
+          // Extract context from surrounding elements
+          const context = this.extractContext($, element);
+          
+          documents.push({
+            id,
+            url,
+            url_without_anchor: url,
+            anchor: `#${type}_${index}`,
+            content: text,
+            hierarchy: { ...hierarchy },
+            type: type,
+            priority: priority,
+            context: context,
+            // Enhanced searchable text with context
+            searchableText: `${Object.values(hierarchy).filter(v => v).join(' ')} ${context} ${text}`.trim()
+          });
+        }
+      });
+    });
+
+    return documents;
+  }
+
+  extractContext($, element) {
+    // Extract surrounding context for better semantic understanding
+    const $element = $(element);
+    const context = [];
+    
+    // Get parent section context
+    const parentSection = $element.closest('section, .section, .content');
+    if (parentSection.length) {
+      const sectionTitle = parentSection.find('h1, h2, h3, h4, h5, h6').first().text().trim();
+      if (sectionTitle) context.push(sectionTitle);
+    }
+    
+    // Get previous heading for context
+    const prevHeading = $element.prevAll('h1, h2, h3, h4, h5, h6').first();
+    if (prevHeading.length) {
+      context.push(prevHeading.text().trim());
+    }
+    
+    return context.join(' | ');
+  }
+
   async scrapeUrl(url) {
     try {
       const response = await axios.get(url);
@@ -351,28 +511,9 @@ class SemanticMeilisearchIndexer {
         }
       }
 
-      // Extract content sections with better semantic chunking
-      const textElements = $(config.selectors.text);
-      textElements.each((index, element) => {
-        const text = $(element).text().trim();
-        if (text && text.length > 20) { // Slightly higher threshold for better content
-          // Create a safe document ID
-          const urlHash = Buffer.from(url).toString('base64').replace(/[^a-zA-Z0-9]/g, '');
-          const id = `doc_${urlHash}_${index}`;
-          
-          documents.push({
-            id,
-            url,
-            url_without_anchor: url,
-            anchor: `#${index}`,
-            content: text,
-            hierarchy: { ...hierarchy },
-            type: 'content',
-            // Add searchable text combination for better semantic search
-            searchableText: `${Object.values(hierarchy).filter(v => v).join(' ')} ${text}`.trim()
-          });
-        }
-      });
+      // Extract content sections with better semantic chunking for technical docs
+      const sections = this.extractSemanticSections($, hierarchy, url);
+      documents.push(...sections);
 
       return documents;
     } catch (error) {
@@ -405,6 +546,33 @@ class SemanticMeilisearchIndexer {
     console.log('✅ Semantic indexing completed!');
   }
 
+  // Example search method demonstrating hybrid search capabilities
+  async search(query, options = {}) {
+    if (!this.index) {
+      throw new Error('Index not initialized. Call initialize() first.');
+    }
+
+    const searchOptions = {
+      q: query,
+      semanticRatio: options.semanticRatio || config.semanticRatio,
+      limit: options.limit || 10,
+      filter: options.filter || null,
+      sort: options.sort || null,
+      attributesToRetrieve: ['id', 'url', 'content', 'hierarchy', 'type', 'priority', 'context'],
+      attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+      highlightPreTag: '<mark>',
+      highlightPostTag: '</mark>'
+    };
+
+    try {
+      const results = await this.index.search(searchOptions);
+      return results;
+    } catch (error) {
+      console.error('Search failed:', error);
+      throw error;
+    }
+  }
+
   async run() {
     try {
       await this.initialize();
@@ -421,6 +589,14 @@ class SemanticMeilisearchIndexer {
 
       console.log(`\nScraped ${allDocuments.length} documents`);
       await this.indexDocuments(allDocuments);
+      
+      console.log('\n🎉 Semantic indexing completed!');
+      console.log('\nExample searches you can now perform:');
+      console.log('- "How to set up Semgrep in CI/CD"');
+      console.log('- "JavaScript XSS vulnerabilities"');
+      console.log('- "Semgrep Pro vs Community Edition"');
+      console.log('- "Cross-file analysis configuration"');
+      console.log('- "Taint analysis examples"');
       
     } catch (error) {
       console.error('Indexing failed:', error);
