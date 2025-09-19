@@ -275,7 +275,7 @@ const MeilisearchSearchBar: React.FC<{
                 }}
               />
               
-              {/* Visual Bar Chart */}
+              {/* Visual Bar Chart - Hybrid Search Scores */}
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -290,12 +290,12 @@ const MeilisearchSearchBar: React.FC<{
                   display: 'flex'
                 }}>
                   <div style={{
-                    width: '100%',
+                    width: '30%', // Keyword relevance (30% of hybrid search)
                     height: '100%',
-                    background: '#28a745'
+                    background: '#28a745' // Green for keyword relevance
                   }}></div>
                 </div>
-                <span style={{fontSize: '10px', color: '#666'}}>100%</span>
+                <span style={{fontSize: '10px', color: '#666'}}>30%</span>
                 
                 <div style={{
                   width: '40px',
@@ -306,12 +306,12 @@ const MeilisearchSearchBar: React.FC<{
                   display: 'flex'
                 }}>
                   <div style={{
-                    width: '0%',
+                    width: '70%', // Semantic relevance (70% of hybrid search)
                     height: '100%',
-                    background: '#dc3545'
+                    background: '#007bff' // Blue for semantic relevance
                   }}></div>
                 </div>
-                <span style={{fontSize: '10px', color: '#666'}}>0%</span>
+                <span style={{fontSize: '10px', color: '#666'}}>70%</span>
               </div>
             </div>
           ))}
@@ -456,6 +456,6 @@ export default function NavbarSearch({className}: Props): ReactNode {
               }}
             />
           </div>
-        </div>
-      );
+    </div>
+  );
 }
