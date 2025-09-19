@@ -84,13 +84,12 @@ exports.handler = async (event, context) => {
         model: 'text-embedding-3-small',
         apiKey: process.env.OPENAI_API_KEY
       });
-      console.log('✅ OpenAI embedder configured for hybrid search');
+      // OpenAI embedder configured for hybrid search
     } catch (error) {
       if (error.cause?.code === 'embedder_already_exists') {
-        console.log('ℹ️  OpenAI embedder already exists, continuing...');
+        // OpenAI embedder already exists, continuing
       } else {
-        console.log('⚠️  Could not configure OpenAI embedder:', error.message);
-        console.log('⚠️  Error details:', error);
+        // Could not configure OpenAI embedder
       }
     }
 
@@ -110,10 +109,10 @@ exports.handler = async (event, context) => {
         }
       });
     } catch (error) {
-      console.error('Error fetching sitemap:', error.message);
+      // Error fetching sitemap
     }
 
-    console.log(`Found ${visitedUrls.size} URLs to scrape`);
+    // Found URLs to scrape
 
     // Process URLs in batches to avoid timeout
     const allUrls = Array.from(visitedUrls);
@@ -128,7 +127,7 @@ exports.handler = async (event, context) => {
     const endIndex = Math.min(startIndex + batchSize, allUrls.length);
     const currentBatch = allUrls.slice(startIndex, endIndex);
     
-    console.log(`Processing batch ${batchNumber + 1}/${totalBatches} (pages ${startIndex + 1}-${endIndex})`);
+    // Processing batch
     
     for (const url of currentBatch) {
       try {
@@ -181,7 +180,7 @@ exports.handler = async (event, context) => {
         await new Promise(resolve => setTimeout(resolve, 50));
 
       } catch (error) {
-        console.error(`Error scraping ${url}:`, error.message);
+        // Error scraping URL
       }
     }
 
@@ -218,14 +217,13 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('Indexing error:', error);
+    // Indexing error
     
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: 'Indexing failed',
-        message: error.message 
+        error: 'Indexing failed'
       })
     };
   }

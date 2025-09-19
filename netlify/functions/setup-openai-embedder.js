@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
         model: 'text-embedding-3-small',
         apiKey: process.env.OPENAI_API_KEY
       });
-      console.log('✅ OpenAI embedder created successfully');
+      // OpenAI embedder created successfully
       
       return {
         statusCode: 200,
@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
       };
     } catch (error) {
       if (error.cause?.code === 'embedder_already_exists') {
-        console.log('ℹ️  OpenAI embedder already exists');
+        // OpenAI embedder already exists
         return {
           statusCode: 200,
           headers,
@@ -54,7 +54,7 @@ exports.handler = async (event, context) => {
           })
         };
       } else {
-        console.error('❌ Error creating OpenAI embedder:', error);
+        // Error creating OpenAI embedder
         return {
           statusCode: 500,
           headers,
@@ -67,11 +67,11 @@ exports.handler = async (event, context) => {
       }
     }
   } catch (error) {
-    console.error('Setup embedder error:', error);
+    // Setup embedder error
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: 'Internal server error', message: error.message })
+      body: JSON.stringify({ error: 'Internal server error' })
     };
   }
 };

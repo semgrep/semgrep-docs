@@ -95,12 +95,12 @@ const MeilisearchSearchBar: React.FC<{
             setResults(data.hits || []);
             setIsOpen(true);
           } else {
-            console.error('Search failed:', response.status);
+            // Search failed - silently handle error
             setResults([]);
             setIsOpen(false);
           }
         } catch (error) {
-          console.error('Search error:', error);
+          // Search error - silently handle error
           setResults([]);
           setIsOpen(false);
         } finally {
