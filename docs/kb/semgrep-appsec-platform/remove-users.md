@@ -10,7 +10,7 @@ tags:
 When you remove a user from your connected GitHub organization, GitLab group, or single sign-on (SSO) provider:
 
 * They can no longer sign in to Semgrep.
-* Any active session for that user in the platform will expire within seven days.
+* Any active session for that user in the platform expires within seven days.
 
 However, their user record may still appear in your Semgrep organization's members list.
 
@@ -18,7 +18,7 @@ To have the user record removed from your Semgrep organization as well:
 
 1. Ensure that you have removed the user from connected groups in the identity provider.
 2. [Contact Semgrep Support](/support) to have the user removed from your organization. Provide the following information in your request:
-    - The user's email address and sign-in method(s).
+    - The user's email address and sign-in method. If the user had access to the platform via multiple sign-in methods, please include all the methods whose accounts you want to delete. For example, if the user signed in using both GitHub and SAML SSO, please let Semgrep know whether the GitHub account associated with the user should be deleted or the SAML SSO account should be deleted instead.
     - Your Semgrep organization name or ID.
 
 ## Manage available identity providers
