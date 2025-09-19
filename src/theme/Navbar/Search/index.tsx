@@ -368,7 +368,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
           "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
         apiKey: "", // No API key needed for Netlify function
         indexUid: "semgrep_docs", // Use same index name everywhere
-            placeholder: "🔍 Search docs... (Hybrid: 70% semantic + 30% keyword)"
+            placeholder: "Search docs..."
       };
     } else {
       // All other branches - disable Meilisearch
