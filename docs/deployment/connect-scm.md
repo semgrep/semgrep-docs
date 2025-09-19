@@ -113,6 +113,10 @@ Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Se
 
 ### GitHub Enterprise Cloud with data residency
 
+If your GitHub Enterprise instance contains many orgs, you must **choose an org** among your accounts that acts as the **owner** of the Semgrep App. As the owner, this org controls the settings and permissions granted to the app. Throughout the setup process, ensure that you select this org consistently when prompted.
+
+Perform the following steps to set up the connection:
+
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Optional: If you have created more than one Semgrep account, select the account you want to make a connection for by clicking on the **Navigation bar > Your account name > The account you want to connect**.<br />
    <img src="/docs/img/more-accounts-dropdown.png" height="350px" />
@@ -120,21 +124,38 @@ Alternatively, you can set up the [<i class="fas fa-external-link fa-xs"></i> Se
 1. Click **Add > GitHub Enterprise**.
 1. In the **Connect your GitHub Organization** dialog that appears, provide:
    - The **Name of your GitHub Organization**
-   - The **URL** used to access the GitHub organization
+   - The **URL** used to access the GitHub instance
 1. Add the Semgrep GitHub App:
    1. Under **Enter GitHub information**, indicate that you want to install the app on your **Organization**, and select the **Organization name** where the app is installed. If you have multiple GitHub organizations that you'd like to use with Semgrep, ensure that you select the **Use for multiple GitHub orgs** box.
-   1. Under **Select features to enable**, indicate whether you would like to grant Semgrep code access.
+   1. Under **Select features to enable**, indicate whether you would like to grant code access to Semgrep.
    1. Review the permissions requested by Semgrep.
    1. Click **Register a Semgrep GitHub App**. Semgrep asks if you'd like to be redirected to GitHub to continue creating the app. Click **Continue** to proceed.
    1. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.
-   1. After you name your app, choose the GHE org to which you want it installed.
-   1. Select the org that you want to act as the owner of the app, and click **Install**.
+   1. After you name your app, choose the GHE org you want to install it on.
+   1. Select the org, then click **Install**.
    1. Wait for the installation to complete. When done, you are redirected to Semgrep.
-   1. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your SCM shows a **Connected** badge.
+   1. Verify the installation by navigating to **Settings** > **Source code managers**. Ensure that the entry for your GitHub organization shows a **Connected** badge.
    1. In GHE, you should see the app listed as installed on the **GitHub Apps** page.
       - You can click **Configure** to choose the repositories to which the app has access. Additionally, you can go to **App settings** to customize the permissions granted to the app.
+1. If you have additional GHE orgs you'd like to add, you can do so by repeating the previous steps 1-6.
 
    At this point, you've successfully installed the GHE Semgrep App on the owner GHE org. In the future, other members of your GHE instance can install the app on their GHE orgs using the public link if they have the proper permissions. You can get the public link from GHE by going to **GitHub Apps** > **App settings**.
+
+   ![App installation page](/img/ghe-11.png#md-width)
+
+#### Install the app for subsequent GitHub orgs
+
+You can install the Semgrep app onto additional GitHub orgs at any time. To do so:
+
+1. Go to the public link for the app. Click **Install**.
+   ![App installation page](/img/ghe-12.png#md-width)
+1. Choose the GitHub org to which you want the app installed, and click **Install**.
+   ![Org list](/img/ghe-13.png#md-width)
+1. In the popup confirmation message, click **Install**.
+   ![GitHub installation prompt](/img/ghe-14.png#md-width)
+1. The GitHub org should now be listed under **Source code managers**.
+
+You have successfully connected Semgrep to your GitHub organization.
 
 </TabItem>
 
