@@ -47,6 +47,9 @@ class SemanticMeilisearchIndexer {
       host: process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700',
       apiKey: process.env.MEILISEARCH_API_KEY || ''
     });
+    
+    console.log(`🔌 Connecting to Meilisearch at: ${process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700'}`);
+    console.log(`🔑 Using API key: ${process.env.MEILISEARCH_API_KEY ? '***' + process.env.MEILISEARCH_API_KEY.slice(-4) : 'None'}`);
 
     // Initialize embedding system
     if (process.env.OPENAI_API_KEY) {
@@ -554,6 +557,7 @@ class SemanticMeilisearchIndexer {
 
     const searchOptions = {
       q: query,
+      semanticRatio: options.semanticRatio || config.semanticRatio, 
       limit: options.limit || 10,
       filter: options.filter || null,
       sort: options.sort || null,
@@ -562,10 +566,6 @@ class SemanticMeilisearchIndexer {
       highlightPreTag: '<mark>',
       highlightPostTag: '</mark>'
     };
-
-    // Note: semanticRatio not included in search request to avoid percentage display in UI
-    // The search will use hybrid search (semantic + text) based on embedder configuration
-    // but won't show the percentage breakdown bars in the results
 
     try {
       const results = await this.index.search(searchOptions);
