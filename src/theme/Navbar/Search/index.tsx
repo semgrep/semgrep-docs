@@ -14,19 +14,42 @@ const MeilisearchSearchBar: React.FC<{
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Close search when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setIsFocused(false);
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Handle focus events
+  const handleFocus = () => {
+    setIsFocused(true);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const handleBlur = () => {
+    // Delay blur to allow clicking on results
+    setTimeout(() => {
+      if (!searchContainerRef.current?.contains(document.activeElement)) {
+        setIsFocused(false);
+      }
+    }, 150);
+  };
+
+  // Debounced search function
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const handleSearch = async (searchQuery: string) => {
     if (!searchQuery.trim()) {
@@ -91,6 +114,44 @@ const MeilisearchSearchBar: React.FC<{
     }
   };
 
+  // Handle input change with debouncing
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuery = e.target.value;
+    setQuery(newQuery);
+
+    // Clear existing timeout
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+    }
+
+    // If query is empty, clear results immediately
+    if (!newQuery.trim()) {
+      setResults([]);
+      setIsOpen(false);
+      setIsLoading(false);
+      return;
+    }
+
+    // Set loading state immediately for better UX
+    setIsLoading(true);
+
+    // Debounce the search by 300ms
+    const timeout = setTimeout(() => {
+      handleSearch(newQuery);
+    }, 300);
+
+    setSearchTimeout(timeout);
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+    };
+  }, [searchTimeout]);
+
   const handleResultClick = (result: any) => {
     setResults([]);
     setIsOpen(false);
@@ -113,29 +174,42 @@ const MeilisearchSearchBar: React.FC<{
 
   return (
     <div ref={searchContainerRef} style={{ position: 'relative', width: '100%' }}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        background: 'white',
-        padding: '4px 8px'
-      }}>
+      <div 
+        onClick={handleFocus}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          border: isFocused ? '2px solid #007acc' : '1px solid #ccc',
+          borderRadius: '4px',
+          background: 'white',
+          padding: isFocused ? '8px 12px' : '4px 8px',
+          transition: 'all 0.2s ease',
+          cursor: 'text',
+          minWidth: isFocused ? '300px' : '200px',
+          width: isFocused ? '100%' : 'auto',
+          maxWidth: isFocused ? '500px' : '250px',
+          boxShadow: isFocused ? '0 2px 8px rgba(0, 122, 204, 0.2)' : 'none'
+        }}
+      >
         <input
+          ref={inputRef}
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && handleSearch(query)}
+          onChange={handleInputChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           placeholder={placeholder}
           style={{
             border: 'none',
             outline: 'none',
             flex: 1,
-            padding: '4px 8px',
-            fontSize: '14px'
+            padding: '0',
+            fontSize: isFocused ? '16px' : '14px',
+            background: 'transparent',
+            transition: 'font-size 0.2s ease'
           }}
         />
-        {isLoading && <span style={{fontSize: '12px', color: '#666'}}>Loading...</span>}
+        {isLoading && <span style={{fontSize: '12px', color: '#666', marginLeft: '8px'}}>Loading...</span>}
       </div>
       
       {isOpen && results.length > 0 && (
