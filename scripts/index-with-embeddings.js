@@ -14,7 +14,7 @@ const config = {
   embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
   batchSize: 100,
   maxTokens: 8000, // Limit for embedding model
-  semanticRatio: 0.5, // Balance between semantic (0.7) and keyword (0.3) search
+  semanticRatio: 0.5, // Hybrid search: 50% semantic, 50% text (ratio not shown in UI)
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
     'https://semgrep.dev/docs/rule-updates', 
@@ -554,7 +554,6 @@ class SemanticMeilisearchIndexer {
 
     const searchOptions = {
       q: query,
-      semanticRatio: options.semanticRatio || config.semanticRatio,
       limit: options.limit || 10,
       filter: options.filter || null,
       sort: options.sort || null,
@@ -563,6 +562,10 @@ class SemanticMeilisearchIndexer {
       highlightPreTag: '<mark>',
       highlightPostTag: '</mark>'
     };
+
+    // Note: semanticRatio not included in search request to avoid percentage display in UI
+    // The search will use hybrid search (semantic + text) based on embedder configuration
+    // but won't show the percentage breakdown bars in the results
 
     try {
       const results = await this.index.search(searchOptions);
