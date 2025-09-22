@@ -48,8 +48,8 @@ class SemanticMeilisearchIndexer {
       apiKey: process.env.MEILISEARCH_API_KEY || ''
     });
     
-    console.log(`🔌 Connecting to Meilisearch at: ${process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700'}`);
-    console.log(`🔑 Using API key: ${process.env.MEILISEARCH_API_KEY ? '***' + process.env.MEILISEARCH_API_KEY.slice(-4) : 'None'}`);
+    console.log(`Connecting to Meilisearch at: ${process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700'}`);
+    console.log(`Using API key: ${process.env.MEILISEARCH_API_KEY ? '***' + process.env.MEILISEARCH_API_KEY.slice(-4) : 'None'}`);
 
     // Initialize embedding system
     if (process.env.OPENAI_API_KEY) {
@@ -57,9 +57,9 @@ class SemanticMeilisearchIndexer {
         apiKey: process.env.OPENAI_API_KEY
       });
       this.embeddingMethod = 'openai';
-      console.log('✅ OpenAI embeddings enabled');
+      console.log('OpenAI embeddings enabled');
     } else {
-      console.log('🤖 No OpenAI key found - using local embeddings');
+      console.log('No OpenAI key found - using local embeddings');
       this.embeddingMethod = 'local';
       this.localEmbedder = null; // Will be initialized lazily
     }
@@ -98,7 +98,7 @@ class SemanticMeilisearchIndexer {
           documentTemplate: '{{hierarchy.lvl0}} > {{hierarchy.lvl1}} > {{hierarchy.lvl2}}: {{content}}'
         }
       });
-      console.log('✅ OpenAI embeddings configured with document template');
+      console.log('OpenAI embeddings configured with document template');
     } else if (this.embeddingMethod === 'local') {
       await this.index.updateEmbedders({
         default: {
@@ -107,7 +107,7 @@ class SemanticMeilisearchIndexer {
           documentTemplate: '{{hierarchy.lvl0}} > {{hierarchy.lvl1}} > {{hierarchy.lvl2}}: {{content}}'
         }
       });
-      console.log('✅ Local embeddings configured with document template');
+      console.log('Local embeddings configured with document template');
     }
 
     // Set searchable attributes with enhanced content types
@@ -247,7 +247,7 @@ class SemanticMeilisearchIndexer {
       'exactness'
     ]);
 
-    console.log('✅ Index configuration updated for semantic search');
+    console.log('Index configuration updated for semantic search');
   }
 
   async generateEmbedding(text) {
@@ -271,9 +271,9 @@ class SemanticMeilisearchIndexer {
       } else if (this.embeddingMethod === 'local') {
         // Initialize local embedder if not already done
         if (!this.localEmbedder) {
-          console.log('🔄 Loading local embedding model (first time may take a moment)...');
+          console.log('Loading local embedding model (first time may take a moment)...');
           this.localEmbedder = await pipeline('feature-extraction', 'sentence-transformers/all-MiniLM-L6-v2');
-          console.log('✅ Local embedding model loaded');
+          console.log('Local embedding model loaded');
         }
 
         // Truncate text for local model
@@ -362,7 +362,7 @@ class SemanticMeilisearchIndexer {
     }
 
     const duration = (Date.now() - startTime) / 1000;
-    console.log(`✅ Generated embeddings in ${duration.toFixed(2)}s`);
+    console.log(`Generated embeddings in ${duration.toFixed(2)}s`);
 
     return results;
   }
@@ -546,7 +546,7 @@ class SemanticMeilisearchIndexer {
       }
     }
 
-    console.log('✅ Semantic indexing completed!');
+    console.log('Semantic indexing completed!');
   }
 
   // Example search method demonstrating hybrid search capabilities
@@ -593,7 +593,7 @@ class SemanticMeilisearchIndexer {
       console.log(`\nScraped ${allDocuments.length} documents`);
       await this.indexDocuments(allDocuments);
       
-      console.log('\n🎉 Semantic indexing completed!');
+      console.log('\nSemantic indexing completed!');
       console.log('\nExample searches you can now perform:');
       console.log('- "How to set up Semgrep in CI/CD"');
       console.log('- "JavaScript XSS vulnerabilities"');

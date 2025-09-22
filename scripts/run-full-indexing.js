@@ -21,9 +21,9 @@ async function runFullIndexing() {
       const data = response.data;
       
       if (data.success) {
-        console.log(`✅ Batch ${data.batchNumber}/${data.totalBatches} completed`);
-        console.log(`   📄 Documents indexed: ${data.documentsInBatch}`);
-        console.log(`   📊 Total URLs: ${data.totalUrls}`);
+        console.log(`Batch ${data.batchNumber}/${data.totalBatches} completed`);
+        console.log(`   Documents indexed: ${data.documentsInBatch}`);
+        console.log(`   Total URLs: ${data.totalUrls}`);
         
         isComplete = data.isComplete;
         batchNumber++;
@@ -51,10 +51,10 @@ async function runFullIndexing() {
   }
   
   if (isComplete) {
-    console.log('\n🎉 Full indexing completed successfully!');
-    console.log('🔍 You can now search the entire Semgrep documentation');
+    console.log('\nFull indexing completed successfully!');
+    console.log('You can now search the entire Semgrep documentation');
   } else {
-    console.log('\n⚠️  Indexing was interrupted');
+    console.log('\nIndexing was interrupted');
   }
 }
 

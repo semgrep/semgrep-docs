@@ -377,7 +377,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
         hostUrl: "",
         apiKey: "",
         indexUid: "",
-        placeholder: "🔍 Search docs... (Disabled)"
+        placeholder: "Search docs... (Disabled)"
       };
     }
   };
@@ -430,7 +430,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
                     }}
                     title="Ask AI about Semgrep"
                   >
-                    🤖 AI
+                    AI
                   </button>
                 )
               }}
