@@ -8,7 +8,7 @@ const fs = require('fs').promises;
 
 // Configuration based on the original Algolia config
 const config = {
-  indexName: 'docs',
+  indexName: 'semgrep_docs',
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
     'https://semgrep.dev/docs/rule-updates', 
@@ -55,7 +55,7 @@ const config = {
 
 class MeilisearchIndexer {
   constructor() {
-    const host = process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700';
+    const host = process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io';
     const apiKey = process.env.MEILISEARCH_API_KEY || '';
     
     console.log(`Connecting to Meilisearch at: ${host}`);

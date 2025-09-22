@@ -10,7 +10,7 @@ const { pipeline } = require('@xenova/transformers');
 
 // Configuration
 const config = {
-  indexName: 'docs',
+  indexName: 'semgrep_docs',
   embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
   batchSize: 100,
   maxTokens: 8000, // Limit for embedding model
@@ -44,11 +44,11 @@ const config = {
 class SemanticMeilisearchIndexer {
   constructor() {
     this.client = new MeiliSearch({
-      host: process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700',
+      host: process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io',
       apiKey: process.env.MEILISEARCH_API_KEY || ''
     });
     
-    console.log(`Connecting to Meilisearch at: ${process.env.MEILISEARCH_HOST_URL || 'http://localhost:7700'}`);
+    console.log(`Connecting to Meilisearch at: ${process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io'}`);
     console.log(`Using API key: ${process.env.MEILISEARCH_API_KEY ? '***' + process.env.MEILISEARCH_API_KEY.slice(-4) : 'None'}`);
 
     // Initialize embedding system
