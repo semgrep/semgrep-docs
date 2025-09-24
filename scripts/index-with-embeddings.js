@@ -14,7 +14,7 @@ const config = {
   embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
   batchSize: 100,
   maxTokens: 8000, // Limit for embedding model
-  semanticRatio: 0.5, // Hybrid search: 50% semantic, 50% text (ratio not shown in UI)
+  semanticRatio: 0.0, // Hybrid search: 50% semantic, 50% text (ratio not shown in UI)
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
     'https://semgrep.dev/docs/rule-updates', 
