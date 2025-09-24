@@ -13,7 +13,7 @@ const config = {
   indexName: 'semgrep_docs',
   embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
   batchSize: 100,
-  maxTokens: 8000, // Limit for embedding model
+  maxTokens: 8000, 
   semanticRatio: 0.1, // Hybrid search
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
