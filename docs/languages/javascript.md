@@ -8,6 +8,7 @@ tags:
   - Semgrep Code
   - Semgrep Supply Chain
   - Node.js
+  - javascript
 ---
 
 import LangCallout from "/src/components/concept/_lang-callout.md"
