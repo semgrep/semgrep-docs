@@ -19,6 +19,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -38,6 +39,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   // Handle focus events
   const handleFocus = () => {
     setIsFocused(true);
+    setShowSuggestions(true);
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -48,6 +50,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     setTimeout(() => {
       if (!searchContainerRef.current?.contains(document.activeElement)) {
         setIsFocused(false);
+        setShowSuggestions(false);
       }
     }, 150);
   };
@@ -78,10 +81,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           body: JSON.stringify({
             index: indexUid,
             q: searchQuery,
-            limit: 10,
-            cropLength: 150,
+            limit: 12,
+            cropLength: 200,
             showMatchesPosition: true,
-            matchingStrategy: 'all'
+            matchingStrategy: 'all',
+            attributesToRetrieve: ['*'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            highlightPreTag: '<mark>',
+            highlightPostTag: '</mark>',
+            attributesToCrop: ['content']
           }),
         });
       } else {
@@ -94,10 +102,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           },
           body: JSON.stringify({
             q: searchQuery,
-            limit: 10,
-            cropLength: 150,
+            limit: 12,
+            cropLength: 200,
             showMatchesPosition: true,
-            matchingStrategy: 'all'
+            matchingStrategy: 'all',
+            attributesToRetrieve: ['*'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            highlightPreTag: '<mark>',
+            highlightPostTag: '</mark>',
+            attributesToCrop: ['content']
           }),
         });
       }
@@ -105,7 +118,50 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       if (response.ok) {
         const data = await response.json();
         
-        setResults(data.hits || []);
+        // Apply Semgrep-specific ranking to prioritize relevant content
+        const rankedResults = (data.hits || []).map((result, index) => {
+          const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+          const content = result.content || result._formatted?.content || '';
+          const url = result.url || '';
+          
+          // Calculate Semgrep-specific relevance score
+          let relevanceScore = index;
+          
+          // Boost priority for important Semgrep content types
+          if (title.toLowerCase().includes('getting started') || title.toLowerCase().includes('quickstart')) {
+            relevanceScore -= 5; // Higher priority
+          }
+          
+          if (title.toLowerCase().includes('tutorial') || title.toLowerCase().includes('guide')) {
+            relevanceScore -= 3;
+          }
+          
+          if (title.toLowerCase().includes('configuration') || title.toLowerCase().includes('setup')) {
+            relevanceScore -= 2;
+          }
+          
+          if (title.toLowerCase().includes('troubleshooting') || title.toLowerCase().includes('debug')) {
+            relevanceScore -= 1;
+          }
+          
+          // Boost for specific Semgrep products
+          if (title.toLowerCase().includes('semgrep code') || title.toLowerCase().includes('semgrep pro')) {
+            relevanceScore -= 2;
+          }
+          
+          // Penalize tagged pages heavily
+          const isTaggedPage = title.includes('tagged with') || content.includes('tagged with');
+          if (isTaggedPage) {
+            relevanceScore += 1000;
+          }
+          
+          return {
+            ...result,
+            _semgrepRelevance: relevanceScore
+          };
+        }).sort((a, b) => a._semgrepRelevance - b._semgrepRelevance);
+        
+        setResults(rankedResults);
         setIsOpen(true);
       } else {
         console.error('Search failed:', response.statusText);
@@ -142,7 +198,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
     // Debounce the search by 300ms
     const timeout = setTimeout(() => {
-      handleSearch(newQuery);
+      // Preprocess query for better Semgrep documentation search
+      const processedQuery = preprocessSemgrepQuery(newQuery);
+      handleSearch(processedQuery);
     }, 300);
 
     setSearchTimeout(timeout);
@@ -172,6 +230,62 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     return cleanContent.substring(0, 150) + (cleanContent.length > 150 ? '...' : '');
   };
+
+  // Semgrep-specific query preprocessing for better search results
+  const preprocessSemgrepQuery = (query: string): string => {
+    let processedQuery = query.trim();
+    
+    // Handle common Semgrep abbreviations and terms
+    const semgrepTerms = {
+      'ci': 'continuous integration',
+      'sast': 'static application security testing',
+      'sca': 'supply chain analysis',
+      'secrets': 'secret detection',
+      'rules': 'custom rules',
+      'patterns': 'rule patterns',
+      'metavariables': 'metavariable',
+      'autofix': 'automatic fix',
+      'taint': 'taint analysis',
+      'oss': 'open source',
+      'pro': 'professional',
+      'sms': 'managed scanning',
+      'scp': 'cloud platform',
+      'ssc': 'supply chain'
+    };
+    
+    // Expand abbreviations
+    Object.entries(semgrepTerms).forEach(([abbr, full]) => {
+      const regex = new RegExp(`\\b${abbr}\\b`, 'gi');
+      processedQuery = processedQuery.replace(regex, `${abbr} ${full}`);
+    });
+    
+    // Handle common developer queries
+    if (processedQuery.toLowerCase().includes('how to')) {
+      processedQuery += ' tutorial guide';
+    }
+    
+    if (processedQuery.toLowerCase().includes('setup') || processedQuery.toLowerCase().includes('install')) {
+      processedQuery += ' configuration installation';
+    }
+    
+    if (processedQuery.toLowerCase().includes('error') || processedQuery.toLowerCase().includes('issue')) {
+      processedQuery += ' troubleshooting debug';
+    }
+    
+    return processedQuery;
+  };
+
+  // Common Semgrep search suggestions
+  const semgrepSuggestions = [
+    'Getting started with Semgrep',
+    'How to write custom rules',
+    'CI/CD integration',
+    'Semgrep Pro features',
+    'Troubleshooting common issues',
+    'Rule writing patterns',
+    'Security scanning setup',
+    'Supply chain analysis'
+  ];
 
   const handleResultClick = (result: any) => {
     setResults([]);
@@ -248,7 +362,44 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           zIndex: 1000,
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
-          {results
+          <style>{`
+            mark {
+              background-color: #ffeb3b;
+              color: #000;
+              font-weight: bold;
+              padding: 1px 2px;
+              border-radius: 2px;
+            }
+            .search-suggestion {
+              padding: 8px 12px;
+              cursor: pointer;
+              border-bottom: 1px solid #eee;
+              color: #666;
+              font-size: 12px;
+            }
+            .search-suggestion:hover {
+              background-color: #f5f5f5;
+            }
+          `}</style>
+          {query.trim() === '' && isFocused ? (
+            <div>
+              <div style={{ padding: '8px 12px', fontSize: '11px', color: '#999', borderBottom: '1px solid #eee' }}>
+                Popular searches:
+              </div>
+              {semgrepSuggestions.slice(0, 6).map((suggestion, index) => (
+                <div
+                  key={index}
+                  className="search-suggestion"
+                  onClick={() => {
+                    setQuery(suggestion);
+                    handleSearch(suggestion);
+                  }}
+                >
+                  {suggestion}
+                </div>
+              ))}
+            </div>
+          ) : results
             .filter(result => {
               // Filter out tagged pages and category pages
               const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
@@ -293,13 +444,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   }}>
                     {title}
                   </div>
-                <div style={{
-                  fontSize: '12px',
-                  color: '#666',
-                  lineHeight: '1.4'
-                }}>
-                  {content}
-                </div>
+                <div 
+                  style={{
+                    fontSize: '12px',
+                    color: '#666',
+                    lineHeight: '1.4'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
                 </div>
               );
             })}
