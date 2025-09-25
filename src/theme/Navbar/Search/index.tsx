@@ -374,9 +374,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.15)',
-            backdropFilter: 'blur(6px)',
-            WebkitBackdropFilter: 'blur(6px)', // Safari support
+            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            backdropFilter: 'blur(2px)',
+            WebkitBackdropFilter: 'blur(2px)', // Safari support
             zIndex: 999,
             transition: 'all 0.3s ease',
             animation: 'fadeIn 0.3s ease'
@@ -396,9 +396,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           padding: isFocused ? '12px 16px' : '8px 12px',
         transition: 'all 0.3s ease',
           cursor: 'text',
-          minWidth: isFocused ? '350px' : '250px',
+          minWidth: isFocused ? '450px' : '250px',
           width: isFocused ? '100%' : 'auto',
-          maxWidth: isFocused ? '500px' : '300px',
+          maxWidth: isFocused ? '600px' : '300px',
           boxShadow: isFocused ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
