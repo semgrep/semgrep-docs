@@ -79,7 +79,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           body: JSON.stringify({
             index: indexUid,
             q: searchQuery,
-            limit: 10,
+            limit: 20,
             cropLength: 200,
             showMatchesPosition: true,
             matchingStrategy: 'all',
@@ -95,7 +95,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPreTag: '<mark class="search-highlight">',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
-            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content']
+            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content'],
+            filter: 'NOT content = "docs tagged with" AND NOT content = "doc tagged with" AND NOT content = "Choose a KB category"',
+            sort: ['_score:desc', 'hierarchy.lvl0:asc']
           }),
         });
       } else {
@@ -108,7 +110,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           },
           body: JSON.stringify({
             q: searchQuery,
-            limit: 10,
+            limit: 20,
             cropLength: 200,
             showMatchesPosition: true,
             matchingStrategy: 'all',
@@ -124,7 +126,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPreTag: '<mark class="search-highlight">',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
-            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content']
+            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content'],
+            filter: 'NOT content = "docs tagged with" AND NOT content = "doc tagged with" AND NOT content = "Choose a KB category"',
+            sort: ['_score:desc', 'hierarchy.lvl0:asc']
           }),
         });
       }
@@ -137,7 +141,24 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         // Log search performance for optimization
         console.log(`Search completed in ${searchDuration.toFixed(2)}ms for query: "${searchQuery}"`);
         
-        setResults(data.hits || []);
+        // Apply custom ranking to deprioritize tagged pages
+        const rankedResults = (data.hits || []).map((result, index) => {
+          const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+          const content = result.content || result._formatted?.content || '';
+          
+          // Apply penalty for tagged pages
+          const isTaggedPage = title.includes('docs tagged with') || 
+                             title.includes('doc tagged with') ||
+                             content.includes('docs tagged with') ||
+                             content.includes('doc tagged with');
+          
+          return {
+            ...result,
+            _customRank: isTaggedPage ? index + 1000 : index // Push tagged pages to bottom
+          };
+        }).sort((a, b) => a._customRank - b._customRank);
+        
+        setResults(rankedResults);
         setIsOpen(true);
       } else {
         console.error('Search failed:', response.statusText);
@@ -294,7 +315,23 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               border-radius: 2px;
             }
           `}</style>
-          {results.map((result, index) => {
+          {results
+            .filter(result => {
+              // Filter out tagged pages and category pages
+              const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+              const content = result.content || result._formatted?.content || '';
+              
+              // Skip results that look like category/tagged pages
+              const isTaggedPage = title.includes('docs tagged with') || 
+                                 title.includes('doc tagged with') ||
+                                 content.includes('docs tagged with') ||
+                                 content.includes('doc tagged with') ||
+                                 title.includes('Choose a KB category') ||
+                                 content.includes('Choose a KB category');
+              
+              return !isTaggedPage;
+            })
+            .map((result, index) => {
             const title = getDisplayTitle(result);
             const content = getDisplayContent(result);
               
