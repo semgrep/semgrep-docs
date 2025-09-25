@@ -1,11 +1,11 @@
 ---
-title: Incorporating security testing into developer workflows
-description: Learn how to incorporating security testing into developer workflows
+title: Incorporating security testing into development workflows
+description: Learn how to incorporate security testing tools into development workflows
 hide_title: false
 displayed_sidebar: learnSidebar
 ---
 
-# Incorporating security testing into developer workflows
+# Incorporating Security Testing Into Development Workflows
 
 We have more security tools than ever, yet vulnerabilities continue to get introduced. The real problem isn’t detection, it is prevention at scale. We need to enable developers with the right tools, features, and integrations. Effective security tools meet developers where they are; in their code editors, code repositories, and ticketing systems. They are fast, accurate, and provide actionable feedback.
 
@@ -36,7 +36,7 @@ The most powerful place to integrate security testing is directly into the devel
 
 - **IDE Integration:** Providing real-time feedback inside the IDE allows developers to see issues as they type and receive inline fix suggestions. Research has shown that this approach can increase fix rates dramatically, in some cases up to 98% [1-3].
 - **CLI and Manual Scans:** Developers who prefer command-line workflows can run deeper, on-demand scans before committing their code.
-- **Pre-commit Hooks:** Serving as the last line of defence before code enters source control, pre-commit hooks can be configured to block commits only when rules are proven to be highly accurate for a given codebase.
+- **Pre-commit Hooks:** Serving as the last line of defense before code enters source control, pre-commit hooks can be configured to block commits only when rules are proven to be highly accurate for a given codebase.
 - **MCP Server Integration:** As AI-assisted coding becomes more common, integrating security checks directly into model-context protocol (MCP) servers ensures that LLM-generated code is automatically reviewed with context-aware security suggestions.
 
 ### CI/CD Pipeline
