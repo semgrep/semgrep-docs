@@ -2,6 +2,7 @@
 slug: best-practices-for-memories
 title: Best practices for writing Assistant Memories
 hide_title: true
+toc_max_heading_level: 2
 description: Review best practices for writing Memories to ensure optimal results.
 tags:
  - Semgrep Assistant
@@ -19,13 +20,11 @@ When writing your memories, aim to "talk" to Assistant the way that you would ta
 - Describe technical concepts as simply as possible.
 - Explain the consequences and outcomes of actions in detail.
 
-Examples:
+The following are two examples of well-written memories:
 
 > When generating remediation for SQL injection issues, ensure that the SQL is compatible with BigQuery.
 
 > Data from Foo internal services, such as Bar and FooBar, are trusted sources for data flowing into the URL. These findings are false positives.
-
-> Code that's flagged for missing cookie security attributes may be a false positive if the code's purpose is to delete or clear a cookie, since security attributes may not be necessary for immediate removal.
 
 ## Purpose
 
@@ -49,15 +48,25 @@ When writing a memory, be sure to include as many of the following components as
 2. **Guidance** as to how Assistant identifies the conditions that you specified
 3. The **implications** for triage and remediation if Assistant identifies that the conditions you specify are present in your codebase
 
-**Example:**
+### Example #1
 
 > Dockerfiles with image `foo` are designed to run as a non-root user and are an acceptable risk. All relevant findings are false positives.
 
 In the preceding memory, you can see all three components present:
 
-1. The **condition and context**: Dockerfiles with image `foo` are designed to run as non-root user.
-2. **Guidance**: In this case, there's some overlap between the condition and context and the guidance. The guidance here to Assistant is to look for Dockerfiles with image `foo`.
+1. **Condition and context**: Dockerfiles with image `foo` are designed to run as non-root user.
+2. **Guidance**: Look for Dockerfiles with image `foo`.
 3. **Implication**: This is an acceptable risk, so the findings are flagged as false positives.
+
+### Example #2
+
+> Code that's flagged for missing cookie security attributes may be a false positive if the code's purpose is to delete or clear a cookie, since security attributes may not be necessary for immediate removal.
+
+In the preceding memory, you can see all three components present:
+
+1. **Condition and context**: There exists code whose purpose is to delete or clear a cookie, but security attributes may not be necessary for immediate removal of the cookie.
+2. **Guidance**: Look for findings where the purpose of the code is to delete or clear a cookie and Semgrep's static analysis has flagged it for missing cookie security attributes.
+3. **Implication**: Relevant findings should be flagged as false positives.
 
 ## Additional considerations
 

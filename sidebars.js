@@ -185,11 +185,6 @@ module.exports = {
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
-                        id: 'semgrep-assistant/getting-started', // document ID
-                        label: 'Enable Assistant', // sidebar label
-                      },
-                      {
-                        type: 'doc',
                         id: 'writing-rules/overview', // document ID
                         label: 'Write custom rules', // sidebar label
                       },
@@ -367,7 +362,7 @@ module.exports = {
               id: 'semgrep-assistant/getting-started'
             },
             items: [
-              'semgrep-assistant/customize'
+              'semgrep-assistant/customize',
               'semgrep-assistant/best-practices-for-memories'
             ]
           },
