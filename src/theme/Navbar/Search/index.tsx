@@ -86,7 +86,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             showMatchesPosition: true,
             matchingStrategy: 'all',
             attributesToRetrieve: ['*'],
-            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3'],
             highlightPreTag: '<mark>',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content']
@@ -107,7 +107,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             showMatchesPosition: true,
             matchingStrategy: 'all',
             attributesToRetrieve: ['*'],
-            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3'],
             highlightPreTag: '<mark>',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content']
@@ -231,6 +231,62 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     return cleanContent.substring(0, 150) + (cleanContent.length > 150 ? '...' : '');
   };
 
+  // Enhanced highlighting function for better keyword visibility
+  const enhanceHighlighting = (content: string, searchQuery: string): string => {
+    if (!searchQuery || !content) return content;
+    
+    // Split search query into individual terms
+    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+    
+    let highlightedContent = content;
+    
+    // Highlight each search term with case-insensitive matching
+    searchTerms.forEach(term => {
+      const regex = new RegExp(`(${term})`, 'gi');
+      highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+    });
+    
+    return highlightedContent;
+  };
+
+  const getSectionInfo = (result: any): string => {
+    const hierarchy = result.hierarchy || {};
+    const url = result.url || '';
+    
+    // Extract section from hierarchy
+    if (hierarchy.lvl0) {
+      return hierarchy.lvl0;
+    }
+    
+    // Extract section from URL
+    if (url.includes('/docs/')) {
+      const pathParts = url.split('/docs/')[1]?.split('/');
+      if (pathParts && pathParts.length > 0) {
+        const section = pathParts[0];
+        // Map common sections to readable names
+        const sectionMap: { [key: string]: string } = {
+          'getting-started': 'Getting Started',
+          'writing-rules': 'Rule Writing',
+          'semgrep-ci': 'CI/CD',
+          'semgrep-code': 'Semgrep Code',
+          'semgrep-pro': 'Semgrep Pro',
+          'semgrep-secrets': 'Secrets Detection',
+          'semgrep-supply-chain': 'Supply Chain',
+          'semgrep-appsec-platform': 'AppSec Platform',
+          'deployment': 'Deployment',
+          'troubleshooting': 'Troubleshooting',
+          'faq': 'FAQ',
+          'kb': 'Knowledge Base',
+          'release-notes': 'Release Notes'
+        };
+        
+        return sectionMap[section] || section.charAt(0).toUpperCase() + section.slice(1).replace(/-/g, ' ');
+      }
+    }
+    
+    return 'Documentation';
+  };
+
   // Semgrep-specific query preprocessing for better search results
   const preprocessSemgrepQuery = (query: string): string => {
     let processedQuery = query.trim();
@@ -308,22 +364,42 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   return (
-    <div ref={searchContainerRef} style={{ position: 'relative', width: '100%' }}>
+    <>
+      {/* Background blur overlay when search is focused */}
+      {isFocused && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.15)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)', // Safari support
+            zIndex: 999,
+            transition: 'all 0.3s ease',
+            animation: 'fadeIn 0.3s ease'
+          }}
+          onClick={handleBlur}
+        />
+      )}
+      <div ref={searchContainerRef} style={{ position: 'relative', width: '100%', zIndex: 1000 }}>
       <div 
         onClick={handleFocus}
         style={{
           display: 'flex',
           alignItems: 'center',
-          border: isFocused ? '2px solid #007acc' : '1px solid #ccc',
-          borderRadius: '4px',
+          border: isFocused ? '2px solid #00D4AA' : '1px solid #D1D5DB',
+          borderRadius: '12px',
           background: 'white',
-          padding: isFocused ? '8px 12px' : '4px 8px',
-          transition: 'all 0.2s ease',
+          padding: isFocused ? '12px 16px' : '8px 12px',
+          transition: 'all 0.3s ease',
           cursor: 'text',
-          minWidth: isFocused ? '300px' : '200px',
+          minWidth: isFocused ? '350px' : '250px',
           width: isFocused ? '100%' : 'auto',
-          maxWidth: isFocused ? '500px' : '250px',
-          boxShadow: isFocused ? '0 2px 8px rgba(0, 122, 204, 0.2)' : 'none'
+          maxWidth: isFocused ? '500px' : '300px',
+          boxShadow: isFocused ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
         <input
@@ -341,10 +417,12 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             padding: '0',
             fontSize: isFocused ? '16px' : '14px',
             background: 'transparent',
+            color: '#111827',
+            fontWeight: '500',
             transition: 'font-size 0.2s ease'
           }}
         />
-        {isLoading && <span style={{fontSize: '12px', color: '#666', marginLeft: '8px'}}>Loading...</span>}
+        {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
       </div>
       
       {isOpen && results.length > 0 && (
@@ -354,36 +432,98 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           left: 0,
           right: 0,
           background: 'white',
-          border: '1px solid #ccc',
+          border: '1px solid #E5E7EB',
           borderTop: 'none',
-          borderRadius: '0 0 4px 4px',
-          maxHeight: '400px',
+          borderRadius: '0 0 12px 12px',
+          maxHeight: '450px',
           overflowY: 'auto',
-          zIndex: 1000,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+          zIndex: 1001,
+          boxShadow: isFocused ? '0 20px 40px rgba(0,0,0,0.25)' : '0 10px 30px rgba(0,0,0,0.15)',
+          marginTop: '4px',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)'
         }}>
           <style>{`
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
             mark {
-              background-color: #ffeb3b;
-              color: #000;
-              font-weight: bold;
-              padding: 1px 2px;
-              border-radius: 2px;
+              background-color: #00D4AA;
+              color: #fff;
+              font-weight: 700;
+              padding: 2px 6px;
+              border-radius: 4px;
+              box-shadow: 0 1px 3px rgba(0, 212, 170, 0.3);
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
             }
             .search-suggestion {
-              padding: 8px 12px;
+              padding: 10px 16px;
               cursor: pointer;
-              border-bottom: 1px solid #eee;
-              color: #666;
-              font-size: 12px;
+              border-bottom: 1px solid #E5E7EB;
+              color: #374151;
+              font-size: 13px;
+              transition: background-color 0.2s ease;
             }
             .search-suggestion:hover {
-              background-color: #f5f5f5;
+              background-color: #F3F4F6;
+            }
+            .search-result {
+              padding: 12px 16px;
+              cursor: pointer;
+              border-bottom: 1px solid #E5E7EB;
+              transition: background-color 0.2s ease;
+            }
+            .search-result:hover {
+              background-color: #F3F4F6;
+            }
+            .search-result-title {
+              font-weight: 600;
+              color: #111827;
+              font-size: 14px;
+              margin-bottom: 4px;
+            }
+            .search-result-section {
+              font-size: 11px;
+              color: #00D4AA;
+              font-weight: 500;
+              margin-bottom: 6px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            .search-result-content {
+              font-size: 12px;
+              color: #6B7280;
+              line-height: 1.4;
+            }
+            .search-result-content mark {
+              background-color: #00D4AA;
+              color: #fff;
+              font-weight: 700;
+              padding: 1px 4px;
+              border-radius: 3px;
+              box-shadow: 0 1px 2px rgba(0, 212, 170, 0.4);
+            }
+            .search-result-title mark {
+              background-color: #00D4AA;
+              color: #fff;
+              font-weight: 700;
+              padding: 1px 4px;
+              border-radius: 3px;
+              box-shadow: 0 1px 2px rgba(0, 212, 170, 0.4);
             }
           `}</style>
           {query.trim() === '' && isFocused ? (
             <div>
-              <div style={{ padding: '8px 12px', fontSize: '11px', color: '#999', borderBottom: '1px solid #eee' }}>
+              <div style={{ 
+                padding: '12px 16px', 
+                fontSize: '12px', 
+                color: '#6B7280', 
+                borderBottom: '1px solid #E5E7EB',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
                 Popular searches:
               </div>
               {semgrepSuggestions.slice(0, 6).map((suggestion, index) => (
@@ -420,44 +560,39 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               return !isTaggedPage;
             })
             .map((result, index) => {
-            const title = getDisplayTitle(result);
-            const content = getDisplayContent(result);
+            const rawTitle = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || 'Untitled';
+            const title = enhanceHighlighting(rawTitle, query);
+            const rawContent = result._formatted?.content || result.content || '';
+            const section = getSectionInfo(result);
+            
+            // Enhanced highlighting for better keyword visibility
+            const enhancedContent = enhanceHighlighting(rawContent, query);
+            const displayContent = enhancedContent.substring(0, 150) + (enhancedContent.length > 150 ? '...' : '');
               
               return (
                 <div
                   key={index}
+                  className="search-result"
                   onClick={() => handleResultClick(result)}
-                  style={{
-                    padding: '12px',
-                    borderBottom: index < results.length - 1 ? '1px solid #eee' : 'none',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
                 >
-                  <div style={{
-                    fontWeight: 'bold',
-                    marginBottom: '4px',
-                    color: '#333',
-                    fontSize: '14px'
-                  }}>
-                    {title}
+                  <div className="search-result-section">
+                    {section}
                   </div>
-                <div 
-                  style={{
-                    fontSize: '12px',
-                    color: '#666',
-                    lineHeight: '1.4'
-                  }}
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                  <div 
+                    className="search-result-title"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  />
+                  <div 
+                    className="search-result-content"
+                    dangerouslySetInnerHTML={{ __html: displayContent }}
+                  />
                 </div>
               );
             })}
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 
