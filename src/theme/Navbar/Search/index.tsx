@@ -189,7 +189,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     setIsOpen(false);
     
     if (result.url) {
-      // Convert live site URLs to current preview environment URLs
+      // Convert live site URLs to current preview environment URLs 
       const currentOrigin = window.location.origin;
       const liveUrl = result.url;
       
