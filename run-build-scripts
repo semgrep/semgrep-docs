@@ -2,4 +2,10 @@
 
 python3 replace-on-build.py
 bash copy-metrics-md
-node scripts/update-vulnerability-categories.js
+
+echo "testtest123"
+echo $HOME
+echo $PATH
+ls /
+echo "testtest1234"
+# node scripts/update-vulnerability-categories.js
