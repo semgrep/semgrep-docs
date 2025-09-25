@@ -20,11 +20,10 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
-    { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
       type: 'ref',
       id: 'learn/overview',
-      label: 'Semgrep Learn',
+      label: 'Semgrep learning guides',
       className: 'top-category-separator'
     },
     {
@@ -33,7 +32,6 @@ module.exports = {
       href: '/kb',
       className: 'top-category'
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
     { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
@@ -812,13 +810,13 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
       type: 'category',
-      label: 'Semgrep Learn',
+      label: 'Application Security',
       collapsible: false,
       items: [
         {
           type: 'doc',
           id: 'learn/overview',
-          label: 'Learn Overview'
+          label: 'Overview'
         },
         {
           type: 'category',
@@ -831,14 +829,38 @@ module.exports = {
           items: [
             {
               type: 'category',
-              label: 'SAST',
-              collapsible: true,
+              label: 'Static Code Scanning',
+              collapsible: false,
               link: {
                 type: 'doc',
                 id: 'learn/security-foundations/sast/overview'
               },
               items: [
-                'learn/security-foundations/sast/security-testing-workflow'
+                
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Supply Chain Security',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/supply-chain-security'
+
+              },
+              items: [
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Security Testing Workflows',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/security-testing-workflow'
+
+              },
+              items: [
               ]
             },
           ]
@@ -854,6 +876,18 @@ module.exports = {
           items: [
             {
               type: 'category',
+              label: 'Code Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/code-injection/overview'
+              },
+              items: [
+                // Additional Code Injection topics can be added here
+              ]
+            },
+            {
+              type: 'category',
               label: 'Command Injection',
               collapsible: true,
               link: {
@@ -862,6 +896,30 @@ module.exports = {
               },
               items: [
                 'learn/vulnerabilities/command-injection/argo-injection'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Cross-site Scripting',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/cross-site-scripting/overview'
+              },
+              items: [
+                // Additional XSS topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Deserialization',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-deserialization/overview'
+              },
+              items: [
+                // Additional Insecure Deserialization topics can be added here
               ]
             },
             {
@@ -890,6 +948,18 @@ module.exports = {
             },
             {
               type: 'category',
+              label: 'SQL Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/sql-injection/overview'
+              },
+              items: [
+                // Additional SQL Injection can be added here
+              ]
+            },
+            {
+              type: 'category',
               label: 'XML Security',
               collapsible: true,
               link: {
@@ -901,8 +971,98 @@ module.exports = {
               ]
             }
           ]
-        }
+        },
       ]
+    },
+    {
+      type: 'category',
+      label: 'Secure Coding',
+      collapsible: false,
+            items: [
+                'cheat-sheets/overview',
+                {
+                    type: 'category',
+                    'label': 'Go',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Go',
+                      description: 
+                        "Security guides and cheatsheets for the Go programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/go-command-injection',
+                        'cheat-sheets/go-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Java',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Java',
+                      description: 
+                        "Security guides and cheatsheets for the Java programming language and related frameworks.",
+                    },
+                      items: [
+                        'cheat-sheets/java-code-injection',
+                        'cheat-sheets/java-command-injection',
+                        'cheat-sheets/java-jsp-xss',
+                        'cheat-sheets/java-xxe'
+                      ]
+                },
+                {
+                    type: 'category',
+                    'label': 'JavaScript',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'JavaScript',
+                      description: 
+                        "Security guides and cheatsheets for the JavaScript programming language, Node and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/javascript-code-injection',
+                        'cheat-sheets/javascript-command-injection',
+                        'cheat-sheets/express-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Python',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Python',
+                      description: 
+                        "Security guides and cheatsheets for the Python programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/python-code-injection',
+                        'cheat-sheets/python-command-injection',
+                        'cheat-sheets/django-xss',
+                        'cheat-sheets/flask-xss',
+                        'learn/vulnerabilities/insecure-deserialization/py-deserialization'
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Ruby',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Ruby',
+                      description: 
+                        "Security guides and cheatsheets for the Ruby programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/ruby-code-injection',
+                        'cheat-sheets/ruby-command-injection',
+                        'cheat-sheets/rails-xss'
+                    ]
+                },
+            ],
     }
   ]
 };
