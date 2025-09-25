@@ -12,8 +12,7 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-        "index-full-docs": "node scripts/run-full-indexing.js"
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
     "@algolia/client-search": "^4.23.3",
@@ -35,9 +34,7 @@
     "webpack": "^5.91.0",
     "meilisearch": "^0.53.0",
     "axios": "^1.12.2",
-    "jsdom": "^22.1.0",
-    "@markprompt/react": "^0.23.0",
-    "@markprompt/css": "^0.23.0"
+    "jsdom": "^22.1.0"
   },
   "browserslist": {
     "production": [

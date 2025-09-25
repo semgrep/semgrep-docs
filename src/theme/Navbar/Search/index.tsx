@@ -1,7 +1,5 @@
 import React, {type ReactNode, useState, useEffect, useRef} from 'react';
 import type {Props} from '@theme/Navbar/Search';
-import {Markprompt} from '@markprompt/react';
-import '@markprompt/css';
 
 interface MeilisearchSearchBarProps {
   hostUrl: string;
@@ -158,23 +156,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     };
   }, [searchTimeout]);
 
-  const isCategoryPage = (result: any): boolean => {
-    const content = result.content || result._formatted?.content || '';
-    return content.includes('docs tagged with') || content.includes('doc tagged with');
-  };
-
-  const getDisplayTitle = (result: any): string | null => {
-    if (isCategoryPage(result)) return null;
-    
+  const getDisplayTitle = (result: any): string => {
     return result.hierarchy?.lvl1 || 
            result.hierarchy?.lvl2 || 
            result.title || 
-           (result.content || '').substring(0, 60) + '...';
+           'Untitled';
   };
 
-  const getDisplayContent = (result: any): string | null => {
-    if (isCategoryPage(result)) return null;
-    
+  const getDisplayContent = (result: any): string => {
     const content = result._formatted?.content || result.content || '';
     const cleanContent = content
       .replace(/<[^>]*>/g, '')
@@ -259,14 +248,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           zIndex: 1000,
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
-          {results
-            .filter(result => !isCategoryPage(result))
-            .slice(0, 8)
-            .map((result, index) => {
-              const title = getDisplayTitle(result);
-              const content = getDisplayContent(result);
-              
-              if (!title || !content) return null;
+          {results.map((result, index) => {
+            const title = getDisplayTitle(result);
+            const content = getDisplayContent(result);
               
               return (
                 <div
@@ -347,7 +331,7 @@ const getMeilisearchConfig = (): SearchConfig => {
     hostUrl: "",
     apiKey: "",
     indexUid: "",
-    placeholder: "Search docs... (Disabled)"
+    placeholder: "Search docs..."
   };
 };
 
@@ -381,47 +365,6 @@ export default function NavbarSearch({className}: Props): ReactNode {
         apiKey={config.apiKey}
         indexUid={config.indexUid}
         placeholder={config.placeholder}
-      />
-      <Markprompt
-        projectKey="semgrep-docs"
-        defaultView="chat"
-        display="sheet"
-        trigger={{
-          element: (
-            <button 
-              style={{
-                padding: '8px 12px',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                background: 'white',
-                cursor: 'pointer',
-                fontSize: '14px',
-                marginLeft: '8px'
-              }}
-              title="Ask AI about Semgrep"
-            >
-              AI
-            </button>
-          )
-        }}
-        search={{ enabled: false }}
-        chat={{
-          enabled: true,
-          showRelatedQuestions: true,
-          defaultView: {
-            message: "Hello! I'm an AI assistant for Semgrep documentation. How can I help you?",
-            prompts: [
-              'What is Semgrep?',
-              'How do I write custom rules?',
-              'How do I set up CI/CD with Semgrep?',
-              'What are secure guardrails?'
-            ]
-          }
-        }}
-        references={{
-          getHref: (reference) => reference.file?.path || '#',
-          getLabel: (reference) => reference.title || reference.file?.path || 'Document'
-        }}
       />
     </div>
   );
