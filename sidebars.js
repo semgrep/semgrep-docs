@@ -368,6 +368,7 @@ module.exports = {
             },
             items: [
               'semgrep-assistant/customize'
+              'semgrep-assistant/best-practices-for-memories'
             ]
           },
           'semgrep-assistant/analyze'
