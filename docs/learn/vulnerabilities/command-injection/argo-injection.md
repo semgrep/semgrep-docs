@@ -1,30 +1,24 @@
 ---
-title: Argo Injection
+title: Command Injection in Argo Workflows
 description: Learn about Argo Injection vulnerabilities
 hide_title: false
 displayed_sidebar: learnSidebar
 slug: /learn/vulnerabilities/command-injection/argo-injection
+tags:
+  - command-injection
 ---
 
-# Command Injection Risks in Argo Workflows
+In March 2021, security researchers reported a [command injection](/docs/learn/vulnerabilities/command-injection) issue in Argo Workflows (see [GitHub issue #5061](https://github.com/argoproj/argo-workflows/issues/5061)). The report highlighted how seemingly harmless parameter substitutions could allow attackers to execute arbitrary code inside Kubernetes jobs. 
 
-In March 2021, security researchers reported a command injection issue in Argo Workflows (see [GitHub issue #5061](https://github.com/argoproj/argo-workflows/issues/5061)). The report highlighted how seemingly harmless parameter substitutions could allow attackers to execute arbitrary code inside Kubernetes jobs. 
+In this article, you’ll learn to avoid using input parameters directly inside script bodies in Argo, and to convert parameters to environment variables instead to keep them safe. We will first explain what Argo Workflows are and why parameters can be risky. We will then cover common injection attacks against Argo templates. Next, we will show how to detect risky patterns in your code using Semgrep. Finally, we will provide concrete mitigation steps you can apply immediately in your workflows.
 
-After this article, you’ll know to avoid using input parameters directly inside script bodies in Argo, and to convert parameters to environment variables instead to keep them safe.
-
-We will first explain what Argo Workflows are and why parameters can be risky. We will then cover common injection attacks against Argo templates. Next, we will show how to detect risky patterns in your code using Semgrep. Finally, we will provide concrete mitigation steps you can apply immediately in your workflows.
-
----
-
-### Understanding Argo Workflows and Parameters
+## Understanding Argo Workflows and Parameters
 
 Argo Workflows is a Kubernetes-native workflow engine designed to define and run complex jobs. It exists to simplify running multi-step workloads, such as data processing or CI/CD pipelines, directly inside Kubernetes. Developers can define workflows in YAML, and Argo executes the steps as pods.
 
 The features that makes Argo so flexible, the use of parameters and templates, is also what creates security risks. Parameters in templates are written with curly brace placeholders (called mustache templates) like `{{inputs.parameters.message}}`. During execution they are replaced by the actual input values. 
 
----
-
-### Common Injection Attacks in Argo Workflows
+## Common Injection Attacks in Argo Workflows
 
 When mustache template placeholders are used directly inside a script or command, they act like unquoted user input, meaning they can inject arbitrary commands or code. 
 
@@ -63,7 +57,7 @@ print("string
 
 The result is that attacker-controlled code is executed, leaking information or taking control of the container.
 
-We have been able to reproduce these issues in all of the languages we tested: Bash, sh, Python, Node.js, Perl, and Ruby. Which means any workflow using inline scripting with parameters is at risk.
+We have been able to reproduce these issues in many of the languages we tested: Bash, sh, Python, Node.js, Perl, and Ruby. This means any workflow using inline scripting with parameters is at risk.
 
 ### Injection in the `container` template
 
@@ -83,7 +77,7 @@ However, when the command itself is not a direct shell command, but one that ini
 
 ---
 
-### Detecting Vulnerable Patterns in Your Code
+## Detecting Vulnerable Patterns in Your Code
 
 Let’s look at a vulnerable workflow template:
 
@@ -122,9 +116,7 @@ To detect such cases systematically, with [Semgrep](https://semgrep.dev/), you c
 
 By running Semgrep against your workflow repository, you can catch these injection hotspots before they make it into production.
 
----
-
-### Recommendations and Mitigations
+## Recommendations and Mitigations
 
 The most effective mitigation is to avoid inserting parameters directly into script bodies. Instead, convert them into environment variables, which are properly escaped by default. For example, the previous node workflow can be rewritten as:
 
@@ -145,9 +137,7 @@ For Python or Node.js, apply the same pattern: store parameters in environment v
 
 Integrate Semgrep into your CI pipeline to continuously scan for these issues. 
 
----
-
-### Conclusion
+## Conclusion
 
 Command injection in Argo Workflows is a subtle but serious risk. What looks like a simple parameter substitution can allow attackers to run arbitrary commands in your Kubernetes environment. In this article, we saw how Argo parameters work, how attackers can abuse them in Bash or Python scripts, how to detect risky patterns using Semgrep, and how to fix workflows by moving parameters into environment variables.
 

@@ -4,19 +4,20 @@ description: Learn about XML Security
 hide_title: false
 displayed_sidebar: learnSidebar
 slug: /learn/vulnerabilities/xml-security
+tags:
+  - xml
+  - xxe
 ---
 
-# XML Security
-
-In 2017, XML security had its own spot on the OWASP Top 10 list of the most critical web application risks. In the latest 2021 update, it is no longer called out as a separate category but instead falls under “Security Misconfiguration.” Even so, XML vulnerabilities remain common—searching the CVE database for XML-related flaws returns thousands of entries, including recent ones that enabled attackers to steal data or execute code remotely.
-
-If your applications ever parse XML—whether it comes from user uploads, web services, or configuration files—you could be exposed to these risks. For developers, this matters because even if you are not writing low-level parsing code, the libraries you rely on might be insecure by default.
+If your applications ever parse XML—whether it comes from user uploads, web services, or configuration files—you could be exposed to a risk. For developers, this matters because even if you are not writing low-level parsing code, the libraries you rely on might be insecure by default.
 
 The key takeaway is simple: XML is powerful but risky. Unless you configure your parser securely, attackers can exploit features that were designed for flexibility, not safety.
 
 This article will give you a solid foundation in XML security. First, we’ll look at the basics of XML and the features that create risks. Next, we’ll walk through the most common XML-based attacks and show you how to recognize them in code. Finally, we’ll cover practical steps you can take to configure parsers securely and reduce your exposure.
 
-## XML Fundamentals & Risks
+## What is XML Security?
+
+In 2017, XML security had its own spot on the OWASP Top 10 list of the most critical web application risks. In the latest 2021 update, it is no longer called out as a separate category but instead falls under “Security Misconfiguration.” Even so, XML vulnerabilities remain common—searching the CVE database for XML-related flaws returns thousands of entries, including recent ones that enabled attackers to steal data or execute code remotely.
 
 Fundamentally, as its name indicates, eXtensible Markup Language (XML) is a markup language. It is designed for storing and sending data. 
 
@@ -40,7 +41,7 @@ When this DTD is loaded from another source instead of defined in the document i
 <!DOCTYPE semgrep SYSTEM "URL-or-filename.dtd">
 ```
 
-### External XML entities
+### External XML Entities
 
 XML entities are used to represent structured data. The XML specification has several entities built in. But as the X in XML implies: it is an extensible language and custom entities can be defined in the DTD using the `ENTITY` keyword.
 
@@ -63,7 +64,7 @@ Similarly to external DTDs, entities can also be externally loaded using the `SY
 
 The XML specification includes more than just DTDs and external entities for including external data. Other features like XInclude, the `schemaLocation` attribute, the `xsl:include` element,  the `document()` function, and `import` or `include` statements can all be used to reference external resources. You can find an overview of these and more in our [XML Cheat Sheet](/cheat-sheets/java-xxe).
 
-## Common attacks
+## Common XML Attacks
 
 XML was designed to store and transmit data. When an application receives an XML file, or reads one from the filesystem, it needs to parse the XML data. To achieve this many libraries are available that implement the XML specifications as described above. However, if the XML data is untrusted, there are several features in the specifications that can be manipulated to achieve malicious behaviour.
 
@@ -91,9 +92,9 @@ If the application does not validate input properly, an attacker could send:
 
 If the code simply trusts the `admin` field, the attacker could escalate privileges. This is similar in spirit to SQL Injection but applied to XML-based logic.
 
-### Exponential entity expansion
+### Exponential Entity Expansion (XEE)
 
-EXpontential Entity Expansion (XEE) happens when the mechanism for recursively defining XML entities with other entities is manipulated into expanding several layers of nested entities. This type of attack is also known as an XML bomb or billion laughs attack. As an example, here is the [XML bomb payload](https://github.com/semgrep/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml) we used in our research project on GitHub.
+**EXpontential Entity Expansion (XEE)** happens when the mechanism for recursively defining XML entities with other entities is manipulated into expanding several layers of nested entities. This type of attack is also known as an XML bomb or billion laughs attack. As an example, here is the [XML bomb payload](https://github.com/semgrep/java-xxe-research/blob/main/payloads-new/xml-attacks/xml-bomb.xml) we used in our research project on GitHub.
 
 ```jsx
 <?xml version="1.0"?>
@@ -115,13 +116,13 @@ EXpontential Entity Expansion (XEE) happens when the mechanism for recursively d
 
 Parsing a document like that with several layers of nested entities can lead to the parser consuming too many resources on the server, leading to a Denial of Service (DoS) attack.
 
-### XML external entity injection
+### XML External Entity (XXE) Injection
 
-XML eXternal Entity (XXE) happens when one of the 9 mechanisms to include external content is manipulated into parsing read content from an unintended location. This can lead to the disclosure of confidential data if the identifier supplied by the attacker is something like `file:///etc/passwd` . In other cases, XXE payloads can be used to upload code files that can later be triggered in remote code execution attacks, like in [this CVE](https://www.horizon3.ai/red-team-blog-cve-2022-28219/#:~:text=Then%20send%20the%20request%20to%20trigger%20the%20XXE%20and%20file%20upload%3A) where the identifier referenced a java code archive. In PHP, the right identifier by itself can even cause arbitrary code execution when the `expect` module is loaded. In that case, a pseudo-uri like `expect://cmd` will execute `cmd` and return the output of the command.
+**XML eXternal Entity (XXE)** happens when one of the 9 mechanisms to include external content is manipulated into parsing read content from an unintended location. This can lead to the disclosure of confidential data if the identifier supplied by the attacker is something like `file:///etc/passwd` . In other cases, XXE payloads can be used to upload code files that can later be triggered in remote code execution attacks, like in [this CVE](https://www.horizon3.ai/red-team-blog-cve-2022-28219/#:~:text=Then%20send%20the%20request%20to%20trigger%20the%20XXE%20and%20file%20upload%3A) where the identifier referenced a java code archive. In PHP, the right identifier by itself can even cause arbitrary code execution when the `expect` module is loaded. In that case, a pseudo-uri like `expect://cmd` will execute `cmd` and return the output of the command.
 
-## How to Detect XML Risks in Code
+## Detecting XML Security Vulnerabilities in Your Code
 
-Detecting XML issues can be challenging because risky behavior often comes from default parser configurations rather than obvious coding mistakes. Let’s look at an example.
+Detecting XML issues can be challenging because risky behavior often comes from default parser configurations rather than obvious coding mistakes. Let’s look at a Java example.
 
 ```java
 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -133,7 +134,7 @@ At first glance, this looks harmless. But in many XML libraries, this setup will
 
 Tools like **Semgrep** can help detect these patterns. Rules for XXE look for places in code where XML parsing from untrusted sources occurs without security features enabled.  For XML Injection, detection is more about how the application uses parsed data. If the code blindly trusts XML input without validating it against a strict schema, that’s a sign of risk.
 
-## Recommendations and mitigations
+## Recommendations and Mitigations
 
 While the flexibility of XML can lead to security vulnerabilities, you can mitigate these risks by configuring your parser correctly and adopting a secure development mindset. Here are some key recommendations and mitigations to consider.
 
@@ -163,6 +164,6 @@ XML is flexible, but that flexibility comes with risks. Features like entities, 
 
 We covered the basics of XML, walked through the common attacks of entity expansion, XXE, and XML injection, and showed how to recognize insecure parsing patterns in code. The most important step you can take is to configure parsers securely or avoid XML entirely if you don’t need it.
 
-To dive deeper, explore the [Semgrep XML Security resources](https://semgrep.dev/docs/cheat-sheets/java-xxe) and consider scanning your code with Semgrep to catch risky configurations before attackers do.
+To dive deeper, explore the [Semgrep XML Security resources](/docs/cheat-sheets/java-xxe) and consider scanning your code with Semgrep to catch risky configurations before attackers do.
 
 Just like the OWASP top 10 reflects, XML risks haven't disappeared—they've just become part of a broader story about secure configuration.
