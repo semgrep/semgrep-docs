@@ -1,12 +1,20 @@
 ---
 slug: java-xxe
+title: XEE in Java
+hide_title: true
 toc_max_heading_level: 4
-description: "XML External entity prevention cheat sheet for Java. "
+displayed_sidebar: learnSidebar
+description: "Cheat sheet for the prevention of XML External Entity (XEE) vulnerabilities for Java."
+tags:
+  - java
+  - xxe
 ---
 
-# XML External entity prevention for Java
+# Prevent XML External Entity Vulnerabilities for Java
 
 This article documents two attacks related to XML external entities: XML exponential entity expansion and XML external entity injection. In Java, applications are secure from exponential entity expansion by default. Consequently, no security measures are necessary. When exponential entity expansion occurs the JDK throws an exception, but if this exception is not caught and handled, an attack can still cause a denial-of-service attack (DoS). In contrast, there are various countermeasures to protect a Java XML parser from XML external entity injection, but not all are effective. This cheat sheet also provides test results, availability, and the effect of different security measures on several Java classes that process XML documents in section [3. Overview of the effect of security measures for each class](#3-overview-of-the-effect-of-security-measures-for-each-class).
+
+Learn more about [XML Security](/docs/learn/vulnerabilities/xml-security) vulnerability concepts.
 
 ## Check your project using Semgrep
 
