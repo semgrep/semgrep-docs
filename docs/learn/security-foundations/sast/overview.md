@@ -60,7 +60,7 @@ Effective SAST implementation requires integration at multiple stages of develop
 
 At the local development stage, SAST tools should provide immediate feedback as code is being written. This helps catch vulnerabilities before they even reach your repository. Later in the pipeline, integrations with your CI/CD systems ensure thorough scanning before deployment.
 
-For a comprehensive guide on how to effectively incorporate security testing throughout your development lifecycle, check out our detailed article on [Incorporating security testing into developer workflows](security-testing-workflow).
+For a comprehensive guide on how to effectively incorporate security testing throughout your development lifecycle, check out our detailed article on [Incorporating security testing into developer workflows](../security-testing-workflow).
 
 ## Customization
 
