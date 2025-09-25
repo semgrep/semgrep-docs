@@ -62,7 +62,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return;
     }
 
-    const searchStartTime = performance.now();
     setIsLoading(true);
     try {
       // Check if we're using Netlify function or direct Meilisearch
@@ -79,25 +78,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           body: JSON.stringify({
             index: indexUid,
             q: searchQuery,
-            limit: 20,
-            cropLength: 200,
+            limit: 10,
+            cropLength: 150,
             showMatchesPosition: true,
-            matchingStrategy: 'all',
-            typoTolerance: {
-              enabled: true,
-              minWordSizeForTypos: {
-                oneTypo: 4,
-                twoTypos: 8
-              }
-            },
-            attributesToRetrieve: ['*'],
-            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
-            highlightPreTag: '<mark class="search-highlight">',
-            highlightPostTag: '</mark>',
-            attributesToCrop: ['content'],
-            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content'],
-            filter: 'NOT content = "docs tagged with" AND NOT content = "doc tagged with" AND NOT content = "Choose a KB category"',
-            sort: ['_score:desc', 'hierarchy.lvl0:asc']
+            matchingStrategy: 'all'
           }),
         });
       } else {
@@ -110,55 +94,18 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           },
           body: JSON.stringify({
             q: searchQuery,
-            limit: 20,
-            cropLength: 200,
+            limit: 10,
+            cropLength: 150,
             showMatchesPosition: true,
-            matchingStrategy: 'all',
-            typoTolerance: {
-              enabled: true,
-              minWordSizeForTypos: {
-                oneTypo: 4,
-                twoTypos: 8
-              }
-            },
-            attributesToRetrieve: ['*'],
-            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
-            highlightPreTag: '<mark class="search-highlight">',
-            highlightPostTag: '</mark>',
-            attributesToCrop: ['content'],
-            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content'],
-            filter: 'NOT content = "docs tagged with" AND NOT content = "doc tagged with" AND NOT content = "Choose a KB category"',
-            sort: ['_score:desc', 'hierarchy.lvl0:asc']
+            matchingStrategy: 'all'
           }),
         });
       }
 
       if (response.ok) {
         const data = await response.json();
-        const searchEndTime = performance.now();
-        const searchDuration = searchEndTime - searchStartTime;
         
-        // Log search performance for optimization
-        console.log(`Search completed in ${searchDuration.toFixed(2)}ms for query: "${searchQuery}"`);
-        
-        // Apply custom ranking to deprioritize tagged pages
-        const rankedResults = (data.hits || []).map((result, index) => {
-          const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
-          const content = result.content || result._formatted?.content || '';
-          
-          // Apply penalty for tagged pages
-          const isTaggedPage = title.includes('docs tagged with') || 
-                             title.includes('doc tagged with') ||
-                             content.includes('docs tagged with') ||
-                             content.includes('doc tagged with');
-          
-          return {
-            ...result,
-            _customRank: isTaggedPage ? index + 1000 : index // Push tagged pages to bottom
-          };
-        }).sort((a, b) => a._customRank - b._customRank);
-        
-        setResults(rankedResults);
+        setResults(data.hits || []);
         setIsOpen(true);
       } else {
         console.error('Search failed:', response.statusText);
@@ -193,15 +140,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     // Set loading state immediately for better UX
     setIsLoading(true);
 
-    // Optimized debounce with query preprocessing
+    // Debounce the search by 300ms
     const timeout = setTimeout(() => {
-      // Preprocess query for better matching
-      const processedQuery = newQuery.trim()
-        .replace(/\s+/g, ' ') // Normalize whitespace
-        .toLowerCase(); // Convert to lowercase for better matching
-      
-      handleSearch(processedQuery);
-    }, 200); // Reduced debounce for better responsiveness
+      handleSearch(newQuery);
+    }, 300);
 
     setSearchTimeout(timeout);
   };
@@ -306,15 +248,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           zIndex: 1000,
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
-          <style>{`
-            .search-highlight {
-              background-color: #ffeb3b;
-              color: #000;
-              font-weight: bold;
-              padding: 1px 2px;
-              border-radius: 2px;
-            }
-          `}</style>
           {results
             .filter(result => {
               // Filter out tagged pages and category pages
@@ -324,10 +257,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               // Skip results that look like category/tagged pages
               const isTaggedPage = title.includes('docs tagged with') || 
                                  title.includes('doc tagged with') ||
+                                 title.includes('tagged with') ||
                                  content.includes('docs tagged with') ||
                                  content.includes('doc tagged with') ||
+                                 content.includes('tagged with') ||
                                  title.includes('Choose a KB category') ||
-                                 content.includes('Choose a KB category');
+                                 content.includes('Choose a KB category') ||
+                                 title.match(/\d+\s+docs?\s+tagged\s+with/) ||
+                                 content.match(/\d+\s+docs?\s+tagged\s+with/);
               
               return !isTaggedPage;
             })
@@ -352,32 +289,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                     fontWeight: 'bold',
                     marginBottom: '4px',
                     color: '#333',
-                    fontSize: '14px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
+                    fontSize: '14px'
                   }}>
-                    <span>{title}</span>
-                    {result._rankingScore && (
-                      <span style={{
-                        fontSize: '10px',
-                        color: '#666',
-                        background: '#f0f0f0',
-                        padding: '2px 6px',
-                        borderRadius: '3px'
-                      }}>
-                        {Math.round(result._rankingScore * 100)}%
-                      </span>
-                    )}
+                    {title}
                   </div>
-                <div 
-                  style={{
-                    fontSize: '12px',
-                    color: '#666',
-                    lineHeight: '1.4'
-                  }}
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <div style={{
+                  fontSize: '12px',
+                  color: '#666',
+                  lineHeight: '1.4'
+                }}>
+                  {content}
+                </div>
                 </div>
               );
             })}
