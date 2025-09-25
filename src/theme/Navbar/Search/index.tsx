@@ -144,7 +144,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             relevanceScore -= 1;
           }
           
-          // Boost for specific Semgrep products
+          // Boost for specific Semgrep products 
           if (title.toLowerCase().includes('semgrep code') || title.toLowerCase().includes('semgrep pro')) {
             relevanceScore -= 2;
           }
