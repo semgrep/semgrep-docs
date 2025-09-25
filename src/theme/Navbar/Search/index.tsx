@@ -59,64 +59,64 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const handleSearch = async (searchQuery: string) => {
-    if (!searchQuery.trim()) {
-      setResults([]);
-      setIsOpen(false);
-      return;
-    }
+        if (!searchQuery.trim()) {
+          setResults([]);
+          setIsOpen(false);
+          return;
+        }
 
-    setIsLoading(true);
-    try {
-      // Check if we're using Netlify function or direct Meilisearch
-      const isNetlifyFunction = hostUrl.includes('/.netlify/functions/');
-      
-      let response;
-      if (isNetlifyFunction) {
-        // Use Netlify function
-        response = await fetch(hostUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            index: indexUid,
-            q: searchQuery,
+        setIsLoading(true);
+        try {
+          // Check if we're using Netlify function or direct Meilisearch
+          const isNetlifyFunction = hostUrl.includes('/.netlify/functions/');
+          
+          let response;
+          if (isNetlifyFunction) {
+            // Use Netlify function
+            response = await fetch(hostUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                index: indexUid,
+                q: searchQuery,
             limit: 12,
             cropLength: 200,
-            showMatchesPosition: true,
-            matchingStrategy: 'all',
+                showMatchesPosition: true,
+                matchingStrategy: 'all',
             attributesToRetrieve: ['*'],
             attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3'],
             highlightPreTag: '<mark>',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content']
-          }),
-        });
-      } else {
-        // Use direct Meilisearch API
-        response = await fetch(`${hostUrl}/indexes/${indexUid}/search`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
+              }),
+            });
+          } else {
+            // Use direct Meilisearch API
+            response = await fetch(`${hostUrl}/indexes/${indexUid}/search`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
             'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            q: searchQuery,
+              },
+              body: JSON.stringify({
+                q: searchQuery,
             limit: 12,
             cropLength: 200,
-            showMatchesPosition: true,
-            matchingStrategy: 'all',
+                showMatchesPosition: true,
+                matchingStrategy: 'all',
             attributesToRetrieve: ['*'],
             attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3'],
             highlightPreTag: '<mark>',
             highlightPostTag: '</mark>',
             attributesToCrop: ['content']
-          }),
-        });
-      }
+              }),
+            });
+          }
 
-      if (response.ok) {
-        const data = await response.json();
+          if (response.ok) {
+            const data = await response.json();
         
         // Apply Semgrep-specific ranking to prioritize relevant content
         const rankedResults = (data.hits || []).map((result, index) => {
@@ -162,18 +162,18 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         }).sort((a, b) => a._semgrepRelevance - b._semgrepRelevance);
         
         setResults(rankedResults);
-        setIsOpen(true);
-      } else {
+            setIsOpen(true);
+          } else {
         console.error('Search failed:', response.statusText);
-        setResults([]);
-      }
-    } catch (error) {
+            setResults([]);
+          }
+        } catch (error) {
       console.error('Search error:', error);
-      setResults([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+          setResults([]);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
   // Handle input change with debouncing
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -394,7 +394,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           borderRadius: '12px',
           background: 'white',
           padding: isFocused ? '12px 16px' : '8px 12px',
-          transition: 'all 0.3s ease',
+        transition: 'all 0.3s ease',
           cursor: 'text',
           minWidth: isFocused ? '350px' : '250px',
           width: isFocused ? '100%' : 'auto',
@@ -402,21 +402,21 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           boxShadow: isFocused ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
-        <input
+          <input 
           ref={inputRef}
           type="text"
-          value={query}
-          onChange={handleInputChange}
+            value={query}
+            onChange={handleInputChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           placeholder={placeholder}
-          style={{
-            border: 'none',
-            outline: 'none',
+            style={{
+              border: 'none',
+              outline: 'none',
             flex: 1,
             padding: '0',
             fontSize: isFocused ? '16px' : '14px',
-            background: 'transparent',
+              background: 'transparent',
             color: '#111827',
             fontWeight: '500',
             transition: 'font-size 0.2s ease'
@@ -449,13 +449,13 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               to { opacity: 1; }
             }
             mark {
-              background-color: #00D4AA;
-              color: #fff;
+              background-color: transparent;
+              color: #00D4AA;
               font-weight: 700;
-              padding: 2px 6px;
-              border-radius: 4px;
-              box-shadow: 0 1px 3px rgba(0, 212, 170, 0.3);
-              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+              padding: 0;
+              border-radius: 0;
+              box-shadow: none;
+              text-shadow: none;
             }
             .search-suggestion {
               padding: 10px 16px;
@@ -497,25 +497,25 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               line-height: 1.4;
             }
             .search-result-content mark {
-              background-color: #00D4AA;
-              color: #fff;
+              background-color: transparent;
+              color: #00D4AA;
               font-weight: 700;
-              padding: 1px 4px;
-              border-radius: 3px;
-              box-shadow: 0 1px 2px rgba(0, 212, 170, 0.4);
+              padding: 0;
+              border-radius: 0;
+              box-shadow: none;
             }
             .search-result-title mark {
-              background-color: #00D4AA;
-              color: #fff;
-              font-weight: 700;
-              padding: 1px 4px;
-              border-radius: 3px;
-              box-shadow: 0 1px 2px rgba(0, 212, 170, 0.4);
+              background-color: transparent;
+              color: inherit;
+              font-weight: inherit;
+              padding: 0;
+              border-radius: 0;
+              box-shadow: none;
             }
           `}</style>
           {query.trim() === '' && isFocused ? (
             <div>
-              <div style={{ 
+          <div style={{
                 padding: '12px 16px', 
                 fontSize: '12px', 
                 color: '#6B7280', 
@@ -536,7 +536,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   }}
                 >
                   {suggestion}
-                </div>
+            </div>
               ))}
             </div>
           ) : results
@@ -561,7 +561,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             })
             .map((result, index) => {
             const rawTitle = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || 'Untitled';
-            const title = enhanceHighlighting(rawTitle, query);
+            const title = rawTitle; // No highlighting for titles
             const rawContent = result._formatted?.content || result.content || '';
             const section = getSectionInfo(result);
             
@@ -578,10 +578,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   <div className="search-result-section">
                     {section}
                   </div>
-                  <div 
-                    className="search-result-title"
-                    dangerouslySetInnerHTML={{ __html: title }}
-                  />
+                  <div className="search-result-title">
+                    {title}
+                </div>
                   <div 
                     className="search-result-content"
                     dangerouslySetInnerHTML={{ __html: displayContent }}
@@ -591,7 +590,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             })}
         </div>
       )}
-      </div>
+            </div>
     </>
   );
 };
@@ -618,26 +617,26 @@ const getMeilisearchConfig = (): SearchConfig => {
   const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
   const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
   const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  
-  if (isNetlifyPreview || isTestingBranch || isDevelopment) {
-    const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
     
-    return {
-      enabled: true,
-      hostUrl: isNetlify ? 
+    if (isNetlifyPreview || isTestingBranch || isDevelopment) {
+    const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
+      
+      return {
+        enabled: true,
+        hostUrl: isNetlify ? 
         `${window.location.origin}/.netlify/functions/meilisearch` :
         "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io",
       apiKey: "",
       indexUid: "semgrep_docs",
-      placeholder: "Search docs..."
-    };
+            placeholder: "Search docs..."
+      };
   }
   
-  return {
-    enabled: false,
-    hostUrl: "",
-    apiKey: "",
-    indexUid: "",
+      return {
+        enabled: false,
+        hostUrl: "",
+        apiKey: "",
+        indexUid: "",
     placeholder: "Search docs..."
   };
 };
@@ -649,11 +648,11 @@ export default function NavbarSearch({className}: Props): ReactNode {
   if (!config.enabled) {
     return (
       <div className={className}>
-        <input
-          type="search"
-          placeholder={config.placeholder}
-          disabled
-          style={{
+          <input 
+            type="search" 
+            placeholder={config.placeholder}
+            disabled
+            style={{
             padding: '8px 12px',
             border: '1px solid #ccc',
             borderRadius: '4px',
@@ -665,14 +664,14 @@ export default function NavbarSearch({className}: Props): ReactNode {
     );
   }
 
-  return (
-    <div className={className}>
-      <MeilisearchSearchBar
-        hostUrl={config.hostUrl}
-        apiKey={config.apiKey}
-        indexUid={config.indexUid}
-        placeholder={config.placeholder}
-      />
+      return (
+        <div className={className}>
+            <MeilisearchSearchBar 
+              hostUrl={config.hostUrl}
+              apiKey={config.apiKey}
+              indexUid={config.indexUid}
+              placeholder={config.placeholder}
+            />
     </div>
   );
 }

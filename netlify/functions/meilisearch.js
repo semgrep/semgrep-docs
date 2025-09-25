@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
     // Initialize Meilisearch client
     const client = new MeiliSearch({
       host: process.env.MEILISEARCH_HOST_URL || 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io',
-      apiKey: process.env.MEILISEARCH_API_KEY || 'b7c62c6347d5a3032f73043eaa40546825c99bc6'
+      apiKey: process.env.MEILISEARCH_API_KEY || '3b0bb96d01687d3647a8de882c7110e8b60b1b7006719936d530ea8b6a72a2f8'
     });
 
     const { httpMethod, body, queryStringParameters } = event;
