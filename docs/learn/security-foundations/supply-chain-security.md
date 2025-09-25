@@ -24,7 +24,7 @@ Dependencies are commonly managed through two key files:
 - **Manifest files** describe which packages your application needs. This includes files like JavaScript's package.json or Python's requirements.txt.
 - **Lockfiles** record exactly which versions of dependencies were installed, including transitive dependencies. This includes files like Yarn's yarn.lock or NPM's package-lock.json.
 
-Often, SCA tools may produce an artifact known as a **Software Bill of Materials (SBOM)**. This file enumerates the libraries, tools, code, and often software license and security status of components. These can be important deliverables for compliance purposes for agreements around acceptance of security and legal risk.
+Often, SCA tools may produce a file known as a **Software Bill of Materials (SBOM)** as defined by [RFC 9472](https://datatracker.ietf.org/doc/html/rfc9472). This artifact enumerates the libraries, tools, code, and often software license and security status of components. These can be important deliverables for compliance purposes for agreements around acceptance of security and legal risk.
 
 Together, these all these files help define your software supply chain—and they’re what security tools analyze to understand your dependency tree.
 

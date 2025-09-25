@@ -895,7 +895,8 @@ module.exports = {
                 id: 'learn/vulnerabilities/command-injection/overview'
               },
               items: [
-                'learn/vulnerabilities/command-injection/argo-injection'
+                'learn/vulnerabilities/command-injection/argo-injection',
+                'learn/vulnerabilities/command-injection/github-actions-injection'
               ]
             },
             {
