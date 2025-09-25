@@ -3,18 +3,16 @@
 const { MeiliSearch } = require('meilisearch');
 const cheerio = require('cheerio');
 const axios = require('axios');
-const { URL } = require('url');
-const fs = require('fs').promises;
 const OpenAI = require('openai');
 const { pipeline } = require('@xenova/transformers');
 
 // Configuration
 const config = {
   indexName: 'semgrep_docs',
-  embeddingModel: 'text-embedding-3-small', // OpenAI's latest, cheaper model
+  embeddingModel: 'text-embedding-3-small',
   batchSize: 100,
-  maxTokens: 8000, 
-  semanticRatio: 0.1, // change hybrid search ratio
+  maxTokens: 8000,
+  semanticRatio: 0.5, // 50% semantic, 50% text search
   startUrls: [
     'https://semgrep.dev/docs/release-notes',
     'https://semgrep.dev/docs/rule-updates', 
@@ -23,7 +21,9 @@ const config = {
   sitemapUrls: ['https://semgrep.dev/docs/sitemap.xml'],
   stopUrls: [
     'https://semgrep.dev/docs/tags/*',
-    'https://semgrep.dev/docs/category/*'
+    'https://semgrep.dev/docs/category/*',
+    'https://semgrep.dev/docs/kb',
+    'https://semgrep.dev/docs/kb/*'
   ],
   selectors: {
     lvl0: {
@@ -61,7 +61,7 @@ class SemanticMeilisearchIndexer {
     } else {
       console.log('No OpenAI key found - using local embeddings');
       this.embeddingMethod = 'local';
-      this.localEmbedder = null; // Will be initialized lazily
+      this.localEmbedder = null;
     }
 
     this.index = null;
@@ -448,6 +448,11 @@ class SemanticMeilisearchIndexer {
       $(selector).each((index, element) => {
         const text = $(element).text().trim();
         if (text && text.length > 15) {
+          // Skip category/index page content
+          if (this.isCategoryPageContent(text)) {
+            return;
+          }
+          
           const id = `doc_${urlHash}_${type}_${index}`;
           
           // Extract context from surrounding elements
@@ -471,6 +476,17 @@ class SemanticMeilisearchIndexer {
     });
 
     return documents;
+  }
+
+  isCategoryPageContent(text) {
+    const categoryIndicators = [
+      'docs tagged with',
+      'doc tagged with',
+      'Choose a KB category',
+      '🗃️'
+    ];
+    
+    return categoryIndicators.some(indicator => text.includes(indicator));
   }
 
   extractContext($, element) {
@@ -549,7 +565,6 @@ class SemanticMeilisearchIndexer {
     console.log('Semantic indexing completed!');
   }
 
-  // Example search method demonstrating hybrid search capabilities
   async search(query, options = {}) {
     if (!this.index) {
       throw new Error('Index not initialized. Call initialize() first.');
@@ -590,16 +605,10 @@ class SemanticMeilisearchIndexer {
         allDocuments.push(...documents);
       }
 
-      console.log(`\nScraped ${allDocuments.length} documents`);
+      console.log(`Scraped ${allDocuments.length} documents`);
       await this.indexDocuments(allDocuments);
       
-      console.log('\nSemantic indexing completed!');
-      console.log('\nExample searches you can now perform:');
-      console.log('- "How to set up Semgrep in CI/CD"');
-      console.log('- "JavaScript XSS vulnerabilities"');
-      console.log('- "Semgrep Pro vs Community Edition"');
-      console.log('- "Cross-file analysis configuration"');
-      console.log('- "Taint analysis examples"');
+      console.log('Semantic indexing completed!');
       
     } catch (error) {
       console.error('Indexing failed:', error);
@@ -608,7 +617,7 @@ class SemanticMeilisearchIndexer {
   }
 }
 
-// Run the indexer
+// Run the indexer if called directly
 if (require.main === module) {
   const indexer = new SemanticMeilisearchIndexer();
   indexer.run();

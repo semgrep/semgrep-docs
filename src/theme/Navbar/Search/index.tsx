@@ -3,13 +3,19 @@ import type {Props} from '@theme/Navbar/Search';
 import {Markprompt} from '@markprompt/react';
 import '@markprompt/css';
 
-// Simple working Meilisearch component
-const MeilisearchSearchBar: React.FC<{
+interface MeilisearchSearchBarProps {
   hostUrl: string;
   apiKey: string;
   indexUid: string;
   placeholder: string;
-}> = ({hostUrl, apiKey, indexUid, placeholder}) => {
+}
+
+const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
+  hostUrl,
+  apiKey,
+  indexUid,
+  placeholder
+}) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -152,41 +158,27 @@ const MeilisearchSearchBar: React.FC<{
     };
   }, [searchTimeout]);
 
-  const getDisplayTitle = (result: any) => {
-    // Skip category/index pages that show "X docs tagged with Y"
-    if (result.content?.includes('docs tagged with') || result.content?.includes('doc tagged with')) {
-      return null; // Don't show these results
-    }
-    
-    // Use hierarchy for better titles
-    if (result.hierarchy?.lvl1) {
-      return result.hierarchy.lvl1;
-    }
-    if (result.hierarchy?.lvl2) {
-      return result.hierarchy.lvl2;
-    }
-    if (result.title) {
-      return result.title;
-    }
-    
-    // Fallback to content preview
+  const isCategoryPage = (result: any): boolean => {
     const content = result.content || result._formatted?.content || '';
-    return content.substring(0, 60) + (content.length > 60 ? '...' : '');
+    return content.includes('docs tagged with') || content.includes('doc tagged with');
   };
 
-  const getDisplayContent = (result: any) => {
-    // Skip category/index pages
-    if (result.content?.includes('docs tagged with') || result.content?.includes('doc tagged with')) {
-      return null;
-    }
+  const getDisplayTitle = (result: any): string | null => {
+    if (isCategoryPage(result)) return null;
     
-    // Use formatted content if available, otherwise use regular content
+    return result.hierarchy?.lvl1 || 
+           result.hierarchy?.lvl2 || 
+           result.title || 
+           (result.content || '').substring(0, 60) + '...';
+  };
+
+  const getDisplayContent = (result: any): string | null => {
+    if (isCategoryPage(result)) return null;
+    
     const content = result._formatted?.content || result.content || '';
-    
-    // Clean up the content and limit length
     const cleanContent = content
-      .replace(/<[^>]*>/g, '') // Remove HTML tags for preview
-      .replace(/\s+/g, ' ') // Normalize whitespace
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
       .trim();
     
     return cleanContent.substring(0, 120) + (cleanContent.length > 120 ? '...' : '');
@@ -268,12 +260,8 @@ const MeilisearchSearchBar: React.FC<{
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
           {results
-            .filter(result => {
-              // Filter out category/index pages
-              const content = result.content || result._formatted?.content || '';
-              return !content.includes('docs tagged with') && !content.includes('doc tagged with');
-            })
-            .slice(0, 8) // Limit to 8 results for better UX
+            .filter(result => !isCategoryPage(result))
+            .slice(0, 8)
             .map((result, index) => {
               const title = getDisplayTitle(result);
               const content = getDisplayContent(result);
@@ -317,49 +305,53 @@ const MeilisearchSearchBar: React.FC<{
   );
 };
 
-export default function NavbarSearch({className}: Props): ReactNode {
-  // Environment-based configuration
-  const getMeilisearchConfig = () => {
-    // Check if we're on a Netlify preview (testing branch)
-    const isNetlifyPreview = (typeof window !== 'undefined' && 
-                             window.location.hostname.includes('deploy-preview'));
+interface SearchConfig {
+  enabled: boolean;
+  hostUrl: string;
+  apiKey: string;
+  indexUid: string;
+  placeholder: string;
+}
+
+const getMeilisearchConfig = (): SearchConfig => {
+  if (typeof window === 'undefined') {
+    return {
+      enabled: false,
+      hostUrl: "",
+      apiKey: "",
+      indexUid: "",
+      placeholder: "Search docs... (Disabled)"
+    };
+  }
+
+  const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
+  const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
+  const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  
+  if (isNetlifyPreview || isTestingBranch || isDevelopment) {
+    const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
     
-    // Check if we're on the testing branch
-    const isTestingBranch = (typeof window !== 'undefined' && 
-                            (window.location.hostname.includes('meilisearch-testing') ||
-                             window.location.hostname.includes('deploy-preview')));
-    
-    // Check if we're in development
-    const isDevelopment = typeof window !== 'undefined' && 
-                         (window.location.hostname === 'localhost' || 
-                          window.location.hostname === '127.0.0.1');
-    
-    if (isNetlifyPreview || isTestingBranch || isDevelopment) {
-      // Enable Meilisearch on testing branches and previews
-      const isNetlify = typeof window !== 'undefined' && 
-                       (window.location.hostname.includes('netlify.app') || 
-                        window.location.hostname.includes('deploy-preview'));
-      
-      return {
-        enabled: true,
-        hostUrl: isNetlify ? 
-          `${window.location.origin}/.netlify/functions/meilisearch` : // Netlify function
-          "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io", // Meilisearch Cloud
-        apiKey: "", // No API key needed for Netlify function
-        indexUid: "semgrep_docs", // Use same index name everywhere
-        placeholder: "Search docs..."
-      };
-    } else {
-      // All other branches - disable Meilisearch
-      return {
-        enabled: false,
-        hostUrl: "",
-        apiKey: "",
-        indexUid: "",
-        placeholder: "Search docs... (Disabled)"
-      };
-    }
+    return {
+      enabled: true,
+      hostUrl: isNetlify ? 
+        `${window.location.origin}/.netlify/functions/meilisearch` :
+        "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io",
+      apiKey: "",
+      indexUid: "semgrep_docs",
+      placeholder: "Search docs..."
+    };
+  }
+  
+  return {
+    enabled: false,
+    hostUrl: "",
+    apiKey: "",
+    indexUid: "",
+    placeholder: "Search docs... (Disabled)"
   };
+};
+
+export default function NavbarSearch({className}: Props): ReactNode {
 
   const config = getMeilisearchConfig();
 
@@ -412,9 +404,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
             </button>
           )
         }}
-        search={{
-          enabled: false // We'll use Meilisearch for search
-        }}
+        search={{ enabled: false }}
         chat={{
           enabled: true,
           showRelatedQuestions: true,
