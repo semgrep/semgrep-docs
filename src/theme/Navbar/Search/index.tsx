@@ -62,6 +62,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return;
     }
 
+    const searchStartTime = performance.now();
     setIsLoading(true);
     try {
       // Check if we're using Netlify function or direct Meilisearch
@@ -78,10 +79,23 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           body: JSON.stringify({
             index: indexUid,
             q: searchQuery,
-            limit: 8,
-            cropLength: 150,
+            limit: 10,
+            cropLength: 200,
             showMatchesPosition: true,
-            matchingStrategy: 'all'
+            matchingStrategy: 'all',
+            typoTolerance: {
+              enabled: true,
+              minWordSizeForTypos: {
+                oneTypo: 4,
+                twoTypos: 8
+              }
+            },
+            attributesToRetrieve: ['*'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            highlightPreTag: '<mark class="search-highlight">',
+            highlightPostTag: '</mark>',
+            attributesToCrop: ['content'],
+            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content']
           }),
         });
       } else {
@@ -94,16 +108,35 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           },
           body: JSON.stringify({
             q: searchQuery,
-            limit: 8,
-            cropLength: 150,
+            limit: 10,
+            cropLength: 200,
             showMatchesPosition: true,
-            matchingStrategy: 'all'
+            matchingStrategy: 'all',
+            typoTolerance: {
+              enabled: true,
+              minWordSizeForTypos: {
+                oneTypo: 4,
+                twoTypos: 8
+              }
+            },
+            attributesToRetrieve: ['*'],
+            attributesToHighlight: ['content', 'hierarchy.lvl1', 'hierarchy.lvl2'],
+            highlightPreTag: '<mark class="search-highlight">',
+            highlightPostTag: '</mark>',
+            attributesToCrop: ['content'],
+            attributesToSearchOn: ['hierarchy.lvl0', 'hierarchy.lvl1', 'hierarchy.lvl2', 'hierarchy.lvl3', 'content']
           }),
         });
       }
 
       if (response.ok) {
         const data = await response.json();
+        const searchEndTime = performance.now();
+        const searchDuration = searchEndTime - searchStartTime;
+        
+        // Log search performance for optimization
+        console.log(`Search completed in ${searchDuration.toFixed(2)}ms for query: "${searchQuery}"`);
+        
         setResults(data.hits || []);
         setIsOpen(true);
       } else {
@@ -139,10 +172,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     // Set loading state immediately for better UX
     setIsLoading(true);
 
-    // Debounce the search by 300ms
+    // Optimized debounce with query preprocessing
     const timeout = setTimeout(() => {
-      handleSearch(newQuery);
-    }, 300);
+      // Preprocess query for better matching
+      const processedQuery = newQuery.trim()
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .toLowerCase(); // Convert to lowercase for better matching
+      
+      handleSearch(processedQuery);
+    }, 200); // Reduced debounce for better responsiveness
 
     setSearchTimeout(timeout);
   };
@@ -166,11 +204,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const getDisplayContent = (result: any): string => {
     const content = result._formatted?.content || result.content || '';
     const cleanContent = content
-      .replace(/<[^>]*>/g, '')
       .replace(/\s+/g, ' ')
       .trim();
     
-    return cleanContent.substring(0, 120) + (cleanContent.length > 120 ? '...' : '');
+    return cleanContent.substring(0, 150) + (cleanContent.length > 150 ? '...' : '');
   };
 
   const handleResultClick = (result: any) => {
@@ -248,6 +285,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           zIndex: 1000,
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
+          <style>{`
+            .search-highlight {
+              background-color: #ffeb3b;
+              color: #000;
+              font-weight: bold;
+              padding: 1px 2px;
+              border-radius: 2px;
+            }
+          `}</style>
           {results.map((result, index) => {
             const title = getDisplayTitle(result);
             const content = getDisplayContent(result);
@@ -269,17 +315,32 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                     fontWeight: 'bold',
                     marginBottom: '4px',
                     color: '#333',
-                    fontSize: '14px'
+                    fontSize: '14px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
                   }}>
-                    {title}
+                    <span>{title}</span>
+                    {result._rankingScore && (
+                      <span style={{
+                        fontSize: '10px',
+                        color: '#666',
+                        background: '#f0f0f0',
+                        padding: '2px 6px',
+                        borderRadius: '3px'
+                      }}>
+                        {Math.round(result._rankingScore * 100)}%
+                      </span>
+                    )}
                   </div>
-                  <div style={{
+                <div 
+                  style={{
                     fontSize: '12px',
                     color: '#666',
                     lineHeight: '1.4'
-                  }}>
-                    {content}
-                  </div>
+                  }}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
                 </div>
               );
             })}
