@@ -152,6 +152,46 @@ const MeilisearchSearchBar: React.FC<{
     };
   }, [searchTimeout]);
 
+  const getDisplayTitle = (result: any) => {
+    // Skip category/index pages that show "X docs tagged with Y"
+    if (result.content?.includes('docs tagged with') || result.content?.includes('doc tagged with')) {
+      return null; // Don't show these results
+    }
+    
+    // Use hierarchy for better titles
+    if (result.hierarchy?.lvl1) {
+      return result.hierarchy.lvl1;
+    }
+    if (result.hierarchy?.lvl2) {
+      return result.hierarchy.lvl2;
+    }
+    if (result.title) {
+      return result.title;
+    }
+    
+    // Fallback to content preview
+    const content = result.content || result._formatted?.content || '';
+    return content.substring(0, 60) + (content.length > 60 ? '...' : '');
+  };
+
+  const getDisplayContent = (result: any) => {
+    // Skip category/index pages
+    if (result.content?.includes('docs tagged with') || result.content?.includes('doc tagged with')) {
+      return null;
+    }
+    
+    // Use formatted content if available, otherwise use regular content
+    const content = result._formatted?.content || result.content || '';
+    
+    // Clean up the content and limit length
+    const cleanContent = content
+      .replace(/<[^>]*>/g, '') // Remove HTML tags for preview
+      .replace(/\s+/g, ' ') // Normalize whitespace
+      .trim();
+    
+    return cleanContent.substring(0, 120) + (cleanContent.length > 120 ? '...' : '');
+  };
+
   const handleResultClick = (result: any) => {
     setResults([]);
     setIsOpen(false);
@@ -227,37 +267,50 @@ const MeilisearchSearchBar: React.FC<{
           zIndex: 1000,
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
         }}>
-          {results.map((result, index) => (
-            <div
-              key={index}
-              onClick={() => handleResultClick(result)}
-              style={{
-                padding: '12px',
-                borderBottom: index < results.length - 1 ? '1px solid #eee' : 'none',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
-            >
-              <div style={{
-                fontWeight: 'bold',
-                marginBottom: '4px',
-                color: '#333'
-              }}>
-                {result.hierarchy?.lvl1 || result.title || 'Untitled'}
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#666',
-                lineHeight: '1.4'
-              }}
-              dangerouslySetInnerHTML={{
-                __html: result._formatted?.content || result.content?.substring(0, 120) + (result.content && result.content.length > 120 ? '...' : '')
-              }}
-              />
-            </div>
-          ))}
+          {results
+            .filter(result => {
+              // Filter out category/index pages
+              const content = result.content || result._formatted?.content || '';
+              return !content.includes('docs tagged with') && !content.includes('doc tagged with');
+            })
+            .slice(0, 8) // Limit to 8 results for better UX
+            .map((result, index) => {
+              const title = getDisplayTitle(result);
+              const content = getDisplayContent(result);
+              
+              if (!title || !content) return null;
+              
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleResultClick(result)}
+                  style={{
+                    padding: '12px',
+                    borderBottom: index < results.length - 1 ? '1px solid #eee' : 'none',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
+                >
+                  <div style={{
+                    fontWeight: 'bold',
+                    marginBottom: '4px',
+                    color: '#333',
+                    fontSize: '14px'
+                  }}>
+                    {title}
+                  </div>
+                  <div style={{
+                    fontSize: '12px',
+                    color: '#666',
+                    lineHeight: '1.4'
+                  }}>
+                    {content}
+                  </div>
+                </div>
+              );
+            })}
         </div>
       )}
     </div>
