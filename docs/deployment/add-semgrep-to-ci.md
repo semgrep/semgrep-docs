@@ -34,6 +34,10 @@ By integrating Semgrep into your CI environment, your development cycle benefits
 - Pull requests or merge requests (PRs or MRs)
 - User-initiated events (such as GitHub Action's `workflow_dispatch`)
 
+:::note Semgrep Managed Scans
+As an alternative to integrating Semgrep to your CI/CD system, consider [Semgrep Managed Scans](/deployment/managed-scanning/overview), which allows you to bulk onboard and scan your repositories without CI changes.
+:::
+
 ## Guided setup for CI providers in Semgrep AppSec Platform
 
 This guide walks you through creating a Semgrep job in the following CI providers, which are explicitly supported in Semgrep AppSec Platform:

@@ -105,10 +105,6 @@ module.exports = {
                     label: 'Scan repositories with the AppSec Platform',
                     link: {type: 'generated-index'},
                     items: [
-                        'deployment/add-semgrep-to-ci',
-                        'deployment/add-semgrep-other-ci',
-                        'deployment/customize-ci-jobs',
-                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         {
                           type: 'category',
                           label: 'Managed Scans',
@@ -120,7 +116,11 @@ module.exports = {
                               'deployment/managed-scanning/github',
                               'deployment/managed-scanning/gitlab'
                           ]
-                      },
+                        },
+                        'deployment/add-semgrep-to-ci',
+                        'deployment/add-semgrep-other-ci',
+                        'deployment/customize-ci-jobs',
+                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
