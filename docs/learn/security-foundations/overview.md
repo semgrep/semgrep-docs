@@ -14,9 +14,10 @@ This section includes conceptual guides on application security essentials. Thes
 
 * [Static Application Security Testing (SAST)](sast/overview): Identify vulnerabilities in applications before deployment with tools designed to analyze source code without executing it.
 
+* [Supply Chain Security (SCA)](supply-chain-security): Understand vulnerable dependencies that your source code relies upon.
+
 * [Secure Development Workflows](security-testing-workflow): Plan integration points for security testing into regular development workflows.
 
-* [Supply Chain Security (SCA)](supply-chain-security): Understand vulnerable dependencies that your source code relies upon.
 
 ## Additional Resources
 

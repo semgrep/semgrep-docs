@@ -31,7 +31,7 @@ This section is all about learning the concepts behind **Application Security** 
     <div class="card__copy">
         <CardHeader>Vulnerabilities</CardHeader>
         <CardBody>
-          Deep dive into common security risks with examples for what issues like SQL injection, Cross-Site Scripting, and Open Redirects look like.
+          Deep dive into common security risks with code samples for what issues like SQL injection, Cross-Site Scripting, Open Redirects, and more look like.
         </CardBody>
     </div>
   </Card>
