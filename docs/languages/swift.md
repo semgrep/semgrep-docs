@@ -6,6 +6,7 @@ hide_title: true
 tags:
     - Semgrep Code
     - Semgrep Supply Chain
+    - swift
 title: Swift
 ---
 

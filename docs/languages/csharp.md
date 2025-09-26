@@ -7,6 +7,7 @@ hide_title: true
 tags:
     - Semgrep Code
     - Semgrep Supply Chain
+    - c
 title: C#
 ---
 
