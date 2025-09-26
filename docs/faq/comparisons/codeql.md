@@ -11,7 +11,7 @@ description: >-
 
 import TOCInline from "@theme/TOCInline"
 
-# Compare Semrep to CodeQL
+# Compare Semgrep to CodeQL
 
 <TOCInline toc={toc} />
 
@@ -26,5 +26,3 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.
 <!-- vale on -->
-
-See [Semgrep versus GitHub Advanced Security](https://semgrep.dev/resources/semgrep-github/) for more about what makes Semgrep different.
