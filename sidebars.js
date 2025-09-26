@@ -111,7 +111,7 @@ module.exports = {
                         'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         {
                           type: 'category',
-                          label: 'Managed Scans (beta)',
+                          label: 'Managed Scans',
                           collapsible: true,
                           link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
                           items: [
