@@ -250,19 +250,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   const getSectionInfo = (result: any): string => {
-    const hierarchy = result.hierarchy || {};
     const url = result.url || '';
     
-    // First try to get from hierarchy levels
-    if (hierarchy.lvl1 && hierarchy.lvl1 !== 'Semgrep Documentation') {
-      return hierarchy.lvl1;
-    }
-    
-    if (hierarchy.lvl2 && hierarchy.lvl2 !== 'Semgrep Documentation') {
-      return hierarchy.lvl2;
-    }
-    
-    // Extract section from URL path
+    // Extract section from URL path - this is the most reliable method
     if (url.includes('/docs/')) {
       const pathParts = url.split('/docs/')[1]?.split('/');
       if (pathParts && pathParts.length > 0) {
@@ -293,26 +283,56 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           'notifications': 'Notifications',
           'sample-ci-configs': 'CI Configurations',
           'cheat-sheets': 'Cheat Sheets',
-          'deepsemgrep': 'DeepSemgrep'
+          'deepsemgrep': 'DeepSemgrep',
+          'prerequisites': 'Prerequisites',
+          'supported-languages': 'Language Support',
+          'local-and-cli-scans': 'Local Scans',
+          'core-deployment': 'Core Deployment',
+          'deployment-at-scale': 'Deployment at Scale',
+          'dashboard': 'Dashboard',
+          'sso': 'SSO',
+          'usage-and-billing': 'Usage & Billing',
+          'usage-limits': 'Usage Limits',
+          'upgrade': 'Upgrade',
+          'update': 'Update',
+          'upgrading': 'Upgrading',
+          'status': 'Status',
+          'support': 'Support',
+          'trophy-case': 'Trophy Case',
+          'licensing': 'Licensing',
+          'security': 'Security',
+          'metrics': 'Metrics',
+          'mcp': 'MCP',
+          'semgrepignore-v2-reference': 'Semgrepignore',
+          'ignoring-files-folders-code': 'Ignoring Files',
+          'ignoring-findings': 'Ignoring Findings',
+          'running-rules': 'Running Rules',
+          'reporting-false-negatives': 'Reporting Issues',
+          'run-a-successful-pov': 'POV Guide'
         };
         
         return sectionMap[section] || section.charAt(0).toUpperCase() + section.slice(1).replace(/-/g, ' ');
       }
     }
     
-    // Try to extract from title or content for more specific sections
-    const title = result.title || result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || '';
-    if (title.toLowerCase().includes('rule')) {
+    // Fallback: try to determine section from URL patterns
+    if (url.includes('/writing-rules/')) {
       return 'Rule Writing';
     }
-    if (title.toLowerCase().includes('secret')) {
+    if (url.includes('/semgrep-secrets/')) {
       return 'Secrets Detection';
     }
-    if (title.toLowerCase().includes('supply chain')) {
+    if (url.includes('/semgrep-supply-chain/')) {
       return 'Supply Chain';
     }
-    if (title.toLowerCase().includes('ci') || title.toLowerCase().includes('deployment')) {
+    if (url.includes('/semgrep-ci/') || url.includes('/deployment/')) {
       return 'CI/CD';
+    }
+    if (url.includes('/getting-started/')) {
+      return 'Getting Started';
+    }
+    if (url.includes('/semgrep-assistant/')) {
+      return 'Semgrep Assistant';
     }
     
     return 'Documentation';
