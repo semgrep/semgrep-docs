@@ -253,16 +253,21 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     const hierarchy = result.hierarchy || {};
     const url = result.url || '';
     
-    // Extract section from hierarchy
-    if (hierarchy.lvl0) {
-      return hierarchy.lvl0;
+    // First try to get from hierarchy levels
+    if (hierarchy.lvl1 && hierarchy.lvl1 !== 'Semgrep Documentation') {
+      return hierarchy.lvl1;
     }
     
-    // Extract section from URL
+    if (hierarchy.lvl2 && hierarchy.lvl2 !== 'Semgrep Documentation') {
+      return hierarchy.lvl2;
+    }
+    
+    // Extract section from URL path
     if (url.includes('/docs/')) {
       const pathParts = url.split('/docs/')[1]?.split('/');
       if (pathParts && pathParts.length > 0) {
         const section = pathParts[0];
+        
         // Map common sections to readable names
         const sectionMap: { [key: string]: string } = {
           'getting-started': 'Getting Started',
@@ -273,15 +278,41 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           'semgrep-secrets': 'Secrets Detection',
           'semgrep-supply-chain': 'Supply Chain',
           'semgrep-appsec-platform': 'AppSec Platform',
+          'semgrep-assistant': 'Semgrep Assistant',
           'deployment': 'Deployment',
           'troubleshooting': 'Troubleshooting',
           'faq': 'FAQ',
           'kb': 'Knowledge Base',
-          'release-notes': 'Release Notes'
+          'release-notes': 'Release Notes',
+          'for-developers': 'For Developers',
+          'extensions': 'Extensions',
+          'integrations': 'Integrations',
+          'secure-guardrails': 'Secure Guardrails',
+          'managing-findings': 'Managing Findings',
+          'managing-policy': 'Managing Policy',
+          'notifications': 'Notifications',
+          'sample-ci-configs': 'CI Configurations',
+          'cheat-sheets': 'Cheat Sheets',
+          'deepsemgrep': 'DeepSemgrep'
         };
         
         return sectionMap[section] || section.charAt(0).toUpperCase() + section.slice(1).replace(/-/g, ' ');
       }
+    }
+    
+    // Try to extract from title or content for more specific sections
+    const title = result.title || result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || '';
+    if (title.toLowerCase().includes('rule')) {
+      return 'Rule Writing';
+    }
+    if (title.toLowerCase().includes('secret')) {
+      return 'Secrets Detection';
+    }
+    if (title.toLowerCase().includes('supply chain')) {
+      return 'Supply Chain';
+    }
+    if (title.toLowerCase().includes('ci') || title.toLowerCase().includes('deployment')) {
+      return 'CI/CD';
     }
     
     return 'Documentation';
@@ -423,6 +454,20 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           }}
         />
         {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
+        {!isLoading && results.length > 0 && (
+          <span style={{
+            fontSize: '12px', 
+            color: '#00D4AA', 
+            marginLeft: '8px', 
+            fontWeight: '600',
+            backgroundColor: 'rgba(0, 212, 170, 0.1)',
+            padding: '2px 8px',
+            borderRadius: '12px',
+            border: '1px solid rgba(0, 212, 170, 0.2)'
+          }}>
+            {results.length} result{results.length !== 1 ? 's' : ''}
+          </span>
+        )}
       </div>
       
       {isOpen && results.length > 0 && (
@@ -443,6 +488,19 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)'
         }}>
+          {/* Results count header */}
+          <div style={{
+            padding: '8px 16px',
+            fontSize: '12px',
+            color: '#6B7280',
+            borderBottom: '1px solid #E5E7EB',
+            backgroundColor: '#F9FAFB',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px'
+          }}>
+            {results.length} result{results.length !== 1 ? 's' : ''} found
+          </div>
           <style>{`
             @keyframes fadeIn {
               from { opacity: 0; }
