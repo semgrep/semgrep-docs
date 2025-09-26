@@ -151,7 +151,7 @@ Certain languages, such as Apex, are available only on Semgrep AppSec Platform.
 
 The following diagrams summarize the differences between the two:
 
-![Semrep OSS scan process](/img/scan-process-oss.svg#full) <br />
+![Semgrep OSS scan process](/img/scan-process-oss.svg#full) <br />
 _**Figure**. Semgrep CE scan process._
 
 <br />
