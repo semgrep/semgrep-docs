@@ -342,6 +342,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const preprocessSemgrepQuery = (query: string): string => {
     let processedQuery = query.trim();
     
+    // Don't modify "how to" queries - they work fine as-is
+    if (processedQuery.toLowerCase().startsWith('how to')) {
+      return processedQuery;
+    }
+    
     // Handle common Semgrep abbreviations and terms
     const semgrepTerms = {
       'ci': 'continuous integration',
@@ -366,11 +371,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       processedQuery = processedQuery.replace(regex, `${abbr} ${full}`);
     });
     
-    // Handle common developer queries
-    if (processedQuery.toLowerCase().includes('how to')) {
-      processedQuery += ' tutorial guide';
-    }
-    
+    // Handle common developer queries (but not "how to")
     if (processedQuery.toLowerCase().includes('setup') || processedQuery.toLowerCase().includes('install')) {
       processedQuery += ' configuration installation';
     }
@@ -520,7 +521,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             letterSpacing: '0.5px'
           }}>
             {results.length} result{results.length !== 1 ? 's' : ''} found
-          </div>
+            </div>
           <style>{`
             @keyframes fadeIn {
               from { opacity: 0; }
@@ -593,7 +594,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           `}</style>
           {query.trim() === '' && isFocused ? (
             <div>
-          <div style={{
+            <div style={{
                 padding: '12px 16px', 
                 fontSize: '12px', 
                 color: '#6B7280', 
@@ -616,7 +617,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   {suggestion}
             </div>
               ))}
-            </div>
+          </div>
           ) : results
             .filter(result => {
               // Filter out tagged pages and category pages
