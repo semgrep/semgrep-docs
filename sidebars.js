@@ -925,6 +925,19 @@ module.exports = {
             },
             {
               type: 'category',
+              label: 'Insecure Direct Object Reference',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-direct-object-reference/overview'
+
+              },
+              items: [
+                // Additional IDOR topics can be added here later
+              ]
+            },
+            {
+              type: 'category',
               label: 'Open Redirect',
               collapsible: true,
               link: {
