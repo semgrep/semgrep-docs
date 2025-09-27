@@ -53,7 +53,7 @@ used within your code. This differentiates Semgrep Secrets from regex-based
 detectors that simply define a pattern to match a piece of code.
 
 Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses
-[<i class="fa-regular fa-file-lines"></i> data-flow
+[<i class="fa-regular fa-file-lines"></i> dataflow
 analysis](/writing-rules/data-flow/data-flow-overview) and [<i
 class="fa-regular fa-file-lines"></i> constant
 propagation](/writing-rules/data-flow/constant-propagation) which means that it

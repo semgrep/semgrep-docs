@@ -2,40 +2,39 @@
 id: overview
 displayed_sidebar: rulewritingSidebar
 description: >-
-  Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase. You can write and share rules directly from your browser using the Semgrep Playground, or write rules in your terminal and run them on the command line.
+  Learn how to use Semgrep’s intuitive syntax to write rules specific to your codebase. You can write and share rules directly from your browser using the Semgrep Editor, or you can write rules in your terminal and run them on the command line.
 title: Overview
 hide_title: true
 tags:
   - Rule writing
 ---
 
-# Writing rules
+# Write rules
 
-### Tutorial
+Semgrep uses rules, which encapsulate pattern matching logic and data flow analysis, to scan your code for security issues, style violations, bugs, and more. In addition to rules available to you in the Semgrep Registry, you can write custom rules to determine what Semgrep detects in your repositories. You can write rules that:
 
-If you want the best introduction to writing Semgrep rules, use the interactive, example-based [Semgrep rule tutorial](https://semgrep.dev/learn).
+- Automate code review comments.
+- Identify secure coding violations.
+- Scan configuration files.
 
-### Do it live!
+See more use cases in [Rule ideas](rule-ideas.md).
 
-Write and share rules directly from the [Playground](https://semgrep.dev/editor). You can also write rules in your terminal and run them with the Semgrep command line tool.
+## Get started
 
-You can write rules that:
+For an introduction to writing Semgrep rules, use the interactive, example-based [Semgrep rule tutorial](https://semgrep.dev/learn).
 
-- Automate code review comments
-- Identify secure coding violations
-- Scan configuration files
-- See more use cases in [Rule ideas](rule-ideas.md).
+You can write rules in your terminal and run them with the Semgrep command line tool, or you can write and test using the [Semgrep Editor](https://semgrep.dev/editor).
 
-This rule detects the use of `is` when comparing Python strings. `is` checks reference equality, not value equality, and can exhibit nondeterministic behavior.
+For example, the following sample rule detects the use of `is` when comparing Python strings. `is` checks reference equality, not value equality, and can exhibit nondeterministic behavior.
 
 <iframe title="Semgrep example Python is comparison" src="https://semgrep.dev/embed/editor?snippet=Ppde" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 
-### Next steps
+## Next steps
 
-The following articles guide you through rule writing basics or can provide you with needed references:
+The following articles guide you through rule-writing basics and act as references:
 
-- [Pattern syntax](/writing-rules/pattern-syntax) describes what Semgrep patterns can do in detail, and provides example use cases of the ellipsis operator, metavariables.
+- [Pattern syntax](/writing-rules/pattern-syntax) describes what Semgrep patterns can do in detail and provides sample use cases.
 - [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with Boolean operators.
-- [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) gives you an overview of where and how you can contribute to Semgrep Registry rules. This document also provides some information about tests and appropriate metadata information you may use for your rules.
+- [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) gives you an overview of how you can contribute to Semgrep Registry rules. This document also provides information about tests and metadata fields that you can use for your rules.
 
-Looking for ideas on what rules to write? See [Rule ideas](/writing-rules/rule-ideas) for common use cases and prompts to help you start writing rules from scratch.
+Need rule ideas? See [Rule ideas](/writing-rules/rule-ideas) for everyday use cases and prompts to help you start writing rules from scratch.
