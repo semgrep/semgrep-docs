@@ -15,7 +15,7 @@ import GitlabRequirements from "/src/components/reference/_gitlab-sms-requiremen
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans (beta) is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
+Semgrep Managed Scans is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
 
 :::info
 A **project** is any codebase, repository, or folder within a monorepo that is added to Semgrep for scanning.

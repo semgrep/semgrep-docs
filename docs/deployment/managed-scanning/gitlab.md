@@ -5,7 +5,6 @@ title: GitLab
 hide_title: true
 description: Learn how to add a GitLab repository to Semgrep Managed Scans.
 tags:
-  - Beta
   - Deployment
   - Semgrep AppSec Platform
 ---
