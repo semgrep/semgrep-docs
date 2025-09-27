@@ -1173,19 +1173,10 @@ Provide a category for users of the rule. For example: `best-practice`, `correct
 ### Excluding a rule in paths
 
 To ignore a specific rule on specific files, set the `paths:` key with
-one or more filters. The patterns apply to the full file paths
-relative to the project root.
-
-<!--
-  The current behavior is inconsistent with the Gitignore specification
-  which is used for Semgrepignore patterns in .semgrepignore files
-  and --exclude/--include command-line filters.
-  The pattern `/foo` should match the path `foo` and not `bar/foo` but
-  it matches neither.
-  The pattern `a/b` should match the path `a/b` but not `c/a/b`
-  but it matches both.
-  If we decide we'll never fix this, we should clarify these discrepancies.
--->
+one or more filters. These filters are made of glob patterns that
+apply to the file paths relative to the project root. This works
+like the command-line filters `--exclude` and
+`--include` but in a rule-specific manner.
 
 Example:
 
@@ -1195,21 +1186,40 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "src/**/*.jinja2"
-        - "*_test.go"
-        - "project/tests"
-        - project/static/*.js
+        - "*.jinja2"
+        - "**/backend/*_test.go"
+        - "/src/tests"
+        - /src/static/*.js
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, the above rule runs on files inside `project/`, but no results are returned for:
+When invoked with `semgrep -f rule.yaml src` from the Git project
+root, the above rule runs
+on file paths inside `src/`, but no results are returned for:
 
-- any file with a `.jinja2` file extension
-- any file whose name ends in `_test.go`, such as `project/backend/server_test.go`
-- any file inside `project/tests` or its subdirectories
-- any file matching the `project/static/*.js` glob pattern
+- any file with a `.jinja2` file extension;
+- any file whose name ends in `_test.go` that exists in a folder named
+  `backend` such as the file `src/backend/server_test.go`;
+- any file inside `src/tests/` or its subdirectories, or a regular file
+  named `src/tests`;
+- any file matching the `src/static/*.js` glob pattern such as
+  `src/static/hello.js` but not `old/src/static/hello.js`.
+
+The selected set of files to scan with the rule
+is independent of the current work
+folder. The commands `semgrep -f rule.yaml src` and
+`(cd src; semgrep -f rule.yaml .)` will therefore scan the same files.
 
 :::note
-The glob syntax is from [Python's `wcmatch`](https://pypi.org/project/wcmatch/) and is used to match against the given file and all its parent directories.
+The glob syntax conforms to the
+[Semgrepignore v2](https://semgrep.dev/docs/semgrepignore-v2-reference)
+and Gitignore specifications. Patterns are
+matched against the normalized file path relative to the project root as
+well as all its parent directories. Beware that the presence of
+a leading slash (such as `/*.c`) or a slash in the middle of the pattern
+(such as `a/*.c`) anchors the pattern to the project root. `a/*.c` is
+equivalent to `/a/*.c` and will match the path `/a/b.c` but won't
+match `/x/a/b.c`. All other patterns are unanchored e.g.
+`*.c` matches all of `/b.c`, `/a/b.c`, and `/x/a/b.c`.
 :::
 
 ### Limiting a rule to paths
