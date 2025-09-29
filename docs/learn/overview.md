@@ -14,7 +14,7 @@ import CardHeader from '@site/src/components/Card/CardHeader'
 import CardImage from '@site/src/components/Card/CardImage'
 
 
-This section is all about learning the concepts behind **Application Security** and **Secure Coding** with guided tutorials. Whether a seasoned security engineer looking for resources to share with your teams, a developer looking to improve code quality, or just getting started in cybersecurity we hope you find these guides helpful.
+This section is all about learning the concepts behind **Application Security** and **Secure Coding** with guided tutorials. Whether a seasoned security engineer looking for resources to share with your teams, a developer looking to improve code quality, or just getting started in cybersecurity, we hope you find these guides helpful.
 
 <div class = "col-1-fixed">
   <Card className={'card-50'} link='/learn/security-foundations/sast/overview'>

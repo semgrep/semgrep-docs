@@ -53,7 +53,7 @@ Security findings need to be tracked and communicated effectively to avoid becom
 
 - **Output Formats:** Supporting common formats such as SARIF, JSON, CSV, and SBOM ensures compatibility with other systems.
 - **Dashboard Requirements:** Dashboards should go beyond raw counts of vulnerabilities, offering trend analysis, mean time to remediation (MTTR), vulnerability density metrics, and adoption rates among developers. They should also make it easy to triage findings, and update rules to increase confidence.
-- **Team Communication:** Automated workflows ensures the right findings are prioritized and fixed within the required timeframes. The tool should integrate with the ticketing system, like Jira or Linear. It could also be enabled to send notifications to Slack or Teams, or even used for triggering webhooks for custom integrations.
+- **Team Communication:** Automated workflows ensures the right findings are prioritized and fixed within the required time frames. The tool should integrate with the ticketing system, like Jira or Linear. It could also be enabled to send notifications to Slack or Teams, or even used for triggering webhooks for custom integrations.
 
 ## Conclusion
 

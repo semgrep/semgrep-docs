@@ -8,7 +8,7 @@ hide_table_of_contents: false
 
 # Security Foundations
 
-This section includes conceptual guides on application security essentials. These fundamental concetps can help strengthen your organization's security posture and can be a helpful reference when educating teams on security principles.
+This section includes conceptual guides on application security essentials. These fundamental concepts can help strengthen your organization's security posture and can be a helpful reference when educating teams on security principles.
 
 ## Featured Articles
 

@@ -74,7 +74,7 @@ To reduce your security risks, the first step is visibility. You need to know wh
 
 From there, modern SCA goes further. Using static code analysis, you can discover whether vulnerable functions are actually used by your code. That is, whether the vulnerability is reachable. This helps triage issues more efficiently and respond to vulnerabilities that matter most.
 
-For example, suppose the JavaScript library `lodash` has a vulnerability in a rarely-used function. If you don’t call that function, the vulnerability isn’t reachable. If you do, and user input reaches it, that’s a different story.
+For example, suppose the JavaScript library `lodash` has a vulnerability in a rarely used function. If you don’t call that function, the vulnerability isn’t reachable. If you do, and user input reaches it, that’s a different story.
 
 Traditional SCA tools stop at flagging the version. But with reachability analysis, you can decide whether to fix the issue immediately, deprioritize it, or take compensating actions.
 
