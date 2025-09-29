@@ -156,7 +156,7 @@ rules:
     languages:
       - python
     # How severe the impact of the finding is (required):
-    severity: ERROR
+    severity: HIGH
     # Description and advice that appears in the IDE,
     # PR or MR comment, or CLI (required):
     message: >-

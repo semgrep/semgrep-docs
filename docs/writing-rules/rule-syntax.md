@@ -74,7 +74,7 @@ rules:
       - python
     message: Found md5 usage
     pattern: hashlib.md5(...)
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -99,7 +99,7 @@ rules:
       - pattern: db_query(...)
       - pattern-not: db_query(..., verify=True, ...)
     message: Found unverified db query
-    severity: ERROR
+    severity: HIGH
     languages:
       - python
 ```
@@ -138,7 +138,7 @@ rules:
     message: Found insecure crypto usage
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -178,7 +178,7 @@ rules:
     message: boto client using IP address
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -200,7 +200,7 @@ rules:
     message: Insecure code execution
     languages:
       - javascript
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -226,7 +226,7 @@ rules:
     message: Semgrep found a match, with $FIRST and $SECOND
     languages:
       - regex
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 The pattern immediately above matches the following:
@@ -258,7 +258,7 @@ rules:
       - pattern-regex: foo
       - pattern-not-regex: foo-
       - pattern-not-regex: -foo
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -299,7 +299,7 @@ rules:
       `$ARG' has a "bad" type!
     languages:
       - python
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 The pattern immediately above matches the following:
@@ -324,7 +324,7 @@ rules:
       `$ARG' has a "bad" type!
     languages:
       - python
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 The pattern immediately above matches the following:
@@ -361,7 +361,7 @@ rules:
     message: Like set intersection, only the overlapping region is highilighted
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -403,7 +403,7 @@ rules:
     message: module using insecure method call
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -435,7 +435,7 @@ rules:
     message: module using insecure method call
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The following example matches all of the function calls in the same code sample, returning a false positive on the `module.secure` call:
@@ -451,7 +451,7 @@ rules:
     message: module using insecure method call
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 :::info
@@ -483,7 +483,7 @@ rules:
             - pattern-not: >
                 {secureOptions: $CONST.SSL_OP_NO_SSLv2 | $CONST.SSL_OP_NO_SSLv3
                 | $CONST.SSL_OP_NO_TLSv1}
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 The pattern immediately above matches the following:
@@ -545,7 +545,7 @@ rules:
                   - metavariable-regex:
                       metavariable: $W
                       regex: (?!get_full_path)
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 The pattern immediately above matches the following:
@@ -593,7 +593,7 @@ rules:
           patterns:
             - pattern: |
                 console.log(...)
-    severity: WARNING
+    severity: MEDIUM
 
 ```
 
@@ -624,7 +624,7 @@ rules:
           language: generic
           patterns:
             - pattern: google
-    severity: INFO
+    severity: LOW
 ```
 
 The pattern immediately above matches the following:
@@ -661,7 +661,7 @@ rules:
       - metavariable-comparison:
           comparison: $ARG < 1024 and $ARG % 2 == 0
           metavariable: $ARG
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -718,7 +718,7 @@ rules:
           comparison: $ARG > 0o600
           metavariable: $ARG
           base: 8
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -745,7 +745,7 @@ rules:
           strip: true
           comparison: $ARG > 2147483647
           metavariable: $ARG
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -781,7 +781,7 @@ rules:
     message: Uses insecure method from @foo-bar.
     languages:
       - javascript
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -825,7 +825,7 @@ rules:
     message: Uses insecure method from @foo-bar.
     languages:
       - javascript
-    severity: ERROR
+    severity: HIGH
 ```
 
 This can be useful in instances where there may be multiple API-compatible packages which share an issue.
@@ -841,7 +841,7 @@ rules:
       - pattern: db_query(...)
       - pattern-not: db_query(..., verify=True, ...)
     message: Found unverified db query
-    severity: ERROR
+    severity: HIGH
     languages:
       - python
 ```
@@ -870,7 +870,7 @@ rules:
                 with ensure_verified(db_query):
                   db_query(...)
     message: Found unverified db query
-    severity: ERROR
+    severity: HIGH
     languages:
       - python
 ```
@@ -893,7 +893,7 @@ rules:
     message: return should never appear inside a class __init__ function
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -931,7 +931,7 @@ rules:
     message: file object opened without corresponding close
     languages:
       - python
-    severity: ERROR
+    severity: HIGH
 ```
 
 The pattern immediately above matches the following:
@@ -976,7 +976,7 @@ rules:
       - pattern: open($X)
     message: "Function argument passed to open() builtin"
     languages: [python]
-    severity: ERROR
+    severity: HIGH
 ```
 
 This rule matches the following code:
@@ -1007,7 +1007,7 @@ rules:
       - pattern: insecure_func2($X)
     message: "Insecure function use"
     languages: [python]
-    severity: ERROR
+    severity: HIGH
 ```
 
 The above rule matches both examples below:
@@ -1096,7 +1096,7 @@ rules:
     fix: $DICT.get($KEY)
     message: "Use `.get()` method to avoid a KeyNotFound error"
     languages: [python]
-    severity: ERROR
+    severity: HIGH
 ```
 
 For more information about `fix` and `--autofix` see [Autofix](/writing-rules/autofix) documentation.
@@ -1139,7 +1139,7 @@ rules:
       ENV ... GOFLAGS='-tags=dynamic -buildvcs=false' ...
     languages: [dockerfile]
     message: "We should not use these flags"
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 Another use case is when a newer version of a rule works better than

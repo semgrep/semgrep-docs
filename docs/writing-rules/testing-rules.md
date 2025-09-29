@@ -66,7 +66,7 @@ rules:
   fix: secure_eval($VAR)
   message: Calling 'eval' with user input
   languages: [python]
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 Given the above is named `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
