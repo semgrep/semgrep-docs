@@ -1275,7 +1275,7 @@ This section contains more complex rules that perform advanced code searching.
 rules:
   - id: eqeq-is-bad
     languages: [python]
-    severity: WARNING
+    severity: MEDIUM
     patterns:
       - pattern-not-inside: |
           def __eq__(...):
