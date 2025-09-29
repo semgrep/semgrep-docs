@@ -1116,6 +1116,11 @@ rules:
     metadata:
       cve: CVE-2077-1234
       discovered-by: Ikwa L'equale
+    languages:
+      - javascript
+      - python
+      - go
+    severity: MEDIUM
 ```
 
 The metadata are also displayed in the output of Semgrep if you’re running it with `--json`.
@@ -1192,13 +1197,17 @@ Example:
 ```yaml
 rules:
   - id: eqeq-is-bad
+    languages: 
+      - python
+      - javascript
+    severity: MEDIUM
     pattern: $X == $X
     paths:
       exclude:
         - "src/**/*.jinja2"
         - "*_test.go"
         - "project/tests"
-        - project/static/*.js
+        - "project/static/*.js"
 ```
 
 When invoked with `semgrep -f rule.yaml project/`, the above rule runs on files inside `project/`, but no results are returned for:
@@ -1220,6 +1229,10 @@ Conversely, to run a rule _only_ on specific files, set a `paths:` key with one 
 rules:
   - id: eqeq-is-bad
     pattern: $X == $X
+    languages: 
+      - python
+      - javascript
+    severity: MEDIUM
     paths:
       include:
         - "*_test.go"
@@ -1261,6 +1274,8 @@ This section contains more complex rules that perform advanced code searching.
 ```yaml
 rules:
   - id: eqeq-is-bad
+    languages: [python]
+    severity: WARNING
     patterns:
       - pattern-not-inside: |
           def __eq__(...):
