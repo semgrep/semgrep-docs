@@ -60,6 +60,8 @@ Memories are enabled by default for all organizations with Assistant enabled.
 5. Select the **Projects** and the **Rules** to which the memory should be applied. Note that the **Rules** selection list includes vulnerability classes--selecting a vulnerability class ensures that the memory applies to *all* rules.
 6. Click **Add memory** to save your changes and proceed.
 
+See [Best practices for writing Assistant Memories](/semgrep-assistant/best-practices-for-memories) for information on writing effective memories.
+
 ### Add a memory based on Assistant's suggested fix
 
 To add a memory based on a suggested fix presented by Assistant:
