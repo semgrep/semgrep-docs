@@ -1,9 +1,11 @@
 ---
 title: Understanding Static Code Scanning Tools (What is SAST?)
 description: Learn how to implement SAST with Semgrep to find security vulnerabilities in your code
-hide_title: false
+hide_title: true
 displayed_sidebar: learnSidebar
 ---
+
+# Understanding static code scanning tools
 
 A **Static Application Security Testing (SAST)** tool can analyze your code without executing it, scanning for potential security vulnerabilities, bugs, and code quality issues early in the development process. SAST tools examine source code acting as an automated security expert, reviewing each line of code. This doesn’t replace human review but helps accelerate the discovery of vulnerabilities and the confidence in code being ready for release.
 
@@ -17,7 +19,7 @@ Some key features of a good SAST tool:
 
 We will explore how this works in the next section.
 
-## Source Code Analysis & Taint Tracking
+## Source code analysis & taint tracking
 
 Static analysis tools perform many types of analysis, but a comprehensive taint analysis engine is essential for any SAST solution. Taint analysis is a data-flow analysis technique that tracks untrusted or **tainted data** as it moves through a function or method. This tainted data originates from **sources** such as user input. When tainted data isn't properly checked or sanitized, the analysis reports an issue whenever this data reaches a vulnerable function, known as a **sink**. 
 
@@ -42,7 +44,7 @@ A data flow analysis can help with visualizing the path data takes through the s
 
 Just finding the usage of a vulnerable function such as `exec(...)` could uncover issues, but that will produce a significant amount more of false positives than being able to reason through findings which come from actionable locations such as user-controlled input.
 
-## Broad Language Support
+## Broad language support
 
 Modern development teams don’t use just one language, your SAST solution should be capable of handling all of the modern languages you use daily to write and deploy software. With this in mind, your SAST tool should have support for your existing development practices by integrating into existing tools:
 
@@ -52,7 +54,7 @@ Modern development teams don’t use just one language, your SAST solution shoul
 - Provide a default-ruleset that covers common vulnerabilities specific to those supported languages.
 - Support community driven rules to help increase coverage for a variety of languages that may not be in the default ruleset.
 
-## Incorporating Security Testing Into Your Workflow
+## Incorporating security testing into your workflow
 
 To get teams to action on SAST findings they need to be surfaced in the places people will look at them, which is your development environment and workflows.  
 
@@ -75,7 +77,7 @@ Being able to write custom rules helps with edge-cases where internal knowledge 
 
 Without the ability to customize your SAST tool, it will be treated more like a check-box exercise for regulatory purposes. Instead, a SAST tool should *enable* your developers and security teams to internally detect and reduce risk at scale.
 
-## Fix Guidance
+## Fix guidance
 
 You won’t know how to fix a vulnerability out-right without already understanding the problem it introduces, so detection alone doesn’t always cut it. Your SAST solution should provide:
 

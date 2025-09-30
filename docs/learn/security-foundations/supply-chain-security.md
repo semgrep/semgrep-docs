@@ -1,9 +1,11 @@
 ---
-title: Understanding Supply Chain Security (What is SCA?)
+title: Understanding supply chain security (What is SCA?)
 description: Learn how to consider third-party source code dependencies with Semgrep for protecting your application from security vulnerabilities
-hide_title: false
+hide_title: true
 displayed_sidebar: learnSidebar
 ---
+
+# Understanding supply chain security
 
 If you’re building software, you’re likely using packages, libraries, containers, or other dependencies maintained by someone else. That convenience comes with a cost. Any weakness in the software supply chain is a potential path for compromise. Attackers exploit this growing web of third-party code, public registries, and automated build pipelines that make up the modern development stack. And because the code you depend on isn’t yours, these weaknesses are harder to find and fix.
 
@@ -11,7 +13,7 @@ If you’re building software, you’re likely using packages, libraries, contai
 
 In this article, we’ll explore what supply chain security actually means. First, we’ll look at how third-party code becomes part of your application. Then, we’ll examine the risks—from known vulnerabilities to dependency confusion. Finally, we’ll walk through how modern tools like Semgrep Supply Chain can help you detect, prioritize, and fix issues in your third-party codebase.
 
-## What Is Supply Chain Security?
+## What is supply chain security?
 
 Supply chain security refers to securing all the components that contribute to building and running your software. This includes third-party libraries, system packages, build tools, container images, and the registries they come from. We use these components to speed up development, but in doing so, we inherit their bugs and vulnerabilities.
 
@@ -28,11 +30,11 @@ Often, SCA tools may produce a file known as a **Software Bill of Materials (SBO
 
 Together, these all these files help define your software supply chain—and they’re what security tools analyze to understand your dependency tree.
 
-## Why Supply Chain Vulnerabilities Matters
+## Why supply chain vulnerabilities matter
 
 When a vulnerability is found in a package you use, your first question is usually: “Is this actually a problem for me?” That’s where **reachability** and **exploitability** come in.
 
-### What is Reachability?
+### What is reachability?
 
 A vulnerable function might exist in a library, but if your code never calls that function, it’s not reachable. Similarly, even if your code does call it, proper input validation or authentication checks might mean it’s not exploitable. Understanding this difference is critical for prioritizing what to fix first.
 
@@ -45,7 +47,7 @@ Reachability is purely hypothetical; even if a vulnerability is reachable, it ma
 
 Tools like [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain) help by using static analysis to detect whether vulnerabilities are actually reachable from your code. This drastically reduces false positives and lets you focus on what’s truly risky.
 
-## Real-World Risks in the Software Supply Chain
+## Real-world risks in the software supply chain
 
 Let’s look at some of the ways supply chain vulnerabilities show up in practice.
 
@@ -68,7 +70,7 @@ Even if your dependencies are safe, if you fetch them over insecure channels, or
 - Packagist for PHP
 - and [many more](/docs/supported-languages#package-manager-support)
 
-## Detect and Prioritize Supply Chain Issues
+## Detect and prioritize supply chain issues
 
 To reduce your security risks, the first step is visibility. You need to know which packages are part of your application, what versions you’re using, and whether any of those versions are vulnerable. Tools like Semgrep Supply Chain can scan your lockfiles and give you a detailed inventory.
 
@@ -78,7 +80,7 @@ For example, suppose the JavaScript library `lodash` has a vulnerability in a ra
 
 Traditional SCA tools stop at flagging the version. But with reachability analysis, you can decide whether to fix the issue immediately, deprioritize it, or take compensating actions.
 
-## Best Practices for Securing Your Software Supply Chain
+## Best practices for securing your software supply chain
 
 Securing your supply chain doesn’t mean giving up on open source. It means managing it responsibly.
 

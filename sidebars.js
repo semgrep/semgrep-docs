@@ -830,7 +830,7 @@ module.exports = {
           items: [
             {
               type: 'category',
-              label: 'Static Code Scanning',
+              label: 'Static code scanning',
               collapsible: false,
               link: {
                 type: 'doc',
@@ -842,7 +842,7 @@ module.exports = {
             },
             {
               type: 'category',
-              label: 'Supply Chain Security',
+              label: 'Supply chain security',
               collapsible: false,
               link: {
                 type: 'doc',
@@ -854,7 +854,7 @@ module.exports = {
             },
             {
               type: 'category',
-              label: 'Security Testing Workflows',
+              label: 'Security testing workflows',
               collapsible: false,
               link: {
                 type: 'doc',

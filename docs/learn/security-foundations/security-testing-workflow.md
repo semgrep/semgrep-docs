@@ -5,7 +5,7 @@ hide_title: false
 displayed_sidebar: learnSidebar
 ---
 
-# Incorporating Security Testing Into Development Workflows
+# Incorporating security testing into development workflows
 
 We have more security tools than ever, yet vulnerabilities continue to get introduced. The real problem isn’t detection, it is prevention at scale. We need to enable developers with the right tools, features, and integrations. Effective security tools meet developers where they are; in their code editors, code repositories, and ticketing systems. They are fast, accurate, and provide actionable feedback.
 
@@ -39,7 +39,7 @@ The most powerful place to integrate security testing is directly into the devel
 - **Pre-commit Hooks:** Serving as the last line of defense before code enters source control, pre-commit hooks can be configured to block commits only when rules are proven to be highly accurate for a given codebase.
 - **MCP Server Integration:** As AI-assisted coding becomes more common, integrating security checks directly into model-context protocol (MCP) servers ensures that LLM-generated code is automatically reviewed with context-aware security suggestions.
 
-### CI/CD Pipeline
+### CI/CD pipeline
 
 Security checks in the CI/CD pipeline provide additional layers of assurance without disrupting the developer’s inner loop.
 
@@ -47,7 +47,7 @@ Security checks in the CI/CD pipeline provide additional layers of assurance wit
 - **SCM Integration Features:** Diff-aware scanning helps security tools focus on newly changed code, while automated comments on pull requests give developers immediate feedback. Status checks can also block merges for specific high-confidence rules.
 - **Build Integration:** Teams can choose between incremental scans for speed or full scans for comprehensive coverage, depending on the stage of the build.
 
-### Reporting and Tracking
+### Reporting and tracking
 
 Security findings need to be tracked and communicated effectively to avoid becoming noise.
 
