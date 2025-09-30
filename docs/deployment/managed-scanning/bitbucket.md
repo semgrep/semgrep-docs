@@ -5,7 +5,6 @@ title: Bitbucket
 hide_title: true
 description: Learn how to add a Bitbucket repository to Semgrep Managed Scans.
 tags:
- - Beta
  - Deployment
  - Semgrep AppSec Platform
 ---
