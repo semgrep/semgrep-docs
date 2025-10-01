@@ -734,9 +734,15 @@ article > a[class*="cardContainer_"][class~="card"] {
 }
 
 .home-top-level a:before {
-  content: "🏠";
-  display: inline;
-  padding-right: 8px;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23525860'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: text-bottom;
 }
 
 .home-back-link {
