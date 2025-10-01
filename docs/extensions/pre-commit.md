@@ -26,7 +26,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.139.0'
+  rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id: semgrep
       entry: semgrep
@@ -48,7 +48,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.139.0'
+  rev: 'SEMGREP_VERSION_LATEST'
   hooks:
     - id:  semgrep-ci
 ```
