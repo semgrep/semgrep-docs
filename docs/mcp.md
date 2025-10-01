@@ -21,4 +21,4 @@ Semgrep's open source MCP works with any IDE-based MCP client, enabling LLMs to 
 Semgrep MCP Server is a beta project in active development. Join the `#mcp` [Slack community](https://go.semgrep.dev/slack) channel to provide your feedback, bug reports, feature requests, and code contributions.
 :::
 
-To learn more and get started, see the [Semgrep MCP server repo on GitHub](https://github.com/semgrep/mcp).
+To learn more and get started, see the [Semgrep MCP server repo on GitHub](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp).
