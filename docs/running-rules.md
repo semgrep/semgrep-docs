@@ -22,13 +22,13 @@ Rules can be organized in **rulesets**. Rulesets are rules related through a pro
 
 The list below covers different kinds of Semgrep rules:
 
-- Existing [Semgrep Registry rules](#running-semgrep-registry-rules-locally). You can also contribute to the open source Semgrep Registry, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).
-- [Local rules](#creating-and-using-local-rules):
+- Existing [Semgrep Registry rules](#run-semgrep-registry-rules-locally). You can also contribute to the open source Semgrep Registry, see [Contributing rules](/contributing/contributing-to-semgrep-rules-repository).
+- [Local rules](#create-and-use-local-rules):
   - One-off [ephemeral rules](#ephemeral-rules) passed into the command line.
   - [YAML-defined rules](#yaml-defined-rules).
-- A combination of [local rules and Semgrep Registry rules](#running-multiple-rules-simultaneously) or a combination of multiple rules in general.
+- A combination of [local rules and Semgrep Registry rules](#run-multiple-rules-simultaneously) or a combination of multiple rules in general.
 
-## Running Semgrep Registry rules locally
+## Run Semgrep Registry rules locally
 
 You can run a SAST scan in your Git environment with pre-selected Semgrep Registry rules:
 
@@ -55,15 +55,21 @@ To use Semgrep Registry continuously in your CI/CD pipeline, see the [Semgrep in
 
 -->
 
-## Creating and using local rules
+## Create and use local rules
 
 Local rules can be either:
 
 - [Ephemeral rules](#ephemeral-rules) with the `-e` or `--pattern` flags for use in a single command.
 - Configured in [YAML rule files](#yaml-defined-rules) that conform to the [Rule syntax](/writing-rules/rule-syntax) schema.
 
-:::tip
-See [Writing rules > Getting started](/writing-rules/overview/) to learn how to write rules.
+To learn how to write rules, see [Writing rules > Getting started](/writing-rules/overview/).
+
+:::info Rule IDs of local rules
+Semgrep prefixes the rule IDs of local rules with a custom value it generates using the following steps:
+
+1. Get the relative path from the current working directory of the process to the directory of the rules file.
+2. Replace the directory separators of the relative path with dots.
+3. Remove any characters not allowed in a rule ID from the relative path.
 :::
 
 ### Ephemeral rules
@@ -101,7 +107,7 @@ Rules stored under a hidden directory, such as `dir/.hidden/myrule.yml`, are pro
 
 For more information on defining custom rules, see [Writing rules](/writing-rules/overview/).
 
-## Running multiple rules simultaneously
+## Run multiple rules simultaneously
 
 To run multiple rules simultaneously, use `--config` before every YAML URL, or Semgrep registry entry name. This option lets you include your local rules as well as Semgrep Registry rules. See the following code example (substitute the colored values as necessary):
 
