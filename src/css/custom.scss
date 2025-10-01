@@ -359,31 +359,22 @@ details.alert {
 .menu__caret {
   transform: scale(57%);
 }
+
 .top-category-separator {
   padding-top: 1rem;
   align-items: center;
 }
 
-.top-category-separator > .menu__link {
-  justify-content: space-between;
-}
-
-.top-category > .menu__link {
-  justify-content: space-between;
-}
-
-.top-category a::after {
-  content: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCAxMiA4IiB3aWR0aD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEgMS41IDUgNSA1LTUiIHN0cm9rZT0iIzY2NzA4NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNjciLz48L3N2Zz4=");
-  display: inline;
-  right: 16px;
-  transform: rotate(-90deg) scale(75%);
-}
-
-.top-category-separator a::after {
-  content: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCAxMiA4IiB3aWR0aD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEgMS41IDUgNSA1LTUiIHN0cm9rZT0iIzY2NzA4NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNjciLz48L3N2Zz4=");
-  display: inline;
-  right: 16px;
-  transform: rotate(-90deg) scale(75%);
+.top-category-separator > .menu__list-item-collapsible > a,
+.top-category-separator > a {
+  color: var(--ifm-color-primary) !important;
+  vertical-align: bottom;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  padding-bottom: 0rem;
+  padding-top: 1.6rem;
 }
 
 /******************************************************************************
@@ -743,9 +734,27 @@ article > a[class*="cardContainer_"][class~="card"] {
 }
 
 .home-top-level a:before {
-  content: "🏠";
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23525860'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: text-bottom;
+}
+
+.home-back-link {
+  display: flex;
+  align-items: center;
+}
+
+.home-back-link a:before {
+  content: "← ";
   display: inline;
   padding-right: 8px;
+  font-weight: bold;
 }
 
 
