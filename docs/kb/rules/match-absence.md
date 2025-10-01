@@ -22,7 +22,7 @@ rules:
     message: match
     languages:
       - generic
-    severity: ERROR
+    severity: HIGH
 ```
 
 :::note Example

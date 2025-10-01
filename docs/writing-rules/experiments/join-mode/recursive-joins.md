@@ -43,7 +43,7 @@ rules:
 - id: python-callgraph
   message: python callgraph
   languages: [python]
-  severity: INFO
+  severity: LOW
   pattern: |
     def $CALLER(...):
       ...
@@ -81,7 +81,7 @@ rules:
 - id: java-spring-user-input
   message: user input
   languages: [java]
-  severity: INFO
+  severity: LOW
   mode: taint
   pattern-sources:
   - pattern: |
@@ -102,7 +102,7 @@ rules:
 - id: method-parameter-formatted-sql
   message: method uses parameter for sql string
   languages: [java]
-  severity: INFO
+  severity: LOW
   patterns:
   - pattern-inside: |
       $RETURNTYPE $METHODNAME(..., $TYPE $PARAMETER, ...) {
@@ -125,7 +125,7 @@ Finally, the third rule is used to construct a pseudo-callgraph:
 rules:
 - id: java-callgraph
   languages: [java]
-  severity: INFO
+  severity: LOW
   message: $CALLER calls $OBJ.$CALLEE
   patterns:
   - pattern-inside: |
@@ -141,7 +141,7 @@ The join rule, is displayed as follows:
 rules:
 - id: spring-sql-injection
   message: SQLi
-  severity: ERROR
+  severity: HIGH
   mode: join
   join:
     refs:

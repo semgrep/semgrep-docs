@@ -4,8 +4,8 @@ All required fields must be present at the top-level of a rule, immediately unde
 | :------------ | :------- | :---------- |
 | `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
 | `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
-| `severity`    | `string` | One of the following values: `Low`, `Medium`, `High`, `Critical`. The `severity` key specifies how critical are the issues that a rule potentially detects. Note: Semgrep Supply Chain differs, as its rules use CVE assignments for severity. For more information, see [Filters](/semgrep-supply-chain/view-export/#filter-findings) section in Semgrep Supply Chain documentation. |
-| `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values) |
+| `severity`    | `string` | Severity can be `Low`, `Medium`, `High`, or `Critical`. It indicates how critical issues detected by a rule are. Note: Semgrep Supply Chain uses [CVE assignments for severity](/docs/semgrep-supply-chain/view-export#filter-findings), while severity for Code and Secrets is set by the rule author. The older levels `ERROR`, `WARNING`, and `INFO` match `HIGH`, `MEDIUM`, and `LOW`. Severity values remain backwards compatible. |
+| `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values).  |
 | `pattern`_\*_     | `string` | Find code matching this expression |
 | `patterns`_\*_   | `array`  | Logical AND of multiple patterns |
 | `pattern-either`_\*_ | `array`  | Logical OR of multiple patterns |

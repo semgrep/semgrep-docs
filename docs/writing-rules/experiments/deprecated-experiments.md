@@ -30,7 +30,7 @@ Let's take the following Bash rule as an example (a simplified version of the [`
 ```yaml
 rules:
   - id: curl-eval
-    severity: WARNING
+    severity: MEDIUM
     languages:
       - bash
     message: Evaluating data from a `curl` command is unsafe.

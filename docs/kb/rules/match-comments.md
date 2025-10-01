@@ -28,7 +28,7 @@ rules:
     message: The TODO comment "$...ACTION" does not contain a Jira ticket to resolve the issue
     languages:
       - generic
-    severity: INFO
+    severity: LOW
     metadata:
       category: best-practice
 ```
@@ -69,7 +69,7 @@ rules:
       Blue is not allowed.
     languages:
       - generic
-    severity: INFO
+    severity: LOW
 ```
 
 ## Additional resources

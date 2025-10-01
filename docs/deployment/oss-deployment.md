@@ -59,7 +59,7 @@ rules:
     languages:
       - javascript
       - typescript
-    severity: WARNING
+    severity: MEDIUM
     metadata:
       cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
       primary_identifier: eslint.detect-object-injection

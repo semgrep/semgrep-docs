@@ -35,7 +35,7 @@ rules:
   - id: int-bool-untainted
     languages:
       - java
-    severity: WARNING
+    severity: MEDIUM
     options:
       interfile: true
       taint_assume_safe_booleans: true
@@ -117,7 +117,7 @@ rules:
     message: Found SQLi
     languages:
       - java
-    severity: WARNING
+    severity: MEDIUM
     mode: taint
     options:
       taint_assume_safe_booleans: true
@@ -203,7 +203,7 @@ rules:
       - metavariable-type:
           metavariable: $CLASS
           type: Foo
-    severity: WARNING
+    severity: MEDIUM
 ```
 
 ```java showLineNumbers
@@ -267,7 +267,7 @@ rules:
   - id: unsafe-sql-concatenation-in-method-taint-field-sensitivity
     languages:
       - java
-    severity: WARNING
+    severity: MEDIUM
     metadata:
       interfile: true
     mode: taint
