@@ -1,8 +1,9 @@
 ---
 slug: advanced
-title: Taint analysis - advanced
+title: Advanced techniques for taint analysis
 hide_title: true
-description: Learn advanced techniques for taint mode, which allows you to write simple rules that catch complex injection bugs using taint analysis.
+description: Learn advanced techniques for taint mode, which allows you to write rules to catch complex injection bugs.
+toc_max_heading_level: 2
 tags:
  - Rule writing
  - Dataflow analysis
@@ -10,6 +11,8 @@ tags:
 ---
 
 # Advanced taint analysis techniques
+
+This page covers advanced taint analysis techniques for use when writing rules to catch complex injection bugs. If you are new to writing taint mode rules, begin with [Overview](/writing-rules/data-flow/taint-mode/overview).
 
 ## Taint sources by side effect
 
@@ -342,7 +345,7 @@ options:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=JDPGP" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-The [deduplication of findings](#deduplication-of-findings) still applies in this case. While Semgrep reports all the taint sources, the taint trace only informs you of one sink if a taint source can reach multiple sinks.
+The [deduplication of findings](/writing-rules/data-flow/taint-mode/overview#deduplication-of-findings) still applies in this case. While Semgrep reports all the taint sources, the taint trace only informs you of one sink if a taint source can reach multiple sinks.
 
 ## Minimize false positives
 
@@ -353,7 +356,7 @@ The following [rule options](/writing-rules/rule-syntax/#options) can be used to
 | `taint_assume_safe_booleans` | `false` | Boolean data is never considered tainted (works better with type annotations). |
 | `taint_assume_safe_numbers` | `false` | Numbers (integers, floats) are never considered tainted (works better with type annotations). |
 | `taint_assume_safe_indexes` | `false` | An index expression `I` tainted does not make an access expression `E[I]` tainted (it is only tainted if `E` is tainted). |
-| `taint_assume_safe_functions` | `false` | A function call like `F(E)` is not considered tainted even if `E` is tainted. Note: When using Pro's [interprocedural taint analysis](#inter-procedural-analysis-pro), this only applies to functions for which Semgrep cannot find a definition. |
+| `taint_assume_safe_functions` | `false` | A function call like `F(E)` is not considered tainted even if `E` is tainted. Note: When using Pro's [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), this only applies to functions for which Semgrep cannot find a definition. |
 | `taint_only_propagate_through_assignments` 🧪 | `false` | Disables all implicit taint propagation except for assignments. |
 
 ### Restrict taint by type (Pro)
@@ -388,7 +391,7 @@ By default, Semgrep assumes that accessing an array-like object with a tainted i
 :::note
 A function call is referred to as _opaque_ when Semgrep doesn't have access to its definition, which is necessary to examine it and determine its taint behavior. For example, with an opaque function, Semgrep cannot determine whether a function call propagates any taint that comes through its inputs.
 
-In Semgrep Community Edition (CE), where taint analysis is intra-procedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](#inter-procedural-analysis-pro), an opaque function could originate from a third-party library.
+In Semgrep Community Edition (CE), where taint analysis is intra-procedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), an opaque function could originate from a third-party library.
 :::
 
 By default, Semgrep assumes that an _opaque_ function call propagates any taint passed through any of its arguments to its output.

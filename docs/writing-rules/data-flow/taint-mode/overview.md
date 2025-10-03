@@ -2,7 +2,7 @@
 slug: overview
 title: Taint analysis
 hide_title: true
-description: Learn about taint mode, which allows you to write simple rules that catch complex injection bugs using taint analysis.
+description: Learn about taint mode, which allows you to write rules that catch complex injection bugs using taint analysis.
 tags:
  - Rule writing
  - Dataflow analysis
@@ -42,10 +42,10 @@ The rule specifies the sanitizer `sanitize_input(...)`, so any expression that m
 
 Finally, the rule specifies that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls to  `html_output(data)` that are both labeled as sinks. The first one in `route1` is not reported because `data` is sanitized before reaching the sink, whereas the second one in `route2` is reported because the `data` that reaches the sink is still tainted.
 
-Find more examples of taint rules in the [Semgrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), including[express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
+Find more examples of taint rules in the [Semgrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), including [express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
 
 :::warning
-[Metavariables](/writing-rules/pattern-syntax#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](#metavariables-rule-message-and-unification) for further details.
+[Metavariables](/writing-rules/pattern-syntax#metavariables) used in `pattern-sources` are considered _different_ from those used in `pattern-sinks`, even if they have the same name! See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode/advanced#metavariables-rule-messages-and-unification) for further details.
 :::
 
 ## Sources
@@ -70,9 +70,9 @@ Additionally, taint sources accept the following options:
 
 | Option | Type | Default | Description |
 | - | - | - | - |
-| `exact` | {`false`, `true`} | `false` | See [_Exact sources_](#exact-sources).                                 |
-| `by-side-effect` | {`false`, `true`, `only`} | `false` | See [_Sources by side-effect_](#sources-by-side-effect). |
-| `control` (Pro) 🧪 | {`false`, `true`} | `false` | See [_Control sources_](#control-sources-pro-).
+| `exact` | {`false`, `true`} | `false` | See [Exact sources](#exact-sources).                                 |
+| `by-side-effect` | {`false`, `true`, `only`} | `false` | See [Taint sources by side-effect](/writing-rules/data-flow/taint-mode/advanced#taint-sources-by-side-effect). |
+| `control` (Pro) 🧪 | {`false`, `true`} | `false` | See [Track control sources](/writing-rules/data-flow/taint-mode/advanced#track-control-sources-pro-).
 
 ### Exact sources
 
@@ -127,7 +127,7 @@ Additionally, taint sanitizers accept the following options:
 | Option | Type | Default | Description | 
 | - | - | - | - |
 | `exact` | {`false`, `true`} | `false` | See [Exact sanitizers](#exact-sanitizers). | 
-|`by-side-effect` | {`false`, `true`, `only`} | `false` | See [Sanitizers by side-effect](#sanitizers-by-side-effect). |
+|`by-side-effect` | {`false`, `true`, `only`} | `false` | See [Taint sanitizers by side-effect](/writing-rules/data-flow/taint-mode/advanced#taint-sanitizers-by-side-effect). |
 
 ### Exact sanitizers
 
@@ -184,7 +184,7 @@ Additionally, taint sinks accept the following options:
 | Option | Type | Default | Description |
 | - | - | - | - |
 | `exact` | {`false`, `true`} | `true` | See [Non-exact sinks](#non-exact-sinks). |
-| `at-exit` (Pro) 🧪 | {`false`, `true`} | `false` | See [At-exit sinks](#at-exit-sinks-pro-). |
+| `at-exit` (Pro) 🧪 | {`false`, `true`} | `false` | See [Restrict taint to at-exit sinks](/writing-rules/data-flow/taint-mode/advanced#restrict-taint-to-at-exit-sinks-pro-). |
 
 ### Non-exact sinks
 
@@ -240,7 +240,7 @@ In addition, taint propagators accept the following options:
 
 | Option | Type | Default | Description |
 | - | - | - | - |
-| `by-side-effect` | {`false`, `true`} | `true` | See [Propagation without side-effect](#propagation-without-side-effect). |
+| `by-side-effect` | {`false`, `true`} | `true` | See [Propagate without side-effect](/writing-rules/data-flow/taint-mode/advanced#propagate-without-side-effect). |
 
 For example, given the following propagator, if taint goes into the second argument of `strcpy`, its first argument gets the same taint:
 
@@ -253,7 +253,7 @@ pattern-propagators:
 ```
 
 :::info
-Taint propagators only work intra-procedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#inter-procedural-analysis-pro).
+Taint propagators only work intra-procedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#interprocedural-analysis-pro).
 :::
 
 ## Findings
