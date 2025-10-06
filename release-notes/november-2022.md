@@ -89,7 +89,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 #### Semgrep CLI
 
 - The [Experiments](/writing-rules/experiments/introduction) category now provides an introduction, in addition, the [Deprecated experiments](/writing-rules/experiments/deprecated-experiments) section is now an independent document.
-- Added [Field sensitivity](writing-rules/data-flow/taint-mode/advanced#taint-mode-sensitivity) section to taint analysis documentation.
+- Added [Field sensitivity](/writing-rules/data-flow/taint-mode/advanced#taint-mode-sensitivity) section to taint analysis documentation.
 
 ### Changes
 
