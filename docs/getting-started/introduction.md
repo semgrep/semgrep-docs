@@ -13,12 +13,16 @@ tags:
 ---
 
 
-Semgrep is a fast, rule-based static analysis tool that scans source code to find security issues, secrets, and reachable dependency vulnerabilities. Semgrep can be integrated into your CLI/IDE/CI and posts security findings in PRs/MRs. Rules are written in a simple schema and match code semantically, with dataflow/taint checks available. The results of the security scans can be triaged and remediated in the Semgrep AppSec Platform. 
+Semgrep is a software security tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection. It integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform to find vulnerabilities in source code without executing it.
+
+Semgrep uses rules written in a simple schema that match code semantically. You can use out-of-the-box Pro rules, apply community-maintained rules, or write your own to fit your workflow.
+
+Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and autofix suggestions for Semgrep Code findings.
 
 ## Offerings
 
-* Community Edition (open source) — the core scanner supporting 30+ languages. 
-* Semgrep AppSec Platform — managed scanning at org scale, pro rules, supply-chain reachability, secrets detection, PR comments, and AI-assisted triage/fixes. 
+* Community Edition (open source): the core scanner supporting 30+ languages. 
+* Semgrep AppSec Platform: managed scanning at org scale, pro rules, supply-chain reachability, secrets detection, PR comments, and AI-assisted triage/fixes. Supports 35+ languages
 
 ![](/img/appsecplatform-intro.png)
 
