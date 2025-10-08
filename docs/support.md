@@ -44,9 +44,10 @@ from the [Help section](https://semgrep.dev/orgs/-/support).
 
 #### Email
 
-For non-urgent inquiries, or when you need to provide detailed information about
-your issue, you can email the Support team at
-[support@semgrep.com](mailto:support@semgrep.com).
+You can also email the Support team at
+[support@semgrep.com](mailto:support@semgrep.com). For urgent or high
+priority issues, we recommend using Slack or the platform's Help section,
+so that you can set the appropriate priority on your issue.
 
 ## Support for all Semgrep users (community support)
 
@@ -66,6 +67,6 @@ group](https://go.semgrep.dev/slack)
 ## Status page
 
 The [Semgrep status page](https://status.semgrep.dev/) enables users to
-subscribe to notifications whenever an incident is created, updated, or
+subscribe to notifications whenever a service incident is created, updated, or
 resolved. Check the status page to see any current or past service incidents or
 to review historical uptime.
