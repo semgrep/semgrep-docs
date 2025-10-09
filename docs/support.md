@@ -44,7 +44,7 @@ from the [Help section](https://semgrep.dev/orgs/-/support).
 
 #### Email
 
-You can also email the Support team at
+You can email the Support team at
 [support@semgrep.com](mailto:support@semgrep.com). For urgent or high
 priority issues, we recommend using Slack or the platform's Help section,
 so that you can set the appropriate priority on your issue.
