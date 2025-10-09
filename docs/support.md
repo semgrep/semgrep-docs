@@ -46,7 +46,7 @@ from the [Help section](https://semgrep.dev/orgs/-/support).
 
 You can email the Support team at
 [support@semgrep.com](mailto:support@semgrep.com). For urgent or high
-priority issues, we recommend using Slack or the platform's Help section,
+priority issues, use Slack or [Semgrep AppSec Platform's Help section](https://semgrep.dev/orgs/-/support),
 so that you can set the appropriate priority on your issue.
 
 ## Support for all Semgrep users (community support)
