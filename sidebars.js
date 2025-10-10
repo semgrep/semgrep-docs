@@ -44,6 +44,11 @@ module.exports = {
         label: 'Get started',
         collapsible: false,
         items: [
+            {
+                type: 'doc',
+                id: 'getting-started/introduction',
+                label: "What's Semgrep?"
+            },
             'getting-started/quickstart',
             'getting-started/quickstart-sms',
             'prerequisites',
