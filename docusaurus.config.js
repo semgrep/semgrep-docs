@@ -232,6 +232,10 @@ module.exports = {
     {
       src: '/docs/js/gtm.js',
       async: true
+    },
+    {
+      src: '/docs/js/search-snippets.js',
+      async: false
     }
   ],
   presets: [
