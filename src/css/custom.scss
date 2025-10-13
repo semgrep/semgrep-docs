@@ -265,6 +265,57 @@ mark {
 }
 
 /******************************************************************************
+ * SUGGESTED/POPULAR DOCS (when search is empty)                             *
+ *****************************************************************************/
+
+.suggested-docs-container {
+  padding: 8px 0;
+}
+
+.suggested-docs-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--semgrep-secondary-blue03);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px 8px;
+  margin-bottom: 4px;
+}
+
+.suggested-doc-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px !important;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-primary-lightest);
+  background-color: var(--ifm-background-color);
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.suggested-doc-item:hover {
+  background-color: var(--ifm-color-primary-lightest);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.suggested-doc-item .MarkpromptSearchResultSubtitle {
+  order: -1;
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+  color: var(--semgrep-secondary-blue03) !important;
+  opacity: 0.8;
+}
+
+.suggested-doc-item .MarkpromptSearchResultHeading {
+  order: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--semgrep-secondary-blue01);
+  margin: 0;
+}
+
+/******************************************************************************
  * SEARCH RESULT TYPE BADGES                                                 *
  *****************************************************************************/
 
@@ -556,6 +607,29 @@ html[data-theme="dark"] {
   .MarkpromptSearchResult a:hover {
     background-color: var(--ifm-color-primary-darkest);
     border-color: var(--ifm-color-primary-darker);
+  }
+
+  /* Suggested docs - Dark mode */
+  .suggested-docs-header {
+    color: var(--markprompt-mutedForeground);
+  }
+
+  .suggested-doc-item {
+    background-color: var(--ifm-background-surface-color);
+    border-color: var(--ifm-color-gray-800);
+  }
+
+  .suggested-doc-item:hover {
+    background-color: var(--ifm-color-primary-darkest);
+    border-color: var(--ifm-color-primary-darker);
+  }
+
+  .suggested-doc-item .MarkpromptSearchResultSubtitle {
+    color: var(--markprompt-mutedForeground) !important;
+  }
+
+  .suggested-doc-item .MarkpromptSearchResultHeading {
+    color: var(--markprompt-foreground);
   }
 
   // Dark mode cards

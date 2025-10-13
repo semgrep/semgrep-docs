@@ -16,6 +16,18 @@
     'EXAMPLES'
   ];
 
+  // Popular/suggested docs to show when search is empty
+  const SUGGESTED_DOCS = [
+    { title: 'Quickstart', section: 'Get started', url: '/docs/getting-started/quickstart' },
+    { title: 'Write custom rules', section: 'SAST (Code)', url: '/docs/semgrep-code/write-custom-rules' },
+    { title: 'CLI reference', section: 'References', url: '/docs/cli-reference' },
+    { title: 'Local CLI scans', section: 'Semgrep OSS', url: '/docs/semgrep-code/semgrep-oss/cli-oss' },
+    { title: 'Set rules through Policies', section: 'SAST (Code)', url: '/docs/semgrep-code/policies' },
+    { title: 'Supported languages', section: 'Get started', url: '/docs/supported-languages' },
+    { title: 'Core deployment', section: 'Set up and deploy scans', url: '/docs/deployment/core-deployment' },
+    { title: 'Triage and remediation', section: 'SAST (Code)', url: '/docs/semgrep-code/triage-remediation' }
+  ];
+
   function addResultCount() {
     // Find the search results container
     const searchResults = document.querySelectorAll('.MarkpromptSearchResult');
@@ -66,6 +78,59 @@
     addResultCount();
   }
 
+  function showSuggestedDocs() {
+    const searchInput = document.querySelector('.MarkpromptSearchInput, input[type="search"]');
+    const searchContainer = document.querySelector('.MarkpromptSearchResults');
+    
+    if (!searchContainer) return;
+    
+    // Only show suggestions if search is empty or has minimal input
+    const query = searchInput?.value?.trim() || '';
+    if (query.length > 0) return;
+    
+    // Check if suggestions already exist
+    if (document.querySelector('.suggested-docs-container')) return;
+    
+    // Create suggestions container
+    const suggestionsContainer = document.createElement('div');
+    suggestionsContainer.className = 'suggested-docs-container';
+    
+    const header = document.createElement('div');
+    header.className = 'suggested-docs-header';
+    header.textContent = 'Popular pages';
+    suggestionsContainer.appendChild(header);
+    
+    // Create suggestion items
+    SUGGESTED_DOCS.forEach(doc => {
+      const item = document.createElement('a');
+      item.className = 'MarkpromptSearchResult suggested-doc-item';
+      item.href = doc.url;
+      
+      const section = document.createElement('div');
+      section.className = 'MarkpromptSearchResultSubtitle';
+      section.textContent = doc.section;
+      
+      const title = document.createElement('h3');
+      title.className = 'MarkpromptSearchResultHeading';
+      title.textContent = doc.title;
+      
+      item.appendChild(section);
+      item.appendChild(title);
+      suggestionsContainer.appendChild(item);
+    });
+    
+    // Clear existing content and add suggestions
+    searchContainer.innerHTML = '';
+    searchContainer.appendChild(suggestionsContainer);
+  }
+
+  function removeSuggestedDocs() {
+    const suggestionsContainer = document.querySelector('.suggested-docs-container');
+    if (suggestionsContainer) {
+      suggestionsContainer.remove();
+    }
+  }
+
   // Debounce function to prevent too many calls
   let debounceTimer;
   function debouncedNormalize() {
@@ -85,9 +150,48 @@
     );
     
     if (hasSearchResults) {
+      removeSuggestedDocs(); // Remove suggestions when real results appear
       debouncedNormalize();
     }
   });
+
+  // Watch for search input changes
+  function setupSearchListeners() {
+    const searchInput = document.querySelector('.MarkpromptSearchInput, input[type="search"]');
+    
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        
+        if (query.length === 0) {
+          // Show suggestions when search is cleared
+          setTimeout(showSuggestedDocs, 300);
+        } else {
+          // Remove suggestions when user types
+          removeSuggestedDocs();
+        }
+      });
+    }
+  }
+
+  // Watch for dialog opening
+  function watchForDialogOpen() {
+    const dialogObserver = new MutationObserver(() => {
+      const dialog = document.querySelector('[role="dialog"]');
+      const searchInput = document.querySelector('.MarkpromptSearchInput, input[type="search"]');
+      
+      if (dialog && searchInput) {
+        setupSearchListeners();
+        // Show suggestions after dialog opens if search is empty
+        setTimeout(showSuggestedDocs, 200);
+      }
+    });
+    
+    dialogObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 
   // Start observing when DOM is ready
   function startObserving() {
@@ -100,6 +204,9 @@
       childList: true,
       subtree: true
     });
+    
+    // Start watching for dialog opens
+    watchForDialogOpen();
     
     normalizeSearchResults();
   }
