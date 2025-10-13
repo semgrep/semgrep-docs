@@ -2,14 +2,9 @@
   "index_name": "docs",
   "start_urls": [
     {
-      "url": "https://semgrep.dev/docs/release-notes",
+      "url": "https://semgrep.dev/release-notes",
       "tags": ["release_notes"],
-      "page_rank": -100
-    },
-    {
-      "url": "https://semgrep.dev/docs/rule-updates",
-      "tags": ["rule_updates"],
-      "page_rank": -100
+      "page_rank": 30
     },
     {
       "url": "https://semgrep.dev/docs/getting-started",
@@ -287,8 +282,11 @@
         "DeepSemgrep"
       ]
     ],
-    "attributesToSnippet": ["content:30"],
-    "attributesToHighlight": ["hierarchy", "content"],
+    "attributesToSnippet": ["content:80"],
+    "attributesToHighlight": ["hierarchy", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "content"],
+    "snippetEllipsisText": "…",
+    "highlightPreTag": "<mark>",
+    "highlightPostTag": "</mark>",
     "camelCaseAttributes": ["hierarchy", "content"],
     "distinct": true,
     "attributeForDistinct": "url_without_anchor",
