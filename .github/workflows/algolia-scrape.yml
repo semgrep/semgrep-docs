@@ -33,9 +33,15 @@ jobs:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         run: |
+          # Use staging URL for PR branch, production URL for main
+          if [[ "${{ github.ref }}" == "refs/heads/abhijna/algolia-improvements" ]]; then
+            CONFIG=$(cat algolia-config.json | sed 's|https://semgrep.dev|https://staging.semgrep.dev|g')
+          else
+            CONFIG=$(cat algolia-config.json)
+          fi
           docker run \
           -e APPLICATION_ID -e API_KEY \
-          -e CONFIG="$(cat algolia-config.json)" \
+          -e CONFIG="$CONFIG" \
           algolia/docsearch-scraper:latest
           curl -X PUT \
           -H "X-Algolia-API-Key: ${API_KEY}" \

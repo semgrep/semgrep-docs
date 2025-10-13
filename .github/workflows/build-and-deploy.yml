@@ -6,6 +6,7 @@ on:
       branches:
       - main
       - develop
+      - abhijna/algolia-improvements
 
 jobs:
   deploy:
@@ -32,7 +33,7 @@ jobs:
           role-session-name: deploy
           aws-region: us-west-2
       - name: Deploy to staging
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/abhijna/algolia-improvements'
         run: aws s3 sync build/ s3://staging-semgrep-dev/docs --delete
       - name: Deploy to production
         if: github.ref == 'refs/heads/main'
