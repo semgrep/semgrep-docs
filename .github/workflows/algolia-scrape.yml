@@ -33,11 +33,13 @@ jobs:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         run: |
-          # Use staging URL for PR branch, production URL for main
+          # Use staging URL and separate index for PR branch, production for main
           if [[ "${{ github.ref }}" == "refs/heads/abhijna/algolia-improvements" ]]; then
-            CONFIG=$(cat algolia-config.json | sed 's|https://semgrep.dev|https://staging.semgrep.dev|g')
+            CONFIG=$(cat algolia-config.json | sed 's|https://semgrep.dev|https://staging.semgrep.dev|g' | sed 's|"index_name": "docs"|"index_name": "docs-staging"|g')
+            INDEX_NAME="docs-staging"
           else
             CONFIG=$(cat algolia-config.json)
+            INDEX_NAME="docs"
           fi
           docker run \
           -e APPLICATION_ID -e API_KEY \
@@ -49,4 +51,4 @@ jobs:
           --data-binary '{
             "ranking": ["desc(weight.page_rank)", "desc(weight.level)", "asc(weight.position)", "words", "exact", "attribute", "proximity", "typo"]
           }' \
-          "https://${APPLICATION_ID}.algolia.net/1/indexes/docs/settings?forwardToReplicas=true"
+          "https://${APPLICATION_ID}.algolia.net/1/indexes/${INDEX_NAME}/settings?forwardToReplicas=true"

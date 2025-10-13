@@ -23,7 +23,13 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Build
+      - name: Build for staging
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/abhijna/algolia-improvements'
+        env:
+          ALGOLIA_INDEX_NAME: docs-staging
+        run: yarn build
+      - name: Build for production
+        if: github.ref == 'refs/heads/main'
         run: yarn build
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

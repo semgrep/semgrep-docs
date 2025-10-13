@@ -27,7 +27,7 @@ module.exports = {
           name: 'algolia',
           apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
           appId: 'RGEY1AKPUC',
-          indexName: 'docs',
+          indexName: process.env.ALGOLIA_INDEX_NAME || 'docs',
         },
       },
       chat: {
