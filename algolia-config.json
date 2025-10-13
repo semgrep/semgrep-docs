@@ -12,6 +12,51 @@
       "page_rank": -100
     },
     {
+      "url": "https://semgrep.dev/docs/getting-started",
+      "tags": ["getting_started"],
+      "page_rank": 100
+    },
+    {
+      "url": "https://semgrep.dev/docs/writing-rules",
+      "tags": ["writing_rules"],
+      "page_rank": 80
+    },
+    {
+      "url": "https://semgrep.dev/docs/deployment",
+      "tags": ["deployment"],
+      "page_rank": 80
+    },
+    {
+      "url": "https://semgrep.dev/docs/cli-reference",
+      "tags": ["cli"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-code",
+      "tags": ["semgrep_code"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-supply-chain",
+      "tags": ["supply_chain"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-secrets",
+      "tags": ["secrets"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/kb",
+      "tags": ["knowledge_base"],
+      "page_rank": 50
+    },
+    {
+      "url": "https://semgrep.dev/docs/troubleshooting",
+      "tags": ["troubleshooting"],
+      "page_rank": 60
+    },
+    {
      "url": "https://semgrep.dev/docs"
     }
   ],
@@ -34,7 +79,7 @@
       "lvl4": "article h4",
       "lvl5": "article h5, article td:first-child",
       "lvl6": "article h6",
-      "text": "article p, article li, main p, main li, article td:last-child, article div table td, article div table th"
+      "text": "article p, article li, main p, main li, article td:last-child, article div table td, article div table th, article code, article pre code"
     }
   },
   "strip_chars": " .,;:#()",
@@ -55,7 +100,29 @@
       "terms",
       "IdP",
       "IDE",
-      "Jira"
+      "Jira",
+      "regex",
+      "metavariable",
+      "taint",
+      "autofix",
+      "SAST",
+      "SCA",
+      "API",
+      "CLI",
+      "YAML",
+      "JSON",
+      "GitLab",
+      "GitHub",
+      "Bitbucket",
+      "OAuth",
+      "SAML",
+      "RBAC",
+      "webhook",
+      "lockfile",
+      "dependency",
+      "vulnerability",
+      "CVE",
+      "CVSS"
     ],
     
     "attributesForFaceting": [
@@ -136,9 +203,91 @@
       [
         "click to fix",
         "click-to-fix"
+      ],
+      [
+        "pattern",
+        "rule pattern"
+      ],
+      [
+        "metavariable",
+        "metavar"
+      ],
+      [
+        "command injection",
+        "OS command injection"
+      ],
+      [
+        "XSS",
+        "cross-site scripting"
+      ],
+      [
+        "SQL injection",
+        "SQLi"
+      ],
+      [
+        "SSRF",
+        "server-side request forgery"
+      ],
+      [
+        "remote code execution",
+        "RCE"
+      ],
+      [
+        "regular expression",
+        "regex"
+      ],
+      [
+        "source code management",
+        "SCM"
+      ],
+      [
+        "data flow",
+        "dataflow"
+      ],
+      [
+        "taint analysis",
+        "taint tracking",
+        "taint mode"
+      ],
+      [
+        "OSS",
+        "open source"
+      ],
+      [
+        "reachability",
+        "reachable"
+      ],
+      [
+        "SCA",
+        "software composition analysis"
+      ],
+      [
+        "SAST",
+        "static application security testing"
+      ],
+      [
+        "secrets scanning",
+        "secrets detection"
+      ],
+      [
+        "configuration",
+        "config"
+      ],
+      [
+        "YAML config",
+        "YAML configuration"
+      ],
+      [
+        "Semgrep AppSec Platform",
+        "Semgrep Cloud Platform",
+        "SCP"
+      ],
+      [
+        "Semgrep Pro Engine",
+        "DeepSemgrep"
       ]
     ],
-    "attributesToSnippet": ["content:20"],
+    "attributesToSnippet": ["content:30"],
     "attributesToHighlight": ["hierarchy", "content"],
     "camelCaseAttributes": ["hierarchy", "content"],
     "distinct": true,
@@ -167,9 +316,12 @@
     ],
     "advancedSyntax": true,
     "removeWordsIfNoResults": "allOptional",
-    "typoTolerance": "min",
+    "typoTolerance": "strict",
+    "minWordSizefor1Typo": 4,
+    "minWordSizefor2Typos": 8,
     "ignorePlurals": false,
-    "separatorsToIndex": "_-"
+    "separatorsToIndex": "_-",
+    "minProximity": 3
   },
   "conversation_id": [
     "833762294"
