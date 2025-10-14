@@ -14,7 +14,7 @@ For instance, the following rule that identifies potentially unsafe usage of the
 ```yaml
 rules:
   - id: no-string-eqeq
-    severity: WARNING
+    severity: MEDIUM
     message: Avoid using the referential equality operator when comparing String objects
     languages:
       - java
@@ -27,7 +27,7 @@ can be modified to the following rule:
 ```yaml
 rules:
   - id: no-string-eqeq
-    severity: WARNING
+    severity: MEDIUM
     message: Avoid using the referential equality operator when comparing String objects
     languages:
       - java

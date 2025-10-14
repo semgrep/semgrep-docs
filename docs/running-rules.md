@@ -98,7 +98,7 @@ To create a local YAML file where you define your own rules and run them with Se
       message: The operator 'is' is for reference equality, not value equality! Use
       `==` instead!
       pattern: $SOMEVAR is "..."
-      severity: ERROR
+      severity: HIGH
     ```
 3. Run the following command to run local YAML rule files:
     <pre class="language-bash"><code>semgrep scan --config <span className="placeholder">PATH/TO/MYRULE.YAML</span></code></pre>
