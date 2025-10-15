@@ -34,9 +34,11 @@ You must provide a Bitbucket [workspace access token](https://support.atlassian.
 - `project (admin)`
 - `account (read)`
 
+Webhook permissions are required to support diff-aware scans.
+
 ### Bitbucket Data Center
 
-You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Product Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
+You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Project Admin` role. This access token must be created with with `PROJECT_ADMIN` permissions.
 
 Project-level webhooks are required to support diff-aware scans.
 
@@ -56,7 +58,7 @@ Project-level webhooks are required to support diff-aware scans.
 1. Repeat the steps above for each additional Bitbucket workspace you'd like added to Semgrep.
 <!-- vale on -->
 
-You have finished setting up a Semgrep managed scan.
+You have successfully set up Managed Scans for your workspace or project.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories in the workspace.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
@@ -64,7 +66,7 @@ You have finished setting up a Semgrep managed scan.
 
 ## Add additional Bitbucket projects
 
-You can enable managed scanning for additional repositories after onboarding using the following steps:
+You can enable Managed Scans for additional repositories after onboarding using the following steps:
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -105,10 +107,12 @@ Semgrep preserves your findings, scans, and triage history.
 
 ## Disable webhooks
 
-Managed scanning of Bitbucket projects requires webhooks. The webhooks are enabled by default when you add Bitbucket as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
+Performing diff-aware Managed Scans of Bitbucket projects requires webhooks to be enabled. Webhooks are enabled by default when you add Bitbucket as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
 
 1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
 2. Find your Bitbucket connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to disable **Incoming webhooks**.
+
+This will stop any diff-aware scans of your projects.
 
 ## Revoke Semgrep's access to your repositories
 
