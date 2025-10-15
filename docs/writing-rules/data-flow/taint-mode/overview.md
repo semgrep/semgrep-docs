@@ -253,7 +253,7 @@ pattern-propagators:
 ```
 
 :::info
-Taint propagators only work intra-procedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#interprocedural-analysis-pro).
+Taint propagators only work intraprocedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#interprocedural-analysis-pro).
 :::
 
 ## Findings
@@ -287,7 +287,7 @@ In the following example, `user_input` is passed to `foo` as input, and from the
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=PeBXv" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-Using the CLI option `--pro-intrafile` when invoking Semgrep, Semgrep performs interprocedural (across functions), _intra_-file (within one file) analysis. In other words, Semgrep tracks taint across functions, but it will not cross file boundaries. This is supported for essentially every language, and performance is very close to that of intra-procedural taint analysis.
+Using the CLI option `--pro-intrafile` when invoking Semgrep, Semgrep performs interprocedural (across functions), _intra_-file (within one file) analysis. In other words, Semgrep tracks taint across functions, but it will not cross file boundaries. This is supported for essentially every language, and performance is very close to that of intraprocedural taint analysis.
 
 Using the CLI option `--pro`, Semgrep will perform interprocedural (across functions) as well as *inter*-file (across files) analysis. Inter-file analysis is only supported for [a subset of languages](/supported-languages#language-maturity-summary). For a rule to run interfile, it also needs to set `interfile: true`:
 

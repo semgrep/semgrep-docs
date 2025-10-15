@@ -391,7 +391,7 @@ By default, Semgrep assumes that accessing an array-like object with a tainted i
 :::note
 A function call is referred to as _opaque_ when Semgrep doesn't have access to its definition, which is necessary to examine it and determine its taint behavior. For example, with an opaque function, Semgrep cannot determine whether a function call propagates any taint that comes through its inputs.
 
-In Semgrep Community Edition (CE), where taint analysis is intra-procedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), an opaque function could originate from a third-party library.
+In Semgrep Community Edition (CE), where taint analysis is intraprocedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), an opaque function could originate from a third-party library.
 :::
 
 By default, Semgrep assumes that an _opaque_ function call propagates any taint passed through any of its arguments to its output.
