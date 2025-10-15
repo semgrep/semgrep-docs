@@ -18,7 +18,8 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
@@ -34,7 +35,7 @@ module.exports = {
       className: 'top-category'
     },
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
+    { type: 'ref', id: 'trophy-case', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -418,6 +419,22 @@ module.exports = {
         'cli-reference',
         'semgrep-appsec-platform/json-and-sarif'
       ]
+    },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
     }
   ],
   rulewritingSidebar: [
@@ -500,7 +517,23 @@ module.exports = {
               'semgrep-secrets/rules',
               'semgrep-secrets/validators'
           ]
-        }
+        },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
+    }
   ],
   cheatsheetSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -587,6 +620,23 @@ module.exports = {
                 },
             ],
         },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
+    }
 ],
   aboutSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -599,13 +649,11 @@ module.exports = {
             'support',
             'security',
             'licensing',
-            'faq/overview',
             'integrating',
             'usage-and-billing',
             'deployment/claim-a-license',
             'contributing/philosophy',
             'semgrep-pro-vs-oss',
-            'run-a-successful-pov',
             {
               type: 'category',
               label: 'Comparisons with other tools',
@@ -648,6 +696,22 @@ module.exports = {
             }
         ],
     },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+      ]
+    }
   ],
   kbSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -786,6 +850,22 @@ module.exports = {
         },
       ]
     },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
+    }
   ],
   devSidebar: [
     { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -817,6 +897,22 @@ module.exports = {
             'for-developers/detection',
         ],
     },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
+    }
   ],
   learnSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -1089,6 +1185,50 @@ module.exports = {
                     ]
                 },
             ],
+    },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep' },
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
+    }
+  ],
+  whatsSemgrepSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+        type: 'category',
+        label: 'What\'s semgrep',
+        collapsible: false,
+        items: [
+            'faq/overview',
+            'run-a-successful-pov',
+        ],
+    },
+    {
+      type: 'category',
+      label: 'Browse other sections',
+      collapsible: true,
+      collapsed: true,
+      className: 'browse-sections',
+      items: [
+        { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep' },
+        { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules' },
+        { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers' },
+        { type: 'ref', id: 'learn/overview', label: 'Semgrep learning guides' },
+        { type: 'link', href: '/kb', label: 'Knowledge base' },
+        { type: 'link', href: '/release-notes', label: 'Release notes' },
+        { type: 'ref', id: 'trophy-case', label: 'About Semgrep' },
+      ]
     }
   ]
 };

@@ -34,7 +34,7 @@ export default function DocItemContent({children}: Props): JSX.Element {
   const syntheticTitle = useSyntheticTitle();
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
-      <Tags />
+      <Tags tag={undefined} />
       {syntheticTitle && (
         <header>
           <Heading as="h1">{syntheticTitle}</Heading>

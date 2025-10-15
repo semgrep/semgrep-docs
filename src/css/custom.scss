@@ -743,9 +743,19 @@ article > a[class*="cardContainer_"][class~="card"] {
 }
 
 .home-top-level a:before {
-  content: "🏠";
-  display: inline;
-  padding-right: 8px;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='16' height='16'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+html[data-theme="dark"] .home-top-level a:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa' width='16' height='16'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
 }
 
 
@@ -965,4 +975,43 @@ h2[class^="title"] {
 
 .blog-index {
     padding-bottom: 2rem;
+}
+
+/******************************************************************************
+ *                                                                            *
+ * BROWSE OTHER SECTIONS                                                      *
+ *                                                                            *
+ *****************************************************************************/
+
+/* Add top border and spacing */
+.browse-sections {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--semgrep-secondary-mint02);
+}
+
+/* Style the category label to match section headers like "APPLICATION SECURITY" */
+.browse-sections > .menu__list-item-collapsible > .menu__link {
+  color: var(--ifm-color-primary);
+  vertical-align: bottom;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  padding-bottom: 0rem;
+  padding-top: 0.5rem;
+  background: none;
+  border: none;
+  
+  &:hover {
+    background: unset;
+    color: var(--ifm-color-primary);
+  }
+}
+
+/* Dark mode styles */
+html[data-theme="dark"] {
+  .browse-sections {
+    border-top: 2px solid var(--ifm-color-gray-700);
+  }
 }
