@@ -383,7 +383,7 @@ For packages used by customers with an active, paid subscription, Semgrep’s re
 - All **critical severity** CVEs from [supported sources](#supported-sources) starting in 2017.
 - All **high and critical severity** CVEs from supported sources starting:
    - May 2022 for all packages
-   - 2017 for Python packages
+   - 2017 for Python, JavaScript, and Go packages
 
 ##### Supported sources
 
