@@ -72,7 +72,7 @@ Additionally, taint sources accept the following options:
 | - | - | - | - |
 | `exact` | {`false`, `true`} | `false` | See [Exact sources](#exact-sources).                                 |
 | `by-side-effect` | {`false`, `true`, `only`} | `false` | See [Taint sources by side-effect](/writing-rules/data-flow/taint-mode/advanced#taint-sources-by-side-effect). |
-| `control` (Pro) 🧪 | {`false`, `true`} | `false` | See [Track control sources](/writing-rules/data-flow/taint-mode/advanced#track-control-sources-pro-).
+| `control` (Pro) 🧪 | {`false`, `true`} | `false` | See [Track control sources](/writing-rules/data-flow/taint-mode/advanced#track-control-sources-).
 
 ### Exact sources
 
@@ -184,7 +184,7 @@ Additionally, taint sinks accept the following options:
 | Option | Type | Default | Description |
 | - | - | - | - |
 | `exact` | {`false`, `true`} | `true` | See [Non-exact sinks](#non-exact-sinks). |
-| `at-exit` (Pro) 🧪 | {`false`, `true`} | `false` | See [Restrict taint to at-exit sinks](/writing-rules/data-flow/taint-mode/advanced#restrict-taint-to-at-exit-sinks-pro-). |
+| `at-exit` (Pro) 🧪 | {`false`, `true`} | `false` | See [Restrict taint to at-exit sinks](/writing-rules/data-flow/taint-mode/advanced#restrict-taint-to-at-exit-sinks-). |
 
 ### Non-exact sinks
 
@@ -214,7 +214,25 @@ Once the sink is non-exact, Semgrep considers subexpressions as taint sinks, and
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=qNwez" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-## Propagators (Pro)
+## Findings
+
+Taint findings are accompanied by a taint trace that explains how the taint flows from source to sink.
+
+<!-- <iframe src="https://semgrep.dev/embed/editor?snippet=KxJRL" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe> -->
+
+### Deduplication of findings
+
+Semgrep tracks all possible ways that taint can reach a sink, but it only reports one taint trace, not all the possible options. You can use the following example to visualize this behavior:
+
+1. Click **Open in Playground**.
+2. Run the example. Semgrep returns one match.
+3. Expand the **Matches** section, and click **dataflow**..
+
+Note that, even though `sink` can be tainted via `x` or via `y`, the trace will only show you one of these possibilities. If you replace `x = user_input` with `x = "safe"`, then Semgrep reports the taint trace via `y`.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=WAYzL" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
+
+## Propagators 🧪
 
 :::note
 Custom taint propagators is a Semgrep Pro feature.
@@ -253,29 +271,10 @@ pattern-propagators:
 ```
 
 :::info
-Taint propagators only work intraprocedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#interprocedural-analysis-pro).
+Taint propagators only work intraprocedurally, that is, within a function or method. You cannot use taint propagators to propagate taint across different functions/methods. For that, use [interprocedural analysis](#interprocedural-analysis-).
 :::
 
-## Findings
-
-Taint findings are accompanied by a taint trace that explains how the taint flows from source to sink.
-
-<!-- <iframe src="https://semgrep.dev/embed/editor?snippet=KxJRL" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe> -->
-
-### Deduplication of findings
-
-Semgrep tracks all possible ways that taint can reach a sink, but it only reports one taint trace, not all the possible options. You can use the following example to visualize this behavior:
-
-1. Click **Open in Playground**.
-2. Run the example. Semgrep returns one match.
-3. Expand the **Matches** section, and click **dataflow**..
-
-Note that, even though `sink` can be tainted via `x` or via `y`, the trace will only show you one of these possibilities. If you replace `x = user_input` with `x = "safe"`, then Semgrep reports the taint trace via `y`.
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=WAYzL" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
-
-
-## Interprocedural analysis (Pro)
+## Interprocedural analysis 🧪
 
 :::info
 Interprocedural taint analysis is a Semgrep Pro feature.

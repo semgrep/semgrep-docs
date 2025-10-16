@@ -3,7 +3,6 @@ slug: advanced
 title: Advanced techniques for taint analysis
 hide_title: true
 description: Learn advanced techniques for taint mode, which allows you to write rules to catch complex injection bugs.
-toc_max_heading_level: 2
 tags:
  - Rule writing
  - Dataflow analysis
@@ -14,7 +13,9 @@ tags:
 
 This page covers advanced taint analysis techniques for use when writing rules to catch complex injection bugs. If you are new to writing taint mode rules, begin with [Overview](/writing-rules/data-flow/taint-mode/overview).
 
-## Taint sources by side effect
+## Taint by side effect
+
+### Taint sources by side effect
 
 Consider the following Python code, where `make_tainted` is a function that makes its argument tainted by side effect:
 
@@ -78,7 +79,7 @@ This definition says that **every** occurrence of `$X` after `make_tainted($X)` 
  ```
 </details>
 
-## Taint sanitizers by side-effect
+### Taint sanitizers by side-effect
 
 Consider the following Python code, where it is guaranteed that, after `check_if_safe(x)`, the value of `x` must be a safe one.
 
@@ -143,7 +144,9 @@ This approach has two main limitations:
 
 </details>
 
-## Taint function arguments as sources
+## Taint function arguments
+
+### Taint function arguments as sources
 
 To specify that an argument of a function must be considered a taint source, you can write a pattern that matches the argument:
 
@@ -164,7 +167,7 @@ The subsequent example defines the same behavior with a taint rule that uses `pa
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=Qr3Y4" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-## Taint function arguments as sinks
+### Taint function arguments as sinks
 
 You can specify that only one, or a subset, of the arguments of a function is the actual sink by using `focus-metavariable`:
 
@@ -194,56 +197,6 @@ pattern-sinks:
 If you specify a sink such as `sink(...)`, then any tainted data passed to `sink`, through any of its arguments, results in a finding.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=OrAAe" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
-:::
-
-### Restrict taint to at-exit sinks (Pro) 🧪
-
-:::note
-At-exit taint sinks is a Semgrep Pro feature.
-:::
-
-At-exit sinks are meant to facilitate writing leak-detection rules using taint mode. By setting `at-exit: true`, you can restrict a sink specification to only match at exit statements, or statements after which the control-flow will exit the function being analyzed.
-
-```yaml
-pattern-sinks:
-- pattern-either:
- - pattern: return ...
- - pattern: $F(...)
-  at-exit: true
-```
-
-The preceding sink pattern matches either `return` statements, which are always exit statements, or function calls occurring as exit statements.
-
-Unlike regular sinks, at-exit sinks trigger a finding if any tainted l-value reaches the location of the sink. For example, the preceding at-exit sink specification triggers a finding at a `return 0` statement if some tainted l-value reaches the `return`, even if `return 0` itself is not tainted. The location itself is the sink, rather than the code that is located there.
-
-You can use behavior, for example, to check that file descriptors are being closed within the same function where they were opened.
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=OrAzB" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
-
-The `print(content)` statement is reported because the control flow exits the function at that point, and the file has not been closed.
-
-## Track control sources (Pro) 🧪
-
-:::note
-Control taint sources is a Semgrep Pro feature.
-:::
-
-Typically, taint analysis tracks the flow of tainted _data_, but taint sources can also track the flow of tainted _control_ by setting `control: true`.
-
-```yaml
-pattern-sources:
-- pattern: source(...)
-  control: true
-```
-
-This is useful for checking reachability, that is, to determine if control flow from a given code location can reach another code location, regardless of whether there is any data flow between them. In the following example, SEmgrep checks whether `foo()` could be followed by `bar()`:
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=yyjrx" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
-
-By using a control source, you can define a context from which Semgrep detects if a call to some other code, such as a sink, can be reached.
-
-:::note
-Use [taint labels](#taint-labels-pro-) to combine both data and control sources in the same rule.
 :::
 
 ## Custom propagators
@@ -330,23 +283,6 @@ The preceding propagator definition specifies that inside an `if` block, where t
 
 Because the rule turns off `by-side-effect`, the `sink` occurrence that is inside the `if` block is tainted, but this does not affect the `sink` occurrence outside the `if` block.
 
-## Report findings on the source (Pro)
-
-:::note
-Reporting findings on the source of taint is a Semgrep Pro feature.
-:::
-
-By default, Semgrep reports taint findings at the location of the sink being matched. You must examine the taint trace to identify the source of the taint. However, you can also have Semgrep report the findings at the location of the taint sources by setting the [rule-level option](/writing-rules/rule-syntax/#options) `taint_focus_on` to `source`:
-
-```yaml
-options:
-  taint_focus_on: source
-```
-
-<iframe src="https://semgrep.dev/embed/editor?snippet=JDPGP" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
-
-The [deduplication of findings](/writing-rules/data-flow/taint-mode/overview#deduplication-of-findings) still applies in this case. While Semgrep reports all the taint sources, the taint trace only informs you of one sink if a taint source can reach multiple sinks.
-
 ## Minimize false positives
 
 The following [rule options](/writing-rules/rule-syntax/#options) can be used to minimize false positives:
@@ -356,10 +292,10 @@ The following [rule options](/writing-rules/rule-syntax/#options) can be used to
 | `taint_assume_safe_booleans` | `false` | Boolean data is never considered tainted (works better with type annotations). |
 | `taint_assume_safe_numbers` | `false` | Numbers (integers, floats) are never considered tainted (works better with type annotations). |
 | `taint_assume_safe_indexes` | `false` | An index expression `I` tainted does not make an access expression `E[I]` tainted (it is only tainted if `E` is tainted). |
-| `taint_assume_safe_functions` | `false` | A function call like `F(E)` is not considered tainted even if `E` is tainted. Note: When using Pro's [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), this only applies to functions for which Semgrep cannot find a definition. |
+| `taint_assume_safe_functions` | `false` | A function call like `F(E)` is not considered tainted even if `E` is tainted. Note: When using Pro's [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-), this only applies to functions for which Semgrep cannot find a definition. |
 | `taint_only_propagate_through_assignments` 🧪 | `false` | Disables all implicit taint propagation except for assignments. |
 
-### Restrict taint by type (Pro)
+### Restrict taint by type 🧪
 
 Semgrep automatically sanitizes Boolean expressions when it can infer that the expression resolves to a Boolean if you enable the `taint_assume_safe_booleans` option.
 
@@ -391,7 +327,7 @@ By default, Semgrep assumes that accessing an array-like object with a tainted i
 :::note
 A function call is referred to as _opaque_ when Semgrep doesn't have access to its definition, which is necessary to examine it and determine its taint behavior. For example, with an opaque function, Semgrep cannot determine whether a function call propagates any taint that comes through its inputs.
 
-In Semgrep Community Edition (CE), where taint analysis is intraprocedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-pro), an opaque function could originate from a third-party library.
+In Semgrep Community Edition (CE), where taint analysis is intraprocedural, all function calls are opaque. In Semgrep Pro, with [interprocedural taint analysis](/writing-rules/data-flow/taint-mode/overview#interprocedural-analysis-), an opaque function could originate from a third-party library.
 :::
 
 By default, Semgrep assumes that an _opaque_ function call propagates any taint passed through any of its arguments to its output.
@@ -443,7 +379,7 @@ The taint engine tracks taint **per variable**, *not* **per object in memory**. 
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=5rvkj" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-### Index sensitivity (Pro)
+### Index sensitivity 🧪
 
 :::note
 Index sensitivity is a Semgrep Pro feature.
@@ -457,7 +393,74 @@ Semgrep Pro has basic index sensitivity support:
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=GdoK6" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
-## Taint labels (Pro) 🧪
+## Report findings on the source 🧪
+
+:::note
+Reporting findings on the source of taint is a Semgrep Pro feature.
+:::
+
+By default, Semgrep reports taint findings at the location of the sink being matched. You must examine the taint trace to identify the source of the taint. However, you can also have Semgrep report the findings at the location of the taint sources by setting the [rule-level option](/writing-rules/rule-syntax/#options) `taint_focus_on` to `source`:
+
+```yaml
+options:
+  taint_focus_on: source
+```
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=JDPGP" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
+
+The [deduplication of findings](/writing-rules/data-flow/taint-mode/overview#deduplication-of-findings) still applies in this case. While Semgrep reports all the taint sources, the taint trace only informs you of one sink if a taint source can reach multiple sinks.
+
+## Restrict taint to at-exit sinks 🧪
+
+:::note
+At-exit taint sinks is a Semgrep Pro feature.
+:::
+
+At-exit sinks are meant to facilitate writing leak-detection rules using taint mode. By setting `at-exit: true`, you can restrict a sink specification to only match at exit statements, or statements after which the control-flow will exit the function being analyzed.
+
+```yaml
+pattern-sinks:
+- pattern-either:
+ - pattern: return ...
+ - pattern: $F(...)
+  at-exit: true
+```
+
+The preceding sink pattern matches either `return` statements, which are always exit statements, or function calls occurring as exit statements.
+
+Unlike regular sinks, at-exit sinks trigger a finding if any tainted l-value reaches the location of the sink. For example, the preceding at-exit sink specification triggers a finding at a `return 0` statement if some tainted l-value reaches the `return`, even if `return 0` itself is not tainted. The location itself is the sink, rather than the code that is located there.
+
+You can use behavior, for example, to check that file descriptors are being closed within the same function where they were opened.
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=OrAzB" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
+
+The `print(content)` statement is reported because the control flow exits the function at that point, and the file has not been closed.
+
+## Track control sources 🧪
+
+:::note
+Control taint sources is a Semgrep Pro feature.
+:::
+
+Typically, taint analysis tracks the flow of tainted _data_, but taint sources can also track the flow of tainted _control_ by setting `control: true`.
+
+```yaml
+pattern-sources:
+- pattern: source(...)
+  control: true
+```
+
+This is useful for checking reachability, that is, to determine if control flow from a given code location can reach another code location, regardless of whether there is any data flow between them. In the following example, SEmgrep checks whether `foo()` could be followed by `bar()`:
+
+<iframe src="https://semgrep.dev/embed/editor?snippet=yyjrx" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
+
+By using a control source, you can define a context from which Semgrep detects if a call to some other code, such as a sink, can be reached.
+
+:::note
+Use [taint labels](#taint-labels-) to combine both data and control sources in the same rule.
+:::
+
+## Taint labels 🧪
 
 Taint labels increase the expressiveness of taint analysis by allowing you to specify and track different kinds of tainted data in one rule using labels. This functionality is helpful for more complex use cases, such as when data becomes dangerous in several steps that are hard to specify through a single pair of source and sink.
 
