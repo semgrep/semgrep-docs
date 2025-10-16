@@ -48,7 +48,7 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 _**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
 :::info
-Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment, it may still be present on the Semgrep AppSec Platform's **Findings page** for the finding.
+Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on the Semgrep AppSec Platform's **Findings page** for the finding.
 :::
 
 #### Autofix
