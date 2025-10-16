@@ -57,34 +57,49 @@ After each scan, your findings are displayed in Semgrep AppSec Platform's Secret
 
 ## Ways to incorporate Semgrep into your development workflow
 
-### Semgrep managed scans (SMS) via the AppSec Platform Dashboard
-[Semgrep managed scans](/docs/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secret detection security tools across their entire organization without the need for complex infrastructure investment and configuration. This method is an alternative to adding Semgrep in CI. SMS enables enterprises to deploy or modify code scanning tools rapidly. Managed scans are run automatically on our cloud infrastructure and the findings are handed back to users in the AppSec Platform dahsboard. 
 
-Features of managed scans:
-  * Minimal code, can be configured using the AppSec Platform
-  * Can scan multiple repositories with a single integration
-  * Intigrates into workflows through PR comments
-  * Available for all products (Code, Secrets, Supple Chain Analysis)
-  * Easy to set up 
-  * Scans automatically, every two weeks
-  * No adding to or changing CI workflows
-
-
-### Add Semgrep to CI
-
-Semgrep can be integrated into CI environments (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, and Buildkite) by creating a job that the CI provider runs. After a scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
+| Goal | Recommended Option | Available In |
+|------|--------------------|---------------|
+| Quick local checks | Run Semgrep locally | CE & Pro |
+| Catch issues before commit | IDE extension or pre-commit framework | CE & Pro |
+| Integrate into builds | CI/CD integration | CE & Pro |
+| Org-wide management & automation | Semgrep Managed Scans (SMS) | Pro (AppSec Platform) only |
 
 
 
-While this method is still enabled, SMS is the recommended path to adding Semgrep to CI. 
+### Run Semgrep locally
 
-## Run Semgrep locally
-## Add Semgrep to IDE
+Run Semgrep directly on your machine to scan code before pushing changes. This is the quickest way to get started and experiment with rules. You can run scans manually from the command line or set up local automations.  
+[Learn more about running Semgrep locally](/docs/getting-started/quickstart).
+
+
+### Use Semgrep in your IDE or before commits
+
+Incorporate Semgrep early in your development workflow by using a [supported IDE extension](/docs/extensions/overview#official-ide-extensions) or by setting up the [pre-commit framework](/docs/extensions/pre-commit), which runs Semgrep checks automatically before code is committed. This helps you catch issues before they ever reach your repository.
 
 
 
-* Diff-aware CI scans and configurable PR/MR comment modes reduce noise and keep focus in the developer workflow. 
-* Learn more about how Semgrep can be [incorporated into your development workflow](/docs/learn/security-foundations/security-testing-workflow#integration-into-developer-workflows).
+### Add Semgrep to CI/CD
+
+Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite) by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation.  
+[Learn more](/docs/deployment/add-semgrep-to-ci).
+
+> **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#4-semgrep-managed-scans-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
+
+
+
+### Semgrep Managed Scans (SMS) via the AppSec Platform Dashboard (Recommended)
+
+[Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secrets detection tools across their organization without complex setup. Scans are run automatically on Semgrep’s cloud infrastructure, and results appear directly in the AppSec Platform dashboard.
+
+**Key features:**
+- Minimal setup and no CI changes required  
+- Configure scans through the AppSec Platform  
+- Scan multiple repositories with a single integration  
+- Integrate results into workflows via PR comments  
+- Available for all Semgrep products (Code, Secrets, Supply Chain Analysis)  
+- Automatic bi-weekly scans  
+
 
 
 ## Why Semgrep beats typical competitors (practical differences)
