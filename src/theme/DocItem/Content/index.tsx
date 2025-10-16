@@ -9,6 +9,7 @@ import type ContentType from '@theme/DocItem/Content';
 import type {WrapperProps} from '@docusaurus/types';
 import MoreHelp from '@site/src/components/MoreHelp';
 import Tags from '@site/src/components/Tags';
+import DocSecondaryNav from '@site/src/components/DocSecondaryNav';
 
 /**
  Title can be declared inside md content or declared through
@@ -33,15 +34,18 @@ function useSyntheticTitle(): string | null {
 export default function DocItemContent({children}: Props): JSX.Element {
   const syntheticTitle = useSyntheticTitle();
   return (
-    <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
-      <Tags tag={undefined} />
-      {syntheticTitle && (
-        <header>
-          <Heading as="h1">{syntheticTitle}</Heading>
-        </header>
-      )}
-      <MDXContent>{children}</MDXContent>
-      <MoreHelp />
-    </div>
+    <>
+      <DocSecondaryNav />
+      <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
+        <Tags tag={undefined} />
+        {syntheticTitle && (
+          <header>
+            <Heading as="h1">{syntheticTitle}</Heading>
+          </header>
+        )}
+        <MDXContent>{children}</MDXContent>
+        <MoreHelp />
+      </div>
+    </>
   );
 }
