@@ -21,12 +21,12 @@ Scan results can be triaged and remediated in the Semgrep AppSec Platform. The p
 
 ## Offerings
 
-* **Community Edition** (CE, open source): the core scanner supporting over programming languages. 
-* **Semgrep AppSec Platform** (Pro): managed scanning at org scale, pro rules, supply-chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. The Semgrep AppSec Platform supports over 35 programming languages, with new ones added regularly.
+* **Community Edition** (CE, open source): the core scanner supporting over 30 programming languages. 
+* **Semgrep AppSec Platform** (Pro): offers managed scanning at org scale, pro rules, supply-chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. The Semgrep AppSec Platform supports over 35 programming languages, with new ones added regularly.
 
 ![](/img/appsecplatform-intro.png)
 
-[Learn more](/docs/semgrep-pro-vs-oss) about the differences between the two offerings and the features that distinguish them.
+[Learn more](/docs/semgrep-pro-vs-oss) about the differences between CE and Pro offerings and the features that distinguish them.
 
 
 ## The analysis workflow
@@ -36,11 +36,11 @@ Semgrep's analysis workflow can be divided into three stages:
 ### Deployment 
 Deployment is the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs. Semgrep does not require code access to complete the core deployment process. Your code is **not** sent anywhere.
 
-Learn more about [Semgrep deployment](/docs/deployment/core-deployment)
+Learn more about [Semgrep deployment](/docs/deployment/core-deployment).
 
 ### Scan
 
-Semgrep offers three products for scanning your code for security vulnerabilities:
+Scanning is the process of analyzing your code to identify security vulnerabilities, exposed secrets, or risks introduced through dependencies. Semgrep provides three scanning tools that help you detect and address issues early in development and throughout your software lifecycle:
 
 * Semgrep Code: a static application security testing (SAST) tool that detects security vulnerabilities in your **first-party code**. You can use it to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code. [Learn more](/docs/semgrep-code/overview)
 
@@ -52,8 +52,14 @@ Semgrep offers three products for scanning your code for security vulnerabilitie
 
 ### Triage and remidiation
 
-After each scan, your findings are displayed in Semgrep AppSec Platform's Secrets page. The filters provided allow you to manage and triage your findings. Additionally, Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+After each scan, your findings are displayed in the Semgrep AppSec Platform. The filters provided allow you to manage and triage your findings.
 
+Triage is the process of reviewing, prioritizing, and managing findings identified during Semgrep scans. It helps security teams and developers decide which issues to address, ignore, or assign for further investigation. Within the Semgrep AppSec Platform, triage tools such as filtering, tagging, and assigning owners streamline this process and integrate seamlessly into existing workflows.
+
+Remediation is the process of fixing security issues identified during scanning. Semgrep supports remediation by providing detailed findings, contextual code examples, and, in many cases, Autofix suggestions that can automatically or semi-automatically resolve vulnerabilities. These tools help developers quickly implement secure fixes while maintaining development speed.
+Additionally, Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+
+Semgrep Assistant enhances this workflow by providing AI-powered security recommendations to help you understand findings, assess severity, and prioritize fixes. It can also suggest potential remediations, explain rule matches in context, and guide developers toward faster resolution of issues.
 
 ## Ways to incorporate Semgrep into your development workflow
 
@@ -69,8 +75,7 @@ After each scan, your findings are displayed in Semgrep AppSec Platform's Secret
 
 ### Run Semgrep locally
 
-Run Semgrep directly on your machine to scan code before pushing changes. This is the quickest way to get started and experiment with rules. You can run scans manually from the command line or set up local automations.  
-[Learn more about running Semgrep locally](/docs/getting-started/quickstart).
+Run Semgrep directly on your machine to scan code before pushing changes. This is the quickest way to get started and experiment with rules. You can run scans manually from the command line or set up local automations. [Learn more](/docs/getting-started/quickstart).
 
 
 ### Use Semgrep in your IDE or before commits
@@ -81,8 +86,7 @@ Incorporate Semgrep early in your development workflow by using a [supported IDE
 
 ### Add Semgrep to CI/CD
 
-Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite) by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation.  
-[Learn more](/docs/deployment/add-semgrep-to-ci).
+Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite) by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
 
 > **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#4-semgrep-managed-scans-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 
@@ -104,9 +108,16 @@ Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/C
 
 ## Why Semgrep beats typical competitors (practical differences)
 
-* No build prerequisite for most languages: easier to run on any repo; CodeQL generally requires a buildable environment and its own query DSL. 
-* Faster rule authoring and iteration: patterns mirror code; fewer context switches than writing QL queries. 
-* Immediate PR/MR feedback with organization-tuned policies: developers fix or ignore in review; less triage churn. 
-* Clear path to deeper analysis without leaving the workflow (cross-file/taint, reachability, secrets/SCA) when using the platform features. 
+- **No build required for most languages:** Semgrep runs on almost any repository without complex setup. Tools like CodeQL often need a buildable environment and use their own query language.  
+- **Faster rule authoring and iteration:** Semgrep patterns resemble real code, making it easier to write, test, and refine rules without switching contexts.  
+- **Actionable feedback during code review:** Developers receive immediate PR or MR comments based on organization-defined policies, allowing them to fix or ignore findings during review and reducing triage churn.  
+- **Seamless path to deeper analysis:** With Semgrep’s platform features, teams can extend scanning to include cross-file and taint analysis, reachability checks, secrets detection, and supply chain analysis within the same workflow.  
 
-**Net effect** -- Lower setup friction, fewer false positives in code review, simpler custom rules, and a tighter loop between security and developers.
+Semgrep offers lower setup friction, fewer false positives in code review, simpler custom rules, and a tighter feedback loop between security and development teams.
+
+
+## What's next?
+
+- [Quickstart guide](/docs/getting-started/quickstart): Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
+- [Supported source code managers](/docs/getting-started/scm-support): Review the information for your specific SCM and plan to see what Semgrep features are available to you.
+- [List of supported Languages](/docs/supported-languages): See information about supported languages and language maturity definitions for the following products.
