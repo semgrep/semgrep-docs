@@ -119,7 +119,7 @@ There are two types of rules: **search** and **taint**.
     </ul>
   </dd>
   <dt>Taint rules</dt>
-  <dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/">Taint analysis documentation</a>.</dd>
+  <dd>Taint rules make use of Semgrep's taint analysis in addition to default search functionalities. Taint rules are able to specify sources, sinks, and propagators of data as well as sanitizers of that data. For more information, see <a href="/writing-rules/data-flow/taint-mode/overview">Taint analysis documentation</a>.</dd>
 </dl>
 
 <!-- how can we say that search rules are semantic if no analysis is performed on the value of data, such as variables? Or are there levels of semantic understanding that semgrep can perform? -->

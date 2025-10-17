@@ -31,7 +31,7 @@ The following resources can help you test the code in the sections below. As you
 
 ## Taint tracking
 
-Semgrep CE allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode) documentation.
+Semgrep CE allows you to search for the flow of any potentially exploitable input into an important sink using taint mode. For more information, see the [taint mode](/writing-rules/data-flow/taint-mode/overview) documentation.
 
 In the examples below, see a comparison of Semgrep and Semgrep CE  while searching for dangerous calls using data obtained `get_user_input` call. The rule does this by specifying the source of taint as `get_user_input(...)` and the sink as `dangerous(...);`.
 
