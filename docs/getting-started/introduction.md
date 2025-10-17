@@ -50,7 +50,7 @@ Scanning is the process of analyzing your code to identify security vulnerabilit
 
 
 
-### Triage and remidiation
+### Triage and remediation
 
 After each scan, your findings are displayed in the Semgrep AppSec Platform. The filters provided allow you to manage and triage your findings.
 
