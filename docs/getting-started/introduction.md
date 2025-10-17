@@ -91,7 +91,6 @@ Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/C
 > **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#4-semgrep-managed-scans-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 
 
-
 ### Semgrep Managed Scans (SMS) via the AppSec Platform Dashboard (Recommended)
 
 [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secrets detection tools across their organization without complex setup. Scans are run automatically on Semgrep’s cloud infrastructure, and results appear directly in the AppSec Platform dashboard.
