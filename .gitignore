@@ -31,3 +31,4 @@ yarn-error.log*
 
 # Ignore .history
 /.history/
+meili_data/
