@@ -23,7 +23,7 @@ PR or MR comments are not supported for:
 
 * Any other SCM or repository provider
 
-A connection to a source code manager is required for a repository to receive PR/MR comments. If you have not done so yet, [set up a connection for your SCM organization or project](/deployment/connect-scm).
+A connection to a source code manager is required for a repository to receive PR or MR comments. If you have not done so yet, [set up a connection for your SCM organization or project](/deployment/connect-scm).
 
 If you are using a self-hosted version of your SCM, see [Connect to on-premise orgs and projects](/deployment/connect-scm/#connect-to-on-premise-orgs-and-projects) for more details on configuration.
 
