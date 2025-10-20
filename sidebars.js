@@ -288,16 +288,6 @@ module.exports = {
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
-                {
-                    type: 'category',
-                    label: 'Semgrep Community Edition',
-                    collapsible: true,
-                    items: [
-                        'semgrep-ce-languages',
-                        'deployment/oss-deployment',
-                        'getting-started/cli-oss',
-                        ]
-                },
             ]
         },
         {
@@ -377,6 +367,16 @@ module.exports = {
           },
           'semgrep-assistant/analyze'
           ]
+      },
+      {
+        type: 'category',
+        label: 'Semgrep Community Edition',
+        collapsible: false,
+        items: [
+          'getting-started/quickstart-ce',
+          'semgrep-ce-languages',
+          'deployment/oss-deployment',
+        ]
       },
       {
       type: 'category',
