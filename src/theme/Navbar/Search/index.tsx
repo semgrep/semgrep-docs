@@ -702,12 +702,10 @@ const getMeilisearchConfig = (): SearchConfig => {
       
       return {
         enabled: true,
-        hostUrl: isNetlify ? 
-        `${window.location.origin}/.netlify/functions/meilisearch` :
-        "https://ms-0e8ae24505f7-30518.sfo.meilisearch.io",
-      apiKey: "",
-      indexUid: "semgrep_docs",
-            placeholder: "Search docs..."
+        hostUrl: `${window.location.origin}/.netlify/functions/meilisearch`,
+        apiKey: "",
+        indexUid: "semgrep_docs",
+        placeholder: "Search docs..."
       };
   }
   
