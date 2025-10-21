@@ -118,9 +118,8 @@ Ensure that you have the [Windows Subsystem for Linux installed](https://learn.m
 
 ## Create a test file for use with Semgrep CE
 
-For this article, create a sample file to be scanned by Semgrep CE. 
 
-Navigate to the directory of your choice, and create a file called `app.py` with the following:
+Navigate to the directory of your choice, and create a sample file called `app.py` with the following:
 
 ```python
 # app.py
@@ -221,4 +220,8 @@ This example is a [Command Injection](/learn/vulnerabilities/command-injection)
 
 ## Next steps
 
-The Semgrep Documentation goes into more detail on [setting up CI/CD pipelines](/deployment/oss-deployment), [installing the IDE](/extensions/overview), [writing custom rules](/writing-rules/overview), and more.
+Read Semgrep docs for details on 
+- [Setting up CI/CD pipelines](/deployment/oss-deployment)
+- [Installing the IDE](/extensions/overview)
+- [Writing custom rules](/writing-rules/overview)
+- [Accessing learning guides](/docs/learn)
