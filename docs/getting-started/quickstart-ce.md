@@ -166,7 +166,7 @@ To check your code for security vulnerabilities:
   <multilang>      48       1
 ```
 
-The specific numbers shown in your Scan Status may vary, but you can still see that Semgrep is scanning the source code using community rules. There are over 1000 community rules in the default rule set, but because Semgrep recognizes the source code language, only rules relevant to the code being scanned are evaluated.
+The specific numbers shown in your Scan Status printed to the terminal may vary, but you can still see that Semgrep is scanning the source code using community rules. There are over 1000 community rules in the default rule set, but because Semgrep recognizes the source code language, only rules relevant to the code being scanned are evaluated.
 
 To fine-tune your scan, you can include the `--config` parameter, which allows you to choose which rules to run:
 
@@ -180,7 +180,7 @@ In the preceding example, the command uses a predefined rule set from the Semgre
 
 Semgrep displays your results when the scan is completed.
 
-The summary output tells you how many rules were run and whether or not there were any findings. A finding indicates that Semgrep detected a potential vulnerability. 
+The Scan Summary printed to the terminal tells you how many rules were run and whether or not there were any findings. A finding indicates that Semgrep detected a potential vulnerability. 
 
 ```bash
 ┌──────────────┐
@@ -220,8 +220,9 @@ This example is a [Command Injection](/learn/vulnerabilities/command-injection)
 
 ## Next steps
 
-Read Semgrep docs for details on 
-- [Setting up CI/CD pipelines](/deployment/oss-deployment)
-- [Installing the IDE](/extensions/overview)
-- [Writing custom rules](/writing-rules/overview)
-- [Accessing learning guides](/docs/learn)
+Read Semgrep docs for details on how to:
+
+- [Set up CI/CD pipelines](/deployment/oss-deployment)
+- [Install the IDE](/extensions/overview)
+- [Write custom rules](/writing-rules/overview)
+- [Access learning guides](/docs/learn)
