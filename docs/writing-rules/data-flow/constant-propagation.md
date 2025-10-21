@@ -35,7 +35,7 @@ If constant propagation doesn't seem to work, consider whether the constant may 
 rules:
  - id: redos-detection
     message: Potential ReDoS vulnerability detected with $REGEX
-    severity: ERROR
+    severity: HIGH
     languages:
  - java
     mode: taint

@@ -27,8 +27,8 @@ rules:
  - sites-available/*
  - sites-enabled/*
     languages:
- - generic
-    severity: WARNING
+      - generic
+    severity: MEDIUM
     message: >-
  The protocol scheme for this proxy is dynamically determined.
  This can be dangerous if the scheme is injected by an
