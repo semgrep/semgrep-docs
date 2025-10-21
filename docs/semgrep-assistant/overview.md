@@ -47,6 +47,10 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 ![Findings detail with remediation advice](/img/memories-1.png#md-width)
 _**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
+:::info
+Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
+:::
+
 #### Autofix
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.

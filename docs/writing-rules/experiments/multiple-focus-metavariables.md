@@ -4,7 +4,7 @@ append_help_link: true
 description: "With this rule, Semgrep matches all pieces of code captured by the focus metavariables."
 ---
 
-# Including multiple focus metavariables using set union semantics
+# Include multiple focus metavariables using set union semantics
 
 Semgrep matches all pieces of code captured by focus metavariables when you specify them in a rule. Specify the metavariables you want to focus on in a YAML list format.
 

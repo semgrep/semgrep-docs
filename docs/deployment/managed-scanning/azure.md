@@ -5,7 +5,6 @@ title: Azure DevOps
 hide_title: true
 description: Learn how to add an Azure DevOps repository to Semgrep Managed Scans.
 tags:
- - Beta
  - Deployment
  - Semgrep AppSec Platform
 ---

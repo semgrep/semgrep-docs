@@ -22,12 +22,17 @@ module.exports = {
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
+      type: 'ref',
+      id: 'learn/overview',
+      label: 'Semgrep learning guides',
+      className: 'top-category-separator'
+    },
+    {
       type: 'link',
       label: 'Knowledge base',
       href: '/kb',
-      className: 'top-category-separator'
+      className: 'top-category'
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
     { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
@@ -105,13 +110,9 @@ module.exports = {
                     label: 'Scan repositories with the AppSec Platform',
                     link: {type: 'generated-index'},
                     items: [
-                        'deployment/add-semgrep-to-ci',
-                        'deployment/add-semgrep-other-ci',
-                        'deployment/customize-ci-jobs',
-                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         {
                           type: 'category',
-                          label: 'Managed Scans (beta)',
+                          label: 'Managed Scans',
                           collapsible: true,
                           link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
                           items: [
@@ -120,7 +121,11 @@ module.exports = {
                               'deployment/managed-scanning/github',
                               'deployment/managed-scanning/gitlab'
                           ]
-                      },
+                        },
+                        'deployment/add-semgrep-to-ci',
+                        'deployment/add-semgrep-other-ci',
+                        'deployment/customize-ci-jobs',
+                        'semgrep-ci/configuring-blocking-and-errors-in-ci',
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
@@ -423,24 +428,47 @@ module.exports = {
             collapsible: false,
             items: [
                 'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'writing-rules/autofix',
-                'writing-rules/generic-pattern-matching',
-                'writing-rules/metavariable-analysis',
-                'troubleshooting/rules',
                 {
+                    type: 'category',
+                    label: 'Rule structure syntax',
+                    link: {type: 'doc', id: 'writing-rules/rule-syntax'},
+                    items: [
+                        'writing-rules/rule-ideas',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Rule pattern syntax',
+                    link: {type: 'doc', id: 'writing-rules/pattern-syntax'},
+                    items: [
+                        'writing-rules/pattern-examples',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Advanced rule-writing techniques',
+                    items: [
+                        'writing-rules/autofix',
+                        {
+                            type: 'category',
+                            label: 'Dataflow analysis',
+                            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            items: [
+                                'writing-rules/data-flow/constant-propagation',
+                                'writing-rules/data-flow/taint-mode',
+                                'writing-rules/data-flow/status'
+                            ]
+                        },
+                        'writing-rules/generic-pattern-matching',
+                        'writing-rules/metavariable-analysis',
+                        {
                     type: 'category',
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/introduction',
                       'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -448,24 +476,20 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
-                      'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ],
-                  },
-            {
-                type: 'category',
-                label: 'Data-flow analysis',
-                link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-                items: [
-                    'writing-rules/data-flow/constant-propagation',
-                    'writing-rules/data-flow/taint-mode',
-                    'writing-rules/data-flow/status'
-                ]
-            },
-                'writing-rules/glossary'
+                  }
+                    ]
+                },
+                'writing-rules/private-rules',
+                'writing-rules/testing-rules',
+                'troubleshooting/rules',
+                'writing-rules/glossary',
             ]
         },
         {
@@ -794,4 +818,277 @@ module.exports = {
         ],
     },
   ],
+  learnSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+      type: 'category',
+      label: 'Application Security',
+      collapsible: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'learn/overview',
+          label: 'Overview'
+        },
+        {
+          type: 'category',
+          label: 'Security Foundations',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/security-foundations/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Static code scanning',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/sast/overview'
+              },
+              items: [
+                
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Supply chain security',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/supply-chain-security'
+
+              },
+              items: [
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Security testing workflows',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/security-testing-workflow'
+
+              },
+              items: [
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Vulnerabilities',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/vulnerabilities/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Code Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/code-injection/overview'
+              },
+              items: [
+                // Additional Code Injection topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Command Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/command-injection/overview'
+              },
+              items: [
+                'learn/vulnerabilities/command-injection/argo-injection',
+                'learn/vulnerabilities/command-injection/github-actions-injection'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Cross-site Scripting',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/cross-site-scripting/overview'
+              },
+              items: [
+                // Additional XSS topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Deserialization',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-deserialization/overview'
+              },
+              items: [
+                // Additional Insecure Deserialization topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Direct Object Reference',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-direct-object-reference/overview'
+
+              },
+              items: [
+                // Additional IDOR topics can be added here later
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Open Redirect',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/open-redirect/overview'
+              },
+              items: [
+                // Additional Open Redirect topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Server Side Request Forgery',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/server-side-request-forgery/overview'
+              },
+              items: [
+                // Additional SSRF topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'SQL Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/sql-injection/overview'
+              },
+              items: [
+                // Additional SQL Injection can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'XML Security',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/xml-security/overview'
+              },
+              items: [
+                // Additional XML security topics can be added here
+              ]
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Secure Coding',
+      collapsible: false,
+            items: [
+                'cheat-sheets/overview',
+                {
+                    type: 'category',
+                    'label': 'Go',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Go',
+                      description: 
+                        "Security guides and cheatsheets for the Go programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/go-command-injection',
+                        'cheat-sheets/go-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Java',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Java',
+                      description: 
+                        "Security guides and cheatsheets for the Java programming language and related frameworks.",
+                    },
+                      items: [
+                        'cheat-sheets/java-code-injection',
+                        'cheat-sheets/java-command-injection',
+                        'cheat-sheets/java-jsp-xss',
+                        'cheat-sheets/java-xxe'
+                      ]
+                },
+                {
+                    type: 'category',
+                    'label': 'JavaScript',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'JavaScript',
+                      description: 
+                        "Security guides and cheatsheets for the JavaScript programming language, Node and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/javascript-code-injection',
+                        'cheat-sheets/javascript-command-injection',
+                        'cheat-sheets/express-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Python',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Python',
+                      description: 
+                        "Security guides and cheatsheets for the Python programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/python-code-injection',
+                        'cheat-sheets/python-command-injection',
+                        'cheat-sheets/django-xss',
+                        'cheat-sheets/flask-xss',
+                        'learn/vulnerabilities/insecure-deserialization/py-deserialization'
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Ruby',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Ruby',
+                      description: 
+                        "Security guides and cheatsheets for the Ruby programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/ruby-code-injection',
+                        'cheat-sheets/ruby-command-injection',
+                        'cheat-sheets/rails-xss'
+                    ]
+                },
+            ],
+    }
+  ]
 };

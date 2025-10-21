@@ -1,4 +1,4 @@
-All required fields must be present at the top-level of a rule, immediately under the `rules` key.
+All required fields must be present at the top level of a rule immediately under the `rules` key.
 
 |     Field     |   Type   | Description |
 | :------------ | :------- | :---------- |
@@ -7,10 +7,10 @@ All required fields must be present at the top-level of a rule, immediately unde
 | `severity`    | `string` | Severity can be `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. It indicates the criticality of issues detected by a rule. Note: Semgrep Supply Chain uses [CVE assignments for severity](/docs/semgrep-supply-chain/view-export#filter-findings), while the rule author sets severity for Code and Secrets. The older levels `ERROR`, `WARNING`, and `INFO` match `HIGH`, `MEDIUM`, and `LOW`. Severity values remain backwards compatible. |
 | `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values).  |
 | `pattern`_\*_     | `string` | Find code matching this expression |
-| `patterns`_\*_   | `array`  | Logical AND of multiple patterns |
-| `pattern-either`_\*_ | `array`  | Logical OR of multiple patterns |
+| `patterns`_\*_   | `array`  | Logical `AND` of multiple patterns |
+| `pattern-either`_\*_ | `array`  | Logical `OR` of multiple patterns |
 | `pattern-regex`_\*_   | `string` | Find code matching this [PCRE2](https://www.pcre.org/current/doc/html/pcre2pattern.html)-compatible pattern in multiline mode |
 
 :::info
-Only one of the following is required: `pattern`, `patterns`, `pattern-either`, `pattern-regex`
+Only one of the following keys are required: `pattern`, `patterns`, `pattern-either`, `pattern-regex`
 :::

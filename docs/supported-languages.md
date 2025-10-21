@@ -226,15 +226,11 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Maven</td>
    <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.)</td>
 </tr>
-<tr rowspan="2">
-   <td rowspan="2">Swift</td>
+<tr>
+   <td>Swift</td>
    <td>SwiftPM</td>
    <td><code>Package.swift</code> file and Swift-generated <code>Package.resolved</code> file. (See <a href="https://www.swift.org/documentation/package-manager/">Swift documentation </a> for instructions.)</td>
 </tr>
-<tr>
-   <td>CocoaPods</td>
-   <td><code>Podfile.lock</code></td>
-</tr>  
   <tr>
    <td>Rust</td>
    <td>Cargo*</td>
@@ -387,7 +383,7 @@ For packages used by customers with an active, paid subscription, Semgrep’s re
 - All **critical severity** CVEs from [supported sources](#supported-sources) starting in 2017.
 - All **high and critical severity** CVEs from supported sources starting:
    - May 2022 for all packages
-   - 2017 for Python packages
+   - 2017 for Python, JavaScript, and Go packages
 
 ##### Supported sources
 

@@ -7,6 +7,7 @@ description: >-
 hide_title: true
 tags:
     - Semgrep Code 
+    - python
 title: Python
 ---
 
