@@ -1,12 +1,13 @@
 ---
 append_help_link: true
 slug: pattern-syntax
-description: "Learn Semgrep's pattern syntax to search code for a given code pattern. If you're just getting started writing Semgrep rules, check out the Semgrep Tutorial at https://semgrep.dev/learn"
+title: Rule pattern syntax
+description: "Learn Semgrep's pattern syntax to search code for a given code pattern."
 tags:
   - Rule writing
 ---
 
-# Pattern syntax
+# Rule pattern syntax
 
 :::tip
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
@@ -373,7 +374,7 @@ rules:
   - id: match-literal-string
     languages:
       - python
-    severity: INFO
+    severity: LOW
     message: Found "$STRING"
     patterns:
       - pattern: '"$STRING"'
@@ -641,7 +642,7 @@ def update_system():
 ```
 
 Basic constant propagation support like in the example above is a stable feature.
-Experimentally, Semgrep also supports [intra-procedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation).
+Experimentally, Semgrep also supports [intraprocedural flow-sensitive constant propagation](/writing-rules/data-flow/constant-propagation).
 
 The pattern `set_password("...")` also matches:
 

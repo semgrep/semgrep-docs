@@ -23,7 +23,7 @@ Specify that a rule uses the Aliengrep engine by setting `options.generic_engine
 ```yaml
 rules:
 - id: example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -56,7 +56,7 @@ A metavariable captures a single word in the target input. By default, the set o
 ```yaml
 rules:
 - id: example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -85,7 +85,7 @@ Se the single-line mode with `options.generic_multiline: false` in rule files:
 ```yaml
 rules:
 - id: single-line-example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -101,7 +101,7 @@ Another feature of the single-line mode is that newlines in rule patterns must m
 ```yaml
 rules:
 - id: single-line-example2
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -146,7 +146,7 @@ In the generic modes, a metavariable captures a word. The default pattern follow
 ```yaml
 rules:
 - id: custom-word-chars
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -171,7 +171,7 @@ The Aliengrep engine performs brace matching as expected in English text. The de
 ```yaml
 rules:
 - id: edgy-brackets
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -192,7 +192,7 @@ The set of brace pairs can be completely replaced by using the field `options.ge
 ```yaml
 rules:
 - id: edgy-brackets-only
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -208,7 +208,7 @@ Some languages are case-insensitive according to Unicode rules (UTF-8 encoding).
 ```yaml
 rules:
 - id: caseless
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep

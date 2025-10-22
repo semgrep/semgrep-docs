@@ -2,11 +2,13 @@
 slug: pattern-examples
 tags:
   - Rule writing
+title: Rule pattern syntax examples
+description: View sample rule pattern examples for Semgrep-supported programming langauges.
 ---
 
 
 
-# Pattern examples
+# Rule pattern syntax examples
 
 This section is automatically generated from the unit test suite inside Semgrep. Per-language references are also available within the [Playground](https://semgrep.dev/editor).
 

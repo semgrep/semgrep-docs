@@ -293,16 +293,6 @@ module.exports = {
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
-                {
-                    type: 'category',
-                    label: 'Semgrep Community Edition',
-                    collapsible: true,
-                    items: [
-                        'semgrep-ce-languages',
-                        'deployment/oss-deployment',
-                        'getting-started/cli-oss',
-                        ]
-                },
             ]
         },
         {
@@ -384,6 +374,16 @@ module.exports = {
           ]
       },
       {
+        type: 'category',
+        label: 'Semgrep Community Edition',
+        collapsible: false,
+        items: [
+          'getting-started/quickstart-ce',
+          'semgrep-ce-languages',
+          'deployment/oss-deployment',
+        ]
+      },
+      {
       type: 'category',
       label: 'References',
       collapsible: false,
@@ -433,24 +433,47 @@ module.exports = {
             collapsible: false,
             items: [
                 'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'writing-rules/autofix',
-                'writing-rules/generic-pattern-matching',
-                'writing-rules/metavariable-analysis',
-                'troubleshooting/rules',
                 {
+                    type: 'category',
+                    label: 'Rule structure syntax',
+                    link: {type: 'doc', id: 'writing-rules/rule-syntax'},
+                    items: [
+                        'writing-rules/rule-ideas',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Rule pattern syntax',
+                    link: {type: 'doc', id: 'writing-rules/pattern-syntax'},
+                    items: [
+                        'writing-rules/pattern-examples',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Advanced rule-writing techniques',
+                    items: [
+                        'writing-rules/autofix',
+                        {
+                            type: 'category',
+                            label: 'Dataflow analysis',
+                            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            items: [
+                                'writing-rules/data-flow/constant-propagation',
+                                'writing-rules/data-flow/taint-mode',
+                                'writing-rules/data-flow/status'
+                            ]
+                        },
+                        'writing-rules/generic-pattern-matching',
+                        'writing-rules/metavariable-analysis',
+                        {
                     type: 'category',
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/introduction',
                       'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
-                      'writing-rules/experiments/display-propagated-metavariable',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -458,24 +481,20 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
-                      'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
                     ],
-                  },
-            {
-                type: 'category',
-                label: 'Data-flow analysis',
-                link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-                items: [
-                    'writing-rules/data-flow/constant-propagation',
-                    'writing-rules/data-flow/taint-mode',
-                    'writing-rules/data-flow/status'
-                ]
-            },
-                'writing-rules/glossary'
+                  }
+                    ]
+                },
+                'writing-rules/private-rules',
+                'writing-rules/testing-rules',
+                'troubleshooting/rules',
+                'writing-rules/glossary',
             ]
         },
         {

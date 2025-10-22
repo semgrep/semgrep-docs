@@ -61,7 +61,7 @@ Secrets are pieces of sensitive information crucial for securing applications an
 
 ## Semantic analysis
 
-Semantic analysis refers to Semgrep Secrets' ability to understand how data is used in your code. Semgrep Secrets uses several mechanisms to perform semantic analysis, including [<i class="fa-regular fa-file-lines"></i> data-flow analysis](/writing-rules/data-flow/data-flow-overview) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation), allowing Secrets to track data, such as variables, and the flow of that data across files and functions in your codebase.
+Semantic analysis refers to Semgrep Secrets' ability to understand how data is used in your code. Semgrep Secrets uses several mechanisms to perform semantic analysis, including [<i class="fa-regular fa-file-lines"></i> dataflow analysis](/writing-rules/data-flow/data-flow-overview) and [<i class="fa-regular fa-file-lines"></i> constant propagation](/writing-rules/data-flow/constant-propagation), allowing Secrets to track data, such as variables, and the flow of that data across files and functions in your codebase.
 
 ## Validation state
 

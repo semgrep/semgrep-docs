@@ -1,6 +1,7 @@
 ---
 slug: r2c-internal-project-depends-on
 append_help_link: true
+title: "Key: r2c-internal-project-depends-on"
 description: "r2c-internal-project-depends-on lets Semgrep rules only return results if the project depends on a specific version of a third-party package."
 ---
 
@@ -47,7 +48,7 @@ Here is an example `r2c-internal-project-depends-on` rule that searches for a kn
 ```yaml
 rules:
 - id: vulnerable-awscli-apr-2017
-  severity: WARNING
+  severity: MEDIUM
   pattern-either:
   - pattern: boto3.resource('s3', ...)
   - pattern: boto3.client('s3', ...)
