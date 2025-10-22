@@ -29,8 +29,8 @@ The following updates were made to Semgrep in September 2025.
 
 ### Fixed
 
-- **Jira**: fixed an issue where team information wasn't loading for users when attempting to map to the **Team** custom field.
-- Fixed an issue where Supply Chain's **Advisories** filter was filtering based on the wrong field.
+- **Jira**: Team information now loads when the user attempts to map to the **Team** custom field.
+- Supply Chain's **Advisories** filter now filters based on the correct field.
 - Fixed the handling of invalid GitHub refresh tokens. If a user's GitHub refresh token is invalid, Semgrep prompts the user to log in again.
 - Minor UI fixes.
 
@@ -55,7 +55,7 @@ The following updates were made to Semgrep in September 2025.
 
 ### Fixed
 
-- Fixed an issue where `\#` and `\` in glob patterns found in `semgrepignore` and included `gitignore` files were incorrectly interpreted.
+- Glob patterns containing `\#` or `\` in `.semgrepignore` and included `.gitignore` files are now interpreted correctly.
 - Updated `opentelemetry-*` packages to remove `pkg_resources is deprecated` warnings.
 - **Dart**: Fixed an issue in language processing to return better results.
 
