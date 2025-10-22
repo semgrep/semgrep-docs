@@ -45,7 +45,7 @@ The following updates were made to Semgrep in September 2025.
 
 ### Changed
 
-- The Semgrep MCP server repo has been moved from [semgrep/mcp](https://github.com/semgrep/mcp) to [semgrep/semgrep](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp).
+- The Semgrep MCP server repository has been moved from [semgrep/mcp](https://github.com/semgrep/mcp) to [semgrep/semgrep](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp).
 - Updated `semgrep-interfaces` to accept only valid language keys for rules in Semgrep Editor.
 - **Python**: Fixed an issue involving the resolution if implicit namespace modules.
 - Semgrep now filters `SEMGREP_APP_TOKEN` from any request made to non-Semgrep URLs passed to `-f/-c/--config` when fetching configurations and rules.
