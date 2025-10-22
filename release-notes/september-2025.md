@@ -6,7 +6,7 @@ description: >-
 toc_max_heading_level: 3
 title: September 2025
 tags:
-  - Release notes
+ - Release notes
 ---
 
 <!-- Remember to add previous month's under-the-cut behavior --> 
@@ -31,7 +31,7 @@ The following updates were made to Semgrep in September 2025.
 
 - Fixed an issue where Supply Chain's **Advisories** filter was filtering based on the wrong field.
 - Fixed the handling of invalid GitHub refresh tokens. If a user's GitHub refresh token is invalid, Semgrep prompts the user to log in again.
-- Jira: fixed an issue where teams information wasn't loading for users when attempting to map to the **Team** custom field.
+- Jira: fixed an issue where team information wasn't loading for users when attempting to map to the **Team** custom field.
 - Minor UI fixes.
 
 ## 💻 Semgrep Code
@@ -39,7 +39,7 @@ The following updates were made to Semgrep in September 2025.
 ### Added
 
 - Added the `semgrep mcp` subcommand to the Semgrep CLI tool, which runs the Semgrep MCP server. 
-- Improved pre-filtering for taint rules, especially when taint labels are used.
+- Improved pre-filtering for taint rules, primarily when taint labels are used.
 - **Scala**: Added support for method dispatching through traits.
 - **TypeScript**: improved name resolution for destructuring parameters.
 
@@ -47,7 +47,7 @@ The following updates were made to Semgrep in September 2025.
 
 - The Semgrep MCP server repository has been moved from [semgrep/mcp](https://github.com/semgrep/mcp) to [semgrep/semgrep](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp).
 - Updated `semgrep-interfaces` to accept only valid language keys for rules in Semgrep Editor.
-- **Python**: Fixed an issue involving the resolution if implicit namespace modules.
+- **Python**: Fixed an issue involving the resolution of implicit namespace modules.
 - Semgrep now filters `SEMGREP_APP_TOKEN` from any request made to non-Semgrep URLs passed to `-f/-c/--config` when fetching configurations and rules.
 - **TypeScript**: Fixed an issue where the pattern `var $X = $FUNC($REQ, $RES, ...) {...}` didn't parse correctly.
 - Improved the performance of `tsconfig.json` matching for TypeScript projects that contain multiple `tsconfig.json` files.
