@@ -73,7 +73,7 @@ The code is kept here for easy maintenance.
     <div class="card__copy">
     <CardHeader>Write rules</CardHeader>
     <CardBody>
-      Create custom rules to enforce your organization's coding standards.
+      Enforce your organization’s coding standards with custom rules.
     </CardBody>
     </div>
   </Card>
