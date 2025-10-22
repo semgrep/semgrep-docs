@@ -20,18 +20,18 @@ The following updates were made to Semgrep in September 2025.
 
 ### Added
 
+- Added the ability to filter Secrets findings by branch.
 - Added a confirmation pop-up when switching between the **Production** and **Pre-production** views.
-- Added the ability to filter Secrets by branch.
 
 ### Changed
 
-- Jira: the integration now automatically creates Jira tickets for Semgrep Code and Semgrep Secrets findings with a **critical** severity level.
+- **Jira**: the Semgrep Jira integration now automatically creates Jira tickets for Semgrep Code and Semgrep Secrets findings with a **critical** severity level.
 
 ### Fixed
 
+- **Jira**: fixed an issue where team information wasn't loading for users when attempting to map to the **Team** custom field.
 - Fixed an issue where Supply Chain's **Advisories** filter was filtering based on the wrong field.
 - Fixed the handling of invalid GitHub refresh tokens. If a user's GitHub refresh token is invalid, Semgrep prompts the user to log in again.
-- Jira: fixed an issue where team information wasn't loading for users when attempting to map to the **Team** custom field.
 - Minor UI fixes.
 
 ## 💻 Semgrep Code
@@ -47,16 +47,17 @@ The following updates were made to Semgrep in September 2025.
 
 - The Semgrep MCP server repository has been moved from [semgrep/mcp](https://github.com/semgrep/mcp) to [semgrep/semgrep](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp).
 - Updated `semgrep-interfaces` to accept only valid language keys for rules in Semgrep Editor.
-- **Python**: Fixed an issue involving the resolution of implicit namespace modules.
 - Semgrep now filters `SEMGREP_APP_TOKEN` from any request made to non-Semgrep URLs passed to `-f/-c/--config` when fetching configurations and rules.
-- **TypeScript**: Fixed an issue where the pattern `var $X = $FUNC($REQ, $RES, ...) {...}` didn't parse correctly.
-- Improved the performance of `tsconfig.json` matching for TypeScript projects that contain multiple `tsconfig.json` files.
+- **Python**: Fixed an issue involving the resolution of implicit namespace modules.
+- **TypeScript**: 
+  - Fixed an issue where the pattern `var $X = $FUNC($REQ, $RES, ...) {...}` didn't parse correctly.
+  - Improved the performance of `tsconfig.json` matching for TypeScript projects that contain multiple `tsconfig.json` files.
 
 ### Fixed
 
 - Fixed an issue where `\#` and `\` in glob patterns found in `semgrepignore` and included `gitignore` files were incorrectly interpreted.
-- Fixed an issue in Dark language processing to return better results.
 - Updated `opentelemetry-*` packages to remove `pkg_resources is deprecated` warnings.
+- **Dart**: Fixed an issue in language processing to return better results.
 
 ## ⛓️ Semgrep Supply Chain
 
