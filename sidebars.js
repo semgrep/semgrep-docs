@@ -453,6 +453,7 @@ module.exports = {
                             type: 'category',
                             label: 'Dataflow analysis',
                             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            collapsible: false,
                             items: [
                                 'writing-rules/data-flow/constant-propagation',
                                 {
