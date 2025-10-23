@@ -47,7 +47,7 @@ Findings filtered out by Assistant can be reviewed at any time in Semgrep by goi
 
 ## Add Memories
 
-Assistant Memories allows admins to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
+Assistant Memories allow admins to tailor Assistant's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
 
 Memories are enabled by default for all organizations with Assistant enabled.
 
@@ -57,8 +57,10 @@ Memories are enabled by default for all organizations with Assistant enabled.
 2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 3. Click **New Memory**.
 4. In **Memory**, enter your preferred remediation approach and secure default.
-5. Select the **Projects** and the **Rules** to which the memory should be applied. Note that the **Rules** selection list includes vulnerability classes--selecting a vulnerability class ensures that the memory applies to *all* rules.
-6. Click **Add memory** to save your changes and proceed.
+5. Select the **Projects** and the **Rules** to which the memory should be applied.
+  a. Choose **All projects** or any specific project.
+  b. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
+7. Click **Add memory** to save your changes and proceed.
 
 ### Add a memory based on Assistant's suggested fix
 
@@ -89,7 +91,7 @@ To triage and create a memory (Semgrep automatically attempts to create a memory
 
 Permissions:
 
-- Automatic generation of memories: if you are an **admin** user, Assistant immediately tries to generate **active** memories from your triage feedback.
+- Automatic generation of memories: if you are an **admin** user, Assistant tries to generate **active** memories from your triage feedback.
 - If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory that needs an admin to activate it. 
 
 ### View and edit memories
@@ -103,37 +105,18 @@ _**Figure**. Assistant Memories overview in Semgrep AppSec Platform._
 There are two tabs on the **Assistant Memories** page for your review:
 
 - The **Active** tab displays a list of memories that Assistant is actively using to generate triage advice
-- The **Suggested** tab displays a list of memories Assistant has generated based on your past triage actions and developer feedback. For each suggestion, you can:
+- The **Suggested** tab displays a list of memories Assistant has generated based on past triage actions and developer feedback. For each suggestion, you can:
   - Activate the suggested memory to inform Assistant's advice on current and future findings
   - Edit the memory, then activate it
   - Delete the suggested memory
 
-Note that only users assigned the `admin` role in Semgrep can activate suggested memories.
+Only users assigned the `admin` role in Semgrep can activate suggested memories.
 
 ### Remove memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 3. Identify the memory you would like to delete, then click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
-
-## Write custom rules (beta)
-
-Semgrep Assistant can help you write custom rules to find issues specific to your codebase.
-
-To do so:
-
-1. Sign in to Semgrep AppSec Platform.
-2. Navigate to **Rules > Editor**.
-3. Click the **plus** button, and under **Generate with AI**, click **...with Semgrep Assistant**.
-   ![The plus button to open up the custom rules editor](/img/assistant-launch-rules-editor.png#md-width)
-4. In the **Generate rule with Semgrep Assistant** pop-up window:
-   1. Select the language of your codebase.
-   2. Provide a prompt describing what you want the rule to do in English.
-   3. Optional: provide an example of bad code.
-   4. Optional: provide an example of good code.
-   ![Custom rule sample plus test window](/img/assistant-write-custom-rule.png#md-width)
-5. Click **Generate** to proceed. You'll be redirected to a screen where you can view and copy your rule and test it against the sample bad code snippet you provided.
-   ![Dialog box for custom rule parameters](/img/assistant-view-rule.png#md-width)
 
 ## Select your AI provider
 
