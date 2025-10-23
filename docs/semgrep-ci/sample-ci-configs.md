@@ -107,7 +107,7 @@ The following configuration creates a CI job that runs Semgrep Community Edition
 
 <GhaSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
@@ -174,7 +174,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <GlcicdSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -233,7 +233,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <JenkinsSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
@@ -291,7 +291,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <BitbucketSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -371,7 +371,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <BuildkiteSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -425,7 +425,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <CircleCiSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -473,7 +473,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <AzureSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -522,7 +522,7 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 
 <SemaphoreSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>

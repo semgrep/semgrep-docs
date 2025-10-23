@@ -454,7 +454,7 @@ module.exports = {
           { from: "/supported-languages-oss" , to: "/supported-languages" } ,
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
-          { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
+          { from: "/getting-started/quickstart-oss" , to: "/getting-started/quickstart-ce"} ,
           /* JULY 15, 2024 */
           { from: "/semgrep-appsec-platform/bitbucket-pr-comments" , to: "/category/bitbucket-pr-comments"} ,
           /* SEP 11, 2024 */
@@ -482,6 +482,8 @@ module.exports = {
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
           /* JUL 25, 2025 */
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
+          /* OCT 23, 2025 */
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
         ]
       }
     ],
