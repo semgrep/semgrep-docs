@@ -70,8 +70,6 @@ Semgrep Editor offers two rule-writing modes:
     <dd>Advanced mode provides the minimum required YAML keys for a Semgrep rule. To complete the rule, you must fill in additional keys, such as pattern operators or metadata.</dd>
 </dl>
 
-You can also use [Semgrep Assistant to help you write custom rules](/semgrep-assistant/customize#write-custom-rules-beta).
-
 ### Write a rule using structure mode (beta)
 
 Structure mode is a UI-based ruled writing editor that guides you through the process of writing a rule.
