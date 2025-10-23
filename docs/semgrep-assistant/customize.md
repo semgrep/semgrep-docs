@@ -58,9 +58,9 @@ Memories are enabled by default for all organizations with Assistant enabled.
 3. Click **New Memory**.
 4. In **Memory**, enter your preferred remediation approach and secure default.
 5. Select the **Projects** and the **Rules** to which the memory should be applied.
-  a. Choose **All projects** or any specific project.
-  b. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
-7. Click **Add memory** to save your changes and proceed.
+   1. Choose **All projects** or any specific project.
+   1. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
+6. Click **Add memory** to save your changes and proceed.
 
 ### Add a memory based on Assistant's suggested fix
 
