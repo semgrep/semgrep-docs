@@ -21,8 +21,9 @@ Scan results can be triaged and remediated in the Semgrep AppSec Platform. The p
 
 ## Offerings
 
-* **Community Edition** (CE, open source): the core scanner supporting over 30 programming languages. 
-* **Semgrep AppSec Platform** (Pro): offers managed scanning at org scale, pro rules, supply-chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. The Semgrep AppSec Platform supports over 35 programming languages, with new ones added regularly.
+* **Community Edition** (CE): is an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins. The core scanner supports over 30 programming languages. [Get started with CE](/docs/getting-started/quickstart-ce).
+
+* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. Semgrep AppSec Platform Pro offers managed scanning at org scale, advanced (pro) rules, supply-chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. It supports over 35 programming languages, with new ones added regularly.
 
 ![](/img/appsecplatform-intro.png)
 
@@ -108,15 +109,9 @@ Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/C
 ## Why Semgrep beats typical competitors (practical differences)
 
 - **No build required for most languages:** Semgrep runs on almost any repository without complex setup. Tools like CodeQL often need a buildable environment and use their own query language.  
-- **Faster rule authoring and iteration:** Semgrep patterns resemble real code, making it easier to write, test, and refine rules without switching contexts.  
+- **Faster rule authoring and iteration:** Semgrep patterns resemble real code, making it easier to write, test, and refine rules without switching contexts. It allows for customization and extensibility without DSLs, managing abstract syntax trees, or regex wrangling
 - **Actionable feedback during code review:** Developers receive immediate PR or MR comments based on organization-defined policies, allowing them to fix or ignore findings during review and reducing triage churn.  
-- **Seamless path to deeper analysis:** With Semgrep’s platform features, teams can extend scanning to include cross-file and taint analysis, reachability checks, secrets detection, and supply chain analysis within the same workflow.  
+- **Seamless path to deeper analysis:** With Semgrep’s platform features, teams can extend scanning to include cross-file and taint analysis, reachability checks, secrets detection, and supply chain analysis within the same workflow.
+- **Support for 30+ programming languages**  
 
 Semgrep offers lower setup friction, fewer false positives in code review, simpler custom rules, and a tighter feedback loop between security and development teams.
-
-
-## What's next?
-
-- [Quickstart guide](/docs/getting-started/quickstart): Learn how to set up Semgrep, scan your first project for security issues, and view your findings.
-- [Supported source code managers](/docs/getting-started/scm-support): Review the information for your specific SCM and plan to see what Semgrep features are available to you.
-- [List of supported Languages](/docs/supported-languages): See information about supported languages and language maturity definitions for the following products.
