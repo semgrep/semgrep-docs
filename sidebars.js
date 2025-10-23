@@ -373,10 +373,21 @@ module.exports = {
         label: 'Semgrep Community Edition',
         collapsible: false,
         items: [
-          'getting-started/quickstart-ce',
-          'semgrep-ce-languages',
-          'deployment/oss-deployment',
-        ]
+            'getting-started/quickstart-ce',
+            'semgrep-ce-languages',
+            'deployment/oss-deployment',
+            {
+              type: 'category',
+              label: 'About Semgrep CE',
+              collapsible: true,
+              items:[
+                'contributing/philosophy',
+                'semgrep-pro-vs-oss',
+                'faq/comparisons/opengrep',
+                
+              ]
+            }
+          ]
       },
       {
       type: 'category',
