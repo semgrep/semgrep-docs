@@ -376,7 +376,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Get started',
-              collapsible: false,
+              collapsible: true,
               link: {type: 'doc', id: 'getting-started/quickstart-ce'},
               items: [
                 'customize-semgrep-ce',
