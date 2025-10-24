@@ -96,7 +96,7 @@ pattern-sanitizers:
    - patterns:
       - pattern: check_if_safe($X)
       - focus-metavariable: $X
-         by-side-effect: true
+   by-side-effect: true
 ```
 
 If you enable `by-side-effect` and the sanitizer specification matches a variable, or more generally, an l-value, exactly, Semgrep assumes that the variable or l-value is sanitized by side effect at the places where the sanitizer specification produces a match.
@@ -266,14 +266,14 @@ Taint propagators can be used in many different ways, and in some cases, you mig
 
 ```yaml
 pattern-propagators:
-  - pattern: |
-       if something($FROM):
-          ...
-          $TO()
-          ...
-    from: $FROM
-    to: $TO
-    by-side-effect: false
+   - pattern: |
+         if something($FROM):
+            ...
+            $TO()
+            ...
+   from: $FROM
+   to: $TO
+   by-side-effect: false
 ```
 
 The preceding propagator definition specifies that inside an `if` block, where the condition is `something($FROM)`, we want to propagate taint from `$FROM` to any function that is being called without arguments, `$TO()`.
