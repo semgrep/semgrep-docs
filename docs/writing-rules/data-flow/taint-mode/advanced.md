@@ -96,7 +96,7 @@ pattern-sanitizers:
    - patterns:
       - pattern: check_if_safe($X)
       - focus-metavariable: $X
-         by-side-effect: true
+     by-side-effect: true
 ```
 
 If you enable `by-side-effect` and the sanitizer specification matches a variable, or more generally, an l-value, exactly, Semgrep assumes that the variable or l-value is sanitized by side effect at the places where the sanitizer specification produces a match.
