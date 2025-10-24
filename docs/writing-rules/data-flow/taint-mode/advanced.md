@@ -29,9 +29,9 @@ This kind of source can be specified by setting `by-side-effect: true`:
 ```yaml
 pattern-sources:
  - patterns:
- - pattern: make_tainted($X)
- - focus-metavariable: $X
-    by-side-effect: true
+    - pattern: make_tainted($X)
+    - focus-metavariable: $X
+   by-side-effect: true
 ```
 
 When `by-side-effect: true` is enabled and the source specification matches a variable, or more generally, an [l-value](https://en.wikipedia.org/wiki/Value_(computer_science)#lrvalue) exactly, then Semgrep assumes that the variable, or l-value, becomes tainted by side effect at the places where the source specification produces a match.
