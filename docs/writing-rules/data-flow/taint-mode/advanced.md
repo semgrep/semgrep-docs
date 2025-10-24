@@ -54,10 +54,10 @@ Before the implementation of `by-side-effect`, the following example was the off
 ```yaml
 pattern-sources:
 - patterns:
- - pattern-inside: |
- make_tainted($X)
- ...
- - pattern: $X
+   - pattern-inside: |
+      make_tainted($X)
+      ...
+   - pattern: $X
 ```
 
 This definition says that **every** occurrence of `$X` after `make_tainted($X)` must be considered a source. However, this approach has two main limitations:
@@ -93,10 +93,10 @@ This kind of sanitizer can be specified by setting `by-side-effect: true`:
 
 ```yaml
 pattern-sanitizers:
- - patterns:
- - pattern: check_if_safe($X)
- - focus-metavariable: $X
-    by-side-effect: true
+   - patterns:
+      - pattern: check_if_safe($X)
+      - focus-metavariable: $X
+         by-side-effect: true
 ```
 
 If you enable `by-side-effect` and the sanitizer specification matches a variable, or more generally, an l-value, exactly, Semgrep assumes that the variable or l-value is sanitized by side effect at the places where the sanitizer specification produces a match.
@@ -117,10 +117,10 @@ Before the implementation of `by-side-effect`, the following example was the off
 ```yaml
 pattern-sanitizers:
 - patterns:
- - pattern-inside: |
- check_if_safe($X)
- ...
- - pattern: $X
+   - pattern-inside: |
+      check_if_safe($X)
+      ...
+   - pattern: $X
 ```
 
 This specification tells Semgrep that **every** occurrence of `$X` after `check_if_safe($X)` must be considered sanitized.
@@ -152,11 +152,11 @@ To specify that an argument of a function must be considered a taint source, you
 
 ```yaml
 pattern-sources:
- - patterns:
- - pattern-inside: |
- def foo($X, ...):
- ...
- - focus-metavariable: $X
+   - patterns:
+      - pattern-inside: |
+         def foo($X, ...):
+         ...
+      - focus-metavariable: $X
 ```
 
 Note that the use of `focus-metavariable: $X` is essential, and using `pattern: $X` is **not** equivalent. With `focus-metavariable: $X`, Semgrep matches the formal parameter exactly. Click "Open in Playground" below and use "Inspect Rule" to visualize what the source is matching.
@@ -266,15 +266,15 @@ Taint propagators can be used in many different ways, and in some cases, you mig
 
 ```yaml
 pattern-propagators:
- - patterns:
- - pattern: |
- if something($FROM):
- ...
- $TO()
- ...
-    from: $FROM
-    to: $TO
-    by-side-effect: false
+   - patterns:
+      - pattern: |
+         if something($FROM):
+            ...
+            $TO()
+            ...
+         from: $FROM
+         to: $TO
+         by-side-effect: false
 ```
 
 The preceding propagator definition specifies that inside an `if` block, where the condition is `something($FROM)`, we want to propagate taint from `$FROM` to any function that is being called without arguments, `$TO()`.
@@ -421,9 +421,9 @@ At-exit sinks are meant to facilitate writing leak-detection rules using taint m
 ```yaml
 pattern-sinks:
 - pattern-either:
- - pattern: return ...
- - pattern: $F(...)
-  at-exit: true
+   - pattern: return ...
+   - pattern: $F(...)
+   at-exit: true
 ```
 
 The preceding sink pattern matches either `return` statements, which are always exit statements, or function calls occurring as exit statements.
@@ -471,20 +471,20 @@ To include taint labels in a taint mode rule, follow these steps:
 
 1. Attach a `label` key to the taint source, such as `label: TAINTED` or `label: INPUT`:
  ```yaml
-      pattern-sources:
-     - pattern: user_input
-          label: INPUT
+pattern-sources:
+   - pattern: user_input
+         label: INPUT
  ```
  Semgrep accepts any valid Python identifier as a label.
 
 2. Restrict a taint source to a subset of labels using the `requires` key. The following sample extends the previous example with `requires: INPUT`:
  ```yaml
-        pattern-sources:
-     - pattern: user_input
-            label: INPUT
-     - pattern: evil(...)
-            requires: INPUT
-            label: EVIL
+pattern-sources:
+   - pattern: user_input
+      label: INPUT
+   - pattern: evil(...)
+      requires: INPUT
+      label: EVIL
  ```
  Combine labels using the `requires` key. To do so, use Python's Boolean operators, such as `requires: LABEL1 and not LABEL2`.
 
@@ -515,11 +515,11 @@ You can assign an independent `requires` expression to each metavariable matched
 
 ```
 pattern-sinks:
- - patterns:
- - pattern: $OBJ.foo($SINK, $ARG)
- - focus-metavariable: $SINK
- requires:
- - $SINK: BAD
- - $OBJ: AAA
- - $ARG: BBB
+- patterns:
+   - pattern: $OBJ.foo($SINK, $ARG)
+      - focus-metavariable: $SINK
+   requires:
+   - $SINK: BAD
+   - $OBJ: AAA
+   - $ARG: BBB
 ```
