@@ -266,15 +266,14 @@ Taint propagators can be used in many different ways, and in some cases, you mig
 
 ```yaml
 pattern-propagators:
-   - patterns:
-      - pattern: |
-         if something($FROM):
-            ...
-            $TO()
-            ...
-         from: $FROM
-         to: $TO
-         by-side-effect: false
+  - pattern: |
+       if something($FROM):
+          ...
+          $TO()
+          ...
+    from: $FROM
+    to: $TO
+    by-side-effect: false
 ```
 
 The preceding propagator definition specifies that inside an `if` block, where the condition is `something($FROM)`, we want to propagate taint from `$FROM` to any function that is being called without arguments, `$TO()`.
@@ -481,10 +480,10 @@ pattern-sources:
  ```yaml
 pattern-sources:
    - pattern: user_input
-      label: INPUT
+     label: INPUT
    - pattern: evil(...)
-      requires: INPUT
-      label: EVIL
+     requires: INPUT
+     label: EVIL
  ```
  Combine labels using the `requires` key. To do so, use Python's Boolean operators, such as `requires: LABEL1 and not LABEL2`.
 
@@ -517,8 +516,8 @@ You can assign an independent `requires` expression to each metavariable matched
 pattern-sinks:
 - patterns:
    - pattern: $OBJ.foo($SINK, $ARG)
-      - focus-metavariable: $SINK
-   requires:
+   - focus-metavariable: $SINK
+  requires:
    - $SINK: BAD
    - $OBJ: AAA
    - $ARG: BBB
