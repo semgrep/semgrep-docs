@@ -62,7 +62,7 @@ through the [semgrep.dev contact form](https://semgrep.dev/contact/demo/).
 Users of Semgrep CE can log bugs and feature requests in the
 [semgrep](https://github.com/semgrep/semgrep/issues) repository. They can also
 ask questions regarding usage, rollouts, and deployments in the [community Slack
-group](https://go.semgrep.dev/slack)
+group](https://go.semgrep.dev/slack).
 
 ## Status page
 
