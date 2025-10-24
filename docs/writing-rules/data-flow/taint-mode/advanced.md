@@ -28,9 +28,9 @@ This kind of source can be specified by setting `by-side-effect: true`:
 
 ```yaml
 pattern-sources:
- - patterns:
-    - pattern: make_tainted($X)
-    - focus-metavariable: $X
+   - patterns:
+      - pattern: make_tainted($X)
+      - focus-metavariable: $X
    by-side-effect: true
 ```
 
@@ -229,9 +229,9 @@ Taint propagators are specified under the `pattern-propagators` key:
 
 ```yaml
 pattern-propagators:
-- pattern: $S.add($E)
-  from: $E
-  to: $S
+   - pattern: $S.add($E)
+   from: $E
+   to: $S
 ```
 
 In the preceding example, Semgrep finds the pattern `$S.add($E)`, and it checks whether the code matched by `$E` is tainted. If it is tainted, Semgrep propagates that same taint to the code matched by `$S`. Thus, adding tainted data to a set marks the set itself as tainted.
@@ -254,9 +254,9 @@ Another situation where taint propagators are useful is specifying in Java that,
 
 ```yaml
 pattern-propagators:
-- pattern: $C.forEach(($X) -> ...)
-  from: $C
-  to: $X
+   - pattern: $C.forEach(($X) -> ...)
+   from: $C
+   to: $X
 ```
 
 ### Propagate without side-effect
