@@ -2,14 +2,54 @@
   "index_name": "docs",
   "start_urls": [
     {
-      "url": "https://semgrep.dev/docs/release-notes",
+      "url": "https://semgrep.dev/release-notes",
       "tags": ["release_notes"],
-      "page_rank": -100
+      "page_rank": 30
     },
     {
-      "url": "https://semgrep.dev/docs/rule-updates",
-      "tags": ["rule_updates"],
-      "page_rank": -100
+      "url": "https://semgrep.dev/docs/getting-started",
+      "tags": ["getting_started"],
+      "page_rank": 100
+    },
+    {
+      "url": "https://semgrep.dev/docs/writing-rules",
+      "tags": ["writing_rules"],
+      "page_rank": 80
+    },
+    {
+      "url": "https://semgrep.dev/docs/deployment",
+      "tags": ["deployment"],
+      "page_rank": 80
+    },
+    {
+      "url": "https://semgrep.dev/docs/cli-reference",
+      "tags": ["cli"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-code",
+      "tags": ["semgrep_code"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-supply-chain",
+      "tags": ["supply_chain"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/semgrep-secrets",
+      "tags": ["secrets"],
+      "page_rank": 70
+    },
+    {
+      "url": "https://semgrep.dev/docs/kb",
+      "tags": ["knowledge_base"],
+      "page_rank": 50
+    },
+    {
+      "url": "https://semgrep.dev/docs/troubleshooting",
+      "tags": ["troubleshooting"],
+      "page_rank": 60
     },
     {
      "url": "https://semgrep.dev/docs"
@@ -28,13 +68,13 @@
         "global": true,
         "default_value": "Semgrep documentation"
       },
-      "lvl1": "article h1",
+      "lvl1": "article h1, main h1",
       "lvl2": "article h2",
       "lvl3": "article h3",
       "lvl4": "article h4",
       "lvl5": "article h5, article td:first-child",
       "lvl6": "article h6",
-      "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
+      "text": "article p, article li, main p, main li, article td:last-child, article div table td, article div table th, article code, article pre code"
     }
   },
   "strip_chars": " .,;:#()",
@@ -55,9 +95,31 @@
       "terms",
       "IdP",
       "IDE",
-      "Jira"
+      "Jira",
+      "regex",
+      "metavariable",
+      "taint",
+      "autofix",
+      "SAST",
+      "SCA",
+      "API",
+      "CLI",
+      "YAML",
+      "JSON",
+      "GitLab",
+      "GitHub",
+      "Bitbucket",
+      "OAuth",
+      "SAML",
+      "RBAC",
+      "webhook",
+      "lockfile",
+      "dependency",
+      "vulnerability",
+      "CVE",
+      "CVSS"
     ],
-    "separatorsToIndex": "_",
+    
     "attributesForFaceting": [
       "language",
       "version",
@@ -136,8 +198,128 @@
       [
         "click to fix",
         "click-to-fix"
+      ],
+      [
+        "pattern",
+        "rule pattern"
+      ],
+      [
+        "metavariable",
+        "metavar"
+      ],
+      [
+        "command injection",
+        "OS command injection"
+      ],
+      [
+        "XSS",
+        "cross-site scripting"
+      ],
+      [
+        "SQL injection",
+        "SQLi"
+      ],
+      [
+        "SSRF",
+        "server-side request forgery"
+      ],
+      [
+        "remote code execution",
+        "RCE"
+      ],
+      [
+        "regular expression",
+        "regex"
+      ],
+      [
+        "source code management",
+        "SCM"
+      ],
+      [
+        "data flow",
+        "dataflow"
+      ],
+      [
+        "taint analysis",
+        "taint tracking",
+        "taint mode"
+      ],
+      [
+        "OSS",
+        "open source"
+      ],
+      [
+        "reachability",
+        "reachable"
+      ],
+      [
+        "SCA",
+        "software composition analysis"
+      ],
+      [
+        "SAST",
+        "static application security testing"
+      ],
+      [
+        "secrets scanning",
+        "secrets detection"
+      ],
+      [
+        "configuration",
+        "config"
+      ],
+      [
+        "YAML config",
+        "YAML configuration"
+      ],
+      [
+        "Semgrep AppSec Platform",
+        "Semgrep Cloud Platform",
+        "SCP"
+      ],
+      [
+        "Semgrep Pro Engine",
+        "DeepSemgrep"
       ]
-    ]
+    ],
+    "attributesToSnippet": ["content:80"],
+    "attributesToHighlight": ["hierarchy", "hierarchy.lvl0", "hierarchy.lvl1", "hierarchy.lvl2", "content"],
+    "snippetEllipsisText": "…",
+    "highlightPreTag": "<mark>",
+    "highlightPostTag": "</mark>",
+    "camelCaseAttributes": ["hierarchy", "content"],
+    "distinct": true,
+    "attributeForDistinct": "url_without_anchor",
+    "searchableAttributes": [
+      "unordered(hierarchy_radio_camel.lvl0)",
+      "unordered(hierarchy_radio.lvl0)",
+      "unordered(hierarchy_radio_camel.lvl1)",
+      "unordered(hierarchy_radio.lvl1)",
+      "unordered(hierarchy_radio_camel.lvl2)",
+      "unordered(hierarchy_radio.lvl2)",
+      "unordered(hierarchy_radio_camel.lvl3)",
+      "unordered(hierarchy_radio.lvl3)",
+      "unordered(hierarchy_radio_camel.lvl4)",
+      "unordered(hierarchy_radio.lvl4)",
+      "unordered(hierarchy_radio_camel.lvl5)",
+      "unordered(hierarchy_radio.lvl5)",
+      "unordered(hierarchy_radio_camel.lvl6)",
+      "unordered(hierarchy_radio.lvl6)",
+      "content"
+    ],
+    "customRanking": [
+      "desc(weight.page_rank)",
+      "desc(weight.level)",
+      "asc(weight.position)"
+    ],
+    "advancedSyntax": true,
+    "removeWordsIfNoResults": "allOptional",
+    "typoTolerance": "strict",
+    "minWordSizefor1Typo": 4,
+    "minWordSizefor2Typos": 8,
+    "ignorePlurals": false,
+    "separatorsToIndex": "_-",
+    "minProximity": 3
   },
   "conversation_id": [
     "833762294"
