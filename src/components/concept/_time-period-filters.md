@@ -6,10 +6,10 @@ The time period filter allows you to see which vulnerabilities were opened, fixe
 
 The following filters are available:
 
-- Triage state:
-  - Last opened
-  - Last triaged
-  - Last fixed
+- Triage state update period:
+  - Opened in
+  - Triaged in
+  - Fixed in
 - Time period:
   - Last day
   - Last 7 days
