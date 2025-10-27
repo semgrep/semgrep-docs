@@ -2,7 +2,7 @@
 slug: snyk
 append_help_link: true
 hide_table_of_contents: true
-displayed_sidebar: aboutSidebar
+displayed_sidebar: whatsSemgrepSidebar
 tags:
   - Support
 description: >-

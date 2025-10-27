@@ -48,17 +48,102 @@ export default function NavbarContent(): JSX.Element {
   const items = useNavbarItems();
   const location = useLocation();
 
+  const getCurrentSection = () => {
+    const path = location.pathname;
+    if (path.startsWith('/docs/getting-started') || 
+        path.startsWith('/docs/deployment') ||
+        path.startsWith('/docs/semgrep-appsec-platform') ||
+        path.startsWith('/docs/semgrep-assistant') ||
+        path.startsWith('/docs/semgrep-ci') ||
+        path.startsWith('/docs/semgrep-code') ||
+        path.startsWith('/docs/semgrep-secrets') ||
+        path.startsWith('/docs/semgrep-supply-chain') ||
+        path.startsWith('/docs/secure-guardrails') ||
+        path.startsWith('/docs/prerequisites') ||
+        path.startsWith('/docs/supported-languages') ||
+        path.startsWith('/docs/languages/') ||
+        path.startsWith('/docs/extensions') ||
+        path.startsWith('/docs/troubleshooting/semgrep')) {
+      return 'scan';
+    }
+    if (path.startsWith('/docs/writing-rules') || 
+        path.startsWith('/docs/cheat-sheets') ||
+        path.startsWith('/docs/semgrepignore-v2-reference') ||
+        path.startsWith('/docs/troubleshooting/rules')) {
+      return 'write-rules';
+    }
+    if (path.startsWith('/docs/for-developers')) {
+      return 'for-developers';
+    }
+    if (path.startsWith('/docs/learn')) {
+      return 'learning-guides';
+    }
+    if (path.startsWith('/docs/kb')) {
+      return 'knowledge-base';
+    }
+    if (path.startsWith('/docs/faq') || 
+        path.startsWith('/docs/semgrep-pro-vs-oss') ||
+        path.startsWith('/docs/integrating') ||
+        path.startsWith('/docs/run-a-successful-pov') ||
+        path.startsWith('/docs/metrics')) {
+      return 'explore';
+    }
+    if (path.startsWith('/docs/release-notes') ||
+        path.startsWith('/docs/trophy-case') ||
+        path.startsWith('/docs/support') ||
+        path.startsWith('/docs/security') ||
+        path.startsWith('/docs/licensing') ||
+        path.startsWith('/docs/usage-and-billing') ||
+        path.startsWith('/docs/contributing')) {
+      return 'explore';
+    }
+    return null;
+  };
+
+  const currentSection = getCurrentSection();
+
   const allDocSections = [
-    { label: 'Scan', to: '/getting-started/quickstart', pathPrefix: '/docs/getting-started', position: 'left' },
-    { label: 'Write rules', to: '/writing-rules/overview', pathPrefix: '/docs/writing-rules', position: 'left' },
-    { label: 'For developers', to: '/for-developers/overview', pathPrefix: '/docs/for-developers', position: 'left' },
-    { label: 'Learning guides', to: '/learn', pathPrefix: '/docs/learn', position: 'left' },
-    { label: 'Knowledge base', to: '/kb', pathPrefix: '/docs/kb', position: 'left' },
+    { 
+      label: 'Scan', 
+      to: '/getting-started/quickstart', 
+      pathPrefix: '/docs/getting-started', 
+      position: 'left',
+      className: currentSection === 'scan' ? 'navbar__link--active' : ''
+    },
+    { 
+      label: 'Write rules', 
+      to: '/writing-rules/overview', 
+      pathPrefix: '/docs/writing-rules', 
+      position: 'left',
+      className: currentSection === 'write-rules' ? 'navbar__link--active' : ''
+    },
+    { 
+      label: 'For developers', 
+      to: '/for-developers/overview', 
+      pathPrefix: '/docs/for-developers', 
+      position: 'left',
+      className: currentSection === 'for-developers' ? 'navbar__link--active' : ''
+    },
+    { 
+      label: 'Learning guides', 
+      to: '/learn', 
+      pathPrefix: '/docs/learn', 
+      position: 'left',
+      className: currentSection === 'learning-guides' ? 'navbar__link--active' : ''
+    },
+    { 
+      label: 'Knowledge base', 
+      to: '/kb', 
+      pathPrefix: '/docs/kb', 
+      position: 'left',
+      className: currentSection === 'knowledge-base' ? 'navbar__link--active' : ''
+    },
     { 
       label: 'Explore', 
       pathPrefix: '/docs/trophy-case', 
       position: 'left',
       type: 'dropdown',
+      className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
         { label: "What's Semgrep", to: '/faq/overview' },
         { label: 'Release notes', to: '/release-notes' },
