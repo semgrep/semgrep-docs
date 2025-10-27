@@ -1,0 +1,13 @@
+.breadcrumbsContainer {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.breadcrumbsItemLink {
+  display: inline;
+}
+
+.breadcrumbsContainer .breadcrumbs__link {
+  font-size: 0.875rem;
+}
+
