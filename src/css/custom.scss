@@ -1140,6 +1140,10 @@ nav.navbar,
   overflow: visible !important;
 }
 
+.main-wrapper {
+  padding-top: var(--ifm-navbar-height);
+}
+
 .navbar__inner {
   overflow: visible !important;
 }
