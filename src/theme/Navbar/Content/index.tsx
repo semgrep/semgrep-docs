@@ -78,8 +78,8 @@ export default function NavbarContent(): JSX.Element {
     if (path.startsWith('/docs/learn')) {
       return 'learning-guides';
     }
-    if (path.startsWith('/docs/kb')) {
-      return 'knowledge-base';
+    if (path.startsWith('/docs/kb') || path.startsWith('/docs/support')) {
+      return 'help';
     }
     if (path.startsWith('/docs/faq') || 
         path.startsWith('/docs/semgrep-pro-vs-oss') ||
@@ -90,7 +90,6 @@ export default function NavbarContent(): JSX.Element {
     }
     if (path.startsWith('/docs/release-notes') ||
         path.startsWith('/docs/trophy-case') ||
-        path.startsWith('/docs/support') ||
         path.startsWith('/docs/security') ||
         path.startsWith('/docs/licensing') ||
         path.startsWith('/docs/usage-and-billing') ||
@@ -132,11 +131,15 @@ export default function NavbarContent(): JSX.Element {
       className: currentSection === 'learning-guides' ? 'navbar__link--active' : ''
     },
     { 
-      label: 'Knowledge base', 
-      to: '/kb', 
+      label: 'Help', 
       pathPrefix: '/docs/kb', 
       position: 'left',
-      className: currentSection === 'knowledge-base' ? 'navbar__link--active' : ''
+      type: 'dropdown',
+      className: currentSection === 'help' ? 'navbar__link--active' : '',
+      items: [
+        { label: 'Knowledge base', to: '/kb' },
+        { label: 'Support', to: '/support' },
+      ]
     },
     { 
       label: 'Explore', 

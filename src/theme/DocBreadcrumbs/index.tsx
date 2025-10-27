@@ -38,7 +38,10 @@ function getSectionInfo(pathname: string) {
     return { label: 'Learning guides', href: '/learn' };
   }
   if (pathname.startsWith('/docs/kb')) {
-    return { label: 'Knowledge base', href: '/kb' };
+    return { label: 'Help', href: '/kb' };
+  }
+  if (pathname.startsWith('/docs/support')) {
+    return { label: 'Help', href: '/support' };
   }
   if (pathname.startsWith('/docs/faq') ||
       pathname.startsWith('/docs/semgrep-pro-vs-oss') ||
