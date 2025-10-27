@@ -132,7 +132,7 @@
 .MarkpromptSearchResults a,
 .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
   text-decoration: none !important;
-  color: #444; // placeholder; replace with theme color if there's a similar one
+  color: #444;
   font-weight: 600;
 }
 
@@ -281,11 +281,10 @@ html[data-theme="dark"] {
   .MarkpromptSearchResults a,
   .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
     text-decoration: none !important;
-    color: #444; // placeholder; replace with theme color if there's a similar one
+    color: #444;
     font-weight: 600;
   }
 
-  // Dark mode cards
   a.card:hover {
     background-color: var(--ifm-color-black);
     text-decoration: none;
@@ -299,15 +298,7 @@ html[data-theme="dark"] {
     color: var(--ifm-color-gray-200);
     flex-shrink:1;
   }
-
-  /*img {
-      box-shadow: var(--semgrep-docs-box-shadow-dark);
-  }*/
 }
-
-
-/* begin customized styles for Semgrep docs */
-/* color vars are overwritten above */
 
 details.alert {
     background: unset;
@@ -318,10 +309,6 @@ details.alert {
  * SIDEBAR                                                                    *
  *                                                                            *
  *****************************************************************************/
-
- /*.menu {
-  padding: 0.5rem !important;
- } */
 
 .menu__list-item-collapsible > a:not([href]) {
     color: var(--ifm-color-primary);
@@ -397,16 +384,11 @@ details.alert {
   * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
-/* prevent box shadow and border on assets we don't want to apply it to */
 .navbar__logo > img {
   box-shadow: 0px 0px 0px !important;
   border: none !important;
 }
 
-/*
-.alert--info {
-  background-color: var(--semgrep-secondary-bluetemp);
-} */
 * {
   font-variant-ligatures: none;
 }
@@ -497,18 +479,9 @@ dl {
     margin-bottom: var(--ifm-leading);
 }
 
-/* details box */
-
 details.alert {
     background-color: unset;
 }
-
-/*better way to add additional css such as borders, respects markdown indent */
-/* We use the "src attribute" (i.e. the attribute defined after an image URL, denoted by a hashtag:
-image.png#bordered) because using divs and HTML interfere with other docusaurus configurations
-See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matching-src-attribute
-https://www.w3.org/TR/selectors-3/#attribute-substrings
-*/
 
 img[src*="full"] {
   width: 100%;
@@ -559,8 +532,6 @@ li > img {
   position: sticky;
 }
 
-/* rest of navbar */
-
 .navbar.navbar--fixed-top {
   padding: 0 rem 1rem;
   display: flex;
@@ -568,7 +539,6 @@ li > img {
   justify-content: center;
   align-items: center;
   width: 100%;
-  /*height: unset;*/
 }
 
 .navbar__inner {
@@ -635,20 +605,15 @@ a.navbar__item.navbar__link:hover {
   margin-left: 0.5em;
 }
 
-/* sidenav */
-
 .menu__link {
   transition-timing-function: linear;
   transition-duration: 3ms;
 }
 
-/* TOC for mobile */
 .tocCollapsibleContent_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-index-module,
 .table-of-contents > ul {
   border-top: 1px solid var(--ifm-color-primary-lighter);
 }
-
-/* footer */
 
 .footer--dark {
   background: #00243E;
@@ -667,17 +632,13 @@ a.navbar__item.navbar__link:hover {
   margin-bottom: 2rem;
 }
 
-/* not following conventions Todo rename to yt__embed */
 .yt_embed {
     padding-bottom: 1rem;
 }
 
-/* max width for VS Code embedded video */
 article video {
   max-width: 100%;
 }
-
-/* badge */
 
 .top-tag-list {
   display: flex;
@@ -703,21 +664,16 @@ article video {
   content: "|";
 }
 
-
-/* customized generated index cards */
-
 h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
   white-space: normal;
 }
-
-/* left sidebar collapse */
 
 button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
   background-color: #DFF6F0;
 }
 
 svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
-  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%); /* --ifm-color-primary-dark */
+  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%);
 }
 
 
@@ -886,7 +842,6 @@ Semgrep vs Semgrep CE
   padding-right: 0.7rem;
 }
 
-/* tablet breakpoint */
 @media (min-width:768px) {
     .col-3-grid, .col-2-grid {
         display: flex;
@@ -942,22 +897,6 @@ input#search_input_react {
   }
 }
 
-
-/* ----------------------------------------------------------------------------
-Blog
----------------------------------------------------------------------------- */
-
-/*
-[class^="sidebarItemTitle"] {
-    display: none;
-}
-
-
-div[role="group"]:last-of-type::after {
-    content: "test";
-}
-*/
-
 h1.blog {
     font-size: 3rem;
 }
@@ -977,20 +916,12 @@ h2[class^="title"] {
     padding-bottom: 2rem;
 }
 
-/******************************************************************************
- *                                                                            *
- * BROWSE OTHER SECTIONS                                                      *
- *                                                                            *
- *****************************************************************************/
-
-/* Add top border and spacing */
 .browse-sections {
   margin-top: 1rem;
   padding-top: 0.5rem;
   border-top: 2px solid var(--semgrep-secondary-mint02);
 }
 
-/* Style the category label to match section headers like "APPLICATION SECURITY" */
 .browse-sections > .menu__list-item-collapsible > .menu__link {
   color: var(--ifm-color-primary);
   vertical-align: bottom;
@@ -1009,9 +940,242 @@ h2[class^="title"] {
   }
 }
 
-/* Dark mode styles */
 html[data-theme="dark"] {
   .browse-sections {
     border-top: 2px solid var(--ifm-color-gray-700);
   }
+}
+
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  max-width: 100%;
+  overflow: visible !important;
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  row-gap: 0.5rem;
+  overflow: visible !important;
+}
+
+.navbar__items:first-child {
+  flex: 1;
+  min-width: 0;
+  @media (min-width: 997px) {
+    margin-left: 150px; /* Offset wrapped items to the right */
+  }
+}
+
+.navbar__item {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.navbar__link {
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.navbar__logo {
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  @media (min-width: 997px) {
+    margin-left: -150px; /* Compensate for the left margin */
+  }
+}
+
+.navbar__items--right {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar__items--right .navbar__item {
+  margin-left: 0;
+}
+
+
+@media (max-width: 1280px) and (min-width: 997px) {
+  .navbar__link {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.875rem;
+  }
+  
+  .navbar__items {
+    gap: 0.15rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 996px) and (min-width: 768px) {
+  .navbar__link {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.85rem;
+  }
+  
+  .navbar__items {
+    gap: 0.25rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 0.75rem;
+  }
+  
+  .navbar__items--right {
+    gap: 0.15rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar__inner {
+    padding: 0 0.5rem;
+  }
+  
+  .navbar__link {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.8rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar__items {
+    gap: 0.2rem;
+  }
+  
+  .navbar__items--right {
+    gap: 0.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__link {
+    padding: 0.35rem 0.4rem !important;
+    font-size: 0.75rem;
+  }
+  
+  .navbar__items {
+    gap: 0.1rem;
+  }
+}
+
+.navbar__item.dropdown .navbar__link {
+  font-weight: 500 !important;
+  font-family: inherit !important;
+  font-size: 0.9rem !important;
+}
+
+.navbar__item.dropdown .navbar__link:after {
+  margin-left: 0.3rem;
+}
+
+@media (max-width: 1280px) {
+  .navbar__item.dropdown .navbar__link:after {
+    margin-left: 0.25rem;
+  }
+}
+
+.navbar__item.dropdown {
+  position: relative;
+  z-index: auto;
+}
+
+.dropdown__menu {
+  z-index: 99999 !important;
+  position: absolute !important;
+  font-size: 0.95rem !important;
+}
+
+.dropdown__menu .dropdown__link {
+  font-size: 0.95rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.navbar__item.dropdown > .dropdown__menu {
+  z-index: 99999 !important;
+}
+
+.navbar-sidebar,
+nav.navbar,
+.navbar .navbar__inner,
+.navbar .navbar__items {
+  overflow: visible !important;
+  clip-path: none !important;
+}
+
+@media (max-width: 996px) {
+  .dropdown__menu {
+    max-width: 90vw;
+  }
+}
+
+.navbar {
+  overflow: visible !important;
+  max-width: 100vw;
+  z-index: 9998 !important;
+  position: relative;
+}
+
+.navbar.navbar--fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9998 !important;
+  overflow: visible !important;
+}
+
+.navbar__inner {
+  overflow: visible !important;
+}
+
+@media (max-width: 1366px) {
+  .navbar__items:first-child {
+    max-width: calc(100vw - 300px);
+  }
+}
+
+@media (max-width: 996px) {
+  .navbar__items:first-child {
+    max-width: 100%;
+  }
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 1 !important;
+}
+
+main[class*="docMainContainer"] {
+  position: relative;
+  z-index: 1 !important;
+}
+
+.theme-doc-sidebar-container,
+aside[class*="sidebar"],
+.docSidebarContainer,
+article {
+  position: relative;
+  z-index: 1 !important;
+}
+
+div[class*="docPage"],
+div[class*="wrapper"] {
+  position: relative;
+  z-index: 1 !important;
 }
