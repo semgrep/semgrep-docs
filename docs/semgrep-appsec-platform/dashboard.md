@@ -149,10 +149,10 @@ This pane displays analytics related to findings detected in your **primary or d
 
 | Key metrics    | Description |
 | -------------- | ------ |
-| Total opened      | Findings set to **Open**, **Fixing**, or **Reviewing** during the time period that **remained** in any of those states until the end of the time period. |
+| Total opened      | Total number of findings set to **Open** during the time period. This includes new findings as well as re-opened findings that were previously in a different state. |
 | Total fixed    | Total number of **Fixed** findings during the time period that **remained** fixed until the end of the time period. |
 | Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. |
-| Total net new  | The number of new **Open**, **Fixing**, or **Reviewing** findings that were **not** fixed or ignored within the specified time period. Lower values are better. This is the difference between the number of **Open**, **Fixing**, or **Reviewing** findings at the beginning of the time period and the end of the time period. |
+| Total net new  | The difference between the number of **Open** findings at the beginning of the time period and the end of the time period. |
 
 :::tip
 A low or negative value for **Total net new** is ideal. It indicates that more findings are being triaged or resolved than opened within the time period, reducing the backlog of security issues.
