@@ -54,8 +54,7 @@ so that you can set the appropriate priority on your issue.
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
 Semgrep maintainers and support engineers. All users, including Semgrep Community Edition (CE) users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
 
-Users interested in seeing a demo or proof of concept can also send inquiries
-through the [semgrep.dev contact form](https://semgrep.dev/contact/demo/).
+Users interested in seeing a proof of concept can also [request a demo](https://semgrep.dev/contact/demo/) or [email Sales](mailto:sales@semgrep.com).
 
 ## Semgrep CE support
 
