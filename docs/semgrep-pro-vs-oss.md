@@ -390,7 +390,6 @@ Minimal customization options to tune your scans:
 
 - Customize SAST and Secrets scans through rule selection in [policies](/semgrep-code/triage-remediation)
 - Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
-- [AI assistance for rule writing](/semgrep-assistant/customize#write-custom-rules-beta)
 - Store rules in Semgrep AppSec Platform and deploy to your organization
 - Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
 - Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)

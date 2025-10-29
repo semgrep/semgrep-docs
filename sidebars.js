@@ -473,9 +473,17 @@ module.exports = {
                             type: 'category',
                             label: 'Dataflow analysis',
                             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            collapsible: false,
                             items: [
                                 'writing-rules/data-flow/constant-propagation',
-                                'writing-rules/data-flow/taint-mode',
+                                {
+                                    type: 'category',
+                                    label: 'Taint analysis',
+                                    link: {type: 'doc', id: 'writing-rules/data-flow/taint-mode/overview'},
+                                    items: [
+                                        'writing-rules/data-flow/taint-mode/advanced'
+                                    ]
+                                },
                                 'writing-rules/data-flow/status'
                             ]
                         },

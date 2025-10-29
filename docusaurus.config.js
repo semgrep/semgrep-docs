@@ -338,9 +338,9 @@ module.exports = {
           { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on" },
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation" },
-          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode" },
+          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/overview" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable" },
@@ -482,8 +482,10 @@ module.exports = {
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
           /* JUL 25, 2025 */
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
-          /* OCT 23, 2025 */
-          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
+          /* OCT 3, 2025 */
+          { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
+                    /* OCT 23, 2025 */
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" }
         ]
       }
     ],
