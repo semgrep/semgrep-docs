@@ -3,6 +3,8 @@ slug: semgrep-philosophy
 description: "As you think about contributing to Semgrep, consider these design principles that have guided Semgrep CLI’s development so far."
 tags:
   - Semgrep Community Edition
+title: Semgrep CE philosophy
+hide_title: true
 ---
 
 # Semgrep Community Edition (CE) philosophy

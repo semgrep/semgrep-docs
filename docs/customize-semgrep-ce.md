@@ -1,36 +1,25 @@
 ---
-slug: cli-oss
-title: Local CLI scans
+slug: customize-semgrep-ce
+title: Customize scans
 hide_title: true
 displayed_sidebar: scanSidebar
-description: Learn how to set up Semgrep, scan your codebase for security issues, and view your findings in the CLI.
+description: Learn how to customize your Semgrep CE scans.
 tags:
-  - Quickstart
   - Semgrep CE
 ---
 
-import Install from "/src/components/procedure/_install-cli.mdx";
-import Login from "/src/components/procedure/_login-activate.mdx";
 import ExportAs from "/src/components/reference/_export-as.mdx";
 import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx";
 
-# Local scans with Semgrep Community Edition (CE)
+# Customize Semgrep Community Edition (CE) scans
 
-Learn how to set up Semgrep CE, scan your codebase for security issues, and view your findings in the CLI.
+This article shows you how to customize your local scans with Semgrep Community Edition (CE). Before proceeding with this article, ensure that you are familiar with [scanning a project using Semgrep CE](/getting-started/quickstart-ce).
 
-## Prerequisites
-
-See [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
-
-## Set up Semgrep
-
-<Install />
-
-## Scan your codebase
+## Scan your codebase and export results
 
 <ExportAs />
 
-### Scan your codebase with a specific ruleset
+## Scan your codebase with a specific ruleset
 
 You can scan your codebase using `--config auto` to run Semgrep with rules that apply to your programming languages and frameworks:
 

@@ -275,7 +275,7 @@ This section provides a comprehensive comparison of each offering's features.
 
 ##### Semgrep Community Edition
 
-- [Local scans](/getting-started/cli-oss)
+- [Local scans](/getting-started/quickstart-ce)
 - [Manual CI job set up](/deployment/oss-deployment)
 - [IDE plugins](/extensions/overview)
 - [`pre-commit`](/extensions/pre-commit)
