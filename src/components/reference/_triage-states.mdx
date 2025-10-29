@@ -23,6 +23,6 @@ Your removed findings do not count toward the fix rate or the number of findings
 - At scan time, there's automatic triaging that occurs in specific cases, and the behavior changes depending on the type of scan:
     - **Full scans**: if the current branch includes a finding that was 
         - Previously introduced in another branch ***and*** 
-        - Triaged to a specific state<br>
+        - Triaged to a specific state<br />
         **Then** the finding in the current branch is triaged to that same state.
     - **Diff-aware scan**: findings introduced in a diff-aware scan are **not** automatically triaged at scan time, even if there are other instances of that finding on branches that have been triaged.
