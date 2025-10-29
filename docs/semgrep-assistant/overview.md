@@ -115,10 +115,6 @@ Assistant Memories allows AppSec teams and developers to tailor Assistant's reme
 
 For example, if the code contains a hardcoded secret, Assistant might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
 
-### Custom rules editor (beta)
-
-Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
-
 ### Upgrade guidance (beta)
 
 Semgrep Supply Chain's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep's click to fix capability can then create a PR to upgrade the package.
