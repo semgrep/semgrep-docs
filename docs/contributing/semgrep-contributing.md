@@ -1,14 +1,16 @@
 # `semgrep-cli` contributing
 
-The following explains how to build `semgrep-cli` so that you can make and test changes to the Python wrapper.
-The `semgrep-cli` name refers to the project which exposes the actual `semgrep` command.
-You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
+This article explains how to build `semgrep-cli` so that you can make and test changes to the Python wrapper.
+
+The `semgrep-cli` name refers to the project which exposes the actual `semgrep` command. The README explains the relationship between `semgrep-cli` and `semgrep-core`.
 
 ## Prerequisite
 
 - Python >= 3.8 installed in your local machine.
 - [`pipenv`](https://github.com/pypa/pipenv) for managing your virtual
-environment. Install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html). Ensure `pipenv` is on your `$PATH` before proceeding.
+environment. 
+    - Install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html). 
+    - Ensure `pipenv` is on your `$PATH` before proceeding.
 
 ## Set up the environment
 
@@ -18,7 +20,7 @@ Most Python development is done inside the `cli` directory:
 cd cli
 ```
 
-Next, initialize and enter the virtual environment. The following command installs developer dependencies such as `pytest` and also installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, enter:
+Next, initialize and enter the virtual environment. The following command installs developer dependencies such as `pytest` and also installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, run:
 
 ```bash
 pipenv shell
@@ -41,18 +43,19 @@ Running `which semgrep` should return a path within your virtual environment. On
 ## Get the `semgrep-core` binary
 
 Almost all usages of `semgrep-cli` require the `semgrep-core` binary.
-To get this binary, your safest bet is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core), which takes around 20 minutes.
+The best way to get the binary is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core). It takes approximately 20 minutes.
 
-Two shortcuts are available as alternatives, where you use a pre-compiled binary. The downsides of using a pre-compiled binary are:
+You can use a precompiled binary, but there are two downsides:
 
 - You are not able to make edits to `semgrep-core`, for example to fix a parse error.
-- Semgrep fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has historically been happening around every two months, but can happen at any time without notice.
+- Semgrep fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has happened roughly every two months historically, but can happen at any time without notice.
 
-With that in mind, the available shortcuts are:
+
+With that in mind, here is one available shortcut:
 
 ### The Homebrew shortcut
 
-If you installed Semgrep through Homebrew with `brew install semgrep`, a `semgrep-core` binary was bundled within that installation, but is not made available on your `$PATH` by default.
+If you installed Semgrep using Homebrew (with `brew install semgrep`), a `semgrep-core` binary was bundled within that installation. However, it is not made available on your `$PATH` by default.
 
 You can add the bundled binary to your `$PATH` with this series of commands, provided you have `jq` installed:
 
@@ -63,18 +66,6 @@ export SEMGREP_BREW_PYTHON_PACKAGE_PATH="$(${SEMGREP_BREW_INSTALL_PATH}/libexec/
 export SEMGREP_BREW_CORE_BINARY_PATH="${SEMGREP_BREW_PYTHON_PACKAGE_PATH}/semgrep/bin"
 export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
 ```
-
-### The manual shortcut
-
-Visit the [releases page](https://github.com/semgrep/semgrep/releases) and grab the latest zipfile or tarball for your platform. Extract this archive and inside should be the necessary binaries. You can confirm this by running:
-
-```bash
-./semgrep-core --help
-```
-
-Copy this file to somewhere in your `$PATH` so `semgrep-cli` can find them. For example, you may create a `~/bin/` directory within the repository. Include it in your `$PATH` and run the binary from there.
-
-Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
 ## Run `semgrep-cli`
 
