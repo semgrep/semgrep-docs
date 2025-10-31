@@ -168,6 +168,10 @@ You can create a new policy and add one or more projects, then select rules to a
 
 During a scan, the repositories assigned to your custom policy run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
 
+### Policy limit
+
+Current users of the Multiple Policies beta can create up to 10 policies. Some users from earlier phases of the beta may have a higher limit.
+
 ### Resolve workflow actions in multiple policies
 
 If a rule is in multiple policies, then the rule is deduplicated and Semgrep prioritizes the workflow action based on the rule mode, where precedence is as follows:
