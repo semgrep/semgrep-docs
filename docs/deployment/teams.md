@@ -333,7 +333,7 @@ Some features of these tokens:
 
 These tokens authenticate users running scans or publishing rules from the CLI. A CLI token can be created by running the following command:
 
-```
+```bash
 semgrep login
 ```
 
