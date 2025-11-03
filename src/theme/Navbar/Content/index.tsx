@@ -103,7 +103,7 @@ export default function NavbarContent(): JSX.Element {
 
   const allDocSections = [
     { 
-      label: 'Scan', 
+      label: 'Scan with Semgrep', 
       to: '/getting-started/quickstart', 
       pathPrefix: '/docs/getting-started', 
       position: 'left',
@@ -115,13 +115,6 @@ export default function NavbarContent(): JSX.Element {
       pathPrefix: '/docs/writing-rules', 
       position: 'left',
       className: currentSection === 'write-rules' ? 'navbar__link--active' : ''
-    },
-    { 
-      label: 'For developers', 
-      to: '/for-developers/overview', 
-      pathPrefix: '/docs/for-developers', 
-      position: 'left',
-      className: currentSection === 'for-developers' ? 'navbar__link--active' : ''
     },
     { 
       label: 'Learning guides', 
@@ -149,14 +142,20 @@ export default function NavbarContent(): JSX.Element {
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
         { label: "What's Semgrep", to: '/faq/overview' },
+        { label: 'For developers', to: '/for-developers/overview' },
         { label: 'Release notes', to: '/release-notes' },
         { label: 'Support & resources', to: '/trophy-case' },
         { type: 'html', value: '<hr style="margin: 0.3rem 0;" />' },
-        { label: 'API', to: 'https://semgrep.dev/api/v1/docs', target: '_blank' },
         { label: 'Registry', to: 'https://semgrep.dev/explore', target: '_blank' },
         { label: 'Playground', to: 'https://semgrep.dev/editor', target: '_blank' },
         { label: 'Semgrep Academy', to: 'https://academy.semgrep.dev', target: '_blank' },
       ]
+    },
+    { 
+      label: 'API', 
+      to: 'https://semgrep.dev/api/v1/docs', 
+      position: 'left',
+      className: ''
     },
   ];
 

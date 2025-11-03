@@ -18,7 +18,7 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'faq/overview', label: 'What\'s semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'faq/overview', label: 'What\'s Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
@@ -1074,7 +1074,7 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
-        label: 'What\'s semgrep',
+        label: 'What\'s Semgrep',
         collapsible: false,
         items: [
             'faq/overview',
