@@ -355,7 +355,7 @@ Automatically generated when onboarding repositories for CI/CD scans. These toke
 
 **Temporary tokens**
 
-Short-lived tokens generated internally for specific features such as Managed Scans and Click to Fix (most currently in beta).  
+Short-lived tokens generated internally for specific features, such as Managed Scans and Click-to-Fix. Most of these features are in beta.
 - Designated as temporary and typically deleted automatically through cleanup processes.  
 - Values are not exposed for reuse after creation.  
 
