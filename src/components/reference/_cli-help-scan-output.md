@@ -499,6 +499,10 @@ OPTIONS
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
 
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
+
        --x-pro-naming
            <internal, do not use>
 
