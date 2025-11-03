@@ -327,7 +327,7 @@ These tokens are created by admins in the Semgrep AppSec Platform UI. They are u
 
 Some features of these tokens:
 - Not tied to a specific user account and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
-- Only admins can generate or manage these tokens. It can be done via **Settings → Tokens**.  
+- Only admins can generate or manage these tokens. This can be done by going to **Settings → Tokens** in Semgrep AppSec Platform.  
 
 **CLI tokens (Member-scoped) tokens**
 
