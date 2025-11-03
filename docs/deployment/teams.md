@@ -321,7 +321,7 @@ An access token is a secure credential that authorizes a user to interact with t
 
 Semgrep supports several types of access tokens:
 
-**User-generated (Web API) tokens**  
+#### User-generated (Web API) tokens 
 
 These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. 
 
@@ -329,7 +329,7 @@ Some features of these tokens:
 - Not tied to a specific user account and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
 - Only admins can generate or manage these tokens. This can be done by going to **Settings → Tokens** in Semgrep AppSec Platform.  
 
-**CLI tokens (Member-scoped) tokens**
+#### CLI tokens (Member-scoped) tokens
 
 These tokens authenticate users running scans or publishing rules from the CLI. A CLI token can be created by running the following command:
 
@@ -349,11 +349,11 @@ Some features of CLI tokens:
 - CLI tokens record which user generated them, but actions are attributed to the token, not the individual user. 
 
 
-**Agent tokens**  
+#### Agent tokens 
 
 Automatically generated when onboarding repositories for CI/CD scans. These tokens authenticate agents running automated scans within CI environments.  
 
-**Temporary tokens**
+#### Temporary tokens
 
 Short-lived tokens generated internally for specific features, such as Managed Scans and Click-to-Fix. Most of these features are in beta.
 - Designated as temporary and typically deleted automatically through cleanup processes.  
