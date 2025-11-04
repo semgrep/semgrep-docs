@@ -338,7 +338,7 @@ Semgrep recommends providing the access token when you [connect the source code 
 </TabItem>
 </Tabs>
 
-The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with broker `v0.32.0`. For other source code managers, to clone repositories for scanning from **any** organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with broker `v0.32.0`. For other source code managers, or earlier Network Broker versions the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
