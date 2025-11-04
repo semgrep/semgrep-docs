@@ -318,7 +318,7 @@ github:
 </code></pre>
 
 :::info Access tokens
-Semgrep recommends [connecting to GitHub using the Semgrep GitHub app](https://semgrep.dev/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects), rather than providing the access token in the Network Broker configuration.
+Semgrep recommends [connecting to GitHub using the Semgrep GitHub app](https://semgrep.dev/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects), rather than providing the access token in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see the GitHub instructions at [Grant code access to Semgrep with an access token](/docs/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-an-access-token).
 :::
 
 </TabItem>
