@@ -304,7 +304,7 @@ bitbucket:
 </code></pre>
 
 :::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -317,6 +317,10 @@ github:
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
+:::info Access tokens
+Semgrep recommends [connecting to GitHub using the Semgrep GitHub app](https://semgrep.dev/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects), rather than providing the access token in the Network Broker configuration.
+:::
+
 </TabItem>
 <TabItem value='gl'>
 
@@ -328,13 +332,13 @@ gitlab:
 </code></pre>
 
 :::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
 </Tabs>
 
-To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with broker `v0.32.0`. For other source code managers, to clone repositories for scanning from **any** organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
