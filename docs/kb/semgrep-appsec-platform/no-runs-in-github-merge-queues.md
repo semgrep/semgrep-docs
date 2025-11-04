@@ -46,16 +46,17 @@ Define a workflow to provide a passing check for merge queue events:
 name: Semgrep - merge queue placeholder
 
 on:
-merge_group: {}
-workflow_dispatch: {}
+   merge_group: {}
+   workflow_dispatch: {}
+   pull_request: {}
 
 jobs:
-semgrep-mq-placeholder:
-    name: semgrep-cloud-platform/scan   # this is the name required in the MQ ruleset
-    runs-on: ubuntu-latest
-    timeout-minutes: 3
-    steps:
- - run: echo "OK – Semgrep already ran on the PR; MQ can proceed."
+   semgrep-mq-placeholder:
+      name: semgrep-cloud-platform/scan   # this is the name required in the MQ ruleset
+      runs-on: ubuntu-latest
+      timeout-minutes: 3
+      steps:
+         - run: echo "OK – Semgrep already ran on the PR; MQ can proceed."
 ```
 
 ## Example walkthrough
