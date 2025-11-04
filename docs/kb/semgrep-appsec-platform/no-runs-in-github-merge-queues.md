@@ -7,13 +7,13 @@ tags:
 
 # Semgrep Managed Scans doesn't run for pull requests in GitHub merge queues
 
-If you:
+Your merge queue pipelines can become blocked if you:
 
 - Use Semgrep Managed Scans to automatically scan your projects
 - Use GitHub merge queues to automate pull request merges
 - Have made the Semgrep scan a required check
 
-Then your merge queue pipelines can become blocked, because Managed Scans do not run in merge queues. As a result, the required Semgrep check never passes, preventing merges.
+Managed Scans do not run in merge queues, so the required Semgrep check never passes, preventing merges.
 
 ## Why Semgrep doesn't run in merge queues
 
