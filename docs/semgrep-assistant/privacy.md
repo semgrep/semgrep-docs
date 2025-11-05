@@ -10,7 +10,7 @@ tags:
 
 # Privacy and legal considerations for Semgrep Assistant
 
-Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories. Semgrep Assistant seeks to limit the time customer data resides with AI model vendors. Our current list of subprocessors include OpenAI and Amazon Bedrock, both provide zero data retention. 
+Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories. Semgrep Assistant seeks to limit the time customer data resides with AI model vendors. The current list of subprocessors includes OpenAI and Amazon Bedrock, both of which provide zero data retention. 
 
 ## Zero Data Retention from Model Vendors
 * Semgrep Assistant logs and stores AI prompts and responses for the sake of performance evaluation, which includes source code snippets.
