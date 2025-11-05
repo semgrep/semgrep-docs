@@ -30,7 +30,7 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 
 ## Semgrep Assistant Minimal Data Retention Policy (Optional)
 
-If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's Minimal Data Retention Policy. 
+If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's minimal data retention policy. 
 
 As part of the additional protections offered by the Minimal Data Retention Policy, customer data related to Semgrep Assistant (including code and prompts):
 - is **not** logged or captured by logging/observability tools.
