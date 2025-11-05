@@ -41,3 +41,4 @@ Responses from Semgrep's AI model vendors are stored in the Semgrep database sol
 Any stored data can be deleted upon customer request. Semgrep, Inc. will provide at least 30 days' notice before making any changes to the retention policy.
 
 For more details, see [<i class="fas fa-external-link fa-xs"></i> Data Privacy Overview - Semgrep Assistant](https://drive.google.com/file/d/19a9m67TS4lRaRusMmsNlIjttTY5b1lEf/view)
+
