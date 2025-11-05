@@ -32,7 +32,7 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 
 If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's minimal data retention policy. 
 
-As part of the additional protections offered by the minimal data retention policy, customer data related to Semgrep Assistant (including code and prompts):
+As part of the additional protections offered by the minimal data retention policy, customer data related to Semgrep Assistant, including code and prompts:
 - Is **not** logged or captured by logging or observability tools.
 - is **not** stored in any external storage system, such as Amazon S3.
 
