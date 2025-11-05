@@ -34,7 +34,7 @@ If you wish to limit data retention for Assistant further, [contact support](/do
 
 As part of the additional protections offered by the minimal data retention policy, customer data related to Semgrep Assistant (including code and prompts):
 - Is **not** logged or captured by logging or observability tools.
-- is **not** stored in any external storage system (e.g., Amazon S3).
+- is **not** stored in any external storage system, such as Amazon S3.
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Assistant functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts. 
 
