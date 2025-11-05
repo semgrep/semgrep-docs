@@ -33,7 +33,7 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's minimal data retention policy. 
 
 As part of the additional protections offered by the minimal data retention policy, customer data related to Semgrep Assistant (including code and prompts):
-- is **not** logged or captured by logging/observability tools.
+- Is **not** logged or captured by logging or observability tools.
 - is **not** stored in any external storage system (e.g., Amazon S3).
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Assistant functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts. 
