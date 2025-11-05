@@ -12,7 +12,7 @@ tags:
 
 Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories. Semgrep Assistant seeks to limit the time customer data resides with AI model vendors. The current list of subprocessors includes OpenAI and Amazon Bedrock, both of which provide zero data retention. 
 
-## Zero Data Retention from Model Vendors
+## Zero Data Retention from model vendors
 * Semgrep Assistant logs and stores AI prompts and responses for the sake of performance evaluation, which includes source code snippets.
 * Semgrep Assistant sends relevant lines of code to our AI subprocessors. Currently, "relevant lines of code" means lines that are part of the Semgrep finding, plus the minimum number of lines of code required to provide enough context to produce accurate results. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains AI responses based on these code snippets for up to 6 months. Semgrep, Inc. will provide at least 30 days' notice if we make any changes to the retention policy.<!-- markdown-link-check-disable -->
