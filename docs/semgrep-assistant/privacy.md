@@ -10,8 +10,9 @@ tags:
 
 # Privacy and legal considerations for Semgrep Assistant
 
-Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories.
+Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories. Semgrep Assistant seeks to limit the time customer data resides with AI model vendors. Our current list of subprocessors include OpenAI and Amazon Bedrock, both provide zero data retention. 
 
+## Zero Data Retention from Model Vendors
 * Semgrep Assistant logs and stores AI prompts and responses for the sake of performance evaluation, which includes source code snippets.
 * Semgrep Assistant sends relevant lines of code to our AI subprocessors. Currently, "relevant lines of code" means lines that are part of the Semgrep finding, plus the minimum number of lines of code required to provide enough context to produce accurate results. Semgrep, Inc. is likely to expand this, potentially to the entire file, as we learn how to pass more useful context.
 * Semgrep stores and retains AI responses based on these code snippets for up to 6 months. Semgrep, Inc. will update you with at least a 30-day notice if we make any changes to the retention policy.<!-- markdown-link-check-disable -->
@@ -26,5 +27,17 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 * Semgrep, Inc. and its AI subprocessors do not obtain any rights to your source code. Your source code remains yours, and Semgrep and its AI subprocessors access it to the limited extent necessary to provide the Semgrep Assistant service. Once the results are returned to you, Semgrep Assistant deletes the shared snippets.
 * Because Semgrep Assistant accesses OpenAI's services through the API, OpenAI does not use any of the code provided to them to improve their services (see Section 3(c) of their Terms of Use). AWS Bedrock also [doesn't use customer data to improve base models](https://aws.amazon.com/bedrock/security-compliance/).
 * To a limited extent, using Semgrep Assistant may change the terms of your agreement with Semgrep, Inc. Specifically, sharing code snippets with Semgrep Assistant as part of this feature expands the scope of the data to which you grant Semgrep, Inc. a limited license to provide services to you (see Section 5.1 of our Subscriber Agreement).
+
+## Semgrep Assistant Minimal Data Retention Policy (Optional)
+
+If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's Minimal Data Retention Policy. 
+
+As part of the additional protections offered by the Minimal Data Retention Policy, customer data related to Semgrep Assistant (including code and prompts):
+- is **not** logged or captured by logging/observability tools.
+- is **not** stored in any external storage system (e.g., Amazon S3).
+
+Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Assistant functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts. 
+
+Any stored data can be deleted upon customer request. Semgrep, Inc. will provide at least 30 days' notice before making any changes to the retention policy.
 
 For more details, see [<i class="fas fa-external-link fa-xs"></i> Data Privacy Overview - Semgrep Assistant](https://drive.google.com/file/d/19a9m67TS4lRaRusMmsNlIjttTY5b1lEf/view)
