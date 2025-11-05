@@ -1,0 +1,2 @@
+- Interfile analysis (cross-file)
+- Interprocedural analysis (cross-function)

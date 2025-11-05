@@ -53,16 +53,16 @@ Monorepos may take longer to finish scanning. Semgrep provides several options t
 
 ## Roles
 
-Semgrep provides two primary roles: **admin** and **member**.
+Semgrep provides three primary roles: **admin**, **member**, and **readonly**.
 
-Deployments can also enable a third role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
+Deployments can also enable a fourth role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
 
 For **single-user deployments**, you are the sole **admin** of your deployment.
 
 For **multi-user deployments**, determine the following:
 
 - The administrators (**admins**) that own the Semgrep deployment.
-- For `members`, ensure that they have a sign-in method:
+- For **members**, ensure that they have a sign-in method:
     - SSO
     - GitHub Cloud
     - GitLab Cloud
@@ -99,7 +99,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <td>Being a <strong>Slack workspace owner</strong>; alternatively, coordinate with the team responsible.</td>
 </tr>
 <tr>
-<td>Send pull or merge requests to your SCM.</td>
+<td>Send pull requests or merge requests to your SCM.</td>
 <td>Editing firewall or VPN allowlist for self-hosted repositories.</td>
 </tr>
 </tbody>
@@ -111,9 +111,10 @@ The following checklist breaks down permissions required by Semgrep features.
 <Tabs
     defaultValue="gh"
     values={[
-    {label: 'GitHub', value: 'gh'},
-    {label: 'GitLab', value: 'gl'},
+    {label: 'Azure DevOps', value: 'az'},
     {label: 'Bitbucket', value: 'bb'},
+    {label: 'GitHub', value: 'gh'},
+    {label: 'GitLab', value: 'gl'}
     ]}
 >
 
@@ -124,7 +125,7 @@ The following checklist breaks down permissions required by Semgrep features.
 | Feature | Permission required |
 | --- | -------  |
 | Create CI jobs for repositories in bulk and detect GitHub repositories automatically. | Installing GitHub apps.         |
-| GPT-assisted triage and recommendations. | Code access. |
+| AI-assisted triage and recommendations. | Code access. |
 
 </TabItem>
 
@@ -145,7 +146,7 @@ The following checklist breaks down permissions required by Semgrep features.
 <td>Create personal access tokens.</td>
 </tr>
 <tr>
-<td rowspan="2">GPT-assisted triage and recommendations.</td>
+<td rowspan="2">AI-assisted triage and recommendations.</td>
 <td>Create personal or project-level access tokens.</td>
 </tr>
 <tr>
@@ -164,6 +165,16 @@ The following checklist breaks down permissions required by Semgrep features.
 | Feature  | Permission |
 | -------  | -------  |
 | Pull request (PR) comments.  | Able to create **repository variables**. |
+
+</TabItem>
+
+<TabItem value='az'>
+
+#### Azure DevOps
+
+| Feature  | Permission |
+| -------  | -------  |
+| Pull request (PR) comments.  | Able to create [user personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). |
 
 </TabItem>
 
@@ -246,7 +257,7 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 
 You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
-- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Managed scanning](/deployment/managed-scanning).
+- To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Managed Scans](/deployment/managed-scanning/overview).
 - To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
 
 :::info
@@ -303,13 +314,26 @@ Semgrep requires the following permissions (scopes) to enable the authentication
 
 <IpAddresses />
 
+#### Allowlists when using Semgrep Network Broker
+
+The [Semgrep Network Broker](/docs/semgrep-ci/network-broker) facilities secure access with Semgrep, and its use can replace the allowlisting of the IP addresses required for ingress. The Network Broker, however, only facilitates requests from Semgrep to your network and *doesn't* assist with requests originating from your network, including those from your network to Semgrep.
+
+In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, but depending on how restrictive your network is, you may need to modify your allowlist to include the egress IP addresses provided in [IP addresses](#ip-addresses).
+
+#### Features that require inbound network connectivity
+
+- [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
+- [PR and MR comments](/category/pr-or-mr-comments)
+- [Semgrep Managed Scans](/deployment/managed-scanning/overview)
+- [Semgrep Assistant](/semgrep-assistant/getting-started)
+
 ### Semgrep versions
 
-Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep AppSec Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 0.160.0, all versions greater than 0.150.0 are supported, while earlier versions, such as 0.159.0, can be deprecated or can result in failures.
+Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. As such, Semgrep AppSec Platform only supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release was 1.60.0, all versions greater than 1.50.0 are supported, while earlier versions, such as 1.49.0, can be deprecated or can result in failures.
 
 To update Semgrep, see [Update Semgrep](/update).
 
-Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up-to-date.
+Docker users: use [the **latest** tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to ensure you are up to date.
 
 ### Semgrep AppSec Platform session details
 

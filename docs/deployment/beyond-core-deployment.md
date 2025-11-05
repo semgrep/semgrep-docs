@@ -7,7 +7,7 @@ tags:
   - Deployment
 ---
 
-# Beyond core deployment
+# Customize a core deployment
 
 Now that you've finished your Semgrep core deployment, you can either customize Semgrep's scan behavior or continue to enable additional deployment features. The following sections list common tasks after you've finished your core deployment.
 
@@ -15,9 +15,9 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 
 | Concern | Guide |
 | -------  | ------ |
-| Semgrep Code scans irrelevant files.         | [Ignore files, folders, or code](/ignoring-files-folders-code).  |
+| Semgrep scans irrelevant files.         | [Ignore files, folders, or code](/ignoring-files-folders-code).  |
 | Semgrep Code is too noisy.         | Enable [cross-file (interfile) analysis](/semgrep-code/semgrep-pro-engine-intro) or remove rules and rulesets through the [Policies page](/semgrep-code/policies).  |
-| I want my developers to see certain security issues in their pull or merge requests.         | Configure [Comment mode](/semgrep-code/policies#blocking-a-pr-or-mr-through-rule-modes) in the Policies page.  |
+| I want my developers to see certain security issues in their pull request or merge request.         | Configure [Comment mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in the Policies page.  |
 | I want to prevent developers from using dependencies with certain licenses. | Set up [license compliance](/docs/semgrep-supply-chain/license-compliance).|
 | I want to receive AI assistance when I triage findings. | Enable [Semgrep Assistant](/semgrep-assistant/overview). |
 | I want to enforce my organization's coding standards. | Write a [custom rule](/writing-rules/overview) and add it to your Policies page. |
@@ -30,3 +30,10 @@ Now that you've finished your Semgrep core deployment, you can either customize 
 | I want my developers to use Semgrep on their IDE.    | Install and set up available [IDE extensions](/extensions/overview).  |
 | I'm scanning too many projects (repositories onboarded to Semgrep) and want to group them somehow.         | [Tag your projects](/docs/semgrep-appsec-platform/tags).   |
 | I'd like to manage access to the resources that developers can view or change in Semgrep AppSec Platform.         | Configure [roles and users](/docs/deployment/teams).  |
+
+## Stay up-to-date on new Semgrep features
+
+Subscribe to the:
+
+- [<i class="fa-solid fa-rss"></i> Semgrep release notes feed](https://semgrep.dev/docs/release-notes/rss.xml)
+- [<i class="fa-solid fa-rss"></i> Semgrep product updates feed](https://semgrep.dev/products/product-updates/rss/)

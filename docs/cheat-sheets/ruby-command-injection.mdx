@@ -1,15 +1,23 @@
 ---
 slug: ruby-command-injection
-description: "Command injection prevention cheat sheet for Ruby."
+displayed_sidebar: learnSidebar
+title: Command Injection for Ruby
+hide_title: true
+description: "Cheat sheet for the prevention of Command Injection vulnerabilities for Ruby."
+tags:
+  - ruby
+  - command-injection
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
 import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# Command injection prevention for Ruby
+# Prevent Command Injection for Ruby
 
 <CommandInjectionIntro />
+
+Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
@@ -199,7 +207,7 @@ Process.wait pid
 
 Backticks ``` `` ``` or `%x[command]` methods allow Ruby developers to execute system commands and return their outputs. Both methods accept string interpolation. As for other methods mentioned in this cheat sheet, when this method is used with user input, it can lead to a command injection vulnerability.
 
-Ruby interprets the text inside of backticks as an OS command. For example, ``` `ls -l` ``` interpreted by Ruby prints the contents of current working directory. In addition, if the `%x` is used with various delimiters, it is also interpreted as an OS command. The ``` `ls -l` ``` in Ruby is equivivalent to the following:
+Ruby interprets the text inside of backticks as an OS command. For example, ``` `ls -l` ``` interpreted by Ruby prints the contents of current working directory. In addition, if the `%x` is used with various delimiters, it is also interpreted as an OS command. The ``` `ls -l` ``` in Ruby is equivalent to the following:
 
 - `` %x`ls -l` ``
 - `` %x;ls -l; ``

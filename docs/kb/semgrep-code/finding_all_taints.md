@@ -44,7 +44,7 @@ To avoid sending test data to Semgrep AppSec Platform and potentially confoundin
 
 When testing locally, adding `--dataflow-traces` allows you to see the taint traces as you would in the Semgrep AppSec Platform UI.
 
-#### Sample taint data-flow reporting
+#### Sample taint dataflow reporting
 
 The following is an example that shows dataflow traces traversing multiple files, demonstrating interfile taint tracking:
 
@@ -52,7 +52,7 @@ The following is an example that shows dataflow traces traversing multiple files
 test2.java
     test-spring-insecure-bean-validation
      Passing user input to context.buildConstraintViolationWithTemplate() function may lead to
-     execution of arbitary commands.
+     execution of arbitrary commands.
 
       8┆ context.buildConstraintViolationWithTemplate(template).addConstraintViolation();
 

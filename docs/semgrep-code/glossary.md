@@ -7,7 +7,8 @@ tags:
   - Semgrep Code
 ---
 
-import DefaultBranches from "/src/components/reference/_default-branches.md"
+import ScanTarget from '/src/components/reference/_scan-target.mdx'
+import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
 
 # Semgrep Code product terms
 
@@ -17,13 +18,11 @@ For rule-writing and SAST (static application security testing) terms, see the [
 
 ## Default branch
 
-Also known as a **mainline** or **trunk** branch. Semgrep AppSec Platform recognizes certain branch names as default branches.
-
-<DefaultBranches />
+Also known as a **mainline**, **primary**, or **trunk** branch. In many cases, Semgrep automatically detects these branches as primary branches when it first scans your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app.
 
 ## Diff-aware scan
 
-A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull or merge request is opened.
+A diff-aware scan is a type of scan that shows only the findings that have been caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull request or merge request is opened. Unlike full scans, diff-aware scans only consider changes within modified files. At this time, cross-file analysis is not supported for diff-aware scans.
 
 ## Full scan
 
@@ -31,34 +30,22 @@ A full scan scans the entire codebase or Git repository in its current state. It
 
 ## Policy
 
-A policy refers to the set of rules that Semgrep runs and the workflow actions undertaken when a rule from the policy generates a finding.
-
-A workflow action is an action that is performed by Semgrep when a finding is detected, such as notifying Slack channels or posting a comment in the PR or MR that generated the finding.
-
-Not to be confused with **policy-as-code**.
+<PolicyDefinition />
 
 ## Registry (Semgrep Registry)
 
-A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. Many of these rules are open source, and you can view the license of the rule you are using. Contributions are welcome.
+A [<i class="fas fa-external-link fa-xs"></i> collection of publicly available SAST rules](https://semgrep.dev/r) that you can download. Rules can be filtered by language, OWASP bug class, severity, and so on. [<i class="fas fa-external-link fa-xs"></i> Contributions are welcome](/contributing/contributing-to-semgrep-rules-repository). 
 
 Rules are frequently organized by [rulesets](#ruleset), enabling you to find related rules by framework and language.
+
+### Sources of rules
+
+The Registry contains rules imported from various repositories. These include rules authored by other individuals or groups, such as Trail of Bits and GitLab.
+
+You can view a rule's `license` key to ensure the license meets your needs.
 
 ## Ruleset
 
 Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry.
 
-## Scan target
-
-A scan target is any file, or collection of files and directories that Semgrep can scan. While Semgrep can scan **any** text file through `generic` mode, Semgrep primarily scans the following:
-
-### Codebase
-
-Any code files within a specified directory and its subdirectories.
-
-### Project
-
-A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources.
-
-### Repository
-
-A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories.
+<ScanTarget />

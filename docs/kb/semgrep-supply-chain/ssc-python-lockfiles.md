@@ -1,9 +1,10 @@
 ---
-description: Generate various Python lock files to run Semgrep Supply Chain scans successfully.
+description: Generate Python lockfiles to run Semgrep Supply Chain scans successfully.
 tags:
   - Semgrep Supply Chain
   - Python
   - Lockfiles
+  - Manifest files
   - requirements.txt
   - Pipfile.lock
   - Poetry.lock
@@ -11,25 +12,22 @@ tags:
 
 # Generating Python lockfiles for Semgrep Supply Chain scans
 
-To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile. This article describes methods to generate the following Python lockfiles:
+To correctly scan all dependencies in a project, Semgrep Supply Chain requires a Python lockfile: a file with specific versions of all dependencies. This article describes methods to generate the following supported Python lockfiles:
 
 * `requirements.txt`
 * `Pipfile.lock`
 * `Poetry.lock`
 
-You can use any of these three lockfiles to get a successful Semgrep Supply Chain scan.
+You can use any of these files to get a successful Semgrep Supply Chain scan. Since Semgrep 1.93.0, a `requirements.txt` file can be placed in a `**/requirements/` folder, or can have any name that matches `*requirement*.txt` or `*requirement*.pip`. 
 
 ## Generating `requirements.txt`
 
 ### Using `requirements.in`
 
 :::info Prerequisites
-
 * A `requirements.in` file with direct Python packages. Do not include transitive packages in `requirements.in`.
 * `pip-tools` must be installed on your machine. See the [pip-tools GitHub repository](https://github.com/jazzband/pip-tools) for installation instructions.
-
 :::
-
 
 To generate a `requirements.txt` file from `requirements.in`, enter the following command in the root of your project directory:
 
@@ -41,7 +39,7 @@ Now, you have successfully generated a `requirements.txt` file with direct and t
 
 #### Example of `requirements.txt` generated from `requirements.in`
 
-Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies: 
+Given the following example project [Binder examples](https://github.com/sebastianrevuelta/binder-examples/), the `requirements.in` file contains the following direct dependencies:
 
 ```
 numpy
@@ -105,15 +103,13 @@ tzdata==2023.3
     # via pandas
 ```
 
-This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the supply chain scan.
+This file has all direct and transitive dependencies of the example project and can be used by Semgrep as an entry point for the Supply Chain scan.
 
 ### Using `pip freeze`
 
 :::info Prerequisites
-
 * The `pip freeze` utility uses dependencies from packages already installed in your current environment to generate `requirements.txt`. You must be in an isolated or [virtual environment](https://docs.python.org/3/library/venv.html).
 * An existing `setup.py` file.
-
 :::
 
 To generate `requirements.txt` through `pip freeze`, enter the following commands:
@@ -144,7 +140,7 @@ on:
     - cron: '0 1 * * 0'
 name: Semgrep
 jobs:
-  my_first_job: 
+  my_first_job:
     name: requirementsGeneration
     runs-on: ubuntu-latest
     steps:
@@ -154,14 +150,14 @@ jobs:
           pip3 install pip-tools
           pip-compile -o requirements.txt
       - name: Upload Requirements File as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: requirementstxt
           path: requirements.txt
   my_second_job:
     needs: my_first_job
     name: Scan
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     container:
@@ -169,12 +165,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download artifact from previous job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: requirementstxt
       - run: semgrep ci --supply-chain
 
-``` 
+```
 
 ## Generating `Pipfile.lock`
 
@@ -294,32 +290,17 @@ poetry lock
 
 The generated `Poetry.lock` file contains all transitive and direct dependencies that the project uses.
 
-## Selecting a single lockfile among many
+## Selecting a single file among many
 
 While there may already be a lockfile in the repository, such as a `Pipfile.lock`, you may want to generate a new one, for example a `requirements.txt`, to be sure it has the latest dependencies.
 
-In Semgrep, you can use the flag `--include` to specify only one lockfile:
+When scanning with Semgrep Supply Chain, you can use the flag `--include` to specify that only a single lockfile should be scanned. The manifest file must still have one of the supported names.
 
 ```
-semgrep --supply-chain --include=requirements.txt
+semgrep ci --supply-chain --include=requirements.txt
 ```
-
-Alternatively, your repository may already have a `requirements.txt` file, but you want to generate a fresh and updated version.
-
-However, generating a new `requirements.txt` file and running the previous command may result in the following error:
-
-```
-[ERROR] Found pending changes in tracked files. Baseline scans runs require a clean git state.
-```
-
-This is due to git conflicts between the previously committed `requirements.txt` file and the newly generated `requirements.txt` file.
-
-A solution to this issue can be to generate the new `requirements.txt` file in a different folder and then specifically include it in the Semgrep scan:
-
-```
-semgrep --supply-chain --include=ssc/requirements.txt
-```
+However, if you have multiple `requirements.txt` files that are in supported locations, you do not need to generate a new unified lockfile. Semgrep will scan files from all supported locations.
 
 ## Conclusions
 
-There are several ways to generate lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the lockfile should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.
+There are several ways to generate lockfiles for Python dependencies. Depending on your preferences, you can select one or another. Keep in mind that the file should be generated before the Semgrep scan and within the proper environment. This ensures that you are scanning only the dependencies of your project and not all the Python dependencies of your system.

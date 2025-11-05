@@ -5,8 +5,8 @@ title: Support
 hide_title: true
 description: Learn about the support options offered by Semgrep.
 tags:
-  - support
-  - troubleshooting
+  - Support
+  - Troubleshooting
 ---
 
 # Support
@@ -21,12 +21,16 @@ most out of their Semgrep subscription.
 
 ### Support hours
 
-Semgrep technical support is available 18 hours a day, five days a week, from 6
-AM to 12 AM UTC, Monday to Friday, excluding Semgrep-recognized holidays.
+Semgrep technical support is available 18 hours a day, five days a week, from 8
+AM to 1 AM UTC, Monday to Friday, excluding Semgrep-recognized holidays.
 
-### Contacting support
+### Contact support
 
 All Semgrep customers can contact Semgrep Support through the following methods.
+
+:::tip
+You can also join various **beta programs** through these channels.
+:::
 
 #### Slack
 
@@ -40,28 +44,28 @@ from the [Help section](https://semgrep.dev/orgs/-/support).
 
 #### Email
 
-For non-urgent inquiries, or when you need to provide detailed information about
-your issue, you can email the Support team at
-[support@semgrep.com](mailto:support@semgrep.com).
+You can email the Support team at
+[support@semgrep.com](mailto:support@semgrep.com). For urgent or high
+priority issues, use Slack or [Semgrep AppSec Platform's Help section](https://semgrep.dev/orgs/-/support),
+so that you can set the appropriate priority on your issue.
 
 ## Support for all Semgrep users (community support)
 
 [Join the Slack community](https://go.semgrep.dev/slack) to chat with the
-Semgrep maintainers and support engineers. All users, including Semgrep OSS users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
+Semgrep maintainers and support engineers. All users, including Semgrep Community Edition (CE) users and Semgrep AppSec Platform users without a paid subscription plan, are welcome to ask for help in the community Slack group.
 
-Users interested in seeing a demo or proof of concept can also send inquiries
-through [email](mailto:support@semgrep.com).
+Users interested in seeing a proof of concept can also [request a demo](https://semgrep.dev/contact/demo/) or [email Sales](mailto:sales@semgrep.com).
 
-## Semgrep OSS support
+## Semgrep CE support
 
-Users of Semgrep OSS can log bugs and feature requests in the
+Users of Semgrep CE can log bugs and feature requests in the
 [semgrep](https://github.com/semgrep/semgrep/issues) repository. They can also
 ask questions regarding usage, rollouts, and deployments in the [community Slack
-group](https://go.semgrep.dev/slack)
+group](https://go.semgrep.dev/slack).
 
 ## Status page
 
 The [Semgrep status page](https://status.semgrep.dev/) enables users to
-subscribe to notifications whenever an incident is created, updated, or
+subscribe to notifications whenever a service incident is created, updated, or
 resolved. Check the status page to see any current or past service incidents or
 to review historical uptime.

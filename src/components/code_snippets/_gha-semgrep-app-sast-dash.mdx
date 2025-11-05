@@ -15,6 +15,13 @@ on:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
     # It is recommended to change the schedule to a random time.
 
+permissions:
+  # This permission is required when uploading sarifs to any repository at GitHub
+  security-events: write
+  # These permissions are only required when uploading sarifs to private and internal repositories at GitHub
+  contents: read
+  actions: read
+
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
@@ -41,7 +48,7 @@ jobs:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: semgrep.sarif
         if: always()

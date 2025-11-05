@@ -1,0 +1,18 @@
+```yaml
+version: v1.0
+name: Semaphore Semgrep CE Example
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: Semgrep
+    task:
+      jobs:
+        # Job performing a full scan using Semgrep CE
+        - name: Semgrep CE Scan
+          commands:
+            - checkout
+            - sudo pip install semgrep
+            - semgrep scan
+```

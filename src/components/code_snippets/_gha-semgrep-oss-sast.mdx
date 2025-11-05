@@ -1,15 +1,15 @@
 <!--
 
-OSS Semgrep in CI code snippet for GitHub Actions
+Semgrep CE in CI code snippet for GitHub Actions
 
 -->
 
 ```yaml
 # Name of this GitHub Actions workflow.
-name: Semgrep OSS scan
+name: Semgrep CE scan
 
 on:
-  # Scan changed files in PRs (diff-aware scanning):
+  # Scan in PRs:
   pull_request: {}
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
@@ -20,6 +20,9 @@ on:
   schedule:
     - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
     # It is recommended to change the schedule to a random time.
+
+permissions:
+  contents: read
 
 jobs:
   semgrep:

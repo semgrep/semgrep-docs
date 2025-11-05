@@ -20,15 +20,21 @@ module.exports = {
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
+    { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
+    {
+      type: 'ref',
+      id: 'learn/overview',
+      label: 'Semgrep learning guides',
+      className: 'top-category-separator'
+    },
     {
       type: 'link',
       label: 'Knowledge base',
-      href: '/kb/',
-      className: 'top-category-separator'
+      href: '/kb',
+      className: 'top-category'
     },
-    { type: 'ref', id: 'cheat-sheets/java-code-injection', label: 'Cheat sheets for security issues', className: 'top-category'},
-    { type: 'ref', id: 'release-notes/introduction', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'faq', label: 'About Semgrep', className: 'top-category' },
+    { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
+    { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -39,8 +45,26 @@ module.exports = {
         collapsible: false,
         items: [
             'getting-started/quickstart',
+            'getting-started/quickstart-sms',
             'prerequisites',
-            'supported-languages',
+            'getting-started/scm-support',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Supported languages',
+                link: {type: 'doc', id: 'supported-languages'},
+                items: [
+                    'languages/csharp',
+                    'languages/go',
+                    'languages/java',
+                    'languages/javascript',
+                    'languages/kotlin',
+                    'languages/python',
+                    'languages/ruby',
+                    'languages/scala',
+                    'languages/swift',
+                ]
+            },
             {
               type: 'category',
               label: 'Local and CLI scans',
@@ -69,7 +93,15 @@ module.exports = {
             items: [
                 'deployment/deployment-checklist',
                 'deployment/create-account-and-orgs',
-                'deployment/connect-scm',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Connect a source code manager',
+                    link: {type: 'doc', id: 'deployment/connect-scm'},
+                    items: [
+                      'semgrep-appsec-platform/scm-code-access'
+                    ]
+                },
                 /* 'semgrep-cloud-platform/scm', superseded by connect-scm */
                 'deployment/sso',
                 {
@@ -78,11 +110,22 @@ module.exports = {
                     label: 'Scan repositories with the AppSec Platform',
                     link: {type: 'generated-index'},
                     items: [
+                        {
+                          type: 'category',
+                          label: 'Managed Scans',
+                          collapsible: true,
+                          link: {type: 'doc', id: 'deployment/managed-scanning/overview'},
+                          items: [
+                              'deployment/managed-scanning/azure',
+                              'deployment/managed-scanning/bitbucket',
+                              'deployment/managed-scanning/github',
+                              'deployment/managed-scanning/gitlab'
+                          ]
+                        },
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
                         'semgrep-ci/configuring-blocking-and-errors-in-ci',
-                        'deployment/managed-scanning',
                         {
                             type: 'category',
                             label: 'Configuring SCA scans',
@@ -93,6 +136,8 @@ module.exports = {
                                 'semgrep-supply-chain/setup-jenkins-ui'
                             ]
                         },
+                        'deployment/manage-projects',
+                        'deployment/primary-branch',
                         'troubleshooting/semgrep-app'
                     ]
                 },
@@ -102,12 +147,59 @@ module.exports = {
                   collapsible: true,
                   link: {type: 'generated-index'},
                   items: [
+                    'semgrep-appsec-platform/azure-pr-comments',
                     'semgrep-appsec-platform/github-pr-comments',
                     'semgrep-appsec-platform/gitlab-mr-comments',
-                    'semgrep-appsec-platform/bitbucket-pr-comments',
-                    ]
+                    {
+                      type: 'category',
+                      label: 'Bitbucket PR comments',
+                      collapsible: true,
+                      link: {type: 'generated-index'},
+                      items: [
+                        'semgrep-appsec-platform/bitbucket-cloud-pr-comments',
+                        'semgrep-appsec-platform/bitbucket-data-center-pr-comments',
+                      ]
+                    }
+                  ]
                 },
-                'deployment/beyond-core-deployment'
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Customize core deployment',
+                  link: {type: 'doc', id: 'deployment/beyond-core-deployment'},
+                  items: [
+                      {
+                        type: 'category',
+                        label: 'Ignore files, folders, and code',
+                        collapsible: true,
+                        items: [
+                          {
+                            type: 'doc',
+                            id: 'ignoring-files-folders-code',
+                            label: 'Semgrep Code',
+                          },
+                          {
+                            type: 'doc',
+                            id: 'semgrep-supply-chain/ignoring-deps',
+                            label: 'Semgrep Supply Chain',
+                          },
+                        ]
+                      },
+                      'semgrep-code/semgrep-pro-engine-intro',
+                      'semgrep-code/policies',
+                      'semgrep-supply-chain/license-compliance',
+                      {
+                        type: 'doc',
+                        id: 'semgrep-assistant/getting-started', // document ID
+                        label: 'Enable Assistant', // sidebar label
+                      },
+                      {
+                        type: 'doc',
+                        id: 'writing-rules/overview', // document ID
+                        label: 'Write custom rules', // sidebar label
+                      },
+                  ]
+                },
             ]
         },
         {
@@ -123,11 +215,12 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'AI-assisted triage and autofix',
+          label: 'Secure guardrails',
           collapsible: true,
-          link: {type: 'doc', id: 'semgrep-assistant/overview'},
+          link: {type: 'doc', id: 'secure-guardrails/overview'},
           items: [
-            'semgrep-assistant/getting-started'
+            'secure-guardrails/secure-defaults',
+            'secure-guardrails/custom-guardrails-rules'
           ]
         },
         {
@@ -141,27 +234,10 @@ module.exports = {
             'semgrep-appsec-platform/webhooks'
           ]
         },
+        'semgrep-appsec-platform/dashboard',
         {
           type: 'category',
-          label: 'Ticketing',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/ticketing'},
-          items: [
-            'semgrep-appsec-platform/jira',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Reports',
-          collapsible: true,
-          link: {type: 'doc', id: 'semgrep-appsec-platform/dashboard'},
-          items: [
-            'semgrep-appsec-platform/dashboard'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'IDE extensions',
+          label: 'Extensions',
           collapsible: true,
           link: {
             type: 'doc',
@@ -169,7 +245,20 @@ module.exports = {
           },
           items: [
             'extensions/semgrep-vs-code',
-            'extensions/semgrep-intellij'
+            'extensions/semgrep-intellij',
+            'extensions/pre-commit',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Integrations',
+          collapsible: true,
+          items: [
+            'mcp',
+            'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/wiz',
+            'semgrep-appsec-platform/cortex',
+            'semgrep-appsec-platform/sysdig'
           ]
         },
       ]
@@ -185,23 +274,22 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
-                'semgrep-code/findings',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'View findings',
+                    link: {type: 'doc', id: 'semgrep-code/findings',},
+                    items: [
+                      'semgrep-appsec-platform/details-page',
+                    ]
+                },
                 'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
-                'ignoring-files-folders-code',
                 'semgrep-code/semgrep-pro-engine-intro',
+                'semgrep-code/semgrep-pro-engine-examples',
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
-                {
-                    type: 'category',
-                    label: 'Semgrep OSS',
-                    collapsible: true,
-                    items: [
-                        'deployment/oss-deployment',
-                        'getting-started/cli-oss',
-                        ]
-                },
             ]
         },
         {
@@ -210,12 +298,25 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
-                'semgrep-supply-chain/getting-started',
-                'semgrep-supply-chain/triage-remediation',
-                'semgrep-supply-chain/ignoring-deps',
-                'semgrep-supply-chain/dependency-search',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Open source security vulnerabilities',
+                  link: {
+                    type: 'doc',
+                    id: 'semgrep-supply-chain/getting-started',
+                  },
+                  items: [
+                      'semgrep-supply-chain/view-export',
+                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/policies',
+                      'semgrep-supply-chain/ignoring-deps',
+                  ]
+                },
                 'semgrep-supply-chain/sbom',
-                'semgrep-supply-chain/license-compliance'
+                'semgrep-supply-chain/dependency-search',
+                'semgrep-supply-chain/license-compliance',
+                'semgrep-supply-chain/malicious-dependencies'
             ]
         },
         {
@@ -226,15 +327,80 @@ module.exports = {
                 'semgrep-secrets/conceptual-overview',
                 'semgrep-secrets/getting-started',
                 'semgrep-secrets/historical-scanning',
+                'semgrep-secrets/generic-secrets',
                 'semgrep-secrets/view-triage',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
-                'semgrep-secrets/validators'
+                'semgrep-secrets/validators',
+                'semgrep-secrets/glossary'
             ]
           },
         ]
       },
-    {
+      {
+        type: 'category',
+        label: 'Semgrep Assistant',
+        collapsible: false,
+        items: [
+          {
+            type: 'category',
+            label: 'Overview',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/overview'
+            },
+            items: [
+              'semgrep-assistant/metrics',
+              'semgrep-assistant/privacy'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Getting started',
+            collapsible: true,
+            link: {
+              type: 'doc',
+              id: 'semgrep-assistant/getting-started'
+            },
+            items: [
+              'semgrep-assistant/customize'
+            ]
+          },
+          'semgrep-assistant/analyze'
+          ]
+      },
+      {
+        type: 'category',
+        label: 'Semgrep Community Edition',
+        collapsible: false,
+        items: [
+            {
+              type: 'category',
+              label: 'Get started',
+              collapsible: true,
+              link: {type: 'doc', id: 'getting-started/quickstart-ce'},
+              items: [
+                'customize-semgrep-ce',
+              ]
+            },
+            'semgrep-ce-languages',
+            'deployment/oss-deployment',
+            
+            {
+              type: 'category',
+              label: 'About Semgrep CE',
+              collapsible: true,
+              items:[
+                'contributing/philosophy',
+                'semgrep-pro-vs-oss',
+                'faq/comparisons/opengrep',
+                
+              ]
+            }
+          ]
+      },
+      {
       type: 'category',
       label: 'References',
       collapsible: false,
@@ -270,7 +436,9 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
+        'semgrepignore-v2-reference',
         'cli-reference',
+        'semgrep-appsec-platform/json-and-sarif'
       ]
     }
   ],
@@ -278,29 +446,59 @@ module.exports = {
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
-            label: 'Write rules',
+            label: 'Write rules for Semgrep Code',
             collapsible: false,
             items: [
                 'writing-rules/overview',
-                'writing-rules/pattern-examples',
-                'writing-rules/pattern-syntax',
-                'writing-rules/rule-ideas',
-                'writing-rules/rule-syntax',
-                'writing-rules/testing-rules',
-                'writing-rules/private-rules',
-                'writing-rules/autofix',
-                'writing-rules/generic-pattern-matching',
-                'writing-rules/metavariable-analysis',
-                'troubleshooting/rules',
                 {
+                    type: 'category',
+                    label: 'Rule structure syntax',
+                    link: {type: 'doc', id: 'writing-rules/rule-syntax'},
+                    items: [
+                        'writing-rules/rule-ideas',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Rule pattern syntax',
+                    link: {type: 'doc', id: 'writing-rules/pattern-syntax'},
+                    items: [
+                        'writing-rules/pattern-examples',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Advanced rule-writing techniques',
+                    items: [
+                        'writing-rules/autofix',
+                        {
+                            type: 'category',
+                            label: 'Dataflow analysis',
+                            link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            collapsible: false,
+                            items: [
+                                'writing-rules/data-flow/constant-propagation',
+                                {
+                                    type: 'category',
+                                    label: 'Taint analysis',
+                                    link: {type: 'doc', id: 'writing-rules/data-flow/taint-mode/overview'},
+                                    items: [
+                                        'writing-rules/data-flow/taint-mode/advanced'
+                                    ]
+                                },
+                                'writing-rules/data-flow/status'
+                            ]
+                        },
+                        'writing-rules/generic-pattern-matching',
+                        'writing-rules/metavariable-analysis',
+                        {
                     type: 'category',
                     label: 'Experiments 🧪',
                     link: {type: 'doc', id: 'writing-rules/experiments/introduction'},
                     items: [
+                      'writing-rules/experiments/introduction',
                       'writing-rules/experiments/pattern-syntax',
                       'writing-rules/experiments/aliengrep',
-                      'writing-rules/experiments/display-propagated-metavariable',
-                      'writing-rules/experiments/extract-mode',
                       { type: 'category',
                           label: 'Join mode',
                           link: {type: 'doc', id: 'writing-rules/experiments/join-mode/overview'},
@@ -308,26 +506,31 @@ module.exports = {
                               'writing-rules/experiments/join-mode/recursive-joins'
                           ]
                       },
+                      'writing-rules/experiments/symbolic-propagation',
+                      'writing-rules/experiments/display-propagated-metavariable',
                       'writing-rules/experiments/multiple-focus-metavariables',
                       'writing-rules/experiments/project-depends-on',
-                      'writing-rules/experiments/symbolic-propagation',
                       'writing-rules/experiments/metavariable-type',
                       'writing-rules/experiments/deprecated-experiments'
+                    ],
+                  }
                     ]
-                  },
-            {
-                type: 'category',
-                label: 'Data-flow analysis',
-                link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
-                items: [
-                    'writing-rules/data-flow/constant-propagation',
-                    'writing-rules/data-flow/taint-mode',
-                    'writing-rules/data-flow/status'
-                ]
-            },
-                'writing-rules/glossary'
+                },
+                'writing-rules/private-rules',
+                'writing-rules/testing-rules',
+                'troubleshooting/rules',
+                'writing-rules/glossary',
             ]
         },
+        {
+          type: 'category',
+          label: 'Write rules for Semgrep Secrets',
+          collapsible: false,
+          items: [
+              'semgrep-secrets/rules',
+              'semgrep-secrets/validators'
+          ]
+        }
   ],
   cheatsheetSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -426,16 +629,27 @@ module.exports = {
             'support',
             'security',
             'licensing',
-            'faq',
+            'faq/overview',
             'integrating',
             'usage-and-billing',
             'deployment/claim-a-license',
-            'contributing/philosophy',
-            'semgrep-pro-vs-oss',
+            'run-a-successful-pov',
+            {
+              type: 'category',
+              label: 'Comparisons with other tools',
+              collapsible: true,
+              items: [
+                  'faq/comparisons/codeql',
+                  'faq/comparisons/endor-labs',
+                  'faq/comparisons/opengrep',
+                  'faq/comparisons/snyk',
+                  'faq/comparisons/sonarqube',
+                ]
+            },
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep privacy policy'
+              label: 'Semgrep metrics'
             },
             {
               type: 'category',
@@ -478,6 +692,21 @@ module.exports = {
         keywords: ['kb']
       },
       items: [
+        {
+          type: 'category',
+          label: 'Semgrep Assistant',
+          collapsible: true,
+          link: {
+            type: 'generated-index',
+            slug: '/kb/semgrep-assistant'
+          },
+          items: [
+            {
+              type: 'autogenerated',
+              dirName: 'kb/semgrep-assistant',
+            },
+          ]
+        },
         {
           type: 'category',
           label: 'Semgrep Code',
@@ -586,100 +815,308 @@ module.exports = {
       ]
     },
   ],
-  updatesSidebar: [
-    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+  devSidebar: [
+    { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    { type: 'doc', id: 'for-developers/developer-overview', label: 'Overview' },
+    { type: 'doc', id: 'for-developers/developer-signin', label: 'Sign in to Semgrep' },
     {
         type: 'category',
-        label: 'Release notes',
-        link: {type: 'doc', id: 'release-notes/introduction'},
+        label: 'Resolve findings',
+        collapsible: false,
         items: [
-            'release-notes/latest',
-            {
-              type: 'category',
-              label: '2024',
-              collapsible: true,
-                link: {
-                    type: 'generated-index',
-                    title: '2024 Release notes'
-                },
-              items: [
-                'release-notes/june-2024',
-                'release-notes/may-2024',
-                'release-notes/april-2024',
-                'release-notes/march-2024',
-                'release-notes/february-2024',
-                'release-notes/january-2024'
-              ]
-            },
-            {
-              type: 'category',
-              label: '2023',
-              collapsible: true,
-                link: {
-                    type: 'generated-index',
-                    title: '2023 Release notes'
-                },
-              items: [
-                'release-notes/december-2023',
-                'release-notes/november-2023',
-                'release-notes/october-2023',
-                'release-notes/september-2023',
-                'release-notes/august-2023',
-                'release-notes/july-2023',
-                'release-notes/june-2023',
-                'release-notes/may-2023',
-                'release-notes/april-2023',
-                'release-notes/march-2023',
-                'release-notes/february-2023',
-                'release-notes/january-2023'
-              ]
-            },
-            {
-              type: 'category',
-              label: '2022',
-              collapsible: true,
-                link: {
-                    type: 'generated-index',
-                    title: '2022 Release notes'
-                },
-              items: [
-                'release-notes/december-2022',
-                'release-notes/november-2022',
-                'release-notes/october-2022',
-                'release-notes/september-2022',
-                'release-notes/august-2022',
-                'release-notes/july-2022',
-                'release-notes/june-2022',
-                'release-notes/may-2022',
-                'release-notes/april-2022',
-                'release-notes/march-2022',
-                'release-notes/february-2022',
-                'release-notes/january-2022'
-              ]
-            },
-              {
-                type: 'category',
-                label: '2021',
-                collapsible: true,
-                link: {
-                    type: 'generated-index',
-                    title: '2021 Release notes'
-                },
-                items: [
-                  'release-notes/december-2021',
-                  'release-notes/november-2021',
-                  'release-notes/october-2021',
-                  'release-notes/september-2021',
-                  'release-notes/august-2021',
-                  'release-notes/july-2021',
-                  'release-notes/june-2021',
-                  'release-notes/may-2021',
-                  'release-notes/april-2021',
-                ]
-              },
-            'release-notes/all-release-notes'
-        ]
+            'for-developers/resolve-findings-through-comments',
+            'for-developers/resolve-findings-through-app',
+        ],
     },
-    'release-notes/rule-updates'
+    {
+        type: 'category',
+        label: 'Run scans',
+        collapsible: false,
+        items: [
+            'for-developers/developer-local-scans',
+            'for-developers/ide',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'References',
+        collapsible: false,
+        items: [
+            'for-developers/detection',
+        ],
+    },
   ],
+  learnSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+      type: 'category',
+      label: 'Application Security',
+      collapsible: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'learn/overview',
+          label: 'Overview'
+        },
+        {
+          type: 'category',
+          label: 'Security Foundations',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/security-foundations/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Static code scanning',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/sast/overview'
+              },
+              items: [
+                
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Supply chain security',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/supply-chain-security'
+
+              },
+              items: [
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Security testing workflows',
+              collapsible: false,
+              link: {
+                type: 'doc',
+                id: 'learn/security-foundations/security-testing-workflow'
+
+              },
+              items: [
+              ]
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Vulnerabilities',
+          collapsible: true,
+          link: {
+            type: 'doc',
+            id: 'learn/vulnerabilities/overview'
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Code Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/code-injection/overview'
+              },
+              items: [
+                // Additional Code Injection topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Command Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/command-injection/overview'
+              },
+              items: [
+                'learn/vulnerabilities/command-injection/argo-injection',
+                'learn/vulnerabilities/command-injection/github-actions-injection'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Cross-site Scripting',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/cross-site-scripting/overview'
+              },
+              items: [
+                // Additional XSS topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Deserialization',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-deserialization/overview'
+              },
+              items: [
+                // Additional Insecure Deserialization topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Insecure Direct Object Reference',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/insecure-direct-object-reference/overview'
+
+              },
+              items: [
+                // Additional IDOR topics can be added here later
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Open Redirect',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/open-redirect/overview'
+              },
+              items: [
+                // Additional Open Redirect topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Server Side Request Forgery',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/server-side-request-forgery/overview'
+              },
+              items: [
+                // Additional SSRF topics can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'SQL Injection',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/sql-injection/overview'
+              },
+              items: [
+                // Additional SQL Injection can be added here
+              ]
+            },
+            {
+              type: 'category',
+              label: 'XML Security',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'learn/vulnerabilities/xml-security/overview'
+              },
+              items: [
+                // Additional XML security topics can be added here
+              ]
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Secure Coding',
+      collapsible: false,
+            items: [
+                'cheat-sheets/overview',
+                {
+                    type: 'category',
+                    'label': 'Go',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Go',
+                      description: 
+                        "Security guides and cheatsheets for the Go programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/go-command-injection',
+                        'cheat-sheets/go-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Java',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Java',
+                      description: 
+                        "Security guides and cheatsheets for the Java programming language and related frameworks.",
+                    },
+                      items: [
+                        'cheat-sheets/java-code-injection',
+                        'cheat-sheets/java-command-injection',
+                        'cheat-sheets/java-jsp-xss',
+                        'cheat-sheets/java-xxe'
+                      ]
+                },
+                {
+                    type: 'category',
+                    'label': 'JavaScript',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'JavaScript',
+                      description: 
+                        "Security guides and cheatsheets for the JavaScript programming language, Node and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/javascript-code-injection',
+                        'cheat-sheets/javascript-command-injection',
+                        'cheat-sheets/express-xss',
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Python',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Python',
+                      description: 
+                        "Security guides and cheatsheets for the Python programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/python-code-injection',
+                        'cheat-sheets/python-command-injection',
+                        'cheat-sheets/django-xss',
+                        'cheat-sheets/flask-xss',
+                        'learn/vulnerabilities/insecure-deserialization/py-deserialization'
+                    ]
+                },
+                {
+                    type: 'category',
+                    'label': 'Ruby',
+                    collapsible: true,
+                    link: {
+                      type: 'generated-index',
+                      title: 'Ruby',
+                      description: 
+                        "Security guides and cheatsheets for the Ruby programming language and related frameworks.",
+                    },
+                    items: [
+                        'cheat-sheets/ruby-code-injection',
+                        'cheat-sheets/ruby-command-injection',
+                        'cheat-sheets/rails-xss'
+                    ]
+                },
+            ],
+    }
+  ]
 };

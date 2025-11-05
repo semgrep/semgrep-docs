@@ -19,16 +19,9 @@ semgrep:
     # Upload findings to GitLab SAST Dashboard:
     SEMGREP_GITLAB_JSON: "1"
 
-  # Other optional settings in the `variables` block:
-
-  # Receive inline MR comments (requires Semgrep AppSec Platform account)
-  # Setup instructions:
-  # https://semgrep.dev/docs/semgrep-appsec-platform/gitlab-mr-comments
-  #   GITLAB_TOKEN: $PAT
-
   # Run the "semgrep ci" command on the command line of the docker image and send findings
   # to GitLab SAST.
-  script: semgrep ci --gitlab-sast > gl-sast-report.json || true
+  script: semgrep ci --code --gitlab-sast > gl-sast-report.json || true
   artifacts:
     reports:
       sast: gl-sast-report.json

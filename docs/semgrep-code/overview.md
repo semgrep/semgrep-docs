@@ -35,25 +35,25 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 * Customize how Semgrep Code scans your repositories
 * Manage your users and facilitate team collaboration in remediating security issues
 
-## OSS versus Semgrep Code analysis
+## Semgrep Community Edition (CE) versus Semgrep Code analysis
 
 By default, Semgrep Code can analyze interactions beyond a single function but within a single file, a process known as **cross-function or interprocedural analysis**. This smaller scope of analysis makes it faster and easier to integrate into developer workflows.
 
-Semgrep OSS can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep OSS is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
+Semgrep CE can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep CE is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
 
 Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
 
 ## Enable Semgrep Code
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Click **[Settings](https://semgrep.dev/orgs/-/settings)**.
-1. In the **Deployment** tab, click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
+1. Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
+1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Code scans** toggle if it is not already enabled.
 
 Subsequent scans now include Code scans.
 
 ### Run Semgrep Code scans with single-function analysis
 
-In some cases, you may want to scan using Semgrep OSS's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:
+In some cases, you may want to scan using Semgrep CE's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:
 
 ```yaml
 # Preferred; includes support for all Semgrep Code languages
@@ -62,6 +62,19 @@ semgrep ci --pro-languages
 # Does not include all Semgrep Code language features
 semgrep ci --oss-only
 ```
+
+## Augment Semgrep Code with Semgrep Assistant
+
+[Semgrep Assistant](/semgrep-assistant/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Assistant can:
+
+- Provide [remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
+- Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
+  - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
+- [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
+- [Auto-triage findings](/semgrep-assistant/overview#auto-triage) and suggest whether a finding can safely be ignored.
+- [Filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+- Help you [write custom rules](/semgrep-assistant/overview#custom-rules-editor-beta) to find patterns and vulnerabilities specific to your codebase.
+
 ## Next steps
 
 - [View your findings](/semgrep-code/findings).

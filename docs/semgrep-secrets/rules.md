@@ -1,7 +1,7 @@
 ---
 slug: rules
 append_help_link: true
-title: Write custom rules
+title: Custom rules
 hide_title: true
 description: Learn about Semgrep Secrets rules.
 tags:
@@ -57,7 +57,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule, that performs validation against github.com
-  severity: WARNING
+  severity: MEDIUM
   languages:
   - regex
   validators:
@@ -94,7 +94,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule that performs validation against github.com
-  severity: WARNING
+  severity: MEDIUM
   languages:
   - javascript
   - typescript
@@ -217,7 +217,7 @@ See [<i class="fa-regular fa-file-lines"></i> Validators](/semgrep-secrets/valid
 
 Semgrep Secrets can use metavariables. Metavariables allow Semgrep Secrets to reuse matched information from your code in its validators. An example of a metavariable is as follows:
 
-<iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe title="Message displays metavariable content" src="https://semgrep.dev/embed/editor?snippet=JDzRR" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 <br />
 
 When you click **Run**, the content from the metavariable `$HELLO` displays as `This content is now reusable in validators`. If this were a Secrets rule, Semgrep Secrets could use this to call the appropriate service to determine if the secret is active.

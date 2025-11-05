@@ -1,6 +1,6 @@
 ---
 slug: validators
-title: Write custom validators
+title: Custom validators
 hide_title: true
 description: Learn about validators used in Semgrep Secrets rules.
 tags:
@@ -55,7 +55,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING
+  severity: MEDIUM
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -205,7 +205,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING
+  severity: MEDIUM
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -249,7 +249,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING
+  severity: MEDIUM
   metadata:
     product: secrets
     secret_type: exampleCo
@@ -318,7 +318,7 @@ rules:
 - id: exampleCo_example
   message: >-
     This is an example rule that performs validation against semgrep.dev
-  severity: WARNING
+  severity: MEDIUM
   metadata:
     product: secrets
     secret_type: exampleCo

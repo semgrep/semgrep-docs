@@ -37,7 +37,7 @@
       "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
     }
   },
-  "strip_chars": " .,;:#",
+  "strip_chars": " .,;:#()",
   "custom_settings": {
     "indexLanguages" : [
       "en"
@@ -52,7 +52,10 @@
       "coverage",
       "leverage",
       "teams",
-      "terms"
+      "terms",
+      "IdP",
+      "IDE",
+      "Jira"
     ],
     "separatorsToIndex": "_",
     "attributesForFaceting": [
@@ -109,6 +112,30 @@
       [
         "Semgrep Supply Chain",
         "SSC"
+      ],
+      [
+        "Identity provider",
+        "IdP"
+      ],
+      [
+        "Jira integration",
+        "Jira"
+      ],
+      [
+        "lockfileless",
+        "without lockfiles"
+      ],
+      [
+        "node.js",
+        "JavaScript"
+      ],
+      [
+        "nodejs",
+        "JavaScript"
+      ],
+      [
+        "click to fix",
+        "click-to-fix"
       ]
     ]
   },

@@ -4,55 +4,139 @@ hide_title: true
 id: Docs home
 displayed_sidebar: topLevelSidebar
 toc_max_heading_level: 2
-pagination_next: getting-started/quickstart
+pagination_next: getting-started/quickstart-sms
 description: >-
   Read the documentation and get started with Semgrep.
-  A fast, open-source, static analysis engine
-  for finding bugs, detecting dependency vulnerabilities, and enforcing code standards at editor, commit, and CI time.
+  A fast static analysis engine for finding bugs,
+  detecting dependency vulnerabilities, and enforcing
+  code standards at editor, commit, and CI time.
 ---
 
-import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
-
 import ThemedImage from '@theme/ThemedImage'
+
+<!-- vale off -->
 
 <!---
 Substitute the "dark:" logo path in case a new dark logo is made.
 The code is kept here for easy maintenance.
 -->
 
-<br />
-<p align="center">
+<div class='logo-index'>
   <a href="https://semgrep.dev">
     <ThemedImage
       alt="Semgrep themed logo"
-      height="105px"
+      height="48px"
       sources={{
-        light: ('img/semgrep.svg'),
-        dark: ('img/semgrep.svg'),
+        light: ('img/semgrep.svg#no-shadow'),
+        dark: ('img/semgrep.svg#no-shadow'),
       }} />
   </a>
-</p>
-<h3 align="center">Find bugs and reachable dependency vulnerabilities in code.<br />Enforce your code standards on every commit.</h3>
+  <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
+</div>
 
-Semgrep is an AppSec suite for finding bugs, detecting dependency vulnerabilities, and enforcing code standards. Its rules look like the code you already write -- no abstract syntax trees, regex wrestling, or painful DSLs. 
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code. Enforce your code standards on every&nbsp;commit.</h5>
 
-The following code editor shows a rule for finding Python `print()` statements. Run it by clicking the [▸] button:
-<iframe title="Semgrep example no prints" src="https://semgrep.dev/embed/editor?snippet=KPzL" width="100%" height="432px" frameBorder="0"></iframe>
-<br />
+<h3>Scan with Semgrep AppSec Platform</h3>
 
-The Semgrep ecosystem includes:
+<p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
 
-- [Semgrep AppSec Platform](https://semgrep.dev/login) - Deploy, manage, and monitor Code, Supply Chain, and Secrets at scale. Semgrep integrates with continuous integration (CI) providers such as GitHub, GitLab, CircleCI, and more.
-- [Semgrep Code](/semgrep-code/overview) - Scan your code with Semgrep to find OWASP Top 10 vulnerabilities and protect against critical security risks specific to your organization.
-- [Semgrep Secrets](/semgrep-secrets/conceptual-overview) - Detect and validate leaked credentials in your codebase.
-- [Semgrep Supply Chain (SSC)](/semgrep-supply-chain/overview) - A high-signal dependency scanner to reachable vulnerabilities in open source third-party libraries and functions.
+<div class = "col-2-fixed">
+  <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
+    <CardImage cardImageUrl='/img/icon-first-scan.svg' />
+    <div class="card__copy">
+        <CardHeader>Get started</CardHeader>
+        <CardBody>
+          Run your first Semgrep scan.<br />
+        </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/deployment/core-deployment'>
+    <CardImage cardImageUrl='/img/icon-deploy.svg' />
+    <div class="card__copy">
+        <CardHeader>Deploy Semgrep</CardHeader>
+        <CardBody>
+          Deploy Semgrep to your organization quickly and at scale.
+        </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/semgrep-code/triage-remediation'>
+    <CardImage cardImageUrl='/img/icon-triage.svg' />
+    <div class="card__copy">
+    <CardHeader>Triage and remediate</CardHeader>
+    <CardBody>
+      Triage and remediate findings; fine-tune guardrails for developers.
+    </CardBody>
+    </div>
+  </Card>
+  <Card className={'card-50'} link='/writing-rules/overview'>
+    <CardImage cardImageUrl='/img/icon-rules.svg' />
+    <div class="card__copy">
+    <CardHeader>Write rules</CardHeader>
+    <CardBody>
+      Enforce your organization’s coding standards with custom rules.
+    </CardBody>
+    </div>
+  </Card>
+</div>
 
-Semgrep AppSec Platform, Code, and Supply Chain are **free** for up to 10 contributors. [Get started →](/getting-started/quickstart)
+<h3>Supported languages</h3>
 
-<h2>Language support</h2>
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
 
-| Product | Language support |
-| - | - |
-| Semgrep Code | Semgrep Code [supports over 30 languages and counting](/supported-languages#semgrep-code)! 🚀 |
-| Semgrep Secrets | Semgrep Secrets detects API keys, hardcoded passwords, authentication tokens, and more in your repositories. |
-| Semgrep Supply Chain | Semgrep Supply Chain supports C#, Go, Java, JavaScript and TypeScript, Python, and Ruby, as well as a [variety of package managers and lockfiles](/supported-languages#semgrep-supply-chain). 🛡️ |
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- the supported languages page
+*************************************************************************** -->
+
+| Product | Languages |
+| :-------  | :------ |
+| Semgrep Code      |  **Generally available (GA)**<br />C and C++ • C# • Generic • Go • Java • JavaScript • JSON • Kotlin • Python • TypeScript • Ruby • Rust • JSX • PHP • Scala • Swift • Terraform <br /><br />**Beta**<br />APEX • Elixir<br /><br />**Experimental**<br />Bash • Cairo • Circom • Clojure • Dart • Dockerfile • Hack • HTML • Jsonnet • Julia • Lisp • Lua • Move on Aptos • Move on Sui • OCaml• R • Scheme • Solidity • YAML • XML |
+| Semgrep Supply Chain | **Generally available reachability**<br />C# • Go • Java • JavaScript and TypeScript • Kotlin • PHP • Python • Ruby • Scala • Swift <br /><br />**Languages without support for reachability analysis**<br />Dart • Elixir • Rust |
+| Semgrep Secrets | Language-agnostic; can detect 630+ types of credentials or keys. |
+
+See the [Supported languages](/supported-languages#language-maturity-summary) documentation for more details.
+<!-- Please don't delete the whole Enhance... section, as we may resurrect --> <!--
+<h3>Enhance your Semgrep experience</h3>
+
+<div class = "col-3-fixed">
+  <Card link='/semgrep-assistant/overview'>
+    <div class="card__copy">
+    <CardHeader>Semgrep Assistant</CardHeader>
+    <CardBody>
+      AI for triage, remediation, and institutional memory. 
+    </CardBody>
+    </div>
+  </Card>
+  <Card link='/secure-guardrails/secure-guardrails-in-semgrep'>
+    <div class="card__copy">
+    <CardHeader>Secure guardrails</CardHeader>
+    <CardBody>
+      Help developers write secure code in their environment.
+    </CardBody>
+    </div>
+  </Card>
+  <Card link='/deployment/managed-scanning/overview'>
+    <div class="card__copy">
+    <CardHeader>Managed Scans</CardHeader>
+    <CardBody>
+      Onboard thousands of repositories to Semgrep.
+    </CardBody>
+    </div>
+  </Card>
+</div>
+-->
+
+<h3>September 2025 release notes summary</h3>
+<!-- 5-7 bullets across the product suite -->
+
+- The Semgrep Jira integration now automatically creates Jira tickets for Semgrep Code and Semgrep Secrets findings with a **critical** severity level.
+- Added the `semgrep mcp` subcommand to the Semgrep CLI tool, which runs the Semgrep MCP server. 
+- Improved pre-filtering for taint rules, primarily when taint labels are used.
+- Supply Chain's reachability analysis now covers all high severity CVEs from supported sources starting from 2017 for **JavaScript** packages.
+- [Slack notifications for Semgrep Secrets](/semgrep-appsec-platform/slack-notifications#secrets) is now generally available.
+
+[See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
+
+<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div>

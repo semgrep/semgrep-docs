@@ -1,16 +1,25 @@
 ---
 slug: semgrep-intellij
+title: IntelliJ extension
+hide_title: true
 append_help_link: true
 description: "Learn how to install and use Semgrep's extension for IntelliJ."
 tags:
     - Extensions
 ---
 
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
+import QuickstartIntelliJ from "/src/components/procedure/_quickstart-intellij.md"
+
 # Semgrep IntelliJ extension
 
 [Semgrep](https://semgrep.dev/) swiftly scans code and package dependencies for known issues, software vulnerabilities, and detected secrets. Run Semgrep in your developer environment with the IntelliJ extension to catch code issues as you type. By default, the Semgrep IntelliJ extension scans code whenever you change or open files.
 
-:::info Prerequisites
+:::info
+Semgrep's IntelliJ extension for Windows users is currently in beta.
+:::
+
+## Prerequisites
 
 The Semgrep IntelliJ extension communicates with Semgrep command-line interface (CLI) to run scans. Install Semgrep CLI before you can use the extension. To install Semgrep CLI:
 
@@ -21,27 +30,10 @@ $ brew install semgrep
 # For Ubuntu/WSL/Linux/macOS
 $ python3 -m pip install semgrep
 ```
-:::
 
-## Quick start
+## Quickstart
 
-1. Install the Semgrep extension:
-   -  Visit [Semgrep's page on the JetBrains Marketplace](https://plugins.jetbrains.com/plugin/22622-semgrep).
-   -  In IntelliJ: **Settings/Preferences > Plugins > Marketplace > Search for `semgrep-intellij` > Install**. You may need to restart IntelliJ for the Semgrep extension to be installed.
-
-2. Sign in: Press <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and sign in to Semgrep AppSec Platform by selecting the following command:
-   ```
-   Sign in with Semgrep
-   ```
-3. Test the extension by pressing <kbd>Ctrl+⇧Shift+A</kbd> (Windows) or <kbd>⌘Command+⇧Shift+A</kbd> (macOS) and run the following command:
-   ```
-   Scan workspace with Semgrep
-   ```
-4. See Semgrep findings: Hold the pointer over the code that has the red underline.
-
-:::info Feature maturity
-Semgrep's IntelliJ extensions are in **public beta**. Currently, the IntelliJ extension only supports Semgrep OSS - it doesn't support Semgrep Supply Chain, Secrets, Pro rules, or Pro Engine. Please join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and let the Semgrep team know if you encounter any issues.
-:::
+<QuickstartIntelliJ />
 
 ## Supported Jet Brains products
 
@@ -64,7 +56,9 @@ Semgrep's IDE extension is available in many Jet Brains products:
 :::caution
 
 IntelliJ extension does not support:
-- IntelliJ IDEA Community Edition
+- IntelliJ IDEA Community Edition. 
+
+Semgrep does not offer an IDE integration with IntelliJ Community Edition because [this version lacks support for the Language Server Protocol (LSP)](https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html#supported-ides), which is essential for enabling Semgrep’s code scanning features. IntelliJ Ultimate, which includes LSP support, is required to use Semgrep's IDE integration.
 
 :::
 
@@ -94,3 +88,11 @@ Hover over a match and click the link.
 ## Support
 
 If you need our support, join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and tell us about any problems you encountered.
+
+## Limitations
+
+<IdeLimitations />
+
+## License
+
+The Semgrep IntelliJ extension is licensed under the LGPL 2.1 license.

@@ -36,6 +36,14 @@ OPTIONS
            Note that this mode is experimental and not guaranteed to function
            properly. 
 
+       --allow-local-builds
+           Experimental: allow building projects contained in the repository.
+           This allows Semgrep to identify dependencies and dependency
+           relationships when lockfiles are not present or are insufficient.
+           However, building code may inherently require the execution of
+           code contained in the scanned project or in its dependencies,
+           which is a security risk.
+
        --allow-untrusted-validators
            Allows running rules with validators from origins other than
            semgrep.dev. Avoid running rules from origins you don't trust.
@@ -57,12 +65,6 @@ OPTIONS
 
        --develop
            Living on the edge.
-
-       --diff-depth=VAL (absent=2)
-           The depth of the Pro (interfile) differential scan, the number of
-           steps (both in the caller and callee sides) from the targets in
-           the call graph tracked by the deep preprocessor. Only applied in
-           differential scan mode. Default to 2. 
 
        --disable-nosem
            negates --enable-nosem
@@ -92,8 +94,7 @@ OPTIONS
            Output results in Emacs single-line format.
 
        --emacs-output=VAL
-           Write a copy of the emacs output to a file or post to or post to
-           URL.
+           Write a copy of the emacs output to a file or post to URL.
 
        --enable-nosem
            Enables 'nosem'. Findings will not be reported on lines containing
@@ -116,6 +117,11 @@ OPTIONS
            which is documented at
            https://git-scm.com/docs/gitignore#_pattern_format 
 
+       --exclude-minified-files
+           Skip minified files. These are files that are < 7% whitespace, or
+           which have an average of > 1000 bytes per line. By default
+           minified files are scanned. 
+
        --exclude-rule=VAL
            Skip any rule with the given id. Can add multiple times.
 
@@ -135,7 +141,8 @@ OPTIONS
            on configuration file format. 
 
        --files-with-matches
-           Output only the names of files containing matches
+           Output only the names of files containing matches. REQUIRES
+           --experimental
 
        --force-color (absent SEMGREP_FORCE_COLOR env)
            Always include ANSI color in the output, even if not writing to a
@@ -145,15 +152,14 @@ OPTIONS
            Output results in GitLab SAST format.
 
        --gitlab-sast-output=VAL
-           Write a copy of the GitLab SAST output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab SAST output to a file or post to URL.
 
        --gitlab-secrets
            Output results in GitLab Secrets format.
 
        --gitlab-secrets-output=VAL
-           Write a copy of the GitLab Secrets output to a file or post to or
-           post to URL.
+           Write a copy of the GitLab Secrets output to a file or post to
+           URL.
 
        --historical-secrets
            Scans git history using Secrets rules.
@@ -177,7 +183,7 @@ OPTIONS
            https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
-           Output results incrementally.
+           Output results incrementally. REQUIRES --experimental
 
        --interfile-timeout=VAL (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
@@ -185,22 +191,22 @@ OPTIONS
            it defaults to 3 hours.
 
        -j VAL, --jobs=VAL (absent=4)
-           Number of subprocesses to use to run checks in parallel. Defaults
-           to the number of cores detected on the system (1 if using --pro). 
+           Number of subprocesses to use to run checks in parallel. The
+           default is based on a best effort to determine the number of
+           logical CPUs that are available to the user and that semgrep can
+           take advantage of (1 if using --pro, 1 on Windows). 
 
        --json
            Output results in Semgrep's JSON format.
 
        --json-output=VAL
-           Write a copy of the json output to a file or post to or post to
-           URL.
+           Write a copy of the json output to a file or post to URL.
 
        --junit-xml
            Output results in JUnit XML format.
 
        --junit-xml-output=VAL
-           Write a copy of the JUnit XML output to a file or post to or post
-           to URL.
+           Write a copy of the JUnit XML output to a file or post to URL.
 
        -l VAL, --lang=VAL
            Parse pattern and all files in specified language. Must be used
@@ -221,6 +227,11 @@ OPTIONS
            Maximum number of lines of code that will be shown for each match
            before trimming (set to 0 for unlimited).
 
+       --max-log-list-entries=VAL (absent=100)
+           Maximum number of entries that will be shown in the log (e.g.,
+           list of rule ids, list of skipped files). A zero or negative value
+           disables this filter. Defaults to 100
+
        --max-memory=VAL (absent=0)
            Maximum system memory in MiB to use during the interfile
            pre-processing phase, or when running a rule on a single file. If
@@ -235,10 +246,11 @@ OPTIONS
        --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
            'auto', metrics are sent whenever the --config value pulls from
-           the Semgrep server. If 'on', metrics are always sent. If 'off',
-           metrics are disabled altogether and not sent. If absent, the
-           SEMGREP_SEND_METRICS environment variable value will be used. If
-           no environment variable, defaults to 'auto'. 
+           the Semgrep server or if the user is logged in. If 'on', metrics
+           are always sent. If 'off', metrics are disabled altogether and not
+           sent. If absent, the SEMGREP_SEND_METRICS environment variable
+           value will be used. If no environment variable, defaults to
+           'auto'. 
 
        --no-autofix
            negates -a/--autofix
@@ -248,6 +260,9 @@ OPTIONS
 
        --no-error
            negates --error
+
+       --no-exclude-minified-files
+           negates --exclude-minified-files
 
        --no-force-color
            negates --force-color
@@ -273,6 +288,12 @@ OPTIONS
        --no-trace
            negates --trace
 
+       --novcs
+           Assume the project is not managed by a version control system
+           (VCS), even if the project appears to be under version control
+           based on the presence of files such as '.git' or similar. REQUIRES
+           --experimental or --semgrepignore-v2.
+
        -o VAL, --output=VAL
            Save search results to a file or post to URL. Default is to print
            to stdout.
@@ -282,11 +303,12 @@ OPTIONS
            optimizations off. 
 
        --oss-only
-           Run using only OSS features, even if the Semgrep Pro toggle is on.
+           Run using only the OSS engine, even if the Semgrep Pro toggle is
+           on. This may still run Pro rules, but only using the OSS features. 
 
        --pro
-           Inter-file analysis and Pro languages (currently Apex and Elixir).
-           Requires Semgrep Pro Engine. See
+           Inter-file analysis and Pro languages (currently Apex, C#, and
+           Elixir. Requires Semgrep Pro Engine. See
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-intrafile
@@ -295,30 +317,45 @@ OPTIONS
            https://semgrep.dev/products/pro-engine/ for more.
 
        --pro-languages
-           Enable Pro languages (currently Apex and Elixir). Requires Semgrep
-           Pro Engine. See https://semgrep.dev/products/pro-engine/ for more.
+           Enable Pro languages (currently Apex, C#, and Elixir). Requires
+           Semgrep Pro Engine. See https://semgrep.dev/products/pro-engine/
+           for more.
+
+       --pro-path-sensitive
+           Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
+           Engine. See https://semgrep.dev/products/pro-engine/ for more.
 
        --profile
            <undocumented>
 
        --project-root=VAL
-           The project root for gitignore and semgrepignore purposes is
-           detected automatically from the presence of a .git/ directory in
-           the current directory or one of its parents. If not found, the
-           current directory is used as the project root. This option forces
-           a specific directory to be the project root. This is useful for
-           testing or for restoring compatibility with older semgrep
-           implementations that only looked for a .semgrepignore file in the
-           current directory.
+           Semgrep normally determines the type of project (git or novcs) and
+           the project root automatically. The project root is then used to
+           locate and use '.gitignore' and '.semgrepignore' files which
+           determine target files that should be ignored by semgrep. This
+           option forces the project root to be a specific folder and assumes
+           a local project without version control (novcs). This option is
+           useful to ensure the '.semgrepignore' file that may exist at the
+           project root is consulted when the scanning root is not the
+           current folder '.'. A valid project root must be a folder (path
+           referencing a directory) whose physical path is a prefix of the
+           physical path of the scanning roots passed on the command line.
+           For example, the command 'semgrep scan --project-root . src' is
+           valid if '.' is '/home/me' and 'src' is a directory or a symbolic
+           link to a '/home/me/sources' directory or a symbolic link to a
+           'sources' directory but not if it is a symbolic link to a
+           directory '/var/sources' (assuming '/var' is not a symbolic link).
+           REQUIRES --experimental or --semgrepignore-v2.
 
        -q, --quiet
            Only output findings.
 
        --remote=VAL
-           Remote will quickly checkout and scan a remote git repository of
+           Remote will quickly check out and scan a remote git repository of
            the format "http[s]://<WEBSITE>/.../<REPO>.git". Must be run with
-           --pro Incompatible with --project-root. Note this requires an
-           empty CWD as this command will clone the repository into the CWD
+           --pro. Incompatible with --project-root. Note this requires an
+           empty CWD as this command will clone the repository into the CWD.
+           REQUIRES --experimental
 
        --replacement=VAL
            An autofix expression that will be applied to any matches found
@@ -332,8 +369,7 @@ OPTIONS
            Output results in SARIF format.
 
        --sarif-output=VAL
-           Write a copy of the SARIF output to a file or post to or post to
-           URL.
+           Write a copy of the SARIF output to a file or post to URL.
 
        --scan-unknown-extensions
            If true, target files specified directly on the command line will
@@ -347,6 +383,13 @@ OPTIONS
            Run Semgrep Secrets product, including support for secret
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
+
+       --semgrepignore-v2
+           [DEPRECATED] '--semgrepignore-v2' used to force the use of the
+           newer Semgrepignore v2 implementation for discovering and
+           filtering target files. It is now the default and only behavior.
+           The transitional option '--no-semgrepignore-v2' is no longer
+           available. 
 
        --severity=VAL
            Report findings only from rules matching the supplied severity
@@ -375,12 +418,13 @@ OPTIONS
            Output results in text format.
 
        --text-output=VAL
-           Write a copy of the text output to a file or post to or post to
-           URL.
+           Write a copy of the text output to a file or post to URL.
 
        --time
            Include a timing summary with the results. If output format is
-           json, provides times for each pair (rule, target). 
+           json, provides times for each pair (rule, target). This feature is
+           meant for internal use and may be changed or removed without
+           warning. At the current moment, --trace is better supported. 
 
        --timeout=VAL (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
@@ -393,25 +437,25 @@ OPTIONS
        --trace
            Record traces from Semgrep scans to help debugging. This feature
            is meant for internal use and may be changed or removed without
-           warning. 
+           warning. Currently only used by `semgrep lsp`. 
 
        --trace-endpoint=VAL
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed wihtout warning.
+           internal use and may be changed or removed without warning.
+           Currently only used by `semgrep lsp`. 
 
        --use-git-ignore
-           Skip files ignored by git. Scanning starts from the root folder
-           specified on the Semgrep command line. Normally, if the scanning
-           root is within a git repository, only the tracked files and the
-           new files would be scanned. Git submodules and git- ignored files
-           would normally be skipped. --no-git-ignore will disable git-aware
-           filtering. Setting this flag does nothing if the scanning root is
-           not in a git repository. 
-
-       --use-osemgrep-sarif
-           Output results using osemgrep.
+           '--use-git-ignore' is Semgrep's default behavior. Under the
+           default behavior, Git-tracked files are not excluded by Gitignore
+           rules and only untracked files are excluded by Gitignore rules.
+           '--no-git-ignore' causes semgrep to not call 'git' and not consult
+           '.gitignore' files to determine which files semgrep should scan.
+           As a result of '--no-git-ignore', gitignored files and Git
+           submodules will be scanned unless excluded by other means
+           ('.semgrepignore', '--exclude', etc.). This flag has no effect if
+           the scanning root is not in a Git repository.
 
        -v, --verbose
            Show more details about what rules are running, which files failed
@@ -429,15 +473,43 @@ OPTIONS
            Output results in vim single-line format.
 
        --vim-output=VAL
-           Write a copy of the vim output to a file or post to or post to
-           URL.
+           Write a copy of the vim output to a file or post to URL.
+
+       --x-eio
+           [INTERNAL] Rely on an EIO based implementation for the -j flag
+
+       --x-group-taint-rules
+           <internal, do not use>
+
+       --x-ignore-semgrepignore-files
+           [INTERNAL] Ignore all '.semgrepignore' files found in the project
+           tree for the purpose of selecting target files to be scanned by
+           semgrep. Other filters may still apply. THIS OPTION IS NOT PART OF
+           THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT NOTICE. 
 
        --x-ls
-           [INTERNAL] List the selected target files and the skipped target
-           files before any rule-specific or language-specific filtering.
-           Then exit. The output format is unspecified. THIS OPTION IS NOT
-           PART OF THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT
-           NOTICE. 
+           [INTERNAL] List the selected target files before any rule-specific
+           or language-specific filtering. Then exit. The default output
+           format is one path per line. THIS OPTION IS NOT PART OF THE
+           SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-ls-long
+           [INTERNAL] Show selected targets and skipped targets with reasons
+           why they were skipped, using an unspecified output format. Implies
+           --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
+           OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-pro-naming
+           <internal, do not use>
+
+       --x-semgrepignore-filename=FILENAME
+           [INTERNAL] Files named FILENAME shall be consulted instead of the
+           files named '.semgrepignore'. This option can be useful for
+           testing semgrep on intentionally broken code that should normally
+           be ignored.
+
+       --x-tr
+           <internal, do not use>
 
 COMMON OPTIONS
        --help[=FMT] (default=auto)

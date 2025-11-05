@@ -1,12 +1,10 @@
 ---
 description: Learn how to fix issues with `pattern-not` when excluding cases in custom rules.
 tags:
-  - Semgrep OSS Engine
+  - Semgrep Community Edition
   - Semgrep Rules
 append_help_link: true
 ---
-
-
 
 # My rule with `pattern-not` doesn't work: using `pattern-not-inside`
 
@@ -29,7 +27,7 @@ The [example rule](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematiz
 
 To successfully match the target code, the rule uses `pattern` and `pattern-not`:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="pattern-not rule for unverified transactions" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=Nr3z" title="pattern-not rule for unverified transactions" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 
 But this rule is redundant. Both pattern clauses contain:
 
@@ -80,4 +78,5 @@ The rule successfully matches the example code.
 
 See this video for more information about the difference between `pattern-not` and  `pattern-not-inside`.
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/g_Yrp9_ZK2c" frameborder="0" allowfullscreen></iframe>
+<iframe class="yt_embed" width="100%" height="432px" loading="lazy" src="https://www.youtube.com/embed/JBEKaTTrhTY?si=aw7Sv1bz8l-a-4ZR" frameborder="0" allowfullscreen></iframe>
+

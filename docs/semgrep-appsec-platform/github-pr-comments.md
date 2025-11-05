@@ -11,16 +11,19 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
-import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
 <!-- vale on -->
 
@@ -30,10 +33,12 @@ import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_commen
 
 Semgrep can create **pull request (PR) comments** in your GitHub repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
-Automated comments on GitHub pull requests are displayed as follows:
+<PartsOfComment />
+
+Depending on the features you have enabled, your PR comment can also appear more straightforward:
 
 ![Screenshot of a GitHub PR comment](/img/gh-pr-comment.png#md-width)
-**Figure** An inline GitHub pull request comment.
+_**Figure**. An inline GitHub pull request comment._
 
 ## Conditions for PR comment creation
 
@@ -65,13 +70,13 @@ Ensure that Semgrep's GitHub app (`semgrep-app`) has sufficient permissions to p
 3. Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 4. Under **Repository access**, check that you have included the repositories that you added to Semgrep AppSec Platform. Review the following examples:
 
-![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png#bordered)
-**Figure** Permissions for all repositories.
+![Semgrep GitHub app permissions: all repositories](/img/gh-app-permissions-all.png)
+_**Figure**. Permissions for all repositories._
 
-![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#bordered)
-**Figure** Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected.
+![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
+_**Figure**. Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected._
 
-For GitHub Actions users, no further steps need to be undertaken. Continue setting up Semgrep Code PR comments by [setting rules to Comment or Block mode](#set-rules-to-comment-or-block-mode).
+For GitHub Actions users, no further steps need to be undertaken. Continue setting up PR comments by configuring comments for Semgrep Code.
 
 ### Required environment variables
 
@@ -82,6 +87,14 @@ For GitHub Actions users, no further steps need to be undertaken. Continue setti
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 
 If you are using **GitHub Actions** to run Semgrep, no extra changes are needed to receive PR comments.
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="GitHub" comment_type="PR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 
@@ -99,8 +112,8 @@ You've set up PR comments! Enable optional features provided in the following se
 
 ### Dataflow traces in PR comments
 
-![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png#bordered)
-**Figure** An inline GitHub pull request comment with dataflow traces.
+![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png)
+_**Figure**. An inline GitHub pull request comment with dataflow traces._
 
 <DisplayTaintedDataIntro />
 
@@ -130,9 +143,9 @@ Both GitHub and GitLab provide features to prevent or block a PR or MR from merg
 </tr>
 </table>
 
-## Disable PR comments for Supply Chain findings
+### Customize PR comments
 
-<DisableComments />
+<CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 

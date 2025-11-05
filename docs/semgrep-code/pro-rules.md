@@ -26,11 +26,11 @@ The goal of Pro rules is to provide a set of well-supported rules with improved 
 
 ## Semgrep Pro rules content
 
-Semgrep Pro rules provide improved coverage for many languages, including Java, JavaScript, TypeScript, Python, PHP, Ruby, C#, Swift, and Go.
-
 Semgrep Pro rules provide improved findings across many languages on specific classes of vulnerabilities, such as injection vulnerabilities, deserialization, XXE, and many others, as well as increased support for frameworks and technologies such as Express, Spring, Java Servlets, Laravel, Go net/http, React, Next.js, and Angular.
 
 Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
+
+To see the languages with Pro rules, go to [Supported languages](/supported-languages#language-maturity-summary).
 
 ## Scan with Semgrep Pro rules
 

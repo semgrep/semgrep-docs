@@ -6,12 +6,12 @@ description: "Join mode runs several Semgrep rules at once and only returns resu
 
 # Join mode overview
 
-Join mode runs several Semgrep rules at once and only returns results if certain conditions on the results are met. Semgrep OSS Engine is brilliant for finding code patterns with an easy syntax, but its search is typically limited to single files. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. As the name implies, this was inspired by join clauses in SQL queries.
+Join mode runs several Semgrep rules at once and only returns results if certain conditions on the results are met. Join mode is an experimental mode that lets you cross file boundaries, allowing you to write rules for whole code bases instead of individual files. As the name implies, this was inspired by join clauses in SQL queries.
 
 Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
 
 :::info
-You can also use cross-file (interfile) analysis. For more information, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
+You can also use cross-file (interfile) analysis. For more information, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro). Cross-file analysis is preferred over join mode where either of the two are feasible. Neither is currently available in Semgrep Community Edition (CE).
 :::
 
 ## Example
@@ -40,7 +40,7 @@ rules:
   message: |
     Detected a XSS vulnerability: '$VAR' is rendered
     unsafely in '$PATH'.
-  severity: ERROR
+  severity: HIGH
 ```
 
 Let's explore how this works. First, some background on the vulnerability. Second, we'll walk through the join mode rule.
@@ -66,7 +66,7 @@ We can write individual Semgrep rules for each of these code patterns.
 rules:
 - id: flask-user-input
   languages: [python]
-  severity: INFO
+  severity: LOW
   message: $VAR
   pattern: '$VAR = flask.request.$SOMETHING.get(...)'
 ```
@@ -85,14 +85,14 @@ rules:
       patterns:
       - pattern-not-regex: .*\.html$
   languages: [python]
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ```yaml
 rules:
 - id: any-template-var
   languages: [generic]
-  severity: INFO
+  severity: LOW
   message: '$...EXPR'
   pattern: '{{ $...EXPR }}'
 ```
@@ -178,7 +178,7 @@ rules:
   message: |
     Detected a XSS vulnerability: '$VAR' is rendered
     unsafely in '$TEMPLATE'.
-  severity: ERROR
+  severity: HIGH
 ```
 
 The required fields under the `rules` key are the following:
@@ -243,7 +243,7 @@ Join mode **is not taint mode**! While it can look on the surface like join mode
 
 To use join mode with `refs`, you must define your individual Semgrep rules in independent locations. This can be anything that works with `semgrep --config <here>`, such as a file, a URL, or a Semgrep registry pointer like `r/java.lang.security.some.rule.id`.
 
-Join mode does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
+Join mode requires login, and does not work in the Semgrep Playground or Semgrep Editor, as it is an experimental feature.
 
 Currently, join mode only reports the code location of the **last finding that matches the conditions**. Join mode parses the conditions from top-to-bottom, left-to-right. This means that findings from the "bottom-right" condition become the reported code location.
 

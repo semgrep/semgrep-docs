@@ -11,7 +11,7 @@ hide_title: true
 # Aliengrep
 
 :::caution
-This is an experimental matching mode for Semgrep OSS Engine. Many of the features described in this document are subject to change. Your feedback is important and helps us, the Semgrep team, to make desirable adjustments. You can file an issue in our [Semgrep OSS Engine GitHub repository](https://github.com/semgrep/semgrep/issues) or ask us anything in <a href="https://go.semgrep.dev/slack">Semgrep Community Slack group</a>.
+This is an experimental matching mode for Semgrep Community Edition (CE). Many of the features described in this document are subject to change. Your feedback is important and helps us, the Semgrep team, to make desirable adjustments. You can file an issue in our [Semgrep CE GitHub repository](https://github.com/semgrep/semgrep/issues) or ask us anything in <a href="https://go.semgrep.dev/slack">Semgrep Community Slack group</a>.
 :::
 
 Aliengrep is an alternative to the [generic pattern-matching engine](/writing-rules/generic-pattern-matching) for analyzing files written in any language. The pattern syntax resembles the usual Semgrep pattern syntax. This document provides a reference to the syntactic features that Aliengrep supports.
@@ -23,7 +23,7 @@ Specify that a rule uses the Aliengrep engine by setting `options.generic_engine
 ```yaml
 rules:
 - id: example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -56,7 +56,7 @@ A metavariable captures a single word in the target input. By default, the set o
 ```yaml
 rules:
 - id: example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -85,7 +85,7 @@ Se the single-line mode with `options.generic_multiline: false` in rule files:
 ```yaml
 rules:
 - id: single-line-example
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -101,7 +101,7 @@ Another feature of the single-line mode is that newlines in rule patterns must m
 ```yaml
 rules:
 - id: single-line-example2
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -146,7 +146,7 @@ In the generic modes, a metavariable captures a word. The default pattern follow
 ```yaml
 rules:
 - id: custom-word-chars
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -171,7 +171,7 @@ The Aliengrep engine performs brace matching as expected in English text. The de
 ```yaml
 rules:
 - id: edgy-brackets
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -192,7 +192,7 @@ The set of brace pairs can be completely replaced by using the field `options.ge
 ```yaml
 rules:
 - id: edgy-brackets-only
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep
@@ -208,7 +208,7 @@ Some languages are case-insensitive according to Unicode rules (UTF-8 encoding).
 ```yaml
 rules:
 - id: caseless
-  severity: WARNING
+  severity: MEDIUM
   languages: [generic]
   options:
     generic_engine: aliengrep

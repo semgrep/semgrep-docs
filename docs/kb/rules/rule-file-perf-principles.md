@@ -43,14 +43,14 @@ files affects scan time more negatively than adding more SCCs.
 The time for matching is **number of files * time to match each file**. The time
 to check each file can also grow, in the worst case, exponentially, especially
 when a rule has a lot of matches in subpatterns. However, the default settings
-of `--timeout 30` `--timeout-threshold 3` means that a file times out if:
+of `--timeout 5` `--timeout-threshold 3` means that a file times out if:
 
-* 30 seconds elapse without the match process completing
+* 5 seconds elapse without the match process completing
 * 3 rules time out
 
 You can configure these flags to skip long files after a shorter timeout period
 or when a smaller number of rules timeout. Usually, Semgrep matches files pretty
-quickly, but minified Javascript files can cause significant performance issues.
+quickly, but minified JavaScript files can cause significant performance issues.
 
 Semgrep sets a limit of 1 MB for each file scanned, but you can modify this
 setting using the `--max-target-bytes` flag. For example, if your flag is

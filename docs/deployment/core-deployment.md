@@ -10,6 +10,8 @@ tags:
 
 Semgrep can be set up to scan repositories of any size.
 
+Once added to Semgrep, a codebase, repository, or subfolder within a monorepo is referred to as a **project**.
+
 **Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
 Deployment includes:
@@ -59,7 +61,7 @@ These are the absolute minimum Semgrep features for any deployment.
         </tr>
         <tr>
             <td>SCA scanning</td>
-            <td>Check that Semgrep supports your lockfile or package manager.</td>
+            <td>Check that Semgrep either supports your manifest file or lockfile and package manager.</td>
         </tr>
         <tr>
             <td>Secrets scanning</td>
@@ -80,8 +82,8 @@ These are the absolute minimum Semgrep features for any deployment.
             <td>Semgrep fully supports many popular CI providers. See <a href="/docs/deployment/add-semgrep-to-ci"><i class="fa-regular fa-file-lines"></i> Add Semgrep to CI</a>.</td>
         </tr>
         <tr>
-            <td>Managed scanning (beta): scanning remote repositories in bulk without CI changes</td>
-            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/docs/deployment/managed-scanning"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk (beta)</a>.</td>
+            <td>Managed scanning: scanning remote repositories in bulk without CI changes</td>
+            <td>An alternative method of scanning many repositories with Semgrep that doesn't require integration with your CI. Requires read access to user-selected repositories. See <a href="/docs/deployment/managed-scanning/overview"><i class="fa-regular fa-file-lines"></i> Add repositories to Semgrep in bulk</a>.</td>
         </tr>
         <tr>
             <td>PR or MR comments</td>
@@ -108,8 +110,8 @@ Useful features that you can add based on your tech stack. You can integrate the
             <td>Semgrep can send notifications through the following channels:<ul><li>Slack</li> <li>Email</li><li>Webhooks</li></ul></td>
         </tr>
         <tr>
-            <td>GPT-assisted triage and remediation</td>
-            <td>Semgrep can give GPT-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
+            <td>AI-assisted triage and remediation</td>
+            <td>Semgrep can give AI-assisted recommendations on whether a finding is a true or false positive as well as suggest code fixes for true positive findings.</td>
         </tr>
         <tr>
             <td>IDE integration</td>
@@ -136,16 +138,17 @@ Useful features that you can add based on your tech stack. You can integrate the
 At the minimum, your deployment of Semgrep consists of the following steps:
 
 1. **Creating a Semgrep account**. Each user of Semgrep has one account.
-1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related repositories and users.
+1. **Setting up organizations (orgs)**. Each Semgrep account can have many orgs. Orgs are logical groupings of related projects and users.
 1. **Setting up membership**:
     - For GitHub or GitLab users, you can connect your Semgrep org to the orgs in your source code manager (SCM). This means that any member of an org in your SCM can sign in to your Semgrep deployment.
     - You can also use SSO to manage user authentication.
 1. **Adding Semgrep into your CI workflows**. This step ensures that your Semgrep deployment is up and running and that you receive **findings** of security issues in Semgrep AppSec Platform.
 1. **Enabling Semgrep to post PR or MR comments**.
 
-![Core deployment steps](/img/core-deployment.png#sm-width-noborder)
+![Core deployment steps](/img/core-deployment.png)
+_**Figure**. Core deployment steps._
 
-To manage a large volume of users and repositories, you may need to perform additional steps:
+To manage a large volume of users and projects, you may need to perform additional steps:
 
 - Role management
 - Tagging projects

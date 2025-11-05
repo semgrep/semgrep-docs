@@ -1,35 +1,194 @@
-<div id="language-support-table">
+<!-- Ensure that the values in the code table match that of _supported-languages-ce.md -->
+<!-- Arranged by feature completeness then alphabetically -->
 
-| Language | Maturity level | Cross-function analysis | Cross-file analysis
-|:---------- |:----------------------------|:---------------------------|:---------------------------|
-| C          | GA | ✅ | ✅  |
-| C++        | GA | ✅ | ✅  | 
-| C#         | GA | ✅ | ✅  |
-| Go         | GA | ✅ | ✅  |
-| Java       | GA | ✅  | ✅  |
-| JavaScript | GA | ✅  | ✅  |
-| Kotlin     | GA | ✅  | ✅  | 
-| Python     | GA | ✅  | ✅  | 
-| TypeScript | GA | ✅  | ✅  |
-| Ruby       | GA | ✅  | -- |
-| Rust       | GA | ✅   | -- |
-| JSX        | GA | ✅   | -- |
-| PHP        | GA | ✅   | -- | 
-| Scala      | GA | ✅   | -- | 
-| Swift      | GA | ✅ | -- |
-| Generic    | GA | -- | -- |
-| JSON       | GA | -- | -- |
-| Terraform  | GA | -- | -- |
-| Apex       | Beta   | ✅  | -- |
-| Elixir     | Beta   |  ✅ | -- |
+<div class="language-support-table">
 
+<table>
+    <thead><tr>
+        <td><strong>Languages</strong></td>
+        <td><strong>Semgrep Code</strong><br />Supports 35+ languages</td>
+        <td><strong>Semgrep Supply Chain</strong><br />Supports 14 languages</td>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td>[C#](/languages/csharp)</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Supports up to C# 13<br />
+         • 170+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+    <tr>
+      <td>[Go](/languages/go)</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 80+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+    <tr>
+      <td>[Java](/languages/java)</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 190+ Pro rules </td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>[JavaScript](/languages/javascript)</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 250+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+    <tr>
+      <td>[Kotlin](/languages/kotlin)</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • 60+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>[Python](/docs/languages/python)</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 710+ Pro rules<br />
+         • See [Python-specific support details](/docs/languages/python)</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+    <tr>
+      <td>Typescript</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-file dataflow analysis<br />
+         • Framework-specific control flow analysis<br />
+         • 230+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect malicious dependencies<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>C / C++</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-file dataflow analysis<br />
+         • 150+ Pro rules </td>
+      <td>N/a</td>
+    </tr>
+    <tr>
+      <td>JSX</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 70+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>[Ruby](/languages/ruby)</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 40+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+     <tr>
+      <td>[Scala](/languages/scala)</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>[Swift](/languages/swift)</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 60+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+     <tr>
+      <td>Rust</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 40+ Pro rules</td>
+      <td><strong>Beta</strong><br />
+         • Can detect open source licenses<br />
+         • Can detect malicious dependencies</td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td><strong>Generally available </strong><br />
+         • Cross-function dataflow analysis<br />
+         • 50+ Pro rules</td>
+      <td><strong>Generally available</strong><br />
+         • Reachability analysis<br />
+         • Can detect open source licenses</td>
+    </tr>
+    <tr>
+      <td>Terraform</td>
+      <td><strong>Generally available</strong><br />
+         • Cross-function dataflow analysis<br />
+         • Community rules</td>
+      <td>N/a</td>
+    </tr>
+    <tr>
+      <td>Generic</td>
+      <td><strong>Generally available </strong></td>
+      <td>N/a</td>
+    </tr>
+    <tr>
+      <td>JSON</td>
+      <td><strong>Generally available </strong></td>
+      <td>N/a</td>
+    </tr>
+    <tr>
+      <td>Elixir</td>
+      <td><strong>Beta</strong></td>
+      <td><strong>Beta</strong></td>
+    </tr>
+    <tr>
+      <td>APEX</td>
+      <td><strong>Beta</strong></td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Dart</td>
+      <td><strong>Experimental</strong></td>
+      <td><strong>Beta</strong></td>
+    </tr>
+   </tbody>
+</table>
 
-The following languages are **Experimental**:
+</div>
 
+<details>
+ <summary>Click to view experimental languages for Semgrep Code.</summary>
 - Bash
 - Cairo
+- Circom
 - Clojure
-- Dart
 - Dockerfile
 - Hack
 - HTML
@@ -37,21 +196,13 @@ The following languages are **Experimental**:
 - Julia
 - Lisp
 - Lua
-- Ocaml
+- Move on Aptos
+- Move on Sui
+- OCaml
 - R
 - Scheme
 - Solidity
 - YAML
 - XML
+</details>
 
-<!--
-<details><summary>Click to view <strong>Experimental</strong> languages.</summary>
-</details> -->
-
-If you'd like to request a language not shown here, please [create an issue on the Semgrep GitHub repo](https://github.com/semgrep/semgrep/issues). 
-
-</div>
-
-<!--  For readability, please keep each column in alphabetical order. -->
-<!-- coupling: Should match what is in semgrep-core/tests/Test.ml Maturity level testing. -->
-<!-- imports: This file is currently imported to: index.md, supported-languages.md -->

@@ -1,15 +1,24 @@
 ---
 slug: go-command-injection
-description: "Prevent command injection in Go."
+displayed_sidebar: learnSidebar
+title: "Command Injection in Go"
+hide_title: true
+description: "Cheat sheet for the prevention of Command Injection vulnerabilities for Go."
+tags:
+  - go
+  - command-injection
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
 import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# Command injection prevention for Go
+## Prevent Command Injection for Go
 
 <CommandInjectionIntro />
+
+Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
+
 
 ### Check your project using Semgrep
 
@@ -38,7 +47,7 @@ func main() {
   // Not vulnerable
   cmd := exec.Command("echo", "1; cat /etc/passwd")
 
-  // Vunerable
+  // Vulnerable
   userInput :=  "echo 1 | cat /etc/passwd" // value supplied by user input
   out, _ = exec.Command("sh", "-c", userInput).Output()
 
@@ -102,7 +111,7 @@ func main() {
   cmd.Start();
   cmd.Wait();
 
-  // Args can be also ommited and {Path} will be used by default
+  // Args can be also omitted and {Path} will be used by default
   cmd := &exec.Cmd {
     Path: "/bin/echo"
   }

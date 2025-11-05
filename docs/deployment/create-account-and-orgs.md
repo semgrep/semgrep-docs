@@ -11,6 +11,8 @@ tags:
 
 import PlatformSigninGithub from "/src/components/procedure/_platform-signin-github.md"
 import PlatformSigninGitlab from "/src/components/procedure/_platform-signin-gitlab.md"
+import JoinAnOrg from "/src/components/procedure/_join-an-org.md"
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -78,6 +80,7 @@ Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO
 
 ### Next steps for Bitbucket and Azure Repos users
 
+- Connect your Semgrep org to your Bitbucket Data Center project or your Azure DevOps project. Refer to [<i class="fa-regular fa-file-lines"></i> Connect a source code manager](/deployment/connect-scm) for steps.
 - To add members to your Semgrep organization, set up [<i class="fa-regular fa-file-lines"></i> SSO authentication](/deployment/sso).
 - You can also opt to scan a repository instead.
 
@@ -116,7 +119,7 @@ The following examples illustrate what a completed organizational set-up can loo
 - He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep AppSec Platform.
 - This is similar to a **personal account** in GitHub or GitLab.
 
-![A simple example of a single-user, single-org setup.](/img/personal-org.png#md-noborder)
+![A simple example of a single-user, single-org setup.](/img/personal-org.png)
 **Figure.** A simple example of a single-user, single-org setup (a personal account).
 
 #### Enterprise org with SSO and multiple orgs in GitHub
@@ -139,37 +142,14 @@ The Semgrep deployment could look like this:
 
 ### Join an existing org
 
-This section is for team members who have been invited to join a Semgrep organization.
+Team members can join a Semgrep organization by logging in through the auth provider specified by their AppSec engineer:
 
-<Tabs
-    defaultValue="gh-gl"
-    values={[
-    {label: 'GitHub or GitLab', value: 'gh-gl'},
-    {label: 'SSO', value: 'sso'},
-    ]}
->
+<JoinAnOrg />
 
-<TabItem value='gh-gl'>
-
-To join an existing org in GitHub or GitLab:
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
-1. Follow the on-screen prompts to [grant Semgrep the needed permissions](/deployment/checklist/#permissions) and proceed.
-1. Click **Join an existing organization**.
-
-</TabItem>
-
-<TabItem value='sso'>
-
-To join an existing org through your SSO provider:
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
-2. You are automatically signed in to all organizations that your admin has set up for you.
-
-</TabItem>
-
-</Tabs>
+:::tip
+AppSec engineers can also [send developers invites to join their Semgrep org](/deployment/teams#invite-a-team-member-through-email).
+:::
 
 ### Delete an existing org
 
-Reach out to [<i class="fa-regular fa-envelope"></i> support@semgrep.com](mailto:support@semgrep.com) to delete an organization.
+Reach out to [Support](/support) to delete an organization.

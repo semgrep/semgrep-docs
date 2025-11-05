@@ -12,13 +12,14 @@ import PlatformAddRepo from "/src/components/procedure/_platform-add-repo.md"
 import PlatformDetectGhRepos from "/src/components/procedure/_platform-detect-ghrepos.md"
 import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 import DiffAwareScanning from "/src/components/reference/_diff-aware-scanning.mdx"
-import DefaultBranches from "/src/components/reference/_default-branches.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 
 # Add Semgrep to CI
 
 :::note Your deployment journey
+
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
@@ -30,8 +31,12 @@ Semgrep is integrated into CI environments by creating a **job** that is run by 
 By integrating Semgrep into your CI environment, your development cycle benefits from the automated scanning of repositories at various events, such as:
 
 - Push events
-- Pull or merge requests (PRs or MRs)
+- Pull requests or merge requests (PRs or MRs)
 - User-initiated events (such as GitHub Action's `workflow_dispatch`)
+
+:::info Semgrep Managed Scans
+As an alternative to integrating Semgrep into your CI/CD system, consider [Semgrep Managed Scans](/deployment/managed-scanning/overview), which enables you to bulk onboard and scan your repositories without requiring changes to your CI.
+:::
 
 ## Guided setup for CI providers in Semgrep AppSec Platform
 
@@ -44,18 +49,19 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - CircleCI
 - Buildkite
 - Azure Pipelines
+- Semaphore
 
-![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#bordered)
-**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers.
+![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#md-width)
+_**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers._
 
 If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
 ## Projects
 
-Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each Project can be individually configured to send notifications or tickets.
+Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each project can be individually configured to send notifications or tickets.
 
 ![Semgrep Projects page](/img/projects-page.png)
-_**Figure.** Semgrep **Projects** page. This displays all the repositories you have successfully added a Semgrep job to._
+_**Figure.** Semgrep **Projects** page. This displays all the projects you have successfully added to Semgrep._
 
 ## Add Semgrep to CI
 
@@ -98,8 +104,10 @@ You have now added a Semgrep job to GitHub Actions. A **full scan** begins autom
 
 :::tip
 You can edit your configuration files to send findings to **GitHub Advanced Security Dashboard (GHAS)** and **GitLab SAST Dashboard**. Refer to the following samples:
+
 - [GitHub Advanced Security Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-github-advanced-security-dashboard)
 - [GitLab SAST Dashboard](/semgrep-ci/sample-ci-configs/#upload-findings-to-gitlab-security-dashboard)
+
 :::
 
 ### Sample CI configuration snippets
@@ -108,13 +116,14 @@ Refer to the following table for links to sample CI configuration snippets:
 
 | In-app CI provider   | Sample CI configuration snippet |
 | :------------------- | :-----------------------------  |
+| Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
+| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines) |
+| Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
+| CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
 | GitHub Actions       |  [`semgrep.yml`](/semgrep-ci/sample-ci-configs/#github-actions) |
 | GitLab CI/CD         | [`.gitlab-ci.yml`](/semgrep-ci/sample-ci-configs/#gitlab-cicd) |
 | Jenkins              | [`Jenkinsfile`](/semgrep-ci/sample-ci-configs/#jenkins) |
-| Bitbucket Pipelines  | [`bitbucket-pipelines.yml`](/semgrep-ci/sample-ci-configs/#bitbucket-pipelines) |
-| CircleCI             | [`config.yml`](/semgrep-ci/sample-ci-configs/#circleci) |
-| Buildkite            | [`pipelines.yml`](/semgrep-ci/sample-ci-configs/#buildkite) |
-| Azure Pipelines      | [`azure-pipelines.yml`](/semgrep-ci/sample-ci-configs/#azure-pipelines) |
+| Semaphore            | [`semaphore.yml`](/semgrep-ci/sample-ci-configs/#semaphore) |
 
 ### Data collected by Semgrep
 
@@ -123,15 +132,19 @@ When running in CI, Semgrep runs fully in the CI build environment. Unless you h
 - Semgrep collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
+### Delete a project
+
+Deleting a project removes all of its findings, metadata, and other records from Semgrep AppSec Platform.
+
+<DeleteAProject />
+
 ## Scan scope
 
 <DiffAwareScanning />
 
 ### Default branch names
 
-Branches with the following names are recognized as **default branch** names (also known as mainline or trunk branches). When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on these default branches.
-
-<DefaultBranches />
+When you add a Semgrep CI job to your repository for the first time, Semgrep performs a full scan on the primary, or default, branches. In many cases, Semgrep automatically detects these branches as primary branches. However, you can also [set the primary branch name](/deployment/primary-branch). This is useful for repositories with unique names. This lets Semgrep know what branch to prioritize and perform full scans on.
 
 ## Next steps
 

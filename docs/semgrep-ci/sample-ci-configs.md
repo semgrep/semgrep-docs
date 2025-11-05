@@ -28,6 +28,7 @@ import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
+import JenkinsBitbucket from "/src/components/code_snippets/_jenkins-semgrep-app-bbdc.mdx"
 
 <!--Bitbucket Pipelines -->
 
@@ -45,6 +46,11 @@ import CircleCiSemgrepOssSast from "/src/components/code_snippets/_circleci-semg
 <!-- Azure Pipelines -->
 import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
 import AzureSemgrepOssSast from "/src/components/code_snippets/_azure-semgrep-oss-sast.mdx"
+import AzureVariables from "/src/components/procedure/_set-env-vars-azure.mdx"
+
+<!-- Semaphore -->
+import SemaphoreSemgrepAppSast from "/src/components/code_snippets/_semaphore-semgrep-app-sast.mdx"
+import SemaphoreSemgrepOssSast from "/src/components/code_snippets/_semaphore-semgrep-oss-sast.mdx"
 
 import ScmFeatureReference from "/src/components/reference/_scm-feature-reference.md"
 
@@ -81,13 +87,13 @@ If you are self-hosting your repository, you must [use a self-hosted runner](htt
     defaultValue="gha-semgrep"
     values={[
     {label: 'Default', value: 'gha-semgrep'},
-    {label: 'Semgrep OSS', value: 'gha-oss'},
+    {label: 'Semgrep CE', value: 'gha-oss'},
     ]}
 >
 
 <TabItem value='gha-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <GhaSemgrepAppSast />
 
@@ -97,11 +103,11 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='gha-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep Community Edition (CE) scans using rules configured for your programming language.
 
 <GhaSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
@@ -119,6 +125,7 @@ push:
   paths:
     - .github/workflows/semgrep.yml
 ```
+
 :::
 
 #### Upload findings to GitHub Advanced Security Dashboard
@@ -145,13 +152,13 @@ To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
     defaultValue="glcicd-semgrep"
     values={[
     {label: 'Default', value: 'glcicd-semgrep'},
-    {label: 'Semgrep OSS', value: 'glcicd-oss'},
+    {label: 'Semgrep CE', value: 'glcicd-oss'},
     ]}
 >
 
 <TabItem value='glcicd-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <GlcicdSemgrepAppSast />
 
@@ -163,11 +170,11 @@ Prefer to use GitLab group variables? See [this guide](/docs/kb/semgrep-code/git
 
 <TabItem value='glcicd-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <GlcicdSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -175,7 +182,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 #### Upload findings to GitLab Security Dashboard
 
 <details>
- <summary>Alternate job that uploads findings to GitLab Security Dashboard</summary>
+ <summary>Alternate job that uploads SAST findings to GitLab Security Dashboard</summary>
 
  <GlcicdSemgrepAppSastDash />
 
@@ -201,8 +208,9 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     defaultValue="jenkins-semgrep"
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
-    {label: 'Semgrep OSS', value: 'jenkins-oss'},
+    {label: 'Semgrep CE', value: 'jenkins-oss'},
     {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
+    {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
 >
 
@@ -211,7 +219,7 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
 :::
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <JenkinsSemgrepAppSast />
 
@@ -221,11 +229,11 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='jenkins-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <JenkinsSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 
@@ -234,6 +242,13 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 <JenkinsSemgrepAppSastDocker />
 
 </TabItem>
+
+<TabItem value='jenkins-bb'>
+
+<JenkinsBitbucket />
+
+</TabItem>
+
 </Tabs>
 
 ## Bitbucket Pipelines
@@ -256,13 +271,13 @@ These steps can also be performed through Bitbucket's UI wizard. This UI wizard 
     defaultValue="bitbucket-semgrep"
     values={[
     {label: 'Default', value: 'bitbucket-semgrep'},
-    {label: 'Semgrep OSS', value: 'bitbucket-oss'},
+    {label: 'Semgrep CE', value: 'bitbucket-oss'},
     ]}
 >
 
 <TabItem value='bitbucket-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <BitbucketSemgrepAppSast />
 
@@ -272,27 +287,40 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='bitbucket-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <BitbucketSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
+
+:::tip
+If the pipeline's default runner runs out of memory, you can limit the number of subprocesses Semgrep uses with the [`-j` flag](/cli-reference), or [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/docs/global-options/#Size) to the Semgrep step to increase the memory available:
+
+```yaml
+pipelines:
+  default:
+    - step:
+        size: 2x
+        script:
+          - echo "This step gets double the memory!"
+```
+
+:::
 
 ## Buildkite
 
 To add Semgrep into your Buildkite pipeline:
 
-1. Create or edit a `pipeline.yml` configuration file to add a Semgrep command as part of your pipeline. Refer to the [Buildkite code snippet](#sample-buildkite-configuration-snippet). This configuration file can also be stored within Buildkite.
-2. Copy the relevant code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet).
-3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated configuration file into the `/.buildkite` folder within the target repository.
-4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. You can also view the job through Buildkite's interface, by clicking **your repository > Pipelines**.
-5. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+1. Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the target repository.
+2. Copy the code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet), making alterations if necessary for your environment.
+3. If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated `pipeline.yml` file into the `/.buildkite` folder within the target repository.
+4. The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **Pipelines > pipeline name**.
 
 :::note
-These steps can be performed from within Buildkite's interface. From Buildkite's main page, click **Pipelines > ➕ button** to perform these steps within Buildkite's UI.
+These steps can be performed within Buildkite's UI. To do so, navigate to Buildkite's main page, and click **Pipelines > New Pipeline**.
 :::
 
 ### Sample Buildkite configuration snippet
@@ -303,7 +331,7 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
     defaultValue="buildkite-semgrep"
     values={[
     {label: 'Default', value: 'buildkite-semgrep'},
-    {label: 'Semgrep OSS', value: 'buildkite-oss'},
+    {label: 'Semgrep CE', value: 'buildkite-oss'},
     ]}
 >
 
@@ -311,22 +339,39 @@ These steps can be performed from within Buildkite's interface. From Buildkite's
 
 <TabItem value='buildkite-semgrep'>
 
+The following configuration creates a CI job that runs scans according to the products you have enabled in Semgrep AppSec Platform. The provided environment variables are commonly needed to correctly configure scans from Buildkite.
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+This file configures two mutually exclusive command steps, one for full scans, and one for diff-aware scans. The latter is used for pull requests or merge requests.
+
+In order for this configuration to run the correct type of scan for each condition, it requires both [branch filtering](https://buildkite.com/docs/pipelines/branch-configuration) and configuration to build on pull requests.
+
+#### Branch filtering
+
+1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
+    ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png#md-width)
+    ***Figure.*** Buildkite pipeline settings with using GitHub as the SCM.
+2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
+    ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png#md-width)
+    ***Figure.*** Branch limiting settings with main as the example branch.
+3. Click **Save Branch Limiting**.
+
+#### Build on pull requests
+
+To run diff-aware scans, your pipeline must run builds on pull requests or merge requests. Buildkite integrates with several source code managers and each one has different options to handle PRs or MRs. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/docs/integrations/source-control) system to ensure your Semgrep pipeline builds on pull requests or merge requests.
 
 <BuildkiteSemgrepAppSast />
 
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+You can [run specific product scans by passing the appropriate argument](/getting-started/cli#scan-using-specific-semgrep-products), such as `--supply-chain`.
 
 </TabItem>
 
 <TabItem value='buildkite-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <BuildkiteSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -360,13 +405,13 @@ For the default branch and tags, CircleCI always runs the Semgrep CI job on all 
     defaultValue="circleci-semgrep"
     values={[
     {label: 'Default', value: 'circleci-semgrep'},
-    {label: 'Semgrep OSS', value: 'circleci-oss'},
+    {label: 'Semgrep CE', value: 'circleci-oss'},
     ]}
 >
 
 <TabItem value='circleci-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <CircleCiSemgrepAppSast />
 
@@ -376,11 +421,11 @@ You can **run specific product scans** by passing an argument, such as `--supply
 
 <TabItem value='circleci-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <CircleCiSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -394,39 +439,90 @@ Scanning a project with the `semgrep ci` command requires the project to be vers
 To add Semgrep into Azure Pipelines:
 
 1. Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
-2. Copy the relevant code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
+2. Copy the code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
 3. Save the code snippet.
-4. Set [environment variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
-5. Group the environment variables as a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic).
-6. Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-4 and adding `SEMGREP_BASELINE_REF` as an environment variable.
+4. Follow any additional instructions provided with the snippet.
 
 ### Sample Azure Pipelines configuration snippet
+
+This configuration snippet is tested with **hosted** Azure runners. If you are using self-hosted runners, you may need to make adjustments to ensure that the necessary software is available. Consult [Semgrep with self-hosted Ubuntu runners in Azure Pipelines](/docs/kb/semgrep-ci/azure-self-hosted-ubuntu) for two recommended options.
 
 <Tabs
     defaultValue="azure-semgrep"
     values={[
     {label: 'Default', value: 'azure-semgrep'},
-    {label: 'Semgrep OSS', value: 'azure-oss'},
+    {label: 'Semgrep CE', value: 'azure-oss'},
     ]}
 >
 
 <TabItem value='azure-semgrep'>
 
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform.
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
 <AzureSemgrepAppSast />
 
 You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
+<AzureVariables />
+
 </TabItem>
 
 <TabItem value='azure-oss'>
 
-The following configuration creates a CI job that runs Semgrep OSS scans using rules configured for your programming language.
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
 
 <AzureSemgrepOssSast />
 
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/getting-started/cli-oss/#scan-your-codebase-with-a-specific-ruleset).
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</TabItem>
+</Tabs>
+
+## Semaphore
+
+To add Semgrep into Semaphore:
+
+1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with [your `SEMGREP_APP_TOKEN`](https://semgrep.dev/orgs/-/settings/tokens).
+2. Open the YAML pipeline for your project using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
+3. Click **+Add Block**.
+5. Expand **Jobs**, and add the following commands to perform a full scan:
+
+   ```console
+   checkout
+   sudo pip install semgrep
+   semgrep ci
+   ```
+4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
+
+6. Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
+
+### Sample Semaphore configuration snippet
+
+<Tabs
+    defaultValue="semaphore-semgrep"
+    values={[
+    {label: 'Default', value: 'semaphore-semgrep'},
+    {label: 'Semgrep CE', value: 'semaphore-oss'},
+    ]}
+>
+
+<TabItem value='semaphore-semgrep'>
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+<SemaphoreSemgrepAppSast />
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</TabItem>
+
+<TabItem value='semaphore-oss'>
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+<SemaphoreSemgrepOssSast />
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
 
 </TabItem>
 </Tabs>
@@ -435,7 +531,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
 
-**Note**: If you need to use a different image than docker, install Semgrep CI by `pip install semgrep`.
+**Note**: If you need to use a different Docker image or are not running in Docker, install Semgrep CI by `pip install semgrep`. If you see an error during the installation process due to your Python environment being externally managed by a package manager, see [Semgrep's article for instructions on how to proceed](/kb/semgrep-appsec-platform/error-externally-managed-environment).
 
 By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
 
@@ -449,4 +545,4 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - TeamCity CI
 - Travis CI
 
-Is your CI provider missing? Let us know by [filing an issue](https://github.com/semgrep/semgrep/issues/new?assignees=&labels=&template=feature_request.md&title=).
+Is your CI provider missing? Let the Semgrep team know by [<i class="fas fa-external-link fa-xs"></i> filing an issue](https://github.com/semgrep/semgrep-docs/issues/), or [<i class="fas fa-external-link fa-xs"></i> submit a contribution](https://github.com/semgrep/semgrep-docs/pulls/).

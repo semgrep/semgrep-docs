@@ -1,0 +1,793 @@
+---
+slug: rule-updates
+description: >-
+  Rule updates document significant rule updates made monthly.
+toc_max_heading_level: 3
+date: 2023-02-28T10:00
+---
+
+import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
+
+
+# Rule updates
+
+This document includes selected new rules, removed or reduced number of false positives (FP) and false negatives (FN). These new rules and their updates are made by the Semgrep community and Semgrep, Inc.
+
+<!-- truncate -->
+
+:::info Maintenance status
+This document is no longer updated. For updates, refer to the following sources:
+- [<i class="fas fa-external-link fa-xs"></i> Supply Chain > Advisories](https://semgrep.dev/orgs/-/supply-chain/advisories)
+- [<i class="fas fa-external-link fa-xs"></i> Product updates feed](https://semgrep.dev/products/product-updates/)
+:::
+
+## February 2023
+
+### Community rules
+
+Thanks to [Sjord](https://github.com/Sjord), [@artem-fedorov](https://github.com/artem-fedorov) and [@gabriellesc](https://github.com/gabriellesc) for their contributions!
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Improved coverage for security issues in Terraform: <LinkToRegistryRule ruleId="terraform.aws.security" />
+- Additional rules for weak ciphers in Java: <LinkToRegistryRule ruleId="java.lang.security.audit.crypto" />
+- Additional rules for inline JavaScript and related security issues:
+    -  <LinkToRegistryRule ruleId="html.security.audit.eval-detected.eval-detected" />
+    -  <LinkToRegistryRule ruleId="html.security.audit.inscure-document-method.insecure-document-method" />
+
+#### Updated Community rules
+
+- Added and improved autofix for many rules
+- Improved patterns:
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+    -  <LinkToRegistryRule ruleId="javascript.express.security.express-insecure-template-usage.express-insecure-template-usage" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.des-is-deprecated" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.no-null-cipher" />
+    -  <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.rsa-no-padding" />
+    -  <LinkToRegistryRule ruleId="problem-based-packs.insecure-transport.js-node.disallow-old-tls-versions2.disallow-old-tls-versions2" />
+- Improved accuracy:
+    -  <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.gitleaks.generic-api-key.generic-api-key" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.dockerfile.security.last-user-is-root.last-user-is-root" />
+    -  <LinkToRegistryRule ruleId="generic.secrets.security.detected-npm-token.detected-npm-token" />
+    -  <LinkToRegistryRule ruleId="php.lang.security.injection.echoed-request.echoed-request" />
+- Improved rule message:
+    -  <LinkToRegistryRule ruleId="java.security.spring.audit.spring-csrf-disabled.spring-csrf-disabled" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-cloudwatch-log-group-unencrypted.aws-cloudwatch-log-group-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-dynamodb-table-unencrypted.aws-dynamodb-table-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-lambda-environment-unencrypted.aws-lambda-environment-unencrypted" />
+    -  <LinkToRegistryRule ruleId="terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted" />
+- Improved metadata:
+    -  <LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_md5" />
+    -  <LinkToRegistryRule ruleId="contrib.nodejsscan.crypto_node.node_sha1" />
+    -  <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-unscoped-find.check-unscoped-find" />
+
+### Pro rules
+
+#### New Pro rules
+
+- Improved coverage for:
+    - Deserialization issues in Java
+    - Deserialization issues in Python
+    - Weak hash algorithms in JavaScript
+    - NoSQL injection in Java
+    - NoSQL injection in JavaScript
+    - ReDOS in JavaScript
+
+## January 2023
+
+### Community rules
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for empty encryption key in Python: <LinkToRegistryRule ruleId="python.cryptography.security.empty-aes-key.empty-aes-key" />
+- Thanks [johnssimon007](https://github.com/johnssimon007)! New rule for header injection in Python/Flask: <LinkToRegistryRule ruleId="python.flask.security.audit.host-header-injection-python" />
+- Additional rule for deserialization vulnerabilities in Ruby: <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-env.bad-deserialization-env" />
+- Ported regex-based rules from Gitleaks
+
+#### Updated Community rules
+
+- Thanks [@ben-elttam](https://github.com/ben-elttam)! FP reduction in Kubernetes rules:
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root.run-as-non-root" />
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.security.run-as-non-root-unsafe-value.run-as-non-root-unsafe-value" />
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! OWASP metadata fixed for too **many** rules to list here!
+- Thanks [ianmuscat](https://github.com/ianmuscat)! FP reduction with additional patterns: <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile" />
+- Thanks [paisleyrob](https://github.com/paisleyrob)! FP reduction with improved patterns:
+    - <LinkToRegistryRule ruleId="c.lang.security.use-after-free.use-after-free"/>
+    - <LinkToRegistryRule ruleId="c.lang.security.insecure-use-printf-fn.insecure-use-printf-fn"/>
+- Thanks [rc-JoshuaZepf](https://github.com/rc-JoshuaZepf)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="terraform.lang.security.ec2-imdsv1-optional.ec2-imdsv1-optional"/>
+- Thanks [nightshiba](https://github.com/nightshiba)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape"/>
+- Thanks [Sjord](https://github.com/Sjord)! FP reduction with improved patterns: <LinkToRegistryRule ruleId="php.lang.security.audit.assert-use-audit.assert-use-audit"/>
+- FP reduction with improved pattern for taint mode:
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml.bad-deserialization-yaml" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+- FN reduction with improved patterns for taint mode:
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-file-path.tainted-file-path" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-html-string.tainted-html-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-sql-string.tainted-sql-string" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-system-command.tainted-system-command" />
+    - <LinkToRegistryRule ruleId="java.spring.security.injection.tainted-url-host.tainted-url-host" />
+- Deprecated rules:
+    - <LinkToRegistryRule ruleId="java.spring.security.cve.cve-2022-22965.cve-2022-22965" />
+    - <LinkToRegistryRule ruleId="php.lang.security.preg-replace-eval.preg-replace-eval" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noopener.missing-noopener" />
+    - <LinkToRegistryRule ruleId="html.security.missing-noreferrer.missing-noreferrer" />
+
+### Pro rules
+
+The **Pro rules** are created by Semgrep, Inc and targeted for security and software engineers who need accurate findings. These rules were previously marked as Team tier rules (see the updates below). As of this update, these rules are called the **[Pro rules](/semgrep-code/pro-rules)** and are available with the [Team or higher tier](https://semgrep.dev/pricing).
+
+#### New Pro rules
+
+- New rules for hardcoded secrets:
+    - Database libraries for Java
+    - Database libraries for Ruby
+- New rules for JavaScript:
+    - Weak symmetric cryptography
+    - RegExp ReDos
+    - XSS
+    - Open Redirect
+- New rules for Java:
+    - SSRF in Java Servlets and Spring Framework
+
+#### Updated Pro rules
+
+- FP reduction with improved pattern for taint mode:
+    - Command Injection in Java Servlets and Spring Framework
+    - XSS in Java Spring Framework
+    - XXE in Java
+
+## December 2022
+
+### Community tier
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Thanks [@aabashkin](https://github.com/aabashkin)! Added rule for MongoDB NoSQL Injection: <LinkToRegistryRule ruleId="java.mongodb.security.injection.audit.mongodb-nosqli" />
+- Thanks [@rc-mattschwager](https://gihub.com/rc-mattschwager)! Added Rust security rules:
+    - <LinkToRegistryRule ruleId="rust.lang.security.args-os.args-os" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.args.args" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.current-exe.current-exe" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.insecure-hashes.insecure-hashes" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.reqwest-accept-invalid.reqwest-accept-invalid" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.reqwest-set-sensitive.reqwest-set-sensitive" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.rustls-dangerous.rustls-dangerous" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.ssl-verify-none.ssl-verify-none" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.temp-dir.temp-dir" />
+    - <LinkToRegistryRule ruleId="rust.lang.security.unsafe-usage.unsafe-usage" />
+- Thanks [@artem-fedorov](https://github.com/artem-fedorov)! Fixed typos, spurious spaces and other formatting mistakes in many rules!
+- Thanks [@nightshiba](https://github.com/nightshiba)! Improved SSRF detection in Flask: <LinkToRegistryRule ruleId="python.flask.security.injection.ssrf-requests.ssrf-requests" />
+- New rule for OS Command Injection in Argo workflows: <LinkToRegistryRule ruleId="yaml.argo.security.argo-workflow-parameter-command-injection.argo-workflow-parameter-command-injection" />
+
+#### Updated community tier rules
+
+- Thanks [@mpast](https://github.com/mpast)! FP reduction in Terraform rules for AWS and Azure:
+    - <LinkToRegistryRule ruleId="terraform.aws.best-practice.missing-aws-lb-deletion-protection.missing-aws-lb-deletion-protection" />
+    - <LinkToRegistryRule ruleId="terraform.azure.best-practice.azure-keyvault-recovery-enabled.azure-keyvault-recovery-enabled" />
+    - <LinkToRegistryRule ruleId="terraform.azure.security.azure-automation-encrypted.azure-automation-encrypted" />
+- Thanks [@ItsIgnacioPortal](https://github.com/ItsIgnacioPortal)! Added external references: <LinkToRegistryRule ruleId="yaml.github-actions.security.workflow-run-target-code-checkout.workflow-run-target-code-checkout" />
+- FP reduction with additional sanitizers: <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection" />
+- FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect.express-open-redirect" />
+- FP reduction with improved pattern for taint mode: <LinkToRegistryRule ruleId="javascript.express.security.injection.tainted-sql-string.tainted-sql-string" />
+- Reduced severity: <LinkToRegistryRule ruleId="dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned" />
+- Added external references:
+    - <LinkToRegistryRule ruleId="ocaml.lang.best-practice.ref.ocamllint-ref-incr" />
+    - <LinkToRegistryRule ruleId="python.lang.maintainability.useless-ifelse.useless-if-conditional" />
+    - <LinkToRegistryRule ruleId="terraform.aws.best-practice.missing-aws-lb-deletion-protection.missing-aws-lb-deletion-protection" />
+    - <LinkToRegistryRule ruleId="terraform.azure.best-practice.azure-keyvault-recovery-enabled.azure-keyvault-recovery-enabled" />
+
+### Team tier
+
+#### New and updated team tier rules
+
+New rules for hardcoded secrets:
+- Network libraries for Python and Java.
+- Database libraries for Python.
+- Generic secrets in JavaScript.
+
+- New rules for Angular.
+- New rules for SSRF in JavaScript.
+- New rules for Open Redirect in JavaScript.
+- Improve existing rules for React to cover more use cases.
+- Improve existing rules for hardcoded secrets to cover more use cases.
+- Improve existing rules for command injection in JavaScript to cover more use cases.
+- FP reduction for existing rules for SQLi in JavaScript.
+- FP reduction for existing rules for hardcoded secrets in Python.
+
+## November 2022
+
+### Community tier
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Thanks [@Sjord](https://github.com/Sjord)! Added rule for links to plaintext URLs: <LinkToRegistryRule ruleId="html.security.plaintext-http-link.plaintext-http-link" />
+
+#### Updated community tier rules
+
+- Thanks [@harmw](https://github.com/harmw)! Match variations of auth token: <LinkToRegistryRule ruleId="detected-npm-registry-auth-token" />
+- Thanks [@keeganparr1](https://github.com/keeganparr1)! Arbitrary send ERC20: <LinkToRegistryRule ruleId="solidity.security.arbitrary-send-erc20.arbitrary-send-erc20" />
+- Thanks [@lnobrega-canarie](https://github.com/lnobrega-canarie)! Allow a template variable in the nonce attribute of a script tag: <LinkToRegistryRule ruleId="python.django.security.audit.xss.var-in-script-tag.var-in-script-tag" />
+- Thanks [@objectified](https://github.com/objectified)! Ignore cookies created by Spring's ResponseCookie builder:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-httponly.cookie-missing-httponly" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-secure-flag.cookie-missing-secure-flag" />
+- Thanks [@kepten](https://github.com/kepten)! Update missing-integrity rule to handle HTML tags with newlines properly to reduce false positives: <LinkToRegistryRule ruleId="html.security.audit.missing-integrity.missing-integrity" />
+- FP reduction using taint analysis:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing" />
+    - <LinkToRegistryRule ruleId="go.lang.correctness.use-filepath-join.use-filepath-join" />
+    - Thanks to [@ianmuscat](https://github.com/ianmuscat) for reporting this! <LinkToRegistryRule ruleId="php.lang.security.file-inclusion.file-inclusion" />
+- Improve autofix by leveraging new [AST-based fixes](https://semgrep.dev/blog/2022/autofixing-code-with-semgrep/):
+    - <LinkToRegistryRule ruleId="javascript.dompurify.harden-dompurify-usage" />
+    - <LinkToRegistryRule ruleId="python.flask.best-practice.use-jsonify.use-jsonify" />
+    - <LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var" />
+- FP reduction using typed metavariables: <LinkToRegistryRule ruleId="java.lang.security.audit.command-injection-formatted-runtime-call.command-injection-formatted-runtime-call" />
+- Support shebang contexts for finding dangerous command executions: <LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
+- Filter localhost in Python rules for requests:
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http" />
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-session-with-http.request-session-with-http" />
+    - <LinkToRegistryRule ruleId="python.lang.security.audit.insecure-transport.requests.request-session-http-in-with-context.request-session-http-in-with-context" />
+- Added autofix:
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.use-of-md5.use-of-md5" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.use-of-md5-digest-utils.use-of-md5-digest-utils" />
+- Improved external documentation references: <LinkToRegistryRule ruleId="javascript.lang.security.insecure-object-assign.insecure-object-assign" />
+- FP reduction by adding support for matching tuples in Python subprocess functions: <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use-audit.dangerous-subprocess-use-audit" />
+- Improve dockerfile rule to handle the `--frozen-lockfile` argument. Thanks [@ianmuscat](https://github.com/ianmuscat) for reporting this! <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-yarn" />
+- FP reduction Java cookie rules. Thanks to [@peter17](https://github.com/peter17) for reporting this! <LinkToRegistryRule ruleId="java.lang.security.audit.cookie-missing-samesite.cookie-missing-samesite" />
+- FP reduction with improved patterns for `DocumentBuilderFactory`. Thanks [@coheigea](https://github.com/coheigea) for reporting this! <LinkToRegistryRule ruleId="java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing" />
+
+:::info Metadata required by security category
+All security rules now adopt an improved set of metadata fields. These fields are required when you contribute to Semgrep Registry with rules in security category. For more details, see [Including fields required by security category](/contributing/contributing-to-semgrep-rules-repository/#fields-required-by-the-security-category) section.
+:::
+
+### Team tier
+
+#### New and updated team tier rules
+
+New rules for hardcoded secrets:
+- Database libraries for Python.
+- Database libraries for JavaScript and TypeScript.
+
+- Improve existing rules for hardcoded secrets to cover more use cases.
+- FP reduction for existing rules for hardcoded secrets.
+- FP reduction for Go net/http rules.
+
+## October 2022
+
+### Community tier
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- Thanks [@mtausig](https://github.com/mtausig)! <LinkToRegistryRule ruleId="csharp.dotnet.security.use_weak_rsa_encryption_padding" />
+- Thanks [@Sjord](https://github.com/sjord)! <LinkToRegistryRule ruleId="php.lang.security.redirect-to-request-uri" />
+- <LinkToRegistryRule ruleId="yaml.github-actions.security.workflow-run-target-code-checkout" />
+
+#### Updated community tier rules
+
+- Fixed issue where false positives were reported with multiple consecutive `<link>` tags in: <LinkToRegistryRule ruleId="html.security.audit.missing-integrity" />
+- Capture additional case when `ssl._create_unverified_context` is reassigned indirectly: <LinkToRegistryRule ruleId="python.lang.security.unverified-ssl-context" />
+- Filter case when a `dynamic` block is used inside `aws_eks_cluster`: <LinkToRegistryRule ruleId="terraform.lang.security.eks-insufficient-control-plane-logging" />
+- Fixed an issue where the rule was not properly scoped to Azure resources: <LinkToRegistryRule ruleId="terraform.azure.security.appservice.appservice-use-secure-tls-policy" />
+- Filter case when only static strings are used: <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join" />
+- Filter case when the user input is used as an index to a map: <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-render-local-file-include" />
+- FP reduction by removing an unnecessary unanchored pattern: <LinkToRegistryRule ruleId="ruby.rails.security.audit.avoid-tainted-shell-call" />
+- Scope Laravel cookie rules to only scan inside files named `*session.php`:
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-http-only" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-long-timeout" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-null-domain" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-same-site" />
+    - <LinkToRegistryRule ruleId="php.laravel.security.laravel-cookie-secure-set" />
+- Add additional taint sources: <LinkToRegistryRule ruleId="php.laravel.security.laravel-unsafe-validator" />
+
+### Team tier
+
+#### New team rules
+
+New rules for the Laravel PHP framework covering the following vulnerability classes:
+- Code injection
+- Command injection
+- SQL injection
+- Path traversal
+- CSRF
+- Cookie security
+- XSS
+- SSRF
+
+New rules for Go net/http package covering the following vulnerability classes:
+- SQL injection
+- Command injection
+
+## September 2022
+
+### Community tier
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- 100+ new Terraform rules for GCP! Thanks @mertcoskuner!
+- Python crypto operations with HMAC. Thanks @luisfontes19!
+    - <LinkToRegistryRule ruleId="python.cryptography.security.mode-without-authentication" />
+    - <LinkToRegistryRule ruleId="python.pycryptodome.security.mode-without-authentication" />
+- Spring actuator rules. Thanks @malexmave!
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-fully-enabled-yaml" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-fully-enabled" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-non-health-enabled-yaml" />
+    - <LinkToRegistryRule ruleId="java.spring.security.audit.spring-actuator-non-health-enabled" />
+- Rule for persistent secrets in Docker images. Thanks @Sjord!: <LinkToRegistryRule ruleId="dockerfile.security.secret-in-build-arg" />
+- Rule for GitHub Actions script injection: <LinkToRegistryRule ruleId="yaml.github-actions.security.github-script-injection" />
+- PHP XSS rule: <LinkToRegistryRule ruleId="php.lang.security.injection.echoed-request" />
+
+#### Changed community tier rules
+
+##### New metadata keys
+
+Semgrep, Inc is adding new metadata fields to better communicate the intent and importance of findings that a rule generates. The following list provides details about new metadata fields:
+- **Likelihood**: How likely is the impact highlighted by this finding to occur? Examples:
+    - Web application user input: HIGH
+    - OS environment: MEDIUM
+- **Impact**: How much damage can this issue cause? Examples:
+    - SQL Injection: HIGH
+    - Information disclosure: LOW
+- **Confidence**: How confident is the author that this finding is exploitable? Examples:
+    - User input + formatted SQL string + SQL sink + no intermediate function calls: HIGH
+    - User input + SQL sink: MEDIUM
+    - Formatted SQL string: LOW
+- **Subcategory**: A list of subcategories that allows the author to specify the intent of the rule. Current values are:
+    - **Audit**: This rule indicates the possible presence of a vulnerability, provided other conditions are present
+    - **Vuln**: This rule is specifically looking for an exploitable vulnerability
+- Additionally, language rulesets (such as `p/javascript`) have been altered to include only rules that match the following conditions:
+    - Subcategory: Vuln
+    - Impact: HIGH
+
+#### Updated community tier rules
+
+- PyYAML rule updated for modern versions of PyYAML. This can lower the occurrence of false positive findings. Thanks @shivankar-madaan: python.lang.security.deserialization.avoid-pyyaml-load
+- Added new case for C use-after-free where freed var is used in conditional. Thanks @zhengsidie. c.lang.security.use-after-free
+- Additional user input added. Thanks @jbergler! ruby.lang.security.no-eval
+- Reduced false positives by filtering safe attributes. Thanks @luisfontes19! python.flask.security.open-redirect
+- Filtered false positive cases from:
+    - <LinkToRegistryRule ruleId="generic.secrets.security.detected-slack-webhook" />
+    - <LinkToRegistryRule ruleId="java.jax-rs.security.insecure-resteasy" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write" />
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-open-redirect" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.injection.tainted-sql-string" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.brakeman.check-regex-dos" />
+- Autofix added to the following rules:
+    - <LinkToRegistryRule ruleId="c.lang.correctness.c-string-equality" />
+    - <LinkToRegistryRule ruleId="csharp.lang.correctness.sslcertificatetrust.sslcertificatetrust-handshake-no-trust" />
+    - <LinkToRegistryRule ruleId="dockerfile.best-practice.maintainer-is-deprecated" />
+    - <LinkToRegistryRule ruleId="dockerfile.best-practice.use-shell-instruction" />
+    - <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile" />
+    - <LinkToRegistryRule ruleId="go.lang.security.audit.net.use-tls" />
+    - <LinkToRegistryRule ruleId="go.lang.security.filepath-clean-misuse" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.cbc-padding-oracle" />
+    - <LinkToRegistryRule ruleId="java.lang.security.audit.crypto.des-is-deprecated" />
+    - <LinkToRegistryRule ruleId="javascript.dompurify" />
+    - <LinkToRegistryRule ruleId="python.distributed.security" />
+    - <LinkToRegistryRule ruleId="python.django.security.audit.unvalidated-password" />
+    - <LinkToRegistryRule ruleId="python.jinja2.security.audit.autoescape-disabled-false" />
+    - <LinkToRegistryRule ruleId="python.jinja2.security.audit.missing-autoescape-disabled" />
+    - <LinkToRegistryRule ruleId="python.lang.correctness.exit" />
+    - <LinkToRegistryRule ruleId="python.lang.correctness.unchecked-returns" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-httponly-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-samesite" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.authtkt-cookie-secure-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-check-disabled" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-origin-check-disabled-globally" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.csrf-origin-check-disabled" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-httponly-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-samesite-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.audit.set-cookie-secure-unsafe-value" />
+    - <LinkToRegistryRule ruleId="python.pyramid.security.csrf-check-disabled-globally" />
+    - <LinkToRegistryRule ruleId="python.requests.best-practice.use-response-json-shortcut" />
+    - <LinkToRegistryRule ruleId="ruby.lang.security.bad-deserialization-yaml" />
+    - <LinkToRegistryRule ruleId="ruby.rails.correctness.rails-no-render-after-save" />
+    - <LinkToRegistryRule ruleId="yaml.kubernetes.best-practice.no-fractional-cpu-limits" />
+
+#### Deprecated community tier rules
+
+These rules no longer produce findings:
+
+- <LinkToRegistryRule ruleId="javascript.lang.security.detect-non-literal-require" />
+
+## August 2022
+
+### Community tier
+
+#### New rules from Semgrep community and Semgrep, Inc
+
+- <LinkToRegistryRule ruleId="csharp.lang.security.ad.jwt-tokenvalidationparameters-no-expiry-validation.jwt-tokenvalidationparameters-no-expiry-validation" />
+- Thanks @securecodeninja! <LinkToRegistryRule ruleId="jwt-securitytoken-no-expiration.jwt-securitytoken-no-expiration" />
+
+#### Updated community tier rules
+
+- Fixed taint source to focus on function argument in <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.mass-assignment.mass-assignment" />.
+- Updated various secrets-related rules:
+    - Added more patterns for hardcoded secrets in `express-session` <LinkToRegistryRule ruleId="javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret" />.
+    - Added more import patterns to catch more cases <LinkToRegistryRule ruleId="javascript.express.security.express-jwt-hardcoded-secret.express-jwt-hardcoded-secret" />.
+    - Changed from ERROR to WARNING <LinkToRegistryRule ruleId="javascript.jose.security.jwt-hardcode.hardcoded-jwt-secret" />.
+    - Updated to highlight smaller, relevant ranges of code:
+        - <LinkToRegistryRule ruleId="java.java-jwt.security.jwt-hardcode.java-jwt-hardcoded-secret" />
+        - <LinkToRegistryRule ruleId="terraform.aws.security.aws-provider-static-credentials.aws-provider-static-credentials" />
+        - <LinkToRegistryRule ruleId="terraform.aws.security.aws-lambda-environment-credentials.aws-lambda-environment-credentials" />
+    - False positive (FP) reduction, updated in taint mode to provide more context:
+        - <LinkToRegistryRule ruleId="go.jwt-go.security.jwt.hardcoded-jwt-key" />
+        - <LinkToRegistryRule ruleId="javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret" />
+        - <LinkToRegistryRule ruleId="python.boto3.security.hardcoded-token.hardcoded-token" />
+- Updated to work with multi flags such as `-yqq` in <LinkToRegistryRule ruleId="dockerfile.correctness.missing-assume-yes-switch.missing-assume-yes-switch" />.
+- Updated to taint mode and added more filesystem sources <LinkToRegistryRule ruleId="javascript.lang.security.audit.detect-non-literal-fs-filename.detect-non-literal-fs-filename" />.
+- Restricted sources to remove unlikely user input <LinkToRegistryRule ruleId="ruby.rails.security.audit.avoid-tainted-shell-call.avoid-tainted-shell-call" />.
+- Added a pattern for `escapeHtml={false}` <LinkToRegistryRule ruleId="typescript.react.security.react-markdown-insecure-html.react-markdown-insecure-html" />.
+- Added a pattern for detecting manual user-supplied inputs <LinkToRegistryRule ruleId="yaml.github-actions.security.run-shell-injection.run-shell-injection" />.
+- Updated to highlight smaller, relevant ranges of code:
+    - <LinkToRegistryRule ruleId="ruby.lang.security.hardcoded-http-auth-in-controller.hardcoded-http-auth-in-controller" />
+    - <LinkToRegistryRule ruleId="ruby.rails.security.injection.tainted-sql-string.tainted-sql-string" />
+- FP reduction: updated to taint mode to provide more context:
+    - <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+    - <LinkToRegistryRule ruleId="javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp" />
+    - <LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+    - <LinkToRegistryRule ruleId="javascript.passport-jwt.security.passport-hardcode.hardcoded-passport-secret" />
+    - <LinkToRegistryRule ruleId="typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method" />
+    - <LinkToRegistryRule ruleId="typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property" />
+
+#### Deprecated community tier rules
+
+Semgrep does no longer match anything with the following rules:
+
+- <LinkToRegistryRule ruleId="javascript.jose.security.jwt-exposed-credentials.jwt-exposed-credentials" />
+- <LinkToRegistryRule ruleId="javascript.jsonwebtoken.security.jwt-exposed-credentials.jwt-exposed-credentials" />
+- <LinkToRegistryRule ruleId="javascript.lang.security.audit.non-constant-sql-query.non-constant-sql-query" />
+- <LinkToRegistryRule ruleId="python.django.security.audit.xss.template-translate-no-escape.template-translate-no-escape" />
+
+### Team tier
+
+#### New Team tier rules
+
+- <LinkToRegistryRule ruleId="javascript.express.express-child-process.express-child-process" />
+- <LinkToRegistryRule ruleId="javascript.express.express-fs-filename.express-fs-filename" />
+- <LinkToRegistryRule ruleId="typescript.typescript.node.security.node-rsa-weak-key.node-rsa-weak-key" />
+
+- New Go rules:
+    - <LinkToRegistryRule ruleId="go.net.active-debug-code.print-stack-trace.print-stack-trace" />
+    - <LinkToRegistryRule ruleId="go.net.active-debug-code.write-pprof-profile-output.write-pprof-profile-output" />
+    - <LinkToRegistryRule ruleId="go.net.command-injection.net-http-command-injection-taint.net-http-command-injection-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.go-vanillasql-format-string-sqli-taint.go-vanillasql-format-string-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pg-orm-sqli-taint.pg-orm-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pg-sqli-taint.pg-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.sql.pgx-sqli-taint.pgx-sqli-taint" />
+    - <LinkToRegistryRule ruleId="go.net.ssrf.http-ssrf-taint.http-ssrf-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xss.formatted-template-string-taint.formatted-template-string-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xss.no-direct-write-to-responsewriter-taint.no-direct-write-to-responsewriter-taint" />
+    - <LinkToRegistryRule ruleId="go.net.xxe.libxml2-xxe-taint.libxml2-xxe-taint" />
+
+- New secrets detection rules which try to resolve cases with hardcoded strings used as a secrets in code:
+    - <LinkToRegistryRule ruleId="csharp.jwt-dotnet.jwt-dotnet-hardcoded-secret.jwt-dotnet-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.directoryentry-hardcoded-secret.directoryentry-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.networkcredential-hardcoded-secret.networkcredential-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.oracleconnectionstringbuilder-hardcoded-secret.oracleconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.passwordauthenticationmethod-hardcoded-secret.passwordauthenticationmethod-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.sqlconnection-hardcoded-secret.sqlconnection-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.lang.security.system.sqlconnectionstringbuilder-hardcoded-secret.sqlconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.mongo.csharp-mongo-hardcoded-secret.csharp-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="csharp.postgres.npgsqlconnectionstringbuilder-hardcoded-secret.npgsqlconnectionstringbuilder-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.properties.properties-hardcoded-secret.properties-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.sql.drivermanager-hardcoded-secret.drivermanager-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.lang.security.system.system-setproperty-hardcoded-secret.system-setproperty-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.mongo.java-mongo-hardcoded-secret.java-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="java.mysql.mysql-jdbc-hardcoded-secret.mysql-jdbc-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.knex.node-knex-hardcoded-secret.node-knex-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mongoose.node-mongoose-hardcoded-secret.node-mongoose-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mssql.node-mysql-hardcoded-secret.node-mssql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.mysql.node-mysql-hardcoded-secret.node-mysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.pg.node-pg-hardcoded-secret.node-pg-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="javascript.sequelize.node-sequelize-hardcoded-secret.node-sequelize-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.ldap3.python-ldap3-hardcoded-secret.python-ldap3-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.mysql.python-mysql-hardcoded-secret.python-mysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.psycopg2.python-psycopg2-hardcoded-secret.python-psycopg2-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pyjwt.python-pyjwt-hardcoded-secret.python-pyjwt-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymongo.python-mongo-hardcoded-secret.python-mongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymongo.python-pymongo-hardcoded-secret.python-pymongo-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.pymysql.python-pymysql-hardcoded-secret.python-pymysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.sqlalchemy.python-sqlalchemy-hardcoded-secret.python-sqlalchemy-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.tormysql.python-tormysql-hardcoded-secret.python-tormysql-hardcoded-secret" />
+    - <LinkToRegistryRule ruleId="python.webrepl.python-webrepl-hardcoded-secret.python-webrepl-hardcoded-secret" />
+
+#### Updated Team tier rules
+
+Added more sinks for the following rules:
+
+- <LinkToRegistryRule ruleId="paid.paid.typescript.react.react-refs-prop.react-refs-prop" />
+- <LinkToRegistryRule ruleId="paid.paid.typescript.react.react-refs-url.react-refs-url" />
+
+## July 2022
+
+### New rules from Segmrep community and Semgrep, Inc
+
+New rules from Semgrep community:
+- Thanks to @securecodeninja!
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.mass-assignment" />
+  - <LinkToRegistryRule ruleId="csharp.lang.security.cryptography.unsigned-security-token" />
+  - <LinkToRegistryRule ruleId="csharp.lang.security.open-redirect" />
+  - <LinkToRegistryRule ruleId="csharp.lang.security.stacktrace-disclosure" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.open-directory-listing.open-directory-listing" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.misconfigured-lockout-option.misconfigured-lockout-option" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.razor-use-of-htmlstring.razor-use-of-htmlstring" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.ldap-injection" />
+  - <LinkToRegistryRule ruleId="csharp.dotnet.security.audit.xpath-injection" />
+
+New rules have been added with taint sources:
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-os-exec-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use-tainted-env-args" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call-tainted-env-args" />
+
+There are now 80 [team tier](https://semgrep.dev/pricing) only rules covering Java, PHP, JavaScript, and TypeScript available in the [Semgrep Registry](https://semgrep.dev/explore). These rules are designed to have higher precision and lower false positive rates.
+
+### Rule changes and updates
+
+- Added additional import scenarios for os.system <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" />
+
+- Rewritten with taint mode:
+  - <LinkToRegistryRule ruleId="javascript.express.security.audit.express-path-join-resolve-traversal" />
+  - <LinkToRegistryRule ruleId="javascript.lang.security.audit.code-string-concat" />
+  - <LinkToRegistryRule ruleId="javascript.lang.security.audit.path-traversal.path-join-resolve-traversal" />
+- Updated precision of source with `focus-metavariable`:
+  - <LinkToRegistryRule ruleId="javascript.express.security.injection.tainted-sql-string" />
+  - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-mysql-sqli" />
+- Added additional filters for acceptable SSL policies: <LinkToRegistryRule ruleId="terraform.aws.security.insecure-load-balancer-tls-version" />
+- Added sanitizers: <LinkToRegistryRule ruleId="typescript.angular.security.audit.angular-domsanitizer" />
+- Added sanitizers, added constant string filter: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-dangerouslysetinnerhtml" />
+- Uses taint mode to remove uninteresting sources: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var" />
+- Remove for loop case due to high false positive (FP) rate: <LinkToRegistryRule ruleId="javascript.lang.security.audit.path-traversal.path-join-resolve-traversal" />
+- FP reduction by removing cases where user input is likely a number type:
+  - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-knex-sqli" />
+  - <LinkToRegistryRule ruleId="javascript.lang.security.audit.sqli.node-mysql-sqli" />
+- Exclude Error and Exception classes from results: <LinkToRegistryRule ruleId="ruby.lang.security.model-attributes-attr-accessible" />
+- FP reduction: more specific sources: <LinkToRegistryRule ruleId="typescript.angular.security.audit.angular-domsanitizer" />
+- FP reduction by limiting to more specific cases: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-dangerouslysetinnerhtml" />
+- Removed 1 case with high FP likelihood: <LinkToRegistryRule ruleId="typescript.react.security.audit.react-href-var" />
+- Altered behavior:
+  - <LinkToRegistryRule ruleId="generic.secrets.security.detected-username-and-password-in-uri.detected-username-and-password-in-uri" />
+  - <LinkToRegistryRule ruleId="python.requests.best-practice.use-timeout (fix autofix)" />
+- Removed FPs:
+  - <LinkToRegistryRule ruleId="javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression" />
+  - <LinkToRegistryRule ruleId="dockerfile.best-practice.use-workdir.use-workdir (improved message)" />
+- Removed FPs: <LinkToRegistryRule ruleId="python.django.security.audit.xss.direct-use-of-httpresponse.direct-use-of-httpresponse " />
+- Fixed bug: <LinkToRegistryRule ruleId="python.pyramid.security.sqlalchemy-sql-injection.pyramid-sqlalchemy-sql-injection " />
+- Removed FPs: <LinkToRegistryRule ruleId="terraform.azure.security.appservice.appservice-account-identity-registered.appservice-account-identity-registered " />
+
+Reduced severity to INFO:
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-jwt-decoded-property" />
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-jwt-in-localstorage" />
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-missing-noopener" />
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-missing-noreferrer" />
+
+Limit sources to specific properties of Request object rather than all properties:
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-libxml-noent" />
+- <LinkToRegistryRule ruleId="avascript.express.security.audit.express-path-join-resolve-traversal" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.remote-property-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.cors-misconfiguration" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-data-exfiltration" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-expat-xxe" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-insecure-template-usage" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-sandbox-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-vm-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.express-vm2-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.injection.raw-html-format" />
+- <LinkToRegistryRule ruleId="javascript.express.security.x-frame-options-misconfiguration" />
+
+The `python.lang.security.audit.dangerous` rules have been reworked. All Python -dangerous- rules have had their confidence level changed to LOW. Renamed rules:
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-os-exec" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-os-exec-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call-audit" />
+- <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-testcapi-run-in-subinterp" /> renamed to <LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-testcapi-run-in-subinterp-audit" />
+
+Added to `p/default` (`p/default` are rules that run automatically with `semgrep --config p/default`):
+- <LinkToRegistryRule ruleId="javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-detect-notevil-usage.express-detect-notevil-usage " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-libxml-noent.express-libxml-noent " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-libxml-vm-noent.express-libxml-vm-noent " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-res-sendfile.express-res-sendfile " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-ssrf.express-ssrf " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-third-party-object-deserialization.express-third-party-object-deserialization " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-xml2json-xxe-event.express-xml2json-xxe-event " />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.remote-property-injection.remote-property-injection " />
+- <LinkToRegistryRule ruleId="javascript.lang.security.audit.hardcoded-hmac-key.hardcoded-hmac-key " />
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection " />
+
+Removed from `p/default` in Semgrep Registry:
+<details>
+<summary>Expand the list with all removed rules</summary>
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.archive_path_overwrite.admzip_path_overwrite" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.archive_path_overwrite.tar_path_overwrite" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.archive_path_overwrite.zip_path_overwrite2" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.buffer_noassert.buffer_noassert" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_aes_ecb" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_aes_noiv" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_insecure_random_generator" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_md5" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_sha1" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.crypto_node.node_weak_crypto" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.error_disclosure.node_error_disclosure" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_deserialize.node_deserialize" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_deserialize.serializetojs_deserialize" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_drpc_deserialize.grpc_insecure_connection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_grpc_deserialize.grpc_insecure_connection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_node.eval_nodejs" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_require.eval_require" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_sandbox.sandbox_code_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm2_injection.vm2_code_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm2_injection.vm2_context_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm_injection.vm_code_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm_injection.vm_compilefunction_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm_injection.vm_runincontext_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_vm_injection.vm_runinnewcontext_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.eval_yaml_deserialize.yaml_deserialize" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.exec_os_command.generic_os_command_exec" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.exec_os_command.generic_os_command_exec2" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.exec_shelljs.shelljs_os_command_exec" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.express_bodyparser_dos.express_bodyparser" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.express_hbs_lfr.express_lfr" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.express_hbs_lfr.express_lfr_warning" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_anti_csrf.anti_csrf_control" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_check_crossdomain" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_check_csp" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_check_expect_ct" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_dns_prefetch" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_feature_policy" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_frame_guard" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_hsts" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_ienoopen" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_nosniff" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_referrer_policy" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_x_powered_by" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_helmet_checks.helmet_header_xss_filter" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.good_ratelimiting.rate_limit_control" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.hardcoded_passport.hardcoded_passport_secret" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_default" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_domain" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_httponly" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_maxage" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_path" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_samesite" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cookie.cookie_session_no_secure" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cors_star.express_cors" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_cors_star.generic_cors" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_helmet_disabled.helmet_feature_disabled" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_injection.generic_header_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_xss_protection.header_xss_generic" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.header_xss_protection.header_xss_lusca" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.host_header_injection.host_header_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_exposed_credentials.jwt_exposed_credentials" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_exposed_data.jwt_exposed_data" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_express_hardcoded.jwt_express_hardcoded" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_hardcoded.hardcoded_jwt_secret" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_none_algorithm.node_jwt_none_algorithm" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.jwt_not_revoked.jwt_not_revoked" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.layer7_object_dos.layer7_object_dos" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.logic_bypass.node_logic_bypass" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.nosql_injection.node_nosqli_js_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.path_traversal.generic_path_traversal" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.regex_dos.regex_dos" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.regex_injection.regex_injection_dos" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.resolve_path_traversal.join_resolve_path_traversal" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_allow_http" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_blink_integration" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_context_isolation" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_disable_websecurity" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_experimental_features" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electron.electron_nodejs_integration" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_allow_http" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_blink_integration" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_context_isolation" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_disable_websecurity" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_experimental_features" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.security_electronjs.electron_nodejs_integration" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sequelize_tls.sequelize_tls" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sequelize_tls_validation.sequelize_tls_cert_validation" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sequelize_weak_tls.sequelize_weak_tls" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.server_side_template_injection.server_side_template_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sql_injection.node_knex_sqli_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sql_injection.node_sqli_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.sql_injection_knex.node_knex_sqli_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_node.node_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_phantomjs.phantom_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_playwright.playwright_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_puppeteer.puppeteer_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_wkhtmltoimage.wkhtmltoimage_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.ssrf_wkhtmltopdf.wkhtmltopdf_ssrf" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.timing_attack_node.node_timing_attack" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.tls_node.node_curl_ssl_verify_disable" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.tls_node.node_tls_reject" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xml_entity_expansion_dos.node_entity_expansion" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xpathi_node.node_xpath_injection" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_mustache_escape.xss_disable_mustache_escape" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_node.express_xss" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_serialize_js.xss_serialize_javascript" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_templates.handlebars_noescape" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_templates.handlebars_safestring" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xss_templates.squirrelly_autoescape" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xxe_expat.xxe_expat" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xxe_node.node_xxe" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xxe_sax.xxe_sax" />
+- <LinkToRegistryRule ruleId="ajinabraham.njsscan.xxe_xml2json.xxe_xml2json" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-commands-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-compile-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-cryptography-attribute-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-dl-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-duo-client-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-eval-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-exec-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-gl-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-hashlib-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-itsdangerous-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-marshal-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-onelogin-attribute-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-os-exec-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-os-temp-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-pickle-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-popen2-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-pycrypto-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-requests-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-shelve-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-simplexmlrpcserver-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-ssl-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-subprocess-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-tarfile-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-tempfile-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-urllib3-connections-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-urllib3-warnings-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-xml-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-xmlsec-attribute-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-yaml-use" />
+- <LinkToRegistryRule ruleId="contrib.dlint.dlint-equivalent.insecure-zipfile-use" />
+- <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile" />
+- <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-npm" />
+- <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-pip" />
+- <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-pipenv" />
+- <LinkToRegistryRule ruleId="generic.ci.security.use-frozen-lockfile.use-frozen-lockfile-yarn" />
+- <LinkToRegistryRule ruleId="generic.html-templates.security.var-in-href.var-in-href" />
+- <LinkToRegistryRule ruleId="generic.nginx.security.request-host-used.request-host-used" />
+- <LinkToRegistryRule ruleId="generic.secrets.security.detected-google-gcm-service-account.detected-google-gcm-service-account" />
+- <LinkToRegistryRule ruleId="javascript.browser.security.raw-html-join.raw-html-join" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.express-xml2json-xxe-event.express-xml2json-xxe-event" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.possible-user-input-redirect.unknown-value-in-redirect" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.remote-property-injection.remote-property-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.res-render-injection.res-render-injection" />
+- <LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.var-in-script-tag.var-in-script-tag" />
+- <LinkToRegistryRule ruleId="javascript.lang.correctness.no-replaceall.no-replaceall" />
+- <LinkToRegistryRule ruleId="javascript.lang.security.audit.prototype-pollution.prototype-pollution-assignment.prototype-pollution-assignment" />
+- <LinkToRegistryRule ruleId="javascript.lang.security.detect-non-literal-require.detect-non-literal-require" />
+- <LinkToRegistryRule ruleId="javascript.sequelize.security.audit.sequelize-raw-query.sequelize-raw-query" />
+- <LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe" />
+- <LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var" />
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-missing-noreferrer.react-missing-noreferrer" />
+- <LinkToRegistryRule ruleId="typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property" />
+</details>
+
+Other:
+- Fixed message typo: <LinkToRegistryRule ruleId="javascript.lang.best-practice.leftover_debugging" />

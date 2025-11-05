@@ -3,128 +3,222 @@ slug: triage-and-remediation
 append_help_link: true
 description: "Perform triage and remediation of dependency vulnerabilities through Semgrep Supply Chain."
 tags:
-    - Semgrep Supply Chain
-    - Semgrep AppSec Platform
+ - Semgrep Supply Chain
+ - Semgrep AppSec Platform
 title: Triage and remediation
 hide_title: true
 ---
 
-import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md"
+import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
 
-# Triage and remediate dependency findings
-
-Perform triage and remediation on your open source dependencies through the **Supply Chain** page. This page displays relevant scan data through three tabs:
-
-<dl>
-  <dt>Vulnerabilities</dt>
-  <dd>
-    This tab enables you to:
-    <ul>
-      <li>View reachable vulnerabilities in your repositories through links to specific lines of code.</li>
-      <li>Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.</li>
-      <li>Understand how to remediate vulnerabilities by providing versions to upgrade to.</li>
-      <li>Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.</li>
-    </ul>
-  </dd>
-  <dt>Advisories</dt>
-  <dd>This tab displays the latest <strong>Common Vulnerabilities and Exposures (CVEs)</strong> that are covered by Semgrep Supply Chain rules. Use this tab to see the CVEs that Semgrep Supply Chain can detect.</dd>
-  <dt>Dependencies</dt>
-  <dd>This tab displays information about all of your dependencies across all onboarded repositories.</dd>
-</dl>
-
-![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_Figure 1_. Semgrep Supply Chain Vulnerabilities page.
-
-## Assess and triage dependency findings and usages
+# Triage and remediate Supply Chain findings
 
 :::info Prerequisite
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
-To view the latest Semgrep Supply Chain findings, click **Supply Chain**. You can view findings individually or grouped by the rule that identified the finding. A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
+Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/view-export), you can triage and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page.
 
-![A single vulnerability entry in Semgrep Supply Chain](/img/sc-vuln-entry.png)
-_Figure 2_. A single vulnerability entry in Semgrep Supply Chain.
+![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
+_**Figure**. Semgrep Supply Chain Vulnerabilities page._
 
-You can also view the findings individually by clicking on the drop-down box on the header and clicking **No grouping**.
+## Triage and remediate findings
 
-### Assessment actions
-
-To assess your findings, Semgrep Supply Chain provides the following methods:
+Once you have viewed the Supply Chain findings, you can triage them for further work by your AppSec team, including remediation. Semgrep Supply Chain provides the following methods to help you assess your findings:
 
 <table>
-  <thead>
-    <tr>
-      <th>Assessment action</th>
-      <th>Method</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>View specific pattern matches in your codebase.</td>
-      <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.</td>
-    </tr>
-    <tr>
-      <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.</td>
-      <td>Click the vulnerability's <strong>CVE badge</strong>.</td>
-    </tr>
-    <tr>
-      <td>View safe versions to upgrade your dependencies.</td>
-      <td>Visible on the vulnerability entry.</td>
-    </tr>
-    <tr>
-      <td>Filter vulnerabilities.</td>
-      <td>Click any of the filters available. Refer to the following table for filtering information.</td>
-    </tr>
-  </tbody>
+ <thead>
+ <tr>
+ <th>Assessment action</th>
+ <th>Method</th>
+ </tr>
+ </thead>
+ <tbody>
+<tr>
+ <td>View the [dependency paths for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta).</td>
+ <td>Visible on the vulnerability entry.</td>
+ </tr>
+ <tr>
+ <td>View specific pattern matches in your codebase.</td>
+ <td>Click the link provided in the vulnerability entry to see where the issue appears in the source code.</td>
+ </tr>
+ <tr>
+ <td>View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>.</td>
+ <td>Click the vulnerability's <strong>CVE badge</strong>.</td>
+ </tr>
+ <tr>
+ <td>View safe versions to upgrade your dependencies.</td>
+ <td>Visible on the vulnerability entry.</td>
+ </tr>
+ <tr>
+ <td>Filter vulnerabilities.</td>
+ <td>Click any of the filters available. Refer to the following table for filtering information.</td>
+ </tr>
+ </tbody>
 </table>
 
-### Filters
-
-Use filters to narrow down your results. The following criteria are available for filtering:
-
-| Filter                 | Description  |
-| ---------------------  | ------------ |
-| **Projects**           | Filter by repositories connected to your Semgrep account. |
-| **Branch**             | Filter by findings in different Git branches. |
-| **Teams**              | Filter for findings in projects to which the specified teams are associated with. Available only to organizations with [Teams](/deployment/teams#teams-beta) enabled. |
-| **Tags**               | Filter for findings based on the tags associated with the project. |
-| **Status**             | Filter the triage state of a finding: <ul><li>**Open**: Findings for which there have been no triage or remediation action.</li><li>**Reviewing**: Findings that require more investigation to determine what the next steps should be.</li><li>**Fixing**: Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.</li><li>**Fixed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.</li><li>**Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. </li></ul>|
-| **Severity**           | Filter by the severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the GitHub Advisory Database.  |
-| **Transitivity**       | Filter by the transitivity of the finding. <ul><li>**Direct**: Your project depends directly on the dependency.</li><li>**Transitive**: Your project's dependency depends on a vulnerable dependency.</li><li>**Undetermined**: Semgrep had no transitivity information for the dependency as it relates to your project.</li></ul> |
-| **Reachability**       | Filter by exposure, or whether the finding is reachable or not. <ul><li>**Reachable**: A finding is reachable if there's a code pattern in the codebase that matches the vulnerability definition</li><li>**Always reachable**: A finding is always reachable if it's something Semgrep recommends fixing, regardless of what's in the code.</li><li>**Conditionally reachable**: A finding is conditionally reachable if Semgrep finds a way to reach it when scanning your code when certain conditions are met.</li><li>**Unreachable**: A finding is unreachable if you don't use the vulnerable piece of code of the imported library or package.</li><li>**Undetermined**: A finding is undetermined if Semgrep Supply Chain determines that you use a vulnerable version of a dependency, but it doesn't have a relevant reachability rule.</li></ul>|
-| **Dependency**         | Filter for findings based on the name of the dependency involved. |
-| **CVE**                | Filter based on the CVE assigned to the finding type. |
-
-## Remediate true positives
+### Remediate true positives
 
 Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
 
 * Update the dependency to a safe version that does not contain the vulnerability.
 * Remove the dependency and refactor all usages in the codebase.
 
-<!-- Feature has been disabled for the time being. See https://github.com/semgrep/semgrep-app/pull/10186
+#### Remove the dependency and refactor the code
 
-### Updating the dependency
-
-Semgrep Supply Chain provides a snippet you can copy to update the dependency. Click on the **Upgrade** button to view and copy the snippet. When the pull or merge request is merged into the codebase, Semgrep Supply Chain detects that the finding is no longer present and updates the vulnerability's status to **Fixed**.
--->
-
-### Remove the dependency and refactoring code
-
-Another method to remediate vulnerabilities is to remove the dependency entirely and refactor code. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your lockfile, and updates the status to **Fixed**.
+Removing the dependency and refactoring the code is another method to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the PR or MR, detects the changes in your manifest file or lockfile, and updates the status to **Fixed**.
 
 ### Ignore findings
 
-The **Vulnerabilities** tab allows you to identify the reachable, true positives so that you can fix or resolve the related issues. However, you can choose to ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
+The **Vulnerabilities** tab allows you to identify the reachable, true positives so that you can fix or resolve the related issues. However, you can ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
 
 1. Select one or more findings.
 2. Click **Triage**.
 3. Select **Ignore** and click **Continue**.
 4. Select an **Ignore reason**, provide a optional comment, and click **Ignore**.
 
-## View Semgrep Supply Chain's total CVE coverage
+## Upgrade guidance and click-to-fix pull requests
 
-The **Advisories** tab displays all the CVEs that Semgrep Supply Chain can detect. Click the individual entry to see the code pattern that the Advisory detects. The Advisories tab displays both lockfile-only and reachability rules.
+If the remediation for a finding is to upgrade the package, **upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-<AdmonitionSotCves />
+- Have Semgrep open a pull request (PR) that updates the version used by your repository and provide guidance to the developer on the breaking changes in the PR description
+- Create a Jira ticket
+- Set the finding's triage status as **To fix**
+
+Semgrep's dependency upgrade guidance can determine if the package upgrade needed to remediate the finding causes breaking changes. Semgrep can then create a PR to upgrade the package, offering a one-click solution to you.
+
+#### Supported languages and package managers
+
+- **Go** projects using the `gomod` package manager
+- **Python** codebases with the following package managers:
+  - `pip`
+  - `pip-tools`
+  - `pipenv`
+  - `poetry`
+  - `uv`
+- GitHub Cloud
+  - This **includes** projects added to Semgrep through Semgrep Managed Scans 
+
+### Prerequisites
+
+To access all upgrade guidance and click to fix features, you must have:
+
+- At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+- Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
+- The **private** GitHub for Semgrep installed.
+  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
+- [Optionally: connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports the use of private Python registries only.
+
+### Features and permissions
+
+The following table summarizes the features available to you depending on the prerequisites you meet:
+
+| Semgrep features available | [Read and write `Content` permission granted](#grant-read-and-write-access-to-a-private-github-semgrep-app) | [Code access granted to Semgrep through installation of the private GitHub app](/deployment/managed-scanning/github#permissions) | [Semgrep Assistant enabled](/semgrep-assistant/getting-started) | [Private registry connected to Semgrep](#connect-a-private-registry-to-semgrep) |
+| - | - | - | - | - |
+| All click to fix and upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
+| All click to fix and upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
+| Click to fix, but <b>not for dependencies in a private registry</b>: <ul><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
+| All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
+| All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
+
+### How it works
+
+After enabling Upgrade guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
+
+- This analysis is performed every **two hours** on the latest **full scan**.
+- Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
+- Findings without any fixed versions have no badge; instead, they say **no patch available**.
+  ![Finding with no fixed version available](/img/no-patch-available.png#md-width)
+  _**Figure**. **Details** page for a finding that has no available fix._
+
+The following chart illustrates the steps Semgrep performs, from scanning to analysis, and the actions you can take based on the advice it provides.
+
+![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/img/upgrade-guidance-flowchart.png)
+
+### Review a finding's upgrade guidance 
+
+<ViewDetailsSsc />
+
+![SSC details that provide upgrade guidance.](/img/vuln-panels-ssc.png)
+_**Figure**. Useful details that provide upgrade guidance._
+<dl>
+<dt>A - Upgrade badge</dt>
+<dd>Indicates if an upgrade is safe or may break your codebase.</dd>
+<dt>B - The line of code (LOC) of the finding</dt>
+<dd>This shows the LOC that caused the finding; this does <strong>not</strong> show the LOC where the breaking changes occur.</dd>
+<dt>C - Link to change list drawer</dt>
+<dd>Click this link to display the LOC where a breaking change may occur.</dd>
+<dt>D - Open fix PR button</dt>
+<dd>Click this button to open a PR with the code to upgrade the dependency to a safe version, if any.</dd>
+</dl>
+
+![Drawer showing all lines of code that must be changed](/img/upgrade-guidance-drawer.png#md-width)
+_**Figure**. Drawer showing all the lines of code that must be changed or are safe._
+
+### Create a pull request with fixes
+
+1. Navigate to the **Details** page of the finding for which you want to make a pull request.
+1. Click **Fix** > **Open fix PR**.
+
+A pull request includes:
+
+- The manifest and/or lockfile changes necessary to upgrade the dependency
+- The context necessary for developers to fix potentially breaking changes
+
+The following context is included in the pull request description:
+
+- Summary
+  - Severity and reachability of the finding
+  - The specific version of the dependency that the PR upgrades to
+- Vulnerability details
+  - A description of the vulnerability and links to its CVE references
+- Upgrade guidance
+  - All the pieces of code, typically files and functions, which make use of the dependency
+  - Unchanged (safe) pieces of code
+  - Potentially breaking pieces of code
+- Dependency references
+  - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
+
+![PR comment with upgrade guidance](/img/upgrade-guidance-pr.png#md-width)
+_**Figure**. PR comment with upgrade guidance._
+
+## Block pull request or merge requests
+
+To block or leave comments on pull request or merge requests, see the [Supply Chain Policies](/semgrep-supply-chain/policies) document.
+
+## Appendix
+
+### Grant **Read and write** access to a private GitHub Semgrep app
+
+If you are an **existing** Semgrep user and you need to change your Semgrep app's permissions:
+
+1. Navigate to the settings page of your private Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app](https://docs.github.com/en/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app) for instructions.
+1. In the **Repository permissions** section, search for `Contents`.
+1. Click the drop-down menu and select **Read and write**.
+
+### Connect a private registry to Semgrep
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Navigate to **Settings > Integrations**.
+3. Click **Add**, then select **Registry**.
+4. In the dialog that appears, provide the following information:
+   1. The **Name** of your registry.
+   2. Select the **Package manager**.
+   3. Select the **Authentication method**. If none is required, select **None (public registry)**.
+      1. If you select **Username and password**, provide the required **Username** and **Password**.
+      2. If you select **API token**, provide the required token value.
+5. Click **Connect** to save your changes and proceed.
+
+:::info
+Semgrep currently supports integrations with private Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+:::
+
+### Troubleshooting: Semgrep is not displaying any upgrade guidance or click to fix functionality
+
+If you can't see any **Breaking changes** or **Safe to upgrade** badges or findings, this may be due to the following reasons:
+
+- Your language or package ecosystem isn't supported
+- Your source code manager isn't supported
+- Your you have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access-to-a-private-github-semgrep-app)
+- Your findings don't have safe versions to upgrade to yet
+- You have no findings within the supported scope of this feature

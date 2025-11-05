@@ -1,15 +1,23 @@
 ---
 slug: java-command-injection
-description: "Mitigate command injection in Java."
+displayed_sidebar: learnSidebar
+title: Command Injection in Java
+hide_title: true
+description: "Cheat sheet for the prevention of Command Injection vulnerabilities for Java."
+tags:
+  - java
+  - command-injection
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
 import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# Command injection prevention for Java
+# Prevent Command Injection for Java
 
 <CommandInjectionIntro />
+
+Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
@@ -27,12 +35,12 @@ Example:
  // exec example
 Runtime.getRuntime().exec("ls -la")
 
-// Vunerable
+// Vulnerable
 String input = "&& cat /etc/passwd"; // value supplied by user input
 Runtime r = Runtime.getRuntime();
 r.exec("some_tool -t param1 param2 " + input);
 
-// Vunerable
+// Vulnerable
 String input = "cat /etc/passwd"; // value supplied by user input
 Runtime.getRuntime().exec("bash", "-c", input);
 ```
@@ -71,7 +79,7 @@ Example:
  // ProcessBuilder example
 Process builder = new ProcessBuilder("ls", "-la").start();
 
-// Vunerable
+// Vulnerable
 String input = "cat /etc/passwd"; // value supplied by user input
 ProcessBuilder builder = new ProcessBuilder();
 builder.command("bash", "-c", "some_tool -t param1 param2 " + input)

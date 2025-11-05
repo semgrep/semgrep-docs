@@ -10,7 +10,8 @@ description: Troubleshoot common issues with Semgrep scans.
 If a Semgrep scan is failing or running slowly, try the following steps to investigate:
 
 1. [Update Semgrep](/docs/update) to the latest version, if you are not currently running the latest version. Some errors result from an older version of Semgrep being used with newer rules.
-2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing.
+2. Re-run the scan with either the `-v`/`--verbose` or `--debug` (extremely verbose) flags. These options provide more information about what is failing. 
+  * When using verbose logs, also set `--max-log-list-entries` to `0` or any negative value to see the full output; otherwise lists of rules and files are suppressed if there are more than 100 entries in the list.
 3. If you are running cross-file (interfile) analysis in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to cross-file analysis, and often speeds up a scan or reduces memory usage.
 
 :::info
@@ -34,7 +35,7 @@ The first step to improving Semgrep's speed is limiting its run to only the file
 After addressing files to ignore:
 
 * If you suspect the presence of a large file slowing Semgrep's analysis, decrease the maximum size of files scanned with `--max-target-bytes BYTES`.
-* Run Semgrep with the `--time` flag. This outputs a list of the rules and files that took the longest.
+* Run `semgrep scan --time` locally. This outputs a list of the rules and files that took the longest.
   * Identify the slowest files from the list. You may find that you can add some of those files to your ignore list as well.
   * Identify the slowest rules from the list. You may find that some of them don't apply to your codebase and can be skipped.
 
@@ -66,7 +67,7 @@ metavariable-pattern failed because we lack range info for $X, please file a bug
 If the error you receive is not that specific, try one of these options:
 
 1. Use `--exclude-rule` to exclude a rule from the scan. This allows isolating the problem to the particular rule.
-  * If you are running Semgrep in CI with Semgrep AppSec Platform, and don't need to run the rule, you can also [disable the rule](/docs/semgrep-code/policies/#disabling-rules).
+  * If you are running Semgrep in CI with Semgrep AppSec Platform, and don't need to run the rule, you can also [disable the rule](/docs/semgrep-code/policies/#disable-rules).
 2. Use `--exclude` to exclude a file or files from the scan. You can use wildcards in file exclusions to exclude files matching particular patterns.
 3. Use `--include` with a pattern specifying a path or an extension for a particular language, to limit the scan to that path, or to files in that language.
 

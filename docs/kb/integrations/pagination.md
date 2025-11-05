@@ -32,7 +32,7 @@ For these endpoints, include the following query parameters to paginate through 
 To request a list of Code or Supply Chain findings, specifically the second page where each page contains 100 items, make a cURL call as follows:
 
 ```console
-curl 'https://semgrep.dev/api/v1/deployments/docs_test/findings?page=2&page_size=100' \
+curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_SLUG/findings?page=2&page_size=100' \
 --header 'Authorization: Bearer YOUR_API_TOKEN'
 ```
 
@@ -53,7 +53,7 @@ To request a list of Secrets, make a cURL call as follows:
 
 ```console
 # modify the limit value to change the page size
-curl 'https://semgrep.dev/api/v1/deployments/20169/secrets?cursor=&limit=25' \
+curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_ID/secrets?cursor=&limit=25' \
 --header 'Authorization: Bearer YOUR_API_TOKEN'
 ```
 
@@ -70,17 +70,16 @@ Repeat this process for additional pages.
 
 The following API endpoints support mixed usages of page- and cursor-based pagination:
 
-- [List supply chain vulnerabilities](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.vulns.list_vulns_conexxion)
 - [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_repositories_for_dependencies_conexxion)
 - [List lockfiles in a given repository with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_lockfiles_for_dependencies_conexxion)
 - [List dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_dependencies_conexxion)
 
 ### Example
 
-To request a list of Supply Chain vulnerabilities, make a call to the following URL. Adjust `page_size` accordingly:
+To request a list of repositories with dependencies, make a call to the following URL. Adjust `page_size` accordingly:
 
 ```console
-curl 'https://semgrep.dev/api/v1/deployments/20169/ssc-vulns' \
+curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_ID/dependencies/repositories' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_API_TOKEN' \
 --data '{
@@ -88,29 +87,23 @@ curl 'https://semgrep.dev/api/v1/deployments/20169/ssc-vulns' \
 }'
 ```
 
-The API returns, as part of the response, a `cursor` object that includes the `vulnOffset` and `issueOffset` keys:
+The API returns `cursor` as part of the response:
 
 ```console
 {
     ...
-    "cursor": {
-        "vulnOffset": "4",
-        "issueOffset": "60544963"
-    }
+    "cursor": 1097374
 }
 ```
 
-Add the `cursor` object to the JSON body of subsequent calls to obtain additional pages:
+Add the `cursor` key-value pair to the JSON body of subsequent calls to obtain additional pages:
 
 ```console
-curl 'https://semgrep.dev/api/v1/deployments/20169/ssc-vulns' \
+curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_ID/dependencies/repositories' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_API_TOKEN' \
 --data '{
-    "page_size": 5,
-    "cursor": {
-        "vulnOffset": "4",
-        "issueOffset": "60544963"
-    }
+    "page_size": 1,
+    "cursor": 1097374
 }'
 ```

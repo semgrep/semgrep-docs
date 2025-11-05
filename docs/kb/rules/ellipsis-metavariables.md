@@ -31,7 +31,7 @@ If the language you're working with allows other characters in tokens, using ell
 
 To match all of `ABC-DEF` in `generic` mode, use an ellipsis metavariable, like `$...VAR`. Here is an example rule:
 
-<iframe src="https://semgrep.dev/embed/editor?snippet=J6Ro" title="html-ellipsis-metavariable" width="100%" height="432px" frameBorder="0"></iframe>
+<iframe src="https://semgrep.dev/embed/editor?snippet=J6Ro" title="html-ellipsis-metavariable" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 
 If you remove the ellipsis in the `$...ID` variable, the second example no longer matches.
 

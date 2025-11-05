@@ -12,16 +12,18 @@ tags:
 
 <!-- vale off -->
 
+import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import DefineConnectionVariables from "/src/components/reference/_define-connection-variables.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
-import DisableComments from "/src/components/procedure/_disable_ssc_pr_mr_comments.mdx"
+import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 
 <!-- vale on -->
 
@@ -50,58 +52,22 @@ In addition to finishing the previous steps in your deployment journey, it is re
 
 ### Confirm your Semgrep account's connection
 
-MR comments are enabled by default for users who have connected their GitLab organization (org) to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
+PR comments are enabled by default for users who have connected their GitLab group to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
-2. Check that an entry for your GitLab org exists and is correct.
-
-### Create a personal access token (PAT)
-
-Creating a PAT grants the API scope to Semgrep, which lets it post comments.
-
-1. In GitLab, go to [<i class="fas fa-external-link fa-xs"></i> Profile > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens), and then add a token with `api` scope.
-1. Copy the token created in the previous step.
-1. For GitLab CI/CD users:
-    1. Navigate to **Your repository** >  **Settings** > **CI/CD**. The URL of the page where you are ends with: `/username/project/-/settings/ci_cd`.
-    1. Under **Variables** click **Expand**, and then click **Add variable**.
-    1. Enter **PAT** (change this placeholder name as necessary) in the **Key** field and paste the token value copied in step two to the **Value** field.
-    1. Select the **Mask variable** checkbox option, and then clear the **Protect variable** checkbox option.
-    1. Update your `.gitlab-ci.yml` file with variable `GITLAB_TOKEN` and value `$PAT`. Refer to the following sample, substituting the placeholder <code><span className="placeholder">PAT</span></code> with the name you created for this variable.
-    ```yaml
-    semgrep:
-      # A Docker image with Semgrep installed.
-      image: semgrep/semgrep
-      # Run the "semgrep ci" command on the command line of the docker image.
-      script: semgrep ci
-
-      rules:
-      # Scan changed files in MRs, (diff-aware scanning):
-      - if: $CI_MERGE_REQUEST_IID
-
-      # Scan mainline (default) branches and report all findings.
-      - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-      variables:
-        # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
-        # Generate a token from Semgrep AppSec Platform > Settings
-        # and add it as a variable in your GitLab CI/CD project settings.
-        SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
-        # Receive inline MR comments (requires Semgrep AppSec Platform account)
-        GITLAB_TOKEN: $PAT
-    ```
-1. For **other CI providers**:
-    1. In your CI provider's interface, define the value of the PAT as a secret. Refer to your CI provider's documentation for steps to do this.
-    2. Define the environment variable `GITLAB_TOKEN` and assign the PAT to it.
-
-For more configuration options, see [GitLab CI Sample](/semgrep-ci/sample-ci-configs#gitlab-cicd).
-
-### Define environment variables needed for other CI providers
-
-<DefineConnectionVariables name="GitLab CI/CD" comment_type="MR"/>
+2. Check that an entry for your GitLab group exists and is correct.
 
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
+
+### Configure comments for Semgrep Secrets
+
+<PrCommentsInSecrets name="GitLab" comment_type="MR" />
+
+### Configure comments for Semgrep Supply Chain
+
+<CommentsInSupplyChain />
 
 ### Receive comments in your VPN or on-premise SCM
 
@@ -119,8 +85,8 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ### Dataflow traces in MR comments
 
-![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png#bordered)
-**Figure** An inline GitLab pull request comment with dataflow traces.
+![Screenshot of a GitLab MR comment with dataflow traces](/img/dataflow-traces-mr-comments.png)
+_**Figure**. An inline GitLab pull request comment with dataflow traces._
 
 <DisplayTaintedDataIntro />
 
@@ -134,9 +100,9 @@ To enable dataflow traces in your CI pipeline, fulfill the following prerequisit
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 :::
 
-## Disable MR comments for Supply Chain findings
+### Customize MR comments
 
-<DisableComments />
+<CustomComments comment_type="MR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 

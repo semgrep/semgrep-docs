@@ -1,12 +1,16 @@
 # `semgrep-cli` contributing
 
-
 The following explains how to build `semgrep-cli` so that you can make and test changes to the Python wrapper.
 The `semgrep-cli` name refers to the project which exposes the actual `semgrep` command.
 You may want to read the README first to understand the relationship between `semgrep-cli` and `semgrep-core`.
-## Setting up the environment
 
-You will need Python >= 3.7.
+## Prerequisite
+
+- Python >= 3.8 installed in your local machine.
+- [`pipenv`](https://github.com/pypa/pipenv) for managing your virtual
+environment. Install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html). Ensure `pipenv` is on your `$PATH` before proceeding.
+
+## Set up the environment
 
 Most Python development is done inside the `cli` directory:
 
@@ -14,51 +18,43 @@ Most Python development is done inside the `cli` directory:
 cd cli
 ```
 
-We use [`pipenv`](https://github.com/pypa/pipenv) to manage our virtual environment.
-You can install it like this:
+Next, initialize and enter the virtual environment. The following command installs developer dependencies such as `pytest` and also installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, enter:
 
 ```bash
-python -m pip install pipenv
+pipenv shell
 ```
 
-Next we need to initialize the environment.
-This command will install dev dependencies such as pytest and will also install semgrep in editable mode in the pipenv.
+By convention, your shell prompt is prepended with `(cli)` when the virtual environment is active.
+
+Next, install the Python dependencies:
 
 ```bash
-SEMGREP_SKIP_BIN=true python -m pipenv install --dev
+SEMGREP_SKIP_BIN=true pipenv install --dev
 ```
 
-:::note
-SEMGREP_SKIP_BIN` tells the installer that we will bring our own semgrep-core; see below.*
+:::info
+`SEMGREP_SKIP_BIN` tells the installer that you'll use your own `semgrep-core`; see below.*
 :::
 
-## Getting the `semgrep-core` binary
+Running `which semgrep` should return a path within your virtual environment. On MacOS, this is likely contained within `$HOME/.local/share/virtualenvs/`.
+
+## Get the `semgrep-core` binary
 
 Almost all usages of `semgrep-cli` require the `semgrep-core` binary.
-To get this binary,
-your safest bet is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#building-semgrep-core),
-which takes around 20 minutes.
+To get this binary, your safest bet is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core), which takes around 20 minutes.
 
-Two shortcuts are available as alternatives,
-where you use a pre-compiled binary.
-The downsides of using a pre-compiled binary are:
+Two shortcuts are available as alternatives, where you use a pre-compiled binary. The downsides of using a pre-compiled binary are:
 
-1. You will not be able to make edits to `semgrep-core`,
-   for example to fix a parse error.
-2. Semgrep will fail if the interface between `semgrep-cli` and `semgrep-core` has changed
-   since the binary was compiled.
-   This has historically been happening around every two months,
-   but can happen at any time without notice.
+- You are not able to make edits to `semgrep-core`, for example to fix a parse error.
+- Semgrep fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has historically been happening around every two months, but can happen at any time without notice.
 
 With that in mind, the available shortcuts are:
+
 ### The Homebrew shortcut
 
-If you installed Semgrep via Homebrew with `brew install semgrep`,
-a `semgrep-core` binary was bundled within that installation,
-but is not made available on your `$PATH` by default.
+If you installed Semgrep through Homebrew with `brew install semgrep`, a `semgrep-core` binary was bundled within that installation, but is not made available on your `$PATH` by default.
 
-You can add the bundled binary to your `$PATH` with this series of commands,
-provided you have `jq` installed:
+You can add the bundled binary to your `$PATH` with this series of commands, provided you have `jq` installed:
 
 ```bash
 export SEMGREP_BREW_INSTALLED_VERSION="$(brew info --json semgrep | jq '.[0].installed[0].version' -r)"
@@ -70,21 +66,17 @@ export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
 
 ### The manual shortcut
 
-Visit the [releases page](https://github.com/semgrep/semgrep/releases)
-and grab the latest zipfile or tarball for your platform. Extract this archive
-and inside should be the necessary binaries. You can confirm this by running:
+Visit the [releases page](https://github.com/semgrep/semgrep/releases) and grab the latest zipfile or tarball for your platform. Extract this archive and inside should be the necessary binaries. You can confirm this by running:
 
 ```bash
 ./semgrep-core --help
 ```
 
-Copy this file to somewhere in your `$PATH` so `semgrep-cli` can find them. For
-example, you may create a `~/bin/` directory within the repository. [Include it in your `$PATH`](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path)
-and run the binary from there.
+Copy this file to somewhere in your `$PATH` so `semgrep-cli` can find them. For example, you may create a `~/bin/` directory within the repository. Include it in your `$PATH` and run the binary from there.
 
 Alternatively, you may include it somewhere like `/usr/local/bin/`.
 
-## Running `semgrep-cli`
+## Run `semgrep-cli`
 
 Ensure that you are in `cli/` directory, and then issue the following command:
 
@@ -100,7 +92,7 @@ echo 'if 1 == 1: pass' | semgrep --lang python --pattern '$X == $X' -
 
 Congratulations, you have Semgrep running locally!
 
-## Installing `semgrep`
+## Install `semgrep`
 
 You can always run `semgrep` from `cli/`, which will use your latest changes in that directory, but you may also want to install the `semgrep` binary. To do this, run
 
@@ -120,7 +112,7 @@ make rebuild
 
 See the Makefile in `cli/`
 
-## Adding python packages to `semgrep`
+## Add Python packages to `semgrep`
 
 Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you are adding the package `pyyaml` to Semgrep.
 

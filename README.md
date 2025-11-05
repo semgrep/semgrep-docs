@@ -8,7 +8,7 @@
 </h3>
 <br />
 
-This repository powers [Semgrep’s documentation](https://semgrep.dev/docs). Docs are built using [Docusaurus 2](https://docusaurus.io/).
+This repository powers [Semgrep’s documentation](https://semgrep.dev/docs). Docs are built using [Docusaurus 3](https://docusaurus.io/).
 
 ## Contributing
 

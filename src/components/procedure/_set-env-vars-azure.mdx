@@ -1,0 +1,15 @@
+### Set environment variables in Azure Pipelines
+
+Semgrep minimally requires the variable `SEMGREP_APP_TOKEN` in order to report results to the platform, and other variables may be helpful as well. To set these variables in Azure Pipelines:
+
+1. Set up a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic) called `Semgrep_Variables`.
+2. Set `SEMGREP_APP_TOKEN` in the variable group, following the steps for [secret variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#set-a-secret-variable-in-a-variable-group). The variable is mapped into the `env` in the provided config.
+3. Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at [Environment variables for creating hyperlinks in Semgrep AppSec Platform](https://semgrep.dev/docs/semgrep-ci/ci-environment-variables#environment-variables-for-creating-hyperlinks-in-semgrep-appsec-platform).These variables are not sensitive and do not need to be secret variables.
+    * `SEMGREP_REPO_NAME`
+    * `SEMGREP_REPO_URL`
+    * `SEMGREP_BRANCH`
+    * `SEMGREP_COMMIT`
+    * `SEMGREP_JOB_URL`
+4. Set variables for diff-aware scanning. The provided config sets `SEMGREP_PR_ID` to the system variable `System.PullRequest.PullRequestId` and `SEMGREP_BASELINE_REF` to `origin/master` within the `script` section of the config. The value of `SEMGREP_BASELINE_REF` is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as `main` or `master`.
+    * If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the `elif` section of the `script` step.
+5. For diff-aware scans: add a [build validation policy](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser#build-validation). Adding and enabling a branch policy for build validation is required to trigger Azure Pipelines on pull requests.

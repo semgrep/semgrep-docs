@@ -10,7 +10,6 @@ tags:
 
 import Install from "/src/components/procedure/_install-cli.mdx";
 import Login from "/src/components/procedure/_login-activate.mdx";
-import ScanRuleset from "/src/components/reference/_scan-ruleset.mdx"
 
 # Local scans with Semgrep
 
@@ -20,13 +19,6 @@ Learn how to set up Semgrep, scan your project for security issues using Semgrep
 
 Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machine meets Semgrep's requirements.
 
-## Recommended setup
-
-For scans using `semgrep ci`:
-
-* Ensure that you have and are logged in to your [Semgrep Account](https://semgrep.dev/login).
-* Ensure that you've enabled the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle on Semgrep AppSec Platform's [Settings](https://semgrep.dev/orgs/-/settings) page.
-
 ## Set up Semgrep
 
 <Install />
@@ -35,12 +27,23 @@ For scans using `semgrep ci`:
 
 <Login />
 
+:::warning
+Semgrep scans triggered using `semgrep ci` fail if you aren't signed in to your Semgrep account.
+:::
+
+## Enable cross-file analysis
+
+To enable [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
+
+1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login) if you haven't already.
+2. Navigate to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
+3. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable cross-file analysis.
 
 ## Scan your project
 
 Semgrep provides two commands that you can use to start a scan from the CLI:
 
-- `semgrep scan` - This is the recommended command for [scanning local codebases or scanning a project when you don't have a Semgrep account](/getting-started/cli-oss). It is also recommended for [writing and testing custom rules](#scan-your-project-with-a-specific-ruleset).
+- `semgrep scan` - This is the recommended command for [scanning local codebases or scanning a project when you don't have a Semgrep account](/getting-started/quickstart-ce). It is also recommended for [writing and testing custom rules](/writing-rules/testing-rules).
 - `semgrep ci` - This is the recommended command if you are scanning Git repositories with Semgrep as part of an organization with custom rules and policies. `semgrep ci` fetches your organization's scan configurations from Semgrep AppSec Platform.
 
 Navigate to the root of your codebase, and run your first scan. The specific command you use depends on how you want to view the results.
@@ -89,11 +92,7 @@ semgrep ci --text --output=semgrep.txt --json-output=semgrep.json --sarif-output
 
 Accepted values for `<format>`: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
 
-### Scan your project with a specific ruleset
-
-<ScanRuleset />
-
-#### Test custom rules
+## Test custom rules
 
 Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
 
@@ -101,7 +100,7 @@ Semgrep includes features to [test the custom rules that you write](/writing-rul
 semgrep scan --test
 ```
 
-#### Publish custom rules
+### Publish custom rules
 
 To share your rules by adding them to the Semgrep Registry:
 
@@ -109,7 +108,7 @@ To share your rules by adding them to the Semgrep Registry:
 semgrep publish <path/to/rules>
 ```
 
-### Scan without sending results to Semgrep
+## Scan without sending results to Semgrep
 
 To scan your project using the configuration you've set up in Semgrep AppSec Platform **without** sending scan results to Semgrep, use:
 
@@ -119,7 +118,7 @@ semgrep ci --dry-run
 
 This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
 
-### Scan using OSS-only analysis (single-function)
+## Scan using Semgrep CE analysis (single-function)
 
 To scan your project using exclusively open source Semgrep, even though you have proprietary cross-file analysis enabled in Semgrep AppSec Platform:
 
@@ -128,10 +127,10 @@ semgrep ci --oss-only
 ```
 
 :::info
-See [Semgrep Pro versus Semgrep OSS](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
+See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information on the differences between Semgrep's proprietary and open source analyses.
 :::
 
-## Scan using specific Semgrep Products
+## Scan using specific Semgrep products
 
 When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep AppSec Platform. To scan your project with just one product, run:
 
@@ -152,7 +151,7 @@ Depending on the file sizes in your project, you may need to increase the timeou
 
 ```console
 # increase timeout to 45 seconds, try only 2 times
-semgrep ci --timeout 30 --timeout-threshold 2
+semgrep ci --timeout 45 --timeout-threshold 2
 ```
 
 ## Improve performance for large codebases
@@ -188,7 +187,7 @@ semgrep ci --debug
 
 The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings:
 
-* [Configure blocking rules](/semgrep-code/policies/#blocking-a-pr-or-mr-through-rule-modes)
+* [Configure blocking rules](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes)
 * Pass in the `--error` flag when running `semgrep scan`.
 
 When you run `semgrep ci`, you can pass in the `--no-suppress-errors` if you don't want [internal errors suppressed](/cli-reference/#exit-codes).

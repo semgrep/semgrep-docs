@@ -1,15 +1,20 @@
-Install the Semgrep CLI and confirm the installation:
+
+* **Homebrew users:** Ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+* **WSL users**: Ensure that you have the [Windows Subsystem for Linux installed](https://learn.microsoft.com/en-us/windows/wsl/install) before proceeding.
+
+Install the Semgrep CLI tool and confirm the installation:
 
 ```console
 # macOS users only
 brew install semgrep
 
-# macOS, Linux, or Windows Subsystem for Linux (WSL) users
+# macOS, Linux, Windows, and Windows Subsystem for Linux (WSL) users
 python3 -m pip install semgrep
+
+# if you get the following error "error: externally-managed-environment",
+# see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
 
 # confirm
 semgrep --version
 ```
 
-* **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
-* **WSL users**: Ensure that you have the [Windows Subsystem for Linux installed](https://learn.microsoft.com/en-us/windows/wsl/install) before proceeding.

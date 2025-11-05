@@ -1,11 +1,14 @@
 ---
 slug: semgrep-vs-code
-title: Semgrep Visual Studio Code extension
+title: Visual Studio Code extension
 hide_title: true
 description: Learn how to install and use Semgrep's extension for Visual Studio Code.
 tags:
   - Extensions
 ---
+
+import IdeLimitations from "/src/components/reference/_ide-limitations.md"
+import QuickstartVSCode from "/src/components/procedure/_quickstart-vscode.md"
 
 # Semgrep Visual Studio Code extension
 
@@ -18,23 +21,11 @@ tags:
 ## Prerequisites
 
 - See [Supported Languages](/supported-languages) to verify that the extension supports your project.
-- Windows users must use Semgrep extension v1.6.2 or later.
-- Semgrep recommends that macOS, Linux, and WSL users [install the Semgrep command-line interface (CLI)](/getting-started/cli-oss/#set-up-semgrep) before using the Semgrep VS Code extension for a more performant and stable experience. The extension communicates with the CLI to run scans.
+- Windows users must use Semgrep VS Code extension v1.6.2 or later.
 
 ## Quickstart
 
-1. [Install the Semgrep extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension). If you're unfamiliar with installing VS Code extensions, see the Extension Marketplace's article [Install an Extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-an-extension).
-2. Use <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS) to launch the Command Palette, and run the following to sign in to Semgrep AppSec Platform:
-   ```console
-   Semgrep: Sign in
-   ```
-   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](/semgrep-code/pro-rules).
-3. Launch the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS), and scan your files by running:
-   ```console
-   Semgrep: Scan all files in workspace
-   ```
-4. To see detailed vulnerability information, hover over the code underlined in yellow. You can also see the findings identified by Semgrep using <kbd>⇧Shift+Ctrl+M</kbd> or <kbd>⌘Command+⇧Shift+M</kbd> (macOS) and opening the **Problems** tab.
-
+<QuickstartVSCode />
 
 ## Commands
 
@@ -100,7 +91,12 @@ To configure the Semgrep extension, open its **Extension Settings** page:
 
 The following experimental features should only be used upon recommendation by Semgrep:
 
-- **Semgrep > Use JS**: Use the JavaScript version of the extension. Enabled by default for Windows users.
-- **Semgrep > Heap Size JS**: Set the maximum heap size in MB for the JavaScript version of the extension. Increase if the extension crashes while downloading rules.
 - **Semgrep > Ignore CLI Version**: Ignore the CLI Version and enable all extension features.
-- **Semgrep > Stack Size JS**: Set the maximum stack size in KB for the JavaScript version of the extension.
+
+## Limitations
+
+<IdeLimitations />
+
+## License
+
+The Semgrep VS Code extension is licensed under the LGPL 2.1 license.

@@ -1,15 +1,23 @@
 ---
 slug: javascript-command-injection
-description: "JavaScript code injection prevention cheat sheet."
+title: Command Injection in JavaScript
+hide_title: true
+displayed_sidebar: learnSidebar
+description: "Cheat sheet for the prevention of Command Injection vulnerabilities for JavaScript."
+tags:
+  - javascript
+  - command-injection
 ---
 
 import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
 import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
 import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
 
-# Command injection prevention for JavaScript
+# Prevent Command Injection for JavaScript
 
 <CommandInjectionIntro />
+
+Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
@@ -28,7 +36,7 @@ const {exec} = require('child_process')
 
 const userInput = "$(dangerous command)" // Value supplied by user input
 
-// Vunerable
+// Vulnerable
 exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
   console.log(stdout)
 })

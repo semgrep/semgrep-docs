@@ -1,16 +1,21 @@
 ---
 append_help_link: true
 tags:
-  - Rule writing
+ - Rule writing
+description: Learn how to use Semgrep rules' autofix key to provide suggested fixes for matched patterns through pull request or merge request comments.
 ---
 
 # Autofix
 
 Autofix is a Semgrep feature where rules contain suggested fixes to resolve findings.
 
-Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. This allows for value capture and rewriting. With rules that make use of the autofix capability, you can resolve findings as part of your code review workflow. Semgrep suggests these fixes through GitHub PR or GitLab MR comments.
+Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. This allows for value capture and rewriting. With rules that make use of autofix, you can resolve findings as part of your code review workflow. Semgrep suggests these fixes through pull request or merge request comments.
 
 You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
+
+:::tip
+Rule-based autofix is deterministic and separate from the [Semgrep Assistant autofix feature](/semgrep-assistant/overview#autofix). The Assistant autofix feature uses AI to generate a suggested code fix.
+:::
 
 ## Example autofix snippet
 
@@ -20,25 +25,25 @@ Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
 rules:
 - id: use-sys-exit
   languages:
-  - python
+ - python
   message: |
-    Use `sys.exit` over the python shell `exit` built-in. `exit` is a helper
-    for the interactive shell and is not be available on all Python implementations.
-    https://stackoverflow.com/a/6501134
+ Use `sys.exit` over the python shell `exit` built-in. `exit` is a helper
+ for the interactive shell and is not available on all Python implementations.
+ https://stackoverflow.com/a/6501134
   pattern: exit($X)
   fix: sys.exit($X)
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ## Create autofix rules
 
-See how to create an autofix rule in **Transforming code with Semgrep autofixes** video:
+See how to create an autofix rule in the **Transforming code with Semgrep autofixes** video:
 
-<iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
+<iframe class="yt_embed" width="100%" height="432px" loading="lazy" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
 
 ## Autofix with regular expression replacement
 
-A variant on the `fix` key is `fix-regex`, which applies regular expression replacements (think `sed`) to matches found by Semgrep.
+A variant of the `fix` key is `fix-regex`, which applies regular expression replacements (similar to `sed`) to matches found by Semgrep.
 
 `fix-regex` has two required fields:
 
@@ -55,31 +60,31 @@ An example rule with `fix-regex` is shown below. `regex` uses a capture group to
 rules:
 - id: python.requests.best-practice.use-timeout.use-timeout
   patterns:
-  - pattern-not: requests.$W(..., timeout=$N, ...)
-  - pattern-not: requests.$W(..., **$KWARGS)
-  - pattern-either:
-    - pattern: requests.request(...)
-    - pattern: requests.get(...)
-    - pattern: requests.post(...)
-    - pattern: requests.put(...)
-    - pattern: requests.delete(...)
-    - pattern: requests.head(...)
-    - pattern: requests.patch(...)
+ - pattern-not: requests.$W(..., timeout=$N, ...)
+ - pattern-not: requests.$W(..., **$KWARGS)
+ - pattern-either:
+ - pattern: requests.request(...)
+ - pattern: requests.get(...)
+ - pattern: requests.post(...)
+ - pattern: requests.put(...)
+ - pattern: requests.delete(...)
+ - pattern: requests.head(...)
+ - pattern: requests.patch(...)
   fix-regex:
     regex: '(.*)\)'
     replacement: '\1, timeout=30)'
   message: |
-    'requests' calls default to waiting until the connection is closed.
-    This means a 'requests' call without a timeout will hang the program
-    if a response is never received. Consider setting a timeout for all
-    'requests'.
+ 'requests' calls default to waiting until the connection is closed.
+ This means a 'requests' call without a timeout will hang the program
+ if a response is never received. Consider setting a timeout for all
+ 'requests'.
   languages: [python]
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ## Remove a code detected by a rule
 
-Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with `""`, an empty string.
+Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with an empty string `""`.
 
 For example:
 
@@ -92,4 +97,4 @@ For example:
    severity: ERROR
 ```
 
-When an autofix is applied, this rule removes the detected code.
+When you apply the autofix in this rule, the detected code is removed.

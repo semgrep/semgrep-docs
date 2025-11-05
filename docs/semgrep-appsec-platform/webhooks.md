@@ -14,13 +14,17 @@ import Notifications from "/src/components/concept/_notification-deduplication.m
 
 Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint.
 
+:::tip For Slack integrations
+- To integrate with Slack, use the [Semgrep Slack app](/semgrep-appsec-platform/slack-notifications). The webhook setup described in this guide does not work for Slack integrations.
+:::
+
 Semgrep sends two types of JSON objects:
 
 <dl>
 <dt><code>semgrep_scan</code> JSON object</dt>
 <dd> A <code>semgrep_scan</code> object contains information about the CI job and other scan parameters, such as ignored files. Semgrep sends a single <code>semgrep_scan</code> object <strong>every time a scan is run</strong>. This includes diff-aware scans, full scans, and scans that have no findings.</dd>
 <dt><code>semgrep_finding</code> JSON object</dt>
-<dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#setting-up-webhooks">Setting up webhooks</a> to learn more.</dd>
+<dd>A <code>semgrep_finding</code> object is a single record of a new finding. Semgrep sends new <code>semgrep_finding</code> objects based on how you have configured your notifications in Policies. See <a href="#set-up-webhooks">Set up webhooks</a> to learn more.</dd>
 </dl>
 
 ## Set up webhooks
@@ -28,21 +32,46 @@ Semgrep sends two types of JSON objects:
 Perform these steps in Semgrep AppSec Platform to set up webhooks:
 
 1. Create a webhook integration:
-    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add Integration.**
+    1. On the navigation menu, click **<i class="fa-solid fa-gear"></i> Settings > Integrations > Add**.
     2. Click **Webhook**.
     3. In the **Name** field, enter a name for the integration.
     4. In the **Webhook URL** field, enter the target webhook URL for the integration.
-    5. Optional: To ensure that Semgrep can post to your URL, click **Test**. The following screenshot displays the result of a successful webhook integration.
-    ![Successful webhook integration test](/img/webhook-successful-test.png)
-    6. Click **Save.**
+    5. Optional: Provide a **Signature Secret**. The secret must be at least 15 characters long. If you provide a secret, Semgrep sends an `X-Semgrep-Signature-256` signature header with the payload.
+    6. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
+    7. Click **Subscribe**.
 2. Turn notifications on:
     1. Click **Rules > Policies > <i class="fa-solid fa-gear"></i> Rule Modes**.
     2. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
 
+## Test webhooks
+
+To verify that Semgrep can post to your URL:
+1. Navigate to **<i class="fa-solid fa-gear"></i> Settings > Integrations**
+2. Click the **Test** button of the webhook integration you want to test.
+    The following screenshot displays an example request body of a webhook test:
+    ![Successful webhook integration test](/img/webhook-successful-test.png)
+3. The following sample code in Python shows how to verify the signature in the `X-Semgrep-Signature-256` header:
+
+    ```python
+    provided_signature = request.headers['X-Semgrep-Signature-256']
+
+    secret = "this_is_a_secret"
+    payload_str = json.dumps(request.get_json(), separators=(',', ':'))
+    computed_sig = hmac.new(
+        secret.encode('utf-8'),
+        payload_str.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
+
+    logger.info(f"valid signature: {hmac.compare_digest(provided_sig, computed_sig)}")
+    ```
+
 <Notifications />
 
 ## Semgrep findings object
+
+Currently, only Semgrep Code (SAST) findings are sent through webhooks. The `numeric_id` field represents the finding's ID in Semgrep AppSec Platform.
 
 The following is an example of a `semgrep_finding` object sent by Semgrep:
 

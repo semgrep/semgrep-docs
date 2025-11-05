@@ -1,0 +1,1 @@
+Semgrep's VS Code extension supports the use of Pro rules and cross-file analysis. Other IDE scans use Semgrep Community Edition (CE) for its speed, and these scans are limited to single-file analysis. As a result, you may encounter a higher rate of false positives.

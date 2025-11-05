@@ -20,6 +20,7 @@ module.exports = {
       trigger: { floating: false },
       systemPrompt: 'You are a kind AI who loves to help people!',
       model: 'gpt-4',
+      display: 'dialog',
       search: {
         enabled: true,
         provider: {
@@ -29,6 +30,9 @@ module.exports = {
           indexName: 'docs',
         },
       },
+      chat: {
+        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
+      }
     },
     docs: {
       sidebar: {
@@ -45,8 +49,10 @@ module.exports = {
         target: '_self'
       },
       items: [
-        { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_self' },
+        { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
+        { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
+        { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        /*
         {
           type: 'dropdown',
           label: 'Products',
@@ -66,14 +72,14 @@ module.exports = {
             }
           ]
         },
-        { to: 'https://semgrep.dev/pricing', label: 'Pricing', position: 'left', target: '_self' },
-        { to: 'https://semgrep.dev/docs/', label: 'Docs', position: 'left', target: '_self' },
-        {to: 'kb', label: 'Knowledge base', position: 'left'},
-        { to: 'https://semgrep.dev/orgs/-/', label: 'Login', position: 'right', target: '_self' },
+        */
+        { to: 'kb', label: 'Knowledge base', position: 'left'},
+        { to: 'https://academy.semgrep.dev', label: 'Semgrep Academy', position: 'left'},
+        { to: 'https://semgrep.dev/orgs/-', label: 'Login', position: 'right', target: '_self' },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Community',
@@ -87,13 +93,33 @@ module.exports = {
               href: 'https://github.com/semgrep/semgrep'
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/semgrep',
+              label: 'File an issue',
+              href: 'https://github.com/semgrep/semgrep/issues',
             },
           ],
         },
         {
-          title: 'Learn',
+          title: 'Products',
+          items: [
+            {
+              label: 'Semgrep Code',
+              to: 'https://semgrep.dev/products/semgrep-code/',
+              target: '_blank'
+            },
+            {
+              label: 'Semgrep Supply Chain',
+              to: 'https://semgrep.dev/products/semgrep-supply-chain/',
+              target: '_blank'
+            },
+            {
+              label: 'Semgrep AppSec Platform',
+              to: 'https://semgrep.dev/products/semgrep-appsec-platform/',
+              target: '_blank'
+            },
+          ],
+        },
+        {
+          title: 'Resources',
           items: [
             {
               label: 'Docs',
@@ -101,51 +127,50 @@ module.exports = {
               target: '_self'
             },
             {
-              label: 'Examples',
-              to: '/docs/writing-rules/rule-ideas/',
-              target: '_self'
+              label: 'Blog',
+              to: 'https://semgrep.dev/blog',
+              target: '_blank'
             },
             {
-              label: 'Tour',
-              to: 'https://semgrep.dev/learn',
-              target: '_self'
+              label: 'Book a demo',
+              to: 'https://semgrep.dev/contact/demo',
+              target: '_blank'
             },
-          ],
-        },
-        {
-          title: 'Product',
-          items: [
+            {
+              label: 'Pricing',
+              to: 'https://semgrep.dev/pricing/',
+              target: '_blank'
+            },
             {
               label: 'Privacy',
               to: 'https://semgrep.dev/privacy',
               target: '_self'
             },
             {
-              label: 'Issues',
-              href: 'https://github.com/semgrep/semgrep/issues',
-            },
-            {
               label: 'Terms of service',
               to: 'https://semgrep.dev/terms',
-              target: '_self'
+              target: '_blank'
             },
           ],
         },
         {
-          title: 'About',
+          title: 'Company',
           items: [
             {
-              label: 'Semgrep blog',
-              href: 'https://semgrep.dev/blog/',
+              label: 'About',
+              href: 'https://semgrep.dev/about',
+              target: '_blank'
             },
             {
-              label: 'About us',
-              href: 'https://semgrep.dev/about'
+              label: 'Careers',
+              href: 'https://semgrep.dev/about/careers',
+              target: '_blank'
             },
             {
-              label: 'Semgrep release updates',
-              href: 'https://twitter.com/semgrepreleases'
-            }
+              label: 'Contact us',
+              href: 'https://semgrep.dev/contact-us',
+              target: '_blank'
+            },
           ],
         },
       ],
@@ -221,6 +246,47 @@ module.exports = {
             'https://github.com/semgrep/semgrep-docs/edit/main',
           routeBasePath: '/'
         },
+        blog: {
+          path: 'release-notes',
+          blogTitle: 'Release notes',
+          blogDescription: 'Release notes include the changes, fixes, and additions in specific versions of Semgrep.',
+          blogSidebarCount: 12,
+          blogSidebarTitle: 'Most recent posts',
+          routeBasePath: 'release-notes',
+          include: ['**/*.{md,mdx}'],
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
+          postsPerPage: 10,
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          remarkPlugins: [],
+          rehypePlugins: [],
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+          truncateMarker: /<!--\s*(truncate)\s*-->/,
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            title: '',
+            description: '',
+            copyright: '',
+            language: undefined,
+            createFeedItems: async (params) => {
+              const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -264,18 +330,17 @@ module.exports = {
           { from: "/cli-usage/", to: "/cli-reference" },
           { from: "/writing-rules/data-flow", to: "/writing-rules/data-flow/data-flow-overview" },
           { from: "/writing-rules/data-flow/overview/", to: "/writing-rules/data-flow/data-flow-overview/"},
-          { from: "/release-notes/", to: "/release-notes/introduction" },
           { from: "/rule-updates/", to: "/release-notes/rule-updates" },
           { from: "/experiments/overview/", to: "/writing-rules/experiments/introduction" },
           { from: "/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
           { from: "/experiments/join-mode/overview/", to: "/writing-rules/experiments/join-mode/overview" },
           { from: "/experiments/join-mode/recursive-joins/", to: "/writing-rules/experiments/join-mode/recursive-joins" },
-          { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/extract-mode" },
+          { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on" },
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation" },
-          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode" },
+          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/overview" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable" },
@@ -319,7 +384,7 @@ module.exports = {
           //Semgrep Supply Chain
           { from: "/semgrep-sc/scanning-open-source-dependencies/"        , to: "/semgrep-supply-chain/getting-started" }                 ,
           { from: "/semgrep-sc/sc-glossary/"                              , to: "/semgrep-supply-chain/glossary" }                        ,
-          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-lockfiles-dependencies" } ,
+          { from: "/semgrep-sc/ignoring-lockfiles-dependencies/"          , to: "/semgrep-supply-chain/ignoring-dependencies" } ,
           { from: "/semgrep-sc/receiving-notifications-from-ssc/"         , to: "/semgrep-appsec-platform/github-pr-comments" }                   ,
           { from: "/semgrep-sc/semgrep-supply-chain-overview/"            , to: "/semgrep-supply-chain/overview" }                        ,
           { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation" },
@@ -369,18 +434,18 @@ module.exports = {
           { from: "/playground/" , to: "/semgrep-code/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           /* APR 30, 2024 */
-          { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/ticketing" } ,
-          { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/semgrep-appsec-platform/bitbucket-pr-comments" } ,
+          { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/jira" } ,
+          { from: "/semgrep-cloud-platform/bitbucket-pr-comments/" , to: "/category/bitbucket-pr-comments" } ,
           { from: "/semgrep-cloud-platform/github-pr-comments/" , to: "/semgrep-appsec-platform/github-pr-comments" } ,
           { from: "/semgrep-cloud-platform/gitlab-mr-comments/" , to: "/semgrep-appsec-platform/gitlab-mr-comments" } ,
           { from: "/semgrep-cloud-platform/dashboard/" , to: "/semgrep-appsec-platform/dashboard" } ,
           { from: "/semgrep-cloud-platform/email-notifications/" , to: "/semgrep-appsec-platform/email-notifications" } ,
           { from: "/semgrep-cloud-platform/jira/" , to: "/semgrep-appsec-platform/jira" } ,
-          { from: "/semgrep-cloud-platform/linear/" , to: "/semgrep-appsec-platform/ticketing" } ,
+          { from: "/semgrep-cloud-platform/linear/" , to: "/semgrep-appsec-platform/jira" } ,
           { from: "/semgrep-cloud-platform/notifications/" , to: "/semgrep-appsec-platform/notifications" } ,
           { from: "/semgrep-cloud-platform/slack-notifications/" , to: "/semgrep-appsec-platform/slack-notifications" } ,
           { from: "/semgrep-cloud-platform/tags/" , to: "/semgrep-appsec-platform/tags" } ,
-          { from: "/semgrep-cloud-platform/ticketing/" , to: "/semgrep-appsec-platform/ticketing" } ,
+          { from: "/semgrep-cloud-platform/ticketing/" , to: "/semgrep-appsec-platform/jira" } ,
           { from: "/semgrep-cloud-platform/webhooks/" , to: "/semgrep-appsec-platform/webhooks" } ,
           /* MAY 7, 2024 */
           { from: "/kb/semgrep-secrets/secrets_pr_comments" , to: "/semgrep-secrets/policies" } ,
@@ -389,7 +454,38 @@ module.exports = {
           { from: "/supported-languages-oss" , to: "/supported-languages" } ,
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
-          { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
+          { from: "/getting-started/quickstart-oss" , to: "/getting-started/quickstart-ce"} ,
+          /* JULY 15, 2024 */
+          { from: "/semgrep-appsec-platform/bitbucket-pr-comments" , to: "/category/bitbucket-pr-comments"} ,
+          /* SEP 11, 2024 */
+          { from: "/kb/rules/match-commments" , to: "/kb/rules/match-comments" },
+          { from: "/semgrep-appsec-platform/dashboard-beta/"                        , to: "/semgrep-appsec-platform/dashboard" } ,
+          /* OCT 16, 2024 */
+          { from: "/deployment/managed-scanning" , to: "/deployment/managed-scanning/overview" } ,
+          /* NOV 28, 2024 */
+          { from: "/writing-rules/experiments/extract-mode" , to: "/writing-rules/experiments/deprecated-experiments" } ,
+          /* FEB 26, 2025 */
+          { from: "/faq" , to: "/faq/overview" },
+          /* MAR 4, 2025 */
+          { from: "/kb/integrations/wiz" , to: "/semgrep-appsec-platform/wiz" },
+          /* MAR 19, 2025 */
+          { from: "/kb/semgrep-cloud-platform/inline-pr-comments" , to: "/kb/semgrep-appsec-platform/inline-pr-comments" },
+          { from: "/kb/semgrep-cloud-platform/missing-pr-comments" , to: "/kb/semgrep-appsec-platform/missing-pr-comments" },
+          { from: "/kb/semgrep-cloud-platform/saml-attributestatement" , to: "/kb/semgrep-appsec-platform/saml-attributestatement" },
+          { from: "/kb/semgrep-cloud-platform/saml-bad-signature" , to: "/kb/semgrep-appsec-platform/saml-bad-signature" },
+          { from: "/kb/semgrep-cloud-platform/saml-stops-working" , to: "/kb/semgrep-appsec-platform/saml-stops-working" },
+          { from: "/kb/semgrep-cloud-platform/sso-attribute-error" , to: "/kb/semgrep-appsec-platform/sso-attribute-error" },
+          /* APR 28, 2025 */
+          { from: "/semgrep-code/supported-languages-python" , to: "/languages/python" },
+          { from: "/deployment/overview" , to: "/deployment/core-deployment" },
+          /* JUL 8, 2025 */
+          { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
+          /* JUL 25, 2025 */
+          { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
+          /* OCT 3, 2025 */
+          { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
+                    /* OCT 23, 2025 */
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" }
         ]
       }
     ],
