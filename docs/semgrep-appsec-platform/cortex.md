@@ -6,7 +6,6 @@ hide_title: true
 displayed_sidebar: scanSidebar
 description: "Ingest exposure and runtime context from your Cortex instance to prioritize Semgrep findings."
 tags:
- - Private Beta
  - Semgrep AppSec Platform
 ---
 
@@ -16,7 +15,6 @@ The Semgrep Cortex integration can ingest exposure and runtime context from your
 
 ## Prerequisites
 
-- The Cortex integration is in **private beta** for Semgrep AppSec Platform users.
 - **License required by Cortex**: Cloud Posture Security license with Application Security add-on.
 - The following tools and integrations must be set up in your Cortex instance:
   - [<i class="fas fa-external-link fa-xs"></i> Cloud service provider](https://docs-cortex.paloaltonetworks.com/r/Cortex-CLOUD/Cortex-Cloud-Runtime-Security-Documentation/Ingest-cloud-assets?tocId=2jhG7867R_efYTshrrusgA) (e.g. AWS, GCP, Azure)
@@ -49,3 +47,14 @@ To enable the Cortex integration, follow these steps:
 - The exposure and runtime context data is only synced for Semgrep projects that are connected to SCMs and have been scanned within the previous 30 days.
 - The integration syncs your data every 24 hours (this feature will be available soon), but it may take up to 1-2 days for Semgrep to reflect any changes to your repositories and infrastructure.
 - Internet exposure detection is not supported for AWS classic load balancers.
+
+
+## FAQ
+- Why do I have a `Connection Error` under my Cortex integration? 
+-- There was an error with establishing a connection or running a sync job for a provider which you have conneted. Try
+checking your connection settings to and verify that your configurations are correct. 
+-- If the connection is working as expected please reach out to our team so we can investigate further.
+- Why am I not seeing data for my project in the project settings page? 
+-- Try to wait a day for the data to catch up and sync. 
+-- If you are still not seeing data after a day, check that you meet the prerequesites that are needed in order to run the application.
+-- If you are all set up there then please reach out to our team so we can investigate further. 
