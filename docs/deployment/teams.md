@@ -326,7 +326,7 @@ Semgrep supports several types of access tokens:
 These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. 
 
 Some features of these tokens:
-- Not tied to a specific user account and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
+- They are  not tied to a specific user account, and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
 - Only admins can generate or manage these tokens. This can be done by going to **Settings → Tokens** in Semgrep AppSec Platform.  
 
 #### CLI tokens (Member-scoped) tokens
