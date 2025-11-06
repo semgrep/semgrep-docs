@@ -12,7 +12,6 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import { useLocation } from '@docusaurus/router';
 import styles from './styles.module.css';
-import type {Props} from '@theme/Navbar/Content';
 
 function useNavbarItems() {
   return useThemeConfig().navbar.items;
@@ -106,27 +105,33 @@ export default function NavbarContent(): JSX.Element {
       label: 'Scan with Semgrep', 
       to: '/getting-started/quickstart', 
       pathPrefix: '/docs/getting-started', 
-      position: 'left',
+      position: 'left' as const,
       className: currentSection === 'scan' ? 'navbar__link--active' : ''
     },
     { 
       label: 'Write rules', 
       to: '/writing-rules/overview', 
       pathPrefix: '/docs/writing-rules', 
-      position: 'left',
+      position: 'left' as const,
       className: currentSection === 'write-rules' ? 'navbar__link--active' : ''
     },
     { 
       label: 'Learning guides', 
       to: '/learn', 
       pathPrefix: '/docs/learn', 
-      position: 'left',
+      position: 'left' as const,
       className: currentSection === 'learning-guides' ? 'navbar__link--active' : ''
+    },
+    { 
+      label: 'API', 
+      to: 'https://semgrep.dev/api/v1/docs', 
+      position: 'left' as const,
+      className: ''
     },
     { 
       label: 'Help', 
       pathPrefix: '/docs/kb', 
-      position: 'left',
+      position: 'left' as const,
       type: 'dropdown',
       className: currentSection === 'help' ? 'navbar__link--active' : '',
       items: [
@@ -137,7 +142,7 @@ export default function NavbarContent(): JSX.Element {
     { 
       label: 'Explore', 
       pathPrefix: '/docs/trophy-case', 
-      position: 'left',
+      position: 'left' as const,
       type: 'dropdown',
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
@@ -150,12 +155,6 @@ export default function NavbarContent(): JSX.Element {
         { label: 'Playground', to: 'https://semgrep.dev/editor', target: '_blank' },
         { label: 'Semgrep Academy', to: 'https://academy.semgrep.dev', target: '_blank' },
       ]
-    },
-    { 
-      label: 'API', 
-      to: 'https://semgrep.dev/api/v1/docs', 
-      position: 'left',
-      className: ''
     },
   ];
 
