@@ -337,7 +337,7 @@ These tokens authenticate users running scans or publishing rules from the CLI. 
 semgrep login
 ```
 
-Both members and admins can create CLI tokens. Once logged in, users can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep AppSec Platform.
+Both members and admins can create CLI tokens. Once logged in, users can run scans on their local machine through the `semgrep ci` command. This sends findings data to Semgrep AppSec Platform. They can also publish rules to the organization using `semgrep publish`.
 
 
 Some features of CLI tokens: 
