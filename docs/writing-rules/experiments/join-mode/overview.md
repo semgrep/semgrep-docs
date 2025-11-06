@@ -40,7 +40,7 @@ rules:
   message: |
     Detected a XSS vulnerability: '$VAR' is rendered
     unsafely in '$PATH'.
-  severity: ERROR
+  severity: HIGH
 ```
 
 Let's explore how this works. First, some background on the vulnerability. Second, we'll walk through the join mode rule.
@@ -66,7 +66,7 @@ We can write individual Semgrep rules for each of these code patterns.
 rules:
 - id: flask-user-input
   languages: [python]
-  severity: INFO
+  severity: LOW
   message: $VAR
   pattern: '$VAR = flask.request.$SOMETHING.get(...)'
 ```
@@ -85,14 +85,14 @@ rules:
       patterns:
       - pattern-not-regex: .*\.html$
   languages: [python]
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ```yaml
 rules:
 - id: any-template-var
   languages: [generic]
-  severity: INFO
+  severity: LOW
   message: '$...EXPR'
   pattern: '{{ $...EXPR }}'
 ```
@@ -178,7 +178,7 @@ rules:
   message: |
     Detected a XSS vulnerability: '$VAR' is rendered
     unsafely in '$TEMPLATE'.
-  severity: ERROR
+  severity: HIGH
 ```
 
 The required fields under the `rules` key are the following:

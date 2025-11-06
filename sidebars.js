@@ -289,16 +289,6 @@ module.exports = {
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
-                {
-                    type: 'category',
-                    label: 'Semgrep Community Edition',
-                    collapsible: true,
-                    items: [
-                        'semgrep-ce-languages',
-                        'deployment/oss-deployment',
-                        'getting-started/cli-oss',
-                        ]
-                },
             ]
         },
         {
@@ -380,6 +370,36 @@ module.exports = {
           ]
       },
       {
+        type: 'category',
+        label: 'Semgrep Community Edition',
+        collapsible: false,
+        items: [
+            {
+              type: 'category',
+              label: 'Get started',
+              collapsible: true,
+              link: {type: 'doc', id: 'getting-started/quickstart-ce'},
+              items: [
+                'customize-semgrep-ce',
+              ]
+            },
+            'semgrep-ce-languages',
+            'deployment/oss-deployment',
+            
+            {
+              type: 'category',
+              label: 'About Semgrep CE',
+              collapsible: true,
+              items:[
+                'contributing/philosophy',
+                'semgrep-pro-vs-oss',
+                'faq/comparisons/opengrep',
+                
+              ]
+            }
+          ]
+      },
+      {
       type: 'category',
       label: 'References',
       collapsible: false,
@@ -454,9 +474,17 @@ module.exports = {
                             type: 'category',
                             label: 'Dataflow analysis',
                             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            collapsible: false,
                             items: [
                                 'writing-rules/data-flow/constant-propagation',
-                                'writing-rules/data-flow/taint-mode',
+                                {
+                                    type: 'category',
+                                    label: 'Taint analysis',
+                                    link: {type: 'doc', id: 'writing-rules/data-flow/taint-mode/overview'},
+                                    items: [
+                                        'writing-rules/data-flow/taint-mode/advanced'
+                                    ]
+                                },
                                 'writing-rules/data-flow/status'
                             ]
                         },
@@ -602,6 +630,24 @@ module.exports = {
             'licensing',
             'usage-and-billing',
             'deployment/claim-a-license',
+            'run-a-successful-pov',
+            {
+              type: 'category',
+              label: 'Comparisons with other tools',
+              collapsible: true,
+              items: [
+                  'faq/comparisons/codeql',
+                  'faq/comparisons/endor-labs',
+                  'faq/comparisons/opengrep',
+                  'faq/comparisons/snyk',
+                  'faq/comparisons/sonarqube',
+                ]
+            },
+            {
+              type: 'doc',
+              id: 'metrics',
+              label: 'Semgrep metrics'
+            },
             {
               type: 'category',
               label: 'Contribute to Semgrep',

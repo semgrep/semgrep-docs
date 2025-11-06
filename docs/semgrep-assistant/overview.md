@@ -47,6 +47,10 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 ![Findings detail with remediation advice](/img/memories-1.png#md-width)
 _**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
+:::info
+Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
+:::
+
 #### Autofix
 
 Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
@@ -110,10 +114,6 @@ Assistant is [over 95% accurate in categorizing Semgrep Code findings as false p
 Assistant Memories allows AppSec teams and developers to tailor Assistant's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Assistant gives a suggested fix, you can provide feedback by adding custom instructions.
 
 For example, if the code contains a hardcoded secret, Assistant might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Assistant. Assistant then generates remediation guidance that works with your specific secrets manager in the future.
-
-### Custom rules editor (beta)
-
-Semgrep Assistant can help you write custom rules to find patterns and vulnerabilities specific to your codebase. The only information you need to provide is a prompt describing what you want the rule to do in English. However, if you provide an example of bad code and an example of good code, Semgrep uses this information for you to test the generated rule and provide context to the language model (LLM).
 
 ### Upgrade guidance (beta)
 

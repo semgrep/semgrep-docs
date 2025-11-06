@@ -32,7 +32,7 @@ rules:
  https://stackoverflow.com/a/6501134
   pattern: exit($X)
   fix: sys.exit($X)
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ## Create autofix rules
@@ -79,7 +79,7 @@ rules:
  if a response is never received. Consider setting a timeout for all
  'requests'.
   languages: [python]
-  severity: WARNING
+  severity: MEDIUM
 ```
 
 ## Remove a code detected by a rule

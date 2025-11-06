@@ -57,7 +57,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule, that performs validation against github.com
-  severity: WARNING
+  severity: MEDIUM
   languages:
   - regex
   validators:
@@ -94,7 +94,7 @@ rules:
 - id: github_example
   message: >-
     This is an example rule that performs validation against github.com
-  severity: WARNING
+  severity: MEDIUM
   languages:
   - javascript
   - typescript
