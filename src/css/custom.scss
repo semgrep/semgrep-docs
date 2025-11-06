@@ -1146,46 +1146,4 @@ html[data-theme="dark"] {
 
 
 
-.main-wrapper {
-  padding-top: var(--ifm-navbar-height);
-}
 
-.navbar__inner {
-  overflow: visible !important;
-}
-
-@media (max-width: 1366px) {
-  .navbar__items:first-child {
-    max-width: calc(100vw - 300px);
-  }
-}
-
-@media (max-width: 996px) {
-  .navbar__items:first-child {
-    max-width: 100%;
-  }
-}
-
-.main-wrapper {
-  position: relative;
-  z-index: 1 !important;
-}
-
-main[class*="docMainContainer"] {
-  position: relative;
-  z-index: 1 !important;
-}
-
-.theme-doc-sidebar-container,
-aside[class*="sidebar"],
-.docSidebarContainer,
-article {
-  position: relative;
-  z-index: 1 !important;
-}
-
-div[class*="docPage"],
-div[class*="wrapper"] {
-  position: relative;
-  z-index: 1 !important;
-}
