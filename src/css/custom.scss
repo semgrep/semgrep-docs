@@ -577,7 +577,7 @@ li > img {
 a.navbar__item.navbar__link {
   font-weight: 500;
   padding: 5px 16px;
-  border: none;
+  border: none;  
   border-radius: 3px;
   cursor: pointer;
   font-size: 1rem;
@@ -1130,6 +1130,7 @@ html[data-theme="dark"] {
     gap: 0.1rem;
   }
 }
+
 
 /* Fix dropdown font consistency - ensure Help and Explore match other navbar items */
 .navbar__item.dropdown .navbar__link {
