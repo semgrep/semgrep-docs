@@ -95,7 +95,7 @@ Semgrep generates dependency paths for C# projects using NuGet.
 
 Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
 
-Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Dependency paths for such projects are available when [scanning without lockfiles](/getting-started#scan-a-project-without-lockfiles-beta).
+Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. Dependency paths for such projects are available when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
 #### JavaScript
 
@@ -103,7 +103,7 @@ Semgrep generates dependency paths for JavaScript projects that use `npm`, `yarn
 
 #### Kotlin
 
-Semgrep generates dependency paths for Kotlin projects built using Maven when a `maven_dep_tree.txt` file is present, and for Maven or Gradle when [scanning without lockfiles](/getting-started#scan-a-project-without-lockfiles-beta).
+Semgrep generates dependency paths for Kotlin projects built using Maven when a `maven_dep_tree.txt` file is present, and for Maven or Gradle when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
 #### Python
 
@@ -118,7 +118,7 @@ Semgrep also supports Python projects that use the following package managers:
 - `Pipenv`
 - `piptools`
 
-when [scanning without lockfiles](/getting-started#scan-a-project-without-lockfiles-beta).
+when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
 ### View the dependency path
 
