@@ -1,6 +1,7 @@
 ---
 slug: trophy-case
 hide_table_of_contents: true
+displayed_sidebar: aboutSidebar
 description: "This is a list of vulnerabilities found and security fixes made with Semgrep."
 tags:
   - Rule writing
