@@ -38,4 +38,4 @@ Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
 - [ScanMyCode CE (Community Edition)](https://github.com/marcinguy/scanmycode-ce)
-- [SecObserve](https://github.com/MaibornWolff/SecObserve)
+- [SecObserve](https://github.com/SecObserve/SecObserve)
