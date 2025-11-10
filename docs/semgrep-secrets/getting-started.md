@@ -88,8 +88,6 @@ Semgrep sorts findings by severity. For a given severity, Semgrep further sorts 
 
 To view findings individually, toggle **Group by Rule** to **No grouping** using the drop-down menu in the header. Findings are displayed based on the date they were found, with the most recent finding listed at the top.
 
-![Group by Rule option](/img/cloud-platform-findings-no-grouping.png#md-width)
-
 ### Filter findings
 
 Use filters to narrow down your results. The following criteria are available for filtering:
@@ -170,7 +168,6 @@ To see the rules you're using for which there is a Secrets rule upgrade in Semgr
 2. Go to **Rules** > **Policies** > **Code**.
 3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
 
-![Filter to find rules for which there is a rule upgrade](/img/superseded-rules-policies.png#md-width)
 ## Next steps
 
 * Learn how to [view and triage secrets in Semgrep AppSec Platform](/semgrep-secrets/view-triage)

@@ -4,9 +4,6 @@ Semgrep exports all findings to the CSV file regardless of the filters you apply
 
 Export findings by navigating to the product page and clicking the **<i class="fa-regular fa-download"></i> icon** near the **Group & Sort** filters.
 
-![The download findings CSV button](/img/download-csv.png#md-width)
-_**Figure**. The download findings CSV button._
-
 <details>
 <summary>Click to view a description of fields included in the CSV.</summary>
 
