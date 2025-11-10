@@ -48,7 +48,7 @@ Before proceeding, ensure that you have:
 
 ## Troubleshooting
 
-### If you're seeing a **Connection Error** message
+### If you see a **Connection Error** message under your Cortex integration
 
 If you see the **Connection Error** message under your Cortex integration, there was an issue establishing a connection or running a sync job for a provider you have connected. Check your connection settings to verify that your configuration is correct.
 

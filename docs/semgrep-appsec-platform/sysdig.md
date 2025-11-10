@@ -8,30 +8,30 @@ tags:
  - Semgrep AppSec Platform
 ---
 
-# Sysdig integration
+# View runtime context from Sysdig in Semgrep AppSec Platform
 
 The Semgrep Sysdig integration can ingest runtime context from your Sysdig account. This allows you to prioritize findings based on deployment status.
 
 ## Prerequisites
 
-- You must have a license for **Semgrep Supply Chain**.
-- You must have the following tools and integrations set up in your Sysdig account:
+Before proceeding, ensure that:
+
+- You have a license for **Semgrep Supply Chain**
+- You have the following tools and integrations set up in your Sysdig account:
   - [<i class="fas fa-external-link fa-xs"></i> Sysdig Secure](https://docs.sysdig.com/en/docs/sysdig-secure/)
   - [<i class="fas fa-external-link fa-xs"></i> Sysdig Shield](https://docs.sysdig.com/en/sysdig-secure/install-shield-kubernetes/), [<i class="fas fa-external-link fa-xs"></i> Host Shield](https://docs.sysdig.com/en/sysdig-secure/install-host-shield/), or [<i class="fas fa-external-link fa-xs"></i> Agentless Scanning](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/#agentless-host-scanning-tech-preview)
-  - [<i class="fas fa-external-link fa-xs"></i> Semgrep integration](https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/software-composition-analysis/#semgrep)
-    - [<i class="fas fa-external-link fa-xs"></i> Ensure that you've completed the steps to link source to runtime by adding a Docker label](https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/software-composition-analysis/#prerequisite-linking-source-to-runtime)
-- Ensure that you have set up a connection between [Semgrep and your source code manager (SCM)](/deployment/connect-scm).
+  - The [<i class="fas fa-external-link fa-xs"></i> Semgrep Sysdig integration](https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/software-composition-analysis/#semgrep)
+    - Ensure that you've [<i class="fas fa-external-link fa-xs"></i> completed the steps to link source to runtime by adding a Docker label](https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/software-composition-analysis/#prerequisite-linking-source-to-runtime)
+- You have set up a connection between [Semgrep and your source code manager (SCM)](/deployment/connect-scm).
 
 ## Enable the Sysdig integration
 
-To enable the Sysdig integration, follow these steps:
-
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
-3. Navigate to **Integrations**, and click **+ Add > Sysdig**.
+3. Go to **Integrations**, and click **+ Add > Sysdig**.
 4. In the dialog that appears, provide the following information:
    1. **URL**: The Sysdig Platform URL for your account.
-   2. **API token**: The Sysdig API token associated with your account. Follow [<i class="fas fa-external-link fa-xs"></i> these instructions](https://docs.sysdig.com/en/administration/retrieve-the-sysdig-api-token/) on how to retrieve your token.
+   2. **API token**: The Sysdig API token associated with your account. See [<i class="fas fa-external-link fa-xs"></i> Retrieve the Sysdig API Token](https://docs.sysdig.com/en/administration/retrieve-the-sysdig-api-token/) for more information on how to retrieve your token.
 5. Click **Connect**.
 6. Within several hours, you should see the **Deployment** status for each project on the project's settings page.
 
@@ -45,12 +45,18 @@ To enable the Sysdig integration, follow these steps:
 - The integration syncs your data every 24 hours, but it may take up to 1 day for Semgrep to reflect any changes to your repositories and infrastructure.
 
 
-## FAQ
-- Why do I have a `Connection Error` under my Sydig integration? 
--- There was an error with establishing a connection or running a sync job for a provider which you have conneted. Try
-checking your connection settings to and verify that your configurations are correct. 
--- If the connection is working as expected please reach out to our team so we can investigate further.
-- Why am I not seeing data for my project in the project settings page? 
--- Try to wait a day for the data to catch up and sync. 
--- If you are still not seeing data after a day, check that you meet the prerequesites that are needed in order to run the application.
--- If you are all set up there then please reach out to our team so we can investigate further. 
+## Troubleshooting
+
+### If you see a **Connection Error** message under your Sysdig integration
+
+If you see the **Connection Error** message under your Sysdig integration, there was an issue establishing a connection or running a sync job for a provider you have connected. Check your connection settings to verify that your configuration is correct.
+
+If the connection settings are correct, [contact Support](/support) for further assistance.
+
+### If you're not seeing data in your project settings page
+
+If you're not seeing data for your project in the project settings page:
+
+- Wait for one day for your data to sync.
+- If, after one day, you're still not seeing data, ensure that you meet the integration's prerequisites.
+- If, after one day, you meet the integration's prerequisites, [contact Support](/support) for further assistance.
