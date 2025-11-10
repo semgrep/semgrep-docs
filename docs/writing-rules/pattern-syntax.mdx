@@ -374,7 +374,7 @@ rules:
   - id: match-literal-string
     languages:
       - python
-    severity: INFO
+    severity: LOW
     message: Found "$STRING"
     patterns:
       - pattern: '"$STRING"'
@@ -563,7 +563,7 @@ For search mode rules, metavariables with the same name are treated as the same 
 
 For taint mode rules, patterns defined **within** `pattern-sinks` and `pattern-sources` still unify. However, metavariable unification **between** `pattern-sinks` and `pattern-sources` is **not** enabled by default.
 
-To enforce unification, set `taint_unify_mvars: true` under the rule `options` key. When `taint_unify_mvars: true` is set, a metavariable defined in `pattern-sinks` and `pattern-sources` with the same name is treated as the same metavariable. See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode#metavariables-rule-message-and-unification) for more information.
+To enforce unification, set `taint_unify_mvars: true` under the rule `options` key. When `taint_unify_mvars: true` is set, a metavariable defined in `pattern-sinks` and `pattern-sources` with the same name is treated as the same metavariable. See [Metavariables, rule message, and unification](/writing-rules/data-flow/taint-mode/advanced#metavariables-rule-messages-and-unification) for more information.
 
 ### Display matched metavariables in rule messages
 

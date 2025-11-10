@@ -478,6 +478,9 @@ OPTIONS
        --x-eio
            [INTERNAL] Rely on an EIO based implementation for the -j flag
 
+       --x-group-taint-rules
+           <internal, do not use>
+
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
            tree for the purpose of selecting target files to be scanned by

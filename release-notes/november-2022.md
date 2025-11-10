@@ -54,7 +54,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 
 ### Changes
 
-- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See [Field sensitivity](/writing-rules/data-flow/taint-mode/#field-sensitivity) section for more details.
+- taint-mode: Semgrep’s taint analysis now provides basic field sensitivity support. See [Field sensitivity](/writing-rules/data-flow/taint-mode/advanced#taint-mode-sensitivity) section for more details.
 
 ## Semgrep in CI
 
@@ -89,7 +89,7 @@ These release notes include upgrades for versions ranging between 0.120.0 and 0.
 #### Semgrep CLI
 
 - The [Experiments](/writing-rules/experiments/introduction) category now provides an introduction, in addition, the [Deprecated experiments](/writing-rules/experiments/deprecated-experiments) section is now an independent document.
-- Added [Field sensitivity](/writing-rules/data-flow/taint-mode/#field-sensitivity) section to taint analysis documentation.
+- Added [Field sensitivity](/writing-rules/data-flow/taint-mode/advanced#taint-mode-sensitivity) section to taint analysis documentation.
 
 ### Changes
 

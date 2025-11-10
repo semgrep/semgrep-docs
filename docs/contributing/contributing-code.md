@@ -50,7 +50,7 @@ rules:
 - id: unsafe-exec
   pattern: exec(...);
   message: Avoid use of exec; it can lead to a remote code execution.
-  severity: WARNING
+  severity: MEDIUM
   languages: [python]
 ```
 

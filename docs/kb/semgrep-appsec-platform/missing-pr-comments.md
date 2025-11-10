@@ -23,13 +23,15 @@ PR or MR comments are not supported for:
 
 * Any other SCM or repository provider
 
+A connection to a source code manager is required for a repository to receive PR or MR comments. If you have not done so yet, [set up a connection for your SCM organization or project](/deployment/connect-scm).
+
 If you are using a self-hosted version of your SCM, see [Connect to on-premise orgs and projects](/deployment/connect-scm/#connect-to-on-premise-orgs-and-projects) for more details on configuration.
 
 ## Have you configured permissions and tokens correctly?
 
 ### GitHub
 
-GitHub relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
+Semgrep relies on the Semgrep GitHub app to make comments on code. To receive comments on a project, ensure that you have performed the following steps:
 
 * You have [onboarded](/docs/category/scan-repositories-with-the-appsec-platform) the project to Semgrep AppSec Platform.
 * You have configured your GitHub app with permissions for all repositories that are scanned by Semgrep AppSec Platform. See [Enabling GitHub pull request comments](/docs/semgrep-appsec-platform/github-pr-comments) for details, or review the following examples:
@@ -40,15 +42,11 @@ GitHub relies on the Semgrep GitHub app to make comments on code. To receive com
   ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png#md-width)
   _**Figure.** Grant permissions for access to select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are included here._
 
-### Azure DevOps, GitLab, and Bitbucket
+### Azure DevOps
 
-For MR comments on GitLab and PR comments on Bitbucket or Azure DevOps, ensure that you have [set up a connection to your SCM organization or project](/deployment/connect-scm) and provided Semgrep with a token that has the required permissions to comment on MRs or PRs.
+See [Enable Azure pull request comments](/docs/semgrep-appsec-platform/azure-pr-comments) for token permissions and configuration guidelines.
 
-#### Azure DevOps
-
-See [Enable Azure pull request comments](/docs/semgrep-appsec-platform/azure-pr-comments) for token and configuration guidelines.
-
-#### GitLab
+### GitLab
 
 The GitLab token should have `api` scope. See [Enable GitLab merge request comments](/docs/semgrep-appsec-platform/gitlab-mr-comments) for details.
 
