@@ -20,7 +20,6 @@ The following updates were made to Semgrep in November 2024.
 ### Added
 
 - Added the ability to filter all findings by **Last fixed** and **Last triaged** dates in Semgrep AppSec Platform.
-  ![Time period and status filters](/img/findings-filters.png#sm-width)
   _**Figure**. Time period and status filters._
 - **Dashboard**:
   - You can now view **trends**, comparing the previous time period to the current one, in the following charts:

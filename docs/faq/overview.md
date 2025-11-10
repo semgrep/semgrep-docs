@@ -210,3 +210,11 @@ A policy is a simple collection of rules and a definition of what to do with rul
 ### Do you have a visualization UI?
 
 Semgrep Team users can create custom dashboards and visualizations. Semgrep also supports posting results through [webhooks](/semgrep-appsec-platform/webhooks) to any JSON endpoint, so you can easily integrate it with your favorite visualization tool.
+
+## Privacy
+
+### How long does Semgrep retain findings data?
+
+Semgrep, Inc. retains findings data as long as an account remains active. Semgrep securely destroy data within **90 days of contract termination** for **Enterprise** customers.
+
+Additionally, account owners may request data destruction at any time by contacting [Support](/support).
