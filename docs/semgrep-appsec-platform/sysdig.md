@@ -3,7 +3,6 @@ slug: sysdig
 append_help_link: true
 title: Sysdig
 hide_title: true
-displayed_sidebar: scanSidebar
 description: "Ingest runtime context from your Sysdig account to prioritize Semgrep findings based on deployment status."
 tags:
  - Semgrep AppSec Platform
