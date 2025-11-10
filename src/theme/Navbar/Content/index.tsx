@@ -49,6 +49,10 @@ export default function NavbarContent(): JSX.Element {
 
   const getCurrentSection = () => {
     const path = location.pathname;
+    // Special case: introduction page belongs to explore section
+    if (path.startsWith('/docs/getting-started/introduction') || path.startsWith('/docs/introduction')) {
+      return 'explore';
+    }
     if (path.startsWith('/docs/getting-started') || 
         path.startsWith('/docs/deployment') ||
         path.startsWith('/docs/semgrep-appsec-platform') ||
@@ -141,12 +145,12 @@ export default function NavbarContent(): JSX.Element {
     },
     { 
       label: 'Explore', 
-      pathPrefix: '/docs/trophy-case', 
+      pathPrefix: '/docs/introduction', 
       position: 'left' as const,
       type: 'dropdown',
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
-        { label: "What's Semgrep", to: '/faq/overview' },
+        { label: "What's Semgrep", to: '/introduction' },
         { label: 'For developers', to: '/for-developers/overview' },
         { label: 'Release notes', to: '/release-notes' },
         { label: 'Support & resources', to: '/trophy-case' },

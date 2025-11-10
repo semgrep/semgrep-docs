@@ -1,10 +1,10 @@
 ---
-slug: introduction
+slug: /introduction
 append_help_link: true
 title: Introduction to Semgrep
 hide_title: false
 description: Learn what Semgrep has to offer
-displayed_sidebar: scanSidebar
+displayed_sidebar: whatsSemgrepSidebar
 tags:
   - quickstart
   - introduction

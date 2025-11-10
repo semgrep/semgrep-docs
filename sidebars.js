@@ -18,7 +18,7 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'faq/overview', label: 'What\'s Semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/introduction', label: 'What\'s Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
@@ -43,14 +43,9 @@ module.exports = {
     {
         type: 'category',
         label: 'Get started',
-        collapsible: false,
-        items: [
-            {
-                type: 'doc',
-                id: 'getting-started/introduction',
-                label: "What's Semgrep?"
-            },
-            'getting-started/quickstart',
+          collapsible: false,
+          items: [
+              'getting-started/quickstart',
             'getting-started/quickstart-sms',
             'prerequisites',
             'getting-started/scm-support',
@@ -1116,6 +1111,7 @@ module.exports = {
         label: 'What\'s Semgrep',
         collapsible: false,
         items: [
+            'getting-started/introduction',
             'faq/overview',
             'run-a-successful-pov',
             'semgrep-pro-vs-oss',
