@@ -17,13 +17,13 @@ In addition to the `semgrep` binary, the [<i class="fas fa-external-link fa-xs">
 - `bash`
 - `jq`
 - `curl`
-- Python 3.11 (`alpine:3.19` base image)
+- Python 3.11 (`alpine:3.22` base image)
 
-The Alpine 3.19 docker image includes additional packages that can change without notice. To review them, run `docker run alpine:3.19 apk list`.
+The Alpine 3.22 docker image includes additional packages that can change without notice. To review them, run `docker run alpine:3.22 apk list`.
 
 :::caution
 * Do **not** rely on the presence of packages from the Alpine docker image in your CI workflows. They are not guaranteed to be included in the future and are not managed by Semgrep.
-* `jq` and `curl` may be removed in future Semgrep releases. You can install them directly in the docker image. For example:
+* `jq` and `curl` may be removed in future Semgrep releases. You can install them directly in the Docker image if necessary. For example:
 ```yaml
   job:
     container: semgrep/semgrep:latest
