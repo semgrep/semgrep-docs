@@ -89,7 +89,7 @@ Incorporate Semgrep early in your development workflow by using a [supported IDE
 
 Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite) by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
 
-> **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#4-semgrep-managed-scans-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
+> **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 
 
 ### Semgrep Managed Scans (SMS) via the AppSec Platform Dashboard (Recommended)
