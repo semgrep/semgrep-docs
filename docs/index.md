@@ -128,14 +128,14 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>September 2025 release notes summary</h3>
+<h3>October 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- The Semgrep Jira integration now automatically creates Jira tickets for Semgrep Code and Semgrep Secrets findings with a **critical** severity level.
-- Added the `semgrep mcp` subcommand to the Semgrep CLI tool, which runs the Semgrep MCP server. 
-- Improved pre-filtering for taint rules, primarily when taint labels are used.
-- Supply Chain's reachability analysis now covers all high severity CVEs from supported sources starting from 2017 for **JavaScript** packages.
-- [Slack notifications for Semgrep Secrets](/semgrep-appsec-platform/slack-notifications#secrets) is now generally available.
+- Semgrep Managed Scanning is now generally available. With Managed Scans, you can add repositories to your Semgrep organization in bulk without changing your existing CI workflows, and integrate Semgrep into developer workflows through PR or MR comments.
+- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with which memories Assisted used during analysis. The findings also present the threat model for specific security issues in the context of the code, along with a summary of each issue.
+- The `/setup_semgrep_mcp` command now supports Claude Code.
+- Supply Chain's reachability analysis now covers all high-severity CVEs from supported sources starting from 2017 for Go packages.
+- Added a new filter for Semgrep Assistant's AI component tags with **No decision**, allowing users to find findings analyzed by the Assistant, but not classified as **low** or **high** risk.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

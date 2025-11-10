@@ -9,9 +9,6 @@ tags:
   - Release notes
 ---
  
-<!-- Remember to add previous month's under-the-cut behavior --> 
-<!-- Remember to update index page -->
- 
 # Semgrep release notes for October 2025
 
 The following updates were made to Semgrep in October 2025.
@@ -20,7 +17,7 @@ The following updates were made to Semgrep in October 2025.
 
 ### Added
 
-- Semgrep Managed Scanning is now generally available. With Managed Scans, you can add repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows and integrate Semgrep into developer workflows through PR or MR comments.
+- Semgrep Managed Scanning is now generally available. With Managed Scans, you can add repositories to your Semgrep organization in bulk without changing your existing CI workflows, and integrate Semgrep into developer workflows through PR or MR comments.
 - Added a **Remember my email** checkbox to the SSO login page.
 - Added the ability to change the name of **Teams**.
 - The Semgrep CLI is now compatible with machines running Python 3.14.
@@ -41,7 +38,7 @@ The following updates were made to Semgrep in October 2025.
 
 ### Added
 
-- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with which memories Assisted used during analysis. The findings also show the threat model of specific security issues in the context of the code present, along with a summary of the issue.
+- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with which memories Assisted used during analysis. The findings also present the threat model for specific security issues in the context of the code, along with a summary of each issue.
 - The `/setup_semgrep_mcp` command now supports Claude Code.
 
 ### Changed
@@ -60,7 +57,7 @@ The following updates were made to Semgrep in October 2025.
 
 ## Added
 
-- Supply Chain's reachability analysis now covers all high severity CVEs from supported sources starting from 2017 for Go packages.
+- Supply Chain's reachability analysis now covers all high-severity CVEs from supported sources starting from 2017 for Go packages.
 
 ## Fixed
 
