@@ -93,7 +93,7 @@ The following triage states are displayed:
 - Ignored
 - Fixed
 
-Additional triage states, such as **Fixing** or **Reviewing**, are considered **Open**.
+Additional triage states, such as **Fixing** or **Reviewing**, are not displayed at this time.
 
 ## Filters and configuration
 
