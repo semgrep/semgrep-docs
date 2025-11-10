@@ -155,7 +155,7 @@ This pane displays analytics related to findings detected in your **primary or d
 | Total net new  | The difference between the number of **Open** findings at the beginning of the time period and the end of the time period. |
 
 :::tip
-A low or negative value for **Total net new** is ideal. It indicates that more findings are being triaged or resolved than opened within the time period, reducing the backlog of security issues.
+A low or negative value for **Total net new** is ideal. It indicates that, within the period, more findings are being triaged or resolved than opened. This reduces the backlog of security issues.
 :::
 
 ### Charts
