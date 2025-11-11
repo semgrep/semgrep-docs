@@ -1111,7 +1111,11 @@ module.exports = {
         label: 'What\'s Semgrep',
         collapsible: false,
         items: [
-            'getting-started/introduction',
+            {
+              type: 'doc',
+              id: 'getting-started/introduction',
+              label: 'Introduction to Semgrep'
+            },
             'faq/overview',
             'run-a-successful-pov',
             'semgrep-pro-vs-oss',
