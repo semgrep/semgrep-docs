@@ -132,7 +132,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <!-- 5-7 bullets across the product suite -->
 
 - Semgrep Managed Scanning is now generally available. With Managed Scans, you can add repositories to your Semgrep organization in bulk without changing your existing CI workflows, and integrate Semgrep into developer workflows through PR or MR comments.
-- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with which memories Assisted used during analysis. The findings also present the threat model for specific security issues in the context of the code, along with a summary of each issue.
+- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with the memories Assistant used during analysis. The findings also present the threat model for specific security issues in the context of the code, along with a summary of each issue.
 - The `/setup_semgrep_mcp` command now supports Claude Code.
 - Supply Chain's reachability analysis now covers all high-severity CVEs from supported sources starting from 2017 for Go packages.
 - Added a new filter for Semgrep Assistant's AI component tags with **No decision**, allowing users to find findings analyzed by the Assistant, but not classified as **low** or **high** risk.
