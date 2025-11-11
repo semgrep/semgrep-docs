@@ -58,12 +58,15 @@ _**Figure**. A malicious dependency finding._
 
 To view malicious dependencies detected in your projects:
 1. Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
-2. Click the **filters** icon and turn on the **Malicious dependency** filter.
+2. Click the **filters** icon and enable the **Malicious dependency** filter.
+3. Review the results listed here. Click **Details** for available remediation guidance and other details. 
+
+![Malicious dependency details](/img/mal-dependencies-details.png)
 
 ## Triage and remediation for malicious dependencies
 
-- If there is no fix available, **remove** the malicious dependency from your codebase and re-run a Supply Chain scan to fix it.
-- If there is a safe version to update to, fix the finding by updating the dependency and re-running a Supply Chain scan.
+- If there is no fix available, **remove** the malicious dependency from your codebase and re-run a Supply Chain scan.
+- If there is a safe version to update to, fix the finding by updating the dependency. Then, re-run a Supply Chain scan.
 - You can apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
 
 :::caution
@@ -72,7 +75,7 @@ If you have configured your policies to display malicious dependency findings to
 
 ## Advisories for malicious dependencies
 
-You can view all the malicious dependencies that Semgrep can detect by navigating to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
+You can view all the malicious dependencies that Semgrep can detect by navigating to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and ==clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter==.
 
 Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 
