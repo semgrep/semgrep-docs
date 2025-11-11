@@ -24,18 +24,13 @@ At least one repository that scans for dependencies through Semgrep Supply Chain
 
 Once Semgrep Supply Chain successfully scans your repository, you can view and export information regarding the findings presented in Semgrep AppSec Platform using the **Supply Chain** page.
 
-![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_**Figure**. Semgrep Supply Chain Vulnerabilities page._
-
 The **Supply Chain** page displays relevant scan data using four tabs:
 - The **Vulnerabilities** tab enables you to:
     - View reachable vulnerabilities in your repositories through links to specific lines of code.
     - Filter vulnerabilities by severity, reachability, status, transitivity, and other attributes.
     - Understand how to remediate vulnerabilities by providing versions to upgrade to.
     - Track the process of resolving vulnerabilities by adding links to Jira issues and pull requests.
-- The **Advisories** tab displays the latest **Common Vulnerabilities and Exposures (CVEs)** covered by Semgrep Supply Chain rules. Use this tab to see all the CVEs that Semgrep Supply Chain can detect and view the code pattern that the Advisory detects. The Advisories tab displays all rules, regardless of whether they support reachability analysis.
 - The **Dependencies** tab displays information about your dependencies across all onboarded repositories.
-- The **License configuration** tab allows you to explicitly allow or disallow (block) a package's use in your repository based on its license.
 
 ## View findings
 
