@@ -4,7 +4,7 @@ append_help_link: true
 title: View findings
 description: "The Code page allows users to view findings identified by Semgrep Code."
 hide_title: true
-toc_max_heading_level: 5
+toc_max_heading_level: 3
 tags:
     - Semgrep Code
     - Semgrep AppSec Platform
@@ -23,7 +23,7 @@ Semgrep Code generates a **finding** when a rule matches a piece of code in your
 To view your findings in Semgrep AppSec Platform:
 
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. In the **Navigation bar**, click** **[Code](https://semgrep.dev/orgs/-/findings)**.
+2. In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**.
 
 By default, Semgrep displays your **Priority** findings. Priority findings are defined as findings that have been:
 
@@ -39,7 +39,7 @@ You can switch to the **All** tab at any point to view all findings identified b
   - A link to the commit where the finding was first identified.
   - A link to the lines of code where the finding was most recently seen.
 
-## Filters
+## Filter findings
 
 Regardless of whether you use the **Priority** findings view or the **All** findings view, there are multiple grouping and filtering options available to you.
 
@@ -100,7 +100,7 @@ A finding can be categorized in two ways:
       2. A bug within Semgrep itself. See the list of <a href="https://github.com/semgrep/semgrep/issues">Semgrep issues</a> to file a bug report.
 </details>
 
-### Group and sort findings
+## Group and sort findings
 
 By default, Semgrep displays your findings using the **Group by Rule** view. This view shows your findings grouped by the rule Semgrep used to match the code. Your findings are shown sorted **by severity**, but you can opt to sort **by number of findings** for a given rule.
 
@@ -124,24 +124,7 @@ To view in-depth information about a specific finding, select the finding whose 
 - If the default **Group by Rule** is enabled, click the <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
 - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding.
 
-The finding's details page displays in-depth information about the finding, including:
-
-- A description of the finding
-- A description of the rule whose pattern helped generate the finding
-- The code where the security vulnerability occurs, as well as links to the source code
-- Information on where the code can be found in the project
-- Suggested fixes for the issue, if available
-
-The details page also allows you update the finding's status as needed, view links to any integrations available, such as associated Jira tickets, and communicate with your team regarding the finding. For example, you can add notes to the finding that anyone with access to the finding can see.
-
-### Add notes to findings
-
-To **add notes** to the activity history of a finding:
-
-1. Select a finding where you want to view details or add notes, and then do one of the following actions:
-   - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
-   - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is labeled **detected-generic-api-key**.
-2. Go to the **Activity** section, then click **New note**.
+The finding's details page displays in-depth information about the finding. It also allows you to perform actions such as updating the finding's status as needed, viewing links to any integrations available, such as associated Jira tickets, and communicating with your team regarding the finding. For example, you can add notes to the finding that anyone with access to the finding can see. See [View findings' details](/semgrep-code/finding-details) for more information.
 
 ## How Semgrep displays findings on multiple branches
 
@@ -149,5 +132,7 @@ To **add notes** to the activity history of a finding:
 
 ## Next steps
 
+- Learn more about [viewing findings' details](/semgrep-code/finding-details).
 - Learn how to [triage and remediate Semgrep Code findings](/semgrep-code/triage-remediation).
+- Learn how to [get cross-file (interfile) findings for your organization](/semgrep-code/semgrep-pro-engine-intro)
 - See [Semgrep Assistant for Semgrep Code](/semgrep-assistant/overview) for information on receiving AI-powered security recommendations when reviewing your findings.

@@ -66,7 +66,6 @@ These release notes include upgrades for versions ranging between 1.8.0 and 1.13
 - Semgrep App is now Semgrep Cloud Platform!
 - Group by rule became the default view on the Findings page (now labeled as **Code** page) of Semgrep Cloud Platform. This view enables you to see which rules detected certain findings. You can always switch to the old no grouping view. For more information, see [Grouping by rule](/semgrep-code/findings/#group-findings).
 - Taint analysis traces are now displayed on the finding detail page, helping you to track tainted data as they propagate through your code. See [Viewing the path of tainted data](/semgrep-code/findings/#dataflow-traces) to try out this feature.
-    ![Data flow in Finding details page](/img/cloud-platform-findings-details-data-flow.png)<br />
 
 ## Semgrep Supply Chain
 

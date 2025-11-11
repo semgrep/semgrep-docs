@@ -273,7 +273,7 @@ module.exports = {
                     label: 'View findings',
                     link: {type: 'doc', id: 'semgrep-code/findings',},
                     items: [
-                      'semgrep-appsec-platform/details-page',
+                      'semgrep-code/finding-details',
                     ]
                 },
                 'semgrep-code/policies',
