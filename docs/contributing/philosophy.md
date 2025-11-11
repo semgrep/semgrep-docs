@@ -9,12 +9,12 @@ hide_title: true
 
 # Semgrep Community Edition (CE) philosophy
 
-[Semgrep CE](https://github.com/semgrep/semgrep/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code.
+[Semgrep CE](https://github.com/semgrep/semgrep/) is a lightweight static analysis tool for many languages. It can find bug variants with patterns that look like source code (E.G.).
 
 As you think about contributing to Semgrep CE, consider these design principles that have guided Semgrep CE development so far:
 
 1. **Free**<br/>
-“If a developer has to convince their manager to spend a few million dollars on advanced security tools each time they change jobs, the future is bleak.” — see our [introductory blog post](https://semgrep.dev/blog/2020/introducing-semgrep-and-r2c/) for more. It’s important to us (and the community) that Semgrep, Inc. is able to develop a sustainable business around Semgrep to support its development, but we strongly believe the tooling itself must always be free.
+“If a developer has to convince their manager to spend a few million dollars on advanced security tools each time they change jobs, the future is bleak.” —see our [introductory blog post](https://semgrep.dev/blog/2020/introducing-semgrep-and-r2c/) for more. It’s important to us (and the community) that Semgrep, Inc. is able to develop a sustainable business around Semgrep to support its development, but we strongly believe the tooling itself must always be free.
 
 1. **Open-source software**<br/>
 Semgrep is [LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1)) and powered not just by [Semgrep, Inc.](https://semgrep.dev/) but also by community of brilliant external contributors. We welcome feedback and contributions and strive to be a welcoming community for new developers.
