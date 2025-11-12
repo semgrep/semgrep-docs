@@ -314,7 +314,15 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
-                      'semgrep-supply-chain/findings',
+                      {
+                          type: 'category',
+                          collapsible: true,
+                          label: 'View findings',
+                          link: {type: 'doc', id: 'semgrep-supply-chain/findings',},
+                          items: [
+                            'semgrep-supply-chain/finding-details',
+                          ]
+                      },
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/ignoring-deps',
