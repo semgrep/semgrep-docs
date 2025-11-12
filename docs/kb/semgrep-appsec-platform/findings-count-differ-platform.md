@@ -9,26 +9,20 @@ tags:
 
 # Why are findings counts different across Semgrep AppSec Platform pages?
 
-You may see different findings counts across the [Dashboard](https://semgrep.dev/docs/semgrep-appsec-platform/dashboard), [Projects](https://semgrep.dev/docs/deployment/manage-projects), [Scans](https://semgrep.dev/docs/deployment/manage-projects#scan-details-and-logs), and Findings pages in Semgrep AppSec Platform. This is typically due to the filtering criteria used to display the findings.
+You may see different findings counts across the [Dashboard](/semgrep-appsec-platform/dashboard), [Projects](/deployment/manage-projects), [Scans](/deployment/manage-projects#scan-details-and-logs), and Findings pages in Semgrep AppSec Platform. This is typically due to the filtering criteria used to display the findings.
 
 ## The Projects page displays a different findings count from the Findings pages
 
 Semgrep AppSec Platform computes the findings count displayed on the **Projects** page as follows:
 
-- For Semgrep Code and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](https://semgrep.dev/docs/deployment/primary-branch). The Projects page displays **Open** findings. This does not currently include findings in the **To Fix** or **Fixing** statuses.
-- For Semgrep Secrets, the findings count is computed from [deduplicated findings across all branches](https://semgrep.dev/docs/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic).
+- For Semgrep Code and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](/deployment/primary-branch). The Projects page displays **Open** findings. This does not currently include findings in the **To Fix** or **Fixing** statuses.
+- For Semgrep Secrets, the findings count is computed from [deduplicated findings across all branches](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic).
 
 The product-specific **Findings** pages display findings as follows:
 
-- [Semgrep Code](https://semgrep.dev/docs/semgrep-code/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
-- [Semgrep Supply Chain](https://semgrep.dev/docs/semgrep-supply-chain/view-export): displays vulnerability findings from the primary branches of all repositories. Shows **Open** findings that are **Reachable** or **Needs review** by default.
-- [Semgrep Secrets](https://semgrep.dev/docs/semgrep-secrets/view-triage): displays the instance of a finding from the most recent branch scanned. Shows **Open** that are not **Confirmed invalid** by default.
-
-## The Projects page displays a different dependency count from the Dependencies page
-
-The **Projects** page displays the count of individual dependency entries in the latest full scan for the project. The **Dependencies** page shows only unique entries for a dependency, taking into account its lockfile and transitivity status. Dependencies that appear more than once indicate their line locations on hover.
-
-The **Dependencies** page also [loads only the first ten dependency sources](/docs/semgrep-supply-chain/dependency-search#view-additional-manifest-files-or-lockfiles) by default. Load additional dependency sources to see the full count.
+- [Semgrep Code](/semgrep-code/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
+- [Semgrep Supply Chain](/semgrep-supply-chain/view-export): displays vulnerability findings from the primary branches of all repositories. Shows **Open** findings that are **Reachable** or **Needs review** by default.
+- [Semgrep Secrets](/semgrep-secrets/view-triage): displays the instance of a finding from the most recent branch scanned. Shows **Open** that are not **Confirmed invalid** by default.
 
 ## The Projects page displays a different findings count from the Scans page
 
