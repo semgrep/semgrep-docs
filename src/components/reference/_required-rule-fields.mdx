@@ -4,7 +4,7 @@ All required fields must be present at the top level of a rule immediately under
 | :------------ | :------- | :---------- |
 | `id`          | `string` | Unique, descriptive identifier, for example: `no-unused-variable`        |
 | `message`     | `string` | Message that includes why Semgrep matched this pattern and how to remediate it. See also [Rule messages](/contributing/contributing-to-semgrep-rules-repository/#rule-messages). |
-| `severity`    | `string` | Severity can be `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. It indicates the criticality of issues detected by a rule. Note: Semgrep Supply Chain uses [CVE assignments for severity](/docs/semgrep-supply-chain/view-export#filter-findings), while the rule author sets severity for Code and Secrets. The older levels `ERROR`, `WARNING`, and `INFO` match `HIGH`, `MEDIUM`, and `LOW`. Severity values remain backwards compatible. |
+| `severity`    | `string` | Severity can be `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. It indicates the criticality of issues detected by a rule. Note: Semgrep Supply Chain uses [CVE assignments for severity](/docs/semgrep-supply-chain/findings#filter-findings), while the rule author sets severity for Code and Secrets. The older levels `ERROR`, `WARNING`, and `INFO` match `HIGH`, `MEDIUM`, and `LOW`. Severity values remain backwards compatible. |
 | `languages`   | `array`  | See [language extensions and tags](/writing-rules/rule-syntax/#language-extensions-and-languages-key-values).  |
 | `pattern`_\*_     | `string` | Find code matching this expression |
 | `patterns`_\*_   | `array`  | Logical `AND` of multiple patterns |

@@ -14,7 +14,7 @@ Semgrep AppSec Platform provides you with an overview of the findings identified
 Learn more about the filters Semgrep offers using the following articles:
 
 - [Semgrep Code filters](/semgrep-code/findings#filter-findings)
-- [Supply Chain filters](/semgrep-supply-chain/view-export#filter-findings)
+- [Supply Chain filters](/semgrep-supply-chain/findings#filter-findings)
 - [Secrets filters](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)
 
 The following sections of this article explain how you can use filters to identify a specific subset of findings.

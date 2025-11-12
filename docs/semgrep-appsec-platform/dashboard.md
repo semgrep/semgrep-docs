@@ -121,7 +121,7 @@ This displays the following filters in the filter drawer:
 
 - [Severity](/writing-rules/rule-syntax#required)
 - [Confidence](/contributing/contributing-to-semgrep-rules-repository#confidence)
-- [Reachability](/semgrep-supply-chain/view-export#reachability)
+- [Reachability](/semgrep-supply-chain/findings#reachability)
 - [Validation](/semgrep-secrets/getting-started#validation)
 - Time period
 - Product
@@ -134,7 +134,7 @@ This displays the following filters in the filter drawer:
 This refers to any finding that is **Critical** or **High** severity in **addition** to being:
 
 - [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
-- [Reachable](/semgrep-supply-chain/view-export#reachability) - if the finding is from Semgrep Supply Chain.
+- [Reachable](/semgrep-supply-chain/findings#reachability) - if the finding is from Semgrep Supply Chain.
 - [Valid](/semgrep-secrets/getting-started#validation) - if the finding is from Semgrep Secrets.
 
 By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority** filters are enabled.

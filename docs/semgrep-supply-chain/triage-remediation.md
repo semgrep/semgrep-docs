@@ -17,7 +17,7 @@ import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
-Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/view-export), you can triage and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page.
+Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can triage and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page.
 
 ![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
 _**Figure**. Semgrep Supply Chain Vulnerabilities page._

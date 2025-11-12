@@ -276,13 +276,27 @@ module.exports = {
                       'semgrep-code/finding-details',
                     ]
                 },
-                'semgrep-code/policies',
                 'semgrep-code/triage-remediation',
-                'semgrep-code/semgrep-pro-engine-intro',
-                'semgrep-code/semgrep-pro-engine-examples',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Manage rules and policies',
+                    link: {type: 'doc', id: 'semgrep-code/policies',},
+                    items: [
+                      'semgrep-code/pro-rules',
+                      'semgrep-code/editor',
+                    ]
+                },
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Perform cross-file analysis',
+                    link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro',},
+                    items: [
+                      'semgrep-code/semgrep-pro-engine-examples',
+                    ]
+                },
                 'semgrep-code/remove-duplicates',
-                'semgrep-code/editor',
-                'semgrep-code/pro-rules',
             ]
         },
         {
@@ -300,7 +314,7 @@ module.exports = {
                     id: 'semgrep-supply-chain/getting-started',
                   },
                   items: [
-                      'semgrep-supply-chain/view-export',
+                      'semgrep-supply-chain/findings',
                       'semgrep-supply-chain/triage-remediation',
                       'semgrep-supply-chain/policies',
                       'semgrep-supply-chain/ignoring-deps',

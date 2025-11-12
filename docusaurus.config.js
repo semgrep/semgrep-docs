@@ -485,7 +485,8 @@ module.exports = {
           /* OCT 3, 2025 */
           { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
                     /* OCT 23, 2025 */
-          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" }
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
+          { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
         ]
       }
     ],
