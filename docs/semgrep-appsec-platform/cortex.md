@@ -76,4 +76,5 @@ If you're not seeing data for your project in the project settings page:
 
 - Wait for one day for your data to sync.
 - If, after one day, you're still not seeing data, ensure that you meet the integration's prerequisites.
-- If, after one day, you meet the integration's prerequisites, [contact Support](/support) for further assistance.
+- If, after one day, confirm that and image of the project has been deployed in your infrastructure that Cortex has access to
+- If, after one day, you meet the integration's prerequisites and confirmed deployment, [contact Support](/support) for further assistance.
