@@ -1,14 +1,14 @@
 ---
-slug: view-export
+slug: findings
 append_help_link: true
-description: View and export Semgrep Supply Chain Findings."
+title: View and export findings
+description: "The Supply Chain page allows users to view findings identified by Semgrep Supply Chain."
+hide_title: true
+toc_max_heading_level: 3
 tags:
  - Semgrep Supply Chain
  - Semgrep AppSec Platform
-title: View and export findings
-hide_title: true
 ---
-
 
 import EpssTypes from "/src/components/concept/_epss-types.md"
 import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
@@ -17,6 +17,7 @@ import ReachabilityTypes from "/src/components/concept/_reachability-types.md"
 import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
 import TransitivityTypes from "/src/components/concept/_transitivity-types.md"
 import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
+
 
 # Supply Chain findings
 
@@ -88,23 +89,23 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Project tags** | The tags associated with the project. |
 | **Assistant file risk level** | Filter by the risk level determined by Semgrep Assistant. |
 
-#### EPSS probability
+### EPSS probability
 
 <EpssTypes />
 
-#### Reachability
+### Reachability
 
 The finding's exposure to potential attacks, or whether it is reachable.
 
 <ReachabilityTypes />
 
-#### Transitivity
+### Transitivity
 
 The transitivity of the finding: 
 
 <TransitivityTypes />
 
-#### Upgrade guidance (beta)
+### Upgrade guidance (beta)
 
 The impact of a dependency upgrade on your project as determined by Assistant:
 
@@ -119,19 +120,12 @@ By default, Semgrep displays your findings using the **Group by Rule** view. Thi
 
 A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
+<FindingsDefaultView product_name="Supply Chain" />
+
+### Full details of a finding
+
+<ViewDetailsSsc />
+
 ## Export findings
 
 <ExportFindingsCsv />
-
-## View details about a specific finding
-
-To view in-depth information about a specific finding, select the finding whose details you want to view. Then:
-
-- If the default **Group by Rule** is enabled, click the <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
-- If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding.
-
-The finding's details page displays in-depth information about the finding. It also allows you to perform actions such as updating the finding's status as needed, viewing links to any integrations available, such as associated Jira tickets, and communicating with your team regarding the finding. For example, you can add notes to the finding that anyone with access to the finding can see.
-
-## How Semgrep displays findings on multiple branches
-
-<FindingsDefaultView product_name="Supply Chain" />
