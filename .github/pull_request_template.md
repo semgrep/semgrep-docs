@@ -11,11 +11,11 @@
 ---
 
 <details>
-<summary><b>Adding a new documentation page?</b> Click to expand the checklist </summary>
+<summary>Adding a new documentation page? Click to expand the checklist </summary>
 
-- [ ] Created `.md` or `.mdx` file in `/docs/[section]/` with frontmatter: `slug`, `title`, `description`, `displayed_sidebar`, `tags`
-- [ ] Added page to appropriate sidebar in `/sidebars.js`
-- [ ] **If adding the doc in a new directory:** Updated `/src/theme/Navbar/Content/index.tsx` → added path to `getCurrentSection()`
+- [ ] Create `.md` or `.mdx` file in `/docs/[section]/` with frontmatter: `slug`, `title`, `description`, `displayed_sidebar`, `tags`
+- [ ] Add page to appropriate sidebar in `/sidebars.js` (shows in side nav)
+- [ ] **If adding the doc in a new directory:** Update `/src/theme/Navbar/Content/index.tsx` → add path to `getCurrentSection()` (highlights top nav)
 
 Sidebars fields for `displayed_sidebar`:
 `scanSidebar` | `rulewritingSidebar` | `devSidebar` | `learnSidebar` | `aboutSidebar` | `kbSidebar` | `whatsSemgrepSidebar`
