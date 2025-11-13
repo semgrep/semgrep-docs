@@ -5,6 +5,8 @@ hide_title: true
 description: Learn how Semgrep helps organizations meet PCI DSS compliance requirements for protecting cardholder data.
 tags:
   - Compliance
+sidebar_label: PCI DSS compliance
+displayed_sidebar: aboutSidebar
 ---
 
 # PCI DSS compliance

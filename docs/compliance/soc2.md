@@ -5,6 +5,8 @@ hide_title: true
 description: Learn how Semgrep helps organizations meet SOC 2 compliance requirements for security, availability, processing integrity, confidentiality, and privacy.
 tags:
   - Compliance
+sidebar_label: SOC 2 compliance
+displayed_sidebar: aboutSidebar
 ---
 
 # SOC 2 compliance

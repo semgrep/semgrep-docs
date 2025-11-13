@@ -92,6 +92,7 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/security') ||
         path.startsWith('/docs/licensing') ||
         path.startsWith('/docs/usage-and-billing') ||
+        path.startsWith('/docs/compliance') ||
         path.startsWith('/docs/contributing')) {
       return 'explore';
     }
