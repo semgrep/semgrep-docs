@@ -25,12 +25,12 @@ To view your findings in Semgrep AppSec Platform:
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**.
 
-By default, Semgrep displays your **Priority** findings. Priority findings are defined as findings that have been:
+By default, Semgrep displays your **Priority** findings. Priority findings are defined as findings that:
 
-- Categorized as **Security** findings. You can identify findings categorized under **Security** using the <i class="fas fa-shield-halved"></i> badge.
-- Flagged with a severity level of **critical** or **high**
-- Flagged with a confidence level of **high**
-- Flagged by Semgrep Assistant as likely being a **true positive**
+- Are categorized as **Security** findings. You can identify findings categorized under **Security** using the <i class="fas fa-shield-halved"></i> badge.
+- Are flagged with a severity level of **critical** or **high**
+- Are flagged with a confidence level of **high**
+- Are flagged by Semgrep Assistant as likely being a **true positive**
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes:
 
@@ -132,7 +132,7 @@ The finding's details page displays in-depth information about the finding. It a
 
 ## Next steps
 
-- Learn more about [viewing findings' details](/semgrep-code/finding-details).
+- Learn more about [viewing a finding's details](/semgrep-code/finding-details).
 - Learn how to [triage and remediate Semgrep Code findings](/semgrep-code/triage-remediation).
 - Learn how to [get cross-file (interfile) findings for your organization](/semgrep-code/semgrep-pro-engine-intro)
 - See [Semgrep Assistant for Semgrep Code](/semgrep-assistant/overview) for information on receiving AI-powered security recommendations when reviewing your findings.
