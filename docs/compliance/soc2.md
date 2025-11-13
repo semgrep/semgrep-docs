@@ -21,6 +21,8 @@ When properly configured with CI/CD systems, Semgrep [policy enforcement](https:
 
 [Jira integration](https://semgrep.dev/docs/semgrep-appsec-platform/jira) documents your remediation workflow with timestamps and assignments, giving auditors clear evidence that security issues are identified, tracked, and resolved systematically (CC8.1 change management). [SBOM generation](https://semgrep.dev/docs/semgrep-supply-chain/sbom) provides supply chain visibility for vendor risk management controls (CC9.1).
 
-**Deployment and certification:** Semgrep Inc. is SOC 2 Type II certified. For CLI deployments, scans run on customer infrastructure (which may or may not be SOC 2 certified, depending on customer controls). For on-premises CI/CD, scans run on customer-controlled infrastructure. Cloud CI/CD providers (GitHub, GitLab, Azure DevOps, Bitbucket) are SOC 2 certified. For Semgrep Managed Scans, scans run on Semgrep's SOC 2 Type II-certified AWS infrastructure.
+### Deployment and certification
 
-Not finding what you need in this doc? Ask questions in our [Community Slack group](https://go.semgrep.dev/slack), or see [Support](https://semgrep.dev/docs/support/) for other ways to get help.
+Semgrep Inc. is SOC 2 Type II certified. For CLI deployments, scans run on customer infrastructure (which may or may not be SOC 2 certified, depending on customer controls). For on-premises CI/CD, scans run on customer-controlled infrastructure. Cloud CI/CD providers (GitHub, GitLab, Azure DevOps, Bitbucket) are SOC 2 certified. For Semgrep Managed Scans, scans run on Semgrep's SOC 2 Type II-certified AWS infrastructure.
+
+
