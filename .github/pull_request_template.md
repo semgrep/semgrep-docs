@@ -20,7 +20,7 @@
 Sidebars fields for `displayed_sidebar`:
 `scanSidebar` | `rulewritingSidebar` | `devSidebar` | `learnSidebar` | `aboutSidebar` | `kbSidebar` | `whatsSemgrepSidebar`
 
-Top Nav fields for `getCurrentSection()`:
+Top nav fields for `getCurrentSection()`:
 `'scan'` | `'write-rules'` | `'learning-guides'` | `'help'` | `'explore'`
 
 </details>
