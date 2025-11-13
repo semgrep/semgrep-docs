@@ -8,9 +8,9 @@ tags:
  - Semgrep AppSec Platform
 ---
 
-# View exposure and runtime context from Cortex in Semgrep AppSec Platform
+# View exposure and runtime context from Cortex by Palo Alto Networks
 
-The Semgrep Cortex integration can ingest exposure and runtime context from your Cortex instance. This allows you to prioritize findings based on deployment status and internet exposure status.
+The Semgrep Cortex integration can ingest exposure and runtime context from your Cortex instance in the Semgrep AppSec Platform. This allows you to prioritize findings based on deployment status and internet exposure status.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ If you see the **Connection Error** message under your Cortex integration, there
 If the connection settings are correct, [contact Support](/support) for further assistance.
 
 ![Cortex Connection Error](/img/cortex_error_integration.png##md-width)
-_**Figure.** Erro with the Cortex integration._
+_**Figure.** Error with the Cortex integration._
 
 
 ### If you're not seeing data in your project settings page
