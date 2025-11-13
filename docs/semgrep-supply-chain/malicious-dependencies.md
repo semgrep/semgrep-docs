@@ -9,7 +9,6 @@ tags:
 
 # Detect and remove malicious dependencies
 
-
 **Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
 
 Semgrep can detect malicious dependencies in your projects and pull requests (PRs) or merge requests (MRs).
@@ -39,9 +38,12 @@ This table lists the languages for which Supply Chain can detect malicious depen
 
 ## Malicious dependency findings
 
+
 Malicious dependency findings are treated as **critical severity** findings.
 
 If you set up your Supply Chain [policies](https://semgrep.dev/orgs/-/policies/supply-chain) to block critical severity findings, malicious dependency findings block a PR or MR in the same way as any other Supply Chain finding.
+
+From the Supply Chain policies page, you can also configure a policy to trigger conditionally when a dependency `is` or `is not` marked **Malicious**.
 
 <!--  No way to do this currently
 ## Enable or disable malicious dependency detection
@@ -59,9 +61,10 @@ _**Figure**. A malicious dependency finding._
 To view malicious dependencies detected in your projects:
 1. Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
 2. Click the **filters** icon and enable the **Malicious dependency** filter.
-3. Review the results listed here. Click **Details** for available remediation guidance and other details. 
+3. Review the results listed here. Click **Details** to learn more about available remediation guidance. 
 
 ![Malicious dependency details](/img/mal-dependencies-details.png)
+
 
 ## Triage and remediation for malicious dependencies
 
@@ -73,12 +76,21 @@ To view malicious dependencies detected in your projects:
 If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > General > Code > Triage via code review comments**, your developers are able to triage these findings as **Ignored**.
 :::
 
+## Create Jira tickets for malicious dependency findings
+
+Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch. This capability, similar to the Jira integration for Secrets findings, allows developers to respond as soon as a malicious package is detected.
+
+To enable Jira ticket creation for malicious dependencies:
+
+1. Navigate to **Settings > Integrations > Jira**.
+2. Select the option to **Automatically create tickets for malicious dependency findings on any branch**.
+
+
 ## Advisories for malicious dependencies
 
-You can view all the malicious dependencies that Semgrep can detect by navigating to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and ==clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter==.
+You can view all the malicious dependencies that Semgrep can detect by navigating to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and turning on just the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
 
 Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 
-## Disable malicious dependency detection
 
 
