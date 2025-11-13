@@ -631,7 +631,7 @@ module.exports = {
             'deployment/claim-a-license',
             {
               type: 'category',
-              label: 'compliance',
+              label: 'Compliance',
               collapsible: true,
               items: [
                 'compliance/soc2',
