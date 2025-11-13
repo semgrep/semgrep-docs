@@ -4,6 +4,7 @@ append_help_link: true
 title: Semgrep AppSec Platform versus Community Edition
 hide_title: true
 description: "Learn about the features and differences of Semgrep AppSec Platform and Community Edition."
+displayed_sidebar: whatsSemgrepSidebar
 tags:
   - Support
   - Semgrep AppSec Platform

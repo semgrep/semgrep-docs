@@ -49,6 +49,10 @@ export default function NavbarContent(): JSX.Element {
 
   const getCurrentSection = () => {
     const path = location.pathname;
+    // Check specific paths before general ones
+    if (path.startsWith('/docs/deployment/claim-a-license')) {
+      return 'explore';
+    }
     if (path.startsWith('/docs/getting-started') || 
         path.startsWith('/docs/deployment') ||
         path.startsWith('/docs/semgrep-appsec-platform') ||
@@ -72,7 +76,7 @@ export default function NavbarContent(): JSX.Element {
       return 'write-rules';
     }
     if (path.startsWith('/docs/for-developers')) {
-      return 'for-developers';
+      return 'explore';
     }
     if (path.startsWith('/docs/learn')) {
       return 'learning-guides';

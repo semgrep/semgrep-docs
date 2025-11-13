@@ -2,7 +2,7 @@
 slug: run-a-successful-pov
 title: Run a successful trial with Semgrep
 hide_title: true
-displayed_sidebar: whatsSemgrepSidebar
+displayed_sidebar: aboutSidebar
 description: Explore and deploy the Semgrep platform through a proof-of-value (POV) or proof-of-concept (POC) trial. Semgrep dedicates support and engineering resources to ensure you are able to run Semgrep smoothly.
 tags:
   - Semgrep AppSec Platform
