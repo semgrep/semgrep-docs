@@ -78,7 +78,7 @@ If you have configured your policies to display malicious dependency findings to
 
 ## Create Jira tickets for malicious dependency findings
 
-Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch. This capability, similar to the Jira integration for Secrets findings, allows developers to respond as soon as a malicious package is detected.
+Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch. This capability enables developers to respond immediately when a malicious package is detected.
 
 To enable Jira ticket creation for malicious dependencies:
 
