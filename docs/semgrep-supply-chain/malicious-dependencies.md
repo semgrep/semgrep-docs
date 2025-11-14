@@ -43,7 +43,7 @@ Malicious dependency findings are treated as **critical severity** findings.
 
 If you set up your Supply Chain [policies](https://semgrep.dev/orgs/-/policies/supply-chain) to block critical severity findings, malicious dependency findings block a PR or MR in the same way as any other Supply Chain finding.
 
-From the Supply Chain policies page, you can also configure a policy to trigger conditionally when a dependency `is` or `is not` marked **Malicious**.
+From the Supply Chain policies page, you can also configure a policy to trigger conditionally based on whether a dependency is marked **Malicious**.
 
 <!--  No way to do this currently
 ## Enable or disable malicious dependency detection
