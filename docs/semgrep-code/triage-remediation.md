@@ -4,7 +4,7 @@ append_help_link: true
 title: Triage and remediation
 hide_title: false
 toc_max_heading_level: 2
-description: Learn how about Semgrep Code's triage status for findings and how to triage and remediate findings.
+description: Learn about Semgrep Code's triage status for findings and how to triage and remediate findings.
 tags:
     - Semgrep Code
     - Semgrep AppSec Platform
@@ -18,16 +18,16 @@ import TabItem from '@theme/TabItem';
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import TriageReason from "/src/components/reference/_triage-reason.mdx"
 
-This article shows you how to triage and manage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
+This article shows you how to manage and triage identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
-- **Triaging the finding.** Deprioritize a finding if it's not useful or important through triage. Triage actions include ignoring and reopening a finding that was previously ignored. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
+- **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
 ### Semgrep Assistant
 
-If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, and remediate your Semgrep finding:
+If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings:
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
   - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes
@@ -40,15 +40,15 @@ Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#au
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when a finding is no longer present in the code. You can also manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
+Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. You can also manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
 
 The triage statuses are as follows:
 
 <TriageStatuses />
 
-## Manage findings
+## Triage and remediation
 
-The following sections show you have to manage your findings by:
+The following sections show you how to manage your findings by:
 
 * Fixing the underlying code
 * Disabling a rule or a ruleset
@@ -59,40 +59,11 @@ Note that some actions, such as ignoring and reopening findings, require differe
 
 ### Fix a finding
 
-To **fix a finding**, update or refactor the code such that the Semgrep rule pattern no longer matches the code.
-
-### Disable a ruleset or a rule
-
-You can disable a specific rule or ruleset to prevent Semgrep Code from using it when scanning your codebase.
-
-:::info
-When you disable a rule, existing findings from that rule remains open until you re-scan your code.
-:::
-
-<details>
-<summary>Disable rules and rulesets</summary>
-
-To disable a **rule**:
-
-1. Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies) and select either:
-    - The top **<span className="placeholder">Number</span> Matching Rules** checkbox to select all rules.
-    - Individual checkboxes next to a rule to disable rules one by one.
-2. Click **(<span className="placeholder">Number</span>) Change modes**, then click **Disabled**.
-
-You can also switch the state listed under the **Mode** column to **Disabled** for individual rules
-
-To disable a **ruleset** using the Policies page:
-
-1. Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
-2. Use the **Ruleset** filter's drop-down box to find and click the ruleset to remove.
-3. Click <i class="fas fa-check-square"></i> **Matching rules**.
-4. Click **Change modes > Disabled**.
-
-</details>
+To **fix a finding**, update or refactor the code so that the Semgrep rule pattern no longer matches it.
 
 ### Ignore findings
 
-One way to handle **false positives** without changing the rule or your code is to set the finding's triage status to **ignore**.
+To handle **false positives** without changing the rule or your code, set the finding's triage status to **ignore**.
 
 <details>
 <summary>Ignore findings in <b>Group by Rule</b> view</summary>
@@ -170,22 +141,49 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 </details>
 
+### Turn off a ruleset or a rule
+
+You can turn off a specific rule or ruleset to prevent Semgrep Code from using it when scanning your codebase.
+
+:::info
+When you turn off a rule, existing findings from that rule remain open until you re-scan your code.
+:::
+
+<details>
+<summary>Disable rules and rulesets</summary>
+
+To disable a **rule**:
+
+1. Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies) and select either:
+    - The top **<span className="placeholder">Number</span> Matching Rules** checkbox to select all rules.
+    - Individual checkboxes next to a rule to turn off rules one by one.
+2. Click **(<span className="placeholder">Number</span>) Change modes**, then click **Disabled**.
+
+You can also set the state in the **Mode** column to **Disabled** for individual rules.
+
+To turn off a **ruleset** using the Policies page:
+
+1. Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
+2. Use the **Ruleset** filter's drop-down box to find and click the ruleset to remove.
+3. Click <i class="fas fa-check-square"></i> **Matching rules**.
+4. Click **Change modes > Disabled**.
+
+</details>
+
 ## Triage findings through PR and MR comments
 
-Triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
+You can triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
 
 Before proceeding, ensure that you have:
-    - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
-    - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
+ - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
+ - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
 
 To triage a finding:
 
 1. Find an open comment created by Semgrep in your pull request or merge request.
 2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
-    <TriageReason />
-    Semgrep attempts to reply to your comment if it successfully triages the finding:
-    ![Sample Semgrep response comment after successfully triaging the finding.](/img/semgrep-triage-response.png#md-width)
-    _**Figure**. Semgrep response comment after successfully triaging the finding._
+ <TriageReason />
+ Semgrep attempts to reply to your comment if it successfully triages the finding.
 
 Triaging a finding as **Ignored** through a comment changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the pull request or merge request conversation itself is **not** automatically resolved by this process.
 
