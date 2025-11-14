@@ -269,7 +269,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '20px'
+            fontSize: '24px'
           }}>
             ✨
           </div>

@@ -517,16 +517,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         style={{
           display: 'flex',
           alignItems: 'center',
-          border: (isFocused || aiResponse) ? '2px solid #00D4AA' : '1px solid #D1D5DB',
+          border: (isFocused || aiResponse || aiLoading) ? '2px solid #00D4AA' : '1px solid #D1D5DB',
           borderRadius: '12px',
           background: 'white',
-          padding: (isFocused || aiResponse) ? '12px 16px' : '8px 12px',
+          padding: (isFocused || aiResponse || aiLoading) ? '12px 16px' : '8px 12px',
         transition: 'all 0.3s ease',
           cursor: 'text',
-          minWidth: (isFocused || aiResponse) ? '450px' : '250px',
-          width: (isFocused || aiResponse) ? '100%' : 'auto',
-          maxWidth: (isFocused || aiResponse) ? '600px' : '300px',
-          boxShadow: (isFocused || aiResponse) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
+          minWidth: (isFocused || aiResponse || aiLoading) ? '450px' : '250px',
+          width: (isFocused || aiResponse || aiLoading) ? '100%' : 'auto',
+          maxWidth: (isFocused || aiResponse || aiLoading) ? '600px' : '300px',
+          boxShadow: (isFocused || aiResponse || aiLoading) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
           <input 
@@ -542,7 +542,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               outline: 'none',
             flex: 1,
             padding: '0',
-            fontSize: (isFocused || aiResponse) ? '16px' : '14px',
+            fontSize: (isFocused || aiResponse || aiLoading) ? '16px' : '14px',
               background: 'transparent',
             color: '#111827',
             fontWeight: '500',
@@ -629,7 +629,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               }}
               title="Get AI-powered answer"
             >
-              <span>{aiLoading ? '⏳' : '✨'}</span>
+              <span style={{ fontSize: '16px' }}>{aiLoading ? '⏳' : '✨'}</span>
               <span>{aiLoading ? 'Thinking...' : 'Ask AI'}</span>
             </button>
             </div>
@@ -651,7 +651,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 fontWeight: '600',
                 color: '#059669'
               }}>
-                <span>✨</span>
+                <span style={{ fontSize: '16px' }}>✨</span>
                 <span>AI Answer</span>
               </div>
               <div style={{
