@@ -707,44 +707,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   ))}
                 </div>
               )}
-              <button
-                onClick={() => {
-                  // Dispatch event to open chatbot with current query
-                  const event = new CustomEvent('openChat', { 
-                    detail: { query: query }
-                  });
-                  window.dispatchEvent(event);
-                }}
-                style={{
-                  marginTop: '12px',
-                  width: '100%',
-                  background: 'linear-gradient(135deg, #00D4AA 0%, #00A67D 100%)',
-                  color: 'white',
-                  border: 'none',
-                  padding: '10px 16px',
-                  borderRadius: '8px',
-                  fontSize: '13px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  transition: 'all 0.2s',
-                  boxShadow: '0 2px 8px rgba(0, 212, 170, 0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 212, 170, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 212, 170, 0.3)';
-                }}
-              >
-                <span style={{ fontSize: '16px' }}>💬</span>
-                <span>Continue conversation in chat</span>
-              </button>
             </div>
           )}
           
