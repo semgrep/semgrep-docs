@@ -61,7 +61,7 @@ _**Figure**. A malicious dependency finding._
 To view malicious dependencies detected in your projects:
 1. Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
 2. Click the **filters** icon and enable the **Malicious dependency** filter.
-3. Review the results listed here. Click **Details** to learn more about available remediation guidance. 
+3. Review the results listed. Click **Details** to learn more about available remediation guidance. 
 
 ![Malicious dependency details](/img/mal-dependencies-details.png)
 
