@@ -465,7 +465,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
   return (
     <>
-      {/* Background blur overlay when search is focused */}
+      {/* Background overlay when search is focused */}
       {isFocused && (
         <div 
           style={{
@@ -474,9 +474,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            backdropFilter: 'blur(4px)',
-            WebkitBackdropFilter: 'blur(4px)', // Safari support
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
             zIndex: 999,
             transition: 'all 0.3s ease',
             animation: 'fadeIn 0.3s ease'
