@@ -110,13 +110,13 @@ Semgrep generates dependency paths for Kotlin projects built using Maven when a 
 Semgrep generates dependency paths for Python projects that use the following package managers:
 
 - `poetry` and `poetry.lock` file
-- `pip` with `requirements.txt`
 - `uv` (requires Semgrep version `1.127.0` or later)
 
-Semgrep also supports Python projects that use the following package managers:
+Semgrep also generates dependency paths for Python projects that use the following package managers:
 
 - `Pipenv`
 - `piptools`
+- `pip` with `requirements.txt`
 
 when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
