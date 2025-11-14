@@ -15,7 +15,7 @@ Semgrep can detect malicious dependencies in your projects and pull requests (PR
 
 ## Supported package managers
 
-This table lists the languages for which Supply Chain can detect malicious dependencies.
+The following table lists the languages for which Supply Chain can detect malicious dependencies.
 
 | Language | Package manager or ecosystem |
 | :---- | :---- |
