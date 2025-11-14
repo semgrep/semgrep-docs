@@ -17,41 +17,34 @@ import ViewDetailsSsc from "/src/components/procedure/_view-details-ssc.md"
 At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
 :::
 
-Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can triage and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page. Semgrep provides the following methods to help you assess your findings:
+Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can assess, triage, and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page. Semgrep provides the following methods to help you evaluate your findings:
 
 | Assessment action | Method |
 | - | - |
-| Filter findings. | Click any of the filters available on the **Supply Chain** page. |
+| Filter findings. | Click any filter on the **Supply Chain** page. |
 | View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>. | Click the finding's <strong>CVE badge</strong>. |
-| View specific pattern matches in your codebase. | This information is available on the Supply Chain finding's **Details** page. |
-| View the [dependency path for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta). | This information is available on the Supply Chain finding's **Details** page. |
-| View safe versions to upgrade your dependencies. |  This information is available on the Supply Chain finding's **Details** page. |
+| View specific pattern matches in your codebase. | View the Supply Chain finding's **Details** page. |
+| View the [dependency path for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta). | View the Supply Chain finding's **Details** page. |
+| View safe versions to upgrade your dependencies. |  View the Supply Chain finding's **Details** page. |
 
-### Remediate true positives
+Once you've assessed the findings, the following actions are available to you.
 
-Remediate (or resolve) true positives in Semgrep Supply Chain through the following methods:
+## Remediate true positives
 
-* Update the dependency to a safe version that does not contain the vulnerability.
-* Remove the dependency and refactor all usages in the codebase.
+Remediate (or resolve) true positives in Semgrep Supply Chain by:
 
-#### Remove the dependency and refactor the code
+* Updating the dependency to a safe version that does not contain the vulnerability.
+* Removing the dependency and refactoring all usages in the codebase.
 
-Removing the dependency and refactoring the code is another method to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects the changes in your manifest file or lockfile, and updates the status to **Fixed**.
+### Remove the dependency and refactor the code
 
-### Ignore findings
-
-The **Supply Chain** tab allows you to identify the reachable, true positives so that you can fix or resolve the related issues. However, you can ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
-
-1. Select one or more findings.
-2. Click **Triage**.
-3. Select **Ignore** and click **Continue**.
-4. Select an **Ignore reason**, provide a optional comment, and click **Ignore**.
+Removing dependencies and refactoring code are other methods to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects changes to your manifest file or lockfile, and updates the status to **Fixed**.
 
 ## Upgrade guidance and click-to-fix pull requests
 
 If the remediation for a finding is to upgrade the package, **upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Have Semgrep open a pull request (PR) that updates the version used by your repository and provide guidance to the developer on the breaking changes in the PR description
+- Have Semgrep open a pull request (PR) that updates the version used by your repository and guide the developer on the breaking changes in the PR description
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
@@ -71,13 +64,13 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 
 ### Prerequisites
 
-To access all upgrade guidance and click to fix features, you must have:
+To access all upgrade guidance and click-to-fix features, you must have:
 
 - At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
-- [Optionally: connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports the use of private Python registries only.
+- [Optionally: connected your private registry, if any, to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports only private Python registries.
 
 ### Features and permissions required
 
@@ -142,12 +135,22 @@ The following context is included in the pull request description:
 - Dependency references
   - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
 
+## Ignore findings
+
+The **Supply Chain** tab allows you to identify reachable true positives so you can fix or resolve the related issues. However, you can ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
+
+1. In Semgrep AppSec Platform, go to [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain).
+2. Select one or more findings.
+3. Click **Triage > Ignored**.
+4. Provide **Comments** to describe why you're ignoring the selected findings.
+5. Click **Submit**.
+
 ## Block pull request or merge requests
 
-See [Supply Chain Policies](/semgrep-supply-chain/policies) for information on how to:
+To prevent security vulnerabilities from being merged into your codebase, see [Supply Chain Policies](/semgrep-supply-chain/policies) for information on how to:
 
-- Block pull request or merge requests
-- Leave comments on pull request or merge requests
+- Block pull requests or merge requests with security vulnerabilities
+- Leave comments on pull requests or merge requests with security vulnerabilities
 
 ## Appendix
 
@@ -185,7 +188,7 @@ Semgrep currently supports integrations with private Maven package registries fo
 :::
 </details>
 
-### Troubleshooting: Semgrep is not displaying any upgrade guidance or click to fix functionality
+### Troubleshooting: Semgrep is not displaying any upgrade guidance or click-to-fix functionality
 
 <details>
 <summary>Expand for information on troubleshooting if Semgrep is not displaying any upgrade guidance or click to fix functionality</summary>
