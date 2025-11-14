@@ -465,8 +465,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
   return (
     <>
-      {/* Background overlay when search is focused */}
-      {isFocused && (
+      {/* Background overlay when search is focused or results are open */}
+      {(isFocused || isOpen) && (
         <div 
           style={{
             position: 'fixed',
@@ -474,7 +474,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
             zIndex: 999,
             transition: 'all 0.3s ease',
             animation: 'fadeIn 0.3s ease'
