@@ -90,7 +90,7 @@ See also [NIST definition of threat](https://csrc.nist.gov/glossary/term/threat)
 
 ## Transitive or indirect dependency
 
-A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. An example would be a codebase that uses [Cloudinary](https://www.npmjs.com/package/cloudinary), which is dependent on Lodash. In this example, Lodash is a transitive dependency of the codebase.
+A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. An example would be a codebase that uses Cloudinary, which is dependent on Lodash. In this example, Lodash is a transitive dependency of the codebase.
 
 For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
 
