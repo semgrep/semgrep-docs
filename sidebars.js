@@ -250,7 +250,9 @@ module.exports = {
           collapsible: true,
           items: [
             'mcp',
+            'semgrep-appsec-platform/cortex',
             'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/sysdig',
             'semgrep-appsec-platform/wiz'
           ]
         },

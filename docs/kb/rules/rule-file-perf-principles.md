@@ -52,10 +52,10 @@ You can configure these flags to skip long files after a shorter timeout period
 or when a smaller number of rules timeout. Usually, Semgrep matches files pretty
 quickly, but minified JavaScript files can cause significant performance issues.
 
-Semgrep sets a limit of 1 MB for each file scanned, but you can modify this
-setting using the `--max-target-bytes` flag. For example, if your flag is
-`--max-target-bytes=1500000`, Semgrep ignores any larger file. You can get a
-full list of files Semgrep skips by including the `--verbose` flag and
-inspecting `ci.log`. This information helps you determine the feasibility of
-including those files and whether you should adjust the maximum file size limit
-to scan such files.
+Semgrep sets a file size limit of 1 MB for each file scanned, but you can
+modify this setting using the `--max-target-bytes` flag. For example, if your
+flag is `--max-target-bytes=1500000`, Semgrep ignores any larger file. You can
+get a full list of files Semgrep skips by including the `--verbose` or
+`--debug` flags and inspecting the output log. This information helps you
+determine the feasibility of including those files and whether you should
+adjust the maximum file size limit to scan such files.
