@@ -36,6 +36,10 @@ Remediate (or resolve) true positives in Semgrep Supply Chain by:
 * Updating the dependency to a safe version that does not contain the vulnerability.
 * Removing the dependency and refactoring all usages in the codebase.
 
+## Review provisionally ignored findings
+
+If you have Semgrep Assistant enabled, review the findings that have been provisionally ignored. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+
 ### Remove the dependency and refactor the code
 
 Removing dependencies and refactoring code are other methods to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects changes to your manifest file or lockfile, and updates the status to **Fixed**.

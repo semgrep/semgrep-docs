@@ -61,6 +61,10 @@ Note that some actions, such as ignoring and reopening findings, require differe
 
 To **fix a finding**, update or refactor the code so that the Semgrep rule pattern no longer matches it.
 
+## Review provisionally ignored findings
+
+If you have Semgrep Assistant enabled, review the findings that have been provisionally ignored. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+
 ### Ignore findings
 
 To handle **false positives** without changing the rule or your code, set the finding's triage status to **ignore**.
