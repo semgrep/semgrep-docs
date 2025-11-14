@@ -463,6 +463,35 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     }
   };
 
+  // Enhanced markdown rendering for AI responses
+  const renderMarkdown = (text: string): string => {
+    let html = text;
+    
+    // Handle code blocks with language (```language\ncode\n```)
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const lang = language || '';
+      const escapedCode = code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
+    });
+    
+    // Handle inline code (`code`)
+    html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
+    
+    // Handle links [text](url)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
+    
+    // Handle bold **text**
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Handle newlines
+    html = html.replace(/\n/g, '<br />');
+    
+    return html;
+  };
+
   return (
     <>
       {/* Background overlay when search is focused or results are open */}
@@ -600,7 +629,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               }}
               title="Get AI-powered answer"
             >
-              <span>{aiLoading ? '⏳' : '🤖'}</span>
+              <span>{aiLoading ? '⏳' : '✨'}</span>
               <span>{aiLoading ? 'Thinking...' : 'Ask AI'}</span>
             </button>
             </div>
@@ -622,7 +651,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 fontWeight: '600',
                 color: '#059669'
               }}>
-                <span>🤖</span>
+                <span>✨</span>
                 <span>AI Answer</span>
               </div>
               <div style={{
@@ -632,10 +661,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 marginBottom: aiSources.length > 0 ? '12px' : '0'
               }}
               dangerouslySetInnerHTML={{ 
-                __html: aiResponse
-                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>')
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/\n/g, '<br />') 
+                __html: renderMarkdown(aiResponse)
               }}
               />
               {aiSources.length > 0 && (

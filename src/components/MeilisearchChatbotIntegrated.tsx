@@ -271,7 +271,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
             justifyContent: 'center',
             fontSize: '20px'
           }}>
-            🤖
+            ✨
           </div>
           <div>
             <div style={{ fontWeight: '700', fontSize: '17px', letterSpacing: '-0.2px' }}>
