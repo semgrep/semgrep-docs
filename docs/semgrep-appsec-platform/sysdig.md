@@ -10,7 +10,7 @@ tags:
 
 # View runtime context from Sysdig
 
-The Semgrep Sysdig integration can ingest runtime context from your Sysdig account into the Semgrep AppSec Platform. This allows you to prioritize findings based on deployment status.
+The Semgrep Sysdig integration can ingest runtime context from your Sysdig account into Semgrep AppSec Platform. This allows you to prioritize findings based on deployment status.
 
 ## Prerequisites
 
