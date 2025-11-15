@@ -6,7 +6,7 @@ You may want to read the README first to understand the relationship between `se
 
 ## Prerequisite
 
-- Python >= 3.8 installed in your local machine.
+- Python >= 3.10 installed in your local machine.
 - [`pipenv`](https://github.com/pypa/pipenv) for managing your virtual
 environment. Install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html). Ensure `pipenv` is on your `$PATH` before proceeding.
 
