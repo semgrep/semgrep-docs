@@ -69,7 +69,6 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
         {label: 'macOS', value: 'macOS'},
         {label: 'Linux', value: 'Linux'},
         {label: 'Windows', value: 'Windows'},
-        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
         ]}
     >
@@ -104,17 +103,6 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
     ```bash
     # ensure that you have Python 3.9 or later installed
     # before proceeding
-
-    python3 -m pip install --upgrade semgrep
-    ```
-
-    </TabItem>
-
-    <TabItem value='Windows Subsystem for Linux (WSL)'>
-
-    ```bash
-    # ensure that you have Python 3.9 or later installed
-    # on WSL before proceeding
 
     python3 -m pip install --upgrade semgrep
     ```
