@@ -397,7 +397,7 @@ OPTIONS
            Internal flag.
 
        --x-eio
-           [INTERNAL] Rely on an EIO based implementation for the -j flag
+           [INTERNAL] <deprecated>
 
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
@@ -410,6 +410,13 @@ OPTIONS
 
        --x-merge-partial-results-output=VAL
            Internal flag.
+
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
+
+       --x-parmap
+           [INTERNAL] Rely on legacy Parmap-based parallelism
 
        --x-partial-config=VAL
            Internal flag.

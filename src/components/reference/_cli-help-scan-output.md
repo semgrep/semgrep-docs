@@ -476,7 +476,7 @@ OPTIONS
            Write a copy of the vim output to a file or post to URL.
 
        --x-eio
-           [INTERNAL] Rely on an EIO based implementation for the -j flag
+           [INTERNAL] <deprecated>
 
        --x-group-taint-rules
            <internal, do not use>
@@ -498,6 +498,13 @@ OPTIONS
            why they were skipped, using an unspecified output format. Implies
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
+
+       --x-parmap
+           [INTERNAL] Rely on legacy Parmap-based parallelism
 
        --x-pro-naming
            <internal, do not use>
