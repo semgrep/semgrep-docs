@@ -326,8 +326,8 @@ Semgrep supports several types of access tokens:
 These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. 
 
 Some features of these tokens:
-- They are  not tied to a specific user account, and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
-- Only admins can generate or manage these tokens. This can be done by going to **Settings → Tokens** in Semgrep AppSec Platform.  
+- They are not tied to a specific user account, and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
+- Only admins can generate or manage these tokens. You can manage tokens by going to **Settings → Tokens** in Semgrep AppSec Platform.  
 
 #### CLI tokens (Member-scoped) tokens
 
@@ -351,7 +351,7 @@ Some features of CLI tokens:
 
 #### Agent tokens 
 
-Automatically generated when onboarding repositories for CI/CD scans. These tokens authenticate agents running automated scans within CI environments.  
+Agentic tokens are the same as Web API tokens and are automatically generated during repository onboarding for CI/CD scans. The default scope of these tokens is Agent/CI, but they can be granted API scope. They authenticate agents running automated scans within CI environments.  
 
 #### Temporary tokens
 
@@ -364,7 +364,6 @@ Short-lived tokens generated internally for specific features, such as Managed S
 
 ### Token scopes
 
-Token scopes define what a token can do; they can be used to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep AppSec Platform when onboarding (adding) a repository.
 
 The following table displays token scopes and their permissions:
 
