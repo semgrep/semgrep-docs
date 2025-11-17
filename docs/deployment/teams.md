@@ -341,12 +341,10 @@ Both members and admins can create CLI tokens. Once logged in, users can run sca
 
 
 Some features of CLI tokens: 
-- Tied to the user who created them, but permissions cannot be elevated. For admin access, users must first obtain the admin role and then create a new token as an admin. See [Changing a user's role](#change-a-users-role).
-- Visible only to admins, not members, in **Settings → Tokens**.  
-- Work only for running scans and reporting results.  
-- Tokens generated with `semgrep login` are CLI-only and cannot be converted to Web API tokens.  
-- Running `semgrep logout` removes the local token but does not invalidate it server-side.  
-- CLI tokens record which user generated them, but actions are attributed to the token, not the individual user. 
+- Their permissions cannot be elevated. For Web API access, users must first obtain the admin role and then create a new token with that scope as an admin. See [Changing a user's role](#change-a-users-role).
+- They can only run scans, report results, and publish rules.
+- In the platform, under **Settings → Tokens**, CLI tokens record which user generated them, but actions authenticated with the token are attributed to the token, not the individual user. 
+- Running `semgrep logout` removes the local token but does not invalidate it on the server.
 
 
 #### Agent tokens 
