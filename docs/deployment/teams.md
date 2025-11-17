@@ -317,7 +317,9 @@ To set a member as a manager for a subteam:
 
 ### Tokens
 
-An access token is a secure credential that authorizes a user to interact with the Semgrep AppSec Platform or API without requiring a username and password. Access tokens identify who is making a request and define what actions they are allowed to perform, based on the [token’s scope](#token-scopes).
+An access token is a secure credential that authorizes a user to interact with the Semgrep AppSec Platform or API without requiring a username and password. Access tokens identify who is making a request and define what actions they are allowed to perform, based on the [token’s scope](#token-scopes). 
+
+For security reasons, tokens are shown once at creation. Copy it to a secure location or you will need to generate a new one.
 
 Semgrep supports several types of access tokens:
 
@@ -350,13 +352,6 @@ Some features of CLI tokens:
 #### Agent tokens 
 
 Agentic tokens are the same as Web API tokens and are automatically generated during repository onboarding for CI/CD scans. These tokens authenticate agents running automated scans within CI environments. The default scope of these tokens is Agent/CI, but they can be granted API scope. 
-
-#### Temporary tokens
-
-Short-lived tokens generated internally for specific features, such as Managed Scans and Click-to-Fix. Most of these features are in beta.
-- Designated as temporary and typically deleted automatically through cleanup processes.  
-- Values are not exposed for reuse after creation.  
-
 
 
 
