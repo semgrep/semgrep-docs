@@ -36,6 +36,12 @@ The following table lists the languages for which Supply Chain can detect malici
 | PHP | \-- | 
 -->
 
+## Enabling malicious dependency rules
+
+To include malicious dependency rules in your Supply Chain scan, navigate to **Settings > Supply Chain** and enable Malicious dependency advisories. 
+
+You can also use this setting to disable malicious dependency scanning for your Semgrep organization.
+
 ## Malicious dependency findings
 
 
