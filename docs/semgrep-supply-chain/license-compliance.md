@@ -51,7 +51,7 @@ To view a package's license policy:
 
 To change the policies of packages based on the license:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Supply Chain > License configuration.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Supply Chain** > **License configuration**.
 2. Browse the available licenses within the **License configuration** section.
    ![License configuration section](/img/sc-license-configuration.png#md-width)
    _**Figure**. The Supply Chain > Settings > License configuration section._
