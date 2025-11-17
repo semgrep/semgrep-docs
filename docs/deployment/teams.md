@@ -351,7 +351,7 @@ Some features of CLI tokens:
 
 #### Agent tokens 
 
-Agentic tokens are the same as Web API tokens and are automatically generated during repository onboarding for CI/CD scans. The default scope of these tokens is Agent/CI, but they can be granted API scope. They authenticate agents running automated scans within CI environments.  
+Agentic tokens are the same as Web API tokens and are automatically generated during repository onboarding for CI/CD scans. These tokens authenticate agents running automated scans within CI environments. The default scope of these tokens is Agent/CI, but they can be granted API scope. 
 
 #### Temporary tokens
 
@@ -363,7 +363,6 @@ Short-lived tokens generated internally for specific features, such as Managed S
 
 
 ### Token scopes
-
 
 The following table displays token scopes and their permissions:
 
