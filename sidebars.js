@@ -634,10 +634,14 @@ module.exports = {
               label: 'Compliance',
               collapsible: true,
               items: [
-                'compliance/soc2',
+                'compliance/fedramp',
+                'compliance/gdpr',
+                'compliance/hipaa-hitrust',
                 'compliance/iso27001',
+                'compliance/iso27017',
+                'compliance/nist-800-171',
                 'compliance/pci-dss',
-                'compliance/gdpr'
+                'compliance/soc2'
               ]
             },
             'trophy-case',

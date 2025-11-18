@@ -11,7 +11,6 @@ displayed_sidebar: aboutSidebar
 
 # PCI DSS compliance
 
-
 **Disclaimer:** *Semgrep provides security tooling that can support compliance efforts, but does not guarantee compliance. Organizations remain responsible for meeting all compliance requirements. Consult with your compliance team and auditors to determine how Semgrep fits into your compliance program.*
 
 **Last updated:** November 2025
