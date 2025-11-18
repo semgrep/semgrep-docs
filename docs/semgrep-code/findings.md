@@ -34,10 +34,10 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes:
 
-  - The name and brief description of the rule used to generate the finding.
-  - The name of the project.
-  - A link to the commit where the finding was first identified.
-  - A link to the lines of code where the finding was most recently seen.
+- The name and brief description of the rule used to generate the finding.
+- The name of the project.
+- A link to the commit where the finding was first identified.
+- A link to the lines of code where the finding was most recently seen.
 
 ## Filter findings
 

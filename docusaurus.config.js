@@ -487,6 +487,7 @@ module.exports = {
                     /* OCT 23, 2025 */
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
+          { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
         ]
       }
     ],

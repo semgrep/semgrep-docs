@@ -342,10 +342,17 @@ module.exports = {
             label: 'Secrets',
             items: [
                 'semgrep-secrets/conceptual-overview',
-                'semgrep-secrets/getting-started',
-                'semgrep-secrets/historical-scanning',
-                'semgrep-secrets/generic-secrets',
-                'semgrep-secrets/view-triage',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Scan for secrets',
+                    link: {type: 'doc', id: 'semgrep-secrets/getting-started',},
+                    items: [
+                      'semgrep-secrets/historical-scanning',
+                      'semgrep-secrets/generic-secrets'
+                    ]
+                },
+                'semgrep-secrets/triage-remediation',
                 'semgrep-secrets/policies',
                 'semgrep-secrets/rules',
                 'semgrep-secrets/validators',

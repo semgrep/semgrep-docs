@@ -78,4 +78,4 @@ The following links explain how Semgrep presents findings for each Semgrep produ
 
 - [Semgrep Code default view](/docs/semgrep-code/findings#default-page-view)
 - [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation)
-- [Semgrep Secrets default view](/semgrep-secrets/view-triage#default-secrets-page-view-and-branch-logic)
+- [Semgrep Secrets default view](/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic)
