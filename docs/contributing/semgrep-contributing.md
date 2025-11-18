@@ -2,7 +2,7 @@
 
 This article explains how to build `semgrep-cli` so that you can make and test changes to the Python wrapper.
 
-The `semgrep-cli` name refers to the project which exposes the actual `semgrep` command. The README explains the relationship between `semgrep-cli` and `semgrep-core`.
+The `semgrep-cli` name refers to the project that exposes the actual `semgrep` command. The README explains the relationship between `semgrep-cli` and `semgrep-core`.
 
 ## Prerequisite
 
@@ -20,7 +20,7 @@ Most Python development is done inside the `cli` directory:
 cd cli
 ```
 
-Next, initialize and enter the virtual environment. The following command installs developer dependencies such as `pytest` and also installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, run:
+Next, initialize and enter the virtual environment. The following command installs developer dependencies, such as `pytest`, and installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, run the following command:
 
 ```bash
 pipenv shell
@@ -38,22 +38,19 @@ SEMGREP_SKIP_BIN=true pipenv install --dev
 `SEMGREP_SKIP_BIN` tells the installer that you'll use your own `semgrep-core`; see below.*
 :::
 
-Running `which semgrep` should return a path within your virtual environment. On MacOS, this is likely contained within `$HOME/.local/share/virtualenvs/`.
+Running `which semgrep` should return a path within your virtual environment. On macOS, this is likely contained within `$HOME/.local/share/virtualenvs/`.
 
 ## Get the `semgrep-core` binary
 
 Almost all usages of `semgrep-cli` require the `semgrep-core` binary.
 The best way to get the binary is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core). It takes approximately 20 minutes.
 
-You can use a precompiled binary, but there are two downsides:
+### Using a precompiled binary
 
-- You are not able to make edits to `semgrep-core`, for example to fix a parse error.
-- Semgrep fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has happened roughly every two months historically, but can happen at any time without notice.
+You can use a precompiled binary, but note two downsides:
 
-
-With that in mind, here is one available shortcut:
-
-### The Homebrew shortcut
+- You cannot modify `semgrep-core`, for example, to fix a parse error.
+- Semgrep scan fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has happened roughly every two months historically, but can happen at any time without notice.
 
 If you installed Semgrep using Homebrew (with `brew install semgrep`), a `semgrep-core` binary was bundled within that installation. However, it is not made available on your `$PATH` by default.
 
@@ -69,19 +66,19 @@ export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
 
 ## Run `semgrep-cli`
 
-Ensure that you are in `cli/` directory, and then issue the following command:
+Ensure that you are in the `cli/` directory, and then issue the following command:
 
 ```
 pipenv run semgrep --help
 ```
 
-To try a simple analysis, you can run:
+To try a simple analysis, run:
 
 ```
 echo 'if 1 == 1: pass' | semgrep --lang python --pattern '$X == $X' -
 ```
 
-Congratulations, you have Semgrep running locally!
+You now have Semgrep running locally.
 
 ## Install `semgrep`
 
@@ -91,11 +88,11 @@ You can always run `semgrep` from `cli/`, which will use your latest changes in 
 pipenv install --dev
 ```
 
-Some people have encountered difficulties with the above. If it fails, you can reach out to the [`semgrep` team on Slack](https://go.semgrep.dev/slack).
+If you encounter difficulties, reach out to the [`semgrep` team on Slack](https://go.semgrep.dev/slack).
 
 Now you can run `semgrep --help` from anywhere.
 
-If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, simply run
+If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, run:
 
 ```
 make rebuild
@@ -118,7 +115,7 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
               - ...
               - types-PyYAML
     ```
-3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` changes or by looking up online the most recent major version of the package.
+3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` file or by looking up the most recent major version of the package online.
     ```
     install_requires = [
        ...
@@ -126,12 +123,12 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
     ]
     ```
 
-This change makes your package a dependency of published Semgrep. Without this change, if you create a pull request, the CI job called `build docker image` fails with a `ModuleNotFoundError`, indicating that it is unable to find your package.
+This change makes your package a dependency of published Semgrep. Without this change, if you create a pull request, the CI job called `build docker image` fails with a `ModuleNotFoundError`, indicating it cannot find your package.
 
 ## Troubleshooting
 
 For a reference build that's known to work, consult the root `Dockerfile`
-to build semgrep inside a container. You can check that it builds with
+to build Semgrep inside a container. You can check that it builds with
 
 ```
 docker build -t semgrep .
@@ -147,31 +144,32 @@ To run tests, run the following command:
 pipenv run pytest
 ```
 
-There are some much slower tests which run semgrep on many open source projects. To run these slow tests, run:
+There are some much slower tests that run Semgrep on many open source projects. To run these slow tests, run:
 
 ```sh
 pipenv run pytest tests/qa
 ```
 
-If you want to update the tests to match to the current output:
+If you want to update the tests to match the current output:
+
 ```sh
 make regenerate-tests
 ```
 
-Running a single test file is simple too:
+If you want to run a single test file:
 
 ```
 pipenv run pytest path/to/test.py
 ```
 
-Or running an individual test function:
+Or run an individual test function:
 
 ```
 pipenv run pytest path/to/test.py::test_func_name
 ```
 
 `semgrep-cli` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
-to allow for basic benchmarking functionality. This can be run like so:
+to allow for basic benchmarking functionality. Run the following command:
 
 ```
 pipenv run pytest --benchmark-only
