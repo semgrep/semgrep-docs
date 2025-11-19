@@ -12,10 +12,7 @@ import ValidationStates from '/src/components/reference/_validation-states.mdx'
 
 # Scan for secrets
 
-Semgrep Secrets allows you to detect and triage leaked secrets and credentials
-and save time by prioritizing which secrets to rotate based on whether they're active and in use.
-
-![Semgrep Secrets page](/img/secrets-page.png#md-width)
+Semgrep Secrets allows you to detect and triage leaked secrets and credentials and save time by prioritizing which secrets to rotate based on whether they're active and in use.
 
 This document guides you through:
 
@@ -29,7 +26,7 @@ To access Semgrep Secrets, contact [Semgrep Sales](mailto:sales@semgrep.com) for
 
 ## Language and environment support
 
-Semgrep Secrets can scan repositories using **any programming language** and supports the posting of PR and MR comments to GitHub, GitLab, and Bitbucket.
+Semgrep Secrets can scan repositories using **any programming language** and supports the posting of pull request (PR) and merge request (MR) comments to GitHub, GitLab, and Bitbucket.
 
 ## Enable Semgrep Secrets
 
@@ -39,13 +36,11 @@ You have completed a [Semgrep core deployment](/deployment/core-deployment).
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > General > Secrets**.
-3. Click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets scans** toggle to enable.
-
-Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning.
+3. Click the **<i class="fa-solid fa-toggle-large-on"></i> Secrets scans** toggle to enable Semgrep Secrets.
 
 ## Scan your repository
 
-After you've enabled Semgrep Secrets, you can:
+Once you've enabled Secrets for your organization, all Semgrep scans include secret scanning. You can:
 
 * Manually trigger a full scan of your repository through your CI provider
 * Start a scan from the CLI (Semgrep recommends that you run CLI scans only on feature branches, not main branches)
@@ -57,10 +52,11 @@ After you've enabled Semgrep Secrets, you can:
 Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that aren't relevant for code scanning. To specify files that Semgrep Secrets should ignore:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
-2. From the Dashboard Sidebar, select **[Projects](https://semgrep.dev/orgs/-/projects)** > **[Project name]**.
-3. Click **Secrets** to expand and display the **Path Ignores** box.
-4. Enter files and folders to ignore in the **Path Ignores** box.
-5. Click **Save changes**.
+2. From the **Navigation bar**, select **[Projects](https://semgrep.dev/orgs/-/projects)**.
+3. Find your project, then click **Details**.
+4. Go to **Settings > Path ignores**.
+5. Enter files and folders to ignore in the **Path Ignores** for Secrets box.
+6. Click **Save changes**.
 
 ## Upgrade your rules
 
@@ -71,8 +67,8 @@ You can see individual findings for which there is a Semgrep Secrets rule upgrad
 To see the rules you're using for which there is a Secrets rule upgrade in Semgrep AppSec Platform:
 
 1. Sign in to Semgrep AppSec Platform.
-2. Go to **Rules** > **Policies** > **Code**.
-3. Under **Available rule upgrades**, ensure that you've selected **Secrets**.
+2. Go to **Rules & Policies > Policies > Code**.
+3. Under **Available rule upgrades**, select **Secrets**.
 
 ## Next steps
 
