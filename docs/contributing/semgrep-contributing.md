@@ -43,7 +43,7 @@ Running `which semgrep` should return a path within your virtual environment. On
 ## Get the `semgrep-core` binary
 
 Almost all usages of `semgrep-cli` require the `semgrep-core` binary.
-The best way to get the binary is to follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core). It takes approximately 20 minutes.
+To get the binary, follow the instructions in [Building `semgrep-core`](semgrep-core-contributing.md#build-semgrep-core). It takes approximately 20 minutes.
 
 ### Using a precompiled binary
 
