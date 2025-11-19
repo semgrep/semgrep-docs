@@ -13,14 +13,14 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for 8 minutes
+      - name: Wait for deployment
         run: sleep 480s
         shell: bash
       
-      - name: Check out code 🛎
+      - name: Check out code
         uses: actions/checkout@v4
       
-      - name: Create Meilisearch scraper config
+      - name: Create scraper config
         run: |
           cat > meilisearch-config.json << 'EOF'
           {
@@ -61,7 +61,7 @@ jobs:
           }
           EOF
       
-      - name: Scrape site and send to Meilisearch 🧽
+      - name: Run scraper
         env:
           MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
@@ -71,8 +71,4 @@ jobs:
             -e MEILISEARCH_API_KEY \
             -v $PWD/meilisearch-config.json:/docs-scraper/config.json \
             getmeili/docs-scraper:latest pipenv run ./docs_scraper config.json
-      
-      - name: Notify on success
-        if: success()
-        run: echo "✅ Meilisearch index updated successfully!"
 
