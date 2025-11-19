@@ -16,10 +16,6 @@ import PL from '@site/src/components/Placeholder';
 
 The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code, Supply Chain, and Secrets findings.
 
-:::info
-The Jira integration is currently in beta.
-:::
-
 ## Prerequisites
 
 - You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
@@ -165,7 +161,7 @@ You can map multiple labels to a single Semgrep field when creating a field mapp
 
 1. Select **Labels** under **Jira fields**.
 1. Select **Set a static value** under **Semgrep fields**. A text box appears.
-1. Enter each label, separated by a comma. Each of these labels are then added to the ticket.
+1. Enter each label, separated by a comma. Each of these labels is then added to the ticket.
 
 :::tip
 The **Project tag** Semgrep field also creates multiple labels.
