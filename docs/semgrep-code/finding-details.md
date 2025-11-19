@@ -24,8 +24,6 @@ The finding's details page displays in-depth information about the finding, incl
 
 ## View a finding's details
 
-To view a finding's details page:
-
 1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**.
 3. Identify the finding whose details you want to view:
