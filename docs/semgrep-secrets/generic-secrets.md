@@ -12,7 +12,7 @@ import PL from '@site/src/components/Placeholder';
 
 # Generic secrets AI
 
-Like Semgrep Secrets, which scans for specific secrets, **generic secrets AI** scans your code for the inadvertent inclusion of credentials, such as API keys, passwords, and access tokens using rules. However, AI-powered generic secrets detection looks for common keywords, such as auth, key, or passwords, and flags anything nearby that appears to be a secret. It then analyzes the results to eliminate false positives, so you only see high-signal results likely to be true positives.
+Like Semgrep Secrets, which scans for specific secrets, **Generic secrets AI** scans your code for the inadvertent inclusion of credentials, such as API keys, passwords, and access tokens using rules. However, AI-powered generic secrets detection looks for common keywords, such as auth, key, or passwords, and flags anything nearby that appears to be a secret. It then analyzes the results to eliminate false positives, so you only see high-signal results likely to be true positives.
 
 ## Prerequisites
 
@@ -50,11 +50,8 @@ You can view the secrets analyzed by Assistant at URL
 ## View findings
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Go to [**Secrets**](https://semgrep.dev/orgs/-/secrets?validation_state=confirmed_valid%2Cvalidation_error%2Cno_validator&tab=open&last_opened=All+time&type=AI-detected+secret+(beta)) to see a list of all findings identified by Semgrep Secrets. 
-1. Filter for generic secrets findings by setting the **Secret type** filter to **Generic Secret (AI)**.
-
-![Generic secrets findings in Semgrep AppSec Platform](/img/generic-secrets.png#md-width)
-_**Figure**. Generic secrets findings in Semgrep AppSec Platform._
+2. Go to [**Secrets**](https://semgrep.dev/orgs/-/secrets) to see a list of all findings identified by Semgrep Secrets. 
+3. Expand the **Additional filters** menu, then select **Secret type > Generic Secrets** to filter for generic secrets findings.
 
 ## Disable generic secrets
 

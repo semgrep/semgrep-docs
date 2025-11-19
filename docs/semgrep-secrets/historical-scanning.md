@@ -11,7 +11,7 @@ tags:
 
 # Scan your Git history (beta)
 
-Historical scans allow you to detect valid, leaked secrets in your Git history, helping you reduce your repository's attack surface. You can perform one-time historical scans or enable historical scans for full Secrets scans., tehn track and triage these findings in Semgrep AppSec Platform.
+Historical scans allow you to detect valid, leaked secrets in your Git history, helping you reduce your repository's attack surface. 
 
 ## Feature maturity
 
@@ -21,57 +21,9 @@ Historical scans allow you to detect valid, leaked secrets in your Git history, 
 
 Please leave feedback either by reaching out to your technical account manager (TAM) or through the **<i class="fa-solid fa-bullhorn"></i> Feedback** form in Semgrep AppSec Platform's navigation bar.
 
-## Run historical scans
+## Prerequisites
 
-You can enable historical scans for your full scans, perform one-time historical scans using the Semgrep CLI, or create an on-demand CI job. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Diff-aware scans do **not** perform historical scans.
-
-### Prerequisites
-
-Historical scanning requires Semgrep **v1.65.0** or later. See [Update](/update/) for instructions.
-
-### Enable historical scans for full Secrets scans
-
-:::tip
-[Test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.
-:::
-
-1. Sign in to Semgrep AppSec Platform.
-2. Go to **Settings > General > Secrets**.
-3. Click the **<i class="fa-solid fa-toggle-large-on"></i> Historical scanning** toggle.
-
-Subsequent Semgrep full scans now include historical scanning.
-
-### Run a one-off historical scan
-
-To run a one-off or on-demand historical scan, you can create a specific CI job and then manually start the job as needed.
-
-The general steps are:
-
-1. Copy your current full scan CI job configuration file, or use [a template](/semgrep-ci/sample-ci-configs/).
-1. Look for the `semgrep ci` command.
-1. Append the `--historical-secrets` flag:
-    ```
-    semgrep ci --historical-secrets
-    ```
-1. Depending on your CI provider, you may have to perform additional steps to enable the job to run manually. For example, GitHub Actions requires the `workflow_dispatch` event to be added to your CI job.
-
-### Run a local test scan
-
-You can run a historical scan locally without sending the scan results to Semgrep AppSec Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
-
-To run a test scan, enter the following command:
-
-```bash
-semgrep ci --secrets --historical-secrets --dry-run
-```
-
-The historical scan results appear in the **Secrets Historical Scan** section.
-
-## View or hide historical findings
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Click **<i class="fa-solid fa-key"></i> Secrets**.
-3. Expand the **Additional filters** menu, then select **Include historical findings** to toggle on or off the display of historical findings.
+Historical scanning requires Semgrep **v1.65.0** or later.
 
 ## Scope of findings
 
@@ -87,18 +39,61 @@ The historical scan results appear in the **Secrets Historical Scan** section.
 
 For more information on the types of findings by validation, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
 
+## Enable historical scans for full Secrets scans
+
+You can enable historical scans for your full scans, perform one-time historical scans using the Semgrep CLI, or create an on-demand CI job. Then, then track and triage these findings in Semgrep AppSec Platform. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Diff-aware scans do **not** perform historical scans.
+
+:::tip
+[Test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.
+:::
+
+To enable historical scanning:
+
+1. Sign in to Semgrep AppSec Platform.
+2. Go to **Settings > General > Secrets**.
+3. Click the **<i class="fa-solid fa-toggle-large-on"></i> Historical scanning** toggle.
+
+Subsequent Semgrep full scans now include historical scanning.
+
+### Run a one-off historical scan
+
+To run a one-off or on-demand historical scan, you can create a specific CI job and then manually start the job as needed. The general steps are:
+
+1. Copy your current full scan CI job configuration file, or use [a template](/semgrep-ci/sample-ci-configs/).
+2. Append the `--historical-secrets` flag to the `semgrep ci` command:
+    ```bash
+    semgrep ci --historical-secrets
+    ```
+3. Depending on your CI provider, you may have to perform additional steps to enable the job to run manually. For example, GitHub Actions requires the `workflow_dispatch` event to be added to your CI job.
+
+### Run a local test scan
+
+You can run a historical scan locally without sending the scan results to Semgrep AppSec Platform. This can help you determine the time it takes for Semgrep Secrets to run on your repository's Git commit history.
+
+To run a test scan, enter the following command:
+
+```bash
+semgrep ci --secrets --historical-secrets --dry-run
+```
+
+The historical scan results appear in the **Secrets Historical Scan** section of the CLI output.
+
 ## Triage process
 
 Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
 
 1. Manually rotate the secret.
 1. In Semgrep AppSec Platform, click **Secrets**.
-1. Toggle the **Hide historical** button if it is enabled. This displays all historical findings.
-2. Expand the **Additional filters** menu. Go to **Historical findings**, then toggle the **Exclude historical** to toggle on or off the display of historical findings.
+2. Select the checkboxes for all of the historical secrets that you want to triage, then click **Triage > Ignored**.
+3. Provide a **Comment** about why you're changing the status to **Ignored**, then click **Submit**.
 
-3. Select all the checkboxes for secrets you want to triage, then click **Triage > Ignore**, optionally including a comment in the provided text box.
+## Hide historical findings
 
+Semgrep AppSec Platform displays historical findings by default. These findings are flagged as **Historical <i class="fa-regular fa-clock-rotate-left"></i>** in the findings list. To hide historical findings:
 
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to [**<i class="fa-solid fa-key"></i> Secrets**](https://semgrep.dev/orgs/-/secrets).
+3. Expand the **Additional filters** menu, then select **Historical findings > Exclude historical** to toggle off the display of historical findings.
 
 ## Limitations
 
@@ -106,7 +101,7 @@ Historical scan findings are not automatically marked as **Fixed**. To triage a 
 - Within Semgrep AppSec Platform, historical scan findings are not automatically marked as **Fixed**. Findings can only exist in two states: `Open` or `Ignored`. Because Semgrep scans do not automatically detect historical findings as fixed, you must manually rotate and triage the secret as `Ignored`.
 - With historical scans enabled, the CLI output displays secrets still present in the current version of the code twice: once at the commit where they were initially added and once at the current commit from the standard Secrets scan. Semgrep AppSec Platform deduplicates the two findings and displays the secret as a current rather than a historical one.
 
-### Size of commit history
+### Commit history size
 
 - Semgrep Secrets scans up to **5 GiB** of uncompressed blobs. This ranges from around **10,000 to 50,000** previous commits depending on the average size of the commit.
 - For repositories with more than 5 GiB of history, Semgrep Secrets is still able to complete the scan, but the scan scope will not cover the older commits beyond 5 GiB.
