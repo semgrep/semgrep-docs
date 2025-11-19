@@ -95,7 +95,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
       return `${window.location.origin}/.netlify/functions/meilisearch-chat`;
     }
     
-    return 'https://ms-0e8ae24505f7-30518.sfo.meilisearch.io/chat';
+    return 'https://ms-3ade175771ef-34593.sfo.meilisearch.io/chat';
   };
 
   const copyToClipboard = async (text: string, index: number) => {
