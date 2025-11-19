@@ -50,7 +50,7 @@ To get the binary, follow the instructions in [Building `semgrep-core`](semgrep-
 You can use a precompiled binary, but note two downsides:
 
 - You cannot modify `semgrep-core`, for example, to fix a parse error.
-- Semgrep scan fails if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has happened roughly every two months historically, but can happen at any time without notice.
+- Semgrep scans fail if the interface between `semgrep-cli` and `semgrep-core` has changed since the binary was compiled. This has happened roughly every two months historically, but can happen at any time without notice.
 
 If you installed Semgrep using Homebrew (with `brew install semgrep`), a `semgrep-core` binary was bundled within that installation. However, it is not made available on your `$PATH` by default.
 
