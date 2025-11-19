@@ -67,7 +67,7 @@ _**Figure.** The Jira configuration screen._
 All products limit automatic ticket creation to **Critical** or **High** severity findings. Code and Supply Chain findings must also be on your [primary branch](/deployment/primary-branch).
 
 - For Code, Semgrep automatically creates tickets for **high confidence findings**.
-- For Supply Chain, Semgrep automatically creates tickets for **reachable findings**.
+- For Supply Chain, Semgrep automatically creates tickets for **reachable findings** and/or **malicious dependency findings**.
 - For Secrets, Semgrep automatically creates tickets for **validated secrets** on **any** branch.
 
 Automatically-created tickets are created after each scan completes, and always group findings by rule, if the scan identified more than one new finding for the same rule.
