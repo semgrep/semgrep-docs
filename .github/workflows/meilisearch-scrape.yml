@@ -1,0 +1,78 @@
+name: Meilisearch scrape
+
+on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: Run from dispatch
+  push:
+    branches:
+      - main
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for 8 minutes
+        run: sleep 480s
+        shell: bash
+      
+      - name: Check out code 🛎
+        uses: actions/checkout@v4
+      
+      - name: Create Meilisearch scraper config
+        run: |
+          cat > meilisearch-config.json << 'EOF'
+          {
+            "index_uid": "semgrep_docs",
+            "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
+            "start_urls": [
+              {
+                "url": "https://semgrep.dev/docs/release-notes",
+                "tags": ["release_notes"]
+              },
+              {
+                "url": "https://semgrep.dev/docs/rule-updates",
+                "tags": ["rule_updates"]
+              },
+              {
+                "url": "https://semgrep.dev/docs"
+              }
+            ],
+            "stop_urls": [
+              "https://semgrep.dev/docs/tags/*",
+              "https://semgrep.dev/docs/category/*"
+            ],
+            "selectors": {
+              "lvl0": {
+                "selector": ".breadcrumbs > li:nth-child(2) span.breadcrumbs__link",
+                "global": true,
+                "default_value": "Semgrep documentation"
+              },
+              "lvl1": "article h1",
+              "lvl2": "article h2",
+              "lvl3": "article h3",
+              "lvl4": "article h4",
+              "lvl5": "article h5, article td:first-child",
+              "lvl6": "article h6",
+              "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
+            },
+            "strip_chars": " .,;:#()"
+          }
+          EOF
+      
+      - name: Scrape site and send to Meilisearch 🧽
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL \
+            -e MEILISEARCH_API_KEY \
+            -v $PWD/meilisearch-config.json:/docs-scraper/config.json \
+            getmeili/docs-scraper:latest pipenv run ./docs_scraper config.json
+      
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Meilisearch index updated successfully!"
+
