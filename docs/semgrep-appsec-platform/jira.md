@@ -283,7 +283,7 @@ _**Figure.** Secrets ticket created._
 
 ## Create tickets through the Semgrep API
 
-Semgrep provides an API endpoint you can use to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
+Semgrep provides an API endpoint you can use to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira endpoint documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/TicketingService_CreateTicket).
 
 ## Ticket creation information
 
