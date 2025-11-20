@@ -21,6 +21,17 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       
+      - name: Clear existing documents
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+        run: |
+          echo "Clearing existing documents..."
+          curl -X DELETE \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs/documents" \
+            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}"
+          echo "Documents cleared"
+      
       - name: Create scraper config
         run: |
           cat > meilisearch-config.json << 'EOF'

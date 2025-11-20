@@ -32,16 +32,26 @@
     "workflow": ["workflow", "pipeline", "automation", "ci/cd", "devops"]
   },
   "searchableAttributes": [
-    "hierarchy.lvl0",
     "hierarchy.lvl1",
     "hierarchy.lvl2",
     "hierarchy.lvl3",
     "hierarchy.lvl4",
     "hierarchy.lvl5",
     "hierarchy.lvl6",
+    "hierarchy.lvl0",
     "content",
-    "type",
     "url"
+  ],
+  "displayedAttributes": [
+    "*"
+  ],
+  "rankingRules": [
+    "words",
+    "typo",
+    "proximity",
+    "attribute",
+    "sort",
+    "exactness"
   ],
   "filterableAttributes": [
     "type",
@@ -50,8 +60,30 @@
     "docusaurus_tag",
     "hierarchy.lvl0",
     "hierarchy.lvl1",
+    "hierarchy.lvl2",
+    "hierarchy.lvl3",
+    "hierarchy.lvl4",
+    "hierarchy.lvl5",
+    "hierarchy.lvl6"
+  ],
+  "sortableAttributes": [
+    "hierarchy.lvl0",
+    "hierarchy.lvl1",
     "hierarchy.lvl2"
   ],
-  "distinctAttribute": "url"
+  "distinctAttribute": "url",
+  "typoTolerance": {
+    "enabled": true,
+    "minWordSizeForTypos": {
+      "oneTypo": 4,
+      "twoTypos": 8
+    }
+  },
+  "faceting": {
+    "maxValuesPerFacet": 100
+  },
+  "pagination": {
+    "maxTotalHits": 1000
+  }
 }
 
