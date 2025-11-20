@@ -39,7 +39,7 @@ Only one instance of the WireGuard-based Network Broker can be run concurrently.
 
 ### Network Requirements
 - Between Semgrep and Broker:
-  - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
+  - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If you are on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
   - If using the `--deployment-id` CLI flag, allow outbound to `semgrep.dev` on TCP port 443 for HTTPS.
 - Between Broker and each private network resource:
   - Enable outbound on TCP ports 80 and 443 for HTTP/HTTPS communication.
