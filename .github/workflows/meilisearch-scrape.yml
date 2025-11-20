@@ -14,77 +14,17 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      
       - name: Wait for deployment
         run: sleep 480s
         shell: bash
       
-      - name: Check out code
-        uses: actions/checkout@v4
-      
-      - name: Clear existing documents
-        env:
-          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
-          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
-        run: |
-          echo "Clearing existing documents (settings preserved)..."
-          curl -X DELETE \
-            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs/documents" \
-            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}"
-          echo "Documents cleared, settings intact"
-      
-      - name: Create scraper config
-        run: |
-          cat > meilisearch-config.json << 'EOF'
-          {
-            "index_uid": "semgrep_docs",
-            "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
-            "start_urls": [
-              {
-                "url": "https://semgrep.dev/docs/release-notes",
-                "tags": ["release_notes"]
-              },
-              {
-                "url": "https://semgrep.dev/docs/rule-updates",
-                "tags": ["rule_updates"]
-              },
-              {
-                "url": "https://semgrep.dev/docs"
-              }
-            ],
-            "stop_urls": [
-              "https://semgrep.dev/docs/tags/*",
-              "https://semgrep.dev/docs/category/*"
-            ],
-            "selectors": {
-              "lvl0": {
-                "selector": ".breadcrumbs > li:nth-child(2) span.breadcrumbs__link",
-                "global": true,
-                "default_value": "Semgrep documentation"
-              },
-              "lvl1": "article h1",
-              "lvl2": "article h2",
-              "lvl3": "article h3",
-              "lvl4": "article h4",
-              "lvl5": "article h5, article td:first-child",
-              "lvl6": "article h6",
-              "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
-            },
-            "strip_chars": " .,;:#()"
-          }
-          EOF
-      
-      - name: Run scraper
-        env:
-          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
-          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
-        run: |
-          echo "Running scraper to index documents..."
-          docker run -t --rm \
-            -e MEILISEARCH_HOST_URL \
-            -e MEILISEARCH_API_KEY \
-            -v $PWD/meilisearch-config.json:/docs-scraper/config.json \
-            getmeili/docs-scraper:latest pipenv run ./docs_scraper config.json
-          echo "✅ Scraping complete!"
+      - name: Run Meilisearch Cloud Crawler
+        uses: meilisearch/actions/cloud-crawler@main
+        with:
+          token: ${{ secrets.MEILISEARCH_CLOUD_CRAWLER_TOKEN }}
       
       - name: Restore index settings after scraping
         env:
