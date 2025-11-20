@@ -79,6 +79,8 @@ jobs:
           fi
           
           echo "✅ Settings applied successfully! Scraper will only update documents."
+          echo "Waiting for settings to fully process..."
+          sleep 30
       
       - name: Clear existing documents
         env:
