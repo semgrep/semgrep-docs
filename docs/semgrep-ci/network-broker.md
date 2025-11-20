@@ -31,7 +31,7 @@ If you will be using the Network Broker with a dedicated Semgrep tenant, please 
 ## Deployment
 The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
 
-Only one instance of the WireGuard-based Network Broker can be run concurrently. Multiple brokers with the same configuration will cause disconnects, instability, and package loss.
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
 
 ### System Requirements
 - CPU: 1
