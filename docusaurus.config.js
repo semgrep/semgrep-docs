@@ -401,7 +401,7 @@ module.exports = {
           { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies" },
 
           /* AUG 31 2023  */
-          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows" },
+          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/extensions/semgrep-vs-code" },
 
           /* OCT 18 2023  */
           { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/semgrep-ci/github-repository-rulesets-semgrep" },
@@ -488,6 +488,7 @@ module.exports = {
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
         ]
       }
     ],

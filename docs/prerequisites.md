@@ -31,14 +31,13 @@ These requirements apply to both Semgrep AppSec Platform and Semgrep CE.
 
 ### Software
 
-- Python 3.9 or later installed on the machine you are running Semgrep on.
+- Python 3.10 or later installed on the machine you are running Semgrep on.
 
 ### Operating system
 
 - macOS
 - Linux
 - Windows (beta)
-- Windows Subsystem for Linux (WSL)
 
 ## Semgrep AppSec Platform
 
