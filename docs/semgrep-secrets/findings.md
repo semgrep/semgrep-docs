@@ -28,12 +28,7 @@ To view your findings in Semgrep AppSec Platform:
 
 By default, Semgrep displays your **Priority** findings. Priority findings are defined as **valid** secrets with **critical** or **high** severity.
 
-You can switch to the **All** tab at any point to view all findings identified by Semgrep Secrets. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes:
-
-- The name and description of the rule used to generate the finding.
-- The name of the project where the secret was found.
-- Whether the secret is confirmed to be valid
-- A link to the lines of code where the finding was most recently seen.
+You can switch to the **All** tab at any point to view all findings identified by Semgrep Secrets. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes.
 
 ## Filter findings
 
