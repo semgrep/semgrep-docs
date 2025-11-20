@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Set up the Semgrep Network Broker
 
-The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests (from Semgrep to the customer) through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet.
+The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet.
 
 Examples of inbound traffic include:
 
@@ -31,7 +31,7 @@ If you will be using the Network Broker with a dedicated Semgrep tenant, please 
 ## Deployment
 The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
 
-Only one instance of the WireGuard-based Network Broker can be run concurrently. Multiple brokers with the same configuration will cause disconnects, instability, and package loss.
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
 
 ### System Requirements
 - CPU: 1
