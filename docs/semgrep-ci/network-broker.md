@@ -41,8 +41,7 @@ Only one instance of the WireGuard-based Network Broker can be run at any time. 
 - Between Semgrep and Broker:
   - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If you are on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
   - If using the `--deployment-id` CLI flag, allow outbound to `semgrep.dev` on TCP port 443 for HTTPS.
-- Between Broker and each private network resource:
-  - Enable outbound on TCP ports 80 and 443 for HTTP/HTTPS communication.
+- Between Broker and each private network resource, enable outbound on TCP ports 80 and 443 for HTTP/HTTPS communication.
 
 :::info Determining IP Addresses
 To determine the IP addresses for a domain, use dig. The addresses are listed under the ANSWER section. Example: `dig wireguard.semgrep.dev`
