@@ -68,15 +68,12 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
     3. From the **Source attribute** drop-down box, select `user.mail`.
     4. Click **Save**.
 7. Close out of **Attributes & Claims**.
-8. Navigate to Semgrep AppSec Platform, and provide the values required by the SAML2 form:
-    1. Provide the **Display name** and the **Email domain** you are using for the integration.
-    2. Copy the **Login URL** value from Microsoft Entra ID and paste it in into Semgrep AppSec Platform's **IDP SSO URL** field.
-    3. Copy and paste the **Microsoft Entra ID Identifier** value into Semgrep AppSec Platform's **IdP Issuer ID** field.
-    4. In Entra ID's **SAML-based Sign-on** page, click **Download** to obtain the **Certificate (Base64)**.
-    5. In Semgrep AppSec Platform, under **Upload/Paste certificate**, click **Browse** and then select the certificate you downloaded.
-   ![Semgrep AppSec Platform's SAML2 configuration screen](/img/entra-5.png#md-width)
-9. Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
-10. Click **Save** to proceed.
+8. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+9. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+10. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**. 
+11. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting **Custom SAML**. The **Configure Single Sign-On** dialog appears to guide you through the steps required to configure the connection.
+12. When you've completed the required steps, you'll see the **Connection activated** screen. Verify that the **Connection details** are correct, and use **Test sign-in** to test the connection.
+13. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 ## Add users to your new enterprise app
 

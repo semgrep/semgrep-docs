@@ -30,21 +30,12 @@ Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. F
 
 To set up SSO in Semgrep AppSec Platform:
 
-1. Sign in to Semgrep AppSec Platform.
-2. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
-3. Click **Add SSO configuration** and select **OpenID SSO**.
-4. Provide a **Display name** and the **Email domain**.
-5. Copy the **Redirect URL**, and provide it to your authentication provider.
-    ![SSO configuration form displaying the redirect URL](/img/sso-redirect-url.png#md-width)
-6. Generate a **Client ID** and **Client Secret** through your authentication provider and paste these values into Semgrep.
-    ![Generating Client ID and Client Secret via the Okta](/img/sso-clientID-clientSecret.png#md-width)
-7. From your authentication provider, copy the **Base URL** value, and provide it to Semgrep. For example, if you're using Okta SSO, the base URL is the **Okta domain**.
-8. Optional: provide the following values from your authentication provider if necessary:
-   - **Well Known URL**
-   - **Authorize URI**
-   - **Token URI**
-   - **Userinfo URI**
-9.  Click **Save** to proceed.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+3. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+4. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom OIDC**. Regardless of which option you choose, the **Configure Single Sign-On** dialog shows you the steps required to configure the connection.
+5. When you've completed the required steps, you'll see the **Connection activated** screen. Verify that the **Connection details** are correct, and use **Test sign-in** to test the connection.
+6. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 If you encounter issues during the setup process, please [reach out to support](/support) for assistance.
 
@@ -57,23 +48,16 @@ If you're using Google Workspace SAML, see [SAML Single Sign-on with Google Work
 SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 
 1. Create a SAML app with your authentication provider.
-    ![Creating SAML app through Okta](/img/saml-creating-app.png#md-width)
 2. With your authentication provider, add in two attribute statements: `name` and `email`.
-    ![Filling in attribute statements in Okta](/img/saml-attribute-statements.png#md-width)
-3. Sign in to Semgrep AppSec Platform.
-4. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
-5. Click **Add SSO configuration** and select **SAML2 SSO**.
-6. Provide a **Display name** and the **Email domain**.
-7. Copy the **SSO URL** and **Audience URL (SP Entity ID)**, and provide it to your authentication provider.
-    ![Finding Single sign on URL, and Audience URI via Semgrep AppSec Platform](/img/saml-copy-urls.png#md-width)
-8. From your authentication provider, copy your **IdP SSO URL** and **IdP Issuer ID** values, and download the **X509 Certificate**.
-    ![Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta](/img/saml-copy-IdPSSO-IdPID-and-X509.png#md-width)
-9. Return to Semgrep AppSec Platform, and paste the **IdP SSO URL** and **IdP Issuer ID** values, and upload your **X509 Certificate**.
-    ![Filling in IdP SSO URL, IdP Issuer ID, and X509 Certificate on Semgrep](/img/saml-filling-IdpSSO-IdpID-X509.png#md-width)
-10. Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
-11. Click **Save** to proceed.
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+3. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+4. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom SAML**. Regardless of which option you choose, the **Configure Single Sign-On** dialog shows you the steps required to configure the connection.
+5. When you've completed the required steps, you'll see the **Connection activated** screen. Verify that the **Connection details** are correct, and use **Test sign-in** to test the connection.
+6. To use the new connection, log out of Semgrep, then log back in using SSO.
+7.  Click **Save** to proceed.
 
-If you encounter issues during the setup process, [reach out to support](/docs/support) for assistance.
+If you encounter issues during the setup process, [reach out to support](/support) for assistance.
 
 :::note Admin and org owner accounts
 By default, Semgrep creates new SSO accounts with the **Member** role assigned. You can change the default role assigned to a new user by going to [Settings > Access](https://semgrep.dev/orgs/-/settings/access/defaults).
