@@ -32,12 +32,13 @@
     "workflow": ["workflow", "pipeline", "automation", "ci/cd", "devops"]
   },
   "searchableAttributes": [
+    "hierarchy_lvl1",
+    "hierarchy_lvl2",
+    "hierarchy_lvl3",
+    "hierarchy_lvl0",
     "hierarchy.lvl1",
     "hierarchy.lvl2",
     "hierarchy.lvl3",
-    "hierarchy.lvl4",
-    "hierarchy.lvl5",
-    "hierarchy.lvl6",
     "hierarchy.lvl0",
     "content",
     "url"
@@ -58,13 +59,12 @@
     "language",
     "version",
     "docusaurus_tag",
+    "hierarchy_lvl0",
+    "hierarchy_lvl1",
+    "hierarchy_lvl2",
     "hierarchy.lvl0",
     "hierarchy.lvl1",
-    "hierarchy.lvl2",
-    "hierarchy.lvl3",
-    "hierarchy.lvl4",
-    "hierarchy.lvl5",
-    "hierarchy.lvl6"
+    "hierarchy.lvl2"
   ],
   "sortableAttributes": [
     "hierarchy.lvl0",

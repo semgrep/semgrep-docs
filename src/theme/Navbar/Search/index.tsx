@@ -131,7 +131,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         
         // Apply Semgrep-specific ranking to prioritize relevant content
         const rankedResults = (data.hits || []).map((result, index) => {
-          const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+          const title = result.hierarchy?.lvl1 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy_lvl2 || result.title || '';
           const content = result.content || result._formatted?.content || '';
           const url = result.url || '';
           
