@@ -72,4 +72,40 @@ jobs:
             -e MEILISEARCH_API_KEY \
             -v $PWD/meilisearch-config.json:/docs-scraper/config.json \
             getmeili/docs-scraper:latest pipenv run ./docs_scraper config.json
+      
+      - name: Restore index settings
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+        run: |
+          echo "Restoring index settings to preserve synonyms and embedder..."
+          curl -X PATCH \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs/settings" \
+            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
+            -H "Content-Type: application/json" \
+            --data-binary @- << 'SETTINGS_EOF'
+          {
+            "synonyms": {
+              "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
+              "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
+              "semgrep": ["semgrep", "static analysis", "security scanning", "code analysis", "sast tool"],
+              "sso": ["sso", "single sign-on", "single sign on", "authentication"],
+              "taint": ["taint", "taint analysis", "data flow", "taint mode", "taint tracking"],
+              "findings": ["findings", "issues", "vulnerabilities", "results", "matches", "detections"],
+              "secrets": ["secrets", "api keys", "tokens", "credentials", "sensitive data"],
+              "sast": ["sast", "static application security testing", "code security", "security analysis"],
+              "sca": ["sca", "supply chain", "dependencies", "vulnerabilities", "dependency scanning"]
+            },
+            "embedders": {
+              "default": {
+                "source": "openAi",
+                "model": "text-embedding-3-small",
+                "apiKey": "${{ secrets.OPENAI_API_KEY }}",
+                "dimensions": 1536,
+                "documentTemplate": "{% for field in fields %}{% if field.is_searchable and field.value != nil %}{{ field.name }}: {{ field.value }}\n{% endif %}{% endfor %}"
+              }
+            }
+          }
+          SETTINGS_EOF
+          echo "Settings restored successfully"
 
