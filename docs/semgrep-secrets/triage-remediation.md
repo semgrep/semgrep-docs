@@ -32,7 +32,7 @@ When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detect
 
 ## Common filtering use cases
 
-You can find and perform bulk operations through filtering; [all filter operations](/semgrep-secrets/getting-started#filter-findings) are available to you on the **Secrets** page.
+You can find and perform bulk operations through filtering; [all filter operations](/semgrep-secrets/findings#filter-findings) are available to you on the **Secrets** page.
 
 | Task | Steps |
 | ---- | ----- |

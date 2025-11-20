@@ -44,7 +44,7 @@ The **Project** filter allows you to search for findings associated with the sel
 
 ### Status
 
-The **Status** filter allows you to search for findings in the selected statuses. See [Triage status](/semgrep-secrets/triage-remediation#triage-statuses) for additional information.
+The **Status** filter allows you to search for findings in the selected statuses. See [Triage status](/semgrep-secrets/findings#triage-statuses) for additional information.
 
 ### Additional filters
 
