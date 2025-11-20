@@ -79,12 +79,15 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    // Log error for debugging but don't expose details to client
+    // Log error for debugging
+    console.error('Meilisearch function error:', error);
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: 'Internal server error'
+        error: 'Internal server error',
+        message: error.message,
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
       })
     };
   }
