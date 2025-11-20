@@ -1,0 +1,57 @@
+{
+  "synonyms": {
+    "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
+    "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
+    "config": ["config", "configuration", "settings", "setup"],
+    "deployment": ["deployment", "setup", "configuration", "installation", "integration"],
+    "findings": ["findings", "issues", "vulnerabilities", "results", "matches", "detections"],
+    "github": ["github", "git", "version control", "repository"],
+    "gitlab": ["gitlab", "git", "version control", "repository"],
+    "go": ["go", "golang"],
+    "ignore": ["ignore", "exclude", "suppress", "disable"],
+    "java": ["java", "spring", "maven", "gradle"],
+    "javascript": ["javascript", "js", "node.js", "nodejs", "typescript", "ts"],
+    "metavariables": ["metavariables", "variables", "placeholders", "pattern variables"],
+    "oss": ["oss", "open source", "community edition", "free version"],
+    "patterns": ["patterns", "rules", "expressions", "syntax patterns"],
+    "policy": ["policy", "policies", "governance", "compliance"],
+    "pro": ["pro", "semgrep pro", "commercial", "paid version", "enterprise"],
+    "python": ["python", "py", "django", "flask"],
+    "rules": ["rules", "patterns", "detectors", "custom rules", "rule writing"],
+    "saml": ["saml", "identity provider", "idp", "federation"],
+    "sast": ["sast", "static application security testing", "code security", "security analysis"],
+    "sca": ["sca", "supply chain", "dependencies", "vulnerabilities", "dependency scanning"],
+    "scan": ["scan", "scanning", "analysis", "check", "run"],
+    "scp": ["scp", "semgrep cloud platform", "semgrep app", "semgrep platform"],
+    "secrets": ["secrets", "api keys", "tokens", "credentials", "sensitive data"],
+    "semgrep": ["semgrep", "static analysis", "security scanning", "code analysis", "sast tool"],
+    "sms": ["sms", "semgrep managed scanning", "managed scans", "cloud scanning"],
+    "ssc": ["ssc", "semgrep supply chain", "supply chain security", "dependency security"],
+    "sso": ["sso", "single sign-on", "single sign on", "authentication"],
+    "taint": ["taint", "taint analysis", "data flow", "taint mode", "taint tracking"],
+    "workflow": ["workflow", "pipeline", "automation", "ci/cd", "devops"]
+  },
+  "searchableAttributes": [
+    "hierarchy.lvl0",
+    "hierarchy.lvl1",
+    "hierarchy.lvl2",
+    "hierarchy.lvl3",
+    "hierarchy.lvl4",
+    "hierarchy.lvl5",
+    "hierarchy.lvl6",
+    "content",
+    "type",
+    "url"
+  ],
+  "filterableAttributes": [
+    "type",
+    "language",
+    "version",
+    "docusaurus_tag",
+    "hierarchy.lvl0",
+    "hierarchy.lvl1",
+    "hierarchy.lvl2"
+  ],
+  "distinctAttribute": "url"
+}
+
