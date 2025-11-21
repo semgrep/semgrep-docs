@@ -194,21 +194,42 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           const contentLower = content.toLowerCase();
           
           // Extract main query terms (skip stop words)
-          const queryTerms = queryLower.replace(/what|is|are|how|to|the|a|an/g, '').trim().split(/\s+/);
+          const queryTerms = queryLower.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => t.length > 2);
+          
+          // CRITICAL: Multi-term match bonus - if multiple query terms appear, boost significantly
+          const termsInTitle = queryTerms.filter(term => titleLower.includes(term)).length;
+          const termsInContent = queryTerms.filter(term => contentLower.includes(term)).length;
+          
+          if (termsInTitle >= 2) {
+            relevanceScore -= 25; // HUGE boost for multiple terms in title
+          }
+          if (termsInContent >= queryTerms.length && queryTerms.length > 1) {
+            relevanceScore -= 15; // Large boost if ALL query terms appear in content
+          }
           
           // HIGHEST PRIORITY: URL path directly matches query term
           queryTerms.forEach(term => {
-            if (term.length > 2 && url.includes(`/docs/${term}`)) {
+            if (url.includes(`/docs/${term}`) || url.includes(`/${term}/`) || url.includes(`-${term}`)) {
               relevanceScore -= 20; // Very high boost for direct path match
             }
           });
           
           // HIGH PRIORITY: Title contains exact query term
           queryTerms.forEach(term => {
-            if (term.length > 2 && titleLower.includes(term)) {
+            if (titleLower.includes(term)) {
               relevanceScore -= 10; // High boost for title match
             }
           });
+          
+          // Intent-specific boosting for "ignore" queries
+          if (queryLower.includes('ignore') || queryLower.includes('ignoring')) {
+            if (titleLower.includes('ignore') || titleLower.includes('ignoring')) {
+              relevanceScore -= 15; // Strong boost for ignore-related pages
+            }
+            if (url.includes('ignoring-') || url.includes('/ignore')) {
+              relevanceScore -= 12;
+            }
+          }
           
           // Query-specific boosting - boost content that matches user intent
           if (queryLower.includes('rule') || queryLower.includes('write') || queryLower.includes('custom')) {
@@ -723,16 +744,31 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           }}>
             <span style={{ fontSize: '12px' }}>
               {(() => {
+                const seenUrls = new Set();
                 const count = results.filter(result => {
                   const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
                   const content = result.content || result._formatted?.content || '';
+                  const url = result.url || '';
+                  const baseUrl = url.split('#')[0];
+                  
+                  if (seenUrls.has(baseUrl)) {
+                    return false;
+                  }
+                  
                   const isTaggedPage = title.includes('docs tagged with') || title.includes('doc tagged with') || 
                                       title.includes('tagged with') || content.includes('docs tagged with') || 
                                       content.includes('doc tagged with') || content.includes('tagged with') || 
                                       title.includes('Choose a KB category') || content.includes('Choose a KB category') || 
                                       title.match(/\d+\s+docs?\s+tagged\s+with/) || content.match(/\d+\s+docs?\s+tagged\s+with/);
-                  const hasContent = result.content && result.content.trim().length > 0;
-                  return !isTaggedPage && hasContent;
+                  const hasContent = content && content.trim().length > 10;
+                  const isNotJustTitle = content.toLowerCase() !== title.toLowerCase();
+                  
+                  if (!isTaggedPage && hasContent && isNotJustTitle) {
+                    seenUrls.add(baseUrl);
+                    return true;
+                  }
+                  
+                  return false;
                 }).length;
                 return `${count} ${count === 1 ? 'result' : 'results'} found`;
               })()}
@@ -971,10 +1007,20 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               ))}
           </div>
           ) : (() => {
-            // Filter results first to get accurate count
+            // Filter and deduplicate results
+            const seenUrls = new Set();
             const filteredResults = results.filter(result => {
               const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
               const content = result.content || result._formatted?.content || '';
+              const url = result.url || '';
+              
+              // Get base URL without anchor for deduplication
+              const baseUrl = url.split('#')[0];
+              
+              // Skip duplicates (same page, different anchors)
+              if (seenUrls.has(baseUrl)) {
+                return false;
+              }
               
               // Skip results that look like category/tagged pages
               const isTaggedPage = title.includes('docs tagged with') ||
@@ -988,10 +1034,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                  title.match(/\d+\s+docs?\s+tagged\s+with/) ||
                                  content.match(/\d+\s+docs?\s+tagged\s+with/);
               
-              // Filter out header-only documents with no content
-              const hasContent = result.content && result.content.trim().length > 0;
+              // Filter out header-only documents with no meaningful content
+              const hasContent = content && content.trim().length > 10;
+              const isNotJustTitle = content.toLowerCase() !== title.toLowerCase();
               
-              return !isTaggedPage && hasContent;
+              if (!isTaggedPage && hasContent && isNotJustTitle) {
+                seenUrls.add(baseUrl);
+                return true;
+              }
+              
+              return false;
             });
             
             return (
