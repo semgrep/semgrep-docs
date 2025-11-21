@@ -866,7 +866,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               const content = result.content || result._formatted?.content || '';
               
               // Skip results that look like category/tagged pages
-              const isTaggedPage = title.includes('docs tagged with') || 
+              const isTaggedPage = title.includes('docs tagged with') ||
                                  title.includes('doc tagged with') ||
                                  title.includes('tagged with') ||
                                  content.includes('docs tagged with') ||
@@ -877,7 +877,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                  title.match(/\d+\s+docs?\s+tagged\s+with/) ||
                                  content.match(/\d+\s+docs?\s+tagged\s+with/);
               
-              return !isTaggedPage;
+              // Filter out header-only documents with no content
+              const hasContent = result.content && result.content.trim().length > 0;
+              
+              return !isTaggedPage && hasContent;
             })
             .map((result, index) => {
             let rawTitle = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
