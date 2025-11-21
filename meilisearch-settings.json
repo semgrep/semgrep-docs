@@ -3,6 +3,8 @@
     "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
     "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
     "config": ["config", "configuration", "settings", "setup"],
+    "create": ["create", "write", "build", "develop", "make", "author"],
+    "custom": ["custom", "own", "personal", "user-defined", "bespoke"],
     "deployment": ["deployment", "setup", "configuration", "installation", "integration"],
     "findings": ["findings", "issues", "vulnerabilities", "results", "matches", "detections"],
     "github": ["github", "git", "version control", "repository"],
@@ -13,11 +15,12 @@
     "javascript": ["javascript", "js", "node.js", "nodejs", "typescript", "ts"],
     "metavariables": ["metavariables", "variables", "placeholders", "pattern variables"],
     "oss": ["oss", "open source", "community edition", "free version"],
-    "patterns": ["patterns", "rules", "expressions", "syntax patterns"],
+    "patterns": ["patterns", "rules", "expressions", "syntax patterns", "matching"],
     "policy": ["policy", "policies", "governance", "compliance"],
     "pro": ["pro", "semgrep pro", "commercial", "paid version", "enterprise"],
     "python": ["python", "py", "django", "flask"],
-    "rules": ["rules", "patterns", "detectors", "custom rules", "rule writing"],
+    "rules": ["rules", "patterns", "detectors", "checks", "rule writing", "rule creation"],
+    "rulewriting": ["rule writing", "write rules", "create rules", "custom rules", "rule development", "rule authoring"],
     "saml": ["saml", "identity provider", "idp", "federation"],
     "sast": ["sast", "static application security testing", "code security", "security analysis"],
     "sca": ["sca", "supply chain", "dependencies", "vulnerabilities", "dependency scanning"],
@@ -31,6 +34,9 @@
     "taint": ["taint", "taint analysis", "data flow", "taint mode", "taint tracking"],
     "workflow": ["workflow", "pipeline", "automation", "ci/cd", "devops"]
   },
+  "stopWords": [
+    "what", "is", "are", "how", "to", "the", "a", "an", "do", "does", "can", "i", "my"
+  ],
   "searchableAttributes": [
     "hierarchy_lvl1",
     "hierarchy_lvl2",

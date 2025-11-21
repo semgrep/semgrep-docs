@@ -131,32 +131,53 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         
         // Apply Semgrep-specific ranking to prioritize relevant content
         const rankedResults = (data.hits || []).map((result, index) => {
-          const title = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+          let title = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+          
+          // Filter out Docusaurus internal anchors
+          if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
+            title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+          }
+          title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Untitled';
+          
           const content = result.content || result._formatted?.content || '';
           const url = result.url || '';
           
           // Calculate Semgrep-specific relevance score
           let relevanceScore = index;
           
+          const queryLower = searchQuery.toLowerCase();
+          const titleLower = title.toLowerCase();
+          const contentLower = content.toLowerCase();
+          
+          // Query-specific boosting - boost content that matches user intent
+          if (queryLower.includes('rule') || queryLower.includes('write') || queryLower.includes('custom')) {
+            if (titleLower.includes('rule writing') || titleLower.includes('create a rule') || titleLower.includes('custom rule')) {
+              relevanceScore -= 10; // Highest priority for exact match
+            }
+            if (titleLower.includes('rule') && !titleLower.includes('rule update')) {
+              relevanceScore -= 5;
+            }
+          }
+          
           // Boost priority for important Semgrep content types
-          if (title.toLowerCase().includes('getting started') || title.toLowerCase().includes('quickstart')) {
+          if (titleLower.includes('getting started') || titleLower.includes('quickstart')) {
             relevanceScore -= 5; // Higher priority
           }
           
-          if (title.toLowerCase().includes('tutorial') || title.toLowerCase().includes('guide')) {
+          if (titleLower.includes('tutorial') || titleLower.includes('guide')) {
             relevanceScore -= 3;
           }
           
-          if (title.toLowerCase().includes('configuration') || title.toLowerCase().includes('setup')) {
+          if (titleLower.includes('configuration') || titleLower.includes('setup')) {
             relevanceScore -= 2;
           }
           
-          if (title.toLowerCase().includes('troubleshooting') || title.toLowerCase().includes('debug')) {
+          if (titleLower.includes('troubleshooting') || titleLower.includes('debug')) {
             relevanceScore -= 1;
           }
           
           // Boost for specific Semgrep products 
-          if (title.toLowerCase().includes('semgrep code') || title.toLowerCase().includes('semgrep pro')) {
+          if (titleLower.includes('semgrep code') || titleLower.includes('semgrep pro')) {
             relevanceScore -= 2;
           }
           
@@ -164,6 +185,12 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           const isTaggedPage = title.includes('tagged with') || content.includes('tagged with');
           if (isTaggedPage) {
             relevanceScore += 1000;
+          }
+          
+          // Penalize release notes unless specifically searching for them
+          if ((titleLower.includes('release notes') || url.includes('/release-notes')) && 
+              !queryLower.includes('release') && !queryLower.includes('changelog')) {
+            relevanceScore += 5;
           }
           
           return {
@@ -264,13 +291,28 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   }, [searchTimeout]);
 
   const getDisplayTitle = (result: any): string => {
-    return result.hierarchy_lvl2 || 
-           result.hierarchy_radio_lvl2 || 
-           result.hierarchy_lvl1 || 
-           result.hierarchy?.lvl2 || 
-           result.hierarchy?.lvl1 || 
-           result.title || 
-           'Untitled';
+    let title = result.hierarchy_lvl2 || 
+                result.hierarchy_radio_lvl2 || 
+                result.hierarchy_lvl1 || 
+                result.hierarchy?.lvl2 || 
+                result.hierarchy?.lvl1 || 
+                result.title || 
+                'Untitled';
+    
+    // Filter out Docusaurus internal anchors and weird titles
+    if (title.includes('__docusaurus_skipToContent_fallback') || 
+        title.includes('#__DOCUSAURUS') ||
+        title.match(/^[A-Z]+#__/)) {
+      // Try to get a better title from other fields
+      title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+    }
+    
+    // Clean up the title
+    title = title.replace(/#__docusaurus_skipToContent_fallback/gi, '')
+                 .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+                 .trim();
+    
+    return title || 'Untitled';
   };
 
   const getDisplayContent = (result: any): string => {
@@ -837,7 +879,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               return !isTaggedPage;
             })
             .map((result, index) => {
-            const rawTitle = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+            let rawTitle = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+            
+            // Filter out Docusaurus internal anchors
+            if (rawTitle.includes('__docusaurus_skipToContent_fallback') || rawTitle.includes('#__DOCUSAURUS') || rawTitle.match(/^[A-Z]+#__/)) {
+              rawTitle = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+            }
+            rawTitle = rawTitle.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Untitled';
+            
             const title = rawTitle; // No highlighting for titles
             const rawContent = result._formatted?.content || result.content || '';
             const section = getSectionInfo(result);
