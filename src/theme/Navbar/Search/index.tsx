@@ -264,8 +264,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   }, [searchTimeout]);
 
   const getDisplayTitle = (result: any): string => {
-    return result.hierarchy?.lvl1 || 
+    return result.hierarchy_lvl2 || 
+           result.hierarchy_radio_lvl2 || 
+           result.hierarchy_lvl1 || 
            result.hierarchy?.lvl2 || 
+           result.hierarchy?.lvl1 || 
            result.title || 
            'Untitled';
   };
@@ -834,7 +837,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               return !isTaggedPage;
             })
             .map((result, index) => {
-            const rawTitle = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || 'Untitled';
+            const rawTitle = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
             const title = rawTitle; // No highlighting for titles
             const rawContent = result._formatted?.content || result.content || '';
             const section = getSectionInfo(result);
