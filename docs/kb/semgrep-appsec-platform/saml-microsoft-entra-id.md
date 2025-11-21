@@ -68,12 +68,15 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
     3. From the **Source attribute** drop-down box, select `user.mail`.
     4. Click **Save**.
 7. Close out of **Attributes & Claims**.
-8. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-9. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
-10. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**. 
-11. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting **Custom SAML**. The **Configure Single Sign-On** dialog appears to guide you through the steps required to configure the connection.
-12. When you've completed the required steps, you'll see the **Connection activated** screen. Verify that the **Connection details** are correct, and use **Test sign-in** to test the connection.
-13. To use the new connection, log out of Semgrep, then log back in using SSO.
+
+## Configure Semgrep
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+1. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+1. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom SAML**.
+1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
+1. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 ## Add users to your new enterprise app
 
