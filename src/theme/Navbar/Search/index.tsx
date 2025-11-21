@@ -149,9 +149,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           if (response.ok) {
             const data = await response.json();
         
-        console.log('Meilisearch raw response for "' + searchQuery + '":', data);
-        console.log('Total hits:', data.hits?.length || 0);
-        
         // Apply Semgrep-specific ranking to prioritize relevant content
         const rankedResults = (data.hits || []).map((result, index) => {
           // Prioritize lvl1 (page title) over lvl2 (subsection)
@@ -283,9 +280,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             _semgrepRelevance: relevanceScore
           };
         }).sort((a, b) => a._semgrepRelevance - b._semgrepRelevance);
-        
-        console.log('After ranking, before filtering:', rankedResults.length, 'results');
-        console.log('Sample result:', rankedResults[0]);
         
         setResults(rankedResults);
             setIsOpen(true);
@@ -749,7 +743,35 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             alignItems: 'center'
           }}>
             <span style={{ fontSize: '12px' }}>
-              {results.length} {results.length === 1 ? 'result' : 'results'} found
+              {(() => {
+                const seenUrls = new Set();
+                const count = results.filter(result => {
+                  const url = result.url || '';
+                  const baseUrl = url.split('#')[0];
+                  
+                  if (seenUrls.has(baseUrl)) {
+                    return false;
+                  }
+                  
+                  const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+                  const content = result.content || result._formatted?.content || '';
+                  
+                  const isTaggedPage = title.includes('docs tagged with') ||
+                                     title.includes('doc tagged with') ||
+                                     title.includes('Choose a KB category') ||
+                                     title.match(/\d+\s+docs?\s+tagged\s+with/);
+                  
+                  const hasContent = content && content.trim().length > 0;
+                  
+                  if (!isTaggedPage && hasContent) {
+                    seenUrls.add(baseUrl);
+                    return true;
+                  }
+                  
+                  return false;
+                }).length;
+                return `${count} ${count === 1 ? 'result' : 'results'} found`;
+              })()}
             </span>
             <button
               onClick={fetchAIAnswer}
@@ -985,13 +1007,40 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               ))}
           </div>
           ) : (() => {
-            // TEMPORARILY DISABLE FILTERING FOR DEBUG
-            const filteredResults = results;
-            
-            console.log('After frontend filtering:', filteredResults.length, 'results displayed');
-            if (filteredResults.length > 0) {
-              console.log('First filtered result:', filteredResults[0]);
-            }
+            // Smart filtering: remove duplicates and low-quality results
+            const seenUrls = new Set();
+            const filteredResults = results.filter(result => {
+              const url = result.url || '';
+              const baseUrl = url.split('#')[0];
+              
+              // Skip duplicates (same page, different anchors)
+              if (seenUrls.has(baseUrl)) {
+                return false;
+              }
+              
+              const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+              const content = result.content || result._formatted?.content || '';
+              
+              // Skip category/tagged pages (these are just lists)
+              const isTaggedPage = title.includes('docs tagged with') ||
+                                 title.includes('doc tagged with') ||
+                                 title.includes('Choose a KB category') ||
+                                 title.match(/\d+\s+docs?\s+tagged\s+with/);
+              
+              if (isTaggedPage) {
+                return false;
+              }
+              
+              // Keep if it has ANY content (even if short)
+              const hasContent = content && content.trim().length > 0;
+              
+              if (hasContent) {
+                seenUrls.add(baseUrl);
+                return true;
+              }
+              
+              return false;
+            });
             
             return (
               <>
