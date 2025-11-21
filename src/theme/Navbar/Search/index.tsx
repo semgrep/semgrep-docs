@@ -647,20 +647,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           }}
         />
         {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
-        {!isLoading && results.length > 0 && (
-          <span style={{
-            fontSize: '12px', 
-            color: '#00D4AA', 
-            marginLeft: '8px', 
-            fontWeight: '600',
-            backgroundColor: 'rgba(0, 212, 170, 0.1)',
-            padding: '2px 8px',
-            borderRadius: '12px',
-            border: '1px solid rgba(0, 212, 170, 0.2)'
-          }}>
-            {results.length} result{results.length !== 1 ? 's' : ''}
-          </span>
-        )}
       </div>
       
       {isOpen && results.length > 0 && (
@@ -697,7 +683,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ fontSize: '14px', textTransform: 'none', fontWeight: '500' }}>
+            <span style={{ fontSize: '12px' }}>
               {(() => {
                 const count = results.filter(result => {
                   const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
