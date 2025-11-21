@@ -102,18 +102,30 @@ exports.handler = async (event, context) => {
     }
 
     const searchResults = await client.index(indexUid).search(userMessage.content, {
-      limit: 5,
+      limit: 10,
       hybrid: {
         semanticRatio: 0.8, // Prioritize semantic search for chat
         embedder: "default"
       },
-      attributesToRetrieve: ['content', 'hierarchy', 'url', 'title'],
+      attributesToRetrieve: ['content', 'hierarchy', 'hierarchy_lvl0', 'hierarchy_lvl1', 'hierarchy_lvl2', 'hierarchy_radio_lvl0', 'hierarchy_radio_lvl1', 'hierarchy_radio_lvl2', 'url', 'title'],
       cropLength: 300,
       attributesToCrop: ['content']
     });
 
-    // Build context from top search results for OpenAI
-    const contextParts = searchResults.hits.slice(0, 3).map((hit, idx) => {
+    // Filter and deduplicate for better context
+    const seenUrlsForContext = new Set();
+    const uniqueHitsForContext = searchResults.hits
+      .filter(hit => {
+        if (!hit.content || hit.content.trim().length === 0) return false;
+        const baseUrl = hit.url?.split('#')[0];
+        if (!baseUrl || seenUrlsForContext.has(baseUrl)) return false;
+        seenUrlsForContext.add(baseUrl);
+        return true;
+      })
+      .slice(0, 3);
+
+    // Build context from top unique search results for OpenAI
+    const contextParts = uniqueHitsForContext.map((hit, idx) => {
       let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
       
       // Filter out Docusaurus internal anchors
@@ -136,9 +148,22 @@ exports.handler = async (event, context) => {
       answer = generateAnswer(userMessage.content, searchResults.hits);
     }
 
-    const response = {
-      answer: answer,
-      sources: searchResults.hits.slice(0, 3).map(hit => {
+    // Deduplicate and filter sources
+    const seenUrls = new Set();
+    const uniqueSources = searchResults.hits
+      .filter(hit => {
+        // Filter out empty content
+        if (!hit.content || hit.content.trim().length === 0) return false;
+        
+        // Remove anchor from URL for deduplication
+        const baseUrl = hit.url?.split('#')[0];
+        if (!baseUrl || seenUrls.has(baseUrl)) return false;
+        
+        seenUrls.add(baseUrl);
+        return true;
+      })
+      .slice(0, 3)
+      .map(hit => {
         let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
         
         // Filter out Docusaurus internal anchors
@@ -152,7 +177,11 @@ exports.handler = async (event, context) => {
           url: hit.url,
           snippet: hit.content?.substring(0, 200) + '...'
         };
-      }),
+      });
+
+    const response = {
+      answer: answer,
+      sources: uniqueSources,
       conversationId: Date.now().toString()
     };
 

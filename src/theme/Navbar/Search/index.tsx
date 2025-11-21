@@ -131,13 +131,27 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         
         // Apply Semgrep-specific ranking to prioritize relevant content
         const rankedResults = (data.hits || []).map((result, index) => {
-          let title = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+          // Prioritize lvl1 (page title) over lvl2 (subsection)
+          let title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || result.title || '';
           
           // Filter out Docusaurus internal anchors
           if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
-            title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+            title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || '';
           }
-          title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Untitled';
+          title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim();
+          
+          // If still no title, extract from URL path
+          if (!title && result.url) {
+            const urlPath = result.url.split('/docs/')[1];
+            if (urlPath) {
+              const pathParts = urlPath.split('#')[0].split('/');
+              const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+              if (lastPart) {
+                title = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+              }
+            }
+          }
+          title = title || 'Documentation';
           
           const content = result.content || result._formatted?.content || '';
           const url = result.url || '';
@@ -148,6 +162,23 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           const queryLower = searchQuery.toLowerCase();
           const titleLower = title.toLowerCase();
           const contentLower = content.toLowerCase();
+          
+          // Extract main query terms (skip stop words)
+          const queryTerms = queryLower.replace(/what|is|are|how|to|the|a|an/g, '').trim().split(/\s+/);
+          
+          // HIGHEST PRIORITY: URL path directly matches query term
+          queryTerms.forEach(term => {
+            if (term.length > 2 && url.includes(`/docs/${term}`)) {
+              relevanceScore -= 20; // Very high boost for direct path match
+            }
+          });
+          
+          // HIGH PRIORITY: Title contains exact query term
+          queryTerms.forEach(term => {
+            if (term.length > 2 && titleLower.includes(term)) {
+              relevanceScore -= 10; // High boost for title match
+            }
+          });
           
           // Query-specific boosting - boost content that matches user intent
           if (queryLower.includes('rule') || queryLower.includes('write') || queryLower.includes('custom')) {
@@ -187,10 +218,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             relevanceScore += 1000;
           }
           
-          // Penalize release notes unless specifically searching for them
-          if ((titleLower.includes('release notes') || url.includes('/release-notes')) && 
-              !queryLower.includes('release') && !queryLower.includes('changelog')) {
-            relevanceScore += 5;
+          // HEAVILY penalize release notes unless specifically searching for them
+          if ((titleLower.includes('release notes') || url.includes('/release-notes') || titleLower.includes('added') || titleLower.includes('fixed')) && 
+              !queryLower.includes('release') && !queryLower.includes('changelog') && !queryLower.includes('added') && !queryLower.includes('fixed')) {
+            relevanceScore += 15; // Heavy penalty
           }
           
           return {
@@ -291,20 +322,22 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   }, [searchTimeout]);
 
   const getDisplayTitle = (result: any): string => {
-    let title = result.hierarchy_lvl2 || 
+    // Prioritize lvl1 (page title) over lvl2 (subsection)
+    let title = result.hierarchy_lvl1 || 
+                result.hierarchy_radio_lvl1 || 
+                result.hierarchy?.lvl1 ||
+                result.hierarchy_lvl2 || 
                 result.hierarchy_radio_lvl2 || 
-                result.hierarchy_lvl1 || 
                 result.hierarchy?.lvl2 || 
-                result.hierarchy?.lvl1 || 
                 result.title || 
-                'Untitled';
+                '';
     
     // Filter out Docusaurus internal anchors and weird titles
     if (title.includes('__docusaurus_skipToContent_fallback') || 
         title.includes('#__DOCUSAURUS') ||
         title.match(/^[A-Z]+#__/)) {
       // Try to get a better title from other fields
-      title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+      title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || '';
     }
     
     // Clean up the title
@@ -312,7 +345,25 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                  .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
                  .trim();
     
-    return title || 'Untitled';
+    // If still no title, extract from URL path
+    if (!title && result.url) {
+      const urlPath = result.url.split('/docs/')[1];
+      if (urlPath) {
+        // Get the last part of the path (before anchor)
+        const pathParts = urlPath.split('#')[0].split('/');
+        const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        
+        if (lastPart) {
+          // Convert kebab-case to Title Case
+          title = lastPart
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+        }
+      }
+    }
+    
+    return title || 'Documentation';
   };
 
   const getDisplayContent = (result: any): string => {
@@ -859,9 +910,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             </div>
               ))}
           </div>
-          ) : results
-            .filter(result => {
-              // Filter out tagged pages and category pages
+          ) : (() => {
+            // Filter results first to get accurate count
+            const filteredResults = results.filter(result => {
               const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
               const content = result.content || result._formatted?.content || '';
               
@@ -881,15 +932,41 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               const hasContent = result.content && result.content.trim().length > 0;
               
               return !isTaggedPage && hasContent;
-            })
-            .map((result, index) => {
-            let rawTitle = result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy_lvl1 || result.hierarchy?.lvl2 || result.hierarchy?.lvl1 || result.title || 'Untitled';
+            });
+            
+            return (
+              <>
+                <div style={{
+                  padding: '12px 16px',
+                  borderBottom: '1px solid #E5E7EB',
+                  color: '#6B7280',
+                  fontSize: '14px',
+                  fontWeight: '500'
+                }}>
+                  {filteredResults.length} {filteredResults.length === 1 ? 'result' : 'results'} found
+                </div>
+                {filteredResults.map((result, index) => {
+            // Prioritize lvl1 (page title) over lvl2 (subsection)
+            let rawTitle = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || result.title || '';
             
             // Filter out Docusaurus internal anchors
             if (rawTitle.includes('__docusaurus_skipToContent_fallback') || rawTitle.includes('#__DOCUSAURUS') || rawTitle.match(/^[A-Z]+#__/)) {
-              rawTitle = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || 'Untitled';
+              rawTitle = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || '';
             }
-            rawTitle = rawTitle.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Untitled';
+            rawTitle = rawTitle.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim();
+            
+            // If still no title, extract from URL path
+            if (!rawTitle && result.url) {
+              const urlPath = result.url.split('/docs/')[1];
+              if (urlPath) {
+                const pathParts = urlPath.split('#')[0].split('/');
+                const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+                if (lastPart) {
+                  rawTitle = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                }
+              }
+            }
+            rawTitle = rawTitle || 'Documentation';
             
             const title = rawTitle; // No highlighting for titles
             const rawContent = result._formatted?.content || result.content || '';
@@ -917,7 +994,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   />
                 </div>
               );
-            })}
+                })}
+              </>
+            );
+          })()}
           </div>
           {/* End of scrollable search results container */}
         </div>
