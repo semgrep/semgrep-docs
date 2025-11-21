@@ -32,7 +32,9 @@ When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detect
 
 ### Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been provisionally ignored. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+
+Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. 
 
 ## Common filtering use cases
 
