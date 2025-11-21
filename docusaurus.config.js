@@ -161,34 +161,6 @@ module.exports = {
       darkTheme: darkCodeTheme,
       additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala', 'kotlin', 'bash', 'json'],
     },
-    //algolia: {
-    //  apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-    //  indexName: 'docs',
-
-    //  // Optional: see doc section below
-    //  contextualSearch: false,
-
-    //  // Optional: see doc section below
-    //  appId: 'RGEY1AKPUC',
-
-    //  // Optional: Algolia search parameters
-    //  searchParameters: {},
-    //  facetFilters: [],
-    //  //... other Algolia params
-    //  "customRanking": [
-    //    "desc(weight.page_rank)"
-    //  ],
-    //  "ranking": [
-    //    "desc(weight.page_rank)",
-    //    "custom",
-    //    "filters",
-    //    "typo",
-    //    "attribute",
-    //    "words",
-    //    "exact",
-    //    "proximity"
-    //  ]
-    //},
     image: 'https://semgrep.dev/thumbnail.png',
     //announcementBar: {
     //  id: 'office-hours',
