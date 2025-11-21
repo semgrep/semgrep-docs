@@ -23,8 +23,28 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiSources, setAiSources] = useState<any[]>([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Detect dark mode
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDarkMode(theme === 'dark');
+    };
+    
+    checkDarkMode();
+    
+    // Watch for theme changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   // Close search when clicking outside
   useEffect(() => {
@@ -671,15 +691,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           top: '100%',
           left: 0,
           right: 0,
-          background: 'white',
-          border: '1px solid #E5E7EB',
+          background: isDarkMode ? '#1b1b1d' : 'white',
+          border: `1px solid ${isDarkMode ? '#303033' : '#E5E7EB'}`,
           borderTop: 'none',
           borderRadius: '0 0 12px 12px',
           maxHeight: aiResponse ? '650px' : '450px',
           display: 'flex',
           flexDirection: 'column',
           zIndex: 1001,
-          boxShadow: isFocused ? '0 20px 40px rgba(0,0,0,0.25)' : '0 10px 30px rgba(0,0,0,0.15)',
+          boxShadow: isDarkMode 
+            ? (isFocused ? '0 20px 40px rgba(0,0,0,0.6)' : '0 10px 30px rgba(0,0,0,0.4)')
+            : (isFocused ? '0 20px 40px rgba(0,0,0,0.25)' : '0 10px 30px rgba(0,0,0,0.15)'),
           marginTop: '4px',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
@@ -689,9 +711,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           <div style={{
             padding: '8px 16px',
             fontSize: '12px',
-            color: '#6B7280',
-            borderBottom: '1px solid #E5E7EB',
-            backgroundColor: '#F9FAFB',
+            color: isDarkMode ? '#9ca3af' : '#6B7280',
+            borderBottom: `1px solid ${isDarkMode ? '#303033' : '#E5E7EB'}`,
+            backgroundColor: isDarkMode ? '#252529' : '#F9FAFB',
             fontWeight: '600',
             textTransform: 'uppercase',
             letterSpacing: '0.5px',
@@ -752,7 +774,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           {aiResponse && (
             <div style={{
               padding: '16px',
-              backgroundColor: '#F0FDF4',
+              backgroundColor: isDarkMode ? '#1e3a32' : '#F0FDF4',
               borderBottom: '2px solid #00D4AA',
               animation: 'fadeIn 0.3s ease-in'
             }}>
@@ -763,7 +785,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 marginBottom: '12px',
                 fontSize: '13px',
                 fontWeight: '600',
-                color: '#059669'
+                color: isDarkMode ? '#10b981' : '#059669'
               }}>
                 <span style={{ fontSize: '16px' }}>✨</span>
                 <span>AI Answer</span>
@@ -771,7 +793,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               <div style={{
                 fontSize: '13px',
                 lineHeight: '1.6',
-                color: '#374151',
+                color: isDarkMode ? '#d1d5db' : '#374151',
                 marginBottom: aiSources.length > 0 ? '12px' : '0'
               }}
               dangerouslySetInnerHTML={{ 
@@ -783,7 +805,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   <div style={{
                     fontSize: '11px',
                     fontWeight: '600',
-                    color: '#6B7280',
+                    color: isDarkMode ? '#9ca3af' : '#6B7280',
                     marginBottom: '8px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.5px'
@@ -800,20 +822,20 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                         padding: '6px 8px',
                         marginBottom: '4px',
                         fontSize: '11px',
-                        color: '#059669',
+                        color: isDarkMode ? '#10b981' : '#059669',
                         textDecoration: 'none',
-                        backgroundColor: 'white',
+                        backgroundColor: isDarkMode ? '#1e3a32' : 'white',
                         borderRadius: '4px',
-                        border: '1px solid #D1FAE5',
+                        border: `1px solid ${isDarkMode ? '#065f46' : '#D1FAE5'}`,
                         transition: 'all 0.2s'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ECFDF5';
+                        e.currentTarget.style.backgroundColor = isDarkMode ? '#134e3a' : '#ECFDF5';
                         e.currentTarget.style.borderColor = '#00D4AA';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'white';
-                        e.currentTarget.style.borderColor = '#D1FAE5';
+                        e.currentTarget.style.backgroundColor = isDarkMode ? '#1e3a32' : 'white';
+                        e.currentTarget.style.borderColor = isDarkMode ? '#065f46' : '#D1FAE5';
                       }}
                     >
                       {source.title}
@@ -893,6 +915,27 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               border-radius: 0;
               box-shadow: none;
             }
+            
+            /* Dark mode styles */
+            [data-theme="dark"] .search-suggestion {
+              border-bottom: 1px solid #303033;
+              color: #d1d5db;
+            }
+            [data-theme="dark"] .search-suggestion:hover {
+              background-color: #2d2d30;
+            }
+            [data-theme="dark"] .search-result {
+              border-bottom: 1px solid #303033;
+            }
+            [data-theme="dark"] .search-result:hover {
+              background-color: #2d2d30;
+            }
+            [data-theme="dark"] .search-result-title {
+              color: #e5e7eb;
+            }
+            [data-theme="dark"] .search-result-content {
+              color: #9ca3af;
+            }
           `}</style>
           
           {/* Scrollable search results container */}
@@ -906,8 +949,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             <div style={{
                 padding: '12px 16px', 
                 fontSize: '12px', 
-                color: '#6B7280', 
-                borderBottom: '1px solid #E5E7EB',
+                color: isDarkMode ? '#9ca3af' : '#6B7280', 
+                borderBottom: `1px solid ${isDarkMode ? '#303033' : '#E5E7EB'}`,
                 fontWeight: '600',
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
