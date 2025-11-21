@@ -114,7 +114,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -139,7 +139,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -761,9 +761,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                       title.includes('Choose a KB category') || content.includes('Choose a KB category') || 
                                       title.match(/\d+\s+docs?\s+tagged\s+with/) || content.match(/\d+\s+docs?\s+tagged\s+with/);
                   const hasContent = content && content.trim().length > 10;
-                  const isNotJustTitle = content.toLowerCase() !== title.toLowerCase();
                   
-                  if (!isTaggedPage && hasContent && isNotJustTitle) {
+                  // Allow if content is different from title OR if content is longer (has more info)
+                  const contentClean = content.toLowerCase().trim();
+                  const titleClean = title.toLowerCase().trim();
+                  const isNotJustTitle = contentClean !== titleClean && contentClean.length > titleClean.length + 5;
+                  const hasUsefulContent = hasContent && (isNotJustTitle || contentClean.length > 50);
+                  
+                  if (!isTaggedPage && hasUsefulContent) {
                     seenUrls.add(baseUrl);
                     return true;
                   }
@@ -1036,9 +1041,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               
               // Filter out header-only documents with no meaningful content
               const hasContent = content && content.trim().length > 10;
-              const isNotJustTitle = content.toLowerCase() !== title.toLowerCase();
               
-              if (!isTaggedPage && hasContent && isNotJustTitle) {
+              // Allow if content is different from title OR if content is longer (has more info)
+              const contentClean = content.toLowerCase().trim();
+              const titleClean = title.toLowerCase().trim();
+              const isNotJustTitle = contentClean !== titleClean && contentClean.length > titleClean.length + 5;
+              const hasUsefulContent = hasContent && (isNotJustTitle || contentClean.length > 50);
+              
+              if (!isTaggedPage && hasUsefulContent) {
                 seenUrls.add(baseUrl);
                 return true;
               }

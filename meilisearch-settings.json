@@ -81,9 +81,11 @@
   "typoTolerance": {
     "enabled": true,
     "minWordSizeForTypos": {
-      "oneTypo": 4,
-      "twoTypos": 8
-    }
+      "oneTypo": 3,
+      "twoTypos": 7
+    },
+    "disableOnWords": [],
+    "disableOnAttributes": []
   },
   "faceting": {
     "maxValuesPerFacet": 100
