@@ -349,7 +349,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     if (url.includes('/docs/')) {
       const pathParts = url.split('/docs/')[1]?.split('/');
       if (pathParts && pathParts.length > 0) {
-        const section = pathParts[0];
+        // Remove anchor/hash from section name
+        let section = pathParts[0].split('#')[0].split('?')[0];
         
         // Map common sections to readable names
         const sectionMap: { [key: string]: string } = {

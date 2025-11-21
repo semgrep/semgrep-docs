@@ -114,7 +114,14 @@ exports.handler = async (event, context) => {
 
     // Build context from top search results for OpenAI
     const contextParts = searchResults.hits.slice(0, 3).map((hit, idx) => {
-      const title = hit.hierarchy?.lvl1 || hit.title || 'Documentation';
+      let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
+      
+      // Filter out Docusaurus internal anchors
+      if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
+        title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
+      }
+      title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+      
       const content = hit.content || '';
       const url = hit.url || '';
       return `[Source ${idx + 1}: ${title}]\nURL: ${url}\n${content.substring(0, 600)}`;
@@ -131,11 +138,21 @@ exports.handler = async (event, context) => {
 
     const response = {
       answer: answer,
-      sources: searchResults.hits.slice(0, 3).map(hit => ({
-        title: hit.hierarchy?.lvl1 || hit.title || 'Documentation',
-        url: hit.url,
-        snippet: hit.content?.substring(0, 200) + '...'
-      })),
+      sources: searchResults.hits.slice(0, 3).map(hit => {
+        let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
+        
+        // Filter out Docusaurus internal anchors
+        if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
+          title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
+        }
+        title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+        
+        return {
+          title: title,
+          url: hit.url,
+          snippet: hit.content?.substring(0, 200) + '...'
+        };
+      }),
       conversationId: Date.now().toString()
     };
 
@@ -164,7 +181,14 @@ function generateAnswer(question, hits) {
   }
 
   const topResult = hits[0];
-  const title = topResult.hierarchy?.lvl1 || topResult.title || 'Documentation';
+  let title = topResult.hierarchy_lvl2 || topResult.hierarchy_radio_lvl2 || topResult.hierarchy_lvl1 || topResult.hierarchy?.lvl2 || topResult.hierarchy?.lvl1 || topResult.title || 'Documentation';
+  
+  // Filter out Docusaurus internal anchors
+  if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
+    title = topResult.hierarchy_lvl0 || topResult.hierarchy?.lvl0 || 'Documentation';
+  }
+  title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+  
   const content = topResult.content || '';
   const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 20);
   const relevantContent = sentences.slice(0, 3).join('. ') + '.';
