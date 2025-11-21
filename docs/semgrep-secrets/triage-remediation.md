@@ -30,6 +30,10 @@ You can triage secrets-related findings in Semgrep AppSec Platform on the **Secr
 
 When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detects if a finding is fixed, or if the secret is no longer valid. The finding changes status automatically upon scanning. Users do not need to set a finding as **Fixed** manually.
 
+### Review provisionally ignored findings
+
+If you have Semgrep Assistant enabled, review the findings that have been provisionally ignored. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+
 ## Common filtering use cases
 
 You can find and perform bulk operations through filtering; [all filter operations](/semgrep-secrets/findings#filter-findings) are available to you on the **Secrets** page.
