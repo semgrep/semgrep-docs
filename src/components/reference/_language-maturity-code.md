@@ -24,7 +24,7 @@
         <td>Number of Pro rules</td>
         <td>10+</td>
         <td>5+</td>
-        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language. [This is an external link](https://www.google.com). [This is an internal link](/).</td>
+        <td colspan="2">0+. Query the <a href="https://semgrep.dev/r">Registry</a> to see if any rules exist for your language.</td>
     </tr>
     <tr>
         <td>Semgrep syntax</td>
