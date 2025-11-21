@@ -683,7 +683,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           WebkitBackdropFilter: 'blur(10px)',
           transition: 'max-height 0.3s ease-in-out'
         }}>
-          {/* Results count header with Ask AI button */}
+          {/* Results count and Ask AI button header */}
           <div style={{
             padding: '8px 16px',
             fontSize: '12px',
@@ -697,7 +697,22 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span>{results.length} result{results.length !== 1 ? 's' : ''} found</span>
+            <span style={{ fontSize: '14px', textTransform: 'none', fontWeight: '500' }}>
+              {(() => {
+                const count = results.filter(result => {
+                  const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+                  const content = result.content || result._formatted?.content || '';
+                  const isTaggedPage = title.includes('docs tagged with') || title.includes('doc tagged with') || 
+                                      title.includes('tagged with') || content.includes('docs tagged with') || 
+                                      content.includes('doc tagged with') || content.includes('tagged with') || 
+                                      title.includes('Choose a KB category') || content.includes('Choose a KB category') || 
+                                      title.match(/\d+\s+docs?\s+tagged\s+with/) || content.match(/\d+\s+docs?\s+tagged\s+with/);
+                  const hasContent = result.content && result.content.trim().length > 0;
+                  return !isTaggedPage && hasContent;
+                }).length;
+                return `${count} ${count === 1 ? 'result' : 'results'} found`;
+              })()}
+            </span>
             <button
               onClick={fetchAIAnswer}
               disabled={aiLoading}
@@ -936,15 +951,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             
             return (
               <>
-                <div style={{
-                  padding: '12px 16px',
-                  borderBottom: '1px solid #E5E7EB',
-                  color: '#6B7280',
-                  fontSize: '14px',
-                  fontWeight: '500'
-                }}>
-                  {filteredResults.length} {filteredResults.length === 1 ? 'result' : 'results'} found
-                </div>
                 {filteredResults.map((result, index) => {
             // Prioritize lvl1 (page title) over lvl2 (subsection)
             let rawTitle = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || result.title || '';
