@@ -60,7 +60,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
-      token: GITLAB_PAT
 ```
 
 </TabItem>
@@ -86,7 +85,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
-      token: GITLAB_PAT
 ```
 
 The `publicKey` value should be entered precisely as shown in the example:
@@ -150,12 +148,8 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 <pre class="language-console"><code>
 azuredevops:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
-&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
-:::
 </TabItem>
 
 <TabItem value='bb'>
@@ -165,14 +159,7 @@ Bitbucket is compatible with Network Broker versions 0.20.0 and later.
 <pre class="language-console"><code>
 bitbucket:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 </code></pre>
-
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see Prerequisites for access token requirements:
-- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#create-and-add-a-workspace-access-token)
-- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-data-center-pr-comments#prerequisites)
-:::
 
 </TabItem>
 <TabItem value='gh'>
@@ -180,7 +167,6 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
 </TabItem>
@@ -189,12 +175,7 @@ github:
 <pre class="language-console"><code>
 gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
-
-:::info Access token
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
-:::
 
 </TabItem>
 </Tabs>
@@ -284,7 +265,6 @@ To enable Managed Scans when using Network Broker, ensure that you've updated yo
 <pre class="language-console"><code>
 azuredevops:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
-&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
@@ -299,7 +279,6 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 bitbucket:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
@@ -313,13 +292,8 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
-
-:::info Access tokens
-Semgrep recommends [connecting to GitHub using the Semgrep GitHub app](https://semgrep.dev/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects), rather than providing the access token in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see the GitHub instructions at [Grant code access to Semgrep with an access token](/docs/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-an-access-token).
-:::
 
 </TabItem>
 <TabItem value='gl'>
@@ -327,13 +301,8 @@ Semgrep recommends [connecting to GitHub using the Semgrep GitHub app](https://s
 <pre class="language-console"><code>
 gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
-
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
-:::
 
 </TabItem>
 </Tabs>
@@ -371,7 +340,6 @@ It is possible to allow access to multiple source code managers (SCM) within a s
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
 Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
