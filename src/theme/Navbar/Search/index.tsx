@@ -134,11 +134,21 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           // Prioritize lvl1 (page title) over lvl2 (subsection)
           let title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || result.title || '';
           
+          // Remove common emojis (🔧, 📝, etc.)
+          title = title.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '').replace(/[\u2600-\u27BF]/g, '').trim();
+          
           // Filter out Docusaurus internal anchors
           if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
             title = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || '';
           }
-          title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim();
+          
+          // Clean up any # symbols, anchors, and extra spaces
+          title = title
+            .replace(/#__docusaurus[_a-zA-Z]+/gi, '')
+            .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+            .replace(/\s*#\s*/g, ' - ')
+            .replace(/\s+/g, ' ')
+            .trim();
           
           // If still no title, extract from URL path
           if (!title && result.url) {
@@ -332,6 +342,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 result.title || 
                 '';
     
+    // Remove common emojis (🔧, 📝, etc.)
+    title = title.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '').replace(/[\u2600-\u27BF]/g, '').trim();
+    
     // Filter out Docusaurus internal anchors and weird titles
     if (title.includes('__docusaurus_skipToContent_fallback') || 
         title.includes('#__DOCUSAURUS') ||
@@ -343,6 +356,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     // Clean up the title
     title = title.replace(/#__docusaurus_skipToContent_fallback/gi, '')
                  .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+                 .replace(/\s*#\s*/g, ' - ')
+                 .replace(/\s+/g, ' ')
                  .trim();
     
     // If still no title, extract from URL path
@@ -398,10 +413,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     // Extract section from URL path - this is the most reliable method
     if (url.includes('/docs/')) {
-      const pathParts = url.split('/docs/')[1]?.split('/');
+      // First, strip any anchors from the URL
+      const cleanUrl = url.split('#')[0].split('?')[0];
+      const pathParts = cleanUrl.split('/docs/')[1]?.split('/');
       if (pathParts && pathParts.length > 0) {
-        // Remove anchor/hash from section name
-        let section = pathParts[0].split('#')[0].split('?')[0];
+        let section = pathParts[0];
         
         // Map common sections to readable names
         const sectionMap: { [key: string]: string } = {
@@ -941,11 +957,21 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             // Prioritize lvl1 (page title) over lvl2 (subsection)
             let rawTitle = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || result.title || '';
             
+            // Remove common emojis (🔧, 📝, etc.)
+            rawTitle = rawTitle.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '').replace(/[\u2600-\u27BF]/g, '').trim();
+            
             // Filter out Docusaurus internal anchors
             if (rawTitle.includes('__docusaurus_skipToContent_fallback') || rawTitle.includes('#__DOCUSAURUS') || rawTitle.match(/^[A-Z]+#__/)) {
               rawTitle = result.hierarchy_lvl0 || result.hierarchy?.lvl0 || '';
             }
-            rawTitle = rawTitle.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim();
+            
+            // Clean up any # symbols, anchors, and extra spaces
+            rawTitle = rawTitle
+              .replace(/#__docusaurus[_a-zA-Z]+/gi, '')
+              .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+              .replace(/\s*#\s*/g, ' - ')
+              .replace(/\s+/g, ' ')
+              .trim();
             
             // If still no title, extract from URL path
             if (!rawTitle && result.url) {
