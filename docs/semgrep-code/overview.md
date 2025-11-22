@@ -73,7 +73,6 @@ semgrep ci --oss-only
 - [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
 - [Auto-triage findings](/semgrep-assistant/overview#auto-triage) and suggest whether a finding can safely be ignored.
 - [Filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
-- Help you [write custom rules](/semgrep-assistant/overview#custom-rules-editor-beta) to find patterns and vulnerabilities specific to your codebase.
 
 ## Next steps
 

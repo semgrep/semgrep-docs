@@ -34,7 +34,7 @@ The following updates were made to Semgrep in November 2022.
 
 ### Additions
 
-- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-code/triage-remediation/#triage-statuses). ![Screenshot of Semgrep App triage menu](/img/app-findings-triage.png)
+- When you triage a finding, Semgrep App now displays a form that asks whether the finding was a **False positive**, **Acceptable risk**, or you had **No time to fix**. For more information, see [Managing finding status](/semgrep-code/triage-remediation/#triage-statuses).
 - When ignoring an individual finding, you can now ignore similar future findings by selecting one of the following options: **Just this file**, **This directory**, or **Parent directory**. These options specify which files and directories Semgrep App ignores. In addition, you can now remove a rule when you triage a single finding without having to go to the Rule board. To ignore a rule while triaging a finding, enable the **Remove this rule from Rule board** when triaging an individual finding. See [Ignoring individual findings](/semgrep-code/triage-remediation/#ignore-findings).
 
 ### Changes

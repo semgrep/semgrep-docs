@@ -18,7 +18,7 @@ The terms and definitions provided here are specific to Semgrep Supply Chain.
 
 ## Advisory
 
-Announcement of a vulnerability, typically but not always with an associated [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) number. All Advisories can be found by Semgrep Supply Chain rules. Advisories can be seen within the **Supply Chain > Advisories** tab.
+Announcement of a vulnerability, typically but not always with an associated [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) number. All Advisories can be found by Semgrep Supply Chain rules. Advisories can be seen within the **Supply Chain > Rules & Policies > Advisories** tab.
 
 ## Dependency
 
@@ -90,7 +90,7 @@ See also [NIST definition of threat](https://csrc.nist.gov/glossary/term/threat)
 
 ## Transitive or indirect dependency
 
-A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. An example would be a codebase that uses [Cloudinary](https://www.npmjs.com/package/cloudinary), which is dependent on Lodash. In this example, Lodash is a transitive dependency of the codebase.
+A transitive or indirect dependency is a dependency of a dependency. If your codebase uses a dependency A, and A is dependent on B, then B is a transitive dependency. An example would be a codebase that uses Cloudinary, which is dependent on Lodash. In this example, Lodash is a transitive dependency of the codebase.
 
 For more information, see [Supported languages](/docs/supported-languages#semgrep-supply-chain).
 

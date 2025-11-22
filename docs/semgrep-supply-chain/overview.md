@@ -13,9 +13,6 @@ import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md
 
 <SscIntro />
 
-![Semgrep Supply Chain Vulnerabilities page](/img/sc-vulns.png)
-_**Figure**. Semgrep Supply Chain Vulnerabilities page._
-
 ## Open source security vulnerabilities
 
 Semgrep Supply Chain detects [security
