@@ -1,6 +1,7 @@
 ---
 slug: integrating
 append_help_link: true
+displayed_sidebar: whatsSemgrepSidebar
 tags:
   - Support
 description: >-

@@ -13,6 +13,7 @@
 
 
 :root {
+  --ifm-breadcrumb-separator: '›';
   --semgrep-brand-green: #2ACFA6;
   --semgrep-secondary-mint01: #AFEAD8;
   --semgrep-secondary-mint02: #DEEDE8;
@@ -132,7 +133,7 @@
 .MarkpromptSearchResults a,
 .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
   text-decoration: none !important;
-  color: #444; // placeholder; replace with theme color if there's a similar one
+  color: #444;
   font-weight: 600;
 }
 
@@ -281,11 +282,10 @@ html[data-theme="dark"] {
   .MarkpromptSearchResults a,
   .MarkpromptSearchResult[aria-selected="true"] a .MarkpromptSearchResultSubtitle {
     text-decoration: none !important;
-    color: #444; // placeholder; replace with theme color if there's a similar one
+    color: #444;
     font-weight: 600;
   }
 
-  // Dark mode cards
   a.card:hover {
     background-color: var(--ifm-color-black);
     text-decoration: none;
@@ -299,15 +299,7 @@ html[data-theme="dark"] {
     color: var(--ifm-color-gray-200);
     flex-shrink:1;
   }
-
-  /*img {
-      box-shadow: var(--semgrep-docs-box-shadow-dark);
-  }*/
 }
-
-
-/* begin customized styles for Semgrep docs */
-/* color vars are overwritten above */
 
 details.alert {
     background: unset;
@@ -318,10 +310,6 @@ details.alert {
  * SIDEBAR                                                                    *
  *                                                                            *
  *****************************************************************************/
-
- /*.menu {
-  padding: 0.5rem !important;
- } */
 
 .menu__list-item-collapsible > a:not([href]) {
     color: var(--ifm-color-primary);
@@ -397,16 +385,11 @@ details.alert {
   * Let's keep most of the changes around this area                        *
   *************************************************************************/
 
-/* prevent box shadow and border on assets we don't want to apply it to */
 .navbar__logo > img {
   box-shadow: 0px 0px 0px !important;
   border: none !important;
 }
 
-/*
-.alert--info {
-  background-color: var(--semgrep-secondary-bluetemp);
-} */
 * {
   font-variant-ligatures: none;
 }
@@ -497,18 +480,9 @@ dl {
     margin-bottom: var(--ifm-leading);
 }
 
-/* details box */
-
 details.alert {
     background-color: unset;
 }
-
-/*better way to add additional css such as borders, respects markdown indent */
-/* We use the "src attribute" (i.e. the attribute defined after an image URL, denoted by a hashtag:
-image.png#bordered) because using divs and HTML interfere with other docusaurus configurations
-See https://stackoverflow.com/questions/6763899/css-hide-all-images-with-matching-src-attribute
-https://www.w3.org/TR/selectors-3/#attribute-substrings
-*/
 
 img[src*="full"] {
   width: 100%;
@@ -559,8 +533,6 @@ li > img {
   position: sticky;
 }
 
-/* rest of navbar */
-
 .navbar.navbar--fixed-top {
   padding: 0 rem 1rem;
   display: flex;
@@ -568,7 +540,6 @@ li > img {
   justify-content: center;
   align-items: center;
   width: 100%;
-  /*height: unset;*/
 }
 
 .navbar__inner {
@@ -606,7 +577,7 @@ li > img {
 a.navbar__item.navbar__link {
   font-weight: 500;
   padding: 5px 16px;
-  border: none;
+  border: none;  
   border-radius: 3px;
   cursor: pointer;
   font-size: 1rem;
@@ -624,6 +595,22 @@ a.navbar__item.navbar__link:hover {
   background-color: rgba(167, 182, 194, 0.3);
 }
 
+/* Background color for all active navbar items */
+a.navbar__item.navbar__link--active,
+.navbar__item.dropdown .navbar__link--active {
+  background-color: rgba(167, 182, 194, 0.4);
+}
+
+/* Font weight 600 only for regular (non-dropdown) active navbar items */
+a.navbar__item.navbar__link--active {
+  font-weight: 600;
+}
+
+html[data-theme="dark"] a.navbar__item.navbar__link--active,
+html[data-theme="dark"] .navbar__item.dropdown .navbar__link--active {
+  background-color: rgba(42, 207, 166, 0.2);
+}
+
 .navbar__logo {
   height: 25px;
 }
@@ -635,20 +622,55 @@ a.navbar__item.navbar__link:hover {
   margin-left: 0.5em;
 }
 
-/* sidenav */
-
 .menu__link {
   transition-timing-function: linear;
   transition-duration: 3ms;
 }
 
-/* TOC for mobile */
 .tocCollapsibleContent_node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-index-module,
 .table-of-contents > ul {
   border-top: 1px solid var(--ifm-color-primary-lighter);
 }
 
-/* footer */
+.breadcrumbs {
+  font-size: 0.8rem;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumbs__item {
+  font-size: 0.8rem;
+}
+
+.breadcrumbs__item::before {
+  display: none !important;
+}
+
+.breadcrumbs__item::after {
+  display: none !important;
+}
+
+.breadcrumbs__link {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.breadcrumbs__link::before {
+  display: none !important;
+}
+
+.breadcrumbs__link::after {
+  display: none !important;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  display: inline-block !important;
+  content: '›' !important;
+  padding: 0 0.35rem !important;
+  color: var(--ifm-breadcrumb-separator-color, #8c959f) !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+}
 
 .footer--dark {
   background: #00243E;
@@ -667,17 +689,13 @@ a.navbar__item.navbar__link:hover {
   margin-bottom: 2rem;
 }
 
-/* not following conventions Todo rename to yt__embed */
 .yt_embed {
     padding-bottom: 1rem;
 }
 
-/* max width for VS Code embedded video */
 article video {
   max-width: 100%;
 }
-
-/* badge */
 
 .top-tag-list {
   display: flex;
@@ -703,21 +721,16 @@ article video {
   content: "|";
 }
 
-
-/* customized generated index cards */
-
 h2[class*="cardTitle_"][class~="text--truncate"], p[class*="cardDescription_"][class~="text--truncate"] {
   white-space: normal;
 }
-
-/* left sidebar collapse */
 
 button[class*="collapseSidebarButton"]:hover, div[class*="expandButton"]:hover {
   background-color: #DFF6F0;
 }
 
 svg[class*="collapseSidebarButtonIcon"], svg[class*="expandButtonIcon"] {
-  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%); /* --ifm-color-primary-dark */
+  filter: invert(45%) sepia(51%) saturate(1411%) hue-rotate(127deg) brightness(96%) contrast(101%);
 }
 
 
@@ -743,9 +756,19 @@ article > a[class*="cardContainer_"][class~="card"] {
 }
 
 .home-top-level a:before {
-  content: "🏠";
-  display: inline;
-  padding-right: 8px;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='16' height='16'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+html[data-theme="dark"] .home-top-level a:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa' width='16' height='16'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
 }
 
 
@@ -876,7 +899,6 @@ Semgrep vs Semgrep CE
   padding-right: 0.7rem;
 }
 
-/* tablet breakpoint */
 @media (min-width:768px) {
     .col-3-grid, .col-2-grid {
         display: flex;
@@ -932,22 +954,6 @@ input#search_input_react {
   }
 }
 
-
-/* ----------------------------------------------------------------------------
-Blog
----------------------------------------------------------------------------- */
-
-/*
-[class^="sidebarItemTitle"] {
-    display: none;
-}
-
-
-div[role="group"]:last-of-type::after {
-    content: "test";
-}
-*/
-
 h1.blog {
     font-size: 3rem;
 }
@@ -966,3 +972,179 @@ h2[class^="title"] {
 .blog-index {
     padding-bottom: 2rem;
 }
+
+.browse-sections {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--semgrep-secondary-mint02);
+}
+
+.browse-sections > .menu__list-item-collapsible > .menu__link {
+  color: var(--ifm-color-primary);
+  vertical-align: bottom;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  padding-bottom: 0rem;
+  padding-top: 0.5rem;
+  background: none;
+  border: none;
+  
+  &:hover {
+    background: unset;
+    color: var(--ifm-color-primary);
+  }
+}
+
+html[data-theme="dark"] {
+  .browse-sections {
+    border-top: 2px solid var(--ifm-color-gray-700);
+  }
+}
+
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  max-width: 100%;
+  overflow: visible !important;
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  row-gap: 0.5rem;
+  overflow: visible !important;
+}
+
+.navbar__items:first-child {
+  flex: 1;
+  min-width: 0;
+  @media (min-width: 997px) {
+    margin-left: 150px; /* Offset wrapped items to the right */
+  }
+}
+
+.navbar__item {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.navbar__link {
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.navbar__logo {
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  @media (min-width: 997px) {
+    margin-left: -150px; /* Compensate for the left margin */
+  }
+}
+
+.navbar__items--right {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar__items--right .navbar__item {
+  margin-left: 0;
+}
+
+
+@media (max-width: 1280px) and (min-width: 997px) {
+  .navbar__link {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.875rem;
+  }
+  
+  .navbar__items {
+    gap: 0.15rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 996px) and (min-width: 768px) {
+  .navbar__link {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.85rem;
+  }
+  
+  .navbar__items {
+    gap: 0.25rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 0.75rem;
+  }
+  
+  .navbar__items--right {
+    gap: 0.15rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar__inner {
+    padding: 0 0.5rem;
+  }
+  
+  .navbar__link {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.8rem;
+  }
+  
+  .navbar__logo {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar__items {
+    gap: 0.2rem;
+  }
+  
+  .navbar__items--right {
+    gap: 0.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__link {
+    padding: 0.35rem 0.4rem !important;
+    font-size: 0.75rem;
+  }
+  
+  .navbar__items {
+    gap: 0.1rem;
+  }
+}
+
+
+/* Fix dropdown font consistency - ensure Help and Explore match other navbar items */
+.navbar__item.dropdown .navbar__link {
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  font-family: "Inter", sans-serif !important;
+}
+
+.navbar__item.dropdown .navbar__link:after {
+  margin-left: 0.3rem;
+}
+
+
+
+
+
+

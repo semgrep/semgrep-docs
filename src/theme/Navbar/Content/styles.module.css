@@ -1,0 +1,16 @@
+.colorModeToggle {
+  margin: 0 0.5rem;
+}
+
+/* Responsive navbar adjustments */
+@media (max-width: 1280px) {
+  .colorModeToggle {
+    margin: 0 0.25rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .colorModeToggle {
+    margin: 0 0.25rem;
+  }
+}

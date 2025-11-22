@@ -3,6 +3,7 @@ slug: claim-a-license
 title: Claim a license
 hide_title: true
 description: Learn how to claim a Semgrep license.
+displayed_sidebar: aboutSidebar
 tags:
   - Support
   - Semgrep AppSec Platform
