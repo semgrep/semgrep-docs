@@ -284,11 +284,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         setResults(rankedResults);
             setIsOpen(true);
           } else {
-        console.error('Search failed:', response.statusText);
             setResults([]);
           }
         } catch (error) {
-      console.error('Search error:', error);
           setResults([]);
         } finally {
           setIsLoading(false);
@@ -323,7 +321,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         setAiResponse('Failed to get AI response. Please try again.');
       }
     } catch (error) {
-      console.error('AI fetch error:', error);
       setAiResponse('Error fetching AI response.');
     } finally {
       setAiLoading(false);
