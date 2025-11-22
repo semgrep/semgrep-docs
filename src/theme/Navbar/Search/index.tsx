@@ -352,9 +352,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
     // Debounce the search by 300ms
     const timeout = setTimeout(() => {
-      // Preprocess query for better Semgrep documentation search
-      const processedQuery = preprocessSemgrepQuery(newQuery);
-      handleSearch(processedQuery);
+      // TEMPORARILY: Skip preprocessing to test
+      handleSearch(newQuery);
     }, 300);
 
     setSearchTimeout(timeout);
