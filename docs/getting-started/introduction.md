@@ -91,7 +91,7 @@ Integrate Semgrep into your CI/CD environment like GitHub Actions, GitLab CI/CD,
 
 
 :::info
-While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
+While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 :::
 
 
