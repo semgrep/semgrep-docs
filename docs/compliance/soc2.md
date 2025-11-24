@@ -26,5 +26,3 @@ When properly configured with CI/CD systems, Semgrep [policy enforcement](https:
 ### Deployment and certification
 
 Semgrep Inc. is SOC 2 Type II certified. For CLI deployments, scans run on customer infrastructure (which may or may not be SOC 2 certified, depending on customer controls). For on-premises CI/CD, scans run on customer-controlled infrastructure. Cloud CI/CD providers (GitHub, GitLab, Azure DevOps, Bitbucket) are SOC 2 certified. For Semgrep Managed Scans, scans run on Semgrep's SOC 2 Type II-certified AWS infrastructure.
-
-
