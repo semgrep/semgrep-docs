@@ -118,3 +118,5 @@ While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semg
 - **Support for 30+ programming languages**  
 
 Semgrep offers lower setup friction, fewer false positives in code review, simpler custom rules, and a tighter feedback loop between security and development teams.
+
+Read more about [comparisons with other tools](/docs/faq/comparisons/codeql).
