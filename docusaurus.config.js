@@ -213,9 +213,6 @@ module.exports = {
       async: true
     }
   ],
-  clientModules: [
-    require.resolve('./src/client-modules/gtagFix.js'),
-  ],
   presets: [
     [
       '@docusaurus/preset-classic',

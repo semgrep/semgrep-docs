@@ -70,7 +70,7 @@ Remediation is the process of fixing security issues identified during scanning.
 | Quick local checks | Run Semgrep locally | CE & Pro |
 | Catch issues before commit | IDE extension or pre-commit framework | CE & Pro |
 | Integrate into builds | CI/CD integration | CE & Pro |
-| Org-wide management & automation | Semgrep Managed Scans (SMS) | Pro only |
+| Org-wide management & automation | Semgrep Managed Scans | Pro only |
 
 
 
@@ -92,7 +92,7 @@ Integrate Semgrep into your CI/CD environment like GitHub Actions, GitLab CI/CD,
 > **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 
 
-### Semgrep Managed Scans (SMS) via the AppSec Platform Dashboard (Recommended)
+### Semgrep Managed Scans via the AppSec Platform Dashboard (Recommended)
 
 [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secrets detection tools across their organization without complex setup. Scans are run automatically on Semgrep’s cloud infrastructure, and results appear directly in the AppSec Platform dashboard.
 
