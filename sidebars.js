@@ -191,11 +191,6 @@ module.exports = {
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
-                        id: 'semgrep-assistant/getting-started', // document ID
-                        label: 'Enable Assistant', // sidebar label
-                      },
-                      {
-                        type: 'doc',
                         id: 'writing-rules/overview', // document ID
                         label: 'Write custom rules', // sidebar label
                       },
@@ -256,7 +251,9 @@ module.exports = {
           collapsible: true,
           items: [
             'mcp',
+            'semgrep-appsec-platform/cortex',
             'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/sysdig',
             'semgrep-appsec-platform/wiz'
           ]
         },
@@ -363,7 +360,8 @@ module.exports = {
               id: 'semgrep-assistant/getting-started'
             },
             items: [
-              'semgrep-assistant/customize'
+              'semgrep-assistant/customize',
+              'semgrep-assistant/best-practices-for-memories'
             ]
           },
           'semgrep-assistant/analyze'

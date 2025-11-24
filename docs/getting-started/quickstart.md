@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 Learn how to set up Semgrep, scan your first project for security issues, and view your findings. A **project** can be any codebase, repository, or folder within a monorepo.
 
 :::info prerequisites
-You must have Python 3.9 or later installed on the machine where the Semgrep CLI is running.
+You must have Python 3.10 or later installed on the machine where the Semgrep CLI is running.
 :::
 
 1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Continue with GitHub** or **Continue with GitLab**. Follow the on-screen prompts to grant Semgrep the necessary permissions.
@@ -30,7 +30,6 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
         {label: 'macOS', value: 'macOS'},
         {label: 'Linux', value: 'Linux'},
         {label: 'Windows (beta)', value: 'Windows'},
-        {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
         {label: 'Docker', value: 'Docker'},
         ]}
     >
@@ -133,38 +132,6 @@ You must have Python 3.9 or later installed on the machine where the Semgrep CLI
     5. In the **Semgrep CLI login**, click **Activate** to proceed.
 
     6. Return to the CLI, navigate to the root of your project, and run your first scan:
-
-        ```console
-        semgrep ci
-        ```
-
-    </TabItem>
-
-    <TabItem value='Windows Subsystem for Linux (WSL)'>
-
-    :::info Prerequisites
-    Ensure that you have the [Windows Subsystem for Linux installed](https://learn.microsoft.com/en-us/windows/wsl/install) before proceeding.
-    :::
-
-    1. Using the WSL interface, install the Semgrep CLI and confirm the installation:
-
-        ```console
-        # install through pip
-        python3 -m pip install semgrep
-
-        # confirm installation succeeded by printing the currently installed version
-        semgrep --version
-        ```
-
-    2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
-
-        ```console
-        semgrep login
-        ```
-
-    3. In the **Semgrep CLI login**, click **Activate** to proceed.
-
-    4. Return to the WSL interface, navigate to the root of your project, and run your first scan:
 
         ```console
         semgrep ci

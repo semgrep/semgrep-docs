@@ -37,4 +37,4 @@ Add yours [with a pull request](https://github.com/semgrep/semgrep-docs)!
 - [litbsast](https://github.com/ajinabraham/libsast)
 - [mobsfscan](https://github.com/MobSF/mobsfscan)
 - [nodejsscan](https://github.com/ajinabraham/nodejsscan)
-- [SecObserve](https://github.com/MaibornWolff/SecObserve)
+- [SecObserve](https://github.com/SecObserve/SecObserve)
