@@ -14,7 +14,7 @@
     "java": ["java", "spring", "maven", "gradle"],
     "javascript": ["javascript", "js", "node.js", "nodejs", "typescript", "ts"],
     "metavariables": ["metavariables", "variables", "placeholders", "pattern variables"],
-    "oss": ["oss", "open source", "community edition", "free version"],
+    "oss": ["oss", "open source"],
     "patterns": ["patterns", "rules", "expressions", "syntax patterns", "matching"],
     "policy": ["policy", "policies", "governance", "compliance"],
     "pro": ["pro", "semgrep pro", "commercial", "paid version", "enterprise"],
