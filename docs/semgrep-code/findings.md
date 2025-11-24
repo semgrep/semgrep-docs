@@ -135,13 +135,11 @@ To view in-depth information about a specific finding:
 
 #### Semgrep Assistant’s rule and analysis explanation 
 
-If Semgrep Assistant is enabled and classifies a finding as either a true positive or a false positive, a rule explanation box appears at the top of the finding’s details page.
+If Semgrep Assistant is enabled and classifies a finding as either a true positive or a false positive, Semgrep displays an alert box with a summary at the top of the finding’s details page. You can also view a detailed explanation that, if applicable, include steps to exploitability in the **Finding description** tab.
 
-For true positives, the explanation includes a summary and a detailed rationale for why the finding was flagged. It draws on the code that matched the rule pattern, along with the surrounding code, to provide context to and support the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
+For true positives, the detailed explanation includes a summary and a detailed rationale for why the finding was flagged. It draws on the code that matched the rule pattern, along with the surrounding code, to provide context to and support the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
 
-For false positives, the explanation box contains only Assistant’s reasoning, without additional code context.
-
-Some explanations refer to memories, which Assistant uses to determine whether a finding is a true or false positive. However, memories are not used when generating the explanation itself.
+For false positives, the explanation contains only Assistant’s reasoning, without additional code context. Some explanations refer to memories, which Assistant uses to determine whether a finding is a false positive. However, memories are not used when generating the explanation itself.
 
 If Assistant flags a finding as a false positive, you can provide feedback by selecting **Agree and Ignore** or **Disagree**.
 
