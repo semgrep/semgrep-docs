@@ -13,7 +13,7 @@ tags:
 ---
 
 
-Semgrep is a software security tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection. It identifies vulnerabilities in source code without executing it. Semgrep integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform.
+Semgrep is a software security tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection. Semgrep identifies vulnerabilities in your source code without executing your code. It integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform.
 
 Semgrep uses rules written in a simple schema that match code semantically. You can use out-of-the-box rules, apply community-maintained rules, or write your own to fit your workflow.
 
@@ -23,7 +23,7 @@ Scan results can be triaged and remediated in the Semgrep AppSec Platform. The p
 
 * **Community Edition** (CE): is an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins. The core scanner supports over 30 programming languages. [Get started with CE](/docs/getting-started/quickstart-ce).
 
-* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. Semgrep AppSec Platform Pro offers managed scanning at org scale, advanced (pro) rules, supply-chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. It supports over 35 programming languages, with new ones added regularly.
+* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. Semgrep AppSec Platform Pro offers managed scanning at org scale, advanced (pro) rules, supply chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. It supports over 35 programming languages, with new ones added regularly.
 
 ![](/img/appsecplatform-intro.png)
 
@@ -87,7 +87,7 @@ Incorporate Semgrep early in your development workflow by using a [supported IDE
 
 ### Add Semgrep to CI/CD
 
-Integrate Semgrep into your CI/CD environment (e.g., GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite) by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
+Integrate Semgrep into your CI/CD environment like GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
 
 > **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
 
