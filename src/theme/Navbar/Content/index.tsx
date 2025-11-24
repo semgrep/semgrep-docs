@@ -85,6 +85,7 @@ export default function NavbarContent(): JSX.Element {
       return 'help';
     }
     if (path.startsWith('/docs/faq') || 
+        path.startsWith('/docs/introduction') ||
         path.startsWith('/docs/semgrep-pro-vs-oss') ||
         path.startsWith('/docs/integrating') ||
         path.startsWith('/docs/run-a-successful-pov') ||
@@ -150,7 +151,7 @@ export default function NavbarContent(): JSX.Element {
       type: 'dropdown',
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
-        { label: "What's Semgrep", to: '/faq/overview' },
+        { label: "What's Semgrep", to: '/introduction' },
         { label: 'For developers', to: '/for-developers/overview' },
         { label: 'Release notes', to: '/release-notes' },
         { label: 'Support & resources', to: '/trophy-case' },
