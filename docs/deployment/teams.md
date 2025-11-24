@@ -325,11 +325,11 @@ Semgrep supports several types of access tokens:
 
 #### User-generated (Web API) tokens 
 
-These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. 
+These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. Manage tokens under **Settings → Tokens** in Semgrep AppSec Platform.
 
 Some features of these tokens:
-- They are not tied to a specific user account, and remain valid until manually revoked, even if the creator is no longer associated with the deployment.  
-- Only admins can generate or manage these tokens. You can manage tokens by going to **Settings → Tokens** in Semgrep AppSec Platform.  
+- Only admins can generate or manage these tokens.   
+- For auditing, Web API tokens are associated with the user who created them. However, they remain valid until manually revoked, even if the creator is no longer associated with the deployment. Rotate regularly and revoke during admin offboarding.
 
 #### CLI tokens (Member-scoped) tokens
 
