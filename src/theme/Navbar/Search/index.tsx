@@ -104,7 +104,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               body: JSON.stringify({
                 index: indexUid,
                 q: searchQuery,
-            limit: 12,
+            limit: 50,
             cropLength: 200,
                 showMatchesPosition: true,
             attributesToRetrieve: ['*'],
@@ -128,7 +128,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               },
               body: JSON.stringify({
                 q: searchQuery,
-            limit: 12,
+            limit: 50,
             cropLength: 200,
                 showMatchesPosition: true,
             attributesToRetrieve: ['*'],
@@ -747,7 +747,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                     return false;
                   }
                   
-                  const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+                  // Extract title using correct field names (underscore notation)
+                  const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
+                               result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
+                               result.title || '';
                   const content = result.content || result._formatted?.content || '';
                   
                   const isTaggedPage = title.includes('docs tagged with') ||
@@ -1017,7 +1020,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 return false;
               }
               
-              const title = result.hierarchy?.lvl1 || result.hierarchy?.lvl2 || result.title || '';
+              // Extract title using correct field names (underscore notation)
+              const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
+                           result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
+                           result.title || '';
               const content = result.content || result._formatted?.content || '';
               
               // Skip category/tagged pages (these are just lists)
