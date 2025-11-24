@@ -57,10 +57,10 @@ After each scan, your findings are displayed in the Semgrep AppSec Platform. The
 
 Triage is the process of reviewing, prioritizing, and managing findings identified during Semgrep scans. It helps security teams and developers decide which issues to address, ignore, or assign for further investigation. Within the Semgrep AppSec Platform, triage tools such as filtering, tagging, and assigning owners streamline this process and integrate seamlessly into existing workflows.
 
-Remediation is the process of fixing security issues identified during scanning. Semgrep supports remediation by providing detailed findings, contextual code examples, and, in many cases, Autofix suggestions that can automatically or semi-automatically resolve vulnerabilities. These tools help developers quickly implement secure fixes while maintaining development speed.
-Additionally, Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Remediation is the process of fixing security issues identified during scanning. Semgrep supports remediation by providing detailed findings, contextual code examples, and, in many cases, autofix suggestions that can automatically or semi-automatically resolve vulnerabilities. These tools help developers quickly implement secure fixes while maintaining development speed.
 
-Semgrep Assistant enhances this workflow by providing AI-powered security recommendations to help you understand findings, assess severity, and prioritize fixes. It can also suggest potential remediations, explain rule matches in context, and guide developers toward faster resolution of issues.
+
+[Semgrep Assistant](/docs/semgrep-assistant/overview) enhances this workflow by providing AI-powered security recommendations to help you understand findings, assess severity, and prioritize fixes. It can also suggest potential remediations, explain rule matches in context, and guide developers toward faster resolution of issues.
 
 ## Ways to incorporate Semgrep into your development workflow
 
@@ -70,7 +70,7 @@ Semgrep Assistant enhances this workflow by providing AI-powered security recomm
 | Quick local checks | Run Semgrep locally | CE & Pro |
 | Catch issues before commit | IDE extension or pre-commit framework | CE & Pro |
 | Integrate into builds | CI/CD integration | CE & Pro |
-| Org-wide management & automation | Semgrep Managed Scans (SMS) | Pro (AppSec Platform) only |
+| Org-wide management & automation | Semgrep Managed Scans (SMS) | Pro only |
 
 
 
