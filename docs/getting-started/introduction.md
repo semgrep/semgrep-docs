@@ -89,7 +89,10 @@ Incorporate Semgrep early in your development workflow by using a [supported IDE
 
 Integrate Semgrep into your CI/CD environment like GitHub Actions, GitLab CI/CD, Jenkins, CircleCI, Azure Pipelines, Bitbucket, or Buildkite by creating a job that your CI provider runs. After each scan, findings are sent to the Semgrep AppSec Platform for triage and remediation. [Learn more](/docs/deployment/add-semgrep-to-ci).
 
-> **Note:** While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
+
+:::info
+While CI/CD integration continues to be supported, [Semgrep Managed Scans](#semgrep-managed-scans-sms-via-the-appsec-platform-dashboard-recommended) are the recommended approach for organization-wide deployments.
+:::
 
 
 ### Semgrep Managed Scans via the AppSec Platform Dashboard (Recommended)
@@ -106,7 +109,7 @@ Integrate Semgrep into your CI/CD environment like GitHub Actions, GitLab CI/CD,
 
 
 
-## Why Semgrep beats typical competitors (practical differences)
+## Why Semgrep outperforms competitors (practical differences)
 
 - **No build required for most languages:** Semgrep runs on almost any repository without complex setup. Tools like CodeQL often need a buildable environment and use their own query language.  
 - **Faster rule authoring and iteration:** Semgrep patterns resemble real code, making it easier to write, test, and refine rules without switching contexts. It allows for customization and extensibility without DSLs, managing abstract syntax trees, or regex wrangling
