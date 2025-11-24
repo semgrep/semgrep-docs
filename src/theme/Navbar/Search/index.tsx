@@ -755,9 +755,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                      title.includes('Choose a KB category') ||
                                      title.match(/\d+\s+docs?\s+tagged\s+with/);
                   
+                  if (isTaggedPage) {
+                    return false;
+                  }
+                  
+                  const hasTitle = title && title.trim().length > 0;
                   const hasContent = content && content.trim().length > 0;
                   
-                  if (!isTaggedPage && hasContent) {
+                  if (hasTitle || hasContent) {
                     seenUrls.add(baseUrl);
                     return true;
                   }
@@ -1025,10 +1030,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 return false;
               }
               
-              // Keep if it has ANY content (even if short)
+              // Keep if it has a meaningful title OR content
+              const hasTitle = title && title.trim().length > 0;
               const hasContent = content && content.trim().length > 0;
               
-              if (hasContent) {
+              if (hasTitle || hasContent) {
                 seenUrls.add(baseUrl);
                 return true;
               }
