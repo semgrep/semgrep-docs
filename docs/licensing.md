@@ -1,6 +1,7 @@
 ---
 slug: licensing
 append_help_link: true
+displayed_sidebar: aboutSidebar
 tags:
   - Support
 description: >-
