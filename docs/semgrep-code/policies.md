@@ -101,8 +101,6 @@ To add rules, follow these steps:
 
 To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
 
-If you have Semgrep Assistant enabled for your organization, [Assistant can help you write custom rules](/semgrep-assistant/overview#custom-rules-editor-beta) to find patterns and vulnerabilities specific to your codebase.
-
 ### Add rulesets to your Policies from the Registry
 
 Instead of adding individual rules to your Policies, you can add rulesets, which are groups of rules related through a programming language, OWASP category, or framework. The Semgrep team curates the rulesets.
@@ -126,7 +124,7 @@ If Semgrep adds rules to the ruleset in the future, they will automatically be a
 
 ## Disable rules
 
-See [Triage and remediate findings](/semgrep-code/triage-remediation#disable-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
+See [Triage and remediate findings](/semgrep-code/triage-remediation#turn-off-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
 
 ## Rule modes
 

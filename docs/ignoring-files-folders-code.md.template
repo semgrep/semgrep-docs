@@ -10,7 +10,6 @@ tags:
 <!-- IMPORTANT: Make sure to edit the .md.template source file, not the
      generated .md file -->
 
-import IgnoreIndividualFindingNoGrouping from "/src/components/procedure/_ignore-individual-finding-no-grouping.mdx"
 import PL from '@site/src/components/Placeholder';
 
 # Ignore files, folders, and code
@@ -222,7 +221,7 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 **Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
-* [Manage findings](/semgrep-code/triage-remediation#manage-findings)
+* [Manage findings](/semgrep-code/triage-remediation#triage-and-remediation)
 * [Ignore findings through PR and MR comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments)
 ## Troubleshooting
 
