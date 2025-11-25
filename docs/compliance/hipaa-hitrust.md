@@ -5,7 +5,7 @@ hide_title: true
 description: Learn how Semgrep helps organizations meet HIPAA/HITRUST compliance requirements for information security management systems (ISMS).
 tags:
   - Compliance
-sidebar_label: HIPAA/HITRUST
+sidebar_label: HIPAA/HITRUST compliance
 displayed_sidebar: aboutSidebar
 ---
 # HIPAA/HITRUST compliance

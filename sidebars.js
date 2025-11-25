@@ -631,6 +631,10 @@ module.exports = {
               type: 'category',
               label: 'Compliance',
               collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'compliance/overview'
+              },
               items: [
                 'compliance/fedramp',
                 'compliance/gdpr',
