@@ -169,10 +169,9 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 ### Is private source code shared with Semgrep, Inc?
 
+In general, Semgrep configurations run fully in your CI pipeline means that your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
 
-By default, Semgrep configurations run fully in your CI pipeline and your source code never leaves your environment. Only metadata related to Semgrep runs (see the following question) are sent to Semgrep's service.
-
-If you choose to enable it, Semgrep Assistant requires code access. See the [Privacy and legal considerations](/semgrep-assistant/privacy) section to understand how your code is stored and retained.
+Some Semgrep features, such as Semgrep Managed Scans and Semgrep Assistant, require code access. See [Security](https://semgrep.dev/docs/deployment/managed-scanning/overview#security) for more information on how Managed Scans use your code and Assistant's [Privacy and legal considerations](/semgrep-assistant/privacy) to understand how your code is stored and retained.
 
 ### What data is stored?
 
