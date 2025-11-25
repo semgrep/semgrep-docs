@@ -5,7 +5,7 @@ hide_title: true
 description: Learn how Semgrep helps organizations meet GDPR compliance requirements for data protection and privacy.
 tags:
   - Compliance
-sidebar_label: GDPR compliance
+sidebar_label: GDPR
 displayed_sidebar: aboutSidebar
 ---
 

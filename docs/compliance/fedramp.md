@@ -5,7 +5,7 @@ hide_title: true
 description: Learn how Semgrep helps organizations meet FedRAMP compliance requirements for information security management systems (ISMS).
 tags:
   - Compliance
-sidebar_label: FedRAMP compliance
+sidebar_label: FedRAMP
 displayed_sidebar: aboutSidebar
 ---
 # FedRAMP compliance
