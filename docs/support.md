@@ -4,6 +4,7 @@ append_help_link: true
 title: Support
 hide_title: true
 description: Learn about the support options offered by Semgrep.
+displayed_sidebar: aboutSidebar
 tags:
   - Support
   - Troubleshooting
