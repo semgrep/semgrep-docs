@@ -35,7 +35,7 @@ module.exports = {
       className: 'top-category'
     },
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'trophy-case', label: 'Support & resources', className: 'top-category' },
+    { type: 'ref', id: 'support', label: 'Support & resources', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [

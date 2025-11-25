@@ -147,7 +147,7 @@ export default function NavbarContent(): JSX.Element {
     },
     { 
       label: 'Explore', 
-      pathPrefix: '/docs/trophy-case', 
+      pathPrefix: '/docs/support', 
       position: 'left' as const,
       type: 'dropdown',
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
@@ -155,7 +155,7 @@ export default function NavbarContent(): JSX.Element {
         { label: "What's Semgrep", to: '/introduction' },
         { label: 'For developers', to: '/for-developers/overview' },
         { label: 'Release notes', to: '/release-notes' },
-        { label: 'Support & resources', to: '/trophy-case' },
+        { label: 'Support & resources', to: '/support' },
         { type: 'html', value: '<hr style="margin: 0.3rem 0;" />' },
         { label: 'Registry', to: 'https://semgrep.dev/explore', target: '_blank' },
         { label: 'Playground', to: 'https://semgrep.dev/editor', target: '_blank' },
