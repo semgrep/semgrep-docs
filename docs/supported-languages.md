@@ -278,7 +278,7 @@ The following table lists all Supply Chain features for each language. Languages
 <th align="center">Reachability<br />(see <a href="#cve-coverage">CVE coverage</a>)</th>
 <th><a href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Scan without lockfiles (beta)</a></th>
 <th>License detection</th>
-<th>Malicious dependency<br />detection (beta)</th>
+<th>Malicious dependency<br />detection</th>
 </tr>
 </thead>
 <tbody>

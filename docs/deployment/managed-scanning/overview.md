@@ -25,7 +25,7 @@ Managed Scans is available for all Semgrep products you have purchased, includin
   - Semgrep Supply Chain
   - Semgrep Secrets
 
-Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
+Semgrep performs full scans on a weekly basis and diff-aware scans when you create a pull request or merge request.
 
 :::info
 - To receive Supply Chain findings, you must have a supported manifest file or lockfile in your repository. Managed Scans does **not** support generation of these files.

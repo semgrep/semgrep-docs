@@ -18,7 +18,7 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'faq/overview', label: 'What\'s Semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/introduction', label: 'What\'s Semgrep', className: 'top-category-separator'},
     { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
@@ -35,7 +35,7 @@ module.exports = {
       className: 'top-category'
     },
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'support', label: 'Support & resources', className: 'top-category' },
+    { type: 'ref', id: 'trophy-case', label: 'Support & resources', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -191,11 +191,6 @@ module.exports = {
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
-                        id: 'semgrep-assistant/getting-started', // document ID
-                        label: 'Enable Assistant', // sidebar label
-                      },
-                      {
-                        type: 'doc',
                         id: 'writing-rules/overview', // document ID
                         label: 'Write custom rules', // sidebar label
                       },
@@ -256,7 +251,9 @@ module.exports = {
           collapsible: true,
           items: [
             'mcp',
+            'semgrep-appsec-platform/cortex',
             'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/sysdig',
             'semgrep-appsec-platform/wiz'
           ]
         },
@@ -363,7 +360,8 @@ module.exports = {
               id: 'semgrep-assistant/getting-started'
             },
             items: [
-              'semgrep-assistant/customize'
+              'semgrep-assistant/customize',
+              'semgrep-assistant/best-practices-for-memories'
             ]
           },
           'semgrep-assistant/analyze'
@@ -1126,6 +1124,7 @@ module.exports = {
         label: 'What\'s Semgrep',
         collapsible: false,
         items: [
+            'getting-started/introduction',
             'faq/overview',
             'run-a-successful-pov',
             'semgrep-pro-vs-oss',

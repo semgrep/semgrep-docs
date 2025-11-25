@@ -47,7 +47,7 @@ semgrep scan -j NUMBER_OF_SUBPROCESSES
 
 By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system.
 
-> Semgrep doesn't currently support parallelism on Windows. To run Semgrep on multiple cores, use Windows Subsystem for Linux (WSL).
+> Semgrep doesn't currently support parallelism on Windows.
 
 ## Set log levels
 

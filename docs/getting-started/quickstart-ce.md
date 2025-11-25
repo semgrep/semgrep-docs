@@ -31,7 +31,6 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
     {label: 'macOS', value: 'macOS'},
     {label: 'Linux', value: 'Linux'},
     {label: 'Windows (beta)', value: 'Windows'},
-    {label: 'Windows Subsystem for Linux (WSL)', value: 'Windows Subsystem for Linux (WSL)'},
     ]}
 >
 
@@ -89,24 +88,6 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
 
  # if you get the following error "error: externally-managed-environment",
  # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
-
- # confirm installation succeeded by printing the currently installed version
- semgrep --version
- ```
-
-</TabItem>
-
-<TabItem value='Windows Subsystem for Linux (WSL)'>
-
-:::info Prerequisites
-Ensure that you have the [Windows Subsystem for Linux installed](https://learn.microsoft.com/en-us/windows/wsl/install) before proceeding.
-:::
-
-1. Using the WSL interface, install the Semgrep CLI and confirm the installation:
-
- ```console
- # install through pip
- python3 -m pip install semgrep
 
  # confirm installation succeeded by printing the currently installed version
  semgrep --version

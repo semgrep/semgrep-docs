@@ -171,8 +171,7 @@ end
 - A new section has been added to guide you through [infrastructure-specific configuration when setting up Semgrep Cloud Platform](/semgrep-supply-chain/setup-infrastructure) for the first time.
 - Added section on how a future [change in a Semgrep Supply Chain rule affects scan behavior](/semgrep-supply-chain/getting-started/#schedule-scans).
 - Added a section describing how SSC's License compliance feature handles [packages with multiple licenses](/semgrep-supply-chain/license-compliance/#multiple-license-types).
-- Added the following knowledge base articles:
-  - [Running Semgrep in Visual Studio Code on Windows](/kb/integrations/semgrep-vs-code-windows)
+- Added the following knowledge base article:
   - [Matching multiple tokens with ellipsis metavariables](/kb/rules/ellipsis-metavariables)
 
 ### Changed
