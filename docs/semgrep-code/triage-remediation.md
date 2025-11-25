@@ -40,7 +40,9 @@ Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#au
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. You can also manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
+Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. Additionally, Semgrep can automatically mark findings as **provisionally ignored** based on AI analysis, validation results, and reachability analysis.
+
+You can manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
 
 The triage statuses are as follows:
 
@@ -109,14 +111,14 @@ To **ignore multiple findings** in the **No grouping** view, follow these steps:
 
 ### Reopen findings
 
-You can **reopen** a finding that you previously marked as **ignore** at any time.
+You can **reopen** a finding at any time, whether you previously marked it as **ignored** or Semgrep automatically marked it as **provisionally ignored**.
 
 <details>
 <summary>Reopen findings in <b>Group by Rule</b> view</summary>
 
 To **reopen findings** in the **Group by Rule** view, follow these steps:
 
-1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored** findings.
+1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
 2. Perform one of these steps:
     - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage > Open** .
     - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage > Open**.
@@ -130,14 +132,14 @@ To **reopen findings** in the **Group by Rule** view, follow these steps:
 
 To **reopen individual findings** in the No grouping view, follow these steps:
 
-1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored** findings.
+1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
 2. Select the checkbox next to a finding you want to reopen. Click **Triage > Open**.
 3. Optional: Write a reason to describe why the finding was reopened.
 4. Click **Submit**.
 
 To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
-1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored** findings.
+1. Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
 1. Perform one of these steps:
     - Select all findings on the page displayed by clicking on the header row checkbox that states **X matching findings**. You can navigate to succeeding pages and add other results to the current selection.
     - Select all findings of interest by clicking on their checkboxes.
@@ -201,4 +203,19 @@ Semgrep supports older versions of this feature that used the following commands
 
 ## Triage findings in bulk through the Semgrep API
 
-Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either  `new_triage_state` or `new_note`. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`. 
+
+The available `new_triage_state` values you can set are:
+- `open`
+- `reviewing`
+- `fixing`
+- `ignored`
+- `fixed`
+
+If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`. 
+
+:::note
+When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
+:::
+
+Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService) for complete details.

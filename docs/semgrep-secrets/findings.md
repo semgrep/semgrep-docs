@@ -74,7 +74,9 @@ Severity is assigned based on how sensitive or crucial the exposed web service i
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. You can also manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
+Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. . Additionally, Semgrep can automatically mark findings as **provisionally ignored** based on AI analysis, validation results, and reachability analysis.
+
+You can manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
 
 The triage statuses are as follows:
 
