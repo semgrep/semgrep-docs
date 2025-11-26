@@ -35,7 +35,7 @@ module.exports = {
       className: 'top-category'
     },
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'trophy-case', label: 'Support & resources', className: 'top-category' },
+    { type: 'ref', id: 'support', label: 'Support & resources', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -622,12 +622,31 @@ module.exports = {
         label: 'Support & resources',
         collapsible: false,
         items: [
-            'trophy-case',
             'support',
             'security',
             'licensing',
             'usage-and-billing',
             'deployment/claim-a-license',
+            {
+              type: 'category',
+              label: 'Compliance',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'compliance/overview'
+              },
+              items: [
+                'compliance/fedramp',
+                'compliance/gdpr',
+                'compliance/hipaa-hitrust',
+                'compliance/iso27001',
+                'compliance/iso27017',
+                'compliance/nist-800-171',
+                'compliance/pci-dss',
+                'compliance/soc2'
+              ]
+            },
+            'trophy-case',
             'run-a-successful-pov',
             {
               type: 'doc',
