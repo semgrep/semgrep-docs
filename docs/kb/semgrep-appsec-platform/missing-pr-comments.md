@@ -177,6 +177,14 @@ PR or MR comments are generated when a finding is new. If a finding was seen in 
 
 This prevents repeated comments on findings that have already notified developers.
 
+## Has the finding been filtered by Semgrep Assistant as a potential false positive?
+
+If you use Semgrep Assistant and have configured the **Noise filter for Code PR/MR comments** setting to **Don’t leave a PR/MR comment** for likely false positives, review whether Assistant has categorized the finding as a false positive.
+
+This can be particularly tricky if you're in the process of testing PR/MR comments, since Assistant uses information about whether the code appears to be in a test context as part of determining whether it may be a false positive finding.
+
+Consider disabling this setting during testing if you are having difficulty generating comments.
+
 ## If you're still having trouble
 
 If you've addressed these issues but are still not seeing comments, please [reach out for help](/docs/support), and provide information on what you've tried so far.
