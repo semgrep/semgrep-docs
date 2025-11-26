@@ -135,9 +135,9 @@ To view in-depth information about a specific finding:
 
 #### Semgrep Assistant’s rule and analysis explanation 
 
-If Semgrep Assistant is enabled and classifies a finding as either a true positive or a false positive, Semgrep displays an alert box with a summary at the top of the finding’s details page. You can also view a detailed explanation that, if applicable, include steps to exploitability in the **Finding description** tab.
+When Semgrep Assistant is enabled and classifies a finding as a true or false positive, an alert appears at the top of the finding’s details page. You can also view a detailed explanation that, if applicable, includes steps to exploitability in the **Finding description** tab.
 
-For true positives, the detailed explanation includes a summary and a detailed rationale for why the finding was flagged. It draws on the code that matched the rule pattern, along with the surrounding code, to provide context to and support the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
+For true positives, the detailed explanation includes a summary and rationale for why the finding was flagged. It draws on the code that matched the rule pattern and the surrounding code to provide context for the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
 
 For false positives, the explanation contains only Assistant’s reasoning, without additional code context. Some explanations refer to memories, which Assistant uses to determine whether a finding is a false positive. However, memories are not used when generating the explanation itself.
 
