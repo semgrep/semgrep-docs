@@ -26,13 +26,14 @@ These states correspond to:
 
 ## Semgrep Code findings
 
-Semgrep AppSec Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of four statuses in Semgrep AppSec Platform:
+Semgrep AppSec Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of the following statuses in Semgrep AppSec Platform:
 
 * `OPEN`
 * `REVIEWING`
 * `FIXING`
 * `IGNORED`
 * `FIXED`
+* `PROVISIONALLY_IGNORED`
 
 ### Finding status
 
