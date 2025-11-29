@@ -29,7 +29,7 @@ Semgrep Supply Chain supports the following SBOM formats:
 
 ## Generate and download an SBOM for a single project
 
-SBOM generation can be performed through Semgrep AppSec Platform or the [<i class="fas fa-external-link fa-xs"></i> Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export).
+SBOM generation can be performed through Semgrep AppSec Platform or the [<i class="fas fa-external-link fa-xs"></i> Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport).
 
 1. In Semgrep AppSec Platform, go to **Supply Chain > Dependencies**.
 2. Click the **Download <i class="fa-solid fa-download"></i>** icon next to the repository you want an SBOM for.
@@ -45,7 +45,7 @@ Typically, full scans are run only on primary (default) branches. However, if yo
 
 ### Generate an SBOM through the API
 
-Refer to the [<i class="fas fa-external-link fa-xs"></i> Semgrep API > SBOM documentation](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export). 
+Refer to the [<i class="fas fa-external-link fa-xs"></i> Semgrep API > SBOM documentation](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport). 
 
 ## Semgrep-specific SBOM data fields
 

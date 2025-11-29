@@ -118,4 +118,4 @@ If a finding is fixed in one branch (such as `main`), possibly because there has
 
 ## Remove duplicate findings using Semgrep API
 
-Semgrep API does not automatically group findings with the same match-based ID across branches. If you use Semgrep API to receive or pull findings data, set the `dedup` flag to `true` to deduplicate findings across refs or branches. Refer to [List all findings](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.saas.handlers.issue.openapi_list_recent_issues) in the Semgrep API docs for more information.
+Semgrep API does not automatically group findings with the same match-based ID across branches. If you use Semgrep API to receive or pull findings data, set the `dedup` flag to `true` to deduplicate findings across refs or branches. Refer to [List code or supply chain findings](https://semgrep.dev/api/v1/docs/#tag/FindingsService/operation/FindingsService_ListFindings) in the Semgrep API docs for more information.

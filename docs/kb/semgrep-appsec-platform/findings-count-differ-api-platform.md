@@ -13,7 +13,7 @@ tags:
 
 Semgrep Code and Supply Chain findings shown in Semgrep AppSec Platform are automatically deduplicated by default. This means that a finding that appears across multiple branches or scans is counted only once (typically for the most recent occurrence on a primary branch). The findings, however, aren't deduplicated by default when you request them through the Semgrep API.
 
-You can see results from the API that match those shown in Semgrep AppSec Platform by making a call to the [List code or supply chain findings](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues) endpoint, ensuring that you include the `dedup=true` parameter.
+You can see results from the API that match those shown in Semgrep AppSec Platform by making a call to the [List code or supply chain findings](https://semgrep.dev/api/v1/docs/#tag/FindingsService/operation/FindingsService_ListFindings) endpoint, ensuring that you include the `dedup=true` parameter.
 
 ## Semgrep Secrets findings
 

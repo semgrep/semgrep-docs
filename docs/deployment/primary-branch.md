@@ -63,7 +63,7 @@ _**Figure**. Projects > Project <i class="fa-solid fa-gear"></i> settings page >
 
 ### Through an API endpoint
 
-You can also send a `patch` request to the following endpoint: [Deployment > Project endpoint](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.repository.openapi_patch_project). Add the `primary_branch` key in the request body.
+You can also send a `patch` request to the following endpoint: [Deployment > Project endpoint](https://semgrep.dev/api/v1/docs/#tag/ProjectsService/operation/ProjectsService_UpdateProject). Add the `primary_branch` key in the request body.
 
 ### How Semgrep counts findings in the Projects page
 

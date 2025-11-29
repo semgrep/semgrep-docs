@@ -35,7 +35,7 @@ To manage tags through Semgrep AppSec Platform, follow these steps:
 4. Add or remove tags under the **Tags** section.
 5. Click **Save**.
 
-Refer to [Semgrep API documentation](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.tagging.openapi_add_tags_to_project) to use the API.
+Refer to [Semgrep API documentation](https://semgrep.dev/api/v1/docs/#tag/ProjectsService/operation/ProjectsService_AddProjectTags) to use the API.
 
 ## Set tags in `.semgrepconfig.yml`
 

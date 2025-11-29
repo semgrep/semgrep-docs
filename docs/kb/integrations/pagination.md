@@ -17,8 +17,8 @@ Offset-based pagination defines a **limit** to specify the number of entries fet
 
 The following API endpoints support offset-based pagination:
 
-- [List all projects](https://semgrep.dev/api/v1/docs/#tag/Project/operation/semgrep_app.saas.handlers.repository.openapi_list_recent_projects)
-- [List code or supply chain findings](https://semgrep.dev/api/v1/docs/#tag/Finding/operation/semgrep_app.core_exp.findings.handlers.issue.openapi_list_recent_issues)
+- [List all projects](https://semgrep.dev/api/v1/docs/#tag/ProjectsService/operation/ProjectsService_ListProjects)
+- [List code or supply chain findings](https://semgrep.dev/api/v1/docs/#tag/FindingsService/operation/FindingsService_ListFindings)
 
 For these endpoints, include the following query parameters to paginate through results:
 
@@ -38,7 +38,7 @@ curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_SLUG/findings?page=
 
 ## Cursor-based pagination
 
-The [List Secrets](https://semgrep.dev/api/v1/docs/#tag/SecretsService/operation/semgrep_app.products.secrets.handlers.issue.list_issues_conexxion) endpoint supports cursor-based pagination:
+The [List Secrets](https://semgrep.dev/api/v1/docs/#tag/SecretsService/operation/SecretsService_ListSecretsPath) endpoint supports cursor-based pagination:
 
 For these endpoints, include the following query parameters to paginate through results.
 
@@ -70,9 +70,9 @@ Repeat this process for additional pages.
 
 The following API endpoints support mixed usages of page- and cursor-based pagination:
 
-- [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_repositories_for_dependencies_conexxion)
-- [List lockfiles in a given repository with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_lockfiles_for_dependencies_conexxion)
-- [List dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.dependency.list_dependencies_conexxion)
+- [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListRepositoriesForDependencies)
+- [List lockfiles in a given repository with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListLockfilesForDependencies)
+- [List dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListDependencies)
 
 ### Example
 
