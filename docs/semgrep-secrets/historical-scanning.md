@@ -41,7 +41,7 @@ For more information on the types of findings by validation, see [Semgrep Secret
 
 ## Enable historical scans for full Secrets scans
 
-You can enable historical scans for your full scans, perform one-time historical scans using the Semgrep CLI, or create an on-demand CI job. Then, then track and triage these findings in Semgrep AppSec Platform. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Diff-aware scans do **not** perform historical scans.
+You can enable historical scans for your full scans, perform one-time historical scans using the Semgrep CLI, or create an on-demand CI job. Then, track and triage these findings in Semgrep AppSec Platform. Historical scans display **valid, leaked secrets** to ensure a high true positive rate. Diff-aware scans do **not** perform historical scans.
 
 :::tip
 [Test historical scans locally](#run-a-local-test-scan) to create a benchmark of performance and scan times before adding historical scans to your formal security process.

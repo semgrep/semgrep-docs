@@ -48,11 +48,11 @@ Click on the **kebab** icon to see the menu that includes the following options:
 
 ### Scan with Assistant
 
-If the finding hasn't been analyzed by Assistant, click the **Analyze** button to begin analysis. Assistant:
+If the finding hasn't been analyzed by Assistant, click the **Analyze** button to begin analysis. Assistant can:
 
-- Recommends whether the finding should be fixed or ignored
-- Constructs remediation guidance and generates a recommended code fix, if appropriate
-- Tags the finding with a component tag, such as `auth` or `payments`.
+- Recommend whether the finding should be fixed or ignored
+- Provide remediation guidance and generate a recommended code fix, if appropriate
+- Tag the finding with a component tag, such as `auth` or `payments`.
 
 ### Ignore the finding
 
@@ -70,7 +70,7 @@ Click **Fix** see the menu that includes the following options:
 - Open a PR that fixes the issue, if possible
 - Change the status of the issue as **To fix**, indicating that you plan to return to the finding in the future
 
-Note that Semgrep automatically marks findings as fixed when they're no longer detected in subsequent scans.
+Semgrep automatically marks findings as fixed when they're no longer detected in subsequent scans.
 
 ### Add notes to findings
 

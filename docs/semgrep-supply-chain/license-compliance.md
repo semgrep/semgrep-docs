@@ -116,7 +116,7 @@ To exempt a package:
 
 1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain** > **Dependencies**.
 1. Search for the dependencies you want to exempt.
-2. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt it. Upon clicking on the icon, its permission changes. Click again on the icon to remove the exemption if necessary.
+2. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt it. Click the icon again to remove the exemption if necessary.
 
 Exempted dependencies appear in the **Supply Chain** > **Settings** tab.
 
