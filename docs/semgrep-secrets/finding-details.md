@@ -59,5 +59,5 @@ To **add notes** to the activity history of a finding:
 
 1. Select a finding where you want to view details or add notes, and then do one of the following actions:
    - If the default **Group by Rule** is enabled, click <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
-   - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is labeled **detected-generic-api-key**.
+   - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding.
 2. Go to the **Activity** section, then click **New note**.

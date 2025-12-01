@@ -122,7 +122,7 @@ Exempted dependencies appear in the **Supply Chain** > **Settings** tab.
 
 ### Create custom dependency exceptions
 
-Custom dependency exceptions allow you to manually allowlist a dependency to prevent Semgrep from blocking a pull request or merge request due to licensing issues.
+Custom dependency exceptions allow you to manually list the dependencies that should NOT prevent Semgrep from blocking a pull request or merge request due to licensing issues.
 
 For example, if `bitwarden/cli@2023.9.0`, which has a GPL-3.0 license, is on the allowlist, you must add an additional exception when upgrading to `bitwarden/cli@2023.9.1`. However, the dependency to which you're upgrading isn't yet listed in **Dependencies**; they appear only **after** you've scanned your project. Because the dependency isn't listed, you must manually create the exception. This ensures that the exclusion won't fail when you upgrade to `bitwarden/cli@2023.9.1` and scan your project again with Semgrep Supply Chain.
 

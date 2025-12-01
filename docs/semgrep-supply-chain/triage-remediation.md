@@ -50,7 +50,7 @@ Removing dependencies and refactoring code are other methods to remediate vulner
 
 If the remediation for a finding is to upgrade the package, **upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Have Semgrep open a pull request (PR) that updates the version used by your repository and guide the developer on the breaking changes in the PR description
+- Have Semgrep open a pull request that updates the version used by your repository and guide the developer on the breaking changes in the PR description
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
