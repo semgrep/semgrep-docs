@@ -74,7 +74,7 @@ To access all upgrade guidance and click-to-fix features, you must have:
 
 - At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
-- The **private** GitHub for Semgrep installed.
+- The **private** GitHub app for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports only private Python registries.
 

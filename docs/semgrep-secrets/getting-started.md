@@ -21,7 +21,7 @@ This document guides you through:
 3. Upgrading your Semgrep Code rules to Semgrep Secrets rules
 
 :::info
-To access Semgrep Secrets, contact [Semgrep Sales](mailto:sales@semgrep.com) for a trial license.
+[Contact sales](mailto:sales@semgrep.com) for a trial license of Semgrep Secrets.
 :::
 
 ## Language and environment support
