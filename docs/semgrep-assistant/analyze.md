@@ -14,7 +14,7 @@ Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you ca
 
 ![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
-To analyze your findings with Assistant:
+## How to analyze your findings with Assistant
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Assistant to analyze.
 2. Click **Analyze**.
@@ -31,9 +31,8 @@ The amount of time required to analyze your findings varies. Before running the 
 :::
 
 
-## Automatic analysis
 
-### When Assistant auto-analyzes findings
+## When Assistant auto-analyzes findings
 
 Assistant will automatically generate an analysis for any new finding on a full scan that is:
 - Critical or High severity, or
@@ -43,7 +42,7 @@ It will also analyze up to 10 new findings, regardless of severity or confidence
 
 You can get an overview of how many new findings a deployment generates with [this query](https://metabase.corp.semgrep.dev/question/5211-issues-created-on-a-deployment-by-day-last-30-days?deployment=1) (but it doesn’t distinguish between scan types; if you need that, try adding a ref filter).
 
-### Findings that are not auto-analyzed
+## Findings that are not auto-analyzed
 
 Assistant won't automatically analyze:
 
@@ -52,7 +51,7 @@ Assistant won't automatically analyze:
 - Historical findings: Findings that were created before automatic analysis was enabled for your deployment. Automatic analysis for full scans was enabled in November 2025.
 - Additional PR or MR findings: The eleventh finding or later on the same PR or MR (only the first 10 are automatically analyzed)
 
-### Request analysis for existing findings
+## Request analysis for existing findings
 
 If you want Assistant analyses for findings that weren't automatically analyzed (as described above), you can request them in bulk through Semgrep AppSec Platform.
 
