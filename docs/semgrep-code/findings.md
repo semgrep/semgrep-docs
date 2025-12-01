@@ -34,6 +34,18 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 
+### Custom Priority tab
+
+Semgrep admins can create a custom priority definition to change the findings shown on the **Priority** tab. To do so:
+
+1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. In the **Navigation bar**, click **[Code](https://semgrep.dev/orgs/-/findings)**. Ensure that you're viewing the **Priority**.
+3. Using the provided filters, set your parameters for priority findings.
+4. Click **Save**.
+5. You'll see a dialog window asking you to confirm that you want the changes saved for everyone. Click **Save** to proceed.
+
+This change applies to the entire Semgrep organization. You cannot have separate priority definitions for individual users or teams.
+
 ## Filter findings
 
 Regardless of whether you use the **Priority** findings view or the **All** findings view, there are multiple grouping and filtering options available to you.
