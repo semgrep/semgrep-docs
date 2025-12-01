@@ -176,7 +176,7 @@ You can also view a dialog showinga policy's **scope**, or the projects and tags
 2. Click the **three-dot (...) button > Delete policy**.
 3. Click **Remove** to confirm..
 
-Note that this does not remove existing notifications. 
+Note: deleting a policy does not remove existing notifications. 
 
 ## Block a PR or MR through rule modes
 
