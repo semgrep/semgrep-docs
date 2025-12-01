@@ -30,6 +30,16 @@ The finding's details page displays in-depth information about the finding, incl
    - If the default **Group by Rule** is enabled, click the <i class="fa-regular fa-window-restore"></i> **Details** icon on the card of the finding.
    - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding.
 
+### Semgrep Assistant’s rule and analysis explanation 
+
+When Semgrep Assistant is enabled and classifies a finding as a true or false positive, an alert appears at the top of the finding’s details page. You can also view a detailed explanation that, if applicable, includes steps to exploitability in the **Finding description** tab.
+
+For true positives, the detailed explanation includes a summary and rationale for why the finding was flagged. It draws on the code that matched the rule pattern and the surrounding code to provide context for the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
+
+For false positives, the explanation contains only Assistant’s reasoning, without additional code context. Some explanations refer to memories, which Assistant uses to determine whether a finding is a false positive. However, memories are not used when generating the explanation itself.
+
+If Assistant flags a finding as a false positive, you can provide feedback by selecting **Agree and Ignore** or **Disagree**.
+
 ## Dataflow traces
 
 Dataflow traces allow you to visualize the path of tainted, or untrusted, data in findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
