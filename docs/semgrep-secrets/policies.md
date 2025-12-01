@@ -17,7 +17,7 @@ To access the policies page for Semgrep Secrets, sign in to [<i class="fas fa-ex
 
 ## Validation state policies
 
-Validation state policies allow you to define the rules Semgrep Secrets uses to scan your code, how to handle invalid findings, including those that have been revoked or were never functional, and how to handle validation errors when attempting to determine if a secret if it's a legitimate credential that can be used to access a resource.
+Validation state policies allow you to define the rules Semgrep Secrets uses to scan your code, how to handle invalid findings, including those that have been revoked or were never functional, and how to handle validation errors when attempting to determine if a secret is a legitimate credential that can be used to access a resource.
 
 ### Global rule behavior
 
