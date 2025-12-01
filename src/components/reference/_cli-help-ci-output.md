@@ -166,7 +166,7 @@ OPTIONS
        --internal-ci-scan-results
            Internal flag.
 
-       -j VAL, --jobs=VAL (absent=4)
+       -j VAL, --jobs=VAL (absent=3)
            Number of subprocesses to use to run checks in parallel. The
            default is based on a best effort to determine the number of
            logical CPUs that are available to the user and that semgrep can
@@ -286,7 +286,8 @@ OPTIONS
            Engine. See https://semgrep.dev/products/pro-engine/ for more.
 
        --profile
-           <undocumented>
+           Record profiles via Pyro Caml. By default sends them to
+           localhost:4040
 
        -q, --quiet
            Only output findings.
@@ -397,7 +398,7 @@ OPTIONS
            Internal flag.
 
        --x-eio
-           [INTERNAL] Rely on an EIO based implementation for the -j flag
+           [INTERNAL] <deprecated>
 
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
@@ -410,6 +411,13 @@ OPTIONS
 
        --x-merge-partial-results-output=VAL
            Internal flag.
+
+       --x-no-python-schema-validation
+           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
+           validate rules files
+
+       --x-parmap
+           [INTERNAL] Rely on legacy Parmap-based parallelism
 
        --x-partial-config=VAL
            Internal flag.
@@ -425,6 +433,10 @@ OPTIONS
            files named '.semgrepignore'. This option can be useful for
            testing semgrep on intentionally broken code that should normally
            be ignored.
+
+       --x-simple-profiling
+           Upon exit, print on stderr a report showing how long certain
+           operations took, in an unspecified text format.
 
        --x-tr
            <internal, do not use>
