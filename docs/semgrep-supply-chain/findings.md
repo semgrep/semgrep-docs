@@ -58,7 +58,7 @@ The **Status** filter allows you to search for findings in the selected statuses
 
 * **Open**: Findings for which there have been no triage or remediation action.
 * **Reviewing**: Findings that require more investigation to determine what the next steps should be.
-* **To fix**: Findings for which you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.
+* **To fix**: Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work.
 * **Provisionally ignored**: Findings that Semgrep Assistant has flagged as false positives. You can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you don't agree.
 * **Ignored**: Vulnerabilities that have been triaged as **Ignored** by the user. You can filter findings with a status of **Ignored** further by reason: **False positive**, **Acceptable risk**, **No time to fix**, or **No triage reason**.
 * **Closed**: Vulnerabilities that are no longer detected after a scan. This typically means that the dependency containing the vulnerability has been updated. Semgrep Supply Chain automatically checks if the dependency has been updated and sets the vulnerability's status as **Fixed**.
