@@ -107,7 +107,7 @@ Semgrep Supply Chain can scan projects without the need for lockfiles. This simp
     Semgrep builds the project, using the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
 :::info
-- Semgrep Managed Scanning can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans don't return any findings.
+- Semgrep Managed Scans can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans don't return any findings.
 - By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
     ```console
     semgrep ci --allow-local-builds --verbose

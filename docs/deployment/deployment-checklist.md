@@ -253,7 +253,7 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 </details>
 
 
-##### Permissions when adding repositories into Semgrep AppSec Platform through managed scanning or using AI features
+##### Permissions when adding repositories into Semgrep AppSec Platform through Semgrep Managed Scans or using AI features
 
 You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
@@ -266,7 +266,7 @@ These features require **read access** to your code.
 
 <details>
 
-<summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>managed scanning</strong>.</summary>
+<summary>Click to review how Semgrep AppSec Platform uses permissions when adding repositories through <strong>Semgrep Managed Scans</strong>.</summary>
 
 <dl>
 <dt>Reading metadata of the repositories you select</dt>

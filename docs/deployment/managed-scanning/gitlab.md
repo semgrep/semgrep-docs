@@ -24,7 +24,7 @@ Add GitLab repositories to your Semgrep organization in bulk without adding or c
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
-## Enable Managed Scanning and scan your first repository
+## Enable Semgrep Managed Scans and scan your first repository
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -50,7 +50,7 @@ You have finished setting up a Semgrep managed scan.
 
 ## Add additional GitLab projects
 
-You can enabled managed scanning for additional repositories after onboarding using the following steps:
+You can enable Semgrep Managed Scans for additional repositories after onboarding using the following steps:
 
 <!-- vale off -->
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-folder-open"></i> Projects**.
@@ -77,7 +77,7 @@ You can enabled managed scanning for additional repositories after onboarding us
 
 You can immediately add any existing project to Managed Scans.
 
-1. Follow the steps in [Enable managed scanning](#enable-managed-scanning-and-scan-your-first-repository).
+1. Follow the steps in [Enable Semgrep Managed Scans](#enable-managed-scanning-and-scan-your-first-repository).
 1. Delete the `.gitlab-ci.yml` file in your GitLab repository if appropriate.
 
 If you plan to continue running some scans in GitLab CI/CD Pipelines (for example, using Managed Scans to run weekly full scans but GitLab CI/CD Pipelines for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.
@@ -92,7 +92,7 @@ Semgrep preserves your findings, scans, and triage history.
 
 ## Disable webhooks
 
-Managed scanning of GitLab projects require webhooks. The webhooks are enabled by default when you add GitLab as a source code manager when setting up Managed Scanning. You can disable webhooks at any time by following these steps:
+Semgrep Managed Scans of GitLab projects require webhooks. The webhooks are enabled by default when you add GitLab as a source code manager when setting up Managed Scans. You can disable webhooks at any time by following these steps:
 
 1. In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
 2. Find your GitLab connection, and click the <i class="fa-solid fa-toggle-large-on"></i> toggle to disable **Incoming webhooks**.
