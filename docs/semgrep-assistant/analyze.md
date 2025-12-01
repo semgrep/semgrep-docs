@@ -40,7 +40,6 @@ Assistant will automatically generate an analysis for any new finding on a full 
 
 It will also analyze up to 10 new findings, regardless of severity or confidence, on a PR or MR.
 
-You can get an overview of how many new findings a deployment generates with [this query](https://metabase.corp.semgrep.dev/question/5211-issues-created-on-a-deployment-by-day-last-30-days?deployment=1) (but it doesn’t distinguish between scan types; if you need that, try adding a ref filter).
 
 ## Findings that are not auto-analyzed
 
