@@ -44,7 +44,7 @@ On a diff-aware scan, Assistant analyzes up to 10 new findings, regardless of se
 Assistant doesn't automatically analyze:
 
 - Historical findings: Findings that were created before automatic analysis was enabled for your deployment. Automatic analysis for full scans was enabled in November 2025.
-- Additional PR or MR findings: The eleventh finding or later on the same PR or MR (only the first 10 are automatically analyzed)
+- Additional PR or MR findings: The eleventh finding or later on the same PR or MR. Only the first 10 are automatically analyzed.
 
 ## Request analysis for existing findings
 
