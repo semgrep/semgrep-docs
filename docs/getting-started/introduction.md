@@ -23,7 +23,7 @@ Scan results can be triaged and remediated in the Semgrep AppSec Platform. The p
 
 * **Community Edition** (CE): is an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins. The core scanner supports over 30 programming languages. [Get started with CE](/docs/getting-started/quickstart-ce).
 
-* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. Semgrep AppSec Platform Pro offers managed scanning at org scale, advanced (pro) rules, supply chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. It supports over 35 programming languages, with new ones added regularly.
+* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. Semgrep AppSec Platform Pro offers Managed Scans at org scale, advanced (pro) rules, supply chain analysis, secrets detection, PR comments, and AI-assisted triage/fixes, and more. It supports over 35 programming languages, with new ones added regularly.
 
 ![](/img/appsecplatform-intro.png)
 

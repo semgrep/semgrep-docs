@@ -208,7 +208,7 @@ You have successfully connected an org in Semgrep AppSec Platform with an organi
 1. Click **Connect** to save and proceed.
 1. The Bitbucket project is now listed under **Source code managers**. Click **Test** to verify that the new connection was installed correctly.
 1. To enable merge request comments, click **<i class="fa-solid fa-toggle-large-on"></i> Incoming webhooks**.
-1. Optional: Click **Auto scan** to onboard all current and future repositories under your project to Semgrep Managed Scanning.
+1. Optional: Click **Auto scan** to onboard all current and future repositories under your project to Semgrep Managed Scans.
 
 </TabItem>
 <TabItem value='github-enterprise'>
