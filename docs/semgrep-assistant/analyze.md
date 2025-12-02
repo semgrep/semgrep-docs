@@ -34,7 +34,7 @@ The amount of time required to analyze your findings varies. Before running the 
 
 ## When Assistant auto-analyzes findings
 
-Assistant will automatically generate an analysis for any new finding on a **full scan** that is of both Critical or High severity AND has High or Medium confidence.
+Assistant automatically analyzes new findings from a **full scan** that are **Critical** or **High** severity AND have **High** or **Medium** confidence.
 
 On a **PR or MR**, it will analyze up to 10 new findings, regardless of severity or confidence.
 
