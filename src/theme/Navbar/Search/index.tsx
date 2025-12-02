@@ -104,7 +104,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               body: JSON.stringify({
                 index: indexUid,
                 q: searchQuery,
-            limit: 50,
+            limit: 15,
             cropLength: 200,
                 showMatchesPosition: true,
             attributesToRetrieve: ['*'],
