@@ -126,13 +126,21 @@ exports.handler = async (event, context) => {
 
     // Build context from top unique search results for OpenAI
     const contextParts = uniqueHitsForContext.map((hit, idx) => {
-      let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
+      // Prioritize lvl1 (page title) over lvl2 (subsection)
+      let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || 'Documentation';
       
       // Filter out Docusaurus internal anchors
       if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
         title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
       }
-      title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+      
+      // Clean up any # symbols, anchors, and extra spaces
+      title = title
+        .replace(/#__docusaurus[_a-zA-Z]+/gi, '')
+        .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+        .replace(/\s*#\s*/g, ' - ')
+        .replace(/\s+/g, ' ')
+        .trim() || 'Documentation';
       
       const content = hit.content || '';
       const url = hit.url || '';
@@ -164,13 +172,21 @@ exports.handler = async (event, context) => {
       })
       .slice(0, 3)
       .map(hit => {
-        let title = hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy_lvl1 || hit.hierarchy?.lvl2 || hit.hierarchy?.lvl1 || hit.title || 'Documentation';
+        // Prioritize lvl1 (page title) over lvl2 (subsection)
+        let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || 'Documentation';
         
         // Filter out Docusaurus internal anchors
         if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
           title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
         }
-        title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+        
+        // Clean up any # symbols, anchors, and extra spaces
+        title = title
+          .replace(/#__docusaurus[_a-zA-Z]+/gi, '')
+          .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+          .replace(/\s*#\s*/g, ' - ')
+          .replace(/\s+/g, ' ')
+          .trim() || 'Documentation';
         
         return {
           title: title,
@@ -210,13 +226,21 @@ function generateAnswer(question, hits) {
   }
 
   const topResult = hits[0];
-  let title = topResult.hierarchy_lvl2 || topResult.hierarchy_radio_lvl2 || topResult.hierarchy_lvl1 || topResult.hierarchy?.lvl2 || topResult.hierarchy?.lvl1 || topResult.title || 'Documentation';
+  // Prioritize lvl1 (page title) over lvl2 (subsection)
+  let title = topResult.hierarchy_lvl1 || topResult.hierarchy_radio_lvl1 || topResult.hierarchy?.lvl1 || topResult.hierarchy_lvl2 || topResult.hierarchy_radio_lvl2 || topResult.hierarchy?.lvl2 || topResult.title || 'Documentation';
   
   // Filter out Docusaurus internal anchors
   if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
     title = topResult.hierarchy_lvl0 || topResult.hierarchy?.lvl0 || 'Documentation';
   }
-  title = title.replace(/#__docusaurus[_a-zA-Z]+/gi, '').replace(/#__DOCUSAURUS[_A-Z]+/gi, '').trim() || 'Documentation';
+  
+  // Clean up any # symbols, anchors, and extra spaces
+  title = title
+    .replace(/#__docusaurus[_a-zA-Z]+/gi, '')
+    .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
+    .replace(/\s*#\s*/g, ' - ')
+    .replace(/\s+/g, ' ')
+    .trim() || 'Documentation';
   
   const content = topResult.content || '';
   const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 20);
