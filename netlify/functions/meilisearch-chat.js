@@ -127,11 +127,11 @@ exports.handler = async (event, context) => {
     // Build context from top unique search results for OpenAI
     const contextParts = uniqueHitsForContext.map((hit, idx) => {
       // Prioritize lvl1 (page title) over lvl2 (subsection)
-      let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || 'Documentation';
+      let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || '';
       
       // Filter out Docusaurus internal anchors
       if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
-        title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
+        title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || '';
       }
       
       // Clean up any # symbols, anchors, and extra spaces
@@ -140,7 +140,24 @@ exports.handler = async (event, context) => {
         .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
         .replace(/\s*#\s*/g, ' - ')
         .replace(/\s+/g, ' ')
-        .trim() || 'Documentation';
+        .trim();
+      
+      // If still no title, extract from URL path
+      if (!title && hit.url) {
+        const urlPath = hit.url.split('/docs/')[1];
+        if (urlPath) {
+          const pathParts = urlPath.split('#')[0].split('/');
+          const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+          if (lastPart) {
+            title = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+          }
+        }
+      }
+      
+      // Final fallback
+      if (!title) {
+        title = 'Documentation';
+      }
       
       const content = hit.content || '';
       const url = hit.url || '';
@@ -173,11 +190,11 @@ exports.handler = async (event, context) => {
       .slice(0, 3)
       .map(hit => {
         // Prioritize lvl1 (page title) over lvl2 (subsection)
-        let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || 'Documentation';
+        let title = hit.hierarchy_lvl1 || hit.hierarchy_radio_lvl1 || hit.hierarchy?.lvl1 || hit.hierarchy_lvl2 || hit.hierarchy_radio_lvl2 || hit.hierarchy?.lvl2 || hit.title || '';
         
         // Filter out Docusaurus internal anchors
         if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
-          title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || 'Documentation';
+          title = hit.hierarchy_lvl0 || hit.hierarchy?.lvl0 || '';
         }
         
         // Clean up any # symbols, anchors, and extra spaces
@@ -186,7 +203,24 @@ exports.handler = async (event, context) => {
           .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
           .replace(/\s*#\s*/g, ' - ')
           .replace(/\s+/g, ' ')
-          .trim() || 'Documentation';
+          .trim();
+        
+        // If still no title, extract from URL path
+        if (!title && hit.url) {
+          const urlPath = hit.url.split('/docs/')[1];
+          if (urlPath) {
+            const pathParts = urlPath.split('#')[0].split('/');
+            const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+            if (lastPart) {
+              title = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            }
+          }
+        }
+        
+        // Final fallback
+        if (!title) {
+          title = 'Documentation';
+        }
         
         return {
           title: title,
@@ -227,11 +261,11 @@ function generateAnswer(question, hits) {
 
   const topResult = hits[0];
   // Prioritize lvl1 (page title) over lvl2 (subsection)
-  let title = topResult.hierarchy_lvl1 || topResult.hierarchy_radio_lvl1 || topResult.hierarchy?.lvl1 || topResult.hierarchy_lvl2 || topResult.hierarchy_radio_lvl2 || topResult.hierarchy?.lvl2 || topResult.title || 'Documentation';
+  let title = topResult.hierarchy_lvl1 || topResult.hierarchy_radio_lvl1 || topResult.hierarchy?.lvl1 || topResult.hierarchy_lvl2 || topResult.hierarchy_radio_lvl2 || topResult.hierarchy?.lvl2 || topResult.title || '';
   
   // Filter out Docusaurus internal anchors
   if (title.includes('__docusaurus_skipToContent_fallback') || title.includes('#__DOCUSAURUS') || title.match(/^[A-Z]+#__/)) {
-    title = topResult.hierarchy_lvl0 || topResult.hierarchy?.lvl0 || 'Documentation';
+    title = topResult.hierarchy_lvl0 || topResult.hierarchy?.lvl0 || '';
   }
   
   // Clean up any # symbols, anchors, and extra spaces
@@ -240,7 +274,24 @@ function generateAnswer(question, hits) {
     .replace(/#__DOCUSAURUS[_A-Z]+/gi, '')
     .replace(/\s*#\s*/g, ' - ')
     .replace(/\s+/g, ' ')
-    .trim() || 'Documentation';
+    .trim();
+  
+  // If still no title, extract from URL path
+  if (!title && topResult.url) {
+    const urlPath = topResult.url.split('/docs/')[1];
+    if (urlPath) {
+      const pathParts = urlPath.split('#')[0].split('/');
+      const lastPart = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+      if (lastPart) {
+        title = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      }
+    }
+  }
+  
+  // Final fallback
+  if (!title) {
+    title = 'Documentation';
+  }
   
   const content = topResult.content || '';
   const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 20);
