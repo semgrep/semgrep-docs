@@ -30,7 +30,7 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 - Are categorized as **Security** findings. You can identify findings categorized under **Security** using the <i class="fas fa-shield-halved"></i> badge.
 - Are flagged with a severity level of **critical** or **high**
 - Are flagged with a confidence level of **high**
-- Are flagged by Semgrep Assistant as likely being a **true positive**
+- Are flagged by Semgrep Assistant as likely being a **true positive** or has *not* been analyzed by Assistant yet
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 

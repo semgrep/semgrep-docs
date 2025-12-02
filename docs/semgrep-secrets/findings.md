@@ -12,7 +12,6 @@ tags:
 
 import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
 import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
-import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import ValidationStates from '/src/components/reference/_validation-states.mdx'
 
 # View findings in Semgrep AppSec Platform
@@ -86,13 +85,21 @@ Severity is assigned based on how sensitive or crucial the exposed web service i
 
 **Triage** is the prioritization of a finding based on policies or criteria set by your team or organization, such as severity, coding standards, business goals, and product goals.
 
-Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code. . Additionally, Semgrep can automatically mark findings as **provisionally ignored** based on AI analysis, validation results, and reachability analysis.
+Semgrep AppSec Platform uses the logic specified in the table below to automatically mark findings as either fixed or removed when they are no longer present in the code.
 
 You can manually **Ignore** findings or set them as **To fix** or **Reviewing** in Semgrep AppSec Platform directly through **triage** or **bulk triage** actions.
 
 The triage statuses are as follows:
 
-<TriageStatuses />
+| Status | Description |
+| - | - |
+| **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
+| **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
+| **Provisionally ignored** | Findings where Semgrep has determined the secret to be **invalid**. The secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with. |
+| **To fix** | Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
+| **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
+| **Ignored** | Findings marked as ignored are present in the code but have been labeled unimportant. Ignore false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). You can also provide a reason for ignoring a finding: **False positive**, **Acceptable risk**, **No time to fix**. |
+| **Closed** | Vulnerabilities that are no longer detected after a scan. This can be due to changes in the underlying rule or the code. |
 
 #### Validation
 

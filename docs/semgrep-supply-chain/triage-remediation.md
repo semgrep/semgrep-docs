@@ -38,9 +38,9 @@ Remediate (or resolve) true positives in Semgrep Supply Chain by:
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+Provisionally ignored findings are those identified by Semgrep as unreachable. These findings block pull requests and merge requests if the corresponding rule is included in a blocking policy.
 
-Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. 
+You can change the status of provisionally ignored findings to indicate the next steps in the triage process. For instance, you can set the status to **Reviewing** if you decide to manually review the finding.
 
 ### Remove the dependency and refactor the code
 
