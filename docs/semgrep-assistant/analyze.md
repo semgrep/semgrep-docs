@@ -14,7 +14,7 @@ Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you ca
 
 ![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
-## How to analyze your findings with Assistant
+## Analyze your findings with Assistant
 
 1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Assistant to analyze.
 2. Click **Analyze**.
