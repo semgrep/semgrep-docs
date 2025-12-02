@@ -64,6 +64,5 @@ Semgrep Assistant lets you leave feedback in the following places:
 
 * In Semgrep AppSec Platform: the Assistant recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
 * In Slack notifications: the **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
-* In GitHub PRs: you can leave feedback using `/semgrep assistant agree|disagree`.
 
 If Semgrep Assistant suggests that a finding is a true positive and supplies an autofix suggestion, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to let us know your thoughts.
