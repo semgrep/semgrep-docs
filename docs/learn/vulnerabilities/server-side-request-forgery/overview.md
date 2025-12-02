@@ -60,7 +60,7 @@ def fetch_data_securely():
     return response.text
 ```
 
-In the function `fetch_data_vulnerable`, a request is made to a user-supplied url. There is a check to see if the url is on the domain [`semgrep.dev`](http://semgrep.dev) but it is insufficient. Notice what happens if the user enters `https://semgrep.dev.attacker.com`. The resulting URL is an attacker-controlled domain. This is a textbook case of SSRF.
+In the function `fetch_data_vulnerable`, a request is made to a user-supplied url. There is a check to see if the url is on the domain [`semgrep.dev`](https://semgrep.dev) but it is insufficient. Notice what happens if the user enters `https://semgrep.dev.attacker.com`. The resulting URL is an attacker-controlled domain. This is a textbook case of SSRF.
 
 Tools like Semgrep can detect this type of issue automatically. They will look for untrusted input from user requests flowing into functions that send HTTP requests. The rule recognizes when user input is concatenated into the URL or passed through intermediate variables. This makes it practical to find SSRF vulnerabilities across large codebases without needing to manually inspect every string operation.
 

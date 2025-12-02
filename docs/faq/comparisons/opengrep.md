@@ -19,7 +19,7 @@ To resolve confusion within security and developer communities when trying to ch
 
 ## What is Semgrep Community Edition?
 
-[Semgrep Community Edition](http://semgrep.dev/products/community-edition) (CE) is the collective name for the [open source Semgrep engine](https://github.com/semgrep/semgrep), previously known as Semgrep OSS, and the collection of rules published and maintained by the Semgrep community and Semgrep, Inc. 
+[Semgrep Community Edition](https://semgrep.dev/products/community-edition) (CE) is the collective name for the [open source Semgrep engine](https://github.com/semgrep/semgrep), previously known as Semgrep OSS, and the collection of rules published and maintained by the Semgrep community and Semgrep, Inc. 
 
 ## What is Opengrep?
 
