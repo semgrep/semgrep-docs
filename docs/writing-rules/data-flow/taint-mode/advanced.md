@@ -73,9 +73,9 @@ This definition says that **every** occurrence of `$X` after `make_tainted($X)` 
 2. The [`...` ellipses operator](/writing-rules/pattern-syntax/#ellipses-and-statement-blocks) has limitations. For example, in the code below, Semgrep does not match any finding if such a source specification is in use:
 
  ```python
-    if cond:
-     make_tainted(x)
-    sink(x) # false negative
+if cond:
+   make_tainted(x)
+sink(x) # false negative
  ```
 </details>
 
@@ -93,10 +93,10 @@ This kind of sanitizer can be specified by setting `by-side-effect: true`:
 
 ```yaml
 pattern-sanitizers:
-   - patterns:
+  - patterns:
       - pattern: check_if_safe($X)
       - focus-metavariable: $X
-   by-side-effect: true
+    by-side-effect: true
 ```
 
 If you enable `by-side-effect` and the sanitizer specification matches a variable, or more generally, an l-value, exactly, Semgrep assumes that the variable or l-value is sanitized by side effect at the places where the sanitizer specification produces a match.
@@ -229,9 +229,9 @@ Taint propagators are specified under the `pattern-propagators` key:
 
 ```yaml
 pattern-propagators:
-   - pattern: $S.add($E)
-   from: $E
-   to: $S
+- pattern: $S.add($E)
+  from: $E
+  to: $S
 ```
 
 In the preceding example, Semgrep finds the pattern `$S.add($E)`, and it checks whether the code matched by `$E` is tainted. If it is tainted, Semgrep propagates that same taint to the code matched by `$S`. Thus, adding tainted data to a set marks the set itself as tainted.
@@ -254,9 +254,9 @@ Another situation where taint propagators are useful is specifying in Java that,
 
 ```yaml
 pattern-propagators:
-   - pattern: $C.forEach(($X) -> ...)
-   from: $C
-   to: $X
+- pattern: $C.forEach(($X) -> ...)
+  from: $C
+  to: $X
 ```
 
 ### Propagate without side-effect
@@ -266,14 +266,15 @@ Taint propagators can be used in many different ways, and in some cases, you mig
 
 ```yaml
 pattern-propagators:
-   - pattern: |
-         if something($FROM):
-            ...
-            $TO()
-            ...
-   from: $FROM
-   to: $TO
-   by-side-effect: false
+  - patterns:
+    - pattern: |
+        if something($FROM):
+          ...
+          $TO()
+          ...
+    from: $FROM
+    to: $TO
+    by-side-effect: false
 ```
 
 The preceding propagator definition specifies that inside an `if` block, where the condition is `something($FROM)`, we want to propagate taint from `$FROM` to any function that is being called without arguments, `$TO()`.
@@ -420,9 +421,9 @@ At-exit sinks are meant to facilitate writing leak-detection rules using taint m
 ```yaml
 pattern-sinks:
 - pattern-either:
-   - pattern: return ...
-   - pattern: $F(...)
-   at-exit: true
+  - pattern: return ...
+  - pattern: $F(...)
+  at-exit: true
 ```
 
 The preceding sink pattern matches either `return` statements, which are always exit statements, or function calls occurring as exit statements.
@@ -469,30 +470,30 @@ To include taint labels in a taint mode rule, follow these steps:
 
 
 1. Attach a `label` key to the taint source, such as `label: TAINTED` or `label: INPUT`:
- ```yaml
-pattern-sources:
-   - pattern: user_input
+   ```yaml
+   pattern-sources:
+      - pattern: user_input
          label: INPUT
- ```
+   ```
  Semgrep accepts any valid Python identifier as a label.
 
 2. Restrict a taint source to a subset of labels using the `requires` key. The following sample extends the previous example with `requires: INPUT`:
- ```yaml
-pattern-sources:
-   - pattern: user_input
-     label: INPUT
-   - pattern: evil(...)
-     requires: INPUT
-     label: EVIL
- ```
+   ```yaml
+   pattern-sources:
+      - pattern: user_input
+      label: INPUT
+      - pattern: evil(...)
+      requires: INPUT
+      label: EVIL
+   ```
  Combine labels using the `requires` key. To do so, use Python's Boolean operators, such as `requires: LABEL1 and not LABEL2`.
 
 3. Use the `requires` key to restrict a taint sink in the same way as source:
- ```yaml
-        pattern-sinks:
-     - pattern: sink(...)
-            requires: EVIL
- ```
+   ```yaml
+   pattern-sinks:
+      - pattern: sink(...)
+      requires: EVIL
+   ```
  The extra taint is only produced if the source itself is tainted and satisfies the `requires` formula.
 
 In the following example, assume that `user_input` is dangerous, but only when it passes through the `evil` function. This can be specified with taint labels as follows:
