@@ -48,7 +48,14 @@ Assistant doesn't automatically analyze:
 
 ## Request analysis for existing findings
 
-If you want Assistant analyses for findings that weren't automatically analyzed (as described above), you can request them in bulk through Semgrep AppSec Platform.
+If you want Assistant analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform.
+
+1. Go to the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page.
+2. Select the findings you want Assistant to analyze. You can select individual findings or use filters to select multiple findings at once.
+3. Click **Analyze**.
+4. In the confirmation dialog, review the estimated wait time and confirm the request.
+
+After Assistant completes the analysis, you can view recommendations in the finding's **Details** page or filter findings by **Assistant file risk levels** or **Assistant autotriage** on the Findings page.
 
 If you need assistance with bulk analysis requests or have questions about backfilling analyses for your findings, contact [Semgrep Support](/support).
 
