@@ -28,7 +28,7 @@ Semgrep Assistant:
   - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - GitLab, including SaaS and self-managed plans
 - Requires the Semgrep AppSec Platform for its use
-- Auto-analyzes many but not all findings during scans 
+- Auto-analyzes many, but not all, findings during scans 
   - For full scans, all *new* issues that have both High or Critical severity and are of High or Medium confidence are auto-analyzed 
   - For diff-aware scans (pull pequest or merge request scans), up to 10 new issues are auto-analyzed per scan
 
