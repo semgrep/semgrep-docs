@@ -113,7 +113,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.3,
+              semanticRatio: 0.5,
               embedder: "default"
             }
               }),
@@ -137,7 +137,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.3,
+              semanticRatio: 0.5,
               embedder: "default"
             }
               }),
