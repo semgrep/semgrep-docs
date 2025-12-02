@@ -12,25 +12,49 @@ import TabItem from '@theme/TabItem';
 
 # Set up the Semgrep Network Broker
 
-The Semgrep Network Broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a WireGuard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** HTTP requests from Semgrep to your network through this tunnel. This approach allows Semgrep to interact with on-premise resources without exposing them to the public internet.
+The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet.
 
 Examples of inbound traffic include:
 
-- [Pull request (PR) or merge request (MR) comments](/docs/category/pr-or-mr-comments)
-- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
+- [Pull request comments](/docs/category/pr-or-mr-comments)
 - Code access for [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) if enabled
+- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
 
+## Feature Availability
 :::info Tier availability
 The Semgrep Network Broker is available to Enterprise tier users.
 :::
+The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
 
-## Prerequisites and feature availability
+If you will be using the Network Broker with a dedicated Semgrep tenant, please note that in your request.
 
-- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
-  - If you will be using the Network Broker with a dedicated Semgrep tenant, please note that in your request.
-- **Docker** must be installed on the server where you install the Network Broker.
-- Ensure that you allocate at least 1 CPU and 512 MB RAM for each instance of Semgrep Network Broker that you run.
-- Ensure that you allow outbound access to `wireguard.semgrep.dev` on UDP port `51820`.
+## Deployment
+The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
+
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
+
+### System Requirements
+- CPU: 1
+- RAM: 512 MB
+
+### Network Requirements
+- Between Semgrep and Broker:
+  - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If you are on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
+  - If using the `--deployment-id` CLI flag, allow outbound to `semgrep.dev` on TCP port 443 for HTTPS.
+- Between Broker and each private network resource, enable outbound on TCP ports 80 and 443 for HTTP/HTTPS communication.
+
+:::info Determining IP Addresses
+To determine the IP addresses for a domain, use dig. The addresses are listed under the ANSWER section. Example: `dig wireguard.semgrep.dev`
+:::
+
+### Artifacts
+You can choose between deploying pre-made artifacts or building your own.
+#### Pre-built by Semgrep
+- Docker images are available from [ghcr.io/semgrep/semgrep-network-broker](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker).
+- A sample [Kubernetes Manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml) is present within the repository. This should be extended for production.
+
+#### Build Yourself
+See the [Network Broker repository](https://github.com/semgrep/semgrep-network-broker)'s README for instructions on how to build it yourself.
 
 ## Configure Semgrep Network Broker
 
