@@ -69,8 +69,7 @@ See the [Network Broker repository](https://github.com/semgrep/semgrep-network-b
 
 Ensure that you are logged in to the server where you want to run Semgrep Network Broker. Complete the following steps while logged in to that server.
 
-### Create the config file
-
+### 1. Create the config file
 <Tabs
     defaultValue="current"
     values={[
@@ -78,26 +77,18 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
     {label: 'v0.24.0 and earlier', value: 'legacy'}
     ]}
 >
-
 <TabItem value='current'>
-
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
-
-```yaml
-  inbound:
-    wireguard:
-      localAddress: SEMGREP_LOCAL_ADDRESS
-      privateKey: YOUR_PRIVATE_KEY
-      peers:
-        - endpoint: wireguard.semgrep.dev:51820
-    allowlist: []
-    gitlab:
-      baseUrl: YOUR_BASE_URL
-```
-
+    1. Sign in to Semgrep AppSec platform and navigate to **Settings > Broker**.
+    2. Create a `config.yaml` file that contains the following starting configuration:
+        ```yaml
+          inbound:
+            wireguard:
+              localAddress: SEMGREP_LOCAL_ADDRESS
+              peers:
+                - endpoint: wireguard.semgrep.dev:51820
+          ```
 </TabItem>
 <TabItem value='legacy'>
-
 :::note
 Semgrep recommends that users running Network Broker v0.24.0 or earlier to upgrade to v0.25.0 or later. This enables the use of a simplified config file.
 :::
@@ -126,54 +117,51 @@ The `publicKey` value should be entered precisely as shown in the example:
 4EqJwDZ8X/qXB5u3Wpo2cxnKlysec93uhRvGWPix0lg=
 ```
 
+#### Add your local address to the config
+1. Convert your organization ID to hexadecimal. The organization ID is found in Semgrep AppSec Platform under [**Settings > General > Identifiers**](https://semgrep.dev/orgs/-/settings/general/identifiers). This value is sometimes called a deployment ID. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
+2. Embed the resulting hexadecimal value in the string `fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1`, replacing `ORGANIZATION_ID` with the value.
+3. Update the `localAddress` field of `config.yaml`, replacing `SEMGREP_LOCAL_ADDRESS` with the string you generated in Step 2.
+
+  ```yaml
+  inbound:
+    wireguard:
+      localAddress: fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1
+  ```
 </TabItem>
 </Tabs>
 
-#### Multiple configuration files
-You can overlay multiple configuration files on top of each other by passing multiple `-c` arguments:
+### 2. Generate and store your private key
+The Network Broker requires a WireGuard keypair to establish a secure connection. To generate your private key:
 
-```console
-semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
-```
+  1. Determine the [Network Broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.36.0`. Most users should use the latest version, especially when setting up the broker for the first time.
+  2. Run the following command in your terminal to generate your private key, replacing the placeholder with the Network Broker version number:
+    <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
+  3. Store your private key in the config file by adding a `privateKey` field under `wireguard` section with its value set to the key you generated.
 
-Note that arrays are replaced, while maps are merged.
+### 3. Share your public key with Semgrep
+    :::info Key sharing
+    Your public key is safe to share. **Never** share your private key with anyone, including Semgrep.
+    :::
+    1. Run the following command in your terminal to generate your public key, replacing the placeholders with your private key generated in the previous step and the Network Broker version number:
+      <pre class="language-console"><code>echo <span className="placeholder">"YOUR_PRIVATE_KEY"</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
-### Generate a keypair
-
-The broker requires a WireGuard keypair to establish a secure connection. To generate your private key to replace `YOUR_PRIVATE_KEY` in the config template:
-
-1. Determine the [Network Broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.22.0`. Most users should use the latest version, especially when setting up the broker for the first time.
-1. Run the following command in the CLI to generate your private key, replacing the placeholder with the Network Broker version number:
-  <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
-1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the Network Broker version number:
-
-  <pre class="language-console"><code>echo <span className="placeholder">"YOUR_PRIVATE_KEY"</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
-
-  :::info Key sharing
-  Your public key is safe to share. Do **not** share your private key with anyone, including Semgrep.
-  :::
-
-### Update the config with the keypair
-
-1. Update the `config.yaml` file by replacing `YOUR_PRIVATE_KEY` with the value of your private key.
-1. Add your public key to the Semgrep AppSec Platform:
+### 4. Add your public key to the Semgrep AppSec Platform
    1. Log in to Semgrep AppSec Platform.
    2. Navigate to **Settings > Broker**.
    3. Paste your public key and click **Add Public Key**.
 
-### Update the config with your SCM information
-
+### 5. Update the config with your SCM information
 Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_URL` with your SCM and its base URL for Azure DevOps, GitHub, GitLab, or Bitbucket Data Center.
 
-<Tabs
-    defaultValue="gh"
-    values={[
-    {label: 'Azure DevOps', value: 'ado'},
-    {label: 'Bitbucket', value: 'bb'},
-    {label: 'GitHub', value: 'gh'},
-    {label: 'GitLab', value: 'gl'},
-    ]}
->
+  <Tabs
+      defaultValue="gh"
+      values={[
+      {label: 'Azure DevOps', value: 'ado'},
+      {label: 'Bitbucket', value: 'bb'},
+      {label: 'GitHub', value: 'gh'},
+      {label: 'GitLab', value: 'gl'},
+      ]}
+  >
 
 <TabItem value='ado'>
 
@@ -216,23 +204,21 @@ inbound:
 </TabItem>
 </Tabs>
 
-### Add your local address to the config
-
-1. Convert your organization ID to hexadecimal. The organization ID is found in Semgrep AppSec Platform under [**Settings > General > Identifiers**](https://semgrep.dev/orgs/-/settings/general/identifiers) in Semgrep AppSec Platform. This is sometimes also called a deployment ID. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
-2. Embed the resulting hexadecimal value in the string `fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1`, replacing `ORGANIZATION_ID` with the value.
-3. Update the `localAddress` field of `config.yaml`, replacing `SEMGREP_LOCAL_ADDRESS` with the string you generated in Step 2.
-
-  ```yaml
-  inbound:
-    wireguard:
-      localAddress: fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1
-  ```
-
-### Start the broker
-
+### 6. Start the Network Broker
 Run the following command to start Semgrep Network Broker with your completed configuration file:
 
-  <pre class="language-console"><code>sudo docker run -d -it --rm -v $(pwd):/emt ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> -c /emt/config.yaml</code></pre>
+<pre class="language-console"><code>sudo docker run -d -it --rm -v $(pwd):/emt ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> -c /emt/config.yaml</code></pre>
+
+
+#### Multiple configuration files
+You can overlay multiple configuration files by passing multiple `-c` arguments:
+
+```console
+semgrep-network-broker -c config1.yaml -c config2.yaml -c config3.yaml
+```
+
+Note that arrays are replaced, while maps are merged.
+
 
 ## Check Semgrep Network Broker logs
 
@@ -375,7 +361,7 @@ Do not attempt to run multiple instances of the Semgrep Network Broker to increa
 
 ## Allowlist multiple source code managers with one configuration file
 
-It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
+It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#5-update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
 <pre class="language-console"><code>
 inbound:
