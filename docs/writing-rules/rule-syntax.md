@@ -357,7 +357,7 @@ rules:
       - pattern: $Y + ...
       - focus-metavariable: $Y
       - pattern: "1"
-    message: Like set intersection, only the overlapping region is highilighted
+    message: Like set intersection, only the overlapping region is highlighted
     languages:
       - python
     severity: HIGH
@@ -870,6 +870,7 @@ rules:
     severity: HIGH
     languages:
       - python
+```
 
 ### `pattern-inside`
 
@@ -924,7 +925,7 @@ rules:
           $F = open(...)
           ...
           $F.close()
-    message: file object opened without corresponding close
+    message: file object opened without a corresponding close
     languages:
       - python
     severity: HIGH
@@ -1268,6 +1269,8 @@ This section contains more complex rules that perform advanced code searching.
 ```yaml
 rules:
   - id: eqeq-is-bad
+    languages: [python]
+    severity: MEDIUM
     patterns:
       - pattern-not-inside: |
           def __eq__(...):
