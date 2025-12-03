@@ -1150,11 +1150,12 @@ const getMeilisearchConfig = (): SearchConfig => {
   const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
   if (isProduction || isNetlifyPreview || isTestingBranch || isDevelopment) {
-    const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
+    // Always use Netlify functions for production and previews to keep API key secure
+    const useNetlifyFunctions = isProduction || isNetlifyPreview || window.location.hostname.includes('netlify.app');
       
     return {
       enabled: true,
-      hostUrl: isNetlify ? 
+      hostUrl: useNetlifyFunctions ? 
         `${window.location.origin}/.netlify/functions/meilisearch` :
         "https://ms-3ade175771ef-34593.sfo.meilisearch.io",
       apiKey: "",
