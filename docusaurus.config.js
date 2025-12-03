@@ -14,6 +14,8 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: false,
   themeConfig: {
+    // Disable Algolia search - we use custom Meilisearch integration
+    algolia: null,
     docs: {
       sidebar: {
         hideable: true,

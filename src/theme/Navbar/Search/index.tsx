@@ -659,7 +659,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           onClick={handleBlur}
         />
       )}
-      <div ref={searchContainerRef} style={{ position: 'relative', width: '100%', zIndex: 1000 }}>
+      <div ref={searchContainerRef} style={{ position: 'relative', width: '100%', zIndex: 1000, pointerEvents: 'auto' }}>
       <div 
         onClick={handleFocus}
         style={{
@@ -674,7 +674,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           minWidth: (isFocused || aiResponse || aiLoading) ? '450px' : '250px',
           width: (isFocused || aiResponse || aiLoading) ? '100%' : 'auto',
           maxWidth: (isFocused || aiResponse || aiLoading) ? '600px' : '300px',
-          boxShadow: (isFocused || aiResponse || aiLoading) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
+          boxShadow: (isFocused || aiResponse || aiLoading) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)',
+          pointerEvents: 'auto'
         }}
       >
           <input 
@@ -694,7 +695,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
               background: 'transparent',
             color: '#111827',
             fontWeight: '500',
-            transition: 'font-size 0.2s ease'
+            transition: 'font-size 0.2s ease',
+            pointerEvents: 'auto',
+            cursor: 'text'
           }}
         />
         {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
@@ -1141,29 +1144,30 @@ const getMeilisearchConfig = (): SearchConfig => {
     };
   }
 
+  const isProduction = window.location.hostname === 'semgrep.dev';
   const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
   const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
   const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
-    if (isNetlifyPreview || isTestingBranch || isDevelopment) {
+  if (isProduction || isNetlifyPreview || isTestingBranch || isDevelopment) {
     const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
       
-      return {
-        enabled: true,
-        hostUrl: isNetlify ? 
+    return {
+      enabled: true,
+      hostUrl: isNetlify ? 
         `${window.location.origin}/.netlify/functions/meilisearch` :
         "https://ms-3ade175771ef-34593.sfo.meilisearch.io",
       apiKey: "",
       indexUid: "semgrep_docs",
-            placeholder: "Search docs..."
-      };
+      placeholder: "Search docs..."
+    };
   }
   
-      return {
-        enabled: false,
-        hostUrl: "",
-        apiKey: "",
-        indexUid: "",
+  return {
+    enabled: false,
+    hostUrl: "",
+    apiKey: "",
+    indexUid: "",
     placeholder: "Search docs..."
   };
 };
