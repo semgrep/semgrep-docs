@@ -25,11 +25,11 @@ Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
 rules:
 - id: use-sys-exit
   languages:
- - python
+  - python
   message: |
- Use `sys.exit` over the python shell `exit` built-in. `exit` is a helper
- for the interactive shell and is not available on all Python implementations.
- https://stackoverflow.com/a/6501134
+    Use `sys.exit` over the python shell `exit` built-in. `exit` is a helper
+    for the interactive shell and is not available on all Python implementations.
+    https://stackoverflow.com/a/6501134
   pattern: exit($X)
   fix: sys.exit($X)
   severity: MEDIUM
@@ -60,24 +60,24 @@ An example rule with `fix-regex` is shown below. `regex` uses a capture group to
 rules:
 - id: python.requests.best-practice.use-timeout.use-timeout
   patterns:
- - pattern-not: requests.$W(..., timeout=$N, ...)
- - pattern-not: requests.$W(..., **$KWARGS)
- - pattern-either:
- - pattern: requests.request(...)
- - pattern: requests.get(...)
- - pattern: requests.post(...)
- - pattern: requests.put(...)
- - pattern: requests.delete(...)
- - pattern: requests.head(...)
- - pattern: requests.patch(...)
+  - pattern-not: requests.$W(..., timeout=$N, ...)
+  - pattern-not: requests.$W(..., **$KWARGS)
+  - pattern-either:
+    - pattern: requests.request(...)
+    - pattern: requests.get(...)
+    - pattern: requests.post(...)
+    - pattern: requests.put(...)
+    - pattern: requests.delete(...)
+    - pattern: requests.head(...)
+    - pattern: requests.patch(...)
   fix-regex:
     regex: '(.*)\)'
     replacement: '\1, timeout=30)'
   message: |
- 'requests' calls default to waiting until the connection is closed.
- This means a 'requests' call without a timeout will hang the program
- if a response is never received. Consider setting a timeout for all
- 'requests'.
+    'requests' calls default to waiting until the connection is closed.
+    This means a 'requests' call without a timeout will hang the program
+    if a response is never received. Consider setting a timeout for all
+    'requests'.
   languages: [python]
   severity: MEDIUM
 ```
