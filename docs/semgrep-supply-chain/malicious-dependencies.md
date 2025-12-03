@@ -71,6 +71,7 @@ To view malicious dependencies detected in your projects:
 
 ![Malicious dependency details](/img/mal-dependencies-details.png)
 
+
 ## Triage and remediation for malicious dependencies
 
 - If there is no fix available, **remove** the malicious dependency from your codebase and re-run a Supply Chain scan.
