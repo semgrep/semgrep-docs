@@ -472,27 +472,27 @@ To include taint labels in a taint mode rule, follow these steps:
 1. Attach a `label` key to the taint source, such as `label: TAINTED` or `label: INPUT`:
    ```yaml
    pattern-sources:
-      - pattern: user_input
-         label: INPUT
+   - pattern: user_input
+     label: INPUT
    ```
  Semgrep accepts any valid Python identifier as a label.
 
 2. Restrict a taint source to a subset of labels using the `requires` key. The following sample extends the previous example with `requires: INPUT`:
    ```yaml
-   pattern-sources:
+    pattern-sources:
       - pattern: user_input
-      label: INPUT
+        label: INPUT
       - pattern: evil(...)
-      requires: INPUT
-      label: EVIL
+        requires: INPUT
+        label: EVIL
    ```
  Combine labels using the `requires` key. To do so, use Python's Boolean operators, such as `requires: LABEL1 and not LABEL2`.
 
 3. Use the `requires` key to restrict a taint sink in the same way as source:
    ```yaml
-   pattern-sinks:
+    pattern-sinks:
       - pattern: sink(...)
-      requires: EVIL
+        requires: EVIL
    ```
  The extra taint is only produced if the source itself is tainted and satisfies the `requires` formula.
 

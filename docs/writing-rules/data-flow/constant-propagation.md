@@ -42,7 +42,7 @@ rules:
     options:
       symbolic_propagation: true
     pattern-sources:
-       patterns:
+      - patterns:
           - pattern: $REDOS
           - metavariable-analysis:
               analyzer: redos
