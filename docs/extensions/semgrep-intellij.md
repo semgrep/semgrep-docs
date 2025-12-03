@@ -27,7 +27,7 @@ The Semgrep IntelliJ extension communicates with Semgrep command-line interface 
 # For macOS
 $ brew install semgrep
 
-# For Ubuntu/WSL/Linux/macOS
+# For Ubuntu/Windows/Linux/macOS
 $ python3 -m pip install semgrep
 ```
 
@@ -87,7 +87,7 @@ Hover over a match and click the link.
 
 ## Support
 
-If you need our support, join the [Semgrep community Slack workspace](http://go.semgrep.dev/slack) and tell us about any problems you encountered.
+If you need our support, join the [Semgrep community Slack workspace](https://go.semgrep.dev/slack) and tell us about any problems you encountered.
 
 ## Limitations
 

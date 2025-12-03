@@ -73,7 +73,7 @@ The code is kept here for easy maintenance.
     <div class="card__copy">
     <CardHeader>Write rules</CardHeader>
     <CardBody>
-      Create custom rules to enforce your organization's coding standards.
+      Enforce your organization’s coding standards with custom rules.
     </CardBody>
     </div>
   </Card>
@@ -128,17 +128,14 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>August 2025 release notes summary</h3>
+<h3>October 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Added support for interfile analysis for Scala projects.
-- **Jira integration:**
-  - The labels `Malicious Dependency` and `Non-malicious Vulnerability` have been changed to `Malicious Dependency` and `Not Malicious`, respectively.
-  - Jira tickets created for malicious dependency findings now include more prominent visuals, such as bolded rule messages, to help them stand out from other reachable findings.
-  - The maximum number of findings associated with a specific Jira ticket has increased from 50 to 75.
-- Supply Chain's reachability analysis now covers all high and critical severity CVEs in Python packages from supported sources starting 2017 and onward.
-- Supply Chain policies now support the exclusion of conditions. For example, you can define a condition such as `When Reachability is not Always reachable`.
-- Added support for the use of custom AWS Bedrock keys for use with Semgrep Assistant.
+- Semgrep Managed Scans are now generally available. With Managed Scans, you can add repositories to your Semgrep organization in bulk without changing your existing CI workflows, and integrate Semgrep into developer workflows through PR or MR comments.
+- Semgrep Code findings now show Assistant's true or false positive analyses more prominently, along with the memories Assistant used during analysis. The findings also present the threat model for specific security issues in the context of the code, along with a summary of each issue.
+- The `/setup_semgrep_mcp` command now supports Claude Code.
+- Supply Chain's reachability analysis now covers all high-severity CVEs from supported sources starting from 2017 for Go packages.
+- Added a new filter for Semgrep Assistant's AI component tags with **No decision**, allowing users to find findings analyzed by the Assistant, but not classified as **low** or **high** risk.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

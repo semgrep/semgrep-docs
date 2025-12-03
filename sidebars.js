@@ -18,7 +18,8 @@ module.exports = {
   // Note that paths are not slugs
   topLevelSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
-    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/introduction', label: 'What\'s Semgrep', className: 'top-category-separator'},
+    { type: 'ref', id: 'getting-started/quickstart', label: 'Scan with Semgrep', className: 'top-category'},
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
@@ -34,7 +35,7 @@ module.exports = {
       className: 'top-category'
     },
     { type: 'link', href: '/release-notes', label: 'Release notes', className: 'top-category'},
-    { type: 'ref', id: 'faq/overview', label: 'About Semgrep', className: 'top-category' },
+    { type: 'ref', id: 'support', label: 'Support & resources', className: 'top-category' },
     { type: 'link', href: 'https://semgrep.dev/api/v1/docs/', label: 'API'},
   ],
   scanSidebar: [
@@ -190,11 +191,6 @@ module.exports = {
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
-                        id: 'semgrep-assistant/getting-started', // document ID
-                        label: 'Enable Assistant', // sidebar label
-                      },
-                      {
-                        type: 'doc',
                         id: 'writing-rules/overview', // document ID
                         label: 'Write custom rules', // sidebar label
                       },
@@ -255,7 +251,9 @@ module.exports = {
           collapsible: true,
           items: [
             'mcp',
+            'semgrep-appsec-platform/cortex',
             'semgrep-appsec-platform/jira',
+            'semgrep-appsec-platform/sysdig',
             'semgrep-appsec-platform/wiz'
           ]
         },
@@ -288,16 +286,6 @@ module.exports = {
                 'semgrep-code/remove-duplicates',
                 'semgrep-code/editor',
                 'semgrep-code/pro-rules',
-                {
-                    type: 'category',
-                    label: 'Semgrep Community Edition',
-                    collapsible: true,
-                    items: [
-                        'semgrep-ce-languages',
-                        'deployment/oss-deployment',
-                        'getting-started/cli-oss',
-                        ]
-                },
             ]
         },
         {
@@ -372,10 +360,41 @@ module.exports = {
               id: 'semgrep-assistant/getting-started'
             },
             items: [
-              'semgrep-assistant/customize'
+              'semgrep-assistant/customize',
+              'semgrep-assistant/best-practices-for-memories'
             ]
           },
           'semgrep-assistant/analyze'
+          ]
+      },
+      {
+        type: 'category',
+        label: 'Semgrep Community Edition',
+        collapsible: false,
+        items: [
+            {
+              type: 'category',
+              label: 'Get started',
+              collapsible: true,
+              link: {type: 'doc', id: 'getting-started/quickstart-ce'},
+              items: [
+                'customize-semgrep-ce',
+              ]
+            },
+            'semgrep-ce-languages',
+            'deployment/oss-deployment',
+            
+            {
+              type: 'category',
+              label: 'About Semgrep CE',
+              collapsible: true,
+              items:[
+                'contributing/philosophy',
+                'semgrep-pro-vs-oss',
+                'faq/comparisons/opengrep',
+                
+              ]
+            }
           ]
       },
       {
@@ -453,9 +472,17 @@ module.exports = {
                             type: 'category',
                             label: 'Dataflow analysis',
                             link: {type: 'doc', id: 'writing-rules/data-flow/data-flow-overview'},
+                            collapsible: false,
                             items: [
                                 'writing-rules/data-flow/constant-propagation',
-                                'writing-rules/data-flow/taint-mode',
+                                {
+                                    type: 'category',
+                                    label: 'Taint analysis',
+                                    link: {type: 'doc', id: 'writing-rules/data-flow/taint-mode/overview'},
+                                    items: [
+                                        'writing-rules/data-flow/taint-mode/advanced'
+                                    ]
+                                },
                                 'writing-rules/data-flow/status'
                             ]
                         },
@@ -586,38 +613,41 @@ module.exports = {
                     ]
                 },
             ],
-        },
-],
+        }
+  ],
   aboutSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
     {
         type: 'category',
-        label: 'About Semgrep',
+        label: 'Support & resources',
         collapsible: false,
         items: [
-            'trophy-case',
             'support',
             'security',
             'licensing',
-            'faq/overview',
-            'integrating',
             'usage-and-billing',
             'deployment/claim-a-license',
-            'contributing/philosophy',
-            'semgrep-pro-vs-oss',
-            'run-a-successful-pov',
             {
               type: 'category',
-              label: 'Comparisons with other tools',
+              label: 'Compliance',
               collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'compliance/overview'
+              },
               items: [
-                  'faq/comparisons/codeql',
-                  'faq/comparisons/endor-labs',
-                  'faq/comparisons/opengrep',
-                  'faq/comparisons/snyk',
-                  'faq/comparisons/sonarqube',
-                ]
+                'compliance/fedramp',
+                'compliance/gdpr',
+                'compliance/hipaa-hitrust',
+                'compliance/iso27001',
+                'compliance/iso27017',
+                'compliance/nist-800-171',
+                'compliance/pci-dss',
+                'compliance/soc2'
+              ]
             },
+            'trophy-case',
+            'run-a-successful-pov',
             {
               type: 'doc',
               id: 'metrics',
@@ -647,7 +677,7 @@ module.exports = {
               ]
             }
         ],
-    },
+    }
   ],
   kbSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -785,7 +815,7 @@ module.exports = {
           ]
         },
       ]
-    },
+    }
   ],
   devSidebar: [
     { type: 'ref', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -816,7 +846,7 @@ module.exports = {
         items: [
             'for-developers/detection',
         ],
-    },
+    }
   ],
   learnSidebar: [
     { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
@@ -1089,6 +1119,39 @@ module.exports = {
                     ]
                 },
             ],
+    }
+  ],
+  whatsSemgrepSidebar: [
+    { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
+    {
+        type: 'category',
+        label: 'What\'s Semgrep',
+        collapsible: false,
+        items: [
+            'getting-started/introduction',
+            'faq/overview',
+            'run-a-successful-pov',
+            'semgrep-pro-vs-oss',
+            'contributing/philosophy',
+            {
+              type: 'category',
+              label: 'Comparisons with other tools',
+              collapsible: true,
+              items: [
+                  'faq/comparisons/codeql',
+                  'faq/comparisons/endor-labs',
+                  'faq/comparisons/opengrep',
+                  'faq/comparisons/snyk',
+                  'faq/comparisons/sonarqube',
+                ]
+            },
+            'integrating',
+            {
+              type: 'doc',
+              id: 'metrics',
+              label: 'Semgrep metrics'
+            },
+        ],
     }
   ]
 };

@@ -133,6 +133,16 @@ To view in-depth information about a specific finding:
     - If the **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is labeled **detected-generic-api-key**.
         ![Click View details if No grouping is enabled](/img/cloud-platform-findings-no-grouping-view-details.png#md-width)
 
+#### Semgrep Assistant’s rule and analysis explanation 
+
+When Semgrep Assistant is enabled and classifies a finding as a true or false positive, an alert appears at the top of the finding’s details page. You can also view a detailed explanation that, if applicable, includes steps to exploitability in the **Finding description** tab.
+
+For true positives, the detailed explanation includes a summary and rationale for why the finding was flagged. It draws on the code that matched the rule pattern and the surrounding code to provide context for the rule message. For security-related rules, it also explains how the finding relates to the rule’s threat model.
+
+For false positives, the explanation contains only Assistant’s reasoning, without additional code context. Some explanations refer to memories, which Assistant uses to determine whether a finding is a false positive. However, memories are not used when generating the explanation itself.
+
+If Assistant flags a finding as a false positive, you can provide feedback by selecting **Agree and Ignore** or **Disagree**.
+
 #### Add notes to findings
 
 To **add notes** to the activity history of a finding:

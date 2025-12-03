@@ -21,4 +21,5 @@ Commands:
   show                 Show various types of information
   test                 Test the rules (EXPERIMENTAL improvements over scan --test)
   validate             Validate the rules (EXPERIMENTAL improvements over scan --validate)
+  mcp                  Start the Semgrep MCP server
 ```

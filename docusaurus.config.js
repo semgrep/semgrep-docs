@@ -32,27 +32,6 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
-        /*
-        {
-          type: 'dropdown',
-          label: 'Products',
-          position: 'left',
-          items: [
-            {
-              label: 'Semgrep Code',
-              to: 'https://semgrep.dev/products/semgrep-code/'
-            },
-            {
-              label: 'Semgrep Supply Chain',
-              to: 'https://semgrep.dev/products/semgrep-supply-chain'
-            },
-            {
-              label: 'Semgrep Secrets',
-              to: 'https://semgrep.dev/products/semgrep-secrets'
-            }
-          ]
-        },
-        */
         { to: 'kb', label: 'Knowledge base', position: 'left'},
         { to: 'https://academy.semgrep.dev', label: 'Semgrep Academy', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-', label: 'Login', position: 'right', target: '_self' },
@@ -290,9 +269,9 @@ module.exports = {
           { from: "/experiments/extract-mode/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/experiments/r2c-internal-project-depends-on/", to: "/writing-rules/experiments/r2c-internal-project-depends-on" },
           { from: "/experiments/symbolic-propagation/", to: "/writing-rules/experiments/symbolic-propagation" },
-          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode" },
-          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode" },
+          { from: "/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/writing-rules/experiments/taint-propagators/", to: "/writing-rules/data-flow/taint-mode/overview" },
+          { from: "/experiments/taint-labels/", to: "/writing-rules/data-flow/taint-mode/overview" },
           { from: "/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
           { from: "/experiments/multiple-focus-metavariables/", to: "/writing-rules/experiments/multiple-focus-metavariables" },
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable" },
@@ -353,7 +332,7 @@ module.exports = {
           { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies" },
 
           /* AUG 31 2023  */
-          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/kb/integrations/semgrep-vs-code-windows" },
+          { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/extensions/semgrep-vs-code" },
 
           /* OCT 18 2023  */
           { from: "/kb/semgrep-ci/github-required-workflows-semgrep/" , to: "/kb/semgrep-ci/github-repository-rulesets-semgrep" },
@@ -406,7 +385,7 @@ module.exports = {
           { from: "/supported-languages-oss" , to: "/supported-languages" } ,
           { from: "/ignore-oss" , to: "/ignoring-files-folders-code" } ,
           { from: "/cli-reference-oss" , to: "/cli-reference" } ,
-          { from: "/getting-started/quickstart-oss" , to: "/getting-started/cli-oss"} ,
+          { from: "/getting-started/quickstart-oss" , to: "/getting-started/quickstart-ce"} ,
           /* JULY 15, 2024 */
           { from: "/semgrep-appsec-platform/bitbucket-pr-comments" , to: "/category/bitbucket-pr-comments"} ,
           /* SEP 11, 2024 */
@@ -434,6 +413,11 @@ module.exports = {
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
           /* JUL 25, 2025 */
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
+          /* OCT 3, 2025 */
+          { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
+                    /* OCT 23, 2025 */
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
         ]
       }
     ],

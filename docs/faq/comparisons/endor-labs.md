@@ -2,7 +2,7 @@
 slug: endor-labs
 append_help_link: true
 hide_table_of_contents: true
-displayed_sidebar: aboutSidebar
+displayed_sidebar: whatsSemgrepSidebar
 tags:
   - Support
 description: >-
@@ -38,7 +38,7 @@ rules:
     message: Affected versions of paddlepaddle are vulnerable to Improper Limitation
       Of A Pathname To A Restricted Directory ('Path Traversal') in the
       `download` and `_check_exists_and_download` of `paddle.dataset.common`.
-    severity: ERROR
+    severity: HIGH
     metadata:
       confidence: HIGH
       category: security

@@ -12,25 +12,49 @@ import TabItem from '@theme/TabItem';
 
 # Set up the Semgrep Network Broker
 
-The Semgrep Network Broker facilitates secure access between Semgrep and your private network. It accomplishes this by establishing a WireGuard VPN tunnel with the Semgrep infrastructure, then proxying **inbound** HTTP requests from Semgrep to your network through this tunnel. This approach allows Semgrep to interact with on-premise resources without exposing them to the public internet.
+The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet.
 
 Examples of inbound traffic include:
 
-- [Pull request (PR) or merge request (MR) comments](/docs/category/pr-or-mr-comments)
-- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
+- [Pull request comments](/docs/category/pr-or-mr-comments)
 - Code access for [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview) if enabled
+- [Webhooks](/docs/semgrep-appsec-platform/webhooks)
 
+## Feature Availability
 :::info Tier availability
 The Semgrep Network Broker is available to Enterprise tier users.
 :::
+The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
 
-## Prerequisites and feature availability
+If you will be using the Network Broker with a dedicated Semgrep tenant, please note that in your request.
 
-- The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization (org) before setup. It is only available to paying customers. Contact the [Semgrep support team](/docs/support) to discuss having it enabled for your organization.
-  - If you will be using the broker with a dedicated Semgrep tenant, please note that in your request.
-- **Docker** must be installed on the server where you install the network broker.
-- Ensure that you allocate at least 1 CPU and 512 MB RAM for each instance of Semgrep Network Broker that you run.
-- Ensure that you allow outbound access to `wireguard.semgrep.dev` on UDP port `51820`.
+## Deployment
+The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
+
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
+
+### System Requirements
+- CPU: 1
+- RAM: 512 MB
+
+### Network Requirements
+- Between Semgrep and Broker:
+  - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If you are on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
+  - If using the `--deployment-id` CLI flag, allow outbound to `semgrep.dev` on TCP port 443 for HTTPS.
+- Between Broker and each private network resource, enable outbound on TCP ports 80 and 443 for HTTP/HTTPS communication.
+
+:::info Determining IP Addresses
+To determine the IP addresses for a domain, use dig. The addresses are listed under the ANSWER section. Example: `dig wireguard.semgrep.dev`
+:::
+
+### Artifacts
+You can choose between deploying pre-made artifacts or building your own.
+#### Pre-built by Semgrep
+- Docker images are available from [ghcr.io/semgrep/semgrep-network-broker](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker).
+- A sample [Kubernetes Manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml) is present within the repository. This should be extended for production.
+
+#### Build Yourself
+See the [Network Broker repository](https://github.com/semgrep/semgrep-network-broker)'s README for instructions on how to build it yourself.
 
 ## Configure Semgrep Network Broker
 
@@ -60,7 +84,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
-      token: GITLAB_PAT
 ```
 
 </TabItem>
@@ -86,7 +109,6 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
     allowlist: []
     gitlab:
       baseUrl: YOUR_BASE_URL
-      token: GITLAB_PAT
 ```
 
 The `publicKey` value should be entered precisely as shown in the example:
@@ -111,10 +133,10 @@ Note that arrays are replaced, while maps are merged.
 
 The broker requires a WireGuard keypair to establish a secure connection. To generate your private key to replace `YOUR_PRIVATE_KEY` in the config template:
 
-1. Determine the [network broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.22.0`. Most users should use the latest version, especially when setting up the broker for the first time.
-1. Run the following command in the CLI to generate your private key, replacing the placeholder with the network broker version number:
+1. Determine the [Network Broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.22.0`. Most users should use the latest version, especially when setting up the broker for the first time.
+1. Run the following command in the CLI to generate your private key, replacing the placeholder with the Network Broker version number:
   <pre class="language-console"><code>docker run ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> genkey</code></pre>
-1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the network broker version number:
+1. Run the following command in the CLI to generate your public key, replacing the placeholders with your private key generated in the previous step and the Network Broker version number:
 
   <pre class="language-console"><code>echo <span className="placeholder">"YOUR_PRIVATE_KEY"</span> | sudo docker run -i ghcr.io/semgrep/semgrep-network-broker:<span className="placeholder">VERSION_NUMBER</span> pubkey</code></pre>
 
@@ -150,12 +172,8 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 <pre class="language-console"><code>
 azuredevops:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
-&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 </code></pre>
 
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/azure-pr-comments#prerequisites) for access token requirements.
-:::
 </TabItem>
 
 <TabItem value='bb'>
@@ -165,14 +183,7 @@ Bitbucket is compatible with Network Broker versions 0.20.0 and later.
 <pre class="language-console"><code>
 bitbucket:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 </code></pre>
-
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see Prerequisites for access token requirements:
-- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#create-and-add-a-workspace-access-token)
-- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-data-center-pr-comments#prerequisites)
-:::
 
 </TabItem>
 <TabItem value='gh'>
@@ -180,7 +191,6 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
 </TabItem>
@@ -189,12 +199,7 @@ github:
 <pre class="language-console"><code>
 gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 </code></pre>
-
-:::info Access token
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites](/semgrep-appsec-platform/gitlab-mr-comments#prerequisites) for access token requirements.
-:::
 
 </TabItem>
 </Tabs>
@@ -225,7 +230,7 @@ You can check the logs for Semgrep Network Broker by running:
 
 ### Adjusting log verbosity
 
-The Semgrep Network broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
+The Semgrep Network Broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
 
 :::warning Performance impact
 Please enable these settings only while working to identify issues. Otherwise, significant memory in the tunnel is used on large request and response bodies.
@@ -284,12 +289,11 @@ To enable Managed Scans when using Network Broker, ensure that you've updated yo
 <pre class="language-console"><code>
 azuredevops:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
-&nbsp;&nbsp;token: <span className="placeholder">ADO_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 :::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/azure#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -299,12 +303,11 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 bitbucket:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;token: <span className="placeholder">BITBUCKET_ACCESS_TOKEN</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 :::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
+Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) instead of in the Network Broker configuration. However, if you must provide the token in the Network Broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/bitbucket#prerequisites-and-permissions) for access token requirements.
 :::
 
 </TabItem>
@@ -313,7 +316,6 @@ Semgrep recommends providing the access token when you [connect the source code 
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
@@ -323,18 +325,13 @@ github:
 <pre class="language-console"><code>
 gitlab:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;token: <span className="placeholder">GITLAB_PAT</span>
 &nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
-
-:::info Access tokens
-Semgrep recommends providing the access token when you [connect the source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs) instead of in the Network Broker configuration. However, if you must provide the token in the network broker configuration, see [Prerequisites and permissions](/deployment/managed-scanning/gitlab#prerequisites-and-permissions) for access token requirements.
-:::
 
 </TabItem>
 </Tabs>
 
-To clone repositories for scanning from any organization or group, the URL allowlist must include the base URL of your instance. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`. For other source code managers, or earlier Network Broker versions the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
@@ -344,7 +341,7 @@ inbound:
       methods: [GET, POST]
 ```
 
-Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. If you are running `v0.30.0` or earlier of the broker: to ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
+Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. If you are running `v0.30.0` or earlier of the Network Broker: to ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
 
 ```yaml
 inbound:
@@ -354,7 +351,7 @@ inbound:
       methods: [GET, POST, PATCH]
 ```
 
-In broker `v0.31.0` and later, this URL is part of the default allowlist.
+In Network Broker `v0.31.0` and later, this URL is part of the default allowlist.
 
 ## Run multiple instances of the Semgrep Network Broker
 
@@ -367,7 +364,6 @@ It is possible to allow access to multiple source code managers (SCM) within a s
 <pre class="language-console"><code>
 github:
 &nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;token: <span className="placeholder">GITHUB_PAT</span>
 </code></pre>
 
 Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:

@@ -157,16 +157,20 @@ You can use this result to set up additional checks to enforce a block in your C
 ## Multiple policies
 
 :::info Multiple policies feature (private beta)
-If you have the **multiple policies** feature, you can customize the rules that run on specific repositories. Currently, this beta is not accepting new participants.
+If you have the **multiple policies** feature, you can customize the Code rules that run on specific repositories. Currently, this beta is not accepting new participants.
 :::
 
-The multiple policies feature enables users to customize the rules that run on specific projects (repositories). Users create different policies that projects can be assigned to.
+The multiple policies feature enables users to customize the Semgrep Code rules that run on specific projects (repositories). Users create different policies that projects can be assigned to.
 
 This feature makes use of a **Global Policy** that runs on **all** projects. Projects cannot be unassigned from it.
 
 You can create a new policy and add one or more projects, then select rules to add to the policy. Projects are assigned manually to additional policies, and multiple projects can be added by searching repository names or tags. 
 
 During a scan, the repositories assigned to your custom policy run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
+
+### Policy limit
+
+Current users of the Multiple Policies beta can create up to 10 policies. Some users from earlier phases of the beta may have a higher limit.
 
 ### Resolve workflow actions in multiple policies
 

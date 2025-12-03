@@ -25,7 +25,7 @@ Managed Scans is available for all Semgrep products you have purchased, includin
   - Semgrep Supply Chain
   - Semgrep Secrets
 
-Semgrep performs both full and diff-aware managed scans when a developer creates a pull request.
+Semgrep performs full scans on a weekly basis and diff-aware scans when you create a pull request or merge request.
 
 :::info
 - To receive Supply Chain findings, you must have a supported manifest file or lockfile in your repository. Managed Scans does **not** support generation of these files.
@@ -67,7 +67,7 @@ Semgrep’s Managed Scans infrastructure ensures that customer code is scanned i
 
 By default, projects on Managed Scans are configured with:
 
-- **Weekly full scans** of the entire repository. When a project is first added to Managed Scans, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time.
+- **Weekly full scans** of the entire repository. When a project is first added to Managed Scans, the AppSec Platform performs an initial scan and then sets a random time up to 6 days after to perform a weekly full scan. Each weekly scan occurs on that same day and time. If a full scan doesn't complete, Semgrep re-attempts the scan once, in case it was affected by a temporary error.
 - **Diff-aware scans** on pull requests that run on every PR. These diff-aware scans follow the **rule modes** set in your Policies, ensuring that developers are only notified of findings from high-signal rules you place in Comment or Block mode.
 
 ## Add a repository to Semgrep Managed Scans
