@@ -1,0 +1,146 @@
+{
+  "index_name": "docs",
+  "start_urls": [
+    {
+      "url": "https://semgrep.dev/docs/release-notes",
+      "tags": ["release_notes"],
+      "page_rank": -100
+    },
+    {
+      "url": "https://semgrep.dev/docs/rule-updates",
+      "tags": ["rule_updates"],
+      "page_rank": -100
+    },
+    {
+     "url": "https://semgrep.dev/docs"
+    }
+  ],
+  "sitemap_urls": ["https://semgrep.dev/docs/sitemap.xml"],
+  "stop_urls": [
+    "https://semgrep.dev/docs/tags/*",
+    "https://semgrep.dev/docs/category/*"
+  ],
+  "js_render": false,
+  "selectors": {
+    "default": {
+      "lvl0": {
+        "selector": ".breadcrumbs > li:nth-child(2) span.breadcrumbs__link",
+        "global": true,
+        "default_value": "Semgrep documentation"
+      },
+      "lvl1": "article h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5, article td:first-child",
+      "lvl6": "article h6",
+      "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
+    }
+  },
+  "strip_chars": " .,;:#()",
+  "custom_settings": {
+    "indexLanguages" : [
+      "en"
+    ],
+    "queryLanguages" : [
+      "en"
+    ],
+    "disableTypoToleranceOnWords" : [
+      "severity",
+      "security",
+      "git",
+      "coverage",
+      "leverage",
+      "teams",
+      "terms",
+      "IdP",
+      "IDE",
+      "Jira"
+    ],
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ],
+    "synonyms": [
+      [
+        "taint mode",
+        "taint tracking"
+      ],
+      [
+        "roles",
+        "RBAC"
+      ],
+      [
+        "single sign-on",
+        "SSO"
+      ],
+      [
+        "single sign on",
+        "SSO"
+      ],
+      [
+        "CI",
+        "continuous integration"
+      ],
+      [
+        "CI/CD",
+        "continuous integration"
+      ],
+      [
+        "pull request comments",
+        "PR comments"
+      ],
+      [
+        "merge request comments",
+        "MR comments"
+      ],
+      [
+        "Semgrep Cloud Platform",
+        "SCP"
+      ],
+      [
+        "Semgrep Supply Chain",
+        "SSC"
+      ],
+      [
+        "Identity provider",
+        "IdP"
+      ],
+      [
+        "Jira integration",
+        "Jira"
+      ],
+      [
+        "lockfileless",
+        "without lockfiles"
+      ],
+      [
+        "node.js",
+        "JavaScript"
+      ],
+      [
+        "nodejs",
+        "JavaScript"
+      ],
+      [
+        "click to fix",
+        "click-to-fix"
+      ]
+    ]
+  },
+  "conversation_id": [
+    "833762294"
+  ],
+  "nb_hits": 16653
+}
