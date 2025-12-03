@@ -1,3 +1,7 @@
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[redirects]]
 from = "/*"
 to = "/docs/404.html"
