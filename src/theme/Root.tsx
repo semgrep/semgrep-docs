@@ -11,11 +11,12 @@ export default function Root({children}: {children: React.ReactNode}): JSX.Eleme
   const shouldEnableChatbot = () => {
     if (typeof window === 'undefined') return false;
     
+    const isProduction = window.location.hostname === 'semgrep.dev';
     const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
     const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
     const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
-    return isNetlifyPreview || isTestingBranch || isDevelopment;
+    return isProduction || isNetlifyPreview || isTestingBranch || isDevelopment;
   };
 
   return (
