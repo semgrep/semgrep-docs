@@ -1,13 +1,14 @@
 name: Meilisearch scrape
 
 on:
+  # Manual trigger - can be run from GitHub Actions UI on any branch
   workflow_dispatch:
     inputs:
       parameter:
         description: Run from dispatch
-  push:
-    branches:
-      - main
+  # Scheduled run - every day at 2 AM UTC (only runs on default branch)
+  schedule:
+    - cron: '0 2 * * *'
 
 jobs:
   scrape:
