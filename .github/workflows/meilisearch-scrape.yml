@@ -9,6 +9,11 @@ on:
   # Scheduled run - every day at 2 AM UTC (only runs on default branch)
   schedule:
     - cron: '0 2 * * *'
+  # Pull request trigger - for testing preview branches (only when commits are pushed)
+  pull_request:
+    types: [synchronize]
+    branches:
+      - main
 
 jobs:
   scrape:
