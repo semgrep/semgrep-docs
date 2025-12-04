@@ -84,7 +84,6 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
   const getChatUrl = () => {
     if (typeof window === 'undefined') return '';
     
-    const isProduction = window.location.hostname === 'semgrep.dev';
     const isNetlify = window.location.hostname.includes('netlify.app') || 
                       window.location.hostname.includes('deploy-preview');
     const isLocalhost = window.location.hostname === 'localhost' || 
@@ -92,8 +91,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
     
     if (hostUrl) return hostUrl;
     
-    // Always use Netlify functions for production and previews to keep API key secure
-    if (isProduction || isNetlify || isLocalhost) {
+    if (isNetlify || isLocalhost) {
       return `${window.location.origin}/.netlify/functions/meilisearch-chat`;
     }
     
