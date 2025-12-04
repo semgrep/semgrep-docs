@@ -19,6 +19,7 @@ import TabItem from '@theme/TabItem';
 :::note Your deployment journey
 - You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
 - You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
+- You are an admin for both your Semgrep deployment and your IdP provider.
 - For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
 :::
 

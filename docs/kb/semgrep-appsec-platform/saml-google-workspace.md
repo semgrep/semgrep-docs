@@ -24,6 +24,8 @@ This article describes how to set up SAML Single Sign-on for Semgrep AppSec Plat
 
 This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Google Workspace, including how to set up the necessary attribute mappings.
 
+Ensure that you are an admin for both your Semgrep deployment and your Google Workspace account.
+
 ## Google Workspace configuration
 
 1. [Set up a custom SAML app](https://support.google.com/a/answer/6087519?hl=en#zippy=%2Cstep-add-the-custom-saml-app) in Google Workspace. The default **Name ID** is the primary email, and this value is optimal for use with Semgrep AppSec Platform.

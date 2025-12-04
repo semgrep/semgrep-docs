@@ -24,6 +24,7 @@ The following references are used:
 :::info Prerequisites
 * An existing Microsoft Entra ID account.
 * Sufficient permissions within Microsoft Entra ID to create enterprise apps. See [Microsoft Entra ID roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference).
+* Admin privileges for your Semgrep deployment.
 :::
 
 Setting up SAML SSO using Microsoft Entra ID consists of the following general steps:
