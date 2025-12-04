@@ -9,6 +9,11 @@ interface MeilisearchSearchBarProps {
   placeholder: string;
 }
 
+// Helper function for pluralization
+const pluralize = (word: string, count: number): string => {
+  return count === 1 ? word : `${word}s`;
+};
+
 const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   hostUrl,
   apiKey,
@@ -781,7 +786,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   
                   return false;
                 }).length;
-                return `${count} ${count === 1 ? 'result' : 'results'} found`;
+                return `${count} ${pluralize('result', count)} found`;
               })()}
             </span>
             <button
