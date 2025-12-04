@@ -13,27 +13,9 @@ module.exports = {
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: false,
-  themes: ['@markprompt/docusaurus-theme-search'],
+  themes: [],
   themeConfig: {
-    markprompt: {
-      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
-      trigger: { floating: false },
-      systemPrompt: 'You are a kind AI who loves to help people!',
-      model: 'gpt-4',
-      display: 'dialog',
-      search: {
-        enabled: true,
-        provider: {
-          name: 'algolia',
-          apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-          appId: 'RGEY1AKPUC',
-          indexName: 'docs',
-        },
-      },
-      chat: {
-        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
-      }
-    },
+    algolia: null,
     docs: {
       sidebar: {
         hideable: true,
@@ -52,6 +34,27 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        /*
+        {
+          type: 'dropdown',
+          label: 'Products',
+          position: 'left',
+          items: [
+            {
+              label: 'Semgrep Code',
+              to: 'https://semgrep.dev/products/semgrep-code/'
+            },
+            {
+              label: 'Semgrep Supply Chain',
+              to: 'https://semgrep.dev/products/semgrep-supply-chain'
+            },
+            {
+              label: 'Semgrep Secrets',
+              to: 'https://semgrep.dev/products/semgrep-secrets'
+            }
+          ]
+        },
+        */
         { to: 'kb', label: 'Knowledge base', position: 'left'},
         { to: 'https://academy.semgrep.dev', label: 'Semgrep Academy', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-', label: 'Login', position: 'right', target: '_self' },
@@ -160,34 +163,6 @@ module.exports = {
       darkTheme: darkCodeTheme,
       additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala', 'kotlin', 'bash', 'json'],
     },
-    //algolia: {
-    //  apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-    //  indexName: 'docs',
-
-    //  // Optional: see doc section below
-    //  contextualSearch: false,
-
-    //  // Optional: see doc section below
-    //  appId: 'RGEY1AKPUC',
-
-    //  // Optional: Algolia search parameters
-    //  searchParameters: {},
-    //  facetFilters: [],
-    //  //... other Algolia params
-    //  "customRanking": [
-    //    "desc(weight.page_rank)"
-    //  ],
-    //  "ranking": [
-    //    "desc(weight.page_rank)",
-    //    "custom",
-    //    "filters",
-    //    "typo",
-    //    "attribute",
-    //    "words",
-    //    "exact",
-    //    "proximity"
-    //  ]
-    //},
     image: 'https://semgrep.dev/thumbnail.png',
     //announcementBar: {
     //  id: 'office-hours',
@@ -461,11 +436,6 @@ module.exports = {
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
           /* JUL 25, 2025 */
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
-          /* OCT 3, 2025 */
-          { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
-                    /* OCT 23, 2025 */
-          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
-          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
         ]
       }
     ],
