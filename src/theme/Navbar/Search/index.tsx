@@ -1,4 +1,5 @@
 import React, {type ReactNode, useState, useEffect, useRef} from 'react';
+import {useHistory} from '@docusaurus/router';
 import type {Props} from '@theme/Navbar/Search';
 
 interface MeilisearchSearchBarProps {
@@ -14,6 +15,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   indexUid,
   placeholder
 }) => {
+  const history = useHistory();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -603,9 +605,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       // If it's a live semgrep.dev URL, convert it to the current preview environment
       if (liveUrl.includes('https://semgrep.dev/docs/')) {
         const path = liveUrl.replace('https://semgrep.dev', '');
-        window.location.href = `${currentOrigin}${path}`;
+        // Use Docusaurus router for internal navigation to preserve React state
+        history.push(path);
+      } else if (liveUrl.startsWith(currentOrigin) || liveUrl.startsWith('/')) {
+        // Internal URL - use router
+        const path = liveUrl.startsWith(currentOrigin) 
+          ? liveUrl.replace(currentOrigin, '') 
+          : liveUrl;
+        history.push(path);
       } else {
-        // For other URLs, use as-is
+        // External URL - must use window.location
         window.location.href = liveUrl;
       }
     }
