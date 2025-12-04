@@ -13,27 +13,30 @@ module.exports = {
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: false,
-  themes: ['@markprompt/docusaurus-theme-search'],
+  // Markprompt theme disabled - using Meilisearch instead
+  themes: [], // Empty array - using Meilisearch custom search instead
   themeConfig: {
-    markprompt: {
-      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
-      trigger: { floating: false },
-      systemPrompt: 'You are a kind AI who loves to help people!',
-      model: 'gpt-4',
-      display: 'dialog',
-      search: {
-        enabled: true,
-        provider: {
-          name: 'algolia',
-          apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-          appId: 'RGEY1AKPUC',
-          indexName: 'docs',
-        },
-      },
-      chat: {
-        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
-      }
-    },
+    // Markprompt config disabled - using Meilisearch search and chatbot instead
+    // markprompt: {
+    //   projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
+    //   trigger: { floating: false },
+    //   systemPrompt: 'You are a kind AI who loves to help people!',
+    //   model: 'gpt-4',
+    //   display: 'dialog',
+    //   search: {
+    //     enabled: true,
+    //     provider: {
+    //       name: 'algolia',
+    //       apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
+    //       appId: 'RGEY1AKPUC',
+    //       indexName: 'docs',
+    //     },
+    //   },
+    //   chat: {
+    //     assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
+    //   }
+    // },
+    algolia: null, // Explicitly disable Algolia search theme
     docs: {
       sidebar: {
         hideable: true,
