@@ -1141,22 +1141,24 @@ const getMeilisearchConfig = (): SearchConfig => {
     };
   }
 
+  const isProduction = window.location.hostname === 'semgrep.dev';
   const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
   const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
   const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
-    if (isNetlifyPreview || isTestingBranch || isDevelopment) {
-    const isNetlify = window.location.hostname.includes('netlify.app') || isNetlifyPreview;
+  if (isProduction || isNetlifyPreview || isTestingBranch || isDevelopment) {
+    // Always use Netlify functions for production and previews to keep API key secure
+    const useNetlifyFunctions = isProduction || isNetlifyPreview || window.location.hostname.includes('netlify.app');
       
-      return {
-        enabled: true,
-        hostUrl: isNetlify ? 
+    return {
+      enabled: true,
+      hostUrl: useNetlifyFunctions ? 
         `${window.location.origin}/.netlify/functions/meilisearch` :
         "https://ms-3ade175771ef-34593.sfo.meilisearch.io",
       apiKey: "",
       indexUid: "semgrep_docs",
-            placeholder: "Search docs..."
-      };
+      placeholder: "Search docs..."
+    };
   }
   
       return {
