@@ -400,8 +400,6 @@ Visit the cheat sheet generation script and associated semgrep-core test files t
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
 * [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)
 
-To see the **parse rates** for each language, visit the Semgrep [public language dashboard](https://dashboard.semgrep.dev/).
-
 <!-- coupling: If you modify the features in the levels below, change also
      /semgrep/blob/develop/tests/Test.ml and its maturity level regression testing code.
 -->
