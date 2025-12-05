@@ -68,8 +68,16 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 1. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
 1. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
 1. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom SAML**.
-1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
-1. To use the new connection, log out of Semgrep, then log back in using SSO.
+1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. If prompted, add in the requested attribute statements. Semgrep recommends the following mappings:
+        | Name | Value |
+        | - | - |
+        | id | `user.email` |
+        | email | `user.email` |
+        | firstName | `user.firstName` |
+        | lastName | `user.lastName` |
+        | name | `user.firstName + " " + user.lastName` **OR** `user.fullName` |
+1. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
+2. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 </TabItem>
 
