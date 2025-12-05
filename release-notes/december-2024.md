@@ -27,8 +27,6 @@ The following updates were made to Semgrep in December 2024.
 
 - **Policy management API** is now in private beta. This API enables you to add, update, and turn off rules for selected policies in your chosen mode.
 - You can now export your findings in CSV format. Semgrep can export up to 10,000 most recent findings. For findings greater than 10,000, use the [<i class="fas fa-external-link fa-xs"></i> API](https://semgrep.dev/api/v1/docs/). See [Export findings](/semgrep-code/findings#export-findings) for more information.
-  ![The download findings CSV button](/img/download-csv.png#md-width)
-  _**Figure**. The download findings CSV button._
 - Semgrep now tracks individual fields or keys in record or dict expressions. For example:
   ```python
   def foo():

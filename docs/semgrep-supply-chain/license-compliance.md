@@ -17,10 +17,7 @@ At least one repository that scans for dependencies through Semgrep Supply Chain
 
 Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license.
 
-Whenever Semgrep determines that a dependency or version with a disallowed package has been added, it can notify you of this in a pull request or merge request comment:
-
-![MR comment with license compliance information shown](/img/license-compliance-pr-comment.png#md-width)
-_**Figure**. GitLab merge request comment featuring license compliance information._
+Whenever Semgrep determines that a dependency or version with a disallowed package has been added, it can notify you of this in a pull request or merge request comment.
 
 ## Language support
 
@@ -32,31 +29,29 @@ Licenses in Semgrep can be assigned any of the following policies:
 
 | Policy | Description |
 | - | - |
-| Allow | Packages with licenses assigned this type of permission are allowed for use in the codebase. |
-| Comment | Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR introducing the package into the codebase. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only. |
-| Block | Packages with licenses assigned this type of permission are <strong>not</strong> allowed into the codebase. A comment is added to the PR or MR introducing the package into the codebase and the diff-aware scan exits with code 1. |
+| **Allow** | Packages with licenses assigned this type of permission are allowed for use in the codebase. |
+| **Comment** | Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR introducing the package into the codebase. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only. |
+| **Block** | Packages with licenses assigned this type of permission are <strong>not</strong> allowed into the codebase. A comment is added to the PR or MR introducing the package into the codebase and the diff-aware scan exits with code 1. |
 
 By default, all licenses are set to **Allow**. You must configure your policies to block or leave comments on licenses.
 
-License compliance only blocks or comments when new licenses are introduced in a PR or MR, by dependency addition or version change. However, you can see the license status of current dependencies in the Semgrep AppSec Platform under **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**, using the [search filters](/docs/semgrep-supply-chain/dependency-search#search-filters).
+License compliance only blocks or comments when new licenses are introduced in a PR or MR, by dependency addition or version change. However, you can see the license status of current dependencies in the Semgrep AppSec Platform under **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**, using the [search filters](/semgrep-supply-chain/dependency-search#search-filters).
 
 ## View license policy
 
 To view a package's license policy:
 
 1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)** > **Dependencies**.
+2. Navigate to **[Rules & Policies > Policies > Supply Chain > License configuration](https://semgrep.dev/orgs/-/policies/supply-chain#license-config)**.
 
 ## Change the license policy
 
 To change the policies of packages based on the license:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Supply Chain** > **License configuration**.
-2. Browse the available licenses within the **License configuration** section.
-   ![License configuration section](/img/sc-license-configuration.png#md-width)
-   _**Figure**. The Supply Chain > Settings > License configuration section._
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **[Rules & Policies > Policies > Supply Chain > License configuration](https://semgrep.dev/orgs/-/policies/supply-chain#license-config)**.
+1. Browse the available licenses within the **License configuration** section.
 1. Click the permission (**Allow**, **Comment**, or **Block**) you want to set the license to.
-2. Optional: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
+2. **Optional**: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
 
 ## License categories
 
@@ -113,36 +108,23 @@ You can add an [exemption for the package](#create-exemptions) if subsequent rev
 
 ## Create exemptions
 
-You can create exemptions to **allow** specific dependencies with licenses that
-are typically blocked. This feature is useful for internal dependencies not
-accessed by users or external APIs. 
+You can create exemptions to **allow** specific dependencies with licenses that are typically blocked. This feature is useful for internal dependencies not accessed by users or external APIs. 
 
-Dependency exemptions are currently version-specific, so each version used must be
-exempted individually.
+Dependency exemptions are currently version-specific, so each version used must be exempted individually.
 
 To exempt a package:
 
-1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain** >
-   **Dependencies**.
-2. Search for the dependencies you want to exempt.
-3. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt
- it. Upon clicking on the icon, its permission changes. Click again on the icon to remove the exemption if necessary.
+1. Sign in to Semgrep AppSec Platform and navigate to **Supply Chain** > **Dependencies**.
+1. Search for the dependencies you want to exempt.
+2. Click the dependency's <i class="fa-solid fa-list-check"></i> icon to exempt it. Click the icon again to remove the exemption if necessary.
 
 Exempted dependencies appear in the **Supply Chain** > **Settings** tab.
 
 ### Create custom dependency exceptions
 
-Custom dependency exceptions allow you to manually allowlist a dependency to
-prevent Semgrep from blocking a pull request or merge request due to licensing
-issues.
+Custom dependency exceptions allow you to manually list the dependencies that should NOT prevent Semgrep from blocking a pull request or merge request due to licensing issues.
 
-For example, if `bitwarden/cli@2023.9.0`, which has a GPL-3.0 license, is on the
-allowlist, you must add an additional exception when upgrading to
-`bitwarden/cli@2023.9.1`. However, the dependency to which you're upgrading
-isn't yet listed in **Dependencies**; they appear only **after** you've scanned
-your project. Because the dependency isn't listed, you must manually create the
-exception. This ensures that the exclusion won't fail when you upgrade to
-`bitwarden/cli@2023.9.1` and scan your project again with Semgrep Supply Chain.
+For example, if `bitwarden/cli@2023.9.0`, which has a GPL-3.0 license, is on the allowlist, you must add an additional exception when upgrading to `bitwarden/cli@2023.9.1`. However, the dependency to which you're upgrading isn't yet listed in **Dependencies**; they appear only **after** you've scanned your project. Because the dependency isn't listed, you must manually create the exception. This ensures that the exclusion won't fail when you upgrade to `bitwarden/cli@2023.9.1` and scan your project again with Semgrep Supply Chain.
 
 To set a custom dependency exception:
 
@@ -155,5 +137,3 @@ To set a custom dependency exception:
  patch version information is required; pre-release and build metadata are
  optional.
    4. Click **Add** to save and add the exception.
-
-![Semgrep AppSec Platform's Add custom exception window](/img/custom-dependency-exception.png#md-width)
