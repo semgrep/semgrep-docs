@@ -85,11 +85,11 @@ The following updates were made to Semgrep in November 2025.
   should now see correct repository and findings access based on their team 
   permissions.
 - Fixed an issue where the self-service checkout flow failed with an 
-  "Unrecognized enum value" error when starting a billing upgrade. Users can 
+  "Unrecognized enum value" error when starting a billing upgradge Users can 
   now successfully initiate checkout sessions again.
 - Fixed an issue where Jira automations could continue to run for deployments 
   with no ticketing instances. Automations and actions are now properly 
-  deleted when removing a ticketing instance.
+  deleted when removing a ticketing instanc
 - Fixed an issue in the Settings pages where searching did not reset the page 
   index, causing confusing or empty results when users were on later pages.
 - Fixed inconsistent priority filtering between dashboards and product tabs. 
@@ -141,7 +141,7 @@ The following updates were made to Semgrep in November 2025.
 
 ### Changed
 
-- Semgrep now uses your code hosting platform (e.g., GitHub, GitLab) to 
+- Semgrep now uses your code hosting platform, like GitHub, GitLab, to 
   determine changes between branches during scan, significantly improving 
   accuracy and reducing irrelevant findings. Customers using Network Broker 
   must upgrade to benefit from this improvement if they are on **GitLab 
