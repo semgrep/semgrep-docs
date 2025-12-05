@@ -30,6 +30,10 @@ You can triage secrets-related findings in Semgrep AppSec Platform on the **Secr
 
 When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detects if a finding is fixed, or if the secret is no longer valid. The finding changes status automatically upon scanning. Users do not need to set a finding as **Fixed** manually.
 
+For non-historical secrets, a finding is considered fixed once it no longer appears in the code. However, this does *not* mean the underlying risk is resolved. If the secret has leaked, take the necessary remediation steps even if Semgrep marks the finding as **fixed**.
+
+Findings for historical secrets always remain **Open**, because the secrets are identified after they've been removed from the code and Semgrep cannot determine whether it has been rotated or remediated. After you’ve addressed the issue, you can manually change the status to **Ignored**.
+
 ### Review provisionally ignored findings
 
 If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These findings indicate that Semgrep has determined the secret to be **invalid**, which means that the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with.
@@ -63,7 +67,6 @@ To receive PR or MR comments, ensure that:
 
 * You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
 * You have defined which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
-
 
 :::info
 Define which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
