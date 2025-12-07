@@ -21,16 +21,15 @@ The following updates were made to Semgrep in November 2025.
 ### Added
 
 - **AI-Powered Detection** is now available in **private beta**, bringing 
-  expanded AI-driven pattern detection capabilities to Semgrep users. 
-  Interested teams can join the beta.
-- The General Settings tab is now scrollable to different product settings.  
+  expanded AI-driven pattern detection capabilities to Semgrep users. Join the [private beta waitlist](https://semgrep.dev/contact/product-join-ai-detection-beta/).
+- The General tab in **Settings** is now scrollable to different product settings.  
   Users can scroll through all of the settings instead of clicking on 
   individual sections per product.
 - ==Added Click-to-Fix progress tracking for SAST issues, including activity 
   history entries and notifications when PRs are requested, opened, or fail. 
   This brings SAST to feature parity with SCA Click-to-Fix.==
-- Added additional scan lifecycle events (running, processing, finished) to 
-  improve accuracy of scan progress tracking and analytics.
+- ==Added additional scan lifecycle events (running, processing, finished) to 
+  improve accuracy of scan progress tracking and analytics.==
 - Added support for non-admin users to complete GitHub App onboarding by 
   generating a shareable install-request link for an organization admin. 
   This ensures private GitHub App installations can proceed even when the 
@@ -56,15 +55,12 @@ The following updates were made to Semgrep in November 2025.
 
 ### Changed
 
-- Improved SAML SSO login behavior by conditionally redirecting users to 
-  **app.semgrep.dev** after authentication when certain parameters are 
-  present. This supports the ongoing migration to the new app domain.
 - Provisionally ignored findings now behave like open findings in 
   Branch-New-Git-Diff mode, ensuring they correctly trigger blocking and PR 
   comments when matching active rules.
-- Improved user experience by adding a tooltip explaining why the **Scan** 
-  button is disabled when no repositories have managed scans enabled.
-- Updated the **Findings detail page** UX: combined rule description and AI 
+- ==Improved user experience by adding a tooltip explaining why the **Scan** 
+  button is disabled when no repositories have managed scans enabled.==
+- Updated the **Findings detail page**: combined rule description and AI 
   description into a single tabbed component for better readability.
 - Improved the Project Settings page by adding a dynamic cloud context card 
   that updates based on integration status. The page now shows tailored 
@@ -75,8 +71,8 @@ The following updates were made to Semgrep in November 2025.
 - The **API tokens** and **CLI tokens** tabs under *Settings → Tokens* are 
   now paginated, significantly improving page load speed for teams with many 
   tokens.
-- Activity history now shows when a Click-to-Fix PR is merged, improving 
-  visibility into automated fixes.
+- ==Activity history now shows when a Click-to-Fix PR is merged, improving 
+  visibility into automated fixes==.
 
 ### Fixed
 
@@ -85,13 +81,13 @@ The following updates were made to Semgrep in November 2025.
   should now see correct repository and findings access based on their team 
   permissions.
 - Fixed an issue where the self-service checkout flow failed with an 
-  "Unrecognized enum value" error when starting a billing upgradge Users can 
+  "Unrecognized enum value" error when starting a billing upgrade. Users can 
   now successfully initiate checkout sessions again.
 - Fixed an issue where Jira automations could continue to run for deployments 
   with no ticketing instances. Automations and actions are now properly 
   deleted when removing a ticketing instanc
 - Fixed an issue in the Settings pages where searching did not reset the page 
-  index, causing confusing or empty results when users were on later pages.
+  index, resulting in empty results when users were on later pages.
 - Fixed inconsistent priority filtering between dashboards and product tabs. 
   Priority counts now match across views, and a tooltip has been added to 
   clarify how priority is defined.
@@ -136,18 +132,17 @@ The following updates were made to Semgrep in November 2025.
   Agent post-tool hooks.
 - Enabled taint tracking across Goroutines, improving detection accuracy in 
   Go projects.
-- (Private beta) Expanded JavaScript support with reachability analysis for 
-  projects using **yarn** and **pnpm**.
+- Expanded JavaScript support with reachability analysis for 
+  projects using `yarn` and `pnpm` is now available in **private beta**.
 
 ### Changed
 
-- Semgrep now uses your code hosting platform, like GitHub, GitLab, to 
-  determine changes between branches during scan, significantly improving 
-  accuracy and reducing irrelevant findings. Customers using Network Broker 
+- Semgrep now uses your code hosting platform, like GitHub and GitLab, to 
+  determine changes between branches during a scan. Customers using Network Broker 
   must upgrade to benefit from this improvement if they are on **GitLab 
   self-managed v0.36.0 or earlier** or **GitHub Enterprise v0.31.0 or 
   earlier**.
-- Users with multiple associated emails will now see semgrep-domain emails 
+- Users with multiple associated emails will now see Semgrep-domain emails 
   listed first for consistency.
 
 ### Fixed
@@ -163,22 +158,18 @@ The following updates were made to Semgrep in November 2025.
 
 ### Added
 
-- Malicious dependency detection is now Generally Available. Semgrep now 
+- Malicious dependency detection is now generally available. Semgrep now 
   detects malicious packages, including malware, typosquatting, and 
-  credential-stealing dependencies, powered by an expanded set of more than 
-  80,000 SCA rules with significantly improved performance. This capability 
-  is available in the API, integrates with Policies to automatically block 
-  malicious packages, and supports Jira.
+  credential-stealing dependencies. This feature is powered by an expanded set of more than 80,000 SCA rules with significantly improved performance. It is available in the API and integrates with Policies to automatically block malicious packages, and supports Jira integration.
 - **Cortex** and **Sysdig** integrations are now generally available. Semgrep 
   now uses deployment status and (for Cortex) internet-exposure data from 
   these CNAPP providers to better prioritize findings.
-- **(Private beta):** Semgrep's reachability analysis now supports 
-  **transitive dependencies in Python** across all Python package managers, 
-  helping teams better prioritize vulnerable code paths.
+- Semgrep's reachability analysis now supports 
+  **transitive dependencies in Python** across all Python package managers. This is currently in **private beta**.
 - Added Deployment Status and Internet Exposure filters to the Supply Chain 
   findings page, enabling more precise prioritization of SCA issues.
 - Added a toggle in **Supply Chain settings** that allows users to disable 
-  malicious dependency (mal-deps) rules. This provides an opt-out for teams 
+  malicious dependency rules. This provides an opt-out for teams 
   who prefer not to run these rules or who encounter performance issues.
 - Added a new checkbox in the Jira "Customize ticket creation" wizard that 
   allows teams to automatically create tickets for malicious dependency 
@@ -222,8 +213,7 @@ The following updates were made to Semgrep in November 2025.
   Assistant Memories tab, and triaging an AI Detection finding as Ignored 
   with a note will create a memory when applicable.
 - You can now manually create new memories for AI Detection issues from the 
-  "Create Memory" modal, including using the new **"All AI Detection"** 
-  memory scope.
+  "Create Memory" modal.
 
 ### Changed
 
@@ -237,17 +227,21 @@ The following updates were made to Semgrep in November 2025.
 
 ### Fixed
 
-- AI Detection memories now correctly display their finding counts. A UI 
-  rendering issue with suggested memories has been resolved.
-- Removed outdated warning text from the Assistant autofix confirmation modal 
-  to more accurately reflect current behavior.
+- ==AI Detection memories now correctly display their finding counts. A UI 
+  rendering issue with suggested memories has been resolved.== 
+- Removed outdated warning text from the Assistant autofix.
 - Fixed an issue where agreeing with an auto-triage verdict incorrectly 
-  marked findings as ignored. Findings are now only auto-ignored when 
-  agreeing with a **False Positive** verdict.
+  marked findings as ignored. Findings are now only auto-ignored when user assigns it as a **False Positive**.
 
 ## 🔐 Semgrep Secrets
 
 ## 📝 Documentation and knowledge base
+
+### Added
+
+- Added the following knowledge base articles:
+  - [Semgrep Managed Scans doesn't run for pull requests in GitHub merge queues](/kb/semgrep-appsec-platform/no-runs-in-github-merge-queues)
+  - [Why does the Projects page display a different dependency count from the Dependencies page?](/kb/semgrep-appsec-platform/dependency-count-differ-platform)
 
 ## 🔧 OSS Engine
 
@@ -259,4 +253,5 @@ The following updates were made to Semgrep in November 2025.
   500M+ additional machines worldwide.
 
 * The following versions of the OSS Engine were released in November 2025:
-  * [<i class="fas fa-external-link fa-xs"></i>VERSION](https://github.com/semgrep/semgrep/releases/tag/VERSION)
+  * [<i class="fas fa-external-link fa-xs"></i> 1.143.0](https://github.com/semgrep/semgrep/releases/tag/v1.143.0)
+  * [<i class="fas fa-external-link fa-xs"></i> 1.144.0](https://github.com/semgrep/semgrep/releases/tag/v1.144.0)
