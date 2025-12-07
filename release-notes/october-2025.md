@@ -13,6 +13,8 @@ tags:
 
 The following updates were made to Semgrep in October 2025.
 
+<!-- truncate -->
+
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
