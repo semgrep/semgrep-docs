@@ -41,7 +41,7 @@ jobs:
           
           # Apply base settings from repo file
           response1=$(curl -w "\n%{http_code}" -X PATCH \
-            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs/settings" \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs_2/settings" \
             -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
             -H "Content-Type: application/json" \
             -d @meilisearch-settings.json)
@@ -64,7 +64,7 @@ jobs:
           
           # Apply embedder separately (requires secret)
           response2=$(curl -w "\n%{http_code}" -X PATCH \
-            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs/settings" \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs_2/settings" \
             -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
             -H "Content-Type: application/json" \
             -d "{

@@ -90,7 +90,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const indexUid = index || 'semgrep_docs';
+    const indexUid = index || 'semgrep_docs_2';
     const userMessage = messages[messages.length - 1];
     
     if (!userMessage || userMessage.role !== 'user') {

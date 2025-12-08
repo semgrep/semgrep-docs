@@ -21,7 +21,7 @@ interface MeilisearchChatbotIntegratedProps {
 
 const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> = ({
   hostUrl,
-  indexUid = 'semgrep_docs',
+  indexUid = 'semgrep_docs_2',
   initialQuery,
   onClose,
   standalone = true

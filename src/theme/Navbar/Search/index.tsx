@@ -1170,7 +1170,7 @@ const getMeilisearchConfig = (): SearchConfig => {
         `${window.location.origin}/.netlify/functions/meilisearch` :
         "https://ms-3ade175771ef-34593.sfo.meilisearch.io",
       apiKey: "",
-      indexUid: "semgrep_docs",
+      indexUid: "semgrep_docs_2",
       placeholder: "Search docs..."
     };
   }

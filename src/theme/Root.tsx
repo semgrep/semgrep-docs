@@ -24,7 +24,7 @@ export default function Root({children}: {children: React.ReactNode}): JSX.Eleme
       {children}
       {isBrowser && shouldEnableChatbot() && (
         <MeilisearchChatbotIntegrated 
-          indexUid="semgrep_docs"
+          indexUid="semgrep_docs_2"
           standalone={false}
         />
       )}
