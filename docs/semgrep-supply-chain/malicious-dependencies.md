@@ -61,16 +61,10 @@ From the Supply Chain policies page, you can also configure a policy to trigger 
 
 Malicious dependencies appear in the [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time) tab, alongside other Supply Chain findings. They are denoted by the **MAL** badge.
 
-![Malicious dependency finding with badge](/img/findings-maldeps.png)
-_**Figure**. A malicious dependency finding._
-
 To view malicious dependencies detected in your projects:
 1. Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
 2. Click the **filters** icon and enable the **Malicious dependency** filter.
 3. Review the results listed. Click **Details** to learn more about available remediation guidance. 
-
-![Malicious dependency details](/img/mal-dependencies-details.png)
-
 
 ## Triage and remediation for malicious dependencies
 
