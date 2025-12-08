@@ -87,7 +87,7 @@ Issue types may have the same name, but a different Issue type ID. When creating
 
 Optionally, you can customize the Jira field mappings and indicate which values they should be populated with. Semgrep can map either Semgrep fields or static data to Jira fields. 
 
-Semgrep automatically populates the Jira Reporter, Summary, and Description fields. The issue reporter is the integration user, and the Summary and Description contain information about the vulnerability. Click **See preview** to review the default mappings and any custom mappings you have created.
+Semgrep automatically populates the Jira **Reporter**, **Summary**, and **Description** fields. The issue **Reporter** is the integration user, and the **Summary** and **Description** contain information about the vulnerability. Click **See preview** to review the default mappings and any custom mappings you have created.
 
 Currently, Semgrep supports the mapping of the following field types:
 
