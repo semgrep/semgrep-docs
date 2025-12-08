@@ -20,116 +20,54 @@ The following updates were made to Semgrep in November 2025.
 
 ### Added
 
-- **AI-Powered Detection** is now available in **private beta**, bringing 
-  expanded AI-driven pattern detection capabilities to Semgrep users. Join the [private beta waitlist](https://semgrep.dev/contact/product-join-ai-detection-beta/).
-- The General tab in **Settings** is now scrollable to different product settings.  
-  Users can scroll through all of the settings instead of clicking on 
-  individual sections per product.
-- ==Added Click-to-Fix progress tracking for SAST issues, including activity 
-  history entries and notifications when PRs are requested, opened, or fail. 
-  This brings SAST to feature parity with SCA Click-to-Fix.==
-- ==Added additional scan lifecycle events (running, processing, finished) to 
-  improve accuracy of scan progress tracking and analytics.==
-- Added support for non-admin users to complete GitHub App onboarding by 
-  generating a shareable install-request link for an organization admin. 
-  This ensures private GitHub App installations can proceed even when the 
-  initiating user lacks org admin permissions.
-- Added a new **Validate** button and improved **connection status 
-  visibility** for CNAPP integrations. Users can now see validation state, 
-  last successful sync time, and clearer error conditions directly in the UI.
-- You can now update and delete customizable/saved views via the API. The endpoint 
-  returns a 404 if the view does not exist.
-- Added support for filtering projects by status (`setup`, `uninitialized`, 
-  `archived`) in the Projects API, enabling more precise control when 
-  retrieving project lists.
-- Added a new **`ListScans` endpoint** to the Public API v2, bringing 
-  functional parity with the v1 scans listing API. This allows users to 
-  retrieve and filter scans using the updated API version.
-- Added missing fields (`commit`, `enabled_products`) to the `GetScan` v2 
-  API response to achieve parity with v1 and ensure clients receive complete 
-  scan metadata.
-- Added support for updating a project's **primary branch** through the 
-  Public API v2, enabling parity with the v1 Projects API.
-- Added support in the Public API for mutating project tags, enabling 
-  automated workflows to add, remove, or update tags on projects.
+- **AI-Powered Detection** is now available in **private beta**, bringing expanded AI-driven pattern detection capabilities to Semgrep users. Join the [private beta waitlist](https://semgrep.dev/contact/product-join-ai-detection-beta/).
+- The General tab in **Settings** is now scrollable to different product settings. Users can scroll through all of the settings instead of clicking on individual sections per product.
+- ==Added Click-to-Fix progress tracking for SAST issues, including activity history entries and notifications when PRs are requested, opened, or fail. This brings SAST to feature parity with SCA Click-to-Fix.==
+- ==Added additional scan lifecycle events (running, processing, finished) to improve accuracy of scan progress tracking and analytics.==
+- Added support for non-admin users to complete GitHub App onboarding by generating a shareable install-request link for an organization admin. This ensures private GitHub App installations can proceed even when the initiating user lacks org admin permissions.
+- Added a new **Validate** button and improved **connection status visibility** for CNAPP integrations. Users can now see validation state, last successful sync time, and clearer error conditions directly in the UI.
+- You can now update and delete customizable/saved views via the API. The endpoint returns a 404 if the view does not exist.
+- Added support for filtering projects by status (`setup`, `uninitialized`, `archived`) in the Projects API, enabling more precise control when retrieving project lists.
+- Added a new **`ListScans` endpoint** to the Public API v2, bringing functional parity with the v1 scans listing API. This allows users to retrieve and filter scans using the updated API version.
+- Added missing fields (`commit`, `enabled_products`) to the `GetScan` v2 API response to achieve parity with v1 and ensure clients receive complete scan metadata.
+- Added support for updating a project's **primary branch** through the Public API v2, enabling parity with the v1 Projects API.
+- Added support in the Public API for mutating project tags, enabling automated workflows to add, remove, or update tags on projects.
 
 ### Changed
 
-- Provisionally ignored findings now behave like open findings in 
-  Branch-New-Git-Diff mode, ensuring they correctly trigger blocking and PR 
-  comments when matching active rules.
-- ==Improved user experience by adding a tooltip explaining why the **Scan** 
-  button is disabled when no repositories have managed scans enabled.==
-- Updated the **Findings detail page**: combined rule description and AI 
-  description into a single tabbed component for better readability.
-- Improved the Project Settings page by adding a dynamic cloud context card 
-  that updates based on integration status. The page now shows tailored 
-  guidance depending on whether repositories have data, an integration exists 
-  without data, or no integration is configured.
-- Streamlined GitHub onboarding flow for new users by reducing the number of 
-  steps required to connect Semgrep to GitHub.
-- The **API tokens** and **CLI tokens** tabs under *Settings → Tokens* are 
-  now paginated, significantly improving page load speed for teams with many 
-  tokens.
-- ==Activity history now shows when a Click-to-Fix PR is merged, improving 
-  visibility into automated fixes==.
+- Provisionally ignored findings now behave like open findings in Branch-New-Git-Diff mode, ensuring they correctly trigger blocking and PR comments when matching active rules.
+- ==Improved user experience by adding a tooltip explaining why the **Scan** button is disabled when no repositories have managed scans enabled.==
+- Updated the **Findings detail page**: combined rule description and AI description into a single tabbed component for better readability.
+- Improved the Project Settings page by adding a dynamic cloud context card that updates based on integration status. The page now shows tailored guidance depending on whether repositories have data, an integration exists without data, or no integration is configured.
+- Streamlined GitHub onboarding flow for new users by reducing the number of steps required to connect Semgrep to GitHub.
+- The **API tokens** and **CLI tokens** tabs under *Settings → Tokens* are now paginated, significantly improving page load speed for teams with many tokens.
+- ==Activity history now shows when a Click-to-Fix PR is merged, improving visibility into automated fixes.==
 
 ### Fixed
 
-- Fixed several issues with RBAC team-based filtering that caused users to 
-  see incorrect repository or findings access in certain deployments. Users 
-  should now see correct repository and findings access based on their team 
-  permissions.
-- Fixed an issue where the self-service checkout flow failed with an 
-  "Unrecognized enum value" error when starting a billing upgrade. Users can 
-  now successfully initiate checkout sessions again.
-- Fixed an issue where Jira automations could continue to run for deployments 
-  with no ticketing instances. Automations and actions are now properly 
-  deleted when removing a ticketing instanc
-- Fixed an issue in the Settings pages where searching did not reset the page 
-  index, resulting in empty results when users were on later pages.
-- Fixed inconsistent priority filtering between dashboards and product tabs. 
-  Priority counts now match across views, and a tooltip has been added to 
-  clarify how priority is defined.
-- Fixed an issue where organization admins could not see projects without 
-  team assignments when RBAC was enabled. All projects now correctly appear 
-  in the Projects UI for admins.
-- Fixed an authorization issue in Broker key management where endpoints only 
-  validated read permissions. Uploading or deleting Broker public keys now 
-  correctly requires write-level permissions.
-- Fixed an issue where GitLab merge-base requests were serialized 
-  incorrectly, causing errors or inconsistent diff detection for GitLab 
-  users.
-- Fixed a UI regression that caused rule descriptions on the Findings page to 
-  use a fixed width. Descriptions now scale responsively again.
-- Fixed an issue where GitHub SSO orgs using personal GitHub accounts would 
-  make unnecessary calls to GitHub during user sync.
-- Fixed an issue where new CNAPP integrations displayed an incorrect error 
-  state in the connection status pill.
-- Fixed an issue where opening scan details would reset existing URL filters. 
-  The UI now preserves all active filters when navigating into scan details.
-- Improved project page guidance by removing disabled scan tooltips when no 
-  repositories are selected and adding clearer messaging for projects that 
-  previously used managed scanning.
-- Prevent users from accidentally removing their own access in the Access 
-  Control settings. The UI now correctly disables the self-removal action to 
-  avoid breaking user access.
-- Disabling Semgrep Managed Scans now correctly disables the *Run a new scan* 
-  button on both the project list and project details pages. A helpful 
-  tooltip appears on the disabled button to explain why scanning is 
-  unavailable.
+- Fixed several issues with RBAC team-based filtering that caused users to see incorrect repository or findings access in certain deployments. Users should now see correct repository and findings access based on their team permissions.
+- Fixed an issue where the self-service checkout flow failed with an "Unrecognized enum value" error when starting a billing upgrade. Users can now successfully initiate checkout sessions again.
+- Fixed an issue where Jira automations could continue to run for deployments with no ticketing instances. Automations and actions are now properly deleted when removing a ticketing instance.
+- Fixed an issue in the Settings pages where searching did not reset the page index, resulting in empty results when users were on later pages.
+- Fixed inconsistent priority filtering between dashboards and product tabs. Priority counts now match across views, and a tooltip has been added to clarify how priority is defined.
+- Fixed an issue where organization admins could not see projects without team assignments when RBAC was enabled. All projects now correctly appear in the Projects UI for admins.
+- Fixed an authorization issue in Broker key management where endpoints only validated read permissions. Uploading or deleting Broker public keys now correctly requires write-level permissions.
+- Fixed an issue where GitLab merge-base requests were serialized incorrectly, causing errors or inconsistent diff detection for GitLab users.
+- Fixed a UI regression that caused rule descriptions on the Findings page to use a fixed width. Descriptions now scale responsively again.
+- Fixed an issue where GitHub SSO orgs using personal GitHub accounts would make unnecessary calls to GitHub during user sync.
+- Fixed an issue where new CNAPP integrations displayed an incorrect error state in the connection status pill.
+- Fixed an issue where opening scan details would reset existing URL filters. The UI now preserves all active filters when navigating into scan details.
+- Improved project page guidance by removing disabled scan tooltips when no repositories are selected and adding clearer messaging for projects that previously used managed scanning.
+- Prevent users from accidentally removing their own access in the Access Control settings. The UI now correctly disables the self-removal action to avoid breaking user access.
+- Disabling Semgrep Managed Scans now correctly disables the *Run a new scan* button on both the project list and project details pages. A helpful tooltip appears on the disabled button to explain why scanning is unavailable.
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Multicore scanning is now enabled by default, switching parallel scans to a 
-  faster and more efficient shared-memory model.
-- Interfile scans now automatically use multiple CPU cores based on system 
-  capacity, improving scan performance compared to the previous default of 
-  single-threaded execution.
-- Added the `-k` / `--hook` flag to enable Semgrep scans from Claude Code 
-  Agent post-tool hooks.
+- Multicore scanning is now enabled by default, switching parallel scans to a faster and more efficient shared-memory model.
+- Interfile scans now automatically use multiple CPU cores based on system capacity, improving scan performance compared to the previous default of single-threaded execution.
+- Added the `-k` / `--hook` flag to enable Semgrep scans from Claude Code Agent post-tool hooks.
 - Enabled taint tracking across Goroutines, improving detection accuracy in Go projects.
 - Expanded JavaScript support with reachability analysis for projects using `yarn` and `pnpm` is now available in **private beta**.
 
