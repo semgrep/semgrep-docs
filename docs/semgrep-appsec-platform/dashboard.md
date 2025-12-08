@@ -90,7 +90,7 @@ To generate reports from the current view, click **Dashboard > <i class="fa-regu
 The following triage states are displayed:
 
 - Open
-- Ignored
+- Ignored, including provisionally ignored
 - Fixed
 
 Additional triage states, such as **Fixing** or **Reviewing**, are not displayed at this time.
@@ -151,7 +151,7 @@ This pane displays analytics related to findings detected in your **primary or d
 | -------------- | ------ |
 | Total opened      | Total number of findings set to **Open** during the time period. This includes new findings as well as re-opened findings that were previously in a different state. |
 | Total fixed    | Total number of **Fixed** findings during the time period that **remained** fixed until the end of the time period. |
-| Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. |
+| Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. **Ignored** findings includes those with a status of **Provisionally ignored**. |
 | Total net new  | The difference between the number of **Open** findings at the beginning of the time period and the end of the time period. |
 
 :::tip
@@ -163,7 +163,7 @@ A low or negative value for **Total net new** is ideal. It indicates that, withi
 | Chart | Description |
 | -------  | ------ |
 | Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by product for the selected time period. |
-| Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Backlog activity | Displays the number of new, net new, fixed, and ignored, including provisionally ignored, findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 
 ## Secure guardrails
@@ -188,7 +188,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 ## Most findings by project
 
@@ -211,4 +211,4 @@ A chart displaying the median open age of a finding in **days** over the specifi
 For a finding to be remediated, it must have any of the following statuses:
 
 - Fixed
-- Ignored
+- Ignored, including provisionally ignored
