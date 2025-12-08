@@ -19,7 +19,7 @@ The following updates were made to Semgrep in November 2025.
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
-
+- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and, for Cortex, internet-exposure data from these CNAPP providers to better prioritize findings.
 - The **Settings > General** tab now displays all Semgrep product settings on a single page.
 - Added the ability for non-admin users to complete the Semgrep GitHub App installation process using an install-request link. This ensures that private GitHub App installations can proceed, even when the initiating user lacks org admin permissions.
 - Added a new **Validate** button and improved **connection status visibility** for CNAPP integrations. You can now see the validation state, last successful sync time, and clearer error conditions directly in Semgrep AppSec Platform.
@@ -32,7 +32,6 @@ The following updates were made to Semgrep in November 2025.
 
 ### Changed
 
-- Updated the **Findings detail page**: combined rule description and AI description into a single tabbed component for better readability.
 - Improved the Project Settings page by adding a dynamic cloud context card that updates based on integration status. The page now shows tailored guidance depending on whether repositories have data, an integration exists without data, or no integration is configured.
 - The **API tokens** and **CLI tokens** tabs under *Settings → Tokens* are now paginated, significantly improving page load speed for teams with many tokens.
 
@@ -74,37 +73,27 @@ The following updates were made to Semgrep in November 2025.
 
 ### Added
 
-- Malicious dependency detection is now generally available. Semgrep now detects malicious packages, including malware, typosquatting, and credential-stealing dependencies. This feature is powered by an expanded set of more than 80,000 SCA rules with significantly improved performance. It is available in the API and integrates with Policies to automatically block malicious packages, and supports Jira integration.
-- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and (for Cortex) internet-exposure data from these CNAPP providers to better prioritize findings.
-- Semgrep's reachability analysis now supports **transitive dependencies in Python** across all Python package managers. This is currently in **private beta**.
+- Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
 - Added Deployment Status and Internet Exposure filters to the Supply Chain findings page, enabling more precise prioritization of SCA issues.
 - Added a toggle in **Supply Chain settings** that allows you to disable malicious dependency rules. This provides an opt-out for teams who prefer not to run these rules or who encounter performance issues.
 - Added a new checkbox in the Jira "Customize ticket creation" wizard that allows teams to automatically create tickets for malicious dependency findings on any branch.
-- **Added support for enabling Transitive Reachability (TR) scanning per-repository.** Teams can now selectively enable TR for specific repos using prefab configuration, allowing more granular rollout instead of requiring org-wide activation.
-
-### Changed
-
-- Improved performance of dependency lookups, especially for large deployments.
 
 ### Fixed
 
-- The web app now displays the correct severity for Supply Chain findings, resolving a mismatch with automations and the CLI. Some existing findings may show updated severities, but policies and Jira workflows are unaffected.
-- Fixed an issue that caused SCA scans to fail with 400 errors when encountering newer manifest types.
-- Fixed an issue where CNAPP-based filters (Deployment Status and Internet Exposure) appeared even for deployments without CNAPP installed. CNAPP filters now correctly display only when at least one CNAPP installation is present.
-- Fixed an issue where searching dependencies only filtered the first page of results. Dependency filters now correctly return complete, accurate search results.
-- Fixed inaccurate dependency and lockfile counts in Supply Chain views by refactoring how dependency data is fetched and cached. Dependency hovercards and repo-level dependency summaries now display consistent, complete counts with smoother infinite scrolling performance.
+- The Semgrep AppSec Platform now displays the correct severity for Supply Chain findings, resolving a mismatch with automations and the CLI. Some existing findings may show updated severities, but policies and Jira workflows are unaffected.
+- Fixed an issue that caused Supply Chain scans to fail when encountering newer manifest types.
+- Fixed an issue where searches for dependencies only filtered the first page of results. Dependency filters now correctly return complete, accurate results.
+- Fixed inaccurate dependency and lockfile counts in Supply Chain pages.
 
 ## 🤖 Semgrep Assistant
 
 ### Added
 
-- AI Detection issues now support Assistant memories, bringing them to feature parity with standard SAST findings. You can add memories from the Assistant Memories tab, and triaging an AI Detection finding as Ignored with a note will create a memory when applicable.
 - You can now manually create new memories for AI Detection issues from the "Create Memory" modal.
 
 ### Changed
 
-- Assistant now automatically analyzes **all new Critical and High-severity findings** with **Medium or High confidence** in full scans, removing the previous 10-issue limit. This increases coverage and reduces the need for manual backfill analysis.
-- Improved performance of the rule search in the "Create Memory" modal, reducing first-keystroke lag and improving responsiveness when handling large rule sets.
+- - Assistant now automatically analyzes all new **Critical** and **High** severity findings with **Medium** or **High** confidence in full scans, removing the previous 10-issue limit.
 
 ### Fixed
 
@@ -112,7 +101,6 @@ The following updates were made to Semgrep in November 2025.
 - Removed outdated warning text from the Assistant autofix.
 - Fixed an issue where agreeing with an auto-triage verdict incorrectly marked findings as ignored. Findings are now only auto-ignored when user assigns it as a **False Positive**.
 
-## 🔐 Semgrep Secrets
 
 ## 📝 Documentation and knowledge base
 
@@ -125,9 +113,6 @@ The following updates were made to Semgrep in November 2025.
 ## 🔧 OSS Engine
 
 ### Added
-
-- Semgrep Community Edition Fall 2025 release is now live, delivering **3× faster scans on large repositories**.
-- Native Windows support with no WSL required, expanding Semgrep's reach to 500M+ additional machines worldwide.
 
 * The following versions of the OSS Engine were released in November 2025:
   * [<i class="fas fa-external-link fa-xs"></i> 1.143.0](https://github.com/semgrep/semgrep/releases/tag/v1.143.0)
