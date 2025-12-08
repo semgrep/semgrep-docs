@@ -11,11 +11,7 @@ tags:
 
 # Triage and remediate findings
 
-This article shows you how to manage and triage the findings identified by Semgrep Secrets using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
-
-:::note Local scans
-Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
-:::
+This article shows you how to manage and triage the findings identified by Semgrep Secrets using Semgrep AppSec Platform.
 
 ## Triage findings
 

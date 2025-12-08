@@ -34,6 +34,10 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 
+:::note Local scans
+Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
+:::
+
 ### Custom Priority tab
 
 Semgrep admins can create a custom priority definition to change the findings shown on the **Priority** tab. To do so:
