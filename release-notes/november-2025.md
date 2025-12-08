@@ -32,7 +32,6 @@ The following updates were made to Semgrep in November 2025.
 
 ### Changed
 
-- Improved the Project Settings page by adding a dynamic cloud context card that updates based on integration status. The page now shows tailored guidance depending on whether repositories have data, an integration exists without data, or no integration is configured.
 - The **API tokens** and **CLI tokens** tabs under *Settings → Tokens* are now paginated, significantly improving page load speed for teams with many tokens.
 
 
@@ -40,7 +39,7 @@ The following updates were made to Semgrep in November 2025.
 
 - Fixed several issues with RBAC team-based filtering that caused you to see incorrect repository or findings access in certain deployments. You should now see correct repository and findings access based on their team permissions.
 - Fixed an issue where the self-service checkout flow failed with an "Unrecognized enum value" error when starting a billing upgrade. You can now successfully initiate checkout sessions again.
-- Fixed an issue where Jira automations could continue to run for deployments with no ticketing instances. Automations and actions are now properly deleted when removing a ticketing instance.
+- Fixed an issue where Jira automations persisted after deleting the Jira integration. Automations are now deleted when the integration is removed.
 - Fixed an issue with the **Settings** pages where some searches resulted in no results on later pages.
 - Fixed an issue where organization admins could not see projects without team assignments when RBAC was enabled. All projects now correctly appear in the **Projects** page for admins.
 - Fixed an authorization issue in Network Broker key management.
@@ -48,7 +47,7 @@ The following updates were made to Semgrep in November 2025.
 - Fixed an issue where rule descriptions on the **Findings** page used a fixed width. Descriptions now scale responsively again.
 - Fixed an issue where GitHub SSO orgs using personal GitHub accounts made unnecessary calls to GitHub during user sync.
 - Fixed an issue where new CNAPP integrations displayed an incorrect error state in Semgrep AppSec Platform.
-- Fixed an issue where opening scan details would reset existing URL filters. The UI now preserves all active filters when navigating into scan details.
+- Fixed an issue where opening the scan's **Details** reset existing URL filters. Semgrep now preserves all active filters when you navigate to the **Details** page.
 - Removed the ability for users to remove their own access in **Access Control**.
 - You can no longer click the *Run a new scan* buttons on the **Projects** list and **Project Details** pages if you disable Managed Scans for the project.
 
@@ -74,7 +73,6 @@ The following updates were made to Semgrep in November 2025.
 ### Added
 
 - Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
-- Added Deployment Status and Internet Exposure filters to the Supply Chain findings page, enabling more precise prioritization of SCA issues.
 - Added a toggle in **Supply Chain settings** that allows you to disable malicious dependency rules. This provides an opt-out for teams who prefer not to run these rules or who encounter performance issues.
 - Added a new checkbox in the Jira "Customize ticket creation" wizard that allows teams to automatically create tickets for malicious dependency findings on any branch.
 
@@ -88,12 +86,12 @@ The following updates were made to Semgrep in November 2025.
 ## 🤖 Semgrep Assistant
 
 ### Added
-
+- You can now see rule and analysis explanations on the finding’s Details page. When a finding is classified as a true or false positive, an alert appears, and a detailed explanation is available in the Finding description tab. For true positives, it includes code context and threat-model rationale; for false positives, it includes reasoning only. You can provide feedback with Agree or Disagree.
 - You can now manually create new memories for AI Detection issues from the "Create Memory" modal.
 
 ### Changed
 
-- - Assistant now automatically analyzes all new **Critical** and **High** severity findings with **Medium** or **High** confidence in full scans, removing the previous 10-issue limit.
+- Assistant now automatically analyzes all new **Critical** and **High** severity findings with **Medium** or **High** confidence in full scans, removing the previous 10-issue limit.
 
 ### Fixed
 
