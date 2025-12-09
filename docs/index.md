@@ -131,11 +131,10 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <h3>November 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- **AI-Powered Detection** is now available in **private beta**, bringing expanded AI-driven pattern detection capabilities to Semgrep users.
-- Malicious dependency detection is now generally available. Semgrep now detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, powered by an expanded set of more than 80,000 SCA rules.
-- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and internet-exposure data from these CNAPP providers to better prioritize findings.
-- Semgrep Community Edition Fall 2025 release is now live, delivering **3× faster scans on large repositories** with native Windows support (no WSL required).
+- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and, for Cortex, internet-exposure data from these CNAPP providers to better prioritize findings.
+- Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
 - Assistant now automatically analyzes **all new Critical and High-severity findings** with **Medium or High confidence** in full scans, removing the previous 10-issue limit.
+- The **Settings > General** tab now displays all Semgrep product settings on a single page.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
