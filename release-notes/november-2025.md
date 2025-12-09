@@ -78,7 +78,7 @@ The following updates were made to Semgrep in November 2025.
 
 ### Fixed
 
-- The Semgrep AppSec Platform now displays the correct severity for Supply Chain findings, resolving a mismatch with automations and the CLI. Some existing findings may show updated severities, but policies and Jira workflows are unaffected.
+- Semgrep AppSec Platform now displays the correct severity for Supply Chain findings, resolving a mismatch with automations and the CLI. Some existing findings may show updated severities, but policies and Jira workflows are unaffected.
 - Fixed an issue that caused Supply Chain scans to fail when encountering newer manifest types.
 - Fixed an issue where searches for dependencies only filtered the first page of results. Dependency filters now correctly return complete, accurate results.
 - Fixed inaccurate dependency and lockfile counts in Supply Chain pages.
