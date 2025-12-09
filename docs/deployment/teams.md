@@ -315,21 +315,48 @@ To set a member as a manager for a subteam:
 
 ## Appendices
 
-### Member-scoped access tokens
+### Tokens
 
-Both members and admins can log in through the command-line interface (CLI) by entering the following command:
 
-```
+An access token is a secure credential used to authorize requests to the Semgrep AppSec Platform or API without a username and password. Each token is associated with an account and has a defined set of [scopes](#token-scopes). The token's scopes define the permissions granted to the bearer of the token.
+
+For security reasons, tokens are shown once at creation. Copy it to a secure location or you will need to generate a new one.
+
+Semgrep supports several types of access tokens:
+
+#### User-generated (Web API) tokens 
+
+These tokens are created by admins in Semgrep AppSec Platform. They are used for API access, integrations, and automation. Manage tokens under **Settings → Tokens** in Semgrep AppSec Platform.
+
+Some features of these tokens:
+- Only admins can generate or manage these tokens.   
+- For audit purposes, Web API tokens are associated with the user who created them. However, they remain valid until manually revoked, even if the creator is no longer associated with the deployment. Rotate regularly and revoke during admin offboarding.
+
+#### CLI tokens (Member-scoped) tokens
+
+These tokens authenticate users running scans or publishing rules from the CLI. A CLI token can be created by running the following command:
+
+```bash
 semgrep login
 ```
 
-This generates a unique token that is used to identify a member or admin. When logged in, members can run scans on their local machine through the `semgrep ci` command and publish a rule. This sends findings data to Semgrep AppSec Platform.
+Both members and admins can create CLI tokens. Once logged in, users can run scans on their local machine through the `semgrep ci` command. This sends findings data to Semgrep AppSec Platform. They can also publish rules to the organization using `semgrep publish`.
 
-Only admin users can view member tokens in the **Settings > Tokens** tab. A token's access cannot be escalated to an admin-level token. A user must first obtain the admin role and then create a new token as an admin. See the section on [Changing a user's role](#change-a-users-role).
+
+Some features of CLI tokens: 
+- Their permissions cannot be elevated. For Web API access, users must first obtain the admin role and then create a new token with that scope as an admin. See [Changing a user's role](#change-a-users-role).
+- They can only run scans, report results, and publish rules.
+- In the platform, under **Settings → Tokens**, CLI tokens record which user generated them, but actions authenticated with the token are attributed to the token, not the individual user. 
+- Running `semgrep logout` removes the local token but does not invalidate it on the server.
+
+
+#### Agent tokens 
+
+Agentic tokens are the same as Web API tokens and are automatically generated during repository onboarding for CI/CD scans. These tokens authenticate agents running automated scans within CI environments. The default scope of these tokens is Agent/CI, but they can be granted API scope. 
+
+
 
 ### Token scopes
-
-Token scopes enable you to limit or grant permissions as necessary. Tokens can also be generated with appropriate scopes by Semgrep AppSec Platform when onboarding (adding) a repository.
 
 The following table displays token scopes and their permissions:
 
