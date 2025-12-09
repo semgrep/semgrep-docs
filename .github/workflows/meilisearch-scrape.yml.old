@@ -31,6 +31,10 @@ jobs:
         with:
           token: ${{ secrets.MEILISEARCH_CLOUD_CRAWLER_TOKEN }}
       
+      - name: Wait for crawler to complete and swap indexes
+        run: sleep 300s
+        shell: bash
+      
       - name: Restore index settings after scraping
         env:
           MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
@@ -91,4 +95,5 @@ jobs:
           echo "✅ Index settings restored successfully!"
           echo "Waiting for embedder to process (this takes a few minutes)..."
           sleep 60
+
 
