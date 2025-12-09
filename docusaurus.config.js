@@ -15,7 +15,6 @@ module.exports = {
   trailingSlash: false,
   themes: [],
   themeConfig: {
-    algolia: null,
     docs: {
       sidebar: {
         hideable: true,
