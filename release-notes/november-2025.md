@@ -94,7 +94,6 @@ The following updates were made to Semgrep in November 2025.
 
 ### Fixed
 
-- AI Detection memories now correctly display their finding counts. A UI rendering issue with suggested memories has been resolved.
 - Removed outdated warning text from the Assistant autofix.
 - Fixed an issue where agreeing with an auto-triage verdict incorrectly marked findings as ignored. Findings are now only auto-ignored when user assigns it as a **False Positive**.
 
