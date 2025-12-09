@@ -74,7 +74,7 @@ The following updates were made to Semgrep in November 2025.
 
 - Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
 - Added a toggle in **Supply Chain settings** that allows you to disable malicious dependency rules. This provides an opt-out for teams who prefer not to run these rules or who encounter performance issues.
-- Added a new checkbox in the Jira "Customize ticket creation" wizard that allows teams to automatically create tickets for malicious dependency findings on any branch.
+- Added a new checkbox in the Jira **Customize ticket creation** dialog that allows teams to automatically create tickets for malicious dependency findings on any branch.
 
 ### Fixed
 
