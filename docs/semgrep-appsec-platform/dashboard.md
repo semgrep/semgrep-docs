@@ -10,16 +10,13 @@ tags:
 
 # Dashboard
 
-The Semgrep dashboard is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
+The [Semgrep dashboard](https://semgrep.dev/orgs/-/) is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
 - Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts on the page and view priority findings.
 - Export the information as a PDF report.
-
-![Dashboard page](/img/dashboard-fold.png)
-_**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
 
 ## Dashboard overview
 
@@ -168,10 +165,9 @@ A low or negative value for **Total net new** is ideal. It indicates that, withi
 
 ## Secure guardrails
 
-This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/customize#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, including how often Semgrep shows findings to developers, how the developers handle the findings, and how often Semgrep flags a finding as provisionally ignored.
 
-![Secure guardrails pane](/img/dashboard-guardrails.png)
-_**Figure**. Secure guardrails pane. Hover over the charts to view data for that point in time. Click on Filtered by Assistant data to view filtered findings on Code > Pre-production._
+Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
 
 ### Key metrics
 
@@ -188,7 +184,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, or remained open. A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 ## Most findings by project
 

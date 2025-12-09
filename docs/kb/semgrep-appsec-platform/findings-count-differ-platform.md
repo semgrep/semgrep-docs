@@ -32,7 +32,7 @@ The **Projects** page counts the **Open** findings identified in the **primary b
 
 The finding counts on the **Dashboard** show historical changes and the state of findings during a specific period, while the **Findings** pages reflect the current state of findings. More specifically:
 
-- The **Dashboard** page includes the **Total fixed** and **Total ignored** finding counts in the **Production backlog** section. These numbers include all findings that you fixed or triaged as ignored during the selected period, even if the findings' statuses have changed since then. **Ignored** findings include those flagged as **Provisionally ignored**. This is different from the findings count displayed on the **Findings** page, which only counts findings that are currently triaged as **Ignored**.
+- The **Dashboard** page includes the **Total fixed** and **Total ignored** finding counts in the **Production backlog** section. These numbers include all findings that you fixed or triaged as ignored during the selected period, even if the findings' statuses have changed since then. This is different from the findings count displayed on the **Findings** page, which only counts findings that are currently triaged as **Ignored**.
 - Similarly, the **Total opened** number counts the number of findings that were opened or reopened during the selected period. This differs from the **Findings** page, which displays a count of the findings that are currently open.
 
 ### The Recommended priority filter
