@@ -87,7 +87,6 @@ The following updates were made to Semgrep in November 2025.
 
 ### Added
 - You can now see rule and analysis explanations on the finding’s Details page. When a finding is classified as a true or false positive, an alert appears, and a detailed explanation is available in the Finding description tab. For true positives, it includes code context and threat-model rationale; for false positives, it includes reasoning only. You can provide feedback with Agree or Disagree.
-- You can now manually create new memories for AI Detection issues from the "Create Memory" modal.
 
 ### Changed
 
