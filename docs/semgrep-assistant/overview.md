@@ -40,7 +40,7 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 #### Guidance
 
-With Assistant enabled, PR or MR comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code. 
+With Assistant enabled, PR or MR comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
 
 ![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
 _**Figure.** PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance._
