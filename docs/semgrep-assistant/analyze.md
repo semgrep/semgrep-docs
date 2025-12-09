@@ -34,7 +34,7 @@ The amount of time required to analyze your findings varies. Before running the 
 
 ## When Assistant auto-analyzes findings
 
-Assistant automatically analyzes new findings from a **full scan** that are **Critical** or **High** severity AND have **High** or **Medium** confidence.
+Assistant automatically analyzes new findings from a **full scan** that have **Critical** or **High** severity AND **High** or **Medium** confidence.
 
 On a diff-aware scan, Assistant analyzes up to 10 new findings, regardless of severity or confidence.
 
