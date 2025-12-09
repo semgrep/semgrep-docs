@@ -6,10 +6,11 @@ on:
   # Scheduled run - every day at 2 AM UTC
   schedule:
     - cron: '0 2 * * *'
-  # After successful deployments to main
+  # After successful deployments
   push:
     branches:
       - main
+      - meilisearch
 
 jobs:
   scrape:
