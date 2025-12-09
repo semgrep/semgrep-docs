@@ -19,11 +19,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       
-      - name: Wait for deployment
-        if: github.event_name == 'push'
-        run: sleep 300s
-        shell: bash
-      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -38,7 +33,7 @@ jobs:
       
       - name: Create scraper config
         run: |
-          cat > config.json << 'EOF'
+          cat > docs-scraper/config.json << 'EOF'
           {
             "index_uid": "semgrep_docs_2",
             "start_urls": [
