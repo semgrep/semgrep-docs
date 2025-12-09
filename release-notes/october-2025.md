@@ -13,6 +13,8 @@ tags:
 
 The following updates were made to Semgrep in October 2025.
 
+<!-- truncate -->
+
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
@@ -55,11 +57,11 @@ The following updates were made to Semgrep in October 2025.
 
 ## ⛓️ Semgrep Supply Chain
 
-## Added
+### Added
 
 - Supply Chain's reachability analysis now covers all high-severity CVEs from supported sources starting from 2017 for Go packages.
 
-## Fixed
+### Fixed
 
 - Supply Chain subproject resolution table is now shown in the CLI output after a scan, even when no subprojects were successfully resolved.
 - UV lockfiles that include editable and local dependencies without versions are now parsed correctly. The unversioned dependencies are ignored. 
@@ -67,11 +69,11 @@ The following updates were made to Semgrep in October 2025.
 
 ## 🤖 Semgrep Assistant
 
-## Added
+### Added
 
 - Added a new filter for AI component tags with **No decision**, allowing users to find findings analyzed by the Assistant, but not classified as **low** or **high** risk.
 
-## Changed
+### Changed
 
 - Assistant's rule generation functionality in Semgrep AppSec Platform has been deprecated.
 
