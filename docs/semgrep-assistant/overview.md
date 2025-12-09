@@ -29,7 +29,7 @@ Semgrep Assistant:
   - GitLab, including SaaS and self-managed plans
 - Requires the Semgrep AppSec Platform for its use
 - Auto-analyzes many, but not all, findings during scans 
-  - For full scans, all *new* issues that are **Critical** or **High** severity AND have **High** or **Medium** confidence are auto-analyzed 
+  - For full scans, all *new* issues that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
   - For diff-aware scans (pull pequest or merge request scans), up to 10 new issues are auto-analyzed per scan
 
 ## Features
