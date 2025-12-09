@@ -56,7 +56,7 @@ The following updates were made to Semgrep in November 2025.
 ### Added
 
 - MCP: added the `-k` / `--hook` flag to enable Semgrep scans from Claude Code Agent post-tool hooks.
-- Go: enabled taint tracking across goroutines, improving detection accuracy in Go projects.
+- **Go**: enabled taint tracking across goroutines, improving detection accuracy in Go projects.
 
 ### Changed
 
