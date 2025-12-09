@@ -7,10 +7,10 @@ on:
   schedule:
     - cron: '0 2 * * *'
   # After successful deployments
-  push:
-    branches:
-      - main
-      - meilisearch
+  # push:
+  #   branches:
+  #     - main
+  #     - meilisearch
 
 jobs:
   scrape:
