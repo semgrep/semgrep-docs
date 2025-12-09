@@ -317,7 +317,7 @@ To set a member as a manager for a subteam:
 
 ### Tokens
 
-An access token is a secure credential that authorizes a user to interact with the Semgrep AppSec Platform or API without requiring a username and password. Access tokens identify who is making a request and define what actions they are allowed to perform, based on the [token’s scope](#token-scopes). 
+An access token is a secure credential that authorizes requests to the Semgrep AppSec Platform or API without a username and password. Each token associates a request with an account and a set of [scopes](#token-scopes). The scopes define the actions the request is allowed to perform.
 
 For security reasons, tokens are shown once at creation. Copy it to a secure location or you will need to generate a new one.
 
