@@ -37,7 +37,6 @@ Assistant automatically analyzes new findings from a **full scan** that have **C
 
 On a diff-aware scan, Assistant analyzes up to 10 new findings, regardless of severity or confidence.
 
-
 ## Findings that are not auto-analyzed
 
 Assistant doesn't automatically analyze:
