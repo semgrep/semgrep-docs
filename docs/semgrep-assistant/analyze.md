@@ -31,7 +31,6 @@ The amount of time required to analyze your findings varies. Before running the 
 :::
 
 
-
 ## When Assistant auto-analyzes findings
 
 Assistant automatically analyzes new findings from a **full scan** that have **Critical** or **High** severity AND **High** or **Medium** confidence.
