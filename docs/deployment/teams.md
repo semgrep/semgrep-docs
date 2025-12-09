@@ -329,7 +329,7 @@ These tokens are created by admins in Semgrep AppSec Platform. They are used for
 
 Some features of these tokens:
 - Only admins can generate or manage these tokens.   
-- For auditing, Web API tokens are associated with the user who created them. However, they remain valid until manually revoked, even if the creator is no longer associated with the deployment. Rotate regularly and revoke during admin offboarding.
+- For audit purposes, Web API tokens are associated with the user who created them. However, they remain valid until manually revoked, even if the creator is no longer associated with the deployment. Rotate regularly and revoke during admin offboarding.
 
 #### CLI tokens (Member-scoped) tokens
 
