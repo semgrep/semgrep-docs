@@ -14,6 +14,12 @@ module.exports = {
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: false,
   themes: [],
+  customFields: {
+    deployContext: process.env.CONTEXT || process.env.NODE_ENV || 'development',
+    deployUrl: process.env.DEPLOY_PRIME_URL || process.env.URL || 'http://localhost:3000',
+    meilisearchHostUrl: process.env.MEILISEARCH_HOST_URL || 'https://ms-3ade175771ef-34593.sfo.meilisearch.io',
+    meilisearchIndexUid: process.env.MEILISEARCH_INDEX_UID || 'semgrep_docs_2',
+  },
   themeConfig: {
     docs: {
       sidebar: {

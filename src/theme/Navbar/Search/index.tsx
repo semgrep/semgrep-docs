@@ -1,6 +1,7 @@
 import React, {type ReactNode, useState, useEffect, useRef} from 'react';
 import {useHistory} from '@docusaurus/router';
 import type {Props} from '@theme/Navbar/Search';
+import { useDeploymentConfig, getMeilisearchUrl, getMeilisearchChatUrl } from '../../../utils/deploymentConfig';
 
 interface MeilisearchSearchBarProps {
   hostUrl: string;
@@ -21,6 +22,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   placeholder
 }) => {
   const history = useHistory();
+  const config = useDeploymentConfig();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -303,15 +305,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     setAiLoading(true);
     try {
-      // Determine chat URL based on environment (match chatbot component logic)
-      const isProduction = window.location.hostname === 'semgrep.dev';
-      const isNetlify = window.location.hostname.includes('netlify.app') || 
-                        window.location.hostname.includes('deploy-preview');
-      
-      // Use Netlify functions for production and previews, direct Meilisearch for localhost
-      const chatUrl = (isProduction || isNetlify)
-        ? `${window.location.origin}/.netlify/functions/meilisearch-chat`
-        : 'https://ms-3ade175771ef-34593.sfo.meilisearch.io/chat';
+      // Use environment-based configuration
+      const chatUrl = getMeilisearchChatUrl(config);
       
       const response = await fetch(chatUrl, {
         method: 'POST',
@@ -1153,49 +1148,17 @@ interface SearchConfig {
   placeholder: string;
 }
 
-const getMeilisearchConfig = (): SearchConfig => {
-  if (typeof window === 'undefined') {
-    return {
-      enabled: false,
-      hostUrl: "",
-      apiKey: "",
-      indexUid: "",
-      placeholder: "Search docs... (Disabled)"
-    };
-  }
+export default function NavbarSearch({className}: Props): ReactNode {
+  const deploymentConfig = useDeploymentConfig();
+  const searchUrl = getMeilisearchUrl(deploymentConfig);
 
-  const isProduction = window.location.hostname === 'semgrep.dev';
-  const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
-  const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
-  const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-  if (isProduction || isNetlifyPreview || isTestingBranch || isDevelopment) {
-    // Always use Netlify functions for production and previews to keep API key secure
-    const useNetlifyFunctions = isProduction || isNetlifyPreview || window.location.hostname.includes('netlify.app');
-      
-    return {
-      enabled: true,
-      hostUrl: useNetlifyFunctions ? 
-        `${window.location.origin}/.netlify/functions/meilisearch` :
-        "https://ms-3ade175771ef-34593.sfo.meilisearch.io",
-      apiKey: "",
-      indexUid: "semgrep_docs_2",
-      placeholder: "Search docs..."
-    };
-  }
-  
-      return {
-        enabled: false,
-        hostUrl: "",
-        apiKey: "",
-        indexUid: "",
+  const config: SearchConfig = {
+    enabled: true,
+    hostUrl: searchUrl,
+    apiKey: "",
+    indexUid: deploymentConfig.meilisearchIndexUid,
     placeholder: "Search docs..."
   };
-};
-
-export default function NavbarSearch({className}: Props): ReactNode {
-
-  const config = getMeilisearchConfig();
 
   if (!config.enabled) {
     return (

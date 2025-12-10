@@ -1,30 +1,23 @@
 import React from 'react';
 import MeilisearchChatbotIntegrated from '../components/MeilisearchChatbotIntegrated';
+import { useDeploymentConfig, shouldEnableChatbot } from '../utils/deploymentConfig';
 
 export default function Root({children}: {children: React.ReactNode}): JSX.Element {
   const [isBrowser, setIsBrowser] = React.useState(false);
+  const config = useDeploymentConfig();
 
   React.useEffect(() => {
     setIsBrowser(true);
   }, []);
 
-  const shouldEnableChatbot = () => {
-    if (typeof window === 'undefined') return false;
-    
-    const isProduction = window.location.hostname === 'semgrep.dev';
-    const isNetlifyPreview = window.location.hostname.includes('deploy-preview');
-    const isTestingBranch = window.location.hostname.includes('meilisearch-testing') || isNetlifyPreview;
-    const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-    return isProduction || isNetlifyPreview || isTestingBranch || isDevelopment;
-  };
+  const chatbotEnabled = shouldEnableChatbot(config);
 
   return (
     <>
       {children}
-      {isBrowser && shouldEnableChatbot() && (
+      {isBrowser && chatbotEnabled && (
         <MeilisearchChatbotIntegrated 
-          indexUid="semgrep_docs_2"
+          indexUid={config.meilisearchIndexUid}
           standalone={false}
         />
       )}

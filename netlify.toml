@@ -1,6 +1,17 @@
+[build]
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+[context.production]
+  # Netlify automatically sets: CONTEXT, DEPLOY_PRIME_URL, URL
+  
+[context.deploy-preview]
+  # Netlify automatically sets: CONTEXT, DEPLOY_PRIME_URL, REVIEW_ID
+
+[context.branch-deploy]
+  # Netlify automatically sets: CONTEXT, DEPLOY_PRIME_URL, BRANCH
 
 [[redirects]]
 from = "/*"

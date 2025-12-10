@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useDeploymentConfig, getMeilisearchChatUrl } from '../utils/deploymentConfig';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -26,6 +27,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
   onClose,
   standalone = true
 }) => {
+  const config = useDeploymentConfig();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -82,23 +84,9 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
   }, [isOpen, isMinimized]);
 
   const getChatUrl = () => {
-    if (typeof window === 'undefined') return '';
-    
-    const isProduction = window.location.hostname === 'semgrep.dev';
-    const isNetlify = window.location.hostname.includes('netlify.app') || 
-                      window.location.hostname.includes('deploy-preview');
-    const isLocalhost = window.location.hostname === 'localhost' || 
-                        window.location.hostname === '127.0.0.1';
-    
+    // Use provided hostUrl if available, otherwise use environment-based config
     if (hostUrl) return hostUrl;
-    
-    // Use Netlify functions for production and previews to keep API key secure
-    // Localhost goes direct to Meilisearch for faster development
-    if (isProduction || isNetlify) {
-      return `${window.location.origin}/.netlify/functions/meilisearch-chat`;
-    }
-    
-    return 'https://ms-3ade175771ef-34593.sfo.meilisearch.io/chat';
+    return getMeilisearchChatUrl(config);
   };
 
   const copyToClipboard = async (text: string, index: number) => {
