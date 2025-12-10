@@ -90,7 +90,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 Configure a `.semgrepignore` file to ignore files and folders each time you run a Code or SCA scan. 
 
 :::caution
-For Secrets scans, Semgrep disregards both the default and user-defined `.semgrepignore`. You can still configure secrets-specific ignores in [Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).
+For Secrets scans, Semgrep ignores both the default and user-defined `.semgrepignore` files. You can still configure secrets-specific ignores in [Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).
 :::
 
 `.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
