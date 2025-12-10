@@ -76,7 +76,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To ignore custom files and folders each time you run a scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
+| To ignore custom files and folders each time you run a Code or Supply Chain scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. Any file that isn't matched is excluded. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
@@ -85,6 +85,12 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 | To ignore files or folders for a particular rule. | Edit the rule to set the `paths` key with one or more patterns. See [Rule syntax](/writing-rules/rule-syntax#paths).
 
 ## Define ignored files and folders in `.semgrepignore`
+
+Configure a `.semgrepignore` file to ignore files and folders each time you run a Code or Supply Chain scan. 
+
+:::caution
+For Secrets scans, Semgrep ignores both the default and user-defined `.semgrepignore` files. You can still configure secrets-specific ignores in [Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform) or use the `--exclude` flag to ignore files or folders for a particular scan.
+:::
 
 `.semgrepignore` syntax mirrors `.gitignore` syntax, with the following modifications:
 
@@ -99,7 +105,7 @@ For a description of `.gitignore` syntax, see [.gitignore documentation](https:/
 
 ## Define ignored files and folders in Semgrep AppSec Platform
 
-Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can define patterns for individual projects, or you can define them at the organization level so that they're applied to all projects owned by that organization.
+Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can either define patterns at the individual-project level or at the organization level, so they're applied to all projects owned by that organization.
 
 Ignoring files and folders through this method is **additive**.
 
@@ -233,7 +239,7 @@ This section focuses on ignoring as excluding or skipping files, not as a triage
 
 Because Semgrep ignore logic is configured at the file, repository, and platform level, you may sometimes encounter unexpected behavior.
 
-- It is recommended to only create an custom, user-defined `.semgrepignore` file if you are **overriding** the Semgrep defaults, if possible. This means defining all other items to ignore through the global or project path ignores.
+- If possible, only create a custom, user-defined `.semgrepignore` file if you are **overriding** Semgrep defaults. This means defining all other items to ignore through the global or project path ignores.
   - This method works well if your organization primarily scans using the `semgrep ci` command.
 - Be aware that creating a user-defined `.semgrepignore` file enables developers to edit it.
 - Include the `.semgrepignore` file in Git tracking to keep a log of changes and ensure it's applied consistently.
