@@ -92,7 +92,9 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
     
     if (hostUrl) return hostUrl;
     
-    if (isProduction || isNetlify || isLocalhost) {
+    // Use Netlify functions for production and previews to keep API key secure
+    // Localhost goes direct to Meilisearch for faster development
+    if (isProduction || isNetlify) {
       return `${window.location.origin}/.netlify/functions/meilisearch-chat`;
     }
     

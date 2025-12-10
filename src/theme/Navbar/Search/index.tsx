@@ -303,7 +303,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     setAiLoading(true);
     try {
-      const chatUrl = `${window.location.origin}/.netlify/functions/meilisearch-chat`;
+      // Determine chat URL based on environment (match chatbot component logic)
+      const isProduction = window.location.hostname === 'semgrep.dev';
+      const isNetlify = window.location.hostname.includes('netlify.app') || 
+                        window.location.hostname.includes('deploy-preview');
+      
+      // Use Netlify functions for production and previews, direct Meilisearch for localhost
+      const chatUrl = (isProduction || isNetlify)
+        ? `${window.location.origin}/.netlify/functions/meilisearch-chat`
+        : 'https://ms-3ade175771ef-34593.sfo.meilisearch.io/chat';
+      
       const response = await fetch(chatUrl, {
         method: 'POST',
         headers: {
