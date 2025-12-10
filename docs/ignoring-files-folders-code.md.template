@@ -77,7 +77,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To ignore custom files and folders each time you run a Code or SCA scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
+| To ignore custom files and folders each time you run a Code or Supply Chain scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. Any file that isn't matched is excluded. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
