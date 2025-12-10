@@ -30,8 +30,8 @@ After setting up SSO, users are provisioned and managed on your IdP. Semgrep gra
 <Tabs
     defaultValue="current"
     values={[
-    {label: 'Current implementation (beta)', value: 'current'},
-    {label: 'Legacy implementation', value: 'legacy'},
+    {label: 'Guided setup (beta)', value: 'current'},
+    {label: 'Legacy manual configuration', value: 'legacy'},
     ]}
 >
 
@@ -49,7 +49,7 @@ To set up SSO in Semgrep AppSec Platform:
 1. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
 1. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
 1. The **Configure Single Sign-On** dialog appears. Begin by selecting your identity provider, or choose **Custom OIDC**.
-1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
+1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct and that the **Connection status** is **active**. Use **Test sign-in** to test the connection.
 1. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 If you encounter issues during the setup process, please [reach out to support](/support) for assistance.
@@ -71,13 +71,12 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. If prompted, add in the requested attribute statements. Semgrep recommends the following mappings:
         | Name | Value |
         | - | - |
-        | id | `user.email` |
         | email | `user.email` |
         | firstName | `user.firstName` |
         | lastName | `user.lastName` |
         | name | `user.firstName + " " + user.lastName` **OR** `user.fullName` |
-1. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
-2. To use the new connection, log out of Semgrep, then log back in using SSO.
+1. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct and that the **Connection status** is **active**. Use **Test sign-in** to test the connection.
+1. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 </TabItem>
 

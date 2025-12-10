@@ -79,8 +79,8 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 <Tabs
     defaultValue="current"
     values={[
-    {label: 'Current implementation (beta)', value: 'current'},
-  {label: 'Legacy implementation', value: 'legacy'},
+    {label: 'Guided setup (beta)', value: 'current'},
+  {label: 'Legacy manual configuration', value: 'legacy'},
     ]}
 >
 
