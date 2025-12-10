@@ -27,21 +27,21 @@ The `pattern` operator looks for code matching its expression in the existing sy
 
 ```yaml
 any:
- - "badthing1"
- - "badthing2"
- - "badthing3"
+  - "badthing1"
+  - "badthing2"
+  - "badthing3"
 ```
 
 or, for multi-line patterns
 
 ```yaml
 any:
- - |
- manylines(
- badthinghere($A)
- )
- - |
- orshort()
+  - |
+      manylines(
+        badthinghere($A)
+      )
+  - |
+      orshort()
 ```
 
 You don't need double quotes for a single-line pattern when omitting the `pattern` key, but note that this can cause YAML parsing issues.
@@ -50,14 +50,14 @@ As an example, the following YAML parses:
 
 ```yaml
 any:
- - "def foo(): ..."
+  - "def foo(): ..."
 ```
 
 This, however, causes problems since `:` is also used to denote a YAML dictionary:
 
 ```yaml
 any:
- - def foo(): ...
+  - def foo(): ...
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `any`
@@ -66,10 +66,10 @@ Replaces [pattern-either](/writing-rules/rule-syntax/#pattern-either). Matches a
 
 ```yaml
 any:
- - <pat1>
- - <pat2>
+  - <pat1>
+  - <pat2>
     ...
- - <patn>
+  - <patn>
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `all`
@@ -78,10 +78,10 @@ Replaces [patterns](/writing-rules/rule-syntax/#patterns). Matches all of the pa
 
 ```yaml
 all:
- - <pat1>
- - <pat2>
+  - <pat1>
+  - <pat2>
     ...
- - <patn>
+  - <patn>
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `inside`
@@ -91,16 +91,16 @@ Replaces [pattern-inside](/writing-rules/rule-syntax/#pattern-inside). Match any
 ```yaml
 inside:
   any:
- - <pat1>
- - <pat2>
+  - <pat1>
+  - <pat2>
 ```
 
 Alternatively:
 
 ```yaml
 any:
- - inside: <pat1>
- - inside: <pat2>
+  - inside: <pat1>
+  - inside: <pat2>
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `not`
@@ -110,16 +110,16 @@ Replaces [pattern-not](/writing-rules/rule-syntax/#pattern-not). Accepts any pat
 ```yaml
 not:
   any:
- - <pat1>
- - <pat2>
+  - <pat1>
+  - <pat2>
 ```
 
 Alternatively:
 
 ```yaml
 all:
- - not: <pat1>
- - not: <pat2>
+  - not: <pat1>
+  - not: <pat2>
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `regex`
@@ -156,13 +156,13 @@ As an example, take a look at the following:
 
 ```yaml
 all:
- - inside: |
- def $FUNC(...):
- ...
- - |
- eval($X)
+  - inside: |
+      def $FUNC(...):
+        ...
+  - |
+      eval($X)
 where:
- - <condition>
+  - <condition>
 ```
 
 Because the `where` clause is on the same indentation level as `all`, Semgrep understands that everything under `where` must be paired with the entire `all` pattern. As such, the results of the ranges matched by the `all` pattern are modified by the `where` pattern, and the output includes some final set of ranges that are matched.
@@ -180,12 +180,12 @@ This operator looks inside the metavariable for a match.
 ```yaml
 ...
 where:
- - metavariable: $A
+  - metavariable: $A
     regex: "(.*)
- - metavariable: $B
- patterns: |
- - "foo($C)"
- - metavariable: $D
+  - metavariable: $B
+    patterns: |
+      - "foo($C)"
+  - metavariable: $D
     analyzer: entropy
 ```
 
@@ -196,7 +196,7 @@ Replaces [metavariable-comparison](/writing-rules/rule-syntax/#metavariable-comp
 ```yaml
 ...
 where:
- - comparison: $A == $B
+  - comparison: $A == $B
 ```
 
 ### <i class="fa-solid fa-diamond"></i> `focus`
@@ -206,7 +206,7 @@ Replaces [focus-metavariable](/writing-rules/rule-syntax/#focus-metavariable). P
 ```yaml
 ...
 where:
- - focus: $A
+  - focus: $A
 ```
 
 ## <i class="fa-solid fa-exclamation"></i> `as-metavariable`
@@ -219,10 +219,10 @@ The syntax is as follows:
 
 ```yaml
 all:
- - pattern: |
- @decorator
- def $FUNC(...):
- ...
+  - pattern: |
+    @decorator
+    def $FUNC(...):
+      ...
   as: $DECORATED_FUNC
 ```
 
@@ -231,13 +231,13 @@ Since `as` appears in the same indentation as the `pattern`, Semgrep couples the
 ```yaml
 match:
   pattern: |
- @decorator
- def $FUNC(...):
- ...
+    @decorator
+    def $FUNC(...):
+      ...
   as: $DECORATED_FUNC
 fix: |
- @another_decorator
- $DECORATED_FUNC
+  @another_decorator
+  $DECORATED_FUNC
 ```
 
 Allows you to capture the decorated function. You can then use it in, for example, autofix's metavariable or metavariable ellipses interpolation, where you express something like "rewrite X, but with Y."
@@ -252,17 +252,17 @@ rules:
     severity: HIGH
     languages: [python]
     message: |
- Don't put bad stuff!
+      Don't put bad stuff!
     match:
       any:
- - |
- eval(input())
- - all:
- - inside: |
- def $FUNC(..., $X, ...):
- ...
- - |
- eval($X)
+        - |
+            eval(input())
+        - all:
+            - inside: |
+                def $FUNC(..., $X, ...):
+                  ...
+            - |
+                eval($X)
 ```
 
 ## <i class="fa-solid fa-exclamation"></i> Taint mode
@@ -275,19 +275,19 @@ rules:
     severity: HIGH
     languages: [python]
     message: |
- Don't put bad stuff!
+      Don't put bad stuff!
     taint:
       sources:
- - input()
+        - input()
       sinks:
- - eval(...)
+        - eval(...)
       propagators:
- - pattern: |
- $X = $Y
+        - pattern: |
+            $X = $Y
           from: $Y
           to: $X
       sanitizers:
- - magiccleanfunction(...)
+        - magiccleanfunction(...)
 ```
 
 ### <i class="fa-solid fa-diamond"></i> Taint mode key names

@@ -33,22 +33,22 @@ If constant propagation doesn't seem to work, consider whether the constant may 
 
 ```yaml
 rules:
- - id: redos-detection
+  - id: redos-detection
     message: Potential ReDoS vulnerability detected with $REGEX
     severity: HIGH
     languages:
- - java
+      - java
     mode: taint
     options:
       symbolic_propagation: true
     pattern-sources:
- - patterns:
- - pattern: $REDOS
- - metavariable-analysis:
+      - patterns:
+          - pattern: $REDOS
+          - metavariable-analysis:
               analyzer: redos
               metavariable: $REDOS
     pattern-sinks:
- - pattern: Pattern.compile(...)
+      - pattern: Pattern.compile(...)
 ```
 
 Semgrep fails to match its use in `Test2` when presented with the following code:
@@ -59,9 +59,9 @@ import java.util.regex.Pattern;
 public String REGEX = "(a+)+$";
 
 public class Test2 {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Pattern pattern = Pattern.compile(REGEX);
- }
+   }
 }
 ```
 
@@ -73,9 +73,9 @@ import java.util.regex.Pattern;
 private String REGEX = "(a+)+$";
 
 public class Test2 {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Pattern pattern = Pattern.compile(REGEX);
- }
+   }
 }
 ```
 
