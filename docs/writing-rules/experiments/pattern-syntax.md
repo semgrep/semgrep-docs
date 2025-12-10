@@ -249,7 +249,7 @@ New syntax search mode rules must be nested underneath a top-level `match` key. 
 ```yaml
 rules:
   - id: find-bad-stuff
-    severity: ERROR
+    severity: HIGH
     languages: [python]
     message: |
       Don't put bad stuff!
@@ -272,7 +272,7 @@ The new syntax supports taint mode, and such roles no longer require `mode: tain
 ```yaml
 rules:
   - id: find-bad-stuff
-    severity: ERROR
+    severity: HIGH
     languages: [python]
     message: |
       Don't put bad stuff!
