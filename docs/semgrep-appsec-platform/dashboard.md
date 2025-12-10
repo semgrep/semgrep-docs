@@ -10,16 +10,13 @@ tags:
 
 # Dashboard
 
-The Semgrep dashboard is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
+The [Semgrep dashboard](https://semgrep.dev/orgs/-/) is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
 
 - Evaluate your AppSec program, enabling you to know your current security risk.
 - Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
 - Become aware of trends and opportunities that you can use to improve your security posture.
 - Quickly filter data granularly for all the charts on the page and view priority findings.
 - Export the information as a PDF report.
-
-![Dashboard page](/img/dashboard-fold.png)
-_**Figure**. The dashboard page. Hover over the charts to view data for that point in time._
 
 ## Dashboard overview
 
@@ -90,7 +87,7 @@ To generate reports from the current view, click **Dashboard > <i class="fa-regu
 The following triage states are displayed:
 
 - Open
-- Ignored
+- Ignored, including provisionally ignored
 - Fixed
 
 Additional triage states, such as **Fixing** or **Reviewing**, are not displayed at this time.
@@ -121,8 +118,8 @@ This displays the following filters in the filter drawer:
 
 - [Severity](/writing-rules/rule-syntax#required)
 - [Confidence](/contributing/contributing-to-semgrep-rules-repository#confidence)
-- [Reachability](/semgrep-supply-chain/view-export#reachability)
-- [Validation](/semgrep-secrets/getting-started#validation)
+- [Reachability](/semgrep-supply-chain/findings#reachability)
+- [Validation](/semgrep-secrets/conceptual-overview#validate-secrets)
 - Time period
 - Product
 - Project
@@ -134,8 +131,8 @@ This displays the following filters in the filter drawer:
 This refers to any finding that is **Critical** or **High** severity in **addition** to being:
 
 - [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
-- [Reachable](/semgrep-supply-chain/view-export#reachability) - if the finding is from Semgrep Supply Chain.
-- [Valid](/semgrep-secrets/getting-started#validation) - if the finding is from Semgrep Secrets.
+- [Reachable](/semgrep-supply-chain/findings#reachability) - if the finding is from Semgrep Supply Chain.
+- [Valid](/semgrep-secrets/conceptual-overview#validate-secrets) - if the finding is from Semgrep Secrets.
 
 By default, **<i class="fa-solid fa-toggle-large-on"></i> Recommended priority** filters are enabled.
 
@@ -151,7 +148,7 @@ This pane displays analytics related to findings detected in your **primary or d
 | -------------- | ------ |
 | Total opened      | Total number of findings set to **Open** during the time period. This includes new findings as well as re-opened findings that were previously in a different state. |
 | Total fixed    | Total number of **Fixed** findings during the time period that **remained** fixed until the end of the time period. |
-| Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. |
+| Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. **Ignored** findings includes those with a status of **Provisionally ignored**. |
 | Total net new  | The difference between the number of **Open** findings at the beginning of the time period and the end of the time period. |
 
 :::tip
@@ -163,15 +160,14 @@ A low or negative value for **Total net new** is ideal. It indicates that, withi
 | Chart | Description |
 | -------  | ------ |
 | Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by product for the selected time period. |
-| Backlog activity | Displays the number of new, net new, fixed, and ignored findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Backlog activity | Displays the number of new, net new, fixed, and ignored, including provisionally ignored, findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 
 ## Secure guardrails
 
-This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, as well as how often [Semgrep Assistant, if enabled, filters out false positives](/semgrep-assistant/customize#noise-filtering) and suppresses PR or MR comments, reducing noise for developers. Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, including how often Semgrep shows findings to developers, how the developers handle the findings, and how often Semgrep flags a finding as provisionally ignored.
 
-![Secure guardrails pane](/img/dashboard-guardrails.png)
-_**Figure**. Secure guardrails pane. Hover over the charts to view data for that point in time. Click on Filtered by Assistant data to view filtered findings on Code > Pre-production._
+Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
 
 ### Key metrics
 
@@ -188,7 +184,7 @@ _**Figure**. Secure guardrails pane. Hover over the charts to view data for that
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, fixed, remained open, or [filtered by Assistant](/semgrep-assistant/customize#noise-filtering). A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, or remained open. A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
 
 ## Most findings by project
 
@@ -211,4 +207,4 @@ A chart displaying the median open age of a finding in **days** over the specifi
 For a finding to be remediated, it must have any of the following statuses:
 
 - Fixed
-- Ignored
+- Ignored, including provisionally ignored

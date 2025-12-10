@@ -2,10 +2,7 @@ You can export findings to a **CSV** file. Semgrep can export up to **10,000 mos
 
 Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 
-Export findings by navigating to the product page and clicking the **<i class="fa-regular fa-download"></i> icon** near the time filters.
-
-![The download findings CSV button](/img/download-csv.png#md-width)
-_**Figure**. The download findings CSV button._
+Export findings by navigating to the product page and clicking the **<i class="fa-regular fa-download"></i> icon** near the **Group & Sort** filters.
 
 <details>
 <summary>Click to view a description of fields included in the CSV.</summary>

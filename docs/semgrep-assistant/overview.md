@@ -90,7 +90,7 @@ _**Figure.** Semgrep AppSec Platform's Findings page showing the Component filte
 
 Semgrep Assistant uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings/#view-findings-details-about-a-specific-finding).
+Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 ![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
 _**Figure.** Semgrep Assistant auto-triage in the Findings page._

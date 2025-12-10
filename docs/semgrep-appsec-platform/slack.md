@@ -80,7 +80,7 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 3. Choose an organization in the list under **Select target organization**. 
     ![Semgrep Slack app dialog box for subscribing to Secrets notifications](/img/semgrep-secrets-slack-subscribe.png "Semgrep Slack app dialog box for subscribing to Secrets notifications")
 4. Click **Subscribe**. You can now configure Semgrep Secrets notifications for this channel. 
-5. This channel is now ready to receive Semgrep Secrets notifications. To configure when notifications are sent, create a [**Semgrep Secrets policy**](/semgrep-secrets/policies#manage-policies). 
+5. This channel is now ready to receive Semgrep Secrets notifications. To configure when notifications are sent, create a [**Semgrep Secrets policy**](/semgrep-secrets/policies#slack-notification-policies). 
 6. Optional: To set up Slack notifications for additional workspaces, repeat steps 1 to 4. The Semgrep Slack integration is set up on a per-workspace basis.
 
 ![Message from Semgrep Slack app consolidating findings after a scan](/img/slack-secrets-findings-message.png#md-width "Message from Semgrep Slack app consolidating findings after a scan")

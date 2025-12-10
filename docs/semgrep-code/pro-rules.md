@@ -8,7 +8,6 @@ tags:
     - Semgrep Code
 ---
 
-import RemoveRuleset from "/src/components/procedure/_remove-ruleset.mdx"
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"
 
 # Semgrep Pro rules

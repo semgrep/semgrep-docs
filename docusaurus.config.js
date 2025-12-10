@@ -465,6 +465,8 @@ module.exports = {
           { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
                     /* OCT 23, 2025 */
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
+          { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
+          { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
           { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
         ]
       }
