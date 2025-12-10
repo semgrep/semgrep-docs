@@ -106,7 +106,7 @@ For a description of `.gitignore` syntax, see [.gitignore documentation](https:/
 
 ## Define ignored files and folders in Semgrep AppSec Platform
 
-Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can either define patterns for individual projects or at the organization level so that they're applied to all projects owned by that organization.
+Another method for users to define ignore patterns is through Semgrep AppSec Platform. These patterns follow the same syntax as `.semgrepignore` in the preceding section. You can either define patterns at the individual-project level or at the organization level, so they're applied to all projects owned by that organization.
 
 Ignoring files and folders through this method is **additive**.
 
