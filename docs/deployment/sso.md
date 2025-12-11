@@ -75,9 +75,8 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
         | email | `user.email` |
         | firstName | `user.firstName` |
         | lastName | `user.lastName` |
-        | name | `user.firstName + " " + user.lastName` **OR** `user.fullName` |
-1. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct and that the **Connection status** is **active**. Use **Test sign-in** to test the connection.
-1. To use the new connection, log out of Semgrep, then log back in using SSO.
+2. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct and that the **Connection status** is **active**. Use **Test sign-in** to test the connection.
+3. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 </TabItem>
 

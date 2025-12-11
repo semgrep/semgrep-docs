@@ -32,10 +32,10 @@ Ensure that you are an admin for both your Semgrep deployment and your Google Wo
 2. When you reach the **Add mapping** step of the instructions to set up a custom SAML app, add the attribute statements that Semgrep AppSec Platform requires:
     | Name | Value |
     | - | - |
+    | id | `user.login` **or** `user.email` |
     | email | `user.email` |
     | firstName | `user.firstName` |
     | lastName | `user.lastName` |
-    | name | `user.firstName + " " + user.lastName` **OR** `user.fullName` |
 
 ## Semgrep configuration
 
