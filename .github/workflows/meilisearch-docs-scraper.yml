@@ -3,13 +3,10 @@ name: Meilisearch Docs Scraper
 on:
   # Manual trigger
   workflow_dispatch:
-  # Scheduled run - every day at 2 AM UTC
+  # Scheduled run - every day at 3 AM UTC
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 3 * * *'
   # After successful deployments
-  push:
-    branches:
-      - meilisearch
 
 jobs:
   scrape:
