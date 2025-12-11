@@ -25,6 +25,7 @@
     "axios": "^1.12.2",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.5",
+    "dotenv": "^17.2.3",
     "file-loader": "^6.2.0",
     "jsdom": "^22.1.0",
     "meilisearch": "^0.53.0",

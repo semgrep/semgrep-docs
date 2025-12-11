@@ -10,6 +10,7 @@ export interface DeploymentConfig {
   deployUrl: string;
   meilisearchHostUrl: string;
   meilisearchIndexUid: string;
+  meilisearchSearchKey: string;
   isProduction: boolean;
   isPreview: boolean;
   isDevelopment: boolean;
@@ -19,14 +20,15 @@ export interface DeploymentConfig {
 export function useDeploymentConfig(): DeploymentConfig {
   const context = useDocusaurusContext();
   const customFields = context.siteConfig.customFields || {};
-  
+
   const deployContext = (customFields.deployContext as string) || 'development';
-  const deployUrl = (customFields.deployUrl as string) || 
+  const deployUrl = (customFields.deployUrl as string) ||
                     (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000');
-  const meilisearchHostUrl = (customFields.meilisearchHostUrl as string) || 
+  const meilisearchHostUrl = (customFields.meilisearchHostUrl as string) ||
                              'https://ms-3ade175771ef-34593.sfo.meilisearch.io';
   const meilisearchIndexUid = (customFields.meilisearchIndexUid as string) || 'semgrep_docs_2';
-  
+  const meilisearchSearchKey = (customFields.meilisearchSearchKey as string) || '';
+
   let normalizedContext: DeployContext = 'development';
   if (deployContext === 'production') {
     normalizedContext = 'production';
@@ -46,17 +48,18 @@ export function useDeploymentConfig(): DeploymentConfig {
       normalizedContext = 'branch-deploy';
     }
   }
-  
+
   const isProduction = normalizedContext === 'production';
   const isPreview = normalizedContext === 'deploy-preview';
   const isDevelopment = normalizedContext === 'development';
   const shouldUseNetlifyFunctions = isProduction || isPreview || normalizedContext === 'branch-deploy';
-  
+
   return {
     context: normalizedContext,
     deployUrl,
     meilisearchHostUrl,
     meilisearchIndexUid,
+    meilisearchSearchKey,
     isProduction,
     isPreview,
     isDevelopment,

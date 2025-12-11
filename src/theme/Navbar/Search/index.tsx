@@ -1155,7 +1155,7 @@ export default function NavbarSearch({className}: Props): ReactNode {
   const config: SearchConfig = {
     enabled: true,
     hostUrl: searchUrl,
-    apiKey: "",
+    apiKey: deploymentConfig.meilisearchSearchKey,
     indexUid: deploymentConfig.meilisearchIndexUid,
     placeholder: "Search docs..."
   };
