@@ -27,8 +27,6 @@ exports.handler = async (event, context) => {
       apiKey: process.env.MEILISEARCH_API_KEY, // API key must be set in environment variables
     });
 
-    console.log("api key: " + client.apiKey);
-
     const { httpMethod, body, queryStringParameters } = event;
 
     if (httpMethod === "GET") {
