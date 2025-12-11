@@ -71,6 +71,7 @@ SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
 1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. If prompted, add in the requested attribute statements. Semgrep recommends the following mappings:
         | Name | Value |
         | - | - |
+        | id | `user.login` **OR** `user.email` |
         | email | `user.email` |
         | firstName | `user.firstName` |
         | lastName | `user.lastName` |
