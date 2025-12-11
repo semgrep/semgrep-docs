@@ -35,25 +35,15 @@ The amount of time required to analyze your findings varies. Before running the 
 
 Assistant automatically analyzes new findings from a **full scan** that have **Critical** or **High** severity AND **High** or **Medium** confidence.
 
-On a diff-aware scan, Assistant analyzes up to 10 new findings, regardless of severity or confidence.
+On a diff-aware scan, Assistant auto-analyzes up to a maximum 10 new findings, regardless of severity or confidence. 
 
-## Findings that are not auto-analyzed
+:::note
+Some findings created before November 2025 may not be auto-analyzed, even if they meet the criteria.
+:::
 
-Assistant doesn't automatically analyze:
+### Request analysis for existing findings
 
-- Findings that were created before automatic analysis was enabled for your deployment. Automatic analysis for full scans was enabled in November 2025.
-- The eleventh finding or later on the same PR or MR. Only the first 10 are automatically analyzed.
-
-## Request analysis for existing findings
-
-If you want Assistant analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform.
-
-1. Go to the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page.
-2. Select the findings you want Assistant to analyze. You can select individual findings or use filters to select multiple findings at once.
-3. Click **Analyze**.
-4. In the confirmation dialog, review the estimated wait time and confirm the request.
-
-After Assistant completes the analysis, you can view recommendations in the finding's **Details** page or filter findings by **Assistant file risk levels** or **Assistant autotriage** on the Findings page.
+If you want Assistant analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform. See the [Analyze your findings with Assistant](#analyze-your-findings-with-assistant) section for details.
 
 If you need assistance with bulk analysis requests or have questions about backfilling analyses for your findings, contact [Semgrep Support](/support).
 
