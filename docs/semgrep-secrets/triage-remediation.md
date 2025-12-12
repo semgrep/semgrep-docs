@@ -1,5 +1,5 @@
 ---
-slug: view-triage
+slug: triage-remediation
 append_help_link: true
 title: Triage and remediation
 hide_title: true
@@ -9,29 +9,9 @@ tags:
     - Semgrep AppSec Platform
 ---
 
-import TimePeriodFilters from "/src/components/concept/_time-period-filters.md"
-import ExportFindingsCsv from "/src/components/procedure/_export-findings-csv.md"
+# Triage and remediate findings
 
-# Triage secrets findings in Semgrep AppSec Platform
-
-After each scan, your findings are displayed in Semgrep AppSec Platform's
-**Secrets** page. The filters provided allow you to manage and triage your findings.
-
-:::note Local scans
-Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
-:::
-
-## Default Secrets page view and branch logic
-
-In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets, the **latest instance**, or the finding from the most recent branch scanned, is displayed by default. This is because, if a Secrets finding is present in **any branch**, even a non-primary (default) branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).
-
-### Time period and triage
-
-<TimePeriodFilters />
-
-### Export findings
-
-<ExportFindingsCsv />
+This article shows you how to manage and triage the findings identified by Semgrep Secrets using Semgrep AppSec Platform.
 
 ## Triage findings
 
@@ -46,9 +26,19 @@ You can triage secrets-related findings in Semgrep AppSec Platform on the **Secr
 
 When commits are added to the PR or MR, Semgrep re-scans the PR or MR and detects if a finding is fixed, or if the secret is no longer valid. The finding changes status automatically upon scanning. Users do not need to set a finding as **Fixed** manually.
 
+For non-historical secrets, a finding is considered fixed once it no longer appears in the code. However, this does *not* mean the underlying risk is resolved. If the secret has leaked, take the necessary remediation steps even if Semgrep marks the finding as **fixed**.
+
+Findings for historical secrets always remain **Open**, because the secrets are identified after they've been removed from the code and Semgrep cannot determine whether it has been rotated or remediated. After you’ve addressed the issue, you can manually change the status to **Ignored**.
+
+### Review provisionally ignored findings
+
+If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These findings indicate that Semgrep has determined the secret to be **invalid**, which means that the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with.
+
+Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. You can change the status of provisionally ignored findings to indicate the next steps in the triage process. For instance, you can set the status to **Reviewing** if you decide to manually review the finding.
+
 ## Common filtering use cases
 
-You can find and perform bulk operations through filtering; [all filter operations](/semgrep-secrets/getting-started#filter-findings) are available to you on the **Secrets** page.
+You can find and perform bulk operations through filtering; [all filter operations](/semgrep-secrets/findings#filter-findings) are available to you on the **Secrets** page.
 
 | Task | Steps |
 | ---- | ----- |
@@ -56,9 +46,6 @@ You can find and perform bulk operations through filtering; [all filter operatio
 | View findings in a specific project or branch |1. Under **Projects**, select a repository from the drop-down menu. <br /> 2. Under **Branches**, select a branch from the drop-down menu. |
 | View findings of a specific type of secret, such as **personal token** or **password**. | Under **Type**, select a type of secret.
 | View findings of a specific severity | Under **Severity**, select a value. |
-
-![Secrets page and relevant triaging elements.](/img/secrets-triage.png)
-**_Figure._** Secrets page and relevant triaging elements: (a) All available filters; (b) Bulk selection toggle; (c) Bulk triage button.
 
 You can triage findings in bulk by performing the following steps:
 
@@ -68,8 +55,7 @@ You can triage findings in bulk by performing the following steps:
 4. Click **Triage**, then your selected triage state, such as **Reviewing** or **Ignored**.
 5. Optional: Repeat this procedure to triage all open findings.
 
-
-## Receive findings through PR and MR comments
+## Triage findings through PR and MR comments
 
 In addition to viewing your results in Semgrep AppSec Platform, you can set up PR or MR comments from Semgrep, which allows you to view findings-related information directly in your pull requests and merge requests.
 
@@ -78,9 +64,10 @@ To receive PR or MR comments, ensure that:
 * You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
 * You have defined which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 
-![Semgrep Secrets finding in a PR comment](/img/secrets-pr-comment.png)
-**_Figure._** Semgrep Secrets finding in a PR comment.
-
 :::info
 Define which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
 :::
+
+## Default Secrets page view and branch logic
+
+In Semgrep, a **single** finding may appear in several branches. These appearances are called **instances** of a finding. In Semgrep Secrets, the **latest instance**, or the finding from the most recent branch scanned, is displayed by default. This is because, if a Secrets finding is present in **any branch**, even a non-primary (default) branch, it is considered [valid](/semgrep-secrets/conceptual-overview#validate-secrets).

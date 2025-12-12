@@ -61,16 +61,10 @@ From the Supply Chain policies page, you can also configure a policy to trigger 
 
 Malicious dependencies appear in the [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time) tab, alongside other Supply Chain findings. They are denoted by the **MAL** badge.
 
-![Malicious dependency finding with badge](/img/findings-maldeps.png)
-_**Figure**. A malicious dependency finding._
-
 To view malicious dependencies detected in your projects:
 1. Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
 2. Click the **filters** icon and enable the **Malicious dependency** filter.
 3. Review the results listed. Click **Details** to learn more about available remediation guidance. 
-
-![Malicious dependency details](/img/mal-dependencies-details.png)
-
 
 ## Triage and remediation for malicious dependencies
 
@@ -94,7 +88,7 @@ To enable Jira ticket creation for malicious dependencies:
 
 ## Advisories for malicious dependencies
 
-You can view all the malicious dependencies that Semgrep can detect by navigating to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/supply-chain/advisories) and turning on just the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
+You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
 
 Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 

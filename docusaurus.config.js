@@ -425,6 +425,13 @@ module.exports = {
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
           /* JUL 25, 2025 */
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
+          /* OCT 3, 2025 */
+          { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
+                    /* OCT 23, 2025 */
+          { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
+          { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
+          { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
         ]
       }
     ],

@@ -18,28 +18,28 @@ Semgrep can match generic patterns in languages that it does **not** yet support
 As an example of generic matching, consider this rule:
 ```yaml
 rules:
- - id: dynamic-proxy-scheme
+  - id: dynamic-proxy-scheme
     pattern: proxy_pass $$SCHEME:// ...;
     paths:
       include:
- - "*.conf"
- - "*.vhost"
- - sites-available/*
- - sites-enabled/*
+        - "*.conf"
+        - "*.vhost"
+        - sites-available/*
+        - sites-enabled/*
     languages:
       - generic
     severity: MEDIUM
     message: >-
- The protocol scheme for this proxy is dynamically determined.
- This can be dangerous if the scheme is injected by an
- attacker because it may forcibly alter the connection scheme.
- Consider hardcoding a scheme for this proxy.
+      The protocol scheme for this proxy is dynamically determined.
+      This can be dangerous if the scheme is injected by an
+      attacker because it may forcibly alter the connection scheme.
+      Consider hardcoding a scheme for this proxy.
     metadata:
       references:
- - https://github.com/yandex/gixy/blob/master/docs/en/plugins/ssrf.md
+        - https://github.com/yandex/gixy/blob/master/docs/en/plugins/ssrf.md
       category: security
       technology:
- - nginx
+        - nginx
       confidence: MEDIUM
 ```
 
@@ -47,35 +47,35 @@ The preceeding rule [matches](https://semgrep.dev/playground/r/generic.nginx.sec
 
 ```
 server {
- listen              443 ssl;
- server_name         www.example.com;
- keepalive_timeout   70;
+  listen              443 ssl;
+  server_name         www.example.com;
+  keepalive_timeout   70;
 
- ssl_certificate     www.example.com.crt;
- ssl_certificate_key www.example.com.key;
+  ssl_certificate     www.example.com.crt;
+  ssl_certificate_key www.example.com.key;
 
- location ~ /proxy/(.*)/(.*)/(.*)$ {
- # ruleid: dynamic-proxy-scheme
- proxy_pass $1://$2/$3;
- }
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ruleid: dynamic-proxy-scheme
+    proxy_pass $1://$2/$3;
+  }
 
- location ~* ^/internal-proxy/(?<proxy_proto>https?)/(?<proxy_host>.*?)/(?<proxy_path>.*)$ {
- internal;
+  location ~* ^/internal-proxy/(?<proxy_proto>https?)/(?<proxy_host>.*?)/(?<proxy_path>.*)$ {
+    internal;
 
- # ruleid: dynamic-proxy-scheme
- proxy_pass $proxy_proto://$proxy_host/$proxy_path ;
- proxy_set_header Host $proxy_host;
+    # ruleid: dynamic-proxy-scheme
+    proxy_pass $proxy_proto://$proxy_host/$proxy_path ;
+    proxy_set_header Host $proxy_host;
 }
 
- location ~ /proxy/(.*)/(.*)/(.*)$ {
- # ok: dynamic-proxy-scheme
- proxy_pass http://$1/$2/$3;
- }
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ok: dynamic-proxy-scheme
+    proxy_pass http://$1/$2/$3;
+  }
 
- location ~ /proxy/(.*)/(.*)/(.*)$ {
- # ok: dynamic-proxy-scheme
- proxy_pass https://$1/$2/$3;
- }
+  location ~ /proxy/(.*)/(.*)/(.*)$ {
+    # ok: dynamic-proxy-scheme
+    proxy_pass https://$1/$2/$3;
+  }
 }
 ```
 
@@ -122,31 +122,31 @@ f(...)
 It matches the following code [just fine](https://semgrep.dev/s/9v9R):
 ```
 f(
- 1,
- 2,
- 3,
- 4,
- 5,
- 6,
- 7,
- 8,
- 9
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
 )
 ```
 
 But it [fails](https://semgrep.dev/s/1z6Q) here because the function arguments span more than 10 lines:
 ```
 f(
- 1,
- 2,
- 3,
- 4,
- 5,
- 6,
- 7,
- 8,
- 9,
- 10
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
 )
 ```
 
@@ -165,13 +165,12 @@ In the following example, the goal is to match the `system` sections containing 
 ```
 # match here
 [system]
- name = "Debian"
-
+  name = "Debian"
 # DON'T match here
 [system]
- max_threads = 2
+  max_threads = 2
 [user]
- name = "Admin Overlord"
+  name = "Admin Overlord"
 ```
 
 ❌ This pattern [incorrectly](https://semgrep.dev/s/ry1A) catches the `name` field in the `user` section:
@@ -184,8 +183,8 @@ name = ...
 ✅ This pattern catches [only](https://semgrep.dev/s/bXAr) the `name` field in the `system` section:
 ```
 [system]
- ...
- name = ...
+  ...
+  name = ...
 ```
 
 ### Handling line-based input
@@ -214,35 +213,35 @@ To match an arbitrary sequence of items and capture their value in the example:
 
 1. Use a named ellipsis by changing the pattern to the following:
 
- ```yaml
+    ```yaml
     password = $...PASSWORD
- ```
+    ```
 
  This still leads Semgrep to capture too much information. The value assigned to `$...PASSWORD` are now `p@$$w0rd` and<br />
     `server = example.com`. In generic mode, an ellipsis extends until the end of the current block or up to 10 lines below, whichever comes first. To prevent this behavior, continue with the next step.
 
 2. In the Semgrep rule, specify the following key:
 
- ```yaml
+    ```yaml
     generic_ellipsis_max_span: 0
- ```
+    ```
 
  This option forces the ellipsis operator to match patterns within a single line.
  Example of the [resulting rule](https://semgrep.dev/playground/s/KPzn):
 
- ```yaml
+    ```yaml
     id: password-in-config-file
     pattern: |
-     password = $...PASSWORD
+      password = $...PASSWORD
     options:
       # prevent ellipses from matching multiple lines
       generic_ellipsis_max_span: 0
     message: |
-     password found in config file: $...PASSWORD
+      password found in config file: $...PASSWORD
     languages:
-     - generic
+      - generic
     severity: WARNING
- ```
+    ```
 
 ### Ignoring comments
 
@@ -262,14 +261,14 @@ The Semgrep rule is:
 ```yaml
 id: css-blue-is-ugly
 pattern: |
- color: blue
+  color: blue
 options:
   # ignore comments of the form /* ... */
   generic_comment_style: c
 message: |
- Blue is ugly.
+  Blue is ugly.
 languages:
- - generic
+  - generic
 severity: WARNING
 ```
 
