@@ -1,0 +1,124 @@
+name: Meilisearch Docs Scraper
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+  # Scheduled run - every day at 3 AM UTC
+  schedule:
+    - cron: '0 3 * * *'
+  # After successful deployments
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install docs-scraper
+        run: |
+          pip install pipenv
+          git clone https://github.com/meilisearch/docs-scraper.git
+          cd docs-scraper
+          pipenv install
+      
+      - name: Create scraper config
+        run: |
+          cat > docs-scraper/config.json << 'EOF'
+          {
+            "index_uid": "semgrep_docs_2",
+            "start_urls": [
+              "https://semgrep.dev/docs/"
+            ],
+            "sitemap_urls": [
+              "https://semgrep.dev/docs/sitemap.xml"
+            ],
+            "stop_urls": [
+              "https://semgrep.dev/docs/tags/.*",
+              "https://semgrep.dev/docs/category/.*"
+            ],
+            "selectors": {
+              "default": {
+                "lvl0": {
+                  "selector": ".breadcrumbs > li:nth-child(2) span.breadcrumbs__link",
+                  "global": true,
+                  "default_value": "Semgrep documentation"
+                },
+                "lvl1": "article h1",
+                "lvl2": "article h2",
+                "lvl3": "article h3",
+                "lvl4": "article h4",
+                "lvl5": "article h5, article td:first-child",
+                "lvl6": "article h6",
+                "text": "article p, article li, article td:last-child, article code, article div table td, article div table th"
+              }
+            },
+            "strip_chars": " .,;:#()",
+            "scrape_start_urls": true,
+            "custom_settings": {
+              "synonyms": {
+                "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
+                "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
+                "config": ["config", "configuration", "settings", "setup"],
+                "taint mode": ["taint mode", "taint tracking"]
+              },
+              "stopWords": [
+                "what", "is", "are", "how", "to", "the", "a", "an", "do", "does", "can", "i", "my"
+              ]
+            }
+          }
+          EOF
+      
+      - name: Run docs-scraper
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+        run: |
+          cd docs-scraper
+          pipenv run ./docs_scraper config.json
+      
+      - name: Apply additional settings (embeddings)
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          echo "Applying embedder settings..."
+          
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "WARNING: OPENAI_API_KEY is not set. Skipping embedder configuration."
+            exit 0
+          fi
+          
+          response=$(curl -w "\n%{http_code}" -X PATCH \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs_2/settings" \
+            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"embedders\": {
+                \"default\": {
+                  \"source\": \"openAi\",
+                  \"model\": \"text-embedding-3-small\",
+                  \"apiKey\": \"${OPENAI_API_KEY}\",
+                  \"dimensions\": 1536,
+                  \"documentTemplate\": \"{% for field in fields %}{% if field.is_searchable and field.value != nil %}{{ field.name }}: {{ field.value }}\n{% endif %}{% endfor %}\"
+                }
+              }
+            }")
+          
+          http_code=$(echo "$response" | tail -n1)
+          echo "Embedder settings response code: $http_code"
+          
+          if [ "$http_code" != "202" ]; then
+            echo "Failed to apply embedder settings"
+            echo "$response"
+            exit 1
+          fi
+          
+          echo "✅ Scraping complete! Documents indexed successfully."
+

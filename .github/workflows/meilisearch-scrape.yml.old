@@ -1,0 +1,99 @@
+name: Meilisearch scrape
+
+on:
+  # Manual trigger - can be run from GitHub Actions UI on any branch
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: Run from dispatch
+  # Scheduled run - every day at 2 AM UTC (only runs on default branch)
+  schedule:
+    - cron: '0 2 * * *'
+  # Pull request trigger - for testing preview branches (only when commits are pushed)
+  pull_request:
+    types: [synchronize]
+    branches:
+      - main
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      
+      - name: Wait for deployment
+        run: sleep 480s
+        shell: bash
+      
+      - name: Run Meilisearch Cloud Crawler
+        uses: meilisearch/actions/cloud-crawler@main
+        with:
+          token: ${{ secrets.MEILISEARCH_CLOUD_CRAWLER_TOKEN }}
+      
+      - name: Wait for crawler to complete and swap indexes
+        run: sleep 300s
+        shell: bash
+      
+      - name: Restore index settings after scraping
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          echo "Restoring index settings (scraper may have reset them)..."
+          
+          # Apply base settings from repo file
+          response1=$(curl -w "\n%{http_code}" -X PATCH \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs_2/settings" \
+            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d @meilisearch-settings.json)
+          
+          http_code1=$(echo "$response1" | tail -n1)
+          echo "Base settings response code: $http_code1"
+          
+          if [ "$http_code1" != "202" ]; then
+            echo "Failed to apply base settings"
+            echo "$response1"
+            exit 1
+          fi
+          
+          echo "Checking if OPENAI_API_KEY is set..."
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "ERROR: OPENAI_API_KEY is not set in GitHub Secrets!"
+            echo "Please add it at: https://github.com/semgrep/semgrep-docs/settings/secrets/actions"
+            exit 1
+          fi
+          
+          # Apply embedder separately (requires secret)
+          response2=$(curl -w "\n%{http_code}" -X PATCH \
+            "${MEILISEARCH_HOST_URL}/indexes/semgrep_docs_2/settings" \
+            -H "Authorization: Bearer ${MEILISEARCH_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"embedders\": {
+                \"default\": {
+                  \"source\": \"openAi\",
+                  \"model\": \"text-embedding-3-small\",
+                  \"apiKey\": \"${OPENAI_API_KEY}\",
+                  \"dimensions\": 1536,
+                  \"documentTemplate\": \"{% for field in fields %}{% if field.is_searchable and field.value != nil %}{{ field.name }}: {{ field.value }}\n{% endif %}{% endfor %}\"
+                }
+              }
+            }")
+          
+          http_code2=$(echo "$response2" | tail -n1)
+          echo "Embedder settings response code: $http_code2"
+          
+          if [ "$http_code2" != "202" ]; then
+            echo "Failed to apply embedder settings"
+            echo "$response2"
+            exit 1
+          fi
+          
+          echo "✅ Index settings restored successfully!"
+          echo "Waiting for embedder to process (this takes a few minutes)..."
+          sleep 60
+
+

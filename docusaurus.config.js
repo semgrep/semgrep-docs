@@ -1,3 +1,6 @@
+// Load environment variables from .env.local
+require('dotenv').config({ path: '.env.local' });
+
 const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
@@ -13,27 +16,16 @@ module.exports = {
   organizationName: 'semgrep', // Usually your GitHub org/user name.
   projectName: 'semgrep', // Usually your repo name.
   trailingSlash: false,
-  themes: ['@markprompt/docusaurus-theme-search'],
+  themes: [],
+  customFields: {
+    deployContext: process.env.CONTEXT || process.env.NODE_ENV || 'development',
+    deployUrl: process.env.DEPLOY_PRIME_URL || process.env.URL || 'http://localhost:3000',
+    meilisearchHostUrl: process.env.MEILISEARCH_HOST_URL || 'https://ms-3ade175771ef-34593.sfo.meilisearch.io',
+    meilisearchIndexUid: process.env.MEILISEARCH_INDEX_UID || 'semgrep_docs_2',
+    // Search-only public key - safe to expose in browser for direct Meilisearch access
+    meilisearchSearchKey: process.env.MEILISEARCH_SEARCH_KEY || '',
+  },
   themeConfig: {
-    markprompt: {
-      projectKey: 'jbhF5LligltdKaJucMjDcWcRodaVpzqE',
-      trigger: { floating: false },
-      systemPrompt: 'You are a kind AI who loves to help people!',
-      model: 'gpt-4',
-      display: 'dialog',
-      search: {
-        enabled: true,
-        provider: {
-          name: 'algolia',
-          apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-          appId: 'RGEY1AKPUC',
-          indexName: 'docs',
-        },
-      },
-      chat: {
-        assistantId: '5af10a40-7ed8-4aa1-9e7a-65d2858445af',
-      }
-    },
     docs: {
       sidebar: {
         hideable: true,
@@ -160,34 +152,6 @@ module.exports = {
       darkTheme: darkCodeTheme,
       additionalLanguages: ['java', 'ruby', 'php', 'csharp', 'rust', 'scala', 'kotlin', 'bash', 'json'],
     },
-    //algolia: {
-    //  apiKey: 'f53612c29d04a2ff71dce6e3b2f76752',
-    //  indexName: 'docs',
-
-    //  // Optional: see doc section below
-    //  contextualSearch: false,
-
-    //  // Optional: see doc section below
-    //  appId: 'RGEY1AKPUC',
-
-    //  // Optional: Algolia search parameters
-    //  searchParameters: {},
-    //  facetFilters: [],
-    //  //... other Algolia params
-    //  "customRanking": [
-    //    "desc(weight.page_rank)"
-    //  ],
-    //  "ranking": [
-    //    "desc(weight.page_rank)",
-    //    "custom",
-    //    "filters",
-    //    "typo",
-    //    "attribute",
-    //    "words",
-    //    "exact",
-    //    "proximity"
-    //  ]
-    //},
     image: 'https://semgrep.dev/thumbnail.png',
     //announcementBar: {
     //  id: 'office-hours',
