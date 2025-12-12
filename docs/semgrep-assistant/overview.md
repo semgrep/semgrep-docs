@@ -28,6 +28,9 @@ Semgrep Assistant:
   - GitHub Cloud and GitHub Enterprise Server (self-hosted)
   - GitLab, including SaaS and self-managed plans
 - Requires the Semgrep AppSec Platform for its use
+- Auto-analyzes many, but not all, findings during scans 
+  - For full scans, all *new* issues that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
+  - For diff-aware scans (pull pequest or merge request scans), up to 10 new issues are auto-analyzed per scan
 
 ## Features
 
@@ -37,7 +40,7 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 #### Guidance
 
-With Assistant enabled, every PR or MR comment Semgrep pushes includes remediation guidance with information on fixing the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
+With Assistant enabled, PR or MR comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
 
 ![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
 _**Figure.** PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance._
