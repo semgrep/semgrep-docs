@@ -43,7 +43,9 @@ Ensure that you are an admin for both your Semgrep deployment and your Google Wo
 1. Go to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
 In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
 1. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting **Custom SAML**.
-1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, verify that the **Connection details** shown on the **Connection activated** screen are correct, and use **Test sign-in** to test the connection.
+1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, use **Test sign-in** to test the connection.
+1. Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
+1. Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
 1. To use the new connection, log out of Semgrep, then log back in using SSO.
 
 </TabItem>
