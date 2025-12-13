@@ -39,6 +39,10 @@ The Semgrep Jira integration provides the following capabilities:
 
 ## Enable the Jira integration
 
+:::tip Best practice
+We recommend using a **service account**, such as OAuth 2.0, to connect Jira to Semgrep.
+:::
+
 To enable the Jira integration, follow these steps:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
