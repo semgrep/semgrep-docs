@@ -123,6 +123,12 @@ This article includes instructions for setting up the MCP server with Cursor and
 </TabItem>
 </Tabs>
 
+## Scan your code
+
+1. Open up your IDE's AI chat window.
+2. Ensure that you're in the correct context to use Semgrep.
+3. Prompt your IDE to scan with Semgrep.
+
 By default, the MCP Server runs all three Semgrep products: Code, Supply Chain, and Secrets.
 
 ## Additional resources
