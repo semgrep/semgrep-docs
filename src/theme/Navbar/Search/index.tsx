@@ -122,7 +122,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -146,7 +146,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -314,15 +314,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           
           // Tagged pages are filtered out completely, no need to penalize
           
-          // HEAVILY penalize release notes unless specifically searching for them
-          if ((titleLower.includes('release notes') || url.includes('/release-notes') || titleLower.includes('added') || titleLower.includes('fixed')) && 
-              !queryLower.includes('release') && !queryLower.includes('changelog') && !queryLower.includes('added') || !queryLower.includes('fixed')) {
-            relevanceScore += 15; // Heavy penalty
-          }
-          
           // Deprioritize KB articles - they should still appear but docs come first
           if (url.includes('/kb/') || url.includes('/docs/kb/')) {
             relevanceScore += 35; // Strong penalty to push KB articles below main docs
+          }
+          
+          // HEAVILY penalize release notes unless specifically searching for them
+          // Release notes rank lower than KB articles
+          if ((titleLower.includes('release notes') || url.includes('/release-notes') || titleLower.includes('added') || titleLower.includes('fixed')) && 
+              !queryLower.includes('release') && !queryLower.includes('changelog') && !queryLower.includes('added') || !queryLower.includes('fixed')) {
+            relevanceScore += 50; // Very heavy penalty - below KB articles
           }
           
           return {
