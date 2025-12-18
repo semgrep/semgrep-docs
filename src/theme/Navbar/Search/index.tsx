@@ -210,12 +210,18 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           if (processedQuery.includes('install')) {
             processedQuery += ' setup configuration';
           }
+          if (processedQuery.includes('glsm')) {
+            processedQuery += ' gitlab self-managed self managed';
+          }
+          if (processedQuery.includes('gl') && !processedQuery.includes('gitlab')) {
+            processedQuery += ' gitlab';
+          }
           
-          // Keep terms longer than 2 chars, but also keep common 2-letter acronyms
+          // Keep terms longer than 2 chars, but also keep common acronyms
           const queryTerms = processedQuery.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => {
             if (t.length > 2) return true;
-            // Keep important 2-letter acronyms
-            if (['ai', 'ci', 'cd', 'pr', 'mr'].includes(t)) return true;
+            // Keep important acronyms (2-letter and 4-letter)
+            if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(t)) return true;
             return false;
           });
           
@@ -496,10 +502,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       .replace(/<[^>]+>/g, '') // Remove any HTML tags except what we'll add
       .replace(/&[a-z]+;/gi, ' '); // Remove HTML entities
     
-    // Split search query into individual terms (keep important 2-letter acronyms)
+    // Split search query into individual terms (keep important acronyms)
     const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => {
       if (term.length > 2) return true;
-      if (['ai', 'ci', 'cd', 'pr', 'mr'].includes(term)) return true;
+      if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(term)) return true;
       return false;
     });
     
