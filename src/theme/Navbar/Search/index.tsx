@@ -280,6 +280,16 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             relevanceScore -= 2;
           }
           
+          // Boost main documentation sections over KB articles
+          const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
+          const sectionUpper = section.toUpperCase();
+          if (sectionUpper === 'DEPLOYMENT' || sectionUpper === 'SEMGREP CODE' || 
+              sectionUpper === 'SUPPLY CHAIN' || sectionUpper === 'SEMGREP ASSISTANT' ||
+              sectionUpper === 'RULE WRITING' || sectionUpper === 'CLI REFERENCE' ||
+              sectionUpper === 'GETTING STARTED') {
+            relevanceScore -= 8; // Boost core documentation sections
+          }
+          
           // Tagged pages are filtered out completely, no need to penalize
           
           // HEAVILY penalize release notes unless specifically searching for them
@@ -290,7 +300,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           
           // Deprioritize KB articles - they should still appear but docs come first
           if (url.includes('/kb/') || url.includes('/docs/kb/')) {
-            relevanceScore += 12; // Penalty to push KB articles below main docs
+            relevanceScore += 35; // Strong penalty to push KB articles below main docs
           }
           
           return {
@@ -789,12 +799,13 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   }
                   
                   // Extract title using correct field names (underscore notation)
+                  const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
                   const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
                                result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
                                result.title || '';
                   const content = result.content || result._formatted?.content || '';
                   
-                  // NEVER show tagged pages
+                  // NEVER show tagged pages or tag listing pages
                   const isTaggedPage = title.includes('tagged with') ||
                                      title.includes('doc tagged with') ||
                                      title.includes('docs tagged with') ||
@@ -802,7 +813,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                      title.match(/\d+\s+docs?\s+tagged\s+with/) ||
                                      url.includes('/tags/') ||
                                      url.includes('/tag/') ||
-                                     content.includes('tagged with');
+                                     content.includes('tagged with') ||
+                                     section.toUpperCase() === 'TAGS' ||
+                                     (title.length === 1 && title.match(/[A-Z]/)) || // Single letter titles (tag groupings)
+                                     url.includes('/tags') ||
+                                     url.includes('/tag');
                   
                   if (isTaggedPage) {
                     return false;
@@ -1066,7 +1081,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 return false;
               }
               
-              // Extract title using correct field names (underscore notation)
+              // Extract title and section using correct field names (underscore notation)
+              const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
               const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
                            result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
                            result.title || '';
@@ -1080,7 +1096,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                                  title.match(/\d+\s+docs?\s+tagged\s+with/) ||
                                  url.includes('/tags/') ||
                                  url.includes('/tag/') ||
-                                 content.includes('tagged with');
+                                 content.includes('tagged with') ||
+                                 section.toUpperCase() === 'TAGS' ||
+                                 (title.length === 1 && title.match(/[A-Z]/)) || // Single letter titles (tag groupings)
+                                 url.includes('/tags') ||
+                                 url.includes('/tag');
               
               if (isTaggedPage) {
                 return false;
