@@ -211,7 +211,13 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             processedQuery += ' setup configuration';
           }
           
-          const queryTerms = processedQuery.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => t.length > 2);
+          // Keep terms longer than 2 chars, but also keep common 2-letter acronyms
+          const queryTerms = processedQuery.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => {
+            if (t.length > 2) return true;
+            // Keep important 2-letter acronyms
+            if (['ai', 'ci', 'cd', 'pr', 'mr'].includes(t)) return true;
+            return false;
+          });
           
           // CRITICAL: Multi-term match bonus - if multiple query terms appear, boost significantly
           const termsInTitle = queryTerms.filter(term => titleLower.includes(term)).length;
@@ -283,11 +289,27 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           // Boost main documentation sections over KB articles
           const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
           const sectionUpper = section.toUpperCase();
+          const sectionLower = section.toLowerCase();
+          
+          // HUGE boost if query term matches the section name
+          queryTerms.forEach(term => {
+            if (sectionLower.includes(term)) {
+              relevanceScore -= 30; // Major boost for section name match
+            }
+          });
+          
+          // General boost for core documentation sections
           if (sectionUpper === 'DEPLOYMENT' || sectionUpper === 'SEMGREP CODE' || 
               sectionUpper === 'SUPPLY CHAIN' || sectionUpper === 'SEMGREP ASSISTANT' ||
               sectionUpper === 'RULE WRITING' || sectionUpper === 'CLI REFERENCE' ||
               sectionUpper === 'GETTING STARTED') {
             relevanceScore -= 8; // Boost core documentation sections
+          }
+          
+          // Boost overview/intro pages within a section
+          if (titleLower.includes('overview') || titleLower.includes('introduction') || 
+              titleLower.includes('getting started with')) {
+            relevanceScore -= 5;
           }
           
           // Tagged pages are filtered out completely, no need to penalize
@@ -473,8 +495,12 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       .replace(/<[^>]+>/g, '') // Remove any HTML tags except what we'll add
       .replace(/&[a-z]+;/gi, ' '); // Remove HTML entities
     
-    // Split search query into individual terms
-    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+    // Split search query into individual terms (keep important 2-letter acronyms)
+    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => {
+      if (term.length > 2) return true;
+      if (['ai', 'ci', 'cd', 'pr', 'mr'].includes(term)) return true;
+      return false;
+    });
     
     let highlightedContent = cleanContent;
     
