@@ -60,7 +60,7 @@ This document provides sample configuration snippets to run Semgrep CI on variou
 
 ## Feature support
 
-Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM).
 
 <ScmFeatureReference />
 
@@ -478,55 +478,6 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
-## Semaphore
-
-To add Semgrep into Semaphore:
-
-1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with [your `SEMGREP_APP_TOKEN`](https://semgrep.dev/orgs/-/settings/tokens).
-2. Open the YAML pipeline for your project using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
-3. Click **+Add Block**.
-5. Expand **Jobs**, and add the following commands to perform a full scan:
-
-   ```console
-   checkout
-   sudo pip install semgrep
-   semgrep ci
-   ```
-4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
-
-6. Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
-
-### Sample Semaphore configuration snippet
-
-<Tabs
-    defaultValue="semaphore-semgrep"
-    values={[
-    {label: 'Default', value: 'semaphore-semgrep'},
-    {label: 'Semgrep CE', value: 'semaphore-oss'},
-    ]}
->
-
-<TabItem value='semaphore-semgrep'>
-
-The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
-
-<SemaphoreSemgrepAppSast />
-
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
-
-</TabItem>
-
-<TabItem value='semaphore-oss'>
-
-The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
-
-<SemaphoreSemgrepOssSast />
-
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
-
-</TabItem>
-</Tabs>
-
 ## Other providers
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
@@ -542,6 +493,7 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - Codeship
 - Codefresh
 - Drone CI
+- Semaphore
 - TeamCity CI
 - Travis CI
 
