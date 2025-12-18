@@ -6,6 +6,10 @@ on:
   # Scheduled run - every day at 3 AM UTC
   schedule:
     - cron: '0 3 * * *'
+  # Temporary: scrape on push to test branch
+  push:
+    branches:
+      - abhijna/meilisearch-refine
   # After successful deployments
 
 jobs:
