@@ -65,7 +65,9 @@ jobs:
                 "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
                 "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
                 "config": ["config", "configuration", "settings", "setup"],
-                "taint mode": ["taint mode", "taint tracking"]
+                "taint mode": ["taint mode", "taint tracking"],
+                "install": ["install", "setup", "set up", "installation", "configure", "configuration"],
+                "setup": ["setup", "set up", "install", "installation", "configure", "configuration"]
               },
               "stopWords": [
                 "what", "is", "are", "how", "to", "the", "a", "an", "do", "does", "can", "i", "my"
