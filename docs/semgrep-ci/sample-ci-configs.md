@@ -16,12 +16,10 @@ Read /src/components/code_snippets/readme to understand modular code snippet imp
 
 <!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
-import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
 import GhaSemgrepOssSast from "/src/components/code_snippets/_gha-semgrep-oss-sast.mdx"
 
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
-import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
 import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx"
 
 <!-- Jenkins -->
@@ -128,14 +126,7 @@ push:
 
 :::
 
-#### Upload findings to GitHub Advanced Security Dashboard
 
-<details>
- <summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
-
- <GhaSemgrepAppSastDash />
-
-</details>
 
 ## GitLab CI/CD
 
@@ -179,14 +170,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
-#### Upload findings to GitLab Security Dashboard
 
-<details>
- <summary>Alternate job that uploads SAST findings to GitLab Security Dashboard</summary>
-
- <GlcicdSemgrepAppSastDash />
-
-</details>
 
 ## Jenkins
 
@@ -393,11 +377,7 @@ To add Semgrep into your CircleCI pipeline:
 
 The sample configuration provides jobs for both full scanning and [diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
 
-CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
-
-:::note
-For the default branch and tags, CircleCI always runs the Semgrep CI job on all commits.
-:::
+CircleCI always runs the Semgrep CI job on all commits for the default branch and tags. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
 
 ### Sample CircleCI configuration snippet
 
