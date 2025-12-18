@@ -291,16 +291,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           const sectionUpper = section.toUpperCase();
           const sectionLower = section.toLowerCase();
           
-          // MASSIVE boost when BOTH title AND section contain the same query term
-          // This ensures pages like "Semgrep Assistant overview" in "SEMGREP ASSISTANT" section rank highest
+          // HUGE boost if query term matches the section name
           queryTerms.forEach(term => {
-            const termInTitle = titleLower.includes(term);
-            const termInSection = sectionLower.includes(term);
-            
-            if (termInTitle && termInSection) {
-              relevanceScore -= 50; // HUGE boost for title+section match
-            } else if (termInSection) {
-              relevanceScore -= 30; // Major boost for section name match only
+            if (sectionLower.includes(term)) {
+              relevanceScore -= 30; // Major boost for section name match
             }
           });
           
