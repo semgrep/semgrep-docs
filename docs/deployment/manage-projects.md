@@ -52,7 +52,7 @@ Scan details, such as logs, are available for scans run in the past **1 month**.
 
 ## Run scans in bulk
 
-You can scan multiple projects at once from the **Projects** page. This is useful when you want to update multiple projects after changing your ruleset or configuration.
+You can scan multiple projects at once from the **Projects** page. This is useful when you want to rescan multiple projects after changing your ruleset or configuration.
 
 To run scans in bulk, select all the projects of interest and click **Scan**.
 
