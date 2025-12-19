@@ -10,19 +10,18 @@ tags:
 
 # Manage projects
 
-View, sort, and tag your projects through the **Projects** page. Refer to this page to **manage** and **troubleshoot** thousands of repositories by identifying scan issues or scans with a high number of findings.
+View, sort, and tag your projects through the **Projects** page. Refer to this page to manage and troubleshoot thousands of repositories by identifying scan issues or scans with a high number of findings.
 
 :::note What is a project?
 A **project** is a repository, or part of a repository, that you scan through Semgrep AppSec Platform, either using CI or Semgrep Managed Scans. This also includes local CLI scans whose results you have sent for viewing on Semgrep AppSec Platform. A project's scans can be viewed on the **Project details** page, and its findings can be viewed on the individual Semgrep products' **Findings** pages.
 :::
 
-The **Projects** page features two components:
+The **Projects** page features two tabs:
 
-- The **Scanning** page lists all projects that have been provisioned or scanned by Semgrep, regardless of whether the project is actively being scanned. If the project's repository has been archived in the source code manager, it is listed under **Not scanning**.
-- The **Not scanning** page lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. The **Not scanning** page also lists projects where you've archived the corresponding GitHub repositories.
+- The **Scanning** tab lists all projects that have been provisioned or scanned by Semgrep, regardless of whether the project is actively being scanned. If the project's repository has been archived in the source code manager, it is listed under **Not scanning**.
+- The **Not scanning** tab lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. The **Not scanning** page also lists projects where you've archived the corresponding GitHub repositories.
 
-![Semgrep AppSec Platform > Projects page](/img/projects-page.png)
-_**Figure**. Semgrep AppSec Platform > Projects page._
+
 
 ## Sort projects
 
@@ -50,6 +49,12 @@ The following filters are available:
 :::note
 Scan details, such as logs, are available for scans run in the past **1 month**. Semgrep AppSec Platform does not display scan details older than 30 days, since this introduces performance issues due to the increased volume of stored scan data.
 :::
+
+## Run scans in bulk
+
+You can scan multiple projects at once from the **Projects** page. This is useful when you want to rescan multiple projects after changing your ruleset or configuration.
+
+To run scans in bulk, select all the projects of interest and click **Scan**.
 
 ## Scan details and logs
 
