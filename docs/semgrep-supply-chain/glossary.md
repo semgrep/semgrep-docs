@@ -18,7 +18,7 @@ The terms and definitions provided here are specific to Semgrep Supply Chain.
 
 ## Advisory
 
-Announcement of a vulnerability, typically but not always with an associated [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) number. All Advisories can be found by Semgrep Supply Chain rules. Advisories can be seen within the **Supply Chain > Rules & Policies > Advisories** tab.
+Announcement of a vulnerability, typically but not always with an associated [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) number. All Advisories can be found by Semgrep Supply Chain rules. [Advisories](/semgrep-supply-chain/advisories) can be seen on [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
 
 ## Dependency
 

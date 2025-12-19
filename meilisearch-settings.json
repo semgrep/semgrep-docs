@@ -1,0 +1,96 @@
+{
+  "synonyms": {
+    "autofix": ["autofix", "automatic fixes", "remediation", "code fixes"],
+    "ci": ["ci", "continuous integration", "pipeline", "github actions", "gitlab ci", "automation"],
+    "config": ["config", "configuration", "settings", "setup"],
+    "create": ["create", "write", "build", "develop", "make", "author"],
+    "custom": ["custom", "own", "personal", "user-defined", "bespoke"],
+    "deployment": ["deployment", "setup", "configuration", "installation", "integration"],
+    "findings": ["findings", "issues", "vulnerabilities", "results", "matches", "detections"],
+    "github": ["github", "git", "version control", "repository"],
+    "gitlab": ["gitlab", "git", "version control", "repository"],
+    "go": ["go", "golang"],
+    "ignore": ["ignore", "exclude", "suppress", "disable"],
+    "java": ["java", "spring", "maven", "gradle"],
+    "javascript": ["javascript", "js", "node.js", "nodejs", "typescript", "ts"],
+    "metavariables": ["metavariables", "variables", "placeholders", "pattern variables"],
+    "oss": ["oss", "open source"],
+    "patterns": ["patterns", "rules", "expressions", "syntax patterns", "matching"],
+    "policy": ["policy", "policies", "governance", "compliance"],
+    "pro": ["pro", "semgrep pro", "commercial", "paid version", "enterprise"],
+    "python": ["python", "py", "django", "flask"],
+    "rules": ["rules", "patterns", "detectors", "checks", "rule writing", "rule creation"],
+    "rulewriting": ["rule writing", "write rules", "create rules", "custom rules", "rule development", "rule authoring"],
+    "saml": ["saml", "identity provider", "idp", "federation"],
+    "sast": ["sast", "static application security testing", "code security", "security analysis"],
+    "sca": ["sca", "supply chain", "dependencies", "vulnerabilities", "dependency scanning"],
+    "scan": ["scan", "scanning", "analysis", "check", "run"],
+    "scp": ["scp", "semgrep cloud platform", "semgrep app", "semgrep platform"],
+    "secrets": ["secrets", "api keys", "tokens", "credentials", "sensitive data"],
+    "sms": ["sms", "semgrep managed scanning", "managed scans", "cloud scanning"],
+    "ssc": ["ssc", "semgrep supply chain", "supply chain security", "dependency security"],
+    "sso": ["sso", "single sign-on", "single sign on", "authentication"],
+    "taint": ["taint", "taint analysis", "data flow", "taint mode", "taint tracking"],
+    "workflow": ["workflow", "pipeline", "automation", "ci/cd", "devops"]
+  },
+  "stopWords": [
+    "what", "is", "are", "how", "to", "the", "a", "an", "do", "does", "can", "i", "my"
+  ],
+  "searchableAttributes": [
+    "hierarchy_lvl1",
+    "hierarchy_lvl2",
+    "hierarchy_lvl3",
+    "hierarchy_lvl0",
+    "hierarchy.lvl1",
+    "hierarchy.lvl2",
+    "hierarchy.lvl3",
+    "hierarchy.lvl0",
+    "content",
+    "url"
+  ],
+  "displayedAttributes": [
+    "*"
+  ],
+  "rankingRules": [
+    "words",
+    "typo",
+    "proximity",
+    "attribute",
+    "sort",
+    "exactness"
+  ],
+  "filterableAttributes": [
+    "type",
+    "language",
+    "version",
+    "docusaurus_tag",
+    "hierarchy_lvl0",
+    "hierarchy_lvl1",
+    "hierarchy_lvl2",
+    "hierarchy.lvl0",
+    "hierarchy.lvl1",
+    "hierarchy.lvl2"
+  ],
+  "sortableAttributes": [
+    "hierarchy.lvl0",
+    "hierarchy.lvl1",
+    "hierarchy.lvl2"
+  ],
+  "distinctAttribute": "url",
+  "typoTolerance": {
+    "enabled": true,
+    "minWordSizeForTypos": {
+      "oneTypo": 3,
+      "twoTypos": 7
+    },
+    "disableOnWords": [],
+    "disableOnAttributes": []
+  },
+  "faceting": {
+    "maxValuesPerFacet": 100
+  },
+  "pagination": {
+    "maxTotalHits": 1000
+  }
+}
+
