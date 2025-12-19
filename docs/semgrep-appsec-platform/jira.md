@@ -20,7 +20,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 - You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
 - You must have at least one Jira project to set as the default location where tickets will be created.
-- Optional but recommended: Connect Jira to Semgrep using a service account, a non-personal account that multiple admins can manage without disruption.
+- Optional, but recommended: A [service account](https://support.atlassian.com/user-management/docs/understand-service-accounts/) to set up and configure the Jira integration.
 
 ## Features
 
