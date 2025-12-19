@@ -72,7 +72,7 @@ By default, projects on Managed Scans are configured with:
 
 ## Run scans in bulk
 
-You can scan multiple projects at once from the **Projects** page. This is particularly useful when you want to update multiple projects after changing your ruleset or configuration. 
+Semgrep Managed Scans enables you to scan multiple projects simultaneously, which is especially useful after updating your ruleset or configuration.
 
 To run scans in bulk, go to the **Projects** page, select the projects of interest, and click **Scan**.
 
