@@ -31,6 +31,13 @@ Semgrep Assistant:
 
 ## Features
 
+
+### Explanation
+Semgrep Assistant explains why a finding is a true positive by tying the rule’s message to the code that triggered it. Assistant highlights the relevant code and its surrounding context and explains how the rule applies in this case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
+
+This feature helps developers understand why the code is problematic, not just which rule fired it. Explanations are available for PR comments and in the Semgrep Assistant autotriage verdict box at the top of the findings **Details** page.
+
+
 ### Remediation
 
 Semgrep Assistant can provide remediation advice and autofixes, or suggested fixes, for Semgrep Code findings.
@@ -39,8 +46,6 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 With Assistant enabled, every PR or MR comment Semgrep pushes includes remediation guidance with information on fixing the issue. Assistant's remediation guidance provides step-by-step instructions on how to remediate the finding identified by Semgrep Code.
 
-![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
-_**Figure.** PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance._
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
