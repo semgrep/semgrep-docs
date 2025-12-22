@@ -46,20 +46,20 @@ This article includes instructions for setting up the MCP server with Cursor and
     python3 -m pip install semgrep
     ```
 
-2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
     ```bash
     semgrep --version
     ```
 
-3. Log in to Semgrep and install Semgrep Pro
+1. Log in to Semgrep and install Semgrep Pro
 
     ```
     semgrep login && semgrep install-semgrep-pro
     ```
 
-3. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
+1. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
 
-4. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
+1. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
 
     ```
     {
@@ -79,7 +79,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     }
     ```
 
-5. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
+1. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
 
 </TabItem>
 
