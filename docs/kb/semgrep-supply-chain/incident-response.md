@@ -109,7 +109,7 @@ However, if there are results, Semgrep shows the number of findings by project, 
 ![Advisory details dialog with findings found.](/img/ssc-incident-5.png#md-width)
 _**Figure**. Advisory details dialog with findings found._
 
-Click on the number of findings to go to the **Findings** page with a list of results for that project's branch.
+Click on the number of findings to go to the **Findings** page to see a list of results for that project's branch.
 
 ## 5. Remove any malicious versions and re-scan your project
 
