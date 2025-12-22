@@ -50,7 +50,7 @@ Furthermore, running a full scan with Semgrep rules provides clear visibility in
 
 ### Initiate scans with Semgrep Managed Scanning 
 
-Even if you're using Semgrep Managed Scans, you can choose to run full scans on any potentially affected repositories manually:
+If you're using Semgrep Managed Scans, you can choose to run full scans on any potentially affected repositories manually:
 
 1. Go to the **Projects** page in Semgrep App Platform.
 2. Select the projects of interest.
@@ -67,7 +67,6 @@ If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan
 
 If you have large repositories or difficulty accessing your CI/CD system, it may be most efficient to run a local scan with a single rule.
 
-You can do this by obtaining the rule from Semgrep, saving it to a locally accessible YAML file, and passing in the rule using the `--config` flag when invoking the scan:
 
 ```bash
 semgrep --config=rule.yaml 
