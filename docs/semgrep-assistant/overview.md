@@ -38,7 +38,7 @@ Semgrep Assistant:
 ### Explanation
 Semgrep Assistant explains why a finding is a true positive by tying the rule’s message to the code that triggered it. Assistant highlights the relevant code and its surrounding context and explains how the rule applies in this case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
 
-This feature helps developers understand why the code is problematic, not just which rule fired it. Explanations are available for PR comments and in the Semgrep Assistant autotriage verdict box at the top of the findings **Details** page.
+This feature helps developers understand why the code is problematic, not just which rule triggered it. Explanations appear in PR comments and in the Semgrep Assistant autotriage verdict box at the top of the findings **Details** page. Note that explanations are not available for custom rules or community rules. 
 
 
 ### Remediation
