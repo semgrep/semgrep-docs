@@ -53,7 +53,27 @@ This article includes instructions for setting up the MCP server with Cursor and
 
 3. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
 
-4. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
+4. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
+
+    ```
+    {
+    "version": 1,
+    "hooks": {
+        "stop": [
+        {
+            "command": "semgrep mcp -k stop-cli-scan -a cursor"
+        }
+        ],
+        "afterFileEdit": [
+        {
+            "command": "semgrep mcp -k record-file-edit -a cursor"
+        }
+        ]
+    }
+    }
+    ```
+
+5. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
 
 </TabItem>
 
