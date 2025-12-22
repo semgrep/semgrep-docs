@@ -79,8 +79,6 @@ This article includes instructions for setting up the MCP server with Cursor and
     }
     ```
 
-1. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
-
 </TabItem>
 
 <TabItem value='claude'>
