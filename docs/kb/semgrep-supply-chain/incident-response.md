@@ -38,13 +38,13 @@ You can use the Semgrep API to find matching malicious package versions in your 
 
 For all major security incidents, the Semgrep Security Research team responds within one business day, typically within four hours, and delivers rules to all customer accounts to check for malicious package versions.
 
-Due to time zones, holidays, and the sometimes subjective nature of incident severity, please contact Semgrep support to verify that we are actively working on a rule in response to a malware incident.
+Due to time zones, holidays, and the sometimes subjective nature of incident severity, please contact [Semgrep support](/docs/support) to verify that we are actively working on a rule in response to a malware incident.
 
 Otherwise, wait for a notification from Semgrep through regular channels, such as Slack, that the rules related to the incident have been deployed.
 
 ## 3. Initiate scans on potentially affected projects with Semgrep rules
 
-Your projects could be affected, even if the most recent scans showed no findings, if the malicious version of the dependency was introduced after the scan.
+If the malicious version of the dependency was introduced after the scan, your projects could be affected even if the most recent scans showed no findings. 
 
 Furthermore, running a full scan with Semgrep rules provides clear visibility into affected repositories and branches across all scanned code. See [View results from your Semgrep scans](#4-view-results-from-your-semgrep-scans) for more information.
 
@@ -72,7 +72,7 @@ If you have large repositories or difficulty accessing your CI/CD system, it may
 semgrep --config=rule.yaml 
 ```
 
-Ensure that you’ve logged in to Semgrep using `semgrep login` before you start your scan if you would like the findings to be visible in Semgrep AppSec Platform.
+If you would like the findings to be visible in Semgrep AppSec Platform, ensure that you are logged in using `semgrep login` before you start your scan.
 
 ### Scan results
 
@@ -92,9 +92,8 @@ _**Figure**. View affected projects for a specific advisory._
 
 If Semgrep provides you with a direct link in a notification, such as a Slack message, you can use that to view the same information.
 
-You may find it helpful to search by the package name to find the advisory:
+To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog:
 
-Click on the advisory in the list to open the **Advisory Details** dialog.
 
 ![Search for advisories by package name.](/img/ssc-incident-4.png#md-width)
 _**Figure**. Search for advisories by package name._
