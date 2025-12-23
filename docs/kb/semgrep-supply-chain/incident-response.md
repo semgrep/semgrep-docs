@@ -22,10 +22,12 @@ The [dependency search](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) 
 - Finding a specific package using the `@` syntax
 - Finding all packages with versions greater or less than a specified version using the `<` or `>` operands
 
-For example, to find all versions of `lodash` that are greater than version 4.17, enter `lodash@>4.17`:
+For example, to find all versions of `lodash` that are greater than version 4.17, enter `lodash@>4.17` :
 
 ![Sample dependency search for lodash4.17 or later.](/img/ssc-incident-1.png#md-width)
 _**Figure**. Sample dependency search for lodash4.17 or later._
+
+You can also use a URL like this: https://semgrep.dev/orgs/my_company/supply-chain/t/dependencies?q=lodash%40%>4.17
 
 ### Find malicious versions of packages using the Semgrep API
 
@@ -103,6 +105,7 @@ If there are no findings for the rules run on the projects scanned, Semgrep show
 ![Advisory details dialog with no findings found.](/img/ssc-incident-6.png#md-width)
 _**Figure**. Advisory details dialog with no findings found._
 
+Before concluding you’re not affected, verify that the rules corresponding to the incident were included in recent scans.
 
 However, if there are results, Semgrep shows the number of findings by project, as well as the breakdown of which branches in the codebase are impacted:
 
