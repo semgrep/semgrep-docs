@@ -1,5 +1,5 @@
 ---
-description: How to respond to a malware incident using Semgrep Supply Chain. 
+description: How to respond to a malware incident using Semgrep Supply Chain.
 tags:
   - Semgrep Supply Chain
 ---
@@ -36,6 +36,82 @@ You can use the Semgrep API to find matching malicious package versions in your 
 - [List dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListDependencies)
 - [Create a new SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListDependencies)
 
+#### List dependencies
+
+Use this endpoint to search for specific packages and versions across your deployment. You can filter by ecosystem and specify version ranges or exact versions.
+
+```bash
+curl -L -g 'https://semgrep.dev/api/v1/deployments/{your_deployment_id}/dependencies' \
+  -H 'accept: application/json' \
+  -H 'authorization: Bearer <YOUR_SEMGREP_APP_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "dependencyFilter": {
+      "ecosysystem": [
+        "npm"
+      ],
+      "packageFilters": [
+        {
+          "name": "lodash",
+          "versionLowerBound": ">4.17"
+        },
+        {
+          "name": "jridgewell-resolve-uri-latest",
+          "exactVersion": "9999.999.999"
+        }
+      ]
+    },
+    "deploymentId": <your_deployment_id__int>
+  }'
+```
+
+Replace `{your_deployment_id}` in the URL and `<your_deployment_id__int>` in the request body with your deployment ID, and `<YOUR_SEMGREP_APP_TOKEN>` with your API token.
+
+#### Create a new SBOM export job
+
+Use this endpoint to generate a Software Bill of Materials (SBOM) for a specific repository. This is a multi-step process: first create an export job, then poll for its completion to retrieve the download URL.
+
+**Step 1: Create the export job**
+
+```bash
+curl -L 'https://semgrep.dev/api/v1/deployments/{your_deployment_id}/sbom/export' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <YOUR_SEMGREP_APP_TOKEN>' \
+  -d '{
+    "deploymentId": <your_deployment_id__int>,
+    "repositoryId": <repository_id_to_export_for__int>,
+    "sbomOutputFormat": "SBOM_OUTPUT_FORMAT_JSON"
+  }'
+```
+
+This returns a task token that you'll use to check the job status:
+
+```json
+{
+  "taskToken": "<TASK_TOKEN_FOR_EXPORT_JOB>"
+}
+```
+
+**Step 2: Poll for job completion**
+
+Use the task token from Step 1 to check the export job status:
+
+```bash
+curl -L 'https://semgrep.dev/api/v1/deployments/{your_deployment_id}/sbom/export/{TASK_TOKEN_FOR_EXPORT_JOB}' \
+  -H 'Authorization: Bearer <YOUR_SEMGREP_APP_TOKEN>'
+```
+
+When the job completes, the response includes a signed download URL:
+
+```json
+{
+  "status": "SBOM_EXPORT_STATUS_COMPLETED",
+  "downloadUrl": "https://s3.amazon.com/signed/url/to/download/sbom"
+}
+```
+
+You can then download the SBOM from the provided URL.
+
 ## 2. Verify that your next scan includes rules for the incident
 
 For all major security incidents, the Semgrep Security Research team responds within one business day, typically within four hours, and delivers rules to all customer accounts to check for malicious package versions.
@@ -46,11 +122,11 @@ Otherwise, wait for a notification from Semgrep through regular channels, such a
 
 ## 3. Initiate scans on potentially affected projects with Semgrep rules
 
-If the malicious version of the dependency was introduced after the scan, your projects could be affected even if the most recent scans showed no findings. 
+If the malicious version of the dependency was introduced after the scan, your projects could be affected even if the most recent scans showed no findings.
 
 Furthermore, running a full scan with Semgrep rules provides clear visibility into affected repositories and branches across all scanned code. See [View results from your Semgrep scans](#4-view-results-from-your-semgrep-scans) for more information.
 
-### Initiate scans with Semgrep Managed Scanning 
+### Initiate scans with Semgrep Managed Scanning
 
 If you're using Semgrep Managed Scans, you can choose to run full scans on any potentially affected repositories manually:
 
@@ -69,9 +145,8 @@ If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan
 
 If you have large repositories or difficulty accessing your CI/CD system, it may be most efficient to run a local scan with a single rule.
 
-
 ```bash
-semgrep --config=rule.yaml 
+semgrep --config=rule.yaml
 ```
 
 If you would like the findings to be visible in Semgrep AppSec Platform, ensure that you are logged in using `semgrep login` before you start your scan.
@@ -96,7 +171,6 @@ If Semgrep provides you with a direct link in a notification, such as a Slack me
 
 To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog:
 
-
 ![Search for advisories by package name.](/img/ssc-incident-4.png#md-width)
 _**Figure**. Search for advisories by package name._
 
@@ -118,7 +192,7 @@ Click on the number of findings to go to the **Findings** page to see a list of 
 
 Once the incident's impact is clear, immediately remove the malicious dependency from your codebase, including all repositories and branches. The fastest way to do it is often to downgrade to an uncompromised version.
 
-It is essential to follow any other response steps specific to the incident, which could involve changes to CI/CD workflows, internal package registries, and other aspects of your software supply chain. 
+It is essential to follow any other response steps specific to the incident, which could involve changes to CI/CD workflows, internal package registries, and other aspects of your software supply chain.
 
 Once you’ve completed your incident response, re-run a Supply Chain scan on the same set of repositories and verify that the outcome shows no findings for the malicious advisory.
 
