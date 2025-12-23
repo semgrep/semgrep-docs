@@ -65,8 +65,6 @@ curl -L -g 'https://semgrep.dev/api/v1/deployments/{your_deployment_id}/dependen
   }'
 ```
 
-Replace `{your_deployment_id}` in the URL and `<your_deployment_id__int>` in the request body with your deployment ID, and `<YOUR_SEMGREP_APP_TOKEN>` with your API token.
-
 #### Create a new SBOM export job
 
 Use this endpoint to generate a Software Bill of Materials (SBOM) for a specific repository. This is a multi-step process: first create an export job, then poll for its completion to retrieve the download URL.
