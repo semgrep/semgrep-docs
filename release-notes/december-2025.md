@@ -89,5 +89,7 @@ The following updates were made to Semgrep in December 2025.
 - ==Updated Docker base image. Semgrep’s Docker image now uses Alpine Linux 3.23==
 
 * The following versions of the OSS Engine were released in December 2025:
-  * [<i class="fas fa-external-link fa-xs"></i> TBD](https://github.com/semgrep/semgrep/releases/tag/vTBD)
-
+  * 
+* The following versions of the OSS Engine were released in November 2025:
+  * [<i class="fas fa-external-link fa-xs"></i> 1.145.0](https://github.com/semgrep/semgrep/releases/tag/v1.145.0)
+    * [<i class="fas fa-external-link fa-xs"></i> 1.146.0](https://github.com/semgrep/semgrep/releases/tag/v1.146.0)
