@@ -141,13 +141,14 @@ If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan
 
 ### Initiate a local scan
 
-If you have large repositories or difficulty accessing your CI/CD system, it may be most efficient to run a local scan with a single rule.
+If you have large repositories or difficulty accessing your CI/CD system, it may be most efficient to run a local scan.
 
-```bash
-semgrep --config=rule.yaml
-```
+In the directory where you want to run the scan, choose one of the following commands:
 
-If you would like the findings to be visible in Semgrep AppSec Platform, ensure that you are logged in using `semgrep login` before you start your scan.
+- Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform.
+- Run `semgrep scan --config supply-chain .` if you want to scan without a Git checkout. In this mode, findings are available for local review and are not sent to the Semgrep AppSec Platform.
+
+Note: to view findings in the Semgrep AppSec Platform, you must be logged in before running a scan. Log in by running `semgrep login`.
 
 ### Scan results
 
@@ -184,7 +185,7 @@ However, if there are results, Semgrep shows the number of findings by project, 
 ![Advisory details dialog with findings found.](/img/ssc-incident-5.png#md-width)
 _**Figure**. Advisory details dialog with findings found._
 
-Click on the number of findings to go to the **Findings** page to see a list of results for that project's branch.
+Click on the number of findings to go to the **Findings** page, where you will see a list of results for that project's branch.
 
 ## 5. Remove any malicious versions and re-scan your project
 
@@ -196,7 +197,7 @@ Once you’ve completed your incident response, re-run a Supply Chain scan on th
 
 ## 6. Block the introduction of malicious packages
 
-To reduce the frequency of these sorts of issues, [create Supply Chain policies](/semgrep-supply-chain/policies#create-a-policy) to block the introduction of malicious package versions.
+To reduce the frequency of such issues, [create Supply Chain policies](/semgrep-supply-chain/policies#create-a-policy) to block the introduction of malicious package versions.
 
 ## 7. Additional steps
 
