@@ -145,10 +145,9 @@ If you have large repositories or difficulty accessing your CI/CD system, it may
 
 In the directory where you want to run the scan, choose one of the following commands:
 
-- Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform.
+- Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform. Note: to view findings in the Semgrep AppSec Platform, you must be logged in before running a scan. Log in by running `semgrep login`.
 - Run `semgrep scan --config supply-chain .` if you want to scan without a Git checkout. In this mode, findings are available for local review and are not sent to the Semgrep AppSec Platform.
 
-Note: to view findings in the Semgrep AppSec Platform, you must be logged in before running a scan. Log in by running `semgrep login`.
 
 ### Scan results
 
