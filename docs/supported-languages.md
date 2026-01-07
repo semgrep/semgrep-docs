@@ -378,7 +378,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 #### CVE coverage
 
-For packages used by customers with an active, paid subscription, Semgrep’s reachability analysis covers all **critical and high severity** CVEs from [supported sources](#supported-sources) starting in 2017 for all supported languages.
+For customers with an active paid subscription, Semgrep’s reachability analysis covers all **critical and high severity** CVEs from [supported sources](#supported-sources) starting in 2017 across all supported languages.
 
 ##### Supported sources
 
