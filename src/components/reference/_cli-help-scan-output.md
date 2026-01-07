@@ -60,12 +60,6 @@ OPTIONS
            Explain how non-local values reach the location of a finding (only
            affects text and SARIF output).
 
-       --debug
-           All of --verbose, but with additional debugging information.
-
-       --develop
-           Living on the edge.
-
        --disable-nosem
            negates --enable-nosem
 
@@ -124,9 +118,6 @@ OPTIONS
 
        --exclude-rule=VAL
            Skip any rule with the given id. Can add multiple times.
-
-       --experimental
-           Enable experimental features.
 
        -f VAL, -c VAL, --config=VAL (absent SEMGREP_RULES env)
            YAML configuration file, directory of YAML files ending in
@@ -212,9 +203,6 @@ OPTIONS
            Parse pattern and all files in specified language. Must be used
            with -e/--pattern. 
 
-       --legacy
-           Prefer old (legacy) behavior.
-
        --matching-explanations
            Add debugging information in the JSON output to trace how
            different parts of a rule are matched (a.k.a., "Inspect Rule" in
@@ -285,9 +273,6 @@ OPTIONS
        --no-time
            negates --time
 
-       --no-trace
-           negates --trace
-
        --novcs
            Assume the project is not managed by a version control system
            (VCS), even if the project appears to be under version control
@@ -325,10 +310,6 @@ OPTIONS
            Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
            Engine. See https://semgrep.dev/products/pro-engine/ for more.
 
-       --profile
-           Record profiles via Pyro Caml. By default sends them to
-           localhost:4040
-
        --project-root=VAL
            Semgrep normally determines the type of project (git or novcs) and
            the project root automatically. The project root is then used to
@@ -347,9 +328,6 @@ OPTIONS
            'sources' directory but not if it is a symbolic link to a
            directory '/var/sources' (assuming '/var' is not a symbolic link).
            REQUIRES --experimental or --semgrepignore-v2.
-
-       -q, --quiet
-           Only output findings.
 
        --remote=VAL
            Remote will quickly check out and scan a remote git repository of
@@ -435,18 +413,6 @@ OPTIONS
            Maximum number of rules that can time out on a file before the
            file is skipped. If set to 0 will not have limit. Defaults to 3. 
 
-       --trace
-           Record traces from Semgrep scans to help debugging. This feature
-           is meant for internal use and may be changed or removed without
-           warning. Currently only used by `semgrep lsp`. 
-
-       --trace-endpoint=VAL
-           Endpoint to send OpenTelemetry traces to, if `--trace` is present.
-           The value may be `semgrep-prod` (default), `semgrep-dev`,
-           `semgrep-local`, or any valid URL. This feature is meant for
-           internal use and may be changed or removed without warning.
-           Currently only used by `semgrep lsp`. 
-
        --use-git-ignore
            '--use-git-ignore' is Semgrep's default behavior. Under the
            default behavior, Git-tracked files are not excluded by Gitignore
@@ -457,10 +423,6 @@ OPTIONS
            submodules will be scanned unless excluded by other means
            ('.semgrepignore', '--exclude', etc.). This flag has no effect if
            the scanning root is not in a Git repository.
-
-       -v, --verbose
-           Show more details about what rules are running, which files failed
-           to parse, etc. 
 
        --validate
            Validate configuration file(s). This will check YAML files for
@@ -476,11 +438,63 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+COMMON OPTIONS
+       --debug
+           All of --verbose, but with additional debugging information.
+
+       --develop
+           Living on the edge.
+
+       --experimental
+           Enable experimental features.
+
+       --help[=FMT] (default=auto)
+           Show this help in format FMT. The value FMT must be one of auto,
+           pager, groff or plain. With auto, the format is pager or plain
+           whenever the TERM env var is dumb or undefined.
+
+       --legacy
+           Prefer old (legacy) behavior.
+
+       --no-trace
+           negates --trace
+
+       --profile
+           Record profiles via Pyro Caml. By default sends them to
+           localhost:4040
+
+       -q, --quiet
+           Only output findings.
+
+       --trace
+           Record traces from Semgrep scans to help debugging. This feature
+           is meant for internal use and may be changed or removed without
+           warning. Currently only used by `semgrep lsp`. 
+
+       --trace-endpoint=VAL
+           Endpoint to send OpenTelemetry traces to, if `--trace` is present.
+           The value may be `semgrep-prod` (default), `semgrep-dev`,
+           `semgrep-local`, or any valid URL. This feature is meant for
+           internal use and may be changed or removed without warning.
+           Currently only used by `semgrep lsp`. 
+
+       -v, --verbose
+           Show more details about what rules are running, which files failed
+           to parse, etc. 
+
+EXPERIMENTAL OPTIONS
+       Any option starting with '--x-' is experimental and may be removed
+       from semgrep without notice.
+
+       --x-disable-transitive-reachability
+           [INTERNAL] Disable transitive reachability analysis regardless of
+           app-based configuration.
+
        --x-eio
            [INTERNAL] <deprecated>
 
        --x-group-taint-rules
-           <internal, do not use>
+           [INTERNAL] Do not use
 
        --x-ignore-semgrepignore-files
            [INTERNAL] Ignore all '.semgrepignore' files found in the project
@@ -500,6 +514,13 @@ OPTIONS
            --x-ls. THIS OPTION IS NOT PART OF THE SEMGREP API AND MAY CHANGE
            OR DISAPPEAR WITHOUT NOTICE. 
 
+       --x-mcp
+           [INTERNAL] This flag indicates that the scan is run by the MCP
+           server. It is used to output extra info (e.g. rules, num bytes
+           scanned) at the end of the scan for the MCP server to use and
+           makes sure that metrics are not sent so that the MCP server can
+           send its own metrics.
+
        --x-no-python-schema-validation
            [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
            validate rules files
@@ -508,7 +529,7 @@ OPTIONS
            [INTERNAL] Rely on legacy Parmap-based parallelism
 
        --x-pro-naming
-           <internal, do not use>
+           [INTERNAL] Do not use
 
        --x-semgrepignore-filename=FILENAME
            [INTERNAL] Files named FILENAME shall be consulted instead of the
@@ -520,25 +541,33 @@ OPTIONS
            Upon exit, print on stderr a report showing how long certain
            operations took, in an unspecified text format.
 
-       --x-tr
-           <internal, do not use>
-
-COMMON OPTIONS
-       --help[=FMT] (default=auto)
-           Show this help in format FMT. The value FMT must be one of auto,
-           pager, groff or plain. With auto, the format is pager or plain
-           whenever the TERM env var is dumb or undefined.
+       --x-tr, --x-enable-transitive-reachability
+           [INTERNAL] Enable transitive reachability analysis regardless of
+           app-based configuration. Typically used with
+           '--allow-local-builds'.
 
 EXIT STATUS
        semgrep scan exits with:
 
-       0   on success.
+       0   OK
 
-       123 on indiscriminate errors reported on standard error.
+       1   some findings
 
-       124 on command line parsing errors.
+       2   fatal error
 
-       125 on unexpected internal errors (bugs).
+       3   invalid target code
+
+       4   invalid pattern
+
+       5   unparseable YAML
+
+       7   missing configuration
+
+       8   invalid language
+
+       13  invalid API key
+
+       99  not implemented in osemgrep
 
 ENVIRONMENT
        These environment variables affect the execution of semgrep scan:
