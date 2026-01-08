@@ -23,10 +23,10 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 | - | - |
 | Azure DevOps Cloud | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | Azure DevOps Server | <ul><li>Semgrep Assistant</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
+| Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scans†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
+| Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scans†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage by PR comment require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitHub Free | - |
 | GitHub Pro | - |
 | GitHub Team | - |
