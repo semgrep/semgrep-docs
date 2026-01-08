@@ -185,6 +185,19 @@ You can triage your Semgrep AppSec Platform findings displayed as comments in PR
 Before proceeding, ensure that you have:
  - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
  - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
+ - For SCMs other than GitHub: granted Semgrep permission to interact with pull requests and create webhooks for your SCM, and enabled the **Incoming webhooks** option on the SCM connection.
+
+### Granting permissions
+
+Use the Managed Scans onboarding guide for your SCM if you need assistance granting the correct permissions to enable pull request interaction and webhook management. 
+
+Read access to code is not required for triaging findings through PR or MR comments and may be omitted if token scopes allow.
+
+- [GitLab](https://semgrep.dev/docs/deployment/managed-scanning/gitlab#prerequisites-and-permissions)
+- [Bitbucket](https://semgrep.dev/docs/deployment/managed-scanning/bitbucket#prerequisites-and-permissions)
+- [Azure DevOps](https://semgrep.dev/docs/deployment/managed-scanning/azure#prerequisites-and-permissions)
+
+
 
 To triage a finding:
 
