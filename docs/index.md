@@ -132,9 +132,10 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <!-- 5-7 bullets across the product suite -->
 
 - New **Priority** tab on the **Findings** page surfaces high-priority findings. Admins can customize priority categories and save filter presets for all users.
-- New **Provisionally ignored** finding state moves unreachable, invalid, or Assistant false positives out of your default open list while remaining available for review.
+- New **Provisionally ignored** finding status moves unreachable, invalid, or Assistant false positives out of your default open list while remaining available for review.
 - Semgrep Secrets findings are now assigned **Critical** severity, ensuring secrets are prioritized appropriately in your security workflow.
 - Pull request comments for Semgrep rules now include **AI-generated explanations** to help developers understand findings, with concise summaries and expandable details.
+- Integration with Cursor: Semgrep now supports post-code-generation workflows in Cursor via new MCP flags.
 - The **Findings** page has been redesigned with improved filters and navigation. The code path now opens a finding's **Details** page for easier navigation.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
