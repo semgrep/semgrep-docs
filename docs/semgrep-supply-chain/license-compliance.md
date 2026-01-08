@@ -60,9 +60,9 @@ License information is typically stored in the package's repository alongside th
 - A license file, such as `LICENSE` or `LICENSE.txt`
 - The manifest file, such as the `pyproject.toml` or `package.json`, which typically specifies a `license` field
 
-Semgrep uses [deps.dev](https://deps.dev/) as the primary source for license data, which is then displayed in the product.
+Semgrep uses [deps.dev](https://deps.dev/) as the primary source for license data, which is then displayed in Semgrep AppSec Platform.
 
-[deps.dev](https://deps.dev/) aggregates license metadata from package registry APIs (e.g. PyPI or npm). This metadata is provided by package maintainers via their manifest files and may be missing, incomplete, or inaccurate.
+[deps.dev](https://deps.dev/) aggregates license metadata from package registry APIs, such as PyPI and npm. This metadata is provided by package maintainers through their manifest files and may be missing, incomplete, or inaccurate.
 
 ## License categories
 
