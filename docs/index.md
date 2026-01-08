@@ -132,20 +132,10 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <!-- 5-7 bullets across the product suite -->
 
 - New **Priority** tab on the **Findings** page surfaces high-priority findings. Admins can customize priority categories and save filter presets for all users.
-- The **Findings** page has been redesigned with improved filters, navigation, and an in-product tour. The code path now opens a finding's **Details** page for easier navigation.
-- Pull request comments for Semgrep rules now include **AI-generated explanations** to help developers understand findings, with concise summaries and expandable details.
 - New **Provisionally ignored** finding state moves unreachable, invalid, or Assistant false positives out of your default open list while remaining available for review.
 - Semgrep Secrets findings are now assigned **Critical** severity, ensuring secrets are prioritized appropriately in your security workflow.
-
-[See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
-
-<h3>November 2025 release notes summary</h3>
-<!-- 5-7 bullets across the product suite -->
-
-- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and, for Cortex, internet-exposure data from these CNAPP providers to better prioritize findings.
-- Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
-- Assistant now automatically analyzes **all new Critical and High-severity findings** with **Medium or High confidence** in full scans, removing the previous 10-issue limit.
-- The **Settings > General** tab now displays all Semgrep product settings on a single page.
+- Pull request comments for Semgrep rules now include **AI-generated explanations** to help developers understand findings, with concise summaries and expandable details.
+- The **Findings** page has been redesigned with improved filters and navigation. The code path now opens a finding's **Details** page for easier navigation.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

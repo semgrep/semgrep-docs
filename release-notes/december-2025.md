@@ -27,7 +27,7 @@ The following updates were made to Semgrep in December 2025.
 - Admins can now save Priority tab filters for all users. Admins can save filter presets that control which findings appear in the Priority tab across the organization, making it easier to align teams on what matters most.
 
 ### Changed
-- Updated the **Findings** page with redesigned filters, improved navigation, and more intuitive links. The code path now opens a finding's **Details** page, and an in-product tour introduces the new layout.
+- Updated the **Findings** page with redesigned filters, improved navigation, and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
 - On the **Projects** page, project names now link directly to project details, making it easier to jump to scan information from the project list.
 - Easier access to ticketing integration settings. When no ticketing integration is configured, the app now links directly to the relevant settings page, making it easier to get set up.
 - The triage-by-comment setting is now available in the global settings section, making it easier to manage across products.
