@@ -60,7 +60,9 @@ License information is typically stored in the package's repository alongside th
 - A license file, such as `LICENSE.txt` or `LICENSE.md`
 - The manifest file or lockfile, such as the `pyproject.toml` or `package.json` file, which typically uses the `license` key
 
-[deps.dev](https://deps.dev/) is a service that builds and annotates dependency graphs for many open source packages. It is the primary source Semgrep uses to retrieve license data, which it then displays to you. Because the package maintainers provide this information and it isn’t validated, you may see unexpected results in Semgrep. Additionally, if your project uses an older version of a package, ensure that your lockfile or manifest file gets updated with the most recent license information.
+Semgrep uses [deps.dev](https://deps.dev/), a service that builds and annotates dependency graphs for open source packages, as the primary source for license data, which is then displayed to you.
+
+Package maintainers provide license information in the project repository, [deps.dev](https://deps.dev/) then sources. The information provided isn’t validated, however, so you may see unexpected results in Semgrep when viewing license data.
 
 ## License categories
 
