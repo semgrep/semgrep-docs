@@ -106,17 +106,6 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 
 <ViewDetailsSsc />
 
-<dl>
-<dt>A - Upgrade badge</dt>
-<dd>Indicates if an upgrade is safe or may break your codebase.</dd>
-<dt>B - The line of code (LOC) of the finding</dt>
-<dd>This shows the LOC that caused the finding; this does <strong>not</strong> show the LOC where the breaking changes occur.</dd>
-<dt>C - Link to change list drawer</dt>
-<dd>Click this link to display the LOC where a breaking change may occur.</dd>
-<dt>D - Open fix PR button</dt>
-<dd>Click this button to open a PR with the code to upgrade the dependency to a safe version, if any.</dd>
-</dl>
-
 ### Create a pull request with fixes
 
 1. Navigate to the **Details** page of the finding for which you want to make a pull request.

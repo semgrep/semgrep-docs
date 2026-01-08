@@ -1,7 +1,4 @@
-To view detailed information about a finding:
-
-1. Within Semgrep AppSec Platform, navigate to the **Supply Chain** page. By default this page loads the **Vulnerabilities** tab.
-1. Locate the finding you want to review, then click **Details**.
+To view detailed information about a finding in Semgrep AppSec Platform, go to the **Supply Chain** page. Locate the finding you want to review, then click **Details**.
 
 The details page is divided into several panels:
 
