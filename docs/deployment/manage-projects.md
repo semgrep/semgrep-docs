@@ -8,6 +8,8 @@ tags:
  - Semgrep AppSec Platform
 ---
 
+import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
+
 # Manage projects
 
 View, sort, and tag your projects through the **Projects** page. Refer to this page to manage and troubleshoot thousands of repositories by identifying scan issues or scans with a high number of findings.
@@ -92,7 +94,7 @@ See the following pages for more information:
 - [Set a primary branch](/deployment/primary-branch).
 - [Set tags](/semgrep-appsec-platform/tags).
 
-### Delete a project
+## Delete a project
 
 Deleting a project removes all of its findings, metadata, and other records from Semgrep AppSec Platform.
 
