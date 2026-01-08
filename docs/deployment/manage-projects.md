@@ -91,3 +91,9 @@ See the following pages for more information:
 - For Semgrep Managed Scans users: [configure your scans](/deployment/managed-scanning/overview).
 - [Set a primary branch](/deployment/primary-branch).
 - [Set tags](/semgrep-appsec-platform/tags).
+
+### Delete a project
+
+Deleting a project removes all of its findings, metadata, and other records from Semgrep AppSec Platform.
+
+<DeleteAProject />
