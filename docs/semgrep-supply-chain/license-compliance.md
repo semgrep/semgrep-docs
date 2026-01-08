@@ -57,12 +57,12 @@ To change the policies of packages based on the license:
 
 License information is typically stored in the package's repository alongside the source code. You can generally find this information in:
 
-- A license file, such as `LICENSE.txt` or `LICENSE.md`
-- The manifest file or lockfile, such as the `pyproject.toml` or `package.json` file, which typically uses the `license` key
+- A license file, such as `LICENSE` or `LICENSE.txt`
+- The manifest file, such as the `pyproject.toml` or `package.json`, which typically specifies a `license` field
 
-Semgrep uses [deps.dev](https://deps.dev/), a service that builds and annotates dependency graphs for open source packages, as the primary source for license data, which is then displayed to you.
+Semgrep uses [deps.dev](https://deps.dev/) as the primary source for license data, which is then displayed in the product.
 
-Package maintainers provide license information in the project repository, [deps.dev](https://deps.dev/) then sources. The information provided isn’t validated, however, so you may see unexpected results in Semgrep when viewing license data.
+[deps.dev](https://deps.dev/) aggregates license metadata from package registry APIs (e.g. PyPI or npm). This metadata is provided by package maintainers via their manifest files and may be missing, incomplete, or inaccurate.
 
 ## License categories
 
