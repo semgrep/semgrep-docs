@@ -53,6 +53,15 @@ To change the policies of packages based on the license:
 1. Click the permission (**Allow**, **Comment**, or **Block**) you want to set the license to.
 2. **Optional**: Block entire categories of licenses by clicking on the **Set all to** drop-down box next to the license category.
 
+## License information
+
+License information is typically stored in the package's repository alongside the source code. You can generally find this information in:
+
+- A license file, such as `LICENSE.txt` or `LICENSE.md`
+- The manifest file or lockfile, such as the `pyproject.toml` or `package.json` file, which typically uses the `license` key
+
+[deps.dev](https://deps.dev/) is a service that builds and annotates dependency graphs for many open source packages. It is the primary source Semgrep uses to retrieve license data, which it then displays to you. Because the package maintainers provide this information and it isn’t validated, you may see unexpected results in Semgrep. Additionally, if your project uses an older version of a package, ensure that your lockfile or manifest file gets updated with the most recent license information.
+
 ## License categories
 
 Semgrep Supply Chain can identify the following licenses and license categories.
