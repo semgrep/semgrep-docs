@@ -57,6 +57,17 @@ Confirm that you have the correct connection and access:
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket project exists and is correct.
 
+#### Triage through PR comments
+
+If you want developers to able to triage findings via their MR comments, without leaving Bitbucket, you must have:
+
+- Bitbucket Data Center v8.8 or above
+- A Bitbucket HTTP access token in the Source code manager connection to Semgrep created by a user with the Project Admin role.
+
+This access token must be created with PROJECT_ADMIN permissions. Project-level webhooks are required to support triage though PR comments.
+
+After providing a token with the appropriate role and permissions, enable the **Incoming webhooks** toggle on the Source code manager connection for the Bitbucket project.
+
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />

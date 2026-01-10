@@ -54,6 +54,22 @@ PR comments are enabled by default for users who have connected their Azure DevO
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Azure DevOps project exists and is correct.
 
+#### Triage through PR comments
+
+If you want developers to able to triage findings through their PR comments, without leaving Azure DevOps, the token provided in the Source code manager connection for the project:
+
+* Must be assigned the Owner or Project Collection Administrator role for the organization
+* Must be authorized with Full access
+
+After providing a token with the appropriate role and permissions, enable the **Incoming webhooks** toggle on the Source code manager connection for the Azure DevOps project. Webhooks are required to support triage through comment.
+
+Once you have triage through PR comments fully configured, you can add restrictions to the token provided to Semgrep. The scopes you must assign to the token include:
+
+* Code: Status
+* Member Entitlement Management: Read
+* Project and Team: Read & write
+* Pull Request Threads: Read & write
+
 ### Set up the configuration file
 
 In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format <PL>organization</PL>/<PL>project</PL>:
@@ -92,7 +108,7 @@ steps:
           export SEMGREP_BASELINE_REF='origin/main'
           export AZURE_TOKEN=$(System.AccessToken)
           git fetch origin main:origin/main
-          semgrep ci 
+          semgrep ci
       fi
   - task: Bash@3
     inputs:

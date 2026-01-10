@@ -105,13 +105,26 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 - You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
 
-
 ### Confirm your Semgrep account's connection
 
 Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket workspace exists and is correct.
+
+#### Triage through PR comments
+
+If you want developers to able to triage findings via their MR comments, without leaving Bitbucket, you must have provided a Bitbucket workspace access token to Semgrep. Triage through PR comments is not supported with repository access tokens.
+
+The workspace access tokens must be created by a user with the Product Admin role. The scopes you must assign to the token include:
+
+* webhook (read and write)
+* repository (read and write)
+* pullrequest (read and write)
+* project (admin)
+* account (read)
+
+Once you have triage through PR comments fully configured, you can update the token's role and scopes to be more restrictive (how restrictive?).
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
