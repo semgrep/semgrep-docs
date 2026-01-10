@@ -31,7 +31,7 @@ import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-c
 
 <DeploymentJourney />
 
-Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
+Semgrep can create **merge request (MR) comments** in your GitLab repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. These comments are a means for security teams, or any team responsible for creating standards, to help their fellow developers write safe and standards-compliant code.
 
 Automated comments on GitLab merge requests are displayed as follows:
 
@@ -56,6 +56,24 @@ PR comments are enabled by default for users who have connected their GitLab gro
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitLab group exists and is correct.
+
+#### Triage though MR comment
+
+If you want developers to able to triage findings via their MR comments, without leaving GitLab, you must also have one of the following plans:
+
+- GitLab Premium
+- GitLab Ultimate
+- GitLab Self Managed
+
+The token used in the Source code manager (SCM) connection to the GitLab group must have one of the following roles:
+
+- `Maintainer`
+- `Owner`
+- `Admin`
+
+This is because GitLab repositories require the enablement of webhooks allow Semgrep to be notified of new review comments. After providing a token with the appropriate role, enable the **Incoming webhooks** toggle on the SCM connection.
+
+Once the toggle is enabled and webhooks have been created, you can downgrade the role assigned to the token to `Developer`.
 
 ### Configure comments for Semgrep Code
 
