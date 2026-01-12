@@ -21,7 +21,6 @@ The following updates were made to Semgrep in December 2025.
 ### Added
 - Added a new **Priority** tab on **Findings** page to surface high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save Priority tab filters for all users.
 - Added a new **Provisionally ignored** finding status.
-- ==Automations can now trigger based on specific rule IDs across products and ruleset IDs for Code findings, giving you more precise control over when automations run.==
 - Commit author emails now appear in findings when available.
 
 ### Changed
