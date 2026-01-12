@@ -189,15 +189,12 @@ Before proceeding, ensure that you have:
 
 ### Granting permissions
 
-Use the Managed Scans onboarding guide for your SCM if you need assistance granting the correct permissions to enable pull request interaction and webhook management.
+Use the steps included under **Triage through PR/MR comment** in the PR/MR comment guides if you need assistance granting the correct permissions to enable pull request interaction and webhook management.
 
-Read access to code is not required for triaging findings through PR or MR comments and may be omitted if token scopes allow.
-
-- [GitLab](https://semgrep.dev/docs/deployment/managed-scanning/gitlab#prerequisites-and-permissions)
-- [Bitbucket](https://semgrep.dev/docs/deployment/managed-scanning/bitbucket#prerequisites-and-permissions)
-- [Azure DevOps](https://semgrep.dev/docs/deployment/managed-scanning/azure#prerequisites-and-permissions)
-
-
+- [GitLab](https://semgrep.dev/docs/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
+- [Bitbucket Cloud](https://semgrep.dev/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
+- [Bitbucket Data Center](https://semgrep.dev/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
+- [Azure DevOps](https://semgrep.dev/docs/semgrep-appsec-platform/azure-pr-commands#triage-through-pr-comment)
 
 To triage a finding:
 
