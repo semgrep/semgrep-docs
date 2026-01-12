@@ -30,7 +30,7 @@ Semgrep Assistant:
 - Requires the Semgrep AppSec Platform for its use
 - Auto-analyzes many, but not all, findings during scans 
   - For full scans, all *new* issues that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
-  - For diff-aware scans (pull pequest or merge request scans), up to 10 new issues are auto-analyzed per scan
+  - For diff-aware scans (pull request or merge request scans), up to 10 new issues are auto-analyzed per scan
 
 ## Features
 
@@ -38,7 +38,7 @@ Semgrep Assistant:
 ### Explanation
 Semgrep Assistant explains why a finding is a true positive by tying the rule’s message to the code that triggered it. Assistant highlights the relevant code and its surrounding context and explains how the rule applies in this case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
 
-This feature helps developers understand why the code is problematic, not just which rule triggered it. Explanations appear in PR comments and in the Semgrep Assistant autotriage verdict box at the top of the findings **Details** page. Note that explanations are not available for custom rules or community rules. 
+This feature helps you understand why the code is problematic, not just which rule triggered it. Explanations appear in pull request comments and in the Semgrep Assistant autotriage verdict box at the top of the findings **Details** page. Note that explanations are not available for custom rules or community rules. 
 
 
 ### Remediation
