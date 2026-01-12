@@ -82,7 +82,7 @@ The Jira integration automatically detects other Jira projects in your subdomain
 
 :::caution Same name, different ID
 Issue types may have the same name but different Issue type IDs. When creating tickets, only company-managed Jira projects whose issue type ID matches the default project selected in the integration will appear in the list of available projects.
-If you don't see other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> Finding the Issue Type ID in Jira Cloud](https://support.atlassian.com/jira/kb/finding-the-issue-type-id-in-jira-cloud/) for details.
+If you don't see other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i>Finding the Issue Type ID in Jira Cloud](https://support.atlassian.com/jira/kb/finding-the-issue-type-id-in-jira-cloud/) for details.
 :::
 
 ### Create mappings
