@@ -194,7 +194,7 @@ Use the steps included under **Triage through PR/MR comment** in the PR/MR comme
 - [GitLab](https://semgrep.dev/docs/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
 - [Bitbucket Cloud](https://semgrep.dev/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
 - [Bitbucket Data Center](https://semgrep.dev/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
-- [Azure DevOps](https://semgrep.dev/docs/semgrep-appsec-platform/azure-pr-commands#triage-through-pr-comment)
+- [Azure DevOps](https://semgrep.dev/docs/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comment)
 
 To triage a finding:
 
