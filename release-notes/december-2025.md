@@ -37,7 +37,7 @@ The following updates were made to Semgrep in December 2025.
 - User search on the **Manage users** page has been simplified. You can now search by email, username, or ID using a single search field, without selecting the search type first.
 
 ### Fixed
-- Fixed incorrect tab selection during navigation. The correct tab is now highlighted when viewing pages under the project path.
+- Fixed incorrect tab selection during navigation so the correct tab is now highlighted when viewing pages under the project path.
 - Fixed IdP-initiated SAML login issues. You can now sign in successfully using IdP-initiated SAML.
 - Fixed Assistant triage actions for read-only users. Read-only users can no longer record agreement with Assistant analysis, and the activity timeline now reflects only actions taken by users with triage permissions.
 - Fixed an issue where the **Connect** button remains disabled when adding a new GitHub Enterprise connection.
@@ -79,11 +79,11 @@ The following updates were made to Semgrep in December 2025.
 
 
 ### Fixed
-- Fixed project filtering on the **Dependencies** page. Filtering by multiple projects now works as expected, and the search field clears correctly after you select a project.
+- Fixed project filtering on the **Dependencies** page such that filtering by multiple projects now works as expected, and the search field clears correctly after you select a project.
 - Fixed symbol analysis to analyze only relevant language files per ecosystem during Supply Chain scans.
-- Fixed CVE filter chip labeling for shared rules. Filter chips now show all applicable CVEs instead of only the first.
+- Fixed CVE filter chip labeling for shared rules such that filter chips now show all applicable CVEs instead of only the first.
 - Fixed missing findings in advisory filters. Advisory filters now correctly show all existing findings.
-- Fixed project selection in Supply Chain filters. You can now select multiple projects as expected when filtering Supply Chain results.
+- Fixed project selection in Supply Chain filters, allowing you to select multiple projects as expected when filtering results.
 
 ## 🤖 Semgrep Assistant
 
@@ -92,19 +92,15 @@ The following updates were made to Semgrep in December 2025.
 - Assistant memories now include links to the pull request or merge request comments where triage decisions were made, improving traceability back to the original source.
 
 
-
 ### Changed
 - Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
 - Findings in Semgrep AppSec Platform now include Assistant-generated explanations to clarify why a rule matched your code and a concise summary, if available.
 - Assistant notifications now show more specific error messages, helping you understand why an analysis could not run.
 - When multiple rules share the same name, the full rule path is now shown in Semgrep AppSec Platform to help distinguish them.
 
-
 ### Fixed
 
 ## 🔐 Semgrep Secrets
-
-### Added
 
 ### Changed
 
