@@ -65,9 +65,9 @@ To **fix a finding**, update or refactor the code so that the Semgrep rule patte
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assessment. Otherwise, you can change the status to **To fix** if you disagree.
 
-Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. 
+Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy.
 
 ### Ignore findings
 
@@ -189,7 +189,7 @@ Before proceeding, ensure that you have:
 
 ### Granting permissions
 
-Use the Managed Scans onboarding guide for your SCM if you need assistance granting the correct permissions to enable pull request interaction and webhook management. 
+Use the Managed Scans onboarding guide for your SCM if you need assistance granting the correct permissions to enable pull request interaction and webhook management.
 
 Read access to code is not required for triaging findings through PR or MR comments and may be omitted if token scopes allow.
 
@@ -216,7 +216,7 @@ Semgrep supports older versions of this feature that used the following commands
 
 ## Triage findings in bulk through the Semgrep API
 
-Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`. 
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`.
 
 The available `new_triage_state` values you can set are:
 - `open`
@@ -225,7 +225,7 @@ The available `new_triage_state` values you can set are:
 - `ignored`
 - `fixed`
 
-If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`. 
+If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`.
 
 :::note
 When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
