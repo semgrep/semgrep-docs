@@ -131,12 +131,12 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <h3>December 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- New **Priority** tab on the **Findings** page surfaces high-priority findings. Admins can customize priority categories and save filter presets for all users.
-- New **Provisionally ignored** finding status moves unreachable, invalid, or Assistant false positives out of your default open list while remaining available for review.
-- Semgrep Secrets findings are now assigned **Critical** severity, ensuring secrets are prioritized appropriately in your security workflow.
-- Pull request comments for Semgrep rules now include **AI-generated explanations** to help developers understand findings, with concise summaries and expandable details.
-- Integration with Cursor: Semgrep now supports post-code-generation workflows in Cursor via new MCP flags.
-- The **Findings** page has been redesigned with improved filters and navigation. The code path now opens a finding's **Details** page for easier navigation.
+- Added a new **Priority** tab on the **Findings** page to surface high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save Priority tab filters for all users.
+- Added a new **Provisionally ignored** finding status.
+- Semgrep Secrets findings are now assigned a severity of **Critical**. This applies to Secrets findings from scans performed after November 2025. Any existing findings from those rules will be updated to **Critical** after the project's next full scan.
+- Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
+- Added support for Cursor post-generation hooks, enabling Semgrep to integrate with Cursor workflows after code generation.
+- The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
