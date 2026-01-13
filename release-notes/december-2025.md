@@ -21,7 +21,7 @@ The following updates were made to Semgrep in December 2025.
 ### Added
 - Added a new **Priority** tab on **Findings** page to surface high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save Priority tab filters for all users.
 - Added a new **Provisionally ignored** finding status.
-- Commit author emails now appear in findings when available.
+- Commit author emails now appear in the finding's **Details** when available.
 
 ### Changed
 - The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
