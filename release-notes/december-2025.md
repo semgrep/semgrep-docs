@@ -19,15 +19,15 @@ The following updates were made to Semgrep in December 2025.
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
-- Added a new **Priority** tab on **Findings** page to surface high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save Priority tab filters for all users.
+- Added a new **Priority** tab on **Findings** page to display high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save **Priority** tab filters for all users.
 - Added a new **Provisionally ignored** finding status.
 - Commit author emails now appear in the finding's **Details** when available.
 
 ### Changed
 - The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
 - On the **Projects** page, project names now link directly to project details, making it easier to access scan information from the project list.
-- On the finding **Details** page, when no ticketing integration is configured, the Fix drop-down now includes a prominent link to the relevant **Integration** settings page.
-- Updated **Settings** page layout. The **Settings** page has been reorganized to highlight commonly used features and make it easier to find what you need.
+- On the finding's **Details** page, when no ticketing integration is configured, the Fix drop-down now includes a prominent link to the relevant **Integration** settings page.
+- The **Settings** page has been reorganized to highlight commonly used features and make it easier to find what you need.
 - The triage-by-comment setting is now available in the **Settings > Global** section, making it easier to manage across products.
 - When SSO is enabled, the Semgrep AppSec Platform now shows warnings for social authentication in **Settings > Access > Login methods** and highlights users using social auth in **Settings > Users**, helping admins identify and reduce security risks.
 - Newly created users who sign in with SSO are now added only to the default deployment, reducing unintended access in multi-deployment organizations.
@@ -47,11 +47,9 @@ The following updates were made to Semgrep in December 2025.
 - Fixed an issue where the **Teams** search bar was unusable when adding users or projects.
 - Fixed an issue preventing custom OpenAI API keys from being saved.
 - When a scan is running, the **Analyze** button on the finding's **Details** page is now disabled and displays an explanatory tooltip on why this is the case.
-- Fixed several issues with Findings page filters:
-  - The Save and Reset buttons only appear when you've modified the filters or have saved views to manage.
-  - Time-based filters persist
-  - Only admins can save changes to the Priority page filters
-  - The Priority tab count stays accurate when saved filters change
+- Fixed several issues with **Findings** page filters:
+  - The **Save** and **Reset** buttons only appear when you've modified the filters or have saved views to manage.
+  - Changes to time-based filters persist.
   - Team filters now appear only when RBAC is enabled, ensuring filters reflect your deployment’s access controls.
 
 
@@ -118,7 +116,6 @@ The following updates were made to Semgrep in December 2025.
 
 ### Changed
 - Semgrep’s Docker image now uses Alpine Linux 3.23
-
 * The following versions of the OSS Engine were released in December 2025:
   * [<i class="fas fa-external-link fa-xs"></i> 1.145.0](https://github.com/semgrep/semgrep/releases/tag/v1.145.0)
   * [<i class="fas fa-external-link fa-xs"></i> 1.146.0](https://github.com/semgrep/semgrep/releases/tag/v1.146.0)
