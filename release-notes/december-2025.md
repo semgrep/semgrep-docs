@@ -50,7 +50,6 @@ The following updates were made to Semgrep in December 2025.
 - Fixed several issues with **Findings** page filters:
   - The **Save** and **Reset** buttons only appear when you've modified the filters or have saved views to manage.
   - Changes to time-based filters persist.
-  - The Priority tab count stays accurate when saved filters change
   - Team filters now appear only when RBAC is enabled, ensuring filters reflect your deployment’s access controls.
 
 
