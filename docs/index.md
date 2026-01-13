@@ -131,7 +131,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <h3>December 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Added a new **Priority** tab on the **Findings** page to surface high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save Priority tab filters for all users.
+- Added a new **Priority** tab on **Findings** page to display high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save **Priority** tab filters for all users.
 - Added a new **Provisionally ignored** finding status.
 - Semgrep Secrets findings are now assigned a severity of **Critical**. This applies to Secrets findings from scans performed after November 2025. Any existing findings from those rules will be updated to **Critical** after the project's next full scan.
 - Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
