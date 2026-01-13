@@ -49,7 +49,7 @@ The following updates were made to Semgrep in December 2025.
 - When a scan is running, the **Analyze** button on the finding's **Details** page is now disabled and displays an explanatory tooltip on why this is the case.
 - Fixed several issues with **Findings** page filters:
   - The **Save** and **Reset** buttons only appear when you've modified the filters or have saved views to manage.
-  - Time-based filters persist
+  - Changes to time-based filters persist.
   - Only admins can save changes to the Priority page filters
   - The Priority tab count stays accurate when saved filters change
   - Team filters now appear only when RBAC is enabled, ensuring filters reflect your deployment’s access controls.
