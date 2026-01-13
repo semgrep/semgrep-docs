@@ -47,7 +47,7 @@ The following updates were made to Semgrep in December 2025.
 - Fixed an issue where the **Teams** search bar was unusable when adding users or projects.
 - Fixed an issue preventing custom OpenAI API keys from being saved.
 - When a scan is running, the **Analyze** button on the finding's **Details** page is now disabled and displays an explanatory tooltip on why this is the case.
-- Fixed several issues with Findings page filters:
+- Fixed several issues with **Findings** page filters:
   - The **Save** and **Reset** buttons only appear when you've modified the filters or have saved views to manage.
   - Time-based filters persist
   - Only admins can save changes to the Priority page filters
