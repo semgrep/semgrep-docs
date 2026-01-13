@@ -27,7 +27,7 @@ The following updates were made to Semgrep in December 2025.
 - The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
 - On the **Projects** page, project names now link directly to project details, making it easier to access scan information from the project list.
 - On the finding's **Details** page, when no ticketing integration is configured, the Fix drop-down now includes a prominent link to the relevant **Integration** settings page.
-- Updated **Settings** page layout. The **Settings** page has been reorganized to highlight commonly used features and make it easier to find what you need.
+- The **Settings** page has been reorganized to highlight commonly used features and make it easier to find what you need.
 - The triage-by-comment setting is now available in the **Settings > Global** section, making it easier to manage across products.
 - When SSO is enabled, the Semgrep AppSec Platform now shows warnings for social authentication in **Settings > Access > Login methods** and highlights users using social auth in **Settings > Users**, helping admins identify and reduce security risks.
 - Newly created users who sign in with SSO are now added only to the default deployment, reducing unintended access in multi-deployment organizations.
