@@ -39,7 +39,7 @@ Semgrep Assistant:
 
 Semgrep Assistant explains why a finding is a true positive by connecting the rule’s message to the code that triggered it. It highlights the relevant lines of code along with surrounding context and describes how the rule applies in this specific case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
 
-This helps you understand not just *which* rule triggered a finding, but why the code is considered problematic.
+This helps you understand not just *which* rule triggered a finding, but *why* the code is considered problematic.
 
 On the finding’s **Details** page:
 
@@ -47,9 +47,10 @@ On the finding’s **Details** page:
 * The rule that triggered the finding is described in the **Rule description** tab.
 * The exact lines of code that caused the finding are displayed in the **Your code** tab. Click a line to highlight the relevant code in context.
 
-Explanations are not available for custom rules or community rules.
+For true positive findings, the same Assistant-generated explanations are also included in pull request or merge request comments. A brief summary appears in the default view. Expand **More details about this** to view the full Assistant-generated explanation.
 
-Assistant-generated explanations are also included in pull request or merge request comments.
+
+Note that explanations are **not** available for custom rules or community rules.
 
 ### Remediation
 
