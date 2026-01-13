@@ -49,8 +49,7 @@ On the finding’s **Details** page:
 
 For true positive findings, the same Assistant-generated explanations are also included in pull request or merge request comments. A brief summary appears in the default view. Expand **More details about this** to view the full Assistant-generated explanation.
 
-
-Note that explanations are **not** available for custom rules or community rules.
+Note that Assistant-generated explanations are **not** available for custom rules or community rules.
 
 ### Remediation
 
