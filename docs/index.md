@@ -140,4 +140,4 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
-<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div>
+<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div> 
