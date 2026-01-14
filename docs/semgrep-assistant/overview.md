@@ -30,9 +30,26 @@ Semgrep Assistant:
 - Requires the Semgrep AppSec Platform for its use
 - Auto-analyzes many, but not all, findings during scans 
   - For full scans, all *new* issues that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
-  - For diff-aware scans (pull pequest or merge request scans), up to 10 new issues are auto-analyzed per scan
+  - For diff-aware scans (pull request or merge request scans), up to 10 new issues are auto-analyzed per scan
 
 ## Features
+
+
+### Explanation
+
+Semgrep Assistant explains why a finding is a true positive by connecting the rule’s message to the code that triggered it. It highlights the relevant lines of code along with the surrounding context and describes how the rule applies in this specific case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
+
+The explanation helps you understand not just *which* rule triggered a finding, but *why* the code is considered problematic.
+
+On the finding’s **Details** page:
+
+* Semgrep Assistant’s explanation appears in the **Finding description** tab.
+* The rule that triggered the finding is described in the **Rule description** tab.
+* The exact lines of code that caused the finding are displayed in the **Your code** tab. Click a line to highlight the relevant code in context.
+
+For true positive findings, the same Assistant-generated explanations are also included in pull request or merge request comments. A brief summary appears in the default view. Expand **More details about this** to view the full Assistant-generated explanation.
+
+Note that Assistant-generated explanations are **not** available for custom rules or community rules.
 
 ### Remediation
 
@@ -40,10 +57,8 @@ Semgrep Assistant can provide remediation advice and autofixes, or suggested fix
 
 #### Guidance
 
-With Assistant enabled, PR or MR comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
+With Assistant enabled, pull request or merge request comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
 
-![PR comments with remediation advice](/img/assistant-guidance.png#md-width)
-_**Figure.** PR comment displaying the rule message followed by a comment that contains Assistant-generated remediation guidance._
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
