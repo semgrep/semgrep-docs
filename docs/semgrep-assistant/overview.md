@@ -37,9 +37,9 @@ Semgrep Assistant:
 
 ### Explanation
 
-Semgrep Assistant explains why a finding is a true positive by connecting the rule’s message to the code that triggered it. It highlights the relevant lines of code along with surrounding context and describes how the rule applies in this specific case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
+Semgrep Assistant explains why a finding is a true positive by connecting the rule’s message to the code that triggered it. It highlights the relevant lines of code along with the surrounding context and describes how the rule applies in this specific case. For security rules, Assistant also connects the finding back to the threat model, showing the potential risk and why the code behavior matters.
 
-This helps you understand not just *which* rule triggered a finding, but *why* the code is considered problematic.
+The explanation helps you understand not just *which* rule triggered a finding, but *why* the code is considered problematic.
 
 On the finding’s **Details** page:
 
