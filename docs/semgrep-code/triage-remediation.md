@@ -185,21 +185,23 @@ You can triage your Semgrep AppSec Platform findings displayed as comments in PR
 Before proceeding, ensure that you have:
  - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
  - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
- - For SCMs other than GitHub: granted Semgrep permission to interact with pull requests and create webhooks for your SCM, and enabled the **Incoming webhooks** option on the SCM connection.
+ - *For SCMs other than GitHub:*
+   - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
+   - Enabled the **Incoming webhooks** option on the SCM connection
 
-### Granting permissions
+### Grant permission to interact with pull requests and create webhooks for your SCM
 
-Use the steps included under **Triage through PR/MR comment** in the PR/MR comment guides if you need assistance granting the correct permissions to enable pull request interaction and webhook management.
+See the following documents for instructions on granting the correct permissions to enable pull request interaction and webhook management:
 
 - [GitLab](/docs/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
 - [Bitbucket Cloud](/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
 - [Bitbucket Data Center](/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
 - [Azure DevOps](/docs/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comment)
 
-To triage a finding:
+Once you've turned on this feature, you can triage a finding using the following steps:
 
 1. Find an open comment created by Semgrep in your pull request or merge request.
-2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+2. Reply to the comment with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
  <TriageReason />
  Semgrep attempts to reply to your comment if it successfully triages the finding.
 

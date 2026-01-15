@@ -65,7 +65,7 @@ To update your connection between Semgrep and Azure DevOps:
 3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
 4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Azure DevOps connection.
 5. Click **Update access token**.
-6. In the **Update access token** that appears, provide the token granting full access that you created. Click **Update** to save and proceed.
+6. In the **Update access token** dialog that appears, provide the token you created. Click **Update** to save and proceed.
 7. Toggle the **Incoming webhooks** setting on.
 
 Once you've successfully turned on the triage by PR comment feature, you can change the token you provide to Semgrep to one that's more restrictive. The token scopes required for the more restrictive token are:
