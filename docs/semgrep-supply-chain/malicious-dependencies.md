@@ -21,7 +21,7 @@ The following table lists the languages for which Supply Chain can detect malici
 | :---- | :---- |
 | C\# | NuGet |
 | Go | `go.mod` |
-| Java | Maven, Gradle | 
+| Java | Gradle, Maven | 
 | JavaScript | npm |
 | PHP | Composer | 
 | Python | PyPi |
