@@ -60,9 +60,6 @@ Once you have enabled the Jira integration, you must complete the following step
 2. Optional: Click **Customize ticket creation**, then select the product whose tickets you want to customize. Automated ticket creation is configured on a per-product basis. For each **Jira field** available on the Jira ticket, you can map to it a **Semgrep or static field** value. See [Create mappings](#create-mappings) for more information.
 3. Click **Save changes** to proceed.
 
-![Jira configuration screen](/img/jira-subdomain.png#md-width)
-_**Figure.** The Jira configuration screen._
-
 ### Automatic creation of tickets
 
 All products limit automatic ticket creation to **Critical** or **High** severity findings. Code findings must also be on your [primary branch](/deployment/primary-branch).
@@ -99,9 +96,6 @@ Currently, Semgrep supports the mapping of the following field types:
 * Checkboxes
 * Labels
 * Components (including Compass components)
-
-![Jira configuration screen for field data mappings](/img/jira-configure-defaults.png#md-width)
-_**Figure.** The Jira configuration screen for field data mappings. Click **Field mapping help** to see a list of the Semgrep fields available for mapping._
 
 The integration supports the use of custom Jira issue types and custom fields. However, it does not support field types other than those listed above. If you have a required field of a different type in your project, it will not be possible for Semgrep to map a value to that field, and issue creation will fail.
 
@@ -224,16 +218,7 @@ To create tickets:
 - If ticket creation **fails**, Semgrep automatically retries several times over the next day to provide robustness against outages and downtime in third-party services.
 :::
 
-![Create Jira ticket - Code](/img/jira-code-findings.png#md-width)
-_**Figure.** Code triage flow._
-
 Once a ticket has been created, a link appears on the **Findings** page and in the sidebar of an individual finding's details page.
-
-![Jira ticket created - Code](/img/jira-code-ticketed.png#md-width)
-_**Figure.** Ticket created and its ID shown on the finding listed on the Code page._
-
-![Jira ticket created - Finding Details](/img/jira-ticket-finding-details.png#md-width)
-_**Figure.** Ticket created and its ID shown on the finding details page._
 
 ### Supply Chain
 
@@ -255,12 +240,6 @@ To create tickets:
 1. Click **Submit** to proceed.
 <!-- vale on -->
 
-![Create Jira ticket - Supply Chain](/img/jira-ssc-findings.png#md-width)
-_**Figure.** Supply Chain triage flow._
-
-![Jira ticket created - Supply Chain](/img/jira-ssc-ticketed.png#md-width)
-_**Figure.** Supply Chain ticket created._
-
 ### Secrets
 
 To create tickets:
@@ -277,12 +256,6 @@ To create tickets:
 1. Click **Submit** to proceed.
 
 <!-- vale on -->
-
-![Create a Jira ticket for a Semgrep Secrets finding](/img/jira-secrets-findings.png#md-width)
-_**Figure.** Secrets triage flow._
-
-![Jira ticket created - Semgrep Secrets](/img/jira-secrets-ticketed.png#md-width)
-_**Figure.** Secrets ticket created._
 
 ## Create tickets through the Semgrep API
 
@@ -307,8 +280,6 @@ _**Figure**. Finding details' Activity section showing that a Jira ticket wasn't
 3. Identify the finding associated with the Jira ticket, and open its finding details page.
 4. Click **Fix**, and in the drop-down box that appears, click **Unlink <PL>TICKET ID</PL>**.
 
-![The finding details page with the option to unlink a Jira ticket displayed.](/img/unlink-jira.png#md-width)
-_**Figure**. The finding details page with the option to unlink a Jira ticket displayed._
 
 ## Remove the Jira integration
 

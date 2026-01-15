@@ -40,7 +40,6 @@ See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) 
 5. Select the repositories you want to scan from the list.
 6. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
 7. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
-![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
 1. Click **Enable**.
 2. If you use the **Semgrep Network Broker**, you must edit your Broker configuration file; refer to [Use Semgrep Network Broker with Managed Scans](/semgrep-ci/network-broker#use-semgrep-network-broker-with-managed-scans).
 
