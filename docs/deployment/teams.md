@@ -17,8 +17,6 @@ Use the **Access** page to manage membership and access to Semgrep resources, su
 
 Accounts enable you to manage access to Semgrep resources, such as scans, projects, and findings, with varying levels of collaboration and visibility. Basic access control is managed through the **Users** tab.
 
-![Role-based access control](/img/rbac-overview.png)<br />
-
 A user is any person who has been added to your organization in Semgrep.
 
 Semgrep primarily divides users into three roles:
@@ -89,17 +87,11 @@ To change this, perform the following steps:
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings**.
 2. Click **Access > Defaults**.
 
-![Default user role](/img/default-user-role.png#md-width)
-_**Figure**. Default user role._
-
 ## Teams (beta)
 
 The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform (SCP). This provides more granular control than the [**Users** feature](#user-permissions-and-visibility).
 
 You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization.
-
-![The Teams tab within the Settings page](/img/access-teams.png)
-_**Figure**. The **<i class="fa-solid fa-gear"></i> Settings > Access > Teams** tab displays both top-level teams and subteams._
 
 This feature helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
 
@@ -142,9 +134,6 @@ A fourth role, **the manager**, can be assigned within the context of a team. Ma
 <li>A manager role is restricted to the teams where they have been assigned as a manager. Users can be managers of some projects, but members for others. For more information, see the <a href="#the-manager-role">manager role</a>.</li>
 </ul>
 </dl>
-
-![A member's view of the Projects page.](/img/access-member-view.png)
-_**Figure**. A member's view of the Projects page. It displays projects that are assigned to the team they are a member of, but they cannot edit a project nor can they scan new projects in their organizational account._
 
 ### Page and feature access per role
 
@@ -217,8 +206,6 @@ Additionally, the manager role is able to perform the following:
 
 Managers cannot remove themselves from their team. Admins and co-managers of the same team or subteam can remove other managers.
 
-![A manager's view of the Projects page.](/img/access-manager-view.png)
-**Figure**. A manager's view of the Projects page. They are able to scan new projects and edit the settings for Projects assigned to Teams they are managers of.
 
 #### Assign team members to projects
 
@@ -303,7 +290,6 @@ To set a member as a manager for a subteam:
 1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
 1. Click on the **Users** tab.
 1. Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
-![Add a manager](/img/access-add-manager.png#md-width)
 1. Click **Review**.
 1. Click **Save changes**.
 
