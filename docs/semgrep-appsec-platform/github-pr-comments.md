@@ -14,7 +14,6 @@ tags:
 import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
-import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
@@ -112,10 +111,15 @@ You've set up PR comments! Enable optional features provided in the following se
 
 ### Dataflow traces in PR comments
 
-![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png)
-_**Figure**. An inline GitHub pull request comment with dataflow traces._
+With **dataflow traces**, Semgrep Code can provide you with a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
 
-<DisplayTaintedDataIntro />
+When running Semgrep Code from the command line, you can pass in the flag `--dataflow-traces` to use this feature.
+
+You can [view dataflow traces in the PR comments created by Semgrep Code running in your CI/CD system](/semgrep-appsec-platform/github-pr-comments/#view-the-path-of-tainted-data-in-pr-comments).
+
+### Get cross-file findings
+
+To get cross-file (interfile) findings in your organization, follow the steps in [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 
 #### View the path of tainted data in PR comments
 
