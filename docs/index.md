@@ -128,14 +128,16 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>November 2025 release notes summary</h3>
+<h3>December 2025 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- **Cortex** and **Sysdig** integrations are now generally available. Semgrep now uses deployment status and, for Cortex, internet-exposure data from these CNAPP providers to better prioritize findings.
-- Malicious dependency detection is now generally available. Semgrep detects malicious packages, including malware, typosquatting, and credential-stealing dependencies, using over 80,000 rules.
-- Assistant now automatically analyzes **all new Critical and High-severity findings** with **Medium or High confidence** in full scans, removing the previous 10-issue limit.
-- The **Settings > General** tab now displays all Semgrep product settings on a single page.
+- Added a new **Priority** tab on **Findings** page to display high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save **Priority** tab filters for all users.
+- Added a new **Provisionally ignored** finding status.
+- Semgrep Secrets findings are now assigned a severity of **Critical**. This applies to Secrets findings from scans performed after November 2025. Any existing findings from those rules will be updated to **Critical** after the project's next full scan.
+- Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
+- Added support for Cursor post-generation hooks, enabling Semgrep to integrate with Cursor workflows after code generation.
+- The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
-<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div>
+<div style={{textAlign: 'right'}}>[<i class="fa-solid fa-rss"></i> Subscribe to RSS feed ](https://semgrep.dev/docs/release-notes/rss.xml)</div> 

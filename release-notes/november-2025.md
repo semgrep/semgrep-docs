@@ -9,12 +9,12 @@ tags:
   - Release notes
 ---
 
-<!-- Remember to add previous month's under-the-cut behavior --> 
-<!-- Remember to update index page -->
- 
+
 # Semgrep release notes for November 2025
 
 The following updates were made to Semgrep in November 2025.
+
+<!-- truncate -->
 
 ## 🌐 Semgrep AppSec Platform
 

@@ -51,7 +51,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     semgrep --version
     ```
 
-1. Log in to Semgrep and install Semgrep Pro
+1. Log in to Semgrep and install Semgrep Pro:
 
     ```
     semgrep login && semgrep install-semgrep-pro
@@ -96,21 +96,27 @@ This article includes instructions for setting up the MCP server with Cursor and
     ```bash
     semgrep --version
     ```
-
-3. Sign in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+3.  Start a new Claude Code instance in the terminal:
     ```bash
-    semgrep login
-    ```
-    In the **Semgrep CLI login**, click **Activate** to proceed.
-
-4. Return to the CLI, and install the Semgrep Pro engine:
-    ```bash
-    semgrep install-semgrep-pro
+    claude
     ```
 
-5. Add the Semgrep MCP Server to Claude:
+4.  Add the Semgrep marketplace to Claude:
     ```bash
-    claude mcp add --scope user semgrep semgrep mcp
+    /plugin marketplace add semgrep/mcp-marketplace
+    ```
+
+5.  Install the Semgrep plugin:
+    ```bash
+    /plugin install semgrep-plugin@semgrep
+    ```
+
+6.  Set up the Semgrep plugin:
+    ```bash
+    /semgrep-plugin:setup_semgrep_plugin
+
+    # if the preceding command doesn't work, try:
+    /plugin enable semgrep-plugin@semgrep
     ```
 
 </TabItem>
