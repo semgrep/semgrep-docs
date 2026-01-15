@@ -21,7 +21,9 @@ The following table lists the languages for which Supply Chain can detect malici
 | :---- | :---- |
 | C\# | NuGet |
 | Go | `go.mod` |
+| Java | Gradle, Maven | 
 | JavaScript | npm |
+| PHP | Composer | 
 | Python | PyPi |
 | Ruby | RubyGems |
 | Rust | `cargo.lock` |
@@ -30,10 +32,8 @@ The following table lists the languages for which Supply Chain can detect malici
 <!--
 | Dart | Pub | 
 | Elixir | Hex | 
-| Java | Maven | 
 | Scala | Maven | 
 | Swift | SwiftPM | 
-| PHP | \-- | 
 -->
 
 ## Enabling malicious dependency rules
