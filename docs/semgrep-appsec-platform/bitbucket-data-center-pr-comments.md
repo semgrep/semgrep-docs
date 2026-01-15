@@ -59,14 +59,18 @@ Confirm that you have the correct connection and access:
 
 #### Triage through PR comments
 
-If you want developers to able to triage findings via their MR comments, without leaving Bitbucket, you must have:
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your Semgrep organization's connection to Bitbucket to use a workspace access token or an HTTP access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comment feature.
 
-- Bitbucket Data Center v8.8 or above
-- A Bitbucket HTTP access token in the Source code manager (SCM) connection to Semgrep, created by a user with the Project Admin role.
+To update your connection between Semgrep and Bitbucket:
 
-This access token must be created with PROJECT_ADMIN permissions. Project-level webhooks are required to support triage though PR comments.
-
-After providing a token with the appropriate role and permissions, enable the **Incoming webhooks** toggle on the SCM connection for the Bitbucket project.
+1. Ensure that you're using Bitbucket Data Center version 8.8 or later.
+2. Log in to Bitbucket using an account assigned with the **Project Admin** role.
+3. [Create an HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). When setting the token's **Project permissions**, ensure that you select **Project admin**.
+4. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+5. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Bitbucket connection.
+6. Click **Update access token**.
+7. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+8. Toggle the **Incoming webhooks** setting on.
 
 ### Configure comments for Semgrep Code
 

@@ -59,21 +59,25 @@ PR comments are enabled by default for users who have connected their GitLab gro
 
 #### Triage though MR comment
 
-If you want developers to able to triage findings via their MR comments, without leaving GitLab, you must also have one of the following plans:
+Developers can triage Semgrep findings without leaving GitLab by responding to the MR comments authored by Semgrep. To turn this feature on, you must update your Semgrep organization's connection to GitLab to use an access token with an elevated role. This allows you to enable webhooks, which Semgrep requires for the triage through MR comment feature.
 
-- GitLab Premium
-- GitLab Ultimate
-- GitLab Self Managed
+To update your connection between Semgrep and GitLab:
 
-The token used in the Source code manager (SCM) connection to the GitLab group must have one of the following roles:
+1. Ensure that you're using one of the following GitLab plans:
+   - GitLab Premium
+   - GitLab Ultimate
+   - GitLab Self Managed
+2. Log in to GitLab, and create an access token with one of the following roles assigned:
+   - `Maintainer`
+   - `Owner`
+   - `Admin`
+3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your GitLab connection.
+5. Click **Update access token**.
+6. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+7. Toggle the **Incoming webhooks** setting on.
 
-- `Maintainer`
-- `Owner`
-- `Admin`
-
-This is because GitLab repositories require the enablement of webhooks allow Semgrep to be notified of new review comments. After providing a token with the appropriate role, enable the **Incoming webhooks** toggle on the SCM connection.
-
-Once the toggle is enabled and webhooks have been created, you can downgrade the role assigned to the token to `Developer`.
+Once you've successfully turned on the triage by PR comment feature, you can change the token you provide to Semgrep to one that's more restrictive. You can downgrade the role assigned to the token to `Developer`.
 
 ### Configure comments for Semgrep Code
 

@@ -114,17 +114,22 @@ Confirm that you have the correct connection and access:
 
 #### Triage through PR comments
 
-If you want developers to able to triage findings via their MR comments, without leaving Bitbucket, you must have provided a Bitbucket workspace access token to Semgrep. Triage through PR comments is not supported with repository access tokens.
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your Semgrep organization's connection to Bitbucket to use a workspace access token or an HTTP access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comment feature.
 
-The workspace access tokens must be created by a user with the Product Admin role. The scopes you must assign to the token include:
+To update your connection between Semgrep and Bitbucket:
 
-* webhook (read and write)
-* repository (read and write)
-* pullrequest (read and write)
-* project (admin)
-* account (read)
-
-Once you have triage through PR comments fully configured, you can update the token's role and scopes to be more restrictive (how restrictive?).
+1. Log in to Bitbucket using an account assigned with the **Product Admin** role.
+2. [Create a workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/). Ensure that you assign the following scopes to the token:
+   - `webhook (read and write)`
+   - `repository (read and write)`
+   - `pullrequest (read and write)`
+   - `project (admin)`
+   - `account (read)`
+3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Bitbucket connection.
+5. Click **Update access token**.
+6. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+7. Toggle the **Incoming webhooks** setting on.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
