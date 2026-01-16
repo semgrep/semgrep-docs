@@ -134,9 +134,6 @@ To **view** the repositories you have granted access to:
 
 You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
 
-![Click the project's latest scan to view the log](/img/sms-logs.png)
-_**Figure**. The Projects page. Click the project's latest scan (underlined) to view the log._
-
 :::info
 It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
 :::
