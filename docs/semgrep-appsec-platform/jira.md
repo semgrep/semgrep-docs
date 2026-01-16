@@ -71,7 +71,7 @@ All products limit automatic ticket creation to **Critical** or **High** severit
 - For Supply Chain, Semgrep automatically creates tickets for **reachable findings** on the primary branch and **malicious dependency findings** on **any** branch.
 - For Secrets, Semgrep automatically creates tickets for **validated secrets** on **any** branch.
 
-Tickets are automatically created for new findings after each scan completes. These tickets always group findings by rule when a scan identifies multiple new findings for the same rule. Automatically created tickets do not change the triage state of related findings, since the findings have not yet been reviewed by a human when the ticket is created.
+Tickets are automatically created for new findings after each scan completes. These tickets always group findings by rule when a scan identifies multiple new findings for the same rule. Automatic ticket creation does not change the triage state of related findings, since related findings have not yet been reviewed by a human when the ticket is generated.
 
 ### Automatic detection of other Jira projects
 
