@@ -56,7 +56,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 #### Triage through PR comments
 
-Developers can triage Semgrep findings without leaving Azure DevOps by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your Semgrep organization's connection to Azure DevOps to use a personal access token that grants **Full Access**. This is because Semgrep requires webhooks for the triage through PR comment feature.
+Developers can triage Semgrep findings without leaving Azure DevOps by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your source code manager (SCM) connection to use a personal access token that grants **Full Access**. This is because Semgrep requires webhooks for the triage through PR comment feature.
 
 To update your connection between Semgrep and Azure DevOps:
 

@@ -193,10 +193,10 @@ Before proceeding, ensure that you have:
 
 See the following documents for instructions on granting the correct permissions to enable pull request interaction and webhook management:
 
-- [GitLab](/docs/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
-- [Bitbucket Cloud](/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
-- [Bitbucket Data Center](/docs/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comment)
-- [Azure DevOps](/docs/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comment)
+- [GitLab](/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
+- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
+- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
+- [Azure DevOps](/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comments)
 
 Once you've turned on this feature, you can triage a finding using the following steps:
 
