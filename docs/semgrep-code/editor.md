@@ -181,7 +181,7 @@ The [Semgrep Network Broker](/semgrep-ci/network-broker) does not support code s
 <InstallPrivateGitHubApp />
 
 :::info
-Code search currently works with repositories or projects hosted by Github.com.
+Code search currently works with repositories or projects hosted by github.com.
 :::
 
 To run your rule against selected repositories or projects:

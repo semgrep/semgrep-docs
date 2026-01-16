@@ -19,19 +19,15 @@ Semgrep Supply Chain's dependency search feature allows you to view and query fo
 
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to see if you use the vulnerable dependency in any of your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
-![Screenshot of default dependency search page](/img/SSC-DepSearch.png)
-_**Figure**. Default dependency search page._
-
 ## Enable and use dependency search
 
 To search your dependencies:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > General > Supply Chain**.
-  ![Semgrep Supply Chain Settings tab](/img/sc-settings.png#md-width) _**Figure**. The Semgrep Supply Chain Settings tab._
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it's not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
-  ![Semgrep Supply Chain Dependencies tab](/img/SSC-DepSearch.png#md-width) _**Figure**. The Semgrep Supply Chain Dependencies tab._
+
 
 At this point, Semgrep displays the manifest files or lockfiles that it has used to determine dependency information and the dependencies included in each of the manifest files or lockfiles.
 
@@ -69,8 +65,6 @@ Dependency search provides the following filters, which correspond to the data p
 | License | The dependency's license type. |
 | Language | The language of the dependency. |
 
-![Screenshot of dependency search with query](/img/SSC-DepSearch-Query.png#md-width)
-_**Figure**. Dependency search page with sample search query._
 
 ## Dependency paths (beta)
 
@@ -126,9 +120,6 @@ After you have been added to the Dependency paths beta and a new scan completes 
 
 - The **Finding Details** page for a transitive finding
 - The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path
-
-![Supply Chain dependency graph](/img/ssc-dependency-graph.png#md-width)
-_**Figure**. Supply Chain findings with a dependency graph shown._
 
 ## Troubleshooting: no dependencies appear on the Dependencies page
 
