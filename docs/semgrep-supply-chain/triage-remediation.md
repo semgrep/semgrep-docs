@@ -159,7 +159,6 @@ If you are an **existing** Semgrep user and you need to change your Semgrep app'
 1. Navigate to the settings page of your private Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app](https://docs.github.com/en/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app) for instructions.
 1. In the **Repository permissions** section, search for `Contents`.
 1. Click the drop-down menu and select **Read and write**.
-:::
 </details>
 
 ### Connect a private registry to Semgrep
