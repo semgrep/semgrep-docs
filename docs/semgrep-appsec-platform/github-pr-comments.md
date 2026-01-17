@@ -14,7 +14,6 @@ tags:
 import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.mdx"
 import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
-import DisplayTaintedDataIntro from "/src/components/concept/_semgrep-code-display-tainted-data.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
@@ -110,23 +109,26 @@ You've set up PR comments! Enable optional features provided in the following se
 
 <EnableAutofix />
 
+### Get cross-file findings
+
+To get cross-file (interfile) findings in your organization, follow the steps in [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
+
 ### Dataflow traces in PR comments
 
-![Screenshot of a GitHub PR comment with dataflow traces](/img/dataflow-traces-pr-comments.png)
-_**Figure**. An inline GitHub pull request comment with dataflow traces._
+With **dataflow traces**, Semgrep Code provides you a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
 
-<DisplayTaintedDataIntro />
+When running Semgrep Code from the command line, you can pass in the flag `--dataflow-traces` to use this feature.
+
+You can view dataflow traces in the PR comments created by Semgrep Code running in your CI/CD system.
 
 #### View the path of tainted data in PR comments
 
 To enable dataflow traces feature in your CI pipeline, fulfill the following prerequisites:
 
-:::info Prerequisites
 - Set up Semgrep to post GitHub PR comments, as described on this page.
 - To obtain meaningful results of dataflow traces in PR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset that does, such as the **default ruleset**, added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. To add this ruleset, navigate to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policies**.
 - You can add additional rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
-:::
 
 ### Prevent developers from merging a PR with a reachable vulnerability
 
