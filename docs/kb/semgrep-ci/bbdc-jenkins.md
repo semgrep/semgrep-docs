@@ -1,4 +1,11 @@
-The following configuration creates a CI job that runs scans depending on what products you have enabled in Semgrep AppSec Platform. It is for use with code hosted in Bitbucket Data Center.
+---
+tags:
+  - Bitbucket Data Center
+  - Jenkins
+description: Set up Jenkins projects for Bitbucket Data Center repositories.
+---
+
+The following configuration creates a CI job that runs Semgrep scans based on the products that you have enabled in Semgrep AppSec Platform. It is for use with code hosted in Bitbucket Data Center.
 
 This code snippet uses Jenkins declarative syntax.
 
