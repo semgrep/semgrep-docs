@@ -490,6 +490,10 @@ EXPERIMENTAL OPTIONS
            [INTERNAL] Disable transitive reachability analysis regardless of
            app-based configuration.
 
+       --x-dump-symbol-analysis
+           [INTERNAL] Dump symbol analysis results in JSON format, ATD type
+           'symbol_analysis'. 
+
        --x-eio
            [INTERNAL] <deprecated>
 
