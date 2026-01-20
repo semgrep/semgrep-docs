@@ -50,12 +50,6 @@ OPTIONS
            Explain how non-local values reach the location of a finding (only
            affects text and SARIF output).
 
-       --debug
-           All of --verbose, but with additional debugging information.
-
-       --develop
-           Living on the edge.
-
        --disable-nosem
            negates --enable-nosem
 
@@ -103,9 +97,6 @@ OPTIONS
 
        --exclude-rule=VAL
            Skip any rule with the given id. Can add multiple times.
-
-       --experimental
-           Enable experimental features.
 
        -f VAL, -c VAL, --config=VAL
            Not supported in 'ci' mode
@@ -184,9 +175,6 @@ OPTIONS
        --junit-xml-output=VAL
            Write a copy of the JUnit XML output to a file or post to URL.
 
-       --legacy
-           Prefer old (legacy) behavior.
-
        --log-backend=VAL
            Internal flag.
 
@@ -251,9 +239,6 @@ OPTIONS
        --no-suppress-errors
            negates --suppress-errors
 
-       --no-trace
-           negates --trace
-
        -o VAL, --output=VAL
            Save search results to a file or post to URL. Default is to print
            to stdout.
@@ -284,13 +269,6 @@ OPTIONS
        --pro-path-sensitive
            Path sensitivity. Implies --pro-intrafile. Requires Semgrep Pro
            Engine. See https://semgrep.dev/products/pro-engine/ for more.
-
-       --profile
-           Record profiles via Pyro Caml. By default sends them to
-           localhost:4040
-
-       -q, --quiet
-           Only output findings.
 
        --rewrite-rule-ids
            Rewrite rule ids when they appear in nested sub-directories (Rule
@@ -355,6 +333,51 @@ OPTIONS
            Maximum number of rules that can time out on a file before the
            file is skipped. If set to 0 will not have limit. Defaults to 3. 
 
+       --use-git-ignore
+           '--use-git-ignore' is Semgrep's default behavior. Under the
+           default behavior, Git-tracked files are not excluded by Gitignore
+           rules and only untracked files are excluded by Gitignore rules.
+           '--no-git-ignore' causes semgrep to not call 'git' and not consult
+           '.gitignore' files to determine which files semgrep should scan.
+           As a result of '--no-git-ignore', gitignored files and Git
+           submodules will be scanned unless excluded by other means
+           ('.semgrepignore', '--exclude', etc.). This flag has no effect if
+           the scanning root is not in a Git repository.
+
+       --vim
+           Output results in vim single-line format.
+
+       --vim-output=VAL
+           Write a copy of the vim output to a file or post to URL.
+
+COMMON OPTIONS
+       --debug
+           All of --verbose, but with additional debugging information.
+
+       --develop
+           Living on the edge.
+
+       --experimental
+           Enable experimental features.
+
+       --help[=FMT] (default=auto)
+           Show this help in format FMT. The value FMT must be one of auto,
+           pager, groff or plain. With auto, the format is pager or plain
+           whenever the TERM env var is dumb or undefined.
+
+       --legacy
+           Prefer old (legacy) behavior.
+
+       --no-trace
+           negates --trace
+
+       --profile
+           Record profiles via Pyro Caml. By default sends them to
+           localhost:4040
+
+       -q, --quiet
+           Only output findings.
+
        --trace
            Record traces from Semgrep scans to help debugging. This feature
            is meant for internal use and may be changed or removed without
@@ -367,26 +390,17 @@ OPTIONS
            internal use and may be changed or removed without warning.
            Currently only used by `semgrep lsp`. 
 
-       --use-git-ignore
-           '--use-git-ignore' is Semgrep's default behavior. Under the
-           default behavior, Git-tracked files are not excluded by Gitignore
-           rules and only untracked files are excluded by Gitignore rules.
-           '--no-git-ignore' causes semgrep to not call 'git' and not consult
-           '.gitignore' files to determine which files semgrep should scan.
-           As a result of '--no-git-ignore', gitignored files and Git
-           submodules will be scanned unless excluded by other means
-           ('.semgrepignore', '--exclude', etc.). This flag has no effect if
-           the scanning root is not in a Git repository.
-
        -v, --verbose
            Show more details about what rules are running, which files failed
            to parse, etc. 
 
-       --vim
-           Output results in vim single-line format.
+EXPERIMENTAL OPTIONS
+       Any option starting with '--x-' is experimental and may be removed
+       from semgrep without notice.
 
-       --vim-output=VAL
-           Write a copy of the vim output to a file or post to URL.
+       --x-disable-transitive-reachability
+           [INTERNAL] Disable transitive reachability analysis regardless of
+           app-based configuration.
 
        --x-dump-rule-partitions=VAL (absent=0)
            Internal flag.
@@ -405,6 +419,13 @@ OPTIONS
            tree for the purpose of selecting target files to be scanned by
            semgrep. Other filters may still apply. THIS OPTION IS NOT PART OF
            THE SEMGREP API AND MAY CHANGE OR DISAPPEAR WITHOUT NOTICE. 
+
+       --x-mcp
+           [INTERNAL] This flag indicates that the scan is run by the MCP
+           server. It is used to output extra info (e.g. rules, num bytes
+           scanned) at the end of the scan for the MCP server to use and
+           makes sure that metrics are not sent so that the MCP server can
+           send its own metrics.
 
        --x-merge-partial-results-dir=VAL
            Internal flag.
@@ -426,7 +447,7 @@ OPTIONS
            Internal flag.
 
        --x-pro-naming
-           <internal, do not use>
+           [INTERNAL] Do not use
 
        --x-semgrepignore-filename=FILENAME
            [INTERNAL] Files named FILENAME shall be consulted instead of the
@@ -438,8 +459,10 @@ OPTIONS
            Upon exit, print on stderr a report showing how long certain
            operations took, in an unspecified text format.
 
-       --x-tr
-           <internal, do not use>
+       --x-tr, --x-enable-transitive-reachability
+           [INTERNAL] Enable transitive reachability analysis regardless of
+           app-based configuration. Typically used with
+           '--allow-local-builds'.
 
        --x-upload-partial-results=VAL
            Internal flag.
@@ -453,22 +476,28 @@ OPTIONS
        --x-validate-partial-results-expected=VAL
            Internal flag.
 
-COMMON OPTIONS
-       --help[=FMT] (default=auto)
-           Show this help in format FMT. The value FMT must be one of auto,
-           pager, groff or plain. With auto, the format is pager or plain
-           whenever the TERM env var is dumb or undefined.
-
 EXIT STATUS
        semgrep ci exits with:
 
-       0   on success.
+       0   OK
 
-       123 on indiscriminate errors reported on standard error.
+       1   some findings
 
-       124 on command line parsing errors.
+       2   fatal error
 
-       125 on unexpected internal errors (bugs).
+       3   invalid target code
+
+       4   invalid pattern
+
+       5   unparseable YAML
+
+       7   missing configuration
+
+       8   invalid language
+
+       13  invalid API key
+
+       99  not implemented in osemgrep
 
 ENVIRONMENT
        These environment variables affect the execution of semgrep ci:

@@ -21,7 +21,9 @@ The following table lists the languages for which Supply Chain can detect malici
 | :---- | :---- |
 | C\# | NuGet |
 | Go | `go.mod` |
+| Java | Gradle, Maven | 
 | JavaScript | npm |
+| PHP | Composer | 
 | Python | PyPi |
 | Ruby | RubyGems |
 | Rust | `cargo.lock` |
@@ -30,15 +32,13 @@ The following table lists the languages for which Supply Chain can detect malici
 <!--
 | Dart | Pub | 
 | Elixir | Hex | 
-| Java | Maven | 
 | Scala | Maven | 
 | Swift | SwiftPM | 
-| PHP | \-- | 
 -->
 
 ## Enabling malicious dependency rules
 
-To include malicious dependency rules in your Supply Chain scan, navigate to **Settings > Supply Chain** and enable Malicious dependency advisories. 
+To include malicious dependency rules in your Supply Chain scan, navigate to **Settings > Supply Chain** and enable **Malicious dependency advisories**. 
 
 You can also use this setting to disable malicious dependency scanning for your Semgrep organization.
 
@@ -88,7 +88,10 @@ To enable Jira ticket creation for malicious dependencies:
 
 ## Advisories for malicious dependencies
 
-You can view all the malicious dependencies that Semgrep can detect by navigating to [**Supply Chain > Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories) and clicking on the **<i class="fa-solid fa-square-check"></i> Malicious** filter.
+You can view all the malicious dependencies that Semgrep can detect. To do so:
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) and go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+2. Find the **Analysis type** filter, and select **<i class="fa-solid fa-square-check"></i> Malicious**.
 
 Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
 

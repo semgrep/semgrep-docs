@@ -12,7 +12,7 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Semgrep MCP Server
+# Semgrep MCP Server (beta)
 
 Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
 
@@ -46,14 +46,38 @@ This article includes instructions for setting up the MCP server with Cursor and
     python3 -m pip install semgrep
     ```
 
-2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
     ```bash
     semgrep --version
     ```
 
-3. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
+1. Log in to Semgrep and install Semgrep Pro:
 
-4. Open Cursor's **AI Pane** window and run `/semgrep/setup_semgrep_mcp` to begin the initial setup process. Follow the on-screen prompts and run the suggested commands. When done, you'll see a confirmation message that begins with **Semgrep MCP setup complete**.
+    ```
+    semgrep login && semgrep install-semgrep-pro
+    ```
+
+1. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
+
+1. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
+
+    ```
+    {
+    "version": 1,
+    "hooks": {
+        "stop": [
+        {
+            "command": "semgrep mcp -k stop-cli-scan -a cursor"
+        }
+        ],
+        "afterFileEdit": [
+        {
+            "command": "semgrep mcp -k record-file-edit -a cursor"
+        }
+        ]
+    }
+    }
+    ```
 
 </TabItem>
 
@@ -72,21 +96,27 @@ This article includes instructions for setting up the MCP server with Cursor and
     ```bash
     semgrep --version
     ```
-
-3. Sign in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+3.  Start a new Claude Code instance in the terminal:
     ```bash
-    semgrep login
-    ```
-    In the **Semgrep CLI login**, click **Activate** to proceed.
-
-4. Return to the CLI, and install the Semgrep Pro engine:
-    ```bash
-    semgrep install-semgrep-pro
+    claude
     ```
 
-5. Add the Semgrep MCP Server to Claude:
+4.  Add the Semgrep marketplace to Claude:
     ```bash
-    claude mcp add --scope user semgrep semgrep mcp
+    /plugin marketplace add semgrep/mcp-marketplace
+    ```
+
+5.  Install the Semgrep plugin:
+    ```bash
+    /plugin install semgrep-plugin@semgrep
+    ```
+
+6.  Set up the Semgrep plugin:
+    ```bash
+    /semgrep-plugin:setup_semgrep_plugin
+
+    # if the preceding command doesn't work, try:
+    /plugin enable semgrep-plugin@semgrep
     ```
 
 </TabItem>

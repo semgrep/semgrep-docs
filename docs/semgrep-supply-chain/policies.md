@@ -61,6 +61,7 @@ Use the following recommendations to help you create policies. These guidelines 
 
 ### Recommended conditions for blocking PRs or MRs
 
+- **Always block PRs or MRs that introduce dependencies or dependency versions identified as malicious**. These represent known supply chain attacks and should never be allowed into your codebase.
 - **Always reachable and reachable findings with upgradeable dependencies**. This provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
 
 ### Recommended conditions for leaving a comment

@@ -20,6 +20,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 - You must have a **Jira Cloud** plan. Jira Data Center (self-managed or on-premise) is not supported.
 - You must have at least one Jira project to set as the default location where tickets will be created.
+- Optional, but recommended: A [service account](https://support.atlassian.com/user-management/docs/understand-service-accounts/) to set up and configure the Jira integration.
 
 ## Features
 
@@ -70,7 +71,7 @@ All products limit automatic ticket creation to **Critical** or **High** severit
 - For Supply Chain, Semgrep automatically creates tickets for **reachable findings** on the primary branch and **malicious dependency findings** on **any** branch.
 - For Secrets, Semgrep automatically creates tickets for **validated secrets** on **any** branch.
 
-Tickets are automatically created for new findings after each scan completes. These tickets always group findings by rule when a scan identifies multiple new findings for the same rule.
+Tickets are automatically created for new findings after each scan completes. These tickets always group findings by rule when a scan identifies multiple new findings for the same rule. Automatic ticket creation does not change the triage state of related findings, since related findings have not yet been reviewed by a human when the ticket is generated.
 
 ### Automatic detection of other Jira projects
 
@@ -80,7 +81,8 @@ The Jira integration automatically detects other Jira projects in your subdomain
 - Those projects have the same **Issue type** as the default project. [When you triage a finding](#code), you can choose which project to create the tickets in.
 
 :::caution Same name, different ID
-Issue types may have the same name, but a different Issue type ID. When creating tickets, only company-managed Jira projects with the same issue type ID as the default project selected in the integration will appear. If you can't select other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i> How to identify the Jira Issue ID in Cloud](https://support.atlassian.com/jira/kb/how-to-identify-the-jira-issue-id-in-cloud/) for details.
+Issue types may have the same name but different Issue type IDs. When creating tickets, only company-managed Jira projects whose issue type ID matches the default project selected in the integration will appear in the list of available projects.
+If you don't see other Jira projects when creating tickets, check that the Issue type ID is the same across Jira projects. See the [<i class="fas fa-external-link fa-xs"></i>Finding the Issue Type ID in Jira Cloud](https://support.atlassian.com/jira/kb/finding-the-issue-type-id-in-jira-cloud/) for details.
 :::
 
 ### Create mappings

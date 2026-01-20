@@ -122,7 +122,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -146,7 +146,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             highlightPostTag: '</mark>',
             attributesToCrop: ['content'],
             hybrid: {
-              semanticRatio: 0.5,
+              semanticRatio: 0.3,
               embedder: "default"
             }
               }),
@@ -201,7 +201,29 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           const contentLower = content.toLowerCase();
           
           // Extract main query terms (skip stop words)
-          const queryTerms = queryLower.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => t.length > 2);
+          let processedQuery = queryLower;
+          
+          // Handle synonyms for common terms
+          if (processedQuery.includes('setup') || processedQuery.includes('set up')) {
+            processedQuery += ' install installation configure';
+          }
+          if (processedQuery.includes('install')) {
+            processedQuery += ' setup configuration';
+          }
+          if (processedQuery.includes('glsm')) {
+            processedQuery += ' gitlab self-managed self managed';
+          }
+          if (processedQuery.includes('gl') && !processedQuery.includes('gitlab')) {
+            processedQuery += ' gitlab';
+          }
+          
+          // Keep terms longer than 2 chars, but also keep common acronyms
+          const queryTerms = processedQuery.replace(/what|is|are|how|to|the|a|an|do|does|can/g, '').trim().split(/\s+/).filter(t => {
+            if (t.length > 2) return true;
+            // Keep important acronyms (2-letter and 4-letter)
+            if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(t)) return true;
+            return false;
+          });
           
           // CRITICAL: Multi-term match bonus - if multiple query terms appear, boost significantly
           const termsInTitle = queryTerms.filter(term => titleLower.includes(term)).length;
@@ -270,16 +292,44 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             relevanceScore -= 2;
           }
           
-          // Penalize tagged pages heavily
-          const isTaggedPage = title.includes('tagged with') || content.includes('tagged with');
-          if (isTaggedPage) {
-            relevanceScore += 1000;
+          // Boost main documentation sections over KB articles
+          const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
+          const sectionUpper = section.toUpperCase();
+          const sectionLower = section.toLowerCase();
+          
+          // HUGE boost if query term matches the section name
+          queryTerms.forEach(term => {
+            if (sectionLower.includes(term)) {
+              relevanceScore -= 30; // Major boost for section name match
+            }
+          });
+          
+          // General boost for core documentation sections
+          if (sectionUpper === 'DEPLOYMENT' || sectionUpper === 'SEMGREP CODE' || 
+              sectionUpper === 'SUPPLY CHAIN' || sectionUpper === 'SEMGREP ASSISTANT' ||
+              sectionUpper === 'RULE WRITING' || sectionUpper === 'CLI REFERENCE' ||
+              sectionUpper === 'GETTING STARTED') {
+            relevanceScore -= 8; // Boost core documentation sections
+          }
+          
+          // Boost overview/intro pages within a section
+          if (titleLower.includes('overview') || titleLower.includes('introduction') || 
+              titleLower.includes('getting started with')) {
+            relevanceScore -= 5;
+          }
+          
+          // Tagged pages are filtered out completely, no need to penalize
+          
+          // Deprioritize KB articles - they should still appear but docs come first
+          if (url.includes('/kb/') || url.includes('/docs/kb/')) {
+            relevanceScore += 35; // Strong penalty to push KB articles below main docs
           }
           
           // HEAVILY penalize release notes unless specifically searching for them
+          // Release notes rank lower than KB articles
           if ((titleLower.includes('release notes') || url.includes('/release-notes') || titleLower.includes('added') || titleLower.includes('fixed')) && 
-              !queryLower.includes('release') && !queryLower.includes('changelog') && !queryLower.includes('added') && !queryLower.includes('fixed')) {
-            relevanceScore += 15; // Heavy penalty
+              !queryLower.includes('release') && !queryLower.includes('changelog') && !queryLower.includes('added') || !queryLower.includes('fixed')) {
+            relevanceScore += 50; // Very heavy penalty - below KB articles
           }
           
           return {
@@ -429,8 +479,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
   const getDisplayContent = (result: any): string => {
     const content = result._formatted?.content || result.content || '';
+    
+    // Remove HTML tags, SVG elements, base64 images, and other unwanted content
     const cleanContent = content
-      .replace(/\s+/g, ' ')
+      .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '') // Remove SVG blocks
+      .replace(/<image[^>]*>/gi, '') // Remove image tags
+      .replace(/data:image\/[^;]+;base64,[A-Za-z0-9+/=]+/g, '') // Remove base64 images
+      .replace(/<[^>]+>/g, '') // Remove all HTML tags
+      .replace(/&[a-z]+;/gi, ' ') // Remove HTML entities
+      .replace(/\s+/g, ' ') // Collapse whitespace
       .trim();
     
     return cleanContent.substring(0, 150) + (cleanContent.length > 150 ? '...' : '');
@@ -440,10 +497,19 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const enhanceHighlighting = (content: string, searchQuery: string): string => {
     if (!searchQuery || !content) return content;
     
-    // Split search query into individual terms
-    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+    // Ensure content is clean text (no HTML)
+    const cleanContent = content
+      .replace(/<[^>]+>/g, '') // Remove any HTML tags except what we'll add
+      .replace(/&[a-z]+;/gi, ' '); // Remove HTML entities
     
-    let highlightedContent = content;
+    // Split search query into individual terms (keep important acronyms)
+    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => {
+      if (term.length > 2) return true;
+      if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(term)) return true;
+      return false;
+    });
+    
+    let highlightedContent = cleanContent;
     
     // Highlight each search term with case-insensitive matching
     searchTerms.forEach(term => {
@@ -766,15 +832,25 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                   }
                   
                   // Extract title using correct field names (underscore notation)
+                  const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
                   const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
                                result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
                                result.title || '';
                   const content = result.content || result._formatted?.content || '';
                   
-                  const isTaggedPage = title.includes('docs tagged with') ||
+                  // NEVER show tagged pages or tag listing pages
+                  const isTaggedPage = title.includes('tagged with') ||
                                      title.includes('doc tagged with') ||
+                                     title.includes('docs tagged with') ||
                                      title.includes('Choose a KB category') ||
-                                     title.match(/\d+\s+docs?\s+tagged\s+with/);
+                                     title.match(/\d+\s+docs?\s+tagged\s+with/) ||
+                                     url.includes('/tags/') ||
+                                     url.includes('/tag/') ||
+                                     content.includes('tagged with') ||
+                                     section.toUpperCase() === 'TAGS' ||
+                                     (title.length === 1 && title.match(/[A-Z]/)) || // Single letter titles (tag groupings)
+                                     url.includes('/tags') ||
+                                     url.includes('/tag');
                   
                   if (isTaggedPage) {
                     return false;
@@ -1038,17 +1114,26 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 return false;
               }
               
-              // Extract title using correct field names (underscore notation)
+              // Extract title and section using correct field names (underscore notation)
+              const section = result.hierarchy_lvl0 || result.hierarchy_radio_lvl0 || result.hierarchy?.lvl0 || '';
               const title = result.hierarchy_lvl1 || result.hierarchy_radio_lvl1 || result.hierarchy?.lvl1 || 
                            result.hierarchy_lvl2 || result.hierarchy_radio_lvl2 || result.hierarchy?.lvl2 || 
                            result.title || '';
               const content = result.content || result._formatted?.content || '';
               
-              // Skip category/tagged pages (these are just lists)
-              const isTaggedPage = title.includes('docs tagged with') ||
+              // NEVER show tagged pages or tag listing pages
+              const isTaggedPage = title.includes('tagged with') ||
                                  title.includes('doc tagged with') ||
+                                 title.includes('docs tagged with') ||
                                  title.includes('Choose a KB category') ||
-                                 title.match(/\d+\s+docs?\s+tagged\s+with/);
+                                 title.match(/\d+\s+docs?\s+tagged\s+with/) ||
+                                 url.includes('/tags/') ||
+                                 url.includes('/tag/') ||
+                                 content.includes('tagged with') ||
+                                 section.toUpperCase() === 'TAGS' ||
+                                 (title.length === 1 && title.match(/[A-Z]/)) || // Single letter titles (tag groupings)
+                                 url.includes('/tags') ||
+                                 url.includes('/tag');
               
               if (isTaggedPage) {
                 return false;
@@ -1103,10 +1188,21 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             
             const title = rawTitle; // No highlighting for titles
             const rawContent = result._formatted?.content || result.content || '';
+            
+            // Clean content before highlighting
+            const cleanRawContent = rawContent
+              .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '') // Remove SVG blocks
+              .replace(/<image[^>]*>/gi, '') // Remove image tags
+              .replace(/data:image\/[^;]+;base64,[A-Za-z0-9+/=]+/g, '') // Remove base64 images
+              .replace(/<[^>]+>/g, '') // Remove all HTML tags (except mark tags from highlighting)
+              .replace(/&[a-z]+;/gi, ' ') // Remove HTML entities
+              .replace(/\s+/g, ' ') // Collapse whitespace
+              .trim();
+            
             const section = getSectionInfo(result);
             
             // Enhanced highlighting for better keyword visibility
-            const enhancedContent = enhanceHighlighting(rawContent, query);
+            const enhancedContent = enhanceHighlighting(cleanRawContent, query);
             const displayContent = enhancedContent.substring(0, 150) + (enhancedContent.length > 150 ? '...' : '');
               
               return (
