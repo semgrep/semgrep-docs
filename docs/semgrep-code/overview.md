@@ -18,13 +18,26 @@ Semgrep Code is a static application security testing (SAST) tool that detects s
 
 You can use Semgrep Code to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
 
+
 ## Rules
 
 <SemgrepScan />
 
-In addition to rules available in the [Registry](https://semgrep.dev/r), you can write custom rules to determine what Semgrep Code detects in your repositories. Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
+Semgrep performs SAST scans using rules that define which patterns to detect in your code. 
+
+Rules used by the Semgrep Pro engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code should detect in your repositories. 
+
+Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
 
 Semgrep Code is transparent; you can configure the rules it runs and inspect its syntax to understand how the finding was detected. You can also customize the content of a rule to improve the true positive rate of a rule or have Semgrep send a relevant message to developers.
+
+## AI-powered detection
+
+Some security issues, such as insecure direct object reference (IDORs), broken authentication, and other business logic flaws, are hard to detect with static rules alone. Semgrep Code includes AI-powered detection to help find such issues.
+
+Semgrep's AI analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application. Semgrep engine parses your code into structured formats that ‘focus’ the AI, enabling it to surface complex business logic flaws in a more deterministic manner. 
+
+By combining AI-assisted analysis with Semgrep’s core scanning engine, Semgrep Code improves signal quality while keeping findings transparent.
 
 ## Findings
 
