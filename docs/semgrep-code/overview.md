@@ -25,19 +25,22 @@ You can use Semgrep Code to scan local repositories or integrate it into your CI
 
 Semgrep performs SAST scans using rules that define which patterns to detect in your code. 
 
-Rules used by the Semgrep Pro engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code should detect in your repositories. 
+Rules used by the Semgrep Pro Engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code should detect in your repositories. 
 
 Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
 
 Semgrep Code is transparent; you can configure the rules it runs and inspect its syntax to understand how the finding was detected. You can also customize the content of a rule to improve the true positive rate of a rule or have Semgrep send a relevant message to developers.
 
-## AI-powered detection
+## AI-powered detection (beta feature)
 
-Some security issues, such as insecure direct object reference (IDORs), broken authentication, and other business logic flaws, are hard to detect with static rules alone. Semgrep Code includes AI-powered detection to help find such issues.
+Some security issues, such as insecure direct object reference (IDORs), broken authentication, and other business logic flaws, are hard to detect with static rules alone. Semgrep’s Multi-Modal SAST Engine combines deterministic precision with AI to understand the context of your code and surface OWASP Top 10 vulnerabilities as well as complex business-logic flaws.
 
-Semgrep's AI analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application. Semgrep engine parses your code into structured formats that ‘focus’ the AI, enabling it to surface complex business logic flaws in a more deterministic manner. 
+LLMs excel at understanding code context: variable names, class structures, function intent, and even comments. By pairing that reasoning power with Semgrep’s structured scanning, Semgrep can:
+- Enumerate key attack surfaces, such as routes or controllers.
+- Check for missing safeguards, such as authentication, role checks, and permissions.
+- Flag potential logic gaps for review before attackers ever find them.
 
-By combining AI-assisted analysis with Semgrep’s core scanning engine, Semgrep Code improves signal quality while keeping findings transparent.
+Semgrep's Multi-Modal SAST Engine analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application with improved signal quality while keeping findings transparent.
 
 ## Findings
 
@@ -64,6 +67,7 @@ Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-eng
 
 Subsequent scans now include Code scans.
 
+### Enable AI-powered detection (beta feature)
 ### Run Semgrep Code scans with single-function analysis
 
 In some cases, you may want to scan using Semgrep CE's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:

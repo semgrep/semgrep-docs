@@ -15,7 +15,7 @@ import GitlabRequirements from "/src/components/reference/_gitlab-sms-requiremen
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
+Semgrep Managed Scans is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add. 
 
 :::info
 A **project** is any codebase, repository, or folder within a monorepo that is added to Semgrep for scanning.
@@ -155,6 +155,13 @@ Here are some behaviors and characteristics of a managed scan:
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories that have been added to it.
 - In general, once a git repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
+
+
+## Add AI-powered detection with Semgrep's Multi-Modal Engine
+
+Semgrep's multi-modal SAST engine (beta) combines deterministic static analysis with AI to surface OWASP Top 10 vulnerabilities as well as complex business-logic flaws like IDOR and broken authentication. 
+
+[Learn more](/docs/deployment/add-ai-to-scans) about enabling and running this new feature with [Semgrep Code](/docs/semgrep-code/overview#ai-powered-detection-beta-feature). 
 
 ## Next steps
 
