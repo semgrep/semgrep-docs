@@ -12,15 +12,12 @@ title: Supported languages
 
 import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 import SscIntro from "/src/components/concept/_ssc-intro.md"
-import LanguageMaturityCode from '/src/components/reference/_language-maturity-code.md'
 import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-engine-introduction.mdx"
-import DefCrossFile from "/src/components/concept/_def-cross-file.mdx"
-import DefCrossFunction from "/src/components/concept/_def-cross-function.mdx"
-import DefReachability from "/src/components/concept/_def-reachability.md"
 
 # Supported languages
 
-This document provides information about supported languages and language maturity definitions for the following products:
+This document provides information about supported languages and links to language
+maturity definitions for the following products:
 
 * **Semgrep Code (SAST)** - a static application security testing (SAST) solution designed to detect complex security vulnerabilities. 
 * **Semgrep Supply Chain (SCA)** - a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
@@ -31,7 +28,7 @@ Semgrep Code and Semgrep Supply Chain are free for [small teams](https://semgrep
 
 The following table lists all **Generally available (GA)** and **Beta** languages for Semgrep Code and Semgrep Supply Chain.
 
-Languages are arranged by feature completeness from most to least. **Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides; see [Feature definitions](#feature-definitions) for more details.
+Languages are arranged by feature completeness from most to least. **Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides; see [Feature definitions](/references/feature-definitions) for more details.
 
 <!-- *************************************************************************
 ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
@@ -44,87 +41,12 @@ Don't forget to update:
 
 <SupportedLanguagesTable />
 
-### Language maturity levels
-
-#### Semgrep Code
-
-Semgrep Code languages can be classified into four maturity levels:
-
-* Generally available (GA)
-* Beta
-* Experimental
-* Community supported\*
-
-\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
-
-<details>
-<summary>Click to view table of definitions.</summary>
-
-<LanguageMaturityCode />
-
-</details>
-
-#### Semgrep Supply Chain
-
-Semgrep Supply Chain has two language maturity levels:
-
-* Generally available
-* Beta
 
 
-<details>
-<summary>Click to view table of definitions.</summary>
 
-<table>
-  <tr>
-   <td><strong>Feature</strong></td>
-   <td><strong>Generally available</strong></td>
-   <td><strong>Beta</strong></td>
-  </tr>
-  <tr>
-   <td>Number of reachability rules</td>
-   <td>As defined by <a href="#cve-coverage">CVE coverage</a>.</td>
-   <td>All critical severity CVEs from <a href="#supported-sources">supported sources</a> starting 2022 onwards, for packages used by customers with an active, paid subscription.</td>
-  </tr>
-  <tr>
-   <td>Semgrep, Inc. rule-writing support</td>
-   <td>Quickly support CVE coverage with reachability analysis for all critical and high vulnerabilities based on the latest <a href="https://nvd.nist.gov/vuln">security advisories</a>.</td>
-   <td>Coverage for CVEs but without reachability analysis.</td>
-  </tr>
-  <tr>
-   <td>Semgrep Community Edition (CE) <a href='/supported-languages#semgrep-oss-language-support'>language support</a></td>
-   <td>Semgrep CE support is GA.</td>
-   <td>Semgrep CE support is at least Beta.</td>
-  </tr>
-</table>
 
-</details>
-
-### Feature definitions
-
-<details>
-<summary>Cross-file dataflow analysis</summary>
-
-<DefCrossFile />
-
-Languages with cross-file support also include cross-function support.
-
-</details>
-
-<details>
-<summary>Cross-function dataflow analysis</summary>
-<DefCrossFunction />
-</details>
-
-<details>
-<summary>Reachability analysis</summary>
-<DefReachability />
-
-</details>
-
-:::tip
-See [Language maturity levels](#language-maturity-levels) to learn which features define GA or beta language support.
-:::
+See [Language maturity levels](/references/language-maturity-levels) for the
+definitions used on this page.
 
 ## Semgrep Supply Chain feature support
 
