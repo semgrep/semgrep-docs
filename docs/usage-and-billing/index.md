@@ -14,7 +14,9 @@ hide_title: true
 
 [TODO]
 
-This document is intended for SemgrepAppSec Platform users. There are no usage limits for Semgrep Community Edition (CE).
+This document is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets, regardless of whether they use Semgrep AppSec Platform or not.
+
+There are no usage limits for Semgrep Community Edition (CE).
 
 :::tip
 See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information about the differences between these two Semgrep products.
@@ -29,7 +31,7 @@ Any type of Semgrep AppSec Platform scan counts towards the contributor total. T
 - Scanning with Semgrep Code, Secrets, or Supply Chain
 - Full scans on a repository or partial scans on a pull request or merge request
 
-:::warning
+:::note
 - Semgrep computes contributor counts for any scan initated by a logged-in user running `semgrep ci` or `semgrep scan`.
 - The `semgrep scan` command is subject to the usage limit if the scan is invoked by a logged-in contributor.
 :::
@@ -45,60 +47,6 @@ Semgrep calculates contributors using information from the `git log` over the pa
 If you are a small team, such as an **11-person team**, you may be eligible for Semgrep's startup pricing, which provides a discounted rate. Fill out the [<i class="fas fa-external-link fa-xs"></i> startup pricing](https://semgrep.dev/contact/contact-us-startups) form to apply.
 :::
 
-### Exceeding usage limits
-
-Semgrep scans stop if you exceed your usage limit. You can resume scanning by:
-
-- Purchasing additional licenses
-- Waiting for the next billing cycle
-
-If you're using a free license, Semgrep automatically starts a free trial for you if you exceed your usage limits. 
-
-There are no contributor limits on public projects.
-
-## Usage tiers
-
-The following table is a high-level summary of the features available to each Semgrep plan.
-
-| | Free | Teams | Enterprise |
-| - | - | - | - |
-| Maximum number of contributors (90-day rolling basis) | 10 | 500 | Unlimited |
-| Number of repositories | 10 | 500 | Unlimited |
-| On-premise SCM support | No | No | Yes |
-| Bring your own API provider | No | No | AWS Bedrock |
-| AI credits | 60 | 20/contributor/month | 50/contributor/month |
-| Scan infrastructure | Semgrep Managed Scans only | Semgrep Managed Scans only | Semgrep Managed Scans and CI/CD integrations |
-| SSO support | GitHub, GitLab, Google | GitHub, GitLab, Google, OAuth | GitHub, GitLab, Google, OAuth |
-| Private tenant | Not available | Not available | Optional |
-
-### Free
-
-Semgrep can be used for free by up to **10 contributors** over a 90-day rolling basis. The **Free** plan allows you to scan up to **10 repositories** and includes the following Semgrep products:
-
-- Semgrep Code
-- Semgrep Supply Chain
-- Semgrep Secrets
-
-### Teams
-
-The **Teams** plan includes everything in the **Free** plan, plus:
-
-- Up to 500 contributors, each of whom receive 20 AI credits per month
-  - Maximum of 10 scans per contributor per month
-- 500 repositories
-- OAuth support for SSO integration
-- Role-based access control (RBAC)
-- Audit logs
-
-### Enterprise
-
-The **Enterprise** plan includes everything in the **Teams** plan, but offers unlimited contributors and unlimited repoistories, as well as:
-
-- Support for on-premise deployments
-- Bring-your-own AWS Bedrock keys
-- Support for Semgrep Managed Scans and CI/CD integrations
-- Option for a private tenant
-
 ## Calculate usage across multiple Semgrep organizations
 
 If your company creates multiple Semgrep organizations, the contributor limit applies across all of your organizations. For example, if your company creates three Semgrep organizations, each with the following number of contributors:
@@ -109,9 +57,16 @@ If your company creates multiple Semgrep organizations, the contributor limit ap
 
 Your company has 27 contributors across three organizations, so you must purchase licenses for 27 contributors.
 
-## Single-product licenses
+### Excess usage limits
 
-You can choose to purchase licenses for individual Semgrep products.
+Semgrep scans stop if you exceed your usage limit. You can resume scanning by:
+
+- Purchasing additional licenses
+- Waiting for the next billing cycle
+
+If you're using a free license, Semgrep automatically starts a free trial for you if you exceed your usage limits. 
+
+There are no contributor limits on public projects.
 
 ## Determine your plan needs
 
@@ -137,7 +92,7 @@ You can purchase additional AI credits in increments of 50,000 credits. Semgrep 
 
 Credits that you purchase roll over at the end of the year. Entitlement credits, or the credits that come with your Semgrep licenses, do not roll over at the end of the year.
 
-### Determine credit requirements
+### Determine AI credit requirements
 
 Contact Semgrep if you would like assistance determining the number of credits your organization needs in a year.
 
