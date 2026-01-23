@@ -109,6 +109,10 @@ If your company creates multiple Semgrep organizations, the contributor limit ap
 
 Your company has 27 contributors across three organizations, so you must purchase licenses for 27 contributors.
 
+## Single-product licenses
+
+You can choose to purchase licenses for individual Semgrep products.
+
 ## Determine your plan needs
 
 Within your team or organization, assess the number of **contributors**. Contributors are members of your organization that make commits. That determines the number of **licenses** needed for the plan purchase.
@@ -116,10 +120,6 @@ Within your team or organization, assess the number of **contributors**. Contrib
 For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. Contributors are counted only once even if they commit to many projects within the same organization, so no additional licenses are required.
 
 All members of the organization, regardless of contributor (license) status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep AppSec Platform dashboard.
-
-### Single-product purchases
-
-You can choose to purchase Semgrep products invidivually. You can also turn off products using [Semgrep AppSec Platform's Settings page](https://semgrep.dev/orgs/-/settings).
 
 ## AI credits
 
