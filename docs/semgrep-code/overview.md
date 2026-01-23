@@ -35,12 +35,14 @@ Semgrep Code is transparent; you can configure the rules it runs and inspect its
 
 Some security issues, such as insecure direct object reference (IDORs), broken authentication, and other business logic flaws, are hard to detect with static rules alone. Semgrep’s Multi-Modal SAST Engine combines deterministic precision with AI to understand the context of your code and surface OWASP Top 10 vulnerabilities as well as complex business-logic flaws.
 
-LLMs excel at understanding code context: variable names, class structures, function intent, and even comments. By pairing that reasoning power with Semgrep’s structured scanning, Semgrep can:
+LLMs excel at understanding code context: variable names, class structures, function intent, and even comments. By pairing that reasoning power with structured scanning, Semgrep can:
 - Enumerate key attack surfaces, such as routes or controllers.
 - Check for missing safeguards, such as authentication, role checks, and permissions.
 - Flag potential logic gaps for review before attackers ever find them.
 
 Semgrep's Multi-Modal SAST Engine analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application with improved signal quality while keeping findings transparent.
+
+Learn how to enable and run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans).
 
 ## Findings
 
