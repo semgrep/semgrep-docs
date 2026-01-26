@@ -38,13 +38,13 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 
 ## Language support and integrations
 
-Semgrep Code supports a [broad set of programming languages](/docs/supported-languages), with varying levels of analysis capabilities and language maturity. For definitions of language maturity levels, see [Language maturity levels](/references/language-maturity-levels).
+Semgrep Code supports a broad set of programming languages, with varying levels of analysis capabilities and language maturity. 
 
-Semgrep Code analyzes source code directly and does not require package manager metadata. For dependency and package analysis, see [Semgrep Supply Chain package manager support](/semgrep-supply-chain/sca-package-manager-support).
+* See the full list of [supported programming languages](/docs/supported-languages)
+* For definitions of language maturity levels, visit the [Language maturity levels](/references/language-maturity-levels) page.
+* For a list of supported source code managers (SCM), visit [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/deployment/connect-scm).
+* For analysis terminology, see [Feature definitions](/references/feature-definitions).
 
-Semgrep Code scans repositories connected through a supported source code manager. For supported options and setup instructions, see [SCM support](/getting-started/scm-support) and [Connect a source code manager](/deployment/connect-scm).
-
-For analysis terminology and advanced dataflow capabilities, see [Feature definitions](/references/feature-definitions) and [Semgrep Code cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 
 ## Semgrep Community Edition (CE) versus Semgrep Code analysis
 
