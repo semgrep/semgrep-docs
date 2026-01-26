@@ -12,7 +12,6 @@ tags:
 
 Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including autofix, auto-triage, and component tagging, on existing findings.
 
-![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
 ## Analyze your findings with Assistant
 

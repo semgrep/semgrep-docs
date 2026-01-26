@@ -41,9 +41,6 @@ The project slug for a **remote repository** takes the form <code class="placeho
 
 The project slug for a **local repository** takes the form <code>local_scan/<span class="placeholder">REPOSITORY-NAME</span></code>.
 
-Refer to the following image for an example of both remote and local Projects in a single personal account.
-
-![Projects view with local and remote counterparts of the same repository.](/img/projects-remote-local-slugs.png)
 
 * **For personal orgs:** A local repository scan does **not** overwrite the findings records of its remote counterpart. They are two separate projects. Personal accounts only have one team member or user: you.
 * **For organization orgs**: A local repository scan does **not** overwrite findings records of its remote counterpart. However, if two members have both cloned the same local repository, such as `RepoA`, and both send local `RepoA` findings, one set of findings may overwrite other unintentionally. This is because orgs can have more than one team member, but all local scans are sent to the same project slug.
@@ -71,9 +68,6 @@ You can optionally set up cross-linking between local and remote repositories to
     <pre>export SEMGREP_COMMIT=<span className="placeholder">COMMIT_HASH</span></pre>
 
 After performing these steps, rescan your repository to correctly generate links in Semgrep AppSec Platform.
-
-![Findings page snippet with hyperlinks](/img/findings-with-hyperlinks.png "Findings page snippet with hyperlinks")
-**Figure.** Findings page with hyperlinks.
 
 ### Sample values
 
