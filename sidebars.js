@@ -268,7 +268,6 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
-                'semgrep-code/language-support',
                 {
                     type: 'category',
                     collapsible: true,
@@ -307,9 +306,15 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
-                'semgrep-supply-chain/language-support',
-                'semgrep-supply-chain/package-manager-support',
-                'semgrep-supply-chain/feature-support',
+                {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'Coverage',
+                  items: [
+                    'semgrep-supply-chain/package-manager-support',
+                    'semgrep-supply-chain/feature-support',
+                  ]
+                },
                 {
                   type: 'category',
                   collapsible: true,

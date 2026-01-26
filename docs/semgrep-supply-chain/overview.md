@@ -53,6 +53,20 @@ However, some dependencies are vulnerable simply through their inclusion in a co
 
 Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
+## Language support and integrations
+
+Semgrep Supply Chain supports a broad set of languages with varying feature
+coverage. See [Supported languages](/supported-languages) and
+[Language maturity levels](/references/language-maturity-levels) for details.
+
+For dependency metadata support, see
+[Package manager support](/docs/semgrep-supply-chain/sca-package-manager-support). For feature coverage by language, see
+[Supply Chain feature support](/docs/semgrep-supply-chain/sca-feature-support).
+
+Semgrep Supply Chain scans repositories connected from your source code manager.
+See [SCM support](/getting-started/scm-support) and
+[Connect a source code manager](/deployment/connect-scm) for supported options.
+
 ## Software bill of materials
 
 Semgrep Supply Chain can [generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your third-party or open source components, to assist you with your auditing procedures.

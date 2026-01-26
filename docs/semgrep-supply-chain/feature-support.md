@@ -13,9 +13,29 @@ import SscIntro from "/src/components/concept/_ssc-intro.md"
 # Supply Chain feature support
 
 <SscIntro/>
+For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-The following table lists all Supply Chain features for each language. Languages
-with **reachability** support are listed first.
+For some languages, a lockfile or manifest file is parsed to determine [transitivity](/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency). See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+
+Additionally, Semgrep offers beta support for the scanning of projects written in the following languages **without lockfiles**:
+
+- C#
+- Java
+- Kotlin
+- Python
+- Ruby
+
+## Supply Chain features for each language
+<!-- *************************************************************************
+ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?
+
+Don't forget to update:
+- table at Semgrep CE vs Semgrep
+- the individual language's page
+- and most importantly, the index!!
+*************************************************************************** -->
+
+The following table lists all Supply Chain features for each language. Languages with **reachability** support are listed first.
 
 <table>
 <thead>
@@ -120,9 +140,8 @@ with **reachability** support are listed first.
 </tbody>
 </table>
 
-_<strong>†</strong>License detection for new packages is asynchronous and processed
-after the initial scan. Policies aren't applied on first detection, but are enforced
-in subsequent scans._
+
+_<strong>†</strong>License detection for new packages is asynchronous and processed after the initial scan. Policies aren't applied on first detection, but are enforced in subsequent scans._
 
 ## CVE coverage
 

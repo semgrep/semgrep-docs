@@ -11,6 +11,7 @@ tags:
 
 
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
+import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 
 # Semgrep Code overview
 
@@ -34,6 +35,16 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 * Send alerts and notifications or create tickets to track findings identified by Semgrep Code
 * Customize how Semgrep Code scans your repositories
 * Manage your users and facilitate team collaboration in remediating security issues
+
+## Language support and integrations
+
+Semgrep Code supports a [broad set of programming languages](/docs/supported-languages), with varying levels of analysis capabilities and language maturity. For definitions of language maturity levels, see [Language maturity levels](/references/language-maturity-levels).
+
+Semgrep Code analyzes source code directly and does not require package manager metadata. For dependency and package analysis, see [Semgrep Supply Chain package manager support](/semgrep-supply-chain/package-manager-support).
+
+Semgrep Code scans repositories connected through a supported source code manager. For supported options and setup instructions, see [SCM support](/getting-started/scm-support) and [Connect a source code manager](/deployment/connect-scm).
+
+For analysis terminology and advanced dataflow capabilities, see [Feature definitions](/references/feature-definitions) and [Semgrep Code cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 
 ## Semgrep Community Edition (CE) versus Semgrep Code analysis
 
