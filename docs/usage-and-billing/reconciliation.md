@@ -12,15 +12,15 @@ hide_title: true
 
 # Additional usage and reconciliation of licenses
 
-If your organization exceeds the number of purchased licenses for the period defined in your contract, your organization will be charged based on the number of licenses that exceeded the purchased amount. The additional charge starts the month after the use of licenses exceeds the contracted amount.
+If your organization uses more licenses than purchased for the contract period, you will be charged for each extra license starting the month after the overage.
 
 Contact your Semgrep Account Executive every **60 days** if you need more licenses than initially purchased.
 
 ## Example of license reconciliation
 
-On January 21, you purchased annual licenses for 50 developers of Semgrep Supply Chain’s Team tier. The 21st of the month is the start date of the annual contract. In the following month, on February 28, the number of used developer licenses exceeded the original purchased quantity by 20 users. This requires a contract adjustment.
+On January 21, you purchased annual licenses of Semgrep Supply Chain’s Team tier for 50 developers. The 21st of the month is the start date of the annual contract. The contract started that day. On February 28, you used 70 licenses, exceeding your original purchase by 20. This requires a contract adjustment.
 
 Contract adjustment:
 
-- Since the organization’s use exceeded the amount of purchased licenses on February 28, the future date of March 21 is selected to align with the remaining months in the contract. There are 10 months remaining in the contract.
-- The additional amount charged, the resulting add-on cost, is the cost per developer * 10 months * 20 users.
+- Because the organization’s usage exceeded the allocated licenses on February 28, March 21 is designated as the adjustment date in accordance with contract terms and reflects the 10 months remaining in the contract.
+- * The extra charge is the cost per developer multiplied by 10 months and 20 users.
