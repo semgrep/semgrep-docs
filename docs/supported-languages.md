@@ -34,8 +34,10 @@ Don't forget to update:
 
 ## More information
 
-* Visit the [Language maturity page](/docs/references/language-maturity-levels#semgrep-supply-chain) for definitions of the maturity levels shown on language support pages.
-* Visit the [Feature definitions page](/docs/references/feature-definitions) to understand the analysis features referenced in language support pages.
+* See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on language support pages.
+* See [Feature definitions](/references/feature-definitions) for analysis terminology referenced on language support pages.
+* For Supply Chain dependency metadata support, see [Package manager support](/semgrep-supply-chain/sca-package-manager-support).
+* For Supply Chain feature coverage by language, see [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
