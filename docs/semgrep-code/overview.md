@@ -40,7 +40,7 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 
 Semgrep Code supports a [broad set of programming languages](/docs/supported-languages), with varying levels of analysis capabilities and language maturity. For definitions of language maturity levels, see [Language maturity levels](/references/language-maturity-levels).
 
-Semgrep Code analyzes source code directly and does not require package manager metadata. For dependency and package analysis, see [Semgrep Supply Chain package manager support](/semgrep-supply-chain/package-manager-support).
+Semgrep Code analyzes source code directly and does not require package manager metadata. For dependency and package analysis, see [Semgrep Supply Chain package manager support](/semgrep-supply-chain/sca-package-manager-support).
 
 Semgrep Code scans repositories connected through a supported source code manager. For supported options and setup instructions, see [SCM support](/getting-started/scm-support) and [Connect a source code manager](/deployment/connect-scm).
 

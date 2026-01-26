@@ -15,7 +15,7 @@ Semgrep Supply Chain (SCA) scans dependencies by parsing manifest files or
 lockfiles. This page lists the supported package managers and file types.
 
 For language-level coverage and feature maturity, see
-[Supported languages](/semgrep-supply-chain/sca-language-support).
+[Supported languages](/supported-languages).
 
 For some languages, a lockfile or manifest file is parsed to determine
 [transitivity](/semgrep-supply-chain/glossary/#transitive-or-indirect-dependency).

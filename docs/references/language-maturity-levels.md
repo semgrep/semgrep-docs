@@ -45,8 +45,8 @@ Semgrep Supply Chain has two language maturity levels:
   </tr>
   <tr>
     <td>Number of reachability rules</td>
-    <td>As defined by <a href="/semgrep-supply-chain/feature-support#cve-coverage">CVE coverage</a>.</td>
-    <td>All critical severity CVEs from <a href="/semgrep-supply-chain/feature-support#supported-sources">supported sources</a> starting 2022 onwards, for packages used by customers with an active, paid subscription.</td>
+    <td>As defined by <a href="/semgrep-supply-chain/sca-feature-support#cve-coverage">CVE coverage</a>.</td>
+    <td>All critical severity CVEs from <a href="/semgrep-supply-chain/sca-feature-support#supported-sources">supported sources</a> starting 2022 onwards, for packages used by customers with an active, paid subscription.</td>
   </tr>
   <tr>
     <td>Semgrep, Inc. rule-writing support</td>

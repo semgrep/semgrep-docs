@@ -60,8 +60,9 @@ coverage. See [Supported languages](/supported-languages) and
 [Language maturity levels](/references/language-maturity-levels) for details.
 
 For dependency metadata support, see
-[Package manager support](/docs/semgrep-supply-chain/sca-package-manager-support). For feature coverage by language, see
-[Supply Chain feature support](/docs/semgrep-supply-chain/sca-feature-support).
+[Package manager support](/semgrep-supply-chain/sca-package-manager-support). For
+feature coverage by language, see
+[Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
 
 Semgrep Supply Chain scans repositories connected from your source code manager.
 See [SCM support](/getting-started/scm-support) and
