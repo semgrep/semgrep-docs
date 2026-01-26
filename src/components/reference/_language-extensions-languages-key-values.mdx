@@ -7,53 +7,53 @@ or by default) uncomment the following two lines and closing tag below the table
 
 The following table includes languages supported by Semgrep, accepted file extensions for test files that accompany the rules, and valid values that Semgrep rules require in the `languages` key.
 
-| Language | Extensions | `languages` key values |
-| - | - | - |
-| Apex (only in Semgrep Pro Engine) | `.cls` | `apex` | 
-| Bash | `.bash`, `.sh` | `bash`, `sh` |
-| C | `.c`, `.h` | `c` |
-| Cairo | `.cairo` | `cairo` |
-| Circom | `.circom` | `circom` |
-| Clojure | `.clj`, `.cljs`, `.cljc`, `.edn` | `clojure` |
-| C++ | `.cc`, `.cpp`, `.cxx`, `.c++`, `.pcc`, `.tpp`, `.C`, `.h`, `.hh`, `.hpp`, `.hxx`, `.inl`, `.ipp` | `cpp`, `c++` |
-| C# | `.cs` | `csharp`, `c#` |
-| Dart | `.dart` | `dart` |
-| Dockerfile | `.dockerfile`, `.Dockerfile`, `dockerfile`, `Dockerfile` | `dockerfile`, `docker` |
-| Elixir (only in Semgrep Pro Engine) | `.ex`, `.exs` | `ex`, `elixir` |
-| Generic | `.generic` | `generic` |
-| Go | `.go` | `go`, `golang` |
-| Gosu (only in Semgrep Pro Engine) | `.gs` | `gosu` |
-| Hack | `.hack`, `.hck`, `.hh` | `hack` |
-| HTML | `.htm`, `.html` | `html` |
-| Java | `.java` | `java` |
-| JavaScript | `.js`, `.jsx`, `.cjs`, `.mjs` | `js`, `javascript` |
-| JSON | `.json`, `.ipynb` | `json` |
-| Jsonnet | `.jsonnet`, `.libsonnet` | `jsonnet` |
-| JSX | `.js`, `.jsx` | `js`, `javascript` |
-| Julia | `.jl` | `julia` |
-| Kotlin | `.kt`, `.kts`, `.ktm` | `kt`, `kotlin` |
-| Lisp | `.lisp`, `.cl`, `.el` | `lisp` |
-| Lua | `.lua` | `lua` |
-| Move with SUI | `.move` | `move_on_sui` |
-| Move with Aptos | `.move` | `move_on_aptos` |
-| OCaml | `.ml`, `.mli` | `ocaml` |
-| PHP | `.php`, `.tpl`, `.phtml` | `php` |
-| Prometheus Query Language | `.promql` | `promql` |
-| Protobuf Buffers | `.proto` | `proto`, `protobuf`, `proto3` |
-| Python | `.py`, `.pyi` | `python`, `python2`, `python3`, `py` |
-| QL | `.ql`, `.qll` | `ql` |
-| R | `.r`, `.R` | `r` |
-| Ruby | `.rb` | `ruby` |
-| Rust | `.rs` | `rust` |
-| Scala | `.scala` | `scala` |
-| Scheme | `.scm`, `.ss` | `scheme` |
-| Solidity | `.sol` | `solidity`, `sol` |
-| Swift | `.swift` | `swift` |
-| Terraform | `.tf`, `.hcl`, `tfvars` | `tf`, `hcl`, `terraform` |
-| TypeScript | `.ts`, `.tsx` | `ts`, `typescript` |
-| Vue | `.vue` | `vue` |
-| XML | `.xml` | `xml` |
-| YAML | `.yml`, `.yaml` | `yaml` |
+| Language                            | Extensions                                                                                       | `languages` key values                |
+|:------------------------------------|:-------------------------------------------------------------------------------------------------|:--------------------------------------|
+| Apex (only in Semgrep Pro Engine)   | `.cls`                                                                                           | `apex`                                | 
+| Bash                                | `.bash`, `.sh`                                                                                   | `bash`, `sh`                          |
+| C                                   | `.c`, `.h`                                                                                       | `c`                                   |
+| Cairo                               | `.cairo`                                                                                         | `cairo`                               |
+| Circom                              | `.circom`                                                                                        | `circom`                              |
+| Clojure                             | `.clj`, `.cljs`, `.cljc`, `.edn`                                                                 | `clojure`                             |
+| C++                                 | `.cc`, `.cpp`, `.cxx`, `.c++`, `.pcc`, `.tpp`, `.C`, `.h`, `.hh`, `.hpp`, `.hxx`, `.inl`, `.ipp` | `cpp`, `c++`                          |
+| C#                                  | `.cs`                                                                                            | `csharp`, `c#`                        |
+| Dart                                | `.dart`                                                                                          | `dart`                                |
+| Dockerfile                          | `.dockerfile`, `.Dockerfile`, `dockerfile`, `Dockerfile`                                         | `dockerfile`, `docker`                |
+| Elixir (only in Semgrep Pro Engine) | `.ex`, `.exs`                                                                                    | `ex`, `elixir`                        |
+| Generic                             | `.generic`                                                                                       | `generic`                             |
+| Go                                  | `.go`                                                                                            | `go`, `golang`                        |
+| Gosu (only in Semgrep Pro Engine)   | `.gs`                                                                                            | `gosu`                                |
+| Hack                                | `.hack`, `.hck`, `.hh`                                                                           | `hack`                                |
+| HTML                                | `.htm`, `.html`                                                                                  | `html`                                |
+| Java                                | `.java`                                                                                          | `java`                                |
+| JavaScript                          | `.js`, `.jsx`, `.cjs`, `.mjs`                                                                    | `js`, `javascript`                    |
+| JSON                                | `.json`, `.ipynb`                                                                                | `json`                                |
+| Jsonnet                             | `.jsonnet`, `.libsonnet`                                                                         | `jsonnet`                             |
+| JSX                                 | `.js`, `.jsx`                                                                                    | `js`, `javascript`                    |
+| Julia                               | `.jl`                                                                                            | `julia`                               |
+| Kotlin                              | `.kt`, `.kts`, `.ktm`                                                                            | `kt`, `kotlin`                        |
+| Lisp                                | `.lisp`, `.cl`, `.el`                                                                            | `lisp`                                |
+| Lua                                 | `.lua`                                                                                           | `lua`                                 |
+| Move with SUI                       | `.move`                                                                                          | `move_on_sui`                         |
+| Move with Aptos                     | `.move`                                                                                          | `move_on_aptos`                       |
+| OCaml                               | `.ml`, `.mli`                                                                                    | `ocaml`                               |
+| PHP                                 | `.php`, `.tpl`, `.phtml`                                                                         | `php`                                 |
+| Prometheus Query Language           | `.promql`                                                                                        | `promql`                              |
+| Protobuf Buffers                    | `.proto`                                                                                         | `proto`, `protobuf`, `proto3`         |
+| Python                              | `.py`, `.pyi`                                                                                    | `python`, `python2`, `python3`, `py`  |
+| QL                                  | `.ql`, `.qll`                                                                                    | `ql`                                  |
+| R                                   | `.r`, `.R`                                                                                       | `r`                                   |
+| Ruby                                | `.rb`                                                                                            | `ruby`                                |
+| Rust                                | `.rs`                                                                                            | `rust`                                |
+| Scala                               | `.scala`                                                                                         | `scala`                               |
+| Scheme                              | `.scm`, `.ss`                                                                                    | `scheme`                              |
+| Solidity                            | `.sol`                                                                                           | `solidity`, `sol`                     |
+| Swift                               | `.swift`                                                                                         | `swift`                               |
+| Terraform                           | `.tf`, `.hcl`, `tfvars`                                                                          | `tf`, `hcl`, `terraform`              |
+| TypeScript                          | `.ts`, `.tsx`                                                                                    | `ts`, `typescript`                    |
+| Vue                                 | `.vue`                                                                                           | `vue`                                 |
+| XML                                 | `.xml`                                                                                           | `xml`                                 |
+| YAML                                | `.yml`, `.yaml`                                                                                  | `yaml`                                |
 
 
 :::info
