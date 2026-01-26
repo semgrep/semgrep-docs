@@ -662,7 +662,19 @@ module.exports = {
             'support',
             'security',
             'licensing',
-            'usage-and-billing',
+            {
+              type: 'category',
+              label: 'Usage and billing',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'usage-and-billing/index'
+              },
+              items: [
+                'usage-and-billing/reconciliation',
+                'usage-and-billing/plan-changes-and-payments'
+              ]
+            },
             'deployment/claim-a-license',
             {
               type: 'category',
