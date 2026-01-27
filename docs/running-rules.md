@@ -10,8 +10,6 @@ hide_title: true
 
 # Run rules
 
-
-
 This document explains how to use local Semgrep rules when scanning your project.
 
 ## About rules
