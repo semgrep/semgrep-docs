@@ -309,6 +309,15 @@ module.exports = {
                 {
                   type: 'category',
                   collapsible: true,
+                  label: 'Coverage',
+                  items: [
+                    'semgrep-supply-chain/package-manager-support',
+                    'semgrep-supply-chain/feature-support',
+                  ]
+                },
+                {
+                  type: 'category',
+                  collapsible: true,
                   label: 'Open source security vulnerabilities',
                   link: {
                     type: 'doc',
@@ -470,6 +479,8 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
+        'references/language-maturity-levels',
+        'references/feature-definitions',
         'semgrepignore-v2-reference',
         'cli-reference',
         'semgrep-appsec-platform/json-and-sarif'
