@@ -28,7 +28,7 @@ Don't forget to update:
 - the individual language's page
 - and most importantly, the index!!
 *************************************************************************** -->
-
+## Supported languages table
 <SupportedLanguagesTable />
 
 
