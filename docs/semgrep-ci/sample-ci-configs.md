@@ -25,7 +25,6 @@ import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-
 <!-- Jenkins -->
 import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
 import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
-import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 
 <!--Bitbucket Pipelines -->
 
@@ -174,7 +173,7 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 ## Jenkins
 
 :::note
-Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+Your user interface (UI) may vary depending on your Jenkins installation. The following steps refer to Jenkins' Classic UI.
 :::
 
 To add a Semgrep configuration snippet in your Jenkins pipeline:
@@ -192,8 +191,6 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
     values={[
     {label: 'Default', value: 'jenkins-semgrep'},
     {label: 'Semgrep CE', value: 'jenkins-oss'},
-    {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
-    {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
 >
 
@@ -217,12 +214,6 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 <JenkinsSemgrepOssSast />
 
 You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
-
-</TabItem>
-
-<TabItem value='jenkins-semgrep-docker'>
-
-<JenkinsSemgrepAppSastDocker />
 
 </TabItem>
 
