@@ -30,7 +30,7 @@ To search for dependencies:
    3. To search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
    4. Click **Apply** to save your changes and see your results.
 
-You can also use the **Advanced search** to search for dependencies:
+You can also use the **Advanced search** to search for specific versions of dependencies:
 
 1. Click **Advanced search**.
 2. Enter the **Dependency** name.
