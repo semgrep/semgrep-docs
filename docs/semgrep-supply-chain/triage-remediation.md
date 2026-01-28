@@ -69,7 +69,7 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 ### Supported SCMs
  
 - GitHub Cloud 
-- Gitlab Cloud
+- GitLab Cloud
 
 This **includes** projects added to Semgrep through Semgrep Managed Scans.
 
@@ -80,7 +80,7 @@ To access all upgrade guidance and click-to-fix features, you must have:
 - At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.
-  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) which current customers may need to manually enable.
+  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app). If you're a current customer, you must manually enable this if you haven't already.
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep), connect it to improve results.
 
 ### Features and permissions required
