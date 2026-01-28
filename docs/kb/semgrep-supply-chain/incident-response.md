@@ -12,22 +12,38 @@ This document describes how to respond to a malicious dependency incident using 
 
 Semgrep maintains a record of the dependencies in your project that is updated whenever a full scan runs. As soon as you have reason to be concerned, check this record to see if those packages and versions were present in your environment at the time of the scan.
 
-You can do this in Semgrep AppSec Platform using the [**Dependencies** tab](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) and its dependency search functionality and/or via the Semgrep API.
+You can do this in Semgrep AppSec Platform using the [**Dependencies** tab](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) and its dependency search functionality or through the Semgrep API.
 
 ### Find malicious versions of packages with dependency search
 
-The [dependency search](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) supports:
+The [dependency search](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) allows you to search:
 
-- Finding a package through substring matching
-- Finding a specific package using the `@` syntax
-- Finding all packages with versions greater or less than a specified version using the `<` or `>` operands
+- For a package using its name, such as `gitdb2`
+- For a specific version of a package
+- For a range of versions, such as `tar` versions between 4.0 and 5.0
 
-For example, to find all versions of `lodash` that are greater than version 4.17, enter `lodash@>4.17` :
+To search for dependencies:
+
+1. Enter the dependency name and press **Enter** or **Return**. This returns a list of matches, but you can then filter your results further by version number:
+   1. Click the name of your dependency to open the **Dependency** dialog:
+   2. To search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
+   3. To search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
+   4. Click **Apply** to save your changes and see your results.
+
+You can also use the **Advanced search** to search for dependencies:
+
+1. Click **Advanced search**.
+2. Enter the **Dependency** name.
+3. To specify a **version** number, click **Exact match**. For a range, click **Range** and provide the minimum and maximum versions.
+4. **Optional**: to search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
+5. **Optional**: to search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
+
+You can search for multiple packages simultaneously.
 
 ![Sample dependency search for lodash4.17 or later.](/img/ssc-incident-1.png#md-width)
-_**Figure**. Sample dependency search for lodash4.17 or later._
+_**Figure**. Sample dependency search for lodash._
 
-You can also use a URL like this: https://semgrep.dev/orgs/my_company/supply-chain/t/dependencies?q=lodash%40%>4.17
+You can also use a URL like this: https://semgrep.dev/orgs/-/supply-chain/t/dependencies?q=lodash%40%>4.17
 
 ### Find malicious versions of packages using the Semgrep API
 
@@ -114,7 +130,7 @@ You can then download the SBOM from the provided URL.
 
 For all major security incidents, the Semgrep Security Research team responds within one business day, typically within four hours, and delivers rules to all customer accounts to check for malicious package versions.
 
-Due to time zones, holidays, and the sometimes subjective nature of incident severity, please contact [Semgrep support](/docs/support) to verify that we are actively working on a rule in response to a malware incident.
+Due to time zones, holidays, and the sometimes subjective nature of incident severity, contact [Semgrep support](/docs/support) to verify that we are actively working on a rule in response to a malware incident.
 
 Otherwise, wait for a notification from Semgrep through regular channels, such as Slack, that the rules related to the incident have been deployed.
 
@@ -147,7 +163,6 @@ In the directory where you want to run the scan, choose one of the following com
 
 - Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform. Note: to view findings in the Semgrep AppSec Platform, you must be logged in before running a scan. Log in by running `semgrep login`.
 - Run `semgrep scan --config supply-chain .` if you want to scan without a Git checkout. In this mode, findings are available for local review and are not sent to the Semgrep AppSec Platform.
-
 
 ### Scan results
 
