@@ -4,7 +4,7 @@ description: Set up Semgrep scans in Jenkins using the Semgrep Docker image.
 
 The following code snippets demonstrates how to set up a Jenkins pipeline that integrates Semgrep using the Semgrep Docker image.
 
-```javascript
+```groovy
 pipeline {
   agent any
     environment {

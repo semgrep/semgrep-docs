@@ -1,13 +1,13 @@
 This code snippet uses Jenkins declarative syntax.
 
-```javascript
+```groovy
 pipeline {
   agent any
-    stages {
-      stage('Semgrep-Scan') {
-        steps {
-          sh 'pip3 install semgrep'
-          sh 'semgrep scan --config auto'
+  stages {
+    stage('Semgrep-Scan') {
+      steps {
+        sh 'pip3 install semgrep'
+        sh 'semgrep scan --config auto'
       }
     }
   }

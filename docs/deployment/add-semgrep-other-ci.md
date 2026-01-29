@@ -98,21 +98,21 @@ pipelines:
 
 </details>
 
-The next example is a `Jenkinsfile` configuration that adds Semgrep by installing it:
+The next example is a Jenkins configuration file that installs Semgrep:
 
 <details>
-  <summary>Add Semgrep by installing it.</summary>
+<summary>Add Semgrep by installing it.</summary>
 
-```javascript
+```groovy
 pipeline {
   agent any
+  environment {
+    // You need to set the token as an environment variable
+    // (see Create a `SEMGREP_APP_TOKEN` section).
+    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+  }
   stages {
     stage('Semgrep-Scan') {
-        environment {
-          // You need to set the token as an environment variable
-          // (see Create a `SEMGREP_APP_TOKEN` section).
-          SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        }
       steps {
         // Install and run Semgrep:
         sh 'pip3 install semgrep'

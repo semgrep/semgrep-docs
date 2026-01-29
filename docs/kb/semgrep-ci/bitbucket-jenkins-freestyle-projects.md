@@ -10,17 +10,18 @@ description: Set up Jenkins freestyle projects for Bitbucket repositories.
 
 ## Prerequisites
 
-Ensure you have set up [triggering events from Bitbucket to Jenkins](https://semgrep.dev/docs/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins/).
+Ensure you have set up [triggering events from Bitbucket to Jenkins](/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins/).
 
 ## Create a Jenkins Freestyle project
 
+1. Sign in to Jenkins.
 1. From the Jenkins **Dashboard**, click **New Item**.
-1. Type a project name and select **Freestyle project**. Click **OK**.
+2. Type a project name, select **Freestyle project**, and click **OK**.
 ![Filled-out item name and Freestyle option](/img/kb/bitbucket-jenkins-freestyle.png)
 1. On the **General** page, go to the **Source Code Management** section. Select **Git**. Add your Bitbucket **Repository URL**, select the **Credentials** needed to check out sources, and select the **Branches to build**.
 ![Filled-out repository details](/img/kb/bitbucket-jenkins-freestyle-repository-details.png)
 1. In the **Build Triggers** section, click **<i class="fa-solid fa-square-check"></i> Build with Bitbucket Push and Pull Request Plugin**. 
-1. In **Triggers > Select an Action** select **Created**, **Updated**, and **Push**.
+2. In **Triggers > Select an Action** select **Created**, **Updated**, and **Push**.
 ![Build triggers for the freestyle project](/img/kb/bitbucket-jenkins-freestyle-events.png)
 1. In the **Build environment** section, declare the `SEMGREP_APP_TOKEN` by selecting **Use secret text or file.** Set **Variable** to `SEMGREP_APP_TOKEN` and **Credentials > Specific credentials** to the defined credential for the Semgrep token. Click **Add** to save your changes.
 ![Filled-out the secrets text option](/img/kb/bitbucket-jenkins-freestyle-token.png)
