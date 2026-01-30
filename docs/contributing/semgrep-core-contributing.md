@@ -42,14 +42,6 @@ brew install pkg-config bash
 Lastly, you will almost certainly want the Python environment for `semgrep-cli`
 configured before proceeding. Please refer to the [Set up the environment](/contributing/semgrep-contributing#set-up-the-environment) documentation.
 
-Once you've returned here, ensure that your shell is able to enter the Python
-virtual environment.
-
-```bash
-cd cli; pipenv shell # enter the virtual environment
-cd ..                # from within the virtual environment, return to the repo root
-```
-
 ### First-time installation
 
 The root `Makefile` contains targets that take care of building the
@@ -83,16 +75,10 @@ Unless there is a significant dependency change, you won't need to run `make dev
 
 The Semgrep team has provided useful targets to help you build and link the entire semgrep project, including both `semgrep-core` and `semgrep`. You may find these helpful.
 
-To install the latest OCaml binaries and `semgrep` binary after pulling source code changes from Git, run:
+To build the latest OCaml binaries and `semgrep` binary after pulling source code changes from Git, run:
 
-```
-make rebuild
-```
-
-To install after you make a change locally, run
-
-```
-make build    # or just `make`
+```sh
+make
 ```
 
 After making either of these targets, `semgrep` runs with all your local changes, OCaml and Python both.
@@ -115,12 +101,6 @@ git submodule update --recursive
 
 This will update internal dependencies. (We suggest aliasing it to `uu`)
 
-After `tree-sitter` is updated, you may need to reconfigure it. If so, run
-
-```
-make config
-```
-
 ### Develop `semgrep-core`
 
 If you are developing `semgrep-core`, Use `Makefile` in the repository root for `core` and `core-test` targets; the code is primarily in `src/`.
@@ -129,25 +109,25 @@ The following assumes you are in the repository root.
 
 After you pull or make a change, compile using
 
-```
+```sh
 make
 ```
 
-This will build an executable for `semgrep-core` in `_build/default/src/main/Main.exe` (we suggest aliasing this to `sc`). Try it out by running
+This will build an executable for `semgrep-core` in `bin/`. Try it out by running
 
-```
-_build/default/src/main/Main.exe -help
+```sh
+bin/semgrep-core -help
 ```
 
 When you are done, test your changes with 
 
-```
+```sh
 make core-test
 ```
 
 Finally, to update the `semgrep-core` binary used by `semgrep`, run
 
-```
+```sh
 make copy-core-for-cli
 ```
 
@@ -325,7 +305,7 @@ information, for example:
 ```bash
 export SEMGREP_CORE_DEBUG=1
 export SEMGREP_CORE_PROFILE=1
-pipenv run semgrep -f ../semgrep-core/tests/PERF/ajin.yaml ../semgrep-core/tests/PERF/three.js
+uv run semgrep -f ../semgrep-core/tests/PERF/ajin.yaml ../semgrep-core/tests/PERF/three.js
 ```
 will output:
 ```bash
