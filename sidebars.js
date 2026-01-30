@@ -21,6 +21,49 @@ module.exports = {
     { type: 'ref', id: 'writing-rules/overview', label: 'Write Semgrep rules', className: 'top-category'},
     { type: 'ref', id: 'for-developers/developer-overview', label: 'Semgrep for developers', className: 'top-category'},
     {
+      type: 'category',
+      label: 'References',
+      collapsible: true,
+      items: [
+        {
+          type: 'category',
+          label: 'CI references',
+          collapsible: true,
+          link: {type: 'generated-index'},
+          items: [
+            'semgrep-ci/ci-environment-variables',
+            'semgrep-ci/sample-ci-configs',
+            'semgrep-ci/findings-ci',
+            'semgrep-ci/packages-in-semgrep-docker'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Language-specific features',
+          collapsible: true,
+          link: {type: 'generated-index'},
+          items: [
+            'semgrep-code/java'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Glossaries',
+          collapsible: true,
+          link: { type: 'generated-index'},
+          items: [
+            'semgrep-code/glossary',
+            'semgrep-supply-chain/glossary'
+          ]
+        },
+        'references/language-maturity-levels',
+        'references/feature-definitions',
+        'semgrepignore-v2-reference',
+        'cli-reference',
+        'semgrep-appsec-platform/json-and-sarif'
+      ]
+    },
+    {
       type: 'ref',
       id: 'learn/overview',
       label: 'Semgrep learning guides',
