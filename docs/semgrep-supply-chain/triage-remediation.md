@@ -46,11 +46,11 @@ You can change the status of provisionally ignored findings to indicate the next
 
 Removing dependencies and refactoring code are other methods to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects changes to your manifest file or lockfile, and updates the status to **Fixed**.
 
-## Upgrade guidance and click-to-fix pull requests
+## Upgrade guidance and Click to fix
 
-If the remediation for a finding is to upgrade the package, **upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
+If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Have Semgrep open a pull request that updates the version used by your repository and guide the developer on the breaking changes in the PR description
+- Have Semgrep open a pull request or merge request that updates the version used by your repository and guide the developer on any breaking changes in the PR description
 - Create a Jira ticket
 - Set the finding's triage status as **To fix**
 
@@ -58,25 +58,30 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 
 ### Supported languages and package managers
 
-- **Go** projects using the `gomod` package manager
+- **JavaScript** projects
 - **Python** codebases with the following package managers:
   - `pip`
   - `pip-tools`
   - `pipenv`
   - `poetry`
   - `uv`
-- GitHub Cloud
-  - This **includes** projects added to Semgrep through Semgrep Managed Scans 
+
+### Supported SCMs
+ 
+- GitHub Cloud 
+- GitLab Cloud
+
+This **includes** projects added to Semgrep through Semgrep Managed Scans.
 
 ### Prerequisites
 
 To access all upgrade guidance and click-to-fix features, you must have:
 
-- At least one repository that [scans for dependencies through Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+- At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.
-  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app).
-- Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep). Currently, Semgrep supports only private Python registries.
+  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app). If you're a current customer, you must manually enable this if you haven't already.
+- Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep), connect it to improve results.
 
 ### Features and permissions required
 
@@ -106,12 +111,12 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 
 <ViewDetailsSsc />
 
-### Create a pull request with fixes
+### Open a pull request or merge request with fixes
 
-1. Navigate to the **Details** page of the finding for which you want to make a pull request.
+1. Navigate to the **Details** page of the finding for which you want to make a pull request or merge request.
 1. Click **Fix** > **Open fix PR**.
 
-A pull request includes:
+A pull request or merge request includes:
 
 - The manifest and/or lockfile changes necessary to upgrade the dependency
 - The context necessary for developers to fix potentially breaking changes
@@ -124,9 +129,7 @@ The following context is included in the pull request description:
 - Vulnerability details
   - A description of the vulnerability and links to its CVE references
 - Upgrade guidance
-  - All the pieces of code, typically files and functions, which make use of the dependency
-  - Unchanged (safe) pieces of code
-  - Potentially breaking pieces of code
+  - The files and functions in the code which make use of the dependency and likely include breaking changes
 - Dependency references
   - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
 
@@ -159,7 +162,6 @@ If you are an **existing** Semgrep user and you need to change your Semgrep app'
 1. Navigate to the settings page of your private Semgrep GitHub app; refer to [<i class="fas fa-external-link fa-xs"></i> Changing the permissions of a GitHub app](https://docs.github.com/en/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app) for instructions.
 1. In the **Repository permissions** section, search for `Contents`.
 1. Click the drop-down menu and select **Read and write**.
-:::
 </details>
 
 ### Connect a private registry to Semgrep
@@ -183,7 +185,7 @@ Semgrep currently supports integrations with private Maven package registries fo
 :::
 </details>
 
-### Troubleshooting: Semgrep is not displaying any upgrade guidance or click-to-fix functionality
+### Troubleshooting: Semgrep is not displaying Upgrade guidance or Click to fix functionality
 
 <details>
 <summary>Expand for information on troubleshooting if Semgrep is not displaying any upgrade guidance or click to fix functionality</summary>

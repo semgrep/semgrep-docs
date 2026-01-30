@@ -45,12 +45,28 @@ To search for dependencies:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to **Supply Chain > Dependencies**.
-1. Using the **Dependency** search bar, type the name of the dependency you are searching for.
+1. Using the **Dependency** search bar, enter the name of the dependency you are searching for.
 1. Optional: Apply filters as necessary for your search.
 
-:::tip
-Search for ranges of dependency versions with the `>` or `<` operators following the @ operator. For example, `body-parser@<1.18.0` finds all versions of `body-parser` less than 1.18.0.
-:::
+### Filter results by version number
+
+To filter your results by version number:
+
+1. Enter the dependency name and press **Enter** or **Return**. This returns a list of matches, but you can then filter your results further by version number:
+   1. Click the name of your dependency to open the **Dependency** dialog:
+   2. To search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
+   3. To search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
+   4. Click **Apply** to save your changes and see your results.
+
+You can also use the **Advanced search** to search for specific versions of dependencies:
+
+1. Click **Advanced search**.
+2. Enter the **Dependency** name.
+3. To specify a **version** number, click **Exact match**. For a range, click **Range** and provide the minimum and maximum versions.
+4. **Optional**: to search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
+5. **Optional**: to search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
+
+You can search for multiple packages simultaneously.
 
 ## Search filters
 
@@ -64,7 +80,6 @@ Dependency search provides the following filters, which correspond to the data p
 | License Policy | The License Policy you set. Determines whether a dependency can be used based on its license. |
 | License | The dependency's license type. |
 | Language | The language of the dependency. |
-
 
 ## Dependency paths (beta)
 
