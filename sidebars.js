@@ -666,7 +666,7 @@ module.exports = {
               collapsible: true,
               link: {
                 type: 'doc',
-                id: 'usage-and-billing/index'
+                id: 'usage-and-billing/overview'
               },
               items: [
                 'deployment/claim-a-license',

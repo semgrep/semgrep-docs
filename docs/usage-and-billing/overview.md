@@ -1,5 +1,5 @@
 ---
-slug: usage-and-billing
+slug: overview
 append_help_link: true
 title: Usage and billing
 description: Learn about usage computation and other aspects of your Semgrep licenses.
