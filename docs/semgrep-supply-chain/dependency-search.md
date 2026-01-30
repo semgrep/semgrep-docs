@@ -25,8 +25,9 @@ To search your dependencies:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > General > Supply Chain**.
-3. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it's not already enabled.
-4. Navigate to **Supply Chain > Dependencies**.
+1. Click <i class="fa-solid fa-toggle-large-on"></i> **Dependency search** if it's not already enabled.
+2. Navigate to **Supply Chain > Dependencies**.
+
 
 At this point, Semgrep displays the manifest files or lockfiles that it has used to determine dependency information and the dependencies included in each of the manifest files or lockfiles.
 

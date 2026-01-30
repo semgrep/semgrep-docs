@@ -33,9 +33,6 @@ If you already have a private Semgrep GitHub app set up and configured for your 
 
 :::tip App slug
 If you don't know the name of your app slug, you can find it on the [**Settings > Source code managers** page](https://semgrep.dev/orgs/-/settings/source-code). 
-
-![DESCRIPTION](/img/github-app-slug.png#md-width)
-_**Figure**. Add a description here._
 :::
 
 <!-- markdown-link-check-disable -->
