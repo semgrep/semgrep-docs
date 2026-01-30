@@ -113,10 +113,10 @@ After you pull or make a change, compile using
 make
 ```
 
-This will build an executable for `semgrep-core` in `bin/`. Try it out by running
+This will build an executable for `semgrep-core` in `_build/default/src/main/Main.exe` (we suggest aliasing this to `sc`). Try it out by running
 
 ```sh
-bin/semgrep-core -help
+_build/default/src/main/Main.exe -help
 ```
 
 When you are done, test your changes with 

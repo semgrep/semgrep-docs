@@ -83,7 +83,7 @@ Currently, depending on the flags used, `spacegrep` is invoked both independentl
 
 ## Making a change
 
-Semgrep runs on Python versions >= 3.8. If you don't have one of these versions installed, please do so before proceeding.
+Semgrep runs on Python versions >= 3.10. If you don't have one of these versions installed, please do so before proceeding.
 
 Because the Python and OCaml development paths are relatively independent, the instructions are divided into Python ([semgrep-cli contributing](semgrep-contributing.md)) and OCaml ([semgrep-core contributing](semgrep-core-contributing.md)).
 
