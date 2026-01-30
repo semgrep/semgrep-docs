@@ -12,11 +12,7 @@ hide_title: true
 
 # Usage and billing
 
-[TODO]
-
-This document is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets, regardless of whether they use Semgrep AppSec Platform or not.
-
-There are no usage limits for Semgrep Community Edition (CE).
+This document provides information about how Semgrep calculates usage for the purposes of billing and is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets. There are no usage limits for Semgrep Community Edition (CE).
 
 :::tip
 See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information about the differences between these two Semgrep products.
@@ -31,7 +27,7 @@ Any type of Semgrep AppSec Platform scan counts towards the contributor total. T
 - Scanning with Semgrep Code, Secrets, or Supply Chain
 - Full scans on a repository or partial scans on a pull request or merge request
 
-Semgrep computes contributor counts for any scan initated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit if the scan is invoked by a logged-in contributor.
+Semgrep computes contributor counts for any scan initiated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit if the scan is invoked by a logged-in contributor.
 
 ### Contributor counts
 
@@ -42,11 +38,7 @@ Semgrep calculates contributors using information from the `git log` over the pa
 
 **Bots** and other automations are excluded from the contributor count.
 
-#### Small teams and startup licensing
-
-If you are a small team, you may be eligible for Semgrep's discounted startup pricing. Fill out the [<i class="fas fa-external-link fa-xs"></i> startup pricing](https://semgrep.dev/contact/contact-us-startups) form to apply.
-
-### Contributor usage across multiple Semgrep organizations
+#### Contributor usage across multiple Semgrep organizations
 
 If your company creates multiple Semgrep organizations, the contributor limit applies across all of your organizations. For example, if your company creates three Semgrep organizations, each with the following number of contributors:
 
@@ -56,25 +48,29 @@ If your company creates multiple Semgrep organizations, the contributor limit ap
 
 Your company has 27 contributors across three organizations, so you require licenses for 27 contributors.
 
+#### Small teams and startup licensing
+
+Small teams may be eligible for Semgrep's discounted startup pricing. Fill out the [<i class="fas fa-external-link fa-xs"></i> startup pricing](https://semgrep.dev/contact/contact-us-startups) form to apply.
+
 ## AI credits
 
 Each Semgrep license comes with a number of AI credits. These credits can be used for different AI features:
 
-| Feature | Credits required |
+| Feature | AI credits required |
 | - | - |
 | Triage | 1 credit |
-| Full scan | X credits |
+| Full scan with AI detection | X credits |
 | Autofix | Y credits |
 
-For the duration of your contract, which is usually an annual contract, AI credits convert to a pool. For example, if you buy 10 Team licenses on January 1, you will have 2400 credits for the year: 10 licenses * 20 credits * 12 months = 2400 credits.
+For the duration of your contract, which is usually an annual contract, AI credits convert to a pool. For example, if you buy 10 **Team** licenses on January 1, you will have 2400 credits for the year: 10 licenses * 20 credits * 12 months = 2400 credits.
 
 You can purchase additional AI credits in increments of 50,000 credits. Semgrep does not offer bulk discounts for credits.
 
 Credits that you purchase roll over at the end of the year. Entitlement credits, or the credits that come with your Semgrep licenses, do not roll over at the end of the year.
 
-### Assistant actions
+### AI credits for the **Free** tier
 
-[TODO]
+Users of the **Free** tier receive 60 AI credits per month.
 
 ## How to determine your plan needs
 

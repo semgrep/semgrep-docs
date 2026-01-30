@@ -660,8 +660,6 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'security',
-            'licensing',
             {
               type: 'category',
               label: 'Usage and billing',
@@ -671,11 +669,16 @@ module.exports = {
                 id: 'usage-and-billing/index'
               },
               items: [
-                'usage-and-billing/reconciliation',
-                'usage-and-billing/plan-changes-and-payments'
+                'deployment/claim-a-license',
+                'usage-and-billing/plan-changes-and-payments',
+                'usage-and-billing/reconciliation'
               ]
             },
-            'deployment/claim-a-license',
+            {
+              type: 'doc',
+              id: 'licensing',
+              label: 'Licenses'
+            },
             {
               type: 'category',
               label: 'Compliance',
@@ -695,13 +698,23 @@ module.exports = {
                 'compliance/soc2'
               ]
             },
-            'trophy-case',
-            'run-a-successful-pov',
+            {
+              type: 'doc',
+              id: 'trophy-case',
+              label: 'Trophy case'
+            },
+            
+            {
+              type: 'doc',
+              id: 'run-a-successful-pov',
+              label: 'Run a successful trial'
+            },
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep metrics'
+              label: 'Metrics'
             },
+            'security',
             {
               type: 'category',
               label: 'Contribute to Semgrep',
