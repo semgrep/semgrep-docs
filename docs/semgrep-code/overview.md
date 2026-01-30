@@ -40,9 +40,9 @@ LLMs excel at understanding code context: variable names, class structures, func
 - Check for missing safeguards, such as authentication, role checks, and permissions.
 - Flag potential logic gaps for review before attackers ever find them.
 
-Semgrep's Multi-Modal SAST Engine analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application with improved signal quality while keeping findings transparent.
+==Semgrep's Multi-Modal SAST Engine== analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application with improved signal quality while keeping findings transparent.
 
-Learn how to enable and run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans).
+If Semgrep Assistant is enabled, the AI-powered detection scan is available by default. Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans). 
 
 ## Findings
 

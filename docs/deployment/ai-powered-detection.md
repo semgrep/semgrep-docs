@@ -46,6 +46,22 @@ Findings
 * Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **Navigation bar** to navigate to your findings.   
 * On the **AI Detection** page, click **Details** for any finding to see additional information and AI-powered remediation guidance. 
 
+## Adding additional context to AI-Powered detection scans
+
+
+Semgrep’s AI-powered Multi-Modal Engine now offers context-aware analysis. By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to surface higher-impact findings and reduce false positives based on how your application is designed and used.
+
+Please note that only **Admins** can upload context documents to Semgrep Projects. Currently, each project supports up to **four** documents.
+
+### Quickstart: How to provide additional context
+
+* Log in to Semgrep AppSec Platform.  
+* In the **Navigation Bar**, click on **Rules & Policies → Assistant Memories**.  
+* Switch to the **Documents** tab and click **Add document**.
+* Drag and drop a file or click **Choose a file** to upload your context document, then select a project to apply the context to.  
+  * If you add a description at this step, it will be displayed in the finding's description and used as additional context for AI-powered detection scans.  
+* The finding **Details** page references the uploaded context document under the finding description.
+
 ## Troubleshooting and disclaimers
 
 For help with AI-powered detection, contact your organization’s **Semgrep account manager** or **Semgrep [support](https://semgrep.dev/docs/support)**. 
@@ -55,6 +71,9 @@ Beta program notice:
 * No formal uptime guarantees; service is best-effort during beta.  
 * Features, performance, and APIs may change without notice. Planned maintenance will be communicated in advance when possible.  
 * Any stated Service Level Objective (SLO) is not a commercial Service Level Agreement (SLA) and may be revised as the product evolves.
+
+## Disable AI-powered detection
+== Settings --> Assistant --> turn off toggle?==
 
 ## Technical FAQs
 
