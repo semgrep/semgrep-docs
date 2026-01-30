@@ -65,6 +65,13 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/prerequisites') ||
         path.startsWith('/docs/supported-languages') ||
         path.startsWith('/docs/languages/') ||
+        path.startsWith('/docs/references') ||
+        path.startsWith('/docs/cli-reference') ||
+        path.startsWith('/docs/semgrepignore-v2-reference') ||
+        path.startsWith('/docs/semgrep-code/glossary') ||
+        path.startsWith('/docs/semgrep-supply-chain/glossary') ||
+        path.startsWith('/docs/semgrep-code/java') ||
+        path.startsWith('/docs/semgrep-appsec-platform/json-and-sarif') ||
         path.startsWith('/docs/extensions') ||
         path.startsWith('/docs/troubleshooting/semgrep')) {
       return 'scan';
