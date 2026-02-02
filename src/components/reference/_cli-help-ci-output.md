@@ -352,6 +352,9 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+       --x-enable-mal-deps
+           Enable malicious dependency rules for this scan.
+
 COMMON OPTIONS
        --debug
            All of --verbose, but with additional debugging information.
