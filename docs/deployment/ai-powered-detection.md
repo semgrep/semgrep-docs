@@ -10,7 +10,7 @@ displayed_sidebar: scanSidebar
 ---
 
 
-# AI-powered detection for Multi-Modal scanning with Semgrep Code
+# AI-powered detection for Multi-Modal scanning with Semgrep Code (beta feature)
 
 ## Prerequisites {#prerequisites}
 
@@ -88,7 +88,7 @@ A: Customers need to have Assistant turned on and Managed Scans enabled. [See Pr
 
 **Q: What about data privacy with AI-powered detection?**
 
-A: See the [Data privacy](?tab=t.0#heading=h.h7rbr3nimj2v) section for details.
+A: Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
 
 **Q: How many scans can I trigger?**
 
