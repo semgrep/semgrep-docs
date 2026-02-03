@@ -22,7 +22,7 @@ The following updates were made to Semgrep in January 2026.
 
 - You must now authenticate through OAuth when connecting to the MCP server using Streamable HTTP.
 - **CLI**:
-  - Improved the performance of scans, especially on large projects, by reducing the cost of re-hashing `Target` objects.
+  - Improved the performance of scan planning by reducing the cost of re-hashing `Target` objects. Semgrep's performance improvement on scans of large projects is proportional to the number of files in the project.
   - In `--debug` mode, Semgrep warns you if you attempt to run a parallel scan with a larger value for `-j`/`--jobs` than the number of CPUs Semgrep has detected as available for use.
   - Semgrep now provides a suggested starting value for `-j`/`--jobs`.
   - `semgrep login` now supports the use of `--force`, which ignores existing tokens and starts a new login session.
@@ -49,6 +49,7 @@ The following updates were made to Semgrep in January 2026.
 - Improved the handling of parsing errors during interfile analysis. These errors are now reported to you and included in the JSON output.
 - Fix an issue resulting in `bad file descriptor` errors when performing Git operations on Windows machines.
 - **Java**: improved virtual method resolution.
+- **Python**: Dataflow analysis now accounts for `for/else` and `while/else` loops.
 - **Scala**: improved virtual method resolution.
 
 ## ⛓️ Semgrep Supply Chain
