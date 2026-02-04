@@ -56,7 +56,7 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 #### Triage through PR comments
 
-Developers can triage Semgrep findings without leaving Azure DevOps by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your source code manager (SCM) connection to use a personal access token that grants **Full Access**. This is because Semgrep requires webhooks for the triage through PR comment feature.
+Developers can triage Semgrep findings without leaving Azure DevOps by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your source code manager (SCM) connection to use a personal access token that grants **Full Access**. This is because Semgrep requires webhooks for the triage through PR comments feature.
 
 To update your connection between Semgrep and Azure DevOps:
 
@@ -68,7 +68,7 @@ To update your connection between Semgrep and Azure DevOps:
 6. In the **Update access token** dialog that appears, provide the token you created. Click **Update** to save and proceed.
 7. Toggle the **Incoming webhooks** setting on.
 
-Once you've successfully turned on the triage by PR comment feature, you can change the token you provide to Semgrep to one that's more restrictive. The token scopes required for the more restrictive token are:
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, you can change the token you provide to Semgrep to one that's more restrictive. The token scopes required for the more restrictive token are:
 
 - `Code: Status`
 - `Member Entitlement Management: Read`
@@ -95,7 +95,7 @@ variables:
 steps:
   - checkout: self
     clean: true
-    fetchDepth: 100000
+    fetchDepth: 20
     persistCredentials: true
   - script: >
       python -m pip install --upgrade pip
@@ -139,6 +139,30 @@ steps:
 ## Customize PR comments
 
 <CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
+
+## Optional features
+
+### Enable Autofix in Azure repositories
+
+[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+
+<EnableAutofix />
+
+### Dataflow traces in MR comments
+
+With **dataflow traces**, Semgrep Code provides you a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
+
+When running Semgrep Code from the command line, you can pass in the flag `--dataflow-traces` to use this feature.
+
+You can view dataflow traces in the PR comments created by Semgrep Code.
+
+#### View the path of tainted data in MR comments
+
+To enable dataflow traces in your MR comments, fulfill the following prerequisites:
+
+- Set up Semgrep to post Azure DevOps pull request comments, as described on this page.
+- To get the most meaningful results of dataflow traces in PR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset such as the **default ruleset** added to your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 
 ## Next steps
 

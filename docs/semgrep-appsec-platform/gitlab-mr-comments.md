@@ -58,25 +58,24 @@ PR comments are enabled by default for users who have connected their GitLab gro
 
 #### Triage through MR comment
 
-Developers can triage Semgrep findings without leaving GitLab by responding to the MR comments authored by Semgrep. To turn this feature on, you must update your source code manager (SCM) connection to use an access token with an elevated role. This allows you to enable webhooks, which Semgrep requires for the triage through MR comment feature.
+Developers can triage Semgrep findings without leaving GitLab by responding to the MR comments authored by Semgrep. To use this feature, you must have a paid GitLab plan, and must update your source code manager (SCM) connection to use an access token with an elevated role. This allows you to enable webhooks, which Semgrep requires for the triage through MR comments feature.
 
-To update your connection between Semgrep and GitLab:
-
-1. Ensure that you're using one of the following GitLab plans:
+Ensure that you're using one of the following GitLab plans:
    - GitLab Premium
    - GitLab Ultimate
    - GitLab Self Managed
-2. Log in to GitLab, and create an access token with one of the following roles assigned:
+
+1. Log in to GitLab, and create an access token with access to the desired GitLab groups. Assign the `api` scope and one of the following roles:
    - `Maintainer`
    - `Owner`
    - `Admin`
-3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
-4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your GitLab connection.
-5. Click **Update access token**.
-6. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
-7. Toggle the **Incoming webhooks** setting on.
+1. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your GitLab connection.
+1. Click **Update access token**.
+1. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+1. Toggle the **Incoming webhooks** setting on.
 
-Once you've successfully turned on the triage by PR comment feature, you can change the token you provide to Semgrep to one that's more restrictive. You can downgrade the role assigned to the token to `Developer`.
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, you can change the role for the token you provide to Semgrep to one that's more restrictive, such as `Developer`.
 
 ### Configure comments for Semgrep Code
 
@@ -98,7 +97,7 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ## Optional features
 
-### Enable autofix in GitLab repositories
+### Enable Autofix in GitLab repositories
 
 [Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
@@ -110,15 +109,15 @@ With **dataflow traces**, Semgrep Code provides you a visualization of the path 
 
 When running Semgrep Code from the command line, you can pass in the flag `--dataflow-traces` to use this feature.
 
-You can view dataflow traces in the MR comments created by Semgrep Code running in your CI/CD system.
+You can view dataflow traces in the MR comments created by Semgrep Code.
 
 #### View the path of tainted data in MR comments
 
-To enable dataflow traces in your CI pipeline, fulfill the following prerequisites:
+To enable dataflow traces in your MR comments, fulfill the following prerequisites:
 
 - Set up Semgrep to post GitLab merge request comments, as described on this page.
-- To obtain meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
-- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+- To get the most meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
+- Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset such as the **default ruleset** added to your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
 
 ### Customize MR comments
 

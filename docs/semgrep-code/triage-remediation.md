@@ -185,6 +185,9 @@ You can triage your Semgrep AppSec Platform findings displayed as comments in PR
 Before proceeding, ensure that you have:
  - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
  - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
+ - Enabled the option in your Semgrep organization settings.
+   1. Click **Settings**. This takes you to the **General > Global** settings tab.
+	 2. Enable the toggle under **Triage via code review comments**.
  - *For SCMs other than GitHub:*
    - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
    - Enabled the **Incoming webhooks** option on the SCM connection
@@ -193,7 +196,7 @@ Before proceeding, ensure that you have:
 
 See the following documents for instructions on granting the correct permissions to enable pull request interaction and webhook management:
 
-- [GitLab](/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comment)
+- [GitLab](/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comments)
 - [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
 - [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
 - [Azure DevOps](/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comments)
