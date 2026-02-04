@@ -56,7 +56,7 @@ The following updates were made to Semgrep in January 2026.
 
 ### Added
 
-- Semgrep’s reachability analysis now covers all critical and high severity CVEs from supported sources starting in 2017 across **all** supported languages.
+- Semgrep’s reachability analysis now covers all **critical** and **high** severity CVEs from supported sources starting in 2017 across **all** supported languages.
 - Diff-aware scans are now faster because Git-untracked files no longer slow down subproject discovery.
 - Added support for Gradle lockfiles of the form `gradle*.lockfile`. Previously, only files with the exact name `gradle.lockfile` were supported.
 - 
@@ -81,7 +81,7 @@ The following updates were made to Semgrep in January 2026.
 
 ### Fixed
 
-- Fixed an issue where code suggestions that included removing code didn't render in the diff correctly.
+- Fixed an issue where code suggestions that involved removing code didn't render in the diff correctly.
 
 ## 📝 Documentation and knowledge base
 
