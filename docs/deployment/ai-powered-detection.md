@@ -14,13 +14,12 @@ displayed_sidebar: scanSidebar
 
 ## Prerequisites {#prerequisites}
 
-To enable Semgrep Code's AI-powered detection feature, make sure the following requirements are met:
+To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature) (beta feature), make sure the following requirements are met:
 
-* Your projects are added to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans) and include the `managed-scan` tag (in the Projects section of the AppSec Dashboard). You can see projects in Semgrep AppSec Platform by going to Projects.  
+* Your projects are added to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Looks for the `managed-scan` tag in the Projects section of the Semgrep AppSec Platform Dashboard. 
 * You have met all the [prerequisites for Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#prerequisites-1).  
-* You have enabled the Assistant feature for your organization.  
+* You have enabled Semgrep Assistant for your organization.  
 * You are an active, paying Semgrep Code user.  
-* ==You have existing findings from Managed Scans and AI triaged issues==.
 * You must be on the default tenant (private tenants not supported at this time).
 
 ## Quickstart: Run the AI-powered scan
@@ -40,15 +39,15 @@ Scan a different branch:
 * Click the **Details** button for your project of interest. On this page, open the **Run a new scan** dropdown menu and choose **AI-powered detection.**  
 * In the pop-up window, type the name of the branch you wish to scan.
 
-Findings
+## Findings
 
 * ==After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
 * Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **Navigation bar** to navigate to your findings.   
 * On the **AI Detection** page, click **Details** for any finding to see additional information and AI-powered remediation guidance==. 
 
-## Adding additional context to AI-Powered detection scans
+## Add additional context to AI-Powered detection scans
 
-Semgrep’s AI-powered Multi-Modal Engine now offers context-aware analysis. By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to surface higher-impact findings and reduce false positives based on how your application is designed.
+By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to surface higher-impact findings and reduce false positives based on how your application is designed and used.
 
 :::info
 Please note that only **Admins** can upload context documents to Semgrep Projects. Currently, each project supports up to **four** documents.
@@ -88,23 +87,23 @@ A: Customers need to have Assistant turned on and Managed Scans enabled. [See Pr
 
 **Q: What about data privacy with AI-powered detection?**
 
-A: Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
+A: ==Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details==. 
 
-**Q: How many scans can I trigger?**
+==**Q: How many scans can I trigger?**
 
-A: Each full AI-powered scan is one scan. Paying customers can trigger 100 scans per month. Prospective customers can trigger up to 100 scans. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to request an increase in your quota.
+A: Each full AI-powered scan is one scan. Paying customers can trigger 100 scans per month. Prospective customers can trigger up to 100 scans. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to request an increase in your quota.==
 
 **Q:** **Can I use a different AI provider?**
 
-A: You can choose between OpenAI, Anthropic, and Opengrep. Self-hosted OpenAI and Azure OpenAI are not currently supported.
+A: Yes. You can choose between OpenAI, Anthropic, and Opengrep. Enterprise customers may also bring their own API key.
 
-**Q: The AI-powered scan detected a vulnerability, but I don’t see it on my findings page anymore. What happened to my finding?** 
+**Q: Are AI-powered detection findings deterministic?** 
 
-==AI scans are not deterministic. You may get different results each time you scan. If a previously detected finding isn't found on a subsequent scan, it will be marked as fixed. We are working on making this behavior more deterministic.==
+Although AI scans are inherently non-deterministic, Semgrep's Multi-Modal Engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
 
 **Q: How are AI findings assigned a severity level?**
 
-==A: Currently, all AI findings are assigned the same severity (”high”) and don’t have other attributes like confidence. This may change as the feature matures.== 
+A: Currently, all AI findings are assigned the same severity (”high”) and don’t have other attributes like confidence. This may change as the feature matures.
 
 **Q: What are some known bugs and limitations?**
 
@@ -112,15 +111,15 @@ A: This feature is in beta! Here are some known issues:
 
 **Scan limitations:**
 
-* Full scans only. PR/diff scans are not supported yet.  
-* ==There is limited support for monorepos: scans may time out or get stuck “in progress” (2-hour cap). Large monorepos may also produce fewer findings than expected.==
+* PR/diff-aware scanning is currently in development; please perform full scans for now.  
+* Large monorepos may experience extended processing times and are subject to a 2-hour execution limit. In some cases, scanning very large repositories may yield partial results due to timeout constraints.
 
-**Findings limitations:**
+==**Findings limitations:**
 
-* AI findings are not included in the Reporting/Dashboard  
-* Jira integration doesn’t work for AI findings  
-* Custom rules are not supported for AI-powered detection in private beta  
-* AI scan logs show a list of findings only. Reasoning steps are currently unavailable.
+* AI findings are not included in the Reporting/Dashboard.  
+* Jira integration doesn’t work for AI findings.  
+* Custom rules are not supported for AI-powered detection.  
+* AI scan logs show a list of findings only. Reasoning steps are currently unavailable.==
 
 
 ## Troubleshooting and disclaimers
@@ -134,4 +133,5 @@ Beta program notice:
 * ==Any stated Service Level Objective (SLO) is not a commercial Service Level Agreement (SLA) and may be revised as the product evolves.==
 
 ## Disable AI-powered detection
-== Settings --> Assistant --> turn off toggle?==
+
+To disable AI-powered detection, go to **Settings** > **Code** and switch the AI-powered detection toggle to off. Note: This feature is enabled by default for all Assistant users.
