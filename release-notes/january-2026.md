@@ -29,7 +29,7 @@ The following updates were made to Semgrep in January 2026.
 
 ### Changed
 
-- Semgrep AppSec Platform now displays more descriptive names where possible. For example, `sequelize-express` is now `SQL injection in Sequelize with Express`.
+- Semgrep AppSec Platform's **Findings** page displays more descriptive rule group names, and the **Finding Details** page displays more descriptive rule names. For example, `sequelize-express` is now `SQL injection in Sequelize with Express`.
 - The MCP server no longer supports SSE transport.
 - **CLI**:
   - Semgrep's CLI tool now uses `uv` instead of `pipenv` for package management.
@@ -59,7 +59,6 @@ The following updates were made to Semgrep in January 2026.
 - Semgrep’s reachability analysis now covers all critical and high severity CVEs from supported sources starting in 2017 across **all** supported languages.
 - Diff-aware scans are now faster because Git-untracked files no longer slow down subproject discovery.
 - Added support for Gradle lockfiles of the form `gradle*.lockfile`. Previously, only files with the exact name `gradle.lockfile` were supported.
-- 
 
 ### Changed
 
@@ -77,7 +76,7 @@ The following updates were made to Semgrep in January 2026.
 
 ### Added
 
-- Members can now create suggested memories when triaging findings in Semgrep AppSec Platforms. Previously, only admins could do so.
+- Members can now create suggested memories for Assistant when triaging findings in Semgrep AppSec Platform. Previously, only admins could do so.
 
 ### Fixed
 
