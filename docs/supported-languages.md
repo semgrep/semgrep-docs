@@ -16,7 +16,9 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 # Supported languages
 
-The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/docs/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). Languages are arranged by feature completeness from most to least. 
+The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/docs/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). 
+
+Languages are arranged by feature completeness from most to least. If applicable, click on the language name to learn more. 
 
 **Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides. See [Feature definitions](/references/feature-definitions) for more details.
 
@@ -34,12 +36,15 @@ Don't forget to update:
 
 ## More information
 
+Language maturity levels differ from feature and product maturity levels.
+
 Where to look:
 
-* See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on language support pages.
-* See [Feature definitions](/references/feature-definitions) for analysis terminology referenced on language support pages.
+* See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on the supported languages pages.
+* See [Feature definitions](/references/feature-definitions) for analysis terminology referenced on the supported languages pages.
 * For Supply Chain dependency metadata support, see [Package manager support](/semgrep-supply-chain/sca-package-manager-support).
 * For Supply Chain feature coverage by language, see [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
+
 
 Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
 * [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)

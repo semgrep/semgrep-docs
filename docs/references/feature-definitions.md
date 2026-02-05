@@ -14,8 +14,7 @@ import DefReachability from "/src/components/concept/_def-reachability.md"
 
 # Feature definitions
 
-Use these definitions to understand the analysis features referenced in language
-support pages.
+Use these definitions to understand the analysis features referenced in the [Supported languages](/docs/supported-languages) page.
 
 ## Cross-file dataflow analysis
 
