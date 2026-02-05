@@ -19,6 +19,8 @@ To access the policies page for Semgrep Secrets, sign in to [<i class="fas fa-ex
 
 Validation state policies allow you to define the rules Semgrep Secrets uses to scan your code, how to handle invalid findings, including those that have been revoked or were never functional, and how to handle validation errors when attempting to determine if a secret is a legitimate credential that can be used to access a resource.
 
+Findings in different validation states may also have different severities, based on the risk associated with valid credentials as compared with invalid credentials. See [Secrets findings: severity](/semgrep-secrets/findings#severity) for more detail on this behavior.
+
 ### Global rule behavior
 
 The **Global rule behavior** tab allows you to view and manage the rules Semgrep Secrets uses for scanning. This page consists of the following elements:
@@ -47,7 +49,7 @@ The **Filters** pane displays the filters you can use to select and perform oper
 
 #### Rules list
 
-The following columns appear on the rule entries list: 
+The following columns appear on the rule entries list:
 
 <details>
 <summary>Rules list columns</summary>
@@ -107,7 +109,7 @@ See [Rule modes](#rule-modes) for more information on the modes available.
 If you are an **admin** for your Semgrep organization, you can view, create, edit, or delete Slack notification policies. These policies allow you to notify developers of Secrets findings on Slack while managing noise and ensuring that developers are only notified based on the conditions you set. You can configure the following:
 
 - **Scope**: These are the projects (repositories) that are affected by the policy.
-- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding, such as severity or validation. 
+- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding, such as severity or validation.
 - **Actions**: Actions that are performed on the defined scope when conditions are met.
 
 You can create as many policies as necessary.
@@ -147,7 +149,7 @@ The following table lists available conditions and their values:
 | -------  | ------ |
 | Severity      | <ul><li>Critical</li><li>High</li><li>Medium</li> <li>Low</li> </ul>       |
 | [Validation](/semgrep-secrets/glossary#validation-state)         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
-| Repository Visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unknown</li> </ul> Note: Repository Visibility is only available for GitHub repositories. |
+| Repository visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unknown</li> </ul> Note: Repository visibility is only available for GitHub repositories. |
 | Secret type | Manually provide a Secret type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
 
 ### View your policy
@@ -155,7 +157,7 @@ The following table lists available conditions and their values:
 1. In Semgrep AppSec Platform, go to **Rules & policies > Policies > Secrets**.
 2. Under **Slack notification policies**, click the **name** of your policy or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy** to see additional details.
 
-You can also view a dialog showinga policy's **scope**, or the projects and tags affected by the policy, and a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
+You can also view a dialog showing a policy's **scope**, or the projects and tags affected by the policy, and a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
 
 ### Edit a policy
 
@@ -176,7 +178,7 @@ You can also view a dialog showinga policy's **scope**, or the projects and tags
 2. Click the **three-dot (...) button > Delete policy**.
 3. Click **Remove** to confirm..
 
-Note: deleting a policy does not remove existing notifications. 
+Note: deleting a policy does not remove existing notifications.
 
 ## Block a pull request or merge request through rule modes
 
