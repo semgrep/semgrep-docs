@@ -69,7 +69,6 @@ Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-eng
 
 Subsequent scans now include Code scans.
 
-### Enable AI-powered detection (beta feature)
 ### Run Semgrep Code scans with single-function analysis
 
 In some cases, you may want to scan using Semgrep CE's single-function analysis. To do this, edit your `semgrep ci` command in your CI provider's configuration file with either the `--pro-languages` or `--oss-only` flags:
