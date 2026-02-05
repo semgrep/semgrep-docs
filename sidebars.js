@@ -270,6 +270,11 @@ module.exports = {
             items: [
                 'semgrep-code/overview',
                 {
+                  type: 'doc',
+                  id: 'deployment/ai-powered-detection',
+                  label: 'AI-powered detection'
+                },
+                {
                     type: 'category',
                     collapsible: true,
                     label: 'View findings',

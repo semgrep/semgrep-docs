@@ -3,6 +3,9 @@ slug: add-ai-to-scans
 title: Add AI-powered detection
 hide_title: true
 description: "Use Semgrep's Multi-Modal Engine to combine static analysis with AI"
+keywords:
+  - AI-powered detection
+  - AI Detection
 tags:
   - Deployment
   - Semgrep AppSec Platform
@@ -10,7 +13,9 @@ displayed_sidebar: scanSidebar
 ---
 
 
-# AI-powered detection for Multi-Modal scanning with Semgrep Code (beta feature)
+# Scan with AI-powered detection (beta)
+
+Semgrep's AI-powered detection uses LLMs to find vulnerabilities that are hard to detect with traditional static analysis. This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses AI to triage findings and provide remediation guidance. 
 
 ## Prerequisites {#prerequisites}
 

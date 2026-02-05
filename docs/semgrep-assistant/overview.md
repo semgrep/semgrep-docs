@@ -11,7 +11,9 @@ tags:
 
 # Semgrep Assistant overview
 
-Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. 
+
+To run a full AI-powered detection scan using Semgrep Code, see [AI-powered detection](/docs/deployment/ai-powered-detection).
 
 ![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
 _**Figure.** Semgrep Assistant detects the use of untrusted, unsanitized data._
