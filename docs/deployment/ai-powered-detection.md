@@ -119,8 +119,6 @@ A: This feature is in beta! Here are some known issues:
 * AI findings are not included in the Reporting/Dashboard.  
 * Jira integration doesn’t work for AI findings.  
 * Custom rules are not supported for AI-powered detection.  
-* AI scan logs show a list of findings only. Reasoning steps are currently unavailable.==
-
 
 ## Troubleshooting and disclaimers
 
