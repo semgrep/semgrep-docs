@@ -19,6 +19,7 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
 import PL from '@site/src/components/Placeholder';
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <!-- vale on -->
 

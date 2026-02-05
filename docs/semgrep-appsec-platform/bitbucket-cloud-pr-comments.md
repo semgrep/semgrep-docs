@@ -22,6 +22,7 @@ import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <!-- vale on -->
 
