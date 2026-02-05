@@ -65,7 +65,7 @@ The **Status** filter allows you to search for findings in the selected statuses
 
 The **Severity** filter allows you to view findings of particular severities. Secrets finding severity is derived from the corresponding rule severity, as is the case for other Semgrep findings.
 
-However, Semgrep Secrets rules may provide different severities based on validation state and environment. For example, an invalid secret may be assigned Medium severity, while a valid secret for a sandbox environment may be assigned High severity, and a valid secret in a production environment, Critical severity. This reflects the different risk levels associated with those situations.
+However, Semgrep Secrets rules may provide different severities based on validation state and environment. For example, an invalid secret may be assigned **Medium** severity, a valid secret for a sandbox environment may be assigned **High** severity, and a valid secret in a production environment may be assigned **Critical** severity. This reflects the different risk levels associated with each situation.
 
 Possible values:
 <ul><li>Low</li><li>Medium</li><li>High</li><li>Critical</li></ul>
