@@ -114,7 +114,7 @@ Confirm that you have the correct connection and access:
 
 #### Triage through PR comments
 
-Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To use this feature, you must have a paid Bitbucket Cloud plan, and must update your source code manager (SCM) connection to use a workspace access token or an HTTP access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comments feature.
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To use this feature, you must have a paid Bitbucket Cloud plan, and must update your source code manager (SCM) connection to use a workspace access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comments feature.
 
 To update your connection between Semgrep and Bitbucket:
 

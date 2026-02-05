@@ -72,7 +72,7 @@ Developers can triage Semgrep findings without leaving Bitbucket by responding t
 7. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
 8. Toggle the **Incoming webhooks** setting on.
 
-Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, developers can triage Semgrep findings from Bitbucket Cloud.
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, developers can triage Semgrep findings from Bitbucket Data Center.
 
 ### Configure comments for Semgrep Code
 

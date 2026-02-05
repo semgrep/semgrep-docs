@@ -56,7 +56,7 @@ PR comments are enabled by default for users who have connected their GitLab gro
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitLab group exists and is correct.
 
-#### Triage through MR comment
+#### Triage through MR comments
 
 Developers can triage Semgrep findings without leaving GitLab by responding to the MR comments authored by Semgrep. To use this feature, you must have a paid GitLab plan, and must update your source code manager (SCM) connection to use an access token with an elevated role. This allows you to enable webhooks, which Semgrep requires for the triage through MR comments feature.
 
