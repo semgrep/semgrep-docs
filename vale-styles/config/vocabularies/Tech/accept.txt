@@ -188,6 +188,7 @@ unparsable
 unstaged
 
 [Vv]alidator
+[Vv]alidators
 VPNs
 VPN
 
