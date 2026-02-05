@@ -48,7 +48,7 @@ These steps are for the Jenkins UI.
 
 Once you have defined the shared library, you can use it in your pipelines. If you named the library "semgrep" in the Jenkins UI, calling it looks like:
 
-```
+```groovy
 @Library('semgrep') _
 
 pipeline {

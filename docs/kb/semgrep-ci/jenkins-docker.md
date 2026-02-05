@@ -1,6 +1,12 @@
-This code snippet uses Jenkins declarative syntax.
+---
+description: Set up Semgrep scans in Jenkins using the Semgrep Docker image.
+---
 
-```javascript
+The following code snippets demonstrates how to set up a Jenkins pipeline that integrates Semgrep using the Semgrep Docker image.
+
+Before proceeding, ensure that you [define `SEMGREP_APP_TOKEN` as a credential](https://www.jenkins.io/doc/book/using/using-credentials/#configuring-credentials) in Jenkins.
+
+```groovy
 pipeline {
   agent any
     environment {

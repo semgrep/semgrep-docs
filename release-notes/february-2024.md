@@ -162,7 +162,7 @@ The following updates were made to Semgrep in February 2024.
 - Added [Experimental rules](/writing-rules/experiments/pattern-syntax) syntax reference.
 - Added the following knowledge base articles:
     - [GitLab "Job's log exceeded limit" error](/kb/semgrep-ci/collect-gitlab-logs)
-    - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects)
+    - [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbucket-jenkins-pipeline-projects)
 
 ### Changed
 

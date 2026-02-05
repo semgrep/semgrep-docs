@@ -12,12 +12,12 @@ import TabItem from '@theme/TabItem';
 This guide shows you how to set up:
 
 - Full scans that run on the default branch
-- Full and diff-aware scans that run on the default branch and PR branches
+- Full and diff-aware scans that run on the default branch and pull request (PR) branches
 
-Full scans use a simple Pipeline project. Full and diff-aware scans use a Multibranch Pipeline project. Both options use GitHub as the source code manager, with a repository whose default branch is `main`.
+Full scans use a simple Jenkins Pipeline project. Full and diff-aware scans use a Jenkins Multibranch Pipeline project. Both options use GitHub as the source code manager, and the repository scanned has a default branch named `main`.
 
 :::info
-Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+Your UI (user interface) may vary depending on your Jenkins installation. The steps in this document use the Classic UI.
 :::
 
 <Tabs
@@ -32,7 +32,7 @@ Your UI (user interface) may vary depending on your Jenkins installation. These 
 
 ### Create the Jenkinsfile
 
-To start the process, create the initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+Create the `Jenkinsfile` in the root of the GitHub repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
 
 ```bash
 pipeline {
@@ -57,8 +57,7 @@ pipeline {
 
 This Jenkinsfile uses a `SEMGREP_APP_TOKEN` stored in the Jenkins instance credentials store. It does not set any other variables.
 
-### Set up a pipeline
-
+### Set up the Pipeline
 
 1. Under **General**, Check the box **GitHub Project** box and provide your project URL (in the format `https://github.com/<namespace>/<project>/`).
 2. In the **Build Triggers** section, select the **GitHub Hook trigger for GITScm polling** box.
