@@ -503,12 +503,14 @@ module.exports = {
                 'semgrep-ci/packages-in-semgrep-docker'
             ]
         },
-       {
+        {
             type: 'category',
-            label: 'Language-specific features',
+            label: 'Language reference',
             collapsible: true,
             link: {type: 'generated-index'},
             items: [
+                'references/language-maturity-levels',
+                'references/feature-definitions',
                 'semgrep-code/java'
             ]
         },
@@ -522,8 +524,6 @@ module.exports = {
                 'semgrep-supply-chain/glossary'
             ]
         },
-        'references/language-maturity-levels',
-        'references/feature-definitions',
         'semgrepignore-v2-reference',
         'cli-reference',
         'semgrep-appsec-platform/json-and-sarif'
