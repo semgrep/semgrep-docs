@@ -65,9 +65,9 @@ To **fix a finding**, update or refactor the code so that the Semgrep rule patte
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assessment. Otherwise, you can change the status to **To fix** if you disagree.
 
-Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. 
+Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy.
 
 ### Ignore findings
 
@@ -185,11 +185,26 @@ You can triage your Semgrep AppSec Platform findings displayed as comments in PR
 Before proceeding, ensure that you have:
  - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
  - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
+ - Enabled the option in your Semgrep organization settings.
+   1. Click **Settings**. This takes you to the **General > Global** settings tab.
+	 2. Enable the toggle under **Triage via code review comments**.
+ - *For SCMs other than GitHub:*
+   - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
+   - Enabled the **Incoming webhooks** option on the SCM connection
 
-To triage a finding:
+### Grant permission to interact with pull requests and create webhooks for your SCM
+
+See the following documents for instructions on granting the correct permissions to enable pull request interaction and webhook management:
+
+- [GitLab](/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comments)
+- [Bitbucket Cloud](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
+- [Bitbucket Data Center](/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments)
+- [Azure DevOps](/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comments)
+
+Once you've turned on this feature, you can triage a finding using the following steps:
 
 1. Find an open comment created by Semgrep in your pull request or merge request.
-2. In a subsequent comment, reply with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+2. Reply to the comment with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
  <TriageReason />
  Semgrep attempts to reply to your comment if it successfully triages the finding.
 
@@ -203,7 +218,7 @@ Semgrep supports older versions of this feature that used the following commands
 
 ## Triage findings in bulk through the Semgrep API
 
-Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`. 
+Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`.
 
 The available `new_triage_state` values you can set are:
 - `open`
@@ -212,7 +227,7 @@ The available `new_triage_state` values you can set are:
 - `ignored`
 - `fixed`
 
-If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`. 
+If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`.
 
 :::note
 When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
