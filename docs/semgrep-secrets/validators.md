@@ -12,8 +12,7 @@ tags:
 # Write custom validators
 
 [Semgrep Secrets](/semgrep-secrets/conceptual-overview) uses proprietary **validators** to determine if a secret is
-actively being used. Validators are included in the
-[rules](/semgrep-secrets/rules) that Semgrep Secrets uses.
+actively being used. Validators are included in the [rules](/semgrep-secrets/rules) that Semgrep Secrets uses.
 
 This article walks you through the syntax required to write your own custom
 validators.
@@ -172,16 +171,18 @@ Match accepts a list of objects. No specific key is required, but at least one k
 | Key | Required | Description |
 | - | - | - |
 | validity | Yes | Sets the validity based on the HTTP status code received. Accepted values: `valid` and `invalid` |
-| message | No | Used to override the rule message based on the secret's validity state |
+| message | No | Used to override the rule message based on the secret's validation state |
 | metadata | No | Used to override existing metadata fields or add new metadata fields based on the secret's validity state |
-| severity |  No | Used to override the existing rule severity based on the validity state |
+| severity |  No | Used to override the existing rule severity based on the validation state |
+
+Use `severity` in the result to set finding severity based on validation status. For example, if the secret is invalid, the `severity` may be `MEDIUM` or `LOW`.
 
 #### Subkeys for `content`
 
 | Key | Required | Description |
 | - | - | - |
 | language | Yes | Indicates the pattern language to use; this must be `regex` or `generic`|
-| pattern-regex | Yes | Defines the regex used to search the response body. Alternatively, you can use the `patterns` key and [define patterns as you would for rules](/semgrep-secrets/rules/#subkeys-under-the-patterns-key) |
+| pattern-regex | Yes | Defines the regular expression used to search the response body. Alternatively, you can use the `patterns` key and [define patterns as you would for rules](/semgrep-secrets/rules/#subkeys-under-the-patterns-key) |
 
 #### Example
 
