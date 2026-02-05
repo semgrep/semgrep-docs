@@ -57,12 +57,12 @@ Some package ecosystems allow the use of a transitive dependency as if it were a
 
 Semgrep Supply Chain supports a broad set of languages with varying feature coverage. 
 
-* See the full list of [supported languages](/supported-languages)
+* See the full list of [supported programming languages](/supported-languages)
 * For a list of Semgrep-supported package managers for each language, see [Package manager support](/semgrep-supply-chain/sca-package-manager-support).
 * For feature support by language, see [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
 * For definitions of language maturity levels, visit the [Language maturity levels](/docs/references/language-maturity-levels#semgrep-supply-chain) page.
 * For analysis terminology, see [Feature definitions](/docs/references/feature-definitions).
-* For a list of supported source code managers (SCM), visit Supported [source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/docs/deployment/connect-scm).
+* For a list of supported source code managers (SCM), visit [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/docs/deployment/connect-scm).
 
 
 ## Software bill of materials
