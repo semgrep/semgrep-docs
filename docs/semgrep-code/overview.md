@@ -31,7 +31,7 @@ Whether you use pre-existing rules or write custom rules, knowing *which* rules 
 
 Semgrep Code is transparent; you can configure the rules it runs and inspect its syntax to understand how the finding was detected. You can also customize the content of a rule to improve the true positive rate of a rule or have Semgrep send a relevant message to developers.
 
-## AI-powered detection (beta feature)
+## AI-powered detection (beta)
 
 Some security issues, such as insecure direct object reference (IDORs), broken authentication, and other business logic flaws, are hard to detect with static rules alone. Semgrep’s Multi-Modal SAST Engine combines deterministic precision with AI to understand the context of your code and surface OWASP Top 10 vulnerabilities as well as complex business-logic flaws.
 
