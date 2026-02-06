@@ -17,14 +17,13 @@ displayed_sidebar: scanSidebar
 
 Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). Together, they uncover vulnerabilities that traditional tools and workflows often miss, such as IDORs, Broken authorization, and other business logic flaws. 
 
-This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses AI to triage findings and provide remediation guidance. 
+This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance. 
 
 ## Prerequisites {#prerequisites}
 
-To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature) (beta feature), make sure the following requirements are met:
+To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature) (beta feature), ensure that you meet the following requirements:
 
-* Your projects are added to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Looks for the `managed-scan` tag in the Projects section of the Semgrep AppSec Platform Dashboard. 
-* You have met all the [prerequisites for Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#prerequisites-1).  
+* You have added your projects to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
 * You have enabled Semgrep Assistant for your organization.   
 * You must be on the default tenant (private tenants not supported at this time).
 
@@ -34,24 +33,24 @@ This feature is enabled by default for all Assistant users.
 
 To enable or disable AI-powered detection, go to **Settings** > **Code** and then toggle AI-powered detection on or off. 
 
-## Quickstart: Run the AI-powered scan
+## Scan with AI-powered detection
 
 * Log in to Semgrep AppSec Platform.  
-* In the **Navigation Bar**, click on **Projects**. 
+* In the **navigation bar**, click on **Projects**. 
 
-Scan the default or master branch:
+To scan the default or main branch:
 
-* Select one or more projects by checking the box next to each. This enables the **Run a new scan** dropdown menu.  
-* From the dropdown box, choose **AI-powered detection**.  
-* A dialog appears that tells you how many projects were selected for scanning. Click **Scan** to begin.  
+* Choose the projects by selecting the checkboxes next to their names.This enables the **Run a new scan** dropdown menu.  
+* Click **Run a new scan > AI-powered detection**.
+* A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
   * When **Enable weekly scans** is checked, Semgrep will automatically perform an AI scan on these projects every week (similar to Managed Scans)
 
-Scan a different branch:
+To scan a non-default branch:
 
-* Click the **Details** button for your project of interest. On this page, open the **Run a new scan** dropdown menu and choose **AI-powered detection.**  
-* In the pop-up window, type the name of the branch you wish to scan.
+* Click **Details** for your project of interest. On the project's **Details** page, click **Run a new scan** and choose **AI-powered detection.**  
+* In the dialogue, enter the name of the branch you want to scan.
 
-## Findings
+## View findings
 
 * ==After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
 * Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **Navigation bar** to navigate to your findings.   
@@ -59,7 +58,7 @@ Scan a different branch:
 
 ## Add additional context to AI-Powered detection scans
 
-By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to surface higher-impact findings and reduce false positives based on how your application is designed and used.
+By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to show higher-impact findings and reduce false positives based on how your application is designed and used.
 
 :::info
 Please note that only **Admins** can upload context documents to Semgrep Projects.
