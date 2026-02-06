@@ -42,7 +42,7 @@ Large language models (LLMs) excel at understanding code context: variable names
 
 ==Semgrep's Multi-Modal SAST Engine== analyzes your code to understand its structure, API surfaces, and data flows. Based on that understanding, Semgrep generates targeted rules for your application with improved signal quality while keeping findings transparent.
 
-If Semgrep Assistant is enabled, the AI-powered detection scan is available by default. Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans). 
+Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans).
 
 ## Findings
 
