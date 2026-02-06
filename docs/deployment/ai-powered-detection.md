@@ -43,7 +43,7 @@ To scan the default or main branch:
 * Choose the projects by selecting the checkboxes next to their names.This enables the **Run a new scan** dropdown menu.  
 * Click **Run a new scan > AI-powered detection**.
 * A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
-  * When **Enable weekly scans** is checked, Semgrep will automatically perform an AI scan on these projects every week (similar to Managed Scans)
+  * If you would like Semgrep to automatically perform an AI scan on these projects every week, select **Enable weekly scans**.
 
 To scan a non-default branch:
 
