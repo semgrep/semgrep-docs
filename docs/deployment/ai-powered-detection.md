@@ -15,7 +15,9 @@ displayed_sidebar: scanSidebar
 
 # Scan with AI-powered detection (beta)
 
-Semgrep's AI-powered detection uses LLMs to find vulnerabilities that are hard to detect with traditional static analysis. This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses AI to triage findings and provide remediation guidance. 
+Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). Together, they uncover vulnerabilities that traditional tools and workflows often miss, such as IDORs, Broken authorization, and other business logic flaws. 
+
+This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses AI to triage findings and provide remediation guidance. 
 
 ## Prerequisites {#prerequisites}
 
