@@ -13,7 +13,7 @@ tags:
 :::info
 Semgrep’s [AI-powered detection](/docs/deployment/add-ai-to-scans) accesses code on your GitHub or GitLab repositories, including limited-time access to the entire source code. 
 
-Additionally, any context documentation you upload to enhance AI-powered detection scans is persistently stored in a Semgrep-managed Amazon S3 bucket for reuse in future scans. 
+Any context documentation you upload to enhance AI-powered detection scans is persistently stored in a Semgrep-managed Amazon S3 bucket for reuse in future scans. 
 
 These are the primary differences from the policy outlined for Semgrep Assistant.
 :::
