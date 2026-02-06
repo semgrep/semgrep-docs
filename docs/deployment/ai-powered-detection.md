@@ -114,7 +114,7 @@ Although AI scans are inherently non-deterministic, Semgrep's Multi-Modal Engine
 
 **Q: How are AI findings assigned a severity level?**
 
-A: Currently, all AI findings are assigned the same severity (”high”) and don’t have other attributes like confidence. This may change as the feature matures.
+A: Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. This may change as the feature matures.
 
 **Q: What are some known bugs and limitations?**
 
