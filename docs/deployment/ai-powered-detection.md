@@ -23,9 +23,14 @@ To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powe
 
 * Your projects are added to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Looks for the `managed-scan` tag in the Projects section of the Semgrep AppSec Platform Dashboard. 
 * You have met all the [prerequisites for Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#prerequisites-1).  
-* You have enabled Semgrep Assistant for your organization.  
-* You are an active, paying Semgrep Code user.  
+* You have enabled Semgrep Assistant for your organization.   
 * You must be on the default tenant (private tenants not supported at this time).
+
+## Enable or disable AI-powered detection
+
+This feature is enabled by default for all Assistant users. 
+
+To enable or disable AI-powered detection, go to **Settings** > **Code** and then toggle AI-powered detection on or off. 
 
 ## Quickstart: Run the AI-powered scan
 
@@ -37,7 +42,7 @@ Scan the default or master branch:
 * Select one or more projects by checking the box next to each. This enables the **Run a new scan** dropdown menu.  
 * From the dropdown box, choose **AI-powered detection**.  
 * A dialog appears that tells you how many projects were selected for scanning. Click **Scan** to begin.  
-  * When **Enable weekly scans** is checked, Semgrep will automatically perform an AI scan on these projects every week (similar to Managed Scans, though timing may vary)
+  * When **Enable weekly scans** is checked, Semgrep will automatically perform an AI scan on these projects every week (similar to Managed Scans)
 
 Scan a different branch:
 
@@ -48,14 +53,14 @@ Scan a different branch:
 
 * ==After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
 * Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **Navigation bar** to navigate to your findings.   
-* On the **AI Detection** page, click **Details** for any finding to see additional information and AI-powered remediation guidance==. 
+* On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance==. 
 
 ## Add additional context to AI-Powered detection scans
 
 By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to surface higher-impact findings and reduce false positives based on how your application is designed and used.
 
 :::info
-Please note that only **Admins** can upload context documents to Semgrep Projects. Currently, each project supports up to **four** documents.
+Please note that only **Admins** can upload context documents to Semgrep Projects.
 :::
 
 To upload a project-specific context document:
@@ -64,7 +69,7 @@ To upload a project-specific context document:
 * In the **Navigation Bar**, go to **Rules & Policies → Assistant Memories**.  
 * Switch to the **Documents** tab and click **Add document**.
 * Drag and drop a file or click **Choose a file** to upload your context document, then select a project to apply the context to.  
-  * If you add a description at this step, it will be displayed in the finding's description and used as additional context for AI-powered detection scans.  
+  * If you add a description at this step, it will be used as additional context for AI-powered detection scans.  
 * The finding **Details** page references the uploaded context document under the finding description.
 
 
@@ -117,7 +122,7 @@ A: This feature is in beta! Here are some known issues:
 **Scan limitations:**
 
 * PR/diff-aware scanning is currently in development; please perform full scans for now.  
-* Large monorepos may experience extended processing times and are subject to a 2-hour execution limit. In some cases, scanning very large repositories may yield partial results due to timeout constraints.
+* Large monorepos may experience extended processing times and are subject to a 2-hour execution limit. 
 
 ==**Findings limitations:**
 
@@ -135,6 +140,3 @@ Beta program notice:
 * Features, performance, and APIs may change without notice. Planned maintenance will be communicated in advance when possible.  
 * ==Any stated Service Level Objective (SLO) is not a commercial Service Level Agreement (SLA) and may be revised as the product evolves.==
 
-## Disable AI-powered detection
-
-To disable AI-powered detection, go to **Settings** > **Code** and switch the AI-powered detection toggle to off. Note: This feature is enabled by default for all Assistant users.
