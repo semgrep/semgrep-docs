@@ -7,10 +7,10 @@ The `semgrep-cli` name refers to the project that exposes the actual `semgrep` c
 ## Prerequisite
 
 - Python >= 3.10 installed in your local machine.
-- [`pipenv`](https://github.com/pypa/pipenv) for managing your virtual
+- [`uv`](https://github.com/astral-sh/uv) for managing your virtual
 environment. 
-    - Install it by following the `pipenv` [documentation](https://pipenv.pypa.io/en/latest/installation.html). 
-    - Ensure `pipenv` is on your `$PATH` before proceeding.
+    - Install it by following the `uv` [documentation](https://docs.astral.sh/uv/getting-started/installation/)
+    - Ensure `uv` is on your `$PATH` before proceeding.
 
 ## Set up the environment
 
@@ -20,25 +20,22 @@ Most Python development is done inside the `cli` directory:
 cd cli
 ```
 
-Next, initialize and enter the virtual environment. The following command installs developer dependencies, such as `pytest`, and installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, run the following command:
+Next, initialize the virtual environment. The following commands installs both the required dependencies and the developer dependencies, such as `pytest`, and installs `semgrep` in editable mode in the virtual environment. From the `cli` directory, run the following command:
 
 ```bash
-pipenv shell
+uv sync
+uv build
+uv pip install dist/*.whl
 ```
 
-By convention, your shell prompt is prepended with `(cli)` when the virtual environment is active.
-
-Next, install the Python dependencies:
+To execute `semgrep` in this virtual environiment, you could activate the virtual environment as follows:
 
 ```bash
-SEMGREP_SKIP_BIN=true pipenv install --dev
+source .venv/bin/activate
+semgrep --help
 ```
 
-:::info
-`SEMGREP_SKIP_BIN` tells the installer that you'll use your own `semgrep-core`; see below.*
-:::
-
-Running `which semgrep` should return a path within your virtual environment. On macOS, this is likely contained within `$HOME/.local/share/virtualenvs/`.
+Running `which semgrep` should return a path within your local virtual environment. On macOS, this is likely contained within `cli/.venv/bin/`.
 
 ## Get the `semgrep-core` binary
 
@@ -66,27 +63,19 @@ export PATH="${SEMGREP_BREW_CORE_BINARY_PATH}:${PATH}"
 
 ## Run `semgrep-cli`
 
-Ensure that you are in the `cli/` directory, and then issue the following command:
+Ensure that you are in the `cli/` directory and that you have activated the virtual environment with the installed wheel, then issue the following command:
 
-```
-pipenv run semgrep --help
+```bash
+semgrep --help
 ```
 
 To try a simple analysis, run:
 
-```
+```bash
 echo 'if 1 == 1: pass' | semgrep --lang python --pattern '$X == $X' -
 ```
 
 You now have Semgrep running locally.
-
-## Install `semgrep`
-
-You can always run `semgrep` from `cli/`, which will use your latest changes in that directory, but you may also want to install the `semgrep` binary. To do this, run
-
-```
-pipenv install --dev
-```
 
 If you encounter difficulties, reach out to the [`semgrep` team on Slack](https://go.semgrep.dev/slack).
 
@@ -94,8 +83,8 @@ Now you can run `semgrep --help` from anywhere.
 
 If you have installed `semgrep-core` from source, there are convenient targets in the root Makefile that let you update all binaries. After you pull, run:
 
-```
-make rebuild
+```bash
+make
 ```
 
 See the Makefile in `cli/`
@@ -104,9 +93,9 @@ See the Makefile in `cli/`
 
 Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, when adding a new Python package, you also need to add typing stubs for that package. This can be done in three steps. For example, suppose you are adding the package `pyyaml` to Semgrep.
 
-1. Install the corresponding package with typing stubs. For this `pyyaml` example, the corresponding package is `types-pyyaml`. In the following command, `--dev` specifies that this package is needed for development but not in production. This command updates `cli/Pipfile` with the typing stubs package, and adds both the typing stubs and the package itself to your `Pipfile.lock`. This allows you to import the package in your code (for example, `import yaml as pyyaml`).
+1. Install the corresponding package with typing stubs. For this `pyyaml` example, the corresponding package is `types-pyyaml`. In the following command, `--group dev` specifies that this package is needed for development but not in production. This command updates `cli/pyproject.toml` with the typing stubs package, and adds both the typing stubs and the package itself to your `uv.lock`. This allows you to import the package in your code (for example, `import yaml as pyyaml`).
     ```
-    pipenv install --dev types-pyyaml
+    uv add --group dev  types-pyyaml
     ```
 2. Add the typing stubs package to `.pre-commit-config.yaml` so that the pre-commit `mypy` hook can find the package.
     ```
@@ -115,9 +104,9 @@ Semgrep uses `mypy` to do static type-checking of its Python code. Therefore, wh
               - ...
               - types-PyYAML
     ```
-3. Add the original package to `cli/setup.py` in the `install_requires` list variable. You can find the version number either in the `Pipfile.lock` file or by looking up the most recent major version of the package online.
+3. Add the original package to `cli/pyproject.toml` in the `dependencies` list. You can find the version number either in the `Pipfile.lock` file or by looking up the most recent major version of the package online.
     ```
-    install_requires = [
+    dependencies = [
        ...
        "pyyaml~=6.0",
     ]
@@ -130,7 +119,7 @@ This change makes your package a dependency of published Semgrep. Without this c
 For a reference build that's known to work, consult the root `Dockerfile`
 to build Semgrep inside a container. You can check that it builds with
 
-```
+```sh
 docker build -t semgrep .
 ```
 
@@ -140,14 +129,14 @@ docker build -t semgrep .
 
 To run tests, run the following command:
 
-```
-pipenv run pytest
+```sh
+uv run pytest
 ```
 
 There are some much slower tests that run Semgrep on many open source projects. To run these slow tests, run:
 
 ```sh
-pipenv run pytest tests/qa
+uv run pytest tests/qa
 ```
 
 If you want to update the tests to match the current output:
@@ -158,19 +147,19 @@ make regenerate-tests
 
 If you want to run a single test file:
 
-```
-pipenv run pytest path/to/test.py
+```sh
+uv run pytest path/to/test.py
 ```
 
 Or run an individual test function:
 
-```
-pipenv run pytest path/to/test.py::test_func_name
+```sh
+uv run pytest path/to/test.py::test_func_name
 ```
 
 `semgrep-cli` also includes [`pytest-benchmark`](https://pytest-benchmark.readthedocs.io/en/latest/)
 to allow for basic benchmarking functionality. Run the following command:
 
-```
-pipenv run pytest --benchmark-only
+```sh
+uv run pytest --benchmark-only
 ```
