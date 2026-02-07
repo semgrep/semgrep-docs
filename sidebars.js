@@ -118,9 +118,10 @@ module.exports = {
                               'deployment/managed-scanning/azure',
                               'deployment/managed-scanning/bitbucket',
                               'deployment/managed-scanning/github',
-                              'deployment/managed-scanning/gitlab'
+                              'deployment/managed-scanning/gitlab',
                           ]
                         },
+                        'deployment/ai-powered-detection',
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
@@ -268,6 +269,11 @@ module.exports = {
             label: 'SAST (Code)',
             items: [
                 'semgrep-code/overview',
+                {
+                  type: 'doc',
+                  id: 'deployment/ai-powered-detection',
+                  label: 'AI-powered detection'
+                },
                 {
                     type: 'category',
                     collapsible: true,

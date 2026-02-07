@@ -39,6 +39,12 @@ The code is kept here for easy maintenance.
 <h3>Scan with Semgrep AppSec Platform</h3>
 
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
+<div className="alert alert--info" style={{marginTop: '12px'}}>
+  <h4 style={{margin: '0 0 2px 0'}}>AI-powered detection (beta)</h4>
+  <p style={{margin: 0}}>
+    <a href="/docs/deployment/add-ai-to-scans">Run an AI-powered detection scan</a> to find vulnerabilities that are hard to detect with traditional static analysis.
+  </p>
+</div>
 
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
