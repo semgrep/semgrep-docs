@@ -53,7 +53,7 @@ To scan a non-default branch:
 ## View findings
 
 * ==After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
-* Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **Navigation bar** to navigate to your findings.   
+* Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **navigation bar** to navigate to your findings.   
 * On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance==. 
 
 ## Add additional context to AI-Powered detection scans
@@ -61,16 +61,16 @@ To scan a non-default branch:
 By uploading project-specific context such as design documents, threat models, or instructional markdown, you can provide additional information for Semgrep to use during AI-powered scans. This enables Semgrep to show higher-impact findings and reduce false positives based on how your application is designed and used.
 
 :::info
-Please note that only **Admins** can upload context documents to Semgrep Projects.
+Only **Admins** can upload context documents to Semgrep Projects.
 :::
 
 To upload a project-specific context document:
 
 * Log in to Semgrep AppSec Platform.  
-* In the **Navigation Bar**, go to **Rules & Policies → Assistant Memories**.  
-* Switch to the **Documents** tab and click **Add document**.
-* Drag and drop a file or click **Choose a file** to upload your context document, then select a project to apply the context to.  
-  * If you add a description at this step, it will be used as additional context for AI-powered detection scans.  
+* In the **navigation bar**, go to **Rules & Policies → Assistant Memories**.  
+* Go to the **Documents** tab and click **Add document**.
+* Drag the document to the **File upload** box or click **Choose a file** to select and upload your context document.   
+  * Optionally: Add a **Description** of the document. This information will be used as additional context for AI-powered detection scans.  
 * The finding **Details** page references the uploaded context document under the finding description.
 
 
@@ -80,9 +80,9 @@ To upload a project-specific context document:
 
 A business logic flaw is any weakness in an application’s design or workflow that makes its legitimate features vulnerable to malicious use. Semgrep’s AI-powered detection currently focuses on authorization flow gaps outside standard categories: 
 
-* IDOR and ownership gaps: accessing another user’s resource when ownership or tenant checks are missing, misplaced, or only client-side.  
-* Order and sequence mistakes: state changes or token resets happening after sensitive reads/writes, or actions allowed in the wrong state.  
-* Workflow abuse (OWASP logic manipulation): skipping required steps (like shipping before checkout, refunds without a completed purchase).
+* **IDOR and ownership gaps**: accessing another user’s resource when ownership or tenant checks are missing, misplaced, or only client-side.  
+* **Order and sequence mistakes**: state changes or token resets happening after sensitive reads/writes, or actions allowed in the wrong state.  
+* **Workflow abuse, or OWASP logic manipulation**: skipping required steps, like shipping before checkout or refunds without a completed purchase.
 
 **Q: Can Semgrep find IDORs and other business logic bugs without AI Detection?**
 
@@ -100,13 +100,13 @@ A: Customers need to have Assistant turned on and Managed Scans enabled. [See Pr
 
 A: ==Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details==. 
 
-==**Q: How many scans can I trigger?**
+**Q: How many scans can I trigger?
 
-A: Each full AI-powered scan is one scan. Paying customers can trigger 100 scans per month. Prospective customers can trigger up to 100 scans. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to request an increase in your quota.==
+A: Paying customers can trigger 50 scans per month. Customers using the free tier can trigger up to 10 scans per month. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to request an increase in your quota. Each full AI-powered scan is one scan. 
 
 **Q:** **Can I use a different AI provider?**
 
-A: Yes. You can choose between OpenAI, Anthropic, and Opengrep. Enterprise customers may also bring their own API key.
+A: Yes. You can choose between OpenAI, Anthropic, and Bedrock keys. 
 
 **Q: Are AI-powered detection findings deterministic?** 
 
@@ -122,10 +122,9 @@ A: This feature is in beta! Here are some known issues:
 
 **Scan limitations:**
 
-* PR/diff-aware scanning is currently in development; please perform full scans for now.  
-* Large monorepos may experience extended processing times and are subject to a 2-hour execution limit. 
+* Only full scans are supported. Diff-aware scanning is currently in development.
 
-==**Findings limitations:**
+**Findings limitations:**
 
 * AI findings are not included in the Reporting/Dashboard.  
 * Jira integration doesn’t work for AI findings.  
