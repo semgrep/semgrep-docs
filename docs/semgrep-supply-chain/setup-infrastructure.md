@@ -25,10 +25,6 @@ Scanning third-party code with Semgrep Supply Chain may require additional steps
 
 The documents in this category describe how to set up Semgrep Supply Chain for specific manifest files, lockfiles, or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
 
-| CI provider                 | Issue   | Solution |
-| ----------                  | ------- | ------    |
-| Jenkins UI using **[Git plugin](https://plugins.jenkins.io/git/)** | Findings are not being sent to Semgrep AppSec Platform.  | Set the correct branch name by following the steps in [Setting up Semgrep Supply Chain with Jenkins UI](/docs/semgrep-supply-chain/setup-jenkins-ui)          |
-
 | Package manager | Issue | Solution |
 | ----------     | ------- | ------    |
 | Maven | Semgrep Supply Chain requires a dependency tree to detect packages. | Generate a dependency tree using `mvn` by following the steps in [Setting up Semgrep Supply Chain with Apache Maven](/semgrep-supply-chain/setup-maven).  |
