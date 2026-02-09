@@ -1,4 +1,6 @@
 ```yaml
+pool:
+  vmImage: ubuntu-latest
 variables:
 - group: Semgrep_Variables
 
@@ -7,6 +9,7 @@ steps:
   clean: true
   fetchDepth: 20
   persistCredentials: true
+# Replace master with the repository default branch if different.
 - script: |
     python -m pip install --upgrade pip
     pip install semgrep
@@ -20,6 +23,4 @@ steps:
         git fetch origin master:origin/master
         semgrep ci
     fi
-  env:
-    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
