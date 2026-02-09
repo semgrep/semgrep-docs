@@ -42,15 +42,15 @@ To enable or disable AI-powered detection, go to **Settings** > **Code** and the
 
 To scan the default or main branch:
 
-* Choose the projects by selecting the checkboxes next to their names.This enables the **Run a new scan** dropdown menu.  
-* Click **Run a new scan > AI-powered detection**.
-* A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
+1. Choose the projects by selecting the checkboxes next to their names.This enables the **Run a new scan** dropdown menu.  
+1. Click **Run a new scan > AI-powered detection**.
+1. A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
   * If you would like Semgrep to automatically perform an AI scan on these projects every week, select **Enable weekly scans**.
 
 To scan a non-default branch:
 
-* Click **Details** for your project of interest. On the project's **Details** page, click **Run a new scan** and choose **AI-powered detection.**  
-* In the dialogue, enter the name of the branch you want to scan.
+1. Click **Details** for your project of interest. On the project's **Details** page, click **Run a new scan** and choose **AI-powered detection.**  
+1. In the dialogue, enter the name of the branch you want to scan.
 
 ## View findings
 
@@ -68,12 +68,13 @@ Only **Admins** can upload context documents to Semgrep Projects.
 
 To upload a project-specific context document:
 
-* Log in to Semgrep AppSec Platform.  
-* In the **navigation bar**, go to **Rules & Policies → Assistant Memories**.  
-* Go to the **Documents** tab and click **Add document**.
-* Drag the document to the **File upload** box or click **Choose a file** to select and upload your context document.   
+1. Log in to Semgrep AppSec Platform.  
+1. In the **navigation bar**, go to **Rules & Policies → Assistant Memories**.  
+1. Go to the **Documents** tab and click **Add document**.
+1. Drag the document to the **File upload** box or click **Choose a file** to select and upload your context document.   
   * Optionally: Add a **Description** of the document. This information will be used as additional context for AI-powered detection scans.  
-* The finding **Details** page references the uploaded context document under the finding description.
+
+The finding **Details** page references the uploaded context document under the finding description.
 
 
 
