@@ -1,6 +1,6 @@
 ---
 slug: resolve-findings-through-app
-title: Resolve findings through the Semgrep web app
+title: Resolve findings using Semgrep AppSec Platform
 hide_title: true
 description: Sign in to Semgrep to run scans following your organization's Semgrep deployment.
 tags:
@@ -10,12 +10,12 @@ tags:
 
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 
-# Resolve findings through the Semgrep web app
+# Resolve findings through Semgrep AppSec Platform
 
 This guide explains how you can view and triage findings in bulk through the Semgrep AppSec Platform web app.
 
 :::caution
-- Not all organizations allow developers to use the AppSec Platform; ask your security team if you have access.
+- Not all organizations allow developers to use Semgrep AppSec Platform; ask your security team if you have access.
 - When triaging through Semgrep AppSec Platform, developers typically triage findings specific to their **branch**. Avoid triaging findings in branches that are not yours to triage.
 :::
 
