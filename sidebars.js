@@ -121,7 +121,19 @@ module.exports = {
                               'deployment/managed-scanning/gitlab',
                           ]
                         },
-                        'deployment/ai-powered-detection',
+                        {
+                          type: 'category',
+                          collapsible: true,
+                          label: 'AI-powered detection',
+                          link: {type: 'doc', id: 'deployment/ai-powered-detection'},
+                          items: [
+                            {
+                              type: 'doc',
+                              id: 'semgrep-code/ai-detection-concepts',
+                              label: 'Concepts and FAQs'
+                            }
+                          ]
+                        },
                         'deployment/add-semgrep-to-ci',
                         'deployment/add-semgrep-other-ci',
                         'deployment/customize-ci-jobs',
@@ -270,9 +282,17 @@ module.exports = {
             items: [
                 'semgrep-code/overview',
                 {
-                  type: 'doc',
-                  id: 'deployment/ai-powered-detection',
-                  label: 'AI-powered detection'
+                  type: 'category',
+                  collapsible: true,
+                  label: 'AI-powered detection',
+                  link: {type: 'doc', id: 'deployment/ai-powered-detection'},
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'semgrep-code/ai-detection-concepts',
+                      label: 'Concepts and FAQs'
+                    }
+                  ]
                 },
                 {
                     type: 'category',
