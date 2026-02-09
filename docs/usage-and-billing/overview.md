@@ -12,10 +12,10 @@ hide_title: true
 
 # Usage and billing
 
-This document provides information about how Semgrep calculates usage for the purposes of billing and is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets. There are no usage limits for Semgrep Community Edition (CE).
+This document provides information about how Semgrep calculates usage for the purposes of billing and is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets.
 
 :::tip
-See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information about the differences between these two Semgrep products.
+There are no usage limits for Semgrep Community Edition (CE). See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information about the differences between these two Semgrep products.
 :::
 
 ## Contributor definition
@@ -54,23 +54,31 @@ Small teams may be eligible for Semgrep's discounted startup pricing. Fill out t
 
 ## AI credits
 
-Each Semgrep license comes with a number of AI credits. These credits can be used for different AI features:
+Each Semgrep license, regardless of plan, comes with a monthly allocation of AI credits that can be used for AI-powered features.
+
+| Plan | AI credits per month |
+| - | - |
+| Free | 60 credits per month |
+| Team | 20 credits per contributor per month |
+| Enterprise | 50 credits per contributor per month |
+
+Credits are pooled annually at the organization level. For example, if you buy 10 **Team** licenses on January 1, you will have 2400 credits for the year: 10 licenses * 20 credits * 12 months = 2400 credits.
+
+Each product-specific license comes with its own allotment of AI licenses. If you purchase one **Team** license for Code and one **Team** license for Supply Chain, you receive 40 AI credits.
+
+If you have a **Team** or **Enterprise** plan, you can purchase additional credits as needed in increments of 1,000 credits.
+
+Entitlement credits, or the credits that come with your Semgrep licenses, expire at the end of your contract and do *not* roll over. Credits that you purchase expire at the end of your contract, but they can be rolled over once to the following year.
+
+### Credits required for AI actions
+
+The following table lists the credits required for AI-powered features:
 
 | Feature | AI credits required |
 | - | - |
-| Triage | 1 credit |
-| Full scan with AI detection | X credits |
-| Autofix | Y credits |
-
-For the duration of your contract, which is usually an annual contract, AI credits convert to a pool. For example, if you buy 10 **Team** licenses on January 1, you will have 2400 credits for the year: 10 licenses * 20 credits * 12 months = 2400 credits.
-
-You can purchase additional AI credits in increments of 50,000 credits. Semgrep does not offer bulk discounts for credits.
-
-Credits that you purchase roll over at the end of the year. Entitlement credits, or the credits that come with your Semgrep licenses, do not roll over at the end of the year.
-
-### AI credits for the **Free** tier
-
-Users of the **Free** tier receive 60 AI credits per month.
+| AI triage | 1 credit per finding |
+| AI-powered full scan | 30 credits per full scan |
+| AI autofix | 30 credits per finding |
 
 ## How to determine your plan needs
 
