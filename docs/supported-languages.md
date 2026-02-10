@@ -34,7 +34,7 @@ Don't forget to update:
 <SupportedLanguagesTable />
 
 
-## More information
+## Additional information
 
 Language maturity levels differ from feature and product maturity levels.
 
