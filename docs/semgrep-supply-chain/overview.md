@@ -62,7 +62,7 @@ Semgrep Supply Chain supports a broad set of languages with varying feature cove
 * For feature support by language, see [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
 * For definitions of language maturity levels, see [Language maturity levels](/docs/references/language-maturity-levels#semgrep-supply-chain).
 * For analysis terminology, see [Feature definitions](/docs/references/feature-definitions).
-* For a list of supported source code managers (SCM), visit [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/docs/deployment/connect-scm).
+* For a list of supported source code managers (SCM), see [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/docs/deployment/connect-scm).
 
 
 ## Software bill of materials
