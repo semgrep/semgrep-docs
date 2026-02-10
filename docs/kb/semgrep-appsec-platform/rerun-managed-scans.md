@@ -10,7 +10,7 @@ tags:
 
 There is no manual "re-run" action for Semgrep Managed Scans.
 
-If your scan is stuck, you can re-run a scan by pushing a new commit to the PR or MR branch. 
+If your scan is stuck, you can re-run a scan by pushing a new commit to the pull request (PR) or merge request (MR). 
 
 If you do not need code changes, you can push an empty commit:
 
