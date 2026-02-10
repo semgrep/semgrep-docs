@@ -12,7 +12,8 @@ import SscIntro from "/src/components/concept/_ssc-intro.md"
 
 # Supply Chain feature support
 
-<SscIntro/>
+This document discusses the features supported by Semgrep Supply Chain.
+
 ## Lockfiles and manifest files
 
 For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.

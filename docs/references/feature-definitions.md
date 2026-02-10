@@ -14,7 +14,7 @@ import DefReachability from "/src/components/concept/_def-reachability.md"
 
 # Feature definitions
 
-Use these definitions to understand the analysis features referenced in the [Supported languages](/docs/supported-languages) page.
+This document defines the terms used when discussing Semgrep analysis features in [Supported languages](/docs/supported-languages).
 
 ## Cross-file dataflow analysis
 

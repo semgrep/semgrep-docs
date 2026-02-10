@@ -11,8 +11,7 @@ tags:
 import LanguageMaturityCode from '/src/components/reference/_language-maturity-code.md'
 
 # Language maturity levels
-
-Use these definitions to understand the maturity levels shown on the [Supported languages](/docs/supported-languages) page.
+This document defines the language maturity levels used on the [Supported languages](/docs/supported-languages) page.
 
 ## Semgrep Code
 
