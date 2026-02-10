@@ -196,9 +196,7 @@ pattern-sources:
 - pattern: sink(...)
 ```
 
-This is because Semgrep considers that the sink is the argument of the `sink` function, and the actual argument being passed is `"foo" if tainted else "bar"` that evaluates to either `"foo"` or `"bar"`, and neither of them is tainted.
-
-Semgrep takes into consideration the fact that the sink is the argument of the `sink` function and the actual argument being passed is `"foo" if tainted else "bar"`, which evaluates to either `"foo"` or `"bar"`. Neither of these values is tainted.
+Semgrep treats the argument passed to `sink` as the sink itself.  In this case, the argument is `"foo" if tainted else "bar"`, which evaluates to either `"foo"` or `"bar"`.  Since neither value is tainted, Semgrep does not flag the call.
 
 <iframe src="https://semgrep.dev/embed/editor?snippet=KxJ17" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
 
