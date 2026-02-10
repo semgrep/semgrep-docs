@@ -76,7 +76,7 @@ Semgrep Managed Scans enables you to scan multiple projects simultaneously, whic
 
 To run scans in bulk, go to the **Projects** page, select the projects of interest, and click **Scan**.
 
-## Rerun scans
+## Re-run scans
 
 To re-run scans, push a new commit to the repository.
 
