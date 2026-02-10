@@ -37,7 +37,6 @@ Don't forget to update:
 
 Language maturity levels differ from feature and product maturity levels.
 
-Where to look:
 
 * See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on this document.
 * See [Feature definitions](/references/feature-definitions) for analysis terminology definitions used on this document.
