@@ -41,7 +41,7 @@ Language maturity levels differ from feature and product maturity levels.
 Where to look:
 
 * See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on this document.
-* See [Feature definitions](/references/feature-definitions) for analysis terminology referenced on the supported languages pages.
+* See [Feature definitions](/references/feature-definitions) for analysis terminology definitions used on this document.
 * See [Package manager support](/semgrep-supply-chain/sca-package-manager-support) for Supply Chain dependency metadata support.
 * See [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support) for Supply Chain feature coverage by language.
 
