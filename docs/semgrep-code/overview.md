@@ -43,7 +43,7 @@ Semgrep Code supports a broad set of programming languages, with varying levels 
 * See the full list of [supported programming languages](/docs/supported-languages)
 * For definitions of language maturity levels, visit the [Language maturity levels](/references/language-maturity-levels) page.
 * For analysis terminology, see [Feature definitions](/references/feature-definitions).
-* For a list of supported source code managers (SCM), visit [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/deployment/connect-scm).
+* For a list of supported source code managers (SCM), see [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/deployment/connect-scm).
 
 
 
