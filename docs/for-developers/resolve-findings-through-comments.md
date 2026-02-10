@@ -93,9 +93,9 @@ If the finding is a false positive, acceptable risk, or similar, you can choose 
 ![A completed triage flow.](/img/pr-comment-triage-response.png#md-width)
 _**Figure**. A completed triage flow._
 
-### Re-run a job or workflow
+## Re-run a job or workflow
 
-After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
+Resolving or ignoring findings does not automatically re-run Semgrep checks. After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
 
 <!-- list arranged by popularity -->
 <!-- Some of these are from the release notes because they have a screenshot or indication of where the retry menu is -->
