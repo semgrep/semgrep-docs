@@ -156,7 +156,7 @@ Jenkins is highly configurable and there are multiple approaches to setting up d
 
 See the following articles for detailed guides:
 
-* [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbucket-jenkins-pipeline-projects)
+* [Set up Jenkins pipeline projects for Bitbucket repositories](/kb/semgrep-ci/bitbucket-jenkins)
 * [Full and diff-aware scans with GitHub and Jenkins](/docs/kb/semgrep-ci/jenkins-diff-scans)
 
 </TabItem>
