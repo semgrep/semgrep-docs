@@ -35,7 +35,7 @@ A: Traditional Semgrep SAST can be configured to catch IDORs. However, since thi
 
 **Q: Are AI-powered detection findings deterministic?** 
 
-Although AI scans are inherently non-deterministic, Semgrep's Multi-Modal Engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
+Although AI scans are inherently non-deterministic, Semgrep's multi-modal engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
 
 ## Setup, quotas, and integrations FAQs
 
@@ -62,7 +62,7 @@ A: Currently, all AI findings are assigned the same severity, which is **high**,
 
 **Q: How does Semgrep handle data privacy for AI-powered detection?**
 
-A: ==Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details==. 
+A: Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
 
 ## Known bugs and limitations
 

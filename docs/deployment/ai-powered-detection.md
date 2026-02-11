@@ -2,7 +2,7 @@
 slug: add-ai-to-scans
 title: Add AI-powered detection
 hide_title: true
-description: "Use Semgrep's Multi-Modal Engine to combine static analysis with AI"
+description: "Use Semgrep's multi-modal detection to combine static analysis with AI"
 keywords:
   - AI-powered detection
   - AI Detection
@@ -26,8 +26,7 @@ For details on what AI-powered detection can uncover, known limitations, and bet
 To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature) (beta feature), ensure that you meet the following requirements:
 
 * You have added your projects to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
-* You have enabled Semgrep Assistant for your organization.   
-* You must be on the default tenant (private tenants not supported at this time).
+* You have enabled Semgrep Assistant for your organization.
 
 ## Enable or disable AI-powered detection
 
@@ -54,9 +53,9 @@ To scan a non-default branch:
 
 ## View findings
 
-* ==After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
+* After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
 * Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **navigation bar** to navigate to your findings.   
-* On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance==. 
+* On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance. 
 
 ## Add additional context to AI-Powered detection scans
 

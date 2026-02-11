@@ -157,11 +157,6 @@ Here are some behaviors and characteristics of a managed scan:
 - Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
 
 
-## Add AI-powered detection with Semgrep's Multi-Modal Engine
-
-Semgrep's multi-modal SAST engine (beta) combines deterministic static analysis with AI to surface OWASP Top 10 vulnerabilities as well as complex business-logic flaws like IDOR and broken authentication. 
-
-[Learn more](/docs/deployment/add-ai-to-scans) about enabling and running this new feature with [Semgrep Code](/docs/semgrep-code/overview#ai-powered-detection-beta-feature). 
 
 ## Next steps
 
@@ -170,5 +165,7 @@ Once a scan has finished, you can view your findings by clicking any of the foll
 - [<i class="fas fa-external-link fa-xs"></i>  Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
 - [<i class="fas fa-external-link fa-xs"></i> Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
 - [<i class="fas fa-external-link fa-xs"></i> Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
+- Add [<i class="fas fa-external-link fa-xs"></i> AI-powered detection](/docs/deployment/add-ai-to-scans) to your Semgrep Code scans
+
 
 To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning/overview).
