@@ -35,7 +35,6 @@ SBOM generation can be performed through Semgrep AppSec Platform or the [<i clas
 2. Click the **Download <i class="fa-solid fa-download"></i>** icon next to the repository you want an SBOM for.
 3. Click the format you want the SBOM to be in. After clicking, refresh or leave the page only after the SBOM has been generated.
 4. Once Semgrep has generated the SBOM, click the link on the toaster notification to download it.
-    ![Download link in toaster notification](/img/download-sbom.png) _**Figure**. The Dependencies tab displays a successful SBOM download._
 
 You have successfully downloaded an SBOM.
 

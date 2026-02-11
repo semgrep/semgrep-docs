@@ -13,9 +13,6 @@ tags:
 
 Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
-_**Figure.** Semgrep Assistant detects the use of untrusted, unsanitized data._
-
 ## Support and availability
 
 Semgrep Assistant:
@@ -62,8 +59,6 @@ With Assistant enabled, pull request or merge request comments from Semgrep incl
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
-![Findings detail with remediation advice](/img/memories-1.png#md-width)
-_**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
 :::info
 Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
@@ -77,13 +72,7 @@ Assistant customizes the code snippets it provides based on previous feedback, i
 
 Autofixes are available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before applying them.
 
-![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
-_**Figure.** Semgrep Assistant generates a potential fix in a PR comment._
-
 Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
-
-![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
-*Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
 
 :::info
 If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
@@ -101,17 +90,12 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
 
-![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
-_**Figure.** Semgrep AppSec Platform's Findings page showing the Component filter._
-
 ### Auto-triage
 
 Semgrep Assistant uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
 Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
-![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue directly without leaving their PR or MR.
 

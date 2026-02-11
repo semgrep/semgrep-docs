@@ -313,11 +313,7 @@ In order for this configuration to run the correct type of scan for each conditi
 #### Branch filtering
 
 1. In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
-    ![Pipeline settings with example GitHub SCM](/img/buildkite-pipeline-settings.png#md-width)
-    ***Figure.*** Buildkite pipeline settings with using GitHub as the SCM.
 2. Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
-    ![Branch limiting settings with example main branch](/img/buildkite-branch-settings.png#md-width)
-    ***Figure.*** Branch limiting settings with main as the example branch.
 3. Click **Save Branch Limiting**.
 
 #### Build on pull requests

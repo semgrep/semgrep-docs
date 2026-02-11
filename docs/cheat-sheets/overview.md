@@ -17,7 +17,7 @@ import CardImage from '@site/src/components/Card/CardImage'
 
 Semgrep **cheat sheets** serve as security reference guides with programming language–specific examples. They are designed to help you mitigate common risks in popular libraries and frameworks while ensuring secure practices in your source code.
 
-See [Supported Languages](/docs/supported-languages) for the complete set of languages and [package managers](/docs/supported-languages#package-manager-support) supported by Semgrep.
+See [Supported Languages](/docs/supported-languages) for the complete set of languages and [package managers](/semgrep-supply-chain/sca-package-manager-support) supported by Semgrep.
 
 <div class = "col-1-fixed">
   <Card className={'card-50'} link='/docs/category/go'>

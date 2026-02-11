@@ -33,8 +33,6 @@ Only **admins** can view, create, edit, or delete policies.
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. From the navigation menu, click **Rules** to expand the drop-down box, then click **Policies**.
 1. Click **Supply Chain**. This takes you to the Supply Chain policies tab. Your policies are arranged as cards.
-    ![Policies > Semgrep Supply Chain](/img/ssc-policies-card.png#md-width)
-    _**Figure**. A single card within the Semgrep Supply Chain Policies page._
 
 - To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<i class="fas fa-ellipsis-h"></i>) > Edit policy**.
 - View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
@@ -49,7 +47,6 @@ Only **admins** can view, create, edit, or delete policies.
 1. Define the **Conditions** of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
     - For each condition, you can select multiple values by clicking on the **plus sign (<i class="fa-solid fa-plus"></i>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
-      ![Policies > Semgrep Supply Chain](/img/ssc-policies-many-conditions.png)
     - You can define conditions that are exclusionary, such as **When Transitivity *is not* Transitive....**
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.

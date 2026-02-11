@@ -51,17 +51,12 @@ This guide walks you through creating a Semgrep job in the following CI provider
 - Azure Pipelines
 - Semaphore
 
-![CI providers explicitly supported in Semgrep AppSec Platform.](/img/in-app-providers.png#md-width)
-_**Figure**. Semgrep AppSec Platform provides steps and configuration files to easily set up a Semgrep job for popular CI providers._
-
 If your provider is **not** on this list, you can still integrate Semgrep into your CI workflows by following the steps in [<i class="fa-regular fa-file-lines"></i> Add Semgrep to other CI providers](/deployment/add-semgrep-to-other-ci-providers).
 
 ## Projects
 
 Adding a Semgrep job to your CI provider also adds the repository's records, including findings, as a **project** in Semgrep AppSec Platform. Each project can be individually configured to send notifications or tickets.
 
-![Semgrep Projects page](/img/projects-page.png)
-_**Figure.** Semgrep **Projects** page. This displays all the projects you have successfully added to Semgrep._
 
 ## Add Semgrep to CI
 

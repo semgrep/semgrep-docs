@@ -29,24 +29,11 @@ Before proceeding, ensure that:
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
 3. Go to **Integrations**, and click **+ Add > Sysdig**.
-![Add Sysdig Integration with No Integration](/img/sysdig_add_integration_new.png##sm-width)
-_**Figure.** Add a new Sysdig integration._
-![Add Sysdig Integration with Existing Integration](/img/sysdig_add_integration_existing.png##sm-width)
-_**Figure.** Add Sysdig as an additional integration._
 4. In the dialog that appears, provide the following information:
    1. **URL**: The Sysdig Platform URL for your account.
    2. **API token**: The Sysdig API token associated with your account. See [<i class="fas fa-external-link fa-xs"></i> Retrieve the Sysdig API Token](https://docs.sysdig.com/en/administration/retrieve-the-sysdig-api-token/) for more information on how to retrieve your token.
-![Add Sysdig Setup Modal](/img/sysdig_configure_integration.png##sm-width)
-_**Figure.** Configure the Sysdig integration._
-
 5. Click **Connect**.
-![Successful Sysdig Integration](/img/sysdig_enabled_integration.png##md-width)
-_**Figure.** Successfully configured Sysdig integration._
-
 6. Within several hours, you should see the **Deployment** status for each project on the project's settings page.
-![Sysdig Data In Project Settings](/img/sysdig_cnapp_data.png##md-width)
-_**Figure.** Sysdig data in Project Settings._
-
 ## Limitations
 
 - Each Semgrep deployment can only have **one Sysdig integration**.
