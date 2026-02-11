@@ -9,10 +9,11 @@ tags:
 ---
 
 import SmsSupport from "/src/components/reference/_sms-support.mdx"
+import RerunManagedScanEmptyCommit from "/src/components/code_snippets/_rerun-managed-scan-empty-commit.mdx"
 
 # Semgrep Managed Scans
 
-Add repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. Similar to CI workflows, Managed Scans also integrates into developer workflows through PR comments.
+Add repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**. Similar to CI workflows, Managed Scans also integrates into developer workflows through pull request (PR) or merge request (MR) comments.
 
 This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-to-ci). Instead of adding a Semgrep job or workflow to your CI/CD pipeline, repositories are added to Semgrep AppSec Platform.
 
@@ -78,14 +79,7 @@ To run scans in bulk, go to the **Projects** page, select the projects of intere
 
 ## Re-run scans
 
-To re-run scans, push a new commit to the repository.
-
-If no code changes are needed, you can push an empty commit:
-
-```
-git commit --allow-empty -m "Trigger Semgrep scan"
-git push
-```
+<RerunManagedScanEmptyCommit />
 
 ## Add a repository to Semgrep Managed Scans
 

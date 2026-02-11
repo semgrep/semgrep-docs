@@ -1,0 +1,9 @@
+You can re-run full scans from the **Projects** page in Semgrep AppSec Platform.
+
+There is no manual "re-run" action for pull request (PR) or merge request (MR) Semgrep Managed Scans. To re-run a PR or MR scan, push a new commit to the repository. This triggers a new scan automatically.
+
+If no code changes are needed, you can push an empty commit:
+```
+git commit --allow-empty -m "Trigger Semgrep scan"
+git push
+```
