@@ -321,3 +321,19 @@ Example:
 ```yaml
 - export BITBUCKET_TOKEN=$PAT
 ```
+
+## Environment variable to connect to a single-tenant Semgrep AppSec Platform
+
+
+### `SEMGREP_APP_URL`
+
+Set `SEMGREP_APP_URL` to define the URL of a single-tenant Semgrep AppSec Platform to send findings and use rules from the Policies page of a Semgrep Organization under the tenant. The default value is the URL of the multi-tenant Semgrep AppSec Platform `https://semgrep.dev`.
+
+Example:
+```
+export SEMGREP_APP_URL=https://mycompany.semgrep.dev
+```
+
+
+
+
