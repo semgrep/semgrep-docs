@@ -449,7 +449,11 @@ module.exports = {
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
-          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" },
+          /* FEB 11, 2026 */
+          { from: "/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins" , to: "/kb/semgrep-ci/bbdc-jenkins" },
+          { from: "/kb/semgrep-ci/bitbucket-jenkins-freestyle-projects" , to: "/kb/semgrep-ci/bbdc-jenkins" },
+          { from: "/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects" , to: "/kb/semgrep-ci/bbdc-jenkins" }
         ]
       }
     ],
