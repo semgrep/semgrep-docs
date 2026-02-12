@@ -1,6 +1,6 @@
 ---
 slug: resolve-findings-through-comments
-title: Resolve findings in your pull request or merge request
+title: Resolve findings in pull request or merge request
 hide_title: true
 description: Learn to resolve or triage Semgrep findings through PR or MR comments.
 tags:
@@ -93,9 +93,9 @@ If the finding is a false positive, acceptable risk, or similar, you can choose 
 ![A completed triage flow.](/img/pr-comment-triage-response.png#md-width)
 _**Figure**. A completed triage flow._
 
-### Re-run a job or workflow
+## Re-run a job or workflow
 
-After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
+Resolving or ignoring findings does not automatically re-run Semgrep checks. After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
 
 <!-- list arranged by popularity -->
 <!-- Some of these are from the release notes because they have a screenshot or indication of where the retry menu is -->
@@ -107,6 +107,7 @@ After resolving or triaging the findings in your PR or MR, you must re-run the S
 - [<i class="fas fa-external-link fa-xs"></i> Restarting or rerunning a pipeline in Jenkins](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#restarting-or-rerunning-a-pipeline)
 - [<i class="fas fa-external-link fa-xs"></i> Re-run a job in CircleCI](https://circleci.com/docs/rerun-failed-tests/)
 - [<i class="fas fa-external-link fa-xs"></i> **Retry a job**](https://buildkite.com/resources/changelog/231-retry-failed-jobs-while-builds-are-running/) from the [**Dashboard > Build view**](https://buildkite.com/docs/pipelines/dashboard-walkthrough) in Buildkite.
+- [<i class="fas fa-external-link fa-xs"></i> Re-run a Semgrep Managed Scan check](/docs/kb/semgrep-appsec-platform/rerun-managed-scans)
 
 ## Appendix: triage statuses
 
