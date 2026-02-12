@@ -66,6 +66,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     }
     }
     ```
+1. Restart Cursor to apply hook configuration.
 
 ### Claude Code
 
