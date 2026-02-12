@@ -22,7 +22,7 @@
     "@markprompt/docusaurus-theme-search": "0.32.4",
     "@mdx-js/react": "^3.0.1",
     "@svgr/webpack": "^8.1.0",
-    "axios": "^1.12.2",
+    "axios": "^1.13.5",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.5",
     "dotenv": "^17.2.3",
