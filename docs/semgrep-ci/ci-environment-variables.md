@@ -27,7 +27,7 @@ These environment variables configure various aspects of your CI job, such as a 
 * You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/deployment/add-semgrep-to-other-ci-providers#create-a-semgrep_app_token).
 :::
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the **Policies** page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 
@@ -321,3 +321,19 @@ Example:
 ```yaml
 - export BITBUCKET_TOKEN=$PAT
 ```
+
+## Environment variable to connect to a single-tenant Semgrep AppSec Platform
+
+
+### `SEMGREP_APP_URL`
+
+Set `SEMGREP_APP_URL` to define the URL of a single-tenant Semgrep AppSec Platform to send findings and use rules from the **Policies** page of a Semgrep organization under the tenant. The default value is the URL of the multi-tenant Semgrep AppSec Platform `https://semgrep.dev`.
+
+Example:
+```
+export SEMGREP_APP_URL=https://mycompany.semgrep.dev
+```
+
+
+
+
