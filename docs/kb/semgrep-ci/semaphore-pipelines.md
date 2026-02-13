@@ -1,3 +1,9 @@
+---
+title: Add Semgrep to your Semaphore pipeline
+toc_max_heading_level: 2
+description: Learn how to add Semgrep to your Semaphore pipeline
+---
+
 <!-- Semaphore -->
 import SemaphoreSemgrepAppSast from "/src/components/code_snippets/_semaphore-semgrep-app-sast.mdx"
 import SemaphoreSemgrepOssSast from "/src/components/code_snippets/_semaphore-semgrep-oss-sast.mdx"
@@ -14,14 +20,12 @@ In Semaphore:
 2. Open the YAML pipeline for your project using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
 3. Click **+Add Block**.
 5. Expand **Jobs**, and add the following commands to perform a full scan:
-
    ```console
    checkout
    sudo pip install semgrep
    semgrep ci
    ```
 4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
-
 6. Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
 
 ### Sample Semaphore configuration snippet
