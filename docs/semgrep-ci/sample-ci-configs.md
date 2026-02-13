@@ -23,7 +23,7 @@ import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-
 import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx"
 
 <!-- Jenkins -->
-import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
+import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
 import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 
 <!--Bitbucket Pipelines -->
@@ -187,18 +187,18 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 ### Sample Jenkins configuration snippet
 
 <Tabs
-    defaultValue="jenkins-semgrep"
+    defaultValue="default"
     values={[
-    {label: 'Default', value: 'jenkins-semgrep'},
+    {label: 'Default', value: 'default'},
     {label: 'Semgrep CE', value: 'jenkins-oss'},
     ]}
 >
 
-<TabItem value='jenkins-semgrep'>
+<TabItem value='default'>
 
 The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
-<JenkinsSemgrepAppSast />
+<JenkinsSemgrepAppSastDocker />
 
 You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
