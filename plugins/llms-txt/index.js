@@ -47,9 +47,8 @@ function normalizeBasePath(baseUrl) {
     : `/${basePath.replace(/^\/|\/$/g, '')}/`;
 }
 
-function getOutputDir(outDir, baseUrl) {
-  const trimmed = normalizeBasePath(baseUrl).replace(/^\/|\/$/g, '');
-  return trimmed ? path.join(outDir, trimmed) : outDir;
+function getOutputDir(outDir) {
+  return outDir;
 }
 
 function toAbsoluteUrl(siteUrl, pathUrl) {
@@ -114,7 +113,7 @@ module.exports = function llmsTxtPlugin(context, options) {
         htmlRelativeUrls,
         markdownRelativeUrls,
       });
-      const outputDir = getOutputDir(outDir, basePath);
+      const outputDir = getOutputDir(outDir);
 
       fs.mkdirSync(outputDir, {recursive: true});
       fs.writeFileSync(path.join(outputDir, 'llms.txt'), llmsTxt, 'utf-8');
