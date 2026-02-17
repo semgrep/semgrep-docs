@@ -688,6 +688,8 @@ The `comparison` key accepts a Python expression using:
 - Lists, together with the `in`, and `not in` infix operators.
 - Strings, together with the `in` and `not in` infix operators, for substring containment.
 - Function `re.match()` to match a regular expression (without the optional `flags` argument).
+- Function `lower()` converts strings to lower case.
+- Function `upper()` converts strings to upper case.
 
 You can use Semgrep metavariables such as `$MVAR`, which Semgrep evaluates as follows:
 
