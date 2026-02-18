@@ -268,6 +268,8 @@ module.exports = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    './plugins/markdown-extract',
+    './plugins/llms-txt',
     [
       '@docusaurus/plugin-client-redirects',
       {
