@@ -47,13 +47,8 @@ function normalizeBasePath(baseUrl) {
     : `/${basePath.replace(/^\/|\/$/g, '')}/`;
 }
 
-function getOutputDirs(outDir) {
-  const dirs = [outDir];
-  const parentDir = path.dirname(outDir);
-  if (parentDir && parentDir !== outDir) {
-    dirs.push(parentDir);
-  }
-  return Array.from(new Set(dirs));
+function getOutputDir(outDir) {
+  return path.dirname(outDir);
 }
 
 function toAbsoluteUrl(siteUrl, pathUrl) {
@@ -118,12 +113,9 @@ module.exports = function llmsTxtPlugin(context, options) {
         htmlRelativeUrls,
         markdownRelativeUrls,
       });
-      const outputDirs = getOutputDirs(outDir);
-
-      for (const outputDir of outputDirs) {
-        fs.mkdirSync(outputDir, {recursive: true});
-        fs.writeFileSync(path.join(outputDir, 'llms.txt'), llmsTxt, 'utf-8');
-      }
+      const outputDir = getOutputDir(outDir);
+      fs.mkdirSync(outputDir, {recursive: true});
+      fs.writeFileSync(path.join(outputDir, 'llms.txt'), llmsTxt, 'utf-8');
     },
   };
 };
