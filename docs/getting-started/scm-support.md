@@ -13,12 +13,6 @@ tags:
 
 Semgrep supports the following source code managers (SCM) and plans to varying degrees. Please review the information for your specific SCM and plan to see what Semgrep features are available to you.
 
-If any of the following conditions apply to you, you may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker):
-
-- Your SCM offers security features that limit access to your resources
-- Your SCM is behind a firewall or protected by network restrictions regarding access
-- You are using a virtual private network (VPN)
-
 | Plan | Unsupported Semgrep features |
 | - | - |
 | Azure DevOps Cloud | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
@@ -43,6 +37,14 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 <strong>†</strong>Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
 <strong>*</strong>Semgrep Managed Scans requires access to group webhooks, which is unavailable to GitLab Free users. 
+
+
+## Access limitations
+If any of the following conditions apply to you, you may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker):
+
+- Your SCM offers security features that limit access to your resources
+- Your SCM is behind a firewall or protected by network restrictions regarding access
+- You are using a virtual private network (VPN)
 
 <!--
 ## Azure DevOps
