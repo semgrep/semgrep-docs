@@ -31,13 +31,12 @@ Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machi
 Semgrep scans triggered using `semgrep ci` fail if you aren't signed in to your Semgrep account.
 :::
 
-## Enable cross-file analysis
+## Turn on cross-file analysis
 
-To enable [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
+To turn on [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
 
-1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login) if you haven't already.
-2. Navigate to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
-3. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable cross-file analysis.
+1. In Semgrep AppSec Platform, go to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
+2. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn this feature on.
 
 ## Scan your project
 
