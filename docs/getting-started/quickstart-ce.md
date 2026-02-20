@@ -147,7 +147,7 @@ To check your code for security vulnerabilities:
   <multilang>      48       1
 ```
 
-The specific numbers shown in your Scan Status printed to the terminal may vary, but you can still see that Semgrep is scanning the source code using community rules. There are over 1000 community rules in the default rule set, but because Semgrep recognizes the source code language, only rules relevant to the code being scanned are evaluated.
+The specific numbers shown in your **Scan Status** printed to the terminal may vary, but you can still see that Semgrep is scanning the source code using community rules. There are over 1000 community rules in the default rule set, but because Semgrep recognizes the source code language, only rules relevant to the code being scanned are evaluated.
 
 To fine-tune your scan, you can include the `--config` parameter, which allows you to choose which rules to run:
 
