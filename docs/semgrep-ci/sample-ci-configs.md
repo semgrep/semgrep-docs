@@ -16,19 +16,15 @@ Read /src/components/code_snippets/readme to understand modular code snippet imp
 
 <!-- GHA -->
 import GhaSemgrepAppSast from "/src/components/code_snippets/_gha-semgrep-app-sast.mdx"
-import GhaSemgrepAppSastDash from "/src/components/code_snippets/_gha-semgrep-app-sast-dash.mdx"
 import GhaSemgrepOssSast from "/src/components/code_snippets/_gha-semgrep-oss-sast.mdx"
 
 <!-- GLCICD -->
 import GlcicdSemgrepAppSast from "/src/components/code_snippets/_glcicd-semgrep-app-sast.mdx"
-import GlcicdSemgrepAppSastDash from "/src/components/code_snippets/_glcicd-semgrep-app-sast-dash.mdx"
 import GlcicdSemgrepOssSast from "/src/components/code_snippets/_glcicd-semgrep-oss-sast.mdx"
 
 <!-- Jenkins -->
-import JenkinsSemgrepAppSast from "/src/components/code_snippets/_jenkins-semgrep-app-sast.mdx"
-import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 import JenkinsSemgrepAppSastDocker from "/src/components/code_snippets/_jenkins-semgrep-app-sast-docker.mdx"
-import JenkinsBitbucket from "/src/components/code_snippets/_jenkins-semgrep-app-bbdc.mdx"
+import JenkinsSemgrepOssSast from "/src/components/code_snippets/_jenkins-semgrep-oss-sast.mdx"
 
 <!--Bitbucket Pipelines -->
 
@@ -60,7 +56,7 @@ This document provides sample configuration snippets to run Semgrep CI on variou
 
 ## Feature support
 
-Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM). The following table breaks down the features and their availability:
+Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM).
 
 <ScmFeatureReference />
 
@@ -128,14 +124,7 @@ push:
 
 :::
 
-#### Upload findings to GitHub Advanced Security Dashboard
 
-<details>
- <summary>Alternate job that uploads findings to GitHub Advanced Security Dashboard</summary>
-
- <GhaSemgrepAppSastDash />
-
-</details>
 
 ## GitLab CI/CD
 
@@ -179,19 +168,12 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
-#### Upload findings to GitLab Security Dashboard
 
-<details>
- <summary>Alternate job that uploads SAST findings to GitLab Security Dashboard</summary>
-
- <GlcicdSemgrepAppSastDash />
-
-</details>
 
 ## Jenkins
 
 :::note
-Your UI (user interface) may vary depending on your Jenkins installation. These steps use a Classic UI Jenkins interface.
+Your user interface (UI) may vary depending on your Jenkins installation. The following steps refer to Jenkins' Classic UI.
 :::
 
 To add a Semgrep configuration snippet in your Jenkins pipeline:
@@ -205,23 +187,18 @@ To add a Semgrep configuration snippet in your Jenkins pipeline:
 ### Sample Jenkins configuration snippet
 
 <Tabs
-    defaultValue="jenkins-semgrep"
+    defaultValue="default"
     values={[
-    {label: 'Default', value: 'jenkins-semgrep'},
+    {label: 'Default', value: 'default'},
     {label: 'Semgrep CE', value: 'jenkins-oss'},
-    {label: 'Default (Docker)', value: 'jenkins-semgrep-docker'},
-    {label: 'Default (Bitbucket Data Center)', value: 'jenkins-bb'},
     ]}
 >
 
-<TabItem value='jenkins-semgrep'>
-:::info
-For SCA scans (Semgrep Supply Chain): users of Jenkins UI with the Git plugin must also set up their branch information. See [Setting up Semgrep Supply Chain with Jenkins UI](/semgrep-supply-chain/setup-jenkins-ui) for more information.
-:::
+<TabItem value='default'>
 
 The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
 
-<JenkinsSemgrepAppSast />
+<JenkinsSemgrepAppSastDocker />
 
 You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
 
@@ -234,18 +211,6 @@ The following configuration creates a CI job that runs Semgrep CE scans using ru
 <JenkinsSemgrepOssSast />
 
 You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
-
-</TabItem>
-
-<TabItem value='jenkins-semgrep-docker'>
-
-<JenkinsSemgrepAppSastDocker />
-
-</TabItem>
-
-<TabItem value='jenkins-bb'>
-
-<JenkinsBitbucket />
 
 </TabItem>
 
@@ -389,11 +354,7 @@ To add Semgrep into your CircleCI pipeline:
 
 The sample configuration provides jobs for both full scanning and [diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
 
-CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
-
-:::note
-For the default branch and tags, CircleCI always runs the Semgrep CI job on all commits.
-:::
+CircleCI always runs the Semgrep CI job on all commits for the default branch and tags. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
 
 ### Sample CircleCI configuration snippet
 
@@ -474,55 +435,6 @@ You can customize the scan by entering custom rules or other rulesets to scan wi
 </TabItem>
 </Tabs>
 
-## Semaphore
-
-To add Semgrep into Semaphore:
-
-1. [Create a secret](https://docs.semaphore.io/using-semaphore/secrets) with [your `SEMGREP_APP_TOKEN`](https://semgrep.dev/orgs/-/settings/tokens).
-2. Open the YAML pipeline for your project using the [Visual Editor](https://docs.semaphore.io/using-semaphore/workflows#workflow-editor).
-3. Click **+Add Block**.
-5. Expand **Jobs**, and add the following commands to perform a full scan:
-
-   ```console
-   checkout
-   sudo pip install semgrep
-   semgrep ci
-   ```
-4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
-
-6. Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
-
-### Sample Semaphore configuration snippet
-
-<Tabs
-    defaultValue="semaphore-semgrep"
-    values={[
-    {label: 'Default', value: 'semaphore-semgrep'},
-    {label: 'Semgrep CE', value: 'semaphore-oss'},
-    ]}
->
-
-<TabItem value='semaphore-semgrep'>
-
-The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
-
-<SemaphoreSemgrepAppSast />
-
-You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
-
-</TabItem>
-
-<TabItem value='semaphore-oss'>
-
-The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
-
-<SemaphoreSemgrepOssSast />
-
-You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
-
-</TabItem>
-</Tabs>
-
 ## Other providers
 
 To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
@@ -538,6 +450,7 @@ By setting various [CI environment variables](/semgrep-ci/ci-environment-variabl
 - Codeship
 - Codefresh
 - Drone CI
+- Semaphore
 - TeamCity CI
 - Travis CI
 
