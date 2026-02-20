@@ -12,21 +12,21 @@ hide_title: true
 
 # Usage and billing
 
-This document provides information about how Semgrep calculates usage for the purposes of billing and is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets.
+This document provides information on how Semgrep calculates usage for billing purposes and is intended for users with paid Semgrep Code, Supply Chain, or Secrets licenses.
 
 ## Contributor definition
 
 A **contributor** is someone who has made at least **one** commit to a Semgrep-scanned **private** repository within the last 90 days, starting from the **date of license purchase** if a license was purchased, or the date of account creation, for accounts using Semgrep within usage limits.
 
-Any type of Semgrep AppSec Platform scan counts towards the contributor total. This includes:
+Any Semgrep AppSec Platform scan counts towards the contributor total. This includes:
 
 - Scanning with Semgrep Code, Secrets, or Supply Chain
 - Full scans on a repository or partial scans on a pull request or merge request
 
-Semgrep computes contributor counts for any scan initiated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit if the scan is invoked by a logged-in contributor.
+Semgrep computes contributor counts for any scan initiated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit when invoked by a logged-in contributor.
 
 :::note Free licenses
-Semgrep Code and Semgrep Supply Chain are free for organizations with **10 monthly contributors** or fewer. If your organization needs Code and Supply Chain licenses for more than 10 contributors, you must purchase **Team** licenses.
+Semgrep Code and Semgrep Supply Chain are free for organizations with **10 or fewer** monthly contributors. If your organization needs Code and Supply Chain licenses for more than 10 contributors, you must purchase **Team** licenses.
 :::
 
 ### Contributor counts
@@ -40,13 +40,13 @@ Semgrep calculates contributors using information from the `git log` over the pa
 
 #### Contributor usage across multiple Semgrep organizations
 
-If your company creates multiple Semgrep organizations, the contributor limit applies across all of your organizations. For example, if your company creates three Semgrep organizations, each with the following number of contributors:
+If your company creates multiple Semgrep organizations, the contributor limit applies to all of them. For example, if your company creates three Semgrep organizations, each with the following number of contributors:
 
 - Organization 1 has 8 contributors
 - Organization 2 has 9 contributors
 - Organization 3 has 10 contributors
 
-Your company has 27 contributors across three organizations, so you require licenses for 27 contributors.
+Your company has 27 contributors across three organizations, so you need licenses for all 27.
 
 #### Small teams and startup licensing
 
@@ -54,7 +54,7 @@ Small teams may be eligible for Semgrep's discounted startup pricing. Fill out t
 
 ## AI credits
 
-Each Semgrep license, regardless of plan, comes with a monthly allocation of AI credits that can be used for AI-powered features.
+Each Semgrep license, regardless of plan, includes a monthly allocation of AI credits for AI-powered features.
 
 | Plan | AI credits per month |
 | - | - |
@@ -82,9 +82,9 @@ The following table lists the credits required for AI-powered features:
 
 ## How to determine your plan needs
 
-Within your team or organization, assess the number of **contributors**. Contributors are members of your organization that make commits. That determines the number of **licenses** needed for the plan purchase.
+Within your team or organization, assess the number of **contributors**. Contributors are members of your organization who make commits. That determines the number of **licenses** needed for the plan purchase.
 
-For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required even if the organization has a total of 10 members. Contributors are counted only once even if they commit to many projects within the same organization, so no additional licenses are required.
+For example, if a project has 4 unique contributors who create commits during the billing period while Semgrep is scanning their repositories, only 4 licenses are required, even if the organization has 10 members. Contributors are counted only once, even if they commit to many projects within the same organization, so no additional licenses are required.
 
 All members of the organization, regardless of contributor (license) status, have access to paid features for the chosen tier. This means that project managers and other non-programming roles can still view the Semgrep AppSec Platform dashboard.
 
