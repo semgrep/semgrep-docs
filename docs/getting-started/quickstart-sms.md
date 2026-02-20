@@ -15,7 +15,7 @@ import GitlabRequirements from "/src/components/reference/_gitlab-sms-requiremen
 
 # Quickstart for Semgrep Managed Scans
 
-Semgrep Managed Scans is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add.
+Semgrep Managed Scans is the fastest method to scan projects at scale with Semgrep. With Semgrep Managed Scans, instead of adding Semgrep to your CI/CD pipeline, which requires a configuration file for each repository, Semgrep handles the scan process for all of the repositories you add. 
 
 :::info
 A **project** is any codebase, repository, or folder within a monorepo that is added to Semgrep for scanning.
@@ -156,6 +156,8 @@ Here are some behaviors and characteristics of a managed scan:
 - In general, once a git repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
 - Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
 
+
+
 ## Next steps
 
 Once a scan has finished, you can view your findings by clicking any of the following on the navigation menu:
@@ -163,5 +165,7 @@ Once a scan has finished, you can view your findings by clicking any of the foll
 - [<i class="fas fa-external-link fa-xs"></i>  Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
 - [<i class="fas fa-external-link fa-xs"></i> Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
 - [<i class="fas fa-external-link fa-xs"></i> Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
+- Add [<i class="fas fa-external-link fa-xs"></i> AI-powered detection](/docs/deployment/add-ai-to-scans) to your Semgrep Code scans
+
 
 To learn more about how Semgrep manages your scans, read the in-depth [Semgrep Managed Scans documentation](/deployment/managed-scanning/overview).
