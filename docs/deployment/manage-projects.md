@@ -38,14 +38,13 @@ Sort by the following attributes:
 
 ## Filter a project's scans
 
-1. Navigate to [Semgrep AppSec Platform](https://semgrep.dev/login) and click **<i class="fa-solid fa-folder-open"></i> Projects**.
-1. In the row of the project you want to view, click the project's **<i class="far fa-window-restore"></i> window icon** under the **Details** column.
-
-The following filters are available:
-
+1. Navigate to the **<i class="fa-solid fa-folder-open"></i> Projects** section in [Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Click the project name of interest for **Project details**. 
+1. The following filters are available in the first column:
 - **Time period**: 7 days or 1 month
 - **Scan type**: Full or diff-aware scans
 - **Status**: Running, completed, error, or never finished
+- **Products**: Code, Supply Chain, Secrets, or AI
 - **Duration**: The amount of time the scan took to complete in hours or minutes
 
 :::note
@@ -63,15 +62,11 @@ To run scans in bulk, select all the projects of interest and click **Scan**.
 To view the latest scan's details from the **Projects** page:
 
 1. Hover over the project's latest scan status. This displays the **<i class="fa-solid fa-sidebar-flip"></i> Drawer icon**.
-![The drawer icon revealed.](/img/projects-view-scan-details.png)
 1. Click the **<i class="fa-solid fa-sidebar-flip"></i> icon** to view the scan details drawer. This drawer displays both an **overview** of the scan and **CI or Managed Scan logs**. Local scans do not have a **Logs** tab. 
 
 ### Permalinks to scan details
 
-You can link to a specific scan's details to send to your colleagues for collaboration or troubleshooting. Click the **<i class="fa-solid fa-link"></i> link icon** on the header to copy the permalink.
-
-![Scan details drawer with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
-_**Figure**. Scan details drawer with the permalink icon indicated in a box._
+You can link to a specific scan's details to share with collaborators or for troubleshooting. Click the **<i class="fa-solid fa-link"></i> link icon** on the header to copy the permalink.
 
 ## Project details page
 

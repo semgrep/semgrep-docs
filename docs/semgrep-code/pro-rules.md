@@ -66,5 +66,3 @@ In some cases, you may want to run a scan with a specific set of Pro rules:
 3. Optional: Apply additional filters by entering search terms in the search box or selecting filters from drop-down boxes.
 4. For a single rule, click the **Rule's card > Run locally**. For rulesets, click the card.
 5. Copy and paste the command to your CLI or CI configuration file. You can add several rulesets.
-  ![A ruleset consisting of Pro and non-Pro rules. Copy the snippet under Test and Run Locally.](/img/registry-run-locally.png#md-width)
-  _**Figure**. A ruleset consisting of Pro and non-Pro rules. Copy and paste the snippet under Test and Run Locally to your CLI or CI._

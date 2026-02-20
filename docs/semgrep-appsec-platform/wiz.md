@@ -78,9 +78,6 @@ Once you've added the Semgrep integration from the Wiz Integration Network, you 
    <br />You can obtain the **API Endpoint URL** and the **Authentication URL** from Wiz in [Tenant Info](https://app.wiz.io/tenant-info/general), while Wiz provides the **Client ID** and **Client Secret** when you set up a service account.
 4. Click **Connect**.
 5. If Semgrep successfully creates the connection, a dialog pops up that says, "Wiz credential created successfully." Semgrep also lists Wiz as an integration; you can verify the connection again by clicking **Test connection**.
-   ![Semgrep displays a success message if you configure the integration correctly.](/img/kb/wiz-semgrep-integration.png#md-width)
-   _**Figure**. Semgrep displays a success message if you configure the integration correctly._
-
 ### Edit the integration
 
 To edit the integration:

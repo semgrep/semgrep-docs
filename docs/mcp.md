@@ -9,9 +9,6 @@ tags:
  - Semgrep Code
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Semgrep MCP Server (beta)
 
 Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
@@ -24,18 +21,9 @@ This article includes instructions for setting up the MCP server with Cursor and
 * Homebrew or Pip to install Semgrep
 * A Semgrep account
 
-## Installation 
+## Installation
 
-<Tabs
-    defaultValue="cursor"
-    values={[
-    {label: 'Cursor', value: 'cursor'},
-    {label: 'Claude Code', value: 'claude'},
-    {label: 'Other IDEs', value: 'other'},
-    ]}
->
-
-<TabItem value='cursor'>
+### Cursor
 
 1. Install Semgrep:
     ```bash
@@ -78,10 +66,9 @@ This article includes instructions for setting up the MCP server with Cursor and
     }
     }
     ```
+1. Restart Cursor to apply hook configuration.
 
-</TabItem>
-
-<TabItem value='claude'>
+### Claude Code
 
 1. Install Semgrep:
     ```bash
@@ -119,9 +106,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     /plugin enable semgrep-plugin@semgrep
     ```
 
-</TabItem>
-
-<TabItem value='other'>
+### Other IDEs
 
 1. Install Semgrep:
     ```bash
@@ -148,10 +133,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     semgrep install-semgrep-pro
     ```
 
-5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE’s documentation for specific details on where to add the MCP server configuration information.
-
-</TabItem>
-</Tabs>
+5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
 
 ## Scan your code
 

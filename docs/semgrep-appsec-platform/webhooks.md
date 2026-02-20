@@ -49,8 +49,6 @@ Perform these steps in Semgrep AppSec Platform to set up webhooks:
 To verify that Semgrep can post to your URL:
 1. Navigate to **<i class="fa-solid fa-gear"></i> Settings > Integrations**
 2. Click the **Test** button of the webhook integration you want to test.
-    The following screenshot displays an example request body of a webhook test:
-    ![Successful webhook integration test](/img/webhook-successful-test.png)
 3. The following sample code in Python shows how to verify the signature in the `X-Semgrep-Signature-256` header:
 
     ```python

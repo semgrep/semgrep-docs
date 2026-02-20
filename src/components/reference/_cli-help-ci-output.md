@@ -16,10 +16,7 @@ DESCRIPTION
 
 OPTIONS
        -a, --autofix
-           Apply autofix patches. WARNING: data loss can occur with this
-           flag. Make sure your files are stored in a version control system.
-           Note that this mode is experimental and not guaranteed to function
-           properly. 
+           Currently ignored.
 
        --allow-local-builds
            Experimental: allow building projects contained in the repository.
@@ -61,10 +58,7 @@ OPTIONS
            findings. Instead will print out json objects it would have sent.
 
        --dryrun
-           If --dryrun, does not write autofixes to a file. This will print
-           the changes to the console. This lets you see the changes before
-           you commit to them. Only works with the --autofix flag. Otherwise
-           does nothing. 
+           Currently ignored.
 
        --emacs
            Output results in Emacs single-line format.
@@ -158,10 +152,18 @@ OPTIONS
            Internal flag.
 
        -j VAL, --jobs=VAL (absent=3)
-           Number of subprocesses to use to run checks in parallel. The
-           default is based on a best effort to determine the number of
-           logical CPUs that are available to the user and that semgrep can
-           take advantage of (1 if using --pro, 1 on Windows). 
+           Degree of parallelism to use for parallel scanning, either using
+           shared-memory threads (the default) or the legacy process-based
+           parallelism (enabled with the deprecated --x-parmap flag). Semgrep
+           recommends under-provisioning the job count by 10-15 percent to
+           account for overhead from the garbage collector managing the
+           shared heap (for example, on a 12-core box, a -j value of 10 or 11
+           would be considered a good starting value). We highly recommend
+           that users do not _oversubscribe_ threads to CPUs, since this has
+           been seen to induce significant GC latency and slow scan times.
+           (Doing so will log a warning in debug mode.) The default jobs
+           value is derived from the number of logical cores that are
+           detected by Semgrep, scaled by 0.85. 
 
        --json
            Output results in Semgrep's JSON format.
@@ -349,6 +351,9 @@ OPTIONS
 
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
+
+       --x-enable-mal-deps
+           Enable malicious dependency rules for this scan.
 
 COMMON OPTIONS
        --debug

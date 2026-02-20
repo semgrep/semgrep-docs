@@ -65,6 +65,13 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/prerequisites') ||
         path.startsWith('/docs/supported-languages') ||
         path.startsWith('/docs/languages/') ||
+        path.startsWith('/docs/references') ||
+        path.startsWith('/docs/cli-reference') ||
+        path.startsWith('/docs/semgrepignore-v2-reference') ||
+        path.startsWith('/docs/semgrep-code/glossary') ||
+        path.startsWith('/docs/semgrep-supply-chain/glossary') ||
+        path.startsWith('/docs/semgrep-code/java') ||
+        path.startsWith('/docs/semgrep-appsec-platform/json-and-sarif') ||
         path.startsWith('/docs/extensions') ||
         path.startsWith('/docs/troubleshooting/semgrep')) {
       return 'scan';
@@ -153,7 +160,7 @@ export default function NavbarContent(): JSX.Element {
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
         { label: "What's Semgrep", to: '/introduction' },
-        { label: 'For developers', to: '/for-developers/overview' },
+        { label: 'For developers', to: '/for-developers/overview', activeBasePath: '/for-developers' },
         { label: 'Release notes', to: '/release-notes' },
         { label: 'Support & resources', to: '/support' },
         { type: 'html', value: '<hr style="margin: 0.3rem 0;" />' },

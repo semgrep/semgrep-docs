@@ -128,15 +128,22 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>December 2025 release notes summary</h3>
+<h3>January 2026 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Added a new **Priority** tab on **Findings** page to display high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save **Priority** tab filters for all users.
-- Added a new **Provisionally ignored** finding status.
-- Semgrep Secrets findings are now assigned a severity of **Critical**. This applies to Secrets findings from scans performed after November 2025. Any existing findings from those rules will be updated to **Critical** after the project's next full scan.
-- Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
-- Added support for Cursor post-generation hooks, enabling Semgrep to integrate with Cursor workflows after code generation.
-- The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
+- Semgrep AppSec Platform's **Findings** page displays more descriptive rule group names, and the **Finding Details** page displays more descriptive rule names. For example, `sequelize-express` is now `SQL injection in Sequelize with Express`.
+- **CLI**:
+  - Improved the performance of scan planning by reducing the cost of re-hashing `Target` objects. Semgrep's performance improvement on scans of large projects is proportional to the number of files in the project.
+  - In `--debug` mode, Semgrep warns you if you attempt to run a parallel scan with a larger value for `-j`/`--jobs` than the number of CPUs Semgrep has detected as available for use.
+  - Semgrep now provides a suggested starting value for `-j`/`--jobs`.
+  - `semgrep login` now supports the use of `--force`, which ignores existing tokens and starts a new login session.
+- Supply Chain's reachability analysis now covers all **critical** and **high** severity CVEs from supported sources starting in 2017 across **all** supported languages.
+- Supply Chain now supports Gradle lockfiles of the form `gradle*.lockfile`. Previously, only files with the exact name `gradle.lockfile` were supported.
+- Supply Chain's dependency search now allows you to search for one or more packages using:
+  - The name of the package
+  - An exact version number
+  - A range of version numbers
+- Members can now create suggested memories for Assistant when triaging findings in Semgrep AppSec Platform. Previously, only admins could do so.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

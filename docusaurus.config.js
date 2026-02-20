@@ -44,6 +44,24 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        {
+          label: 'References',
+          position: 'left',
+          items: [
+            { to: 'semgrep-ci/ci-environment-variables', label: 'CI environment variables' },
+            { to: 'semgrep-ci/sample-ci-configs', label: 'Sample CI configs' },
+            { to: 'semgrep-ci/findings-ci', label: 'Findings in CI' },
+            { to: 'semgrep-ci/packages-in-semgrep-docker', label: 'Packages in Semgrep Docker' },
+            { to: 'semgrep-code/java', label: 'Language-specific features' },
+            { to: 'semgrep-code/glossary', label: 'Semgrep Code glossary' },
+            { to: 'semgrep-supply-chain/glossary', label: 'Supply Chain glossary' },
+            { to: 'references/language-maturity-levels', label: 'Language maturity levels' },
+            { to: 'references/feature-definitions', label: 'Feature definitions' },
+            { to: 'semgrepignore-v2-reference', label: 'Semgrepignore v2' },
+            { to: 'cli-reference', label: 'CLI reference' },
+            { to: 'semgrep-appsec-platform/json-and-sarif', label: 'JSON and SARIF fields' },
+          ],
+        },
         { to: 'kb', label: 'Knowledge base', position: 'left'},
         { to: 'https://academy.semgrep.dev', label: 'Semgrep Academy', position: 'left'},
         { to: 'https://semgrep.dev/orgs/-', label: 'Login', position: 'right', target: '_self' },
@@ -250,6 +268,8 @@ module.exports = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    './plugins/markdown-extract',
+    './plugins/llms-txt',
     [
       '@docusaurus/plugin-client-redirects',
       {
