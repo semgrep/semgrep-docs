@@ -14,10 +14,6 @@ hide_title: true
 
 This document provides information about how Semgrep calculates usage for the purposes of billing and is intended for users with paid licenses for Semgrep Code, Supply Chain, or Secrets.
 
-:::tip
-There are no usage limits for Semgrep Community Edition (CE). See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss) for information about the differences between these two Semgrep products.
-:::
-
 ## Contributor definition
 
 A **contributor** is someone who has made at least **one** commit to a Semgrep-scanned **private** repository within the last 90 days, starting from the **date of license purchase** if a license was purchased, or the date of account creation, for accounts using Semgrep within usage limits.
@@ -28,6 +24,10 @@ Any type of Semgrep AppSec Platform scan counts towards the contributor total. T
 - Full scans on a repository or partial scans on a pull request or merge request
 
 Semgrep computes contributor counts for any scan initiated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit if the scan is invoked by a logged-in contributor.
+
+:::note Free licenses
+Semgrep Code and Semgrep Supply Chain are free for organizations with **10 monthly contributors** or fewer. If your organization needs Code and Supply Chain licenses for more than 10 contributors, you must purchase **Team** licenses.
+:::
 
 ### Contributor counts
 
@@ -99,6 +99,6 @@ Semgrep scans stop if you exceed your usage limit. You can resume scanning by:
 - Purchasing additional licenses. See [Additional usage and reconciliation of licenses] for additional information on how these purchases affect your account.
 - Waiting for the next billing cycle, which is when your usage limits reset.
 
-If you're using a free license, Semgrep automatically starts a free trial for you if it is the first time that you exceed your usage limits. 
+If you're using a free license, Semgrep automatically starts a free trial of the **Teams** plan for you if it is the first time that you exceed your usage limits. 
 
 There are no contributor limits on public projects.

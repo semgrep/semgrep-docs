@@ -18,7 +18,7 @@ Contact your Semgrep Account Executive if you need more licenses than initially 
 
 ## Example of license reconciliation
 
-On January 21, you purchased annual licenses of Semgrep Supply Chain’s Team tier for 50 developers. The 21st of the month is the start date of the annual contract. The contract started that day. On February 28, you used 70 licenses, exceeding your original purchase by 20. This requires a contract adjustment.
+On January 21, you purchased annual licenses of Semgrep Supply Chain’s Team tier for 50 developers. The twenty-first of the month is the start date of the annual contract. The contract started that day. On February 28, you used 70 licenses, exceeding your original purchase by 20. This requires a contract adjustment.
 
 Contract adjustment:
 
