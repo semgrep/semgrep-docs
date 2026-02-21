@@ -14,6 +14,7 @@ import CustomComments from "/src/components/procedure/_customize_pr_mr_comments.
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
+import AzureSemgrepAppSast from "/src/components/code_snippets/_azure-semgrep-app-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-pr-links.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
@@ -56,51 +57,13 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 ### Set up the configuration file
 
-In the Azure Pipelines configuration file, export the `SEMGREP_REPO_URL` and `SEMGREP_REPO_NAME` variables to enable PR comments and ensure that findings and related data are accurately labeled with your project's information. Note that the namespace that's a part of the variable's value follows the format <PL>organization</PL>/<PL>project</PL>:
-
-```
-# example
-export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/{project}/_git/{project}"
-```
+This type of logic is commonly placed directly in the `azure-pipelines.yaml` file to control when Semgrep runs a full scan versus a diff (pull-request) scan. For PR comments and accurate diff analysis to work, two environment variables must be set: `SEMGREP_PR_ID`, which identifies the pull request, and `SEMGREP_BASELINE_REF`, which defines the repository’s default branch used as the comparison baseline (for example main). Explicitly specifying this default branch is essential because Semgrep relies on it to understand the differences between the current branch and the main line of development and to generate meaningful results and PR comments.
 
 <details>
 <summary>Click to see a sample workflow file</summary>
 
-```yaml
-pool:
-  vmImage: ubuntu-latest
-variables:
-  - group: Semgrep_Variables
-steps:
-  - checkout: self
-    clean: true
-    fetchDepth: 100000
-    persistCredentials: true
-  - script: >
-      python -m pip install --upgrade pip
+<AzureSemgrepAppSast />
 
-      pip install semgrep
-
-      if [ $(Build.SourceBranchName) = "main" ]; then
-          echo "Semgrep full scan"
-          semgrep ci
-      elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
-          echo "Semgrep diff scan"
-          export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
-          export SEMGREP_REPO_URL="https://dev.azure.com/{organization}/${SYSTEM_TEAMPROJECT}/_git/${BUILD_REPOSITORY_NAME}"
-          export SEMGREP_REPO_NAME="{organization}/${SYSTEM_TEAMPROJECT}/${BUILD_REPOSITORY_NAME}"
-          export SEMGREP_BASELINE_REF='origin/main'
-          export AZURE_TOKEN=$(System.AccessToken)
-          git fetch origin main:origin/main
-          semgrep ci 
-      fi
-  - task: Bash@3
-    inputs:
-      targetType: inline
-      script: |
-        # this is inline code
-        env | sort
-```
 </details>
 
 ### Configure comments for Semgrep Secrets
