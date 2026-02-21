@@ -23,16 +23,16 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 | - | - |
 | Azure DevOps Cloud | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | Azure DevOps Server | <ul><li>Semgrep Assistant</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
+| Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scans†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
+| Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scans†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitHub Free | - |
 | GitHub Pro | - |
 | GitHub Team | - |
 | GitHub Enterprise Cloud | - |
 | GitHub Enterprise Server | <ul><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Free | <ul><li>Semgrep Managed Scans*</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| GitLab Free | <ul><li>Semgrep Managed Scans*</li><li>Triage though MR comments*</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Dedicated / Dedicated for Government | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
@@ -42,7 +42,7 @@ If any of the following conditions apply to you, you may need to add [Semgrep's 
 
 <strong>†</strong>Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
-<strong>*</strong>Semgrep Managed Scans requires access to group webhooks, which is unavailable to GitLab Free users. 
+<strong>*</strong>Semgrep Managed Scans and triage through MR comments require access to group webhooks, which is unavailable to GitLab Free users.
 
 <!--
 ## Azure DevOps
@@ -87,5 +87,5 @@ Query console is available only to users with GitHub-hosted plans, such as Free,
 | GitLab Self-Managed Premium | - |
 | GitLab Self-Managed Ultimate | - |
 
-*Semgrep Managed Scans requires access to group webhooks, which is unavailable to GitLab Free users. 
+*Semgrep Managed Scans requires access to group webhooks, which is unavailable to GitLab Free users.
 -->

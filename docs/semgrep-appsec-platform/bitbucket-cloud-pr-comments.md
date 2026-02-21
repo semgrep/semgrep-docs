@@ -22,6 +22,7 @@ import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <!-- vale on -->
 
@@ -105,13 +106,33 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 - You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
 
-
 ### Confirm your Semgrep account's connection
 
 Confirm that you have the correct connection and access:
 
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket workspace exists and is correct.
+
+#### Triage through PR comments
+
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To use this feature, you must have a paid Bitbucket Cloud plan, and must update your source code manager (SCM) connection to use a workspace access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comments feature.
+
+To update your connection between Semgrep and Bitbucket:
+
+1. Log in to Bitbucket using an account assigned with the **Product Admin** role.
+2. [Create a workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/). Ensure that you assign the following scopes to the token:
+   - `webhook (read and write)`
+   - `repository (read and write)`
+   - `pullrequest (read and write)`
+   - `project (admin)`
+   - `account (read)`
+3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Bitbucket connection.
+5. Click **Update access token**.
+6. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+7. Toggle the **Incoming webhooks** setting on.
+
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, developers can triage Semgrep findings from Bitbucket Cloud.
 
 ### Define the `BITBUCKET_TOKEN` environment variable
 
@@ -205,9 +226,17 @@ Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access co
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
-## Customize PR comments
+## Optional features
+
+### Customize PR comments
 
 <CustomComments comment_type="PR" link_type="Markdown and plaintext" />
+
+### Enable Autofix in Bitbucket Cloud repositories
+
+[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+
+<EnableAutofix />
 
 ## Next steps
 
