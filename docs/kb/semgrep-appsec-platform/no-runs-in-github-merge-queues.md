@@ -19,23 +19,12 @@ Managed Scans do not run in merge queues, so the required Semgrep check never pa
 
 Semgrep doesn't run in merge queues because:
 
-- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merged.
-- Full scans take a long time, significantly delaying merges for larger repositories.
+- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merge.
+- While full scans could surface other potential issues, they can take a long time, significantly delaying merges for larger repositories.
 
 ## Workaround
 
-To keep Semgrep required for pull requests without blocking merge queues, define two separate [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets):
-
-1. **Pull request ruleset for the main branch**: requires the Semgrep check to pass before merging
-2. **Merge queue ruleset for the main branch**: does **not** require the Semgrep check. Instead, this uses a placeholder check that runs on `merge_group`.
-
-### Define your rulesets
-
-1. Go to your GitHub repository.
-1. Go to **Setting > Code and automation > Rules > Rulesets**.
-1. Configure your rulesets:
-   * **PR**: requires the Semgrep check to pass before merging.
-   * **Queue**: does **not** require the Semgrep check
+To keep Semgrep required for pull requests without blocking merge queues, define a placeholder workflow in merge queues with the same name as the Semgrep Managed Scans check: `semgrep-cloud-platform/scan`.
 
 ### Create a placeholder workflow
 
@@ -47,17 +36,28 @@ name: Semgrep - merge queue placeholder
 
 on:
    merge_group: {}
-   workflow_dispatch: {}
-   pull_request: {}
 
 jobs:
    semgrep-mq-placeholder:
-      name: semgrep-cloud-platform/scan   # this is the name required in the MQ ruleset
+      name: semgrep-cloud-platform/scan   # this is the name required in the ruleset
       runs-on: ubuntu-latest
       timeout-minutes: 3
       steps:
          - run: echo "OK – Semgrep already ran on the PR; MQ can proceed."
 ```
+
+### Define your rulesets
+
+Depending on your preferences, there are several ways to configure required workflows. The most granular option is to use two separate [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets) at the repository level:
+
+1. **Branch ruleset for the main branch, "PR"**: requires the named check `semgrep-cloud-platform/scan` from the Semgrep GitHub App source to pass before merging
+2. **Branch ruleset for the main branch, "MQ"**: requires the check of the same name, but from any source or from the YML file shown above.
+
+
+
+1. Go to your GitHub repository.
+1. Go to **Settings > Code and automation > Rules > Rulesets**.
+1. Configure your rulesets.
 
 ## Example walkthrough
 
