@@ -76,9 +76,10 @@ The following table lists the credits required for AI-powered features:
 
 | Feature | AI credits required |
 | - | - |
-| AI triage | 1 credit per finding |
-| AI-powered full scan | 30 credits per full scan |
-| AI autofix | 30 credits per finding |
+| AI analysis<sup>*</sup> | 1 credit per finding |
+| AI autofix | 20 credits per finding |
+
+<sup>*</sup>Includes autotriage, remediation guidance, and component tagging
 
 ## How to determine your plan needs
 
