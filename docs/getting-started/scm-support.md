@@ -40,7 +40,8 @@ Semgrep supports the following source code managers (SCM) and plans to varying d
 
 
 ## Access limitations
-If any of the following conditions apply to you, you may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker):
+
+You may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker), if any of the following conditions apply:
 
 - Your SCM offers security features that limit access to your resources
 - Your SCM is behind a firewall or protected by network restrictions regarding access
