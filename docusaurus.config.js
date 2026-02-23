@@ -339,7 +339,7 @@ module.exports = {
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-appsec-platform/dashboard" }           ,
           { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/deployment/core-deployment" }     ,
-          { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing" } ,
+          { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing/overview" } ,
           { from: "/semgrep-app/scm/"                              , to: "/deployment/connect-scm" }                 ,
           { from: "/semgrep-app/semgrep-api/"                      , to: "/semgrep-appsec-platform/semgrep-api" }         ,
           { from: "/semgrep-app/tags/"                             , to: "/semgrep-appsec-platform/tags" }                ,
@@ -357,7 +357,7 @@ module.exports = {
           { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables" },
 
           /* MAY 12 2023  */
-          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/usage-and-billing" },
+          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/usage-and-billing/overview" },
           { from: "/extensions/"                                            , to: "/extensions/overview" },
 
           /* JULY 14 2023  */
@@ -379,7 +379,7 @@ module.exports = {
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso" },
           /* JAN 30 - FEB 20 2024  */
-          { from: "/usage-limits/" , to: "/usage-and-billing" },
+          { from: "/usage-limits/" , to: "/usage-and-billing/overview" },
           { from: "/upgrading/" , to: "/update" },
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment" },
           { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment" },
