@@ -31,7 +31,7 @@ Semgrep Code and Semgrep Supply Chain are free for organizations with **10 or fe
 
 ### Contributor counts
 
-Semgrep calculates contributors using information from the `git log` over the past 90 days (a rolling interval). The start date is either:
+Semgrep calculates contributor counts using information from the `git log` over a rolling 90-day period.  The start date is either:
 
 - The date of your license purchase
 - The date of your account creation, if you and your team are within usage limits
