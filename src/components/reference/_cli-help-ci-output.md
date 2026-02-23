@@ -355,6 +355,9 @@ OPTIONS
        --x-enable-mal-deps
            Enable malicious dependency rules for this scan.
 
+       --x-mem-policy=VAL
+           [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
+
 COMMON OPTIONS
        --debug
            All of --verbose, but with additional debugging information.
