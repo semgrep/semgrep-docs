@@ -12,7 +12,7 @@ hide_title: true
 
 # Additional usage and reconciliation of licenses
 
-If your organization uses more licenses than purchased for the contract period, you will be charged for each extra license starting the month after the overage.
+If your organization uses more licenses than purchased for the contract period, you will be charged for each extra license starting the month after the overage occurs. 
 
 Contact your Semgrep Account Executive if you need more licenses than initially purchased.
 
