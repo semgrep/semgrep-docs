@@ -31,13 +31,12 @@ Before proceeding, see [Prerequisites](/prerequisites) to ensure that your machi
 Semgrep scans triggered using `semgrep ci` fail if you aren't signed in to your Semgrep account.
 :::
 
-## Enable cross-file analysis
+## Turn on cross-file analysis
 
-To enable [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
+To turn on [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
 
-1. [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login) if you haven't already.
-2. Navigate to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
-3. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable cross-file analysis.
+1. In Semgrep AppSec Platform, go to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
+2. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn this feature on.
 
 ## Scan your project
 
@@ -72,7 +71,7 @@ To export the results to a JSON file:
 semgrep ci --json --json-output=semgrep.json
 ```
 
-> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
+> The JSON schema for Semgrep's CLI output is in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
 
 In addition to the `--text`, `--json`, and `--sarif` flags, which set the primary output formats, and the `--output=<value>` flag that saves the results to a file or posts to a URL, you can append `--<format>-output=<file>` to obtain additional output streams:
 
@@ -116,7 +115,7 @@ To scan your project using the configuration you've set up in Semgrep AppSec Pla
 semgrep ci --dry-run
 ```
 
-This can be helpful to verify the results of a specific ruleset or to see how your findings change based on the rulesets you choose for your scans.
+This can help verify the results of a specific ruleset or see how your findings change based on the rulesets you choose for your scans.
 
 ## Scan using Semgrep CE analysis (single-function)
 
@@ -147,7 +146,7 @@ semgrep ci --secrets
 
 ## Extend timeout thresholds
 
-Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value using the `--timeout` flag, which refers to the maximum amount of time Semgrep spends scanning a single file. The default value is 5 seconds. Semgrep attempts to scan each file with this timeout value three times, but you can change this using the `--timeout-threshold` flag:
+Depending on the file sizes in your project, you may need to increase the timeout threshold so that Semgrep doesn't time out before the scan completes. You can control this value with the `--timeout` flag, which specifies the maximum time Semgrep spends scanning a single file. The default value is 5 seconds. Semgrep attempts to scan each file with this timeout value three times, but you can change this using the `--timeout-threshold` flag:
 
 ```console
 # increase timeout to 45 seconds, try only 2 times
