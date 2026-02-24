@@ -246,6 +246,7 @@ module.exports = {
             link: {type: 'generated-index'},
             items: [
                 'deployment/teams',
+                'deployment/tokens',
                 'semgrep-appsec-platform/tags',
                 'semgrep-ci/network-broker'
             ]
