@@ -76,6 +76,7 @@ The following table lists the credits required for AI-powered features:
 
 | Feature | AI credits required |
 | - | - |
+| AI-powered pull request or merge request comments | 0 credits |
 | AI analysis<sup>*</sup> | 1 credit per finding |
 | AI autofix | 20 credits per finding |
 
