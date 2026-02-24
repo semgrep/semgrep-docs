@@ -41,11 +41,11 @@ Service tokens are functionally the same as API tokens, but instead of being man
 
 The following table displays the scopes assigned to each token:
 
-| Token | Send findings from a remote repository | Send findings from a local repository | Send PR or MR comments | Connect to Semgrep API |
-| - | - | - | - | - |
-| API | ❌&nbsp;No | ❌&nbsp;No | ✔️&nbsp;Yes | ✔️&nbsp;Yes |
-| CLI | ❌&nbsp;No | ✔️&nbsp;Yes | ❌&nbsp;No | ❌&nbsp;No |
-| Service (CI) | ✔️&nbsp;Yes | ✔️&nbsp;Yes | ✔️&nbsp;Yes | ❌&nbsp;No |
+| Token | Send findings from a remote repository | Send findings from a local repository  | Connect to Semgrep API |
+| - | - | - | - |
+| API | ❌&nbsp;No | ❌&nbsp;No | ✔️&nbsp;Yes |
+| CLI | ❌&nbsp;No | ✔️&nbsp;Yes | ❌&nbsp;No |
+| Service (CI) | ✔️&nbsp;Yes | ✔️&nbsp;Yes | ❌&nbsp;No |
 
 The following table displays typical uses for token scopes:
 
