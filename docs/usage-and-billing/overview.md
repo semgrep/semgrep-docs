@@ -31,7 +31,7 @@ Semgrep Code and Semgrep Supply Chain are free for organizations with **10 or fe
 
 ### Contributor counts
 
-Semgrep calculates contributor counts using information from the `git log` over a rolling 90-day period.  The start date is either:
+Semgrep calculates contributor counts using information from the `git log` over a rolling 90-day period. The start date is either:
 
 - The date of your license purchase
 - The date of your account creation, if you and your team are within usage limits
@@ -64,7 +64,7 @@ Each Semgrep license, regardless of plan, includes a monthly allocation of AI cr
 
 Credits are pooled annually at the organization level. For example, if you buy 10 **Team** licenses on January 1, you will have 2400 credits for the year: 10 licenses * 20 credits * 12 months = 2400 credits.
 
-Each product-specific license comes with its own allotment of AI licenses. If you purchase one **Team** license for Code and one **Team** license for Supply Chain, you receive 40 AI credits.
+Each license grants access to one or more Semgrep products, but the 20-credit allotment doesn't change based on the number of products purchased. That is, one **Team** license for Code and Supply Chain comes with 20 AI credits, *not* 40 AI credits
 
 If you have a **Team** or **Enterprise** plan, you can purchase additional credits as needed in increments of 1,000 credits.
 
@@ -96,7 +96,7 @@ Contact Semgrep if you would like assistance determining the number of credits y
 
 ## Excess usage
 
-Semgrep scans stop if you exceed your usage limit. You can resume scanning by:
+Semgrep scans stop if you have too many contributors. You can resume scanning by:
 
 - Purchasing additional licenses. See [Additional usage and reconciliation of licenses] for additional information on how these purchases affect your account.
 - Waiting for the next billing cycle, which is when your usage limits reset.
@@ -104,3 +104,11 @@ Semgrep scans stop if you exceed your usage limit. You can resume scanning by:
 If you're using a free license, Semgrep automatically starts a free trial of the **Teams** plan for you if it is the first time that you exceed your usage limits. 
 
 There are no contributor limits on public projects.
+
+### Exceeding your AI credit allotment
+
+If you exceed your allotment of AI credits:
+
+- AI autotriage continues to function, but you're warned that you're over your credit allotment
+- AI scans stop
+- AI fixes stop
