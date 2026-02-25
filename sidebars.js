@@ -57,10 +57,7 @@ module.exports = {
           ]
         },
         'references/language-maturity-levels',
-        'references/feature-definitions',
-        'semgrepignore-v2-reference',
-        'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif'
+        'references/feature-definitions'
       ]
     },
     {
@@ -246,6 +243,7 @@ module.exports = {
             link: {type: 'generated-index'},
             items: [
                 'deployment/teams',
+                'deployment/tokens',
                 'semgrep-appsec-platform/tags',
                 'semgrep-ci/network-broker'
             ]
