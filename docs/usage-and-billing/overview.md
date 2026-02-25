@@ -109,6 +109,5 @@ There are no contributor limits on public projects.
 
 If you exceed your allotment of AI credits:
 
-- AI autotriage continues to function, but you're warned that you're over your credit allotment
-- AI scans stop
-- AI fixes stop
+- AI autotriage continues to work, but you'll be warned that you're over your credit allotment
+- Both AI scans and autofixes stop
