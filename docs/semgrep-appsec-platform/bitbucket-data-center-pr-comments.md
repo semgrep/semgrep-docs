@@ -22,6 +22,7 @@ import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <!-- vale on -->
 
@@ -57,6 +58,23 @@ Confirm that you have the correct connection and access:
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket project exists and is correct.
 
+#### Triage through PR comments
+
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. Semgrep requires Bitbucket Data Center source code manager (SCM) connections to use an HTTP access token with `PROJECT_ADMIN` permissions, so your connection may already use an appropriate token.
+
+ If you do not, to update your connection between Semgrep and Bitbucket Data Center:
+
+1. Ensure that you're using Bitbucket Data Center version 8.8 or later.
+2. Log in to Bitbucket using an account assigned with the **Project Admin** role.
+3. [Create an HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html). When setting the token's **Project permissions**, ensure that you select **Project admin**.
+4. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+5. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Bitbucket connection.
+6. Click **Update access token**.
+7. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+8. Toggle the **Incoming webhooks** setting on.
+
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, developers can triage Semgrep findings from Bitbucket Data Center.
+
 ### Configure comments for Semgrep Code
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />
@@ -69,9 +87,17 @@ Confirm that you have the correct connection and access:
 
 <CommentsInSupplyChain />
 
-## Customize PR comments
+## Optional features
+
+### Customize PR comments
 
 <CustomComments comment_type="PR" link_type="Markdown and plaintext" />
+
+### Enable Autofix in Bitbucket Data Center repositories
+
+[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+
+<EnableAutofix />
 
 ## Next steps
 
