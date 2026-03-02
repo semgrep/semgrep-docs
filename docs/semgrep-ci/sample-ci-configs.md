@@ -56,7 +56,7 @@ This document provides sample configuration snippets to run Semgrep CI on variou
 
 ## Feature support
 
-Support for certain features of Semgrep AppSec Platform depend on your CI provider or source code management tool (SCM).
+Support for certain features of Semgrep AppSec Platform depends on your CI provider or source code management (SCM) tool.
 
 <ScmFeatureReference />
 
