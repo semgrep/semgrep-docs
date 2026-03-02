@@ -13,7 +13,7 @@ tags:
 displayed_sidebar: scanSidebar
 ---
 
-# AI-powered detection: concepts and FAQs
+# AI-powered detection (beta): concepts and FAQs
 
 This page provides additional context for Semgrep’s AI-powered detection. It covers what kinds of issues the feature is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
 
@@ -35,7 +35,7 @@ A: Traditional Semgrep SAST can be configured to catch IDORs. However, since thi
 
 **Q: Are AI-powered detection findings deterministic?** 
 
-Although AI scans are inherently non-deterministic, Semgrep's multi-modal engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
+Although AI scans are inherently non-deterministic, Semgrep's engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
 
 ## Setup, quotas, and integrations FAQs
 
@@ -49,7 +49,7 @@ A: Customers need to have Assistant turned on and Managed Scans enabled. [See AI
 
 **Q: How many scans can I trigger?**
 
-A: Paying customers can trigger 50 scans per month. Customers using the free tier can trigger up to 10 scans per month. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to request an increase in your quota. Each full AI-powered scan is one scan. 
+A: Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to discuss increasing your quota.  
 
 **Q:Can I use a different AI provider?**
 

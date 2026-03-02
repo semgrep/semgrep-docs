@@ -2,7 +2,7 @@
 slug: add-ai-to-scans
 title: Add AI-powered detection
 hide_title: true
-description: "Use Semgrep's multi-modal detection to combine static analysis with AI"
+description: "Combine the precision of static analysis with the contextual reasoning of AI"
 keywords:
   - AI-powered detection
   - AI Detection
@@ -54,7 +54,7 @@ To scan a non-default branch:
 ## View findings
 
 * After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
-* Click that findings count to open the **AI Detection** page, or use the AI Detection option in the **navigation bar** to navigate to your findings.   
+* Click that findings count to open the **AI Detection** page, or use the **AI Detection** option in the **navigation bar** to navigate to your findings.   
 * On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance. 
 
 ## Add additional context to AI-Powered detection scans
