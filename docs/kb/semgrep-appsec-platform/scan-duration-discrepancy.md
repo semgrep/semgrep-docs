@@ -12,6 +12,6 @@ The **Duration** of a scan shown on Semgrep AppSec Platform's **Projects** page 
 However, the full scanning process for your project likely takes longer. For example, if your CI/CD system displays a process time that is longer than the scan duration displayed in Semgrep AppSec Platform, this value likely includes the time required for setup, pre-processing, and post-processing steps, in addition to the scan time. Such steps can include:
  
 - Receiving and processing the webhook notification to start the scan
-- Waiting for the SMS cluster to setup and assign the job the appropriate resources
+- Initializing the scan job and environment
 - Scanning the code
 - Processing results
