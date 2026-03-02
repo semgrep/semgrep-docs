@@ -80,7 +80,10 @@ It defines two Semgrep stages: one runs a full scan of the main branch, while th
 To compute the merge base, the pipeline runs additional Git commands to ensure the default branch is available to Git. Afterward, the pipeline cleans the workspace, ensuring that subsequent use of these commands for future scans is successful.
 
 :::info
-Using a computed merge base is strongly recommended. If you set `SEMGREP_BASELINE_REF` to `main`, or the primary branch, you may see spurious findings in diff-aware scans if the remote branch has been updated independently of the PR branch, or the branch may not be available locally unless you perform a `git fetch` or `git checkout`, as shown in the example in this document.
+When possible, use a computed merge base. Diff-aware scans may produce spurious results if you set `SEMGREP_BASELINE_REF` to `main` or another primary branch and either of the following conditions apply:
+
+- The remote branch has been updated independently of the PR branch
+- The branch isn't available locally because you haven't run `git fetch` or `git checkout`, as shown in the example in this document
 :::
 
 ## Configure the Multibranch Pipeline project
