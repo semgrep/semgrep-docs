@@ -19,6 +19,11 @@ to = "/docs"
 status = 302
 
 [[redirects]]
+from = "/docs/llms.txt"
+to = "/llms.txt"
+status = 301
+
+[[redirects]]
 from = "/*"
 to = "/docs/404.html"
 status = 404

@@ -140,7 +140,7 @@ didn't work properly when adding a new file or renaming an existing file.
 - Updated documentation on how Semgrep differentiates between **Fixed** and **Removed** statuses.
 - Updated the sample [Bitbucket Pipelines CI configuration](/semgrep-ci/sample-ci-configs#bitbucket-pipelines) file
 - Minor additions and updates:
-    - How Semgrep computes [user limits across multiple orgs](/usage-and-billing).
+    - How Semgrep computes [user limits across multiple orgs](/usage-and-billing/overview).
     - Findings retention policy.
 - The following knowledge base articles have been updated:
     - [Scan a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)

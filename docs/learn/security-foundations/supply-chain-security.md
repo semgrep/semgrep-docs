@@ -68,7 +68,7 @@ Even if your dependencies are safe, if you fetch them over insecure channels, or
 - PyPi for Python
 - RubyGems for Ruby
 - Packagist for PHP
-- and [many more](/docs/supported-languages#package-manager-support)
+- and [many more](/semgrep-supply-chain/sca-package-manager-support)
 
 ## Detect and prioritize supply chain issues
 
