@@ -14,7 +14,7 @@ This document shows you how to configure Jenkins pipelines to scan code hosted i
 The configuration described in this document is intended to run full scans on your default branch `main` and diff-aware scans on pull request (PR) branches. It sets up a Multibranch Pipeline project using `when` conditions in the Jenkinsfile and provides access to the variables needed for diff-aware scans.
 
 :::info
-Your UI (user interface) may vary depending on your Jenkins installation. The steps in this document use the Classic UI.
+Your UI (user interface) may vary depending on your Jenkins installation. This document references the Classic UI.
 :::
 
 ## Create the Jenkinsfile
