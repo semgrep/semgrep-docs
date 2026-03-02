@@ -355,6 +355,12 @@ OPTIONS
        --x-enable-mal-deps
            Enable malicious dependency rules for this scan.
 
+       --x-mem-policy=VAL
+           [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
+
+       --x-use-scan-v2 (absent SEMGREP_USE_SCAN_V2 env)
+           Enable experimental v2 /scans endpoint.
+
 COMMON OPTIONS
        --debug
            All of --verbose, but with additional debugging information.
@@ -524,6 +530,9 @@ ENVIRONMENT
 
        SEMGREP_SUPPRESS_ERRORS
            See option --suppress-errors.
+
+       SEMGREP_USE_SCAN_V2
+           See option --x-use-scan-v2.
 
 AUTHORS
        Semgrep Inc. <support@semgrep.com>
