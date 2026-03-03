@@ -49,7 +49,7 @@ A: Customers need to have Assistant turned on and Managed Scans enabled. [See AI
 
 **Q: How many scans can I trigger?**
 
-A: Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to discuss increasing your quota.  
+A: Each full AI-powered scan counts as one scan. While the feature is in beta, paying customers can trigger up to **30 scans per month**. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to discuss increasing your quota.  
 
 **Q:Can I use a different AI provider?**
 
