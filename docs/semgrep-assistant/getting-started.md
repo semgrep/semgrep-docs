@@ -72,9 +72,7 @@ Semgrep Assistant requires [read access to your code in GitHub](https://docs.git
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
-3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
-   This launches the **Set up Semgrep Assistant** prompt.
+3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle. This launches the **Set up Semgrep Assistant** prompt.
 1. Select a source code manager (SCM) by clicking **github.com**.
 2. Semgrep provides you with information on why Assistant requires access to your source code. Click **Accept & Enable Assistant** to proceed.
 3. You are redirected to the page where you can add a GitHub Private App that grants Semgrep read access to your code.
@@ -102,9 +100,7 @@ Semgrep Assistant extends normal Semgrep capabilities by providing contextually 
 
 1. Sign in to [Semgrep AppSec Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
-3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle.
-![Semgrep Assistant setup button](/img/semgrep-assistant-setup.png#md-width)
-   This launches the **Set up Semgrep Assistant** prompt.
+3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle. This launches the **Set up Semgrep Assistant** prompt.
 1. Follow the on-screen instructions to complete the setup process.
 2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
    1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.

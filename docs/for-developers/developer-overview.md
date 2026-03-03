@@ -50,8 +50,6 @@ Your interactions with Semgrep vary depending on your organization's deployment 
 
 Semgrep is almost always integrated into your CI and source code manager (SCM) and automatically runs on every pull request or merge request you open. These scans are **diff-aware** and only affect the scope of your PR, which keeps the scan speed fast. Your security engineer may configure Semgrep to display PR or MR comments about certain **blocking** or **non-blocking** findings to you, which you can resolve or ignore from within your SCM.
 
-![A PR comment detecting a hardcoded secret](/img/guardrails-secrets.png)
-_**Figure**. A PR comment detecting a hardcoded secret._
 
 It is less frequent, but still common, for developers to run Semgrep as part of their day-to-day coding workflow in the following environments:
 

@@ -8,7 +8,7 @@ description: Ensure you select the correct token scopes to avoid API 404s.
 
 If you receive a 404 error from the [Semgrep Web API](https://semgrep.dev/api/v1/docs/), and you are sure the deployment, API endpoint, and other details are correct, you may be trying to use a token that does not have the **Web API** scope assigned.
 
-Semgrep AppSec Platform supports two primary token scopes: **Agent (CI)** and **Web API**. See [Token scopes](/docs/deployment/teams#token-scopes) for details of their permissions.
+Semgrep AppSec Platform supports two primary token scopes: **Agent (CI)** and **Web API**. See [Token scopes](/docs/deployment/tokens#token-scopes) for details of their permissions.
 
 Tokens with only the **Agent (CI)** scope can connect scans with the platform to request rules, send findings, and post PR/MR comments, but they cannot use the Web API. They are intended for use locally or in CI.
 

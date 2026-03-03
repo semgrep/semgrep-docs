@@ -27,11 +27,6 @@ Perform these steps in Semgrep AppSec Platform to create an email integration an
     2. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
     3. Repeat the previous step for all Rule Modes that you want to receive notifications for.
 
-![Semgrep AppSec Platform email with findings](/img/integrations-email-findings.png)
-_**Figure** Sample of an email sent from Semgrep with findings._
-
-![Scan failure email](/img/email-failure.png#md-width)
-_**Figure** Scan failure email message._
 
 <Notifications />
 

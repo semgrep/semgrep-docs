@@ -64,9 +64,8 @@ Semgrep Code **rule modes** define workflow actions (**Monitor**, **Comment**, o
 To view all integrations available to you in Semgrep AppSec Platform, follow these steps:
 
 1. Sign in to your [Semgrep AppSec Platform ](https://semgrep.dev/orgs/-/settings/integrations) account.
-1. Click **Settings > Integrations**.
-    ![Integrations page while adding the first integration.](/img/integrations.png#md-width)
-    _**Figure**_. The integrations available in Semgrep AppSec Platform.
+1. Click **Settings > Integrations > Add**.
+
 
 ## Next steps
 

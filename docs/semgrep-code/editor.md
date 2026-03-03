@@ -16,8 +16,6 @@ import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
 
 # Write rules using Semgrep Editor
 
-![Semgrep Editor's splash screen](/img/editor-splashscreen.png)
-
 **Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-code/policies) to enforce code standards and increase code security.
 
 The Editor is free to use on all subscription tiers.
@@ -36,8 +34,6 @@ The Editor is free to use on all subscription tiers.
 
 Semgrep Editor is composed of three panes and a top menu.
 
-![Semgrep Editor's main view composed of three panes and top menu](/img/editor-panes.png)
-
 <dl>
     <dt>Library</dt>
     <dd>View and open rules owned by your organization or available through the <a href="https://semgrep.dev/r">Semgrep Registry</a>.</dd>
@@ -54,8 +50,6 @@ Semgrep Editor is composed of three panes and a top menu.
 By default, Semgrep Registry rules are grouped by **directory**. Most of these directories correspond to languages. The Library can also be grouped by **rulesets**, which are rules sorted by category, such as security, best practices, and frameworks.
 
 To group by ruleset, right-click on the empty space on the registry's name entry and select **Group by ruleset**.
-
-![Semgrep Editor's right click menu to group by rulesets](/img/editor-groupbyruleset.png)
 
 ## Create a rule
 
@@ -77,19 +71,15 @@ Structure mode is a UI-based ruled writing editor that guides you through the pr
 Structure mode features include:
 
 - **Match badges**: Match badges are visual indicators paired with pattern operators. The match badge shows the number of matches associated with each pattern operator.
-  ![Sample pattern with match badges](/img/match-badges.png#md-width)
 - **Automatic indentation**: When adding a new pattern to a nested operator such as `patterns` or `pattern-either`, the editor automatically indents sub-patterns correctly.
 - **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable.
-  ![Sample pattern with pattern constraint](/img/pattern-and-pattern-constraint.png#md-width)
 - **Interoperability with advanced mode**: You can write a rule using structure mode and view or export it in YAML, or you can paste in the YAML for a rule and edit it with structure mode.
 - **Drag and drop**" You can move around the elements of a rule using drag and drop.
 - **Pattern disabling**: You can toggle individual patterns on or off for actions like testing.
-  ![Sample pattern with disable pattern toggle highlighted](/img/disable-pattern.png#md-width)
 
 To write a **search** rule using structure mode:
 
 1. Ensure that you are in **structure** mode.
-    ![Semgrep Playground's structure mode](/img/pleditor-structure.png)
 2. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
 3. Specify the pattern if applicable. Example: `print("...")`.
 4. Optional: specify a constraint by clicking on the **filter** icon.
@@ -106,7 +96,6 @@ To write a **search** rule using structure mode:
 To write a **taint** rule using structure mode:
 
 1. Ensure that you are in **structure** mode. and that you have selected **taint**.
-    ![Semgrep Playground's structure view for writing taint rules](/img/structure-mode-taint.png)
 2. Define your **Sources**.
    1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
    2. Specify the pattern if applicable. Example: `print("...")`.
@@ -145,7 +134,6 @@ To quickly learn Semgrep patterns and syntax, explore the Editor’s library of 
 To write a rule in advanced mode:
 
 1. Ensure that you are in **advanced** mode.
-    ![Semgrep Playground's advanced mode](/img/pleditor-advanced.png "Playground advanced mode")
 1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but there are additional templates that can help you write more complex rules:
    - **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
    - **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
@@ -181,9 +169,6 @@ Once you've written a rule and created comment annotations, you can run your rul
 
 Code search allows you to test a Semgrep rule by running it against one or more GitHub repositories or projects instead of just a few lines of test code. Its results highlight all instances of matching code in those target repositories, allowing you to see whether your rule works as intended or not. This rapid feedback can help you develop more accurate and effective rules.
 
-![Code search in Semgrep Editor](/img/code-search.png)
-_**Figure.** Code search in Semgrep Editor._
-
 The [Semgrep Network Broker](/semgrep-ci/network-broker) does not support code search at this time.
 
 ### Prerequisites
@@ -196,7 +181,7 @@ The [Semgrep Network Broker](/semgrep-ci/network-broker) does not support code s
 <InstallPrivateGitHubApp />
 
 :::info
-Code search currently works with repositories or projects hosted by Github.com.
+Code search currently works with repositories or projects hosted by GitHub.
 :::
 
 To run your rule against selected repositories or projects:
@@ -208,9 +193,6 @@ To run your rule against selected repositories or projects:
 5. Optional: If you're running your rule against multiple repositories, select the **Limit to first result per repository** checkbox to see only the first result per repository. This speeds up your search and allows you to receive your results faster.
 6. Click **Run** to start the search.
 7. When the search completes, you'll see a list of results where the rule generated a finding when run against your codebase. The links, which include filenames and line numbers, take you to GitHub, where you can view and remediate the issue.
-
-![Code search results in Semgrep Editor](/img/code-search-results.png)
-***Figure.*** Code search results in Semgrep Editor
 
 ## Set a rule’s visibility and share a rule
 
