@@ -53,9 +53,9 @@ To scan a non-default branch:
 
 ## View findings
 
-* After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count.   
-* Click that findings count to open the **AI Detection** page, or use the **AI Detection** option in the **navigation bar** to navigate to your findings.   
-* On the **AI Detection** page, click **Details** for any finding to see additional information, including AI-powered triage and remediation guidance. 
+After the scan finishes, the **AI Detection findings** column on the **Projects** page shows the findings count. Click that findings count to open the **AI Detection** page, or use the **AI Detection** option in the **navigation bar** to navigate to your findings.   
+
+On the **AI Detection** page, click **Details** for any finding to view additional information, including AI-powered triage and remediation guidance.
 
 ## Add additional context to AI-Powered detection scans
 
@@ -71,7 +71,7 @@ To upload a project-specific context document:
 1. In the **navigation bar**, go to **Rules & Policies → Assistant Memories**.  
 1. Go to the **Documents** tab and click **Add document**.
 1. Drag the document to the **File upload** box or click **Choose a file** to select and upload your context document.   
-  * Optionally: Add a **Description** of the document. This information will be used as additional context for AI-powered detection scans.  
+    Optionally: Add a **Description** of the document. This information will be used as additional context for AI-powered detection scans.  
 
 The finding **Details** page references the uploaded context document under the finding description.
 
