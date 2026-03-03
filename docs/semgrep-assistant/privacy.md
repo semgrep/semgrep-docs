@@ -11,7 +11,7 @@ tags:
 # Privacy and legal considerations for Semgrep Assistant
 
 :::info
-The data privacy policy for [AI-powered detection](/docs/deployment/add-ai-to-scans) scans differs from the policy outlined for Semgrep Assistant primarily in the following ways:
+The data privacy policy for [AI-powered detection](/docs/deployment/add-ai-to-scans) scans differs from the policy outlined for Semgrep Assistant in the following ways:
 - **Repository access**: AI-powered detection requires access to code in your GitHub or GitLab repositories. This includes time-limited access to the full source code to enable analysis.
 - **Uploaded context documentation**: Any context documentation you upload to enhance AI-powered detection scans is persistently stored in a Semgrep-managed Amazon S3 bucket and reused in future scans. 
 - **Scan reports**: AI-powered scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.

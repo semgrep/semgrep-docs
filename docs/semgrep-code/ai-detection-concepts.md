@@ -15,7 +15,7 @@ displayed_sidebar: scanSidebar
 
 # AI-powered detection (beta): concepts and FAQs
 
-This page provides additional context for Semgrep’s AI-powered detection. It covers what kinds of issues the feature is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
+This document provides additional context for Semgrep’s AI-powered detection. It covers what kinds of issues the feature is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
 
 If you’re looking for step-by-step instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/docs/deployment/add-ai-to-scans).
 
@@ -35,7 +35,7 @@ A: Traditional Semgrep SAST can be configured to catch IDORs. However, since thi
 
 **Q: Are AI-powered detection findings deterministic?** 
 
-Although AI scans are inherently non-deterministic, Semgrep's engine helps make them more reliable. Please continue to review and evaluate scan results carefully.
+Although AI scans are inherently non-deterministic, Semgrep's engine helps make them more reliable. Review and evaluate scan results carefully.
 
 ## Setup, quotas, and integrations FAQs
 
@@ -66,7 +66,7 @@ A: Semgrep Code’s AI-powered detection follows the same data privacy policy as
 
 ## Known bugs and limitations
 
-This feature is in beta! Here are some known issues:
+This feature is in beta. Here are some known issues:
 
 **Scan limitations:**
 

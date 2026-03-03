@@ -24,9 +24,9 @@ You can use Semgrep Code to scan local repositories or integrate it into your CI
 
 <SemgrepScan />
 
-Semgrep performs SAST scans using rules that define which patterns to detect in your code. 
+Semgrep performs SAST scans using rules that define the patterns to detect in your code. 
 
-Rules used by the Semgrep Pro Engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code should detect in your repositories. 
+Rules used by the Semgrep Pro Engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code detects in your repositories. 
 
 Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
 

@@ -23,7 +23,7 @@ For details on what AI-powered detection can uncover, known limitations, and bet
 
 ## Prerequisites {#prerequisites}
 
-To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature) (beta feature), ensure that you meet the following requirements:
+To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
 
 * You have added your projects to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
 * You have enabled Semgrep Assistant for your organization.
@@ -32,16 +32,16 @@ To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powe
 
 This feature is enabled by default for all Semgrep Assistant users. 
 
-To enable or disable AI-powered detection, go to **Settings** > **Code** and then toggle AI-powered detection on or off. 
+To enable or disable AI-powered detection in Semgrep AppSec Platform, go to [**Settings** > **Code**](https://semgrep.dev/orgs/-/settings/general/code) and then toggle **AI-powered detection** on or off.
 
 ## Scan with AI-powered detection
 
-* Log in to Semgrep AppSec Platform.  
-* In the **navigation bar**, click on **Projects**. 
+1. Log in to Semgrep AppSec Platform.  
+1. In the **navigation bar**, click on **Projects**. 
 
 To scan the default or main branch:
 
-1. Choose the projects by selecting the checkboxes next to their names.This enables the **Run a new scan** dropdown menu.  
+1. Choose the projects by selecting the checkboxes next to their names. This enables the **Run a new scan** drop-down menu.  
 1. Click **Run a new scan > AI-powered detection**.
 1. A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
   * If you would like Semgrep to automatically perform an AI scan on these projects every week, select **Enable weekly scans**.
@@ -49,7 +49,7 @@ To scan the default or main branch:
 To scan a non-default branch:
 
 1. Click **Details** for your project of interest. On the project's **Details** page, click **Run a new scan** and choose **AI-powered detection.**  
-1. In the dialogue, enter the name of the branch you want to scan.
+1. In the dialog, enter the name of the branch you want to scan.
 
 ## View findings
 
@@ -77,6 +77,6 @@ The finding **Details** page references the uploaded context document under the 
 
 
 
-To understand how AI-powered detection works under the hood, see [AI-powered detection: concepts, limitations, and FAQs](/docs/semgrep-code/ai-powered-detection-concepts).
+For an in-depth understanding of how AI-powered detection works, see [AI-powered detection: concepts, limitations, and FAQs](/docs/semgrep-code/ai-powered-detection-concepts).
 
 
