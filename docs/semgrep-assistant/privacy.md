@@ -11,11 +11,10 @@ tags:
 # Privacy and legal considerations for Semgrep Assistant
 
 :::info
-Semgrep’s [AI-powered detection](/docs/deployment/add-ai-to-scans) accesses code on your GitHub or GitLab repositories, including limited-time access to the entire source code. 
-
-Any context documentation you upload to enhance AI-powered detection scans is persistently stored in a Semgrep-managed Amazon S3 bucket for reuse in future scans. 
-
-These are the primary differences from the policy outlined for Semgrep Assistant.
+The data privacy policy for [AI-powered detection](/docs/deployment/add-ai-to-scans) scans differs from the policy outlined for Semgrep Assistant primarily in the following ways:
+- **Repository access**: AI-powered detection requires access to code in your GitHub or GitLab repositories. This includes time-limited access to the full source code to enable analysis.
+- **Uploaded context documentation**: Any context documentation you upload to enhance AI-powered detection scans is persistently stored in a Semgrep-managed Amazon S3 bucket and reused in future scans. 
+- **Scan reports**: AI-powered scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
 :::
 
 Semgrep Assistant uses API permissions to access code on your pre-selected GitHub or GitLab repositories. Semgrep Assistant seeks to limit the time customer data resides with AI model vendors. The current list of subprocessors includes OpenAI and Amazon Bedrock, both of which provide zero data retention. 
@@ -41,9 +40,12 @@ Semgrep Assistant uses API permissions to access code on your pre-selected GitHu
 If you wish to limit data retention for Assistant further, [contact support](/docs/support) and enroll in Semgrep's minimal data retention policy. 
 
 As part of the additional protections offered by the minimal data retention policy, customer data related to Semgrep Assistant, including code and prompts:
-- Is **not** logged or captured by logging or observability tools.
-- is **not** stored in any external storage system, such as Amazon S3.
-  - **Exception**: If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
+- Are **not** logged or captured by logging or observability tools.
+- Are **not** stored in any external storage system, such as Amazon S3. 
+
+Please note the following **exceptions** for AI-powered detection scans:
+  - If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
+  - AI-powered scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Assistant functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts. 
 
