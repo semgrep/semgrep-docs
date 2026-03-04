@@ -23,4 +23,6 @@ steps:
         git fetch origin master:origin/master
         semgrep ci
     fi
+  env:
+    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
