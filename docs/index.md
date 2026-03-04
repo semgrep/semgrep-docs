@@ -39,7 +39,6 @@ The code is kept here for easy maintenance.
 <h3>Scan with Semgrep AppSec Platform</h3>
 
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
-
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
