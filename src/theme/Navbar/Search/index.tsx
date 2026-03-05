@@ -706,8 +706,38 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced markdown rendering for AI responses
+  const normalizeLineCodeBlocks = (text: string): string => {
+    const lines = text.split('\n');
+    const output: string[] = [];
+    let buffer: string[] = [];
+
+    const flushBuffer = () => {
+      if (buffer.length >= 2) {
+        output.push('```');
+        output.push(...buffer);
+        output.push('```');
+      } else {
+        output.push(...buffer.map(line => `\`${line}\``));
+      }
+      buffer = [];
+    };
+
+    for (const line of lines) {
+      const match = line.trim().match(/^`([^`]+)`$/);
+      if (match) {
+        buffer.push(match[1]);
+      } else {
+        if (buffer.length > 0) flushBuffer();
+        output.push(line);
+      }
+    }
+
+    if (buffer.length > 0) flushBuffer();
+    return output.join('\n');
+  };
+
   const renderMarkdown = (text: string): string => {
-    let html = text;
+    let html = normalizeLineCodeBlocks(text);
     
     // Handle code blocks with language (```language\ncode\n```)
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
