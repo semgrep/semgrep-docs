@@ -707,29 +707,44 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
   // Enhanced markdown rendering for AI responses
   const normalizeLineCodeBlocks = (text: string): string => {
+    // If the response already has fenced code blocks, leave it alone.
+    if (text.includes('```')) {
+      return text;
+    }
+
     const lines = text.split('\n');
     const output: string[] = [];
     let buffer: string[] = [];
 
     const flushBuffer = () => {
-      if (buffer.length >= 2) {
+      const nonEmptyLines = buffer.filter(line => line.trim().length > 0);
+      if (nonEmptyLines.length >= 2) {
         output.push('```');
         output.push(...buffer);
         output.push('```');
       } else {
-        output.push(...buffer.map(line => `\`${line}\``));
+        output.push(...buffer.map(line => (line.trim().length === 0 ? '' : `\`${line}\``)));
       }
       buffer = [];
     };
 
-    for (const line of lines) {
-      const match = line.trim().match(/^`([^`]+)`$/);
+    for (const rawLine of lines) {
+      const line = rawLine;
+      const trimmed = line.trim();
+      const match = trimmed.match(/^`([^`]+)`$/);
+
       if (match) {
         buffer.push(match[1]);
-      } else {
-        if (buffer.length > 0) flushBuffer();
-        output.push(line);
+        continue;
       }
+
+      if (trimmed.length === 0 && buffer.length > 0) {
+        buffer.push('');
+        continue;
+      }
+
+      if (buffer.length > 0) flushBuffer();
+      output.push(line);
     }
 
     if (buffer.length > 0) flushBuffer();
