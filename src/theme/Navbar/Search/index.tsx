@@ -720,12 +720,22 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     const output: string[] = [];
     let buffer: string[] = [];
 
+    const looksLikeCodeBlock = (lines: string[]): boolean => {
+      const nonEmpty = lines.filter(line => line.trim().length > 0);
+      if (nonEmpty.length < 2) return false;
+
+      const codeSignal = /[:;{}()[\]$=]|^\s*-|^\s{2,}|\bimport\b|\bconst\b|\bfunction\b|\bclass\b/;
+      return nonEmpty.some(line => codeSignal.test(line));
+    };
+
     const flushBuffer = () => {
       const nonEmptyLines = buffer.filter(line => line.trim().length > 0);
-      if (nonEmptyLines.length >= 2) {
+      if (looksLikeCodeBlock(buffer)) {
         output.push('```');
         output.push(...buffer);
         output.push('```');
+      } else if (nonEmptyLines.length >= 2) {
+        output.push(...buffer);
       } else {
         output.push(...buffer.map(line => (line.trim().length === 0 ? '' : `\`${line}\``)));
       }
