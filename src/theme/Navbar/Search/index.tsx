@@ -494,6 +494,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced highlighting function for better keyword visibility
+  const escapeRegExp = (value: string): string => {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+
   const enhanceHighlighting = (content: string, searchQuery: string): string => {
     if (!searchQuery || !content) return content;
     
@@ -513,8 +517,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     // Highlight each search term with case-insensitive matching
     searchTerms.forEach(term => {
-      const regex = new RegExp(`(${term})`, 'gi');
-      highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      if (!term) return;
+      try {
+        const safeTerm = escapeRegExp(term);
+        const regex = new RegExp(`(${safeTerm})`, 'gi');
+        highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      } catch (error) {
+        // Skip invalid regex term to avoid breaking the UI
+      }
     });
     
     return highlightedContent;
