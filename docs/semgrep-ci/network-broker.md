@@ -18,7 +18,7 @@ The Semgrep Network Broker facilitates secure access between Semgrep and your pr
 <img
   src={useBaseUrl('/img/private-network-broker.png')}
   alt="Private Network Broker."
-  style={{ width: '75%', display: 'block', margin: '0 auto' }}
+  style={{ width: '65%', display: 'block', margin: '0 auto' }}
 />
 
 ***Figure.*** *Overview of how Semgrep Network Broker facilitates access between Semgrep and your private network.*
