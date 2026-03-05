@@ -775,11 +775,34 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         const line = lines[i];
         const trimmed = line.trim();
 
-        if (!inYamlBlock && trimmed === 'rules:') {
-          inYamlBlock = true;
-          output.push('```yaml');
-          output.push(line);
-          continue;
+        if (!inYamlBlock) {
+          if (/^yaml\s+rules:$/i.test(trimmed)) {
+            inYamlBlock = true;
+            output.push('```yaml');
+            output.push('rules:');
+            continue;
+          }
+
+          if (trimmed === 'rules:') {
+            inYamlBlock = true;
+            output.push('```yaml');
+            output.push(line);
+            continue;
+          }
+
+          if (/^yaml:$/i.test(trimmed)) {
+            let nextIndex = i + 1;
+            while (nextIndex < lines.length && lines[nextIndex].trim().length === 0) {
+              nextIndex += 1;
+            }
+            if (nextIndex < lines.length && lines[nextIndex].trim() === 'rules:') {
+              inYamlBlock = true;
+              output.push('```yaml');
+              output.push(lines[nextIndex]);
+              i = nextIndex;
+              continue;
+            }
+          }
         }
 
         if (inYamlBlock) {
