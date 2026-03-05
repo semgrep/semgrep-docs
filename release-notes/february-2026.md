@@ -39,7 +39,7 @@ The following updates were made to Semgrep in February 2026.
   - Blocking findings are now labelled in the CLI response.
 
 ### Fixed
-* Fixed an issue where claiming a license caused Semgrep AppSec Platform to crash.
+- Fixed an issue where claiming a license caused Semgrep AppSec Platform to crash.
 - Fixed an issue where the **Projects** page didn't display findings counts if the previous scan failed.
 - Fixed an issue where the Semgrep Editor crashed when viewing metadata for select rules.
 - Fixed an issue where Semgrep returned more false negatives when the maximum number of fields to track per object was reached during scans.
@@ -124,7 +124,7 @@ The following updates were made to Semgrep in February 2026.
 
 ## 🔧 OSS Engine
 
-* The following versions of the OSS Engine were released in February 2026:
-  * [<i class="fas fa-external-link fa-xs"></i>1.153.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.152.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
-  * [<i class="fas fa-external-link fa-xs"></i>1.151.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
+- The following versions of the OSS Engine were released in February 2026:
+  - [<i class="fas fa-external-link fa-xs"></i>1.153.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
+  - [<i class="fas fa-external-link fa-xs"></i>1.152.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
+  - [<i class="fas fa-external-link fa-xs"></i>1.151.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
