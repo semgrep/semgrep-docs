@@ -57,7 +57,9 @@ PR comments are enabled by default for users who have connected their Azure DevO
 
 ### Set up the configuration file
 
-This type of logic is commonly placed directly in the `azure-pipelines.yaml` file to control when Semgrep runs a full scan versus a diff (pull-request) scan. For PR comments and accurate diff analysis to work, two environment variables must be set: `SEMGREP_PR_ID`, which identifies the pull request, and `SEMGREP_BASELINE_REF`, which defines the repository’s default branch used as the comparison baseline (for example main). Explicitly specifying this default branch is essential because Semgrep relies on it to understand the differences between the current branch and the main line of development and to generate meaningful results and PR comments.
+The logic to determine whether Semgrep runs a full scan or a diff-aware scan on a pull request is defined in the `azure-pipelines.yaml` file.
+
+For PR comments and accurate diff-aware scan analysis to work, you must set two environment variables: `SEMGREP_PR_ID`, which identifies the pull request, and `SEMGREP_BASELINE_REF`, which defines the repository’s default branch used as the comparison baseline, such as `main` or `master`. Specifying the default branch helps Semgrep understand the differences between the current branch and the main line of development and to generate meaningful results and PR comments.
 
 <details>
 <summary>Click to see a sample workflow file</summary>
