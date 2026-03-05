@@ -1,4 +1,8 @@
 import React, {type ReactNode, useState, useEffect, useRef} from 'react';
+import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Highlight, themes } from 'prism-react-renderer';
 import {useHistory} from '@docusaurus/router';
 import type {Props} from '@theme/Navbar/Search';
 import { useDeploymentConfig, getMeilisearchUrl, getMeilisearchChatUrl } from '../../../utils/deploymentConfig';
@@ -751,7 +755,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     return output.join('\n');
   };
 
-  const renderMarkdown = (text: string): string => {
+  const renderMarkdown = (text: string): ReactNode => {
     const normalizeYamlBlocks = (input: string): string => {
       const lines = input.split('\n');
       const output: string[] = [];
@@ -790,32 +794,92 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
-    let html = normalizeLineCodeBlocks(text);
-    html = normalizeYamlBlocks(html);
-    
-    // Handle code blocks with language (```language\ncode\n```)
-    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
-      const lang = language || '';
-      const escapedCode = code
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
-    });
-    
-    // Handle inline code (`code`)
-    html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
-    
-    // Handle links [text](url)
-    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
-    
-    // Handle bold **text**
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Handle newlines
-    html = html.replace(/\n/g, '<br />');
-    
-    return html;
+    let normalized = normalizeLineCodeBlocks(text);
+    normalized = normalizeYamlBlocks(normalized);
+
+    return (
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={
+          {
+            code({ className, children, ...props }) {
+              const match = /language-([\w-]+)/.exec(className || '');
+              const codeText = String(children).replace(/\n$/, '');
+              const isInline = !match && !codeText.includes('\n');
+
+              if (isInline) {
+                return (
+                  <code
+                    style={{
+                      background: '#F3F4F6',
+                      color: '#1F2937',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      fontSize: '12px',
+                      fontFamily: 'Monaco, Menlo, Consolas, monospace'
+                    }}
+                    {...props}
+                  >
+                    {children}
+                  </code>
+                );
+              }
+
+              return (
+                <Highlight
+                  code={codeText}
+                  language={match?.[1] || 'text'}
+                  theme={themes.vsDark}
+                >
+                  {({ className: highlightedClassName, style, tokens, getLineProps, getTokenProps }) => (
+                    <pre
+                      className={highlightedClassName}
+                      style={{
+                        ...style,
+                        background: '#1F2937',
+                        color: '#E5E7EB',
+                        padding: '12px',
+                        borderRadius: '8px',
+                        overflowX: 'auto',
+                        margin: '12px 0',
+                        fontSize: '12px',
+                        lineHeight: '1.5',
+                        fontFamily: 'Monaco, Menlo, Consolas, monospace'
+                      }}
+                    >
+                      {tokens.map((line, i) => (
+                        <div key={i} {...getLineProps({ line })}>
+                          {line.map((token, key) => (
+                            <span key={key} {...getTokenProps({ token })} />
+                          ))}
+                        </div>
+                      ))}
+                    </pre>
+                  )}
+                </Highlight>
+              );
+            },
+            p({ children }) {
+              return <p style={{ margin: '0 0 10px' }}>{children}</p>;
+            },
+            a({ href, children }) {
+              return (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#059669', textDecoration: 'underline' }}
+                >
+                  {children}
+                </a>
+              );
+            }
+          } satisfies Components
+        }
+      >
+        {normalized}
+      </ReactMarkdown>
+    );
   };
 
   return (
@@ -1021,11 +1085,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 lineHeight: '1.6',
                 color: isDarkMode ? '#d1d5db' : '#374151',
                 marginBottom: aiSources.length > 0 ? '12px' : '0'
-              }}
-              dangerouslySetInnerHTML={{ 
-                __html: renderMarkdown(aiResponse)
-              }}
-              />
+              }}>
+                {renderMarkdown(aiResponse)}
+              </div>
               {aiSources.length > 0 && (
                 <div style={{ marginTop: '12px' }}>
                   <div style={{
