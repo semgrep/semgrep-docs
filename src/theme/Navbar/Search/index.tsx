@@ -752,7 +752,46 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   const renderMarkdown = (text: string): string => {
+    const normalizeYamlBlocks = (input: string): string => {
+      const lines = input.split('\n');
+      const output: string[] = [];
+      let inYamlBlock = false;
+
+      for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+        const trimmed = line.trim();
+
+        if (!inYamlBlock && trimmed === 'rules:') {
+          inYamlBlock = true;
+          output.push('```yaml');
+          output.push(line);
+          continue;
+        }
+
+        if (inYamlBlock) {
+          if (trimmed.length === 0) {
+            output.push('```');
+            output.push(line);
+            inYamlBlock = false;
+            continue;
+          }
+
+          output.push(line);
+          continue;
+        }
+
+        output.push(line);
+      }
+
+      if (inYamlBlock) {
+        output.push('```');
+      }
+
+      return output.join('\n');
+    };
+
     let html = normalizeLineCodeBlocks(text);
+    html = normalizeYamlBlocks(html);
     
     // Handle code blocks with language (```language\ncode\n```)
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
