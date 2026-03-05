@@ -804,8 +804,25 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
+    const normalizeFencedProseBlocks = (input: string): string => {
+      const looksLikeCode = (content: string): boolean => {
+        const lines = content.split('\n').filter(line => line.trim().length > 0);
+        if (lines.length === 0) return false;
+        const codeSignal = /[:;{}()[\]$=]|^\s*-|^\s{2,}|\bimport\b|\bconst\b|\bfunction\b|\bclass\b/;
+        return lines.some(line => codeSignal.test(line));
+      };
+
+      return input.replace(/```[\w-]*\n([\s\S]*?)```/g, (match, code) => {
+        if (looksLikeCode(code)) {
+          return match;
+        }
+        return code.trim();
+      });
+    };
+
     let normalized = normalizeLineCodeBlocks(text);
     normalized = normalizeYamlBlocks(normalized);
+    normalized = normalizeFencedProseBlocks(normalized);
 
     return (
       <ReactMarkdown
