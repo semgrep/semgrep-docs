@@ -20,7 +20,7 @@ The following updates were made to Semgrep in February 2026.
 ### Added
 
 - **CLI**:
-  - Added the `--x-mem-policy` flag, which allows you to configure which OCaml garbage collector to use: **aggressive** (the default), which results in longer scan times but lower memory use, or **balanced**, which compromises on heap memory reclaiming while limiting how often the garbage collector runs. This flag is available only for Pro users.
+  - Added the `--x-mem-policy` flag to configure the OCaml garbage collector. Options are **aggressive** (the default), which uses less memory at the cost of longer scan times, or **balanced**, which compromises heap memory reclaiming while limiting how often the garbage collector runs. This flag is available only for Pro users.
 - **MCP**: 
   - Hooks for both Claude Code and Cursor now pull custom rules from the Semgrep Registry.
   - Enabled DNS rebinding protection for the MCP server.
@@ -28,7 +28,7 @@ The following updates were made to Semgrep in February 2026.
 ### Changed
 
 - Improved the accuracy of taint tracking through assignments, which helps reduce the number of false positive findings.
-- The **Network Broker** configuration screen now allows only one public key, preventing the addition of multiple keys, which Semgrep does not support.
+- The **Network Broker** configuration screen now allows only one public key, preventing users from adding multiple keys, which Semgrep does not support.
 - The CWE tooltip message on a finding's **Details** page now displays the CWE name associated with the finding instead of a generic CWE name.
 - Improved the performance of **Findings** page filters.
 - Minor cosmetic changes to the **Findings** page.
@@ -43,7 +43,7 @@ The following updates were made to Semgrep in February 2026.
 - Fixed an issue where the **Projects** page didn't display findings counts if the previous scan failed.
 - Fixed an issue where the Semgrep Editor crashed when viewing metadata for select rules.
 - Fixed an issue where Semgrep returned more false negatives when the maximum number of fields to track per object was reached during scans.
-- Fixed an issue where the author of a pull request or merge request could update project tags by changing the `.semgrepconfig.yml` file. Project tags can now be updated only on full scans.
+- Fixed an issue that allowed authors of pull requests or merge requests to update project tags by changing the `.semgrepconfig.yml` file. Project tags can now be updated only on full scans.
 - **CLI**: fixed an issue where Semgrep printed info log lines when `--trace` was passed, but not `--debug`.
 
 ## 💻 Semgrep Code
@@ -90,8 +90,8 @@ The following updates were made to Semgrep in February 2026.
 
 ### Fixed
 
-- Fixed an issue where the **Enable Supply Chain** toggle didn't work.
-- Fixed an issue where the **Dependency** filter on the Supply Chain **Findings** page did not return all results.
+- Fixed an issue that prevented the **Enable Supply Chain** toggle from working.
+- Fixed an issue that prevented the **Dependency** filter on the Supply Chain **Findings** page from returning all results.
 
 ## 🤖 Semgrep Assistant
 
