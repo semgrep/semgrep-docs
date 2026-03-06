@@ -30,7 +30,7 @@ When writing tests, remember that:
 The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
 :::
 
-## Test rules with autofix
+## Test rules with ==autofix==
 
 Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
 

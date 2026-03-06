@@ -33,7 +33,7 @@ This document describes the YAML rule syntax of Semgrep.
 | Field      | Type     | Description                         |
 | :--------- | :------- | :---------------------------------- |
 | [`options`](#options) | `object` | Options object to turn on or turn off matching features |
-| [`fix`](#fix) | `object` | Simple search-and-replace autofix capability  |
+| [`fix`](#fix) | `object` | Simple search-and-replace capability  |
 | [`metadata`](#metadata) | `object` | Arbitrary user-provided data; attach data to rules without affecting Semgrep behavior |
 | [`min-version`](#min-version-and-max-version) | `string` | Minimum Semgrep version compatible with the rule |
 | [`max-version`](#min-version-and-max-version) | `string` | Maximum Semgrep version compatible with the rule |
@@ -1082,7 +1082,7 @@ The complete list of available options can be consulted in the [Semgrep matching
 
 ## `fix`
 
-The `fix` top-level key allows for simple autofixing of a pattern by suggesting an autofix for each match. Run `semgrep` with `--autofix` to apply the changes to the files.
+The `fix` top-level key allows simple pattern fixes by suggesting an alternative for each match. Run `semgrep` with `--autofix` to apply the changes to the files.
 
 Example:
 
@@ -1097,7 +1097,7 @@ rules:
     severity: HIGH
 ```
 
-For more information about `fix` and `--autofix` see [Autofix](/writing-rules/autofix) documentation.
+For more information about `fix` and `--autofix` see [Rule-defined fix](/writing-rules/autofix) documentation.
 
 ## `metadata`
 
