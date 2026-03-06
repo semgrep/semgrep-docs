@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Highlight, themes } from 'prism-react-renderer';
 import { useDeploymentConfig, getMeilisearchChatUrl } from '../utils/deploymentConfig';
 
 interface Message {
@@ -360,16 +364,97 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
                     boxShadow: message.role === 'user'
                       ? '0 4px 12px rgba(0, 212, 170, 0.3)'
                       : '0 2px 8px rgba(0, 0, 0, 0.1)',
-                    whiteSpace: 'pre-wrap',
+                    whiteSpace: 'normal',
                     wordBreak: 'break-word',
                     position: 'relative'
                   }}
                 >
-                  <div
-                    dangerouslySetInnerHTML={{ 
-                      __html: message.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    }}
-                  />
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={
+                      {
+                        code({ className, children, ...props }) {
+                          const match = /language-([\w-]+)/.exec(className || '');
+                          const codeText = String(children).replace(/\n$/, '');
+                          const isInline = !match && !codeText.includes('\n');
+                          if (isInline) {
+                            return (
+                              <code
+                                style={{
+                                  background: '#F3F4F6',
+                                  padding: '2px 6px',
+                                  borderRadius: '6px',
+                                  fontSize: '0.9em',
+                                  fontFamily: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+                                }}
+                                {...props}
+                              >
+                                {children}
+                              </code>
+                            );
+                          }
+
+                          return (
+                            <Highlight
+                              code={codeText}
+                              language={match?.[1] || 'text'}
+                              theme={themes.vsDark}
+                            >
+                              {({ className: highlightedClassName, style, tokens, getLineProps, getTokenProps }) => (
+                                <pre
+                                  className={highlightedClassName}
+                                  style={{
+                                    ...style,
+                                    background: '#0F172A',
+                                    padding: '14px 16px',
+                                    borderRadius: '12px',
+                                    overflowX: 'auto',
+                                    fontSize: '13px',
+                                    lineHeight: '1.5',
+                                    margin: '12px 0'
+                                  }}
+                                >
+                                  {tokens.map((line, i) => (
+                                    <div key={i} {...getLineProps({ line })}>
+                                      {line.map((token, key) => (
+                                        <span key={key} {...getTokenProps({ token })} />
+                                      ))}
+                                    </div>
+                                  ))}
+                                </pre>
+                              )}
+                            </Highlight>
+                          );
+                        },
+                        p({ children }) {
+                          return <p style={{ margin: '0 0 10px' }}>{children}</p>;
+                        },
+                        ul({ children }) {
+                          return <ul style={{ margin: '8px 0 8px 18px' }}>{children}</ul>;
+                        },
+                        ol({ children }) {
+                          return <ol style={{ margin: '8px 0 8px 18px' }}>{children}</ol>;
+                        },
+                        li({ children }) {
+                          return <li style={{ marginBottom: '6px' }}>{children}</li>;
+                        },
+                        a({ href, children }) {
+                          return (
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ color: '#00A67D', textDecoration: 'underline' }}
+                            >
+                              {children}
+                            </a>
+                          );
+                        }
+                      } satisfies Components
+                    }
+                  >
+                    {message.content}
+                  </ReactMarkdown>
                   <button
                     onClick={() => copyToClipboard(message.content, index)}
                     style={{
