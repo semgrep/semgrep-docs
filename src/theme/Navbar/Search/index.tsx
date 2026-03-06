@@ -903,6 +903,58 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return wrapYamlAfterLabel(output.join('\n'));
     };
 
+    const looksLikeCodeLine = (value: string): boolean => {
+      if (!value) return false;
+      const trimmed = value.trim();
+      if (!trimmed) return false;
+      const codeSignal = /[:;{}()[\]$=]|^\s*-|^\s{2,}|\bimport\b|\bfrom\b|\bconst\b|\blet\b|\bfunction\b|\bclass\b|\bdef\b|\breturn\b/;
+      return codeSignal.test(trimmed);
+    };
+
+    const guessLanguage = (block: string): string => {
+      const lower = block.toLowerCase();
+      if (lower.includes('rules:') || lower.includes('pattern:') || lower.includes('languages:')) return 'yaml';
+      if (lower.includes('{') && lower.includes('}') && lower.includes(':')) return 'json';
+      if (lower.includes('def ') || lower.includes('import ') || lower.includes('from ')) return 'python';
+      if (lower.includes('function ') || lower.includes('const ') || lower.includes('let ')) return 'javascript';
+      return 'text';
+    };
+
+    const normalizeHeuristicCodeBlocks = (input: string): string => {
+      const lines = input.split('\n');
+      const output: string[] = [];
+      let buffer: string[] = [];
+
+      const flushBuffer = () => {
+        if (buffer.length >= 2) {
+          const block = buffer.join('\n');
+          const lang = guessLanguage(block);
+          output.push(`\`\`\`${lang}`);
+          output.push(block);
+          output.push('```');
+        } else {
+          output.push(...buffer);
+        }
+        buffer = [];
+      };
+
+      for (const line of lines) {
+        if (looksLikeCodeLine(line)) {
+          buffer.push(line);
+          continue;
+        }
+
+        if (buffer.length > 0) {
+          flushBuffer();
+        }
+
+        output.push(line);
+      }
+
+      if (buffer.length > 0) flushBuffer();
+      return output.join('\n');
+    };
+
     const normalizeFencedProseBlocks = (input: string): string => {
       const looksLikeCode = (content: string): boolean => {
         const lines = content.split('\n').filter(line => line.trim().length > 0);
@@ -922,88 +974,84 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     let normalized = normalizeYamlLabelBlock(text);
     normalized = normalizeLineCodeBlocks(normalized);
     normalized = normalizeYamlBlocks(normalized);
+    normalized = normalizeHeuristicCodeBlocks(normalized);
     normalized = normalizeFencedProseBlocks(normalized);
 
-    return (
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={
-          {
-            code({ className, children, ...props }) {
-              const match = /language-([\w-]+)/.exec(className || '');
-              const codeText = String(children).replace(/\n$/, '');
-              const isInline = !match && !codeText.includes('\n');
+    const renderCodeBlock = (codeText: string, language: string) => (
+      <Highlight code={codeText} language={language} theme={themes.vsDark}>
+        {({ className: highlightedClassName, style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className={highlightedClassName}
+            style={{
+              ...style,
+              background: '#1F2937',
+              color: '#E5E7EB',
+              padding: '12px',
+              borderRadius: '8px',
+              overflowX: 'auto',
+              margin: '12px 0',
+              fontSize: '12px',
+              lineHeight: '1.5',
+              fontFamily: 'Monaco, Menlo, Consolas, monospace'
+            }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    );
 
-              if (isInline) {
-                return (
-                  <code
-                    style={{
-                      background: '#F3F4F6',
-                      color: '#1F2937',
-                      padding: '2px 6px',
-                      borderRadius: '4px',
-                      fontSize: '12px',
-                      fontFamily: 'Monaco, Menlo, Consolas, monospace'
-                    }}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              }
+    const markdownComponents: Components = {
+      code({ className, children, ...props }) {
+        const match = /language-([\w-]+)/.exec(className || '');
+        const codeText = String(children).replace(/\n$/, '');
+        const isInline = !match && !codeText.includes('\n');
 
-              return (
-                <Highlight
-                  code={codeText}
-                  language={match?.[1] || 'text'}
-                  theme={themes.vsDark}
-                >
-                  {({ className: highlightedClassName, style, tokens, getLineProps, getTokenProps }) => (
-                    <pre
-                      className={highlightedClassName}
-                      style={{
-                        ...style,
-                        background: '#1F2937',
-                        color: '#E5E7EB',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        overflowX: 'auto',
-                        margin: '12px 0',
-                        fontSize: '12px',
-                        lineHeight: '1.5',
-                        fontFamily: 'Monaco, Menlo, Consolas, monospace'
-                      }}
-                    >
-                      {tokens.map((line, i) => (
-                        <div key={i} {...getLineProps({ line })}>
-                          {line.map((token, key) => (
-                            <span key={key} {...getTokenProps({ token })} />
-                          ))}
-                        </div>
-                      ))}
-                    </pre>
-                  )}
-                </Highlight>
-              );
-            },
-            p({ children }) {
-              return <p style={{ margin: '0 0 10px' }}>{children}</p>;
-            },
-            a({ href, children }) {
-              return (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: '#059669', textDecoration: 'underline' }}
-                >
-                  {children}
-                </a>
-              );
-            }
-          } satisfies Components
+        if (isInline) {
+          return (
+            <code
+              style={{
+                background: '#F3F4F6',
+                color: '#1F2937',
+                padding: '2px 6px',
+                borderRadius: '4px',
+                fontSize: '12px',
+                fontFamily: 'Monaco, Menlo, Consolas, monospace'
+              }}
+              {...props}
+            >
+              {children}
+            </code>
+          );
         }
-      >
+
+        return renderCodeBlock(codeText, match?.[1] || 'text');
+      },
+      p({ children }) {
+        return <p style={{ margin: '0 0 10px' }}>{children}</p>;
+      },
+      a({ href, children }) {
+        return (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#059669', textDecoration: 'underline' }}
+          >
+            {children}
+          </a>
+        );
+      }
+    };
+
+    return (
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
         {normalized}
       </ReactMarkdown>
     );
