@@ -766,6 +766,37 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   const renderMarkdown = (text: string): ReactNode => {
+    const looksLikeYamlLine = (value: string): boolean => {
+      if (!value) return false;
+      const trimmed = value.trim();
+      if (!trimmed) return false;
+      if (trimmed.startsWith('- ')) return true;
+      if (/^[\w-]+\s*:\s*/.test(trimmed)) return true;
+      if (trimmed.startsWith('|') || trimmed.startsWith('>')) return true;
+      if (/^\s{2,}\S+/.test(value)) return true;
+      return false;
+    };
+
+    const formatInlineYaml = (value: string): string => {
+      const keys = ['rules:', 'id:', 'patterns:', 'pattern:', 'message:', 'languages:', 'severity:'];
+      const keyPattern = new RegExp(`\\s*(${keys.map(key => key.replace(/[:]/g, '\\:')).join('|')})`, 'gi');
+      const formatted = value.replace(keyPattern, '\n$1').replace(/^\n+/, '');
+      return formatted;
+    };
+
+    const normalizeYamlLabelBlock = (input: string): string => {
+      return input.replace(
+        /yaml rules:\s*\n([\s\S]*?)(?=\n\s*\n|\n(?:In this|You can|For more|Sources:)|$)/gi,
+        (match, body) => {
+          const formatted = formatInlineYaml(body.trim());
+          if (!formatted.trim()) {
+            return match;
+          }
+          return `yaml rules:\n\`\`\`yaml\n${formatted}\n\`\`\``;
+        }
+      );
+    };
+
     const normalizeYamlBlocks = (input: string): string => {
       const wrapYamlAfterLabel = (value: string): string => {
         return value.replace(/yaml rules:\s*\n([\s\S]*?)(\n\s*\n|$)/gi, (match, body, separator) => {
@@ -780,24 +811,6 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       let inYamlBlock = false;
       let pendingYamlBlock = false;
       let pendingYamlTail = '';
-
-      const looksLikeYamlLine = (value: string): boolean => {
-        if (!value) return false;
-        const trimmed = value.trim();
-        if (!trimmed) return false;
-        if (trimmed.startsWith('- ')) return true;
-        if (/^[\w-]+\s*:\s*/.test(trimmed)) return true;
-        if (trimmed.startsWith('|') || trimmed.startsWith('>')) return true;
-        if (/^\s{2,}\S+/.test(value)) return true;
-        return false;
-      };
-
-      const formatInlineYaml = (value: string): string => {
-        const keys = ['rules:', 'id:', 'patterns:', 'pattern:', 'message:', 'languages:', 'severity:'];
-        const keyPattern = new RegExp(`\\s*(${keys.map(key => key.replace(/[:]/g, '\\:')).join('|')})`, 'gi');
-        const formatted = value.replace(keyPattern, '\n$1').replace(/^\n+/, '');
-        return formatted;
-      };
 
       for (let i = 0; i < lines.length; i += 1) {
         const line = lines[i];
@@ -906,7 +919,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       });
     };
 
-    let normalized = normalizeLineCodeBlocks(text);
+    let normalized = normalizeYamlLabelBlock(text);
+    normalized = normalizeLineCodeBlocks(normalized);
     normalized = normalizeYamlBlocks(normalized);
     normalized = normalizeFencedProseBlocks(normalized);
 
