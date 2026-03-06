@@ -1,8 +1,4 @@
 import React, {type ReactNode, useState, useEffect, useRef} from 'react';
-import ReactMarkdown from 'react-markdown';
-import type { Components } from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Highlight, themes } from 'prism-react-renderer';
 import {useHistory} from '@docusaurus/router';
 import type {Props} from '@theme/Navbar/Search';
 import { useDeploymentConfig, getMeilisearchUrl, getMeilisearchChatUrl } from '../../../utils/deploymentConfig';
@@ -710,199 +706,9 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced markdown rendering for AI responses
-  const normalizeLineCodeBlocks = (text: string): string => {
-    // If the response already has fenced code blocks, leave it alone.
-    if (text.includes('```')) {
-      return text;
-    }
+  
 
-    const lines = text.split('\n');
-    const output: string[] = [];
-    let buffer: string[] = [];
-
-    const looksLikeCodeBlock = (lines: string[]): boolean => {
-      const nonEmpty = lines.filter(line => line.trim().length > 0);
-      if (nonEmpty.length < 2) return false;
-
-      const codeSignal = /[:;{}()[\]$=]|^\s*-|^\s{2,}|\bimport\b|\bconst\b|\bfunction\b|\bclass\b/;
-      return nonEmpty.some(line => codeSignal.test(line));
-    };
-
-    const flushBuffer = () => {
-      const nonEmptyLines = buffer.filter(line => line.trim().length > 0);
-      if (looksLikeCodeBlock(buffer)) {
-        output.push('```');
-        output.push(...buffer);
-        output.push('```');
-      } else if (nonEmptyLines.length >= 2) {
-        output.push(...buffer);
-      } else {
-        output.push(...buffer.map(line => (line.trim().length === 0 ? '' : `\`${line}\``)));
-      }
-      buffer = [];
-    };
-
-    for (const rawLine of lines) {
-      const line = rawLine;
-      const trimmed = line.trim();
-      const match = trimmed.match(/^`([^`]+)`$/);
-
-      if (match) {
-        buffer.push(match[1]);
-        continue;
-      }
-
-      if (trimmed.length === 0 && buffer.length > 0) {
-        buffer.push('');
-        continue;
-      }
-
-      if (buffer.length > 0) flushBuffer();
-      output.push(line);
-    }
-
-    if (buffer.length > 0) flushBuffer();
-    return output.join('\n');
-  };
-
-  const renderMarkdown = (text: string): ReactNode => {
-    const looksLikeYamlLine = (value: string): boolean => {
-      if (!value) return false;
-      const trimmed = value.trim();
-      if (!trimmed) return false;
-      if (trimmed.startsWith('- ')) return true;
-      if (/^[\w-]+\s*:\s*/.test(trimmed)) return true;
-      if (trimmed.startsWith('|') || trimmed.startsWith('>')) return true;
-      if (/^\s{2,}\S+/.test(value)) return true;
-      return false;
-    };
-
-    const formatInlineYaml = (value: string): string => {
-      const keys = ['rules:', 'id:', 'patterns:', 'pattern:', 'message:', 'languages:', 'severity:'];
-      const keyPattern = new RegExp(`\\s*(${keys.map(key => key.replace(/[:]/g, '\\:')).join('|')})`, 'gi');
-      const formatted = value.replace(keyPattern, '\n$1').replace(/^\n+/, '');
-      return formatted;
-    };
-
-    const normalizeYamlLabelBlock = (input: string): string => {
-      return input.replace(
-        /yaml rules:\s*\n([\s\S]*?)(?=\n\s*\n|\n(?:In this|You can|For more|Sources:)|$)/gi,
-        (match, body) => {
-          const formatted = formatInlineYaml(body.trim());
-          if (!formatted.trim()) {
-            return match;
-          }
-          return `yaml rules:\n\`\`\`yaml\n${formatted}\n\`\`\``;
-        }
-      );
-    };
-
-    const normalizeYamlBlocks = (input: string): string => {
-      const wrapYamlAfterLabel = (value: string): string => {
-        return value.replace(/yaml rules:\s*\n([\s\S]*?)(\n\s*\n|$)/gi, (match, body, separator) => {
-          const formatted = formatInlineYaml(body.trim());
-          const fenced = `yaml rules:\n\`\`\`yaml\n${formatted}\n\`\`\``;
-          return separator ? `${fenced}${separator}` : fenced;
-        });
-      };
-
-      const lines = input.split('\n');
-      const output: string[] = [];
-      let inYamlBlock = false;
-      let pendingYamlBlock = false;
-      let pendingYamlTail = '';
-
-      for (let i = 0; i < lines.length; i += 1) {
-        const line = lines[i];
-        const trimmed = line.trim();
-
-        if (!inYamlBlock) {
-          if (pendingYamlBlock) {
-            if (looksLikeYamlLine(line)) {
-              inYamlBlock = true;
-              pendingYamlBlock = false;
-              output.push('```yaml');
-              if (pendingYamlTail) {
-                output.push(...formatInlineYaml(pendingYamlTail).split('\n'));
-                pendingYamlTail = '';
-              }
-              output.push(...formatInlineYaml(line).split('\n'));
-              continue;
-            }
-            pendingYamlBlock = false;
-            pendingYamlTail = '';
-          }
-
-          const yamlRulesLabel = line.match(/yaml\s+rules:\s*(.*)$/i);
-          if (yamlRulesLabel) {
-            output.push(line.replace(/yaml\s+rules:\s*(.*)$/i, 'yaml rules:'));
-            pendingYamlBlock = true;
-            pendingYamlTail = yamlRulesLabel[1]?.trim() || '';
-            continue;
-          }
-
-          const rulesIndex = line.toLowerCase().indexOf('rules:');
-          if (rulesIndex !== -1) {
-            const after = line.slice(rulesIndex + 'rules:'.length).trim();
-            const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
-            const afterLooksYaml = looksLikeYamlLine(after);
-            const nextLooksYaml = looksLikeYamlLine(nextLine);
-
-            if (afterLooksYaml || nextLooksYaml || line.trim() === 'rules:') {
-              inYamlBlock = true;
-              output.push('```yaml');
-              output.push('rules:');
-              if (afterLooksYaml) {
-                output.push(...formatInlineYaml(after).split('\n'));
-              }
-              continue;
-            }
-          }
-
-          if (trimmed === 'rules:') {
-            inYamlBlock = true;
-            output.push('```yaml');
-            output.push(line);
-            continue;
-          }
-
-          if (/^yaml:$/i.test(trimmed)) {
-            let nextIndex = i + 1;
-            while (nextIndex < lines.length && lines[nextIndex].trim().length === 0) {
-              nextIndex += 1;
-            }
-            if (nextIndex < lines.length && lines[nextIndex].trim() === 'rules:') {
-              inYamlBlock = true;
-              output.push('```yaml');
-              output.push(lines[nextIndex]);
-              i = nextIndex;
-              continue;
-            }
-          }
-        }
-
-        if (inYamlBlock) {
-          if (trimmed.length === 0 || !looksLikeYamlLine(line)) {
-            output.push('```');
-            output.push(line);
-            inYamlBlock = false;
-            continue;
-          }
-
-          output.push(...formatInlineYaml(line).split('\n'));
-          continue;
-        }
-
-        output.push(line);
-      }
-
-      if (inYamlBlock) {
-        output.push('```');
-      }
-
-      return wrapYamlAfterLabel(output.join('\n'));
-    };
-
+  const renderMarkdown = (text: string): string => {
     const looksLikeCodeLine = (value: string): boolean => {
       if (!value) return false;
       const trimmed = value.trim();
@@ -963,106 +769,22 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
-    const normalizeFencedProseBlocks = (input: string): string => {
-      const looksLikeCode = (content: string): boolean => {
-        const lines = content.split('\n').filter(line => line.trim().length > 0);
-        if (lines.length === 0) return false;
-        const codeSignal = /[:;{}()[\]$=]|^\s*-|^\s{2,}|\bimport\b|\bconst\b|\bfunction\b|\bclass\b/;
-        return lines.some(line => codeSignal.test(line));
-      };
+    let html = normalizeHeuristicCodeBlocks(text);
 
-      return input.replace(/```[\w-]*\n([\s\S]*?)```/g, (match, code) => {
-        if (looksLikeCode(code)) {
-          return match;
-        }
-        return code.trim();
-      });
-    };
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const escapedCode = code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
+    });
 
-    let normalized = normalizeYamlLabelBlock(text);
-    normalized = normalizeLineCodeBlocks(normalized);
-    normalized = normalizeYamlBlocks(normalized);
-    normalized = normalizeHeuristicCodeBlocks(normalized);
-    normalized = normalizeFencedProseBlocks(normalized);
+    html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\n/g, '<br />');
 
-    const renderCodeBlock = (codeText: string, language: string) => (
-      <Highlight code={codeText} language={language} theme={themes.vsDark}>
-        {({ className: highlightedClassName, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={highlightedClassName}
-            style={{
-              ...style,
-              background: '#1F2937',
-              color: '#E5E7EB',
-              padding: '12px',
-              borderRadius: '8px',
-              overflowX: 'auto',
-              margin: '12px 0',
-              fontSize: '12px',
-              lineHeight: '1.5',
-              fontFamily: 'Monaco, Menlo, Consolas, monospace'
-            }}
-          >
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
-    );
-
-    const markdownComponents: Components = {
-      code({ className, children, ...props }) {
-        const match = /language-([\w-]+)/.exec(className || '');
-        const codeText = String(children).replace(/\n$/, '');
-        const isInline = !match && !codeText.includes('\n');
-
-        if (isInline) {
-          return (
-            <code
-              style={{
-                background: '#F3F4F6',
-                color: '#1F2937',
-                padding: '2px 6px',
-                borderRadius: '4px',
-                fontSize: '12px',
-                fontFamily: 'Monaco, Menlo, Consolas, monospace'
-              }}
-              {...props}
-            >
-              {children}
-            </code>
-          );
-        }
-
-        return renderCodeBlock(codeText, match?.[1] || 'text');
-      },
-      p({ children }) {
-        return <p style={{ margin: '0 0 10px' }}>{children}</p>;
-      },
-      a({ href, children }) {
-        return (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#059669', textDecoration: 'underline' }}
-          >
-            {children}
-          </a>
-        );
-      }
-    };
-
-    return (
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-        {normalized}
-      </ReactMarkdown>
-    );
+    return html;
   };
 
   return (
@@ -1268,9 +990,11 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
                 lineHeight: '1.6',
                 color: isDarkMode ? '#d1d5db' : '#374151',
                 marginBottom: aiSources.length > 0 ? '12px' : '0'
-              }}>
-                {renderMarkdown(aiResponse)}
-              </div>
+              }}
+              dangerouslySetInnerHTML={{ 
+                __html: renderMarkdown(aiResponse)
+              }}
+              />
               {aiSources.length > 0 && (
                 <div style={{ marginTop: '12px' }}>
                   <div style={{
