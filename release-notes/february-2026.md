@@ -126,5 +126,5 @@ The following updates were made to Semgrep in February 2026.
 
 - The following versions of the OSS Engine were released in February 2026:
   - [<i class="fas fa-external-link fa-xs"></i>1.153.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
-  - [<i class="fas fa-external-link fa-xs"></i>1.152.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
-  - [<i class="fas fa-external-link fa-xs"></i>1.151.0](https://github.com/semgrep/semgrep/releases/tag/v1.153.0)
+  - [<i class="fas fa-external-link fa-xs"></i>1.152.0](https://github.com/semgrep/semgrep/releases/tag/v1.152.0)
+  - [<i class="fas fa-external-link fa-xs"></i>1.151.0](https://github.com/semgrep/semgrep/releases/tag/v1.151.0)
