@@ -771,15 +771,27 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       const output: string[] = [];
       let inYamlBlock = false;
 
+      const formatInlineYaml = (value: string): string => {
+        const keys = ['rules:', 'id:', 'patterns:', 'pattern:', 'message:', 'languages:', 'severity:'];
+        const keyPattern = new RegExp(`\\s*(${keys.map(key => key.replace(/[:]/g, '\\:')).join('|')})`, 'gi');
+        const formatted = value.replace(keyPattern, '\n$1').replace(/^\n+/, '');
+        return formatted;
+      };
+
       for (let i = 0; i < lines.length; i += 1) {
         const line = lines[i];
         const trimmed = line.trim();
 
         if (!inYamlBlock) {
-          if (/^yaml\s+rules:$/i.test(trimmed)) {
+          const inlineYamlMatch = trimmed.match(/^yaml\s+rules:\s*(.*)$/i);
+          if (inlineYamlMatch) {
             inYamlBlock = true;
             output.push('```yaml');
             output.push('rules:');
+            const tail = inlineYamlMatch[1]?.trim();
+            if (tail) {
+              output.push(...formatInlineYaml(tail).split('\n'));
+            }
             continue;
           }
 
@@ -813,7 +825,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             continue;
           }
 
-          output.push(line);
+          output.push(...formatInlineYaml(line).split('\n'));
           continue;
         }
 
