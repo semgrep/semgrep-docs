@@ -771,6 +771,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       const output: string[] = [];
       let inYamlBlock = false;
 
+      const looksLikeYamlLine = (value: string): boolean => {
+        if (!value) return false;
+        const trimmed = value.trim();
+        if (!trimmed) return false;
+        if (trimmed.startsWith('- ')) return true;
+        if (/^[\w-]+\s*:\s*/.test(trimmed)) return true;
+        if (trimmed.startsWith('|') || trimmed.startsWith('>')) return true;
+        if (/^\s{2,}\S+/.test(value)) return true;
+        return false;
+      };
+
       const formatInlineYaml = (value: string): string => {
         const keys = ['rules:', 'id:', 'patterns:', 'pattern:', 'message:', 'languages:', 'severity:'];
         const keyPattern = new RegExp(`\\s*(${keys.map(key => key.replace(/[:]/g, '\\:')).join('|')})`, 'gi');
@@ -783,16 +794,22 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         const trimmed = line.trim();
 
         if (!inYamlBlock) {
-          const inlineYamlMatch = trimmed.match(/^yaml\s+rules:\s*(.*)$/i);
-          if (inlineYamlMatch) {
-            inYamlBlock = true;
-            output.push('```yaml');
-            output.push('rules:');
-            const tail = inlineYamlMatch[1]?.trim();
-            if (tail) {
-              output.push(...formatInlineYaml(tail).split('\n'));
+          const rulesIndex = line.toLowerCase().indexOf('rules:');
+          if (rulesIndex !== -1) {
+            const after = line.slice(rulesIndex + 'rules:'.length).trim();
+            const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+            const afterLooksYaml = looksLikeYamlLine(after);
+            const nextLooksYaml = looksLikeYamlLine(nextLine);
+
+            if (afterLooksYaml || nextLooksYaml || line.trim() === 'rules:') {
+              inYamlBlock = true;
+              output.push('```yaml');
+              output.push('rules:');
+              if (afterLooksYaml) {
+                output.push(...formatInlineYaml(after).split('\n'));
+              }
+              continue;
             }
-            continue;
           }
 
           if (trimmed === 'rules:') {
@@ -818,7 +835,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         }
 
         if (inYamlBlock) {
-          if (trimmed.length === 0) {
+          if (trimmed.length === 0 || !looksLikeYamlLine(line)) {
             output.push('```');
             output.push(line);
             inYamlBlock = false;
