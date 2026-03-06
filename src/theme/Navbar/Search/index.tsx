@@ -770,6 +770,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       const lines = input.split('\n');
       const output: string[] = [];
       let inYamlBlock = false;
+      let pendingYamlBlock = false;
+      let pendingYamlTail = '';
 
       const looksLikeYamlLine = (value: string): boolean => {
         if (!value) return false;
@@ -794,6 +796,30 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         const trimmed = line.trim();
 
         if (!inYamlBlock) {
+          if (pendingYamlBlock) {
+            if (looksLikeYamlLine(line)) {
+              inYamlBlock = true;
+              pendingYamlBlock = false;
+              output.push('```yaml');
+              if (pendingYamlTail) {
+                output.push(...formatInlineYaml(pendingYamlTail).split('\n'));
+                pendingYamlTail = '';
+              }
+              output.push(...formatInlineYaml(line).split('\n'));
+              continue;
+            }
+            pendingYamlBlock = false;
+            pendingYamlTail = '';
+          }
+
+          const yamlRulesLabel = line.match(/yaml\s+rules:\s*(.*)$/i);
+          if (yamlRulesLabel) {
+            output.push(line.replace(/yaml\s+rules:\s*(.*)$/i, 'yaml rules:'));
+            pendingYamlBlock = true;
+            pendingYamlTail = yamlRulesLabel[1]?.trim() || '';
+            continue;
+          }
+
           const rulesIndex = line.toLowerCase().indexOf('rules:');
           if (rulesIndex !== -1) {
             const after = line.slice(rulesIndex + 'rules:'.length).trim();
