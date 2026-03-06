@@ -727,6 +727,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     };
 
     const normalizeHeuristicCodeBlocks = (input: string): string => {
+      if (input.includes('```')) {
+        return input;
+      }
+
       const lines = input.split('\n');
       const output: string[] = [];
       let buffer: string[] = [];
@@ -771,18 +775,29 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
     let html = normalizeHeuristicCodeBlocks(text);
 
+    const codeBlocks: string[] = [];
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
       const escapedCode = code
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
-      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
+      const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+      codeBlocks.push(
+        `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`
+      );
+      return placeholder;
     });
 
     html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     html = html.replace(/\n/g, '<br />');
+
+    if (codeBlocks.length > 0) {
+      codeBlocks.forEach((block, index) => {
+        html = html.replace(`__CODE_BLOCK_${index}__`, block);
+      });
+    }
 
     return html;
   };
