@@ -52,7 +52,7 @@ Note that Assistant-generated explanations are **not** available for custom rule
 
 ### Remediation
 
-Semgrep Assistant can provide remediation advice and autofixes, or suggested fixes, for Semgrep Code findings.
+Semgrep Assistant can provide remediation advice or suggested fixes for Semgrep Code findings.
 
 #### Guidance
 
@@ -66,18 +66,19 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
 :::
 
-#### Autofix
+#### Suggested fix
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
+Semgrep Assistant's [**Suggested fix**](/writing-rules/autofix/) feature suggests changes to code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Assistant suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
 
-Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule recommending a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
+Assistant customizes the code snippets it provides based on any previous feedback and your rule customizations. For example, if you’ve created a custom rule that recommends a specific sanitizer, Assistant will automatically suggest that sanitizer whenever the rule is triggered.
 
-Autofixes are available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before applying them.
 
-Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+**Suggested fix** is also available in: 
+- PR and MR comments so that you can review and verify Semgrep's generated fixes before applying them.
+- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 :::info
-If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
+If many new issues are found in a given scan, Assistant auto-triage and Suggested fix may not run on every issue.
 :::
 
 ### Component tags

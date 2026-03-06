@@ -492,7 +492,7 @@ The following snippet is a SARIF output example with all the fields for Semgrep 
                 }
               ],
               "description": {
-                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n Autofix: Semgrep rule suggested fix"
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n Rule-defined Fix: Semgrep rule suggested fix"
               }
             }
           ],
