@@ -938,7 +938,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         buffer = [];
       };
 
-      for (const line of lines) {
+      for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+        const trimmed = line.trim().toLowerCase();
+        const nextLine = lines[i + 1];
+
+        if (trimmed === 'yaml' && nextLine && looksLikeCodeLine(nextLine)) {
+          continue;
+        }
+
         if (looksLikeCodeLine(line)) {
           buffer.push(line);
           continue;
