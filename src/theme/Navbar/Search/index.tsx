@@ -767,6 +767,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
 
   const renderMarkdown = (text: string): ReactNode => {
     const normalizeYamlBlocks = (input: string): string => {
+      const wrapYamlAfterLabel = (value: string): string => {
+        return value.replace(/yaml rules:\s*\n([\s\S]*?)(\n\s*\n|$)/gi, (match, body, separator) => {
+          const formatted = formatInlineYaml(body.trim());
+          const fenced = `yaml rules:\n\`\`\`yaml\n${formatted}\n\`\`\``;
+          return separator ? `${fenced}${separator}` : fenced;
+        });
+      };
+
       const lines = input.split('\n');
       const output: string[] = [];
       let inYamlBlock = false;
@@ -879,7 +887,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         output.push('```');
       }
 
-      return output.join('\n');
+      return wrapYamlAfterLabel(output.join('\n'));
     };
 
     const normalizeFencedProseBlocks = (input: string): string => {
