@@ -59,8 +59,8 @@ Each Semgrep license, regardless of plan, includes a monthly allocation of AI cr
 | Plan | AI credits per month |
 | - | - |
 | Free | 60 credits per month |
-| Team | Allocation equal to 5% of your license cost |
-| Enterprise | Allocation equal to 5% of your license cost |
+| Team | 20 credits per contributor per month |
+| Enterprise | 50 credits per contributor per month |
 
 If you have a **Team** or **Enterprise** plan, you can purchase additional credits as needed in increments of 1,000 credits.
 
