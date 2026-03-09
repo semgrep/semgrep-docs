@@ -204,7 +204,7 @@ _**Figure**. AI-generated guidance. Developers are able to commit the suggestion
 
 #### The rule's human-written fix (`fix`)
 
-Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined Fix](/writing-rules/autofix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's ==[Autofix]()== feature which is LLM powered.
+Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/autofix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/docs/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
 
 Semgrep Assistant does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
 

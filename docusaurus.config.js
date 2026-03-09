@@ -44,6 +44,7 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        { to: 'semgrep-code/triage-remediation/autofix', label: 'Autofix', position: 'left' },
         {
           label: 'References',
           position: 'left',

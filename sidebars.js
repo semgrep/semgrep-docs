@@ -344,7 +344,15 @@ module.exports = {
                       'semgrep-code/finding-details',
                     ]
                 },
-                'semgrep-code/triage-remediation',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Triage and remediation',
+                    link: { type: 'doc', id: 'semgrep-code/triage-remediation' },
+                    items: [
+                      'semgrep-code/triage-remediation/autofix'
+                    ]
+                },
                 {
                     type: 'category',
                     collapsible: true,
