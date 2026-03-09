@@ -13,7 +13,7 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 
 # Local scans with Semgrep
 
-Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
+Learn how to set your first Semgrep Workflow to scan your project for security issues using Semgrep Code's interfile analysis and view your findings in the CLI.
 
 ## Prerequisites
 

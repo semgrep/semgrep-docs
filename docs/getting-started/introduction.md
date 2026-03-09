@@ -12,11 +12,11 @@ tags:
   - intro
 ---
 
-Semgrep is a software security tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection. Semgrep identifies vulnerabilities in your source code without executing your code. It integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform.
+Semgrep is a software security workflow tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection that uses AI detection for improved results. Semgrep identifies vulnerabilities in your source code without executing your code. It integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform.
 
 Semgrep uses rules written in a simple schema that match code semantically. You can use out-of-the-box rules, apply community-maintained rules, or write your own to fit your workflow.
 
-Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and autofix suggestions for Semgrep Code and Secrets findings.
+Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and autofix suggestions for Semgrep findings.
 
 ## Offerings
 

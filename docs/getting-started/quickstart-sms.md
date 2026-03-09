@@ -15,7 +15,7 @@ import GitlabRequirements from "/src/components/reference/_gitlab-sms-requiremen
 
 # Quickstart for Semgrep Managed Scans
 
-This quickstart guide will help you set up Semgrep and scan your first project using Semgrep Managed Scans.
+This quickstart guide will help you set up a Semgrep Workflow that scans your project using Semgrep Managed Scans.
 
 :::info
 A **project** is any codebase, repository, or folder within a monorepo that is added to Semgrep for scanning. This includes all the findings, history, and scan metadata for the project.

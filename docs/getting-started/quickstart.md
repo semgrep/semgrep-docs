@@ -13,7 +13,7 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Learn how to set up Semgrep, scan your first project, which can be any codebase, repository, or folder within a monorepo, for security issues, and view your findings.
+Get started with your first Semgrep Workflow by learning how to set up Semgrep, scan your first project, which can be any codebase, repository, or folder within a monorepo, for security issues, and view your findings.
 
 :::info prerequisites
 You must have Python 3.10 or later installed on the machine where the Semgrep CLI is running.

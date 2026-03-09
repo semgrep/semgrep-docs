@@ -34,11 +34,11 @@ The code is kept here for easy maintenance.
   <h1>Semgrep <span style={{color: "#624DEF"}}>docs</span></h1>
 </div>
 
-<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Find bugs and reachable dependency vulnerabilities in code. Enforce your code standards on every&nbsp;commit.</h5>
+<h5 class='home' style={{margin: '0px 0px 8px 0px'}}>Automate your application security with workflows designed to detect, triage, and fix security vulnerabilities in code.</h5>
 
 <h3>Scan with Semgrep AppSec Platform</h3>
 
-<p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
+<p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans that build on AI analysis from one&nbsp;platform.</p>
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
