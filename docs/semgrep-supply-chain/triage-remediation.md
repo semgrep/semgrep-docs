@@ -75,8 +75,9 @@ This **includes** projects added to Semgrep through Semgrep Managed Scans.
 
 ### Prerequisites
 
-To access all upgrade guidance and click-to-fix features, you must have:
+To access all upgrade guidance and Autofix features, you must have:
 
+- Enabled upgrade guidance in **Settings > General > Supply Chain**
 - At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.
@@ -114,7 +115,7 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 ### Open a pull request or merge request with fixes
 
 1. Navigate to the **Details** page of the finding for which you want to make a pull request or merge request.
-1. Click **Fix** > **Open fix PR**.
+1. Click **Fix** > **Open Autofix PR**.
 
 A pull request or merge request includes:
 
