@@ -40,7 +40,7 @@ To define a test for Rule-defined fix behavior:
 1. Within the Rule-defined fix test file, enter the expected result of applied Rule-defined fix rule to the test code.
 2. Run `semgrep --test` to verify that your Rule-defined fix test file is correctly detected.
 
-When you use `semgrep --test`, Semgrep applies the Rule-defined fix rule to the original test code (`path/to/rule.py`), then verifies whether this matches the expected outcome defined in the Rule-defined fix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.
+When you use `semgrep --test`, Semgrep applies the Rule-defined fix rule to the original test code (`path/to/rule.py`), then verifies whether this matches the expected outcome defined in the Rule-defined fix test file (`path/to/rule.fixed.py`). If there is a mismatch, the line diffs are printed.
 
 :::info
 **Hint**: Creating a Rule-defined fix test for a rule with Rule-defined fix can take less than a minute with the following flow of commands:
