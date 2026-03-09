@@ -607,9 +607,9 @@ At the end, confirm the match with
 sc -f [your_pattern].sgrep [your_target].py -lang py
 ```
 
-## ==Fix an autofix error==
+## Fix an Rule-defined fix error
 
-Autofix runs through both `semgrep-core` and `semgrep`, but the most common autofix error you can encounter is a kind of incorrect range. This happens because `semgrep-core` determines the range of a match based on the locations of the tokens stored in the AST. When the range is incorrect, that usually means a token is missing. You can see token location information with
+Rule-defined fix runs through both `semgrep-core` and `semgrep`, but the most common Rule-defined fix error you can encounter is a kind of incorrect range. This happens because `semgrep-core` determines the range of a match based on the locations of the tokens stored in the AST. When the range is incorrect, that usually means a token is missing. You can see token location information with
 
 ```
 sc -full_token_info -dump_ast [your_target].py -lang py

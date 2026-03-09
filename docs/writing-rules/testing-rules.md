@@ -30,26 +30,26 @@ When writing tests, remember that:
 The `.test.yaml` file extension can also be used for test files. This is necessary when testing YAML language rules.
 :::
 
-## Test rules with ==autofix==
+## Test rules with Rule-defined fix
 
 Semgrep's testing mechanism also provides a way to test the behavior of any `fix` values defined in the rules.
 
-To define a test for autofix behavior:
+To define a test for Rule-defined fix behavior:
 
-1. Create a new **autofix test file** with the `.fixed` suffix before the file type extension. For example, name the autofix test file of a rule with test code in `path/to/rule.py` as `path/to/rule.fixed.py`.
-1. Within the autofix test file, enter the expected result of applied autofix rule to the test code.
-2. Run `semgrep --test` to verify that your autofix test file is correctly detected.
+1. Create a new **Rule-defined fix test file** with the `.fixed` suffix before the file type extension. For example, name the Rule-defined fix test file of a rule with test code in `path/to/rule.py` as `path/to/rule.fixed.py`.
+1. Within the Rule-defined fix test file, enter the expected result of applied Rule-defined fix rule to the test code.
+2. Run `semgrep --test` to verify that your Rule-defined fix test file is correctly detected.
 
-When you use `semgrep --test`, Semgrep applies the autofix rule to the original test code (`path/to/rule.py`), then verifies whether this matches the expected outcome defined in the autofix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.
+When you use `semgrep --test`, Semgrep applies the Rule-defined fix rule to the original test code (`path/to/rule.py`), then verifies whether this matches the expected outcome defined in the Rule-defined fix test file (`path/to/rule.fixed.py)`. If there is a mismatch, the line diffs are printed.
 
 :::info
-**Hint**: Creating an autofix test for a rule with autofix can take less than a minute with the following flow of commands:
+**Hint**: Creating a Rule-defined fix test for a rule with Rule-defined fix can take less than a minute with the following flow of commands:
 ```sh
 cp rule.py rule.fixed.py
 semgrep --config rule.yaml rule.fixed.py --autofix
 ```
 
-These commands apply the autofix of the rule to the test code. After Semgrep delivers a fix, inspect whether the outcome of this fix is as expected (for example, using `vimdiff rule.py rule.fixed.py`).
+These commands apply the  Rule-defined fix to the test code. After Semgrep delivers a fix, inspect whether the outcome of this fix is as expected (for example, using `vimdiff rule.py rule.fixed.py`).
 :::
 
 ## Example
@@ -133,7 +133,7 @@ Produces the same output as in the previous example.
 
 The subdirectory structure of these two directories must be the same for Semgrep to correctly find the associated files.
 
-To test the autofix behavior, add the autofix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
+To test the Rule-defined fix behavior, add the Rule-defined fix test file `rules/detect-eval.fixed.py` to represent the expected outcome of applying the fix to the test code:
 
 ```python
 from lib import get_user_input, safe_get_user_input, secure_eval
@@ -211,6 +211,10 @@ The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
 
-## Enabling autofix in Semgrep Code
+## Enabling Rule-defined fix in Semgrep Code
 
-<EnableAutofix />
+To enable Rule-defined fix for all projects in your Semgrep AppSec Platform organization, follow these steps:
+
+1. In Semgrep AppSec Platform, go to [**Settings > General > Code**](https://semgrep.dev/orgs/-/settings/general/code).
+2. Click the **Rule-defined fix** toggle to enable this feature.
+
