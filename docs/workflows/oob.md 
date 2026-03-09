@@ -1,0 +1,48 @@
+---
+slug: oob
+title: Semgrep Workflows - Default
+hide_title: true
+description: Learn how the default Semgrep Workflow can help you detect, triage, and fix security vulnerabilities by combining the power of SAST and AI.
+tags:
+  - Workflows
+  - Deployment
+---
+
+# Semgrep Workflows - Default
+
+This document explains Semgrep's built-in workflow that allows you detect, triage, and fix security vulnerabilities using the combined power of rule-based and AI-powered detection. 
+
+## Prerequisites
+
+Before proceeding, ensure that you've [installed Semgrep](/getting-started/quickstart) and enabled [Semgrep Managed Scans](/getting-started/quickstart-sms), and enabled [Semgrep Assistant](/semgrep-assistant/getting-started).
+
+Once you add your projects to [Semgrep Managed Scans](/getting-started/quickstart-sms), Semgrep performs a full scan on all the projects. This is the beginning of Semgrep's default workflow.
+
+## 1. Detect security vulnerabilities
+
+Semgrep allows you to choose between two types of code scans: rule-based detection and AI-powered detection. Rule-based scans rely on rules, which define the patterns Semgrep looks for when analyzing your code. AI-powered detection, however, builds on rule-based scans, combining the precision of static analysis with the contextual reasoning offered by large language models (LLMs). LLMs are especially helpful for detecting vulnerabiltiies like IDOR, access control issues, and other logic bugs. These are issues that have been difficult to find with static analysis alone.
+
+Semgrep can agentically understand where such risk is in your project by mapping out your application and performing automatic threat modeling. Semgrep also accepts context that you provide, which is helpful for improving its understanding of where the risk exists.
+
+## 2. Triage security vulnerabilities
+
+Semgrep AppSec Platform provides you with a way to visualize all of your findings across all Semgrep products: Code, Supply Chain, and Secrets. However, not all findings identified by Semgrep are high priority.
+
+In addition to combining SAST and AI to better find security vulnerabilities in your project, Semgrep uses these tools to reduce noise and help developers focus on true positives. More specifically:
+
+- Semgrep Code uses rules to identify security vulnerabilities, but AI autotriage, with additional context available, can flag issues as either **true positive** or **false positive**.
+- Supply Chain reachability: Supply Chain uses static analysis to identify reachability. In addition to identifying vulnerable packages, Semgrep can flag those where your program calls vulnerable functions, reducing the number of false positives shown to your developers.
+
+## 3. Fix security vulnerabilities
+
+Once Semgrep has scanned your project and triaged findings so that only the most important issues are shown to your developers, it is time to fix the security issues identified.
+
+Semgrep can provide you with the code change you need to implement to correct the issue and remove the risk posed by the vulnerability. For example, Semgrep Code can create pull requests (PRs) and merge requests (MRs) with an explanation of the issue, an explanation of the proposed changes, and the code changes required to correct a security issue. Your developer can review the PRs and MRs, then merge when appropriate.
+
+Supply Chain also offers similar functionality, with the addition of being able to determine if the package update required is a breaking change or not.
+
+[Upgrade guidance]
+
+## 4. Customize your security scans
+
+Because no two organizations have the same security requirements, Semgrep offers an agent SDK that you can use to create fully custom workflows. Contact your Semgrep Sales Engineer for further information.
