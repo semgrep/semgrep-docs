@@ -1,5 +1,5 @@
 ---
-title: Autofix
+title: Autofix (beta)
 description: Use Semgrep Autofix to automatically generate a fix PR for Semgrep Code findings.
 tags:
   - Semgrep Code
@@ -13,6 +13,10 @@ import GithubAppReadWritePermissions from "/src/components/procedure/_github-app
 Semgrep’s Autofix feature uses AI to automatically generate proposed code changes for Semgrep Code findings. 
 
 Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
+
+:::info
+Autofix is different from [Rule-defined fix](/writing-rules/autofix) and [Semgrep Assistant's Suggested fix](/docs/semgrep-assistant/overview#suggested-fix). These are separate features with different behaviors and use cases.
+:::
 
 ## Prerequisites
 
@@ -73,6 +77,3 @@ Support for deeper use of memories in PR generation is planned for future iterat
 
 
 
-## Autofix vs other fixes
-
-Autofix is separate from [Rule-defined fix](/writing-rules/autofix) and Semgrep Assistant's Suggested fix.
