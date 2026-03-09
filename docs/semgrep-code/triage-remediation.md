@@ -30,7 +30,7 @@ This article shows you how to manage and triage findings identified by Semgrep C
 If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, fix, triage, and remediate your Semgrep findings:
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
-  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
+  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
   - [Suggested fix](/semgrep-assistant/overview#autofix) flagging affected code that needs to be changed.
 - [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
 
@@ -38,9 +38,9 @@ Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#au
 
 ## Autofix findings
 
-[Semgrep's **Autofix**](#) uses AI to generate proposed code changes for Semgrep Code findings with the click of a button.  
+[Semgrep's **Autofix**](#) uses AI to generate proposed code changes for Semgrep Code findings.  
 
-When you click **Fix** on a finding, Semgrep creates a GitHub branch, applies the changes, and opens a draft pull request (PR) for review. On the PR, you will see a detailed explanation of the changes. You remain in full control over reviewing and merging the PR.
+When you click **Fix** on a finding, Semgrep creates a GitHub branch, applies the changes, and opens a draft PR for review. On the PR, you will see a detailed explanation of the changes. You remain in full control over reviewing and merging the PR.
 
 This feature integrates into the existing Semgrep Assistant workflow and respects your organization's remediation memories, triage preferences, and rule configs. It reduces the time between detection and remediation, and allows your team to scale remediation by shifting fixes directly into existing developer workflows. 
 
