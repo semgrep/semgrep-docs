@@ -1,6 +1,55 @@
 const { MeiliSearch } = require('meilisearch');
 
 // Helper function to call OpenAI API
+function formatAnswerForMarkdown(text) {
+  if (!text || text.includes('```')) {
+    return text;
+  }
+
+  const lines = text.split('\n');
+  const output = [];
+  let buffer = [];
+
+  const flushBuffer = () => {
+    if (buffer.length >= 2) {
+      output.push('```');
+      output.push(...buffer);
+      output.push('```');
+    } else {
+      output.push(...buffer);
+    }
+    buffer = [];
+  };
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    const backtickMatch = trimmed.match(/^`([^`]+)`$/);
+
+    if (backtickMatch) {
+      buffer.push(backtickMatch[1]);
+      continue;
+    }
+
+    if (/^[ \t]{2,}\S/.test(line)) {
+      buffer.push(line);
+      continue;
+    }
+
+    if (buffer.length > 0) {
+      flushBuffer();
+    }
+
+    output.push(line);
+  }
+
+  if (buffer.length > 0) {
+    flushBuffer();
+  }
+
+  return output.join('\n');
+}
+
 async function callOpenAI(messages, context) {
   const apiKey = process.env.OPENAI_API_KEY;
   
@@ -177,6 +226,7 @@ exports.handler = async (event, context) => {
       // Fallback to simple extraction if OpenAI fails or is not configured
       answer = generateAnswer(userMessage.content, searchResults.hits);
     }
+    answer = formatAnswerForMarkdown(answer);
 
     // Deduplicate and filter sources
     const seenUrls = new Set();
