@@ -709,6 +709,19 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   
 
   const renderMarkdown = (text: string): string => {
+    const normalizeLineWrappedBackticks = (input: string): string => {
+      return input
+        .split('\n')
+        .map(line => {
+          const trimmed = line.trim();
+          const match = trimmed.match(/^`([^`]+)`$/);
+          if (!match) return line;
+          const leading = line.match(/^\s*/)?.[0] || '';
+          return `${leading}${match[1]}`;
+        })
+        .join('\n');
+    };
+
     const looksLikeCodeLine = (value: string): boolean => {
       if (!value) return false;
       const trimmed = value.trim();
@@ -773,7 +786,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
-    let html = normalizeHeuristicCodeBlocks(text);
+    let html = normalizeLineWrappedBackticks(text);
+    html = normalizeHeuristicCodeBlocks(html);
 
     const codeBlocks: string[] = [];
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
