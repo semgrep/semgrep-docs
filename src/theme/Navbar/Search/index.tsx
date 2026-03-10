@@ -722,13 +722,25 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       if (/^`[^`]+`$/.test(trimmed)) return true;
       if (/^[ \t]{2,}\S/.test(line)) return true;
       if (/[:;{}()[\]$=]/.test(trimmed)) return true;
+      if (/\b(import|from|def|class|function|const|let|return)\b/.test(trimmed)) return true;
+      return false;
+    };
+
+    const isProseLine = (line: string): boolean => {
+      const trimmed = line.trim();
+      if (!trimmed) return false;
+      if (trimmed.length < 40) return false;
+      if (isCodeLine(trimmed)) return false;
+      if (/[.!?]\s/.test(trimmed)) return true;
       return false;
     };
 
     const blocks = text.split(/\n\s*\n/);
     const rendered = blocks.map(block => {
       const lines = block.split('\n');
-      const looksLikeCode = lines.some(isCodeLine);
+      const codeLines = lines.filter(isCodeLine).length;
+      const proseLines = lines.filter(isProseLine).length;
+      const looksLikeCode = codeLines >= 2 && proseLines === 0;
 
       if (looksLikeCode) {
         const cleaned = lines.map(line => {
