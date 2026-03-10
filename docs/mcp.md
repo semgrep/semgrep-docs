@@ -29,7 +29,9 @@ This article includes instructions for setting up the MCP server with Cursor and
     ```bash
     # install through homebrew
     brew install semgrep
-
+    ```
+    Or
+   ```
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -74,31 +76,33 @@ This article includes instructions for setting up the MCP server with Cursor and
     ```bash
     # install through homebrew
     brew install semgrep
-
+    ```
+    Or
+   ```
     # install through pip
     python3 -m pip install semgrep
     ```
 
-2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+3. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
     ```bash
     semgrep --version
     ```
-3.  Start a new Claude Code instance in the terminal:
+4.  Start a new Claude Code instance in the terminal:
     ```bash
     claude
     ```
 
-4.  Add the Semgrep marketplace to Claude:
+5.  Add the Semgrep marketplace to Claude:
     ```bash
     /plugin marketplace add semgrep/mcp-marketplace
     ```
 
-5.  Install the Semgrep plugin:
+6.  Install the Semgrep plugin:
     ```bash
     /plugin install semgrep-plugin@semgrep
     ```
 
-6.  Set up the Semgrep plugin:
+7.  Set up the Semgrep plugin:
     ```bash
     /semgrep-plugin:setup_semgrep_plugin
 
