@@ -709,6 +709,44 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   
 
   const renderMarkdown = (text: string): string => {
+    const normalizeLineWrappedCodeBlocks = (input: string): string => {
+      if (input.includes('```')) {
+        return input;
+      }
+
+      const lines = input.split('\n');
+      const output: string[] = [];
+      let buffer: string[] = [];
+
+      const flushBuffer = () => {
+        if (buffer.length >= 2) {
+          output.push('```');
+          output.push(...buffer);
+          output.push('```');
+        } else {
+          output.push(...buffer.map(line => `\`${line}\``));
+        }
+        buffer = [];
+      };
+
+      for (const line of lines) {
+        const match = line.trim().match(/^`([^`]+)`$/);
+        if (match) {
+          buffer.push(match[1]);
+          continue;
+        }
+
+        if (buffer.length > 0) {
+          flushBuffer();
+        }
+
+        output.push(line);
+      }
+
+      if (buffer.length > 0) flushBuffer();
+      return output.join('\n');
+    };
+
     const looksLikeCodeLine = (value: string): boolean => {
       if (!value) return false;
       const trimmed = value.trim();
@@ -773,7 +811,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
-    let html = normalizeHeuristicCodeBlocks(text);
+    let html = normalizeLineWrappedCodeBlocks(text);
+    html = normalizeHeuristicCodeBlocks(html);
 
     const codeBlocks: string[] = [];
     html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
