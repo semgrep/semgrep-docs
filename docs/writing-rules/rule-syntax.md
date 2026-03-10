@@ -155,7 +155,7 @@ digest = hashlib.sha1(b"test")
 digest = hashlib.sha256(b"test")
 ```
 
-This rule checks for the use of Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are [considered insecure](https://shattered.io/).
+This rule checks for the use of Python standard library functions `hashlib.md5` or `hashlib.sha1`. Depending on their usage, these hashing functions are considered insecure.
 
 ### `pattern-regex`
 
