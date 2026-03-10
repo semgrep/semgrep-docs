@@ -747,6 +747,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
+    const wrapYamlBlock = (input: string): string => {
+      if (input.includes('```')) {
+        return input;
+      }
+
+      return input.replace(
+        /(rules:\n(?:[ \t]+.*\n)+)/g,
+        (match) => `\`\`\`yaml\n${match.trimEnd()}\n\`\`\``
+      );
+    };
+
     const looksLikeCodeLine = (value: string): boolean => {
       if (!value) return false;
       const trimmed = value.trim();
@@ -811,7 +822,8 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       return output.join('\n');
     };
 
-    let html = normalizeLineWrappedCodeBlocks(text);
+    let html = wrapYamlBlock(text);
+    html = normalizeLineWrappedCodeBlocks(html);
     html = normalizeHeuristicCodeBlocks(html);
 
     const codeBlocks: string[] = [];
