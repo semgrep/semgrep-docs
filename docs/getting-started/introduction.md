@@ -12,17 +12,17 @@ tags:
   - intro
 ---
 
-Semgrep is a software security workflow tool that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection that uses AI detection for improved results. Semgrep identifies vulnerabilities in your source code without executing your code. It integrates with IDEs and CI/CD, and can also run from the Semgrep AppSec Platform.
+Semgrep is a security workflow platform that provides static application security testing (SAST), software composition analysis (SCA), and secrets detection that uses AI detection for improved results. Semgrep identifies vulnerabilities in your source code without executing your code. It integrates with IDEs and CI/CD, and can also be run from the Semgrep AppSec Platform.
 
 Semgrep uses rules written in a simple schema that match code semantically. You can use out-of-the-box rules, apply community-maintained rules, or write your own to fit your workflow.
 
-Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and autofix suggestions for Semgrep findings.
+Scan results can be viewed, triaged, and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers autotriage, remediation guidance, and autofix suggestions for Semgrep findings.
 
 ## Offerings
 
-* **Community Edition** (CE): is an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins. The core scanner supports over 30 programming languages. [Get started with CE](/docs/getting-started/quickstart-ce).
+* **Community Edition** (CE): an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins. The core scanner supports over 30 programming languages. [Get started with CE](/docs/getting-started/quickstart-ce).
 
-* **Semgrep AppSec Platform** (Pro): is a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. These include organization-wide managed scans, advanced Pro rules, software composition analysis (SCA), secrets detection, pull request comments, and AI-assisted triage and remediation. The platform now combines deterministic static analysis with AI-powered detection to extend coverage to complex business-logic flaws like insecure direct object reference (IDORs) and broken authentication. Semgrep AppSec Platform supports more than 35 programming languages, with new ones added regularly.
+* **Semgrep AppSec Platform** (Pro): a commercial offering recommended for enterprise use cases. It shares the command-line interface with CE and adds additional capabilities. These include organization-wide managed scans, advanced Pro rules, software composition analysis (SCA), secrets detection, pull request comments, and AI-assisted triage and remediation. The platform now combines deterministic static analysis with AI-powered detection to extend coverage to complex business-logic flaws like insecure direct object reference (IDORs) and broken authentication. Semgrep AppSec Platform supports more than 35 programming languages, with new ones added regularly.
 
 ![Overview of Semgrep AppSec Platform](/img/appsecplatform-intro.png#md-width)
 _**Figure**. Overview of Semgrep AppSec Platform._
@@ -31,11 +31,9 @@ _**Figure**. Overview of Semgrep AppSec Platform._
 
 ## The analysis workflow
 
-Semgrep's analysis workflow can be divided into three stages:
-
-### Deployment 
-
 [Deployment](/deployment/core-deployment) is the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs. Semgrep does not require code access to complete the core deployment process. Your code is **not** sent anywhere.
+
+Once you've deployed Semgrep, you have access to the following workflows:
 
 ### Scan
 
@@ -49,7 +47,7 @@ Scanning is the process of analyzing your code to identify security vulnerabilit
 
 ### Triage and remediation
 
-After each scan, your findings are displayed in the Semgrep AppSec Platform. The filters provided allow you to manage and triage your findings.
+The triage workflow begins with viewing your scan findings in Semgrep AppSec Platform. Then, you can review and act on the results.
 
 Triage is the process of reviewing, prioritizing, and managing findings identified during Semgrep scans. It helps security teams and developers decide which issues to address, ignore, or assign for further investigation. Within the Semgrep AppSec Platform, triage tools such as filtering, tagging, and assigning owners streamline this process and integrate seamlessly into existing workflows.
 
@@ -84,7 +82,7 @@ While CI/CD integration is supported, [Semgrep Managed Scans](#semgrep-managed-s
 
 ### Semgrep Managed Scans
 
-[Semgrep Managed Scans](/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secrets detection tools across their organization without complex setup. Scans are run automatically on Semgrep’s cloud infrastructure, and results appear directly in the AppSec Platform dashboard.
+[Semgrep Managed Scans (SMS)](/deployment/managed-scanning/overview) help teams adopt SAST, SCA, and secrets detection tools across their organization without complex setup. Scans are run automatically on Semgrep’s cloud infrastructure, and results appear directly in the AppSec Platform dashboard.
 
 **Key features:**
 - Minimal setup and no CI changes required  

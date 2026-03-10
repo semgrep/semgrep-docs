@@ -10,7 +10,7 @@ tags:
 
 # Semgrep Workflows - Default
 
-This document explains Semgrep's built-in workflow that allows you detect, triage, and fix security vulnerabilities using the combined power of rule-based and AI-powered detection. 
+This document explains Semgrep's built-in workflows that allow you detect, triage, and fix security vulnerabilities using the combined power of rule-based and AI-powered detection. 
 
 ## Prerequisites
 
@@ -33,15 +33,15 @@ In addition to combining SAST and AI to better find security vulnerabilities in 
 - Semgrep Code uses rules to identify security vulnerabilities, but AI autotriage, with additional context available, can flag issues as either **true positive** or **false positive**.
 - Supply Chain reachability: Supply Chain uses static analysis to identify reachability. In addition to identifying vulnerable packages, Semgrep can flag those where your program calls vulnerable functions, reducing the number of false positives shown to your developers.
 
+Memories is the Semgrep feature that allows you to provide additional context to how AI analyzes your scan results. You can either create memories and apply them to a specific rule or a general vulnerability class. You can also create memories based on suggested fixes -- if Semgrep proposes a change that you disagree with, you can provide your preferred remediation approaches and secure defaults for the project.
+
 ## 3. Fix security vulnerabilities
 
 Once Semgrep has scanned your project and triaged findings so that only the most important issues are shown to your developers, it is time to fix the security issues identified.
 
 Semgrep can provide you with the code change you need to implement to correct the issue and remove the risk posed by the vulnerability. For example, Semgrep Code can create pull requests (PRs) and merge requests (MRs) with an explanation of the issue, an explanation of the proposed changes, and the code changes required to correct a security issue. Your developer can review the PRs and MRs, then merge when appropriate.
 
-Supply Chain also offers similar functionality, with the addition of being able to determine if the package update required is a breaking change or not.
-
-[Upgrade guidance]
+Supply Chain also offers similar functionality, with the addition upgrade guidance. Upgrade guidance informs you of whether the suggested dependency upgrade is a breaking change.
 
 ## 4. Customize your security scans
 
