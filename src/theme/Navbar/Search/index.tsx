@@ -752,7 +752,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         });
 
         const code = escapeHtml(cleaned.join('\n'));
-        return `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0;"><code>${code}</code></pre>`;
+        return `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0; box-shadow: none;"><code style="text-shadow: none;">${code}</code></pre>`;
       }
 
       let html = block;
