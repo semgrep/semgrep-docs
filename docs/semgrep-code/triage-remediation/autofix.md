@@ -22,24 +22,18 @@ Autofix is different from [Rule-defined fix](/writing-rules/autofix) and [Semgre
 
 To use Autofix, you must meet the following requirements:
 
+* [Enable Semgrep Assistant](https://semgrep.dev/docs/semgrep-assistant/getting-started#__docusaurus_skipToContent_fallback).  
 * Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  
-* Enable Semgrep Assistant.  
-* Install the Semgrep private GitHub App, with `Contents: Read and write` permissions configured. See the [GitHub Permissions section](/docs/semgrep-code/triage-remediation/autofix#grant-read-and-write-access-to-a-private-github-semgrep-app) below.  
+* Install the Semgrep private GitHub App. Semgrep prompts you to install a private GitHub app when [adding a repository to Managed Scans](https://semgrep.dev/docs/deployment/managed-scanning/github#permissions). 
+* Ensure that your GitHub App has `Contents: Read and write` permissions configured.
+Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **Repository permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
+
+<GithubAppReadWritePermissions />
 * Accept AWS Bedrock/Claude (Anthropic) models.  
   * During beta, Semgrep Code does not respect AI model selection.
 
-## Enable or disable Autofix
 
-Autofix is currently available only for GitHub repositories. Support for additional source code managers (SCMs) is coming soon.
-
-If you use a different SCM, such as GitLab, the Autofix option does not appear in Semgrep AppSec Platform.
-
-If you use Semgrep Assistant, Autofix is enabled by default. To adjust settings:
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
-2. Navigate to **Settings > General > Code**
-3. Set the Autofix toggle to enabled or disabled
-
-## Quickstart
+## Using Autofix
 
 * Navigate to the finding’s **Details** page.  
 * From the **Fix** drop-down, select **Open Autofix PR**.  
@@ -60,8 +54,15 @@ If you use Semgrep Assistant, Autofix is enabled by default. To adjust settings:
 You can filter for findings with Autofix PRs directly from the **Code** page in Semgrep AppSec Platform. Click the **To fix** drop-down and select **To fix**.
 
 
-## Grant **Read and write** access to a private GitHub Semgrep app
-<GithubAppReadWritePermissions />
+## Disable Autofix
+
+Autofix is currently available only for GitHub repositories. Support for additional source code managers (SCMs) is coming soon.
+
+
+If you use Semgrep Assistant, Autofix is enabled by default. To adjust settings:
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
+2. Navigate to **Settings > General > Code**
+3. Set the Autofix toggle to enabled or disabled
 
 ## How Autofix PRs are generated
 
