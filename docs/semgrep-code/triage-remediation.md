@@ -38,7 +38,7 @@ Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#au
 
 ## Autofix findings
 
-Autofix uses AI to generate proposed code changes for Semgrep Code findings. Use it when you want Semgrep to open a draft PR with suggested changes so you can review and merge the fix.  
+Autofix is a beta feature that uses AI to generate proposed code changes for Semgrep Code findings. Use it when you want Semgrep to open a draft PR with the changes implemented. You remain in full control over reviewing and merging the PR.
 
 For details and workflow steps, see [Autofix](/semgrep-code/triage-remediation/autofix).
 

@@ -29,6 +29,11 @@ To use Autofix, you must meet the following requirements:
   * During beta, Semgrep Code does not respect AI model selection.
 
 ## Enable or disable Autofix
+
+Autofix is currently available only for GitHub repositories. Support for additional source code managers (SCMs) is coming soon.
+
+If you use a different SCM, such as GitLab, the Autofix option does not appear in Semgrep AppSec Platform.
+
 If you use Semgrep Assistant, Autofix is enabled by default. To adjust settings:
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login)
 2. Navigate to **Settings > General > Code**
