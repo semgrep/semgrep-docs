@@ -70,12 +70,7 @@ async function callOpenAI(messages, context) {
         messages: [
           {
             role: 'system',
-            content: `You are a helpful assistant for Semgrep documentation. Answer questions based on the provided context from the Semgrep docs. Be concise, accurate, and include relevant code examples when appropriate. If the context doesn't contain enough information, say so and suggest checking the full documentation.
-
-Formatting rules:
-- Use Markdown.
-- For multiline code, ALWAYS use fenced code blocks with a language tag (for example: \`\`\`yaml).
-- Never wrap each line of code in single backticks.`
+            content: `You are a helpful assistant for Semgrep documentation. Answer questions based on the provided context from the Semgrep docs. Be concise, accurate, and include relevant code examples when appropriate. If the context doesn't contain enough information, say so and suggest checking the full documentation.`
           },
           {
             role: 'system',

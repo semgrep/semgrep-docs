@@ -716,54 +716,30 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
         .replace(/>/g, '&gt;');
     };
 
-    const isCodeLine = (line: string): boolean => {
-      const trimmed = line.trim();
-      if (!trimmed) return false;
-      if (/^`[^`]+`$/.test(trimmed)) return true;
-      if (/^[ \t]{2,}\S/.test(line)) return true;
-      if (/[:;{}()[\]$=]/.test(trimmed)) return true;
-      if (/\b(import|from|def|class|function|const|let|return)\b/.test(trimmed)) return true;
-      return false;
-    };
+    let html = text;
+    const codeBlocks: string[] = [];
 
-    const isProseLine = (line: string): boolean => {
-      const trimmed = line.trim();
-      if (!trimmed) return false;
-      if (trimmed.length < 40) return false;
-      if (isCodeLine(trimmed)) return false;
-      if (/[.!?]\s/.test(trimmed)) return true;
-      return false;
-    };
-
-    const blocks = text.split(/\n\s*\n/);
-    const rendered = blocks.map(block => {
-      const lines = block.split('\n');
-      const codeLines = lines.filter(isCodeLine).length;
-      const proseLines = lines.filter(isProseLine).length;
-      const looksLikeCode = codeLines >= 2 && proseLines === 0;
-
-      if (looksLikeCode) {
-        const cleaned = lines.map(line => {
-          const trimmed = line.trim();
-          const match = trimmed.match(/^`([^`]+)`$/);
-          if (!match) return line;
-          const leading = line.match(/^\s*/)?.[0] || '';
-          return `${leading}${match[1]}`;
-        });
-
-        const code = escapeHtml(cleaned.join('\n'));
-        return `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0; box-shadow: none;"><code style="background: transparent; box-shadow: none; text-shadow: none;">${code}</code></pre>`;
-      }
-
-      let html = block;
-      html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
-      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
-      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      html = html.replace(/\n/g, '<br />');
-      return `<p style="margin: 0 0 10px;">${html}</p>`;
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const escapedCode = escapeHtml(code);
+      const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+      codeBlocks.push(
+        `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0; box-shadow: none;"><code style="background: transparent; box-shadow: none; text-shadow: none;">${escapedCode}</code></pre>`
+      );
+      return placeholder;
     });
 
-    return rendered.join('');
+    html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\n/g, '<br />');
+
+    if (codeBlocks.length > 0) {
+      codeBlocks.forEach((block, index) => {
+        html = html.replace(`__CODE_BLOCK_${index}__`, block);
+      });
+    }
+
+    return html;
   };
 
   return (
