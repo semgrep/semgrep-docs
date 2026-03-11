@@ -45,7 +45,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     semgrep login && semgrep install-semgrep-pro
     ```
 
-1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor → ⌘⇧J → Plugins → Search "Semgrep" → **Add to Cursor**.
+1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor > ⌘⇧J > Plugins. Search "Semgrep"  and click **Add to Cursor**.
 
 1. Restart Cursor to apply configuration.
 
