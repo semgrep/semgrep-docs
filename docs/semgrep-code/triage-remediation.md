@@ -20,7 +20,7 @@ import TriageReason from "/src/components/reference/_triage-reason.mdx"
 
 This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
 
-- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that generates proposed code changes for Code findings when you click **Fix** on a finding. 
+- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings. 
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
@@ -31,7 +31,7 @@ If you have Semgrep Assistant enabled, you receive AI-powered security recommend
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
   - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
-  - [Suggested fix](/semgrep-assistant/overview#autofix) flagging affected code that needs to be changed.
+  - [Suggested fix](/docs/semgrep-assistant/overview#suggested-fix) flagging affected code that needs to be changed.
 - [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
 
 Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
