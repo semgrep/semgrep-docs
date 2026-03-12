@@ -16,7 +16,7 @@ This document provides information on how Semgrep calculates usage for billing p
 
 ## Contributor definition
 
-A **contributor** is someone who has made at least **one** commit to a Semgrep-scanned **private** repository within the last 90 days, starting from the **date of license purchase** if a license was purchased, or the date of account creation, for accounts using Semgrep within usage limits.
+A **contributor** is someone who has made at least **one** commit to a Semgrep-scanned **private** repository within the last 90 days, starting from the **date of license purchase** if a license was purchased, or the date of account creation, for accounts using Semgrep within usage limits. This person can be a member of your organization or any third-party contributor.
 
 Any Semgrep AppSec Platform scan counts towards the contributor total. This includes:
 
