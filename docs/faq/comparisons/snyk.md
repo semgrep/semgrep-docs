@@ -28,7 +28,7 @@ Snyk and Semgrep both display prioritization metrics to help you decide which fi
 
 Additionally, Semgrep provides action recommendations through Assistant, which offers AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-Snyk offers autofix capabilities for its SCA product but not for its SAST product. Semgrep offers **Suggested fixes** for SAST and SCA. In the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can suggest a fix](/semgrep-assistant/overview#autofix).
+Snyk offers autofix capabilities for its SCA product, but not for its SAST product. Semgrep offers **Suggested fixes** for SAST and SCA. In the event of a true positive where the rule doesn't have a human-written autofix, [Assistant can suggest a fix](/semgrep-assistant/overview#autofix).
 
 ## SCA
 
