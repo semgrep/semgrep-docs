@@ -21,7 +21,7 @@ import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 - You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
 :::
 
-Customize your CI job to achieve the following goals:
+Customize the CI job in your Semgrep workflow to achieve the following goals:
 
 * **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
 * **Run Semgrep when an event triggers**. Run Semgrep when a pull request or merge request (PR or MR) is created.

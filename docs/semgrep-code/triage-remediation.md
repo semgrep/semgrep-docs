@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import TriageReason from "/src/components/reference/_triage-reason.mdx"
 
-This article shows you how to manage and triage identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
+This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.

@@ -12,15 +12,13 @@ Semgrep can be set up to scan repositories of any size.
 
 Once added to Semgrep, a codebase, repository, or subfolder within a monorepo is referred to as a **project**.
 
-**Deployment** refers to the process of integrating Semgrep into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
+**Deployment** refers to the process of integrating a Semgrep workflow into your developer and infrastructure workflows. Completing the deployment process provides you with the Semgrep features that meet your security program's needs.
 
 Deployment includes:
 
-- Running Semgrep scanners as part of your CI. These scans can be any combination of SAST (Static Application Security Testing), SCA (Software Composition Analysis), or Secrets, depending on your plan.
+- Running Semgrep scanners as part of your CI. These scans can be any combination of SAST (Static Application Security Testing), SCA (Software Composition Analysis), or Secrets.
 - Managing team members' access and authentication.
 - Ensuring that Semgrep has sufficient access to your self-hosted source code manager (SCM), such as GitLab Self-Managed.
-
-Semgrep does not require code access to complete the core deployment process. Your code is not sent anywhere.
 
 :::tip Are these guides for you?
 - These guides outline procedures for the deployment of Semgrep as part of a security program. To try out Semgrep, refer to the [<i class="fa-regular fa-file-lines"></i> Quickstart](/getting-started/quickstart) document.
@@ -35,7 +33,7 @@ Deployment does **not** include:
 - Custom rule writing
 - Triage
 
-For these features, refer to the **Scan and Triage** section in the navigation bar.
+For these additional workflow features, refer to the **Scan and Triage** section in the navigation bar.
 
 ### All Semgrep deployment features
 

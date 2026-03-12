@@ -15,10 +15,9 @@ import SupportedLanguagesTable from '/src/components/reference/_supported-langua
 
 # Semgrep Code overview
 
-Semgrep Code is a static application security testing (SAST) tool that detects security vulnerabilities in your first-party code.
+Semgrep Code is a static application security testing (SAST) tool that detects security vulnerabilities in your first-party code. You can use Semgrep Code to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
 
-You can use Semgrep Code to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
-
+Semgrep Code can be used in a stand-alone Semgrep workflow to detect security vulnerabilities, but it can also be used in conjunction with other Semgrep and third-party tools. Semgrep Code can also be augmented with AI to identify complex security issues and logic bugs.
 
 ## Rules
 

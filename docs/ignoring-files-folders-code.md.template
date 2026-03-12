@@ -16,7 +16,7 @@ import PL from '@site/src/components/Placeholder';
 
 This document describes two types of ignore operations:
 
-* **Ignoring as exclusion.** Exclude or skip specific **files and folders** from the scope of Semgrep scans in your repository or working directory. Ignoring in this context means that Semgrep does not generate findings for the ignored files and folders.
+* **Ignoring as exclusion.** Exclude or skip specific **files and folders** in your repository or working directory from the scope of Semgrep scans that are a part of your security workflow. Ignoring in this context means that Semgrep does not generate findings for the ignored files and folders.
 * **Ignoring as triage action**. Ignore specific parts of code that would have generated a finding. Ignoring in this context means that Semgrep generates a finding record and automatically triages it as **Ignored**, a triage state.
 
 All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-defined or Semgrep-defined ignore patterns.

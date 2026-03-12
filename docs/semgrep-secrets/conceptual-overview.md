@@ -12,9 +12,7 @@ import ValidationStates from '/src/components/reference/_validation-states.mdx'
 
 # Semgrep Secrets overview
 
-**Semgrep Secrets** scans code to detect exposed API keys, passwords, and other
-credentials. When exposed, these can be used by malicious actors to leak data
-or gain access to sensitive systems. Semgrep Secrets allows you to determine:
+**Semgrep Secrets** scans code to detect exposed API keys, passwords, and other credentials. When exposed, these can be used by malicious actors to leak data or gain access to sensitive systems. Semgrep Secrets allows you to determine:
 
 * What secrets have been committed to your repository.
 * The validation status of the secret; for example, **valid** secrets are those that have been tested against a web service and
@@ -22,12 +20,11 @@ confirmed to successfully grant resources or authentication. They are actively
 in use.
 * For GitHub repositories: if there are credentials in public or private repositories.
 
-Semgrep saves security engineers time and effort by prioritizing valid leaked secrets and informs developers of valid secrets in their PRs and MRs by posting comments directly.
+By adding Secrets to your security workflow, you can view results where valid leaked secrets are prioritized and directly inform developers of such findings in the relevant pull requests and merge requests.
 
 ## How Semgrep Secrets works
 
-To ensure that findings are high-signal, comprehensive, and easy for users to
-prioritize, a Semgrep Secrets scan performs the following:
+To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Semgrep Secrets scan performs the following:
 
 * Search using regex
 * Semantic analysis

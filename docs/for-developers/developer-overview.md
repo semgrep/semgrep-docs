@@ -12,11 +12,11 @@ import PartsOfComment from "/src/components/reference/_parts-of-comment.md"
 
 # Semgrep for developers
 
-This guide is for developers who are using Semgrep in a team or organizational setting.
+This guide is for developers whose team or organization have implemented a Semgrep workflow.
 
 Use Semgrep to:
 
-- Triage security issues
+- Find and triage security issues
 - Follow best practices set by your organization
 - Automate code reviews among your peers
 - Lint your code
@@ -36,9 +36,9 @@ By understanding how Semgrep works, you are able to customize Semgrep to better 
 If you are a developer responsible for your **own** security program in personal projects, see the [Quickstart](/getting-started/quickstart) and [Core deployment](/deployment/core-deployment) documentation.
 :::
 
-## Semgrep AppSec Platform
+## Semgrep
 
-Semgrep AppSec Platform, or simply **Semgrep**, is a software suite for implementing and tracking security programs.
+Semgrep is a security workflow platform that implements end-to-end application security, allowing you to detect, triage, and fix security vulnerabilities using the combined power of rule-based and AI-powered detection. 
 
 **AppSec engineers** use Semgrep to detect, triage, and remediate findings across an entire organization's codebases.
 
@@ -49,7 +49,6 @@ Semgrep AppSec Platform, or simply **Semgrep**, is a software suite for implemen
 Your interactions with Semgrep vary depending on your organization's deployment of it.
 
 Semgrep is almost always integrated into your CI and source code manager (SCM) and automatically runs on every pull request or merge request you open. These scans are **diff-aware** and only affect the scope of your PR, which keeps the scan speed fast. Your security engineer may configure Semgrep to display PR or MR comments about certain **blocking** or **non-blocking** findings to you, which you can resolve or ignore from within your SCM.
-
 
 It is less frequent, but still common, for developers to run Semgrep as part of their day-to-day coding workflow in the following environments:
 
@@ -82,3 +81,4 @@ Your security engineers are in full control of what findings are displayed to yo
 ![Summary of findings by resolution, assuming that the finding is a true positive.](/img/finding-by-resolution.jpg#md-width)
 _**Figure**. Summary of findings by resolution, assuming that the finding is a true positive._
 
+Semgrep results for both full scans of your project, as well as diff-aware scans on a PR or MR, can also be viewed in [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).

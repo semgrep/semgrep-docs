@@ -13,8 +13,6 @@ tags:
 
 Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. 
 
-To run a full AI-powered detection scan using Semgrep Code, see [AI-powered detection](/docs/deployment/add-ai-to-scans).
-
 ## Support and availability
 
 Semgrep Assistant:
@@ -130,3 +128,7 @@ Read more about [Upgrade guidance and Click to fix](/semgrep-supply-chain/triage
 Assistant supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-assistant/customize#select-your-ai-provider).
 
 Enabling additional model providers for your Semgrep organization can improve performance in some scenarios, while removing them could result in reduced performance.
+
+## AI-powered detection
+
+To run a full AI-powered detection scan using Semgrep Code, see [AI-powered detection](/docs/deployment/add-ai-to-scans).
