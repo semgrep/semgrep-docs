@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
 
-This article includes instructions for setting up the MCP server with Cursor and Claude Code, but it also works with any IDE-based MCP client.
+This article includes instructions for setting up the MCP server with Cursor, Windsurf, and Claude Code, but it also works with any IDE-based MCP client.
 
 ## Prerequisites
 
@@ -30,6 +30,7 @@ This article includes instructions for setting up the MCP server with Cursor and
     defaultValue="cursor"
     values={[
     {label: 'Cursor', value: 'cursor'},
+    {label: 'Windsurf', value: 'windsurf'},
     {label: 'Claude Code', value: 'claude'},
     {label: 'Other IDEs', value: 'other'},
     ]}
@@ -78,6 +79,48 @@ This article includes instructions for setting up the MCP server with Cursor and
     }
     }
     ```
+
+</TabItem>
+
+
+<TabItem value='windsurf'>
+
+1. Install Semgrep:
+    ```bash
+    # install through homebrew
+    brew install semgrep
+
+    # install through pip
+    python3 -m pip install semgrep
+    ```
+
+1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+1. Log in to Semgrep and install Semgrep Pro:
+
+    ```
+    semgrep login && semgrep install-semgrep-pro
+    ```
+
+1. Create a `hooks.json` file at `~/.codeium/windsurf/hooks.json` and paste the following configuration:
+
+    ```json
+    {
+      "hooks": {
+        "post_write_code": [
+          {
+            "command": "semgrep mcp -k post-tool-cli-scan -a windsurf",
+            "show_output": true
+          }
+        ]
+      }
+    }
+    ```
+
+1. Restart Windsurf to apply hook configuration.
 
 </TabItem>
 
