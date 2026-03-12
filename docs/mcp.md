@@ -32,6 +32,7 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     {label: 'Claude Code', value: 'claude'},
     {label: 'Cursor', value: 'cursor'},
     {label: 'Windsurf', value: 'windsurf'},
+    {label: 'Codex', value: 'codex'},
     {label: 'Other IDEs', value: 'other'},
     ]}
 >
@@ -106,12 +107,10 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 <TabItem value='windsurf'>
 
 1. Install Semgrep:
-     ```bash
+    ```bash
     # install through homebrew
     brew install semgrep
-    ```
 
-     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -143,6 +142,39 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     ```
 
 1. Restart Windsurf to apply hook configuration.
+
+</TabItem>
+
+<TabItem value='codex'>
+
+1. Install Semgrep:
+     ```bash
+    # install through homebrew
+    brew install semgrep
+    ```
+
+     ```bash
+    # install through pip
+    python3 -m pip install semgrep
+    ```
+
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3. Sign in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+    ```bash
+    semgrep login
+    ```
+    In the **Semgrep CLI login**, click **Activate** to proceed.
+
+4. Return to the CLI, and install the Semgrep Pro engine:
+    ```bash
+    semgrep install-semgrep-pro
+    ```
+
+5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
 
 </TabItem>
 
