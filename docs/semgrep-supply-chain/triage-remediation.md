@@ -47,7 +47,7 @@ You can change the status of provisionally ignored findings to indicate the next
 
 Removing dependencies and refactoring code are other methods to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects changes to your manifest file or lockfile, and updates the status to **Fixed**.
 
-## Upgrade guidance and Autofix
+## Upgrade guidance and Autofix (beta)
 
 If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
@@ -74,7 +74,7 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 
 ### Registry support
 
-- Registries other than the public npm registry are not supported.
+- Registries other than the public pypi and npm registry are not supported.
 - Private registries are not supported.
 
 This **includes** projects added to Semgrep through Semgrep Managed Scans.
@@ -87,7 +87,7 @@ To access all upgrade guidance and Autofix features, you must have:
 - At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.
-  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app). If you're a current customer, you must manually enable this if you haven't already.
+  - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they haven't already.
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep), connect it to improve results.
 
 ### Features and permissions required
