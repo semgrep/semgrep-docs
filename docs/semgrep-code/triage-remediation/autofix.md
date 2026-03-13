@@ -60,7 +60,9 @@ To use Autofix, you must meet the following requirements:
 
 ### Findings with open PRs on Semgrep AppSec Platform
 
-You can filter for findings with Autofix PRs directly from the **Code** page in Semgrep AppSec Platform. Click the **To fix** drop-down and select **To fix** to do so.
+You can filter for findings with Autofix PRs directly from the **Code** page in Semgrep AppSec Platform. Click the **To fix** drop-down and select **To fix** to do so. 
+
+This filter shows findings that have Autofix PRs. It may also include findings that were manually marked as **To fix**.
 
 
 ## Disable Autofix
