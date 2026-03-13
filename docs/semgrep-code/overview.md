@@ -96,7 +96,7 @@ semgrep ci --oss-only
 
 [Semgrep Assistant](/semgrep-assistant/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Assistant can:
 
-- Provide [remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
+- Provide [remediation advice](/semgrep-assistant/overview#remediation) and Suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
 - Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
   - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
 - [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
@@ -107,8 +107,9 @@ semgrep ci --oss-only
 
 - [View your findings](/semgrep-code/findings).
 - Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#write-a-new-rule-by-forking-an-existing-rule).
-- Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+- Enable [Suggested fix](/writing-rules/rule-defined-fix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
 - Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
+- Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans)
 
 ## Further reading
 

@@ -44,6 +44,7 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        { to: 'semgrep-code/triage-remediation/autofix', label: 'Autofix', position: 'left' },
         {
           label: 'References',
           position: 'left',
@@ -309,7 +310,8 @@ module.exports = {
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable" },
           { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages" },
-          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix" },
+          { from: "/writing-rules/autofix", to: "/writing-rules/rule-defined-fix" },
+          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/rule-defined-fix" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
 

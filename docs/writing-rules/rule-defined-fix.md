@@ -1,25 +1,27 @@
 ---
 append_help_link: true
+slug: /writing-rules/rule-defined-fix
 tags:
  - Rule writing
 description: Learn how to use Semgrep rules' autofix key to provide suggested fixes for matched patterns through pull request or merge request comments.
 ---
 
-# Autofix
+# Rule-defined fix
 
-Autofix is a Semgrep feature where rules contain suggested fixes to resolve findings.
+Rule-defined fix is a Semgrep feature that lets you add suggested fixes to rules. 
 
-Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. This allows for value capture and rewriting. With rules that make use of autofix, you can resolve findings as part of your code review workflow. Semgrep suggests these fixes through pull request or merge request comments.
+Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. When rules that include a Rule-defined fix are triggered, Semgrep suggests these fixes in your pull request or merge request comments. You can view and easily resolve the findings as part of your code review workflow. 
 
-You can apply the autofix directly to the file using the `--autofix` flag. To test the autofix before applying it, use both the `--autofix` and `--dryrun` flags.
 
-:::tip
-Rule-based autofix is deterministic and separate from the [Semgrep Assistant autofix feature](/semgrep-assistant/overview#autofix). The Assistant autofix feature uses AI to generate a suggested code fix.
-:::
+You can apply the Rule-defined fix directly to the file using the `--autofix` flag. To test the fix before applying it, use both the `--autofix` and `--dryrun` flags.
 
-## Example autofix snippet
+::::tip
+Rule-defined fixes are deterministic and user-defined. Related AI-powered features include [Semgrep Assistant's Suggested fix](/semgrep-assistant/overview#autofix), which identifies code that needs to be fixed, and Semgrep Autofix, which can automatically generate a fix PR with a single click.
+::::
 
-Sample autofix (view in [Playground](https://semgrep.dev/s/R6g)):
+## Example Rule-defined fix snippet
+
+Sample Rule-defined fix (view in [Playground](https://semgrep.dev/s/R6g)):
 
 ```yaml
 rules:
@@ -35,13 +37,13 @@ rules:
   severity: MEDIUM
 ```
 
-## Create autofix rules
+## Create Rule-defined fix rules
 
-See how to create an autofix rule in the **Transforming code with Semgrep autofixes** video:
+See how to create a Rule-defined fix in the **Transforming code with Semgrep's Rule-defined fix** video:
 
 <iframe class="yt_embed" width="100%" height="432px" loading="lazy" src="https://www.youtube.com/embed/8jfjWixmtvo" frameborder="0" allowfullscreen></iframe>
 
-## Autofix with regular expression replacement
+## Rule-defined fix with regular expression replacement
 
 A variant of the `fix` key is `fix-regex`, which applies regular expression replacements (similar to `sed`) to matches found by Semgrep.
 
@@ -84,7 +86,7 @@ rules:
 
 ## Remove a code detected by a rule
 
-Improve your code quality by cleaning up stale code automatically. Remove code that an autofix rule detected by adding the `fix` key with an empty string `""`.
+Improve your code quality by cleaning up stale code automatically. To remove code idetified by a Rule-defined fix, add the `fix` key with an empty string `""`.
 
 For example:
 
@@ -97,4 +99,4 @@ For example:
    severity: ERROR
 ```
 
-When you apply the autofix in this rule, the detected code is removed.
+When you apply this Rule-defined fix, the detected code is removed.

@@ -119,7 +119,7 @@ Go to [semgrep-core contributing](semgrep-core-contributing.md)
 
 There are some features that cross through both OCaml and Python code. You will likely need to touch both `semgrep-cli` and `semgrep-core` if you want to
 
-* Fix an autofix error
+* Fix an Rule-defined fix error
 * Add a new language
 * Change error reporting
 

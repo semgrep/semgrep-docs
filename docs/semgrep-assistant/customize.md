@@ -16,11 +16,11 @@ You can customize Semgrep Assistant by enabling and using the features detailed 
 
 ## Remediation
 
-Assistant remediation allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
+Assistant **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
-2. Click the **Remediation** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
-3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the level of quality at which the autofix code appears as a suggestion. A lower confidence level means that Semgrep Assistant displays the autofix suggestion even when the code quality may be incorrect.
+2. Click the **Suggested fix** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable this feature.
+3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Assistant suggests a fix even when the code quality is poor.
 
 :::tip
 Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.

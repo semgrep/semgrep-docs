@@ -344,7 +344,15 @@ module.exports = {
                       'semgrep-code/finding-details',
                     ]
                 },
-                'semgrep-code/triage-remediation',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Triage and remediation',
+                    link: { type: 'doc', id: 'semgrep-code/triage-remediation' },
+                    items: [
+                      'semgrep-code/triage-remediation/autofix'
+                    ]
+                },
                 {
                     type: 'category',
                     collapsible: true,
@@ -582,7 +590,7 @@ module.exports = {
                     type: 'category',
                     label: 'Advanced rule-writing techniques',
                     items: [
-                        'writing-rules/autofix',
+                        'writing-rules/rule-defined-fix',
                         {
                             type: 'category',
                             label: 'Dataflow analysis',

@@ -63,7 +63,7 @@ Each token type has its own page that lists all existing tokens of that type. Us
 
 For **API tokens**, you can use the drop-down menu to view only those tokens associated with specific roles, such as **Admin** or **Member**.
 
-For **Service tokens**, you can use the drop-down menu to view tokens for specific services, such as **Semgrep Managed Scans**, **Click to Fix**, or **AI Scan**.
+For **Service tokens**, you can use the drop-down menu to view tokens for specific services, such as **Semgrep Managed Scans**, **Autofix**, or **AI Scan**.
 
 ### Create an API token
 
