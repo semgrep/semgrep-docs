@@ -15,7 +15,7 @@ Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgre
 Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
 
 :::info
-Autofix is different from [Rule-defined fix](/writing-rules/autofix) and [Semgrep Assistant's Suggested fix](/docs/semgrep-assistant/overview#suggested-fix). These are separate features with different behaviors and use cases.
+Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Assistant's Suggested fix](/docs/semgrep-assistant/overview#suggested-fix). These are separate features with different behaviors and use cases.
 :::
 
 ## Prerequisites

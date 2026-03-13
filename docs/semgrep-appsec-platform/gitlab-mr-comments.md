@@ -80,7 +80,7 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ### Enable Rule-defined fix in GitLab repositories
 
-[Rule-defined fix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+[Rule-defined fix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform organization, follow these steps:
 

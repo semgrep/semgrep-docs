@@ -70,7 +70,7 @@ Semgrep supports the following interfaces:
     <td>[Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep)</td>
     <td rowspan="2">
     <ul><li>Receive human-written remediation guidance.</li>
-    <li>Ignore or apply a [Rule-defined fix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ Semgrep supports the following interfaces:
     <td>[All GitHub plans](/semgrep-appsec-platform/github-pr-comments)</td>
     <td rowspan="4">
     <ul><li>Receive human-written and Semgrep Assistant remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li>
-    <li>Ignore or apply a [Rule-defined fix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ Semgrep supports the following interfaces:
     <td>Most terminal emulator apps</td>
     <td>
     <ul><li>Receive human-written remediation guidance.</li>
-    <li>Ignore or apply a [Rule-defined fix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 </tbody>
@@ -204,7 +204,7 @@ _**Figure**. AI-generated guidance. Developers are able to commit the suggestion
 
 #### The rule's human-written fix (`fix`)
 
-Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/autofix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/docs/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
+Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/docs/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
 
 Semgrep Assistant does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
 

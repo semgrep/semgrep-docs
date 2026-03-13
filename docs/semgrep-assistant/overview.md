@@ -68,7 +68,7 @@ Semgrep only waits for a limited amount of time for Assistant guidance before po
 
 #### Suggested fix
 
-Semgrep Assistant's [**Suggested fix**](/writing-rules/autofix/) feature suggests changes to code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Assistant suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
+Semgrep Assistant's [**Suggested fix**](/writing-rules/rule-defined-fix/) feature suggests changes to code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Assistant suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
 
 Assistant customizes the code snippets it provides based on any previous feedback and your rule customizations. For example, if you’ve created a custom rule that recommends a specific sanitizer, Assistant will automatically suggest that sanitizer whenever the rule is triggered.
 

@@ -1097,7 +1097,7 @@ rules:
     severity: HIGH
 ```
 
-For more information about `fix` and `--autofix` see [Rule-defined fix](/writing-rules/autofix) documentation.
+For more information about `fix` and `--autofix` see [Rule-defined fix](/writing-rules/rule-defined-fix) documentation.
 
 ## `metadata`
 

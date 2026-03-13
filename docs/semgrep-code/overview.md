@@ -107,7 +107,7 @@ semgrep ci --oss-only
 
 - [View your findings](/semgrep-code/findings).
 - Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#write-a-new-rule-by-forking-an-existing-rule).
-- Enable [Suggested fix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+- Enable [Suggested fix](/writing-rules/rule-defined-fix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
 - Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
 - Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans)
 
