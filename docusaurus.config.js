@@ -311,7 +311,6 @@ module.exports = {
           { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages" },
           { from: "/writing-rules/autofix", to: "/writing-rules/rule-defined-fix" },
-          { from: "/writing-rules/autofix/", to: "/writing-rules/rule-defined-fix" },
           { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/rule-defined-fix" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
