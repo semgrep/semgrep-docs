@@ -19,7 +19,7 @@ You can customize Semgrep Assistant by enabling and using the features detailed 
 Assistant **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
-2. Enable **Suggested fix** <i class="fa-solid fa-toggle-large-on"></i> using the toggle.
+2. Click the **Suggested fix** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable this feature.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Assistant suggests a fix even when the code quality is poor.
 
 :::tip

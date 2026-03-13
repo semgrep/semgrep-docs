@@ -27,7 +27,7 @@ This article shows you how to manage and triage findings identified by Semgrep C
 
 ## Semgrep Assistant
 
-If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, fix, triage, and remediate your Semgrep findings:
+If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
   - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.

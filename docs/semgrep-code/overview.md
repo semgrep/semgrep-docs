@@ -96,7 +96,7 @@ semgrep ci --oss-only
 
 [Semgrep Assistant](/semgrep-assistant/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Assistant can:
 
-- Provide [remediation advice](/semgrep-assistant/overview#remediation) and suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
+- Provide [remediation advice](/semgrep-assistant/overview#remediation) and Suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
 - Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
   - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
 - [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.

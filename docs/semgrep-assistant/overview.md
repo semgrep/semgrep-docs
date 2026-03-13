@@ -52,7 +52,7 @@ Note that Assistant-generated explanations are **not** available for custom rule
 
 ### Remediation
 
-Semgrep Assistant can provide remediation advice or suggested fixes for Semgrep Code findings.
+Semgrep Assistant can provide remediation advice or Suggested fixes for Semgrep Code findings.
 
 #### Guidance
 

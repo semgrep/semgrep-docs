@@ -78,7 +78,7 @@ This **includes** projects added to Semgrep through Semgrep Managed Scans.
 
 To access all upgrade guidance and Autofix features, you must have:
 
-- Enabled upgrade guidance in **Settings > General > Supply Chain**
+- Enabled upgrade guidance Semgrep AppSec Platform by going to **Settings > General > Supply Chain**
 - At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.

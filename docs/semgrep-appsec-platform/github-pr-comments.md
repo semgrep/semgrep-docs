@@ -111,7 +111,7 @@ You've set up PR comments! Enable optional features provided in the following se
 To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform organization, follow these steps:
 
 1. In Semgrep AppSec Platform, go to **Settings > General > Code**.
-2. Use the Rule-defined fix toggle to enable this feature.
+2. Click the **Rule-defined fix** toggle to enable this feature.
 
 ### Dataflow traces in PR comments
 

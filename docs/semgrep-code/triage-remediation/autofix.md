@@ -10,7 +10,7 @@ import GithubAppReadWritePermissions from "/src/components/procedure/_github-app
 
 # Autofix for Semgrep Code (beta)
 
-Semgrep’s Autofix feature uses AI to automatically generate proposed code changes for Semgrep Code findings. 
+Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Code findings. 
 
 Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
 
@@ -21,12 +21,12 @@ Autofix is different from [Rule-defined fix](/writing-rules/autofix) and [Semgre
 ## Prerequisites
 
 :::note
-Autofix is currently available only for GitHub repositories. Support for additional source code managers (SCMs) is coming soon.
+Autofix is available only for GitHub repositories.
 :::
 
 To use Autofix, you must meet the following requirements:
 
-* [Enable Semgrep Assistant](https://semgrep.dev/docs/semgrep-assistant/getting-started#__docusaurus_skipToContent_fallback).  
+* [Enable Semgrep Assistant](/semgrep-assistant/getting-started).  
 * Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  
 * Ensure the Semgrep private GitHub App is installed.
   - The app is installed when you [add GitHub repositories to Semgrep Managed Scans](https://semgrep.dev/docs/deployment/managed-scanning/github#permissions).
@@ -35,29 +35,29 @@ To use Autofix, you must meet the following requirements:
   - Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **Repository permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
 
 <GithubAppReadWritePermissions />
-* Accept AWS Bedrock/Claude (Anthropic) models.  
+* Accept AWS Bedrock or Anthropic's Claude models.  
   * During beta, Semgrep Code does not respect AI model selection.
 
 
-## Using Autofix
+## Use Autofix
 
 * Navigate to the finding’s **Details** page.  
 * From the **Fix** drop-down, select **Open Autofix PR**.  
 * Semgrep generates a proposed fix and opens a draft PR in GitHub.  
-  * This action is recorded in the **Activity** section at the bottom of the finding’s Details page.  
-  * PR creation can take **2–10 minutes**, depending on the size of the change.  
+  * This action is recorded in the **Activity** section at the bottom of the finding’s **Details** page.  
+  * It can take **2–10 minutes**, depending on the size of the change, to create the PR.  
 * Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR.
 
 ### PR details
 
 * The pull request is opened as a **draft**.  
-* Semgrep provides an AI generated description commit message for the changes in the PR.  
-* The pull request is created and requested by the **Semgrep GitHub App**.  
+* Semgrep provides an AI-generated description of the changes in the pull request.  
+* The pull request is authored by the **Semgrep GitHub App**.  
 * If your GitHub account is connected to Semgrep, you are automatically **mentioned** in the pull request.
 
 ### Findings with open PRs on Semgrep AppSec Platform
 
-You can filter for findings with Autofix PRs directly from the **Code** page in Semgrep AppSec Platform. Click the **To fix** drop-down and select **To fix**.
+You can filter for findings with Autofix PRs directly from the **Code** page in Semgrep AppSec Platform. Click the **To fix** drop-down and select **To fix** to do so.
 
 
 ## Disable Autofix
@@ -82,7 +82,6 @@ At this time, Semgrep Assistant memories do not directly influence Autofix PR ge
 
 Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
 
-Support for deeper use of memories in PR generation is planned for future iterations.
 
 
 

@@ -211,9 +211,9 @@ The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
 
-## Enabling Rule-defined fix in Semgrep Code
+## Enable Rule-defined fix in Semgrep Code
 
-To enable Rule-defined fix for all projects in your Semgrep AppSec Platform organization, follow these steps:
+To enable Rule-defined fix for all projects in your Semgrep organization:
 
 1. In Semgrep AppSec Platform, go to [**Settings > General > Code**](https://semgrep.dev/orgs/-/settings/general/code).
 2. Click the **Rule-defined fix** toggle to enable this feature.
