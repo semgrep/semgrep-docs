@@ -1,6 +1,6 @@
 ---
 append_help_link: true
-slug: rule-defined-fix
+slug: /writing-rules/rule-defined-fix
 tags:
  - Rule writing
 description: Learn how to use Semgrep rules' autofix key to provide suggested fixes for matched patterns through pull request or merge request comments.
@@ -15,9 +15,9 @@ Semgrep's rule format supports a `fix:` key that supports the replacement of met
 
 You can apply the Rule-defined fix directly to the file using the `--autofix` flag. To test the fix before applying it, use both the `--autofix` and `--dryrun` flags.
 
-:::tip
+::::tip
 Rule-defined fixes are deterministic and user-defined. Related AI-powered features include [Semgrep Assistant's Suggested fix](/semgrep-assistant/overview#autofix), which identifies code that needs to be fixed, and Semgrep Autofix, which can automatically generate a fix PR with a single click.
-:::
+::::
 
 ## Example Rule-defined fix snippet
 

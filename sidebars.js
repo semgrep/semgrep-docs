@@ -590,7 +590,7 @@ module.exports = {
                     type: 'category',
                     label: 'Advanced rule-writing techniques',
                     items: [
-                        'writing-rules/autofix',
+                        'writing-rules/rule-defined-fix',
                         {
                             type: 'category',
                             label: 'Dataflow analysis',
