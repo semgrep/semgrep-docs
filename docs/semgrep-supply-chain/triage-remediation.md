@@ -72,6 +72,11 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 - GitHub Cloud 
 - GitLab Cloud
 
+### Registry support
+
+- Registries other than the public npm registry are not supported.
+- Private registries are not supported.
+
 This **includes** projects added to Semgrep through Semgrep Managed Scans.
 
 ### Prerequisites
