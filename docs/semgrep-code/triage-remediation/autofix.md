@@ -21,12 +21,14 @@ Autofix is different from [Rule-defined fix](/writing-rules/autofix) and [Semgre
 ## Prerequisites
 
 :::note
-Autofix is available only for GitHub repositories.
+Autofix is available only for GitHub Cloud repositories.
 :::
 
 To use Autofix, you must meet the following requirements:
 
 * [Enable Semgrep Assistant](/semgrep-assistant/getting-started).  
+* Accept AWS Bedrock or Anthropic's Claude models.  
+  * During beta, Semgrep Code does not respect AI model selection.
 * Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  
 * Ensure the Semgrep private GitHub App is installed.
   - The app is installed when you [add GitHub repositories to Semgrep Managed Scans](https://semgrep.dev/docs/deployment/managed-scanning/github#permissions).
@@ -35,18 +37,19 @@ To use Autofix, you must meet the following requirements:
   - Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **Repository permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
 
 <GithubAppReadWritePermissions />
-* Accept AWS Bedrock or Anthropic's Claude models.  
-  * During beta, Semgrep Code does not respect AI model selection.
 
 
 ## Use Autofix
 
-* Navigate to the finding’s **Details** page.  
-* From the **Fix** drop-down, select **Open Autofix PR**.  
-* Semgrep generates a proposed fix and opens a draft PR in GitHub.  
+1. Log in to [Semgrep AppSec Platform](https://semgrep.dev/orgs/-)
+1. Click **Code** to view all SAST findings.
+1. Identify the finding you want to Autofix and click the hyperlink on the card to navigate to the finding’s **Details** page.
+1. From the **Fix** drop-down, select **Open Autofix PR**.
+1. You will see the following message:
+> Starting to generate Autofix PR. Semgrep is generating an Autofix PR for this finding. A new notification will appear here when the PR is ready.  
+1. In **2 to 10 minutes**, Semgrep generates a proposed fix and opens a draft PR in GitHub.  
   * This action is recorded in the **Activity** section at the bottom of the finding’s **Details** page.  
-  * It can take **2–10 minutes**, depending on the size of the change, to create the PR.  
-* Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR.
+1. Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR in GitHub.
 
 ### PR details
 
@@ -78,6 +81,7 @@ Autofix PRs are generated independently of Semgrep Assistant's Suggested fixes. 
 Because the code changes displayed on findings and PRs are generated separately, the exact changes in an Autofix PR may differ from Assistant's suggested fix displayed on the finding.
 
 ### How memories affect PR generation
+
 At this time, Semgrep Assistant memories do not directly influence Autofix PR generation.
 
 Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
