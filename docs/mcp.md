@@ -1,7 +1,7 @@
 ---
 slug: mcp
 append_help_link: false
-title: MCP Server
+title: Semgrep Plugin
 hide_title: true
 description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
 tags:
@@ -9,11 +9,14 @@ tags:
  - Semgrep Code
 ---
 
-# Semgrep MCP Server (beta)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
+# Semgrep Plugin
 
-This article includes instructions for setting up the MCP server with Cursor, Windsurf, and Claude Code, but it also works with any IDE-based MCP client.
+Semgrep's plugin integrates natively with AI coding agents like Cursor, Claude Code, and Windsurf to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+
+This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin works with any MCP client.
 
 ## Prerequisites
 
@@ -21,7 +24,7 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
 * Homebrew or Pip to install Semgrep
 * A Semgrep account
 
-## Installation 
+## Installation
 
 <Tabs
     defaultValue="cursor"
@@ -33,7 +36,7 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     ]}
 >
 
-### Cursor
+<TabItem value='cursor'>
 
 1. Install Semgrep:
     ```bash
@@ -55,9 +58,11 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     semgrep login && semgrep install-semgrep-pro
     ```
 
-1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor > ⌘⇧J > Plugins. Search "Semgrep"  and click **Add to Cursor**.
+1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor > ⌘⇧J > Plugins. Search "Semgrep" and click **Add to Cursor**.
 
 1. Restart Cursor to apply configuration.
+
+</TabItem>
 
 <TabItem value='windsurf'>
 
@@ -115,30 +120,25 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     ```bash
     semgrep --version
     ```
+
 3.  Start a new Claude Code instance in the terminal:
     ```bash
     claude
     ```
 
-4.  Add the Semgrep marketplace to Claude:
+4.  Install the Semgrep plugin from the [Claude plugin marketplace](https://claude.ai/marketplace):
     ```bash
-    /plugin marketplace add semgrep/mcp-marketplace
+    /plugin install semgrep-plugin
     ```
 
-5.  Install the Semgrep plugin:
-    ```bash
-    /plugin install semgrep-plugin@semgrep
-    ```
-
-6.  Set up the Semgrep plugin:
+5.  Set up the Semgrep plugin:
     ```bash
     /semgrep-plugin:setup_semgrep_plugin
-
-    # if the preceding command doesn't work, try:
-    /plugin enable semgrep-plugin@semgrep
     ```
 
-### Other IDEs
+</TabItem>
+
+<TabItem value='other'>
 
 1. Install Semgrep:
     ```bash
@@ -166,6 +166,9 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     ```
 
 5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
+
+</TabItem>
+</Tabs>
 
 ## Scan your code
 
