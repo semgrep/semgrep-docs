@@ -70,7 +70,7 @@ Semgrep supports the following interfaces:
     <td>[Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep)</td>
     <td rowspan="2">
     <ul><li>Receive human-written remediation guidance.</li>
-    <li>Ignore or apply a [1-click autofix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ Semgrep supports the following interfaces:
     <td>[All GitHub plans](/semgrep-appsec-platform/github-pr-comments)</td>
     <td rowspan="4">
     <ul><li>Receive human-written and Semgrep Assistant remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li>
-    <li>Ignore or apply a [1-click autofix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 <tr>
@@ -91,14 +91,14 @@ Semgrep supports the following interfaces:
     <td>[All Bitbucket plans](/category/bitbucket-pr-comments)</td>
 </tr>
 <tr>
-    <td>[Azure Devops Cloud](/semgrep-appsec-platform/azure-pr-comments)</td>
+    <td>[Azure DevOps Cloud](/semgrep-appsec-platform/azure-pr-comments)</td>
 </tr>
 <tr>
     <td>CLI through <code>pre-commit</code></td>
     <td>Most terminal emulator apps</td>
     <td>
     <ul><li>Receive human-written remediation guidance.</li>
-    <li>Ignore or apply [a 1-click autofix](/writing-rules/autofix), if it is available, to findings individually.</li></ul>
+    <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
 </tbody>
@@ -108,7 +108,7 @@ _\*To receive Assistant guidance, check that your source code manager (SCM) is s
 
 ![Semgrep remediation guidance in VS Code](/img/guardrails-ide-quickfix.png#md-width-centered) <br />
 ![Semgrep remediation guidance in VS Code > Quick fix menu](/img/guardrails-ide-fix.png#md-width-centered)
-_**Figure**. Remediation message provided in VS Code. The message appears when a user hovers over findings, which are marked with squiggly lines. Developers can click the **Quick Fix** button to either ignore the finding or, if the rule provides an autofix, apply the fix._
+_**Figure**. Remediation message provided in VS Code. The message appears when a user hovers over findings, which are marked with squiggly lines. Developers can click the **Quick Fix** button to either ignore the finding or, if there's a Rule-defined fix, apply the fix._
 
 
 ![A PR comment detecting a hardcoded secret](/img/guardrails-secrets.png)
@@ -123,8 +123,6 @@ Semgrep provides customizability through:
 - Custom rules - You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
 - Assistant Memories - this feature allows you to add and save additional context when Semgrep Assistant provides remediation. For example, you can provide organization-specific public keys, which Semgrep Assistant remembers.
 
-![Assistant Memories form within a finding's details page](/img/memories-2.png#md-width-centered)
-_**Figure**. A form on a finding's details page where you can enter additional instructions or context._
 
 ### Remediation guidance
 
@@ -204,9 +202,9 @@ _**Figure**. AI-generated guidance. Developers are able to commit the suggestion
 - You can adjust when the guidance is shown to developers based on the level of confidence in the guidance.
 :::
 
-#### The rule's human-written autofix (`fix`)
+#### The rule's human-written fix (`fix`)
 
-Sometimes a rule can resolve a finding by replacing, for example, an insecure function with a secure one. These rules make use of Semgrep's [autofix](/writing-rules/autofix) feature, which enables rule-writers to provide a human-written fix.
+Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/docs/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
 
 Semgrep Assistant does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
 
@@ -254,8 +252,6 @@ Rules can be **configured on a per-product, per-interface basis** to notify deve
 </tbody>
 </table>
 
-![Policies page > Code tab](/img/guardrails-policies.png)
-_**Figure**. **Policies page > Code tab**. Rules should be in either Comment or Block mode to leave a PR or MR comment._
 
 ## Next steps
 

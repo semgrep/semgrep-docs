@@ -1,0 +1,56 @@
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-lightest);
+  border: 1px solid var(--ifm-color-primary-light);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--ifm-font-family-base);
+  white-space: nowrap;
+}
+
+.copyButtonWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.copyButton:hover {
+  background-color: var(--ifm-color-primary-lighter);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-dark);
+}
+
+.copyButton:active {
+  transform: scale(0.98);
+}
+
+.copyButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.copyButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .copyButton {
+  background-color: var(--ifm-color-primary-darker);
+  border-color: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .copyButton:hover {
+  background-color: var(--ifm-color-primary-darkest);
+  border-color: var(--ifm-color-primary);
+}

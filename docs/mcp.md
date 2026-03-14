@@ -9,9 +9,6 @@ tags:
  - Semgrep Code
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Semgrep MCP Server (beta)
 
 Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
@@ -36,7 +33,7 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     ]}
 >
 
-<TabItem value='cursor'>
+### Cursor
 
 1. Install Semgrep:
     ```bash
@@ -58,30 +55,9 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     semgrep login && semgrep install-semgrep-pro
     ```
 
-1. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
+1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor > ⌘⇧J > Plugins. Search "Semgrep"  and click **Add to Cursor**.
 
-1. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
-
-    ```
-    {
-    "version": 1,
-    "hooks": {
-        "stop": [
-        {
-            "command": "semgrep mcp -k stop-cli-scan -a cursor"
-        }
-        ],
-        "afterFileEdit": [
-        {
-            "command": "semgrep mcp -k record-file-edit -a cursor"
-        }
-        ]
-    }
-    }
-    ```
-
-</TabItem>
-
+1. Restart Cursor to apply configuration.
 
 <TabItem value='windsurf'>
 
@@ -162,9 +138,7 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     /plugin enable semgrep-plugin@semgrep
     ```
 
-</TabItem>
-
-<TabItem value='other'>
+### Other IDEs
 
 1. Install Semgrep:
     ```bash
@@ -191,10 +165,7 @@ This article includes instructions for setting up the MCP server with Cursor, Wi
     semgrep install-semgrep-pro
     ```
 
-5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE’s documentation for specific details on where to add the MCP server configuration information.
-
-</TabItem>
-</Tabs>
+5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
 
 ## Scan your code
 

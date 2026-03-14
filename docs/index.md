@@ -39,7 +39,6 @@ The code is kept here for easy maintenance.
 <h3>Scan with Semgrep AppSec Platform</h3>
 
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
-
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
@@ -128,15 +127,25 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>December 2025 release notes summary</h3>
+<h3>February 2026 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Added a new **Priority** tab on **Findings** page to display high-priority findings. Each product has default priority categories, and Semgrep admins can customize the **Priority** tab to control which findings appear. Admins can save **Priority** tab filters for all users.
-- Added a new **Provisionally ignored** finding status.
-- Semgrep Secrets findings are now assigned a severity of **Critical**. This applies to Secrets findings from scans performed after November 2025. Any existing findings from those rules will be updated to **Critical** after the project's next full scan.
-- Pull request comments for findings generated using Semgrep-authored rules now include Assistant-generated explanations to help developers understand the findings. The summary message can be expanded to show additional details.
-- Added support for Cursor post-generation hooks, enabling Semgrep to integrate with Cursor workflows after code generation.
-- The **Findings** page now has improved navigation and more intuitive links. The code path now opens the finding's **Details** page, and an in-product tour introduces the new layout.
+- **MCP**: 
+  - Hooks for both Claude Code and Cursor now pull custom rules from the Semgrep Registry.
+  - Enabled DNS rebinding protection for the MCP server.
+- Improved the accuracy of taint tracking through assignments, which helps reduce the number of false positive findings.
+- Added support for case-insensitive string comparisons using `lower()` and `upper()`:
+  ```yaml
+  - metavariable-comparison:
+      metavariable: $VALUE
+      comparison: upper(str($VALUE)) == "SEMGREP"
+  ```
+- You can now pass environmental variables to third-party package managers using `SEMGREP_LOCAL_BUILD_ENV`, which accepts a JSON object, as part of the dependency resolution process invoked by `--allow-local-builds`.
+- The feedback dialog for Assistant auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
+- Documentation updates and additions:
+  - [Managing and using Semgrep access tokens](https://semgrep.dev/docs/deployment/tokens)
+  - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)
+  - [Usage and billing](/usage-and-billing/overview)
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

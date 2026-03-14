@@ -446,6 +446,9 @@ OPTIONS
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
 
+       --x-mem-policy=VAL
+           [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
+
 COMMON OPTIONS
        --debug
            All of --verbose, but with additional debugging information.

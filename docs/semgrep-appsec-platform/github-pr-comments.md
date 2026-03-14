@@ -104,11 +104,14 @@ You've set up PR comments! Enable optional features provided in the following se
 
 ## Optional features
 
-### Enable autofix in GitHub repositories
+### Enable Rule-defined fix in GitHub repositories
 
-[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+[Rule-defined fix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
-<EnableAutofix />
+To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform organization, follow these steps:
+
+1. In Semgrep AppSec Platform, go to **Settings > General > Code**.
+2. Click the **Rule-defined fix** toggle to enable this feature.
 
 ### Dataflow traces in PR comments
 

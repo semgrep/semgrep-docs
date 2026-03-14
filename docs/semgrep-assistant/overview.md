@@ -11,10 +11,9 @@ tags:
 
 # Semgrep Assistant overview
 
-Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Semgrep Assistant provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. 
 
-![Semgrep Assistant message in GitHub](/img/semgrep-assistant-github.png#md-width)
-_**Figure.** Semgrep Assistant detects the use of untrusted, unsanitized data._
+To run a full AI-powered detection scan using Semgrep Code, see [AI-powered detection](/docs/deployment/add-ai-to-scans).
 
 ## Support and availability
 
@@ -53,7 +52,7 @@ Note that Assistant-generated explanations are **not** available for custom rule
 
 ### Remediation
 
-Semgrep Assistant can provide remediation advice and autofixes, or suggested fixes, for Semgrep Code findings.
+Semgrep Assistant can provide remediation advice or Suggested fixes for Semgrep Code findings.
 
 #### Guidance
 
@@ -62,31 +61,24 @@ With Assistant enabled, pull request or merge request comments from Semgrep incl
 
 Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
-![Findings detail with remediation advice](/img/memories-1.png#md-width)
-_**Figure.** Findings detail page with the Your code & fix section displaying the suggested fix._
 
 :::info
 Semgrep only waits for a limited amount of time for Assistant guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
 :::
 
-#### Autofix
+#### Suggested fix
 
-Semgrep Assistant can suggest [autofix](/writing-rules/autofix/) code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests an autofix if the rule doesn't have a human-written autofix. You can set the minimum autofix confidence level required to display autofix suggestions from Semgrep Assistant on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
+Semgrep Assistant's [**Suggested fix**](/writing-rules/rule-defined-fix/) feature suggests changes to code snippets for Semgrep Code findings when it identifies a true positive. Assistant only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Assistant suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Assistant suggestions as are available, set the minimum to **low confidence**.
 
-Assistant customizes the code snippets it provides based on previous feedback, if any, and your rule customizations. For example, if you have a custom rule recommending a specific sanitizer, Assistant can recommend its use in the autofix suggestion for the issue in your code.
+Assistant customizes the code snippets it provides based on any previous feedback and your rule customizations. For example, if you’ve created a custom rule that recommends a specific sanitizer, Assistant will automatically suggest that sanitizer whenever the rule is triggered.
 
-Autofixes are available in PR and MR comments, so developers can review and verify Semgrep's generated fixes before applying them.
 
-![Semgrep Assistant generating a potential fix in a comment](/img/semgrep-assistant-autofix.png#md-width)
-_**Figure.** Semgrep Assistant generates a potential fix in a PR comment._
-
-Autofixes are also available on Semgrep AppSec Platform's **Findings page** under **Assistant suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
-
-![Semgrep Assistant showing a potential fix in Semgrep AppSec Platform](/img/assistant-autofix-ui.png#md-width)
-*Figure*. Semgrep Assistant showing a potential fix in Semgrep AppSec Platform.
+**Suggested fix** is also available in: 
+- PR and MR comments so that you can review and verify Semgrep's generated fixes before applying them.
+- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 :::info
-If many new issues are found in a given scan, Assistant auto-triage and autofix may not run on every issue.
+If many new issues are found in a given scan, Assistant auto-triage and Suggested fix may not run on every issue.
 :::
 
 ### Component tags
@@ -101,17 +93,12 @@ By categorizing your code through component tags, Semgrep Assistant can help you
 
 Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
 
-![Semgrep Assistant Component tag list](/img/assistant-component-tags.png#md-width)
-_**Figure.** Semgrep AppSec Platform's Findings page showing the Component filter._
-
 ### Auto-triage
 
 Semgrep Assistant uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
 Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
-![Semgrep Assistant in the filtered Findings page](/img/semgrep-assistant-autotriage-findings.png#md-width)
-_**Figure.** Semgrep Assistant auto-triage in the Findings page._
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue directly without leaving their PR or MR.
 
@@ -135,9 +122,9 @@ For example, if the code contains a hardcoded secret, Assistant might suggest us
 
 ### Upgrade guidance (beta)
 
-Semgrep Supply Chain's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep's click to fix capability can then create a PR to upgrade the package.
+Semgrep Supply Chain's dependency upgrade guidance uses AI to analyze if a finding can be **safely upgraded** or if upgrading the package can cause **breaking changes**. Semgrep's Autofix capability can then create a PR to upgrade the package.
 
-Read more about [Upgrade guidance and Click to fix](/semgrep-supply-chain/triage-and-remediation).
+Read more about [Upgrade guidance and Autofix](/semgrep-supply-chain/triage-and-remediation).
 
 ## Reliability
 

@@ -18,23 +18,29 @@ import TabItem from '@theme/TabItem';
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import TriageReason from "/src/components/reference/_triage-reason.mdx"
 
-This article shows you how to manage and triage identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
+This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
 
-- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, such as a security issue, developers must change or address the code so that the rule no longer matches it.
+- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings. 
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
-### Semgrep Assistant
+## Semgrep Assistant
 
-If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings:
+If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
-  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes
-  - [Autofixes](/semgrep-assistant/overview#autofix), or suggested code fixes
+  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
+  - [Suggested fix](/docs/semgrep-assistant/overview#suggested-fix) flagging affected code that needs to be changed.
 - [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
 
 Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+
+## Autofix findings
+
+Autofix is a beta feature that uses AI to generate proposed code changes for Semgrep Code findings. Use it when you want Semgrep to open a draft PR with the changes implemented. You remain in full control over reviewing and merging the PR.
+
+For details and workflow steps, see [Autofix](/semgrep-code/triage-remediation/autofix).
 
 ## Triage statuses
 
@@ -59,9 +65,6 @@ The following sections show you how to manage your findings by:
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
-### Fix a finding
-
-To **fix a finding**, update or refactor the code so that the Semgrep rule pattern no longer matches it.
 
 ## Review provisionally ignored findings
 

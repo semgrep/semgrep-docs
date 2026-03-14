@@ -68,7 +68,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 - Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro) section.
 - Updated [Filtering findings](/semgrep-code/findings/#filter-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
-    - [Autofix](/writing-rules/autofix)
+    - [Autofix](/writing-rules/rule-defined-fix)
     - [Generic pattern matching](/writing-rules/generic-pattern-matching)
     - [Metavariable analysis](/writing-rules/metavariable-analysis)
     - Taint propagators - moved to [Taint tracking](/writing-rules/data-flow/taint-mode/overview#propagators-) documentation

@@ -9,10 +9,19 @@ tags:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Set up the Semgrep Network Broker
 
 The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet.
+
+<img
+  src={useBaseUrl('/img/private-network-broker.png')}
+  alt="Private Network Broker."
+  style={{ width: '65%', display: 'block', margin: '0 auto' }}
+/>
+
+***Figure.*** *Overview of how Semgrep Network Broker facilitates access between Semgrep and your private network.*
 
 Examples of inbound traffic include:
 
@@ -151,7 +160,6 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
    1. Log in to Semgrep AppSec Platform.
    2. Navigate to **Settings** > **Broker**.
    3. Paste your public key and click **Add Public Key**.
-   ![Screenshot of Semgrep AppSec Platform's Network Broker page](/img/scp-broker.png#md-width)
 
 ### Update the config with your SCM information
 

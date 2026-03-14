@@ -494,6 +494,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced highlighting function for better keyword visibility
+  const escapeRegExp = (value: string): string => {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+
   const enhanceHighlighting = (content: string, searchQuery: string): string => {
     if (!searchQuery || !content) return content;
     
@@ -513,8 +517,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     // Highlight each search term with case-insensitive matching
     searchTerms.forEach(term => {
-      const regex = new RegExp(`(${term})`, 'gi');
-      highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      if (!term) return;
+      try {
+        const safeTerm = escapeRegExp(term);
+        const regex = new RegExp(`(${safeTerm})`, 'gi');
+        highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      } catch (error) {
+        // Skip invalid regex term to avoid breaking the UI
+      }
     });
     
     return highlightedContent;
@@ -696,31 +706,39 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced markdown rendering for AI responses
+  
+
   const renderMarkdown = (text: string): string => {
-    let html = text;
-    
-    // Handle code blocks with language (```language\ncode\n```)
-    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
-      const lang = language || '';
-      const escapedCode = code
+    const escapeHtml = (value: string): string => {
+      return value
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
-      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
+    };
+
+    let html = text;
+    const codeBlocks: string[] = [];
+
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const escapedCode = escapeHtml(code);
+      const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+      codeBlocks.push(
+        `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0; box-shadow: none;"><code style="background: transparent; box-shadow: none; text-shadow: none;">${escapedCode}</code></pre>`
+      );
+      return placeholder;
     });
-    
-    // Handle inline code (`code`)
+
     html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
-    
-    // Handle links [text](url)
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
-    
-    // Handle bold **text**
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Handle newlines
     html = html.replace(/\n/g, '<br />');
-    
+
+    if (codeBlocks.length > 0) {
+      codeBlocks.forEach((block, index) => {
+        html = html.replace(`__CODE_BLOCK_${index}__`, block);
+      });
+    }
+
     return html;
   };
 

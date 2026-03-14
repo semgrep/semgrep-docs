@@ -27,10 +27,10 @@ To view your findings in Semgrep AppSec Platform:
 
 By default, Semgrep displays your **Priority** findings. Priority findings are defined as **valid** secrets with **critical** or **high** severity.
 
-You can switch to the **All** tab at any point to view all findings identified by Semgrep Secrets. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes.
+You can switch to the **All** tab at any point to view all findings identified by Semgrep Secrets. Both the **Priority** findings view and the **All** findings view display high-level information about your findings. Each finding in the list includes information such as finding age, code location, project, branch, and validation status.
 
 :::note Local scans
-Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">  ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
+Findings from local scans are differentiated from their remote counterparts through their slugs. Remote repositories are identified as <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span>, while local repositories are identified by default as <span className="placeholder">local_scan/REPOSITORY_NAME</span>.
 :::
 
 ### Custom Priority tab
@@ -61,29 +61,28 @@ The **Project** filter allows you to search for findings associated with the sel
 
 The **Status** filter allows you to search for findings in the selected statuses. See [Triage status](/semgrep-secrets/findings#triage-statuses) for additional information.
 
+### Severity
+
+The **Severity** filter allows you to view findings of particular severities. Secrets finding severity is derived from the corresponding rule severity, as is the case for other Semgrep findings.
+
+However, Semgrep Secrets rules may provide different severities based on validation state and environment. For example, an invalid secret may be assigned **Medium** severity, a valid secret for a sandbox environment may be assigned **High** severity, and a valid secret in a production environment may be assigned **Critical** severity. This reflects the different risk levels associated with each situation.
+
+Possible values:
+<ul><li>Low</li><li>Medium</li><li>High</li><li>Critical</li></ul>
+
 ### Additional filters
 
 Semgrep offers additional filters that you can use to narrow down your results. The following filters are available:
 
 | Filter | Description |
 | - | - |
-| **Severity** | Filter by the severity of a finding. Severity is computed based on the values assigned for [Likelihood](/contributing/contributing-to-semgrep-rules-repository/#likelihood) and [Impact](/contributing/contributing-to-semgrep-rules-repository/#impact) by the rule's author. Possible values: <ul><li>Low</li><li>Medium</li><li>High</li><li>Critical</li></ul> |
-| **Validation state**      | Filter by [whether the secret is actively in use or not](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
+| **Validation state**      | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
 | **Secret type**           | Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
 | **Repository visibility** | Filter by whether the repository's [visibility](#repository-visibility) status. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
 | **Project tags** | Filter for findings based on the tags associated with the project. |
 | **Assistant file risk level** | Filter for findings based on Assistant's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
 | **Assistant autotriage** | Filter by whether [Assistant autotriage](/semgrep-assistant/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
-
-#### Severity
-
-Severity is assigned based on how sensitive or crucial the exposed web service is. Possible values include:
-
-* Critical
-* High
-* Medium
-* Low
 
 #### Triage statuses
 

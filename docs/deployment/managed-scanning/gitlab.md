@@ -60,7 +60,6 @@ You can enable Semgrep Managed Scans for additional repositories after onboardin
 4. Select the repositories you want to scan from the list.
 5. Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
 6. Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
-![Enable Managed Scans dialog](/img/sms-enable-pr-or-mr.png#sm-width)
 7. Click **Enable**.
 <!-- vale on -->
 
@@ -116,9 +115,6 @@ The following steps revoke the code access you previously granted Semgrep for al
 #### Most recent scan
 
 You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
-
-![Click the project's latest scan to view the log](/img/sms-logs.png)
-_**Figure**. The Projects page. Click the project's latest scan (underlined) to view the log._
 
 :::info
 It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.

@@ -10,9 +10,8 @@ tags:
 
 # Analyze Semgrep Code findings with Semgrep Assistant
 
-Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including autofix, auto-triage, and component tagging, on existing findings.
+Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
 
-![Assistant Analyze button on Findings page](/img/scp-assistant.png#md-width)
 
 ## Analyze your findings with Assistant
 
@@ -60,4 +59,4 @@ Semgrep Assistant lets you leave feedback in the following places:
 * In Semgrep AppSec Platform: the Assistant recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
 * In Slack notifications: the **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
 
-If Semgrep Assistant suggests that a finding is a true positive and supplies an autofix suggestion, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to let us know your thoughts.
+==If Semgrep Assistant labels a finding as a true positive and provides a suggested fix, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to share your thoughts.==

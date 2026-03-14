@@ -83,5 +83,5 @@ You won’t know how to fix a vulnerability out-right without already understand
 
 - Default remediation advice which explains common ways to resolve the problem for the language you are working in.
 - The ability to extend the guidance to link to internal documentation, suggest libraries, or provide code examples of how you solve this within your organization.
-- Have [auto-fix](https://semgrep.dev/docs/writing-rules/autofix) capabilities that can automatically fix the vulnerability in the susceptible piece of code.
+- Have [auto-fix](/writing-rules/rule-defined-fix) capabilities that can automatically fix the vulnerability in the susceptible piece of code.
 - Integrate with LLMs to provide contextual remediation guidance and code fix suggestions.

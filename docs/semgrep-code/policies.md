@@ -23,9 +23,6 @@ Semgrep Code identifies the languages used in your repositories and only runs ru
 
 ## Policies page structure
 
-![Default view of the Policies page](/img/policies.png)
-_**Figure.**_ Default view of the Policies page, known as the **Group by vulnerability class** view.
-
 The Policies page consists of a header and three main panes:
 
 <dl>

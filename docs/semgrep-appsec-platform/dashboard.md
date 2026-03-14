@@ -159,8 +159,8 @@ A low or negative value for **Total net new** is ideal. It indicates that, withi
 
 | Chart | Description |
 | -------  | ------ |
-| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by product for the selected time period. |
-| Backlog activity | Displays the number of new, net new, fixed, and ignored, including provisionally ignored, findings. A greater **Fixed** value is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Hover over the chart to see a breakdown of findings by product for the selected time period. |
+| Backlog activity | Displays the number of new, net new, fixed, and ignored, including provisionally ignored, findings. A greater **Fixed** value is better. <br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period. |
 
 
 ## Secure guardrails
@@ -175,7 +175,7 @@ Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in 
 | Key metrics    | Description |
 | -------------- | ------ |
 | Findings shown to devs      | Number of findings shown to developers in PR or MR comments (the numerator) against the total findings count (denominator). An upward or stable trend is better. |
-| Findings fixed in development   | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period (denominator). An upward or stable trend is better. <br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period.  |
+| Findings fixed in development   | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period (denominator). An upward or stable trend is better. <br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period.  |
 
 <!-- vale on -->
 
@@ -184,7 +184,7 @@ Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in 
 | Chart | Description |
 | -------  | ------ |
 | Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
-| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, or remained open. A greater **Fixed** value is better.<br /><br />Clicking on this chart opens a drawer that provides a breakdown of findings by triage state for that selected time period. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, or remained open. A greater **Fixed** value is better.<br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period. |
 
 ## Most findings by project
 
@@ -194,13 +194,7 @@ A table listing projects from most open findings to least, grouped by product or
 It is recommended to prioritize triage and remediation for the top projects listed in this table, especially if the priority filters are enabled.
 :::
 
-![Findings by project pane.](/img/dashboard-findings-by-project.png#sm-width)
-_**Figure**. Findings by project; group them by product or severity._
-
 ## Median open age
-
-![Median open age of a finding.](/img/dashboard-mean-time-remediate.png#sm-width)
-_**Figure**. Median open age of a finding._
 
 A chart displaying the median open age of a finding in **days** over the specified time period. Lower is better.
 

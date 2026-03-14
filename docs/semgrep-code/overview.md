@@ -11,6 +11,7 @@ tags:
 
 
 import SemgrepScan from "/src/components/concept/_semgrep-scan.mdx"
+import SupportedLanguagesTable from '/src/components/reference/_supported-languages-table.mdx'
 
 # Semgrep Code overview
 
@@ -18,13 +19,30 @@ Semgrep Code is a static application security testing (SAST) tool that detects s
 
 You can use Semgrep Code to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
 
+
 ## Rules
 
 <SemgrepScan />
 
-In addition to rules available in the [Registry](https://semgrep.dev/r), you can write custom rules to determine what Semgrep Code detects in your repositories. Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
+Semgrep performs SAST scans using rules that define the patterns to detect in your code. 
+
+Rules used by the Semgrep Pro Engine are available in the [Registry](https://semgrep.dev/r). Additionally, you can [write custom rules](/docs/writing-rules/overview) to determine what Semgrep Code detects in your repositories. 
+
+Whether you use pre-existing rules or write custom rules, knowing *which* rules Semgrep Code runs can help you understand how it detects security issues.
 
 Semgrep Code is transparent; you can configure the rules it runs and inspect its syntax to understand how the finding was detected. You can also customize the content of a rule to improve the true positive rate of a rule or have Semgrep send a relevant message to developers.
+
+## AI-powered detection (beta)
+
+Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-Powered Detection, you can automatically identify complex business logic flaws, such as IDORs and broken authorization.
+
+LLMs excel at understanding code context: variable names, class structures, function intent, and even comments. By pairing that reasoning power with structured scanning, Semgrep can:
+- Enumerate key attack surfaces, such as routes or controllers.
+- Check for missing safeguards, such as authentication, role checks, and permissions.
+- Flag potential logic gaps for review before attackers ever find them.
+
+
+Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans).
 
 ## Findings
 
@@ -34,6 +52,17 @@ Semgrep AppSec Platform displays Semgrep Code's findings. Additionally, the plat
 * Send alerts and notifications or create tickets to track findings identified by Semgrep Code
 * Customize how Semgrep Code scans your repositories
 * Manage your users and facilitate team collaboration in remediating security issues
+
+## Language support and integrations
+
+Semgrep Code supports a broad set of programming languages, with varying levels of analysis capabilities and language maturity. 
+
+* See the full list of [supported programming languages](/docs/supported-languages)
+* For definitions of language maturity levels, see the [Language maturity levels](/references/language-maturity-levels) page.
+* For analysis terminology, see [Feature definitions](/references/feature-definitions).
+* For a list of supported source code managers (SCM), see [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/deployment/connect-scm).
+
+
 
 ## Semgrep Community Edition (CE) versus Semgrep Code analysis
 
@@ -67,7 +96,7 @@ semgrep ci --oss-only
 
 [Semgrep Assistant](/semgrep-assistant/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Assistant can:
 
-- Provide [remediation advice](/semgrep-assistant/overview#remediation) and autofixes, or suggested fixes, for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
+- Provide [remediation advice](/semgrep-assistant/overview#remediation) and Suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
 - Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
   - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
 - [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
@@ -78,8 +107,9 @@ semgrep ci --oss-only
 
 - [View your findings](/semgrep-code/findings).
 - Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#write-a-new-rule-by-forking-an-existing-rule).
-- Enable [autofix](/writing-rules/autofix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
+- Enable [Suggested fix](/writing-rules/rule-defined-fix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
 - Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
+- Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans)
 
 ## Further reading
 
