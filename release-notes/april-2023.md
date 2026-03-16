@@ -146,16 +146,16 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 
 - New section [Semgrep add-on reconciliation of licenses](/usage-and-billing/reconciliation) and [Example of license reconciliation](/usage-and-billing/reconciliation#example-of-license-reconciliation).
 - New section [Updating existing open-source rules in Semgrep Registry](/docs/contributing/contributing-to-semgrep-rules-repository#update-existing-rules-in-semgrep-registry).
-- Added section [Creating rules that analyze across files](/semgrep-code/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions) and [Types of Semgrep Pro Engine analysis](/semgrep-code/semgrep-pro-engine-intro#types-of-semgrep-code-analysis).
+- Added section [Creating rules that analyze across files](/semgrep-multimodal/semgrep-pro-engine-intro/#write-rules-that-analyze-across-files-and-functions) and [Types of Semgrep Pro Engine analysis](/semgrep-multimodal/semgrep-pro-engine-intro#types-of-semgrep-code-analysis).
 - Added [Appendix: Token scopes](/deployment/tokens#token-scopes).
 
 ### Changed
 
 - [Notification documentation](/semgrep-appsec-platform/notifications) has been separated into guides for each notification channel, such as Slack or webhooks.
-- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-code/semgrep-pro-engine-examples) document.
+- Fixed embedded examples in [Semgrep Pro Engine examples](/semgrep-multimodal/semgrep-pro-engine-examples) document.
 - Our [Cheat sheets](/cheat-sheets/overview) now suggest the default ruleset instead of specific rules for you to scan your code.
 - Updated [CLI reference](/cli-reference).
-- Clarified sections [Disable rules](/semgrep-code/policies#disable-rules) and **Removing rulesets**.
-- Known limitations of Semgrep Pro Engine section have been expanded and moved to the [Known limitations of cross-file analysis](/semgrep-code/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis) document.
+- Clarified sections [Disable rules](/semgrep-multimodal/policies#disable-rules) and **Removing rulesets**.
+- Known limitations of Semgrep Pro Engine section have been expanded and moved to the [Known limitations of cross-file analysis](/semgrep-multimodal/semgrep-pro-engine-intro#known-limitations-of-cross-file-analysis) document.
 - Fixed various broken links.
 - Fixed various spelling issues.

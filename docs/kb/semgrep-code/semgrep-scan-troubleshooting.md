@@ -15,7 +15,7 @@ If a Semgrep scan is failing or running slowly, try the following steps to inves
 3. If you are running cross-file (interfile) analysis in the scan, remove any options starting with `--pro`, or run Semgrep with `--oss-only`. This allows isolation of any issues related to cross-file analysis, and often speeds up a scan or reduces memory usage.
 
 :::info
-Semgrep verbose or debug logs can be quite lengthy. To prevent flooding your terminal and preserve the logs for analysis, you can redirect all output to a file with `semgrep [OPTIONS] [TARGETS]... &> semgrep.log`. See also [How to collect logs when running Semgrep in CLI](/docs/kb/semgrep-code/collect-cli-logs).
+Semgrep verbose or debug logs can be quite lengthy. To prevent flooding your terminal and preserve the logs for analysis, you can redirect all output to a file with `semgrep [OPTIONS] [TARGETS]... &> semgrep.log`. See also [How to collect logs when running Semgrep in CLI](/docs/kb/semgrep-multimodal/collect-cli-logs).
 :::
 
 ## Memory usage issues (OOM errors)
@@ -67,7 +67,7 @@ metavariable-pattern failed because we lack range info for $X, please file a bug
 If the error you receive is not that specific, try one of these options:
 
 1. Use `--exclude-rule` to exclude a rule from the scan. This allows isolating the problem to the particular rule.
-  * If you are running Semgrep in CI with Semgrep AppSec Platform, and don't need to run the rule, you can also [disable the rule](/docs/semgrep-code/policies/#disable-rules).
+  * If you are running Semgrep in CI with Semgrep AppSec Platform, and don't need to run the rule, you can also [disable the rule](/docs/semgrep-multimodal/policies/#disable-rules).
 2. Use `--exclude` to exclude a file or files from the scan. You can use wildcards in file exclusions to exclude files matching particular patterns.
 3. Use `--include` with a pattern specifying a path or an extension for a particular language, to limit the scan to that path, or to files in that language.
 

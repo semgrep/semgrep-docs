@@ -201,7 +201,7 @@ If 1-2 repositories cause CI scan issues and scanning these repositories with in
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
 1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)** page of your organization.
-1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) or [Troubleshooting "You are seeing this because the engine was killed."](/docs/kb/semgrep-code/scan-engine-kill)
+1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-multimodal/semgrep-scan-troubleshooting) or [Troubleshooting "You are seeing this because the engine was killed."](/docs/kb/semgrep-multimodal/scan-engine-kill)
 1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 
 ### Difference between cross-file analysis and join mode

@@ -108,7 +108,7 @@ The following updates were made to Semgrep in October 2023.
 
 ### Changed
 
-- The [<i class="fa-regular fa-file-lines"></i> Policies](/semgrep-code/policies) documentation has been improved.
+- The [<i class="fa-regular fa-file-lines"></i> Policies](/semgrep-multimodal/policies) documentation has been improved.
 
 ### Fixed
 

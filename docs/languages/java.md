@@ -24,7 +24,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 ## Semgrep Code analyses
 
-* [Language-specific analysis](/semgrep-code/java)
+* [Language-specific analysis](/semgrep-multimodal/java)
 * Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)
 * All analyses performed by [Semgrep Community Edition (CE)](#java-support-in-semgrep-ce)

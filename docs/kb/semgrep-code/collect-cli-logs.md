@@ -74,5 +74,5 @@ Semgrep can also output only findings with its Quiet mode (`-q`). This is not re
 
 ## Additional references
 
-See [Semgrep scan troubleshooting](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) for specific troubleshooting suggestions for scans.
+See [Semgrep scan troubleshooting](/docs/kb/semgrep-multimodal/semgrep-scan-troubleshooting) for specific troubleshooting suggestions for scans.
 

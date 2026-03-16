@@ -122,7 +122,7 @@ didn't work properly when adding a new file or renaming an existing file.
 ### Added
 
 - Added the following new documents:
-    - [<i class="fa-regular fa-file-lines"></i> Semantic detection in Java](/semgrep-code/java) - describes how Semgrep reduces false positives through its understanding of the Java language.
+    - [<i class="fa-regular fa-file-lines"></i> Semantic detection in Java](/semgrep-multimodal/java) - describes how Semgrep reduces false positives through its understanding of the Java language.
     - [<i class="fa-regular fa-file-lines"></i> How to scan your Git history (beta)](/semgrep-secrets/historical-scanning).
     - [<i class="fa-regular fa-file-lines"></i> Write custom validators](/semgrep-secrets/validators)
     - Added two additional glossaries:

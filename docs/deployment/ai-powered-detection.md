@@ -19,11 +19,11 @@ Semgrep’s AI-powered detection combines the precision of static analysis with 
 
 This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance. 
 
-For details on what AI-powered detection can uncover, known limitations, and beta considerations, see [AI-powered detection: concepts and FAQs](/docs/semgrep-code/ai-powered-detection-concepts).
+For details on what AI-powered detection can uncover, known limitations, and beta considerations, see [AI-powered detection: concepts and FAQs](/docs/semgrep-multimodal/ai-powered-detection-concepts).
 
 ## Prerequisites {#prerequisites}
 
-To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
+To run Semgrep Code's [AI-powered detection](/docs/semgrep-multimodal/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
 
 * You have added your projects to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
 * You have enabled Semgrep Assistant for your organization.
@@ -77,6 +77,6 @@ The finding **Details** page references the uploaded context document under the 
 
 
 
-For an in-depth understanding of how AI-powered detection works, see [AI-powered detection: concepts, limitations, and FAQs](/docs/semgrep-code/ai-powered-detection-concepts).
+For an in-depth understanding of how AI-powered detection works, see [AI-powered detection: concepts, limitations, and FAQs](/docs/semgrep-multimodal/ai-powered-detection-concepts).
 
 

@@ -41,7 +41,7 @@ Semgrep's analysis workflow can be divided into three stages:
 
 Scanning is the process of analyzing your code to identify security vulnerabilities, exposed secrets, or risks introduced through dependencies. Semgrep provides three scanning tools that help you detect and address issues early in development and throughout your software lifecycle:
 
-* [Semgrep Code](/semgrep-code/overview): a static application security testing (SAST) tool that detects security vulnerabilities in your **first-party code**. You can use it to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
+* [Semgrep Code](/semgrep-multimodal/overview): a static application security testing (SAST) tool that detects security vulnerabilities in your **first-party code**. You can use it to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
 
 * [Semgrep Supply Chain Analysis](/semgrep-supply-chain/overview): a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 

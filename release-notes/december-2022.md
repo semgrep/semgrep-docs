@@ -46,7 +46,7 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 ### Additions
 
 - JSON output: Added a `max_memory_bytes` field to the output of the  `semgrep --json --time` which corresponds to the amount of memory allocated during the OCaml phase of Semgrep. This is useful for telemetry purposes.
-- DeepSemgrep: If you have a Team tier account in Semgrep App, and you enable the DeepSemgrep setting, then `semgrep ci` automatically runs the DeepSemgrep engine instead of the regular Semgrep CLI engine on full scans (but not in PR scans). See the [DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro) documentation for installation details.
+- DeepSemgrep: If you have a Team tier account in Semgrep App, and you enable the DeepSemgrep setting, then `semgrep ci` automatically runs the DeepSemgrep engine instead of the regular Semgrep CLI engine on full scans (but not in PR scans). See the [DeepSemgrep](/semgrep-multimodal/semgrep-pro-engine-intro) documentation for installation details.
 
 ### Changes
 
@@ -58,15 +58,15 @@ These release notes include upgrades for versions ranging between 1.0.0 and 1.2.
 
 - Added a new section to Semgrep App > Single sign-on (SSO) configuration to configure Semgrep with [Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id).
 - Added a new document **Learning Semgrep App with a demo project**.
-- Added section [Disable rules](/semgrep-code/policies/#disable-rules).
+- Added section [Disable rules](/semgrep-multimodal/policies/#disable-rules).
 - Added [Licensing document](/licensing) which provides an overview of licenses used by different Semgrep, Inc products.
 
 ### Changes
 
 - Updated [Getting started with Semgrep App](/deployment/core-deployment) to clarify how permissions are used by Semgrep, such as what files are read and what features are enabled by certain permissions.
 - Separated referential introductions from [Getting started with Semgrep Supply Chain](/semgrep-supply-chain/getting-started) into a separate document, [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview).
-- Updated [Installing DeepSemgrep](/semgrep-code/semgrep-pro-engine-intro) section.
-- Updated [Filtering findings](/semgrep-code/findings/#filter-findings) section with information about new filtering options.
+- Updated [Installing DeepSemgrep](/semgrep-multimodal/semgrep-pro-engine-intro) section.
+- Updated [Filtering findings](/semgrep-multimodal/findings/#filter-findings) section with information about new filtering options.
 - The following documents have been moved out of the Experiments section as they are now considered GA:
     - [Autofix](/writing-rules/rule-defined-fix)
     - [Generic pattern matching](/writing-rules/generic-pattern-matching)

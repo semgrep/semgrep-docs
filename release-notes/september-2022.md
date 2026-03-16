@@ -64,7 +64,7 @@ Minor bug fixes are not included in the release notes unless they are potentiall
 - New documentation for [Using multiple focus metavariables](/writing-rules/experiments/multiple-focus-metavariables).
 - Added information about [Ellipsis operator scope](/writing-rules/pattern-syntax/#ellipsis-operator-scope).
 - Many documents, such as [Getting started with Semgrep App](/deployment/core-deployment) now display minimal Semgrep tier required for a particular feature documented on the page.
-- Updated [Managing findings in Semgrep App](/semgrep-code/findings).
+- Updated [Managing findings in Semgrep App](/semgrep-multimodal/findings).
 - [Taint mode](/writing-rules/data-flow/taint-mode/overview) documentation has been updated and now includes introductory video.
 - Updated [Getting started with Semgrep in continuous integration (CI)](/deployment/core-deployment)
 - Updated [Data-flow analysis engine overview](/writing-rules/data-flow/data-flow-overview).

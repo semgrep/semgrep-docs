@@ -70,7 +70,7 @@ By default, Semgrep Code can analyze interactions beyond a single function but w
 
 Semgrep CE can only analyze interactions within a single function, known as intraprocedural or single-function analysis. However, this means that Semgrep CE is slightly faster than Semgrep Code. <!-- can we have a stat for this -->
 
-Semgrep Code also supports **[cross-file analysis](/semgrep-code/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
+Semgrep Code also supports **[cross-file analysis](/semgrep-multimodal/semgrep-pro-engine-intro/)** (interfile) analysis. These scans produce fewer false positives and more true positives, but take longer to complete.
 
 ## Enable Semgrep Code
 
@@ -105,10 +105,10 @@ semgrep ci --oss-only
 
 ## Next steps
 
-- [View your findings](/semgrep-code/findings).
-- Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-code/editor/#write-a-new-rule-by-forking-an-existing-rule).
+- [View your findings](/semgrep-multimodal/findings).
+- Customize how Semgrep Code scans your repository by modifying the [default rules set](https://semgrep.dev/p/default) or [writing your own rules](/semgrep-multimodal/editor/#write-a-new-rule-by-forking-an-existing-rule).
 - Enable [Suggested fix](/writing-rules/rule-defined-fix) so that Semgrep can push code suggestions to GitHub or GitLab to help your developers resolve findings.
-- Enable [cross-file scanning](/semgrep-code/semgrep-pro-engine-intro/).
+- Enable [cross-file scanning](/semgrep-multimodal/semgrep-pro-engine-intro/).
 - Learn how to run an [AI-powered detection scan](/docs/deployment/add-ai-to-scans)
 
 ## Further reading

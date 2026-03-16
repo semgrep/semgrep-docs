@@ -20,7 +20,7 @@ import TOCInline from "@theme/TOCInline"
 
 Both Semgrep and Snyk offer out-of-the-box SAST solutions. Semgrep makes it easier to customize the rules that run against your code. Because these rules are visible and customizable, you can analyze your results to see if the relevant vulnerabilities were caught.
 
-In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-code/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
+In addition to selecting your rules, Semgrep allows you to write custom rules to capture use cases driven by your organization's goals. To help you write rules, [Semgrep Editor](https://semgrep.dev/playground) provides a structure mode to guide you through the process, allows you to test your in-progress rules, and adds them to your organization’s [Policies page](/semgrep-multimodal/policies). Semgrep offers rule-writing capabilities to all users, while Snyk limits it to Enterprise users.
 
 Both Semgrep and Snyk offer remediation advice for findings identified during scans. Snyk displays its recommendations in its web app, in supported IDEs, and CLI, while Semgrep displays remediation advice and guidance in its web app, CLI, supported IDEs, and in the form of PR or MR comments.
 

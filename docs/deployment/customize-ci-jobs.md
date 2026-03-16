@@ -44,7 +44,7 @@ Follow the steps in this section only for the following CI providers:
 - CI providers without guidance from Semgrep AppSec Platform
 :::
 
-Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-code/glossary#diff-aware-scan), which scan pull requests or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
+Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep-multimodal/glossary#diff-aware-scan), which scan pull requests or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
 
 1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-1).
 1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
@@ -55,7 +55,7 @@ Some Semgrep CI jobs require manual configuration of [diff-aware scans](/semgrep
 
 ## Set a custom timeout
 
-By default, Semgrep spends a maximum of **5 seconds** to scan with **each rule** on each [targeted](/semgrep-code/glossary#scan-target) file. To **set a different timeout**, set the `SEMGREP_TIMEOUT` environment variable (the value is in seconds). Decreasing this value speeds up your scans, but with the possibility of skipping some rules. Alternatively, increasing this value ensures that your most complex rules finish running. For example:
+By default, Semgrep spends a maximum of **5 seconds** to scan with **each rule** on each [targeted](/semgrep-multimodal/glossary#scan-target) file. To **set a different timeout**, set the `SEMGREP_TIMEOUT` environment variable (the value is in seconds). Decreasing this value speeds up your scans, but with the possibility of skipping some rules. Alternatively, increasing this value ensures that your most complex rules finish running. For example:
 
 ```sh
 SEMGREP_TIMEOUT="3" # Sets the per-rule timeout to 3 seconds.

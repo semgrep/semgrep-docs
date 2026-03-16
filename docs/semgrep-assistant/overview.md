@@ -59,7 +59,7 @@ Semgrep Assistant can provide remediation advice or Suggested fixes for Semgrep 
 With Assistant enabled, pull request or merge request comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
 
 
-Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
+Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-multimodal/findings#view-details-about-a-specific-finding) page.
 
 
 :::info
@@ -75,7 +75,7 @@ Assistant customizes the code snippets it provides based on any previous feedbac
 
 **Suggested fix** is also available in: 
 - PR and MR comments so that you can review and verify Semgrep's generated fixes before applying them.
-- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-multimodal/findings#view-details-about-a-specific-finding).
 
 :::info
 If many new issues are found in a given scan, Assistant auto-triage and Suggested fix may not run on every issue.
@@ -97,7 +97,7 @@ Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
 
 Semgrep Assistant uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Assistant suggests should be ignored, and in the [finding's details](/semgrep-multimodal/findings#view-details-about-a-specific-finding).
 
 
 Assistant's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue directly without leaving their PR or MR.

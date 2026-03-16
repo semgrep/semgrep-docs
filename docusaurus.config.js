@@ -93,7 +93,7 @@ module.exports = {
           items: [
             {
               label: 'Semgrep Code',
-              to: 'https://semgrep.dev/products/semgrep-code/',
+              to: 'https://semgrep.dev/products/semgrep-multimodal/',
               target: '_blank'
             },
             {
@@ -277,9 +277,9 @@ module.exports = {
         redirects: [
           { from: "/writing-rules/pattern-logic", to: "/writing-rules/rule-syntax" },
           { from: "/writing-rules/index", to: "/writing-rules/overview" },
-          { from: "/semgrep-ci/managing-policy", to: "/semgrep-code/policies" },
-          { from: "/managing-policy", to: "/semgrep-code/policies" },
-          { from: "/semgrep-app/managing-policy", to: "/semgrep-code/policies" },
+          { from: "/semgrep-ci/managing-policy", to: "/semgrep-multimodal/policies" },
+          { from: "/managing-policy", to: "/semgrep-multimodal/policies" },
+          { from: "/semgrep-app/managing-policy", to: "/semgrep-multimodal/policies" },
           { from: "/integrations", to: "/semgrep-appsec-platform/notifications" },
           { from: "/notifications", to: "/semgrep-appsec-platform/notifications" },
           { from: "/experiments", to: "/writing-rules/experiments/introduction" },
@@ -318,25 +318,25 @@ module.exports = {
           /* MAR 24 2023 POST LAUNCH REDIRECTS */
 
           // Deepsemgrep
-          { from: "/deepsemgrep/"                         , to: "/semgrep-code/semgrep-pro-engine-intro" }     ,
-          { from: "/deepsemgrep/deepsemgrep-introduction" , to: "/semgrep-code/semgrep-pro-engine-intro" }     ,
-          { from: "/deepsemgrep/deepsemgrep-examples"     , to: "/semgrep-code/semgrep-pro-engine-examples" }  ,
-          { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-code/semgrep-pro-engine-data-flow" } ,
+          { from: "/deepsemgrep/"                         , to: "/semgrep-multimodal/semgrep-pro-engine-intro" }     ,
+          { from: "/deepsemgrep/deepsemgrep-introduction" , to: "/semgrep-multimodal/semgrep-pro-engine-intro" }     ,
+          { from: "/deepsemgrep/deepsemgrep-examples"     , to: "/semgrep-multimodal/semgrep-pro-engine-examples" }  ,
+          { from: "/deepsemgrep/semgrep-pro-data-flow"    , to: "/semgrep-multimodal/semgrep-pro-engine-data-flow" } ,
 
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-app" } ,
 
           // Semgrep Assistant
-          { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
+          { from: "/semgrep-multimodal/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
 
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-appsec-platform/notifications" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/deployment/core-deployment" }    ,
-          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/policies" }      ,
-          { from: "/semgrep-app/findings/"                           , to: "/semgrep-code/findings" }        ,
-          { from: "/semgrep-app/editor/"                             , to: "/semgrep-code/editor" }          ,
+          { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-multimodal/policies" }      ,
+          { from: "/semgrep-app/findings/"                           , to: "/semgrep-multimodal/findings" }        ,
+          { from: "/semgrep-app/editor/"                             , to: "/semgrep-multimodal/editor" }          ,
           { from: "/semgrep-app/notifications/"                      , to: "/semgrep-appsec-platform/notifications" }   ,
-          { from: "/semgrep-code/getting-started-with-semgrep-code/" , to: "/deployment/core-deployment" } ,
+          { from: "/semgrep-multimodal/getting-started-with-semgrep-code/" , to: "/deployment/core-deployment" } ,
 
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-appsec-platform/dashboard" }           ,
@@ -355,7 +355,7 @@ module.exports = {
           { from: "/semgrep-sc/triaging-and-remediating-vulnerabilities/" , to: "/semgrep-supply-chain/triage-and-remediation" },
 
           /* APR 27 2023  */
-          { from: "/semgrep-code/notifications/"            , to: "/semgrep-appsec-platform/notifications" }  ,
+          { from: "/semgrep-multimodal/notifications/"            , to: "/semgrep-appsec-platform/notifications" }  ,
           { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables" },
 
           /* MAY 12 2023  */
@@ -363,7 +363,7 @@ module.exports = {
           { from: "/extensions/"                                            , to: "/extensions/overview" },
 
           /* JULY 14 2023  */
-          { from: "/semgrep-code/rule-board/"                                            , to: "/semgrep-code/policies" },
+          { from: "/semgrep-multimodal/rule-board/"                                            , to: "/semgrep-multimodal/policies" },
 
           /* AUG 31 2023  */
           { from: "/kb/semgrep-cloud-platform/running-semgrep-on-windows/" , to: "/extensions/semgrep-vs-code" },
@@ -383,7 +383,7 @@ module.exports = {
           /* JAN 30 - FEB 20 2024  */
           { from: "/usage-limits/" , to: "/usage-and-billing/overview" },
           { from: "/upgrading/" , to: "/update" },
-          { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment" },
+          { from: "/semgrep-multimodal/getting-started/" , to: "/deployment/core-deployment" },
           { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment" },
           { from: "/semgrep-cloud-platform/scm/" , to: "/deployment/connect-scm" },
           { from: "/managing-findings/" , to: "/semgrep-ci/findings-ci" },
@@ -392,11 +392,11 @@ module.exports = {
           { from: "/semgrep-ci/overview/" , to: "/deployment/add-semgrep-to-ci" } ,
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/" , to: "/deployment/core-deployment" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/" , to: "/deployment/oss-deployment" } ,
-          { from: "/semgrep-code/demo-project" , to: "/deployment/core-deployment" },
+          { from: "/semgrep-multimodal/demo-project" , to: "/deployment/core-deployment" },
           { from: "/semgrep-ci/running-semgrep-ci-with-semgrep-app/" , to: "/deployment/core-deployment" } ,
           { from: "/semgrep-ci/running-semgrep-ci-without-semgrep-app/" , to: "/deployment/oss-deployment" } ,
           /* APR  23, 2024  */
-          { from: "/playground/" , to: "/semgrep-code/editor" },
+          { from: "/playground/" , to: "/semgrep-multimodal/editor" },
           { from: "/semgrep-cloud-platform/semgrep-api/" , to: "/semgrep-appsec-platform/semgrep-api" } ,
           /* APR 30, 2024 */
           { from: "/semgrep-cloud-platform/asana/" , to: "/semgrep-appsec-platform/jira" } ,
@@ -441,7 +441,7 @@ module.exports = {
           { from: "/kb/semgrep-cloud-platform/saml-stops-working" , to: "/kb/semgrep-appsec-platform/saml-stops-working" },
           { from: "/kb/semgrep-cloud-platform/sso-attribute-error" , to: "/kb/semgrep-appsec-platform/sso-attribute-error" },
           /* APR 28, 2025 */
-          { from: "/semgrep-code/supported-languages-python" , to: "/languages/python" },
+          { from: "/semgrep-multimodal/supported-languages-python" , to: "/languages/python" },
           { from: "/deployment/overview" , to: "/deployment/core-deployment" },
           /* JUL 8, 2025 */
           { from: "/kb/semgrep-appsec-platform/find-specific-findings" , to: "/kb/semgrep-appsec-platform/search-filter-sort-findings" },
@@ -455,21 +455,21 @@ module.exports = {
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
           { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" },
           /* MAR 16, 2026 */
-          { from: "/semgrep-code/triage-remediation/autofix" , to: "/semgrep-multimodal/triage-remediation/autofix" },
-          { from: "/semgrep-code/ai-detection-concepts" , to: "/semgrep-multimodal/ai-detection-concepts" },
-          { from: "/semgrep-code/editor" , to: "/semgrep-multimodal/editor" },
-          { from: "/semgrep-code/finding-details" , to: "/semgrep-multimodal/finding-details" },
-          { from: "/semgrep-code/findings" , to: "/semgrep-multimodal/findings" },
-          { from: "/semgrep-code/glossary" , to: "/semgrep-multimodal/glossary" },
-          { from: "/semgrep-code/java" , to: "/semgrep-multimodal/java" },
-          { from: "/semgrep-code/overview" , to: "/semgrep-multimodal/overview" },
-          { from: "/semgrep-code/policies" , to: "/semgrep-multimodal/policies" },
-          { from: "/semgrep-code/pro-rules" , to: "/semgrep-multimodal/pro-rules" },
-          { from: "/semgrep-code/remove-duplicates" , to: "/semgrep-multimodal/remove-duplicates" },
-          { from: "/semgrep-code/semgrep-pro-engine-data-flow" , to: "/semgrep-multimodal/semgrep-pro-engine-data-flow" },
-          { from: "/semgrep-code/semgrep-pro-engine-examples" , to: "/semgrep-multimodal/semgrep-pro-engine-examples" },
-          { from: "/semgrep-code/semgrep-pro-engine-intro" , to: "/semgrep-multimodal/semgrep-pro-engine-intro" },
-          { from: "/semgrep-code/triage-remediation" , to: "/semgrep-multimodal/triage-remediation" },
+          { from: "/semgrep-multimodal/triage-remediation/autofix" , to: "/semgrep-multimodal/triage-remediation/autofix" },
+          { from: "/semgrep-multimodal/ai-detection-concepts" , to: "/semgrep-multimodal/ai-detection-concepts" },
+          { from: "/semgrep-multimodal/editor" , to: "/semgrep-multimodal/editor" },
+          { from: "/semgrep-multimodal/finding-details" , to: "/semgrep-multimodal/finding-details" },
+          { from: "/semgrep-multimodal/findings" , to: "/semgrep-multimodal/findings" },
+          { from: "/semgrep-multimodal/glossary" , to: "/semgrep-multimodal/glossary" },
+          { from: "/semgrep-multimodal/java" , to: "/semgrep-multimodal/java" },
+          { from: "/semgrep-multimodal/overview" , to: "/semgrep-multimodal/overview" },
+          { from: "/semgrep-multimodal/policies" , to: "/semgrep-multimodal/policies" },
+          { from: "/semgrep-multimodal/pro-rules" , to: "/semgrep-multimodal/pro-rules" },
+          { from: "/semgrep-multimodal/remove-duplicates" , to: "/semgrep-multimodal/remove-duplicates" },
+          { from: "/semgrep-multimodal/semgrep-pro-engine-data-flow" , to: "/semgrep-multimodal/semgrep-pro-engine-data-flow" },
+          { from: "/semgrep-multimodal/semgrep-pro-engine-examples" , to: "/semgrep-multimodal/semgrep-pro-engine-examples" },
+          { from: "/semgrep-multimodal/semgrep-pro-engine-intro" , to: "/semgrep-multimodal/semgrep-pro-engine-intro" },
+          { from: "/semgrep-multimodal/triage-remediation" , to: "/semgrep-multimodal/triage-remediation" },
         ]
       }
     ],

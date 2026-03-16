@@ -167,7 +167,7 @@ end
 
 ### Added
 
-- Added a section on Semgrep Code's [deduplication behavior in the API](/semgrep-code/remove-duplicates) and expanded on deduplication behavior in Semgrep Cloud Platform.
+- Added a section on Semgrep Code's [deduplication behavior in the API](/semgrep-multimodal/remove-duplicates) and expanded on deduplication behavior in Semgrep Cloud Platform.
 - A new section has been added to guide you through [infrastructure-specific configuration when setting up Semgrep Cloud Platform](/semgrep-supply-chain/setup-infrastructure) for the first time.
 - Added section on how a future [change in a Semgrep Supply Chain rule affects scan behavior](/semgrep-supply-chain/getting-started/#schedule-scans).
 - Added a section describing how SSC's License compliance feature handles [packages with multiple licenses](/semgrep-supply-chain/license-compliance/#multiple-license-types).
@@ -182,4 +182,4 @@ end
 
 ### Removed
 
-- **Rule board documentation** has been removed. Refer to the [Policies](/semgrep-code/policies) documentation for information on rule management in Semgrep Cloud Platform.
+- **Rule board documentation** has been removed. Refer to the [Policies](/semgrep-multimodal/policies) documentation for information on rule management in Semgrep Cloud Platform.

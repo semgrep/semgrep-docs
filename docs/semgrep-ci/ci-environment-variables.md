@@ -139,7 +139,7 @@ export SEMGREP_TIMEOUT="20"
 
 ## Environment variables for creating hyperlinks in Semgrep AppSec Platform
 
-By default, Semgrep AppSec Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-code/findings) page.
+By default, Semgrep AppSec Platform autodetects values such as the name of your repository, which Semgrep uses to generate hyperlinks (URLs) to the specific repository code that generated the finding. These hyperlinks are in the [Findings](/docs/semgrep-multimodal/findings) page.
 
 Set any as needed or all of the following environment variables to troubleshoot and override autodetected CI environment values.
 
@@ -148,7 +148,7 @@ Set any as needed or all of the following environment variables to troubleshoot 
 Set `SEMGREP_BRANCH` to define the branch name for the scan, if the branch name is not auto-detected or you want to override it. The branch name is used in the following ways:
 
 * To track findings in the same branch over time
-* To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-code/findings) page)
+* To show in which branches a finding was identified (including links to the branch in the [Findings](/docs/semgrep-multimodal/findings) page)
 
 To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
@@ -176,7 +176,7 @@ Semgrep AppSec Platform normalizes the branch prefix `refs/heads/` for findings,
 
 ### `SEMGREP_COMMIT`
 
-Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
+Set `SEMGREP_COMMIT` to define the commit hash for the URL used to generate hyperlinks in the [Findings](/docs/semgrep-multimodal/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 
@@ -247,7 +247,7 @@ Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results a
 
 ### `SEMGREP_REPO_URL`
 
-Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-code/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
+Set `SEMGREP_REPO_URL` to define the repository URL used to generate hyperlinks in the [Findings](/docs/semgrep-multimodal/findings) page. To avoid hardcoding this value, check your CI provider's documentation for available variables that provide the correct values for every CI job.
 
 Examples:
 

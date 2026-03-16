@@ -13,7 +13,7 @@ Semgrep AppSec Platform provides you with an overview of the findings identified
 
 Learn more about the filters Semgrep offers using the following articles:
 
-- [Semgrep Code filters](/semgrep-code/findings#filter-findings)
+- [Semgrep Code filters](/semgrep-multimodal/findings#filter-findings)
 - [Supply Chain filters](/semgrep-supply-chain/findings#filter-findings)
 - [Secrets filters](/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic)
 

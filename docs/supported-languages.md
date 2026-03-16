@@ -16,7 +16,7 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 # Supported languages
 
-The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/docs/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). 
+The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/docs/semgrep-multimodal/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). 
 
 Languages are arranged by feature completeness from most to least. If applicable, click on the language name to learn more. 
 

@@ -50,7 +50,7 @@ Delete the rule from the folder containing your Semgrep rules.
 
 Optimizing rules can be a time-consuming process. Often, rules are not necessarily noisy, but lack additional analysis to detect true positives while ignoring false positives.
 
-[Semgrep Code](/semgrep-code/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep Community Edition (CE) can't find.
+[Semgrep Code](/semgrep-multimodal/overview/) provides cross-function (interprocedural) and cross-file (interfile) analyses. These analyses both reduce false positives and detect true positives that Semgrep Community Edition (CE) can't find.
 
 For some languages and frameworks, such as Java or the Python Django framework, Semgrep also provides advanced analyses that take into account the language's characteristics, framework-specific dataflows, and the like. These analyses are available by default once you've signed in to Semgrep.
 
@@ -89,14 +89,14 @@ To see the languages with Pro rules, go to [Supported languages](/supported-lang
 
 <DefCrossFunction />
 
- To see cross-function analysis in action, [run the interactive example](/semgrep-code/semgrep-pro-engine-intro#cross-function-example).
+ To see cross-function analysis in action, [run the interactive example](/semgrep-multimodal/semgrep-pro-engine-intro#cross-function-example).
 
 #### Language-specific improvements
 
 Languages such as Java and frameworks such as Django, FastAPI, and Flask have specific improvements that take into account language features and implicit dataflows. To learn more:
 
 - [Supported languages > Python](/languages/python)
-- [Semantic detection in Java](/semgrep-code/java)
+- [Semantic detection in Java](/semgrep-multimodal/java)
 
 ### Enable cross-file analysis
 

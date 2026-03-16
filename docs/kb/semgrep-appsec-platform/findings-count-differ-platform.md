@@ -20,7 +20,7 @@ Semgrep AppSec Platform computes the findings count displayed on the **Projects*
 
 The product-specific **Findings** pages display findings as follows:
 
-- [Semgrep Code](/semgrep-code/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
+- [Semgrep Code](/semgrep-multimodal/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
 - [Semgrep Supply Chain](/semgrep-supply-chain/findings): displays vulnerability findings from the primary branches of all repositories. Shows **Open** findings that are **Reachable** or **Needs review** by default.
 - [Semgrep Secrets](/semgrep-secrets/triage-remediation): displays the instance of a finding from the most recent branch scanned. Shows **Open** that are not **Confirmed invalid** by default.
 

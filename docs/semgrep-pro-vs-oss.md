@@ -224,7 +224,7 @@ Semgrep CE does not provide any metrics that may inform you of potential perform
 
 ##### Semgrep AppSec Platform
 
-The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
+The [Policies](/semgrep-multimodal/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
 
 You can test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
 
@@ -328,8 +328,8 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 
 - [35+ supported languages](/semgrep-ce-languages#semgrep-code-and-community-edition)
 - [<i class="fas fa-external-link fa-xs"></i> Pro (professionally written and maintained)](https://semgrep.dev/r?visib=Pro+%28Login%29) and Community rules
-- Framework-specific and language-specific analysis—see [Java examples](/semgrep-code/java) and [Python frameworks coverage](/languages/python)
-- [Code search](/semgrep-code/editor#code-search-beta)
+- Framework-specific and language-specific analysis—see [Java examples](/semgrep-multimodal/java) and [Python frameworks coverage](/languages/python)
+- [Code search](/semgrep-multimodal/editor#code-search-beta)
 
 ###### Semgrep Supply Chain (SCA)
 
@@ -360,7 +360,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 
 ##### Semgrep AppSec Platform
 
-- Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
+- Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-multimodal/findings) for more information.
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
 - AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
@@ -389,11 +389,11 @@ Minimal customization options to tune your scans:
 
 ##### Semgrep AppSec Platform
 
-- Customize SAST and Secrets scans through rule selection in [policies](/semgrep-code/triage-remediation)
-- Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
+- Customize SAST and Secrets scans through rule selection in [policies](/semgrep-multimodal/triage-remediation)
+- Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-multimodal/editor)
 - Store rules in Semgrep AppSec Platform and deploy to your organization
 - Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
-- Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)
+- Semgrep Code: [Code search](/semgrep-multimodal/editor#code-search-beta)
 - Semgrep Supply Chain:
     - [License compliance](/semgrep-supply-chain/license-compliance)
     - [Dependency search](/semgrep-supply-chain/dependency-search)

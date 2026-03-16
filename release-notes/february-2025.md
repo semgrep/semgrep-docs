@@ -93,13 +93,13 @@ The following updates were made to Semgrep in February 2025.
 - Added the following new documents, articles, and sections:
     - [View Semgrep findings in Wiz's Security Graph](/semgrep-appsec-platform/wiz).
     - [JavaScript frameworks and analyses](/languages/javascript).
-    - [Triage findings through PR comments with repositories hosted by Azure DevOps and Bitbucket Cloud](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments).
+    - [Triage findings through PR comments with repositories hosted by Azure DevOps and Bitbucket Cloud](/semgrep-multimodal/triage-remediation#triage-findings-through-pr-and-mr-comments).
 
 ### Changed
 
 - Major updates to the following documents and sections:
     - [Add support for a new language](/contributing/adding-a-language).
-    - [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
+    - [Semgrep Registry](/semgrep-multimodal/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
     - [Semgrep Supply Chain Policies](/semgrep-supply-chain/policies).
 - Minor clarifications involving:
   - Network Broker usage.

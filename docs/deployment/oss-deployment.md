@@ -227,4 +227,4 @@ To migrate to Semgrep AppSec Platform:
 | [SCA (software composition analysis) scans](/semgrep-supply-chain/overview)         |  ✔️        | --       |
 | [Secrets  scans](/semgrep-secrets/conceptual-overview)         |  ✔️       | --        |
 | [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments)         |  ✔️        | --       |
-| [Finding status tracked over lifetime](/semgrep-code/findings)         |  ✔️        | --       |
+| [Finding status tracked over lifetime](/semgrep-multimodal/findings)         |  ✔️        | --       |

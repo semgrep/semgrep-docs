@@ -57,7 +57,7 @@ This section defines the Policies page filters:
 | Category  | Filter by the type of security issue or vulnerability that the rule detects.  | <ul><li>Dangerous method or function</li><li>SQL injection</li><li>Active debug code</li></ul> |
 | Severities  | The higher the severity, the more critical the issues that a rule detects.      |  <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Filter by the confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
-| Source  | Filter by the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>. |
+| Source  | Filter by the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-multimodal/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>. |
 | Available rule upgrades | Filter for rules where there exist improved versions to those using paid Semgrep products. |
 | Ruleset  | Filter by the name of an existing ruleset. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
 | Language| Filter by programming language | <ul><li>Python</li><li>JavaScipt</li><li>Ruby</li></ul>  |
@@ -79,7 +79,7 @@ This section defines the columns of the rule entries in the Policies page:
 | Fix rate  | The percentage of findings that are fixed through changes to the code.  | n/a   |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul> |
-| Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
+| Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-multimodal/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
 | Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul> |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 
@@ -96,7 +96,7 @@ To add rules, follow these steps:
 
 ### Add custom rules to your Policies
 
-To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-code/editor#add-a-rule-to-the-policies-page).
+To add custom rules, use the Semgrep Editor. See [<i class="fa-regular fa-file-lines"></i> Setting code standards with the Policies page](/semgrep-multimodal/editor#add-a-rule-to-the-policies-page).
 
 ### Add rulesets to your Policies from the Registry
 
@@ -121,13 +121,13 @@ If Semgrep adds rules to the ruleset in the future, they will automatically be a
 
 ## Disable rules
 
-See [Triage and remediate findings](/semgrep-code/triage-remediation#turn-off-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
+See [Triage and remediate findings](/semgrep-multimodal/triage-remediation#turn-off-a-ruleset-or-a-rule) for information on how to disable a rule or a ruleset.
 
 ## Rule modes
 
 Semgrep enables you to choose a **workflow action** based on the presence of a finding. Workflow actions include:
 
-* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
+* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline. This action applies to both full scans and [diff-aware scans](/semgrep-multimodal/glossary#diff-aware-scan).
 * Leaving a PR or MR comment.
 * Notifying select channels, such as private Slack channels or webhooks.
 

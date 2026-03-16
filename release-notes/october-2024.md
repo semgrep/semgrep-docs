@@ -46,7 +46,7 @@ _**Figure**. Previous and current SCM card UI._
 ### Added
 
 - Updated the C# parser to support all versions of the language up to 13.0 (.NET 9).
-- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
+- Developers can now triage findings by replying to a GitHub PR comment from Semgrep, without the need to log in to Semgrep Cloud Platform. See [Triage findings through comments](/semgrep-multimodal/triage-remediation#triage-findings-through-pr-and-mr-comments) for more information.
 - Added an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to [<i class="fas fa-external-link fa-xs"></i> Bulk triage API documentation](https://semgrep.dev/api/v1/docs/#tag/TriageService).
 - Taint analysis now supports tracking sinks through callbacks for all applicable Semgrep-supported languages. For example:
   ```javascript

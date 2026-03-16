@@ -58,7 +58,7 @@ The code is kept here for easy maintenance.
         </CardBody>
     </div>
   </Card>
-  <Card className={'card-50'} link='/semgrep-code/triage-remediation'>
+  <Card className={'card-50'} link='/semgrep-multimodal/triage-remediation'>
     <CardImage cardImageUrl='/img/icon-triage.svg' />
     <div class="card__copy">
     <CardHeader>Triage and remediate</CardHeader>

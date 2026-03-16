@@ -32,7 +32,7 @@ Semgrep may help address HIPAA Security Rule requirements and HITRUST CSF v11 co
 
 - **HIPAA Administrative Safeguard 164.308(a)(1)(ii)(A) and HITRUST control 03.a (risk management):** [Jira integration](https://semgrep.dev/docs/semgrep-appsec-platform/jira) creates documented remediation workflows with timestamps, assignments, priority levels, and resolution timelines. This provides evidence that security findings are systematically identified, tracked, prioritized, and resolved according to risk management procedures.
 
-- **HIPAA Technical Safeguard 164.312(c)(1) and HITRUST control 01.o (integrity):** SAST rules detect code patterns that could allow data tampering, unauthorized modification of PHI records, or integrity violations. [Custom rules](https://semgrep.dev/docs/semgrep-code/editor) can enforce data validation requirements and detect missing integrity checks in code that modifies PHI.
+- **HIPAA Technical Safeguard 164.312(c)(1) and HITRUST control 01.o (integrity):** SAST rules detect code patterns that could allow data tampering, unauthorized modification of PHI records, or integrity violations. [Custom rules](https://semgrep.dev/docs/semgrep-multimodal/editor) can enforce data validation requirements and detect missing integrity checks in code that modifies PHI.
 
 - **HIPAA Technical Safeguard 164.312(e)(1) and HITRUST control 09.n (transmission security):** Custom SAST rules enforce TLS requirements for PHI transmission, detect insecure HTTP usage in healthcare applications, and flag missing encryption for data in transit. Rules can verify that all PHI transmission uses appropriate cryptographic protocols.
 

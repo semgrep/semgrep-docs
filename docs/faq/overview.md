@@ -90,7 +90,7 @@ See the following rule for a more complex example illustrating Semgrep features:
 
 ### Does Semgrep support all versions of a language?
 
-See [Support for all versions of a programming language](/kb/semgrep-code/support-for-language-versions).
+See [Support for all versions of a programming language](/kb/semgrep-multimodal/support-for-language-versions).
 
 
 ## Comparisons
@@ -198,11 +198,11 @@ Semgrep makes network requests in accordance with the data storage previously me
 
 ### How do I configure Semgrep for different projects?
 
-Semgrep AppSec Platform provides centralized policy management. See the [Policies documentation](/semgrep-code/policies) for more details.
+Semgrep AppSec Platform provides centralized policy management. See the [Policies documentation](/semgrep-multimodal/policies) for more details.
 
 ### What is a policy?
 
-A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-code/policies) for more details.
+A policy is a simple collection of rules and a definition of what to do with rule results: fail the Semgrep CI run and/or send non-blocking notifications to third-party services like Slack. Please see the [Policies documentation](/semgrep-multimodal/policies) for more details.
 
 ## Monitoring
 

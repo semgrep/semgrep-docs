@@ -10,7 +10,7 @@ tags:
 
 # Analyze Semgrep Code findings with Semgrep Assistant
 
-Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
+Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-multimodal/findings) to trigger all Assistant functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
 
 
 ## Analyze your findings with Assistant
@@ -48,7 +48,7 @@ If you need assistance with bulk analysis requests or have questions about backf
 
 ## View Assistant recommendations
 
-You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
+You can [view all of Semgrep Assistant's recommendations](/semgrep-multimodal/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
 
 ## Provide feedback on Assistant recommendations
 

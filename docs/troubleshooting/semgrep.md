@@ -15,7 +15,7 @@ tags:
 
 This can happen when Semgrep crashes, usually as a result of memory exhaustion. `-11` and `-9` are the POSIX signals raised to cause the crash.
 
-Review troubleshooting steps for memory exhaustion at [Semgrep scan troubleshooting: Memory usage issues](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/#memory-usage-issues-oom-errors).
+Review troubleshooting steps for memory exhaustion at [Semgrep scan troubleshooting: Memory usage issues](/docs/kb/semgrep-multimodal/semgrep-scan-troubleshooting/#memory-usage-issues-oom-errors).
 
 ## Semgrep is too slow
 
@@ -23,7 +23,7 @@ Semgrep records runtimes for each file and rule. This information is displayed w
 
 ### I want Semgrep to run faster
 
-Review troubleshooting steps for slow scans at [Semgrep scan troubleshooting: Slow scans](/docs/kb/semgrep-code/semgrep-scan-troubleshooting/#slow-scans).
+Review troubleshooting steps for slow scans at [Semgrep scan troubleshooting: Slow scans](/docs/kb/semgrep-multimodal/semgrep-scan-troubleshooting/#slow-scans).
 
 ### I am a contributor who wants to improve Semgrep's engine
 

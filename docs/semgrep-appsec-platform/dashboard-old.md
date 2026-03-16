@@ -58,7 +58,7 @@ To change the projects filter:
 
 The **Most findings** widget displays open findings, high severities, and fix rates per-project. Through this view, you can see a specific number of findings in given projects. The columns are arranged in descending order, from the project with the greatest amount of findings to the least.
 
-To view the project’s findings, click the project’s name. This takes you to the [Findings page](/semgrep-code/findings), where you can filter, sort, and triage findings.
+To view the project’s findings, click the project’s name. This takes you to the [Findings page](/semgrep-multimodal/findings), where you can filter, sort, and triage findings.
 
 ## Assessing rule performance
 
@@ -98,7 +98,7 @@ Filters mentioned in previous sections [Filtering findings by time](#filtering-f
 
 * [Generate an SBOM](/semgrep-supply-chain/sbom)
 * [Semgrep Registry](https://semgrep.dev/explore)
-* [Findings](/semgrep-code/findings)
+* [Findings](/semgrep-multimodal/findings)
 
 ## Additional references
 

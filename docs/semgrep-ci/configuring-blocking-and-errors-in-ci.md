@@ -22,7 +22,7 @@ If you do **not** use Semgrep AppSec Platform with Semgrep in CI or Semgrep Mana
 
 ## Semgrep's default behavior regarding blocking findings and errors
 
-When Semgrep identifies one or more blocking findings, it returns exit code `1`. You can use this result to set up additional checks to enforce a block in your CI/CD pipeline, such as not allowing the merge of the PR/MR. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
+When Semgrep identifies one or more blocking findings, it returns exit code `1`. You can use this result to set up additional checks to enforce a block in your CI/CD pipeline, such as not allowing the merge of the PR/MR. This action applies to both full scans and [diff-aware scans](/semgrep-multimodal/glossary#diff-aware-scan).
 
 The process to enforce a block on a PR or MR after Semgrep exits with error code `1` is dependent on your CI provider. Review your CI provider's documentation for further information.
 

@@ -130,14 +130,14 @@ viewing their finding details pages.
 * Added [Privacy and legal considerations](/semgrep-assistant/privacy) information for Semgrep Assistant.
 * New knowledge base articles:
   * [Fix pattern parse errors when running rules](/docs/kb/rules/pattern-parse-error)
-  * [How to scan a large monorepo](/kb/semgrep-code/scan-engine-kill)
+  * [How to scan a large monorepo](/kb/semgrep-multimodal/scan-engine-kill)
   * [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts)
   * [SSO Error: Signature validation failed. SAML Response rejected](/docs/kb/semgrep-appsec-platform/saml-bad-signature)
-  * [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/docs/kb/semgrep-code/scan-engine-kill)
+  * [Troubleshooting "You are seeing this because the engine was killed" on monorepos](/docs/kb/semgrep-multimodal/scan-engine-kill)
 
 ### Changed
 
-* Updated overview articles for [Semgrep Code](/semgrep-code/overview) and
+* Updated overview articles for [Semgrep Code](/semgrep-multimodal/overview) and
   [Semgrep Supply Chain](/docs/semgrep-supply-chain/overview).
 * Updated documentation on setting up pull request or merge request comments for
   [GitHub](/docs/semgrep-appsec-platform/github-pr-comments),

@@ -16,7 +16,7 @@ import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
 
 # Write rules using Semgrep Editor
 
-**Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-code/policies) to enforce code standards and increase code security.
+**Semgrep Editor** allows you to write rules, verify their performance through tests, and add them to your organization’s [Policies page](/semgrep-multimodal/policies) to enforce code standards and increase code security.
 
 The Editor is free to use on all subscription tiers.
 
@@ -215,9 +215,9 @@ To rename a rule, enter the new name in the YAML editor’s `id` field. The, sav
 
 ## Add a rule to the Policies page
 
-The **[Policies](/semgrep-code/policies/)** page displays rules that Semgrep Cloud Platform uses to scan your project's code. Rules added to the **Policies** page become part of every Semgrep scan you run.
+The **[Policies](/semgrep-multimodal/policies/)** page displays rules that Semgrep Cloud Platform uses to scan your project's code. Rules added to the **Policies** page become part of every Semgrep scan you run.
 
-When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
+When adding a rule to your **Policies** page, you must also set the **rule mode** that determines what actions Semgrep performs when that rule generates a finding. See [Policies](/semgrep-multimodal/policies/#block-a-pr-or-mr-through-rule-modes) for more information on each rule mode.
 
 To add a rule to the **Policies** page:
 

@@ -137,7 +137,7 @@ The following updates were made to Semgrep in November 2024.
 ### Added
 
 - Added the following new documents, articles, and sections:
-  - A [section about **time period filters**](/semgrep-code/findings#time-period-and-triage), which you can apply to narrow down findings in the **Code**, **Supply Chain**, and **Secrets** pages. 
+  - A [section about **time period filters**](/semgrep-multimodal/findings#time-period-and-triage), which you can apply to narrow down findings in the **Code**, **Supply Chain**, and **Secrets** pages. 
   - [How to exclude a Semgrep Supply Chain rule](/kb/semgrep-supply-chain/exclude-rule)
   - [How to set up SMS with GitLab](/deployment/managed-scanning/gitlab)
   - [Why do new rules keep appearing in Comment or Block mode?](/kb/rules/ruleset-default-mode)
@@ -149,7 +149,7 @@ The following updates were made to Semgrep in November 2024.
 
 - Updated the following documents and sections:
   - [Support documentation](/support)
-  - [How findings are distinguishes new and duplicate findings](/semgrep-code/remove-duplicates)
+  - [How findings are distinguishes new and duplicate findings](/semgrep-multimodal/remove-duplicates)
   - [Troubleshooting if a scan "never finished"](/troubleshooting/semgrep-app)
 - Clarified default behavior and options for how Semgrep handles exit codes.
 - Clarified the relationship between ingress and egress IP addresses and the Semgrep Network Broker.

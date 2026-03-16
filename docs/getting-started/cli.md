@@ -33,7 +33,7 @@ Semgrep scans triggered using `semgrep ci` fail if you aren't signed in to your 
 
 ## Turn on cross-file analysis
 
-To turn on [cross-file analysis](/semgrep-code/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
+To turn on [cross-file analysis](/semgrep-multimodal/semgrep-pro-engine-intro), which allows you to detect vulnerabilities across files and folders:
 
 1. In Semgrep AppSec Platform, go to [Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code).
 2. Click the **Cross-file analysis** <i class="fa-solid fa-toggle-large-on"></i> toggle to turn this feature on.
@@ -161,7 +161,7 @@ You can set the number of subprocesses Semgrep uses to run checks in parallel:
 semgrep scan -j NUMBER_OF_SUBPROCESSES
 ```
 
-By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system, but `-j = 1` if you're passing in `--pro`. For additional information, see [Parallelization](/kb/semgrep-code/scan-engine-kill).
+By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system, but `-j = 1` if you're passing in `--pro`. For additional information, see [Parallelization](/kb/semgrep-multimodal/scan-engine-kill).
 
 ## Set log levels
 
@@ -186,7 +186,7 @@ semgrep ci --debug
 
 The CLI commands `semgrep ci` and `semgrep scan` finish with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings:
 
-* [Configure blocking rules](/semgrep-code/policies/#block-a-pr-or-mr-through-rule-modes)
+* [Configure blocking rules](/semgrep-multimodal/policies/#block-a-pr-or-mr-through-rule-modes)
 * Pass in the `--error` flag when running `semgrep scan`.
 
 When you run `semgrep ci`, you can pass in the `--no-suppress-errors` if you don't want [internal errors suppressed](/cli-reference/#exit-codes).

@@ -161,7 +161,7 @@ If you review the scans that are not generating comments and find that they are 
 
 ### Code: The rule is in Comment or Block mode
 
-To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
+To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-multimodal/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
 ### Secrets: The rule is in Comment or Block mode, and validation settings match
 
@@ -173,7 +173,7 @@ Supply Chain provides flexible policy configuration based on a variety of criter
 
 ## Is this the first time this finding has been identified?
 
-PR or MR comments are generated when a finding is new. If a finding was seen in a previous scan, it is [not new](/semgrep-code/remove-duplicates) and a comment is not generated.
+PR or MR comments are generated when a finding is new. If a finding was seen in a previous scan, it is [not new](/semgrep-multimodal/remove-duplicates) and a comment is not generated.
 
 This prevents repeated comments on findings that have already notified developers.
 

@@ -28,7 +28,7 @@ When running Semgrep in CI, if the triggering event is a pull request or merge r
 
 ## Rule configuration
 
-If you use Semgrep with Semgrep AppSec Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/docs/semgrep-code/policies) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
+If you use Semgrep with Semgrep AppSec Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/docs/semgrep-multimodal/policies) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
 
 Findings on rules in the Blocking policy cause the scan to finish with exit code 1. See also [Blocking findings and errors](#blocking-findings-and-errors).
 
@@ -46,9 +46,9 @@ would give similar results to `semgrep ci`.
 
 When using `semgrep ci` with Semgrep AppSec Platform, you can configure whether the scan uses cross-file analysis in [Settings](https://semgrep.dev/orgs/-/settings/general/code). If you enable cross-file analysis, Semgrep performs cross-file and cross-function analysis for [supported languages](/supported-languages#language-maturity-summary).
 
-If cross-file analysis is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-code/pro-rules) are used, but they are run using cross-function analysis within single files.
+If cross-file analysis is not enabled in Semgrep AppSec Platform, [Pro rules](/docs/semgrep-multimodal/pro-rules) are used, but they are run using cross-function analysis within single files.
 
-To perform a CLI scan using cross-file analysis, ensure you've run `semgrep install-semgrep-pro` to [install the additional semgrep binary](/semgrep-code/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
+To perform a CLI scan using cross-file analysis, ensure you've run `semgrep install-semgrep-pro` to [install the additional semgrep binary](/semgrep-multimodal/semgrep-pro-engine-intro/#run-cross-file-analysis-in-the-cli), and include `--pro` in your command:
 
 ```bash
 semgrep --config auto --pro
