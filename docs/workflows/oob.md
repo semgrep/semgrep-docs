@@ -1,6 +1,6 @@
 ---
 slug: oob
-title: Semgrep Workflows - Default
+title: End-to-end workflow
 hide_title: true
 displayed_sidebar: scanSidebar
 description: Learn how the default Semgrep Workflow can help you detect, triage, and fix security vulnerabilities by combining the power of SAST and AI.
@@ -11,9 +11,7 @@ tags:
 
 # Semgrep Workflows - Default
 
-This document explains how Semgrep's built-in, end-to-end workflows allow you detect, triage, and fix security vulnerabilities and logic issues.
-
-Workflows are comprised of individual step defined using Python. Each step consists of tooling, such as Semgrep Multimodal, Semgrep Supply Chain, and Semgrep Secrets, as well as LLM agents such as Anthropic's Claude and ChatGPT. Once defined, Semgrep Managed Scans orchestrates the workflow when appropriate.
+This document explains how Semgrep's built-in, end-to-end, default workflow allows you detect, triage, and fix security vulnerabilities and logic issues.
 
 ## 1. Detect security vulnerabilities
 
@@ -40,4 +38,4 @@ Supply Chain also offers similar functionality, with the addition upgrade guidan
 
 ## 4. Customize your security scans
 
-Because no two organizations have the same security requirements, Semgrep offers an agent SDK that you can use to create fully custom workflows. Contact your Semgrep Sales Engineer for further information.
+Because no two organizations have the same security requirements, Semgrep offers an agent SDK that you can use to create custom workflows. [<i class="fa-regular fa-envelope"></i> Contact Semgrep](mailto:sales@semgrep.com) for further information.
