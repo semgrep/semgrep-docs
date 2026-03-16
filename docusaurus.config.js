@@ -93,7 +93,7 @@ module.exports = {
           items: [
             {
               label: 'Semgrep Code',
-              to: 'https://semgrep.dev/products/semgrep-multimodal/',
+              to: 'https://semgrep.dev/products/semgrep-code/',
               target: '_blank'
             },
             {

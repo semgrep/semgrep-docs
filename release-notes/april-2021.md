@@ -14,7 +14,7 @@ date: 2021-04-30T10:00
 The following updates were made to Semgrep in April 2021.
 
 <!-- truncate -->
-
+<!-- markdown-link-check-disable -->
 ## Version 0.49.0
 
 ### Additions

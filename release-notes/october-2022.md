@@ -17,6 +17,8 @@ title: October 2022
 The following updates were made to Semgrep in October 2022.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
+
 ## Semgrep Supply Chain
 
 Semgrep, Inc now offers a new product: Semgrep Supply Chain. Semgrep Supply Chain is a high-signal dependency scanner that detects reachable vulnerabilities in open source, third-party libraries in your code. Learn more about [Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain).

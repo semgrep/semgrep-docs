@@ -17,6 +17,7 @@ date: 2023-11-30T10:00
 The following updates were made to Semgrep in November 2023.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 :::tip
 - **Semgrep Pro Engine** is now generally available (GA). Team tier users and above can use the Pro Engine to perform **cross-file (interfile)** and **cross-function (intrafile)** analyses. To enable Semgrep Pro Engine:

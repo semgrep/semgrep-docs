@@ -21,7 +21,7 @@ _**Figure**. Detailed information for a finding sent by Semgrep to Wiz._
 
 ## Prerequisites
 
-This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-multimodal/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
+This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
 
 To send Semgrep Code findings to Wiz:
 

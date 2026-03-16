@@ -17,6 +17,7 @@ title: November 2021
 The following updates were made to Semgrep in November 2021.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 ## Version 0.75.0
 

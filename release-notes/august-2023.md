@@ -16,6 +16,7 @@ date: 2023-07-30T10:00
 The following updates were made to Semgrep in August 2023.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 ## Semgrep OSS Engine
 

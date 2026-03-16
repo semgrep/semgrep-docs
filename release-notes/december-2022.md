@@ -17,6 +17,7 @@ title: December 2022
 The following updates were made to Semgrep in December 2022.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 ## Semgrep Supply Chain
 

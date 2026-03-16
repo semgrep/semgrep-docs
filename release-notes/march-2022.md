@@ -17,6 +17,7 @@ title: March 2022
 The following updates were made to Semgrep in March 2022.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 ## Version 0.86.5
 

@@ -17,6 +17,7 @@ title: August 2021
 The following updates were made to Semgrep in August 2021.
 
 <!-- truncate -->
+<!-- markdown-link-check-disable -->
 
 ## Version 0.63.0
 
