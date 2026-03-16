@@ -330,13 +330,8 @@ module.exports = {
                   items: [
                     {
                       type: 'doc',
-                      id: 'semgrep-code/ai-detection-concepts',
-                      label: 'Overview'
-                    },
-                    {
-                      type: 'doc',
                       id: 'deployment/ai-powered-detection',
-                      label: 'How-to guide'
+                      label: 'Scan with AI'
                     }
                   ]
                 },
