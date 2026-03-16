@@ -161,11 +161,11 @@ If you review the scans that are not generating comments and find that they are 
 
 ### Code: The rule is in Comment or Block mode
 
-To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-multimodal/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
+To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](/semgrep-multimodal/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
 ### Secrets: The rule is in Comment or Block mode, and validation settings match
 
-For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block. The secret must also be valid, unless you have customized your validation state policy. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
+For Secrets, the rule's [policy mode](/semgrep-secrets/policies#rule-modes) must be Comment or Block. The secret must also be valid, unless you have customized your validation state policy. See [Validation state policies](/semgrep-secrets/policies#validation-state-policies) for more information.
 
 ### Supply Chain: The finding meets your criteria for commenting or blocking
 

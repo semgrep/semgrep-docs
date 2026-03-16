@@ -23,7 +23,7 @@ The following updates were made to Semgrep in February 2025.
 
 ### Changed
 
-- The Semgrep AppSec Platform-specific metadata fields `semgrep.dev:` and `semgrep.policy:` are now filtered from the JSON output if you aren't signed into your Semgrep account. See [Semgrep JSON and SARIF fields](https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif#json) for more information.
+- The Semgrep AppSec Platform-specific metadata fields `semgrep.dev:` and `semgrep.policy:` are now filtered from the JSON output if you aren't signed into your Semgrep account. See [Semgrep JSON and SARIF fields](/semgrep-appsec-platform/json-and-sarif#json) for more information.
 - The Semgrep Docker image has been updated to use Python 3.12 and OCaml 5.2.1.
 - **CLI**: The output generated from running `semgrep ci --help` no longer includes information about experimental features and flags.
 - **Jira**: Jira tickets for Supply Chain findings now display recommended versions of packages in the description.

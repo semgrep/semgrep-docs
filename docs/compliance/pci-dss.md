@@ -23,11 +23,11 @@ Cardholder data should never exist in code repositories. Use designated test car
 
 Semgrep helps address PCI DSS requirements:
 
-- **Requirement 6.2 (ensure all systems are protected from known vulnerabilities):** [SAST scanning](https://semgrep.dev/docs/semgrep-multimodal/overview) detects injection flaws, broken authentication, and insecure configurations that could expose cardholder data. [Audit logs](https://semgrep.dev/docs/semgrep-multimodal/findings) provide documented evidence of vulnerability detection and remediation timelines. QSAs require quarterly validation, and Semgrep provides continuous evidence rather than point-in-time snapshots.
+- **Requirement 6.2 (ensure all systems are protected from known vulnerabilities):** [SAST scanning](/semgrep-multimodal/overview) detects injection flaws, broken authentication, and insecure configurations that could expose cardholder data. [Audit logs](/semgrep-multimodal/findings) provide documented evidence of vulnerability detection and remediation timelines. QSAs require quarterly validation, and Semgrep provides continuous evidence rather than point-in-time snapshots.
 
-- **Requirement 6.3.1 (removal of custom application accounts, user IDs, and passwords before applications become active):** [Secrets detection](https://semgrep.dev/docs/semgrep-secrets/conceptual-overview) helps prevent hardcoded credentials that provide access to payment systems from reaching production.
+- **Requirement 6.3.1 (removal of custom application accounts, user IDs, and passwords before applications become active):** [Secrets detection](/semgrep-secrets/conceptual-overview) helps prevent hardcoded credentials that provide access to payment systems from reaching production.
 
-- **Requirement 6.3.2 (secure coding practices):** QSAs expect to see evidence of vulnerability scanning, such as SAST, in the development process. When properly configured with CI/CD systems, [policy enforcement](https://semgrep.dev/docs/semgrep-multimodal/policies) can help block risky code at the pull request level, creating a preventive control. Developers with appropriate permissions can override blocks when necessary. Every policy violation is documented for auditors. For configuration help, please contact [Semgrep](https://semgrep.dev/docs/support/).
+- **Requirement 6.3.2 (secure coding practices):** QSAs expect to see evidence of vulnerability scanning, such as SAST, in the development process. When properly configured with CI/CD systems, [policy enforcement](/semgrep-multimodal/policies) can help block risky code at the pull request level, creating a preventive control. Developers with appropriate permissions can override blocks when necessary. Every policy violation is documented for auditors. For configuration help, please contact [Semgrep](/support/).
 
 ### Deployment guidance
 

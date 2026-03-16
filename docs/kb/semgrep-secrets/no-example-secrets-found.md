@@ -18,4 +18,4 @@ AWS_SECRET_ACCESS_KEY = "AKIA000EXAMPLE83A0I4"
 
 Semgrep does not flag this line, because the key contains the string `EXAMPLE` and that's recognized as being a placeholder rather than a valid AWS access key.
 
-If you'd like to flag this type of usage, you can consider [writing a custom Secrets rule](https://semgrep.dev/docs/semgrep-secrets/rules), or [reach out to support](/docs/support) to discuss your question further with the team.
+If you'd like to flag this type of usage, you can consider [writing a custom Secrets rule](/semgrep-secrets/rules), or [reach out to support](/docs/support) to discuss your question further with the team.
