@@ -3,7 +3,7 @@ description: You can approximate this behavior by matching an entire file, but e
 tags:
   - Rules
   - Semgrep Registry
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 # Match the absence of something in a file

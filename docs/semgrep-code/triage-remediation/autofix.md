@@ -1,16 +1,16 @@
 ---
 title: Autofix (beta)
-description: Use Semgrep Autofix to automatically generate a fix PR for Semgrep Code findings.
+description: Use Semgrep Autofix to automatically generate a fix PR for Semgrep Multimodal findings.
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep AppSec Platform
 ---
 
 import GithubAppReadWritePermissions from "/src/components/procedure/_github-app-read-write-permissions.mdx"
 
-# Autofix for Semgrep Code (beta)
+# Autofix for Semgrep Multimodal (beta)
 
-Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Code findings. 
+Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Multimodal findings. 
 
 Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
 
@@ -28,8 +28,8 @@ To use Autofix, you must meet the following requirements:
 
 * [Enable Semgrep Assistant](/semgrep-assistant/getting-started).  
 * Accept AWS Bedrock or Anthropic's Claude models.  
-  * During beta, Semgrep Code does not respect AI model selection.
-* Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  
+  * During beta, Semgrep Multimodal does not respect AI model selection.
+* Have at least one GitHub Cloud repository with new or existing Semgrep Multimodal findings.  
 * Ensure the Semgrep private GitHub App is installed.
   - The app is installed when you [add GitHub repositories to Semgrep Managed Scans](https://semgrep.dev/docs/deployment/managed-scanning/github#permissions).
   - Verify that the app is connected by navigating to **[Semgrep AppSec Platform → Settings → Source code managers](https://semgrep.dev/orgs/-/settings/source-code)**.

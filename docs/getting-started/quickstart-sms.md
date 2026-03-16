@@ -163,7 +163,7 @@ Once a scan has finished, you can view your findings on the following Semgrep Ap
 - [<i class="fas fa-external-link fa-xs"></i>  Code](https://semgrep.dev/orgs/-/findings?tab=open&primary=true) for SAST findings
 - [<i class="fas fa-external-link fa-xs"></i> Secrets](https://semgrep.dev/orgs/-/secrets?tab=open&validation_state=confirmed_valid,validation_error,no_validator) for secrets findings
 - [<i class="fas fa-external-link fa-xs"></i> Supply Chain](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open) for SCA findings
-- Add [<i class="fas fa-external-link fa-xs"></i> AI-powered detection](/docs/deployment/add-ai-to-scans) to your Semgrep Code scans
+- Add [<i class="fas fa-external-link fa-xs"></i> AI-powered detection](/docs/deployment/add-ai-to-scans) to your Semgrep Multimodal scans
 
 
 See [Semgrep Managed Scans](/deployment/managed-scanning/overview) to learn more about how Semgrep manages your scans.

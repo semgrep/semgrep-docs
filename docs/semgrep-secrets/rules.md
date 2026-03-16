@@ -225,12 +225,12 @@ When you click **Run**, the content from the metavariable `$HELLO` displays as `
 ## Differences between Semgrep Secrets rules and Semgrep Registry rules
 
 The Semgrep Registry includes SAST rules that can detect secrets to a certain
-extent. You can run these rules in Semgrep Code (Semgrep's SAST analyzer), or
+extent. You can run these rules in Semgrep Multimodal (Semgrep's SAST analyzer), or
 even write your own custom secret-detecting SAST rules, but with the following
 differences:
 
-* Semgrep Code does not run a validator function against these rules, resulting in less accurate results.
+* Semgrep Multimodal does not run a validator function against these rules, resulting in less accurate results.
     * Because the results are less accurate, these rules are not suitable as criteria to block a PR or MR.
-* The UI for Semgrep Code is tailored to SAST triage and does not include filtering functions for valid or invalid tokens.
-* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Code to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
+* The UI for Semgrep Multimodal is tailored to SAST triage and does not include filtering functions for valid or invalid tokens.
+* Existing Semgrep Pro rules that detect secrets are transitioning from Semgrep Multimodal to Semgrep Secrets. By transitioning these rules, improvements, such as validator functions, can be added to the rules when they are run in Semgrep Secrets.
 * You can write your own custom validator functions and run them in Semgrep Secrets for custom services or use cases.

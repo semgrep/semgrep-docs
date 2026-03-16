@@ -2,7 +2,7 @@
 description: Change rule severity and other metadata by forking rules
 tags:
   - Rules
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep Secrets
 append_help_link: true
 ---
@@ -13,7 +13,7 @@ import ForkExistingRule from '/src/components/reference/_fork_existing_rule.md'
 To alter the severity or other metadata of a Semgrep rule, it must be forked and then updated. Forking means to copy or duplicate the rule, thereby creating your own custom version of it. Once this custom version is created, it can then be modified as needed.
 
 :::note
-Only Semgrep Code and Secrets rules can be forked.
+Only Semgrep Multimodal and Secrets rules can be forked.
 :::
 
 ## Fork a rule

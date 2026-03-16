@@ -2,7 +2,7 @@
 description: Ellipsis metavariables can help with matching multiple word tokens.
 tags:
   - Rules
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 

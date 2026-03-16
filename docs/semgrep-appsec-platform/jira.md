@@ -14,7 +14,7 @@ import PL from '@site/src/components/Placeholder';
 
 # Create Jira tickets
 
-The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Code, Supply Chain, and Secrets findings.
+The Semgrep Jira integration allows you to create Jira tickets based on your Semgrep Multimodal, Supply Chain, and Secrets findings.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The Semgrep Jira integration allows you to create Jira tickets based on your Sem
 
 The Semgrep Jira integration provides the following capabilities:
 
-- You can create tickets for findings from Semgrep Code, Supply Chain, and Secrets.
+- You can create tickets for findings from Semgrep Multimodal, Supply Chain, and Secrets.
 - You can create a single ticket for multiple findings (up to 75) that were detected by a single rule in the same project, or create individual tickets per finding.
 - You can automate the creation of tickets for critical or high severity findings. See [Automatic creation of tickets](#automatic-creation-of-tickets) for more details.
 - Tickets can be created in **multiple Jira projects** if manually specified at ticket creation time.
@@ -62,9 +62,9 @@ Once you have enabled the Jira integration, you must complete the following step
 
 ### Automatic creation of tickets
 
-All products limit automatic ticket creation to **Critical** or **High** severity findings. Code findings must also be on your [primary branch](/deployment/primary-branch).
+All products limit automatic ticket creation to **Critical** or **High** severity findings. Multimodal findings must also be on your [primary branch](/deployment/primary-branch).
 
-- For Code, Semgrep automatically creates tickets for **high confidence findings**.
+- For Multimodal, Semgrep automatically creates tickets for **high confidence findings**.
 - For Supply Chain, Semgrep automatically creates tickets for **reachable findings** on the primary branch and **malicious dependency findings** on **any** branch.
 - For Secrets, Semgrep automatically creates tickets for **validated secrets** on **any** branch.
 
@@ -101,7 +101,7 @@ The integration supports the use of custom Jira issue types and custom fields. H
 
 To create a field mapping:
 
-1. Select the Semgrep product for which the mapping is valid: **Code**, **Supply Chain**, or **Secrets**.
+1. Select the Semgrep product for which the mapping is valid: **Multimodal**, **Supply Chain**, or **Secrets**.
 2. Click **Add mapping**.
 3. Select the **Jira field** to which the Semgrep data should be mapped. You can [create a new field](https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/) if necessary. If you opt not to add Semgrep values to your Jira fields, you can create an [automation to map to your field values](https://www.atlassian.com/software/jira/guides/automation/overview#what-is-automation).
 4. Select the **Semgrep field** that holds the data to be mapped.
@@ -129,12 +129,12 @@ The following Semgrep fields are available to map to Jira fields for **all** pro
 - Language
 - Rule description
 - Semgrep AppSec Platform link to the finding
-- Type (for example, Code, Secrets, Supply Chain)
+- Type (for example, Multimodal, Secrets, Supply Chain)
 - Repository name
 - Team name
 - Components
 
-The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
+The following Semgrep fields are available to map to Jira fields for Semgrep Multimodal findings:
 
 - Assistant triage
 - Assistant component
@@ -183,7 +183,7 @@ If you opt for a drop-down or a checkbox issue type field, verify that:
 
 ## Create tickets
 
-After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Code, Supply Chain, and Secrets. Jira tickets cannot be created for [findings with a status of **Fixed**](/semgrep-code/triage-remediation#triage-statuses) or [removed findings](/semgrep-code/triage-remediation#removed-findings), since those findings no longer require action to address.
+After setting up your Jira integration, you're now ready to create Jira tickets. Jira tickets can be created from findings in Semgrep Multimodal, Supply Chain, and Secrets. Jira tickets cannot be created for [findings with a status of **Fixed**](/semgrep-code/triage-remediation#triage-statuses) or [removed findings](/semgrep-code/triage-remediation#removed-findings), since those findings no longer require action to address.
 
 ### Component Mappings
 
@@ -193,9 +193,9 @@ If your default project uses [**Jira components**](https://support.atlassian.com
 
 If your default project uses [**Compass components**](https://support.atlassian.com/jira-software-cloud/docs/what-are-compass-components/) and you create a component field mapping in your integration settings, you can create tickets in another project **only if your selected Compass component is available in that project**. You can configure which components are available in each project in your Compass settings.
 
-### Code
+### Multimodal
 
-You can create tickets for Code findings using the **Triage** button on the:
+You can create tickets for Multimodal findings using the **Triage** button on the:
 
 * [**Findings**](https://semgrep.dev/orgs/-/findings) page
 * Individual finding's **Details** page

@@ -5,7 +5,7 @@ title: Semantic detection in Java
 hide_title: true
 description: Proprietary Semgrep features for the Java language that can increase true positives and reduce false positives.
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Rule writing
 ---
 

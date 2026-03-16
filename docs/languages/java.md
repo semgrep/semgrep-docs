@@ -5,7 +5,7 @@ description: >-
   Detailed documentation for Semgrep's Java support. 
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep Supply Chain
     - java
 title: Java
@@ -22,7 +22,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="Java" />
 
-## Semgrep Code analyses
+## Semgrep Multimodal analyses
 
 * [Language-specific analysis](/semgrep-code/java)
 * Interfile analysis (cross-file)

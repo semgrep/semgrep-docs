@@ -211,7 +211,7 @@ The semgrep rules are pulled from `p/semgrep-rule-lints`.
 
 This feature is still experimental and under active development. Your feedback is welcomed!
 
-## Enable Rule-defined fix in Semgrep Code
+## Enable Rule-defined fix in Semgrep Multimodal
 
 To enable Rule-defined fix for all projects in your Semgrep organization:
 

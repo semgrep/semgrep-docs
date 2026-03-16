@@ -16,7 +16,7 @@ This article documents how Semgrep handles blocking findings and errors and how 
 
 ## Blocking findings
 
-Blocking findings are those identified by Semgrep Code using rules defined in Semgrep AppSec Platform's [Policies page](https://semgrep.dev/orgs/-/policies) and are set to **Block** mode. You can avoid blocking findings by removing rules or by switching the rule mode to **Monitor**, **Comment**, or **Disabled**.
+Blocking findings are those identified by Semgrep Multimodal using rules defined in Semgrep AppSec Platform's [Policies page](https://semgrep.dev/orgs/-/policies) and are set to **Block** mode. You can avoid blocking findings by removing rules or by switching the rule mode to **Monitor**, **Comment**, or **Disabled**.
 
 If you do **not** use Semgrep AppSec Platform with Semgrep in CI or Semgrep Managed Scans (that is, you are using a **stand-alone setup**), all Semgrep findings are blocking findings. The existence of any findings means that Semgrep returns an exit code of `1`, which you can use to block your PRs or MRs.
 

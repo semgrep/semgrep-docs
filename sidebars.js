@@ -228,7 +228,7 @@ module.exports = {
                           {
                             type: 'doc',
                             id: 'ignoring-files-folders-code',
-                            label: 'Semgrep Code',
+                            label: 'Semgrep Multimodal',
                           },
                           {
                             type: 'doc',
@@ -319,7 +319,7 @@ module.exports = {
         {
             type: 'category',
             collapsible: true,
-            label: 'SAST (Code)',
+            label: 'SAST (Multimodal)',
             items: [
                 'semgrep-code/overview',
                 {
@@ -566,7 +566,7 @@ module.exports = {
         { type: 'doc', label: 'Docs home', id: 'Docs home', className: 'home-top-level' },
         {
             type: 'category',
-            label: 'Write rules for Semgrep Code',
+            label: 'Write rules for Semgrep Multimodal',
             collapsible: false,
             items: [
                 'writing-rules/overview',
@@ -859,7 +859,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Semgrep Code',
+          label: 'Semgrep Multimodal',
           collapsible: true,
           link: {
             type: 'generated-index',

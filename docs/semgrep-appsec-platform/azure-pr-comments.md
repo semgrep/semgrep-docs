@@ -72,7 +72,7 @@ For PR comments and accurate diff-aware scan analysis to work, you must set two 
 
 <PrCommentsInSecrets name="Azure" comment_type="PR" />
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Multimodal
 
 <PrCommentsInSast name="Azure" comment_type="PR" />
 

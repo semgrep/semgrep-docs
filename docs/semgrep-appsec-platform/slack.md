@@ -40,7 +40,7 @@ To install the Semgrep Slack app, follow these steps:
 ## Set up notifications for findings in Slack 
 
 
-### Code and Supply Chain 
+### Multimodal and Supply Chain 
 
 To set up or subscribe to notifications for findings in your Slack workspace, perform the following steps:
 
@@ -52,7 +52,7 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
     <code>/semgrep_subscribe <span className="placeholder">ACCOUNT_NAME/REPOSITORY_NAME</span></code>
 4. Choose an organization in the list under **Select target organization**. The dialog box expands with additional options.
 5. Optional: Set up additional filters.
-    1. For Semgrep users that receive both Semgrep Code findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Code, Semgrep Supply Chain, or both.
+    1. For Semgrep users that receive both Semgrep Multimodal findings and Semgrep Supply Chain vulnerabilities, you can select **target scan types** to subscribe to either Semgrep Multimodal, Semgrep Supply Chain, or both.
     2. Select any number of policies to receive findings for under the **Selected Policies** field. By default, you are subscribed to all policies, including the Monitor policy. This can potentially result in many notifications (noise).
 6. Click **Subscribe**. If you did not specify a project after `/semgrep_subscribe`, the channel is subscribed to findings from all your projects in Semgrep AppSec Platform.
 
@@ -83,7 +83,8 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstall the Semgrep Slack App](#uninstall-the-semgrep-slack-app).
 :::
 
-### Code and Supply Chain 
+### Multimodal and Supply Chain
+
 To remove or unsubscribe to notifications:
 
 1. In Slack, enter the channel that you want to unsubscribe from Semgrep findings.

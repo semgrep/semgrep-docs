@@ -16,11 +16,11 @@ import SemgrepProEngineIntroduction from "/src/components/concept/_semgrep-pro-e
 
 # Supported languages
 
-The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/docs/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). 
+The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Multimodal (SAST)](/docs/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/docs/semgrep-supply-chain/overview). 
 
 Languages are arranged by feature completeness from most to least. If applicable, click on the language name to learn more. 
 
-**Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides. See [Feature definitions](/references/feature-definitions) for more details.
+**Cross-file (interfile)** analysis for Semgrep Multimodal and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides. See [Feature definitions](/references/feature-definitions) for more details.
 
 <!-- *************************************************************************
 ARE YOU EDITING THE SUPPORTED LANGUAGES IN ANY WAY? ADDING A FEATURE? ETC?

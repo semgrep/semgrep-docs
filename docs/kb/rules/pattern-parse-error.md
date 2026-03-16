@@ -3,7 +3,7 @@ description: Learn how to implement rule patterns that include the targeted lang
 tags:
   - Rules
   - Semgrep Registry
-  - Semgrep Code
+  - Semgrep Multimodal
 append_help_link: true
 ---
 

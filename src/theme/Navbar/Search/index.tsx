@@ -546,7 +546,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           'getting-started': 'Getting Started',
           'writing-rules': 'Rule Writing',
           'semgrep-ci': 'CI/CD',
-          'semgrep-code': 'Semgrep Code',
+          'semgrep-code': 'Semgrep Multimodal',
           'semgrep-pro': 'Semgrep Pro',
           'semgrep-secrets': 'Secrets Detection',
           'semgrep-supply-chain': 'Supply Chain',

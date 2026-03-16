@@ -146,4 +146,4 @@ The finding's details page displays in-depth information about the finding. It a
 ## Next steps
 
 - Learn more about [viewing a finding's details](/semgrep-secrets/finding-details).
-- Learn how to [triage and remediate Semgrep Code findings](/semgrep-secrets/triage-remediation).
+- Learn how to [triage and remediate Semgrep Multimodal findings](/semgrep-secrets/triage-remediation).

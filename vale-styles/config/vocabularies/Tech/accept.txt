@@ -145,7 +145,7 @@ SCM
 [Ss]emgrep
 semgrep-rules
 Semgrep Registry
-Semgrep Code
+Semgrep Multimodal
 Semgrep Assistant
 Semgrep Cloud Platform
 Semgrep Pro

@@ -29,7 +29,7 @@ For these endpoints, include the following query parameters to paginate through 
 
 ### Example
 
-To request a list of Code or Supply Chain findings, specifically the second page where each page contains 100 items, make a cURL call as follows:
+To request a list of Multimodal or Supply Chain findings, specifically the second page where each page contains 100 items, make a cURL call as follows:
 
 ```console
 curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_SLUG/findings?page=2&page_size=100' \

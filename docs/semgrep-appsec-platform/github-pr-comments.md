@@ -76,13 +76,13 @@ _**Figure**. Permissions for all repositories._
 ![Semgrep GitHub app permissions - select repositories](/img/gh-app-permissions-select.png)
 _**Figure**. Permissions for select repositories. Ensure the repositories you have onboarded to Semgrep AppSec Platform are selected._
 
-For GitHub Actions users, no further steps need to be undertaken. Continue setting up PR comments by configuring comments for Semgrep Code.
+For GitHub Actions users, no further steps need to be undertaken. Continue setting up PR comments by configuring comments for Semgrep Multimodal.
 
 ### Required environment variables
 
 <DefineConnectionVariables name="GitHub Actions" comment_type="PR"/>
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Multimodal
 
 <PrCommentsInSast name="GitHub" comment_type="PR" />
 

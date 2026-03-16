@@ -20,7 +20,7 @@ You can receive notifications for Semgrep findings in the following channels:
 <thead>
 <tr>
 <th>Channel</th>
-<th>Semgrep Code</th>
+<th>Semgrep Multimodal</th>
 <th>Semgrep Supply Chain</th>
 <th>Semgrep Secrets</th>
 </tr>
@@ -50,7 +50,7 @@ Setting up notifications involves the following steps:
 1. Integrating the notification channel, such as Slack, with Semgrep.
 2. Customizing the conditions under which a notification is sent to that channel. Available conditions and how they are set up varies depending on the Semgrep product; see the following table.
 
-Semgrep Code **rule modes** define workflow actions (**Monitor**, **Comment**, or **Block**) that Semgrep Code performs when a rule detects a finding. In addition to these workflow actions, you can also configure Semgrep to send notifications on any rule mode.
+Semgrep Multimodal **rule modes** define workflow actions (**Monitor**, **Comment**, or **Block**) that Semgrep Multimodal performs when a rule detects a finding. In addition to these workflow actions, you can also configure Semgrep to send notifications on any rule mode.
 
 <details>
 <summary>Click to expand table of rule modes</summary>

@@ -2,7 +2,7 @@
 description: Semgrep's generic pattern matching mode can match comments in code files.
 tags:
   - Rules
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 # Match comments with Semgrep

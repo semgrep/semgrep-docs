@@ -16,7 +16,7 @@ Semgrep is a software security tool that provides static application security te
 
 Semgrep uses rules written in a simple schema that match code semantically. You can use out-of-the-box rules, apply community-maintained rules, or write your own to fit your workflow.
 
-Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and Suggested fixes for Semgrep Code and Secrets findings.
+Scan results can be triaged and remediated in the Semgrep AppSec Platform. The platform includes Semgrep Assistant, which offers remediation guidance and Suggested fixes for Semgrep Multimodal and Secrets findings.
 
 ## Offerings
 
@@ -41,7 +41,7 @@ Semgrep's analysis workflow can be divided into three stages:
 
 Scanning is the process of analyzing your code to identify security vulnerabilities, exposed secrets, or risks introduced through dependencies. Semgrep provides three scanning tools that help you detect and address issues early in development and throughout your software lifecycle:
 
-* [Semgrep Code](/semgrep-code/overview): a static application security testing (SAST) tool that detects security vulnerabilities in your **first-party code**. You can use it to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
+* [Semgrep Multimodal](/semgrep-code/overview): a static application security testing (SAST) tool that detects security vulnerabilities in your **first-party code**. You can use it to scan local repositories or integrate it into your CI/CD pipeline to automate the continuous scanning of your code.
 
 * [Semgrep Supply Chain Analysis](/semgrep-supply-chain/overview): a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
 

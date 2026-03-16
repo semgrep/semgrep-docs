@@ -83,7 +83,7 @@ Learn more about how the security research team writes rules in [A day in the li
 
 Semgrep Supply Chain results in a failed CI job only when there are critical or high-severity findings. However, Semgrep supports notifications and integration with Jira to create tickets for all Supply Chain findings, and it offers the ability to only leave comments on PRs or block a change regarding license detection.
 
-The policies for Semgrep's other products, Semgrep Code and Semgrep Secrets, provide extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+The policies for Semgrep's other products, Semgrep Multimodal and Semgrep Secrets, provide extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
 
 - Only in the AppSec team’s view (monitor mode)
 - In the AppSec team's view **and** in the developer’s workflow, while not failing the CI job (comment mode)

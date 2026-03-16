@@ -5,7 +5,7 @@ title: Remove duplicate findings
 hide_title: true
 description: Learn how to remove duplicate findings and prevent them from being displayed in Semgrep AppSec Platform.
 tags:
- - Semgrep Code
+ - Semgrep Multimodal
  - Semgrep AppSec Platform
 ---
 

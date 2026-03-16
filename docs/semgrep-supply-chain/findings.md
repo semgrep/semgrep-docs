@@ -146,6 +146,6 @@ The finding's details page displays in-depth information about the finding. It a
 ## Next steps
 
 - Learn more about [viewing a finding's details](/semgrep-supply-chain/finding-details).
-- Learn how to [triage and remediate Semgrep Code findings](/semgrep-supply-chain/triage-and-remediation).
+- Learn how to [triage and remediate Semgrep Multimodal findings](/semgrep-supply-chain/triage-and-remediation).
 - Learn how to [manage your Supply Chain policies](/semgrep-supply-chain/policies)
 - Learn how to [ignore manifest files, lockfiles, and dependencies](/semgrep-supply-chain/ignoring-dependencies) to minimize noise in your results.

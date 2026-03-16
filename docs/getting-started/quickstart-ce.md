@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 Semgrep Community Edition (CE) is an open source static analysis tool that can find insecure coding patterns and security vulnerabilities in source code. Semgrep CE encompasses a SAST scanning engine, community rules, and integrated development environment plugins.
 
 :::info
-Semgrep CE is the open source version of Semgrep Code, a commercial offering recommended for enterprise use cases. Both products share a common command-line interface, but Semgrep Code adds additional capabilities, including a web user interface.
+Semgrep CE is the open source version of Semgrep Multimodal, a commercial offering recommended for enterprise use cases. Both products share a common command-line interface, but Semgrep Multimodal adds additional capabilities, including a web user interface.
 :::
 
 ## Prerequisites

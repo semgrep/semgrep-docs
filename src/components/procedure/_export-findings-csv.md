@@ -11,7 +11,7 @@ Export findings by navigating to the product page and clicking the **<i class="f
 | -------  | ------ |
 | Id | The unique ID number of the finding. |
 | Rule name | The name of the rule.  |
-| Product | The Semgrep product. Possible values are **Code**, **Supply Chain**, or **Secrets**.  |
+| Product | The Semgrep product. Possible values are **Multimodal**, **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
 | Status | The finding's triage status.   |
 | Assistant component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Assistant tags the finding with, based on the code's context.  |
@@ -27,11 +27,11 @@ Export findings by navigating to the product page and clicking the **<i class="f
 | Triage reason | The reason why the finding was triaged, created by the user. |
 | Rule description | The description of the rule. This is the same as the rule's `message` key.  |
 
-The following fields are exclusive to **Code** scans:
+The following fields are exclusive to **Multimodal** scans:
 
 | Field  | Description |
 | -------  | ------ |
-| Confidence | The finding's confidence. Possible values are **High**, **Medium**, or **Low**. <br />Only Semgrep Supply Chain and Code findings provide this field.  |
+| Confidence | The finding's confidence. Possible values are **High**, **Medium**, or **Low**. <br />Only Semgrep Supply Chain and Multimodal findings provide this field.  |
 | Category | The finding's category, such as **best practices**, **security**, or **correctness**.  |
 | Is pro rule | Boolean value that returns `TRUE` if the rule that generated the finding is a pro rule.    |
 | Assistant triage result | Provides Semgrep Assistant's assessment. Possible values are `True positive` or `False positive`. These values appear only if Assistant is enabled.  |

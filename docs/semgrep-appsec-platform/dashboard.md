@@ -130,7 +130,7 @@ This displays the following filters in the filter drawer:
 
 This refers to any finding that is **Critical** or **High** severity in **addition** to being:
 
-- [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
+- [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Multimodal.
 - [Reachable](/semgrep-supply-chain/findings#reachability) - if the finding is from Semgrep Supply Chain.
 - [Valid](/semgrep-secrets/conceptual-overview#validate-secrets) - if the finding is from Semgrep Secrets.
 

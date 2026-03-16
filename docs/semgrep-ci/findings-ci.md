@@ -24,7 +24,7 @@ These states correspond to:
 1. `syntactic context`: The lines of code corresponding to the finding.
 1. `index`: An index into identical findings within a file. This is used to disambiguate findings if the same `syntactic context` occurs multiple times in the same file.
 
-## Semgrep Code findings
+## Semgrep Multimodal findings
 
 Semgrep AppSec Platform builds on CI findings to track status and provide additional context for managing findings within your organization. A finding can be one of four statuses in Semgrep AppSec Platform:
 

@@ -1,6 +1,6 @@
 ---
 slug: private-rules
-description: "Semgrep Code users can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
+description: "Semgrep Multimodal users can publish rules to the Semgrep Registry that are not visible to others outside their organization. This can be useful for organizations where rules may contain code-sensitive information or legal requirements prevent using a public registry."
 tags:
   - Rule writing
 ---
@@ -9,7 +9,7 @@ import DeleteCustomRule from "/src/components/procedure/_delete-custom-rule.mdx"
 
 # Private rules
 
-Users with Semgrep Code's [Team or Enterprise tier](https://semgrep.dev/pricing) can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to those outside their organization. Maintaining the rules' privacy allows you the benefits of using the Semgrep Registry while keeping sensitive code or information internal.
+Users with Semgrep Multimodal's [Team or Enterprise tier](https://semgrep.dev/pricing) can publish rules to the [Semgrep Registry](https://semgrep.dev/explore) as private rules that are not visible to those outside their organization. Maintaining the rules' privacy allows you the benefits of using the Semgrep Registry while keeping sensitive code or information internal.
 
 ## Creating private rules
 

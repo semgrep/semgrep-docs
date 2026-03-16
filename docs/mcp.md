@@ -6,12 +6,12 @@ hide_title: true
 description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
 tags:
  - MCP
- - Semgrep Code
+ - Semgrep Multimodal
 ---
 
 # Semgrep MCP Server (beta)
 
-Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
+Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Multimodal, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
 
 This article includes instructions for setting up the MCP server with Cursor and Claude Code, but it also works with any IDE-based MCP client.
 
@@ -122,7 +122,7 @@ This article includes instructions for setting up the MCP server with Cursor and
 2. Ensure that you're in the correct context to use Semgrep.
 3. Prompt your IDE to scan with Semgrep.
 
-By default, the MCP Server runs all three Semgrep products: Code, Supply Chain, and Secrets.
+By default, the MCP Server runs all three Semgrep products: Multimodal, Supply Chain, and Secrets.
 
 ## Additional resources
 

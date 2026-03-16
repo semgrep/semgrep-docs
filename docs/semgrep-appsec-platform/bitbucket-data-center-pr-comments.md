@@ -57,7 +57,7 @@ Confirm that you have the correct connection and access:
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket project exists and is correct.
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Multimodal
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />
 

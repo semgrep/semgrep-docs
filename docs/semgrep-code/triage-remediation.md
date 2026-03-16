@@ -4,9 +4,9 @@ append_help_link: true
 title: Triage and remediation
 hide_title: false
 toc_max_heading_level: 2
-description: Learn about Semgrep Code's triage status for findings and how to triage and remediate findings.
+description: Learn about Semgrep Multimodal's triage status for findings and how to triage and remediate findings.
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep AppSec Platform
 ---
 
@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 import TriageStatuses from "/src/components/reference/_triage-states.mdx"
 import TriageReason from "/src/components/reference/_triage-reason.mdx"
 
-This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
+This article shows you how to manage and triage findings identified by Semgrep Multimodal using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:
 
 - **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings. 
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
@@ -30,7 +30,7 @@ This article shows you how to manage and triage findings identified by Semgrep C
 If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
 
 - [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
-  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
+  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Multimodal in every pull request (PR) or merge request (MR) comment Semgrep pushes.
   - [Suggested fix](/docs/semgrep-assistant/overview#suggested-fix) flagging affected code that needs to be changed.
 - [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
 
@@ -38,7 +38,7 @@ Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#au
 
 ## Autofix findings
 
-Autofix is a beta feature that uses AI to generate proposed code changes for Semgrep Code findings. Use it when you want Semgrep to open a draft PR with the changes implemented. You remain in full control over reviewing and merging the PR.
+Autofix is a beta feature that uses AI to generate proposed code changes for Semgrep Multimodal findings. Use it when you want Semgrep to open a draft PR with the changes implemented. You remain in full control over reviewing and merging the PR.
 
 For details and workflow steps, see [Autofix](/semgrep-code/triage-remediation/autofix).
 
@@ -154,7 +154,7 @@ To **reopen multiple findings** in the **No grouping** view, follow these steps:
 
 ### Turn off a ruleset or a rule
 
-You can turn off a specific rule or ruleset to prevent Semgrep Code from using it when scanning your codebase.
+You can turn off a specific rule or ruleset to prevent Semgrep Multimodal from using it when scanning your codebase.
 
 :::info
 When you turn off a rule, existing findings from that rule remain open until you re-scan your code.

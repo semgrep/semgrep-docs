@@ -229,7 +229,7 @@ Rules can be **configured on a per-product, per-interface basis** to notify deve
 <table>
 <thead><tr>
     <th>Interface</th>
-    <th>Semgrep Code</th>
+    <th>Semgrep Multimodal</th>
     <th>Semgrep Secrets</th>
     <th>Semgrep Supply Chain</th>
 </tr></thead>

@@ -69,13 +69,13 @@ You can also send a `patch` request to the following endpoint: [Deployment > Pro
 
 You can view a total count of findings in the **Projects** page for all Semgrep products.
 
-- For Code and Supply Chain, this total count is computed from the **primary branch**.
+- For Multimodal and Supply Chain, this total count is computed from the **primary branch**.
 - For Secrets, this total count is computed from deduplicated findings across all branches.
 
-This means that the count of findings in your Code, Secrets, or Supply Chain page may differ from the counts in your Projects page.
+This means that the count of findings in your Multimodal, Secrets, or Supply Chain page may differ from the counts in your Projects page.
 
 The following links explain how Semgrep presents findings for each Semgrep product in their respective page:
 
-- [Semgrep Code default view](/docs/semgrep-code/findings#how-semgrep-displays-findings-on-multiple-branches)
+- [Semgrep Multimodal default view](/docs/semgrep-code/findings#how-semgrep-displays-findings-on-multiple-branches)
 - [Semgrep Supply Chain > Vulnerabilities tab view](/semgrep-supply-chain/triage-and-remediation)
 - [Semgrep Secrets default view](/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic)

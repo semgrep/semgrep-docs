@@ -1,18 +1,18 @@
 ---
 slug: glossary
-title: Code glossary
+title: Multimodal glossary
 hide_title: true
-description: Definitions of Semgrep Code product-specific terms.
+description: Definitions of Semgrep Multimodal product-specific terms.
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 import ScanTarget from '/src/components/reference/_scan-target.mdx'
 import PolicyDefinition from '/src/components/reference/_policy-definition.mdx'
 
-# Semgrep Code product terms
+# Semgrep Multimodal product terms
 
-The terms and definitions provided here are specific to Semgrep Code.
+The terms and definitions provided here are specific to Semgrep Multimodal.
 
 For rule-writing and SAST (static application security testing) terms, see the [Rule-writing glossary](/writing-rules/glossary).
 

@@ -21,7 +21,7 @@ Both Semgrep and CodeQL use static analysis to find bugs, but there are a few di
 - Semgrep operates directly on source code, whereas CodeQL requires a buildable environment.
 - Semgrep provides both proprietary and open source options that can be run anywhere; CodeQL is not open source and you must pay to run it on any non-open-source code.
 - Semgrep focuses on speed and ease of use. and doesn’t require compiled code.
-  - Semgrep Community Edition (CE) provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview). [Semgrep Code](/semgrep-code/overview)'s cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
+  - Semgrep Community Edition (CE) provides [intraprocedural dataflow](/writing-rules/data-flow/data-flow-overview). [Semgrep Multimodal](/semgrep-code/overview)'s cross-file and cross-function analysis has similar capabilities as CodeQL in terms of cross-function dataflow analysis for a subset of supported languages.
 - Both have publicly available rules.
 - Semgrep rules look like the source code you’re writing; CodeQL has a separate domain-specific-language for writing queries.
 - Semgrep has an online, hosted free plan for up to ten contributors to private repositories; both have a hosted paid plan.

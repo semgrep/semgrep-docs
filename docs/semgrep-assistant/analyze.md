@@ -1,16 +1,16 @@
 ---
 slug: analyze
-title: Analyze Code findings
+title: Analyze Multimodal findings
 hide_title: true
-description: Learn how to analyze Code findings with Assistant and view its results.
+description: Learn how to analyze Multimodal findings with Assistant and view its results.
 tags:
   - Deployment
   - Semgrep Assistant
 ---
 
-# Analyze Semgrep Code findings with Semgrep Assistant
+# Analyze Semgrep Multimodal findings with Semgrep Assistant
 
-Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
+Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Multimodal, including Suggested fix, auto-triage, and component tagging, on existing findings.
 
 
 ## Analyze your findings with Assistant
@@ -56,7 +56,7 @@ Semgrep Assistant prompts you for feedback whenever it suggests that a finding i
 
 Semgrep Assistant lets you leave feedback in the following places:
 
-* In Semgrep AppSec Platform: the Assistant recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
+* In Semgrep AppSec Platform: the Assistant recommendation appears in Semgrep Multimodal's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
 * In Slack notifications: the **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
 
 ==If Semgrep Assistant labels a finding as a true positive and provides a suggested fix, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to share your thoughts.==

@@ -34,7 +34,7 @@ The offerings in this document are defined as follows:
   <dd>
     <p style={{marginBottom: '0.5rem'}}>Refers to a proprietary software suite tailored to support AppSec engineers through the entire software development life cycle (SDLC). Best for deploying security programs throughout their organization. Many of Semgrep's features support the deployment of <Link to ='/secure-guardrails/secure-guardrails-in-semgrep'>secure guardrails</Link>. Semgrep includes the following products:</p>
     <dl style={{marginTop: '0px'}}>
-      <dt>Semgrep Code</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep Community Edition. Semgrep Code includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
+      <dt>Semgrep Multimodal</dt><dd>A SAST scanner that uses cross-file (interfile) and cross-function (intrafile) analysis for improved results over Semgrep Community Edition. Semgrep Multimodal includes rules written by Semgrep's Security Research team, called <strong>Pro Rules</strong>. These rules use cross-file analysis to reduce false positives.</dd>
       <dt>Semgrep Supply Chain</dt><dd>A high-signal dependency scanner that detects reachable vulnerabilities in open source third-party libraries and functions across the software development life cycle (SDLC).</dd>
       <dt>Semgrep Secrets</dt><dd>A secrets scanner that, in addition to detecting secrets, validates these leaked secrets on a variety of services to help you prioritize active secrets.</dd>
     </dl>
@@ -42,7 +42,7 @@ The offerings in this document are defined as follows:
 </dl>
 
 :::note
-Semgrep Code and Semgrep Supply Chain are free for up to 10 contributors.
+Semgrep Multimodal and Semgrep Supply Chain are free for up to 10 contributors.
 :::
 
 ## Comparison by core workflows
@@ -115,7 +115,7 @@ It can't track data beyond a single function or file and may find more false pos
 Semgrep supports SAST, SCA, and secret scans as listed in [Product terms](#product-terms). You can run these **scan types** across all of your environments, preserving any configuration you have made.
 
 <details>
-<summary>Click to view Semgrep Code analyses (SAST)</summary>
+<summary>Click to view Semgrep Multimodal analyses (SAST)</summary>
 - Cross file, cross function constant propagation
 - Cross file, cross function taint analysis 
 - Framework and language-specific semantic analysis
@@ -224,7 +224,7 @@ Semgrep CE does not provide any metrics that may inform you of potential perform
 
 ##### Semgrep AppSec Platform
 
-The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
+The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Multimodal and Secrets.
 
 You can test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
 
@@ -324,7 +324,7 @@ Semgrep CE provides cross function constant propagation and single function tain
 
 All Semgrep products make use of cross file, cross function taint analysis and more.
 
-###### Semgrep Code (SAST)
+###### Semgrep Multimodal (SAST)
 
 - [35+ supported languages](/semgrep-ce-languages#semgrep-code-and-community-edition)
 - [<i class="fas fa-external-link fa-xs"></i> Pro (professionally written and maintained)](https://semgrep.dev/r?visib=Pro+%28Login%29) and Community rules
@@ -360,7 +360,7 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 
 ##### Semgrep AppSec Platform
 
-- Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
+- Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Multimodal > Findings](/docs/semgrep-code/findings) for more information.
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
 - AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
@@ -393,7 +393,7 @@ Minimal customization options to tune your scans:
 - Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
 - Store rules in Semgrep AppSec Platform and deploy to your organization
 - Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
-- Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)
+- Semgrep Multimodal: [Code search](/semgrep-code/editor#code-search-beta)
 - Semgrep Supply Chain:
     - [License compliance](/semgrep-supply-chain/license-compliance)
     - [Dependency search](/semgrep-supply-chain/dependency-search)

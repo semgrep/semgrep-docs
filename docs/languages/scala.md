@@ -5,7 +5,7 @@ description: >-
   Detailed documentation for Semgrep's Scala support. 
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep Supply Chain
     - scala
 title: Scala
@@ -22,7 +22,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="Scala" />
 
-## Semgrep Code analyses
+## Semgrep Multimodal analyses
 
 * Interprocedural analysis (cross-function)
 * All analyses performed by [Semgrep Community Edition (CE)](#scala-support-in-semgrep-ce)

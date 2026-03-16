@@ -44,7 +44,7 @@ Sort by the following attributes:
 - **Time period**: 7 days or 1 month
 - **Scan type**: Full or diff-aware scans
 - **Status**: Running, completed, error, or never finished
-- **Products**: Code, Supply Chain, Secrets, or AI
+- **Products**: Multimodal, Supply Chain, Secrets, or AI
 - **Duration**: The amount of time the scan took to complete in hours or minutes
 
 :::note

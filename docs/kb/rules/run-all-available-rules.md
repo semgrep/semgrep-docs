@@ -3,7 +3,7 @@ description: Learn how to run all available rules on your repository.
 tags:
   - Rules
   - Semgrep Registry
-  - Semgrep Code
+  - Semgrep Multimodal
 append_help_link: true
 ---
 

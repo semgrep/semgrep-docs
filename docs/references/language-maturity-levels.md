@@ -13,9 +13,9 @@ import LanguageMaturityCode from '/src/components/reference/_language-maturity-c
 # Language maturity levels
 This document defines the language maturity levels used on the [Supported languages](/docs/supported-languages) page.
 
-## Semgrep Code
+## Semgrep Multimodal
 
-Semgrep Code languages can be classified into four maturity levels:
+Semgrep Multimodal languages can be classified into four maturity levels:
 
 - Generally available (GA)
 - Beta

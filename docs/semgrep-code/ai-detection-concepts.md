@@ -62,7 +62,7 @@ A: Currently, all AI findings are assigned the same severity, which is **high**,
 
 **Q: How does Semgrep handle data privacy for AI-powered detection?**
 
-A: Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
+A: Semgrep Multimodal’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
 
 ## Known bugs and limitations
 

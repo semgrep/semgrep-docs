@@ -5,7 +5,7 @@ description: >-
   Detailed documentation for Semgrep's C# support. 
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep Supply Chain
     - c
 title: C#
@@ -22,7 +22,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="C#" />
 
-## Semgrep Code analyses
+## Semgrep Multimodal analyses
 
 * Interfile analysis (cross-file)
 * Interprocedural analysis (cross-function)

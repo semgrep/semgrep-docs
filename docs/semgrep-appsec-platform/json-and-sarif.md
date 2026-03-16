@@ -14,7 +14,7 @@ This reference provides Semgrep fields for JSON and SARIF output.
 
 For fields that are exclusive to Semgrep AppSec Platform, you must [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login) to generate values for those fields.
 
-## Semgrep Code
+## Semgrep Multimodal
 
 ### JSON
 
@@ -256,7 +256,7 @@ _*<strong>`lines`</strong> refers to the **text** of the matched lines, not the 
 
 #### JSON example output
  
-The following snippet is a JSON output example with all the fields for Semgrep Code.
+The following snippet is a JSON output example with all the fields for Semgrep Multimodal.
 
 ```json
 {
@@ -451,7 +451,7 @@ The following snippet is a JSON output example with all the fields for Semgrep C
 
 #### SARIF example output
 
-The following snippet is a SARIF output example with all the fields for Semgrep Code.
+The following snippet is a SARIF output example with all the fields for Semgrep Multimodal.
 
 ```json
 {

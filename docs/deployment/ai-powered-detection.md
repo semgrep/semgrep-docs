@@ -23,7 +23,7 @@ For details on what AI-powered detection can uncover, known limitations, and bet
 
 ## Prerequisites {#prerequisites}
 
-To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
+To run Semgrep Multimodal's [AI-powered detection](/docs/semgrep-code/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
 
 * You have added your projects to [Semgrep Managed Scans](https://semgrep.dev/docs/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
 * You have enabled Semgrep Assistant for your organization.

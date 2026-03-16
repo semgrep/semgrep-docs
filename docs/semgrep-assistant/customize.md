@@ -35,7 +35,7 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 ## Noise filtering
 
-Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+Assistant is [over 95% accurate in categorizing Semgrep Multimodal findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.

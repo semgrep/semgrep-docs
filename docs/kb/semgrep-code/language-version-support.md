@@ -4,7 +4,7 @@ title: Semgrep support for all versions of a language
 description: "Learn how Semgrep supports all versions of a programming language."
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
 ---
 
 # Support for all versions of a programming language

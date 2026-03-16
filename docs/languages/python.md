@@ -6,7 +6,7 @@ description: >-
   Detailed documentation for Semgrep's Python support. 
 hide_title: true
 tags:
-    - Semgrep Code 
+    - Semgrep Multimodal 
     - python
 title: Python
 ---
@@ -23,7 +23,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="Python" />
 
-## Python support in Semgrep Code
+## Python support in Semgrep Multimodal
 
 <LangDefCode />
 
@@ -62,7 +62,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 </table>
 
 <details>
-  <summary>**In addition, Semgrep Code supports 100+ libraries & frameworks based on their overall popularity.**</summary>
+  <summary>**In addition, Semgrep Multimodal supports 100+ libraries & frameworks based on their overall popularity.**</summary>
 
 <SupportedLibrariesTable />
 

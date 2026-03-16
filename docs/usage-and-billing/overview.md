@@ -12,7 +12,7 @@ hide_title: true
 
 # Usage and billing
 
-This document provides information on how Semgrep calculates usage for billing purposes and is intended for users with paid Semgrep Code, Supply Chain, or Secrets licenses.
+This document provides information on how Semgrep calculates usage for billing purposes and is intended for users with paid Semgrep Multimodal, Supply Chain, or Secrets licenses.
 
 ## Contributor definition
 
@@ -20,13 +20,13 @@ A **contributor** is someone who has made at least **one** commit to a Semgrep-s
 
 Any Semgrep AppSec Platform scan counts towards the contributor total. This includes:
 
-- Scanning with Semgrep Code, Secrets, or Supply Chain
+- Scanning with Semgrep Multimodal, Secrets, or Supply Chain
 - Full scans on a repository or partial scans on a pull request or merge request
 
 Semgrep computes contributor counts for any scan initiated by a logged-in user running `semgrep ci` or `semgrep scan`. The `semgrep scan` command is subject to the usage limit when invoked by a logged-in contributor.
 
 :::note Free licenses
-Semgrep Code and Semgrep Supply Chain are free for organizations with **10 or fewer** monthly contributors. If your organization needs Code and Supply Chain licenses for more than 10 contributors, you must purchase **Team** licenses.
+Semgrep Multimodal and Semgrep Supply Chain are free for organizations with **10 or fewer** monthly contributors. If your organization needs Multimodal and Supply Chain licenses for more than 10 contributors, you must purchase **Team** licenses.
 :::
 
 ### Contributor counts

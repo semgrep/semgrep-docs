@@ -2,7 +2,7 @@
 title: Troubleshoot monorepo scan failures
 description: Troubleshoot scan failures on monorepos by studying logs, compartmentalizing scans, increasing RAM, and running jobs in parallel.
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 # Troubleshooting "You are seeing this because the engine was killed" on monorepos
@@ -91,12 +91,12 @@ Now you have a good idea of the size of your monorepo. After establishing the si
 Based on the composition provided by the logs, you may be able to determine if your repository is modular. If so, you can try [scanning the components separately](/docs/kb/semgrep-ci/scan-monorepo-in-parts/).
 
 :::note
-Semgrep Code still performs [<i class="fa-regular fa-file-lines"></i> interfile analysis](/semgrep-code/semgrep-pro-engine-intro#types-of-semgrep-code-analysis) on each module. If the modules are functionally separate, running separate scans shouldn't result in a reduction in findings.
+Semgrep Multimodal still performs [<i class="fa-regular fa-file-lines"></i> interfile analysis](/semgrep-code/semgrep-pro-engine-intro#types-of-semgrep-code-analysis) on each module. If the modules are functionally separate, running separate scans shouldn't result in a reduction in findings.
 :::
 
 ## Serializing types of scans
 
-Avoid exhausting resource limits by running Semgrep Code, Supply Chain, and Secrets serially instead of simultaneously. That is, instead of:
+Avoid exhausting resource limits by running Semgrep Multimodal, Supply Chain, and Secrets serially instead of simultaneously. That is, instead of:
 
 ```console
  semgrep ci

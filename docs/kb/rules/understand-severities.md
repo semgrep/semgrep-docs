@@ -9,9 +9,9 @@ tags:
 
 All Semgrep rules have one of four severity levels: Critical, High, Medium, or Low. The levels `ERROR`, `WARNING` and `INFO` used in existing rules are older values that correspond to High, Medium, and Low, respectively.
 
-## Semgrep Code and Secrets
+## Semgrep Multimodal and Secrets
 
-For Semgrep Code and Secrets rules, the severity indicates how critical the issues are that a rule detects.
+For Semgrep Multimodal and Secrets rules, the severity indicates how critical the issues are that a rule detects.
 
 The rule author assigns the rule severity. The author's severity assignment for custom and third-party rules is the source of truth.
 

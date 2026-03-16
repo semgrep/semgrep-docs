@@ -3,7 +3,7 @@ slug: running-rules
 description: "Learn how to use local Semgrep rules in your scans."
 title: Run rules
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep CE
 hide_title: true
 ---

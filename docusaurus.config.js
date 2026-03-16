@@ -54,7 +54,7 @@ module.exports = {
             { to: 'semgrep-ci/findings-ci', label: 'Findings in CI' },
             { to: 'semgrep-ci/packages-in-semgrep-docker', label: 'Packages in Semgrep Docker' },
             { to: 'semgrep-code/java', label: 'Language-specific features' },
-            { to: 'semgrep-code/glossary', label: 'Semgrep Code glossary' },
+            { to: 'semgrep-code/glossary', label: 'Semgrep Multimodal glossary' },
             { to: 'semgrep-supply-chain/glossary', label: 'Supply Chain glossary' },
             { to: 'references/language-maturity-levels', label: 'Language maturity levels' },
             { to: 'references/feature-definitions', label: 'Feature definitions' },
@@ -92,7 +92,7 @@ module.exports = {
           title: 'Products',
           items: [
             {
-              label: 'Semgrep Code',
+              label: 'Semgrep Multimodal',
               to: 'https://semgrep.dev/products/semgrep-code/',
               target: '_blank'
             },
@@ -329,7 +329,7 @@ module.exports = {
           // Semgrep Assistant
           { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
 
-          // Semgrep Code
+          // Semgrep Multimodal
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-appsec-platform/notifications" }   ,
           { from: "/semgrep-app/demo-project/"                       , to: "/deployment/core-deployment" }    ,
           { from: "/semgrep-app/rule-board/"                         , to: "/semgrep-code/policies" }      ,

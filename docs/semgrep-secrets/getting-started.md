@@ -18,7 +18,7 @@ This document guides you through:
 
 1. Enabling Semgrep Secrets and scanning your repository
 2. Configuring your ignore files
-3. Upgrading your Semgrep Code rules to Semgrep Secrets rules
+3. Upgrading your Semgrep Multimodal rules to Semgrep Secrets rules
 
 :::info
 [Contact sales](mailto:sales@semgrep.com) for a trial license of Semgrep Secrets.
@@ -60,7 +60,7 @@ Semgrep Secrets scans all files, even those specified in a local `.semgrepignore
 
 ## Upgrade your rules
 
-If you're using Semgrep Code rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that uses Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
+If you're using Semgrep Multimodal rules to identify leaked credentials, you'll see prompts in Semgrep AppSec Platform indicating that there's an improved version that uses Semgrep Secrets' feature set, primarily its validators, which can validate whether the detected credential is active, and improvements in detecting and hiding false positives.
 
 You can see individual findings for which there is a Semgrep Secrets rule upgrade in Semgrep AppSec Platform's **Findings** page. The findings are tagged with a label that says `Secrets version available! Click to see rule(s)`.
 

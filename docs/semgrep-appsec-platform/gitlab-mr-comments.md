@@ -57,7 +57,7 @@ PR comments are enabled by default for users who have connected their GitLab gro
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your GitLab group exists and is correct.
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Multimodal
 
 <PrCommentsInSast name="GitLab" comment_type="MR" />
 

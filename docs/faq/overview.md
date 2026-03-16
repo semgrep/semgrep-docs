@@ -30,7 +30,7 @@ Semgrep CE includes:
 
 Semgrep offers three paid products, designed for Application Security teams to use in production:
 
-* [<i class="fas fa-external-link fa-xs"></i> Semgrep Code](https://semgrep.dev/products/semgrep-code), a static application security testing (SAST) tool that can perform taint, cross-file, and cross-function analysis.
+* [<i class="fas fa-external-link fa-xs"></i> Semgrep Multimodal](https://semgrep.dev/products/semgrep-code), a static application security testing (SAST) tool that can perform taint, cross-file, and cross-function analysis.
 * [<i class="fas fa-external-link fa-xs"></i> Semgrep Supply Chain](https://semgrep.dev/products/semgrep-supply-chain/), which performs dependency scanning.
 * [<i class="fas fa-external-link fa-xs"></i> Semgrep Secrets](https://semgrep.dev/products/semgrep-secrets/), which can detect and validate leaked secrets in code.
 
@@ -55,7 +55,7 @@ If you are a security consultant and you want to use Semgrep CE as part of your 
 
 If your service delivers code scanning, meaning a service that includes static application security testing (SAST), software composition analysis (SCA), or secrets scanning, and you want to charge for scanning that includes rules in the [<i class="fas fa-external-link fa-xs"></i> semgrep-rules repository](https://github.com/semgrep/semgrep-rules), **you must purchase a license**.
 
-If you want to use Semgrep Code, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
+If you want to use Semgrep Multimodal, including its proprietary cross-file (interfile) analysis, Semgrep Supply Chain (SCA), or Semgrep Secrets rules as part of your consulting services, you need a license. Please contact us at [<i class="fa-regular fa-envelope"></i> partnerships@semgrep.com](mailto:partnerships@semgrep.com).
 
 ### Can I ship my own code analysis software that uses Semgrep CE?
 

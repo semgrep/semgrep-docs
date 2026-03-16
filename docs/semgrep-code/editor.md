@@ -5,7 +5,7 @@ title: Write custom rules
 hide_title: true
 toc_max_heading_level: 2
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep AppSec Platform
 description: "Semgrep Editor is a powerful tool within Semgrep AppSec Platform to write rules and quickly apply these rules across an organization to enforce coding standards across an organization."
 ---
@@ -173,7 +173,7 @@ The [Semgrep Network Broker](/semgrep-ci/network-broker) does not support code s
 
 ### Prerequisites
 
-* Code search is currently available to all paying customers of Semgrep Code.
+* Code search is currently available to all paying customers of Semgrep Multimodal.
 * You must grant Semgrep code access by [installing the private Semgrep GitHub app](#install-the-private-semgrep-github-app-to-enable-code-access) if you would like to run code search against your repositories. Otherwise, you can run code search against public repositories. 
 
 #### Install the private Semgrep GitHub app to enable code access

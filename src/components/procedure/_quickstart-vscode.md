@@ -3,7 +3,7 @@
    ```console
    Semgrep: Sign in
    ```
-   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Code](/semgrep-code/overview) and its [Pro rules](/semgrep-code/pro-rules).
+   You can use the extension without signing in, but doing so enables better results since you benefit from [Semgrep Multimodal](/semgrep-code/overview) and its [Pro rules](/semgrep-code/pro-rules).
 3. Launch the Command Palette using <kbd>Ctrl+⇧Shift+P</kbd> or <kbd>⌘Command+⇧Shift+P</kbd> (macOS), and scan your files by running:
    ```console
    Semgrep: Scan all files in workspace

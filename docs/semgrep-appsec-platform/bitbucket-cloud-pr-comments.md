@@ -183,7 +183,7 @@ pipelines:
 </Tabs>
 -->
 
-### Configure comments for Semgrep Code
+### Configure comments for Semgrep Multimodal
 
 <PrCommentsInSast name="Bitbucket" comment_type="PR" />
 

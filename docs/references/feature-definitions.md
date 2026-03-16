@@ -3,7 +3,7 @@ slug: feature-definitions
 append_help_link: true
 title: Feature definitions
 hide_title: true
-description: Definitions for Semgrep Code and Supply Chain analysis features.
+description: Definitions for Semgrep Multimodal and Supply Chain analysis features.
 tags:
   - Reference
 ---

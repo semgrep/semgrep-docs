@@ -5,7 +5,7 @@ description: "This article introduces cross-file (interfile) analysis, guides yo
 hide_title: true
 title: Perform cross-file analysis
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep AppSec Platform
 ---
 
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 
 :::note Language support
-Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-summary) to see languages supported by Semgrep Code.
+Refer to [<i class="fa-regular fa-file-lines"></i> Supported languages](/supported-languages#language-maturity-summary) to see languages supported by Semgrep Multimodal.
 :::
 
 ## Run cross-file analysis
@@ -142,9 +142,9 @@ The following example shows how to define the `interfile` key (see the **Rule** 
 
 Click **<i class="fa-solid fa-play"></i> Run** to see the true positive in lines 27-30.
 
-Semgrep Code performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
+Semgrep Multimodal performed cross-function analysis as the `userInput()` source was called in `main()` while the `exec()` sink was called in the `DockerCompose` class.
 
-Interact with the rule widget to compare Semgrep Community Edition (CE) and Semgrep Code. In the **Rule** pane, you can remove the lines:
+Interact with the rule widget to compare Semgrep Community Edition (CE) and Semgrep Multimodal. In the **Rule** pane, you can remove the lines:
 
 ```yaml
 options:
@@ -173,27 +173,27 @@ Cross-file analysis resolves names differently than Semgrep CE's analysis. Conse
 
 ## Appendix
 
-### Types of Semgrep Code analysis
+### Types of Semgrep Multimodal analysis
 
 <dl>
     <dt>Cross-file (interfile) analysis</dt>
     <dd><ul><li>Cross-file analysis finds patterns spanning multiple files within a project to help security engineers deeply understand their organization's security issues. This analysis reduces noise and detects issues that Semgrep CE can't find.</li>
     <li>Cross-file analysis runs on full scans. These scans may take longer to complete and can use more memory than Semgrep CE scans. See the available languages for cross-file analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
-    <li>In Semgrep Code, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
+    <li>In Semgrep Multimodal, cross-file analysis includes cross-function analysis as well.</li></ul></dd>
     <dt>Cross-function (interprocedural) analysis</dt>
     <dd>
         <ul>
             <li>Cross-function analysis finds patterns within a single file spanning code blocks and functions.</li>
-            <li>Semgrep Code scans run cross-function analysis by default.</li>
-            <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Code cross-function example</a>.</li>
+            <li>Semgrep Multimodal scans run cross-function analysis by default.</li>
+            <li>See an example of cross-function analysis in <a href="#pro-engine-cross-function-example"> Semgrep Multimodal cross-function example</a>.</li>
             <li>See the available languages for cross-function analysis in <a href="/docs/supported-languages/#semgrep-pro-engine"><i class="fa-regular fa-file-lines"></i> Supported languages</a>.</li>
         </ul>
     </dd>
 </dl>
 
-#### Semgrep Code cross-file CI scan issues
+#### Semgrep Multimodal cross-file CI scan issues
 
-To provide reliably completed scans, Semgrep Code can **fall back** from cross-file analysis to single-file analysis. This ensures that in the vast majority of cases, scans run successfully.
+To provide reliably completed scans, Semgrep Multimodal can **fall back** from cross-file analysis to single-file analysis. This ensures that in the vast majority of cases, scans run successfully.
 
 By default, if a scan uses more than **5 GB** of memory during cross-file pre-processing, the scan uses single-file analysis to ensure lower memory consumption. Similarly, if a cross-file scan doesn't complete after 3 hours, the analysis times out and Semgrep re-scans the repository using single-file analysis. Typically, this happens because the repository is very large.
 
@@ -208,6 +208,6 @@ If many repositories cause scan issues, or you have critical repositories you ar
 
 Cross-file analysis is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
-### Feedback for Semgrep Code's advanced analyses
+### Feedback for Semgrep Multimodal's advanced analyses
 
 The team at Semgrep is excited to hear what's on your mind. As you explore these features, we want to know what you'd like to be able to capture with it. We believe that this deeper analysis helps users find more vulnerabilities, build trust with developers, and enforce code standards quickly. Let us know what you think about the results in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a>.

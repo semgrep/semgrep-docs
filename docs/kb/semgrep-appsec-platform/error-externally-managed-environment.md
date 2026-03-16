@@ -2,7 +2,7 @@
 description: Learn how to handle externally managed environment errors when installing Semgrep using pip.
 tags:
  - Semgrep AppSec Platform
- - Semgrep Code
+ - Semgrep Multimodal
  - Semgrep Secrets
  - Semgrep Supply Chain
 ---

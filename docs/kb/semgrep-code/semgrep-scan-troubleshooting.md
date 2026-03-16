@@ -1,7 +1,7 @@
 ---
 tags:
   - Semgrep Supply Chain
-  - Semgrep Code
+  - Semgrep Multimodal
 description: Troubleshoot common issues with Semgrep scans.
 ---
 

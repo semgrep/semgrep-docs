@@ -38,7 +38,7 @@ OPTIONS
            changes, or given baseline hash doesn't exist. 
 
        --code
-           Run Semgrep Code (SAST) product.
+           Run Semgrep Multimodal (SAST) product.
 
        -d, --dump-command-for-core
            <internal, do not use>

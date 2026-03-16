@@ -11,7 +11,7 @@ tags:
 
 **Secure defaults** are inherently secure libraries, frameworks, configurations, or settings. They mitigate common security concerns, such as preventing cross-site request forgery (CSRF) by properly verifying inbound requests in Django or Flask applications. By adopting secure defaults, teams minimize the need for developers to manually implement security measures.
 
-Secure default rules are Semgrep Code (SAST) rules that codify a secure default. The Semgrep team recommends deploying these rules as guardrails because the early adoption of secure defaults helps prevent additional vulnerabilities.
+Secure default rules are Semgrep Multimodal (SAST) rules that codify a secure default. The Semgrep team recommends deploying these rules as guardrails because the early adoption of secure defaults helps prevent additional vulnerabilities.
 
 Some secure default rules codify universally secure practices and work out of the box, while others are organization-specific and require customization.
 
@@ -20,14 +20,14 @@ In the following example, the rule detects if a Flask [WTForm](https://flask-wtf
 <iframe title="tk" src="https://semgrep.dev/embed/editor?snippet=ReRkO" width="100%" height="432px" loading="lazy" frameBorder="0"></iframe>
 _**Figure**. A rule that helps secure a Flask app from CSRF by default_
 
-## Semgrep Code supported languages
+## Semgrep Multimodal supported languages
 
-Semgrep Code provides secure default rules for the following languages:
+Semgrep Multimodal provides secure default rules for the following languages:
 
 - C#
 - Python (Flask, FastAPI, and Django frameworks)
 
-Custom rules to deploy secure default rules can be written in any of [Semgrep Code’s supported languages](/supported-languages#language-maturity-summary).
+Custom rules to deploy secure default rules can be written in any of [Semgrep Multimodal’s supported languages](/supported-languages#language-maturity-summary).
 
 ## View Semgrep secure default rules
 

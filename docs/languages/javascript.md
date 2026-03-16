@@ -5,7 +5,7 @@ hide_title: true
 description: >-
   Detailed documentation for Semgrep's JavaScript support. 
 tags:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep Supply Chain
   - Node.js
   - javascript
@@ -22,7 +22,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="JavaScript" />
 
-## JavaScript support in Semgrep Code
+## JavaScript support in Semgrep Multimodal
 
 <LangDefCode />
 
@@ -48,7 +48,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 | NextJS               | Web framework     |
 
 <details>
-<summary>**Semgrep Code supports 50+ libraries & frameworks based on their overall popularity.**</summary>
+<summary>**Semgrep Multimodal supports 50+ libraries & frameworks based on their overall popularity.**</summary>
 
 | Supported libraries             | Type of library                          |
 | -------                         | ------                                   |

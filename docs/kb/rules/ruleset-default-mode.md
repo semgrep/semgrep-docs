@@ -3,7 +3,7 @@ description: Change the default mode for a ruleset.
 tags:
   - Rules
   - Semgrep Registry
-  - Semgrep Code
+  - Semgrep Multimodal
 append_help_link: true
 ---
 

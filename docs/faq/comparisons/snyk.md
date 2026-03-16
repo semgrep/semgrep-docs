@@ -42,7 +42,7 @@ To help you manage your findings, Semgrep provides you with the findings' EPSS p
 
 ## Policies and rules management
 
-Semgrep Code and Semgrep Secret's policies management feature provides extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
+Semgrep Multimodal and Semgrep Secret's policies management feature provides extensive flexibility, especially with respect to a developer's workflow, by allowing results to appear:
 
 - Only in the AppSec team’s view (monitor mode)
 - In the AppSec team's view **and** in the developer’s workflow, while not failing the CI job (comment mode)

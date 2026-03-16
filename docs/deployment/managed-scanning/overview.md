@@ -22,7 +22,7 @@ This is an alternative method to [adding Semgrep in CI](/deployment/add-semgrep-
 <SmsSupport />
 
 Managed Scans is available for all Semgrep products you have purchased, including:
-  - Semgrep Code
+  - Semgrep Multimodal
   - Semgrep Supply Chain
   - Semgrep Secrets
 

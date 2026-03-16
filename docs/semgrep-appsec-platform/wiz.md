@@ -21,9 +21,9 @@ _**Figure**. Detailed information for a finding sent by Semgrep to Wiz._
 
 ## Prerequisites
 
-This integration is available for users with both a [Semgrep Code license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
+This integration is available for users with both a [Semgrep Multimodal license](https://semgrep.dev/products/semgrep-code/) and a [Wiz Code Security license](https://www.wiz.io/platform/wiz-code).
 
-To send Semgrep Code findings to Wiz:
+To send Semgrep Multimodal findings to Wiz:
 
 - You must [connect your source code manager to Semgrep](https://semgrep.dev/docs/deployment/connect-scm). At this time, Wiz [supports the use of the following](https://win.wiz.io/docs/sast-app-vuln-findings-schema#schema-fields):
   - GitHub Cloud
@@ -45,7 +45,7 @@ For Wiz users with a [Code Security](https://www.wiz.io/platform/wiz-code) licen
 
 Semgrep sends data to Wiz after every successful full scan; Semgrep does not send data from diff-aware scans. Wiz batches and syncs your data once every 24 hours.
 
-By default, the Code findings that Semgrep sends are:
+By default, the Multimodal findings that Semgrep sends are:
 
 - Critical or high severity
 - From full scans

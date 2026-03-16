@@ -55,7 +55,7 @@ The default `.semgrepignore` file causes Semgrep to skip these folders:
 To include these folders:
 
 1. Create a `.semgrepignore` file at the repository root without those paths.
-1. For Platform users: remove the folders from the project ignore list in **Projects > <PL>PROJECT_NAME</PL> > Details page > Settings > Path ignores > Code (SAST) & Supply Chain (SCA)**.
+1. For Platform users: remove the folders from the project ignore list in **Projects > <PL>PROJECT_NAME</PL> > Details page > Settings > Path ignores > Multimodal (SAST) & Supply Chain (SCA)**.
 
 
 ## Files, folders, and code beyond Semgrep's scope
@@ -76,7 +76,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 | Goal | Method |
 |:---- |:------ |
-| To ignore custom files and folders each time you run a Code or Supply Chain scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
+| To ignore custom files and folders each time you run a Multimodal or Supply Chain scan. | Add these files to your `.semgrepignore` file or [define them through Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform).|
 | To ignore specific code blocks each time you run a scan. | Create a comment with the word `nosemgrep`. |
 | To ignore files or folders for a particular scan. | Run Semgrep with the flag `--exclude` followed by the pattern or file to be excluded. See [CLI reference](/cli-reference).
 | To include files or folders for a particular scan. | Run Semgrep with the flag `--include` followed by the pattern or file to be included. Any file that isn't matched is excluded. See CLI reference. When including a pattern from a `.gitignore` or `.semgrepignore` file, `--include` does not override either, resulting in the file's exclusion. |
@@ -86,7 +86,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 ## Define ignored files and folders in `.semgrepignore`
 
-Configure a `.semgrepignore` file to ignore files and folders each time you run a Code or Supply Chain scan. 
+Configure a `.semgrepignore` file to ignore files and folders each time you run a Multimodal or Supply Chain scan. 
 
 :::caution
 For Secrets scans, Semgrep ignores both the default and user-defined `.semgrepignore` files. You can still configure secrets-specific ignores in [Semgrep AppSec Platform](#define-ignored-files-and-folders-in-semgrep-appsec-platform) or use the `--exclude` flag to ignore files or folders for a particular scan.
@@ -124,7 +124,7 @@ This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can
 3. Find the project you want to modify, then click its **<i class="far fa-window-restore"></i> icon** under **Details**.
 4. Click the **Settings** tab.
 5. To define files and folders that Semgrep can ignore:
-   1. Click **Code (SAST) & Supply Chain (SCA)** or **Secrets** to expand and display the **Path Ignores** box.
+   1. Click **Multimodal (SAST) & Supply Chain (SCA)** or **Secrets** to expand and display the **Path Ignores** box.
    2. Enter files and folders to ignore in the relevant **Path Ignores** box.
    3. Click **Save changes**.
 
@@ -139,7 +139,7 @@ This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can
 
 You can also add files to `.semgrepignore` while triaging individual findings using Semgrep AppSec Platform:
 
-1. On the Semgrep Code [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
+1. On the Semgrep Multimodal [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, click the **Status** filter, and then select the **Open** status to see all open findings.
 2. Click the finding you want ignored to open its **Details** page.
 3. Select **Ignored**, and optionally, select an **Ignore reason**.
 4. Click to expand **Ignore files in future scans...**.
@@ -219,7 +219,7 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 
 ## Ignore findings
 
-**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Code findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
+**Ignoring** can also be a triage action. In this case, the code is scanned rather than excluded, and if a pattern match occurs, a finding record is generated that you can then triage as **Ignored**. See [Triage and remediate Semgrep Multimodal findings in Semgrep AppSec Platform](/semgrep-code/triage-remediation/#ignore-findings) to learn how to:
 
 * [Manage findings](/semgrep-code/triage-remediation#triage-and-remediation)
 * [Ignore findings through PR and MR comments](/docs/semgrep-code/triage-remediation#triage-findings-through-pr-and-mr-comments)

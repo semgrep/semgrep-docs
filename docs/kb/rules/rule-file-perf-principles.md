@@ -3,7 +3,7 @@ description: Learn the rule and file performance principles to abide by when sca
 tags:
   - Rules
   - Semgrep Registry
-  - Semgrep Code
+  - Semgrep Multimodal
 ---
 
 

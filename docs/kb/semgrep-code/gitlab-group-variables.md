@@ -2,7 +2,7 @@
 description: This may be occurring because SEMGREP_APP_TOKEN is set as a group variable.
 tags:
   - GitLab
-  - Semgrep Code
+  - Semgrep Multimodal
 append_help_link: true
 ---
 

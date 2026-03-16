@@ -5,7 +5,7 @@ description: "A guide using to Semgrep Pro Rules: supported languages, vulnerabi
 title: Semgrep Pro rules
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
 ---
 
 import DisableRule from "/src/components/procedure/_disable-rule.mdx"

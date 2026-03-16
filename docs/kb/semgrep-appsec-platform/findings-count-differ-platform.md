@@ -2,7 +2,7 @@
 description: Learn why the count of findings differs across various pages in Semgrep AppSec Platform.
 tags:
  - Semgrep AppSec Platform
- - Semgrep Code
+ - Semgrep Multimodal
  - Semgrep Secrets
  - Semgrep Supply Chain
 ---
@@ -15,12 +15,12 @@ You may see different findings counts across the [Dashboard](/semgrep-appsec-pla
 
 Semgrep AppSec Platform computes the findings count displayed on the **Projects** page as follows:
 
-- For Semgrep Code and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](/deployment/primary-branch). The Projects page displays **Open** findings. This does not currently include findings in the **To Fix** or **Fixing** statuses.
+- For Semgrep Multimodal and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](/deployment/primary-branch). The Projects page displays **Open** findings. This does not currently include findings in the **To Fix** or **Fixing** statuses.
 - For Semgrep Secrets, the findings count is computed from [deduplicated findings across all branches](/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic).
 
 The product-specific **Findings** pages display findings as follows:
 
-- [Semgrep Code](/semgrep-code/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
+- [Semgrep Multimodal](/semgrep-code/findings): displays findings from the primary branches of all repositories. Shows **Open** findings by default.
 - [Semgrep Supply Chain](/semgrep-supply-chain/findings): displays vulnerability findings from the primary branches of all repositories. Shows **Open** findings that are **Reachable** or **Needs review** by default.
 - [Semgrep Secrets](/semgrep-secrets/triage-remediation): displays the instance of a finding from the most recent branch scanned. Shows **Open** that are not **Confirmed invalid** by default.
 
@@ -39,7 +39,7 @@ The finding counts on the **Dashboard** show historical changes and the state of
 
 The **Dashboard** page also features the **Recommended priority** filter. When this filter is enabled, the page includes findings that are **Critical** or **High** severity in addition to being:
 
-- **High confidence** - if the finding is from Semgrep Code.
+- **High confidence** - if the finding is from Semgrep Multimodal.
 - **Reachable** in code - if the finding is from Semgrep Supply Chain.
 - **Valid** and non-historical - if the finding is from Semgrep Secrets.
 

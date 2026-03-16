@@ -5,7 +5,7 @@ description: >-
   Detailed documentation for Semgrep's Ruby support. 
 hide_title: true
 tags:
-    - Semgrep Code
+    - Semgrep Multimodal
     - Semgrep Supply Chain
     - ruby
 title: Ruby
@@ -22,7 +22,7 @@ import LangSscFeatures from "/src/components/concept/_lang-ssc-features.md"
 
 <LangCallout name="Ruby" />
 
-## Semgrep Code analyses
+## Semgrep Multimodal analyses
 
 * Interprocedural analysis (cross-function)
 * All analyses performed by [Semgrep Community Edition (CE)](#ruby-support-in-semgrep-ce)

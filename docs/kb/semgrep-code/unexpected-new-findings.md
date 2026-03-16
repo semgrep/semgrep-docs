@@ -1,7 +1,7 @@
 ---
 tags:
   - Rules
-  - Semgrep Code
+  - Semgrep Multimodal
 description: This may be occurring because rule coverage has increased.
 ---
 

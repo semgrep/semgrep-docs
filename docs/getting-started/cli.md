@@ -13,7 +13,7 @@ import Login from "/src/components/procedure/_login-activate.mdx";
 
 # Local scans with Semgrep
 
-Learn how to set up Semgrep, scan your project for security issues using Semgrep Code's interfile analysis, and view your findings in the CLI.
+Learn how to set up Semgrep, scan your project for security issues using Semgrep Multimodal's interfile analysis, and view your findings in the CLI.
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ See [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-o
 When you run `semgrep ci`, you scan your project with any product that is enabled in Semgrep AppSec Platform. To scan your project with just one product, run:
 
 ```console
-# scan with Semgrep Code
+# scan with Semgrep Multimodal
 semgrep ci --code
 
 # scan with Semgrep Supply Chain
