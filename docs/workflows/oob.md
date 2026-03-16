@@ -2,6 +2,7 @@
 slug: oob
 title: Semgrep Workflows - Default
 hide_title: true
+displayed_sidebar: scanSidebar
 description: Learn how the default Semgrep Workflow can help you detect, triage, and fix security vulnerabilities by combining the power of SAST and AI.
 tags:
   - Workflows

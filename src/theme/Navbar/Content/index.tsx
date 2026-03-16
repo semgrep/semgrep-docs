@@ -73,6 +73,7 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/semgrep-code/java') ||
         path.startsWith('/docs/semgrep-appsec-platform/json-and-sarif') ||
         path.startsWith('/docs/extensions') ||
+        path.startsWith('/docs/workflows') ||
         path.startsWith('/docs/troubleshooting/semgrep')) {
       return 'scan';
     }
