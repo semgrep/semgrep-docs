@@ -470,6 +470,17 @@ module.exports = {
           { from: "/semgrep-multimodal/semgrep-pro-engine-examples" , to: "/semgrep-multimodal/semgrep-pro-engine-examples" },
           { from: "/semgrep-multimodal/semgrep-pro-engine-intro" , to: "/semgrep-multimodal/semgrep-pro-engine-intro" },
           { from: "/semgrep-multimodal/triage-remediation" , to: "/semgrep-multimodal/triage-remediation" },
+          { from: "/kb/semgrep-code/collect-cli-logs" , to: "/kb/semgrep-multimodal/collect-cli-logs" },
+          { from: "/kb/semgrep-code/finding_all_taints" , to: "/kb/semgrep-multimodal/finding_all_taints" },
+          { from: "/kb/semgrep-code/gitlab-group-variables" , to: "/kb/semgrep-multimodal/gitlab-group-variables" },
+          { from: "/kb/semgrep-code/InvalidHeaderValue" , to: "/kb/semgrep-multimodal/InvalidHeaderValue" },
+          { from: "/kb/semgrep-code/language-version-support" , to: "/kb/semgrep-multimodal/language-version-support" },
+          { from: "/kb/semgrep-code/reduce-false-positives" , to: "/kb/semgrep-multimodal/reduce-false-positives" },
+          { from: "/kb/semgrep-code/run-specific-version" , to: "/kb/semgrep-multimodal/run-specific-version" },
+          { from: "/kb/semgrep-code/scan-engine-kill" , to: "/kb/semgrep-multimodal/scan-engine-kill" },
+          { from: "/kb/semgrep-code/semgrep-scan-troubleshooting" , to: "/kb/semgrep-multimodal/semgrep-scan-troubleshooting" },
+          { from: "/kb/semgrep-code/semgrepignore-ignored" , to: "/kb/semgrep-multimodal/semgrepignore-ignored" },
+          { from: "/kb/semgrep-code/unexpected-new-findings" , to: "/kb/semgrep-multimodal/unexpected-new-findings" },
         ]
       }
     ],

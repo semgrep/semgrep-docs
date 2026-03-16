@@ -43,7 +43,7 @@ module.exports = {
           collapsible: true,
           link: {type: 'generated-index'},
           items: [
-            'semgrep-code/java'
+            'semgrep-multimodal/java'
           ]
         },
         {
@@ -52,7 +52,7 @@ module.exports = {
           collapsible: true,
           link: { type: 'generated-index'},
           items: [
-            'semgrep-code/glossary',
+            'semgrep-multimodal/glossary',
             'semgrep-supply-chain/glossary'
           ]
         },
@@ -169,7 +169,7 @@ module.exports = {
                           items: [
                             {
                               type: 'doc',
-                              id: 'semgrep-code/ai-detection-concepts',
+                              id: 'semgrep-multimodal/ai-detection-concepts',
                               label: 'Concepts and FAQs'
                             }
                           ]
@@ -237,8 +237,8 @@ module.exports = {
                           },
                         ]
                       },
-                      'semgrep-code/semgrep-pro-engine-intro',
-                      'semgrep-code/policies',
+                      'semgrep-multimodal/semgrep-pro-engine-intro',
+                      'semgrep-multimodal/policies',
                       'semgrep-supply-chain/license-compliance',
                       {
                         type: 'doc',
@@ -321,7 +321,7 @@ module.exports = {
             collapsible: true,
             label: 'SAST (Code)',
             items: [
-                'semgrep-code/overview',
+                'semgrep-multimodal/overview',
                 {
                   type: 'category',
                   collapsible: true,
@@ -330,7 +330,7 @@ module.exports = {
                   items: [
                     {
                       type: 'doc',
-                      id: 'semgrep-code/ai-detection-concepts',
+                      id: 'semgrep-multimodal/ai-detection-concepts',
                       label: 'Concepts and FAQs'
                     }
                   ]
@@ -339,40 +339,40 @@ module.exports = {
                     type: 'category',
                     collapsible: true,
                     label: 'View findings',
-                    link: {type: 'doc', id: 'semgrep-code/findings',},
+                    link: {type: 'doc', id: 'semgrep-multimodal/findings',},
                     items: [
-                      'semgrep-code/finding-details',
+                      'semgrep-multimodal/finding-details',
                     ]
                 },
                 {
                     type: 'category',
                     collapsible: true,
                     label: 'Triage and remediation',
-                    link: { type: 'doc', id: 'semgrep-code/triage-remediation' },
+                    link: { type: 'doc', id: 'semgrep-multimodal/triage-remediation' },
                     items: [
-                      'semgrep-code/triage-remediation/autofix'
+                      'semgrep-multimodal/triage-remediation/autofix'
                     ]
                 },
                 {
                     type: 'category',
                     collapsible: true,
                     label: 'Manage rules and policies',
-                    link: {type: 'doc', id: 'semgrep-code/policies',},
+                    link: {type: 'doc', id: 'semgrep-multimodal/policies',},
                     items: [
-                      'semgrep-code/pro-rules',
-                      'semgrep-code/editor',
+                      'semgrep-multimodal/pro-rules',
+                      'semgrep-multimodal/editor',
                     ]
                 },
                 {
                     type: 'category',
                     collapsible: true,
                     label: 'Perform cross-file analysis',
-                    link: {type: 'doc', id: 'semgrep-code/semgrep-pro-engine-intro',},
+                    link: {type: 'doc', id: 'semgrep-multimodal/semgrep-pro-engine-intro',},
                     items: [
-                      'semgrep-code/semgrep-pro-engine-examples',
+                      'semgrep-multimodal/semgrep-pro-engine-examples',
                     ]
                 },
-                'semgrep-code/remove-duplicates',
+                'semgrep-multimodal/remove-duplicates',
             ]
         },
         {
@@ -543,7 +543,7 @@ module.exports = {
             items: [
                 'references/language-maturity-levels',
                 'references/feature-definitions',
-                'semgrep-code/java'
+                'semgrep-multimodal/java'
             ]
         },
         {
@@ -552,7 +552,7 @@ module.exports = {
             collapsible: true,
             link: { type: 'generated-index'},
             items: [
-                'semgrep-code/glossary',
+                'semgrep-multimodal/glossary',
                 'semgrep-supply-chain/glossary'
             ]
         },
@@ -863,12 +863,12 @@ module.exports = {
           collapsible: true,
           link: {
             type: 'generated-index',
-            slug: '/kb/semgrep-code'
+            slug: '/kb/semgrep-multimodal'
           },
           items: [
             {
               type: 'autogenerated',
-              dirName: 'kb/semgrep-code',
+              dirName: 'kb/semgrep-multimodal',
             },
           ]
         },
