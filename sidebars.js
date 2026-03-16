@@ -165,12 +165,12 @@ module.exports = {
                           type: 'category',
                           collapsible: true,
                           label: 'AI-powered detection',
-                          link: {type: 'doc', id: 'deployment/ai-powered-detection'},
+                          link: {type: 'doc', id: 'semgrep-code/ai-detection-concepts'},
                           items: [
                             {
                               type: 'doc',
-                              id: 'semgrep-code/ai-detection-concepts',
-                              label: 'Concepts and FAQs'
+                              id: 'deployment/ai-powered-detection',
+                              label: 'Scan with AI'
                             }
                           ]
                         },
@@ -326,12 +326,17 @@ module.exports = {
                   type: 'category',
                   collapsible: true,
                   label: 'AI-powered detection',
-                  link: {type: 'doc', id: 'deployment/ai-powered-detection'},
+                  link: {type: 'doc', id: 'semgrep-code/ai-detection-concepts'},
                   items: [
                     {
                       type: 'doc',
                       id: 'semgrep-code/ai-detection-concepts',
-                      label: 'Concepts and FAQs'
+                      label: 'Overview'
+                    },
+                    {
+                      type: 'doc',
+                      id: 'deployment/ai-powered-detection',
+                      label: 'How-to guide'
                     }
                   ]
                 },

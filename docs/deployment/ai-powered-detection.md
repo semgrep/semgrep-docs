@@ -19,7 +19,7 @@ Semgrep’s AI-powered detection combines the precision of static analysis with 
 
 This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance. 
 
-For details on what AI-powered detection can uncover, known limitations, and beta considerations, see [AI-powered detection: concepts and FAQs](/docs/semgrep-code/ai-powered-detection-concepts).
+For details on what AI-powered detection can uncover, known limitations, and beta considerations, see [AI-powered detection overview](/docs/semgrep-code/ai-powered-detection-concepts).
 
 ## Prerequisites {#prerequisites}
 

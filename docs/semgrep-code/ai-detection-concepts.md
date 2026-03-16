@@ -1,6 +1,6 @@
 ---
 slug: ai-powered-detection-concepts
-title: "AI-powered detection: concepts and FAQs"
+title: "AI-powered detection overview"
 description: "Learn how Semgrep’s AI-powered detection works, what it can find, known limitations, and beta considerations."
 keywords:
   - AI-powered detection
@@ -13,7 +13,7 @@ tags:
 displayed_sidebar: scanSidebar
 ---
 
-# AI-powered detection (beta)
+# AI-powered detection (beta) overview
 
 Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
 
