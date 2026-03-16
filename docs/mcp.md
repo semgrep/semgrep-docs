@@ -5,8 +5,8 @@ title: Semgrep Plugin
 hide_title: true
 description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
 tags:
+ - Semgrep Plugin
  - MCP
- - Semgrep Code
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,7 +58,7 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     semgrep login && semgrep install-semgrep-pro
     ```
 
-1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open Cursor > ⌘⇧J > Plugins. Search "Semgrep" and click **Add to Cursor**.
+1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open **Cursor > ⌘⇧J > Plugins**. Search "Semgrep" and click **Add to Cursor**.
 
 1. Restart Cursor to apply configuration.
 
