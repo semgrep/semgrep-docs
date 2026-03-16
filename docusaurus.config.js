@@ -453,7 +453,23 @@ module.exports = {
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
-          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" },
+          /* MAR 16, 2026 */
+          { from: "/semgrep-code/triage-remediation/autofix" , to: "/semgrep-multimodal/triage-remediation/autofix" },
+          { from: "/semgrep-code/ai-detection-concepts" , to: "/semgrep-multimodal/ai-detection-concepts" },
+          { from: "/semgrep-code/editor" , to: "/semgrep-multimodal/editor" },
+          { from: "/semgrep-code/finding-details" , to: "/semgrep-multimodal/finding-details" },
+          { from: "/semgrep-code/findings" , to: "/semgrep-multimodal/findings" },
+          { from: "/semgrep-code/glossary" , to: "/semgrep-multimodal/glossary" },
+          { from: "/semgrep-code/java" , to: "/semgrep-multimodal/java" },
+          { from: "/semgrep-code/overview" , to: "/semgrep-multimodal/overview" },
+          { from: "/semgrep-code/policies" , to: "/semgrep-multimodal/policies" },
+          { from: "/semgrep-code/pro-rules" , to: "/semgrep-multimodal/pro-rules" },
+          { from: "/semgrep-code/remove-duplicates" , to: "/semgrep-multimodal/remove-duplicates" },
+          { from: "/semgrep-code/semgrep-pro-engine-data-flow" , to: "/semgrep-multimodal/semgrep-pro-engine-data-flow" },
+          { from: "/semgrep-code/semgrep-pro-engine-examples" , to: "/semgrep-multimodal/semgrep-pro-engine-examples" },
+          { from: "/semgrep-code/semgrep-pro-engine-intro" , to: "/semgrep-multimodal/semgrep-pro-engine-intro" },
+          { from: "/semgrep-code/triage-remediation" , to: "/semgrep-multimodal/triage-remediation" },
         ]
       }
     ],
