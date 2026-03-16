@@ -88,7 +88,7 @@ To access all upgrade guidance and Autofix features, you must have:
 - Semgrep Assistant [enabled](/semgrep-assistant/getting-started).
 - The **private** GitHub app for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they haven't already.
-- Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep), connect it to improve results.
+- Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep) to improve results.
 
 ### Features and permissions required
 
