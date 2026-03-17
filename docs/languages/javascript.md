@@ -127,7 +127,7 @@ In addition to rules, the Semgrep engine itself can analyze code and implicit da
 
 </details>
 
-#### Benchmark results exclusive of [AI](/semgrep-assistant/overview) processing
+#### Benchmark results exclusive of [AI](/semgrep-multimodal/overview) processing
 
 Semgrep's benchmarking process involves scanning open source repositories, triaging the findings, and making iterative rule updates. This process was developed and is used internally by the Semgrep security research team to monitor and improve rule performance.
 

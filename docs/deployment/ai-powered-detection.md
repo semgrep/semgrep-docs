@@ -17,7 +17,7 @@ displayed_sidebar: scanSidebar
 
 Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-Powered Detection, you can automatically identify complex business logic flaws, such as IDORs and broken authorization.
 
-This feature is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance. 
+This feature is distinct from [Semgrep Assistant](/docs/semgrep-multimodal/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance. 
 
 For details on what AI-powered detection can uncover, known limitations, and beta considerations, see [AI-powered detection overview](/docs/semgrep-code/ai-powered-detection-concepts).
 

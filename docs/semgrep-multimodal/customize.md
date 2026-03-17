@@ -28,14 +28,14 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 ## Weekly priority emails
 
-[Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature isn't enabled for your deployment, you can do so as follows:
+[Weekly priority emails](/semgrep-multimodal/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature isn't enabled for your deployment, you can do so as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Noise filtering
 
-Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-multimodal/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
@@ -62,7 +62,7 @@ Memories are enabled by default for all organizations with Multimodal enabled.
    1. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
 6. Click **Add memory** to save your changes and proceed.
 
-See [Best practices for writing Multimodal Memories](/semgrep-assistant/best-practices-for-memories) for information on writing effective memories.
+See [Best practices for writing Multimodal Memories](/semgrep-multimodal/best-practices-for-memories) for information on writing effective memories.
 
 ### Add a memory based on Multimodal's suggested fix
 
@@ -139,7 +139,7 @@ Click **Save** to proceed.
 By switching from Semgrep's key to your key, note that you lose access to the following:
 
 - Semgrep’s fine-tuned models that can increase the quality of results.
-- Semgrep's [Zero Data Retention agreement](/semgrep-assistant/privacy) that prevents OpenAI from saving input or output data.
+- Semgrep's [Zero Data Retention agreement](/semgrep-multimodal/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
 
 ### Your own AWS Bedrock account

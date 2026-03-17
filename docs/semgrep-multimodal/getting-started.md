@@ -111,4 +111,4 @@ Semgrep Multimodal extends normal Semgrep capabilities by providing contextually
 </TabItem>
 </Tabs>
 
-Once you have enabled Semgrep Multimodal, you can [customize your deployment by enabling or disabling the Multimodal features](/semgrep-assistant/customize) that best fit your software development lifecycle.
+Once you have enabled Semgrep Multimodal, you can [customize your deployment by enabling or disabling the Multimodal features](/semgrep-multimodal/customize) that best fit your software development lifecycle.

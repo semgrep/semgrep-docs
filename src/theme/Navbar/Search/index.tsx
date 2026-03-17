@@ -614,7 +614,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     if (url.includes('/getting-started/')) {
       return 'Getting Started';
     }
-    if (url.includes('/semgrep-assistant/')) {
+    if (url.includes('/semgrep-multimodal/')) {
       return 'Semgrep Assistant';
     }
     

@@ -16,7 +16,7 @@ Semgrep's rule format supports a `fix:` key that supports the replacement of met
 You can apply the Rule-defined fix directly to the file using the `--autofix` flag. To test the fix before applying it, use both the `--autofix` and `--dryrun` flags.
 
 ::::tip
-Rule-defined fixes are deterministic and user-defined. Related AI-powered features include [Semgrep Multimodal's Suggested fix](/semgrep-assistant/overview#autofix), which identifies code that needs to be fixed, and Semgrep Autofix, which can automatically generate a fix PR with a single click.
+Rule-defined fixes are deterministic and user-defined. Related AI-powered features include [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#autofix), which identifies code that needs to be fixed, and Semgrep Autofix, which can automatically generate a fix PR with a single click.
 ::::
 
 ## Example Rule-defined fix snippet

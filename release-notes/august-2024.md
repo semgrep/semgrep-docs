@@ -99,7 +99,7 @@ The following updates were made to Semgrep in August 2024.
 
 ### Added
 
-- Documentation for providing your [own OpenAI API key](/semgrep-assistant/customize#openai-api-with-your-own-key) for use with Semgrep Assistant.
+- Documentation for providing your [own OpenAI API key](/semgrep-multimodal/customize#openai-api-with-your-own-key) for use with Semgrep Assistant.
 - EPSS documentation.
 - Sections for various source code manager additions, such as:
   - Support for multiple GitHub Enterprise Server organizations.
@@ -112,7 +112,7 @@ The following updates were made to Semgrep in August 2024.
   - Improved logging guidance.
   - Clarified variable names and placeholder values that users should replace.
 - Various updates to [Editor documentation](https://semgrep.dev/docs/semgrep-code/editor) as a whole.
-- Various updates to [Semgrep Assistant](/semgrep-assistant/overview) documentation.
+- Various updates to [Semgrep Assistant](/semgrep-multimodal/overview) documentation.
 - Updated Semgrep Supply Chain documentation to reflect the latest product UI/UX state.
 
 ### Fixed

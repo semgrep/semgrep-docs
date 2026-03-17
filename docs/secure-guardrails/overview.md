@@ -104,7 +104,7 @@ Semgrep supports the following interfaces:
 </tbody>
 </table>
 
-_\*To receive Multimodal guidance, check that your source code manager (SCM) is supported: [list of supported source code managers (SCMs)](/semgrep-assistant/overview#support-and-availability)._
+_\*To receive Multimodal guidance, check that your source code manager (SCM) is supported: [list of supported source code managers (SCMs)](/semgrep-multimodal/overview#support-and-availability)._
 
 ![Semgrep remediation guidance in VS Code](/img/guardrails-ide-quickfix.png#md-width-centered) <br />
 ![Semgrep remediation guidance in VS Code > Quick fix menu](/img/guardrails-ide-fix.png#md-width-centered)

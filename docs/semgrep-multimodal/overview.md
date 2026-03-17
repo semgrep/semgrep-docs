@@ -112,7 +112,7 @@ Noise filtering increases developer velocity by reducing interruptions from pote
 
 Security teams can review filtered findings at any time on Semgrep's [**Code > Pre-production** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree or disagree with the filtering. If you agree with the suggestion, Semgrep closes the finding, but if you disagree, Semgrep reopens the finding.
 
-Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md).
+Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-multimodal/metrics.md).
 
 ### Memories
 
@@ -128,6 +128,6 @@ Read more about [Upgrade guidance and Autofix](/semgrep-supply-chain/triage-and-
 
 ## Reliability
 
-Multimodal supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-assistant/customize#select-your-ai-provider).
+Multimodal supports fallback between model providers to ensure optimal performance and reliability. OpenAI is the primary provider in most cases, with automatic fallback to AWS Bedrock as needed. Semgrep's fallback decisions are based on an internal ranking system informed by ongoing research. Semgrep ranks models by performance and dynamically selects the best available from [your enabled options](/semgrep-multimodal/customize#select-your-ai-provider).
 
 Enabling additional model providers for your Semgrep organization can improve performance in some scenarios, while removing them could result in reduced performance.

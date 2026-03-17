@@ -29,12 +29,12 @@ This article shows you how to manage and triage findings identified by Semgrep C
 
 If you have Semgrep Multimodal enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
 
-- [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
-  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
-  - [Suggested fix](/docs/semgrep-assistant/overview#suggested-fix) flagging affected code that needs to be changed.
-- [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
+- [Remediation advice](/semgrep-multimodal/overview#remediation) shown in Semgrep AppSec Platform, including:
+  - [Guidance](/semgrep-multimodal/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
+  - [Suggested fix](/docs/semgrep-multimodal/overview#suggested-fix) flagging affected code that needs to be changed.
+- [Component tagging](/semgrep-multimodal/overview#component-tags) to help identify high-priority issues
 
-Semgrep Multimodal can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+Semgrep Multimodal can also [auto-triage findings](/semgrep-multimodal/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-multimodal/overview#noise-filtering-beta) to help increase developer velocity.
 
 ## Autofix findings
 

@@ -10,7 +10,7 @@ tags:
 
 # Analyze Semgrep Code findings with Semgrep Multimodal
 
-Once you've [enabled Multimodal](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Multimodal functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
+Once you've [enabled Multimodal](/docs/semgrep-multimodal/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Multimodal functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
 
 
 ## Analyze your findings with Multimodal

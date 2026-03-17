@@ -100,7 +100,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
-  <Card link='/semgrep-assistant/overview'>
+  <Card link='/semgrep-multimodal/overview'>
     <div class="card__copy">
     <CardHeader>Semgrep Multimodal</CardHeader>
     <CardBody>

@@ -55,7 +55,7 @@ Triage is the process of reviewing, prioritizing, and managing findings identifi
 
 Remediation is the process of fixing security issues identified during scanning. Semgrep supports remediation by providing detailed findings, contextual code examples, and, in many cases, Suggested fixes that can automatically or semi-automatically resolve vulnerabilities. These tools help developers quickly implement secure fixes while maintaining development speed.
 
-[Semgrep Multimodal](/docs/semgrep-assistant/overview) enhances this workflow by providing AI-powered security recommendations to help you understand findings, assess severity, and prioritize fixes. It can also suggest potential remediation, explain rule matches in context, and guide developers toward faster resolution of issues.
+[Semgrep Multimodal](/docs/semgrep-multimodal/overview) enhances this workflow by providing AI-powered security recommendations to help you understand findings, assess severity, and prioritize fixes. It can also suggest potential remediation, explain rule matches in context, and guide developers toward faster resolution of issues.
 
 ## Ways to incorporate Semgrep into your development workflow
 

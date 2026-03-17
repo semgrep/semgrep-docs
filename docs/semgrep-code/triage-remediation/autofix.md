@@ -15,7 +15,7 @@ Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgre
 Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
 
 :::info
-Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/docs/semgrep-assistant/overview#suggested-fix). These are separate features with different behaviors and use cases.
+Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/docs/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
 :::
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Autofix is available only for GitHub Cloud repositories.
 
 To use Autofix, you must meet the following requirements:
 
-* [Enable Semgrep Multimodal](/semgrep-assistant/getting-started).  
+* [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).  
 * Accept AWS Bedrock or Anthropic's Claude models.  
   * During beta, Semgrep Code does not respect AI model selection.
 * Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  

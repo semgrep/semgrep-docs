@@ -19,7 +19,7 @@ Like Semgrep Secrets, which scans for specific secrets, **Generic secrets AI** s
 To scan your code for generic secrets, you must have the following:
 
 - Access to [Semgrep Secrets](/semgrep-secrets/getting-started).
-- [Semgrep Multimodal](/semgrep-assistant/getting-started) enabled.
+- [Semgrep Multimodal](/semgrep-multimodal/getting-started) enabled.
 - Semgrep CLI version `1.86.0` or higher running in your CI environment.
 
 Generic secrets does *not* work with local scans initiated by running the `semgrep ci` command, because Semgrep Multimodal requires code access.
