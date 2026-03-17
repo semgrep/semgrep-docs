@@ -27,14 +27,49 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 ## Installation
 
 <Tabs
-    defaultValue="cursor"
+    defaultValue="claude"
     values={[
+    {label: 'Claude Code', value: 'claude'},
     {label: 'Cursor', value: 'cursor'},
     {label: 'Windsurf', value: 'windsurf'},
-    {label: 'Claude Code', value: 'claude'},
     {label: 'Other IDEs', value: 'other'},
     ]}
 >
+
+<TabItem value='claude'>
+
+1. Install Semgrep:
+    ```bash
+    # install through homebrew
+    brew install semgrep
+
+    # install through pip
+    python3 -m pip install semgrep
+    ```
+
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3.  Start a new Claude Code instance in the terminal:
+    ```bash
+    claude
+    ```
+
+4.  Open the plugin browser:
+    ```bash
+    /plugin
+    ```
+
+5.  Go to **Discover**, search for **Semgrep**, and click **Install**.
+
+6.  Set up the Semgrep plugin by running the following skill. This also installs the Semgrep CLI:
+    ```bash
+    /setup-semgrep-plugin
+    ```
+
+</TabItem>
 
 <TabItem value='cursor'>
 
@@ -102,41 +137,6 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     ```
 
 1. Restart Windsurf to apply hook configuration.
-
-</TabItem>
-
-<TabItem value='claude'>
-
-1. Install Semgrep:
-    ```bash
-    # install through homebrew
-    brew install semgrep
-
-    # install through pip
-    python3 -m pip install semgrep
-    ```
-
-2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
-    ```bash
-    semgrep --version
-    ```
-
-3.  Start a new Claude Code instance in the terminal:
-    ```bash
-    claude
-    ```
-
-4.  Open the plugin browser:
-    ```bash
-    /plugin
-    ```
-
-5.  Go to **Discover**, search for **Semgrep**, and click **Install**.
-
-6.  Set up the Semgrep plugin by running the following skill. This also installs the Semgrep CLI:
-    ```bash
-    /setup-semgrep-plugin
-    ```
 
 </TabItem>
 
