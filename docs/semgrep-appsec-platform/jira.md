@@ -136,8 +136,8 @@ The following Semgrep fields are available to map to Jira fields for **all** pro
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
 
-- Assistant triage
-- Assistant component
+- Multimodal triage
+- Multimodal component
 - Rule confidence
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Supply Chain findings:

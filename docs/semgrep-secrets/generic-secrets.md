@@ -4,7 +4,7 @@ title: Scan for generic secrets
 hide_title: true
 description: Use Semgrep to identify generic secrets in your code.
 tags:
- - Semgrep Assistant
+ - Semgrep Multimodal
  - Semgrep Secrets
 ---
 
@@ -19,10 +19,10 @@ Like Semgrep Secrets, which scans for specific secrets, **Generic secrets AI** s
 To scan your code for generic secrets, you must have the following:
 
 - Access to [Semgrep Secrets](/semgrep-secrets/getting-started).
-- [Semgrep Assistant](/semgrep-assistant/getting-started) enabled.
+- [Semgrep Multimodal](/semgrep-assistant/getting-started) enabled.
 - Semgrep CLI version `1.86.0` or higher running in your CI environment.
 
-Generic secrets does *not* work with local scans initiated by running the `semgrep ci` command, because Semgrep Assistant requires code access.
+Generic secrets does *not* work with local scans initiated by running the `semgrep ci` command, because Semgrep Multimodal requires code access.
 
 ## Enable generic secrets
 
@@ -42,9 +42,9 @@ If there are findings, Semgrep returns the following CLI message:
 
 ```console
 Your deployment has generic secrets enabled. X potential line locations
-will be uploaded to the Semgrep platform and then analyzed by Semgrep Assistant.
+will be uploaded to the Semgrep platform and then analyzed by Semgrep Multimodal.
 Any findings that appear actionable will be available in the Semgrep Platform.
-You can view the secrets analyzed by Assistant at URL
+You can view the secrets analyzed by Multimodal at URL
 ```
 
 ## View findings

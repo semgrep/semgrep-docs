@@ -107,7 +107,7 @@ In this phase, the Semgrep team assists you in completing the following tasks:
 
 - Add repositories for scanning through SMS or through a CI/CD job
 - View findings in Semgrep AppSec Platform for scanned repositories within the POV's scope
-- Enable Assistant, ensuring that it's analyzing full scan findings
+- Enable Multimodal, ensuring that it's analyzing full scan findings
 - Prepare to set up pull request or merge request comments (PR or MR comments) and involve developers in Semgrep
 
 #### Detection and remediation of findings
@@ -116,7 +116,7 @@ In this phase, the Semgrep team assists you in completing the following tasks:
 
 - Review the quality of findings with out-of-the-box rules
 - Show how Semgrep **filters out noise** with:
-    - Assistant Memories and triage for Semgrep Code
+    - Memories and triage for Semgrep Code
     - Direct and transitive reachability for Semgrep Supply Chain
     - Secrets validation for Semgrep Secrets
 - Improve developer experience through contextual, actionable vulnerability information:
@@ -132,7 +132,7 @@ In the final phase, the Semgrep team provides you with data on the return on inv
 Some metrics include:
 
 - The number of developers in your company and the cost per developer per hour
-- Number of hours **reduced** per developer, per year in triage time, research and fix time by having Semgrep Assistant provide Suggested fixes and triage recommendations
+- Number of hours **reduced** per developer, per year in triage time, research and fix time by having Semgrep Multimodal provide Suggested fixes and triage recommendations
 - Number of hours reduced in triage time per developer by having the ability to detect if secrets are valid or invalid
 - Reduction in review time with Semgrep Supply Chain reachability analysis
 
@@ -172,7 +172,7 @@ Click to view a sample of common questions you and your team may ask to identify
   - Are your custom workflows supported by the Semgrep API? 
 - **Findings and reports**
   - What percent of findings are true positives? How does this compare with previous tools? 
-  - Is Semgrep Assistant (AI) able to reduce false positives? 
+  - Is Semgrep Multimodal (AI) able to reduce false positives? 
   - Does the dashboard assist you in tracking secure guardrails?
 - **Security**
   - Can Semgrep handle your sensitive data securely?

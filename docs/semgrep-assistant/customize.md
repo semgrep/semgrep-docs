@@ -1,26 +1,26 @@
 ---
 slug: customize
-title: Customize Assistant
+title: Customize Multimodal
 hide_title: true
-description: Learn how to enable and configure Assistant's features.
+description: Learn how to enable and configure Multimodal's features.
 tags:
   - Deployment
-  - Semgrep Assistant
+  - Semgrep Multimodal
 ---
 
 import PL from '@site/src/components/Placeholder';
 
-# Customize Semgrep Assistant
+# Customize Semgrep Multimodal
 
-You can customize Semgrep Assistant by enabling and using the features detailed on this page.
+You can customize Semgrep Multimodal by enabling and using the features detailed on this page.
 
 ## Remediation
 
-Assistant **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
+Multimodal **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Suggested fix** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable this feature.
-3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Assistant suggests a fix even when the code quality is poor.
+3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Multimodal suggests a fix even when the code quality is poor.
 
 :::tip
 Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
@@ -28,28 +28,28 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 ## Weekly priority emails
 
-[Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Assistant. If this feature isn't enabled for your deployment, you can do so as follows:
+[Weekly priority emails](/semgrep-assistant/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature isn't enabled for your deployment, you can do so as follows:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Noise filtering
 
-Assistant is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
+Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-assistant/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
 1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
 2. Click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. Select whether you want to enable PR or MR comments:
    1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
-   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Assistant thinks the finding may be safe to ignore.
+   2. **Include a notification in the PR/MR comment**: Show developers likely false positive findings in PR/MR comments, but include a note explaining why Multimodal thinks the finding may be safe to ignore.
 
-Findings filtered out by Assistant can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
+Findings filtered out by Multimodal can be reviewed at any time in Semgrep by going to the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Semgrep also allows you to agree with the filtering to close the finding or disagree to reopen.
 
 ## Add Memories
 
-Assistant Memories allow admins to tailor Assistant's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Assistant gives a suggested fix.
+Multimodal Memories allow admins to tailor Multimodal's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Multimodal gives a suggested fix.
 
-Memories are enabled by default for all organizations with Assistant enabled.
+Memories are enabled by default for all organizations with Multimodal enabled.
 
 ### Add a memory
 
@@ -62,45 +62,45 @@ Memories are enabled by default for all organizations with Assistant enabled.
    1. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
 6. Click **Add memory** to save your changes and proceed.
 
-See [Best practices for writing Assistant Memories](/semgrep-assistant/best-practices-for-memories) for information on writing effective memories.
+See [Best practices for writing Multimodal Memories](/semgrep-assistant/best-practices-for-memories) for information on writing effective memories.
 
-### Add a memory based on Assistant's suggested fix
+### Add a memory based on Multimodal's suggested fix
 
-To add a memory based on a suggested fix presented by Assistant:
+To add a memory based on a suggested fix presented by Multimodal:
 
-1. Identify the specific instance of **Assistant's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
-   - If Assistant used existing memories to generate the guidance, you can click on **Referenced <PL>X</PL> memories while writing this guidance** to see the memories used.
+1. Identify the specific instance of **Multimodal's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
+   - If Multimodal used existing memories to generate the guidance, you can click on **Referenced <PL>X</PL> memories while writing this guidance** to see the memories used.
 2. Click **Customize fix** to open an input box, and enter your preferred remediation approaches and secure defaults for the project. Your suggestion can be as general as "Use X library to sanitize SQL queries."
 3. Click **Save and regenerate**.
-4. Assistant regenerates the suggested fix to reflect the instructions you provided.
+4. Multimodal regenerates the suggested fix to reflect the instructions you provided.
 
 Memories are scoped to remediation guidance on a per-project, per-vulnerability class, or per-rule basis. A saved memory only affects future guidance for findings triggered by the same rule in the same project.
 
-### Add memory during triage and receive memory suggestions from Assistant
+### Add memory during triage and receive memory suggestions from Multimodal
 
-When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Assistant can use this triage feedback to suggest memories. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context. If Assistant creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hide from developers.
+When you identify findings that are safe to ignore and provide reasoning for your actions, Semgrep Multimodal can use this triage feedback to suggest memories. It can start suggesting memories from the very first triage feedback it receives, or it may suggest memories from multiple pieces of feedback, depending on the level of detail in the feedback and the finding's unique context. If Multimodal creates a new memory, it will use the memory to assess if similar findings are safe to ignore and hide from developers.
 
 To triage and create a memory (Semgrep automatically attempts to create a memory during triage if possible):
 
 1. Identify the specific finding you want to modify, and open up its finding details page.
 2. Click **Ignore**, select an **Ignore reason**, and provide **Comments** on why you're triaging the finding as **Ignore**.
-3. Click **Ignore**. Assistant attempts to create a memory using the information you provide. If Assistant successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
+3. Click **Ignore**. Multimodal attempts to create a memory using the information you provide. If Multimodal successfully creates a memory for you, you'll see a link to the list of memories for your organization in the dialog that appears.
 
 Permissions:
 
-- Automatic generation of memories: if you are an **admin** user, Assistant tries to generate **active** memories from your triage feedback.
-- If you are a non-admin user, such as a manager, Assistant creates a **suggested** memory that needs an admin to activate it. 
+- Automatic generation of memories: if you are an **admin** user, Multimodal tries to generate **active** memories from your triage feedback.
+- If you are a non-admin user, such as a manager, Multimodal creates a **suggested** memory that needs an admin to activate it. 
 
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
 
-There are two tabs on the **Assistant Memories** page for your review:
+There are two tabs on the **Multimodal Memories** page for your review:
 
-- The **Active** tab displays a list of memories that Assistant is actively using to generate triage advice
-- The **Suggested** tab displays a list of memories Assistant has generated based on past triage actions and developer feedback. For each suggestion, you can:
-  - Activate the suggested memory to inform Assistant's advice on current and future findings
+- The **Active** tab displays a list of memories that Multimodal is actively using to generate triage advice
+- The **Suggested** tab displays a list of memories Multimodal has generated based on past triage actions and developer feedback. For each suggestion, you can:
+  - Activate the suggested memory to inform Multimodal's advice on current and future findings
   - Edit the memory, then activate it
   - Delete the suggested memory
 
@@ -114,9 +114,9 @@ Only users assigned the `admin` role in Semgrep can activate suggested memories.
 
 ## Select your AI provider
 
-By default, Semgrep Assistant uses OpenAI and AWS Bedrock with Semgrep's API keys. 
+By default, Semgrep Multimodal uses OpenAI and AWS Bedrock with Semgrep's API keys. 
 
-Semgrep evaluates available models from multiple providers and selects the most performant option for each Assistant feature, based on the providers enabled for your organization. For optimal results, keep both OpenAI and AWS Bedrock enabled. Enabling additional model providers can further improve performance.
+Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. For optimal results, keep both OpenAI and AWS Bedrock enabled. Enabling additional model providers can further improve performance.
 
 You can opt to:
 
@@ -153,11 +153,11 @@ If you want to keep all data within your AWS account, you can use your own AWS B
 
 Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
 
-Semgrep constantly evaluates new models for Assistant features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Assistant is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
+Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
 
 ### Azure OpenAI
 
-To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
+To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
 
 1. To retrieve the endpoint URL and API key from Azure:
    1. Log in to Azure OpenAI Studio.
@@ -172,12 +172,12 @@ To use Azure OpenAI with Semgrep Assistant, you must retrieve the endpoint URL a
    6. Click **Save** to proceed.
 
 :::note
-As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Assistant features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
+As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Multimodal features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
 :::
 
 ### Google Gemini
 
-To use Google Gemini with Semgrep Assistant:
+To use Google Gemini with Semgrep Multimodal:
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
@@ -185,11 +185,11 @@ To use Google Gemini with Semgrep Assistant:
 4. Paste in your API key.
 5. Click **Save** to proceed.
 
-> Semgrep Assistant only supports Google Gemini with Google AI Studio, not Vertex AI.
+> Semgrep Multimodal only supports Google Gemini with Google AI Studio, not Vertex AI.
 
 ### xAI
 
-To use xAI with Semgrep Assistant, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
+To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.

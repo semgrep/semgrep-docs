@@ -102,7 +102,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <div class = "col-3-fixed">
   <Card link='/semgrep-assistant/overview'>
     <div class="card__copy">
-    <CardHeader>Semgrep Assistant</CardHeader>
+    <CardHeader>Semgrep Multimodal</CardHeader>
     <CardBody>
       AI for triage, remediation, and institutional memory. 
     </CardBody>
@@ -141,7 +141,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
       comparison: upper(str($VALUE)) == "SEMGREP"
   ```
 - You can now pass environmental variables to third-party package managers using `SEMGREP_LOCAL_BUILD_ENV`, which accepts a JSON object, as part of the dependency resolution process invoked by `--allow-local-builds`.
-- The feedback dialog for Assistant auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
+- The feedback dialog for Multimodal auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
 - Documentation updates and additions:
   - [Managing and using Semgrep access tokens](https://semgrep.dev/docs/deployment/tokens)
   - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)

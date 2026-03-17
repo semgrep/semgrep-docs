@@ -30,7 +30,7 @@ By default, Semgrep displays your **Priority** findings. Priority findings are d
 - Are categorized as **Security** findings. You can identify findings categorized under **Security** using the <i class="fas fa-shield-halved"></i> badge.
 - Are flagged with a severity level of **critical** or **high**
 - Are flagged with a confidence level of **high**
-- Are flagged by Semgrep Assistant as likely being a **true positive** or has *not* been analyzed by Assistant yet
+- Are flagged by Semgrep Multimodal as likely being a **true positive** or has *not* been analyzed by Multimodal yet
 
 You can switch to the **All** tab at any point to view all findings identified by Semgrep Code. Both the **Priority** findings view and the **All** findings view display high-level information about your findings.
 
@@ -82,8 +82,8 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull request or merge requests. |
 | **Project tags** | Filter for findings based on the tags associated with the project. |
 | **Teams** | Filter for findings in projects owned by the selected teams. |
-| **Assistant file risk level** | Filter for findings based on Assistant's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
-| **Assistant autotriage** | Filter by whether [Assistant autotriage](/semgrep-assistant/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
+| **Assistant file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
+| **Assistant autotriage** | Filter by whether [Multimodal autotriage](/semgrep-assistant/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
 
 #### Finding categories
 
@@ -146,4 +146,4 @@ The finding's details page displays in-depth information about the finding. It a
 - Learn more about [viewing a finding's details](/semgrep-code/finding-details).
 - Learn how to [triage and remediate Semgrep Code findings](/semgrep-code/triage-remediation).
 - Learn how to [get cross-file (interfile) findings for your organization](/semgrep-code/semgrep-pro-engine-intro)
-- See [Semgrep Assistant for Semgrep Code](/semgrep-assistant/overview) for information on receiving AI-powered security recommendations when reviewing your findings.
+- See [Semgrep Multimodal for Semgrep Code](/semgrep-assistant/overview) for information on receiving AI-powered security recommendations when reviewing your findings.

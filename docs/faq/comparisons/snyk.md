@@ -26,9 +26,9 @@ Both Semgrep and Snyk offer remediation advice for findings identified during sc
 
 Snyk and Semgrep both display prioritization metrics to help you decide which findings you should work on first. For SAST, Snyk encapsulates this information into a priority score, which provides you with information on the impact and actionability related to the finding. Semgrep, on the other hand, provides severity information, confidence in the rule to detect findings that are true positives, and likelihood that an attacker can exploit the issues found.
 
-Additionally, Semgrep provides action recommendations through Assistant, which offers AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
+Additionally, Semgrep provides action recommendations through Multimodal, which offers AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings.
 
-Snyk offers autofix capabilities for its SCA product, but not for its SAST product. Semgrep offers **Suggested fixes** for SAST and SCA. In the event of a true positive where the rule doesn't have a human-written Suggested fix, [Assistant can create one](/semgrep-assistant/overview#autofix).
+Snyk offers autofix capabilities for its SCA product, but not for its SAST product. Semgrep offers **Suggested fixes** for SAST and SCA. In the event of a true positive where the rule doesn't have a human-written Suggested fix, [Multimodal can create one](/semgrep-assistant/overview#autofix).
 
 ## SCA
 

@@ -11,5 +11,5 @@ description: >-
 
 ## Does Semgrep require code access?
 
-Semgrep does not require code access nor does it send your code anywhere with the exception of Semgrep Assistant.If you opt in to use Semgrep Assistant, Semgrep makes use of the context of the code around the finding.
+Semgrep does not require code access nor does it send your code anywhere with the exception of Semgrep Multimodal. If you opt in to use Semgrep Multimodal, Semgrep makes use of the context of the code around the finding.
 

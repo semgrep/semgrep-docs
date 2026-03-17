@@ -2,39 +2,39 @@
 slug: analyze
 title: Analyze Code findings
 hide_title: true
-description: Learn how to analyze Code findings with Assistant and view its results.
+description: Learn how to analyze Code findings with Multimodal and view its results.
 tags:
   - Deployment
-  - Semgrep Assistant
+  - Semgrep Multimodal
 ---
 
-# Analyze Semgrep Code findings with Semgrep Assistant
+# Analyze Semgrep Code findings with Semgrep Multimodal
 
-Once you've [enabled Assistant](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Assistant functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
+Once you've [enabled Multimodal](/docs/semgrep-assistant/getting-started), you can use the **Analyze** button on the [Findings page](/semgrep-code/findings) to trigger all Multimodal functions for Semgrep Code, including Suggested fix, auto-triage, and component tagging, on existing findings.
 
 
-## Analyze your findings with Assistant
+## Analyze your findings with Multimodal
 
-1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Assistant to analyze.
+1. On the [Findings](https://semgrep.dev/orgs/-/findings?tab=open) page, select the findings that you want Multimodal to analyze.
 2. Click **Analyze**.
-3. In the confirmation dialog that appears, confirm that you want to analyze your findings with Assistant.
+3. In the confirmation dialog that appears, confirm that you want to analyze your findings with Multimodal.
 
-After Assistant performs these functions, you can see its results on the **Code** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations in a finding's **Details** page.
+After Multimodal performs these functions, you can see its results on the **Code** page using the **Recommendation** or **Component** filters. When viewing your findings, you can see false positive and true positive recommendations in a finding's **Details** page.
 
 The amount of time required to analyze your findings varies. Before running the analysis, the confirmation dialog provides an estimated wait time.
 
 :::info
-- For Team tier users with less than 10 contributors: There is a cap of 50 Assistant runs per month using the **Analyze** button.
-- For Team or Enterprise users with an active subscription: There is a cap of 10,000 Assistant runs per month using the **Analyze** button. It is rate-limited to 1,000 Assistant runs per hour.
-- For users of any tier: Assistant runs against pull requests (PRs) and merge requests (MRs) do not count against this limit.
+- For Team tier users with less than 10 contributors: There is a cap of 50 Multimodal runs per month using the **Analyze** button.
+- For Team or Enterprise users with an active subscription: There is a cap of 10,000 Multimodal runs per month using the **Analyze** button. It is rate-limited to 1,000 Multimodal runs per hour.
+- For users of any tier: Multimodal runs against pull requests (PRs) and merge requests (MRs) do not count against this limit.
 :::
 
 
-## When Assistant auto-analyzes findings
+## When Multimodal auto-analyzes findings
 
-Assistant automatically analyzes new findings from a **full scan** that have **Critical** or **High** severity AND **High** or **Medium** confidence.
+Multimodal automatically analyzes new findings from a **full scan** that have **Critical** or **High** severity AND **High** or **Medium** confidence.
 
-On a diff-aware scan, Assistant auto-analyzes up to a maximum 10 new findings, regardless of severity or confidence. 
+On a diff-aware scan, Multimodal auto-analyzes up to a maximum 10 new findings, regardless of severity or confidence. 
 
 :::note
 Some findings created before November 2025 may not be auto-analyzed, even if they meet the criteria.
@@ -42,21 +42,21 @@ Some findings created before November 2025 may not be auto-analyzed, even if the
 
 ### Request analysis for existing findings
 
-If you want Assistant analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform. See the [Analyze your findings with Assistant](#analyze-your-findings-with-assistant) section for details.
+If you want Multimodal analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform. See the [Analyze your findings with Multimodal](#analyze-your-findings-with-assistant) section for details.
 
 If you need assistance with bulk analysis requests or have questions about backfilling analyses for your findings, contact [Semgrep Support](/support).
 
-## View Assistant recommendations
+## View Multimodal recommendations
 
-You can [view all of Semgrep Assistant's recommendations](/semgrep-code/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
+You can [view all of Semgrep Multimodal's recommendations](/semgrep-code/findings/#filter-findings) by going to the Semgrep **Findings** page and filtering by **Recommendation** or **Component**.
 
-## Provide feedback on Assistant recommendations
+## Provide feedback on Multimodal recommendations
 
-Semgrep Assistant prompts you for feedback whenever it suggests that a finding is a false positive. Because Assistant content is generated by large language models (LLMs), your feedback helps the Semgrep team improve Assistant.
+Semgrep Multimodal prompts you for feedback whenever it suggests that a finding is a false positive. Because Multimodal content is generated by large language models (LLMs), your feedback helps the Semgrep team improve Multimodal.
 
-Semgrep Assistant lets you leave feedback in the following places:
+Semgrep Multimodal lets you leave feedback in the following places:
 
-* In Semgrep AppSec Platform: the Assistant recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
-* In Slack notifications: the **Agree** and **Disagree** buttons appear under the Assistant recommendation message.
+* In Semgrep AppSec Platform: the Multimodal recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
+* In Slack notifications: the **Agree** and **Disagree** buttons appear under the Multimodal recommendation message.
 
-==If Semgrep Assistant labels a finding as a true positive and provides a suggested fix, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to share your thoughts.==
+==If Semgrep Multimodal labels a finding as a true positive and provides a suggested fix, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to share your thoughts.==

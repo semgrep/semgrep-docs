@@ -456,7 +456,7 @@ module.exports = {
       },
       {
         type: 'category',
-        label: 'Semgrep Assistant',
+        label: 'Semgrep Multimodal',
         collapsible: false,
         items: [
           {
@@ -844,7 +844,7 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Semgrep Assistant',
+          label: 'Semgrep Multimodal',
           collapsible: true,
           link: {
             type: 'generated-index',

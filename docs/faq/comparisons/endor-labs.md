@@ -19,7 +19,7 @@ import TOCInline from "@theme/TOCInline"
 
 Both Endor Labs and Semgrep support the prioritization of findings so that AppSec teams focus on the most impactful findings. While both companies offer findings filters based on criteria like reachability and EPSS scores, Semgrep offers support for statuses in addition to the basic reachability statuses of **reachable** and **not reachable**, such as **always reachable** and **conditionally reachable**.
 
-Furthermore, Semgrep Assistant uses AI to help organization admins receive information on top backlog tasks, allowing them to prioritize findings from all products, including the SAST and SCA products, not just those resulting from dependency vulnerability scans.
+Furthermore, Semgrep Multimodal uses AI to help organization admins receive information on top backlog tasks, allowing them to prioritize findings from all products, including the SAST and SCA products, not just those resulting from dependency vulnerability scans.
 
 ## Reachability for transitive dependencies
 

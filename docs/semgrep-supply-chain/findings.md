@@ -88,12 +88,12 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Severity** | The severity of a finding. Filters are based on the severity of a vulnerability. Semgrep Supply Chain rules use severity values set by the source of the rule, such as [GitHub Advisory Database](https://github.com/advisories).  |
 | [**Reachability**](#reachability) | The finding's exposure, or whether it is reachable. |
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
-| **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Assistant. |
+| **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Multimodal. |
 | **Dependencies** | The name of the dependency involved. |
 | **Advisory** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
 | **Malicious dependency** | Whether the finding is for a malicious dependency |
 | **Project tags** | The tags associated with the project. |
-| **Assistant file risk level** | Filter by the risk level determined by Semgrep Assistant. |
+| **Multimodal file risk level** | Filter by the risk level determined by Semgrep Multimodal. |
 
 ### EPSS probability
 
@@ -113,7 +113,7 @@ The transitivity of the finding:
 
 ### Upgrade guidance (beta)
 
-The impact of a dependency upgrade on your project as determined by Assistant:
+The impact of a dependency upgrade on your project as determined by Multimodal:
 
 - **Safe**: There are unlikely to be breaking changes.
 - **Breaking**: Introduces breaking changes; code modifications required.

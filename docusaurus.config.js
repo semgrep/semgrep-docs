@@ -326,7 +326,7 @@ module.exports = {
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-app" } ,
 
-          // Semgrep Assistant
+          // Semgrep Multimodal
           { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
 
           // Semgrep Code

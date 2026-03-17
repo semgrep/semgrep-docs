@@ -1,20 +1,20 @@
 ---
 slug: best-practices-for-memories
-title: Best practices for writing Assistant Memories
+title: Best practices for writing Multimodal Memories
 hide_title: true
 toc_max_heading_level: 2
 description: Review best practices for writing Memories to ensure optimal results.
 tags:
- - Semgrep Assistant
+ - Semgrep Multimodal
 ---
 
-# Best practices for writing Assistant Memories
+# Best practices for writing Multimodal Memories
 
-This page covers various best practices for writing Assistant memories.
+This page covers various best practices for writing Multimodal memories.
 
 ## Voice and tone
 
-When writing your memories, aim to "talk" to Assistant the way that you would talk to a new security intern:
+When writing your memories, aim to "talk" to Multimodal the way that you would talk to a new security intern:
 
 - Present and describe the information clearly.
 - Describe technical concepts as simply as possible.
@@ -34,19 +34,19 @@ If the purpose of the memory is to influence triage, you can provide a natural l
 
 > This repository is a QA repository. All findings can be safely ignored due to these mitigating factors.
 
-If the goal is to influence Assistant's remediation guidance, you can provide a natural language description of the recommendation:
+If the goal is to influence Multimodal's remediation guidance, you can provide a natural language description of the recommendation:
 
 > As a standard, leverage the `Jsoup.clean()` function to sanitize input.
 
-Once you've decided on the purpose, this informs how you explain your expectations and desired outcomes to Assistant.
+Once you've decided on the purpose, this informs how you explain your expectations and desired outcomes to Multimodal.
 
 ## Structure
 
 When writing a memory, be sure to include as many of the following components as necessary:
 
-1. The **conditions** that Assistant should be looking for in the codebase, as well as any context Assistant should consider when analyzing your codebase
-2. **Guidance** as to how Assistant identifies the conditions that you specified
-3. The **implications** for triage and remediation if Assistant identifies that the conditions you specify are present in your codebase
+1. The **conditions** that Multimodal should be looking for in the codebase, as well as any context Multimodal should consider when analyzing your codebase
+2. **Guidance** as to how Multimodal identifies the conditions that you specified
+3. The **implications** for triage and remediation if Multimodal identifies that the conditions you specify are present in your codebase
 
 ### Example #1
 
@@ -92,7 +92,7 @@ You can generalize this to:
 
 ### State all implications and be clear on what the consequences of something are
 
-When writing the memory, be clear about the implications and consequences are for Assistant.
+When writing the memory, be clear about the implications and consequences are for Multimodal.
 
 In the following example, the memory states a fact, but leaves the implication unstated:
 
@@ -100,13 +100,13 @@ In the following example, the memory states a fact, but leaves the implication u
 
 The leaking of development secrets might not be a problem, but it's also possible that leaking development secrets is as big a security issue as leaking production secrets.
 
-For some organizations, development secrets are just as powerful as production secrets. For other organizations, development secrets are ephemeral, and it's not a major issue if they're leaked. As such, it's essential to rewrite the memory with the implication stated to help Assistant analyze a finding:
+For some organizations, development secrets are just as powerful as production secrets. For other organizations, development secrets are ephemeral, and it's not a major issue if they're leaked. As such, it's essential to rewrite the memory with the implication stated to help Multimodal analyze a finding:
 
 > Secrets created by the `generateDevSecret` function are considered development secrets and pose a security risk.
 
-### Understand the context available to Assistant
+### Understand the context available to Multimodal
 
-When Assistant analyzes a finding, it has the following contextual information available:
+When Multimodal analyzes a finding, it has the following contextual information available:
 
 - The Semgrep rule
 - The code matched by the Semgrep rule
@@ -115,22 +115,22 @@ When Assistant analyzes a finding, it has the following contextual information a
 - Memories that you have written
 - Prior fixes for similar issues
 
-Assistant does not have access to any other information for use during analysis. For example, the following memory is ineffective:
+Multimodal does not have access to any other information for use during analysis. For example, the following memory is ineffective:
 
 > Please provide an alternative solution for the validator.
 
-Assistant isn't going to use past remediation advice in a prompt, so the preceding memory likely results in Assistant hallucinating. In this case, if you want Assistant to avoid using a specific validator, you can specify this:
+Multimodal isn't going to use past remediation advice in a prompt, so the preceding memory likely results in Multimodal hallucinating. In this case, if you want Multimodal to avoid using a specific validator, you can specify this:
 
 > Fixes should be generated with an alternative to the validation library X.
 
-One common issue is the use of links in memories. Assistant cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Assistant explicitly:
+One common issue is the use of links in memories. Multimodal cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Multimodal explicitly:
 
 > Recommend a fix similar to this code: `Sample code...`
 
-Another common issue is assuming that Assistant has access to context that it doesn't actually have. For example, 
+Another common issue is assuming that Multimodal has access to context that it doesn't actually have. For example, 
 
 > API key from a forked repository poses no security risk.
 
-It's difficult to determine programmatically if a repository is forked, and Assistant cannot use this information when analyzing a finding. Instead, specify the repositories that you've forked:
+It's difficult to determine programmatically if a repository is forked, and Multimodal cannot use this information when analyzing a finding. Instead, specify the repositories that you've forked:
 
 > Repositories X, Y, and Z are forked. API keys in forked repositories should be triaged as false positives.

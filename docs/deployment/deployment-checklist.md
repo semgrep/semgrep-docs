@@ -258,7 +258,7 @@ The public GitHub integration app is called [`semgrep-app`](https://github.com/a
 You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for the following features:
 
 - To add repositories to Semgrep AppSec Platform without changing your existing CI workflows. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Managed Scans](/deployment/managed-scanning/overview).
-- To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Assistant overview](/semgrep-assistant/overview).
+- To integrate AI-asssisted features into your Semgrep organization. To learn more, see [<i class="fa-regular fa-file-lines"></i> Semgrep Multimodal overview](/semgrep-assistant/overview).
 
 :::info
 These features require **read access** to your code.
@@ -288,7 +288,7 @@ These features require **read access** to your code.
 <dt>Writing (and reading) workflows</dt>
 <dd>Lets Semgrep configure itself to run in CI by writing to .github/workflows/semgrep.yml. GitHub allows writing to files within .github/workflows/ only if this permission is granted along with "Writing a single file."</dd>
 <dt>Read source code of the repositories you select</dt>
-<dd>Allows Semgrep Assistant to fetch source code files on-demand to construct AI prompts.</dd>
+<dd>Allows Semgrep Multimodal to fetch source code files on-demand to construct AI prompts.</dd>
 
 </dl>
 
@@ -325,7 +325,7 @@ In other words, the only address you would have to allow inbound is `wireguard.s
 - [Source code manager connections](/docs/deployment/connect-scm#connect-to-on-premise-orgs-and-projects)
 - [PR and MR comments](/category/pr-or-mr-comments)
 - [Semgrep Managed Scans](/deployment/managed-scanning/overview)
-- [Semgrep Assistant](/semgrep-assistant/getting-started)
+- [Semgrep Multimodal](/semgrep-assistant/getting-started)
 
 ### Semgrep versions
 

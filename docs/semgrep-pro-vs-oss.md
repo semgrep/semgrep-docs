@@ -119,7 +119,7 @@ Semgrep supports SAST, SCA, and secret scans as listed in [Product terms](#produ
 - Cross file, cross function constant propagation
 - Cross file, cross function taint analysis 
 - Framework and language-specific semantic analysis
-- **Semgrep Assistant** (AI-assisted) post-processing analysis:
+- **Semgrep Multimodal** (AI-assisted) post-processing analysis:
     - Reduces noise by 20%
     - Adds contextual remediation guidance
 </details>
@@ -188,15 +188,15 @@ Semgrep tracks a single finding throughout its lifetime from its initial creatio
 
 Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
 
-Semgrep provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives.
+Semgrep provides AI-assisted triage through Semgrep Multimodal, which can analyze all your findings to suggest which findings it thinks are false positives.
 
 <details>
-<summary>Click to view Semgrep Assistant analyses and functions</summary>
+<summary>Click to view Semgrep Multimodal analyses and functions</summary>
 - Step-by-step remediation
 - Can be viewed by developers and AppSec engineers in their preferred environment
-- Ability to learn your preferred libraries and functions through **Assistant Memories**
+- Ability to learn your preferred libraries and functions through **Memories**
 
-[<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Assistant's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
+[<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Multimodal's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
 </details>
 
 Lastly, Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.

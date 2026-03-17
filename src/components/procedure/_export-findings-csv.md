@@ -14,7 +14,7 @@ Export findings by navigating to the product page and clicking the **<i class="f
 | Product | The Semgrep product. Possible values are **Code**, **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
 | Status | The finding's triage status.   |
-| Assistant component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Assistant tags the finding with, based on the code's context.  |
+| Assistant component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Multimodal tags the finding with, based on the code's context.  |
 | Repository name | The name of the repository where Semgrep found the finding.  |
 | Repository URL | The repository URL.   |
 | Line of code URL | The URL to the specific line of code where the finding match began. A finding may be several lines long. |
@@ -34,8 +34,8 @@ The following fields are exclusive to **Code** scans:
 | Confidence | The finding's confidence. Possible values are **High**, **Medium**, or **Low**. <br />Only Semgrep Supply Chain and Code findings provide this field.  |
 | Category | The finding's category, such as **best practices**, **security**, or **correctness**.  |
 | Is pro rule | Boolean value that returns `TRUE` if the rule that generated the finding is a pro rule.    |
-| Assistant triage result | Provides Semgrep Assistant's assessment. Possible values are `True positive` or `False positive`. These values appear only if Assistant is enabled.  |
-| Assistant triage reason | A short AI-generated reason why Assistant thinks the finding is a true or false positive. These values appear only if Assistant is enabled.  |
+| Assistant triage result | Provides Semgrep Multimodal's assessment. Possible values are `True positive` or `False positive`. These values appear only if Multimodal is enabled.  |
+| Assistant triage reason | A short AI-generated reason why Multimodal thinks the finding is a true or false positive. These values appear only if Multimodal is enabled.  |
 
 The following fields are exclusive to **Supply Chain** scans:
 

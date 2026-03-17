@@ -1,12 +1,12 @@
 ---
-description: "Missing PR or MR comments from Semgrep Assistant."
+description: "Missing PR or MR comments from Semgrep Multimodal."
 tags:
-  - Semgrep Assistant
+  - Semgrep Multimodal
 ---
 
-# Missing PR and MR comments from Semgrep Assistant
+# Missing PR and MR comments from Semgrep Multimodal
 
-Semgrep Assistant messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
+Semgrep Multimodal messages only appear in your PR comments for rules that are set to Comment or Block mode on the Rule Management page. Ensure that:
 
 * You have set rules to Comment or Block mode.
   ![Policies modes](/img/semgrep-assistant-comment.png#md-width)

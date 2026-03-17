@@ -32,7 +32,7 @@ Findings for historical secrets always remain **Open**, because the secrets are 
 
 ### Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These findings indicate that Semgrep has determined the secret to be **invalid**, which means that the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with.
+If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These findings indicate that Semgrep has determined the secret to be **invalid**, which means that the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with.
 
 Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. You can change the status of provisionally ignored findings to indicate the next steps in the triage process. For instance, you can set the status to **Reviewing** if you decide to manually review the finding.
 

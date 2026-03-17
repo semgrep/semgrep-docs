@@ -16,9 +16,9 @@ Semgrep supports the following source code managers (SCM) and plans to varying d
 | Plan | Unsupported Semgrep features |
 | - | - |
 | Azure DevOps Cloud | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Azure DevOps Server | <ul><li>Semgrep Assistant</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Assistant†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Assistant†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Assistant)</li></ul> |
+| Azure DevOps Server | <ul><li>Semgrep Multimodal</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitHub Free | - |
@@ -34,7 +34,7 @@ Semgrep supports the following source code managers (SCM) and plans to varying d
 | GitLab Self-Managed Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Self-Managed Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 
-<strong>†</strong>Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
+<strong>†</strong>Semgrep Multimodal and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
 <strong>*</strong>Semgrep Managed Scans requires access to group webhooks, which is unavailable to GitLab Free users. 
 
@@ -53,18 +53,18 @@ You may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses)
 | Plan | Unsupported Semgrep features |
 | - | - |
 | Azure DevOps Cloud | - |
-| Azure DevOps Server | Semgrep Assistant<br /> Semgrep Managed Scans<br /> Pull request comments |
+| Azure DevOps Server | Semgrep Multimodal<br /> Semgrep Managed Scans<br /> Pull request comments |
 
 ## Bitbucket
 
 | Plan | Unsupported Semgrep features |
 | - | - |
-| Bitbucket Cloud Free | †Semgrep Assistant<br /> †Semgrep Managed Scan |
-| Bitbucket Cloud Standard | †Semgrep Assistant<br /> †Semgrep Managed Scan |
+| Bitbucket Cloud Free | †Semgrep Multimodal<br /> †Semgrep Managed Scan |
+| Bitbucket Cloud Standard | †Semgrep Multimodal<br /> †Semgrep Managed Scan |
 | Bitbucket Cloud Premium | - |
-| Bitbucket Data Center | Semgrep Assistant<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later. |
+| Bitbucket Data Center | Semgrep Multimodal<br /> Diff-aware scans require Bitbucket Data Center version 8.8 or later. |
 
-†Semgrep Assistant and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
+†Semgrep Multimodal and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
 ## GitHub
 
