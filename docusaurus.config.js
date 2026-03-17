@@ -449,11 +449,21 @@ module.exports = {
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
           /* OCT 3, 2025 */
           { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
-                    /* OCT 23, 2025 */
+          /* OCT 23, 2025 */
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
-          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" }
+          { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" },
+          /* MAR 17, 2026 */
+          {from: "/semgrep-assistant/analyze", to: "/semgrep-multimodal/analyze" },
+          {from: "/semgrep-assistant/best-practices-for-memories", to: "/semgrep-multimodal/best-practices-for-memories" },
+          {from: "/semgrep-assistant/customize", to: "/semgrep-multimodal/customize" },
+          {from: "/semgrep-assistant/getting-started", to: "/semgrep-multimodal/getting-started" },
+          {from: "/semgrep-assistant/metrics", to: "/semgrep-multimodal/metrics" },
+          {from: "/semgrep-assistant/overview", to: "/semgrep-multimodal/overview" },
+          {from: "/semgrep-assistant/privacy", to: "/semgrep-multimodal/privacy" },
+          {from: "kb/semgrep-assistant/azure-openai-error-429", to: "kb/semgrep-multimodal/azure-openai-error-429" },
+          {from: "kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" }
         ]
       }
     ],
