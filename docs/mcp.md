@@ -126,14 +126,16 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     claude
     ```
 
-4.  Install the Semgrep plugin from the [Claude plugin marketplace](https://claude.ai/marketplace):
+4.  Open the plugin browser:
     ```bash
-    /plugin install semgrep-plugin
+    /plugin
     ```
 
-5.  Set up the Semgrep plugin:
+5.  Go to **Discover**, search for **Semgrep**, and click **Install**.
+
+6.  Set up the Semgrep plugin by running the following skill. This also installs the Semgrep CLI:
     ```bash
-    /semgrep-plugin:setup_semgrep_plugin
+    /setup-semgrep-plugin
     ```
 
 </TabItem>
