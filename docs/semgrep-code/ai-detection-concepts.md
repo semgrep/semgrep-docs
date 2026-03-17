@@ -43,19 +43,19 @@ AI-powered detection findings are inherently non-deterministic. Because AI scans
 
 ### SCM support and AI providers
 
-AI-powered detection builds on Semgrep's existing integration framework, such as GitHub, GitLab, and Bitbucket. Specific integration details are being refined in beta.
+AI-powered detection builds on Semgrep's existing integration framework, such as GitHub, GitLab, and Bitbucket. 
 
-In beta, you can choose between OpenAI, Anthropic, and Bedrock keys
+During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
 ### Scan limits 
 
-Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**, and free tier customers can trigger **10 scans per month**. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to discuss increasing your quota.  
+Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**, and free tier customers can trigger **10 scans per month**. Please contact your Semgrep account manager or [Semgrep support](/docs/support) to discuss increasing your quota.  
 
 ### Data privacy and finding severity
 
-Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
+The data privacy policy is similar to that described in [Privacy and legal considerations for Semgrep](/docs/semgrep-assistant/privacy), with a few exceptions.
 
-Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. This may change as the feature matures.
+Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. 
 
 
 ## Known bugs and limitations
