@@ -1,6 +1,6 @@
 ---
 slug: ai-powered-detection-concepts
-title: "AI-powered detection: concepts and FAQs"
+title: "AI-powered detection overview"
 description: "Learn how Semgrep’s AI-powered detection works, what it can find, known limitations, and beta considerations."
 keywords:
   - AI-powered detection
@@ -13,56 +13,50 @@ tags:
 displayed_sidebar: scanSidebar
 ---
 
-# AI-powered detection (beta): concepts and FAQs
+# AI-powered detection (beta) overview
 
-This document provides additional context for Semgrep’s AI-powered detection. It covers what kinds of issues the feature is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
+Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
 
-If you’re looking for step-by-step instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/docs/deployment/add-ai-to-scans).
+AI-powered detection is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance.
 
-## Detection and scope FAQs
+This page covers the kinds of issues AI-powered detection is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
 
-**Q: What are business logic flaws? What can AI-powered detection uncover right now?** 
+For step-by-step instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/docs/deployment/add-ai-to-scans).
 
-A business logic flaw is any weakness in an application’s design or workflow that makes its legitimate features vulnerable to malicious use. Semgrep’s AI-powered detection currently focuses on authorization flow gaps that fall outside standard vulnerability categories: 
+## Detection and scope
+
+### IDORs and other business logic flaws
+
+A business logic flaw is any weakness in an application’s design or workflow that makes its legitimate features vulnerable to malicious use. Semgrep’s AI-powered detection focuses on authorization flow gaps that fall outside standard vulnerability categories: 
 
 * **IDOR and ownership gaps**: accessing another user’s resource when ownership or tenant checks are missing, misplaced, or only client-side.  
 * **Order and sequence mistakes**: state changes or token resets happening after sensitive reads/writes, or actions allowed in the wrong state.  
 * **Workflow abuse, or OWASP logic manipulation**: skipping required steps, like shipping before checkout or refunds without a completed purchase.
 
-**Q: Can Semgrep find IDORs and other business logic bugs without AI Detection?**
+Traditional Semgrep SAST **can** be configured to catch IDORs. However, because this requires understanding how the app in question handles authorization and database access, it is difficult to write generic rules that detect IDORs across all software applications. With Semgrep’s AI-powered detection, it is now possible to find IDORs and other business logic bugs without the need for extensive custom rule development. 
 
-A: Traditional Semgrep SAST can be configured to catch IDORs. However, since this requires understanding how the app in question handles authorization and database access, it is hard to write generic rules that catch IDORs across all software applications. With Semgrep’s AI-powered detection, it is now possible to find IDORs and other business logic bugs without the need for extensive custom rule development. 
+### Determinism of AI-powered detection findings
 
-**Q: Are AI-powered detection findings deterministic?** 
+AI-powered detection findings are inherently non-deterministic. Because AI scans rely on probabilistic reasoning, repeated scans may not always produce identical results. However, Semgrep’s scanning engine helps make them more reliable. As with any automated security finding, you must review scan results carefully.
 
-Although AI scans are inherently non-deterministic, Semgrep's engine helps make them more reliable. Review and evaluate scan results carefully.
+## Setup, quotas, and integrations
 
-## Setup, quotas, and integrations FAQs
+### SCM support and AI providers
 
-**Q: Which source code managers does AI-powered detection support?**
+AI-powered detection builds on Semgrep's existing integration framework, such as GitHub, GitLab, and Bitbucket. 
 
-A: AI-powered detection builds on Semgrep's existing integration framework, such as GitHub, GitLab, and Bitbucket. Specific integration details are being refined in beta.
+During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
-**Q: Do customers need to change their existing Semgrep setup?**
+### Scan limits 
 
-A: Customers need to have Assistant turned on and Managed Scans enabled. [See AI-detection prerequisites](/docs/deployment/add-ai-to-scans#prerequisites)
+Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**, and free tier customers can trigger **10 scans per month**. Please contact your Semgrep account manager or [Semgrep support](/docs/support) to discuss increasing your quota.  
 
-**Q: How many scans can I trigger?**
+### Data privacy and finding severity
 
-A: Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**. Please contact your Semgrep account manager or [Semgrep support](https://semgrep.dev/docs/support) to discuss increasing your quota.  
+The data privacy policy is similar to that described in [Privacy and legal considerations for Semgrep](/docs/semgrep-assistant/privacy), with a few exceptions.
 
-**Q:Can I use a different AI provider?**
+Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. 
 
-A: Yes. You can choose between OpenAI, Anthropic, and Bedrock keys. 
-
-
-**Q: How are AI findings assigned a severity level?**
-
-A: Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. This may change as the feature matures.
-
-**Q: How does Semgrep handle data privacy for AI-powered detection?**
-
-A: Semgrep Code’s AI-powered detection follows the same data privacy policy as Semgrep Assistant, with a few documented exceptions. See [Privacy and legal considerations for Semgrep Assistant](/docs/semgrep-assistant/privacy) for details. 
 
 ## Known bugs and limitations
 
