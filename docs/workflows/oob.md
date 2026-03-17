@@ -21,7 +21,7 @@ Semgrep can agentically understand where such risk is in your project by mapping
 
 ## 2. Triage security vulnerabilities
 
-Semgrep AppSec Platform provides you with a way to visualize all of your findings across all Semgrep products: Multimodal, Supply Chain, and Secrets. However, not all findings identified by Semgrep are high priority. In addition to combining SAST and AI to better find security vulnerabilities in your project, Semgrep uses these tools to reduce noise and help developers focus on true positives. More specifically:
+Semgrep AppSec Platform provides you with a way to visualize all of your findings across all Semgrep products: Code, Supply Chain, and Secrets. However, not all findings identified by Semgrep are high priority. In addition to combining SAST and AI to better find security vulnerabilities in your project, Semgrep uses these tools to reduce noise and help developers focus on true positives. More specifically:
 
 - Semgrep Code uses rules to identify security vulnerabilities, but AI autotriage, with additional context available, can flag issues as either **true positive** or **false positive**.
 - Supply Chain reachability: Supply Chain uses static analysis to identify reachability. In addition to identifying vulnerable packages, Semgrep can flag those where your program calls vulnerable functions, reducing the number of false positives shown to your developers.
