@@ -10,7 +10,7 @@ description: Set up Jenkins pipeline projects for Bitbucket repositories.
 
 ## Prerequisites
 
-Ensure you have set up [triggering events from Bitbucket to Jenkins](https://semgrep.dev/docs/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins/).
+Ensure you have set up [triggering events from Bitbucket to Jenkins](/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins/).
 
 ## Create a Jenkins pipeline project
 

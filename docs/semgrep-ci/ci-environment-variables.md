@@ -243,7 +243,7 @@ Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in 
 This environment variable only works with Semgrep versions 1.61.1 and later.
 :::
 
-Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
+Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
 
 ### `SEMGREP_REPO_URL`
 

@@ -74,7 +74,7 @@ This feature is in beta. Here are some known issues:
 
 ## Troubleshooting and disclaimers
 
-For help with AI-powered detection, contact your organization’s **Semgrep account manager** or **Semgrep [support](https://semgrep.dev/docs/support)**. 
+For help with AI-powered detection, contact your organization’s **Semgrep account manager** or **Semgrep [support](/support)**. 
 
 Beta program notice:
 

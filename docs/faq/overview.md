@@ -171,7 +171,7 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 When Semgrep runs entirely in CI, your source code stays in the environment. Only run metadata is sent to Semgrep’s service (see the next question).
 
-Some Semgrep features, such as Semgrep Managed Scans and Semgrep Multimodal, require code access. See [Security](https://semgrep.dev/docs/deployment/managed-scanning/overview#security) for more information on how Managed Scans use your code and Multimodal's [Privacy and legal considerations](/semgrep-multimodal/privacy) to understand how your code is stored and retained.
+Some Semgrep features, such as Semgrep Managed Scans and Semgrep Multimodal, require code access. See [Security](/deployment/managed-scanning/overview#security) for more information on how Managed Scans use your code and Multimodal's [Privacy and legal considerations](/semgrep-multimodal/privacy) to understand how your code is stored and retained.
 
 ### What data is stored?
 

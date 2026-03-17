@@ -114,7 +114,7 @@ The following updates were made to Semgrep in February 2026.
 ### Added
 
 - Added information:
-  - [Managing and using Semgrep access tokens](https://semgrep.dev/docs/deployment/tokens)
+  - [Managing and using Semgrep access tokens](/deployment/tokens)
   - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)
 
 ### Changed

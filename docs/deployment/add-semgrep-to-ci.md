@@ -162,7 +162,7 @@ When you add a Semgrep CI job to your repository for the first time, Semgrep per
 
 <!-- Changes to existing
 
-https://semgrep.dev/docs/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#compatibility-of-environment-variables
+/semgrep-ci/running-semgrep-ci-with-semgrep-appsec-platform/#compatibility-of-environment-variables
 -> maybe place these into sample CI configs? or separate thing entirely
 
 -->

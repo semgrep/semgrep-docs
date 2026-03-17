@@ -143,7 +143,7 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 - You can now pass environmental variables to third-party package managers using `SEMGREP_LOCAL_BUILD_ENV`, which accepts a JSON object, as part of the dependency resolution process invoked by `--allow-local-builds`.
 - The feedback dialog for Multimodal auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
 - Documentation updates and additions:
-  - [Managing and using Semgrep access tokens](https://semgrep.dev/docs/deployment/tokens)
+  - [Managing and using Semgrep access tokens](/deployment/tokens)
   - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)
   - [Usage and billing](/usage-and-billing/overview)
 

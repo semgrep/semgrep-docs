@@ -16,7 +16,7 @@ Once you've purchased a subscription, you should receive an email from Semgrep w
 ## For license key holders or manual license claims
 
 :::caution
-For **single-tenant** users, reach out to the [Semgrep Support Team](https://semgrep.dev/docs/support) directly. Please do not attempt to claim a license manually.
+For **single-tenant** users, reach out to the [Semgrep Support Team](/support) directly. Please do not attempt to claim a license manually.
 :::
 
 If you have been provided a license key by Semgrep or if you would like to claim a license manually:
