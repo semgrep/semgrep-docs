@@ -371,6 +371,10 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
+       --secrets-timeout=VAL (absent=30)
+           Timeout in seconds for each secrets validation HTTP request. If
+           set to 0, no timeout is applied. Defaults to 30.
+
        --semgrepignore-v2
            [DEPRECATED] '--semgrepignore-v2' used to force the use of the
            newer Semgrepignore v2 implementation for discovering and

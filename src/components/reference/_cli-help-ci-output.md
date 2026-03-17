@@ -295,6 +295,10 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
+       --secrets-timeout=VAL (absent=30)
+           Timeout in seconds for each secrets validation HTTP request. If
+           set to 0, no timeout is applied. Defaults to 30.
+
        --semgrepignore-v2
            [DEPRECATED] '--semgrepignore-v2' used to force the use of the
            newer Semgrepignore v2 implementation for discovering and
@@ -358,8 +362,12 @@ OPTIONS
        --x-mem-policy=VAL
            [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
 
+       --x-no-scan-v2
+           negates --x-use-scan-v2
+
        --x-use-scan-v2 (absent SEMGREP_USE_SCAN_V2 env)
-           Enable experimental v2 /scans endpoint.
+           Use v2 /scans endpoint (default true). Negate with --x-no-scan-v2
+           to fall back to v1.
 
 COMMON OPTIONS
        --debug
