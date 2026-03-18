@@ -82,8 +82,8 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull request or merge requests. |
 | **Project tags** | Filter for findings based on the tags associated with the project. |
 | **Teams** | Filter for findings in projects owned by the selected teams. |
-| **Assistant file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
-| **Assistant autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
+| **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
+| **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
 
 #### Finding categories
 

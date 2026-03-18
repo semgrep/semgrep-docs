@@ -54,7 +54,7 @@ Memories are enabled by default for all organizations with Multimodal enabled.
 ### Add a memory
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Memories**](https://semgrep.dev/orgs/-/memories).
 3. Click **New Memory**.
 4. In **Memory**, enter your preferred remediation approach and secure default.
 5. Select the **Projects** and the **Rules** to which the memory should be applied.
@@ -62,7 +62,7 @@ Memories are enabled by default for all organizations with Multimodal enabled.
    1. Choose **All rules**, or search for and select a specific rule or a general vulnerability class. Selecting a vulnerability class means the memory applies to *all* rules with that vulnerability class.
 6. Click **Add memory** to save your changes and proceed.
 
-See [Best practices for writing Multimodal Memories](/semgrep-multimodal/best-practices-for-memories) for information on writing effective memories.
+See [Best practices for writing Memories](/semgrep-multimodal/best-practices-for-memories) for information on writing effective memories.
 
 ### Add a memory based on Multimodal's suggested fix
 
@@ -94,7 +94,7 @@ Permissions:
 ### View and edit memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Memories**](https://semgrep.dev/orgs/-/memories).
 
 There are two tabs on the **Multimodal Memories** page for your review:
 
@@ -109,7 +109,7 @@ Only users assigned the `admin` role in Semgrep can activate suggested memories.
 ### Remove memories
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Assistant Memories**](https://semgrep.dev/orgs/-/memories).
+2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules * Policies > Memories**](https://semgrep.dev/orgs/-/memories).
 3. Identify the memory you would like to delete, then click the <i class="fa-solid fa-trash"></i> **icon** to remove the memory.
 
 ## Select your AI provider
