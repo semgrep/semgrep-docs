@@ -13,18 +13,18 @@ tags:
 
 Semgrep Workflows is a framework for building automated code security pipelines that allow you to detect, triage, and remediate security issues.
 
-Each workflow is a series of steps, defined in Python, that include deterministic tools such as Semgrep Code, Supply Chain, and Secrets, as well as Semgrep Multimodal and AI agents such as Anthropic’s Claude or ChatGPT. You can also integrate third-party tools and any custom tooling required. Once you’ve defined your workflow, Semgrep handles its deployment and execution at scale.
+Each workflow is a series of steps, defined in Python, that include deterministic tools such as Semgrep Code, Supply Chain, and Secrets, as well as Semgrep Multimodal, which leverages AI agents like Anthropic’s Claude or ChatGPT. You can also integrate third-party tools and any custom tooling required. Once you’ve defined your workflow, Semgrep handles its deployment and execution at scale.
 
 ![Architectural overview of Semgrep Workflows](/img/workflow-architecture.png#md-width)
 _**Figure**. Architectural overview of Semgrep Workflows._
 
-As input, Semgrep workflows take your project code and security context, including your organization's risk tolerance, findings triage rules, and other internal security program logic and definitions, and the workflow is triggered by actions such as:
+As input, Semgrep workflows take your project code and security context. This includes your organization's risk tolerance, findings triage rules, and other internal security program logic and definitions. The workflow is triggered by actions such as:
 
 - The opening of a pull request (PR) or a merge request (MR)
 - A scheduled scan
 - An API call
 
-Semgrep then runs security tools, such as static analysis, software composition analysis, and secrets detection, and applies LLM-backed analysis on your project, producing structured output, such as security findings, triage decisions, research artifacts, and code changes.
+Semgrep then runs security tools, such as static analysis, software composition analysis, and secrets detection, and applies LLM-backed analysis on your project. The resulting security findings, triage decisions, research artifacts, and code changes are provided to you in a structured, actionable format. 
 
 ## Types of workflows
 
@@ -40,7 +40,7 @@ You can integrate any of these workflows individually, combine them to implement
 
 ## Custom workflows
 
-Semgrep workflows are defined using Python and have a clear structure that includes steps, tool decorators, and standard control flow. This structure makes it straightforward for AI coding assistants to generate, modify, and extend your workflows -- you can describe what you want your workflow to do in natural language, and the AI coding assistant presents you with a draft workflow.
+Semgrep workflows are defined using Python and have a clear structure that includes steps, tool decorators, and standard control flow. This structure makes it straightforward for AI assistants to generate, modify, and extend your workflows -- you can describe what you want your workflow to do in natural language, and the AI assistant presents you with a draft workflow.
 
 You can run workflows locally for testing and iteration, on Kubernetes with a single deploy command, or through CI/CD systems like GitHub Actions or GitLab CI. Semgrep’s managed infrastructure handles orchestration, optimization, and monitoring regardless of deployment method.
 
@@ -50,10 +50,10 @@ Custom workflow patterns include, but aren't limited to, the following:
 | - | - |
 | Detection | combine Semgrep with other security tools, project code context, and LLM-assisted reasoning to identify patterns that your organization deems important but can't be categorized neatly into generic, out-of-the-box rules |
 | Policies | encode internal security and compliance logic, then run it across multiple environments and repositories |
-| Remediation | generate upgrade guidance, code change suggestions, and pull requests with the context developers need to fix issues safely |
+| Remediation | generate upgrade guidance, code change suggestions, and PRs with the context developers need to fix issues safely |
 | Triage | review findings from a scanning tool while using repository context and custom review logic to produce decisions about the validity and priority of the findings |
 | Validation | review suspected issues with additional checks to determine if the issues are exploitable or worth escalating |
 
 ## Get started
 
-To get started with your first automated workflows, [<i class="fa-regular fa-envelope"></i> contact Semgrep](mailto:sales@semgrep.com) for further information.
+To get started with your first automated workflows, [<i class="fa-regular fa-envelope"></i> contact Semgrep](mailto:sales@semgrep.com).
