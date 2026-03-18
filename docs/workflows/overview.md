@@ -13,7 +13,7 @@ tags:
 
 Semgrep Workflows is a framework for building automated code security pipelines that allow you to detect, triage, and remediate security issues.
 
-Each workflow is a series of steps, defined in Python, that include deterministic tools such as Semgrep Code, Supply Chain, and Secrets, as well as Semgrep Multimodal, which leverages AI agents like Anthropic’s Claude or ChatGPT. You can also integrate third-party tools and any custom tooling required. Once you’ve defined your workflow, Semgrep handles its deployment and execution at scale.
+Each workflow is a series of steps, defined in Python, that include deterministic tools such as Semgrep Code, Supply Chain, and Secrets, as well as Semgrep Multimodal. You can also integrate third-party tools and any custom tooling required. Once you’ve defined your workflow, Semgrep handles its deployment and execution at scale.
 
 ![Architectural overview of Semgrep Workflows](/img/workflow-architecture.png#md-width)
 _**Figure**. Architectural overview of Semgrep Workflows._
