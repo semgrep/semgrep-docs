@@ -36,7 +36,7 @@ Semgrep's **pre-built workflows**, covering common use cases, include:
 - **Triage**: filter out false positives from your results to help your security teams prioritize real issues
 - **Autofix**: turn dependency findings into actionable remediation guidance, including information on whether the upgrade is safe or requires code modification
 
-You can integrate any of these workflows individually, combine them to implement the functionality you need, or use them all to create an end-to-end security workflow for your organization. Alternatively, you can define **custom workflows** to meet your organization's needs. You can adapt a pre-built Semgrep workflow for your organization, or create entirely new ones using the Semgrep agent SDK.
+You can integrate any of these workflows individually, combine them to implement the functionality you need, or use them all to create an end-to-end security workflow for your organization. Alternatively, you can define **[custom workflows](#custom-workflows)** to meet your organization's needs. You can adapt a pre-built Semgrep workflow for your organization, or create entirely new ones using the Semgrep agent SDK.
 
 ## Custom workflows
 
