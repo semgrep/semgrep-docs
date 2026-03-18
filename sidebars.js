@@ -309,15 +309,7 @@ module.exports = {
             'semgrep-appsec-platform/wiz'
           ]
         },
-        {
-          type: 'category',
-          label: 'Workflows',
-          collapsible: true,
-          items: [
-            'workflows/overview',
-            'workflows/oob',
-          ]
-        },
+        'workflows/overview',
       ]
     },
     {
