@@ -196,7 +196,6 @@ Semgrep provides AI-assisted triage through Semgrep Multimodal, which can analyz
 - Can be viewed by developers and AppSec engineers in their preferred environment
 - Ability to learn your preferred libraries and functions through **Memories**
 
-[<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Multimodal's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
 </details>
 
 Lastly, Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
