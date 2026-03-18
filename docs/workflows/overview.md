@@ -1,6 +1,6 @@
 ---
 slug: overview
-title: Overview
+title: Workflows (beta)
 hide_title: true
 displayed_sidebar: scanSidebar
 description: Learn how to use Semgrep Workflows to automate code security at scale.
