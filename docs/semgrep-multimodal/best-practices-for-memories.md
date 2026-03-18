@@ -10,17 +10,17 @@ tags:
 
 # Best practices for writing Multimodal Memories
 
-This page covers various best practices for writing Multimodal memories.
+This page covers various best practices for writing Multimodal Memories.
 
 ## Voice and tone
 
-When writing your memories, aim to "talk" to Multimodal the way that you would talk to a new security intern:
+When writing Memories, aim to "talk" to Multimodal the way that you would talk to a new security intern:
 
 - Present and describe the information clearly.
 - Describe technical concepts as simply as possible.
 - Explain the consequences and outcomes of actions in detail.
 
-The following are two examples of well-written memories:
+The following are two examples of well-written Memories:
 
 > When generating remediation for SQL injection issues, ensure that the SQL is compatible with BigQuery.
 
@@ -28,9 +28,9 @@ The following are two examples of well-written memories:
 
 ## Purpose
 
-Before beginning, decide what the purpose of the memory is: triage, remediation, or both.
+Before beginning, decide what the purpose of the Memory is: triage, remediation, or both.
 
-If the purpose of the memory is to influence triage, you can provide a natural language description of the expected consequence:
+If the purpose of the Memory is to influence triage, you can provide a natural language description of the expected consequence:
 
 > This repository is a QA repository. All findings can be safely ignored due to these mitigating factors.
 
@@ -42,7 +42,7 @@ Once you've decided on the purpose, this informs how you explain your expectatio
 
 ## Structure
 
-When writing a memory, be sure to include as many of the following components as necessary:
+When writing a Memory, be sure to include as many of the following components as necessary:
 
 1. The **conditions** that Multimodal should be looking for in the codebase, as well as any context Multimodal should consider when analyzing your codebase
 2. **Guidance** as to how Multimodal identifies the conditions that you specified
@@ -52,7 +52,7 @@ When writing a memory, be sure to include as many of the following components as
 
 > Dockerfiles with image `foo` are designed to run as a non-root user and are an acceptable risk. All relevant findings are false positives.
 
-In the preceding memory, you can see all three components present:
+In the preceding Memory, you can see all three components present:
 
 1. **Condition and context**: Dockerfiles with image `foo` are designed to run as non-root user.
 2. **Guidance**: Look for Dockerfiles with image `foo`.
@@ -62,7 +62,7 @@ In the preceding memory, you can see all three components present:
 
 > Code that's flagged for missing cookie security attributes may be a false positive if the code's purpose is to delete or clear a cookie, since security attributes may not be necessary for immediate removal.
 
-In the preceding memory, you can see all three components present:
+In the preceding Memory, you can see all three components present:
 
 1. **Condition and context**: There exists code whose purpose is to delete or clear a cookie, but security attributes may not be necessary for immediate removal of the cookie.
 2. **Guidance**: Look for findings where the purpose of the code is to delete or clear a cookie and Semgrep's static analysis has flagged it for missing cookie security attributes.
@@ -70,11 +70,11 @@ In the preceding memory, you can see all three components present:
 
 ## Additional considerations
 
-In addition to the voice and tone of the memory, its purpose, and its structure, consider the following when writing your memory.
+In addition to the voice and tone of the Memory, its purpose, and its structure, consider the following when writing your Memory.
 
-### Write memories that are general in nature
+### Write Memories that are general in nature
 
-Avoid writing memories that don't generalize beyond the original finding. For example, the following memory is specific to a finding:
+Avoid writing Memories that don't generalize beyond the original finding. For example, the following Memory is specific to a finding:
 
 > Interpolated value does not involve user input.
 
@@ -82,7 +82,7 @@ You can generalize this to:
 
 > Interpolated values that are program constants aren't considered dangerous.
 
-Another example of a highly specific memory is:
+Another example of a highly specific Memory is:
 
 > The function is called through generated methods, making it unreachable in this use case.
 
@@ -92,15 +92,15 @@ You can generalize this to:
 
 ### State all implications and be clear on what the consequences of something are
 
-When writing the memory, be clear about the implications and consequences are for Multimodal.
+When writing the Memory, be clear about the implications and consequences are for Multimodal.
 
-In the following example, the memory states a fact, but leaves the implication unstated:
+In the following example, the Memory states a fact, but leaves the implication unstated:
 
 > The function `generateDevSecret` is used to create development secrets.
 
 The leaking of development secrets might not be a problem, but it's also possible that leaking development secrets is as big a security issue as leaking production secrets.
 
-For some organizations, development secrets are just as powerful as production secrets. For other organizations, development secrets are ephemeral, and it's not a major issue if they're leaked. As such, it's essential to rewrite the memory with the implication stated to help Multimodal analyze a finding:
+For some organizations, development secrets are just as powerful as production secrets. For other organizations, development secrets are ephemeral, and it's not a major issue if they're leaked. As such, it's essential to rewrite the Memory with the implication stated to help Multimodal analyze a finding:
 
 > Secrets created by the `generateDevSecret` function are considered development secrets and pose a security risk.
 
@@ -112,18 +112,18 @@ When Multimodal analyzes a finding, it has the following contextual information 
 - The code matched by the Semgrep rule
 - Multiple lines of code surrounding the finding
 - Examples from an AppSec knowledge base
-- Memories that you have written
+- Memor that you have written
 - Prior fixes for similar issues
 
-Multimodal does not have access to any other information for use during analysis. For example, the following memory is ineffective:
+Multimodal does not have access to any other information for use during analysis. For example, the following Memory is ineffective:
 
 > Please provide an alternative solution for the validator.
 
-Multimodal isn't going to use past remediation advice in a prompt, so the preceding memory likely results in Multimodal hallucinating. In this case, if you want Multimodal to avoid using a specific validator, you can specify this:
+Multimodal isn't going to use past remediation advice in a prompt, so the preceding Memory likely results in Multimodal hallucinating. In this case, if you want Multimodal to avoid using a specific validator, you can specify this:
 
 > Fixes should be generated with an alternative to the validation library X.
 
-One common issue is the use of links in memories. Multimodal cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Multimodal explicitly:
+One common issue is the use of links in memor. Multimodal cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Multimodal explicitly:
 
 > Recommend a fix similar to this code: `Sample code...`
 
