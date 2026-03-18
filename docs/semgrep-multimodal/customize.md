@@ -18,7 +18,7 @@ You can customize Semgrep Multimodal by enabling and using the features detailed
 
 Multimodal **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
 
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Code**.
 2. Click the **Suggested fix** <i class="fa-solid fa-toggle-large-on"></i> toggle to enable this feature.
 3. *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Multimodal suggests a fix even when the code quality is poor.
 
@@ -30,14 +30,14 @@ Semgrep recommends setting a low confidence level since even incorrect suggestio
 
 [Weekly priority emails](/semgrep-multimodal/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature isn't enabled for your deployment, you can do so as follows:
 
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Global**.
 2. Click the **Weekly priority emails** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 
 ## Noise filtering
 
 Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false positives](/semgrep-multimodal/metrics.md), so you can minimize the number of findings shown by enabling **Noise filter for Code PR/MR comments**. To do so:
 
-1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Assistant**.
+1. Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Code**.
 2. Click the **Noise filter for Code PR/MR comments** <i class="fa-solid fa-toggle-large-on"></i> if it is not yet enabled.
 3. Select whether you want to enable PR or MR comments:
    1. **Don’t leave a PR/MR comment**: Hide Semgrep’s comments on findings that are likely to be false positives. These findings are available for security review on the [**Code > Pre-production backlog** page](https://semgrep.dev/orgs/-/findings?tab=open&last_opened=All+time&backlog=preprod). Comments still appear for rules in [**Block** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes).
@@ -130,7 +130,7 @@ You can opt to:
 
 If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **Your OpenAI API key**, and provide your API key.
 
@@ -146,7 +146,7 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 
 If you want to keep all data within your AWS account, you can use your own AWS Bedrock instance:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **AWS Bedrock** then **Your AWS account**
 4. Provide your AWS IAM role details.
@@ -155,7 +155,7 @@ Note that the IAM role that is being used must have access to the **AmazonBedroc
 
 Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
 
-### Azure OpenAI
+==### Azure OpenAI==
 
 To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
 
@@ -164,7 +164,7 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
    2. Navigate to **Deployments**, and select the deployment you want to use.
    3. In **Endpoint**, find and copy both the **Target URI** and the **API key**. You will provide both values to Semgrep.
 2. To configure Semgrep to use Azure OpenAI:
-   1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+   1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general/assistant).
    2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
    3. Select **Azure OpenAI**.
    4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**.
@@ -179,7 +179,7 @@ As of May 2025, the best model for noise filtering is `o3-mini`, which performs 
 
 To use Google Gemini with Semgrep Multimodal:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **Google Gemini**.
 4. Paste in your API key.
@@ -191,7 +191,7 @@ To use Google Gemini with Semgrep Multimodal:
 
 To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > General > Assistant**](https://semgrep.dev/orgs/-/settings/general/assistant).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general/assistant).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **xAI**.
 4. Paste in your API key and API endpoint.

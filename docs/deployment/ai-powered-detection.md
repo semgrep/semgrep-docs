@@ -32,7 +32,7 @@ To run Semgrep Code's [AI-powered detection](/docs/semgrep-code/overview#ai-powe
 
 This feature is enabled by default for all Semgrep Assistant users. 
 
-To enable or disable AI-powered detection in Semgrep AppSec Platform, go to [**Settings** > **Code**](https://semgrep.dev/orgs/-/settings/general/code) and then toggle **AI-powered detection** on or off.
+To enable or disable AI-powered detection in Semgrep AppSec Platform, go to [**Settings** > **Code**](https://semgrep.dev/orgs/-/settings/general/code) and then toggle **AI-powered scanning** on or off.
 
 ## Scan with AI-powered detection
 

@@ -10,4 +10,4 @@ Semgrep Multimodal messages only appear in your PR comments for rules that are s
 
 * You have set rules to Comment or Block mode.
   ![Policies modes](/img/semgrep-assistant-comment.png#md-width)
-* You have turned on the **Triage via code review comments** toggle in Semgrep AppSec Platform by going to **Settings > General > Code**..
+* You have turned on the **Triage via code review comments** toggle in Semgrep AppSec Platform by going to **Settings > General > Code**.
