@@ -32,7 +32,7 @@ Semgrep provides built-in workflows you can run immediately, or you can define c
 
 Semgrep's **pre-built workflows**, covering common use cases, include:
 
-- **IDOR/Auth**: combine static analysis and AI detection to find broken authorization, authentication bypasses, insecure access patterns, and other business logic issues
+- **Insecure direct object references (IDORs) and broken authorization**: combine static analysis and AI detection to find broken authorization, authentication bypasses, insecure access patterns, and other business logic issues
 - **Triage**: filter out false positives from your results to help your security teams prioritize real issues
 - **Autofix**: turn dependency findings into actionable remediation guidance, including information on whether the upgrade is safe or requires code modification
 
