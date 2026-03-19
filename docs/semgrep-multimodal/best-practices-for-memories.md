@@ -8,9 +8,9 @@ tags:
  - Semgrep Multimodal
 ---
 
-# Best practices for writing Multimodal Memories
+# Best practices for writing Memories
 
-This page covers various best practices for writing Multimodal Memories.
+This page covers various best practices for writing Memories.
 
 ## Voice and tone
 
@@ -112,7 +112,7 @@ When Multimodal analyzes a finding, it has the following contextual information 
 - The code matched by the Semgrep rule
 - Multiple lines of code surrounding the finding
 - Examples from an AppSec knowledge base
-- Memor that you have written
+- Memories that you have written
 - Prior fixes for similar issues
 
 Multimodal does not have access to any other information for use during analysis. For example, the following Memory is ineffective:
@@ -123,7 +123,7 @@ Multimodal isn't going to use past remediation advice in a prompt, so the preced
 
 > Fixes should be generated with an alternative to the validation library X.
 
-One common issue is the use of links in memor. Multimodal cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Multimodal explicitly:
+One common issue is the use of links in memories. Multimodal cannot access links, and therefore it cannot read the information that's behind the link. Instead, provide the information at the link to Multimodal explicitly:
 
 > Recommend a fix similar to this code: `Sample code...`
 

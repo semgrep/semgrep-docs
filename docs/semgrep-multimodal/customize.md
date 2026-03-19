@@ -96,7 +96,7 @@ Permissions:
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Navigate to [<i class="fa-solid fa-gear"></i> **Rules & Policies > Memories**](https://semgrep.dev/orgs/-/memories).
 
-There are two tabs on the **Multimodal Memories** page for your review:
+There are two tabs on the **Memories** page for your review:
 
 - The **Active** tab displays a list of memories that Multimodal is actively using to generate triage advice
 - The **Suggested** tab displays a list of memories Multimodal has generated based on past triage actions and developer feedback. For each suggestion, you can:
@@ -155,7 +155,7 @@ Note that the IAM role that is being used must have access to the **AmazonBedroc
 
 Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
 
-==### Azure OpenAI==
+### Azure OpenAI
 
 To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
 
