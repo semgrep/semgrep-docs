@@ -42,6 +42,17 @@ You can provide this token to Semgrep by adding [Azure DevOps as a source code m
 
 Semgrep recommends using a service account, not a personal account, to [generate the personal access token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) provided to Semgrep. Regardless of whether you use a personal or service account, the account must be assigned the **Owner** or **Project Collection Administrator** role for the organization.
 
+### Enable Multimodal
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
+3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
+4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
+
 </TabItem>
 
 <TabItem value='bitbucket'>
@@ -53,7 +64,18 @@ Semgrep Multimodal extends standard Semgrep capabilities by providing contextual
 - `Pull requests: Read & Write`
 - `Webhooks: Read and write`
 
-You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs). 
+You can provide this token to Semgrep by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-cloud-hosted-orgs).
+
+### Enable Multimodal
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
+3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
+4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
 
 </TabItem>
 
@@ -62,29 +84,34 @@ You can provide this token to Semgrep by [adding Bitbucket as a source code mana
 Semgrep Multimodal extends normal Semgrep capabilities by providing contextually aware AI-generated suggestions. In order to build that context, it requires GitHub permissions in addition to the
 [<i class="fa-regular fa-file-lines"></i> standard permissions required for Semgrep](/deployment/checklist/#permissions).
 
-Semgrep Multimodal requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install during Multimodal setup. This private Semgrep GitHub app:
+Semgrep Multimodal requires [read access to your code in GitHub](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28). This is done through a private Semgrep GitHub app that you install. This private Semgrep GitHub app:
 
 * Is fully under your control so you can revoke access or specific permissions at any time by visiting **Settings > Applications** in GitHub.
 * Only accesses source code repositories on a file-by-file basis; it does not need or request org-level access to your codebase.
 * Can be configured to limit its scope to specific repositories. You do not need to give read access to all repositories in your GitHub organization.
 
+To verify that you have the private app installed:
+
+1. In Semgrep AppSec Platform, go to **Settings > Source Code Managers**.
+2. Find the entry for GitHub. If you have the **Private app** installed, Semgrep displays a message underneath this label that reads **Enables Autotriage, Managed Scans, and Auto-scan**. 
+3. If you *don't* have the **Private app** installed, the **Install** button is shown to you. To install the private app:
+   1. Click **Install** to launch the **Add GitHub App** page.
+   2. Review the information provided, and click **Register GitHub App** to proceed.
+   3. The **Continue to SCM** dialog appears, since you must finish installing the app with GitHub. Click **Continue** to proceed.
+   4. Follow the prompts provided by GitHub to finish creating the app.
+   5. When done, GitHubs redirect you back to Semgrep AppSec Platform.
+
 ### Enable Multimodal
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
-3. In the **Global** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle. This launches the **Set up Semgrep Assistant** prompt.
-1. Select a source code manager (SCM) by clicking **github.com**.
-2. Semgrep provides you with information on why Multimodal requires access to your source code. Click **Accept & Enable Assistant** to proceed.
-3. You are redirected to the page where you can add a GitHub Private App that grants Semgrep read access to your code.
-   1. Enter your GitHub information. Select whether you're installing the app on an **organization** or **Personal Account**, and provide its name.
-   2. Click **Review permissions** to see the permissions requested by Semgrep.
-   3. Click **Register GitHub App** to proceed.
-   4. When prompted, click **Continue** to allow redirection to GitHub to finalize app creation. Follow the instructions to finish creating and installing a private `semgrep-app`.
-4. You are redirected to Semgrep AppSec Platform's **Source Code Managers** page. Navigate back to the **General > Assistant** page. Verify that all of the features are enabled:
-   1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Multimodal's top three backlog tasks across all findings.
+2. Go to **Settings > Global**, and click the **Semgrep Assistant** toggle to enable.
+3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
+4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   2. **Autofix PR**: Enable the creation of AI-generated pull requests (PR) that fix findings.
    3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
-   4. **Remediation**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   4. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   5. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
 
 </TabItem>
 
@@ -99,16 +126,13 @@ Semgrep Multimodal extends normal Semgrep capabilities by providing contextually
 <h2>Enable Multimodal</h2>
 
 1. Sign in to [Semgrep AppSec Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
-2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/)**.
-3. In the **Assistant** section, click the **<i class="fa-solid fa-gear"></i> Allow code snippets in AI prompts** toggle. This launches the **Set up Semgrep Assistant** prompt.
-1. Follow the on-screen instructions to complete the setup process.
-2. Navigate back to the **Deployment** page. Under the **Assistant** section, verify that all of the features are enabled:
-   1. **Allow code snippets in AI prompts**: Required for Semgrep to auto-triage findings, provide AI remediation guidance, and tag findings with code context.
-   2. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Multimodal's top three backlog tasks across all findings.
-   3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
-   4. **Remediation**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
+3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
+4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+   2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
+   3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
+   4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
 
 </TabItem>
 </Tabs>
-
-Once you have enabled Semgrep Multimodal, you can [customize your deployment by enabling or disabling the Multimodal features](/semgrep-multimodal/customize) that best fit your software development lifecycle.
