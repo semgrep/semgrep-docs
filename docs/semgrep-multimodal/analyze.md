@@ -42,7 +42,7 @@ Some findings created before November 2025 may not be auto-analyzed, even if the
 
 ### Request analysis for existing findings
 
-If you want Multimodal analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform. See the [Analyze your findings with Multimodal](#analyze-your-findings-with-assistant) section for details.
+If you want Multimodal analyses for findings that weren't automatically analyzed, you can request them in bulk through Semgrep AppSec Platform. See the [Analyze your findings with Multimodal](/semgrep-multimodal/analyze#analyze-your-findings-with-multimodal) section for details.
 
 If you need assistance with bulk analysis requests or have questions about backfilling analyses for your findings, contact [Semgrep Support](/support).
 
@@ -59,4 +59,3 @@ Semgrep Multimodal lets you leave feedback in the following places:
 * In Semgrep AppSec Platform: the Multimodal recommendation appears in Semgrep Code's **Finding Details** page under **Activity**, along with **Agree and ignore** or **Disagree** buttons. 
 * In Slack notifications: the **Agree** and **Disagree** buttons appear under the Multimodal recommendation message.
 
-==If Semgrep Multimodal labels a finding as a true positive and provides a suggested fix, there is no automated mechanism to leave feedback on this outcome. Feel free to contact [Semgrep Support](/support) to share your thoughts.==

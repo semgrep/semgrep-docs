@@ -120,8 +120,8 @@ Every organization has its own secure coding practices. Customizability ensures 
 
 Semgrep provides customizability through:
 
-- Custom rules - You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
-- Multimodal Memories - this feature allows you to add and save additional context when Semgrep Multimodal provides remediation. For example, you can provide organization-specific public keys, which Semgrep Multimodal remembers.
+- Custom rules: You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
+- Memories: this feature allows you to add and save additional context when Semgrep Multimodal provides remediation. For example, you can provide organization-specific public keys, which Semgrep Multimodal remembers.
 
 
 ### Remediation guidance

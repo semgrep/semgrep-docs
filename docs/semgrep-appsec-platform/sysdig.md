@@ -27,8 +27,8 @@ Before proceeding, ensure that:
 ## Enable the Sysdig integration
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Navigate to [**Settings** > **Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
-3. Go to **Integrations**, and click **+ Add > Sysdig**.
+2. Navigate to [**Settings > Integrations**](https://semgrep.dev/orgs/-/settings/integrations).
+3. Click **+ Add > Sysdig**.
 4. In the dialog that appears, provide the following information:
    1. **URL**: The Sysdig Platform URL for your account.
    2. **API token**: The Sysdig API token associated with your account. See [<i class="fas fa-external-link fa-xs"></i> Retrieve the Sysdig API Token](https://docs.sysdig.com/en/administration/retrieve-the-sysdig-api-token/) for more information on how to retrieve your token.

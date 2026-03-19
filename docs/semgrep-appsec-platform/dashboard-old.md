@@ -18,7 +18,7 @@ The Semgrep AppSec Platform Dashboard is an overview of your organization’s se
 * Improve communication between developer teams and security teams.
 * Detect vulnerabilities early, thereby preventing these from persisting through to the next stage of product delivery, such as QA.
 
-You can access the Dashboard by [logging into the Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+You can access the Dashboard by [logging into the Semgrep AppSec Platform](https://semgrep.dev/login).
 
 ## Assessing security readiness at a glance
 
