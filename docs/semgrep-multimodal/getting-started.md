@@ -46,9 +46,9 @@ Semgrep recommends using a service account, not a personal account, to [generate
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
-3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
-4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
-   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+3. The **Set up Semgrep Multimodal** dialog appears. Click **Accept & Enable Semgrep Multimodal** to proceed.
+4. Once you've enabled Semgrep Multimodal, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on the top three backlog tasks across all findings.
    2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
    3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
    4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
@@ -70,9 +70,9 @@ You can provide this token to Semgrep by [adding Bitbucket as a source code mana
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
-3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
-4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
-   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+3. The **Set up Semgrep Multimodal** dialog appears. Click **Accept & Enable Semgrep Multimodal** to proceed.
+4. Once you've enabled Semgrep Multimodal, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on the top three backlog tasks across all findings.
    2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
    3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
    4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
@@ -104,10 +104,10 @@ To verify that you have the private app installed:
 ### Enable Multimodal
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to **Settings > Global**, and click the **Semgrep Assistant** toggle to enable.
-3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
-4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
-   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
+3. The **Set up Semgrep Multimodal** dialog appears. Click **Accept & Enable Semgrep Multimodal** to proceed.
+4. Once you've enabled Semgrep Multimodal, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on the top three backlog tasks across all findings.
    2. **Autofix PR**: Enable the creation of AI-generated pull requests (PR) that fix findings.
    3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
    4. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
@@ -127,9 +127,9 @@ Semgrep Multimodal extends normal Semgrep capabilities by providing contextually
 
 1. Sign in to [Semgrep AppSec Platform <i class="fas fa-external-link fa-xs"></i>](https://semgrep.dev/login) using your GitLab account.
 2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
-3. The **Set up Semgrep Assistant** dialog appears. Click **Accept & Enable Semgrep Assistant** to proceed.
-4. Once you've enabled Semgrep Assistant, you can change the **AI provider** used and enable additional features, including:
-   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on Assistant's top three backlog tasks across all findings.
+3. The **Set up Semgrep Multimodal** dialog appears. Click **Accept & Enable Semgrep Multimodal** to proceed.
+4. Once you've enabled Semgrep Multimodal, you can change the **AI provider** used and enable additional features, including:
+   1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on the top three backlog tasks across all findings.
    2. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
    3. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
    4. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
