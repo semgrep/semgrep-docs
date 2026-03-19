@@ -153,7 +153,7 @@ The following updates were made to Semgrep in November 2024.
   - [Troubleshooting if a scan "never finished"](/troubleshooting/semgrep-app)
 - Clarified default behavior and options for how Semgrep handles exit codes.
 - Clarified the relationship between ingress and egress IP addresses and the Semgrep Network Broker.
-- Updated the wording in [Semgrep Assistant > Privacy and legal considerations](/semgrep-assistant/privacy) to include other large language models (LLMs). 
+- Updated the wording in [Semgrep Assistant > Privacy and legal considerations](/semgrep-multimodal/privacy) to include other large language models (LLMs). 
 
 ### Fixed
 

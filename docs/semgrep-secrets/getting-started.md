@@ -51,7 +51,7 @@ Once you've enabled Secrets for your organization, all Semgrep scans include sec
 
 Semgrep Secrets scans all files, even those specified in a local `.semgrepignore` file, since secrets can often be found in files that aren't relevant for code scanning. To specify files that Semgrep Secrets should ignore:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. From the **Navigation bar**, select **[Projects](https://semgrep.dev/orgs/-/projects)**.
 3. Find your project, then click **Details**.
 4. Go to **Settings > Path ignores**.

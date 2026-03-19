@@ -29,11 +29,11 @@ Secure guardrails consist of:
 <dl>
 <dt>Content</dt>
 <dd>
-  The content that identifies, explains, and provides remediation guidance for the security issue, such as the Semgrep rule and Semgrep Assistant (AI) remediation guidance.
+  The content that identifies, explains, and provides remediation guidance for the security issue, such as the Semgrep rule and Semgrep Multimodal (AI) remediation guidance.
 
   Semgrep uses **rules**, which are instructions that detect patterns in your code, such as security issues, bugs, and more. Semgrep generates and reports **findings** to you whenever it finds code that matches the patterns defined by rules.
 
-  Semgrep rules also include a **message** that guides remediation and provides other metadata about the vulnerability, such as its OWASP category, which are presented to the developer. Further improvements to this guidance are made through Semgrep Assistant.
+  Semgrep rules also include a **message** that guides remediation and provides other metadata about the vulnerability, such as its OWASP category, which are presented to the developer. Further improvements to this guidance are made through Semgrep Multimodal.
 </dd>
 <dt>Interface</dt>
 <dd>The developer-native **interface** where the developer can see the content and triage or remediate the finding, such as Visual Studio Code (VS Code), pre-commit on CLI, or GitHub pull request comments. See [all supported interfaces](#support-for-developer-interfaces-pre-build).</dd>
@@ -80,7 +80,7 @@ Semgrep supports the following interfaces:
     <td rowspan="4">PR or MR comments</td>
     <td>[All GitHub plans](/semgrep-appsec-platform/github-pr-comments)</td>
     <td rowspan="4">
-    <ul><li>Receive human-written and Semgrep Assistant remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li>
+    <ul><li>Receive human-written and Semgrep Multimodal remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li>
     <li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul>
     </td>
 </tr>
@@ -104,7 +104,7 @@ Semgrep supports the following interfaces:
 </tbody>
 </table>
 
-_\*To receive Assistant guidance, check that your source code manager (SCM) is supported: [list of supported source code managers (SCMs)](/semgrep-assistant/overview#support-and-availability)._
+_\*To receive Multimodal guidance, check that your source code manager (SCM) is supported: [list of supported source code managers (SCMs)](/semgrep-multimodal/overview#support-and-availability)._
 
 ![Semgrep remediation guidance in VS Code](/img/guardrails-ide-quickfix.png#md-width-centered) <br />
 ![Semgrep remediation guidance in VS Code > Quick fix menu](/img/guardrails-ide-fix.png#md-width-centered)
@@ -120,8 +120,8 @@ Every organization has its own secure coding practices. Customizability ensures 
 
 Semgrep provides customizability through:
 
-- Custom rules - You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
-- Assistant Memories - this feature allows you to add and save additional context when Semgrep Assistant provides remediation. For example, you can provide organization-specific public keys, which Semgrep Assistant remembers.
+- Custom rules: You can create custom rules and deploy them as guardrails. Learn more about Semgrep rule structure in [the next section](#remediation-guidance).
+- Memories: this feature allows you to add and save additional context when Semgrep Multimodal provides remediation. For example, you can provide organization-specific public keys, which Semgrep Multimodal remembers.
 
 
 ### Remediation guidance
@@ -129,13 +129,13 @@ Semgrep provides customizability through:
 Remediation guidance can come in three forms:
 
 - The rule's `message`
-- AI-generated remediation guidance through Semgrep Assistant
+- AI-generated remediation guidance through Semgrep Multimodal
 - The rule's `fix`
 
-Much of the remediation guidance originates from the rule itself, which is also used to generate Semgrep Assistant's advice (if Assistant is enabled). Learning the basic Semgrep rule structure can help you:
+Much of the remediation guidance originates from the rule itself, which is also used to generate Semgrep Multimodal's advice (if Multimodal is enabled). Learning the basic Semgrep rule structure can help you:
 
 - Customize remediation through your organization-specific rules.
-  - Writing your own rules provides you with a means to tailor Semgrep to your organization with or without Assistant.
+  - Writing your own rules provides you with a means to tailor Semgrep to your organization with or without Multimodal.
 - Write and deploy guardrails of your own.
 
 The following example illustrates a basic Semgrep rule.
@@ -185,7 +185,7 @@ rules:
 
 This description explains **why** the finding was generated and outlines **general advice** on resolving the issue. Messages notify developers in all interfaces where you've deployed a guardrail.
 
-#### AI-generated remediation guidance and code suggestions (Semgrep Assistant)
+#### AI-generated remediation guidance and code suggestions (Semgrep Multimodal)
 
 This is a tailored, **step-by-step** outline of what a developer must change to fix the insecure code.
 The guidance makes use of the Semgrep rule, AI's understanding of code, and a prompt tree that incorporates inputs such as:
@@ -198,7 +198,7 @@ The guidance makes use of the Semgrep rule, AI's understanding of code, and a pr
 _**Figure**. AI-generated guidance. Developers are able to commit the suggestion directly._
 
 :::info
-- Within developer-native interfaces, Semgrep Assistant only appears in PR or MR comments. Assistant guidance does not appear in the IDE or `pre-commit`.
+- Within developer-native interfaces, Semgrep Multimodal only appears in PR or MR comments. Multimodal guidance does not appear in the IDE or `pre-commit`.
 - You can adjust when the guidance is shown to developers based on the level of confidence in the guidance.
 :::
 
@@ -206,7 +206,7 @@ _**Figure**. AI-generated guidance. Developers are able to commit the suggestion
 
 Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/docs/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
 
-Semgrep Assistant does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
+Semgrep Multimodal does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
 
 ## Deploy secure guardrails
 

@@ -136,8 +136,8 @@ The following Semgrep fields are available to map to Jira fields for **all** pro
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Code findings:
 
-- Assistant triage
-- Assistant component
+- Multimodal triage
+- Multimodal component
 - Rule confidence
 
 The following Semgrep fields are available to map to Jira fields for Semgrep Supply Chain findings:
@@ -285,7 +285,7 @@ _**Figure**. Finding details' Activity section showing that a Jira ticket wasn't
 
 To remove the Jira integration from your Semgrep organization:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Settings** > **[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Settings >[Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
 2. Navigate to the **Jira Cloud** section and click **Remove integration**.
 
 Note that deleting the integration:

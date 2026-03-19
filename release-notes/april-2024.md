@@ -129,7 +129,7 @@ didn't work properly when adding a new file or renaming an existing file.
         - Static analysis and rule writing glossary
         - Semgrep Code glossary
 - Added a new section for user management on **[Teams (beta)](/deployment/teams)**, an access control feature that enables administrators or managers to assign projects to specific team members.
-- Expanded the documentation on [Semgrep Assistant's new features](/semgrep-assistant/overview).
+- Expanded the documentation on [Semgrep Assistant's new features](/semgrep-multimodal/overview).
 
 ### Changed
 

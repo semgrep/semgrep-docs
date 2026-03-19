@@ -15,7 +15,7 @@ hide_title: true
 To upgrade your Semgrep subscription from the **Free** plan to the **Team** plan using a credit card as the payment method:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to **Settings** > **Usage & billing**.
+2. Go to **Settings > Usage & billing**.
 3. Choose the products that you want to upgrade, and click **Upgrade**.
 4. Review the details of your order, and ensure that the number of licenses you're purchasing is accurate.
 5. Provide your payment details, and click **Subscribe**.

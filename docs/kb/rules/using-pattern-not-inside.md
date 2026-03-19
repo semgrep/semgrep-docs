@@ -23,7 +23,7 @@ In other words, using `pattern-not` in your rule means that Semgrep expects the 
 
 ## Example
 
-The [example rule](https://semgrep.dev/docs/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) `find-unverified-transactions` is a good example: `make_transaction($T)` is acceptable only if `verify_transaction($T)` is also present.
+The [example rule](/writing-rules/rule-ideas/#systematize-project-specific-coding-patterns) `find-unverified-transactions` is a good example: `make_transaction($T)` is acceptable only if `verify_transaction($T)` is also present.
 
 To successfully match the target code, the rule uses `pattern` and `pattern-not`:
 

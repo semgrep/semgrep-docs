@@ -92,7 +92,7 @@ The following updates were made to Semgrep in March 2024.
 
 ## 🤖 Assistant
 
-Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-assistant/overview/) and the [<i class="fas fa-external-link fa-xs"></i> blog post](https://semgrep.dev/blog/2024/assistant-ga-launch).
+Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-multimodal/overview/) and the [<i class="fas fa-external-link fa-xs"></i> blog post](https://semgrep.dev/blog/2024/assistant-ga-launch).
 
 ### Added
 
@@ -144,7 +144,7 @@ Semgrep Assistant is **now generally available (GA)**. Read [the docs](/semgrep-
 
 - Major edits and updates to documentation for:
   - [Semgrep Secrets](/semgrep-secrets/getting-started)
-  - [Semgrep Assistant](/semgrep-assistant/overview)
+  - [Semgrep Assistant](/semgrep-multimodal/overview)
   - [Semgrep extension for Visual Studio Code](/extensions/semgrep-vs-code)
 - Updated Semgrep Pro Engine documentation to clarify what is enabled by the **cross-file analysis** toggle in **Semgrep Cloud Platform > Settings**.
 - Updated [**Findings** page information](/semgrep-code/findings).

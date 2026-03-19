@@ -17,7 +17,7 @@ displayed_sidebar: scanSidebar
 
 Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
 
-AI-powered detection is distinct from [Semgrep Assistant](/docs/semgrep-assistant/overview), which uses artificial intelligence (AI) to triage findings and provide remediation guidance.
+AI-powered detection is part of [Semgrep Multimodal](/docs/semgrep-multimodal/overview), which uses artificial intelligence (AI) to scan code, triage findings, and provide remediation guidance.
 
 This page covers the kinds of issues AI-powered detection is designed to uncover, known limitations during the beta period, and practical considerations such as scan quotas and data privacy. 
 
@@ -53,7 +53,7 @@ Each full AI-powered scan counts as one scan. Paying customers can trigger **30 
 
 ### Data privacy and finding severity
 
-The data privacy policy is similar to that described in [Privacy and legal considerations for Semgrep](/docs/semgrep-assistant/privacy), with a few exceptions.
+The data privacy policy is similar to that described in [Privacy and legal considerations for Semgrep](/docs/semgrep-multimodal/privacy), with a few exceptions.
 
 Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. 
 
@@ -74,7 +74,7 @@ This feature is in beta. Here are some known issues:
 
 ## Troubleshooting and disclaimers
 
-For help with AI-powered detection, contact your organization’s **Semgrep account manager** or **Semgrep [support](https://semgrep.dev/docs/support)**. 
+For help with AI-powered detection, contact your organization’s **Semgrep account manager** or **Semgrep [support](/support)**. 
 
 Beta program notice:
 

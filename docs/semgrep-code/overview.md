@@ -92,16 +92,16 @@ semgrep ci --pro-languages
 semgrep ci --oss-only
 ```
 
-## Augment Semgrep Code with Semgrep Assistant
+## Augment Semgrep Code with Semgrep Multimodal
 
-[Semgrep Assistant](/semgrep-assistant/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Assistant can:
+[Semgrep Multimodal](/semgrep-multimodal/overview) provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. More specifically, Multimodal can:
 
-- Provide [remediation advice](/semgrep-assistant/overview#remediation) and Suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
-- Provide [remediation guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
-  - Assistant supports the tailoring of its remediation guidance using [Memories](/semgrep-assistant/overview#memories).
-- [Tag your findings](/semgrep-assistant/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
-- [Auto-triage findings](/semgrep-assistant/overview#auto-triage) and suggest whether a finding can safely be ignored.
-- [Filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+- Provide [remediation advice](/semgrep-multimodal/overview#remediation) and Suggested fixes for Semgrep Code findings. This information is displayed in Semgrep AppSec Platform.
+- Provide [remediation guidance](/semgrep-multimodal/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request or merge request comment Semgrep pushes.
+  - Multimodal supports the tailoring of its remediation guidance using [Memories](/semgrep-multimodal/overview#memories).
+- [Tag your findings](/semgrep-multimodal/overview#component-tags) in Semgrep AppSec Platform to help identify high-priority issues.
+- [Auto-triage findings](/semgrep-multimodal/overview#auto-triage) and suggest whether a finding can safely be ignored.
+- [Filter out potential false positives](/semgrep-multimodal/overview#noise-filtering-beta) to help increase developer velocity.
 
 ## Next steps
 

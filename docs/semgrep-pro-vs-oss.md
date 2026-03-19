@@ -119,7 +119,7 @@ Semgrep supports SAST, SCA, and secret scans as listed in [Product terms](#produ
 - Cross file, cross function constant propagation
 - Cross file, cross function taint analysis 
 - Framework and language-specific semantic analysis
-- **Semgrep Assistant** (AI-assisted) post-processing analysis:
+- **Semgrep Multimodal** (AI-assisted) post-processing analysis:
     - Reduces noise by 20%
     - Adds contextual remediation guidance
 </details>
@@ -188,15 +188,14 @@ Semgrep tracks a single finding throughout its lifetime from its initial creatio
 
 Developers and AppSec engineers are able to provide reasons for a finding's status, such as **Acceptable risk** or **False positive** for **Ignored** findings.
 
-Semgrep provides AI-assisted triage through Semgrep Assistant, which can analyze all your findings to suggest which findings it thinks are false positives.
+Semgrep provides AI-assisted triage through Semgrep Multimodal, which can analyze all your findings to suggest which findings it thinks are false positives.
 
 <details>
-<summary>Click to view Semgrep Assistant analyses and functions</summary>
+<summary>Click to view Semgrep Multimodal analyses and functions</summary>
 - Step-by-step remediation
 - Can be viewed by developers and AppSec engineers in their preferred environment
-- Ability to learn your preferred libraries and functions through **Assistant Memories**
+- Ability to learn your preferred libraries and functions through **Memories**
 
-[<i class="fas fa-external-link fa-xs"></i> Learn more about Semgrep Assistant's accuracy.](https://semgrep.dev/blog/2023/assistant-public-beta)
 </details>
 
 Lastly, Semgrep supports the creation of tickets in Jira and various notification channels such as Slack and webhooks.
@@ -363,8 +362,8 @@ All Semgrep products make use of cross file, cross function taint analysis and m
 - Semgrep tracks triage states and enables triage from findings in any supported environment (CLI, CI, IDE, your PR or MR). See [Code > Findings](/docs/semgrep-code/findings) for more information.
 - Filtering by severity, confidence, and many other attributes assist in managing volume.
 - AI-assisted triage and remediation
-- AI-assisted [component tagging](/semgrep-assistant/overview#component-tags)
-- AI-assisted [Memories](/semgrep-assistant/overview#memories), which enable you to tell the AI organization specific libraries to suggest when guiding developers
+- AI-assisted [component tagging](/semgrep-multimodal/overview#component-tags)
+- AI-assisted [Memories](/semgrep-multimodal/overview#memories), which enable you to tell the AI organization specific libraries to suggest when guiding developers
 - [PR comments or MR comments](/category/pr-or-mr-comments) can be sent to developers in their native environment (GitHub, GitLab, Azure DevOps, Bitbucket) and developers can triage in their native development through triage commands
 - Slack, email, and webhook [notification channels](/semgrep-appsec-platform/notifications)
 - [Creation of Jira tickets](/semgrep-appsec-platform/jira) and customizable mapping of attributes

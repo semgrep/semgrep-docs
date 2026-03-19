@@ -158,7 +158,7 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
 1. Update the `config.yaml` file by replacing `YOUR_PRIVATE_KEY` with the value of your private key.
 1. Add your public key to the Semgrep AppSec Platform:
    1. Log in to Semgrep AppSec Platform.
-   2. Navigate to **Settings** > **Broker**.
+   2. Navigate to **Settings > Broker**.
    3. Paste your public key and click **Add Public Key**.
 
 ### Update the config with your SCM information

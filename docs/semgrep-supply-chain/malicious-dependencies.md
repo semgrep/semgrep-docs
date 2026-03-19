@@ -73,7 +73,7 @@ To view malicious dependencies detected in your projects:
 - You can apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
 
 :::caution
-If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > General > Code > Triage via code review comments**, your developers are able to triage these findings as **Ignored**.
+If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > General > Global > Triage via code review comments**, your developers are able to triage these findings as **Ignored**.
 :::
 
 ## Create Jira tickets for malicious dependency findings

@@ -81,8 +81,8 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Repository visibility** | Filter by whether the repository's [visibility](#repository-visibility) status. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
 | **Project tags** | Filter for findings based on the tags associated with the project. |
-| **Assistant file risk level** | Filter for findings based on Assistant's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
-| **Assistant autotriage** | Filter by whether [Assistant autotriage](/semgrep-assistant/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
+| **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
+| **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
 
 #### Triage statuses
 

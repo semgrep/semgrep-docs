@@ -28,8 +28,8 @@ Analyze and triage complex findings by reviewing the finding's specific details 
 
 ### Added to v2
 
-- **Alert boxes** now appear at the top of the page. If a finding is reachable, if Semgrep Assistant thinks a finding is false positive, or if a secret finding is validated, Semgrep immediately places this information at the top of the page.
-- An **Analyze** button provides you with the option to generate an Assistant fix if one doesn't exist.
+- **Alert boxes** now appear at the top of the page. If a finding is reachable, if Semgrep Multimodal thinks a finding is false positive, or if a secret finding is validated, Semgrep immediately places this information at the top of the page.
+- An **Analyze** button provides you with the option to generate an Multimodal fix if one doesn't exist.
 - The following fields have been added to **Rule details**:
     - CWE or CVE
     - OWASP categories
@@ -44,7 +44,7 @@ Analyze and triage complex findings by reviewing the finding's specific details 
 - **References**, situated below the description, are now collapsible.
 - **Your code** and **Data flow** panels are now combined. These were previously separate tabs.
 - The code committer's **name** has been moved to the commit hash. 
-- Semgrep Assistant's component tags have been moved to the **Finding details** panel.
+- Semgrep Multimodal's component tags have been moved to the **Finding details** panel.
 - **Branch or ref** information is now visible in **Findings details**.
 
 ### Removed from v2
@@ -66,8 +66,8 @@ _**Figure**. Findings details page v2 (new)._
 <dd>These details are now presented at the right sidebar and provide additional metadata.</dd>
 <dt>C - Your code and dataflow panels</dt>
 <dd>The relevant lines of code of the match and the dataflow graph are now presented side-by-side. The rule pattern tab has been removed and Rule metadata is presented as part of the rule or finding details rather than as a YAML snippet.</dd>
-<dt>D - Assistant generated fix</dt>
-<dd>Generate and view a Semgrep Assistant fix. You can also customize the fix provided by the Assistant.</dd>
+<dt>D - Multimodal generated fix</dt>
+<dd>Generate and view a Semgrep Multimodal fix. You can also customize the fix provided by the Multimodal.</dd>
 <dt>E - Activity</dt>
 <dd>All triage activity pertaining to the finding.</dd>
 </dl>

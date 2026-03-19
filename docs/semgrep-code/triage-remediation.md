@@ -25,16 +25,16 @@ This article shows you how to manage and triage findings identified by Semgrep C
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 <!-- - **Create a Jira ticket from the finding (for Enterprise/Team Tier users.)** For findings that require more extensive refactoring, users can create a ticket in Jira through Semgrep AppSec Platform to track its resolution. -->
 
-## Semgrep Assistant
+## Semgrep Multimodal
 
-If you have Semgrep Assistant enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
+If you have Semgrep Multimodal enabled, you receive AI-powered security recommendations to help you review, triage, fix, and remediate your Semgrep findings:
 
-- [Remediation advice](/semgrep-assistant/overview#remediation) shown in Semgrep AppSec Platform, including:
-  - [Guidance](/semgrep-assistant/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
-  - [Suggested fix](/docs/semgrep-assistant/overview#suggested-fix) flagging affected code that needs to be changed.
-- [Component tagging](/semgrep-assistant/overview#component-tags) to help identify high-priority issues
+- [Remediation advice](/semgrep-multimodal/overview#remediation) shown in Semgrep AppSec Platform, including:
+  - [Guidance](/semgrep-multimodal/overview#guidance) with step-by-step instructions on how to remediate the finding identified by Semgrep Code in every pull request (PR) or merge request (MR) comment Semgrep pushes.
+  - [Suggested fix](/docs/semgrep-multimodal/overview#suggested-fix) flagging affected code that needs to be changed.
+- [Component tagging](/semgrep-multimodal/overview#component-tags) to help identify high-priority issues
 
-Semgrep Assistant can also [auto-triage findings](/semgrep-assistant/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-assistant/overview#noise-filtering-beta) to help increase developer velocity.
+Semgrep Multimodal can also [auto-triage findings](/semgrep-multimodal/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-multimodal/overview#noise-filtering-beta) to help increase developer velocity.
 
 ## Autofix findings
 
@@ -68,7 +68,7 @@ Note that some actions, such as ignoring and reopening findings, require differe
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Assistant enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Assistant has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Assistant's assement. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Multimodal has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assement. Otherwise, you can change the status to **To fix** if you disagree.
 
 Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. 
 

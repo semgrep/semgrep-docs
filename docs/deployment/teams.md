@@ -164,7 +164,7 @@ A fourth role, **the manager**, can be assigned within the context of a team. Ma
 Members and managers can create projects by scanning a repository using the Semgrep CLI tool, but they can't access the project related to the repository in Semgrep AppSec Platform unless an admin provides them explicit access to the project.
 :::
 
-### Semgrep Assistant features permitted per role
+### Semgrep Multimodal features permitted per role
 
 | Page                      | Readonly     | Member       | Manager      | Admin        | 
 |---------------------------|--------------|--------------|--------------|--------------| 
