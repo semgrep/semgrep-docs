@@ -130,7 +130,7 @@ You can opt to:
 
 If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **Your OpenAI API key**, and provide your API key.
 
@@ -146,7 +146,7 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 
 If you want to keep all data within your AWS account, you can use your own AWS Bedrock instance:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **AWS Bedrock** then **Your AWS account**
 4. Provide your AWS IAM role details.
@@ -164,7 +164,7 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
    2. Navigate to **Deployments**, and select the deployment you want to use.
    3. In **Endpoint**, find and copy both the **Target URI** and the **API key**. You will provide both values to Semgrep.
 2. To configure Semgrep to use Azure OpenAI:
-   1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+   1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
    2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
    3. Select **Azure OpenAI**.
    4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**.
@@ -179,7 +179,7 @@ As of May 2025, the best model for noise filtering is `o3-mini`, which performs 
 
 To use Google Gemini with Semgrep Multimodal:
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **Google Gemini**.
 4. Paste in your API key.
@@ -191,7 +191,7 @@ To use Google Gemini with Semgrep Multimodal:
 
 To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
 
-1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<i class="fa-solid fa-gear"></i> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
 2. Click the <i class="fa-solid fa-gear"></i> **icon** next to **AI provider**.
 3. Select **xAI**.
 4. Paste in your API key and API endpoint.
