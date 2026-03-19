@@ -551,7 +551,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           'semgrep-secrets': 'Secrets Detection',
           'semgrep-supply-chain': 'Supply Chain',
           'semgrep-appsec-platform': 'AppSec Platform',
-          'semgrep-assistant': 'Semgrep Assistant',
+          'semgrep-multimodal': 'Semgrep Multimodal',
           'deployment': 'Deployment',
           'troubleshooting': 'Troubleshooting',
           'faq': 'FAQ',

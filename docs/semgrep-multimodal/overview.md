@@ -116,7 +116,7 @@ Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false 
 
 ### Memories
 
-Multimodal Memories allows AppSec teams and developers to tailor Multimodal's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal gives a suggested fix, you can provide feedback by adding custom instructions.
+Memories allows AppSec teams and developers to tailor Multimodal's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal gives a suggested fix, you can provide feedback by adding custom instructions.
 
 For example, if the code contains a hardcoded secret, Multimodal might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Multimodal. Multimodal then generates remediation guidance that works with your specific secrets manager in the future.
 

@@ -84,7 +84,7 @@ Because the code changes displayed on findings and PRs are generated separately,
 
 ### How memories affect PR generation
 
-At this time, Semgrep Multimodal memories do not directly influence Autofix PR generation.
+At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
 Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
 

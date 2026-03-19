@@ -47,7 +47,7 @@ Findings filtered out by Multimodal can be reviewed at any time in Semgrep by go
 
 ## Add Memories
 
-Multimodal Memories allow admins to tailor Multimodal's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Multimodal gives a suggested fix.
+Memories allow admins to tailor Multimodal's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Multimodal gives a suggested fix.
 
 Memories are enabled by default for all organizations with Multimodal enabled.
 

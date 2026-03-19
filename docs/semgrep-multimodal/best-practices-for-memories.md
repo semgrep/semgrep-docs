@@ -1,6 +1,6 @@
 ---
 slug: best-practices-for-memories
-title: Best practices for writing Multimodal Memories
+title: Best practices for writing Memories
 hide_title: true
 toc_max_heading_level: 2
 description: Review best practices for writing Memories to ensure optimal results.
