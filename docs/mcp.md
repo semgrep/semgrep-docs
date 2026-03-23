@@ -42,11 +42,13 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
-
+   
 2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
     ```bash
     semgrep --version
@@ -74,10 +76,12 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 <TabItem value='cursor'>
 
 1. Install Semgrep:
-    ```bash
+      ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -102,10 +106,12 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 <TabItem value='windsurf'>
 
 1. Install Semgrep:
-    ```bash
+     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -143,10 +149,12 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 <TabItem value='other'>
 
 1. Install Semgrep:
-    ```bash
+     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
