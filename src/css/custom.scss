@@ -568,6 +568,10 @@ li > img {
 }
 .navbar__items {
   height: 78px;
+  @media (max-width: 996px) {
+    height: auto;
+    min-height: 3.5rem;
+  }
 }
 
 .navbar__brand {
@@ -948,9 +952,11 @@ input#search_input_react {
   }
 }
 
-.navbar__items--right>:last-child {
-  @media (max-width: 380px) {
-    width: 33%;
+/* Avoid constraining search to 33% width on small screens (caused overlap with logo) */
+@media (max-width: 996px) {
+  .navbar__items--right > :last-child {
+    width: auto !important;
+    max-width: 100%;
   }
 }
 
@@ -1056,6 +1062,55 @@ html[data-theme="dark"] {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+}
+
+/* Full-width row for search + right controls so the bar does not sit beside the logo */
+@media (max-width: 996px) {
+  /* Hamburger must sit above any overlapping flex/stacking from search or brand row */
+  .navbar__toggle,
+  button.navbar__toggle.clean-btn {
+    position: relative;
+    z-index: 1100;
+    flex-shrink: 0;
+  }
+
+  /* Collapsed search: wrapper is non-interactive except the icon (handled in component) */
+  .navbar__search:not(:has(.semgrep-search-root[data-expanded='true'])) {
+    pointer-events: none;
+  }
+
+  .navbar__search:not(:has(.semgrep-search-root[data-expanded='true'])) .semgrep-search-root,
+  .navbar__search:not(:has(.semgrep-search-root[data-expanded='true'])) button {
+    pointer-events: auto;
+  }
+
+  .navbar__inner {
+    align-items: stretch;
+  }
+
+  .navbar__items--right {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding-top: 0.35rem;
+  }
+
+  /* Collapsed: icon-only — does not block the menu. Expanded: full width row */
+  .navbar__search {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .navbar__search:has(.semgrep-search-root[data-expanded='true']) {
+    flex: 1 1 100%;
+    width: 100%;
+  }
 }
 
 .navbar__items--right .navbar__item {
