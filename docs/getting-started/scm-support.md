@@ -30,7 +30,7 @@ Semgrep supports the following source code managers (SCM) and plans to varying d
 | GitLab Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Dedicated / Dedicated for Government | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Self-Managed Free | <ul><li>Semgrep Managed Scans*<br /> Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| GitLab Self-Managed Free | <ul><li>Semgrep Managed Scans*</li><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Self-Managed Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 | GitLab Self-Managed Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
 
