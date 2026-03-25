@@ -97,15 +97,15 @@ You've set up MR comments! Enable optional features provided in the following se
 
 ## Optional features
 
-### Customize MR comments
+### Enable Rule-defined fix in GitLab repositories
 
-<CustomComments comment_type="MR" link_type="HTML, Markdown, and plaintext" />
+[Rule-defined fix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
-### Enable Autofix in GitLab repositories
+To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform organization, follow these steps:
 
-[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+1. In Semgrep AppSec Platform, go to **Settings > General > Code**.
+2. Use the **Rule-defined fix** toggle to enable this feature.
 
-<EnableAutofix />
 
 ### Dataflow traces in MR comments
 

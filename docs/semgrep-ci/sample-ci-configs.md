@@ -389,7 +389,7 @@ To add Semgrep into your CircleCI pipeline:
 
 The sample configuration provides jobs for both full scanning and [diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
 
-CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
+CircleCI runs the Semgrep job on all the commits for the project by default. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings > Advanced**.
 
 :::note
 For the default branch and tags, CircleCI always runs the Semgrep CI job on all commits.

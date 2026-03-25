@@ -108,7 +108,7 @@ The following updates were made to Semgrep in January 2025.
   - [Semgrep for developers](/for-developers/overview), a new series of documents that aims to:
     - Help AppSec engineers educate developers about Semgrep and secure coding.
     - Inform developers of how to resolve Semgrep findings in various environments, such as their pull requests or merge requests.
-  - [Semgrep Assistant metrics](/semgrep-assistant/metrics), which explains how Assistant's metrics and benchmarks are analyzed.
+  - [Semgrep Assistant metrics](/semgrep-multimodal/metrics), which explains how Assistant's metrics and benchmarks are analyzed.
   - [SAML single-sign on with Google Workspace](/kb/semgrep-appsec-platform/saml-google-workspace).
   - [Reference for Semgrepignore v2](/semgrepignore-v2-reference).
   - [Customize semgrep in `pre-commit`](/kb/integrations/customize-semgrep-precommit).

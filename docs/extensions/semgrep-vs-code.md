@@ -16,7 +16,7 @@ import QuickstartVSCode from "/src/components/procedure/_quickstart-vscode.md"
 
 - Automatic scans whenever you open a file
 - Inline results and problem highlighting, as well as quick links to the definitions of the rules underlying the findings
-- Autofix, which allows you to apply Semgrep's suggested resolution for the findings
+- Rule-defined fix, which allows you to apply Semgrep's suggested resolution for the findings
 
 ## Prerequisites
 

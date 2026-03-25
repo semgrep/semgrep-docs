@@ -18,7 +18,7 @@ The finding's details page displays in-depth information about the finding, incl
 - Remediation suggestions
 - The code snippet where the issue was identified, along with a link to the source code where Semgrep identified the issue
 - Dependency path information
-- Activity history for the finding, including when it was first identified, whether it has been analyzed by Semgrep Assistant, whether there are any accompanying Jira tickets, notes written by other Semgrep users specifically about this finding, and more.
+- Activity history for the finding, including when it was first identified, whether it has been analyzed by Semgrep Multimodal, whether there are any accompanying Jira tickets, notes written by other Semgrep users specifically about this finding, and more.
 
 ## View a finding's details
 

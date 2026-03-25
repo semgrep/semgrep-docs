@@ -52,7 +52,7 @@ The following updates were made to Semgrep in March 2025.
 
 - Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
 - Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
-- Added the ability to [download SBOM exports using the Semgrep API](https://semgrep.dev/api/v1/ui/#/Beta/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export).
+- Added the ability to [download SBOM exports using the Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport).
 
 ### Fixed
 
@@ -63,7 +63,7 @@ The following updates were made to Semgrep in March 2025.
 
 ### Added
 
-- **Auto-memories**: If you triage a finding as **Ignored** and provide an explanation of why you change the finding's status to **Ignored**, Assistant automatically determines if it should [create a memory](/semgrep-assistant/customize#add-memory-during-triage-and-receive-memory-suggestions-from-assistant) for you. Assistant uses memories to tailor its remediation guidance for your projects.
+- **Auto-memories**: If you triage a finding as **Ignored** and provide an explanation of why you change the finding's status to **Ignored**, Assistant automatically determines if it should [create a memory](/semgrep-multimodal/customize#add-memory-during-triage-and-receive-memory-suggestions-from-assistant) for you. Assistant uses memories to tailor its remediation guidance for your projects.
 - Added the ability to select multiple AI providers.
 
 ## 🔐 Semgrep Secrets

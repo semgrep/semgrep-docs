@@ -27,7 +27,7 @@ These environment variables configure various aspects of your CI job, such as a 
 * You must have a Semgrep AppSec Platform token. To generate a token, see [Creating a `SEMGREP_APP_TOKEN`](/deployment/add-semgrep-to-other-ci-providers#create-a-semgrep_app_token).
 :::
 
-Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the Policies page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
+Set `SEMGREP_APP_TOKEN` to send findings to Semgrep AppSec Platform and use rules from the **Policies** page. `SEMGREP_APP_TOKEN` is incompatible with `SEMGREP_RULES`.
 
 Example:
 
@@ -243,7 +243,7 @@ Set `SEMGREP_REPO_DISPLAY_NAME` to define the name displayed for the project in 
 This environment variable only works with Semgrep versions 1.61.1 and later.
 :::
 
-Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](https://semgrep.dev/docs/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
+Setting `SEMGREP_REPO_DISPLAY_NAME` only changes the project that scan results are reported to. The scan still uses the configuration information, such as [project ignores](/ignoring-files-folders-code#define-ignored-files-and-folders-in-semgrep-appsec-platform),  from the repo name detected by Semgrep or set by `SEMGREP_REPO_NAME`.
 
 ### `SEMGREP_REPO_URL`
 
@@ -321,3 +321,19 @@ Example:
 ```yaml
 - export BITBUCKET_TOKEN=$PAT
 ```
+
+## Environment variable to connect to a single-tenant Semgrep AppSec Platform
+
+
+### `SEMGREP_APP_URL`
+
+Set `SEMGREP_APP_URL` to define the URL of a single-tenant Semgrep AppSec Platform to send findings and use rules from the **Policies** page of a Semgrep organization under the tenant. The default value is the URL of the multi-tenant Semgrep AppSec Platform `https://semgrep.dev`.
+
+Example:
+```
+export SEMGREP_APP_URL=https://mycompany.semgrep.dev
+```
+
+
+
+

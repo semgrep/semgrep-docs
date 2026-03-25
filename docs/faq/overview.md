@@ -99,7 +99,7 @@ See [Support for all versions of a programming language](/kb/semgrep-code/suppor
 
 Semgrep provides a simple syntax for writing rules: if you can write code, you can write a Semgrep rule—no program analysis Ph. D. required!
 
-To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find—and letting the Semgrep engine make the rule and autofix high-quality enough to run in CI or your text editor or IDE.
+To the Semgrep team's knowledge, the only other tool with the explicit goal of allowing custom rules is GitHub’s proprietary tool, CodeQL. CodeQL has a domain-specific language that is extremely powerful but is designed for those with significant program analysis expertise, whereas Semgrep is designed for the security engineer or developer who wants to automate code review. Our goal is to make writing a Semgrep rule as easy as copying the code you want to find and providing it to Semgrep. Then the Semgrep Engine creates the rule and provides a high-quality, Rule-defined fix that runs in CI, your text editor, or your IDE.
 
 [Semgrep AppSec Platform](https://semgrep.dev/manage) provides a Team tier that is free for up to 10 contributors on private repositories. It offers a hosted CI integration with a quick setup so you can start running Semgrep right away.
 
@@ -171,7 +171,7 @@ All customer data is located in AWS (US region). Amazon RDS encrypted database i
 
 When Semgrep runs entirely in CI, your source code stays in the environment. Only run metadata is sent to Semgrep’s service (see the next question).
 
-Some Semgrep features, such as Semgrep Managed Scans and Semgrep Assistant, require code access. See [Security](https://semgrep.dev/docs/deployment/managed-scanning/overview#security) for more information on how Managed Scans use your code and Assistant's [Privacy and legal considerations](/semgrep-assistant/privacy) to understand how your code is stored and retained.
+Some Semgrep features, such as Semgrep Managed Scans and Semgrep Multimodal, require code access. See [Security](/deployment/managed-scanning/overview#security) for more information on how Managed Scans use your code and Multimodal's [Privacy and legal considerations](/semgrep-multimodal/privacy) to understand how your code is stored and retained.
 
 ### What data is stored?
 

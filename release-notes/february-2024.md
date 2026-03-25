@@ -170,7 +170,7 @@ The following updates were made to Semgrep in February 2024.
 - Removed phone support from the docs.
 - Updated the [Semgrep-Slack integration docs](/semgrep-appsec-platform/slack-notifications) to clarify requirements for posting to private channels.
 - Updated the [sample GHA configuration file](/writing-rules/private-rules)for a CI job that publishes private Semgrep rules.
-- Clarified the Semgrep Assistant [privacy policy](/semgrep-assistant/overview) on what data is stored.
+- Clarified the Semgrep Assistant [privacy policy](/semgrep-multimodal/overview) on what data is stored.
 - Updated [Semgrep Pro versus OSS](/docs/semgrep-pro-vs-oss) docs. <!-- 1338 -->
 
 ### Fixed

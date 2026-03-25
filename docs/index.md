@@ -39,7 +39,6 @@ The code is kept here for easy maintenance.
 <h3>Scan with Semgrep AppSec Platform</h3>
 
 <p>Deploy static application security testing (SAST), software composition analysis (SCA), and secrets scans from one&nbsp;platform.</p>
-
 <div class = "col-2-fixed">
   <Card className={'card-50'} link='/getting-started/quickstart-managed-scans'>
     <CardImage cardImageUrl='/img/icon-first-scan.svg' />
@@ -101,9 +100,9 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <h3>Enhance your Semgrep experience</h3>
 
 <div class = "col-3-fixed">
-  <Card link='/semgrep-assistant/overview'>
+  <Card link='/semgrep-multimodal/overview'>
     <div class="card__copy">
-    <CardHeader>Semgrep Assistant</CardHeader>
+    <CardHeader>Semgrep Multimodal</CardHeader>
     <CardBody>
       AI for triage, remediation, and institutional memory. 
     </CardBody>
@@ -128,22 +127,25 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>January 2026 release notes summary</h3>
+<h3>February 2026 release notes summary</h3>
 <!-- 5-7 bullets across the product suite -->
 
-- Semgrep AppSec Platform's **Findings** page displays more descriptive rule group names, and the **Finding Details** page displays more descriptive rule names. For example, `sequelize-express` is now `SQL injection in Sequelize with Express`.
-- **CLI**:
-  - Improved the performance of scan planning by reducing the cost of re-hashing `Target` objects. Semgrep's performance improvement on scans of large projects is proportional to the number of files in the project.
-  - In `--debug` mode, Semgrep warns you if you attempt to run a parallel scan with a larger value for `-j`/`--jobs` than the number of CPUs Semgrep has detected as available for use.
-  - Semgrep now provides a suggested starting value for `-j`/`--jobs`.
-  - `semgrep login` now supports the use of `--force`, which ignores existing tokens and starts a new login session.
-- Supply Chain's reachability analysis now covers all **critical** and **high** severity CVEs from supported sources starting in 2017 across **all** supported languages.
-- Supply Chain now supports Gradle lockfiles of the form `gradle*.lockfile`. Previously, only files with the exact name `gradle.lockfile` were supported.
-- Supply Chain's dependency search now allows you to search for one or more packages using:
-  - The name of the package
-  - An exact version number
-  - A range of version numbers
-- Members can now create suggested memories for Assistant when triaging findings in Semgrep AppSec Platform. Previously, only admins could do so.
+- **MCP**: 
+  - Hooks for both Claude Code and Cursor now pull custom rules from the Semgrep Registry.
+  - Enabled DNS rebinding protection for the MCP server.
+- Improved the accuracy of taint tracking through assignments, which helps reduce the number of false positive findings.
+- Added support for case-insensitive string comparisons using `lower()` and `upper()`:
+  ```yaml
+  - metavariable-comparison:
+      metavariable: $VALUE
+      comparison: upper(str($VALUE)) == "SEMGREP"
+  ```
+- You can now pass environmental variables to third-party package managers using `SEMGREP_LOCAL_BUILD_ENV`, which accepts a JSON object, as part of the dependency resolution process invoked by `--allow-local-builds`.
+- The feedback dialog for Multimodal auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
+- Documentation updates and additions:
+  - [Managing and using Semgrep access tokens](/deployment/tokens)
+  - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)
+  - [Usage and billing](/usage-and-billing/overview)
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 

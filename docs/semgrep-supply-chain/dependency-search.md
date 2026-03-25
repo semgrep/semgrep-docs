@@ -144,4 +144,4 @@ If you don't see any results on the Dependencies page, ensure that:
 * Your filters and search syntax are correct.
 * You've performed a full scan of the repository at least once since enabling dependency search. Only dependencies detected during full scans are shown on the **Dependencies** page.
 
-If you're having trouble seeing dependencies after a scan, see [Why aren't Supply Chain findings showing?](https://semgrep.dev/docs/kb/semgrep-supply-chain/why-no-findings) for additional troubleshooting tips.
+If you're having trouble seeing dependencies after a scan, see [Why aren't Supply Chain findings showing?](/kb/semgrep-supply-chain/why-no-findings) for additional troubleshooting tips.

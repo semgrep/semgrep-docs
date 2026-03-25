@@ -34,7 +34,7 @@ For example, the following sample rule detects the use of `is` when comparing Py
 The following articles guide you through rule-writing basics and act as references:
 
 - [Pattern syntax](/writing-rules/pattern-syntax) describes what Semgrep patterns can do in detail and provides sample use cases.
-- [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and autofixes. The syntax allows the composition of individual patterns with Boolean operators.
+- [Rule syntax](rule-syntax.md) describes Semgrep YAML rule files, which can have multiple patterns, detailed output messages, and Rule-defined fixes. The syntax allows the composition of individual patterns with Boolean operators.
 - [Contributing rules](/contributing/contributing-to-semgrep-rules-repository) gives you an overview of how you can contribute to Semgrep Registry rules. This document also provides information about tests and metadata fields that you can use for your rules.
 
 Need rule ideas? See [Rule ideas](/writing-rules/rule-ideas) for everyday use cases and prompts to help you start writing rules from scratch.

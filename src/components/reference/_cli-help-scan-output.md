@@ -371,6 +371,10 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
+       --secrets-timeout=VAL (absent=30)
+           Timeout in seconds for each secrets validation HTTP request. If
+           set to 0, no timeout is applied. Defaults to 30.
+
        --semgrepignore-v2
            [DEPRECATED] '--semgrepignore-v2' used to force the use of the
            newer Semgrepignore v2 implementation for discovering and
@@ -445,6 +449,9 @@ OPTIONS
 
        --vim-output=VAL
            Write a copy of the vim output to a file or post to URL.
+
+       --x-mem-policy=VAL
+           [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
 
 COMMON OPTIONS
        --debug
