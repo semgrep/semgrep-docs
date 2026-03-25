@@ -36,16 +36,18 @@ export default function DocItemContent({children}: Props): JSX.Element {
   const syntheticTitle = useSyntheticTitle();
   return (
     <>
-      <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')} style={{ position: 'relative' }}>
+      <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
         <Tags tag={undefined} />
-        <div className={copyButtonStyles.copyButtonWrapper}>
-          <CopyToMarkdownButton />
+        <div className={copyButtonStyles.titleRow}>
+          {syntheticTitle && (
+            <header className={copyButtonStyles.titleHeader}>
+              <Heading as="h1">{syntheticTitle}</Heading>
+            </header>
+          )}
+          <div className={copyButtonStyles.copyButtonWrapper}>
+            <CopyToMarkdownButton />
+          </div>
         </div>
-        {syntheticTitle && (
-          <header style={{ paddingRight: '100px' }}>
-            <Heading as="h1">{syntheticTitle}</Heading>
-          </header>
-        )}
         <MDXContent>{children}</MDXContent>
         <MoreHelp />
       </div>

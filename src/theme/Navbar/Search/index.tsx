@@ -35,6 +35,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const [isDarkMode, setIsDarkMode] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isMobileNavbar, setIsMobileNavbar] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 996px)');
+    const update = () => setIsMobileNavbar(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   // Detect dark mode
   useEffect(() => {
@@ -68,6 +77,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const mobileSearchExpanded =
+    !isMobileNavbar ||
+    isFocused ||
+    isOpen ||
+    query.trim().length > 0 ||
+    Boolean(aiResponse) ||
+    aiLoading;
+
   // Handle focus events
   const handleFocus = () => {
     setIsFocused(true);
@@ -76,6 +93,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       inputRef.current.focus();
     }
   };
+
+  useEffect(() => {
+    if (!(isMobileNavbar && mobileSearchExpanded)) return;
+    const id = window.requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [isMobileNavbar, mobileSearchExpanded]);
 
   const handleBlur = () => {
     // Delay blur to allow clicking on results
@@ -745,7 +770,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   return (
     <>
       {/* Background overlay when search is focused or results are open */}
-      {(isFocused || isOpen) && (
+      {(isFocused || isOpen) && mobileSearchExpanded && (
         <div 
           style={{
             position: 'fixed',
@@ -761,7 +786,47 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           onClick={handleBlur}
         />
       )}
-      <div ref={searchContainerRef} style={{ position: 'relative', width: '100%', zIndex: 1000 }}>
+      <div
+        ref={searchContainerRef}
+        className="semgrep-search-root"
+        data-expanded={isMobileNavbar ? String(mobileSearchExpanded) : undefined}
+        style={{
+          position: 'relative',
+          width: isMobileNavbar && !mobileSearchExpanded ? 'auto' : '100%',
+          maxWidth: isMobileNavbar && !mobileSearchExpanded ? 'none' : '100%',
+          minWidth: isMobileNavbar && !mobileSearchExpanded ? 0 : 0,
+          /* Avoid stacking above the hamburger; let clicks pass through empty box */
+          zIndex: isMobileNavbar && !mobileSearchExpanded ? 'auto' : 1000,
+          pointerEvents: isMobileNavbar && !mobileSearchExpanded ? 'none' : 'auto',
+        }}>
+      {!mobileSearchExpanded ? (
+        <button
+          type="button"
+          onClick={handleFocus}
+          aria-label={placeholder}
+          aria-expanded={false}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 44,
+            height: 44,
+            padding: 0,
+            border: isDarkMode ? '1px solid #303033' : '1px solid #D1D5DB',
+            borderRadius: 12,
+            background: isDarkMode ? '#252529' : 'white',
+            color: isDarkMode ? '#e5e7eb' : '#374151',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+            flexShrink: 0,
+            pointerEvents: 'auto',
+          }}>
+          <svg width={20} height={20} viewBox="0 0 24 24" fill="none" aria-hidden stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+      ) : (
       <div 
         onClick={handleFocus}
         style={{
@@ -769,13 +834,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           alignItems: 'center',
           border: (isFocused || aiResponse || aiLoading) ? '2px solid #00D4AA' : '1px solid #D1D5DB',
           borderRadius: '12px',
-          background: 'white',
+          background: isDarkMode ? '#1b1b1d' : 'white',
           padding: (isFocused || aiResponse || aiLoading) ? '12px 16px' : '8px 12px',
         transition: 'all 0.3s ease',
           cursor: 'text',
-          minWidth: (isFocused || aiResponse || aiLoading) ? '450px' : '250px',
-          width: (isFocused || aiResponse || aiLoading) ? '100%' : 'auto',
-          maxWidth: (isFocused || aiResponse || aiLoading) ? '600px' : '300px',
+          minWidth: (isFocused || aiResponse || aiLoading)
+            ? (isMobileNavbar ? 0 : 450)
+            : (isMobileNavbar ? 0 : 250),
+          width: (isFocused || aiResponse || aiLoading) ? '100%' : (isMobileNavbar ? '100%' : 'auto'),
+          maxWidth: (isFocused || aiResponse || aiLoading)
+            ? (isMobileNavbar ? 'min(600px, calc(100vw - 16px))' : '600px')
+            : (isMobileNavbar ? '100%' : '300px'),
           boxShadow: (isFocused || aiResponse || aiLoading) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
@@ -787,6 +856,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           placeholder={placeholder}
+          aria-expanded={isOpen}
             style={{
               border: 'none',
               outline: 'none',
@@ -794,13 +864,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             padding: '0',
             fontSize: (isFocused || aiResponse || aiLoading) ? '16px' : '14px',
               background: 'transparent',
-            color: '#111827',
+            color: isDarkMode ? '#f3f4f6' : '#111827',
             fontWeight: '500',
             transition: 'font-size 0.2s ease'
           }}
         />
         {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
       </div>
+      )}
       
       {isOpen && results.length > 0 && (
         <div style={{
