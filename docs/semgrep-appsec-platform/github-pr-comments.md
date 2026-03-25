@@ -112,10 +112,6 @@ To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform 
 1. In Semgrep AppSec Platform, go to **Settings > General > Code**.
 2. Click the **Rule-defined fix** toggle to enable this feature.
 
-### Get cross-file findings
-
-To get cross-file (interfile) findings in your organization, follow the steps in [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
-
 ### Dataflow traces in PR comments
 
 With **dataflow traces**, Semgrep Code provides you a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
