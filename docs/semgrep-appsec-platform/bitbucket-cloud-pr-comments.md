@@ -234,7 +234,7 @@ Only rules set to the **Comment** and **Block** rule modes in the [Policies page
 
 ### Enable Autofix in Bitbucket Cloud repositories
 
-[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+[Autofix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 

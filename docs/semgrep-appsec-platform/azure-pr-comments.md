@@ -113,7 +113,7 @@ For PR comments and accurate diff-aware scan analysis to work, you must set two 
 
 ### Enable Autofix in Azure repositories
 
-[Autofix](/writing-rules/autofix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+[Autofix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
 <EnableAutofix />
 
