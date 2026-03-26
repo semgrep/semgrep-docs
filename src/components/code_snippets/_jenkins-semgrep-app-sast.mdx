@@ -1,6 +1,6 @@
 This code snippet uses Jenkins declarative syntax.
 
-```javascript
+```groovy
 pipeline {
   agent any
     environment {
@@ -11,10 +11,9 @@ pipeline {
       // files in PRs or MRs (diff-aware scanning):
       // SEMGREP_BASELINE_REF = "main"
 
-      // Troubleshooting:
-
-      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
-      // to the code that generated a finding or if you are not receiving PR or MR comments.
+      // Troubleshooting: uncomment the following lines if Semgrep AppSec
+      // Platform doesn't create links to the code that generated a finding
+      // or if you aren't receiving PR or MR comments.
       // SEMGREP_JOB_URL = "${BUILD_URL}"
       // SEMGREP_COMMIT = "${GIT_COMMIT}"
       // SEMGREP_BRANCH = "${GIT_BRANCH}"
@@ -27,8 +26,8 @@ pipeline {
         steps {
           sh 'pip3 install semgrep'
           sh 'semgrep ci'
+        }
       }
     }
-  }
 }
 ```
