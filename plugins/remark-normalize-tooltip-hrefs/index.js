@@ -11,9 +11,6 @@ const prefixDocsForGlossaries = (value) =>
     'href=/docs/$1'
   );
 
-const escapeRegExp = (value) =>
-  value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
 const slugifyTerm = (term) =>
   term
     .toLowerCase()
@@ -59,6 +56,38 @@ const buildGlossaryHrefMap = (glossaryFilePath) => {
   return hrefMap;
 };
 
+const replaceHrefWithAnchor = (value, hrefBase, slug) => {
+  const hrefToken = `href=${hrefBase}`;
+  let result = '';
+  let cursor = 0;
+
+  const isDelimiter = (char) =>
+    char === ' ' || char === '\n' || char === '\t' || char === '\r' || char === '>';
+
+  while (true) {
+    const matchIndex = value.indexOf(hrefToken, cursor);
+    if (matchIndex === -1) {
+      result += value.slice(cursor);
+      break;
+    }
+
+    result += value.slice(cursor, matchIndex);
+    let nextIndex = matchIndex + hrefToken.length;
+
+    if (value[nextIndex] === '#') {
+      nextIndex += 1;
+      while (nextIndex < value.length && !isDelimiter(value[nextIndex])) {
+        nextIndex += 1;
+      }
+    }
+
+    result += `${hrefToken}#${slug}`;
+    cursor = nextIndex;
+  }
+
+  return result;
+};
+
 module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
   const glossaryHrefMap = buildGlossaryHrefMap(options.yamlFile);
 
@@ -89,13 +118,10 @@ module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
 
         if (entry) {
           const slug = slugifyTerm(entry.term);
-          const hrefPattern = new RegExp(
-            `href=${escapeRegExp(entry.hrefBase)}(?:#[^\\s>]+)?`,
-            'g'
-          );
-          updatedValue = updatedValue.replace(
-            hrefPattern,
-            `href=${entry.hrefBase}#${slug}`
+          updatedValue = replaceHrefWithAnchor(
+            updatedValue,
+            entry.hrefBase,
+            slug
           );
         }
       }

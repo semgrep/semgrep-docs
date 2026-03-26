@@ -147,7 +147,7 @@ function copyMarkdownFiles(context, outputDir) {
       fs.writeFileSync(outputPath, processedContent, 'utf-8');
       processedCount++;
     } catch (error) {
-      console.warn(`Error processing ${file}:`, error.message);
+      console.warn('Error processing', file, error.message);
     }
   }
 
