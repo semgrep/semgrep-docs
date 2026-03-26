@@ -13,4 +13,4 @@ If your CI/CD system displays a process time that is longer than the scan durati
  
 - Receiving and processing the webhook notification to start the scan
 - Initializing the scan job and environment
-- Processing results
+- Cloning the repository
