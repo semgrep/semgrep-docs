@@ -18,7 +18,7 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
-import <BitbucketSemgrepAppSast /> from "src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
+import BitbucketSemgrepAppSast from "src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
