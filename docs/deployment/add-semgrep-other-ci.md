@@ -20,9 +20,9 @@ import NextStepsComments from "/src/components/concept/_next-steps-comments.mdx"
 - Optionally, you have [set up SSO](/deployment/sso).
 :::
 
-This guide walks you through creating a Semgrep job for CI providers for which Semgrep AppSec Platform has no explicit guidance. Without explicit guidance, you must manually make a CI configuration file yourself.
+This guide documents the steps required to create a Semgrep job for CI providers for which Semgrep AppSec Platform offers no explicit guidance.
 
-Check [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-semgrep-appsec-platform) first to ensure that this guide applies to your CI provider.
+See [<i class="fa-regular fa-file-lines"></i> Add Semgrep to CI](/deployment/add-semgrep-to-ci/#guided-setup-for-ci-providers-in-semgrep-appsec-platform) before proceeding to ensure that this guide applies to your CI provider.
 
 Skip this guide if you have already configured a CI job.
 
@@ -44,12 +44,12 @@ The steps provided here are known to work with the following CI providers:
 
 The following steps provide an overview of the process. View the succeeding sections for detailed instructions.
 
-1. Create a `SEMGREP_APP_TOKEN`.
-1. Add this token as a credential, secret, or token into your CI provider.
-1. Create a CI job that runs Semgrep; this step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider..
+1. Create a token called `SEMGREP_APP_TOKEN`.
+1. Add this token as a credential, secret, or token to your CI provider.
+1. Create a CI job that runs Semgrep. This step is typically achieved by committing a CI configuration file. The syntax of the configuration file depends on your CI provider.
 1. The CI job can automatically start to run depending on your configuration. If the job does not start, run the job through the CI provider's interface or by committing code.
-1. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep AppSec Platform for verification, and if verified, findings are sent to Semgrep AppSec Platform.
-1. Define additional environment variables to enable other Semgrep AppSec Platform features. This is done last because it is easier to troubleshoot modifications to jobs after ensuring that the base CI job runs correctly.
+2. Semgrep detects the `SEMGREP_APP_TOKEN`, sends it to Semgrep AppSec Platform for verification, and if verified, sends findings to Semgrep AppSec Platform.
+3. Define additional environment variables to enable other Semgrep AppSec Platform features. This is done last because it is easier to troubleshoot modifications to jobs after ensuring that the base CI job runs correctly.
 
 The next sections go over these steps in detail.
 
@@ -61,7 +61,7 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 2. Click **[<i class="fa-solid fa-gear"></i> Settings](https://semgrep.dev/orgs/-/settings/tokens)** > **Tokens**.
 3. Click **Create new token**.
 4. Copy the name and value, then click **Save**.
-5. Store the token value into your CI provider. Tokens can also be referred to as `secrets`, `credentials`, or `secure variables`. The steps to do this vary depending on your CI provider.
+5. Store the token value into your CI provider. Tokens can also be referred to as secrets, credentials, or secure variables. The steps to do this vary depending on your CI provider.
 
 ### Create a Semgrep CI job
 
@@ -72,47 +72,69 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 2. Add `semgrep ci` as a step or command.
 3. Set the `SEMGREP_APP_TOKEN` environment variable within your configuration file.
 
-The following example is a `bitbucket-pipelines.yml` file that adds Semgrep through the Docker image:
+The following example is a Jenkinsfile that adds Semgrep through the Docker image:
 
 <details>
   <summary>Add Semgrep through the Docker image.</summary>
 
-```yaml
-image: atlassian/default-image:latest
+```groovy
+pipeline {
+  agent any
+    environment {
+      // The following variable is required for a Semgrep AppSec Platform-connected scan:
+      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
 
-pipelines:
-  default:
-    - parallel:
-      - step:
-        name: 'Run Semgrep scan with current branch'
-        deployment: dev
-        # Reference the Semgrep Docker image:
-        image: semgrep/semgrep
-        script:
-        # You need to set the token as an environment variable
-        # (see Create a `SEMGREP_APP_TOKEN` section).
-          - export $SEMGREP_APP_TOKEN
-          # Run semgrep ci:
-          - semgrep ci
+      // Uncomment the following line to scan changed
+      // files in PRs or MRs (diff-aware scanning):
+      // SEMGREP_BASELINE_REF = "main"
+
+      // Troubleshooting:
+
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
+      // to the code that generated a finding or if you are not receiving PR or MR comments.
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
+    }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+            sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
+            -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
+            -e SEMGREP_PR_ID=$SEMGREP_PR_ID \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+  }
+}
 ```
 
 </details>
 
-The next example is a `Jenkinsfile` configuration that adds Semgrep by installing it:
+The next example is a Jenkins configuration file that installs Semgrep:
 
 <details>
-  <summary>Add Semgrep by installing it.</summary>
+<summary>Add Semgrep by installing it.</summary>
 
-```javascript
+```groovy
 pipeline {
   agent any
+  environment {
+    // You need to set the token as an environment variable
+    // (see Create a `SEMGREP_APP_TOKEN` section).
+    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+  }
   stages {
     stage('Semgrep-Scan') {
-        environment {
-          // You need to set the token as an environment variable
-          // (see Create a `SEMGREP_APP_TOKEN` section).
-          SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-        }
       steps {
         // Install and run Semgrep:
         sh 'pip3 install semgrep'
@@ -187,7 +209,7 @@ Refer to the following table for common issues and the corresponding environment
 
 When running in CI, Semgrep runs fully in the CI build environment. Unless you have explicitly granted code access to Semgrep, your code is not sent anywhere.
 
-- Semgrep AppSec Platform collects [findings data](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
+- Semgrep AppSec Platform collects [findings](/semgrep-ci/findings-ci), which includes the line number of the code match, but not the code. It is hashed using a one-way hashing function.
 - Findings data is used to generate line-specific hyperlinks to your source code management system and support other Semgrep functions.
 
 ## Next steps
