@@ -93,7 +93,7 @@ Once you've successfully enabled webhooks and the **Triage via code review comme
 
 <CustomComments comment_type="PR" link_type="Markdown and plaintext" />
 
-### Enable Autofix in Bitbucket Data Center repositories
+### Enable Rule-defined fix in Bitbucket Data Center repositories
 
 [Autofix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 

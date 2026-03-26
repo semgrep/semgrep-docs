@@ -111,7 +111,7 @@ For PR comments and accurate diff-aware scan analysis to work, you must set two 
 
 <CustomComments comment_type="PR" link_type="HTML, Markdown, and plaintext" />
 
-### Enable Autofix in Azure repositories
+### Enable Rule-defined fix in Azure repositories
 
 [Autofix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
 
