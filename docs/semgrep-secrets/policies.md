@@ -148,7 +148,7 @@ The following table lists available conditions and their values:
 | Condition | Values|
 | -------  | ------ |
 | Severity      | <ul><li>Critical</li><li>High</li><li>Medium</li> <li>Low</li> </ul>       |
-| [Validation](/semgrep-secrets/glossary#validation-state)         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
+| %%Validation|validation_state%%         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
 | Repository visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unknown</li> </ul> Note: Repository visibility is only available for GitHub repositories. |
 | Secret type | Manually provide a Secret type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
 

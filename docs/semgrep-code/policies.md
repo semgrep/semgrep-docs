@@ -127,7 +127,7 @@ See [Triage and remediate findings](/semgrep-code/triage-remediation#turn-off-a-
 
 Semgrep enables you to choose a **workflow action** based on the presence of a finding. Workflow actions include:
 
-* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline. This action applies to both full scans and [diff-aware scans](/semgrep-code/glossary#diff-aware-scan).
+* Failing a CI job. Semgrep returns exit code `1`, and you can use this result to set up additional checks to enforce a block in your CI/CD pipeline. This action applies to both full scans and %%diff-aware scans|diff_aware_scan%%.
 * Leaving a PR or MR comment.
 * Notifying select channels, such as private Slack channels or webhooks.
 

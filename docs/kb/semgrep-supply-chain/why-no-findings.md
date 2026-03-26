@@ -24,9 +24,9 @@ If you do not use the standard manifest file or lockfile name for your ecosystem
 
 ### Does the manifest file or lockfile contain dependencies with exact versions?
 
-If your dependency file is a [manifest file](/docs/semgrep-supply-chain/glossary#manifest-file) and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular [Advisory](/docs/semgrep-supply-chain/glossary#advisory), and not require upgrade.
+If your dependency file is a %%manifest file|manifest_file%% and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular %%Advisory|advisory%%, and not require upgrade.
 
-Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files or lockfiles can also be helpful to determine whether a dependency is [transitive](/docs/semgrep-supply-chain/glossary#transitive-or-indirect-dependency).
+Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files or lockfiles can also be helpful to determine whether a dependency is %%transitive|transitive_or_indirect_dependency%%.
 
 ## Check scan status and result location
 
@@ -59,7 +59,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 
 Semgrep Supply Chain only runs in [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) if the manifest file or lockfile was modified in the PR/MR.
 
-If code is modified, but the manifest file or lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact [reachability](/docs/semgrep-supply-chain/glossary#reachability) will be identified on the next full scan.
+If code is modified, but the manifest file or lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact %%reachability|reachability%% will be identified on the next full scan.
 
 ### Did Semgrep scan a ref other than your default branch, or does your default branch have a less common name?
 
@@ -80,7 +80,7 @@ By default, the Vulnerabilities page displays vulnerabilities from:
 
 ### Are all findings in the scan unreachable vulnerabilities?
 
-By default, Semgrep AppSec Platform shows only [reachable](/docs/semgrep-supply-chain/glossary#reachability) vulnerabilities in the UI. 
+By default, Semgrep AppSec Platform shows only %%reachable|reachable_finding%% vulnerabilities in the UI.
 
 To see all vulnerabilities, select all boxes under the "Exposure" filter.
 

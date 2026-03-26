@@ -131,7 +131,7 @@ You can also view your results in Semgrep AppSec Platform. It displays all of th
 
 ## Scan a monorepo's dependencies
 
-Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the [manifest file or lockfile](/semgrep-supply-chain/glossary/#manifest-file) present in the monorepo.
+Semgrep Supply Chain supports the scanning of monorepos. As outlined in [Project directory structure](#project-directory-structure), findings are grouped by directory based on the %%manifest file|manifest_file%% or %%lockfile|lockfile%% present in the monorepo.
 
 ## Block pull requests or merge requests
 
