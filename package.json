@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "^3.9.2",
     "@markprompt/docusaurus-theme-search": "0.32.4",
     "@mdx-js/react": "^3.0.1",
-    "@renatonagliati/remark-auto-glossary": "github:renatonagliati/remark-auto-glossary",
+    "@renatonagliati/remark-auto-glossary": "git+https://github.com/renatonagliati/remark-auto-glossary.git",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.13.5",
     "clsx": "^2.1.1",
