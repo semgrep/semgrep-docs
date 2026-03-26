@@ -57,10 +57,7 @@ module.exports = {
           ]
         },
         'references/language-maturity-levels',
-        'references/feature-definitions',
-        'semgrepignore-v2-reference',
-        'cli-reference',
-        'semgrep-appsec-platform/json-and-sarif'
+        'references/feature-definitions'
       ]
     },
     {
@@ -161,7 +158,20 @@ module.exports = {
                               'deployment/managed-scanning/azure',
                               'deployment/managed-scanning/bitbucket',
                               'deployment/managed-scanning/github',
-                              'deployment/managed-scanning/gitlab'
+                              'deployment/managed-scanning/gitlab',
+                          ]
+                        },
+                        {
+                          type: 'category',
+                          collapsible: true,
+                          label: 'AI-powered detection',
+                          link: {type: 'doc', id: 'semgrep-code/ai-detection-concepts'},
+                          items: [
+                            {
+                              type: 'doc',
+                              id: 'deployment/ai-powered-detection',
+                              label: 'Scan with AI'
+                            }
                           ]
                         },
                         'deployment/add-semgrep-to-ci',
@@ -245,6 +255,7 @@ module.exports = {
             link: {type: 'generated-index'},
             items: [
                 'deployment/teams',
+                'deployment/tokens',
                 'semgrep-appsec-platform/tags',
                 'semgrep-ci/network-broker'
             ]
@@ -297,6 +308,7 @@ module.exports = {
             'semgrep-appsec-platform/wiz'
           ]
         },
+        'workflows/overview',
       ]
     },
     {
@@ -311,6 +323,19 @@ module.exports = {
             items: [
                 'semgrep-code/overview',
                 {
+                  type: 'category',
+                  collapsible: true,
+                  label: 'AI-powered detection',
+                  link: {type: 'doc', id: 'semgrep-code/ai-detection-concepts'},
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'deployment/ai-powered-detection',
+                      label: 'Scan with AI'
+                    }
+                  ]
+                },
+                {
                     type: 'category',
                     collapsible: true,
                     label: 'View findings',
@@ -319,7 +344,15 @@ module.exports = {
                       'semgrep-code/finding-details',
                     ]
                 },
-                'semgrep-code/triage-remediation',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Triage and remediation',
+                    link: { type: 'doc', id: 'semgrep-code/triage-remediation' },
+                    items: [
+                      'semgrep-code/triage-remediation/autofix'
+                    ]
+                },
                 {
                     type: 'category',
                     collapsible: true,
@@ -423,7 +456,7 @@ module.exports = {
       },
       {
         type: 'category',
-        label: 'Semgrep Assistant',
+        label: 'Semgrep Multimodal',
         collapsible: false,
         items: [
           {
@@ -432,11 +465,11 @@ module.exports = {
             collapsible: true,
             link: {
               type: 'doc',
-              id: 'semgrep-assistant/overview'
+              id: 'semgrep-multimodal/overview'
             },
             items: [
-              'semgrep-assistant/metrics',
-              'semgrep-assistant/privacy'
+              'semgrep-multimodal/metrics',
+              'semgrep-multimodal/privacy'
             ]
           },
           {
@@ -445,14 +478,14 @@ module.exports = {
             collapsible: true,
             link: {
               type: 'doc',
-              id: 'semgrep-assistant/getting-started'
+              id: 'semgrep-multimodal/getting-started'
             },
             items: [
-              'semgrep-assistant/customize',
-              'semgrep-assistant/best-practices-for-memories'
+              'semgrep-multimodal/customize',
+              'semgrep-multimodal/best-practices-for-memories'
             ]
           },
-          'semgrep-assistant/analyze'
+          'semgrep-multimodal/analyze'
           ]
       },
       {
@@ -557,7 +590,7 @@ module.exports = {
                     type: 'category',
                     label: 'Advanced rule-writing techniques',
                     items: [
-                        'writing-rules/autofix',
+                        'writing-rules/rule-defined-fix',
                         {
                             type: 'category',
                             label: 'Dataflow analysis',
@@ -713,10 +746,25 @@ module.exports = {
         collapsible: false,
         items: [
             'support',
-            'security',
-            'licensing',
-            'usage-and-billing',
-            'deployment/claim-a-license',
+            {
+              type: 'category',
+              label: 'Usage and billing',
+              collapsible: true,
+              link: {
+                type: 'doc',
+                id: 'usage-and-billing/overview'
+              },
+              items: [
+                'deployment/claim-a-license',
+                'usage-and-billing/plan-changes-and-payments',
+                'usage-and-billing/reconciliation'
+              ]
+            },
+            {
+              type: 'doc',
+              id: 'licensing',
+              label: 'Licenses'
+            },
             {
               type: 'category',
               label: 'Compliance',
@@ -736,13 +784,23 @@ module.exports = {
                 'compliance/soc2'
               ]
             },
-            'trophy-case',
-            'run-a-successful-pov',
+            {
+              type: 'doc',
+              id: 'trophy-case',
+              label: 'Trophy case'
+            },
+            
+            {
+              type: 'doc',
+              id: 'run-a-successful-pov',
+              label: 'Run a successful trial'
+            },
             {
               type: 'doc',
               id: 'metrics',
-              label: 'Semgrep metrics'
+              label: 'Metrics'
             },
+            'security',
             {
               type: 'category',
               label: 'Contribute to Semgrep',
@@ -786,16 +844,16 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Semgrep Assistant',
+          label: 'Semgrep Multimodal',
           collapsible: true,
           link: {
             type: 'generated-index',
-            slug: '/kb/semgrep-assistant'
+            slug: '/kb/semgrep-multimodal'
           },
           items: [
             {
               type: 'autogenerated',
-              dirName: 'kb/semgrep-assistant',
+              dirName: 'kb/semgrep-multimodal',
             },
           ]
         },

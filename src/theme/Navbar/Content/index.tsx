@@ -73,6 +73,7 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/semgrep-code/java') ||
         path.startsWith('/docs/semgrep-appsec-platform/json-and-sarif') ||
         path.startsWith('/docs/extensions') ||
+        path.startsWith('/docs/workflows') ||
         path.startsWith('/docs/troubleshooting/semgrep')) {
       return 'scan';
     }
@@ -160,7 +161,7 @@ export default function NavbarContent(): JSX.Element {
       className: currentSection === 'explore' ? 'navbar__link--active' : '',
       items: [
         { label: "What's Semgrep", to: '/introduction' },
-        { label: 'For developers', to: '/for-developers/overview' },
+        { label: 'For developers', to: '/for-developers/overview', activeBasePath: '/for-developers' },
         { label: 'Release notes', to: '/release-notes' },
         { label: 'Support & resources', to: '/support' },
         { type: 'html', value: '<hr style="margin: 0.3rem 0;" />' },
@@ -220,7 +221,7 @@ export default function NavbarContent(): JSX.Element {
           <NavbarItems items={rightItems} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (
-            <NavbarSearch>
+            <NavbarSearch className="navbar__search">
               <SearchBar />
             </NavbarSearch>
           )}

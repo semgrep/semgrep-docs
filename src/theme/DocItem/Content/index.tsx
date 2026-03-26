@@ -9,6 +9,8 @@ import type ContentType from '@theme/DocItem/Content';
 import type {WrapperProps} from '@docusaurus/types';
 import MoreHelp from '@site/src/components/MoreHelp';
 import Tags from '@site/src/components/Tags';
+import CopyToMarkdownButton from '@site/src/components/CopyToMarkdownButton';
+import copyButtonStyles from '@site/src/components/CopyToMarkdownButton/styles.module.css';
 
 /**
  Title can be declared inside md content or declared through
@@ -36,11 +38,16 @@ export default function DocItemContent({children}: Props): JSX.Element {
     <>
       <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
         <Tags tag={undefined} />
-        {syntheticTitle && (
-          <header>
-            <Heading as="h1">{syntheticTitle}</Heading>
-          </header>
-        )}
+        <div className={copyButtonStyles.titleRow}>
+          {syntheticTitle && (
+            <header className={copyButtonStyles.titleHeader}>
+              <Heading as="h1">{syntheticTitle}</Heading>
+            </header>
+          )}
+          <div className={copyButtonStyles.copyButtonWrapper}>
+            <CopyToMarkdownButton />
+          </div>
+        </div>
         <MDXContent>{children}</MDXContent>
         <MoreHelp />
       </div>

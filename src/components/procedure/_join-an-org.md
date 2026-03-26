@@ -11,12 +11,13 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value='gh-gl'>
 
-To join an existing org in GitHub or GitLab:
+To join an existing org using your GitHub or GitLab credentials:
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
 1. Follow the on-screen prompts to grant Semgrep the needed permissions and proceed. This creates your **personal** Semgrep account.
-1. Click **Join an existing organization**.
-1. Click your organization's name. The web app signs you in to your organization's Semgrep account. You can verify this by viewing the account name in the navigation menu.
+1. Click the organization name displayed at the top of the **navigation bar** to expand the drop-down menu.
+1. Click **Add org > Join an organization**.
+1. Provide the name of the organization you'd like to join. Then, click **Join**.
 
 </TabItem>
 

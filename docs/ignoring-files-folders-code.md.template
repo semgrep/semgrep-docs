@@ -119,7 +119,7 @@ This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can
 
 ### Define files and folders for a specific project
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. From the sidebar, click **[Projects](https://semgrep.dev/orgs/-/projects)**.
 3. Find the project you want to modify, then click its **<i class="far fa-window-restore"></i> icon** under **Details**.
 4. Click the **Settings** tab.
@@ -130,7 +130,7 @@ This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can
 
 ### Define files and folders for all projects of an organization
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login?return_path=/manage/projects).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **Settings**. This takes you to the **General > Global** settings tab.
 1. Enter files and folders to ignore in the **Ignore paths** box for the product to which the changes should apply.
 1. Click **Save changes**.

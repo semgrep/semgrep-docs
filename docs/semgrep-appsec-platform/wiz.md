@@ -25,7 +25,7 @@ This integration is available for users with both a [Semgrep Code license](https
 
 To send Semgrep Code findings to Wiz:
 
-- You must [connect your source code manager to Semgrep](https://semgrep.dev/docs/deployment/connect-scm). At this time, Wiz [supports the use of the following](https://win.wiz.io/docs/sast-app-vuln-findings-schema#schema-fields):
+- You must [connect your source code manager to Semgrep](/deployment/connect-scm). At this time, Wiz [supports the use of the following](https://win.wiz.io/docs/sast-app-vuln-findings-schema#schema-fields):
   - GitHub Cloud
   - GitHub Enterprise Server
   - GitLab Cloud

@@ -240,7 +240,7 @@ fix: |
   $DECORATED_FUNC
 ```
 
-Allows you to capture the decorated function. You can then use it in, for example, autofix's metavariable or metavariable ellipses interpolation, where you express something like "rewrite X, but with Y."
+Allows you to capture the decorated function. You can then use it in, for example, Rule-defined fix's metavariable or metavariable ellipses interpolation, where you express something like "rewrite X, but with Y."
 
 ## <i class="fa-solid fa-exclamation"></i> Syntax search mode
 

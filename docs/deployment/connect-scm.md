@@ -242,7 +242,7 @@ Choose another account by clicking the **account name** and selecting an account
     - You've selected **Organization**.
     - The **GitHub Organization name** is populated; if not, enter the name of your org.
     - You've selected the **Use for multiple GitHub orgs (Enterprise-public app)** checkbox.
-7. Select the features you'd like enabled. Enabling PR comments, Assistant recommendations, and Semgrep Managed Scans requires you to grant Semgrep Code Access, while enabling only PR comments does not.
+7. Select the features you'd like enabled. Enabling PR comments, Multimodal recommendations, and Semgrep Managed Scans requires you to grant Semgrep Code Access, while enabling only PR comments does not.
 8. Review the permissions for the app; as the app owner, note that you can change these permissions later.
 9. Click **Register GitHub App** to proceed.
 10. You are taken to your GHE instance and asked to name your app. You can choose whatever name you'd like, but Semgrep recommends that you name it something that indicates that this is the Semgrep GHE app.

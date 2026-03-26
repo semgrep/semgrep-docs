@@ -23,11 +23,11 @@ The following sections of this article explain how you can use filters to identi
 
 Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Code**. You can view findings with a status of **Ignored > False positive** from either the default **Production backlog** view or the **Pre-production** view. The **Production backlog** displays all Semgrep Code findings, while **Pre-production** displays the findings about which Semgrep left comments.
 
-## Identify Semgrep Code findings flagged by Assistant as false positives
+## Identify Semgrep Code findings flagged by Multimodal as false positives
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Navigate to **Code**.
-1. Find the **Assistant autotriage** filter, and click **False positive**. 
+1. Find the **Multimodal autotriage** filter, and click **False positive**. 
 
 ## Search for specific findings by rule or CVE
 

@@ -161,11 +161,11 @@ If you review the scans that are not generating comments and find that they are 
 
 ### Code: The rule is in Comment or Block mode
 
-To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](https://semgrep.dev/docs/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
+To receive comments for a Code rule, the rule must be in the [Comment or Block policy mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes). Rules in Monitor mode do not generate comments.
 
 ### Secrets: The rule is in Comment or Block mode, and validation settings match
 
-For Secrets, the rule's [policy mode](https://semgrep.dev/docs/semgrep-secrets/policies#rule-modes) must be Comment or Block. The secret must also be valid, unless you have customized your validation state policy. See [Validation state policies](https://semgrep.dev/docs/semgrep-secrets/policies#validation-state-policies) for more information.
+For Secrets, the rule's [policy mode](/semgrep-secrets/policies#rule-modes) must be Comment or Block. The secret must also be valid, unless you have customized your validation state policy. See [Validation state policies](/semgrep-secrets/policies#validation-state-policies) for more information.
 
 ### Supply Chain: The finding meets your criteria for commenting or blocking
 
@@ -177,11 +177,11 @@ PR or MR comments are generated when a finding is new. If a finding was seen in 
 
 This prevents repeated comments on findings that have already notified developers.
 
-## Has the finding been filtered by Semgrep Assistant as a potential false positive?
+## Has the finding been filtered by Semgrep Multimodal as a potential false positive?
 
-If you use Semgrep Assistant and have configured the **Noise filter for Code PR/MR comments** setting to **Don’t leave a PR/MR comment** for likely false positives, review whether Assistant has categorized the finding as a false positive.
+If you use Semgrep Multimodal and have configured the **Noise filter for Code PR/MR comments** setting to **Don’t leave a PR/MR comment** for likely false positives, review whether Multimodal has categorized the finding as a false positive.
 
-This can be particularly tricky if you're in the process of testing PR/MR comments, since Assistant uses information about whether the code appears to be in a test context as part of determining whether it may be a false positive finding.
+This can be particularly tricky if you're in the process of testing PR/MR comments, since Multimodal uses information about whether the code appears to be in a test context as part of determining whether it may be a false positive finding.
 
 Consider disabling this setting during testing if you are having difficulty generating comments.
 

@@ -1,19 +1,22 @@
 ---
 slug: mcp
 append_help_link: false
-title: MCP Server
+title: Semgrep Plugin
 hide_title: true
 description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
 tags:
+ - Semgrep Plugin
  - MCP
- - Semgrep Code
 ---
 
-# Semgrep MCP Server (beta)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Semgrep's open source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server scans AI-generated code for security vulnerabilities using Semgrep Code, Supply Chain, and Secrets. The IDE re-generates code until Semgrep returns no findings or the user prompts the IDE to ignore Semgrep's findings.
+# Semgrep Plugin
 
-This article includes instructions for setting up the MCP server with Cursor and Claude Code, but it also works with any IDE-based MCP client.
+Semgrep's plugin integrates natively with AI coding agents like Cursor, Claude Code, and Windsurf to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+
+This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin works with any MCP client.
 
 ## Prerequisites
 
@@ -23,13 +26,62 @@ This article includes instructions for setting up the MCP server with Cursor and
 
 ## Installation
 
-### Cursor
+<Tabs
+    defaultValue="claude"
+    values={[
+    {label: 'Claude Code', value: 'claude'},
+    {label: 'Cursor', value: 'cursor'},
+    {label: 'Windsurf', value: 'windsurf'},
+    {label: 'Other IDEs', value: 'other'},
+    ]}
+>
+
+<TabItem value='claude'>
 
 1. Install Semgrep:
     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
+    # install through pip
+    python3 -m pip install semgrep
+    ```
+   
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3.  Start a new Claude Code instance in the terminal:
+    ```bash
+    claude
+    ```
+
+4.  Open the plugin browser:
+    ```bash
+    /plugin
+    ```
+
+5.  Go to **Discover**, search for **Semgrep**, and click **Install**.
+
+6.  Set up the Semgrep plugin by running the following skill. This also installs the Semgrep CLI:
+    ```bash
+    /setup-semgrep-plugin
+    ```
+
+</TabItem>
+
+<TabItem value='cursor'>
+
+1. Install Semgrep:
+      ```bash
+    # install through homebrew
+    brew install semgrep
+    ```
+
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -45,73 +97,64 @@ This article includes instructions for setting up the MCP server with Cursor and
     semgrep login && semgrep install-semgrep-pro
     ```
 
-1. [Add Semgrep to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=semgrep&config=eyJjb21tYW5kIjoic2VtZ3JlcCBtY3AifQ%3D%3D). Review the prefilled information and click **Install** to proceed.
+1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open **Cursor > ⌘⇧J > Plugins**. Search "Semgrep" and click **Add to Cursor**.
 
-1. Create a `hooks.json` file in your project's `.cursor` directory and paste the following configuration:
+1. Restart Cursor to apply configuration.
 
-    ```
-    {
-    "version": 1,
-    "hooks": {
-        "stop": [
-        {
-            "command": "semgrep mcp -k stop-cli-scan -a cursor"
-        }
-        ],
-        "afterFileEdit": [
-        {
-            "command": "semgrep mcp -k record-file-edit -a cursor"
-        }
-        ]
-    }
-    }
-    ```
+</TabItem>
 
-### Claude Code
+<TabItem value='windsurf'>
 
 1. Install Semgrep:
-    ```bash
+     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
 
-2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
     ```bash
     semgrep --version
     ```
-3.  Start a new Claude Code instance in the terminal:
-    ```bash
-    claude
+
+1. Log in to Semgrep and install Semgrep Pro:
+
+    ```
+    semgrep login && semgrep install-semgrep-pro
     ```
 
-4.  Add the Semgrep marketplace to Claude:
-    ```bash
-    /plugin marketplace add semgrep/mcp-marketplace
+1. Create a `hooks.json` file at `~/.codeium/windsurf/hooks.json` and paste the following configuration:
+
+    ```json
+    {
+      "hooks": {
+        "post_write_code": [
+          {
+            "command": "semgrep mcp -k post-tool-cli-scan -a windsurf",
+            "show_output": true
+          }
+        ]
+      }
+    }
     ```
 
-5.  Install the Semgrep plugin:
-    ```bash
-    /plugin install semgrep-plugin@semgrep
-    ```
+1. Restart Windsurf to apply hook configuration.
 
-6.  Set up the Semgrep plugin:
-    ```bash
-    /semgrep-plugin:setup_semgrep_plugin
+</TabItem>
 
-    # if the preceding command doesn't work, try:
-    /plugin enable semgrep-plugin@semgrep
-    ```
-
-### Other IDEs
+<TabItem value='other'>
 
 1. Install Semgrep:
-    ```bash
+     ```bash
     # install through homebrew
     brew install semgrep
+    ```
 
+     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -133,6 +176,9 @@ This article includes instructions for setting up the MCP server with Cursor and
     ```
 
 5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
+
+</TabItem>
+</Tabs>
 
 ## Scan your code
 

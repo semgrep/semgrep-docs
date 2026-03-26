@@ -44,6 +44,7 @@ module.exports = {
         { to: 'https://semgrep.dev/api/v1/docs', label: 'API', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/explore', label: 'Registry', position: 'left', target: '_blank' },
         { to: 'https://semgrep.dev/editor', label: 'Playground', position: 'left', target: '_blank' },
+        { to: 'semgrep-code/triage-remediation/autofix', label: 'Autofix', position: 'left' },
         {
           label: 'References',
           position: 'left',
@@ -268,6 +269,8 @@ module.exports = {
   ],
   plugins: [
     'docusaurus-plugin-sass',
+    './plugins/markdown-extract',
+    './plugins/llms-txt',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -307,7 +310,8 @@ module.exports = {
           { from: "/experiments/display-propagated-metavariable/", to: "/writing-rules/experiments/display-propagated-metavariable" },
           { from: "/experiments/deprecated-experiments/", to: "/writing-rules/experiments/deprecated-experiments" },
           { from: "/semgrep-sc/supply-chain-supported-languages/", to: "/supported-languages" },
-          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/autofix" },
+          { from: "/writing-rules/autofix", to: "/writing-rules/rule-defined-fix" },
+          { from: "/writing-rules/experiments/autofix/", to: "/writing-rules/rule-defined-fix" },
           { from: "/writing-rules/experiments/generic-pattern-matching/", to: "/writing-rules/generic-pattern-matching" },
           { from: "/writing-rules/experiments/metavariable-analysis/", to: "/writing-rules/metavariable-analysis" },
 
@@ -322,8 +326,8 @@ module.exports = {
           // Troubleshooting
           { from: "/troubleshooting/gitlab-sast/" , to: "/troubleshooting/semgrep-app" } ,
 
-          // Semgrep Assistant
-          { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-assistant/overview" }   ,
+          // Semgrep Multimodal
+          { from: "/semgrep-code/semgrep-assistant-code", to: "/semgrep-multimodal/overview" }   ,
 
           // Semgrep Code
           { from: "/semgrep-app/integrations"                        , to: "/semgrep-appsec-platform/notifications" }   ,
@@ -337,7 +341,7 @@ module.exports = {
           //Semgrep Cloud Platform
           { from: "/semgrep-app/dashboard/"                        , to: "/semgrep-appsec-platform/dashboard" }           ,
           { from: "/semgrep-app/getting-started-with-semgrep-app/" , to: "/deployment/core-deployment" }     ,
-          { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing" } ,
+          { from: "/semgrep-app/pricing-and-billing/"              , to: "/usage-and-billing/overview" } ,
           { from: "/semgrep-app/scm/"                              , to: "/deployment/connect-scm" }                 ,
           { from: "/semgrep-app/semgrep-api/"                      , to: "/semgrep-appsec-platform/semgrep-api" }         ,
           { from: "/semgrep-app/tags/"                             , to: "/semgrep-appsec-platform/tags" }                ,
@@ -355,7 +359,7 @@ module.exports = {
           { from: "/semgrep-ci/configuration-reference" , to: "/semgrep-ci/ci-environment-variables" },
 
           /* MAY 12 2023  */
-          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/usage-and-billing" },
+          { from: "/semgrep-cloud-platform/pricing-and-billing/"            , to: "/usage-and-billing/overview" },
           { from: "/extensions/"                                            , to: "/extensions/overview" },
 
           /* JULY 14 2023  */
@@ -377,7 +381,7 @@ module.exports = {
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso" },
           /* JAN 30 - FEB 20 2024  */
-          { from: "/usage-limits/" , to: "/usage-and-billing" },
+          { from: "/usage-limits/" , to: "/usage-and-billing/overview" },
           { from: "/upgrading/" , to: "/update" },
           { from: "/semgrep-code/getting-started/" , to: "/deployment/core-deployment" },
           { from: "/semgrep-cloud-platform/getting-started/" , to: "/deployment/core-deployment" },
@@ -445,7 +449,7 @@ module.exports = {
           { from: "/semgrep-supply-chain/upgrade-guidance" , to: "/semgrep-supply-chain/triage-and-remediation" },
           /* OCT 3, 2025 */
           { from: "/writing-rules/data-flow/taint-mode", to: "/writing-rules/data-flow/taint-mode/overview" },
-                    /* OCT 23, 2025 */
+          /* OCT 23, 2025 */
           { from: "/getting-started/cli-oss" , to: "/getting-started/quickstart-ce" },
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
@@ -453,7 +457,17 @@ module.exports = {
           /* FEB 11, 2026 */
           { from: "/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
           { from: "/kb/semgrep-ci/bitbucket-jenkins-freestyle-projects" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
-          { from: "/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects" , to: "/kb/semgrep-ci/bitbucket-jenkins" }
+          { from: "/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
+          /* MAR 17, 2026 */
+          {from: "/semgrep-assistant/analyze", to: "/semgrep-multimodal/analyze" },
+          {from: "/semgrep-assistant/best-practices-for-memories", to: "/semgrep-multimodal/best-practices-for-memories" },
+          {from: "/semgrep-assistant/customize", to: "/semgrep-multimodal/customize" },
+          {from: "/semgrep-assistant/getting-started", to: "/semgrep-multimodal/getting-started" },
+          {from: "/semgrep-assistant/metrics", to: "/semgrep-multimodal/metrics" },
+          {from: "/semgrep-assistant/overview", to: "/semgrep-multimodal/overview" },
+          {from: "/semgrep-assistant/privacy", to: "/semgrep-multimodal/privacy" },
+          {from: "/kb/semgrep-assistant/azure-openai-error-429", to: "kb/semgrep-multimodal/azure-openai-error-429" },
+          {from: "/kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" }
         ]
       }
     ],

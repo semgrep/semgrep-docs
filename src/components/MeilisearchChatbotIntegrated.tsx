@@ -203,7 +203,7 @@ const MeilisearchChatbotIntegrated: React.FC<MeilisearchChatbotIntegratedProps> 
           e.currentTarget.style.transform = 'scale(1)';
           e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 212, 170, 0.4)';
         }}
-        title="Chat with Semgrep Assistant"
+        title="Chat with Semgrep Multimodal"
         aria-label="Open chat"
       >
         💬

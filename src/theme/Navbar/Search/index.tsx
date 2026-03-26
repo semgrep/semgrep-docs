@@ -35,6 +35,15 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   const [isDarkMode, setIsDarkMode] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isMobileNavbar, setIsMobileNavbar] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 996px)');
+    const update = () => setIsMobileNavbar(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   // Detect dark mode
   useEffect(() => {
@@ -68,6 +77,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const mobileSearchExpanded =
+    !isMobileNavbar ||
+    isFocused ||
+    isOpen ||
+    query.trim().length > 0 ||
+    Boolean(aiResponse) ||
+    aiLoading;
+
   // Handle focus events
   const handleFocus = () => {
     setIsFocused(true);
@@ -76,6 +93,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
       inputRef.current.focus();
     }
   };
+
+  useEffect(() => {
+    if (!(isMobileNavbar && mobileSearchExpanded)) return;
+    const id = window.requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [isMobileNavbar, mobileSearchExpanded]);
 
   const handleBlur = () => {
     // Delay blur to allow clicking on results
@@ -494,6 +519,10 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced highlighting function for better keyword visibility
+  const escapeRegExp = (value: string): string => {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+
   const enhanceHighlighting = (content: string, searchQuery: string): string => {
     if (!searchQuery || !content) return content;
     
@@ -513,8 +542,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     
     // Highlight each search term with case-insensitive matching
     searchTerms.forEach(term => {
-      const regex = new RegExp(`(${term})`, 'gi');
-      highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      if (!term) return;
+      try {
+        const safeTerm = escapeRegExp(term);
+        const regex = new RegExp(`(${safeTerm})`, 'gi');
+        highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
+      } catch (error) {
+        // Skip invalid regex term to avoid breaking the UI
+      }
     });
     
     return highlightedContent;
@@ -541,7 +576,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           'semgrep-secrets': 'Secrets Detection',
           'semgrep-supply-chain': 'Supply Chain',
           'semgrep-appsec-platform': 'AppSec Platform',
-          'semgrep-assistant': 'Semgrep Assistant',
+          'semgrep-multimodal': 'Semgrep Multimodal',
           'deployment': 'Deployment',
           'troubleshooting': 'Troubleshooting',
           'faq': 'FAQ',
@@ -604,7 +639,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     if (url.includes('/getting-started/')) {
       return 'Getting Started';
     }
-    if (url.includes('/semgrep-assistant/')) {
+    if (url.includes('/semgrep-multimodal/')) {
       return 'Semgrep Assistant';
     }
     
@@ -696,38 +731,46 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
   };
 
   // Enhanced markdown rendering for AI responses
+  
+
   const renderMarkdown = (text: string): string => {
-    let html = text;
-    
-    // Handle code blocks with language (```language\ncode\n```)
-    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
-      const lang = language || '';
-      const escapedCode = code
+    const escapeHtml = (value: string): string => {
+      return value
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
-      return `<pre style="background: #1F2937; color: #E5E7EB; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace;"><code>${escapedCode}</code></pre>`;
+    };
+
+    let html = text;
+    const codeBlocks: string[] = [];
+
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const escapedCode = escapeHtml(code);
+      const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+      codeBlocks.push(
+        `<pre style="background: #F8FAFC; color: #1F2937; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; font-family: 'Monaco', 'Menlo', 'Consolas', monospace; border: 1px solid #E2E8F0; box-shadow: none;"><code style="background: transparent; box-shadow: none; text-shadow: none;">${escapedCode}</code></pre>`
+      );
+      return placeholder;
     });
-    
-    // Handle inline code (`code`)
+
     html = html.replace(/`([^`]+)`/g, '<code style="background: #F3F4F6; color: #1F2937; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: \'Monaco\', \'Menlo\', \'Consolas\', monospace;">$1</code>');
-    
-    // Handle links [text](url)
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: #059669; text-decoration: underline;">$1</a>');
-    
-    // Handle bold **text**
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Handle newlines
     html = html.replace(/\n/g, '<br />');
-    
+
+    if (codeBlocks.length > 0) {
+      codeBlocks.forEach((block, index) => {
+        html = html.replace(`__CODE_BLOCK_${index}__`, block);
+      });
+    }
+
     return html;
   };
 
   return (
     <>
       {/* Background overlay when search is focused or results are open */}
-      {(isFocused || isOpen) && (
+      {(isFocused || isOpen) && mobileSearchExpanded && (
         <div 
           style={{
             position: 'fixed',
@@ -743,7 +786,47 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           onClick={handleBlur}
         />
       )}
-      <div ref={searchContainerRef} style={{ position: 'relative', width: '100%', zIndex: 1000 }}>
+      <div
+        ref={searchContainerRef}
+        className="semgrep-search-root"
+        data-expanded={isMobileNavbar ? String(mobileSearchExpanded) : undefined}
+        style={{
+          position: 'relative',
+          width: isMobileNavbar && !mobileSearchExpanded ? 'auto' : '100%',
+          maxWidth: isMobileNavbar && !mobileSearchExpanded ? 'none' : '100%',
+          minWidth: isMobileNavbar && !mobileSearchExpanded ? 0 : 0,
+          /* Avoid stacking above the hamburger; let clicks pass through empty box */
+          zIndex: isMobileNavbar && !mobileSearchExpanded ? 'auto' : 1000,
+          pointerEvents: isMobileNavbar && !mobileSearchExpanded ? 'none' : 'auto',
+        }}>
+      {!mobileSearchExpanded ? (
+        <button
+          type="button"
+          onClick={handleFocus}
+          aria-label={placeholder}
+          aria-expanded={false}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 44,
+            height: 44,
+            padding: 0,
+            border: isDarkMode ? '1px solid #303033' : '1px solid #D1D5DB',
+            borderRadius: 12,
+            background: isDarkMode ? '#252529' : 'white',
+            color: isDarkMode ? '#e5e7eb' : '#374151',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+            flexShrink: 0,
+            pointerEvents: 'auto',
+          }}>
+          <svg width={20} height={20} viewBox="0 0 24 24" fill="none" aria-hidden stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+      ) : (
       <div 
         onClick={handleFocus}
         style={{
@@ -751,13 +834,17 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           alignItems: 'center',
           border: (isFocused || aiResponse || aiLoading) ? '2px solid #00D4AA' : '1px solid #D1D5DB',
           borderRadius: '12px',
-          background: 'white',
+          background: isDarkMode ? '#1b1b1d' : 'white',
           padding: (isFocused || aiResponse || aiLoading) ? '12px 16px' : '8px 12px',
         transition: 'all 0.3s ease',
           cursor: 'text',
-          minWidth: (isFocused || aiResponse || aiLoading) ? '450px' : '250px',
-          width: (isFocused || aiResponse || aiLoading) ? '100%' : 'auto',
-          maxWidth: (isFocused || aiResponse || aiLoading) ? '600px' : '300px',
+          minWidth: (isFocused || aiResponse || aiLoading)
+            ? (isMobileNavbar ? 0 : 450)
+            : (isMobileNavbar ? 0 : 250),
+          width: (isFocused || aiResponse || aiLoading) ? '100%' : (isMobileNavbar ? '100%' : 'auto'),
+          maxWidth: (isFocused || aiResponse || aiLoading)
+            ? (isMobileNavbar ? 'min(600px, calc(100vw - 16px))' : '600px')
+            : (isMobileNavbar ? '100%' : '300px'),
           boxShadow: (isFocused || aiResponse || aiLoading) ? '0 8px 25px rgba(0, 212, 170, 0.2)' : '0 2px 8px rgba(0,0,0,0.08)'
         }}
       >
@@ -769,6 +856,7 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           placeholder={placeholder}
+          aria-expanded={isOpen}
             style={{
               border: 'none',
               outline: 'none',
@@ -776,13 +864,14 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
             padding: '0',
             fontSize: (isFocused || aiResponse || aiLoading) ? '16px' : '14px',
               background: 'transparent',
-            color: '#111827',
+            color: isDarkMode ? '#f3f4f6' : '#111827',
             fontWeight: '500',
             transition: 'font-size 0.2s ease'
           }}
         />
         {isLoading && <span style={{fontSize: '12px', color: '#00D4AA', marginLeft: '8px', fontWeight: '500'}}>Searching...</span>}
       </div>
+      )}
       
       {isOpen && results.length > 0 && (
         <div style={{

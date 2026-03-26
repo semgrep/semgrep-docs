@@ -1,12 +1,12 @@
 ---
 description: "Azure OpenAI: Error 429 - Max Tokens Exceeded"
 tags:
-  - Semgrep Assistant
+  - Semgrep Multimodal
 ---
 
 # Azure OpenAI: Error 429 - Max Tokens Exceeded
 
-If you have chosen Azure OpenAI as your AI provider for Semgrep Assistant, and you see **Error 429 - Max Tokens Exceeded**:
+If you have chosen Azure OpenAI as your AI provider for Semgrep Multimodal, and you see **Error 429 - Max Tokens Exceeded**:
 
 1. Go to **Azure OpenAI Studio > Deployments** and select your active deployment.
 1. Under **Details**, click **Edit** and increase the **Tokens per Minute Rate Limit** to the maximum value.
