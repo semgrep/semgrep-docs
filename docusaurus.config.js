@@ -454,6 +454,10 @@ module.exports = {
           { from: "/semgrep-supply-chain/view-export" , to: "/semgrep-supply-chain/findings" },
           { from: "/semgrep-secrets/view-triage" , to: "/semgrep-secrets/triage-remediation" },
           { from: "/kb/integrations/semgrep-vs-code-windows" , to: "/extensions/semgrep-vs-code" },
+          /* FEB 11, 2026 */
+          { from: "/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
+          { from: "/kb/semgrep-ci/bitbucket-jenkins-freestyle-projects" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
+          { from: "/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects" , to: "/kb/semgrep-ci/bitbucket-jenkins" },
           /* MAR 17, 2026 */
           {from: "/semgrep-assistant/analyze", to: "/semgrep-multimodal/analyze" },
           {from: "/semgrep-assistant/best-practices-for-memories", to: "/semgrep-multimodal/best-practices-for-memories" },
