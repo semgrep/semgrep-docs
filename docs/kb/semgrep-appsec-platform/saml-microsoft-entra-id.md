@@ -34,6 +34,31 @@ Setting up SAML SSO using Microsoft Entra ID consists of the following general s
 3. Configure Semgrep.
 4. Add users to your new enterprise app.
 
+## Configure SSO
+
+<Tabs
+    defaultValue="current"
+    values={[
+    {label: 'Guided setup (beta)', value: 'current'},
+  {label: 'Legacy manual configuration', value: 'legacy'},
+    ]}
+>
+
+<TabItem value='current'>
+
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+1. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+1. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+2. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting **Entra ID (Azure AD) SAML**.
+3. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, use **Test sign-in** to test the connection.
+4. Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
+5. Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
+6. To use the new connection, log out of Semgrep, then log back in using SSO.
+
+</TabItem>
+
+<TabItem value='legacy'>
+
 ## Create a custom enterprise app
 
 <!-- Rather than using portal.azure.com, which takes us to Azure Dashboard, sign in straight away to Microsoft Entra ID -->
@@ -75,29 +100,6 @@ You have now created a custom enterprise app for Semgrep to integrate with Micro
 7. Close out of **Attributes & Claims**.
 
 ## Configure Semgrep
-
-<Tabs
-    defaultValue="current"
-    values={[
-    {label: 'Guided setup (beta)', value: 'current'},
-  {label: 'Legacy manual configuration', value: 'legacy'},
-    ]}
->
-
-<TabItem value='current'>
-
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-1. Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
-1. In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
-1. The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom SAML**.
-1. Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, use **Test sign-in** to test the connection.
-1. Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
-1. Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
-1. To use the new connection, log out of Semgrep, then log back in using SSO.
-
-</TabItem>
-
-<TabItem value='legacy'>
 
 1. Navigate to Semgrep AppSec Platform, and provide the values required by the SAML2 form:
     1. Provide the **Display name** and the **Email domain** you are using for the integration.
