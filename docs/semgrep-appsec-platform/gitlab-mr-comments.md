@@ -106,21 +106,23 @@ To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform 
 1. In Semgrep AppSec Platform, go to **Settings > General > Code**.
 2. Use the **Rule-defined fix** toggle to enable this feature.
 
-### Customize MR comments
-
-#### Dataflow traces in MR comments
+### Dataflow traces in MR comments
 
 With **dataflow traces**, Semgrep Code provides you a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
 
 You can view dataflow traces in the MR comments created by Semgrep Code.
 
-##### View the path of tainted data in MR comments
+#### View the path of tainted data in MR comments
 
 To enable dataflow traces in your MR comments, fulfill the following prerequisites:
 
 - Set up Semgrep to post GitLab merge request comments, as described on this page.
 - To get the most meaningful results of dataflow traces in MR comments, use cross-file analysis while scanning your repositories. To enable cross-file analysis, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
 - Not all Semgrep rules or rulesets make use of taint tracking. Ensure that you have a ruleset such as the **default ruleset** added to your **[Policies](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+
+### Customize MR comments
+
+<CustomComments comment_type="MR" link_type="HTML, Markdown, and plaintext" />
 
 ## Next steps
 
