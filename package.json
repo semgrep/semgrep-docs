@@ -35,6 +35,7 @@
     "react-dom": "^18.3.1",
     "react-loadable": "*",
     "sass": "^1.77.0",
+    "svgo": "^4.0.1",
     "typescript": "^5.4.5",
     "url-loader": "^4.1.1",
     "webpack": "^5.104.1"
