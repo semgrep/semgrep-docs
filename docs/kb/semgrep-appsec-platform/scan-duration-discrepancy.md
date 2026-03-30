@@ -1,0 +1,16 @@
+---
+description: Learn why the scan duration for a managed scan differs from the scan duration reported by a CI/CD provider.
+tags:
+  - Semgrep AppSec Platform
+  - Semgrep Managed Scans
+---
+
+# Why is the scan duration reported by Semgrep different from the scan duration of the end-to-end process of running a diff-aware managed scan?
+
+The **Duration** of a scan shown on Semgrep AppSec Platform's **Projects** page reflects the amount of time required to run the Semgrep scan. This timer begins when Semgrep sends the scan request and receives a scan identifier, and ends when Semgrep sends results and receives a `scan complete` response. 
+
+If your CI/CD system displays a process time that is longer than the scan duration displayed in Semgrep AppSec Platform, this value includes the time required for setup, pre-processing, and post-processing steps, in addition to the scan time. These steps can include:
+ 
+- Receiving and processing the webhook notification to start the scan
+- Initializing the scan job and environment
+- Cloning the repository
