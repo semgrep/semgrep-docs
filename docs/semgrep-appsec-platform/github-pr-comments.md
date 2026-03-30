@@ -116,7 +116,6 @@ To enable **Rule-defined fix** for all projects in your Semgrep AppSec Platform 
 
 With **dataflow traces**, Semgrep Code provides you a visualization of the path of tainted, or untrusted, data in specific findings. This path can help you track the sources and sinks of the tainted data as they propagate through the body of a function or a method. For general information about taint analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
 
-When running Semgrep Code from the command line, you can pass in the flag `--dataflow-traces` to use this feature.
 
 You can view dataflow traces in the PR comments created by Semgrep Code running in your CI/CD system.
 
