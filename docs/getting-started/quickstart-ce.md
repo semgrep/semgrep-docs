@@ -84,7 +84,7 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
 
  ```console
  # install through pip
- pip install –upgrade semgrep
+ pip install --upgrade semgrep
 
  # if you get the following error "error: externally-managed-environment",
  # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
