@@ -61,17 +61,22 @@ PR comments are enabled by default for users who have connected their Azure DevO
 Developers can triage Semgrep findings without leaving Azure DevOps by responding to the PR comments authored by Semgrep. To turn this feature on, you must update your source code manager (SCM) connection to use a personal access token that meets the following requirements, because Semgrep requires webhooks for the triage through PR comments feature:
 
 - Has the role set to **Owner** or **Project Collection Admin**
-- Grants `Project and Team (Read & write)` and `Pull Request Threads (Read & write)` access
+- Has the **Scopes** set to grant **Full access**.
 
 To update your connection between Semgrep and Azure DevOps:
 
 1. Log into Azure DevOps using an account assigned with either the **Owner** or **Project Collection Administrator** role for your organization.
-2. [Create an access token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat). When selecting the **Scopes** for the token, ensure that you select `Project and Team (Read & write)` and `Pull Request Threads (Read & write)`.
+2. [Create an access token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat). When selecting the **Scopes** for the token, ensure that you select **Full access**.
 3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
 4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Azure DevOps connection.
 5. Click **Update access token**.
 6. In the **Update access token** dialog that appears, provide the token you created. Click **Update** to save and proceed.
 7. Toggle the **Incoming webhooks** setting on.
+
+Once you have PR comments fully configured, you can update the token provided to Semgrep to a more restrictive one. The scopes you must assign to the token include:
+
+- `Project and Team (Read & write)`
+- `Pull Request Threads (Read & write)`
 
 ### Set up the configuration file
 
