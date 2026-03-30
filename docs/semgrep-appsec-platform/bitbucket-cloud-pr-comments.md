@@ -18,10 +18,12 @@ import TroubleshootingPrLinks from "/src/components/reference/_troubleshooting-p
 import DeploymentJourney from "/src/components/concept/_deployment-journey.mdx"
 import NextAfterComments from "/src/components/procedure/_next-after-comments.mdx"
 import CommentTriggers from "/src/components/reference/_comment-triggers.mdx"
+import BitbucketSemgrepAppSast from "/src/components/code_snippets/_bitbucket-semgrep-app-sast.mdx"
 import ReceiveCommentsScm from "/src/components/procedure/_receive-comments-scm.mdx"
 import PrCommentsInSast from "/src/components/procedure/_pr-comments-in-sast.mdx"
 import PrCommentsInSecrets from "/src/components/procedure/_pr-comments-in-secrets.mdx"
 import CommentsInSupplyChain from "/src/components/concept/_comments-in-supply-chain.md"
+import EnableAutofix from "/src/components/procedure/_enable-autofix.mdx"
 
 <!-- vale on -->
 
@@ -105,7 +107,6 @@ Continue setting up Bitbucket PR comments by finishing the rest of this guide.
 - In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
 - You must have a Bitbucket Cloud **workspace access token** or a **repository access token**.
 
-
 ### Confirm your Semgrep account's connection
 
 Confirm that you have the correct connection and access:
@@ -113,75 +114,40 @@ Confirm that you have the correct connection and access:
 1. In your Semgrep AppSec Platform account, click **Settings > Source code managers**.
 2. Check that an entry for your Bitbucket workspace exists and is correct.
 
-### Define the `BITBUCKET_TOKEN` environment variable
+#### Triage through PR comments
 
-To enable PR comments, define the `BITBUCKET_TOKEN` environment variable in your CI configuration file. Its syntax and placement in your CI configuration file depends on your CI provider. For example, in Bitbucket Pipelines, its syntax is the following:
+Developers can triage Semgrep findings without leaving Bitbucket by responding to the PR comments authored by Semgrep. To use this feature, you must have a paid Bitbucket Cloud plan, and must update your source code manager (SCM) connection to use a workspace access token. This allows you to enable webhooks, which Semgrep requires for the triage through PR comments feature.
 
-```
-- export BITBUCKET_TOKEN=$PAT
-```
+To update your connection between Semgrep and Bitbucket:
 
-The following snippet is a sample with `BITBUCKET_TOKEN` defined in a `bitbucket-pipelines.yml` file:
+1. Log in to Bitbucket using an account assigned with the **Product Admin** role.
+2. [Create a workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/workspace-access-tokens/). Ensure that you assign the following scopes to the token:
+   - `webhook (read and write)`
+   - `repository (read and write)`
+   - `pullrequest (read and write)`
+   - `project (admin)`
+   - `account (read)`
+3. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+4. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your Bitbucket connection.
+5. Click **Update access token**.
+6. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+7. Toggle the **Incoming webhooks** setting on.
 
-<!--
-<Tabs
-    defaultValue="jenkins"
-    values={[
-    {label: 'Sample Jenkins snippet', value: 'jenkins'},
-    {label: 'Sample Bitbucket Pipelines snippet', value: 'pipelines'},
-    ]}
->
+Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, developers can triage Semgrep findings from Bitbucket Cloud.
 
-<TabItem value='jenkins'>
+### Set up the configuration file
 
-```javascript
-pipeline {
-  agent any
-    environment {
+The logic to determine whether Semgrep runs a full scan or a diff-aware scan on a pull request is defined in the `bitbucket-pipelines.yml` file.
 
-      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-      // Define BITBUCKET_TOKEN to receive PR comments for Bitbucket Cloud
-      BITBUCKET_TOKEN = credentials('BITBUCKET_PAT')
+For PR comments and accurate diff-aware scan analysis to work, you must set `SEMGREP_BASELINE_REF`, which defines the repository’s default branch used as the comparison baseline, such as `main` or `master`. Specifying the default branch helps Semgrep understand the differences between the current branch and the main line of development and to generate meaningful results and PR comments.
 
-      // ... Other configuration variables
-    }
-    stages {
-      stage('Semgrep-Scan') {
-        steps {
-          sh 'pip3 install semgrep'
-          sh 'semgrep ci'
-      }
-    }
-  }
-}
-```
-</TabItem>
+<details>
+<summary>Click to see a sample workflow file</summary>
 
-<TabItem value='pipelines'>
+<BitbucketSemgrepAppSast />
 
--->
-```yaml
-image: atlassian/default-image:latest
+</details>
 
-pipelines:
-  branches:
-    main:
-      # ...
-  pull-requests:
-    '**':
-      - step:
-          name: 'Run Semgrep diff scan with PR branch'
-          image: semgrep/semgrep
-          script:
-            # ...
-            - export BITBUCKET_TOKEN=$PAT
-```
-
-<!--
-</TabItem>
-
-</Tabs>
--->
 
 ### Configure comments for Semgrep Code
 
@@ -195,7 +161,7 @@ pipelines:
 
 <CommentsInSupplyChain />
 
-### Receive comments in your VPN or on-premise SCM
+### Receive comments in an access-controlled Bitbucket account
 
 Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access control features](https://support.atlassian.com/bitbucket-cloud/docs/control-access-to-your-private-content/) for content that your individual account owns. If you use this feature, you need to add several IP addresses into your allowlist.
 
@@ -205,9 +171,17 @@ Bitbucket Premium provides [<i class="fas fa-external-link fa-xs"></i> access co
 Only rules set to the **Comment** and **Block** rule modes in the [Policies page](https://semgrep.dev/orgs/-/policies) create PR comments.
 :::
 
-## Customize PR comments
+## Optional features
+
+### Customize PR comments
 
 <CustomComments comment_type="PR" link_type="Markdown and plaintext" />
+
+### Enable Rule-defined fix in Bitbucket Cloud repositories
+
+[Autofix](/writing-rules/rule-defined-fix) is a Semgrep feature in which rules contain suggested fixes to resolve findings.
+
+<EnableAutofix />
 
 ## Next steps
 
