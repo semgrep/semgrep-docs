@@ -82,33 +82,38 @@ The following code snippets are sample Jenkinsfile that defines both of these ac
 ```groovy
 pipeline {
   agent any
-  environment {
-    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-    SEMGREP_BASELINE_REF = "origin/main"
-  }
-  stages {
-    stage('Semgrep-Scan') {
-      steps {
-        script {
-          if (env.BITBUCKET_PULL_REQUEST_ID) {
-            echo "Semgrep diff scan"
-            sh '''git checkout ${BITBUCKET_PULL_REQUEST_LATEST_COMMIT_FROM_SOURCE_BRANCH}'''
-            sh '''git fetch origin +ref/heads/*:refs/remotes/origin/*'''
-            sh '''docker run \
-              -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
-              -e SEMGREP_PR_ID=${BITBUCKET_PULL_REQUEST_ID} \
-              -e SEMGREP_BASELINE_REF=$SEMGREP_BASELINE_REF \
-              -v "$(pwd):$(pwd)" --workdir $(pwd) \
-                semgrep/semgrep semgrep ci'''
-            }
-            else {
-                echo "Semgrep full scan"
-                sh '''docker run \
-                  -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
-                  -v "$(pwd):$(pwd)" --workdir $(pwd) \
-                  semgrep/semgrep semgrep ci'''
-              }
-        }
+    environment {
+      // The following variable is required for a Semgrep AppSec Platform-connected scan:
+      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+
+      // Uncomment the following line to scan changed
+      // files in PRs or MRs (diff-aware scanning):
+      // SEMGREP_BASELINE_REF = "main"
+
+      // Troubleshooting:
+
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
+      // to the code that generated a finding or if you are not receiving PR or MR comments.
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
+    }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+            sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
+            -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
+            -e SEMGREP_PR_ID=$SEMGREP_PR_ID \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
       }
     }
   }
@@ -129,18 +134,17 @@ pipeline {
       BITBUCKET_TOKEN = credentials('FS_BITBUCKET_TOKEN')
 
       // Uncomment the following line to scan changed
-      // files in PRs or MRs (diff-aware scanning):
+      // files in PRs (diff-aware scanning):
       // SEMGREP_BASELINE_REF = "${env.CHANGE_ID != null ? 'main' : ''}"
-
-      // Troubleshooting:
-
-      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
-      // to the code that generated a finding or if you are not receiving PR or MR comments.
-      // SEMGREP_JOB_URL = "${BUILD_URL}"
-      // SEMGREP_COMMIT = "${GIT_COMMIT}"
-      // SEMGREP_BRANCH = "${GIT_BRANCH}"
       // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/YOUR_BITBUCKET_DATA_CENTER_URL\/scm\/(.*).git$/, '$1')
       // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(https:\/\/.*?)\/scm\/(.*)\/(.*)\.git$/, '$1/projects/$2/repos/$3')
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+
+      // Troubleshooting:
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
+      // to the code that generated a finding or if you are not receiving PR comments.
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
       // SEMGREP_PR_ID = "${env.CHANGE_ID != null ? env.CHANGE_ID : ''}"
       SEMGREP_APP_URL = "https://semgrep.dev"
     }
@@ -198,6 +202,7 @@ To set up a Freestyle project to scan your Bitbucket projects with Semgrep:
         docker run -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
                   -e SEMGREP_REPO_URL=$REPO_URL \
                   -e SEMGREP_REPO_NAME=$REPO_NAME \
+                  -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
                   -v "$(pwd):$(pwd)" --workdir $(pwd) \
                   semgrep/semgrep semgrep ci
     ## pull request scans
