@@ -22,32 +22,29 @@ Semgrep Multimodal’s data privacy and legal considerations apply across the fo
 When using Semgrep AI features:
 
 1. Semgrep accesses repository code on a file-by-file basis. In limited cases, broader repository access may be required.
-1. Relevant data, including portions of source code, are sent outside your repository to AI subprocessors for analysis.
+1. Relevant data, including portions of source code, are sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
+    - OpenAI
+    - Anthropic
+    - Amazon Bedrock
 1. AI subprocessors return results to Semgrep.
-1. Semgrep stores limited data to support product functionality, in accordance with its data retention policies.
-
-Semgrep supports AI subprocessors from the following model vendors:
-
-- OpenAI
-- Anthropic
-- Amazon Bedrock
+1. Semgrep stores limited data to support product functionality, in accordance with its [data retention policies](#data-retention-and-storage-by-semgrep).
 
 
-## What data are sent to AI subprocessors
+## What data is sent to AI subprocessors
 
-The type and amount of data sent to AI subprocessors depends on the feature being used. Semgrep does not intentionally send personal data to AI subprocessors. 
-
-The following table summarizes the data transmitted to AI subprocessors for each Semgrep feature:
+The type and amount of data sent to AI subprocessors depend on the feature being used. The following table summarizes the data transmitted to AI subprocessors:
 
 | Feature | Data sent to AI |
 |--------|----------------|
-| [Triage and remediation](#semgrep-multimodal) | Code associated with a finding and the minimal surrounding context |
+| [Triage and remediation](#triage-and-remediation) | Code associated with a finding and the minimal surrounding context |
 | [Memories](#memories) | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
 | [AI-powered detection scans](#ai-powered-detection-scans) | Full file contents, uploaded context documentation, and scan-related metadata |
 
+Semgrep **does not** intentionally send personal data to AI subprocessors. 
+
 ## Data retention and storage by Semgrep's AI vendors
 
-All subprocessors operate under Semgrep's **zero data retention** agreements by default. Under Semgrep’s zero data retention agreements, AI subprocessors do not retain or use customer data to train their models. 
+All of Semgrep's AI subprocessors operate under **zero data retention** agreements by default. Under the zero data retention agreements, AI subprocessors do not retain or use customer data to train their models. 
 
 Semgrep maintains Data Protection Agreements (DPAs) with all AI subprocessors. Customers can request these through the Semgrep [trust portal](https://trust.semgrep.dev/). Alternatively, contact your Semgrep account manager to request copies of these DPAs.
 
@@ -84,22 +81,22 @@ Data stored may include:
 
 Storage details:
 
-Uploaded context documentation and scan reports are stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused across scans.
+Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused across scans.
 
 
 ### Retention period
-Stored data are retained for up to 6 months. Semgrep will provide at least 30 days’ notice before making changes to retention policies.
+Stored data is retained for up to 6 months, unless otherwise noted. Semgrep will provide at least 30 days’ notice before making changes to retention policies.
 
 ### Purpose of storage
 
-Stored data are used to:
+Stored data is used to:
 
 - Provide Semgrep Multimodal functionality
 - Enable access to prior results, for example, to provide remediation guidance
 - Support internal performance evaluation
 
 ## Data handling and protections
-- Customer data are logically isolated and is never comingled across tenants
+- Customer data is logically isolated and is never comingled across tenants
 - Semgrep does not intentionally send personal data to AI subprocessors
 - Semgrep and its subprocessors do not obtain ownership rights to your source code
 - Data sent to AI subprocessors is deleted after processing in accordance with zero data retention agreements
@@ -124,7 +121,7 @@ When the minimal data retention policy is enabled:
 
 ### Exceptions for AI-powered detection scans
 
-The following behavior remains unchanged for AI-powered detection scans:
+Under the minimal data retention policy, the following behavior remains unchanged for AI-powered detection scans:
 
 - If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
 - AI-powered scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
