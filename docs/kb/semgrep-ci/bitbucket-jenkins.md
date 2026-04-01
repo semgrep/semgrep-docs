@@ -196,6 +196,7 @@ To set up a Freestyle project to scan your Bitbucket projects with Semgrep:
     BASELINE_REF_ORIGIN="origin/$BASELINE_REF" 
     REPO_URL=$GIT_URL
     REPO_NAME=$(echo "$GIT_URL" | awk -F'/' '{print $(NF-1)"/"$(NF)}' | sed 's/.git$//')
+    SEMGREP_COMMIT=$GIT_COMMIT
 
     ## Merge or push to primary branch
     if [ $BITBUCKET_SOURCE_BRANCH = $BASELINE_REF ]; then
