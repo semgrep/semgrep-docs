@@ -1,6 +1,6 @@
 ---
 slug: privacy
-title: Privacy policy and legal considerations
+title: Data privacy and legal considerations
 hide_title: true
 description: Learn about the privacy and legal considerations involved when using Semgrep Multimodal.
 tags:
@@ -12,9 +12,9 @@ tags:
 
 Semgrep Multimodal uses API permissions to access code in your selected GitHub or GitLab repositories. To provide AI-powered functionality, portions of the source code are processed by Semgrep's AI model vendors.
 
-Semgrep Multimodal’s data privacy and legal considerations apply across the following features, which build on one another:
-- **Rule-based scans**: AI-assisted triage and remediation of findings.
-- **Rule-based scans with Memories**: Adds reusable Memories to enhance triage and remediation.
+Semgrep Multimodal’s data privacy and legal considerations apply across the following **AI-assisted features**, which build on one another:
+- **Triage and remediation** of findings
+- **Memories**: Adds reusable Memories to enhance triage and remediation.
 - **AI-powered detection scans**: Adds AI-driven vulnerability detection on top of triage, remediation, and Memories.
 
 ## Overview of data flow
@@ -41,8 +41,8 @@ The following table summarizes the data transmitted to AI subprocessors for each
 
 | Feature | Data sent to AI |
 |--------|----------------|
-| [Rule-based scans](#semgrep-multimodal) | Code associated with a finding and the minimal surrounding context |
-| [Rule-based scans with Memories](#memories) | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
+| [Triage and remediation](#semgrep-multimodal) | Code associated with a finding and the minimal surrounding context |
+| [Memories](#memories) | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
 | [AI-powered detection scans](#ai-powered-detection-scans) | Full file contents, uploaded context documentation, and scan-related metadata |
 
 ## Data retention and storage by Semgrep's AI vendors
@@ -55,7 +55,7 @@ Semgrep maintains Data Protection Agreements (DPAs) with all AI subprocessors. C
 
 Semgrep stores a limited amount of your data to support product functionality and performance evaluation. The type of data stored depends on the feature being used.
 
-### Rule-based scans
+### Triage and remediation
 
 Data stored may include:
 
@@ -63,9 +63,9 @@ Data stored may include:
 - Code snippets associated with findings
 - Minimal surrounding context required for accurate results
 
-### Rule-based scans with Memories
+### Memories
 
-Includes all data from rule-based scans, and adds:
+Includes all data from triage and remediation, and adds:
 
 - User-defined Memory content that is stored as text
 - Code snippets included in Memories

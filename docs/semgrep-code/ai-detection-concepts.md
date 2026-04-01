@@ -53,7 +53,7 @@ Each full AI-powered scan counts as one scan. Paying customers can trigger **30 
 
 ### Data privacy and finding severity
 
-The data privacy policy is similar to that described in [Privacy and legal considerations for Semgrep](/docs/semgrep-multimodal/privacy), with a few exceptions.
+The data privacy policy is similar to that described in [Data privacy and legal considerations](/docs/semgrep-multimodal/privacy), with a few exceptions.
 
 Currently, all AI findings are assigned the same severity, which is **high**, and don’t have other attributes like confidence. 
 
