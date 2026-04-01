@@ -97,6 +97,20 @@ module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
         return;
       }
 
+      if (node.name === 'Tooltip') {
+        const idAttr = node.attributes.find((attr) => attr.name === 'id');
+        if (idAttr) {
+          idAttr.value = 'glossary-tooltip';
+        } else {
+          node.attributes.push({
+            type: 'mdxJsxAttribute',
+            name: 'id',
+            value: 'glossary-tooltip',
+          });
+        }
+        return;
+      }
+
       const tooltipHtmlAttr = node.attributes.find(
         (attr) => attr.name === 'data-tooltip-html'
       );
@@ -112,8 +126,13 @@ module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
         normalizeHrefQuotes(tooltipHtmlAttr.value)
       );
 
+      let termId = null;
       if (tooltipIdAttr && typeof tooltipIdAttr.value === 'string') {
-        const termId = extractTermIdFromTooltipId(tooltipIdAttr.value);
+        termId = extractTermIdFromTooltipId(tooltipIdAttr.value);
+        tooltipIdAttr.value = 'glossary-tooltip';
+      }
+
+      if (termId) {
         const entry = termId ? glossaryHrefMap[termId] : null;
 
         if (entry) {
