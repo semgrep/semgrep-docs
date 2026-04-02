@@ -36,7 +36,7 @@ Semgrep calculates contributor counts using information from the `git log` over 
 - The date of your license purchase
 - The date of your account creation, if you and your team are within usage limits
 
-**Bots** and other automations are excluded from the contributor count.
+**Bots** and other automations are excluded from the contributor count. Learn more about [how Semgrep calculates contributors](/docs/usage-and-billing/contributor-count-explained).
 
 #### Contributor usage across multiple Semgrep organizations
 
