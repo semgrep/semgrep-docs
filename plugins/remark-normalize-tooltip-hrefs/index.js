@@ -88,6 +88,46 @@ const replaceHrefWithAnchor = (value, hrefBase, slug) => {
   return result;
 };
 
+const replaceGlossaryLinkLabel = (value, labelText) => {
+  let result = '';
+  let cursor = 0;
+
+  while (true) {
+    const anchorStart = value.indexOf('<a href=', cursor);
+    if (anchorStart === -1) {
+      result += value.slice(cursor);
+      break;
+    }
+
+    result += value.slice(cursor, anchorStart);
+    const tagEnd = value.indexOf('>', anchorStart);
+    if (tagEnd === -1) {
+      result += value.slice(anchorStart);
+      break;
+    }
+
+    const anchorClose = value.indexOf('</a>', tagEnd);
+    if (anchorClose === -1) {
+      result += value.slice(anchorStart);
+      break;
+    }
+
+    const anchorTag = value.slice(anchorStart, tagEnd + 1);
+    const anchorHref = anchorTag.slice('<a href='.length);
+    const isGlossaryLink = anchorHref.includes('/glossary');
+
+    if (isGlossaryLink) {
+      result += `${anchorTag}${labelText}</a>`;
+    } else {
+      result += value.slice(anchorStart, anchorClose + '</a>'.length);
+    }
+
+    cursor = anchorClose + '</a>'.length;
+  }
+
+  return result;
+};
+
 module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
   const glossaryHrefMap = buildGlossaryHrefMap(options.yamlFile);
 
@@ -145,7 +185,10 @@ module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
         }
       }
 
-      tooltipHtmlAttr.value = updatedValue;
+      tooltipHtmlAttr.value = replaceGlossaryLinkLabel(
+        updatedValue,
+        'full definition'
+      );
     });
   };
 };
