@@ -17,6 +17,8 @@ tags:
 
 The following updates were made to Semgrep in March 2026.
 
+<!-- truncate -->
+
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
@@ -35,7 +37,7 @@ The following updates were made to Semgrep in March 2026.
 
 - On the **Rules & Policies > Policies** page, the **Projects scanning** column now replaces the previous global on/off toggle. You can scope each rule to all projects, selected projects or tags, all projects with exceptions, or disable the rule for all projects. A drawer provides project search, filters, and bulk selection.
 - Billing & Usage updates: 
-  - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables AI-powered detection scans, Multimoda, AI-powered triage, and Autofix with clear tooltips. If enforcement is off, these credit indicators stay hidden.
+  - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables AI-powered detection scans, Multimodal, AI-powered triage, and Autofix with clear tooltips. If enforcement is off, these credit indicators stay hidden.
   - Contributor counts reflect the last 90 days of activity, instead of 30, with aligned usage cards and a loading state for AI credits.
   - When AI usage blocking is enabled for a deployment, AI-powered triage, Autofix, and AI-powered detection scans are checked before they run. 
   - Sandbox and proof-of-value deployments can be provisioned with no end date for subscriptions or AI credit
@@ -45,7 +47,7 @@ The following updates were made to Semgrep in March 2026.
 - Simplified GitHub onboarding by requiring only a single GitHub App installation instead of two. Existing users can now uninstall the public GitHub App if previously installed.
 - GitHub Cloud source code manager connections can now be added without requiring GitHub SSO login, and users can connect multiple GitHub organizations.
 - Improved member invite emails so invitations clearly require authorization through your login methods.
-- Improved exception request approval workflow to combine both the requester's and approver's notes into the issue's triage note for better context.
+- Improved exception request approval workflow to combine notes from both the requester and approver into the issue's triage note for better context.
 - Package registry integration settings include an option to use the Semgrep Network Broker when a registry is only reachable through your private network.
 - Improved load times for the **Projects** page, **Policies** registry search, and source code repository sync for large deployments.
 - Reset SSO in the admin panel now shows the SSO portal link.
