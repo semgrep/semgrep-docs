@@ -14,7 +14,6 @@ tags:
  
 # Semgrep release notes for March 2026
 
-
 The following updates were made to Semgrep in March 2026.
 
 <!-- truncate -->
