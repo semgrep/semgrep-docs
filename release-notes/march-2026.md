@@ -23,12 +23,12 @@ The following updates were made to Semgrep in March 2026.
 
 ### Added
 
-- AI-powered detection scanning is now available as a public beta feature. Organizations using Semgrep Multimodal have AI Detection enabled by default.
-- Click to Fix has been renamed to Autofix across the product. Autofix is now in public beta, providing automatic, AI-generated pull requests (PRs) for Code and Supply Chain findings.
+- AI-powered detection is now available as a beta feature. Organizations using Semgrep Multimodal have AI Detection enabled by default.
+- Click to Fix has been renamed Autofix. Autofix is in beta, providing automatic, AI-generated pull requests (PRs) for Code and Supply Chain findings.
 - Semgrep is now available as a Cursor and Claude Code plugin, providing automatic security scanning for Code, Supply Chain, and Secrets on every file.
-- Added v2 deployment APIs to list and bulk create, update, or delete rule scopes, so you can manage which projects or tags a rule applies to, with optional filtering by project or tag.
 - Added a **File path** filter on findings pages for Code, Supply Chain, and Secrets, with the matching path highlighted in the list.
 - Added **Duplicate** as a triage reason for findings when multiple rules surface the same issue or when the same issue is tracked elsewhere.
+- Added v2 deployment APIs to list and batch create, update, or delete rule scopes, so you can manage which projects or tags a rule applies to, with optional filtering by project or tag.
 - Added SCIM directory provisioning controls in Admin settings and v1 APIs, with WorkOS-based setup, directory status visibility, and disconnect support for enabled SSO organizations.
 - Added v1 APIs to link findings to an existing ticket URL or remove linked tickets when a ticketing integration is configured. Linking a ticket replaces any existing ticket associated with the selected findings.
 - Exception request activity with the fields created, approved, and rejected now appears in the finding timeline for better audit visibility.
@@ -36,8 +36,8 @@ The following updates were made to Semgrep in March 2026.
 ### Changed
 
 - On the **Rules & Policies > Policies** page, the **Projects scanning** column now replaces the previous global on/off toggle. You can scope each rule to all projects, selected projects or tags, all projects with exceptions, or disable the rule for all projects. A drawer provides project search, filters, and bulk selection.
-- Billing & Usage updates: 
-  - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables AI-powered detection scans, Multimodal, AI-powered triage, and Autofix with clear tooltips. If enforcement is off, these credit indicators stay hidden.
+- **Billing & Usage** updates: 
+  - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables all AI features. If enforcement is off, these credit indicators stay hidden.
   - Contributor counts reflect the last 90 days of activity, instead of 30, with aligned usage cards and a loading state for AI credits.
   - When AI usage blocking is enabled for a deployment, AI-powered triage, Autofix, and AI-powered detection scans are checked before they run. 
   - Sandbox and proof-of-value deployments can be provisioned with no end date for subscriptions or AI credit
@@ -48,7 +48,7 @@ The following updates were made to Semgrep in March 2026.
 - GitHub Cloud source code manager connections can now be added without requiring GitHub SSO login, and users can connect multiple GitHub organizations.
 - Improved member invite emails so invitations clearly require authorization through your login methods.
 - Improved exception request approval workflow to combine notes from both the requester and approver into the issue's triage note for better context.
-- Package registry integration settings include an option to use the Semgrep Network Broker when a registry is only reachable through your private network.
+- Package registry integration settings under **Settings > Integrations > Registry** now include an option to use the Semgrep Network Broker when a registry is only reachable through your private network.
 - Improved load times for the **Projects** page, **Policies** registry search, and source code repository sync for large deployments.
 - Reset SSO in the admin panel now shows the SSO portal link.
 - Organizations without the Enterprise SSO plan entitlement can use SSO settings and provider setup when Semgrep explicitly enables that access for your deployment.
@@ -56,8 +56,8 @@ The following updates were made to Semgrep in March 2026.
 ### Fixed
 
 - Fixed minor security vulnerability in SAML login handling, application container run web services, and read-only permissions. 
-- With RBAC enabled, read-only users can no longer trigger scans from the Semgrep AppSec Platform or API, including Run a new scan and Semgrep Managed Scans.
-- Added server-side validation to enforce the 3,000 character limit for triage notes across all API endpoints.
+- With RBAC enabled, read-only users can no longer trigger scans from the Semgrep AppSec Platform or API.
+- Added server-side validation to enforce the 3,000-character limit for triage notes across all API endpoints.
 - Fixed findings links across Semgrep products so shared URLs, bookmarks, dashboard shortcuts, and notification links preserve the correct branch and tab context.
 - Fixed **Settings** page scroll behavior so top-level tabs stay visible after load.
 - Fixed an issue where invalid webhook configurations would cause the **Integrations** page to become unusable.
@@ -114,7 +114,7 @@ The following updates were made to Semgrep in March 2026.
 
 ### Fixed
 
-- Fixed cases where Supply Chain **Autofix** could select the wrong workflow when the ecosystem sent from the browser did not match the ecosystem on the finding from the scan.
+- Fixed cases where Supply Chain **Autofix** could select the wrong workflow when the ecosystem set from the browser did not match the ecosystem on the finding from the scan.
 - Fixed an issue where the custom dependency exception modal would not accept version numbers without a patch component, for example `1.19`, blocking exceptions for packages that don't follow strict semantic versioning.
 - Fixed an issue where searching for dependencies with special characters, like `:`, in their names would fail with an error.
 - Fixed an issue where the **Safe** upgrade guidance filter would incorrectly include findings with no upgrade guidance available.
