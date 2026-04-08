@@ -11,10 +11,11 @@ Export findings by navigating to the product page and clicking the **<i class="f
 | -------  | ------ |
 | Id | The unique ID number of the finding. |
 | Rule name | The name of the rule.  |
-| Product | The Semgrep product. Possible values are **Code**, **Supply Chain**, or **Secrets**.  |
+| Product | The Semgrep product. Possible values are **Code**, **Code (AI)** **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
 | Status | The finding's triage status.   |
-| Assistant component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Multimodal tags the finding with, based on the code's context.  |
+| Confidence | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
+| Multimodal component | A descriptor, such as `API`, `Payments processing`, `Infrastructure`, that Multimodal tags the finding with, based on the code's context.  |
 | Repository name | The name of the repository where Semgrep found the finding.  |
 | Repository URL | The repository URL.   |
 | Line of code URL | The URL to the specific line of code where the finding match began. A finding may be several lines long. |
