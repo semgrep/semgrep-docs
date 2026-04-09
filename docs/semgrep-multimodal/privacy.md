@@ -23,9 +23,13 @@ When using Semgrep AI features:
 
 1. Semgrep accesses repository code on a file-by-file basis. In limited cases, broader repository access may be required.
 1. Relevant data, including portions of source code, are sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
-    - OpenAI
-    - Anthropic
-    - Amazon Bedrock
+    - OpenAI (supported by default)
+    - Amazon Bedrock (supported by default)
+    - Anthropic 
+    - Azure OpenAI
+    - Google Gemini
+    - xAI Grok
+   OpenAI and Bedrock are the default providers. Anthropic, Azure OpenAI, Google Gemini, and xAI Grok are supported only with your own API keys and are not available for AI-powered detection scans.
 1. AI subprocessors return results to Semgrep.
 1. Semgrep stores limited data to support product functionality, in accordance with its [data retention policies](#data-retention-and-storage-by-semgrep).
 
@@ -94,6 +98,7 @@ Stored data is used to:
 - Provide Semgrep Multimodal functionality
 - Enable access to prior results, for example, to provide remediation guidance
 - Support internal performance evaluation
+- Support troubleshooting and debugging
 
 ## Data handling and protections
 - Customer data is logically isolated and is never comingled across tenants
