@@ -63,7 +63,7 @@ Your internal estimate of contributors may differ from Semgrep’s for the follo
 - Personal email addresses cannot always be matched reliably
 - Limited git history reduces the set of visible contributors 
 
-Because of this, contributor count should be understood as a usage metric based on observed repository activity over a defined period, not as an employee roster or HR headcount.
+Because of this, contributor count should be understood as a usage metric based on observed repository activity over a defined period.
 
 ## Why git history matters
 
