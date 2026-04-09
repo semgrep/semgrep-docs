@@ -23,18 +23,17 @@ When using Semgrep AI features:
 
 1. Semgrep accesses repository code on a file-by-file basis. In limited cases, broader repository access may be required.
 1. Relevant data, including portions of source code, are sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
-    - OpenAI (supported by default)
-    - Amazon Bedrock (supported by default)
-    - Anthropic 
-    - Azure OpenAI
-    - Google Gemini
-    - xAI Grok
-   OpenAI and Bedrock are the default providers. Anthropic, Azure OpenAI, Google Gemini, and xAI Grok are supported only with your own API keys and are not available for AI-powered detection scans.
+    - OpenAI (default)
+    - Amazon Bedrock (default)
+    - Anthropic (BYOK; not available for AI-powered detection scans)
+    - Azure OpenAI (BYOK; not available for AI-powered detection scans)
+    - Google Gemini (BYOK; not available for AI-powered detection scans)
+    - xAI Grok (BYOK; not available for AI-powered detection scans)
 1. AI subprocessors return results to Semgrep.
 1. Semgrep stores limited data to support product functionality, in accordance with its [data retention policies](#data-retention-and-storage-by-semgrep).
 
 
-## What data is sent to AI subprocessors
+## Data sent to AI subprocessors
 
 The type and amount of data sent to AI subprocessors depend on the feature being used. The following table summarizes the data transmitted to AI subprocessors:
 
@@ -44,11 +43,11 @@ The type and amount of data sent to AI subprocessors depend on the feature being
 | [Memories](#memories) | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
 | [AI-powered detection scans](#ai-powered-detection-scans) | Full file contents, uploaded context documentation, and scan-related metadata |
 
-Semgrep **does not** intentionally send personal data to AI subprocessors. 
+Semgrep **does not** intentionally send personal data to AI subprocessors.
 
 ## Data retention and storage by Semgrep's AI vendors
 
-All of Semgrep's AI subprocessors operate under **zero data retention** agreements by default. Under the zero data retention agreements, AI subprocessors do not retain or use customer data to train their models. 
+All Semgrep AI subprocessors operate under **zero data retention** agreements by default. Under the zero data retention agreements, AI subprocessors do not retain or use your data to train their models.
 
 Semgrep maintains Data Protection Agreements (DPAs) with all AI subprocessors. Customers can request these through the Semgrep [trust portal](https://trust.semgrep.dev/). Alternatively, contact your Semgrep account manager to request copies of these DPAs.
 
@@ -101,7 +100,7 @@ Stored data is used to:
 - Support troubleshooting and debugging
 
 ## Data handling and protections
-- Customer data is logically isolated and is never comingled across tenants
+- Customer data is logically isolated and never commingled across tenants
 - Semgrep does not intentionally send personal data to AI subprocessors
 - Semgrep and its subprocessors do not obtain ownership rights to your source code
 - Data sent to AI subprocessors is deleted after processing in accordance with zero data retention agreements
@@ -145,6 +144,6 @@ The table below compares default data handling with the minimal data retention p
 | AI prompts and code | May be logged and stored to support functionality and performance evaluation | Not logged or captured by observability tools; not stored in external systems; persistence is limited to what is required for functionality |
 | AI responses | Stored for up to 6 months to provide functionality and access to prior results | Stored only as required to provide functionality, with reduced persistence |
 | Memories | Stored within Semgrep-managed systems and may include user-provided content and small code snippets | Stored within Semgrep-managed systems (no change) |
-| AI-powered detection data | Full file analysis, context documentation, and scan reports may be stored and reused | Context documentation and scan reports remain stored in S3 (exception; no change) |
+| AI-powered detection data | Full file analysis, context documentation, and scan reports may be stored and reused | Context documentation and scan reports remain stored in S3 (no change) |
 | External storage (Semgrep-managed S3) | Used for certain data | Not used, except for AI-powered detection context documents and scan reports |
 | Data deletion | Available upon request | Available upon request |
