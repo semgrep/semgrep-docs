@@ -131,8 +131,8 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 <!-- 5-7 bullets across the product suite; keep in sync with release-notes/march-2026.md -->
 
 - Semgrep's **AI-powered detection** is now available in beta. With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
-- **Click to Fix** is renamed **Autofix** (beta) with AI-generated PRs for Code and Supply Chain. 
-- **Semgrep Workflows** (beta) is a new framework to automate code security pipelines across Code, Supply Chain, Secrets, and Multimodal. See [Workflows](https://semgrep.dev/docs/workflows/overview).
+- **Click to Fix** is renamed **Autofix**
+- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests to Code findings in addition to Supply Chain findings.
 - **Semgrep Assistant** is renamed **Semgrep Multimodal** to better reflect all its AI-powered capabilities.
 - Semgrep is available as a **Cursor** and **Claude Code** plugin for scanning as files change.
 
