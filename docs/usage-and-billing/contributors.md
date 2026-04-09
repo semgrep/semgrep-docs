@@ -56,7 +56,7 @@ All GitHub Enterprise Server repositories are treated as private for this purpos
 
 ## Why your internal estimate might differ
 
-A customer’s internal estimate may differ from Semgrep’s contributor count for a few common reasons:
+Your internal estimate of contributors may differ from Semgrep’s for the following reasons:
 - One person appears under multiple identities in commit history
 - Bots or service accounts are present in raw repository data
 - Public repositories are excluded
