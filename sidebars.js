@@ -757,6 +757,7 @@ module.exports = {
               items: [
                 'deployment/claim-a-license',
                 'usage-and-billing/plan-changes-and-payments',
+                'usage-and-billing/contributors',
                 'usage-and-billing/reconciliation'
               ]
             },
