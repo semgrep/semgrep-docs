@@ -73,12 +73,6 @@ The following updates were made to Semgrep in March 2026.
   - AI credits no longer expire before the subscription ends for prorated or multi-year plans.
 
 
-## 🔁 Semgrep Workflows
-
-### Added
-
-- **Semgrep Workflows** (beta) is a new framework for automated code security pipelines across Semgrep Code, Supply Chain, Secrets, and Semgrep Multimodal, with pre-built and custom workflows on Semgrep-managed infrastructure. See [Workflows](https://semgrep.dev/docs/workflows/overview) for details.
-
 ## 💻 Semgrep Code
 
 ### Added
