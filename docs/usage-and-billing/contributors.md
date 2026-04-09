@@ -1,7 +1,7 @@
 ---
 slug: contributor-count-explained
 append_help_link: true
-title: How Semgrep calculates contributor count
+title: Calculate Semgrep contributor count
 description: Learn how Semgrep calculates contributor count, including deduplication, bot filtering, and repository visibility rules.
 displayed_sidebar: aboutSidebar
 tags:
