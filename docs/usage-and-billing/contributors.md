@@ -12,7 +12,7 @@ hide_title: true
 
 # How Semgrep calculates contributor count
 
-This page explains how Semgrep calculates contributor count beyond the [basic billing definition](/usage-and-billing/overview#contributor-counts). It is intended to help explain why a contributor count may differ from your organization's internal estimate and how Semgrep reduces double-counting in repository history. 
+This page explains how Semgrep calculates contributor count beyond the [basic billing definition](/usage-and-billing/overview#contributor-counts). It is intended to help explain why Semgrep's contributor count may differ from your organization's internal estimate, and how Semgrep reduces double-counting when using repository history. 
 
 ## Why contributor counts can be hard to calculate
 
