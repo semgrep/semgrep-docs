@@ -71,4 +71,4 @@ Contributor count depends on the commit history available at scan time. If a che
 
 ## Questions about your contributor count
 
-If you have questions about your contributor count, contact [Semgrep support](/support) or your account manager for help reviewing the result.
+If you have questions about your contributor count, contact [Semgrep support](/support) or your account manager
