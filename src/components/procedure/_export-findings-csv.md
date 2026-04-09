@@ -11,7 +11,7 @@ Export findings by navigating to the product page and clicking the **<i class="f
 | -------  | ------ |
 | Id | The unique ID number of the finding. |
 | Rule name | The name of the rule.  |
-| Product | The Semgrep product. Possible values are **Code**, **Code (AI)** **Supply Chain**, or **Secrets**.  |
+| Product | The Semgrep product. Possible values are **Code**, **Code (AI)**, **Supply Chain**, or **Secrets**.  |
 | Severity | The finding's severity. Possible values are **Critical**, **High**, **Medium**, or **Low**.  |
 | Status | The finding's triage status.   |
 | Confidence | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
