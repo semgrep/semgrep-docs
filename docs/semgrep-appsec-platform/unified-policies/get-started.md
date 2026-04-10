@@ -2,7 +2,7 @@
 slug: get-started
 title: Get started
 hide_title: true
-description: Learn how to get started and managed unified policies.
+description: Learn how to get started and manage unified policies.
 tags:
   - policies
 ---
