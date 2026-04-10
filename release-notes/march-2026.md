@@ -39,7 +39,7 @@ The following updates were made to Semgrep in March 2026.
 - The **Findings** page now loads code snippets after the main finding details. Slow or unavailable source code managers are less likely to block the page or cause timeouts.
 - Simplified GitHub onboarding by requiring only a single GitHub App installation instead of two. Existing users can now uninstall the public GitHub App if previously installed.
 - GitHub.com source code manager connections can now be added without requiring GitHub SSO login, and users can connect multiple GitHub organizations.
-- Improved member invite emails so invitations clearly require authorization through your login methods.
+- Improved member invite emails so invitations clearly require authorization through one of your accepted login methods.
 - Package registry integration settings under **Settings > Integrations > Registry** now include an option to use the Semgrep Network Broker when a registry is only reachable through your private network.
 - Improved load times for the **Projects** page, **Policies** registry search, and source code repository sync for large deployments.
 - Added support for agentic hooks in Windsurf IDE.
