@@ -127,25 +127,14 @@ See the [Supported languages](/supported-languages#language-maturity-summary) do
 </div>
 -->
 
-<h3>February 2026 release notes summary</h3>
-<!-- 5-7 bullets across the product suite -->
+<h3>March 2026 release notes summary</h3>
+<!-- 5-7 bullets across the product suite; keep in sync with release-notes/march-2026.md -->
 
-- **MCP**: 
-  - Hooks for both Claude Code and Cursor now pull custom rules from the Semgrep Registry.
-  - Enabled DNS rebinding protection for the MCP server.
-- Improved the accuracy of taint tracking through assignments, which helps reduce the number of false positive findings.
-- Added support for case-insensitive string comparisons using `lower()` and `upper()`:
-  ```yaml
-  - metavariable-comparison:
-      metavariable: $VALUE
-      comparison: upper(str($VALUE)) == "SEMGREP"
-  ```
-- You can now pass environmental variables to third-party package managers using `SEMGREP_LOCAL_BUILD_ENV`, which accepts a JSON object, as part of the dependency resolution process invoked by `--allow-local-builds`.
-- The feedback dialog for Multimodal auto-triage now allows you to provide comments in addition to selecting whether you agree or disagree with the recommendation.
-- Documentation updates and additions:
-  - [Managing and using Semgrep access tokens](/deployment/tokens)
-  - [Re-running Semgrep Managed Scans](/kb/semgrep-appsec-platform/rerun-managed-scans)
-  - [Usage and billing](/usage-and-billing/overview)
+- Semgrep's **AI-powered detection** is now available in beta. With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
+- **Click to Fix** has been renamed to **Autofix**
+- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests to Code findings in addition to Supply Chain findings.
+- **Semgrep Assistant** is renamed **Semgrep Multimodal** to better reflect all its AI-powered capabilities.
+- Semgrep is available as a **Cursor** and **Claude Code** plugin for scanning as files change.
 
 [See the latest release notes <i class="fa-solid fa-arrow-right"></i>](/release-notes)
 
