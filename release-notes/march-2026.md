@@ -24,14 +24,14 @@ The following updates were made to Semgrep in March 2026.
 
 ### Added
 
-- AI-powered detection is now available as a beta feature. Organizations using Semgrep Multimodal have AI-powered detection enabled by default.
+-  Semgrep's **AI-powered detection** is now available in beta. With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
 - Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests (PRs) to Code findings in addition to Supply Chain findings.
 - Semgrep is now available as a Cursor and Claude Code plugin, providing automatic security scanning for Code, Supply Chain, and Secrets on every file.
 - Added **Duplicate** as a triage reason for findings when multiple rules identify the same issue or when the same issue is tracked elsewhere.
 - Findings can be linked to an existing ticket URL or have linked tickets removed when a ticketing integration is configured. Linking a ticket replaces any existing ticket associated with the selected findings.
 
 ### Changed
-- Click to Fix has been renamed Autofix.
+- **Click to Fix** has been renamed **Autofix**.
 - On the **Rules & Policies > Policies** page, the **Projects scanning** column now replaces the previous global on/off toggle. You can scope each rule to all projects, selected projects or tags, all projects with exceptions, or disable the rule for all projects. A drawer provides project search, filters, and bulk selection.
 - **Billing & Usage** updates: 
   - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables all AI features. If enforcement is off, these credit indicators stay hidden.
@@ -119,7 +119,7 @@ The following updates were made to Semgrep in March 2026.
 
 ## 🤖 Semgrep Multimodal
 
-- Semgrep Assistant is now Semgrep Multimodal. The terminology has been updated throughout the interface to better reflect its AI-powered capabilities.
+- **Semgrep Assistant** is renamed **Semgrep Multimodal** to better reflect all its AI-powered capabilities.
 
 ### Fixed
 
