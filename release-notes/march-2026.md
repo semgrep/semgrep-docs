@@ -14,7 +14,6 @@ tags:
  
 # Semgrep release notes for March 2026
 
-*Semgrep OSS Engine releases this month: 1.155.0, 1.156.0, and 1.157.0.*
 
 The following updates were made to Semgrep in March 2026.
 
@@ -25,13 +24,12 @@ The following updates were made to Semgrep in March 2026.
 ### Added
 
 -  Semgrep's **AI-powered detection** is now available in beta. With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
-- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests (PRs) to Code findings in addition to Supply Chain findings.
 - Semgrep is now available as a Cursor and Claude Code plugin, providing automatic security scanning for Code, Supply Chain, and Secrets on every file.
 - Added **Duplicate** as a triage reason for findings when multiple rules identify the same issue or when the same issue is tracked elsewhere.
 - Findings can be linked to an existing ticket URL or have linked tickets removed when a ticketing integration is configured. Linking a ticket replaces any existing ticket associated with the selected findings.
 
 ### Changed
-- **Click to Fix** has been renamed **Autofix**.
+**Click to Fix** has been renamed to **Autofix**
 - On the **Rules & Policies > Policies** page, the **Projects scanning** column now replaces the previous global on/off toggle. You can scope each rule to all projects, selected projects or tags, all projects with exceptions, or disable the rule for all projects. A drawer provides project search, filters, and bulk selection.
 - **Billing & Usage** updates: 
   - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables all AI features. If enforcement is off, these credit indicators stay hidden.
@@ -40,7 +38,7 @@ The following updates were made to Semgrep in March 2026.
 - The **Findings** page now loads code snippets after the main finding details. Slow or unavailable source code managers are less likely to block the page or cause timeouts.
 - Simplified GitHub onboarding by requiring only a single GitHub App installation instead of two. Existing users can now uninstall the public GitHub App if previously installed.
 - GitHub.com source code manager connections can now be added without requiring GitHub SSO login, and users can connect multiple GitHub organizations.
-- Improved member invite emails so invitations clearly require authorization through your login methods.
+- Improved member invite emails so invitations clearly require authorization through one of your accepted login methods.
 - Package registry integration settings under **Settings > Integrations > Registry** now include an option to use the Semgrep Network Broker when a registry is only reachable through your private network.
 - Improved load times for the **Projects** page, **Policies** registry search, and source code repository sync for large deployments.
 - Added support for agentic hooks in Windsurf IDE.
@@ -69,13 +67,14 @@ The following updates were made to Semgrep in March 2026.
 - Fixed an issue where bulk ignore required a comment before you could submit when changing **provisionally ignored** findings to **ignored**, even though a comment is optional for that action.
 - Fixed several issues with AI credits billing and usage:
   - AI credits no longer show as zero on **Billing & Usage** when there are active credit grants.
-  -AI credits are no longer counted more than once for organizations with multiple licenses.
+  - AI credits are no longer counted more than once for organizations with multiple licenses.
   - AI credits no longer expire before the subscription ends for prorated or multi-year plans.
 
 
 ## 💻 Semgrep Code
 
 ### Added
+- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests (PRs) to Code findings in addition to Supply Chain findings.
 - The **Code** page now shows AI-powered detection findings and rule-based scan findings, with filters to help you view each type separately.
 - Added beta support for PowerShell.
 
