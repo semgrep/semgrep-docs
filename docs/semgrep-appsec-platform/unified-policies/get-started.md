@@ -14,7 +14,7 @@ This document explains how to migrate existing policies to [unified policies](/s
 ## Migrate existing policies
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
-2. Go to **Rules & Policies > Policies**. You will see a banned that prompts you to begin the upgrade to unified policies. Click to launch the **Upgrade to Unified Policies** dialog, and follow the on-screen prompts to proceed.
+2. Go to **Rules & Policies > Policies**. You will see a banner that prompts you to begin the upgrade to unified policies. Click to launch the **Upgrade to Unified Policies** dialog, and follow the on-screen prompts to proceed.
 3. Review the policies that Semgrep has migrated for you. For each product where you have existing policies, select the **I have reviewed these migration details** checkbox to proceed.
 4. When you have completed the migration process, you'll be redirected to the new **Policies** page where you can manage your detection and remediation policies.
 
