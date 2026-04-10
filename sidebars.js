@@ -469,7 +469,6 @@ module.exports = {
             },
             items: [
               'semgrep-multimodal/metrics',
-              'semgrep-multimodal/privacy'
             ]
           },
           {
@@ -485,7 +484,12 @@ module.exports = {
               'semgrep-multimodal/best-practices-for-memories'
             ]
           },
-          'semgrep-multimodal/analyze'
+          'semgrep-multimodal/analyze',
+          {
+            type: 'doc',
+            id: 'semgrep-multimodal/privacy',
+            label: 'Data privacy and legal considerations'
+          }
           ]
       },
       {

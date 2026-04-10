@@ -59,6 +59,7 @@ export default function NavbarContent(): JSX.Element {
         path.startsWith('/docs/semgrep-assistant') ||
         path.startsWith('/docs/semgrep-ci') ||
         path.startsWith('/docs/semgrep-code') ||
+        path.startsWith('/docs/semgrep-multimodal') ||
         path.startsWith('/docs/semgrep-secrets') ||
         path.startsWith('/docs/semgrep-supply-chain') ||
         path.startsWith('/docs/secure-guardrails') ||
@@ -179,6 +180,7 @@ export default function NavbarContent(): JSX.Element {
     '/docs/semgrep-ce-languages',
     '/docs/semgrep-ci',
     '/docs/semgrep-code',
+    '/docs/semgrep-multimodal',
     '/docs/semgrep-pro-vs-oss',
     '/docs/semgrep-secrets',
     '/docs/semgrep-supply-chain',
