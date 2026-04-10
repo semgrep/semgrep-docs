@@ -39,9 +39,9 @@ The type and amount of data sent to AI subprocessors depend on the feature being
 
 | Feature | Data sent to AI |
 |--------|----------------|
-| [Triage and remediation](#triage-and-remediation) | Code associated with a finding and the minimal surrounding context |
-| [Memories](#memories) | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
-| [AI-powered detection scans](#ai-powered-detection-scans) | Full file contents, uploaded context documentation, and scan-related metadata |
+| Triage and remediation | Code associated with a finding and the minimal surrounding context |
+| Memories | Code associated with a finding, minimal surrounding context, and user-provided Memory content, including code snippets |
+| AI-powered detection scans | Full file contents, uploaded context documentation, and scan-related metadata |
 
 Semgrep **does not** intentionally send personal data to AI subprocessors.
 
