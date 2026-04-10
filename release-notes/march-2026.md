@@ -118,7 +118,7 @@ The following updates were made to Semgrep in March 2026.
 
 ## 🤖 Semgrep Multimodal
 
-- Semgrep Assistant is now Semgrep Multimodal. The terminology has been updated throughout the interface to better reflect its AI-powered capabilities.
+- **Semgrep Assistant** is now **Semgrep Multimodal**. The terminology has been updated throughout the interface to better reflect its AI-powered capabilities.
 
 ### Fixed
 
