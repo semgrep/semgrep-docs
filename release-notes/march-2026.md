@@ -14,7 +14,6 @@ tags:
  
 # Semgrep release notes for March 2026
 
-*Semgrep OSS Engine releases this month: 1.155.0, 1.156.0, and 1.157.0.*
 
 The following updates were made to Semgrep in March 2026.
 
