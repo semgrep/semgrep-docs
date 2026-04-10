@@ -16,7 +16,7 @@ Unified policies allow you to choose the rules and rulesets used for Semgrep sca
 
 ## A comparison of legacy behavior versus the new behavior
 
-Previously, you were able to [define Policies](/semgrep-code/policies) for each Semgrep product on a rule-by-rule basis. For each rule, you could determine whether findings identified based on that rule would be monitored, generate a PR or MR comment, or block a PR or MR from being merged:
+Previously, you were able to [define Policies](/semgrep-code/policies) for each Semgrep product on a rule-by-rule basis. For each rule, you could determine whether findings identified based on that rule would be **monitored**, where the findings are only sent to Semgrep AppSec Platform for review, **generate a PR or MR comment**, or **block a PR or MR from being merged**:
 
 <table>
     <tr>
@@ -78,7 +78,7 @@ With unified policies, your definitions are now split into detection and remedia
   </tr>
   <tr>
     <td><i>Conditions</i></td>
-    <td>Rule is one of:<br /><ul><li>Rule B</li><li>Rule C</li></ul></td>
+    <td>Rule is one of:<br /><ul><li>Rule B</li></ul></td>
   </tr>
   <tr>
     <td><i>Actions</i></td>
@@ -95,7 +95,7 @@ With unified policies, your definitions are now split into detection and remedia
   </tr>
   <tr>
     <td><i>Conditions</i></td>
-    <td>Rule is one of: <br /><ul><li>Rule D</li></ul></td>
+    <td>Rule is one of: <br /><ul><li>Rule C</li><li>Rule D</li></ul></td>
   </tr>
   <tr>
     <td><i>Actions</i></td>

@@ -22,20 +22,18 @@ This document explains how to migrate existing policies to [unified policies](/s
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Go to **Rules & Policies > Detection**. You can manage your policies for:
-   - Code rules
-   - Secrets rules
-   - Supply Chain advisories.
-1.Select the product for which you’d like to manage your Detection policy, and click **Edit**.
-1.Find the rules and rulesets for which you’d like to modify. In addition to filters that allow you to narrow down the list of rules based on scanning behaviors, languages, rulesets, and more, you can search for the rule using its name or label.
-   1. To change the behavior of a single rule:
-      1. Select the rule by clicking the checkbox next to its name.
-      2. Click **Change scanning behavior (n)**.
-      3. In the drop-down menu that appears, select either **Enable selected** or **Disable selected**. This determines whether the rule is used during a scan.
-      4. To change the projects the rule applies to, click the rule’s link in the **Projects scanning** column. You can choose to use the rule with **All projects**, **Selected projects**, **All with exceptions**, or **None (disable)**.
-         1. To use the rule with all of your projects, click **All projects**, then click **Save**.
-         2. To use the rule with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.
-         3. To exclude specific projects, click **All with exceptions**, then select the projects to which the rule doesn’t apply. Click **Save** to proceed.
-         4. To prevent the rule from being used at all, click **None (Disable)**, then **Save** to proceed.
+      - Code rules
+      - Secrets rules
+      - Supply Chain advisories.
+1. Select the product for which you’d like to manage your Detection policy, and click **Edit**.
+1. Find the rules and rulesets for which you’d like to modify. In addition to the  filters that allow you to narrow down the list of rules based on scanning behaviors, languages, rulesets, and more, you can search for the rule using its name or label.
+1. To change the behavior of your rules:
+   1. Select the rules by clicking the checkboxes next to their names, then click **Change scanning behavior (n)**. Alternatively, if you're modifying only one rule, you can click the rule’s link in the **Projects scanning** column.
+   2. The **Projects scanning** dialog appears. You can choose to use the rules with **All projects**, **Selected projects** by **Project name**, **Selected projects** by **Tags**, **All with exceptions**, or **None (disable)**.
+    3. To use the rules with all of your projects, click **All projects**, then click **Save**.
+    4. To use the rules with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.
+    5. To exclude specific projects, click **All with exceptions**, then select the projects to which the rule doesn’t apply. Click **Save** to proceed.
+    6. To prevent the rules from being used at all, click **None (Disable)**, then **Save** to proceed.
 
 ## Create a remediation policy
 
