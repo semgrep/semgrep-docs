@@ -8,7 +8,7 @@ tags:
   - Semgrep Multimodal
 ---
 
-# Data privacy and legal considerations for Semgrep Multimodal
+# Data privacy and legal considerations
 
 Semgrep Multimodal uses API permissions to access code in your selected GitHub or GitLab repositories. To provide AI-powered functionality, portions of the source code are processed by Semgrep's AI model vendors.
 
@@ -81,11 +81,7 @@ Data stored may include:
 - Uploaded context documentation
 - Scan reports, including metadata such as file names and, in some cases, code snippets
 
-
-Storage details:
-
 Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused across scans.
-
 
 ### Retention period
 Stored data is retained for up to 6 months, unless otherwise noted. Semgrep will provide at least 30 days’ notice before making changes to retention policies.
@@ -123,6 +119,18 @@ When the minimal data retention policy is enabled:
 - Data is **not stored in external storage systems**, such as Amazon S3  
 - Stored data is limited to what is strictly required to provide functionality  
 
+The table below compares default data handling with the minimal data retention policy. All stored data is handled by Semgrep or Semgrep-managed systems, not its AI vendors.
+
+
+| Category | Default behavior | Minimal data retention policy |
+|----------|----------------|-------------------------------|
+| AI prompts and code | May be logged and stored to support functionality and performance evaluation | Not logged or captured by observability tools; not stored in external systems, and persistence is limited to what is required for functionality |
+| AI responses | Stored for up to 6 months to provide functionality and access to prior results | Stored only as required to provide functionality, with reduced persistence |
+| Memories | Stored within Semgrep-managed systems and may include user-provided content and small code snippets | No change |
+| AI-powered detection data | Full file analysis, context documentation, and scan reports may be stored and reused | No change |
+| External storage (Semgrep-managed S3) | Used for certain data | Not used, except for AI-powered detection context documents and scan reports |
+| Data deletion | Available upon request | Available upon request |
+
 ### Exceptions for AI-powered detection scans
 
 Under the minimal data retention policy, the following behavior remains unchanged for AI-powered detection scans:
@@ -134,16 +142,5 @@ Responses from Semgrep's AI model vendors are stored in the Semgrep database sol
 
 Any stored data can be deleted upon customer request. Semgrep, Inc. will provide at least 30 days' notice before making any changes to the retention policy.
 
-## Default vs minimal data retention
-
-The table below compares default data handling with the minimal data retention policy. All stored data is handled by Semgrep or Semgrep-managed systems, not its AI vendors.
 
 
-| Category | Default behavior | Minimal data retention policy |
-|----------|----------------|-------------------------------|
-| AI prompts and code | May be logged and stored to support functionality and performance evaluation | Not logged or captured by observability tools; not stored in external systems; persistence is limited to what is required for functionality |
-| AI responses | Stored for up to 6 months to provide functionality and access to prior results | Stored only as required to provide functionality, with reduced persistence |
-| Memories | Stored within Semgrep-managed systems and may include user-provided content and small code snippets | Stored within Semgrep-managed systems (no change) |
-| AI-powered detection data | Full file analysis, context documentation, and scan reports may be stored and reused | Context documentation and scan reports remain stored in S3 (no change) |
-| External storage (Semgrep-managed S3) | Used for certain data | Not used, except for AI-powered detection context documents and scan reports |
-| Data deletion | Available upon request | Available upon request |
