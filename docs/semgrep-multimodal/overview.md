@@ -11,7 +11,7 @@ tags:
 
 # Semgrep Multimodal overview
 
-Semgrep Multimodal provides AI-powered security recommendations to help you review, triage, and remediate your Semgrep findings. 
+Semgrep Multimodal provides AI-powered reasoning with rule-based detection, triage, and remediation of your Semgrep findings. 
 
 To run a full AI-powered detection scan using Semgrep Code, see [AI-powered detection](/docs/deployment/add-ai-to-scans).
 
@@ -32,6 +32,13 @@ Semgrep Multimodal:
   - For diff-aware scans (pull request or merge request scans), up to 10 new issues are auto-analyzed per scan
 
 ## Features
+
+### AI-powered detection scans
+
+Semgrep Multimodal's AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization. Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). 
+
+For step-by-step instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/deployment/add-ai-to-scans).
+
 
 
 ### Explanation

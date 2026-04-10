@@ -103,12 +103,16 @@ To verify that you have the private app installed:
 
 ### Enable Multimodal
 
+:::alert
+Enabling Semgrep Multimodal does not automatically run an AI-powered detection scan. To start your first scan, see [Scan with AI-powered detection](https://semgrep.dev/docs/deployment/add-ai-to-scans).
+:::
+
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to **Settings > Global**, and click the **Semgrep Multimodal** toggle to enable.
 3. The **Set up Semgrep Multimodal** dialog appears. Click **Accept & Enable Semgrep Multimodal** to proceed.
 4. Once you've enabled Semgrep Multimodal, you can change the **AI provider** used and enable additional features, including:
    1. **Weekly priority emails**: Enable weekly emails to all organization admins with information on the top three backlog tasks across all findings.
-   2. **Autofix PR**: Enable the creation of AI-generated pull requests (PR) that fix findings.
+   2. **Autofix PR**: Enable the creation of AI-generated pull requests (PR) that fix findings. Learn more about [Autofix for Code](/semgrep-code/triage-remediation/autofix).
    3. **Noise filter for Code PR/MR comments**: Enable the filtering of findings flagged as false positives. You can choose to suppress any PR or MR comments Semgrep might push, or you can choose to show developers information regarding false positives using PR or MR comments.
    4. **Suggested fix**: Enable Multimodal-generated autofix suggestions in comments from Multimodal. You can also set the minimum confidence level for Multimodal-written fixes if the Semgrep rule doesn't include a human-written autofix.
    5. **Upgrade Guidance & Autofix**: Enable analysis of dependency upgrades for breaking changes. Semgrep displays safe-to-upgrade and breaking-change indicators on Supply Chain findings when enabled.
