@@ -24,7 +24,6 @@ The following updates were made to Semgrep in March 2026.
 ### Added
 
 - AI-powered detection is now available as a beta feature. Organizations using Semgrep Multimodal have AI-powered detection enabled by default.
-- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests (PRs) to Code findings in addition to Supply Chain findings.
 - Semgrep is now available as a Cursor and Claude Code plugin, providing automatic security scanning for Code, Supply Chain, and Secrets on every file.
 - Added **Duplicate** as a triage reason for findings when multiple rules identify the same issue or when the same issue is tracked elsewhere.
 - Findings can be linked to an existing ticket URL or have linked tickets removed when a ticketing integration is configured. Linking a ticket replaces any existing ticket associated with the selected findings.
@@ -75,6 +74,7 @@ The following updates were made to Semgrep in March 2026.
 ## 💻 Semgrep Code
 
 ### Added
+- Autofix is now in beta for Semgrep Code, extending AI-generated draft pull requests (PRs) to Code findings in addition to Supply Chain findings.
 - The **Code** page now shows AI-powered detection findings and rule-based scan findings, with filters to help you view each type separately.
 - Added beta support for PowerShell.
 
