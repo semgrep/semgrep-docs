@@ -30,7 +30,7 @@ The following updates were made to Semgrep in March 2026.
 - Findings can be linked to an existing ticket URL or have linked tickets removed when a ticketing integration is configured. Linking a ticket replaces any existing ticket associated with the selected findings.
 
 ### Changed
-- Click to Fix has been renamed Autofix.
+**Click to Fix** has been renamed to **Autofix**
 - On the **Rules & Policies > Policies** page, the **Projects scanning** column now replaces the previous global on/off toggle. You can scope each rule to all projects, selected projects or tags, all projects with exceptions, or disable the rule for all projects. A drawer provides project search, filters, and bulk selection.
 - **Billing & Usage** updates: 
   - When a deployment enforces AI credit limits, Semgrep AppSec Platform now shows alerts for low or exhausted credits and disables all AI features. If enforcement is off, these credit indicators stay hidden.
