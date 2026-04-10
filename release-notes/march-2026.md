@@ -68,7 +68,7 @@ The following updates were made to Semgrep in March 2026.
 - Fixed an issue where bulk ignore required a comment before you could submit when changing **provisionally ignored** findings to **ignored**, even though a comment is optional for that action.
 - Fixed several issues with AI credits billing and usage:
   - AI credits no longer show as zero on **Billing & Usage** when there are active credit grants.
-  -AI credits are no longer counted more than once for organizations with multiple licenses.
+  - AI credits are no longer counted more than once for organizations with multiple licenses.
   - AI credits no longer expire before the subscription ends for prorated or multi-year plans.
 
 
