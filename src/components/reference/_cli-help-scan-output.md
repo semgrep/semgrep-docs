@@ -501,6 +501,9 @@ EXPERIMENTAL OPTIONS
        Any option starting with '--x-' is experimental and may be removed
        from semgrep without notice.
 
+       --no-x-run-taint-once
+           [INTERNAL] Disable running taint analysis just once
+
        --x-disable-transitive-reachability
            [INTERNAL] Disable transitive reachability analysis regardless of
            app-based configuration.
@@ -549,6 +552,9 @@ EXPERIMENTAL OPTIONS
 
        --x-pro-naming
            [INTERNAL] Do not use
+
+       --x-run-taint-once
+           [INTERNAL] Run taint analysis just once (default: true)
 
        --x-semgrepignore-filename=FILENAME
            [INTERNAL] Files named FILENAME shall be consulted instead of the

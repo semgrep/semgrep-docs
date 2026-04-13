@@ -417,6 +417,12 @@ EXPERIMENTAL OPTIONS
        Any option starting with '--x-' is experimental and may be removed
        from semgrep without notice.
 
+       --no-x-run-taint-once
+           [INTERNAL] Disable running taint analysis just once
+
+       --x-computed-dependencies-dir=VAL
+           Internal flag.
+
        --x-disable-transitive-reachability
            [INTERNAL] Disable transitive reachability analysis regardless of
            app-based configuration.
@@ -428,6 +434,12 @@ EXPERIMENTAL OPTIONS
            Internal flag.
 
        --x-dump-rule-partitions-strategy=VAL
+           Internal flag.
+
+       --x-dump-scan-config-path=VAL
+           Internal flag.
+
+       --x-dump-subprojects-and-exit=VAL
            Internal flag.
 
        --x-eio
@@ -468,6 +480,9 @@ EXPERIMENTAL OPTIONS
        --x-pro-naming
            [INTERNAL] Do not use
 
+       --x-run-taint-once
+           [INTERNAL] Run taint analysis just once (default: true)
+
        --x-semgrepignore-filename=FILENAME
            [INTERNAL] Files named FILENAME shall be consulted instead of the
            files named '.semgrepignore'. This option can be useful for
@@ -487,6 +502,9 @@ EXPERIMENTAL OPTIONS
            Internal flag.
 
        --x-upload-partial-results-scan-id=VAL
+           Internal flag.
+
+       --x-use-saved-scan-config-path=VAL
            Internal flag.
 
        --x-validate-partial-results-actual=VAL
