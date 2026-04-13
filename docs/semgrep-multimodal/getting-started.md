@@ -100,7 +100,7 @@ The private Semgrep GitHub app:
 
 To verify that you have the private app installed:
 
-1. In Semgrep AppSec Platform, go to **Settings > Source Code Managers**.
+1. In [Semgrep AppSec Platform](https://semgrep.dev/login)Upgrade Guidance & Autofix, go to **Settings > Source Code Managers**.
 2. Find the entry for GitHub. If you have the **Private app** installed, Semgrep displays a message underneath this label that reads **Enables Autotriage, Managed Scans, and Auto-scan**. 
 3. If you *don't* have the **Private app** installed, the **Install** button is shown to you. To install the private app:
    1. Click **Install** to launch the **Add GitHub App** page.
@@ -122,7 +122,7 @@ After enabling Semgrep Multimodal, you can configure the [AI provider](https://s
 - **[Autofix PR](/semgrep-code/triage-remediation/autofix)**: Automatically create AI-generated pull requests (PRs) to remediate findings.
 - **[Noise filter for Code PR/MR comments](/semgrep-appsec-platform/github-pr-comments#configure-comments-for-semgrep-code)**: Filter out findings identified as false positives. You can choose to suppress PR or MR comments entirely or display informational comments indicating that a finding is a false positive.
 - **[Suggested fix](/semgrep-multimodal/customize#remediation)**: Enable Multimodal-generated autofix suggestions in PR and MR comments. You can also set a minimum confidence threshold for AI-generated fixes when a rule does not include a human-authored autofix.
-**[Upgrade Guidance & Autofix](/semgrep-supply-chain/triage-and-remediation#upgrade-guidance-and-autofix-beta)**: Analyze dependency upgrades for potential breaking changes. When enabled, Semgrep displays indicators for safe upgrades and potential breaking changes in Supply Chain findings.
+- **[Upgrade Guidance & Autofix](/semgrep-supply-chain/triage-and-remediation#upgrade-guidance-and-autofix-beta)**: Analyze dependency upgrades for potential breaking changes. When enabled, Semgrep displays indicators for safe upgrades and potential breaking changes in Supply Chain findings.
 
 </TabItem>
 
@@ -146,7 +146,7 @@ After enabling Semgrep Multimodal, you can configure the [AI provider](https://s
 - **[Autofix PR](/semgrep-code/triage-remediation/autofix)**: Automatically create AI-generated pull requests (PRs) to remediate findings.
 - **[Noise filter for Code PR/MR comments](/semgrep-appsec-platform/github-pr-comments#configure-comments-for-semgrep-code)**: Filter out findings identified as false positives. You can choose to suppress PR or MR comments entirely or display informational comments indicating that a finding is a false positive.
 - **[Suggested fix](/semgrep-multimodal/customize#remediation)**: Enable Multimodal-generated autofix suggestions in PR and MR comments. You can also set a minimum confidence threshold for AI-generated fixes when a rule does not include a human-authored autofix.
-**[Upgrade Guidance & Autofix](/semgrep-supply-chain/triage-and-remediation#upgrade-guidance-and-autofix-beta)**: Analyze dependency upgrades for potential breaking changes. When enabled, Semgrep displays indicators for safe upgrades and potential breaking changes in Supply Chain findings.
+- **[Upgrade Guidance & Autofix](/semgrep-supply-chain/triage-and-remediation#upgrade-guidance-and-autofix-beta)**: Analyze dependency upgrades for potential breaking changes. When enabled, Semgrep displays indicators for safe upgrades and potential breaking changes in Supply Chain findings.
 
 </TabItem>
 </Tabs>
