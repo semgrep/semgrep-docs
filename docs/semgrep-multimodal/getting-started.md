@@ -107,7 +107,7 @@ To verify that you have the private app installed:
    2. Review the information provided, and click **Register GitHub App** to proceed.
    3. The **Continue to SCM** dialog appears, since you must finish installing the app with GitHub. Click **Continue** to proceed.
    4. Follow the prompts provided by GitHub to finish creating the app.
-   5. When done, GitHubs redirect you back to Semgrep AppSec Platform.
+   5. When done, GitHub redirects you back to Semgrep AppSec Platform.
 
 ### Enable Multimodal
 
