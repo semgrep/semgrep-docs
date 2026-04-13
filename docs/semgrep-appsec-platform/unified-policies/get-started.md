@@ -47,11 +47,9 @@ This document explains how to migrate existing policies to [unified policies](/s
       - For example, you can select **Severity**, then complete the conditional statement provided to read **When Severity is any of Critical, High**.
       - You can define as many conditions as necessary, and Semgrep treats them additively.
    5. Choose the **Actions** that occur if there are findings that trigger the policy by clicking **+ Add action**. You can choose multiple **Actions**, including:
-      - **Comment on and block PR/MR merge**
-      - **Comment on PR/MR**
-      - **Create a JIRA ticket**
-      - **Send a Slack message**
-      - **Call a webhook**
-       
-       Note that the following actions require additional configuration: [Create a Jira ticket](/semgrep-appsec-platform/jira), [Send a Slack message](/semgrep-appsec-platform/slack-notifications), and [Call a webhook](/semgrep-appsec-platform/webhooks).
+      - [**Comment on and block PR/MR merge**](/category/pr-or-mr-comments)
+      - [**Comment on PR/MR**](/category/pr-or-mr-comments)
+      - [**Create a JIRA ticket**](/semgrep-appsec-platform/jira)
+      - [**Send a Slack message**](/semgrep-appsec-platform/slack-notifications)
+      - [**Call a webhook**](/semgrep-appsec-platform/webhooks)
    6. Click **Create & Enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Create** to save your changes without enabling the policy.
