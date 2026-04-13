@@ -37,7 +37,7 @@ Previously, you were able to [define Policies](/semgrep-code/policies) for each 
     </tr>
 </table>
 
-With unified policies, your definitions are now split into detection and remediation policies:
+With unified policies, your definitions are now split into detection and remediation policies. The following tables show the detection policy enabling the rules for all projects and the remediation policy defining the actions that occur when the specified rules generate findings:
 
 <table>
 <thead>
