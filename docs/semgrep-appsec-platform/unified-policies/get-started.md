@@ -26,9 +26,9 @@ This document explains how to migrate existing policies to [unified policies](/s
       - Secrets rules
       - Supply Chain advisories
 1. Select the product for which you’d like to manage your Detection policy, and click **Edit**.
-1. Find the rules and rulesets for which you’d like to modify. In addition to the  filters that allow you to narrow down the list of rules based on scanning behaviors, languages, rulesets, and more, you can search for the rule using its name or label.
+1. Find the rules and rulesets you’d like to modify. Filters allow you to narrow the list of rules based on scanning behaviors, languages, rulesets, and more. You can also search for a rule using its name or label.
 1. To change the behavior of your rules:
-   1. Select the rules by clicking the checkboxes next to their names, then click **Change scanning behavior (n)**. Alternatively, if you're modifying only one rule, you can click the rule’s link in the **Projects scanning** column.
+   1. Select the rules by clicking the checkboxes next to their names, then click **Change scanning behavior (n)**. If you're modifying only one rule, you can click the rule’s link in the **Projects scanning** column.
    2. The **Projects scanning** dialog appears. You can choose to use the rules with **All projects**, **Selected projects** by **Project name**, **Selected projects** by **Tags**, **All with exceptions**, or **None (disable)**.
     3. To use the rules with all of your projects, click **All projects**, then click **Save**.
     4. To use the rules with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.
@@ -52,5 +52,6 @@ This document explains how to migrate existing policies to [unified policies](/s
       - **Create a JIRA ticket**
       - **Send a Slack message**
       - **Call a webhook**
+       
        Note that the following actions require additional configuration: [Create a Jira ticket](/semgrep-appsec-platform/jira), [Send a Slack message](/semgrep-appsec-platform/slack-notifications), and [Call a webhook](/semgrep-appsec-platform/webhooks).
    6. Click **Create & Enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Create** to save your changes without enabling the policy.
