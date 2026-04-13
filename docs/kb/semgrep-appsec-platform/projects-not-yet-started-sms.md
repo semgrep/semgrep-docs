@@ -13,7 +13,7 @@ If you need immediate results for specific projects, you can manually trigger a 
 
 1. In Semgrep AppSec Platform, navigate to **Projects**.
 2. Find the project you want to scan, then click the project's **<i class="far fa-window-restore"></i> window icon** under the **Details** column.
-3. On the project's **Details** page, click **Run a new scan**.
+3. On the project's **Details** page, click **Run a new scan > Rule-based detection**.
 
 After the initial scan, Semgrep automatically scans each repository every week.
 

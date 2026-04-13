@@ -49,7 +49,7 @@ You have finished setting up a Semgrep managed scan.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that have never started.
 
 ### Troubleshoot your Semgrep GitHub app installation
 
@@ -128,20 +128,13 @@ To **view** the repositories you have granted access to:
 1. Review the repositories under repository access.
 1. Perform steps 2 and 3 on the entry of your private Semgrep GitHub app.
 
-### Scan logs
+#### Scan logs
 
-#### Most recent scan
-
-You can view logs for your most recent scan by clicking **Projects > the project's latest scan time** under **Scan status**.
+To view your scan logs in Semgrep AppSec Platform, go to **Projects**, then click on the project name. The projects in the list are sorted by scan date, with the most recent scans are listed first.
 
 :::info
-It can take a few minutes for your latest scan's logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
+It can take a few minutes for your latest scan logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
 :::
-
-#### All scans
-
-1. Click the project's **Details** page > **Scans** tab. 
-1. Click the **<i class="fas fa-scroll"></i>** scroll icon under **Logs** to view the log for the particular entry. 
 
 ### Scan statistics
 
