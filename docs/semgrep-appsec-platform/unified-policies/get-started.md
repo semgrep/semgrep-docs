@@ -24,7 +24,7 @@ This document explains how to migrate existing policies to [unified policies](/s
 1. Go to **Rules & Policies > Detection**. You can manage your policies for:
       - Code rules
       - Secrets rules
-      - Supply Chain advisories.
+      - Supply Chain advisories
 1. Select the product for which you’d like to manage your Detection policy, and click **Edit**.
 1. Find the rules and rulesets for which you’d like to modify. In addition to the  filters that allow you to narrow down the list of rules based on scanning behaviors, languages, rulesets, and more, you can search for the rule using its name or label.
 1. To change the behavior of your rules:
