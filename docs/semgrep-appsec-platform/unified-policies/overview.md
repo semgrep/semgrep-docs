@@ -11,7 +11,7 @@ tags:
 
 Unified policies allow you to choose the rules and rulesets used for Semgrep scans and define what happens to a finding after identification, such as whether a finding is monitored, generates a pull request (PR) or merge request (MR) comment, or blocks a PR or MR. With unified policies, there are two types of policy definitions available to you:
 
-- **Detection policies**, which determine what rules are used to scan your project
+- **Detection policies**, which determine what rules are used to scan your project.
 - **Remediation policies**, which determine what happens to the findings identified by Semgrep. These actions can include leaving PR/MR comments, blocking the PRs/MRs, creating Jira tickets, sending Slack notifications, and more.
 
 ## A comparison of legacy behavior versus the new behavior
