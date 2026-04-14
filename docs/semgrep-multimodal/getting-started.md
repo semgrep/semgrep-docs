@@ -100,7 +100,7 @@ The private Semgrep GitHub app:
 
 To verify that you have the private app installed:
 
-1. In [Semgrep AppSec Platform](https://semgrep.dev/login)Upgrade Guidance & Autofix, go to **Settings > Source Code Managers**.
+1. In [Semgrep AppSec Platform](https://semgrep.dev/login), go to **Settings > Source Code Managers**.
 2. Find the entry for GitHub. If you have the **Private app** installed, Semgrep displays a message underneath this label that reads **Enables Autotriage, Managed Scans, and Auto-scan**. 
 3. If you *don't* have the **Private app** installed, the **Install** button is shown to you. To install the private app:
    1. Click **Install** to launch the **Add GitHub App** page.
@@ -128,7 +128,7 @@ After enabling Semgrep Multimodal, you can configure the [AI provider](https://s
 
 <TabItem value='gitlab'>
 
-To build context for Semgrep Multimodal, **API scope** must be enabled on both GitLab SaaS and self-managed instances. This can be specified at either the [project access token level](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token level](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
+To build context for Semgrep Multimodal, you must provide either a [project access token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with the **API scope**.
 
 * You can revoke [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#revoke-a-project-access-token) or [personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#revoke-a-personal-access-token) at any time.
 * Semgrep Multimodal only accesses source code repositories (projects) on a file-by-file basis; it does not need or request org-level access to your codebase.

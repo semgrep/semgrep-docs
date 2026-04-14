@@ -22,11 +22,11 @@ Semgrep Multimodal:
 - Requires the Semgrep AppSec Platform
 
 
-### Automatic analysis behavior
+### Automatic analysis
 
-Semgrep Multimodal auto-analyzes many, but not all, findings during scans: 
+Semgrep Multimodal auto-analyzes findings that meet the following criteria:
 - Full scans: All new findings that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
-- Diff-aware scans (PR/MR scans): Up to 10 new findings are automatically analyzed per scan. AI-powered detection does not support diff-aware scans.
+- Diff-aware scans (pull request and merge request scans): Up to 10 new findings are automatically analyzed per scan. AI-powered detection does not support diff-aware scans.
 
 ### Supported source code managers
 
@@ -40,9 +40,9 @@ Most Multimodal features are available for the following source code managers (S
 
 ### AI-powered detection scans
 
-Semgrep Multimodal's AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization. Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). 
+With Semgrep Multimodal's AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization. Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). 
 
-For step-by-step instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/deployment/add-ai-to-scans).
+For instructions on enabling and running an AI-powered scan, see [Scan with AI-powered detection](/deployment/add-ai-to-scans).
 
 
 
