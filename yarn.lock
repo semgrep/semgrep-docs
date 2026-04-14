@@ -2653,7 +2653,7 @@
 
 "@renatonagliati/remark-auto-glossary@git+https://github.com/renatonagliati/remark-auto-glossary.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/renatonagliati/remark-auto-glossary.git#b99c75f38d194dd08285a96942cd69513ac24623"
+  resolved "git+https://github.com/renatonagliati/remark-auto-glossary.git#b99c75f38d194dd08285a96942cd69513ac24623"
   dependencies:
     js-yaml "^4.1.0"
     mdast-util-heading-range "^2.0.1"
