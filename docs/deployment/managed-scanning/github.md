@@ -49,7 +49,7 @@ You have finished setting up a Semgrep managed scan.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that have never started.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that never started.
 
 ### Troubleshoot your Semgrep GitHub app installation
 

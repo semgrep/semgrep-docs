@@ -62,7 +62,7 @@ You have successfully set up Managed Scans for your workspace or project.
 
 - After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories in the workspace.
 - Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
-- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that have never started.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that never started.
 
 ## Add additional Bitbucket projects
 
@@ -129,7 +129,7 @@ The following steps revoke the code access you previously granted Semgrep for al
 
 ### Scan logs
 
-To view your scan logs in Semgrep AppSec Platform, go to **Projects**, then click on the project name. The projects in the list are sorted by scan date with the most recent scans are listed first.
+To view your scan logs in Semgrep AppSec Platform, go to **Projects**, then click on the project name. The projects in the list are sorted by scan date, with the most recent scans listed first.
 
 :::info
 It can take a few minutes for your latest scan logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
