@@ -55,7 +55,7 @@ Regardless of whether you use the **Priority** findings view or the **All** find
 
 ### Project
 
-The **Project** filter allows you to search for findings associated with the selected projects.
+The **%%Project|project%%** filter allows you to search for findings associated with the selected projects.
 
 ### Status
 
@@ -76,11 +76,11 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 
 | Filter | Description |
 | - | - |
-| **Validation state**      | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
-| **Secret type**           | Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
-| **Repository visibility** | Filter by whether the repository's [visibility](#repository-visibility) status. |
+| **%%Validation state\|validation_state%%**      | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
+| **%%Secret\|secret%% type**           | Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
+| **%%Repository\|repository%% visibility** | Filter by whether the repository's [visibility](#repository-visibility) status. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
-| **Project tags** | Filter for findings based on the tags associated with the project. |
+| **%%Project\|project%% tags** | Filter for findings based on the tags associated with the project. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
 | **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
 
@@ -114,10 +114,10 @@ Refers to whether or not a secret is active and can be used to grant resources o
 
 Refers to whether or not the repository is a public repository or private. This is detected through your source code manager.
 
-| Repository visibility | Description |
+| %%Repository\|repository%% visibility | Description |
 | -----------  | ------------ |
-| Public | Repository access doesn't require authentication; at a minimum, it can be viewed by anyone. |
-| Private | Repository access requires authentication. |
+| Public | %%Repository\|repository%% access doesn't require authentication; at a minimum, it can be viewed by anyone. |
+| Private | %%Repository\|repository%% access requires authentication. |
 | Unknown | Semgrep Secrets is unable to detect your repository visibility. This is typically assigned to: <ul><li>Scans from local developer machines.</li><li>Scans from any non-GitHub source code manager, such as GitLab.</li></ul> |
 
 :::info

@@ -27,7 +27,7 @@ Licenses are detected based on the **package manager** used. See [Supported lang
 
 Licenses in Semgrep can be assigned any of the following policies:
 
-| Policy | Description |
+| %%Policy\|policy%% | Description |
 | - | - |
 | **Allow** | Packages with licenses assigned this type of permission are allowed for use in the codebase. |
 | **Comment** | Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR introducing the package into the codebase. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only. |
@@ -121,7 +121,7 @@ You can add an [exemption for the package](#create-exemptions) if subsequent rev
 
 You can create exemptions to **allow** specific dependencies with licenses that are typically blocked. This feature is useful for internal dependencies not accessed by users or external APIs. 
 
-Dependency exemptions are currently version-specific, so each version used must be exempted individually.
+%%Dependency|dependency%% exemptions are currently version-specific, so each version used must be exempted individually.
 
 To exempt a package:
 

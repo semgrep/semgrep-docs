@@ -37,8 +37,8 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
-1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Cross-file analysis** toggle to turn on this feature.
-1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to Policy**. For best results, set this ruleset to the **Monitor** rule mode.
+1. Click the **<i class="fa-solid fa-toggle-large-on"></i> %%Cross-file analysis|cross_file_analysis%%** toggle to turn on this feature.
+1. Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to %%Policy|policy%%**. For best results, set this ruleset to the **Monitor** rule mode.
 
 **Full scans** now include cross-file analysis. You can trigger a full scan through your CI provider. Note that cross-file analysis does **not** currently run on diff-aware (pull request or merge request) scans.
 
@@ -51,7 +51,7 @@ This is the preferred method to run cross-file analysis. It enables you to view 
 1. Sign up or sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. For first-time users, click **Create an organization**. Note that you can further integrate organizations (orgs) with GitLab accounts and GitHub accounts, including personal and org accounts, after you complete this procedure.
 1. Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
-1. Click the **<i class="fa-solid fa-toggle-large-on"></i> Cross-file analysis** toggle to turn on this feature.
+1. Click the **<i class="fa-solid fa-toggle-large-on"></i> %%Cross-file analysis|cross_file_analysis%%** toggle to turn on this feature.
 1. Ensure that you are in the **root directory** of the repository you want to scan.
 1. In your CLI, log in to your Semgrep AppSec Platform account and run a scan:
 ```sh
@@ -60,7 +60,7 @@ semgrep login && semgrep ci
 
 #### Update cross-file analysis in the CLI
 
-Cross-file analysis uses a separate `semgrep` binary. To update to the latest version, follow these steps:
+%%Cross-file analysis|cross_file_analysis%% uses a separate `semgrep` binary. To update to the latest version, follow these steps:
 
 1. Update your Semgrep CLI tool with the following command:
     <Tabs
@@ -157,7 +157,7 @@ This results in a failure to detect the true positive, because Semgrep did not p
 
 ### CommonJS
 
-Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. Cross-file analysis does not track the code below:
+Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. %%Cross-file analysis|cross_file_analysis%% does not track the code below:
 
 ```js
 function get_user() {
@@ -169,7 +169,7 @@ module.exports = get_user
 
 ### Regressions in cross-file analysis
 
-Cross-file analysis resolves names differently than Semgrep CE's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep CE. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/docs/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+%%Cross-file analysis|cross_file_analysis%% resolves names differently than Semgrep CE's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep CE. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/docs/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 ## Appendix
 
@@ -200,13 +200,13 @@ By default, if a scan uses more than **5 GB** of memory during cross-file pre-pr
 If 1-2 repositories cause CI scan issues and scanning these repositories with interfile analysis is not critical, modify your configuration file to use `semgrep ci --pro-intrafile`. This overrides the Semgrep AppSec Platform setting for these repositories, and always runs these scans with single-file, cross-function analysis.
 
 If many repositories cause scan issues, or you have critical repositories you are unable to scan with Semgrep's interfile analysis:
-1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **Cross-file analysis** toggle in the **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)** page of your organization.
+1. Disable the <i class="fa-solid fa-toggle-large-on"></i> **%%Cross-file analysis|cross_file_analysis%%** toggle in the **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)** page of your organization.
 1. Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/docs/kb/semgrep-code/semgrep-scan-troubleshooting) or [Troubleshooting "You are seeing this because the engine was killed."](/docs/kb/semgrep-code/scan-engine-kill)
 1. If you need additional guidance, [contact Semgrep Support](/docs/support), or reach out to the Semgrep team in the <a href="https://go.semgrep.dev/slack">Semgrep Community Slack</a> so we can help you resolve the issue and create a plan for your organization.
 
 ### Difference between cross-file analysis and join mode
 
-Cross-file analysis is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
+%%Cross-file analysis|cross_file_analysis%% is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Feedback for Semgrep Code's advanced analyses
 

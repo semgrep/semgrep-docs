@@ -34,7 +34,7 @@ To use Autofix, you must meet the following requirements:
   - The app is installed when you [add GitHub repositories to Semgrep Managed Scans](/deployment/managed-scanning/github#permissions).
   - Verify that the app is connected by navigating to **[Semgrep AppSec Platform > Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code)**.
 * Ensure that your GitHub App has `Contents: Read and write` permissions configured.
-  - Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **Repository permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
+  - Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **%%Repository|repository%% permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
 
 <GithubAppReadWritePermissions />
 

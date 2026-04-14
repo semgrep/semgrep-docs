@@ -11,7 +11,7 @@ Join mode runs several Semgrep rules at once and only returns results if certain
 Think of join mode like this: distinct Semgrep rules are used to gather information about a code base. Then, the conditions you define are used to select specific results from these rules, and the selected results are reported by Semgrep. You can join results on metavariable contents or on the result's file path.
 
 :::info
-You can also use cross-file (interfile) analysis. For more information, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro). Cross-file analysis is preferred over join mode where either of the two are feasible. Neither is currently available in Semgrep Community Edition (CE).
+You can also use cross-file (interfile) analysis. For more information, see [<i class="fa-regular fa-file-lines"></i> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro). %%Cross-file analysis|cross_file_analysis%% is preferred over join mode where either of the two are feasible. Neither is currently available in Semgrep Community Edition (CE).
 :::
 
 ## Example
@@ -45,7 +45,7 @@ rules:
 
 Let's explore how this works. First, some background on the vulnerability. Second, we'll walk through the join mode rule.
 
-**Vulnerability background**
+**%%Vulnerability|vulnerability%% background**
 
 In Flask, templates are only HTML-escaped if the [template file ends with the `.html` extension](https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup). Therefore, detecting these two conditions present in a Flask application is a high indicator of
 

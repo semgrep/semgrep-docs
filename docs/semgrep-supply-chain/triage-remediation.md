@@ -96,11 +96,11 @@ The following table summarizes the features available to you depending on the pr
 
 | Semgrep features available | [Read and write `Content` permission granted](#grant-read-and-write-access-to-a-private-github-semgrep-app) | [Code access granted to Semgrep through installation of the private GitHub app](/deployment/managed-scanning/github#permissions) | [Semgrep Multimodal enabled](/semgrep-multimodal/getting-started) | [Private registry connected to Semgrep](#connect-a-private-registry-to-semgrep) |
 | - | - | - | - | - |
-| All Autofix and upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
-| All Autofix and upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
+| All Autofix and upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the %%Finding\|finding%% Details page</li><li>Coupled or blocked upgrade information shown on the %%Finding\|finding%% Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
+| All Autofix and upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the %%Finding\|finding%% Details page</li><li>Coupled or blocked upgrade information shown on the %%Finding\|finding%% Details page</li><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
 | Autofix, but <b>not for dependencies in a private registry</b>: <ul><li>Ability to open a PR to upgrade</li></ul> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
-| All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
-| All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the Finding Details page</li><li>Coupled or blocked upgrade information shown on the Finding Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
+| All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the %%Finding\|finding%% Details page</li><li>Coupled or blocked upgrade information shown on the %%Finding\|finding%% Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> |
+| All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the %%Finding\|finding%% Details page</li><li>Coupled or blocked upgrade information shown on the %%Finding\|finding%% Details page</li></ul> | <i class="fa-solid fa-ban"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-check"></i> | <i class="fa-solid fa-triangle-exclamation"></i> The private registry is not connected to Semgrep |
 
 ### How this works
 
@@ -133,11 +133,11 @@ The following context is included in the pull request description:
 - Summary
   - Severity and reachability of the finding
   - The specific version of the dependency that the PR upgrades to
-- Vulnerability details
+- %%Vulnerability|vulnerability%% details
   - A description of the vulnerability and links to its CVE references
 - Upgrade guidance
   - The files and functions in the code which make use of the dependency and likely include breaking changes
-- Dependency references
+- %%Dependency|dependency%% references
   - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
 
 ## Ignore findings
@@ -173,7 +173,7 @@ To prevent security vulnerabilities from being merged into your codebase, see [S
 3. Click **Add**, then select **Registry**.
 4. In the dialog that appears, provide the following information:
    1. The **Name** of your registry.
-   2. Select the **Package manager**.
+   2. Select the **%%Package manager|package_manager%%**.
    3. Select the **Authentication method**. If none is required, select **None (public registry)**.
       1. If you select **Username and password**, provide the required **Username** and **Password**.
       2. If you select **API token**, provide the required token value.

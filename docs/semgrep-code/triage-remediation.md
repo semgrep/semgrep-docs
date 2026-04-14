@@ -175,7 +175,7 @@ You can also set the state in the **Mode** column to **Disabled** for individual
 To turn off a **ruleset** using the Policies page:
 
 1. Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
-2. Use the **Ruleset** filter's drop-down box to find and click the ruleset to remove.
+2. Use the **%%Ruleset|ruleset%%** filter's drop-down box to find and click the ruleset to remove.
 3. Click <i class="fas fa-check-square"></i> **Matching rules**.
 4. Click **Change modes > Disabled**.
 

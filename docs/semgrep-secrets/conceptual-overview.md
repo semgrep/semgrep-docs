@@ -30,9 +30,9 @@ To ensure that findings are high-signal, comprehensive, and easy for users to
 prioritize, a Semgrep Secrets scan performs the following:
 
 * Search using regex
-* Semantic analysis
+* %%Semantic analysis|semantic_analysis%%
 * Validation
-* Entropy analysis
+* %%Entropy analysis|entropy_analysis%%
 
 The following sections explain how each step works.
 
@@ -44,11 +44,11 @@ To reduce the number of false positives this process raises, Semgrep uses and co
 
 - Removal of results that are likely to be false positives
 - Validation
-- Entropy analysis
+- %%Entropy analysis|entropy_analysis%%
 
 ### Detect secrets through semantic analysis
 
-Semantic analysis refers to Semgrep Secrets' ability to understand how data is
+%%Semantic analysis|semantic_analysis%% refers to Semgrep Secrets' ability to understand how data is
 used within your code. This differentiates Semgrep Secrets from regex-based
 detectors that simply define a pattern to match a piece of code.
 

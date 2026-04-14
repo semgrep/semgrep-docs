@@ -3,8 +3,7 @@ slug: sca-package-manager-support
 append_help_link: true
 title: Package manager support
 hide_title: true
-description: Supported package managers and lockfiles for Semgrep Supply Chain
-    scans.
+description: Supported package managers and lockfiles for Semgrep Supply Chain scans.
 tags:
   - Semgrep Supply Chain
 ---
@@ -132,4 +131,4 @@ The following table lists all Semgrep-supported package managers for each langua
 
 _<strong>*</strong>Supply Chain does not analyze the transitivity of packages for
 these language and manifest file or lockfile combinations. All dependencies are
-listed as **No Reachability Analysis.**_<br />
+listed as **No %%Reachability|reachability%% Analysis.**_<br />

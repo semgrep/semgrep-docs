@@ -66,7 +66,7 @@ Regardless of whether you use the **Priority** findings view or the **All** find
 
 ### Project
 
-The **Project** filter allows you to search for findings associated with the selected projects.
+The **%%Project|project%%** filter allows you to search for findings associated with the selected projects.
 
 ### Status
 
@@ -90,9 +90,9 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
 | **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Multimodal. |
 | **Dependencies** | The name of the dependency involved. |
-| **Advisory** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
+| **%%Advisory\|advisory%%** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
 | **Malicious dependency** | Whether the finding is for a malicious dependency |
-| **Project tags** | The tags associated with the project. |
+| **%%Project\|project%% tags** | The tags associated with the project. |
 | **Multimodal file risk level** | Filter by the risk level determined by Semgrep Multimodal. |
 
 ### EPSS probability
@@ -124,7 +124,7 @@ You can view findings individually or grouped by the rule that identified the fi
 
 By default, Semgrep displays your findings using the **Group by Rule** view. This view shows your findings grouped by the rule Semgrep used to match the code. Your findings are shown sorted **by severity**, but you can opt to sort **by number of findings** for a given rule.
 
-A specific finding in the code is called a **usage**. Vulnerability entries are sorted as cards by severity from critical to low, then from oldest to newest.
+A specific finding in the code is called a **usage**. %%Vulnerability|vulnerability%% entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
 ## Export findings
 

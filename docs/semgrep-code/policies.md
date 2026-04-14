@@ -57,9 +57,9 @@ This section defines the Policies page filters:
 | Category  | Filter by the type of security issue or vulnerability that the rule detects.  | <ul><li>Dangerous method or function</li><li>SQL injection</li><li>Active debug code</li></ul> |
 | Severities  | The higher the severity, the more critical the issues that a rule detects.      |  <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Filter by the confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
-| Source  | Filter by the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>. |
+| %%Source\|source%%  | Filter by the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>. |
 | Available rule upgrades | Filter for rules where there exist improved versions to those using paid Semgrep products. |
-| Ruleset  | Filter by the name of an existing ruleset. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
+| %%Ruleset\|ruleset%%  | Filter by the name of an existing ruleset. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul>       |
 | Language| Filter by programming language | <ul><li>Python</li><li>JavaScipt</li><li>Ruby</li></ul>  |
 | Minimum count of findings| Filter by the number of findings.  | <ul><li>10</li><li>100</li><li>500</li></ul>  |
 
@@ -79,8 +79,8 @@ This section defines the columns of the rule entries in the Policies page:
 | Fix rate  | The percentage of findings that are fixed through changes to the code.  | n/a   |
 | Severity  | The higher the severity, the more critical the issues that a rule detects.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul>      |
 | Confidence  | Indicates confidence of the rule to detect true positives.      |  <ul><li>High</li><li>Medium</li><li>Low</li></ul> |
-| Source  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
-| Ruleset  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul> |
+| %%Source\|source%%  | Indicates the origin of a rule. | <ul><li><strong>Pro:</strong> Authored by Semgrep with cross-file (interfile) and cross-function (interprocedural) analysis capabilities, providing you with enhanced scan accuracy. For more information, see <a href="/semgrep-code/pro-rules/"><i class="fa-regular fa-file-lines"></i> Pro rules.</a></li><li><strong>Community:</strong> Authored by Semgrep, Inc or external contributors such as Trail of Bits.</li><li><strong>Custom:</strong> Rules created within your Semgrep organization. For more information, see <a href="/writing-rules/private-rules/"><i class="fa-regular fa-file-lines"></i> Private rules</a>.</li></ul>.      |
+| %%Ruleset\|ruleset%%  | Rules are also organized in rulesets. Rulesets are groups of rules related through a programming language, OWASP category, or framework. | <ul><li><a href="https://semgrep.dev/p/xss"><i class="fas fa-external-link fa-xs"></i> XSS ruleset</a></li><li><a href="https://semgrep.dev/p/react"><i class="fas fa-external-link fa-xs"></i> React ruleset</a></li></ul> |
 | Mode  | Specifies what workflow action Semgrep performs when a rule detects a finding. An additional filter, **Disabled**, is provided for rules that you have turned off and are no longer included for scanning. | See [Rule modes](#rule-modes) documentation. |
 
 ## Add rules
@@ -88,7 +88,7 @@ This section defines the columns of the rule entries in the Policies page:
 To add rules, follow these steps:
 
 1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
-1. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to Policy**.
+1. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page, open cards of individual rules, and then click **Add to %%Policy|policy%%**.
 1. Specify the workflow action of the rule that you are adding. Select either:
     - Monitor
     - Comment
@@ -105,7 +105,7 @@ Instead of adding individual rules to your Policies, you can add rulesets, which
 1. On the [<i class="fas fa-external-link fa-xs"></i> Policies](https://semgrep.dev/orgs/-/policies) page, click **Add Rules**.
 2. You are redirected to the [<i class="fas fa-external-link fa-xs"></i> Semgrep Registry](https://semgrep.dev/explore) page. Explore the page to find the ruleset you're interested in adding.
 3. Click the ruleset to open its **Explore** page. This page lets you view the included rules and provides instructions for testing and running the ruleset locally before adding it to your policies.
-4. Click **Add to Policy**.
+4. Click **Add to %%Policy|policy%%**.
 5. Specify the workflow action for the rules that you are adding by selecting one of these options:
     - Monitor
     - Comment
@@ -157,11 +157,11 @@ If you have the **multiple policies** feature, you can customize the Code rules 
 
 The multiple policies feature enables users to customize the Semgrep Code rules that run on specific projects (repositories). Users create different policies that projects can be assigned to.
 
-This feature makes use of a **Global Policy** that runs on **all** projects. Projects cannot be unassigned from it.
+This feature makes use of a **Global %%Policy|policy%%** that runs on **all** projects. Projects cannot be unassigned from it.
 
 You can create a new policy and add one or more projects, then select rules to add to the policy. Projects are assigned manually to additional policies, and multiple projects can be added by searching repository names or tags. 
 
-During a scan, the repositories assigned to your custom policy run all of the rules from the **Global Policy** as well as all the rules from your custom policy.
+During a scan, the repositories assigned to your custom policy run all of the rules from the **Global %%Policy|policy%%** as well as all the rules from your custom policy.
 
 ### Policy limit
 

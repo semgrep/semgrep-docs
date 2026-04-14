@@ -17,7 +17,7 @@ This article shows you how to manage and triage the findings identified by Semgr
 
 You can triage secrets-related findings in Semgrep AppSec Platform on the **Secrets** page. By default, all findings are displayed. A common triage workflow includes the following tasks:
 
-1. Filtering for a particular characteristic of a finding, such as its **Validation status**, **Repository or Branch**, or **Type**.
+1. Filtering for a particular characteristic of a finding, such as its **Validation status**, **%%Repository|repository%% or Branch**, or **Type**.
 2. Analyzing if the findings are true or false positives.
 3. Applying a **triage state** to the filtered findings based on the analysis in step 2.
     1. Setting a finding as **Ignored** means that no action is undertaken and the finding is closed. Subsequent scans won't include this finding.

@@ -34,7 +34,7 @@ Historical scanning requires Semgrep **v1.65.0** or later.
     - Secrets findings with validation errors
 - Findings from historical scans are generated through **Generic** (regex-based) rules only. To view these rules:
     - Navigate to **[<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform > Rules & Policies > Secrets](https://semgrep.dev/orgs/-/policies/secrets?analysis-method=generic)**.
-    - Go to Validation state policies > Global rule behavior. Click **Edit**.
+    - Go to %%Validation state|validation_state%% policies > Global rule behavior. Click **Edit**.
     - In the filter bar, click **Generic** under **Analysis method**.
 
 For more information on the types of findings by validation, see [Semgrep Secrets overview](/semgrep-secrets/conceptual-overview/#validate-secrets).
@@ -80,7 +80,7 @@ The historical scan results appear in the **Secrets Historical Scan** section of
 
 ## Triage process
 
-Historical scan findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
+%%Historical scan|historical_scan%% findings are not automatically marked as **Fixed**. To triage a historical finding, you must:
 
 1. Manually rotate the secret.
 1. In Semgrep AppSec Platform, click **Secrets**.

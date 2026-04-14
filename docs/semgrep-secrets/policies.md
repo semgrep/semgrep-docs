@@ -17,7 +17,7 @@ To access the policies page for Semgrep Secrets, sign in to [<i class="fas fa-ex
 
 ## Validation state policies
 
-Validation state policies allow you to define the rules Semgrep Secrets uses to scan your code, how to handle invalid findings, including those that have been revoked or were never functional, and how to handle validation errors when attempting to determine if a secret is a legitimate credential that can be used to access a resource.
+%%Validation state|validation_state%% policies allow you to define the rules Semgrep Secrets uses to scan your code, how to handle invalid findings, including those that have been revoked or were never functional, and how to handle validation errors when attempting to determine if a secret is a legitimate credential that can be used to access a resource.
 
 Findings in different validation states may also have different severities, based on the risk associated with valid credentials as compared with invalid credentials. See [Secrets findings: severity](/semgrep-secrets/findings#severity) for more detail on this behavior.
 
@@ -124,10 +124,10 @@ This feature requires either the:
 
 1. In Semgrep AppSec Platform, go to **Rules & policies > Policies > Secrets**.
 1. Click **<i class="fa-solid fa-plus"></i> Create policy**.
-2. Provide a **Policy name**.
+2. Provide a **%%Policy|policy%% name**.
 3. Define the **Scope** of the policy:
-    1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**.
-    2. If you select **Project** or **Project tag**, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
+    1. Click the drop-down box to select between **All Projects**, **%%Project|project%%**, or **%%Project|project%% tag**.
+    2. If you select **%%Project|project%%** or **%%Project|project%% tag**, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
 4. Define the conditions of the policy. See [Policy conditions](#policy-conditions) for more information. You can create more than one condition by clicking **Add condition**.
     - For each condition, you can select multiple values by clicking on the **plus sign (<i class="fa-solid fa-plus"></i>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
@@ -148,9 +148,9 @@ The following table lists available conditions and their values:
 | Condition | Values|
 | -------  | ------ |
 | Severity      | <ul><li>Critical</li><li>High</li><li>Medium</li> <li>Low</li> </ul>       |
-| %%Validation|validation_state%%         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
-| Repository visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unknown</li> </ul> Note: Repository visibility is only available for GitHub repositories. |
-| Secret type | Manually provide a Secret type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
+| %%Validation\|validation_state%%         | <ul><li>Confirmed valid</li><li>Confirmed invalid</li><li>Validation error</li><li>No validator</li>  </ul>      |
+| %%Repository\|repository%% visibility         | <ul> <li>Public</li> <li>Private</li> <li>Unknown</li> </ul> Note: %%Repository\|repository%% visibility is only available for GitHub repositories. |
+| %%Secret\|secret%% type | Manually provide a %%Secret\|secret%% type or choose from a list of values. The values listed are generated from findings identified by Semgrep Secrets. |
 
 ### View your policy
 
