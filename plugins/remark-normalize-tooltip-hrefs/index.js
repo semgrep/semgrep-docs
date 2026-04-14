@@ -27,15 +27,32 @@ const extractTermIdFromTooltipId = (tooltipId) => {
   return parts.slice(0, -3).join('_');
 };
 
-const buildGlossaryHrefMap = (glossaryFilePath) => {
+const resolveGlossaryPath = (glossaryFilePath) => {
   if (!glossaryFilePath) {
+    return null;
+  }
+
+  if (glossaryFilePath.endsWith('.md')) {
+    const yamlCandidate = glossaryFilePath.replace(/\.md$/, '.yaml');
+    if (fs.existsSync(yamlCandidate)) {
+      return yamlCandidate;
+    }
+  }
+
+  return glossaryFilePath;
+};
+
+const loadGlossaryContent = (glossaryFilePath) => {
+  const resolvedPath = resolveGlossaryPath(glossaryFilePath);
+  if (!resolvedPath || !fs.existsSync(resolvedPath)) {
     return {};
   }
 
-  const fileContent = yaml.load(
-    fs.readFileSync(glossaryFilePath, 'utf8'),
-    { json: true }
-  );
+  return yaml.load(fs.readFileSync(resolvedPath, 'utf8'), { json: true }) || {};
+};
+
+const buildGlossaryHrefMap = (glossaryFilePath) => {
+  const fileContent = loadGlossaryContent(glossaryFilePath);
 
   const hrefMap = {};
   Object.keys(fileContent || {}).forEach((termId) => {
@@ -54,6 +71,28 @@ const buildGlossaryHrefMap = (glossaryFilePath) => {
   });
 
   return hrefMap;
+};
+
+const buildGlossaryTermMap = (glossaryFilePath) => {
+  const fileContent = loadGlossaryContent(glossaryFilePath);
+  const termMap = {};
+
+  Object.keys(fileContent || {}).forEach((termId) => {
+    const entry = fileContent[termId];
+    if (!entry || !entry.term || !entry.link) {
+      return;
+    }
+
+    const match = entry.link.match(/href=['"]([^'"]*glossary)['"]/);
+    if (match) {
+      termMap[entry.term] = {
+        hrefBase: match[1],
+        term: entry.term,
+      };
+    }
+  });
+
+  return termMap;
 };
 
 const replaceHrefWithAnchor = (value, hrefBase, slug) => {
@@ -130,8 +169,81 @@ const replaceGlossaryLinkLabel = (value, labelText) => {
 
 module.exports = function remarkNormalizeTooltipHrefs(options = {}) {
   const glossaryHrefMap = buildGlossaryHrefMap(options.yamlFile);
+  const glossaryTermMap = buildGlossaryTermMap(options.yamlFile);
 
   return (tree) => {
+    visit(tree, 'mdxJsxTextElement', (node) => {
+      if (!node.attributes) {
+        return;
+      }
+
+      const classAttr = node.attributes.find((attr) => attr.name === 'className');
+      if (!classAttr || classAttr.value !== 'remark-auto-glossary-term-details') {
+        return;
+      }
+
+      const findTermLabel = (current) => {
+        if (!current || !current.children) {
+          return null;
+        }
+        for (const child of current.children) {
+          if (child.type === 'mdxJsxTextElement') {
+            const hasNameProp = child.attributes?.some(
+              (attr) => attr.name === 'itemProp' && attr.value === 'name'
+            );
+            if (hasNameProp) {
+              const strongNode = child.children?.find(
+                (grandchild) =>
+                  grandchild.type === 'mdxJsxTextElement' &&
+                  grandchild.name === 'strong'
+              );
+              const textNode = strongNode?.children?.find(
+                (grandchild) => grandchild.type === 'text'
+              );
+              if (textNode?.value) {
+                return textNode.value;
+              }
+            }
+          }
+          const nested = findTermLabel(child);
+          if (nested) {
+            return nested;
+          }
+        }
+        return null;
+      };
+
+      const termLabel = findTermLabel(node);
+      if (!termLabel || !glossaryTermMap[termLabel]) {
+        return;
+      }
+
+      const entry = glossaryTermMap[termLabel];
+      const slug = slugifyTerm(entry.term);
+      const href = `${entry.hrefBase}#${slug}`;
+
+      const detailsNode = node.children?.find(
+        (child) =>
+          child.type === 'mdxJsxTextElement' &&
+          child.attributes?.some(
+            (attr) => attr.name === 'className' && attr.value === 'more-details'
+          )
+      );
+
+      if (detailsNode) {
+        detailsNode.children = [
+          { type: 'text', value: 'See ' },
+          {
+            type: 'mdxJsxTextElement',
+            name: 'a',
+            attributes: [{ type: 'mdxJsxAttribute', name: 'href', value: href }],
+            children: [{ type: 'text', value: 'full definition' }],
+          },
+          { type: 'text', value: '.' },
+        ];
+      }
+    });
+
     visit(tree, 'mdxJsxFlowElement', (node) => {
       if (!node.attributes) {
         return;

@@ -206,11 +206,11 @@ module.exports = {
           remarkPlugins: [
             [
               require('@renatonagliati/remark-auto-glossary').default,
-              { yamlFile: 'docs/semgrep-code/glossary.yaml' },
+              { yamlFile: 'docs/glossary.yaml' },
             ],
             [
               require('./plugins/remark-normalize-tooltip-hrefs'),
-              { yamlFile: 'docs/semgrep-code/glossary.yaml' },
+              { yamlFile: 'docs/glossary.yaml' },
             ],
           ],
           // Please change this to your repo.
