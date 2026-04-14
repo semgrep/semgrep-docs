@@ -129,18 +129,7 @@ To enable dataflow traces feature in your CI pipeline, fulfill the following pre
 
 ### Prevent developers from merging a PR with a reachable vulnerability
 
-Both GitHub and GitLab provide features to prevent or block a PR or MR from merging based on certain conditions. Refer to the links below to prevent PRs or MRs from merging when a reachable finding is detected:
-
-<table>
-<tr>
-    <td>GitHub</td>
-    <td><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging">Require conversation resolution before merging</a></td>
-</tr>
-<tr>
-    <td>GitLab</td>
-    <td><a href="https://docs.gitlab.com/ee/user/discussions/#prevent-merge-unless-all-threads-are-resolved">Prevent merge unless all threads are resolved</a></td>
-</tr>
-</table>
+You can use GitHub's [feature requiring conversation resolution before merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging) to prevent PRs from merging when Semgrep detects a reachable finding and leaves a comment.
 
 ### Customize PR comments
 
