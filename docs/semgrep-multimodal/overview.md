@@ -21,6 +21,7 @@ Semgrep Multimodal:
 - Supports [the same languages as Semgrep Code](/supported-languages)
 - Requires the Semgrep AppSec Platform
 
+See the [list of supported source code managers](/getting-started/scm-support).
 
 ### Automatic analysis
 
@@ -28,13 +29,6 @@ Semgrep Multimodal auto-analyzes findings that meet the following criteria:
 - Full scans: All new findings that have **Critical** or **High** severity AND **High** or **Medium** confidence are auto-analyzed 
 - Diff-aware scans (pull request and merge request scans): Up to 10 new findings are automatically analyzed per scan. AI-powered detection does not support diff-aware scans.
 
-### Supported source code managers
-
-Most Multimodal features are available for the following source code managers (SCMs):
-- Azure DevOps Cloud
-- Bitbucket Cloud Premium and Bitbucket Data Center
-- GitHub Cloud and GitHub Enterprise Server (self-hosted)
-- GitLab, including SaaS and self-managed plans
 
 ## Features
 
