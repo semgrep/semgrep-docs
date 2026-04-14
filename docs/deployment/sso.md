@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 
 This article walks you through single-sign on (SSO) configuration. Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth-20) and [SAML 2.0](#saml-20).
 
-After setting up SSO, users are provisioned and managed on your IdP. Semgrep grants access to the deployment to any user at the configured domain who logs in and has the correct permissions in the IdP.
+After setting up SSO, users are provisioned and managed on your IdP. Semgrep grants access to the deployment to any user at the configured domain who logs in and has the correct permissions in the IdP. If a user attempts to log in through GitHub or GitLab with an email at your configured domain, Semgrep prompts them to log in using corporate SSO instead.
 
 <Tabs
     defaultValue="current"
