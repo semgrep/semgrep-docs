@@ -60,7 +60,7 @@ Regardless of whether you use the **Priority** findings view or the **All** find
 
 ### Project
 
-The **Project** filter allows you to search for findings associated with the selected projects.
+The **%%Project|project%%** filter allows you to search for findings associated with the selected projects.
 
 ### Status
 
@@ -77,10 +77,10 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Confidence** | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
 | **Rule mode** | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Rule** | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
-| **Ruleset** | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
+| **%%Ruleset\|ruleset%%** | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
 | **Pro findings only** | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
 | **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull request or merge requests. |
-| **Project tags** | Filter for findings based on the tags associated with the project. |
+| **%%Project\|project%% tags** | Filter for findings based on the tags associated with the project. |
 | **Teams** | Filter for findings in projects owned by the selected teams. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
 | **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
@@ -92,7 +92,7 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 
 A finding can be categorized in two ways:
 
-1. **Finding categorization based on the issue or code it detects**:
+1. **%%Finding|finding%% categorization based on the issue or code it detects**:
 
     - Anti-patterns
     - Security vulnerabilities, such as dangerous function usage
@@ -101,7 +101,7 @@ A finding can be categorized in two ways:
 
     Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 
-2. **Finding categorization based on the validity of the match**:
+2. **%%Finding|finding%% categorization based on the validity of the match**:
 
     - **True positive**: Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.
     - **False positive**: A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be **noisy**.

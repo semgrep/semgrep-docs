@@ -203,6 +203,16 @@ module.exports = {
         docs: {
           showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [
+            [
+              require('@renatonagliati/remark-auto-glossary').default,
+              { yamlFile: 'docs/glossary.yaml' },
+            ],
+            [
+              require('./plugins/remark-normalize-tooltip-hrefs'),
+              { yamlFile: 'docs/glossary.yaml' },
+            ],
+          ],
           // Please change this to your repo.
           editUrl:
             'https://github.com/semgrep/semgrep-docs/edit/main',

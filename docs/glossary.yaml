@@ -1,0 +1,277 @@
+default_branch:
+  term: Default branch
+  def: "Also known as a mainline, primary, or trunk branch. In many cases, Semgrep automatically detects these branches as primary branches when it first scans your project. If you have projects (repositories) with unique primary branch names, you can set them through the Semgrep web app."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+diff_aware_scan:
+  term: Diff-aware scan
+  def: "A diff-aware scan shows only findings caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull request or merge request is opened. Unlike full scans, diff-aware scans only consider changes within modified files. Cross-file analysis is not supported for diff-aware scans."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+full_scan:
+  term: Full scan
+  def: "A full scan scans the entire codebase or Git repository in its current state. It is typically performed on trunk or mainline branches, such as main. Semgrep recommends performing full scans on a recurring basis, such as daily or weekly."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+policy:
+  term: Policy
+  def: "A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+registry_semgrep_registry:
+  term: Registry (Semgrep Registry)
+  def: "A collection of publicly available SAST rules that you can download. Rules can be filtered by language, OWASP bug class, severity, and more. Rules are frequently organized by rulesets, enabling you to find related rules by framework and language. The Registry contains rules imported from various repositories, including rules authored by other individuals or groups, such as Trail of Bits and GitLab. You can view a rule's license key to ensure the license meets your needs."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a> and <a href='https://semgrep.dev/r'>Semgrep Registry</a>."
+
+ruleset:
+  term: Ruleset
+  def: "Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+scan_target:
+  term: Scan target
+  def: "A scan target is any file, or collection of files and directories that Semgrep can scan. While Semgrep can scan any text file through `generic` mode, Semgrep primarily scans codebases, projects, and repositories."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+codebase:
+  term: Codebase
+  def: "Any code files within a specified directory and its subdirectories."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+project:
+  term: Project
+  def: "A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+repository:
+  term: Repository
+  def: "A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories."
+  link: "See <a href='/docs/semgrep-code/glossary'>Semgrep Code glossary</a>."
+
+# Semgrep Supply Chain glossary terms
+advisory:
+  term: Advisory
+  def: "Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a> and <a href='/docs/semgrep-supply-chain/advisories'>Advisories</a>."
+
+dependency:
+  term: Dependency
+  def: "Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+exploitability:
+  term: Exploitability
+  def: "Practical assessment of a vulnerability's threat, typically proved with a real exploit. Proving exploitability is often the last step of triaging a vulnerability."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+epss_probability:
+  term: EPSS probability
+  def: "Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a> and <a href='https://www.first.org/epss/'>Exploit Prediction Scoring System (EPSS)</a>."
+
+lockfile:
+  term: Lockfile
+  def: "Describes a dependency tree to ensure installs use the same dependencies and exact versions. Lockfiles include versions of dependencies and transitive dependencies and are generated by package managers like pip or npm."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+rules_without_reachability_analysis:
+  term: Rules without reachability analysis
+  def: "Rules that only check a package's version against known vulnerable versions. They have higher false-positive rates than reachability rules."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+manifest_file:
+  term: Manifest file
+  def: "Describes dependencies used in a codebase. Package managers read manifest files to resolve and install specific dependency versions and generate lockfiles."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+package_manager:
+  term: Package manager
+  def: "Software that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+package_registry:
+  term: Package registry
+  def: "Registry that stores dependencies and supports upload and download. Each language has its own registry, such as npm for JavaScript and PyPI for Python."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+reachable_finding:
+  term: Reachable finding (and reachable vulnerability)
+  def: "A reachable finding means your codebase uses both a vulnerable code pattern and a vulnerable dependency version. Findings (usages) are grouped by vulnerability."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+reachability:
+  term: Reachability
+  def: "Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+reachability_rules:
+  term: Reachability rules
+  def: "Rules that perform reachability analysis to determine if a vulnerable code pattern from a dependency is used in the codebase."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+software_bill_of_materials:
+  term: Software bill of materials (SBOM)
+  def: "Artifact that enumerates components of a software artifact, including dependencies, licenses, and security statuses. SBOMs are often used for compliance."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+threat:
+  term: Threat
+  def: "Malicious event that violates the security of an application or network and can disrupt operations or lead to data loss or theft."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a> and <a href='https://csrc.nist.gov/glossary/term/threat'>NIST definition of threat</a>."
+
+transitive_or_indirect_dependency:
+  term: Transitive or indirect dependency
+  def: "A dependency of a dependency. If your codebase uses dependency A, and A depends on B, then B is a transitive dependency."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+transitivity:
+  term: Transitivity
+  def: "Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+usage:
+  term: Usage
+  def: "Specific finding in your codebase where Semgrep identifies a vulnerability. A single vulnerability can have multiple usages."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+unreachable_finding:
+  term: Unreachable finding (and unreachable vulnerability)
+  def: "A finding where the dependency version is vulnerable, but the vulnerable code pattern is not used within your codebase."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+vulnerability:
+  term: Vulnerability
+  def: "Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity."
+  link: "See <a href='/docs/semgrep-supply-chain/glossary'>Supply Chain glossary</a>."
+
+# Semgrep Secrets glossary terms
+entropy_analysis:
+  term: Entropy analysis
+  def: "Measures how random a string is to help determine whether it is likely a secret and reduce false positives."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+expiration:
+  term: Expiration
+  def: "Some secrets are time-limited and only valid for a set period. Expired secrets can often be deprioritized."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+historical_scan:
+  term: Historical scan
+  def: "Scan of Git commit history to find valid secrets in repository history."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+revocation:
+  term: Revocation
+  def: "Process of making a secret inactive when it is no longer needed or is compromised."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+rotation:
+  term: Rotation
+  def: "Process of updating a secret regularly so leaked credentials are valid only for a limited time."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+secret:
+  term: Secret
+  def: "Sensitive information such as API keys, credentials, SSH keys, or certificates. If secrets are stored in source code, they can be leaked and misused."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+semantic_analysis:
+  term: Semantic analysis
+  def: "Semgrep Secrets' ability to understand how data is used in code, including dataflow analysis and constant propagation."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+validation_state:
+  term: Validation state
+  def: "Status indicating whether a secret poses an immediate threat. States include Confirmed valid, Confirmed invalid, Validation error, and No validator."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+validator:
+  term: Validator
+  def: "Rule logic that checks whether a secret is actively usable, often by making an API call to validate the credential."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+vault:
+  term: Vault
+  def: "Secure, centralized storage for sensitive data such as access tokens, API keys, certificates, and passwords, often with auditing and rotation."
+  link: "See <a href='/docs/semgrep-secrets/glossary'>Semgrep Secrets glossary</a>."
+
+# Rule-writing glossary terms
+constant_propagation:
+  term: Constant propagation
+  def: "Analysis where known constant values are substituted into later uses so Semgrep can detect matches. Semgrep CE is limited to per-file propagation."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+cross_file_analysis:
+  term: Cross-file analysis
+  def: "Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+cross_function_analysis:
+  term: Cross-function analysis
+  def: "Accounts for interactions between functions to improve analysis, including taint analysis across multiple functions. Also known as interprocedural analysis."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+error_matrix:
+  term: Error matrix
+  def: "2x2 table that visualizes rule results across true/false positives and negatives. Not to be confused with risk matrices."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+finding:
+  term: Finding
+  def: "Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+fully_qualified_name:
+  term: Fully qualified name
+  def: "Name that uniquely identifies a class, method, type, or module. Languages such as C# and Ruby use :: to distinguish fully qualified names."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+l_value:
+  term: l-value (left- or location-value)
+  def: "Expression that denotes a memory location and can appear on the left-hand side of an assignment. Examples include x and array[2]."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+metavariable:
+  term: Metavariable
+  def: "Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+propagator:
+  term: Propagator
+  def: "Code that alters data as it moves through a program. In taint analysis, propagators are listed via pattern-propagator to indicate taint passes through them."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+semgrep_rule:
+  term: Rule (Semgrep rule)
+  def: "Specification of patterns Semgrep matches to generate findings. Rules are written in YAML and can be search rules or taint rules."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+sanitizers:
+  term: Sanitizers
+  def: "Code that cleans untrusted or tainted data, such as validation or encoding functions that remove unsafe characters."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+per_file_analysis:
+  term: Per-file analysis
+  def: "Also known as intrafile analysis. Information is traced within a single file and does not flow across files."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+per_function_analysis:
+  term: Per-function analysis
+  def: "Also known as intraprocedural analysis. Information is traced within a single function."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+sink:
+  term: Sink
+  def: "In taint analysis, a vulnerable function called with potentially tainted data."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+source:
+  term: Source
+  def: "In taint analysis, code that introduces tainted data, typically user input."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."
+
+taint_analysis:
+  term: Taint analysis
+  def: "Tracks the flow of untrusted data from sources to sinks and identifies paths where data is not sanitized."
+  link: "See <a href='/docs/writing-rules/glossary'>Rule-writing glossary</a>."

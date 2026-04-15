@@ -14,7 +14,7 @@ The finding's details page displays in-depth information about the finding, incl
 
 - A detailed description of the finding
 - Rule details, including the rule pattern itself
-- Finding details, such as whether the secret has been confirmed to be valid, when the finding was identified, the project and branch name, and commit ID where the issue was introduced
+- %%Finding|finding%% details, such as whether the secret has been confirmed to be valid, when the finding was identified, the project and branch name, and commit ID where the issue was introduced
 - The code snippet where the issue was identified, along with a link to the source code where Semgrep identified the issue
 - The validator used to test whether the credential can be used
 - Activity history for the finding, including status changes to the finding, notes written by other Semgrep users specifically about this finding, and more

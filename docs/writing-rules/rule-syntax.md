@@ -956,11 +956,11 @@ The `$F` metavariable ensures that the same variable name is used in the `open` 
 
 ## Metavariable matches
 
-Metavariable matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
+%%Metavariable|metavariable%% matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
 
 ### Metavariables in logical ANDs
 
-Metavariable values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
+%%Metavariable|metavariable%% values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
 
 Example:
 
@@ -993,7 +993,7 @@ def foo(path):
 
 ### Metavariables in logical ORs
 
-Metavariable matching does not affect the matching of logical OR operations with the `pattern-either` operator.
+%%Metavariable|metavariable%% matching does not affect the matching of logical OR operations with the `pattern-either` operator.
 
 Example:
 
@@ -1022,7 +1022,7 @@ insecure_func2(something_else)
 
 ### Metavariables in complex logic
 
-Metavariable matching still affects subsequent logical ORs if the parent is a logical AND.
+%%Metavariable|metavariable%% matching still affects subsequent logical ORs if the parent is a logical AND.
 
 Example:
 

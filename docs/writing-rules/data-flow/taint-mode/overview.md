@@ -13,7 +13,7 @@ tags:
 
 Semgrep supports [taint analysis](https://en.wikipedia.org/wiki/Taint_checking), also known as taint tracking, through taint rules. Taint rules are specified by the inclusion of `mode: taint` in your rule.
 
-Taint analysis is a dataflow analysis that tracks the flow of untrusted, or **tainted**, data throughout the body of a function or method. Tainted data originates from tainted **sources**. If tainted data is not transformed or checked accordingly, or **sanitized**, taint analysis reports a finding whenever tainted data reaches a vulnerable function, called a **sink**. Tainted data flows from sources to sinks through **propagators**, such as assignments and function calls.
+%%Taint analysis|taint_analysis%% is a dataflow analysis that tracks the flow of untrusted, or **tainted**, data throughout the body of a function or method. Tainted data originates from tainted **sources**. If tainted data is not transformed or checked accordingly, or **sanitized**, taint analysis reports a finding whenever tainted data reaches a vulnerable function, called a **sink**. Tainted data flows from sources to sinks through **propagators**, such as assignments and function calls.
 
 <iframe class="yt_embed" width="100%" height="432px" src="https://www.youtube.com/embed/6MxMhFPkZlU" frameborder="0" allowfullscreen></iframe>
 
@@ -249,7 +249,7 @@ A propagator also needs to specify the origin (`from`) and the destination (`to`
 
 | Field | Type | Description |
 | - | - | - |
-| `from` | metavariable | Source of propagation |
+| `from` | metavariable | %%Source\|source%% of propagation |
 | `to` | metavariable | Destination of propagation |
 
 In addition, taint propagators accept the following options:

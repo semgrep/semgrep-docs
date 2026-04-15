@@ -518,40 +518,68 @@ const MeilisearchSearchBar: React.FC<MeilisearchSearchBarProps> = ({
     return cleanContent.substring(0, 150) + (cleanContent.length > 150 ? '...' : '');
   };
 
-  // Enhanced highlighting function for better keyword visibility
-  const escapeRegExp = (value: string): string => {
-    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  };
-
   const enhanceHighlighting = (content: string, searchQuery: string): string => {
     if (!searchQuery || !content) return content;
-    
+
     // Ensure content is clean text (no HTML)
     const cleanContent = content
       .replace(/<[^>]+>/g, '') // Remove any HTML tags except what we'll add
       .replace(/&[a-z]+;/gi, ' '); // Remove HTML entities
-    
+
     // Split search query into individual terms (keep important acronyms)
-    const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => {
-      if (term.length > 2) return true;
-      if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(term)) return true;
-      return false;
-    });
-    
-    let highlightedContent = cleanContent;
-    
-    // Highlight each search term with case-insensitive matching
-    searchTerms.forEach(term => {
+    const searchTerms = searchQuery
+      .toLowerCase()
+      .split(/\s+/)
+      .filter((term) => {
+        if (term.length > 2) return true;
+        if (['ai', 'ci', 'cd', 'pr', 'mr', 'gl', 'glsm'].includes(term)) return true;
+        return false;
+      });
+
+    if (searchTerms.length === 0) {
+      return cleanContent;
+    }
+
+    const lowerContent = cleanContent.toLowerCase();
+    const ranges: Array<{ start: number; end: number }> = [];
+
+    searchTerms.forEach((term) => {
       if (!term) return;
-      try {
-        const safeTerm = escapeRegExp(term);
-        const regex = new RegExp(`(${safeTerm})`, 'gi');
-        highlightedContent = highlightedContent.replace(regex, '<mark>$1</mark>');
-      } catch (error) {
-        // Skip invalid regex term to avoid breaking the UI
+      let startIndex = 0;
+      while (true) {
+        const matchIndex = lowerContent.indexOf(term, startIndex);
+        if (matchIndex === -1) break;
+        ranges.push({ start: matchIndex, end: matchIndex + term.length });
+        startIndex = matchIndex + term.length;
       }
     });
-    
+
+    if (ranges.length === 0) {
+      return cleanContent;
+    }
+
+    ranges.sort((a, b) => a.start - b.start);
+    const merged: Array<{ start: number; end: number }> = [];
+    ranges.forEach((range) => {
+      const last = merged[merged.length - 1];
+      if (!last || range.start > last.end) {
+        merged.push({ ...range });
+        return;
+      }
+      if (range.end > last.end) {
+        last.end = range.end;
+      }
+    });
+
+    let highlightedContent = '';
+    let cursor = 0;
+    merged.forEach((range) => {
+      highlightedContent += cleanContent.slice(cursor, range.start);
+      highlightedContent += `<mark>${cleanContent.slice(range.start, range.end)}</mark>`;
+      cursor = range.end;
+    });
+    highlightedContent += cleanContent.slice(cursor);
+
     return highlightedContent;
   };
 

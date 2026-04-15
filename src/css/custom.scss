@@ -507,6 +507,25 @@ img[src*="sm-width"] {
     display: block;
 }
 
+/* Remark Auto Glossary tooltip sizing */
+a.remark-auto-glossary-tooltip-trigger {
+  cursor: help;
+  border-bottom: 1px dashed;
+}
+
+div[role="tooltip"].react-tooltip {
+  max-width: 320px;
+  width: max-content;
+  white-space: normal;
+  line-height: 1.35;
+  padding: 8px 10px;
+}
+
+div[role="tooltip"].react-tooltip a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .placeholder {
     color: #E3116C;
     font-style: italic;

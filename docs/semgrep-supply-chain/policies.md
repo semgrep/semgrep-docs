@@ -40,14 +40,14 @@ Only **admins** can view, create, edit, or delete policies.
 ## Create a policy
 
 1. From the Supply Chain policies tab, Click **<i class="fa-solid fa-plus"></i> Create policy**.
-1. Provide a **Policy name**.
+1. Provide a **%%Policy|policy%% name**.
 1. Define the scope of the policy:
-    1. Click the drop-down box to select between **All Projects**, **Project**, or **Project tag**. Note that you can only select either a scope based on projects or tags, but not both.
-    1. For **Project** or **Project tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
+    1. Click the drop-down box to select between **All Projects**, **%%Project|project%%**, or **%%Project|project%% tag**. Note that you can only select either a scope based on projects or tags, but not both.
+    1. For **%%Project|project%%** or **%%Project|project%% tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
 1. Define the **Conditions** of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
     - For each condition, you can select multiple values by clicking on the **plus sign (<i class="fa-solid fa-plus"></i>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
-    - You can define conditions that are exclusionary, such as **When Transitivity *is not* Transitive....**
+    - You can define conditions that are exclusionary, such as **When %%Transitivity|transitivity%% *is not* Transitive....**
 1. Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
 1. Click **Save**. This brings you back to the Supply Chain policies tab.
 1. After creating a policy, it is **not** automatically enabled. Click the **<i class="fa-solid fa-toggle-large-on"></i> toggle** to enable a policy. This applies the policy to future scans.
@@ -66,7 +66,7 @@ Use the following recommendations to help you create policies. These guidelines 
 - **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
 - **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
 - **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
-- **Critical and high EPSS probability**. There is a chance of these findings being exploited regardless of reachability.
+- **Critical and high %%EPSS probability|epss_probability%%**. There is a chance of these findings being exploited regardless of reachability.
 
 ### Turn off PR and MR comments
 
@@ -90,11 +90,11 @@ The following table lists available conditions and their values:
 
 | Condition | Values|
 | -------  | ------ |
-| [Reachability](/semgrep-supply-chain/glossary#reachability)      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
+| %%Reachability\|reachability%%      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
-| [Transitivity](/semgrep-supply-chain/glossary#transitivity)  | <ul><li>Direct</li> <li>Transitive</li></ul> |
-| [EPSS probability](/semgrep-supply-chain/glossary#epss-probability)  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
+| %%Transitivity\|transitivity%%  | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| %%EPSS probability\|epss_probability%%  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 | [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
 
 ## Other operations

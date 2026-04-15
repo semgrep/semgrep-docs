@@ -45,7 +45,7 @@ To run a specific rule when invoking Semgrep from the CLI:
 1. Sign in to Semgrep AppSec Platform.
 2. Go to **Rules > Editor**.
 3. Open up your rule.
-4. Click **Add to Policy** and select your mode: Monitor, Comment, or Blocking.
+4. Click **Add to %%Policy|policy%%** and select your mode: Monitor, Comment, or Blocking.
 5. In the CLI, start a scan by running `semgrep ci`.
 
 ## Sample rule

@@ -99,7 +99,7 @@ The following updates were made to Semgrep in February 2025.
 
 - Major updates to the following documents and sections:
     - [Add support for a new language](/contributing/adding-a-language).
-    - [Semgrep Registry](/semgrep-code/glossary#registry-semgrep-registry) and [Semgrep FAQ](/faq/overview).
+    - %%Semgrep Registry|registry_semgrep_registry%% and [Semgrep FAQ](/faq/overview).
     - [Semgrep Supply Chain Policies](/semgrep-supply-chain/policies).
 - Minor clarifications involving:
   - Network Broker usage.

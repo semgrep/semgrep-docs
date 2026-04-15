@@ -27,6 +27,36 @@ pipeline {
   environment {
     // Required for a Semgrep AppSec Platform-connected scan:
     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+    // Set typical project (repo) name
+    SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
+  }
+  stages {
+    stage('semgrep-scan') {
+      steps {
+        sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+  }
+}
+```
+
+Semgrep %%diff-aware scans|diff_aware_scan%% can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The Multibranch Pipeline provides access to useful variables for the diff-aware scan configuration. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches.
+
+### Create the Jenkinsfile
+
+To start the process, create the initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+
+```bash
+pipeline {
+  agent any
+  environment {
+    // Required for a Semgrep Cloud Platform-connected scan:
+    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
     // Set repo name to expected format
     SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
   }

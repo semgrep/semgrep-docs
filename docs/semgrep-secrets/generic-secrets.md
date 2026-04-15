@@ -51,7 +51,7 @@ You can view the secrets analyzed by Multimodal at URL
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Go to [**Secrets**](https://semgrep.dev/orgs/-/secrets) to see a list of all findings identified by Semgrep Secrets. 
-3. Expand the **Additional filters** menu, then select **Secret type > Generic Secrets** to filter for generic secrets findings.
+3. Expand the **Additional filters** menu, then select **%%Secret|secret%% type > Generic Secrets** to filter for generic secrets findings.
 
 ## Disable generic secrets
 

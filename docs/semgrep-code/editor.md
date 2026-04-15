@@ -108,7 +108,7 @@ To write a **taint** rule using structure mode:
    3. Optional: specify a constraint by clicking on the **filter** icon.
       1. Specify whether the constraint is `focus`, `comparison`, or `metavariable`.
       2. Provide the pattern for the code for which the constraint should be applied.
-4. Add **Sanitizers**.
+4. Add **%%Sanitizers|sanitizers%%**.
       1. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
       2. Specify the pattern if applicable. Example: `print("...")`.
       3. Optional: specify a constraint by clicking on the **filter** icon.
@@ -135,8 +135,8 @@ To write a rule in advanced mode:
 
 1. Ensure that you are in **advanced** mode.
 1. Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but there are additional templates that can help you write more complex rules:
-   - **Metavariable-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
-   - **Metavariable-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
+   - **%%Metavariable|metavariable%%-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
+   - **%%Metavariable|metavariable%%-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
    - **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/overview#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/overview#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/overview#sanitizers).
    - **Dataflow analysis with taint labels**: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/advanced#taint-labels-)
    - **HTTP validators**: Demonstrates how to write [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
@@ -222,7 +222,7 @@ When adding a rule to your **Policies** page, you must also set the **rule mode*
 To add a rule to the **Policies** page:
 
 1. Ensure you're [signed in to Semgrep](https://semgrep.dev/login).
-2. Click **Add to Policy**.
+2. Click **Add to %%Policy|policy%%**.
 3. Select one of the following rule mode options based on the relevance of the rule: **Monitor mode**, **Comment mode**, or **Block mode**.
 
 If successful, you'll see a pop-up window indicating that your rule has been added.

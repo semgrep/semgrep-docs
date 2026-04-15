@@ -103,7 +103,7 @@ The generic mode works fine with any human-readable text, as long as it is prima
 
 With respect to Semgrep operators and features:
 
-* Metavariable support is limited to capturing a single “word”, which is a token of the form [A-Za-z0-9_]+. They can’t capture sequences of tokens such as hello, world (in this case, there are three tokens: `hello`, `,`, and `world`).
+* %%Metavariable|metavariable%% support is limited to capturing a single “word”, which is a token of the form [A-Za-z0-9_]+. They can’t capture sequences of tokens such as hello, world (in this case, there are three tokens: `hello`, `,`, and `world`).
 * The ellipsis operator is supported and spans, at most, 10 lines.
 * The pattern operators like either/not/inside are supported.
 * Inline regular expressions for strings (`"=~/word.*/"`) are not supported.

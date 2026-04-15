@@ -25,6 +25,6 @@ Scanning third-party code with Semgrep Supply Chain may require additional steps
 
 The documents in this category describe how to set up Semgrep Supply Chain for specific manifest files, lockfiles, or CI providers, to ensure that your Semgrep Supply Chain deployment functions as intended.
 
-| Package manager | Issue | Solution |
+| %%Package manager\|package_manager%% | Issue | Solution |
 | ----------     | ------- | ------    |
 | Maven | Semgrep Supply Chain requires a dependency tree to detect packages. | Generate a dependency tree using `mvn` by following the steps in [Setting up Semgrep Supply Chain with Apache Maven](/semgrep-supply-chain/setup-maven).  |

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 import MeilisearchChatbotIntegrated from '../components/MeilisearchChatbotIntegrated';
 import { useDeploymentConfig, shouldEnableChatbot } from '../utils/deploymentConfig';
 
@@ -15,6 +17,7 @@ export default function Root({children}: {children: React.ReactNode}): JSX.Eleme
   return (
     <>
       {children}
+      <Tooltip id="glossary-tooltip" place="top" effect="solid" clickable />
       {isBrowser && chatbotEnabled && (
         <MeilisearchChatbotIntegrated 
           indexUid={config.meilisearchIndexUid}
