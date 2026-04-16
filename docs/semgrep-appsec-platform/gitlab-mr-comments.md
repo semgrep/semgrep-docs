@@ -66,7 +66,6 @@ Ensure that you're using one of the following GitLab plans:
    - GitLab Self Managed
 
 1. Log in to GitLab, and create an access token with access to the desired GitLab groups. Assign the `api` scope and one of the following roles:
-   - `Maintainer`
    - `Owner`
    - `Admin`
 1. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
