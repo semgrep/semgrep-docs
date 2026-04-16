@@ -275,7 +275,7 @@ _**Figure**. Finding details' Activity section showing that a Jira ticket wasn't
 
 
 
-## Change the Jira user associated with the integration
+## Change Jira user associated with the integration
 
 To update the Jira account used to create future tickets:
 
