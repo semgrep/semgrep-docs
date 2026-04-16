@@ -273,6 +273,19 @@ If the ticket wasn't successfully created, you can see the status update and acc
 ![Finding details' Activity section showing that a Jira ticket wasn't successfully created and the accompanying error message.](/img/jira-ticket-created-unsuccessfully.png#md-width)
 _**Figure**. Finding details' Activity section showing that a Jira ticket wasn't successfully created and the accompanying error message._
 
+
+
+## Change the Jira user associated with the integration
+
+To update the Jira account used to create future tickets:
+
+1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Settings > [Integrations](https://semgrep.dev/orgs/-/settings/integrations)**.
+2. In the **Jira Cloud** section, click **Change Jira user**.
+3. Authenticate into the Jira account you want to associate with the integration, and grant Semgrep the necessary permissions.
+
+Updating the Jira user does **not** change the reporter on existing Jira tickets created by Semgrep. Previously created tickets keep their original Reporter.
+
+
 ## Unlink a ticket from its associated Jira ticket
 
 1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
