@@ -294,6 +294,10 @@ These features require **read access** to your code.
 
 </details>
 
+:::tip
+**Autofix** (Semgrep Code and Semgrep Supply Chain upgrade PRs) needs **Contents: Read and write** on the private app, plus other permissions, so Semgrep can clone and push branches and open draft PRs. For a breakdown of Git operations versus REST endpoints, see [GitHub permissions and API usage for Autofix](/semgrep-code/triage-remediation/autofix#github-permissions-and-api-usage-for-autofix).
+:::
+
 </TabItem>
 
 <TabItem value='permissions-gitlab'>
