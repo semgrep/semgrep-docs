@@ -283,7 +283,7 @@ To update the Jira account used to create future tickets:
 2. In the **Jira Cloud** section, click **Change Jira user**.
 3. Authenticate into the Jira account you want to associate with the integration, and grant Semgrep the necessary permissions.
 
-Updating the Jira user does **not** change the reporter on existing Jira tickets created by Semgrep. Previously created tickets keep their original Reporter.
+Updating the Jira user does **not** change the reporter on existing Jira tickets created by Semgrep. Previously created tickets keep their original reporter.
 
 
 ## Unlink a ticket from its associated Jira ticket
