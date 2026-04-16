@@ -66,14 +66,13 @@ Ensure that you're using one of the following GitLab plans:
    - GitLab Self Managed
 
 1. Log in to GitLab, and create an access token with access to the desired GitLab groups. Assign the `api` scope and one of the following roles:
-   - `Maintainer`
    - `Owner`
    - `Admin`
-1. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
-1. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your GitLab connection.
-1. Click **Update access token**.
-1. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
-1. Toggle the **Incoming webhooks** setting on.
+2. Return to Semgrep and [<i class="fas fa-external-link fa-xs"></i> sign in](https://semgrep.dev/login).
+3. Go to **<i class="fa-solid fa-gear"></i> Settings > Source code managers**, and find your GitLab connection.
+4. Click **Update access token**.
+5. In the **Update access token** dialog that appears, provide the new token you created. Click **Update** to save and proceed.
+6. Toggle the **Incoming webhooks** setting on.
 
 Once you've successfully enabled webhooks and the **Triage via code review comments** toggle is on, you can change the role for the token you provide to Semgrep to one that's more restrictive, such as `Developer`.
 
