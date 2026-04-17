@@ -14,9 +14,9 @@ import TabItem from '@theme/TabItem';
 
 # Semgrep Plugin
 
-Semgrep's plugin integrates natively with AI coding agents like Cursor, Claude Code, and Windsurf to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+Semgrep's plugin integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
-This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin works with any MCP client.
+This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plugin works with any MCP client.
 
 ## Prerequisites
 
