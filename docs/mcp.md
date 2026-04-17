@@ -174,7 +174,7 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     semgrep install-semgrep-pro
     ```
 
-5. Update your `config.toml` file and paste the following:
+5. Update your `~/.codex/config.toml` file and paste the following:
 
     ```toml
     [mcp_servers.semgrep]
