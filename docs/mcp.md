@@ -174,19 +174,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     semgrep install-semgrep-pro
     ```
 
-5. Add the following configuration to your Codex MCP settings:
+5. Update your `config.toml` file and paste the following:
 
-    ```json
-    {
-      "mcp": {
-        "servers": {
-          "semgrep": {
-            "command": "semgrep",
-            "args": ["mcp"]
-          }
-        }
-      }
-    }
+    ```toml
+    [mcp_servers.semgrep]
+    command = "semgrep"
+    args = ["mcp"]
     ```
 
 </TabItem>
