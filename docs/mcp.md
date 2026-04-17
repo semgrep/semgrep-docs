@@ -174,7 +174,20 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     semgrep install-semgrep-pro
     ```
 
-5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
+5. Add the following configuration to your Codex MCP settings:
+
+    ```json
+    {
+      "mcp": {
+        "servers": {
+          "semgrep": {
+            "command": "semgrep",
+            "args": ["mcp"]
+          }
+        }
+      }
+    }
+    ```
 
 </TabItem>
 
