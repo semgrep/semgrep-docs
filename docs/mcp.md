@@ -14,9 +14,9 @@ import TabItem from '@theme/TabItem';
 
 # Semgrep Plugin
 
-Semgrep's plugin integrates natively with AI coding agents like Cursor, Claude Code, and Windsurf to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+Semgrep's plugin integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
-This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin works with any MCP client.
+This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plugin works with any MCP client.
 
 ## Prerequisites
 
@@ -32,6 +32,7 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     {label: 'Claude Code', value: 'claude'},
     {label: 'Cursor', value: 'cursor'},
     {label: 'Windsurf', value: 'windsurf'},
+    {label: 'Codex', value: 'codex'},
     {label: 'Other IDEs', value: 'other'},
     ]}
 >
@@ -106,12 +107,10 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
 <TabItem value='windsurf'>
 
 1. Install Semgrep:
-     ```bash
+    ```bash
     # install through homebrew
     brew install semgrep
-    ```
 
-     ```bash
     # install through pip
     python3 -m pip install semgrep
     ```
@@ -143,6 +142,45 @@ This guide covers setup for Cursor, Windsurf, and Claude Code, but the plugin wo
     ```
 
 1. Restart Windsurf to apply hook configuration.
+
+</TabItem>
+
+<TabItem value='codex'>
+
+1. Install Semgrep:
+     ```bash
+    # install through homebrew
+    brew install semgrep
+    ```
+
+     ```bash
+    # install through pip
+    python3 -m pip install semgrep
+    ```
+
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3. Sign in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+    ```bash
+    semgrep login
+    ```
+    In the **Semgrep CLI login**, click **Activate** to proceed.
+
+4. Return to the CLI, and install the Semgrep Pro engine:
+    ```bash
+    semgrep install-semgrep-pro
+    ```
+
+5. Update your `~/.codex/config.toml` file and paste the following:
+
+    ```toml
+    [mcp_servers.semgrep]
+    command = "semgrep"
+    args = ["mcp"]
+    ```
 
 </TabItem>
 
