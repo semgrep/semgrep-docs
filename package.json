@@ -28,7 +28,7 @@
     "docusaurus-plugin-sass": "^0.2.5",
     "dotenv": "^17.2.3",
     "file-loader": "^6.2.0",
-    "jsdom": "^22.1.0",
+    "jsdom": "^29.0.2",
     "meilisearch": "^0.53.0",
     "prism-react-renderer": "^2.3.1",
     "react": "^18.3.1",
