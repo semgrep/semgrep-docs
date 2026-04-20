@@ -100,11 +100,12 @@ If you'd like to connect multiple GitHub orgs, use the instructions for [GitHub 
 
 ### GitHub Cloud with non-GitHub SSO
 
-These steps are for users who sign in to Semgrep through a **non-GitHub** SSO provider. You can connect to GitHub using Semgrep's GitHub app and one of the following: a personal access token or your individual GitHub account.
+These steps are for users who:
 
-:::note Add multiple GitHub orgs
-After adding your initial GitHub org, you can use the instructions in this section to add additional orgs.
-:::
+- Sign in to Semgrep through a **non-GitHub** SSO provider
+- Want to add additional GitHub orgs
+
+You can connect to GitHub using Semgrep's GitHub app and one of the following: a personal access token or your individual GitHub account.
 
 1. Navigate to the following link: [<i class="fas fa-external-link fa-xs"></i> Semgrep GitHub app](https://github.com/marketplace/semgrep-dev) and install the Semgrep GitHub app onto the GitHub org you want to connect to.
 2. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) using your non-GitHub SSO provider.
