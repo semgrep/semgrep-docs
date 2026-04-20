@@ -103,7 +103,7 @@ If you'd like to connect multiple GitHub orgs, use the instructions for [GitHub 
 These steps are for users who:
 
 - Sign in to Semgrep through a **non-GitHub** SSO provider
-- Want to add additional GitHub orgs
+- Have connected to a GitHub org already, but want to add additional GitHub connections
 
 You can connect to GitHub using Semgrep's GitHub app and one of the following: a personal access token or your individual GitHub account.
 
