@@ -484,14 +484,13 @@ COMMON OPTIONS
        --trace
            Record traces from Semgrep scans to help debugging. This feature
            is meant for internal use and may be changed or removed without
-           warning. Currently only used by `semgrep lsp`. 
+           warning.
 
        --trace-endpoint=VAL
            Endpoint to send OpenTelemetry traces to, if `--trace` is present.
            The value may be `semgrep-prod` (default), `semgrep-dev`,
            `semgrep-local`, or any valid URL. This feature is meant for
            internal use and may be changed or removed without warning.
-           Currently only used by `semgrep lsp`. 
 
        -v, --verbose
            Show more details about what rules are running, which files failed
@@ -500,6 +499,9 @@ COMMON OPTIONS
 EXPERIMENTAL OPTIONS
        Any option starting with '--x-' is experimental and may be removed
        from semgrep without notice.
+
+       --no-x-run-taint-once
+           [INTERNAL] Disable running taint analysis just once
 
        --x-disable-transitive-reachability
            [INTERNAL] Disable transitive reachability analysis regardless of
@@ -549,6 +551,9 @@ EXPERIMENTAL OPTIONS
 
        --x-pro-naming
            [INTERNAL] Do not use
+
+       --x-run-taint-once
+           [INTERNAL] Run taint analysis just once (default: true)
 
        --x-semgrepignore-filename=FILENAME
            [INTERNAL] Files named FILENAME shall be consulted instead of the
