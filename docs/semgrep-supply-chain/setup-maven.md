@@ -77,7 +77,7 @@ jobs:
   buildmavenDepTree:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -102,7 +102,7 @@ jobs:
     container:
       image: semgrep/semgrep
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Download artifact from the previous job
         uses: actions/download-artifact@v3
         with:
@@ -133,7 +133,7 @@ jobs:
   buildmavenDepTree:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -157,7 +157,7 @@ jobs:
     container:
       image: semgrep/semgrep
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Download artifact from previous job
         uses: actions/download-artifact@v3
         with:

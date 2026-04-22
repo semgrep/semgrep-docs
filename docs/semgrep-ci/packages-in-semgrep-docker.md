@@ -29,7 +29,7 @@ The Alpine 3.22 docker image includes additional packages that can change withou
     container: semgrep/semgrep:latest
     runs-on: ubuntu-latest-16-core
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Install dependencies
         run: apk add bash jq curl
       - run: semgrep scan --json ... | jq ...

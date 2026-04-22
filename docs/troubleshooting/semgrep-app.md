@@ -67,7 +67,7 @@ jobs:
       image: semgrep/semgrep
     if: (github.actor != 'dependabot[bot]')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       # Use this command for the verbose level of debugging.
       - run: semgrep ci --verbose &> semgrep.log
       # Use this command for the Semgrep's highest logging level, --debug.
