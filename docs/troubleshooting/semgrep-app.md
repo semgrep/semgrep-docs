@@ -143,10 +143,6 @@ variables:
   SECURE_LOG_LEVEL: "debug"
 ```
 
-### How to get GitLab assistance
-
-If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://support.gitlab.com) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com).
-
 ## Project-specific issues
 
 A **project** is any repository you have added to Semgrep Cloud Platform for scanning. Refer to the following sections for issues in the **Semgrep AppSec Platform > Projects** page.
