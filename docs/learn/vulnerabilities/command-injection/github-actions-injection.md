@@ -168,7 +168,7 @@ jobs:
       contents: read
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: install 
         run: npm install
 

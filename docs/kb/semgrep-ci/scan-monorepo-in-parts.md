@@ -113,7 +113,7 @@ jobs:
 
     steps:
       # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci --subdir=src/moduleA/
         env:
@@ -162,7 +162,7 @@ jobs:
 
     steps:
       # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci --include=src/moduleA/
         env:

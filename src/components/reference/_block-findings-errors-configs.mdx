@@ -15,7 +15,7 @@ Optionally, you can explicitly indicate that Semgrep is using the default settin
  
 ```yaml
 steps:
-  - uses: actions/checkout@v4
+  - uses: actions/checkout@v6
   - name: Scan and suppress internal errors
     run: semgrep ci --suppress-errors
 ```
@@ -36,7 +36,7 @@ The following code snippets display the position of the default flag in the conf
 
 ```yaml
 steps:
-- uses: actions/checkout@v4
+- uses: actions/checkout@v6
 - name: Scan and suppress internal errors
    run: semgrep ci --suppress-errors
 ```

@@ -63,7 +63,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]') && (github.event != 'merge_group')
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: semgrep ci
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}

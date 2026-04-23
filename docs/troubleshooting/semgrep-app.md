@@ -67,7 +67,7 @@ jobs:
       image: semgrep/semgrep
     if: (github.actor != 'dependabot[bot]')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       # Use this command for the verbose level of debugging.
       - run: semgrep ci --verbose &> semgrep.log
       # Use this command for the Semgrep's highest logging level, --debug.
@@ -142,10 +142,6 @@ The output of Semgrep is hidden by default, but [GitLab provides a way](https://
 variables:
   SECURE_LOG_LEVEL: "debug"
 ```
-
-### How to get GitLab assistance
-
-If you’re a GitLab customer and suspect there’s an issue with GitLab, please [contact GitLab support](https://about.gitlab.com/support/) and open a support ticket. Users of GitLab’s free plans should open a thread in the [GitLab Community Forum](https://forum.gitlab.com).
 
 ## Project-specific issues
 

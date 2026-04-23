@@ -47,7 +47,7 @@ jobs:
     name: semgrep/ci
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Run Semgrep
         run: |
 

@@ -96,7 +96,7 @@ The following sample of the GitHub Actions workflow publishes rules from a priva
         container:
           image: semgrep/semgrep
         steps:
-        - uses: actions/checkout@v4
+        - uses: actions/checkout@v6
         - name: publish private semgrep rules
           run: semgrep publish --visibility=org_private ./private_rule_dir
           env:
