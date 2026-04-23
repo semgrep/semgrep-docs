@@ -66,7 +66,7 @@ Once you have enabled the Jira integration, you must complete the following step
 
 All products limit automatic ticket creation to **Critical** or **High** severity findings. Code findings must also be on your [primary branch](/deployment/primary-branch).
 
-- For Code, Semgrep automatically creates tickets for **high confidence findings**. All criteria for Code also apply to AI-powered scan findings.
+- For Code, Semgrep automatically creates tickets for **high confidence findings**. All criteria for Code also apply to AI-powered detection findings.
 - For Supply Chain, Semgrep automatically creates tickets for **reachable findings** on the primary branch and **malicious dependency findings** on **any** branch.
 - For Secrets, Semgrep automatically creates tickets for **validated secrets** on **any** branch.
 
