@@ -178,8 +178,9 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 <TabItem value='ado'>
 
 <pre class="language-console"><code>
-azuredevops:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
+inbound:
+&nbsp;&nbsp;azuredevops:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
 </code></pre>
 
 </TabItem>
@@ -189,24 +190,27 @@ azuredevops:
 Bitbucket is compatible with Network Broker versions 0.20.0 and later.
 
 <pre class="language-console"><code>
-bitbucket:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
+inbound:
+&nbsp;&nbsp;bitbucket:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
 </code></pre>
 
 </TabItem>
 <TabItem value='gh'>
 
 <pre class="language-console"><code>
-github:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
+inbound:
+&nbsp;&nbsp;github:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 </code></pre>
 
 </TabItem>
 <TabItem value='gl'>
 
 <pre class="language-console"><code>
-gitlab:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
+inbound:
+&nbsp;&nbsp;gitlab:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
 </code></pre>
 
 </TabItem>
@@ -295,9 +299,10 @@ To enable Managed Scans when using Network Broker, ensure that you've updated yo
 <TabItem value='ado'>
 
 <pre class="language-console"><code>
-azuredevops:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
-&nbsp;&nbsp;allowCodeAccess: true
+inbound:
+&nbsp;&nbsp;azuredevops:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">ADO_BASE_URL</span>/*
+&nbsp;&nbsp;&nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 :::info Access tokens
@@ -309,9 +314,10 @@ Semgrep recommends providing the access token when you [connect the source code 
 <TabItem value='bb'>
 
 <pre class="language-console"><code>
-bitbucket:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
-&nbsp;&nbsp;allowCodeAccess: true
+inbound:
+&nbsp;&nbsp;bitbucket:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">BITBUCKET_BASE_URL</span>/rest/api/latest
+&nbsp;&nbsp;&nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 :::info Access tokens
@@ -322,18 +328,20 @@ Semgrep recommends providing the access token when you [connect the source code 
 <TabItem value='gh'>
 
 <pre class="language-console"><code>
-github:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
-&nbsp;&nbsp;allowCodeAccess: true
+inbound:
+&nbsp;&nbsp;github:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
+&nbsp;&nbsp;&nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 </TabItem>
 <TabItem value='gl'>
 
 <pre class="language-console"><code>
-gitlab:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
-&nbsp;&nbsp;allowCodeAccess: true
+inbound:
+&nbsp;&nbsp;gitlab:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITLAB_BASE_URL</span>/api/v4
+&nbsp;&nbsp;&nbsp;&nbsp;allowCodeAccess: true
 </code></pre>
 
 </TabItem>
@@ -370,29 +378,31 @@ Do not attempt to run multiple instances of the Semgrep Network Broker to increa
 It is possible to allow access to multiple source code managers (SCM) within a single configuration file. One entry for a given SCM [uses the SCM-specific key provided in the configuration file](/semgrep-ci/network-broker#update-the-config-with-your-scm-information), as shown in the following example for a GitHub connection:
 
 <pre class="language-console"><code>
-github:
-&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
+inbound:
+&nbsp;&nbsp;github:
+&nbsp;&nbsp;&nbsp;&nbsp;baseURL: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3
 </code></pre>
 
 Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
 
 <pre class="language-console"><code>
-allowlist:
-&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo
-&nbsp;&nbsp;  methods: [GET]
-&nbsp;&nbsp;  setRequestHeaders:
-&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
-&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls
-&nbsp;&nbsp;  methods: [GET]
-&nbsp;&nbsp;  setRequestHeaders:
-&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
-&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls/:number/comments
-&nbsp;&nbsp;  methods: [POST]
-&nbsp;&nbsp;  setRequestHeaders:
-&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
-&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/:owner/:repo/issues/:number/comments
-&nbsp;&nbsp;  methods: [POST]
-&nbsp;&nbsp;  setRequestHeaders:
-&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
-&nbsp;...
+inbound:
+&nbsp;&nbsp;allowlist:
+&nbsp;&nbsp;&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo
+&nbsp;&nbsp;&nbsp;&nbsp;  methods: [GET]
+&nbsp;&nbsp;&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;&nbsp;&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls
+&nbsp;&nbsp;&nbsp;&nbsp;  methods: [GET]
+&nbsp;&nbsp;&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;&nbsp;&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/repos/:owner/:repo/pulls/:number/comments
+&nbsp;&nbsp;&nbsp;&nbsp;  methods: [POST]
+&nbsp;&nbsp;&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;&nbsp;&nbsp;- url: https://<span className="placeholder">GITHUB_BASE_URL</span>/api/v3/:owner/:repo/issues/:number/comments
+&nbsp;&nbsp;&nbsp;&nbsp;  methods: [POST]
+&nbsp;&nbsp;&nbsp;&nbsp;  setRequestHeaders:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Authorization: "Bearer <span className="placeholder">GITHUB_PAT</span>"
+&nbsp;&nbsp;&nbsp;...
 </code></pre>
