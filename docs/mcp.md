@@ -39,14 +39,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='claude'>
 
-1. Install Semgrep:
+1. Install Semgrep using Homebrew or Pip:
     ```bash
-    # install through homebrew
+    # install using Homebrew
     brew install semgrep
-    ```
 
-     ```bash
-    # install through pip
+    # install using Pip
     python3 -m pip install semgrep
     ```
    
@@ -76,14 +74,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='cursor'>
 
-1. Install Semgrep:
-      ```bash
-    # install through homebrew
+1. Install Semgrep using Homebrew or Pip:
+    ```bash
+    # install using Homebrew
     brew install semgrep
-    ```
 
-     ```bash
-    # install through pip
+    # install using Pip
     python3 -m pip install semgrep
     ```
 
@@ -106,12 +102,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='windsurf'>
 
-1. Install Semgrep:
+1. Install Semgrep using Homebrew or Pip:
     ```bash
-    # install through homebrew
+    # install using Homebrew
     brew install semgrep
 
-    # install through pip
+    # install using Pip
     python3 -m pip install semgrep
     ```
 
@@ -147,14 +143,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='codex'>
 
-1. Install Semgrep:
-     ```bash
-    # install through homebrew
+1. Install Semgrep using Homebrew or Pip:
+    ```bash
+    # install using Homebrew
     brew install semgrep
-    ```
 
-     ```bash
-    # install through pip
+    # install using Pip
     python3 -m pip install semgrep
     ```
 
@@ -186,14 +180,12 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='other'>
 
-1. Install Semgrep:
-     ```bash
-    # install through homebrew
+1. Install Semgrep using Homebrew or Pip:
+    ```bash
+    # install using Homebrew
     brew install semgrep
-    ```
 
-     ```bash
-    # install through pip
+    # install using Pip
     python3 -m pip install semgrep
     ```
 
