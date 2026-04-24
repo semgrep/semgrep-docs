@@ -75,9 +75,11 @@ The following table lists the credits required for AI-powered features:
 | AI-powered pull request or merge request comments | 0 credits |
 | AI analysis<sup>*</sup> | 1 credit per finding |
 | AI autofix | 20 credits per finding |
-| AI-powered detection scanning | 30 credits per scan |
+| AI-powered detection scanning | Variable per scan |
 
 <sup>*</sup>Includes autotriage, remediation guidance, and component tagging
+
+AI-powered detection scans use a variable number of credits per scan. Credit use depends on scan size and complexity, so larger or more complex scans may use more credits.
 
 ## How to determine your plan needs
 
