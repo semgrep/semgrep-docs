@@ -22,7 +22,7 @@ The following updates were made to Semgrep in October 2024.
 - Added a **Scan details** page and pane for all completed scans. Use this to troubleshoot or view information about individual scans. 
 ![Scan details pane with the permalink icon indicated in a box.](/img/scan-details-permalink.png)
 _**Figure**. Scan details pane with the permalink icon indicated in a box._
-- The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
+- The **Dashboard** now provides a **Teams** filter, enabling you to create views based on a selection of [Teams](/deployment/teams/overview#teams-beta) you are a part of. Click **Dashboard > Filters** to access the filter.
   - By default, the Dashboard now displays findings from teams you are a part of. Your finding count may differ from your colleagues based on your Teams.
 - Added a Jira API endpoint to create Jira tickets, either by passing a list of `issue_ids` or filter query parameters to select findings. Refer to the [<i class="fas fa-external-link fa-xs"></i> Jira API documentation](https://semgrep.dev/api/v1/docs/#tag/TicketingService/operation/semgrep_app.core_exp.notifications.ticketing.handlers.openapi_create_tickets).
 - Semgrep now supports [Move on Sui](https://docs.sui.io/concepts/sui-move-concepts), thanks to the contributions of the Sui team.

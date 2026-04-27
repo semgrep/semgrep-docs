@@ -1,5 +1,5 @@
 ---
-slug: deployment/teams/overview
+slug: overview
 append_help_link: true
 title: Overview
 hide_title: true

@@ -1,5 +1,5 @@
 ---
-slug: deployment/teams/manage
+slug: manage
 append_help_link: true
 title: Teams and user management
 hide_title: true
