@@ -99,7 +99,7 @@ Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep)
 
 If you cannot use the Semgrep Docker image, install Semgrep as a step or command within your CI job:
 
-1. Add `pip3 install semgrep` into the configuration file as a step or command, depending on your CI provider's syntax.
+1. Add `pipx install semgrep` (or `uv tool install semgrep` if you use [`uv`](https://docs.astral.sh/uv/)) into the configuration file as a step or command, depending on your CI provider's syntax. See the [Python Packaging guide](https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/) for more on installing standalone Python CLI tools.
 2. Run any valid `semgrep scan` command, such as `semgrep scan --config auto`.
 
 For an example, see the [Azure Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-azure-pipelines-configuration-snippet).

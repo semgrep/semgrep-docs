@@ -21,7 +21,7 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 ## Prerequisites
 
 * Python 3.10 or later
-* Homebrew or Pip to install Semgrep
+* Homebrew, [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), or [`uv`](https://docs.astral.sh/uv/) to install Semgrep
 * A Semgrep account
 
 ## Installation
@@ -39,13 +39,16 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='claude'>
 
-1. Install Semgrep using Homebrew or Pip:
+1. Install Semgrep using Homebrew, pipx, or uv:
     ```bash
     # install using Homebrew
     brew install semgrep
 
-    # install using Pip
-    python3 -m pip install semgrep
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
     ```
    
 2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
@@ -74,13 +77,16 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='cursor'>
 
-1. Install Semgrep using Homebrew or Pip:
+1. Install Semgrep using Homebrew, pipx, or uv:
     ```bash
     # install using Homebrew
     brew install semgrep
 
-    # install using Pip
-    python3 -m pip install semgrep
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
     ```
 
 1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
@@ -102,13 +108,16 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='windsurf'>
 
-1. Install Semgrep using Homebrew or Pip:
+1. Install Semgrep using Homebrew, pipx, or uv:
     ```bash
     # install using Homebrew
     brew install semgrep
 
-    # install using Pip
-    python3 -m pip install semgrep
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
     ```
 
 1. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
@@ -143,13 +152,16 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='codex'>
 
-1. Install Semgrep using Homebrew or Pip:
+1. Install Semgrep using Homebrew, pipx, or uv:
     ```bash
     # install using Homebrew
     brew install semgrep
 
-    # install using Pip
-    python3 -m pip install semgrep
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
     ```
 
 2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
@@ -180,13 +192,16 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 <TabItem value='other'>
 
-1. Install Semgrep using Homebrew or Pip:
+1. Install Semgrep using Homebrew, pipx, or uv:
     ```bash
     # install using Homebrew
     brew install semgrep
 
-    # install using Pip
-    python3 -m pip install semgrep
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
     ```
 
 2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:

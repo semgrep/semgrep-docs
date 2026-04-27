@@ -79,21 +79,24 @@ semgrep login && semgrep ci
     brew upgrade semgrep
     ```
 
-    Alternatively:
+    Alternatively, using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/) or uv (https://docs.astral.sh/uv/):
 
     ```bash
-    python3 -m pip install --upgrade semgrep
+    pipx upgrade semgrep
+    # or
+    uv tool upgrade semgrep
     ```
 
     </TabItem>
 
     <TabItem value='Linux'>
 
-    ```bash
-    python3 -m pip install --upgrade semgrep
+    Using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/) or uv (https://docs.astral.sh/uv/):
 
-    # if you get the following error "error: externally-managed-environment",
-    # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
+    ```bash
+    pipx upgrade semgrep
+    # or
+    uv tool upgrade semgrep
     ```
 
     </TabItem>
@@ -104,7 +107,9 @@ semgrep login && semgrep ci
     # ensure that you have Python 3.9 or later installed
     # before proceeding
 
-    python3 -m pip install --upgrade semgrep
+    pipx upgrade semgrep
+    # or
+    uv tool upgrade semgrep
     ```
 
     </TabItem>

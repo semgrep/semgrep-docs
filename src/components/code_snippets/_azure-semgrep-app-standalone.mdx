@@ -8,7 +8,7 @@ pool:
 steps: 
 
 - script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
+    python -m pip install --upgrade pipx
+    pipx install semgrep
     semgrep ci --code
 ```

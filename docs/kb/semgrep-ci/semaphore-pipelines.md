@@ -22,7 +22,7 @@ In Semaphore:
 5. Expand **Jobs**, and add the following commands to perform a full scan:
    ```console
    checkout
-   sudo pip install semgrep
+   pipx install semgrep
    semgrep ci
    ```
 4. Enable the secret that you created in **Step 1**. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.

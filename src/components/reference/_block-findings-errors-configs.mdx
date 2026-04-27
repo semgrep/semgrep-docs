@@ -55,7 +55,7 @@ semgrep:
 
 ```javascript
 steps {
-    sh 'pip3 install semgrep'
+    sh 'pipx install semgrep'
     sh 'semgrep ci --suppress-errors'
 }
 ```

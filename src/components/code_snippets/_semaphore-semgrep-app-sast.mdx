@@ -13,7 +13,7 @@ blocks:
         - name: Semgrep Full Scan
           commands:
             - checkout
-            - sudo pip install semgrep
+            - pipx install semgrep
             - semgrep ci
         # Job performing a diff scan for PR/branches
         - name: Semgrep Diff-aware Scan
@@ -21,7 +21,7 @@ blocks:
             - checkout
             - export SEMGREP_BRANCH=$SEMAPHORE_GIT_BRANCH
             - export SEMGREP_BASELINE_COMMIT=$SEMAPHORE_GIT_SHA
-            - sudo pip install semgrep
+            - pipx install semgrep
             - semgrep ci
       # import a secret named 'semgrep' with the SEMGREP_APP_TOKEN
       secrets:
