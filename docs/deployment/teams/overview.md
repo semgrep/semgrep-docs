@@ -1,7 +1,7 @@
 ---
 slug: overview
 append_help_link: true
-title: Overview
+title: Teams and users
 hide_title: true
 description: Learn about managing user access to projects through teams.
 tags:

@@ -256,7 +256,7 @@ module.exports = {
             items: [
                 {
                     type: 'category',
-                    label: 'Teams and roles',
+                    label: 'Teams and users',
                     collapsible: true,
                     link: {type: 'doc', id: 'deployment/teams/overview'},
                     items: [

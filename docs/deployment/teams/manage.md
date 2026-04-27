@@ -1,7 +1,7 @@
 ---
 slug: manage
 append_help_link: true
-title: Teams and user management
+title: Manage teams and users
 hide_title: true
 description: Learn how to manage user access to projects through teams.
 tags:
