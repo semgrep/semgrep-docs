@@ -55,7 +55,7 @@ Monorepos may take longer to finish scanning. Semgrep provides several options t
 
 Semgrep provides three primary roles: **admin**, **member**, and **readonly**.
 
-Deployments can also enable a fourth role, **manager**, through the [Teams](/deployment/teams) feature, which provides project-level role-based access control.
+Deployments can also enable a fourth role, **manager**, through the [Teams](/deployment/teams/overview) feature, which provides project-level role-based access control.
 
 For **single-user deployments**, you are the sole **admin** of your deployment.
 

@@ -21,7 +21,7 @@ The following updates were made to Semgrep in April 2024.
 ### Added
 
 - The **Teams** feature, which provides project-level role-based access control (RBAC), is now in public beta. This feature enables you to assign **members** to **teams**, and then grant those teams access to specific projects (repositories added to Semgrep).
-    - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/teams).
+    - Teams are crucial to large organizations with hundreds of members and projects. See [<i class="fa-regular fa-file-lines"></i> Manage user access to projects](/deployment/teams/overview).
 - The Dashboard now displays the Assistant **priority inbox**, a list of essential tasks that Semgrep Assistant prepares for you each time you log in. <!-- 13768 -->
 
 ### Changed
@@ -128,7 +128,7 @@ didn't work properly when adding a new file or renaming an existing file.
     - Added two additional glossaries:
         - Static analysis and rule writing glossary
         - Semgrep Code glossary
-- Added a new section for user management on **[Teams (beta)](/deployment/teams)**, an access control feature that enables administrators or managers to assign projects to specific team members.
+- Added a new section for user management on **[Teams (beta)](/deployment/teams/overview)**, an access control feature that enables administrators or managers to assign projects to specific team members.
 - Expanded the documentation on [Semgrep Assistant's new features](/semgrep-multimodal/overview).
 
 ### Changed
