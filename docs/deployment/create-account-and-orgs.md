@@ -147,7 +147,7 @@ Team members can join a Semgrep organization by logging in through the auth prov
 <JoinAnOrg />
 
 :::tip
-Semgrep admins can also [send developers invites to join their Semgrep org](/deployment/teams#invite-a-team-member-through-email).
+Semgrep admins can also [send developers invites to join their Semgrep org](/deployment/teams#invite-a-user-through-email).
 :::
 
 ### Delete an existing org

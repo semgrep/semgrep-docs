@@ -254,7 +254,15 @@ module.exports = {
             label: 'Deployment at scale',
             link: {type: 'generated-index'},
             items: [
-                'deployment/teams',
+                {
+                    type: 'category',
+                    label: 'Teams and roles',
+                    collapsible: true,
+                    link: {type: 'doc', id: 'deployment/teams/overview'},
+                    items: [
+                        'deployment/teams/manage',
+                    ]
+                },
                 'deployment/tokens',
                 'semgrep-appsec-platform/tags',
                 'semgrep-ci/network-broker'
