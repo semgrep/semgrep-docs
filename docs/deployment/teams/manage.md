@@ -117,7 +117,14 @@ To set a member as a manager for a subteam:
 This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
-Managers can view their subteams through the **Settings > Access > Teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
+1. In the [<i class="fas fa-external-link fa-xs"></i> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<i class="fa-solid fa-pen-to-square"></i> edit** icon on the row of the team or subteam you want to edit.
+1. Find the team to which the subteam should be added. Click **Add subteam**.
+2. Provide a **Team name**. Click **Add projects**.
+3. Select one or more projects to add to the subteam. Click **Add members**.
+4. Select one or more users to add to the subteam. Click **Review**.
+5. Review the changes you have made. If this looks correct, click **Create team** to proceed.
+
+Managers can view their subteams by going to the **Settings > Access > Teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
 
 Note that this feature enables managers to view **all projects**, even projects they are not assigned to, in the **Edit teams** panel. While they are able to view projects in this panel, they still can't perform any admin-level operations, including assigning projects they're not a manager of.
 

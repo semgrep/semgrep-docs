@@ -107,7 +107,6 @@ Members and managers can create projects by scanning a repository using the Semg
 | Receive weekly priority emails | ❌&nbsp;No | ❌&nbsp;No    | ❌&nbsp;No    | ✅&nbsp;Yes   |
 | Add a memory during triage | ❌&nbsp;No   | ❌&nbsp;No    | ❌&nbsp;No    | ✅&nbsp;Yes   |
 
-
 ## How team access works
 
 - Members of a top-level team gain access to the projects of its subteams. They are indirect members of a subteam.<!-- vale off -->
@@ -142,22 +141,12 @@ Additionally, the manager role is able to perform the following:
 
 Managers cannot remove themselves from their team. Admins and co-managers of the same team or subteam can remove other managers.
 
-
-#### Assign team members to projects
-
-:::info
-This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
-:::
-
 Managers can view and assign any of the projects they manage from one subteam to another at any time.
 
 For example, if Bob is a manager of `Team A` (assigned to projects `Foo` and `Bar`) and `Team B` (assigned to project `Baz`), Bob has access to all three projects: `Foo`, `Bar`, and `Baz`. Bob can also assign `Baz` to `Team A`.
 
 ## Tips for creating teams and subteams
 
-:::info
-The Semgrep team recommends that admins assign projects to one team only.
-:::
-
+- **Assign projects to only one team.**
 - **Use subteams to grant access to a specific department's repositories**: Create a top-level team for managers or security engineers in your organization who have broad access to a variety of repositories, then create subteams for members to grant them limited access to their specific department's repositories.
 - **Use flat teams to grant access to central projects that are used by a broad group of developers**: It is best to create a separate flat team, without any subteams, and grant the users access to foundational or central repositories from that team. For example, projects that all engineers commit to can be named the Engineering Team.
