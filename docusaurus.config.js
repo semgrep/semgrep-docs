@@ -477,7 +477,8 @@ module.exports = {
           {from: "/semgrep-assistant/overview", to: "/semgrep-multimodal/overview" },
           {from: "/semgrep-assistant/privacy", to: "/semgrep-multimodal/privacy" },
           {from: "/kb/semgrep-assistant/azure-openai-error-429", to: "kb/semgrep-multimodal/azure-openai-error-429" },
-          {from: "/kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" }
+          {from: "/kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" },
+          {from: "/deployment/teams", to: "/deployment/teams/overview" }
         ]
       }
     ],
