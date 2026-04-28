@@ -42,8 +42,11 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
  # install through homebrew
  brew install semgrep
 
- # install through pip
- python3 -m pip install semgrep
+ # or, install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+ pipx install semgrep
+
+ # or, install through uv (https://docs.astral.sh/uv/)
+ uv tool install semgrep
 
  # confirm installation succeeded by printing the currently installed version
  semgrep --version
@@ -58,11 +61,11 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
 1. Install the Semgrep CLI and confirm the installation:
 
  ```console
- # install through pip
- python3 -m pip install semgrep
+ # install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+ pipx install semgrep
 
- # if you get the following error "error: externally-managed-environment",
- # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
+ # or, install through uv (https://docs.astral.sh/uv/)
+ uv tool install semgrep
 
  # confirm installation succeeded by printing the currently installed version
  semgrep --version
@@ -72,7 +75,7 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
 
 <TabItem value='Windows'>
 
-1. [Download](https://www.python.org/downloads/) and install Python. Check the box to add python.exe to the PATH; otherwise, you will have difficulty running Pip and Semgrep.
+1. [Download](https://www.python.org/downloads/) and install Python. Check the box to add python.exe to the PATH; otherwise, you will have difficulty running Semgrep.
 
 2. Configure your system to run Python with UTF-8 text encodings by default. In PowerShell, run:
 
@@ -83,11 +86,11 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
 3. Install the Semgrep CLI and confirm the installation. In PowerShell, run:
 
  ```console
- # install through pip
- pip install --upgrade semgrep
+ # install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+ pipx install semgrep
 
- # if you get the following error "error: externally-managed-environment",
- # see semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment 
+ # or, install through uv (https://docs.astral.sh/uv/)
+ uv tool install semgrep
 
  # confirm installation succeeded by printing the currently installed version
  semgrep --version

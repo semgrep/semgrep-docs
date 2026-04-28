@@ -12,11 +12,13 @@ Semgrep provides a [sample configuration for Azure-hosted runners](/docs/semgrep
 This guide adds two approaches to configuring self-hosted runners that use Ubuntu (the default self-hosted option for Azure DevOps Linux runners):
 
 * [Using pipx](#using-pipx)
-* [Using pip with a virtual environment](#using-pip-with-a-virtual-environment)
+* [Using uv](#using-uv)
+
+Both `pipx` and `uv` install Semgrep into an isolated environment, which avoids issues with system-managed Python vs user-installed Python.
 
 ## Using pipx
 
-While the sample configuration uses `pip`, this approach uses `pipx`, which avoids issues with system-managed Python vs user-installed Python.
+[`pipx`](https://pipx.pypa.io/stable/) installs standalone Python applications into isolated environments. This is the recommended approach for installing Semgrep on a self-hosted runner.
 
 ### Prepare your runner
 
@@ -73,14 +75,19 @@ steps:
 
 <AzureVariables />
 
-## Using pip with a virtual environment
+## Using uv
 
 ### Prepare your runner
 
-This approach uses built-in Azure DevOps tasks, including `UsePythonVersion` and `Bash`, and uses a virtual environment to install `pip`, another approach that prevents issues with system-managed Python vs user-installed Python.
+[`uv`](https://docs.astral.sh/uv/) is a fast Python package and project manager. Its `uv tool install` command installs standalone Python applications into isolated environments, similar to `pipx`.
 
-1. Ensure you have a pre-installed and configured compatible version of Python 3, following [the instructions for UsePythonVersion for self-hosted runners](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0?view=azure-pipelines#how-can-i-configure-a-self-hosted-agent-to-use-this-task).
-2. Ensure the [Azure DevOps agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops) is set up and running.
+Access the runner and install `uv` following [Astral's installation instructions](https://docs.astral.sh/uv/getting-started/installation/), for example:
+
+```bash
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+After installing, ensure the [Azure DevOps agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops) is set up and running.
 
 ### Create your configuration
 
@@ -95,35 +102,24 @@ pool:
   name: Default
 
 steps:
-  - checkout: self
-    clean: true
-    persistCredentials: true
-  - task: UsePythonVersion@0
-    displayName: 'Use Python 3.12'
-    inputs:
-      versionSpec: 3.12
-  - task: Bash@3
-    env:
-      SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
-    inputs:
-      targetType: 'inline'
-      script: |
-        python3 -m venv .venv
-        source .venv/bin/activate
-        python3 -m pip install --upgrade pip
-        pip install semgrep
-
-        if [ $(Build.SourceBranchName) = "master" ]; then
-          export SEMGREP_BRANCH=$(Build.SourceBranchName)
-          echo "Semgrep full scan of master"
-          semgrep ci
-        elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
-          echo "Semgrep diff scan"
-          git fetch origin master:origin/master
-          export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
-          export SEMGREP_BASELINE_REF='origin/master'
-          semgrep ci
-       fi
+- checkout: self
+  clean: true
+  fetchDepth: 20
+  persistCredentials: true
+- script: |
+    uv tool install semgrep
+    if [ $(Build.SourceBranchName) = "master" ]; then
+        echo "Semgrep full scan"
+        semgrep ci
+    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+        echo "Semgrep diff scan"
+        git fetch origin master:origin/master
+        export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+        export SEMGREP_BASELINE_REF='origin/master'
+        semgrep ci
+    fi
+  env:
+    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
 ```
 
 :::info Customizing the configuration

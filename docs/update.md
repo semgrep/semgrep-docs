@@ -29,12 +29,11 @@ You can also use the following commands in either your CLI or CI environment:
 # macOS users only, using Homebrew
 brew upgrade semgrep
 
-# macOS, Linux, or Windows users using pip
-python3 -m pip install --upgrade semgrep
+# macOS, Linux, or Windows users using pipx (recommended)
+pipx upgrade semgrep
 
-# If you get the following error "error: externally-managed-environment", see
-# semgrep.dev/docs/kb/semgrep-appsec-platform/error-externally-managed-environment
-python3 -m pipx upgrade semgrep
+# Or, using uv
+uv tool upgrade semgrep
 
 # confirm your Semgrep installation
 semgrep --version

@@ -35,8 +35,8 @@ steps:
   fetchDepth: 20
 persistCredentials: true
 - script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
+    python -m pip install --upgrade pipx
+    pipx install semgrep
     if [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
       echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
       git fetch origin main:origin/main

@@ -15,15 +15,27 @@ However, when testing or managing upgrades, it can be helpful to run different v
 If you use Semgrep with Semgrep AppSec Platform, [only the latest 10 minor versions are supported](/deployment/checklist/#semgrep-versions).
 :::
 
-Installation with Homebrew does not support multiple versions of Semgrep, but you can use either Pip or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
+Installation with Homebrew does not support multiple versions of Semgrep, but you can use [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), [`uv`](https://docs.astral.sh/uv/), or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
 
-## Running different versions using pip
+## Running different versions using pipx
 
-Install a specific Semgrep version using pip's version syntax:
+Install a specific Semgrep version using `pipx`'s version syntax:
 
-<pre class="language-bash"><code>python3 -m pip install semgrep==<span className="placeholder">x.y.z</span></code></pre>
+<pre class="language-bash"><code>pipx install semgrep==<span className="placeholder">x.y.z</span></code></pre>
 
-If you see an error during the installation process due to your Python environment being externally managed by a package manager, see [Semgrep's article for instructions on how to proceed](/kb/semgrep-appsec-platform/error-externally-managed-environment).
+If you already have Semgrep installed via `pipx`, use `--force` to reinstall a different version:
+
+<pre class="language-bash"><code>pipx install --force semgrep==<span className="placeholder">x.y.z</span></code></pre>
+
+## Running different versions using uv
+
+You can also pin a specific version using `uv tool install`:
+
+<pre class="language-bash"><code>uv tool install semgrep==<span className="placeholder">x.y.z</span></code></pre>
+
+Or run a specific version one-off, without installing it persistently, using `uvx`:
+
+<pre class="language-bash"><code>uvx semgrep@<span className="placeholder">x.y.z</span> --version</code></pre>
 
 Confirm installation:
 

@@ -11,8 +11,8 @@ steps:
   persistCredentials: true
 # Replace master with the repository default branch if different.
 - script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
+    python -m pip install --upgrade pipx
+    pipx install semgrep
     if [ $(Build.SourceBranchName) = "master" ]; then
         echo "Semgrep full scan"
         semgrep ci

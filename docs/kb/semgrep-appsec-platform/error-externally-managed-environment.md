@@ -1,5 +1,5 @@
 ---
-description: Learn how to handle externally managed environment errors when installing Semgrep using pip.
+description: Learn how to handle externally managed environment errors when installing Semgrep, and how to install Semgrep using pipx or uv.
 tags:
  - Semgrep AppSec Platform
  - Semgrep Code
@@ -76,8 +76,12 @@ hint: See PEP 668 for the detailed specification.
 
 ## How to fix this error
 
-For most users, the simplest solution is to install [`pipx`](https://github.com/pypa/pipx), then run `pipx install semgrep` to install Semgrep. `pipx` automatically creates and manages virtual environments for standalone Python applications.
+The recommended way to install Semgrep is to use a tool that manages isolated environments for standalone Python applications, such as [`pipx`](https://pipx.pypa.io/stable/) or [`uv`](https://docs.astral.sh/uv/). See the [Python Packaging guide on installing stand-alone command-line tools](https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/) for more on these tools.
 
-You can also install Semgrep using [`homebrew`](https://brew.sh/).
+Choose one of the following:
+
+- Install [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), then run `pipx install semgrep`.
+- Install [`uv`](https://docs.astral.sh/uv/getting-started/installation/), then run `uv tool install semgrep`. To run a one-off Semgrep command without persistently installing it, use `uvx semgrep`. See the [`uv` tools guide](https://docs.astral.sh/uv/guides/tools/) for more details.
+- Install Semgrep using [`homebrew`](https://brew.sh/), with `brew install semgrep`.
 
 If you're already using a custom Python virtual environment, you can install Semgrep in this existing environment instead.

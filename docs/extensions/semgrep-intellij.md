@@ -27,8 +27,11 @@ The Semgrep IntelliJ extension communicates with Semgrep command-line interface 
 # For macOS
 $ brew install semgrep
 
-# For Ubuntu/Windows/Linux/macOS
-$ python3 -m pip install semgrep
+# For Ubuntu/Windows/Linux/macOS, using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+$ pipx install semgrep
+
+# Or, using uv (https://docs.astral.sh/uv/)
+$ uv tool install semgrep
 ```
 
 ## Quickstart

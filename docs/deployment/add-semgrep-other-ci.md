@@ -67,8 +67,7 @@ To create a `SEMGREP_APP_TOKEN`, follow these steps:
 
 1. Add Semgrep to your CI pipeline. Do either of the following:
     1. Reference or add the [Semgrep Docker image](https://hub.docker.com/r/semgrep/semgrep). This is the recommended method.
-    2. Add `pip install semgrep` into your configuration file as a step or command, depending on your CI provider's syntax.
-         - If you see an error during the installation process due to your Python environment being externally managed by a package manager, see [Semgrep's article for instructions on how to proceed](/kb/semgrep-appsec-platform/error-externally-managed-environment).
+    2. Add `pipx install semgrep` (or `uv tool install semgrep` if you use [`uv`](https://docs.astral.sh/uv/)) into your configuration file as a step or command, depending on your CI provider's syntax. See the [Python Packaging guide](https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/) for more on installing standalone Python CLI tools.
 2. Add `semgrep ci` as a step or command.
 3. Set the `SEMGREP_APP_TOKEN` environment variable within your configuration file.
 
@@ -137,7 +136,7 @@ pipeline {
     stage('Semgrep-Scan') {
       steps {
         // Install and run Semgrep:
-        sh 'pip3 install semgrep'
+        sh 'pipx install semgrep'
         sh 'semgrep ci'
       }
     }

@@ -30,8 +30,8 @@ To add Semgrep commands in a YAML template file:
 	  steps:
 	  - script: |
 	      echo "Semgrep full scan"
-	      python -m pip install --upgrade pip
-	      pip install semgrep
+	      python -m pip install --upgrade pipx
+	      pipx install semgrep
 	      semgrep ci
 	   ```
  
@@ -46,8 +46,8 @@ To add Semgrep commands in a YAML template file:
 	   - script: |
 	       echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
 	       git fetch origin master:origin/master
-	       python -m pip install --upgrade pip
-	       pip install semgrep
+	       python -m pip install --upgrade pipx
+	       pipx install semgrep
 	       semgrep ci
 	     env:
 	      SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)

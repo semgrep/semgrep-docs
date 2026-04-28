@@ -6,8 +6,8 @@ steps:
   fetchDepth: 20
   persistCredentials: true
 - script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
+    python -m pip install --upgrade pipx
+    pipx install semgrep
     echo "Semgrep CE full scan"
     semgrep scan --config auto
 ```
