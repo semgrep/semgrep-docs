@@ -47,20 +47,7 @@ Semgrep marks the relevant Semgrep Secrets rules as superseding the Semgrep Code
 
 A finding from the superseded Semgrep Code rule will display the **Secrets version available** badge.
 
-## List rules that have upgrades
-
-To list rules that have a Semgrep upgrade:
-
-1. Sign in to Semgrep AppSec Platform.
-2. Go to **Rules & policies > Policies > Code**.
-3. Under **Available rule upgrades**, select **Secrets**, **Pro**, or both.
-
-See [Upgrade your rules in Semgrep Secrets getting started](/semgrep-secrets/getting-started#upgrade-your-rules) for details.
-
 
 ## Related documentation
 
-- [Pro rules](/semgrep-code/pro-rules/)
-- [Reduce false positives in `semgrep scan`](/kb/semgrep-code/reduce-false-positives)
-- [Manage rules and policies](/semgrep-code/policies)
-- [Upgrade your rules in Semgrep Secrets getting started](/semgrep-secrets/getting-started#upgrade-your-rules)
+To list rules that have a Semgrep upgrade see [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) for details.
