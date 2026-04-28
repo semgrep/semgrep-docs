@@ -143,7 +143,7 @@ OPTIONS
        --incremental-output
            Output results incrementally. REQUIRES --experimental
 
-       --interfile-timeout=VAL (absent=0)
+       --interfile-timeout=INT (absent=0)
            Maximum time to spend on interfile analysis. If set to 0 will not
            have time limit. Defaults to 0 s for all CLI scans. For CI scans,
            it defaults to 3 hours.
@@ -151,7 +151,7 @@ OPTIONS
        --internal-ci-scan-results
            Internal flag.
 
-       -j VAL, --jobs=VAL (absent=3)
+       -j VALUE, --jobs=VALUE (absent=3)
            Degree of parallelism to use for parallel scanning, either using
            shared-memory threads (the default) or the legacy process-based
            parallelism (enabled with the deprecated --x-parmap flag). Semgrep
@@ -185,30 +185,30 @@ OPTIONS
            different parts of a rule are matched (a.k.a., "Inspect Rule" in
            the Semgrep playground)
 
-       --max-chars-per-line=VAL (absent=160)
+       --max-chars-per-line=INT (absent=160)
            Maximum number of characters to show per line.
 
-       --max-lines-per-finding=VAL (absent=10)
+       --max-lines-per-finding=INT (absent=10)
            Maximum number of lines of code that will be shown for each match
            before trimming (set to 0 for unlimited).
 
-       --max-log-list-entries=VAL (absent=100)
+       --max-log-list-entries=INT (absent=100)
            Maximum number of entries that will be shown in the log (e.g.,
            list of rule ids, list of skipped files). A zero or negative value
            disables this filter. Defaults to 100
 
-       --max-memory=VAL (absent=0)
+       --max-memory=INT (absent=0)
            Maximum system memory in MiB to use during the interfile
            pre-processing phase, or when running a rule on a single file. If
            set to 0, will not have memory limit. Defaults to 0. For CI scans
            that use the Pro Engine, defaults to 5000 MiB. 
 
-       --max-target-bytes=VAL (absent=1000000)
+       --max-target-bytes=VALUE (absent=1000000)
            Maximum size for a file to be scanned by Semgrep, e.g '1.5MB'. Any
            input program larger than this will be ignored. A zero or negative
            value disables this filter. Defaults to 1000000 bytes
 
-       --metrics=VAL (absent=auto or SEMGREP_SEND_METRICS env)
+       --metrics=ENUM (absent=auto or SEMGREP_SEND_METRICS env)
            Configures how usage metrics are sent to the Semgrep server. If
            'auto', metrics are sent whenever the --config value pulls from
            the Semgrep server or if the user is logged in. If 'on', metrics
@@ -245,7 +245,7 @@ OPTIONS
            Save search results to a file or post to URL. Default is to print
            to stdout.
 
-       --optimizations=VAL (absent=all)
+       --optimizations=VALUE (absent=all)
            Turn on/off optimizations. Default = 'all'. Use 'none' to turn all
            optimizations off. 
 
@@ -295,7 +295,7 @@ OPTIONS
            validation. Requires access to Secrets, contact
            support@semgrep.com for more information.
 
-       --secrets-timeout=VAL (absent=30)
+       --secrets-timeout=INT (absent=30)
            Timeout in seconds for each secrets validation HTTP request. If
            set to 0, no timeout is applied. Defaults to 30.
 
@@ -331,11 +331,11 @@ OPTIONS
        --text-output=VAL
            Write a copy of the text output to a file or post to URL.
 
-       --timeout=VAL (absent=5.)
+       --timeout=DOUBLE (absent=5.)
            Maximum time to spend running a rule on a single file in seconds.
            If set to 0 will not have time limit. Defaults to 5.0 s. 
 
-       --timeout-threshold=VAL (absent=3)
+       --timeout-threshold=INT (absent=3)
            Maximum number of rules that can time out on a file before the
            file is skipped. If set to 0 will not have limit. Defaults to 3. 
 
@@ -361,13 +361,6 @@ OPTIONS
 
        --x-mem-policy=VAL
            [INTERNAL] Heap and GC tuning policy. Only affects the Pro Engine.
-
-       --x-no-scan-v2
-           negates --x-use-scan-v2
-
-       --x-use-scan-v2 (absent SEMGREP_USE_SCAN_V2 env)
-           Use v2 /scans endpoint (default true). Negate with --x-no-scan-v2
-           to fall back to v1.
 
 COMMON OPTIONS
        --debug
@@ -426,7 +419,7 @@ EXPERIMENTAL OPTIONS
            [INTERNAL] Disable transitive reachability analysis regardless of
            app-based configuration.
 
-       --x-dump-rule-partitions=VAL (absent=0)
+       --x-dump-rule-partitions=INT (absent=0)
            Internal flag.
 
        --x-dump-rule-partitions-dir=VAL
@@ -457,7 +450,7 @@ EXPERIMENTAL OPTIONS
            makes sure that metrics are not sent so that the MCP server can
            send its own metrics.
 
-       --x-merge-partial-results-dir=VAL
+       --x-merge-partial-results-dir=DIR
            Internal flag.
 
        --x-merge-partial-results-output=VAL
@@ -500,7 +493,7 @@ EXPERIMENTAL OPTIONS
        --x-upload-partial-results=VAL
            Internal flag.
 
-       --x-upload-partial-results-scan-id=VAL
+       --x-upload-partial-results-scan-id=INT
            Internal flag.
 
        --x-use-saved-scan-config-path=VAL
@@ -555,9 +548,6 @@ ENVIRONMENT
 
        SEMGREP_SUPPRESS_ERRORS
            See option --suppress-errors.
-
-       SEMGREP_USE_SCAN_V2
-           See option --x-use-scan-v2.
 
 AUTHORS
        Semgrep Inc. <support@semgrep.com>
