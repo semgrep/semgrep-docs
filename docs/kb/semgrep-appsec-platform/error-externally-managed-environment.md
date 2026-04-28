@@ -1,5 +1,5 @@
 ---
-description: Learn how to handle externally managed environment errors when installing Semgrep, and how to install Semgrep using pipx or uv instead.
+description: Learn how to handle externally managed environment errors when installing Semgrep, and how to install Semgrep using pipx or uv.
 tags:
  - Semgrep AppSec Platform
  - Semgrep Code
