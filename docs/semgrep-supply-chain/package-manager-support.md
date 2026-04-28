@@ -73,7 +73,7 @@ The following table lists all Semgrep-supported package managers for each langua
   <tr>
    <td rowspan="5">Python</td>
    <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).</td>
+   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).†</td>
   </tr>
   <tr>
    <td>pip-tools</td>
@@ -107,7 +107,7 @@ The following table lists all Semgrep-supported package managers for each langua
 </tr>
   <tr>
    <td>Rust</td>
-   <td>Cargo*</td>
+   <td>Cargo‡</td>
    <td><code>cargo.lock</code></td>
 </tr>
 <tr>
@@ -129,6 +129,8 @@ The following table lists all Semgrep-supported package managers for each langua
 </table>
 </div>
 
-_<strong>*</strong>Supply Chain does not analyze the transitivity of packages for
+
+_<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._<br /><br />
+_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for
 these language and manifest file or lockfile combinations. All dependencies are
 listed as **No %%Reachability|reachability%% Analysis.**_<br />
