@@ -1,7 +1,6 @@
 ---
 slug: pro-vs-community-secrets-vs-code-rules
-title: Rule upgrades and supersession in Semgrep
-hide_title: true
+title: Rule upgrades and supersession
 description: Supersession between Community and Pro rules and between Semgrep Code and Semgrep Secrets
 tags:
   - Rule supression
@@ -10,9 +9,9 @@ tags:
 
 # Rule upgrades and supersession
 
-More than one rule can match the same issue in the same code. Semgrep records supersession relationships between rules in order to recommend the preferred rule. On the **Findings** and findings' **Details** page, superseded rules can show a badge such as **Pro rule available**, **Upgrade available**, or **Secrets version available**.
+This article describes Semgrep behavior when multiple rules match the same issue in the same code. Overlap can occur when you scan your project with Semgrep Code using similar **Pro** and **CE** rules, or when you scan your code using both **Semgrep Code** and **Semgrep Secrets**.
 
-This article describes the behavior for overlapping **Pro** and **CE** rules in Semgrep Code, and overlapping **Semgrep Code** and **Semgrep Secrets** rules. 
+
 
 ## Pro versus CE rules in Semgrep Code {#pro-community-supersession}
 
@@ -24,8 +23,13 @@ When rules overlap, results might vary depending on which rules you run:
 * If a Pro rule exists, but you run only the overlapping CE rule, you might see more false positives than you would with the Pro rule.
 * If you run both the Pro and the CE rules, you might see duplicate findings for the same underlying issue.
 
+## Identify findings from superseded rule
 
-Semgrep uses **badges** to mark superseded rules on AppSec Platform. Findings from the superseding rule do not show upgrade badges. Findings from a superseded rule may show a badge; select the badge to see the rule Semgrep recommends using instead.
+When more than one rule can match the same issue in the same code, Semgrep uses supersession relationships between rules to determine and recommend the preferred rule. 
+
+Semgrep uses **badges** to mark superseded rules on the **Findings** and findings' **Details** pages of AppSec Platform. 
+
+Findings from the **superseding** (preferred) rule do not show upgrade badges. Findings from a **superseded** rule may show a badge. On AppSec Platform, you can click the badge to see the rule Semgrep recommends using instead.
 
 The following table summarizes the badges:
 
@@ -39,15 +43,13 @@ The following table summarizes the badges:
 
 ## Semgrep Secrets versus Semgrep Code rules
 
-Semgrep Secrets is newer product than Semgrep Code’s secret-detection rules. Before Semgrep Secrets, some Semgrep Code rules could identify potential secret values in source code.
+Semgrep Code offers rules that can identify leaked credentials in source code, but Semgrep Secrets uses detection rules that include [validators](/semgrep-secrets/conceptual-overview#validate-secrets) to confirm whether the match is a real, active secret, helping reduce noise.
 
-Now, Semgrep Secrets rules add validators and other Semgrep Secrets behavior so Semgrep can confirm whether a match is a real, active secret and reduce noise.
-
-Semgrep marks the relevant Semgrep Secrets rules as superseding the Semgrep Code rules that covered the same cases. The supersession behavior matches the behavior outlined in the [Pro versus CE rules in Semgrep Code](#pro-community-supersession) above.
+When a Code and Secrets rule exists for the same issue, Semgrep marks the findings from Semgrep Secrets rules as superseding the Semgrep Code rules. The supersession behavior matches the behavior outlined in [Pro versus CE rules in Semgrep Code](#pro-community-supersession).
 
 A finding from the superseded Semgrep Code rule displays the **Secrets version available** badge.
 
 
 ## Related documentation
 
-See [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) for information on viewing Code findings where a Secrets rule is available.
+See [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) to see the rules you're using for which there is an upgrade in Semgrep AppSec Platform.
