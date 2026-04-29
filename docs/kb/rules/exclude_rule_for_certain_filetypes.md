@@ -51,7 +51,7 @@ You can safely assume `.svg` files do not intentionally contain artifactory pass
 ```
   \- id: my_detected-artifactory-password
 ```
-3. Exclude the target filetype in question from the rule through the [`path` field](/deployment/teams#user-roles-and-access): 
+1. Exclude the target filetype in question from the rule through the `path` field: 
 
 ```
  % cat my_custom_artifactory.yml 

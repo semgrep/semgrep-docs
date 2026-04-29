@@ -127,7 +127,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](/deployment/teams#member-scoped-access-tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
+- For organizations with role-based access control (RBAC) enabled, members are now able to [log in through the CLI](/deployment/tokens) and send findings data from their local machine to the Semgrep Cloud Platform.
 
 ## Semgrep Supply Chain
 
@@ -149,7 +149,7 @@ This section of release notes include upgrades of Semgrep OSS Engine for version
 
 ### Added
 
-- Created a new section on [Member scoped access tokens](/deployment/teams#member-scoped-access-tokens).
+- Created a new section on [Member scoped access tokens](/deployment/tokens).
 
 ### Changed
 

@@ -384,9 +384,9 @@ module.exports = {
           /* NOV 23 2023  */
           { from: "/getting-started/" , to: "/getting-started/quickstart" },
           /* JAN 20 2024  */
-          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/teams" },
-          { from: "/semgrep-app/user-management/", to: "/deployment/teams" },
-          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/teams" },
+          { from: "/semgrep-app/role-based-access-control/", to: "/deployment/teams/overview" },
+          { from: "/semgrep-app/user-management/", to: "/deployment/teams/overview" },
+          { from: "/semgrep-cloud-platform/user-management/", to: "/deployment/teams/overview" },
           { from: "/sso", to: "/deployment/sso" },
           { from: "/semgrep-cloud-platform/sso", to: "/deployment/sso" },
           { from: "/semgrep-app/sso/"                              , to: "/deployment/sso" },
@@ -477,7 +477,8 @@ module.exports = {
           {from: "/semgrep-assistant/overview", to: "/semgrep-multimodal/overview" },
           {from: "/semgrep-assistant/privacy", to: "/semgrep-multimodal/privacy" },
           {from: "/kb/semgrep-assistant/azure-openai-error-429", to: "kb/semgrep-multimodal/azure-openai-error-429" },
-          {from: "/kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" }
+          {from: "/kb/semgrep-assistant/missing-pr-mr-comments", to: "kb/semgrep-multimodal/missing-pr-mr-comments" },
+          {from: "/deployment/teams", to: "/deployment/teams/overview" }
         ]
       }
     ],
