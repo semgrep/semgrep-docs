@@ -59,6 +59,10 @@ pipeline {
     SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
     // Set repo name to expected format
     SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
+
+    // Uncomment the follow if you do not see PR comments
+    // SEMGREP_COMMIT = "${GIT_COMMIT}"
+    // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
   }
   stages {
     stage('semgrep-diff-scan') {
@@ -74,6 +78,8 @@ pipeline {
             docker run \
             -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
             -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
+            -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
             -e SEMGREP_BASELINE_REF=$(git merge-base $GIT_BRANCH $CHANGE_TARGET) \
             -e SEMGREP_PR_ID="${env.CHANGE_ID}"
             -v "$(pwd):$(pwd)" --workdir $(pwd) \
