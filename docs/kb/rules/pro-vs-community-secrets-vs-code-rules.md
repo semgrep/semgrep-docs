@@ -18,11 +18,11 @@ This article describes the behavior for overlapping **Pro** and **CE** rules in 
 
 CE rules are public, and anyone can contribute them. They use only features available in the Semgrep CE (OSS) engine.
 
-Pro rules are authored by Semgrep. They may cover the same topics as a CE rule, but they use the Pro engine. Since the Pro engine includes advanced features, like **cross-file (interfile)** analysis, matches are often more precise. Semgrep also publishes new Pro rules that overlap older Pro rules as coverage improves.
+Pro rules are authored by Semgrep. They might cover the same topics as a CE rule, but they use the Pro engine. Since the Pro engine includes advanced features, like **cross-file (interfile)** analysis, matches are often more precise. Semgrep also publishes new Pro rules that overlap older Pro rules as coverage improves.
 
-When rules overlap, results may vary depending on which rules you run:
-* If a Pro rule exists but you run only the overlapping CE rule, you may see more false positives than you would with the Pro rule.
-* If you run multiple overlapping rules, you may see duplicate findings for the same underlying issue.
+When rules overlap, results might vary depending on which rules you run:
+* If a Pro rule exists, but you run only the overlapping CE rule, you might see more false positives than you would with the Pro rule.
+* If you run both the Pro and the CE rules, you might see duplicate findings for the same underlying issue.
 
 
 Semgrep uses **badges** to mark superseded rules on AppSec Platform. Findings from the superseding rule do not show upgrade badges. Findings from a superseded rule may show a badge; select the badge to see the rule Semgrep recommends using instead.
@@ -31,9 +31,9 @@ The following table summarizes the badges:
 
 | Badge | Meaning |
 | ------- | ------- |
-| Pro | The finding is from a Pro rule. This label is separate from the upgrade badge below. |
+| Pro | The finding is from a Pro rule. This label is separate from the **Upgrade available** badge below. |
 | Pro rule available | The finding is from a CE rule, but Semgrep recommends a Pro rule for this use case. |
-| Upgrade available | The finding is from a Pro rule, but Semgrep recommends a different Pro rule, for example a newer or narrower rule. The finding can also show the **Pro** badge. |
+| Upgrade available | The finding is from a Pro rule, but Semgrep recommends a different Pro rule, such as a newer or narrower rule. The finding can also show the **Pro** badge. |
 
 
 
@@ -45,9 +45,9 @@ Now, Semgrep Secrets rules add validators and other Semgrep Secrets behavior so 
 
 Semgrep marks the relevant Semgrep Secrets rules as superseding the Semgrep Code rules that covered the same cases. The supersession behavior matches the behavior outlined in the [Pro versus CE rules in Semgrep Code](#pro-community-supersession) above.
 
-A finding from the superseded Semgrep Code rule will display the **Secrets version available** badge.
+A finding from the superseded Semgrep Code rule displays the **Secrets version available** badge.
 
 
 ## Related documentation
 
-To list rules that have a Semgrep upgrade see [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) for details.
+See [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) for information on viewing Code findings where a Secrets rule is available.
