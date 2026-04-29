@@ -15,7 +15,6 @@ displayed_sidebar: scanSidebar
 
 # AI-powered detection (beta) overview
 
-
 Semgrep’s AI-powered detection combines the precision of static analysis with the contextual reasoning of large language models (LLMs). With AI-powered detection, you can automatically identify complex business logic flaws, such as insecure direct object references (IDORs) and broken authorization.
 
 AI-powered detection is part of [Semgrep Multimodal](/docs/semgrep-multimodal/overview), which uses artificial intelligence (AI) to scan code, triage findings, and provide remediation guidance.
@@ -50,7 +49,7 @@ During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
 ### Credits required for AI actions
 
-Review your monthly allocation of AI credits on the [Usage and billing](/usage-and-billing/overview#ai-credits) page.
+Review the number of AI credits required to run AI-powered detection scans, as well as your monthly AI credit allocation, on the [Usage and billing](/usage-and-billing/overview#ai-credits) page.
 
 ### Data privacy and finding severity
 
