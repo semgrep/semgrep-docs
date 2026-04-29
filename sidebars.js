@@ -307,8 +307,7 @@ module.exports = {
             'semgrep-appsec-platform/sysdig',
             'semgrep-appsec-platform/wiz'
           ]
-        },
-        'workflows/overview',
+        }
       ]
     },
     {
