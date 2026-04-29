@@ -34,17 +34,17 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
       - name: Run `semgrep --help` and update reference file with output
         run: |
-          docker run --rm -e TERM=dumb semgrep/semgrep:$LATEST_VERSION semgrep --help | tee src/components/reference/_cli-help-output.md
+          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-output.md
           sed -i '1i```' src/components/reference/_cli-help-output.md
           echo '```' >> src/components/reference/_cli-help-output.md
       - name: Run `semgrep scan --help` and update reference file with output
         run: |
-          docker run --rm -e TERM=dumb semgrep/semgrep:$LATEST_VERSION semgrep scan --help | tee src/components/reference/_cli-help-scan-output.md
+          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep scan --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-scan-output.md
           sed -i '1i```' src/components/reference/_cli-help-scan-output.md
           echo '```' >> src/components/reference/_cli-help-scan-output.md
       - name: Run `semgrep ci --help` and update reference file with output
         run: |
-          docker run --rm -e TERM=dumb semgrep/semgrep:$LATEST_VERSION semgrep ci --help | tee src/components/reference/_cli-help-ci-output.md
+          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep ci --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-ci-output.md
           sed -i '1i```' src/components/reference/_cli-help-ci-output.md
           echo '```' >> src/components/reference/_cli-help-ci-output.md
       - name: Commit changes, if any
