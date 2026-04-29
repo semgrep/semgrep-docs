@@ -352,7 +352,7 @@ The Semgrep Network Broker supports repository cloning with GitHub when `allowCo
 ```yaml
 inbound:
   allowlist:
-    # allow GET requests from https://git.example.com/*
+    # allow GET requests from Semgrep to https://git.example.com/*
     - url: https://git.example.com/*
       methods: [GET, POST]
 ```
