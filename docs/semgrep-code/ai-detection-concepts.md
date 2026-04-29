@@ -49,7 +49,7 @@ During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
 ### Credits required for AI actions
 
-Review your monthly allocation of AI credits on the [Useage and billing](/usage-and-billing/overview#ai-credits) page.
+Review your monthly allocation of AI credits on the [Usage and billing](/usage-and-billing/overview#ai-credits) page.
 
 ### Data privacy and finding severity
 
