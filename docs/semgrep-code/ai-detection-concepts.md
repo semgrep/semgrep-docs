@@ -47,9 +47,9 @@ AI-powered detection builds on Semgrep's existing integration framework, such as
 
 During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
-### Scan limits 
+### Credits required for AI actions
 
-Each full AI-powered scan counts as one scan. Paying customers can trigger **30 scans per month**, and free tier customers can trigger **10 scans per month**. Please contact your Semgrep account manager or [Semgrep support](/docs/support) to discuss increasing your quota.  
+Review the number of AI credits required to run AI-powered detection scans, as well as your monthly AI credit allocation, on the [Usage and billing](/usage-and-billing/overview#ai-credits) page.
 
 ### Data privacy and finding severity
 
