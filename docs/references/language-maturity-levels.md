@@ -52,7 +52,7 @@ Semgrep Supply Chain has two language maturity levels:
     <td>Coverage for CVEs but without reachability analysis.</td>
   </tr>
   <tr>
-    <td>Semgrep Community Edition (CE) <a href="/docs/supported-languages#semgrep-oss-language-support">language support</a></td>
+    <td><a href="/docs/supported-languages#semgrep-oss-language-support">Semgrep Community Edition (CE) language support</a></td>
     <td>Semgrep CE support is GA.</td>
     <td>Semgrep CE support is at least Beta.</td>
   </tr>
