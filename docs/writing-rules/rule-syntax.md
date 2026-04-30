@@ -816,7 +816,7 @@ rules:
   - id: insecure-method
     patterns:
       - pattern: $MODULE.method(...)
-      - metavariable-regex:
+      - metavariable-name:
           metavariable: $MODULE
           modules:
            - foo
