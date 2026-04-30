@@ -49,7 +49,7 @@ During beta, you can choose between OpenAI, Anthropic, and Bedrock AI providers.
 
 ### Credits required for AI actions
 
-Review the number of AI credits required to run AI-powered detection scans, as well as your monthly AI credit allocation, on the [Usage and billing](/usage-and-billing/overview#ai-credits) page.
+See [Usage and billing](/usage-and-billing/overview#ai-credits) for information about credits required for AI actions.
 
 ### Data privacy and finding severity
 
