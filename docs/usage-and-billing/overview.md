@@ -62,7 +62,7 @@ Each Semgrep license, regardless of plan, includes a monthly allocation of AI cr
 | Team | 20 credits per contributor per month |
 | Enterprise | 50 credits per contributor per month |
 
-If you have a **Team** or **Enterprise** plan, you can purchase additional credits as needed in increments of 1,000 credits.
+If you have a **Team** or **Enterprise** plan, you can purchase additional credits as needed in increments of 10,000 credits.
 
 Entitlement credits, or the credits that come with your Semgrep licenses, expire at the end of your contract and do *not* roll over. Credits that you purchase expire at the end of your contract, but they can be rolled over once to the following year.
 
