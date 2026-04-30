@@ -50,6 +50,6 @@ When a Code and Secrets rule exists for the same issue, Semgrep marks the findin
 A finding from the superseded Semgrep Code rule displays the **Secrets version available** badge.
 
 
-## Related documentation
+## Upgrade rules
 
 See [Upgrade your rules](/semgrep-secrets/getting-started#upgrade-your-rules) to see the rules you're using for which there is an upgrade in Semgrep AppSec Platform.
