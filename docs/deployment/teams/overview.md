@@ -11,7 +11,7 @@ tags:
 
 # Manage user access to projects
 
-Basic access control, which determines which users can manage Semgrep resources such as scans, projects, and findings, is managed in Semgrep AppSec Platform. This allows you to set varying levels of collaboration and visibility amongst users, which are the people who have been added to your organization, with access to Semgrep.
+Basic access control, which determines which users can manage Semgrep resources such as scans, projects, and findings, is managed in Semgrep AppSec Platform. This allows you to configure different levels of collaboration and visibility for users in your organization with access to Semgrep.
 
 Semgrep primarily divides users into three roles:
 
@@ -44,9 +44,9 @@ Optionally, you can appoint members to a fourth role: the **manager** role. Mana
 
 ## Teams (beta)
 
-The **Teams (beta)** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform. This provides more granular control than the [**Users**](#user-permissions-and-visibility) feature alone. Teams helps security engineers and developers in large organizations focus on the projects that are relevant to their specific department or team.
+The **Teams ** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform. This provides more granular control than the [**Users**](#user-permissions-and-visibility) feature alone. Teams helps security engineers and developers in large organizations focus on projects relevant to their specific department or team.
 
-You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization. Once you've limited a user's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their total finding count is based on the total number of findings of the projects they can access.
+You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization. Once you've limited a user's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their finding count is based on the total number of findings in the projects they can access.
 
 ## Roles and access
 
@@ -64,7 +64,7 @@ The Teams feature extends the existing roles defined in the **Users** tab.
 - **Read-only**
   - A user who can only view projects and issues of their Semgrep deployment.
 
-You can assign a fourth role, **the manager**, in the context of a team. Managers are a subset of members:
+You can assign a fourth role, **manager**, in the context of a team. Managers are a subset of members:
 
 - **Manager**
   - A member who can grant access to projects by creating subteams and assigning members to these subteams.
@@ -79,7 +79,7 @@ You can assign a fourth role, **the manager**, in the context of a team. Manager
 | **Findings**  | ⚠️&nbsp;Restricted. Read-only users can perform no triage operations. | ⚠️&nbsp;Restricted. Members can perform all triage operations on Projects assigned to them. | ⚠️&nbsp;Restricted. Managers can perform all triage operations on Projects assigned to them. | ✅&nbsp;Yes      |
 | **Policies**  | ❌&nbsp;No         | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes. Only admins can view and edit policies. |                                                                                           |
 | **Editor**    | ❌&nbsp;No         | 👁️&nbsp;Read-only. Members can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account. | 👁️&nbsp;Read-only. Managers can view all rules of an organization, but can't edit or create their own. They can create their own rules in their personal account. | ✅&nbsp;Yes      |
-| **Settings**  | ❌&nbsp;No         | ❌&nbsp;No         | ⚠️&nbsp;Restricted. Managers can see the **Access** and **Account** subpages. In the **Access** page, they can make edits to subteams they are managers of. | ✅&nbsp;Yes      |
+| **Settings**  | ❌&nbsp;No         | ❌&nbsp;No         | ⚠️&nbsp;Restricted. Managers can see the **Access** and **Account** subpages. On the **Access** page, they can edit the subteams to which they are assigned as manager.  | ✅&nbsp;Yes      |
 
 ### Operations permitted per role
 
@@ -92,7 +92,7 @@ You can assign a fourth role, **the manager**, in the context of a team. Manager
 | Create or edit teams    | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
 | Create or edit subteams | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ✅&nbsp;Yes      |                                                                                                                                           |
 | Delete teams            | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
-| Delete subteams         | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ✅&nbsp;Yes      | A manager can delete the subteams they are a manager of, provided that there are no resources, such as projects, assigned to the subteam. |
+| Delete subteams         | ❌&nbsp;No    | ❌&nbsp;No         | ✅&nbsp;Yes       | ✅&nbsp;Yes      | A manager can delete a subteam they are assigned to manage, as long as no resources, such as projects, are assigned to that subteam. |
 | API                     | ❌&nbsp;No    | ❌&nbsp;No         | ❌&nbsp;No         | ✅&nbsp;Yes      |                                                                                                                                           |
 
 :::info

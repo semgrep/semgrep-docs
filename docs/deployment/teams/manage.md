@@ -11,13 +11,14 @@ tags:
 
 # Manage teams and roles
 
-Semgrep allows you to manage user membership and access to Semgrep resources, such as scans, findings, and projects, which are the repositories or codebases you have added to Semgrep for scanning. You can find these settings in [Semgrep AppSec Platform by going to **Settings > Access**](https://semgrep.dev/orgs/-/settings/access).
+Semgrep allows you to manage user membership and access to Semgrep resources, such as scans, findings, and repositories or codebases you have added to Semgrep. 
+To configure those settings, go to **[Settings > Access](https://semgrep.dev/orgs/-/settings/access)** in Semgrep AppSec Platform.
 
 ## Invite a user through email
 
 You can add new users to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account. The invitation only facilitates access for users who are already provisioned in the configured auth provider.
 
-You must be an `admin` to perform this operation.
+You must be an **admin** to perform this operation.
 
 1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Users** tab.
@@ -126,7 +127,7 @@ This feature is currently in invite-only beta. Please contact [Semgrep Support](
 
 Managers can view their subteams by going to the **Settings > Access > Teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
 
-Note that this feature enables managers to view **all projects**, even projects they are not assigned to, in the **Edit teams** panel. While they are able to view projects in this panel, they still can't perform any admin-level operations, including assigning projects they're not a manager of.
+Note that this feature allows managers to view **all projects** in the **Edit teams** panel, including projects they are not assigned to. However, they cannot perform admin-level actions on those projects, such as assigning projects they are not designated to manage.
 
 ### Filter findings for a team's projects
 
