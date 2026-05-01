@@ -20,7 +20,7 @@ You can add new users to your organization by sending them an email. This email 
 
 You must be an **admin** to perform this operation.
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 1. Click **<i class="fa-solid fa-gear"></i> Settings > Access**. This brings you to the **Users** tab.
 1. Click **Invite users**.
 1. In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
@@ -28,16 +28,16 @@ You must be an **admin** to perform this operation.
 
 ## Set a default role for the organization
 
-Users are assigned a role based on your organization's default. New organizations are created with the default role set to `admin`. To change this setting, perform the following steps:
+Users are assigned a role based on your organization's default. New organizations are created with the default role set to **admin**. To change this setting, perform the following steps:
 
 1. In Semgrep AppSec Platform, click **<i class="fa-solid fa-gear"></i> Settings**.
 2. Click **Access > Defaults**.
 
 ## Change a user's role
 
-You must be an `admin` to perform this operation.
+You must be an **admin** to perform this operation.
 
-1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep Cloud Platform](https://semgrep.dev/login).
+1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
 2. Click **<i class="fa-solid fa-gear"></i> Settings > Access**.
 3. Search for the user whose role will be changed.
 4. Click on the user's current role, under the role header. A drop-down box appears.

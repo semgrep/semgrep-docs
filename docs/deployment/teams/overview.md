@@ -27,14 +27,14 @@ Optionally, you can appoint members to a fourth role: the **manager** role. Mana
 
 **Members** can *edit* the following page in Semgrep AppSec Platform:
 
-- **Findings**. They can view **all projects** in the Findings page, and can sort and triage findings.
+- **Findings**: They can view **all projects** in the Findings page, and can sort and triage findings.
 
 **Members** can *view* the following pages in Semgrep AppSec Platform:
 
-- **Dashboard**. They are able to see the total count of findings for all projects in the org.
-- **Editor**. They can view an org's rules, but they can't write rules for the org. They can still write rules for their personal Semgrep orgs.
-- **Registry**. They can view, but not add, rules and rule packs.
-- **Docs**. Anyone can view the docs.
+- **Dashboard**: They are able to see the total count of findings for all projects in the org.
+- **Editor**: They can view an org's rules, but they can't write rules for the org. They can still write rules for their personal Semgrep orgs.
+- **Registry**: They can view, but not add, rules and rule packs.
+- **Docs**: Anyone can view the docs.
 
 **Members** *cannot view or perform any actions* on the following pages:
 
@@ -63,9 +63,6 @@ The Teams feature extends the existing roles defined in the **Users** tab.
   - Members can also be assigned as **Managers** within a team.
 - **Read-only**
   - A user who can only view projects and issues of their Semgrep deployment.
-
-You can assign a fourth role, **manager**, in the context of a team. Managers are a subset of members:
-
 - **Manager**
   - A member who can grant access to projects by creating subteams and assigning members to these subteams.
   - A manager role is restricted to the teams where they have been assigned as a manager. Users can be managers of some projects, but members for others. For more information, see [the manager role](#the-manager-role).
