@@ -44,7 +44,7 @@ Optionally, you can appoint members to a fourth role: the **manager** role. Mana
 
 ## Teams (beta)
 
-The **Teams ** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform. This provides more granular control than the [**Users**](#user-permissions-and-visibility) feature alone. Teams helps security engineers and developers in large organizations focus on projects relevant to their specific department or team.
+The **Teams** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform. This provides more granular control than the [**Users**](#user-permissions-and-visibility) feature alone. Teams helps security engineers and developers in large organizations focus on projects relevant to their specific department or team.
 
 You can quickly assign projects to large groups of users by first assigning users to teams and subteams within your organization. Once you've limited a user's access to a subset of your projects, their **Dashboard** and **Findings** pages all reflect that change. For example, their finding count is based on the total number of findings in the projects they can access.
 
