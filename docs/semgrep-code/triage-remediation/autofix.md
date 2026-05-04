@@ -1,6 +1,6 @@
 ---
 title: Autofix (beta)
-description: Use Semgrep Autofix to automatically generate a fix PR for Semgrep Code findings.
+description: Use Semgrep Autofix to automatically generate a fix PR for Semgrep Code findings, including required GitHub App permissions and how Semgrep accesses your repository.
 tags:
   - Semgrep Code
   - Semgrep AppSec Platform
@@ -88,6 +88,20 @@ At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
 Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
 
+## GitHub permissions and API usage for Autofix {#github-permissions-and-api-usage-for-autofix}
 
+Autofix uses your **private Semgrep GitHub App** with the permissions below. Use this section for security reviews (for example, which GitHub operations require **Contents: Read and write**).
 
+### Repository permissions
+
+| GitHub App permission | Why Autofix needs it |
+| --- | --- |
+| **Contents: Read** | Clone the repository over HTTPS (shallow, single-branch) so Semgrep can analyze the code and generate a fix. This uses GitHub’s Smart HTTP Git protocol (`git-upload-pack`). |
+| **Contents: Write** | Push the Autofix branch back to the repository. This uses GitHub’s Smart HTTP Git protocol (`git-receive-pack`). |
+| **Metadata: Read** | Read repository metadata, including the default branch, using `GET /repos/{owner}/{repo}`. |
+| **Pull requests: Write** | Open a **draft** pull request using `POST /repos/{owner}/{repo}/pulls`. |
+
+### How repository contents are accessed
+
+Semgrep does **not** read or write file contents through the REST Contents API (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
 

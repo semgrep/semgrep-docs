@@ -88,6 +88,7 @@ To access all upgrade guidance and Autofix features, you must have:
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
 - The **private** GitHub app for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they haven't already.
+  - For which GitHub operations and endpoints that entails (Git clone and push versus REST), see [GitHub permissions and API usage for Autofix](/semgrep-code/triage-remediation/autofix#github-permissions-and-api-usage-for-autofix).
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep) to improve results.
 
 ### Features and permissions required
@@ -160,6 +161,8 @@ To prevent security vulnerabilities from being merged into your codebase, see [S
 ## Appendix
 
 ### Grant **Read and write** access to a private GitHub Semgrep app
+
+Autofix PRs for Supply Chain use the same private GitHub App permissions and GitHub access patterns as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix#github-permissions-and-api-usage-for-autofix).
 
 <GithubAppReadWritePermissions />
 
