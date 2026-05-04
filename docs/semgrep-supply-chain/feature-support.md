@@ -22,11 +22,11 @@ For some languages, a lockfile or manifest file is parsed to determine %%transit
 
 Additionally, Semgrep offers beta support for the scanning of projects written in the following languages **without lockfiles**:
 
-- C#
+- C# (CI only)
 - Java
 - Kotlin
-- Python
-- Ruby
+- Python (CI only)
+- Ruby (CI only)
 
 ## Supply Chain features for each language
 <!-- *************************************************************************
