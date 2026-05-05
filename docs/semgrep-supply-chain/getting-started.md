@@ -108,7 +108,7 @@ Semgrep Supply Chain can scan projects without the need for lockfiles. This simp
 
 :::info
 - Semgrep Managed Scans can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans don't return any findings.
-- By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
+- By default, Semgrep doesn't surface all errors generated during a scan. To view more detailed errors in the CLI output, include the `--verbose` when initiating your scan:
     ```console
     semgrep ci --allow-local-builds --verbose
     ```
