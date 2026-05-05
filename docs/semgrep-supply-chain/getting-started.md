@@ -88,16 +88,17 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 ## Scan a project without lockfiles (beta)
 
 :::info
-This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
+This feature is currently in beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
-Semgrep Supply Chain can scan projects without the need for lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available for the following languages:
+Semgrep Supply Chain can use **Dynamic Dependency Resolution** scan projects without the need for lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available in both CLI scans and Semgrep Managed Scans for the following languages:
 
-- C#
-- Java projects built using Maven or Gradle Wrapper
-- Kotlin
-- Python
+- C# (CLI scans only)
+- Java projects built using Maven or Gradle (Gradle Wrapper required)
+- Kotlin projects built using Maven or Gradle (Gradle Wrapper required)
+- Python (CLI scans only)
 
+### CLI Scans (including self-managed CI)
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag:
     ```console
@@ -106,13 +107,12 @@ Semgrep Supply Chain can scan projects without the need for lockfiles. This simp
     For existing CI jobs, you may have to edit your configuration file to include this flag.
     Semgrep builds the project, using the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
-:::info
-- Semgrep Managed Scans can't determine the dependencies in a project when there is no manifest file or lockfile, so Supply Chain scans don't return any findings.
-- By default, Semgrep doesn't surface errors generated during a scan. To view errors in the CLI output, include the `--verbose` when initiating your scan:
-    ```console
-    semgrep ci --allow-local-builds --verbose
-    ```
-:::
+### Semgrep Managed Scans
+1. [Configure private
+   registry credentials](https://semgrep.dev/docs/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
+2. Contact [Semgrep Support](/support) to enable Dynamic Dependency resolution
+   for the necessary repositories.
+
 ## Run a scan using the CLI
 
 You can start a stand-alone Semgrep Supply Chain scan by running the following command in the CLI:
