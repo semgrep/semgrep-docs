@@ -18,7 +18,7 @@ The following updates were made to Semgrep in April 2026.
 
 ### Added
 
-* Users who sign in using GitHub or GitLab when their organization has corporate SSO configured now see an interstitial prompting them to log in with their corporate SSO credentials instead. <!-- source: [PR #27402](https://github.com/semgrep/semgrep-app/pull/27402) -->
+* Users who sign in using GitHub or GitLab when their organization has corporate SSO configured now see an message prompting them to log in with their corporate SSO credentials instead. <!-- source: [PR #27402](https://github.com/semgrep/semgrep-app/pull/27402) -->
 * Added workflow execution usage information to the [AI credits dashboard](https://semgrep.dev/orgs/-/settings/usage) so users can see workflow runs alongside scans, triages, and fixes. <!-- source: [PR #28123](https://github.com/semgrep/semgrep-app/pull/28123) -->
 * Added the ability to download contributor usage information from **Settings > Usage & Billing**. <!-- source: [PR #28186](https://github.com/semgrep/semgrep-app/pull/28186) -->
 
@@ -26,29 +26,19 @@ The following updates were made to Semgrep in April 2026.
 
 * Contributor seat limit alerts now explain that scans continue as a courtesy when an organization exceeds its seat limit, replacing the previous inaccurate "scans will be paused" text. <!-- source: [PR #27894](https://github.com/semgrep/semgrep-app/pull/27894) -->
 * Removed the **Fixed in** time filter option from all **Findings** pages. <!-- source: [PR #27324](https://github.com/semgrep/semgrep-app/pull/27324) -->
-* Invalid configurations for integrations no longer cause the **Integrations** page to fail to load. Semgrep now displays a meaningful error and allows you to edit or delete the configuration. <!-- source: [PR #27292](https://github.com/semgrep/semgrep-app/pull/27292) -->
 
 ### Fixed
 
-* Fixed a cross-tenant IDOR vulnerability in the Nango ticketing integration: the `CreateNangoTicketingInstance` endpoint now validates that the supplied `connection_id` belongs to the requesting tenant before allowing any operations. <!-- source: [PR #27291](https://github.com/semgrep/semgrep-app/pull/27291) -->
-* Fixed a cross-tenant data leak where the `triage-vars` rule lookup could resolve rules from a different deployment than the one specified in the request URL. <!-- source: [PR #27974](https://github.com/semgrep/semgrep-app/pull/27974) -->
-* Fixed a cross-tenant write amplifier on `CreateMemory` where rule validation did not scope the lookup to the deployment in the request. <!-- source: [PR #28009](https://github.com/semgrep/semgrep-app/pull/28009) -->
-* Fixed registry configuration edits silently dropping credential changes: updating an existing token, password, or role in a registry config now correctly sends the new credentials. <!-- source: [PR #27803](https://github.com/semgrep/semgrep-app/pull/27803) -->
-* Fixed button text truncation in the SCM config card for GitHub private app configurations, where up to three buttons were crammed into a narrow column. <!-- source: [PR #27725](https://github.com/semgrep/semgrep-app/pull/27725) -->
-* Fixed the **Settings > Usage** panel incorrectly showing a subset of seats when a deployment had multiple active licenses for the same product (for example, an expiring base license plus an expansion). The panel now shows the correct combined total. <!-- source: [PR #27261](https://github.com/semgrep/semgrep-app/pull/27261) -->
-* Fixed N+1 database queries in the bulk triage endpoint and moved the search index sync outside the database transaction, reducing bulk triage latency significantly. <!-- source: [PR #27721](https://github.com/semgrep/semgrep-app/pull/27721) -->
-* Fixed the repos filter on the findings and issues APIs to use case-insensitive matching, consistent with the project listing endpoint. <!-- source: [PR #27997](https://github.com/semgrep/semgrep-app/pull/27997) -->
-* Fixed the project-and-branch filter button growing unbounded when a long project or branch name was selected, breaking the filter bar layout. The button now truncates with an ellipsis and shows the full name in a tooltip. <!-- source: [PR #27705](https://github.com/semgrep/semgrep-app/pull/27705) -->
-* Fixed the **Remove user from organization** button being available to Member users with a Manager team role, allowing them to remove Admin users. The button now correctly requires `rbac_update` permission. <!-- source: [PR #27367](https://github.com/semgrep/semgrep-app/pull/27367) -->
-* Fixed read-only role users being able to upload CLI scan results and overwrite findings by setting `SEMGREP_REPO_DISPLAY_NAME`. CLI scan endpoints now enforce scan permissions. <!-- source: [PR #27501](https://github.com/semgrep/semgrep-app/pull/27501) -->
-* Fixed a follow-up where the read-only role scan permission check did not work correctly in production due to token roles not accounting for the `readonly` org role type. <!-- source: [PR #27643](https://github.com/semgrep/semgrep-app/pull/27643) -->
-* Fixed CSV findings export failing with `IndexError: list index out of range` for some users when a paginated batch returned an empty list. <!-- source: [PR #27585](https://github.com/semgrep/semgrep-app/pull/27585) -->
-* Fixed `provisionally_ignored` not working as a `status` filter value in the public findings, bulk triage, and create tickets APIs (previously returned all findings unfiltered). <!-- source: [PR #27834](https://github.com/semgrep/semgrep-app/pull/27834) -->
-* Fixed exception request APIs returning 404 instead of 400 when the Developer Approvals feature is not enabled for a deployment. <!-- source: [PR #28115](https://github.com/semgrep/semgrep-app/pull/28115) -->
-* Fixed the Jira integration failing to load for deployments that saved their Jira configuration before AI SAST Jira support was added, causing a `TypeError` crash on the integrations page. <!-- source: [PR #27777](https://github.com/semgrep/semgrep-app/pull/27777) -->
-* Fixed legacy finding URLs that included both `primary=true` and an explicit `repo_ref` parameter returning no results. <!-- source: [PR #27522](https://github.com/semgrep/semgrep-app/pull/27522) -->
-* Fixed blocking automations (v1.1) not enforcing CI blocks: the blocking result was written to the database but never written to S3, so the CLI completion endpoint never received the block list and scans always passed. <!-- source: [PR #27827](https://github.com/semgrep/semgrep-app/pull/27827) -->
-* Fixed duplicate automations firing for the same issues within a single scan. <!-- source: [PR #27609](https://github.com/semgrep/semgrep-app/pull/27609) -->
+* Invalid configurations for integrations no longer cause the **Integrations** page to fail to load. Semgrep now displays a meaningful error and allows you to edit or delete the configuration. <!-- source: [PR #27292](https://github.com/semgrep/semgrep-app/pull/27292) -->
+* Fixed an issue where Semgrep did not save changes when Gradle or Maven registry integration credentials were updated. <!-- source: [PR #27803](https://github.com/semgrep/semgrep-app/pull/27803) -->
+* Fixed an issue where the **Settings > Usage** panel incorrectly showed a subset of seats when a deployment had multiple active licenses for the same product instead of the correct combined total. <!-- source: [PR #27261](https://github.com/semgrep/semgrep-app/pull/27261) -->
+* Fixed an issue where the **Remove user from organization** button was available to **Managers**, allowing them to remove Admin users. <!-- source: [PR #27367](https://github.com/semgrep/semgrep-app/pull/27367) -->
+* Fixed an issue where read-only users could upload CLI scan results and overwrite findings by setting `SEMGREP_REPO_DISPLAY_NAME`. CLI scan endpoints now enforce scan permissions. <!-- source: [PR #27501](https://github.com/semgrep/semgrep-app/pull/27501) -->
+* Fixed an issue where CSV findings exports failed with `IndexError: list index out of range` for some users when a paginated batch returned an empty list. <!-- source: [PR #27585](https://github.com/semgrep/semgrep-app/pull/27585) -->
+* Fixed the `repos` filter on the findings and issues API endpoints to use case-insensitive matching. <!-- source: [PR #27997](https://github.com/semgrep/semgrep-app/pull/27997) -->
+* Fixed an issue where the **provisionally ignored** filter for the public findings API endpoints returned all findings. <!-- source: [PR #27834](https://github.com/semgrep/semgrep-app/pull/27834) -->
+* Fixed an issue where the Jira integration failed to load for deployments that saved their Jira configuration before support for AI-detection findings support was added. <!-- source: [PR #27777](https://github.com/semgrep/semgrep-app/pull/27777) -->
+* Minor UI fixes.
 
 ## 💻 Semgrep Code
 
@@ -92,6 +82,9 @@ The following updates were made to Semgrep in April 2026.
 * Added LFS network broker support for **Gradle** private package registries, with the same proxy and traffic-splitting capabilities as the Maven implementation. <!-- source: [PR #27676](https://github.com/semgrep/semgrep-app/pull/27676) -->
 
 ### Fixed
+
+* Fixed an issue with legacy Supply Chain findings URLs that resulted in the findings page showing zero results. <!-- source: [PR #27522](https://github.com/semgrep/semgrep-app/pull/27522) -->
+
 
 * Fixed the **Dependencies** filter in the findings list ranking fuzzy matches above exact matches. Typing an exact package name such as `ws` now returns the exact match first. <!-- source: [PR #27877](https://github.com/semgrep/semgrep-app/pull/27877) -->
 * Fixed advisory ID search failing to find advisories when the input casing differed from the stored format (for example, `CVE-2023-1234` vs `cve-2023-1234`). <!-- source: [PR #28031](https://github.com/semgrep/semgrep-app/pull/28031) -->
