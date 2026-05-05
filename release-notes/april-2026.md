@@ -21,6 +21,7 @@ The following updates were made to Semgrep in April 2026.
 * Users who sign in using GitHub or GitLab when their organization has corporate SSO configured now see an message prompting them to log in with their corporate SSO credentials instead. <!-- source: [PR #27402](https://github.com/semgrep/semgrep-app/pull/27402) -->
 * Added workflow execution usage information to the [AI credits dashboard](https://semgrep.dev/orgs/-/settings/usage) so users can see workflow runs alongside scans, triages, and fixes. <!-- source: [PR #28123](https://github.com/semgrep/semgrep-app/pull/28123) -->
 * Added the ability to download contributor usage information from **Settings > Usage & Billing**. <!-- source: [PR #28186](https://github.com/semgrep/semgrep-app/pull/28186) -->
+* Added AI-powered detection findings to the findings API endpoint (`GET /api/v1/deployments/{slug}/findings`).
 
 ### Changed
 
@@ -29,7 +30,7 @@ The following updates were made to Semgrep in April 2026.
 
 ### Fixed
 
-* Invalid configurations for integrations no longer cause the **Integrations** page to fail to load. Semgrep now displays a meaningful error and allows you to edit or delete the configuration. <!-- source: [PR #27292](https://github.com/semgrep/semgrep-app/pull/27292) -->
+* Fixed an issue where invalid configurations caused the **Integrations** page to not load. Semgrep now displays a meaningful error and allows you to edit or delete the configuration. <!-- source: [PR #27292](https://github.com/semgrep/semgrep-app/pull/27292) -->
 * Fixed an issue where Semgrep did not save changes when Gradle or Maven registry integration credentials were updated. <!-- source: [PR #27803](https://github.com/semgrep/semgrep-app/pull/27803) -->
 * Fixed an issue where the **Settings > Usage** panel incorrectly showed a subset of seats when a deployment had multiple active licenses for the same product instead of the correct combined total. <!-- source: [PR #27261](https://github.com/semgrep/semgrep-app/pull/27261) -->
 * Fixed an issue where the **Remove user from organization** button was available to **Managers**, allowing them to remove Admin users. <!-- source: [PR #27367](https://github.com/semgrep/semgrep-app/pull/27367) -->
@@ -44,31 +45,17 @@ The following updates were made to Semgrep in April 2026.
 
 ### Added
 
-* Added Developer Approvals for PR comment triage: when Developer Approvals is enabled, commenting `/fp`, `/ar`, or `/other` on a PR now submits a pending exception request instead of immediately ignoring the finding. Admins are notified via PR comment when they approve or deny the request. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27436](https://github.com/semgrep/semgrep-app/pull/27436) -->
-* Added pending exception request information to finding cards in list and group views. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27412](https://github.com/semgrep/semgrep-app/pull/27412) -->
-* Added exception request auto-expiration: when an issue's triage state changes externally (admin triage, automation, AI reaction), any pending exception request for that issue is automatically expired. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27496](https://github.com/semgrep/semgrep-app/pull/27496) -->
-* Added an ignore reason alert at the top of the finding details page that displays when, why, and by whom a finding was ignored, so users no longer need to scroll to the Activity section to find this context. <!-- source: [PR #27901](https://github.com/semgrep/semgrep-app/pull/27901) -->
-* Added a **Pull requests: Write** permission check to the autofix preflight, so customers learn about the missing permission before the fix runs (previously, the fix would complete code generation, push the branch, and only fail at PR creation). <!-- source: [PR #27832](https://github.com/semgrep/semgrep-app/pull/27832) -->
-* Added autofix support for chained taint scenarios: new per-deployment feature flags enable passing the full dataflow trace and fix-similar-findings context to the fix model, reducing cases where an autofix PR introduces new findings on taint sources. <!-- source: [PR #27885](https://github.com/semgrep/semgrep-app/pull/27885) -->
-* Added AI Detection findings to the public findings API (`GET /api/v1/deployments/{slug}/findings`) with `issue_type=ai_sast`, including `exploit_conditions` and `ai_impact` fields. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27287](https://github.com/semgrep/semgrep-app/pull/27287) -->
-
-### Changed
-
-* Code Autofix is now in **public beta**. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27510](https://github.com/semgrep/semgrep-app/pull/27510) -->
-* Autofix is now visible and accessible to Member users, not just admins. Previously, the fix button and click-to-fix filter were hidden for members because they required the `panel_settings` permission. <!-- source: [PR #28148](https://github.com/semgrep/semgrep-app/pull/28148) -->
+* The finding details page now displays information on why a finding was ignored at the top of the page. Users no longer need to go to the **Activity** section to see this information. <!-- source: [PR #27901](https://github.com/semgrep/semgrep-app/pull/27901) -->
 
 ### Fixed
 
-* Fixed autofix showing a fix UI for SCA findings. Autofix is now guarded to SAST-only issue types. <!-- source: [PR #27446](https://github.com/semgrep/semgrep-app/pull/27446) -->
-* Fixed autofix for Azure DevOps repositories: rather than running the full fix workflow and crashing at PR creation, Semgrep now rejects the autofix request upfront with a clear error when the SCM type does not support PR creation. <!-- source: [PR #27444](https://github.com/semgrep/semgrep-app/pull/27444) -->
-* Fixed autofix requests for archived repositories failing with a cryptic 404. Semgrep now rejects these requests upfront with a clear error message. <!-- source: [PR #27483](https://github.com/semgrep/semgrep-app/pull/27483) -->
-* Fixed autofix private beta flag incorrectly blocking users with a PAT that has `pull_requests: write` permission. GitHub treats that single permission as covering both commenting and PR creation, but the Semgrep model split them — the cached record had `writePullRequest=false` for those users. <!-- source: [PR #27972](https://github.com/semgrep/semgrep-app/pull/27972) -->
-* Fixed autofix `IncorrectPermissionsError` surfacing as "Unknown" fix job failures. These errors now correctly map to `FIX_JOB_ERROR_TYPE_NO_WRITE_ACCESS`. <!-- source: [PR #27372](https://github.com/semgrep/semgrep-app/pull/27372) -->
-* Fixed the triage button incorrectly defaulting to "ignored" for all aggregate state selections when the multi-issue-state filter flag was enabled. <!-- source: [PR #27583](https://github.com/semgrep/semgrep-app/pull/27583) -->
-* Fixed findings list links from the scan details page showing "All states" instead of "Open" when the multi-issue-state filter flag was enabled. <!-- source: [PR #27807](https://github.com/semgrep/semgrep-app/pull/27807) -->
-* Fixed the finding details page displaying "Issue type Sast" instead of "Code" in certain areas. <!-- source: [PR #27543](https://github.com/semgrep/semgrep-app/pull/27543) -->
-* Fixed the triage submit button remaining disabled when triaging a provisionally ignored finding to an ignored sub-reason without a comment. <!-- source: [PR #27379](https://github.com/semgrep/semgrep-app/pull/27379) -->
-* Fixed exception request operations incorrectly accepting already-triaged issues. Guards now check `aggregate_state` instead of `status`, which does not reflect triage decisions. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27476](https://github.com/semgrep/semgrep-app/pull/27476) -->
+* Fixed an issue where Autofix wasn't able to create a GitHub pull request due to the Semgrep GitHub app requesting insufficient permissions. <!-- source: [PR #27832](https://github.com/semgrep/semgrep-app/pull/27832) -->
+* Fixed an issue where Autofix features were unavailable to organization **members**, as well as **admins**. <!-- source: [PR #28148](https://github.com/semgrep/semgrep-app/pull/28148) -->
+* Fixed an issue where Autofix displayed a suggested fix for Supply Chain findings. Autofix is only applicable to Code findings. <!-- source: [PR #27446](https://github.com/semgrep/semgrep-app/pull/27446) -->
+* Fixed an issue where Autofix errored out when attempting to open pull requests for Azure DevOps repositories. Semgrep now rejects these requests since Azure DevOps isn't supported. <!-- source: [PR #27444](https://github.com/semgrep/semgrep-app/pull/27444) -->
+* Fixed an issue where Autofix errored out when handling requests involving archived repositories. Semgrep now rejects these requests and displays an error message accordingly. <!-- source: [PR #27483](https://github.com/semgrep/semgrep-app/pull/27483) -->
+* Fixed an issue where some GitHub Enterprise users stopped seeing Autofix pull requests. <!-- source: [PR #27972](https://github.com/semgrep/semgrep-app/pull/27972) -->
+* Fixed an issue where provisionally ignored findings couldn't be triaged without a comment provided. <!-- source: [PR #27379](https://github.com/semgrep/semgrep-app/pull/27379) -->
 
 ## ⛓️ Semgrep Supply Chain
 
@@ -94,7 +81,7 @@ The following updates were made to Semgrep in April 2026.
 
 ### Added
 
-* Added AI Detection findings to CSV export, including all shared columns plus AI-specific fields. Multi-type export (combined SAST + AI Detection view) is also supported. <!-- source: [PR #27286](https://github.com/semgrep/semgrep-app/pull/27286) -->
+* Added AI-powered detection findings to CSV export, including all shared columns plus AI-specific fields. Multi-type export (combined SAST + AI Detection view) is also supported. <!-- source: [PR #27286](https://github.com/semgrep/semgrep-app/pull/27286) -->
 * Added Jira ticketing support for AI Detection findings, treating them as a first-class product type alongside SAST, Supply Chain, and Secrets findings. <!-- source: [PR #27471](https://github.com/semgrep/semgrep-app/pull/27471) -->
 * Added findings count and a link to view findings in the AI Detection scan progress timeline when a scan completes. <!-- source: [PR #27392](https://github.com/semgrep/semgrep-app/pull/27392) -->
 * Added IAM role-assumption authentication mode for AWS Bedrock BYOK. In addition to static access keys, customers can now configure an IAM role ARN and grant Semgrep cross-account access via the generated External ID. <!-- source: [PR #28110](https://github.com/semgrep/semgrep-app/pull/28110) -->
