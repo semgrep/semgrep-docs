@@ -49,7 +49,7 @@ The following table lists all Semgrep-supported package managers for each langua
   </tr>
   <tr>
    <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.), or with only <code>pom.xml</code> via <a
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.), or with only <code>pom.xml</code> through <a
    href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>
