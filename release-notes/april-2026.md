@@ -18,13 +18,15 @@ The following updates were made to Semgrep in April 2026.
 ### Added
 
 * Users who sign in using GitHub or GitLab when their organization has corporate SSO configured now see an message prompting them to log in with their corporate SSO credentials instead. <!-- source: [PR #27402](https://github.com/semgrep/semgrep-app/pull/27402) -->
-* Added workflow execution usage information to the [AI credits dashboard](https://semgrep.dev/orgs/-/settings/usage) so users can see workflow runs alongside scans, triages, and fixes. <!-- source: [PR #28123](https://github.com/semgrep/semgrep-app/pull/28123) -->
+* Added workflow execution usage information to the [AI credits dashboard](https://semgrep.dev/orgs/-/settings/usage) so users can see workflow runs alongside scans, triage actions, and fixes. <!-- source: [PR #28123](https://github.com/semgrep/semgrep-app/pull/28123) -->
 * Added the ability to download contributor usage information from **Settings > Usage & Billing**. <!-- source: [PR #28186](https://github.com/semgrep/semgrep-app/pull/28186) -->
 * Added AI-powered detection findings to the findings API endpoint (`GET /api/v1/deployments/{slug}/findings`).
 * Added Jira ticketing support for AI-powered detection findings. <!-- source: [PR #27471](https://github.com/semgrep/semgrep-app/pull/27471) -->
+**Semgrep Plugin**: added support for a Supply Chain hook.
 
 ### Changed
 
+* The interfile analysis engine has been redesigned to improve performance. These improvements introduce a change in how findings are generated, which might result in additional true positives and fewer false positives.
 * Contributor seat limit alerts now explain that scans continue as a courtesy when an organization exceeds its seat limit, replacing the previous inaccurate "scans will be paused" text. <!-- source: [PR #27894](https://github.com/semgrep/semgrep-app/pull/27894) -->
 * Removed the **Fixed in** time filter option from all **Findings** pages. <!-- source: [PR #27324](https://github.com/semgrep/semgrep-app/pull/27324) -->
 
@@ -39,6 +41,8 @@ The following updates were made to Semgrep in April 2026.
 * Fixed the `repos` filter on the findings and issues API endpoints to use case-insensitive matching. <!-- source: [PR #27997](https://github.com/semgrep/semgrep-app/pull/27997) -->
 * Fixed an issue where the **provisionally ignored** filter for the public findings API endpoints returned all findings. <!-- source: [PR #27834](https://github.com/semgrep/semgrep-app/pull/27834) -->
 * Fixed an issue where the Jira integration failed to load for deployments that saved their Jira configuration before support for AI-detection findings support was added. <!-- source: [PR #27777](https://github.com/semgrep/semgrep-app/pull/27777) -->
+* Fixed an issue with the SARIF trace output for taint mode so that it now uses the correct file URI and includes the sink call trace in `codeFlows`.
+* **IDE**: fixed an issue where network errors occuring during token verification resulted in saved tokens being cleared.
 * Minor UI fixes.
 
 ## 💻 Semgrep Code
@@ -48,6 +52,8 @@ The following updates were made to Semgrep in April 2026.
 * The **finding details** page now displays information on why a finding was ignored at the top of the page. Users no longer need to go to the **Activity** section to see this information. <!-- source: [PR #27901](https://github.com/semgrep/semgrep-app/pull/27901) -->
 * Added the findings count and a link to view findings to the AI-powered detection scan progress timeline when a scan completes. <!-- source: [PR #27392](https://github.com/semgrep/semgrep-app/pull/27392) -->
 * Added AI-powered detection findings to the Findings CSV export file. <!-- source: [PR #27286](https://github.com/semgrep/semgrep-app/pull/27286) -->
+* Improved support for variadic functions in taint-tracking mode.
+* **Scala**: added `tree-sitter` parser to improve parsing accuracy.
 
 ### Fixed
 
@@ -61,6 +67,10 @@ The following updates were made to Semgrep in April 2026.
 * Fixed an issue where provisionally ignored findings couldn't be triaged without a comment provided. <!-- source: [PR #27379](https://github.com/semgrep/semgrep-app/pull/27379) -->
 * Fixed Autofix pull request descriptions so that they properly display the user's GitHub user name. <!-- source: [PR #27156](https://github.com/semgrep/semgrep-app/pull/27156) -->
 * Fixed an issue with GitHub App permission checks, which had been using app manifest permissions, or what the app declares, instead of installation-level permissions, or what was actually granted, causing the **Autofix** button to be incorrectly hidden or shown. <!-- review: may not be customer-facing — delete if not relevant --> <!-- source: [PR #27513](https://github.com/semgrep/semgrep-app/pull/27513) -->
+* Fixed performance issues during the parsing of Semgrep rules containing non-BMP unicode characters
+* **Scala**: 
+  * Fixed an issue with trait parameters in versions 3.4.x and later so that they are now parsed correctly.
+  * Fixed an issue where Semgrep failed silently instead of returning an error when target file discovery fails.
 
 ## ⛓️ Semgrep Supply Chain
 
