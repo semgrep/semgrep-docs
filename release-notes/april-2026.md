@@ -61,21 +61,14 @@ The following updates were made to Semgrep in April 2026.
 
 ### Added
 
-* Added full dependency path relationships to SBOM exports. The `dependencies` section of exported CycloneDX documents now reflects the actual dependency graph, including transitive relationships. Gated behind `sca.dependency_path_public_api.enabled`. <!-- source: [PR #27550](https://github.com/semgrep/semgrep-app/pull/27550) -->
-* Added a dedicated advisory detail page at `/advisories/:advisoryId` for each supply chain advisory, replacing the previous drawer. Advisory links throughout the platform now navigate directly to this page. <!-- source: [PR #27685](https://github.com/semgrep/semgrep-app/pull/27685) -->
-* Added an `introduced_by` field to the `GetIssue` API for transitive SCA vulnerabilities, identifying the direct dependency that pulled in the vulnerable transitive package. <!-- source: [PR #27363](https://github.com/semgrep/semgrep-app/pull/27363) -->
-* Added bulk `introduced_by` data to the `ListIssues` endpoint to support showing transitive dependency origin information on the findings list without per-issue API calls. <!-- source: [PR #27795](https://github.com/semgrep/semgrep-app/pull/27795) -->
-* Added LFS network broker support for **Maven** private package registries, enabling Software Composition Analysis against private Maven repositories. Includes proxy configuration, credential handling, CA certificate registration in the Java truststore, and dynamic traffic splitting for deployments with mixed public and private registries. <!-- source: [PR #26871](https://github.com/semgrep/semgrep-app/pull/26871) -->
-* Added LFS network broker support for **Gradle** private package registries, with the same proxy and traffic-splitting capabilities as the Maven implementation. <!-- source: [PR #27676](https://github.com/semgrep/semgrep-app/pull/27676) -->
+Supply Chain advisories now have dedicated detail pages, replacing the previously used drawers. <!-- source: [PR #27685](https://github.com/semgrep/semgrep-app/pull/27685) -->
 
 ### Fixed
 
 * Fixed an issue with legacy Supply Chain findings URLs that resulted in the findings page showing zero results. <!-- source: [PR #27522](https://github.com/semgrep/semgrep-app/pull/27522) -->
-
-
-* Fixed the **Dependencies** filter in the findings list ranking fuzzy matches above exact matches. Typing an exact package name such as `ws` now returns the exact match first. <!-- source: [PR #27877](https://github.com/semgrep/semgrep-app/pull/27877) -->
-* Fixed advisory ID search failing to find advisories when the input casing differed from the stored format (for example, `CVE-2023-1234` vs `cve-2023-1234`). <!-- source: [PR #28031](https://github.com/semgrep/semgrep-app/pull/28031) -->
-* Fixed click-to-fix accepting PR requests for issues that are already fixed, removed, or ignored. The backend now validates issue state before dispatching the fix job. <!-- source: [PR #27672](https://github.com/semgrep/semgrep-app/pull/27672) -->
+* Fixed the **Dependencies** filter on the **Findings** page so that exact matches rank above all other matches. <!-- source: [PR #27877](https://github.com/semgrep/semgrep-app/pull/27877) -->
+* Fixed the advisory ID search so that it is case insensitive. <!-- source: [PR #28031](https://github.com/semgrep/semgrep-app/pull/28031) -->
+* Fixed an issue where the Autofix API endpoints accepted pull requests for issues that were already fixed, removed, or ignored. <!-- source: [PR #27672](https://github.com/semgrep/semgrep-app/pull/27672) -->
 
 ## 🤖 Semgrep Assistant
 
