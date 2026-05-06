@@ -112,7 +112,7 @@ Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects 
    registry credentials](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
 2. Contact [Semgrep Support](/support) to enable Dynamic Dependency resolution
    for the necessary repositories.
-
+   
 ## Run a scan using the CLI
 
 You can start a stand-alone Semgrep Supply Chain scan by running the following command in the CLI:

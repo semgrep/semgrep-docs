@@ -53,6 +53,8 @@ By default, the Code findings that Semgrep sends are:
 
 Semgrep sends findings from all repositories on supported SCMs in your organization. Findings previously sent but not included in submissions are marked as fixed in Wiz.
 
+Wiz allows up to **three uploads per repository per day**. If more than three full scans complete on the primary branch in a single day, subsequent uploads will fail.
+
 Currently, findings from repositories on SCMs other than GitHub and GitLab are not supported, as indicated in [Prerequisites](#prerequisites).
 
 :::caution
