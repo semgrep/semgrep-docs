@@ -43,7 +43,7 @@ The following table lists all Semgrep-supported package managers for each langua
    <td rowspan="2">Java</td>
    <td>Gradle</td>
    <td><code>gradle.lockfile</code> or with only <code>build.gradle</code> or
-   <code>build.gradle.kts</code> via <a
+   <code>build.gradle.kts</code> through <a
    href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>

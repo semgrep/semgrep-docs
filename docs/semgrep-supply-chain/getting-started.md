@@ -91,14 +91,14 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 This feature is currently in beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
-Semgrep Supply Chain can use **Dynamic Dependency Resolution** scan projects without the need for lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available in both CLI scans and Semgrep Managed Scans for the following languages:
+Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects without requiring lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available for the following languages:
 
 - C# (CLI scans only)
 - Java projects built using Maven or Gradle (Gradle Wrapper required)
 - Kotlin projects built using Maven or Gradle (Gradle Wrapper required)
 - Python (CLI scans only)
 
-### CLI Scans (including self-managed CI)
+### CLI Scans, including self-managed CI systems
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag:
     ```console
@@ -109,7 +109,7 @@ Semgrep Supply Chain can use **Dynamic Dependency Resolution** scan projects wit
 
 ### Semgrep Managed Scans
 1. [Configure private
-   registry credentials](https://semgrep.dev/docs/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
+   registry credentials](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
 2. Contact [Semgrep Support](/support) to enable Dynamic Dependency resolution
    for the necessary repositories.
 
