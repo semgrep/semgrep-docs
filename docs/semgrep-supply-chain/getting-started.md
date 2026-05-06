@@ -100,7 +100,7 @@ Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects 
 
 ### CLI Scans, including self-managed CI systems
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
-2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag:
+2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag to enable Semgrep to invoke package managers on the system:
     ```console
     semgrep ci --allow-local-builds
     ```
