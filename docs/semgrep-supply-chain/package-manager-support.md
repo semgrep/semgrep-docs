@@ -42,14 +42,14 @@ The following table lists all Semgrep-supported package managers for each langua
 <tr rowspan="2">
    <td rowspan="2">Java</td>
    <td>Gradle</td>
-   <td><code>gradle.lockfile</code> <b>or</b> <br />with <code>build.gradle</code> or
+   <td><code>gradle.lockfile</code> <b>or</b> <br /><code>build.gradle</code> or
    <code>build.gradle.kts</code> through <a
    href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>
   <tr>
    <td>Maven</td>
-   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.), <b>or</b> <br /> with <code>pom.xml</code> through <a
+   <td>Maven-generated dependency tree (See <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions.), <b>or</b> <br /><code>pom.xml</code> through <a
    href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>
