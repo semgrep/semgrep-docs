@@ -10,12 +10,12 @@ tags:
 
 # Package manager support
 
-Semgrep Supply Chain (SCA) scans dependencies by parsing manifest files or lockfiles. This page lists the supported package managers and file types.
+Semgrep Supply Chain (SCA) scans dependencies by parsing manifest files or lockfiles, or with Dynamic Dependency Resolution (beta). This page lists the supported package managers and file types.
 
 For language-level coverage and feature maturity, see
 [Supported languages](/supported-languages).
 
-For some languages, a lockfile or manifest file is parsed to determine %%transitivity|transitivity%%. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+For some languages, a lockfile or manifest file is required to accurately determine %%transitivity|transitivity%%. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
 
 The following table lists all Semgrep-supported package managers for each language. Languages with **reachability** support are listed first.
@@ -32,7 +32,7 @@ The following table lists all Semgrep-supported package managers for each langua
 <tr>
    <td>C#</td>
    <td>NuGet</td>
-   <td><code>packages.lock.json</code></td>
+   <td><code>.csproj</code></td>
 </tr>
 <tr>
    <td>Go</td>
@@ -78,7 +78,9 @@ The following table lists all Semgrep-supported package managers for each langua
   <tr>
    <td rowspan="5">Python</td>
    <td>pip</td>
-   <td rowspan="2">Any of the following: <ul><li>`*requirement*.txt` or `*requirement*.pip`</li><li>Any manifest file in a requirements folder, such as `**/requirements/*.txt` or `**/requirements/*.pip`</li></ul> The file must be generated automatically and have values set to exact versions (pinned dependencies).†</td>
+   <td rowspan="2"><ul><li>`*requirement*.txt`, `*requirement*.pip`, `**/requirements/*.txt`, or `**/requirements/*.pip` with dependencies pinned†</li><li>setup.py with <a
+   href="/docs/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
+   Dependency Resolution.</a></li></ul></td>
   </tr>
   <tr>
    <td>pip-tools</td>
