@@ -18,13 +18,8 @@ This document discusses the features supported by Semgrep Supply Chain.
 
 For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-For some languages, a lockfile or manifest file is parsed to determine %%transitivity|transitivity%%. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+For some languages, a lockfile or manifest file is required to determine %%transitivity|transitivity%%. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
-Additionally, Semgrep offers beta support for the scanning of projects written in the following languages **without lockfiles**:
-
-- C# (CI and CLI only)
-- Java
-- Kotlin
 - Python (CI and CLI only)
 - Ruby (CI and CLI only)
 
@@ -54,7 +49,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>C#</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">✅<br /> CI and CLI only</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
@@ -89,7 +84,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>Python</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">✅<br /> setup.py</td>
 <td align="center">✅<br /> For PyPi only</td>
 <td align="center">✅</td>
 </tr>
