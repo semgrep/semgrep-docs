@@ -98,7 +98,7 @@ Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects 
     ```
     For existing CI jobs, you may have to edit your configuration file to include this flag.
     
-    This flag gives Semgrep permission to build the project if needed to dynamically resolve dependencies. This uses the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
+    This flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep uses the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
 ### Semgrep Managed Scans
 1. [Configure private
