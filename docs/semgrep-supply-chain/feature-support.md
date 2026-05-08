@@ -48,7 +48,7 @@ The following table lists all Supply Chain features for each language. Languages
 <tr>
 <td>C#</td>
 <td align="center">✅</td>
-<td align="center">✅<br /> CI and CLI only/td>
+<td align="center">✅<br /> CI and CLI only</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
