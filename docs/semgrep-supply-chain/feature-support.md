@@ -20,7 +20,7 @@ For projects with lockfiles, Semgrep parses lockfiles for dependencies, then sca
 
 For some languages, a lockfile or manifest file is required to determine %%transitivity|transitivity%%. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
-Additionally, Semgrep offers beta support for the scanning of projects written in the following languages without lockfiles using Dynamic Dependency Resolution (see table below).
+Additionally, Semgrep offers beta support for the scanning of projects written in the following languages without lockfiles using Dynamic Dependency Resolution. See the following table for more information.
 
 ## Supply Chain features for each language
 <!-- *************************************************************************
