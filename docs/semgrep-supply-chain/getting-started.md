@@ -21,7 +21,7 @@ This article walks you through the setup needed to scan your project with Semgre
 
 ## Project directory structure
 
-To scan your project with Semgrep Supply Chain, it must use a [supported package managers and file names](/docs/semgrep-supply-chain/sca-package-manager-support).
+To scan your project with Semgrep Supply Chain, it must use a [supported package manager and supported file names](/docs/semgrep-supply-chain/sca-package-manager-support).
 
 Semgrep Supply Chain can correctly parse code files, manifest files, and lockfiles in subfolders as well. Code files that use the dependencies in the manifest file or lockfile must be nested in the same directory as the manifest file or lockfile. Manifest files and lockfiles must all use supported file names.
 
