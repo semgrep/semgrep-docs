@@ -24,7 +24,7 @@ To do this, Semgrep Supply Chain first determines the list of dependencies and v
 * The pattern for the vulnerable code that Semgrep compares against your code
 * The severity of the vulnerability
 
-The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and in this case a lockfile:
+The following diagram shows the relationship between a Semgrep Supply Chain rule, the codebase scanned, and in this case, a lockfile:
 
 ![Relationship between a Semgrep Supply Chain rule, manifest file or lockfile, CVE record, and codebase](/img/sc-reachability-analysis.png)
 _**Figure**. Relationship between a Supply Chain rule, manifest file or lockfile, CVE record, and codebase._
