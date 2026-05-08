@@ -21,7 +21,7 @@ This article walks you through the setup needed to scan your project with Semgre
 
 ## Project directory structure
 
-To scan your project with Semgrep Supply Chain, it must have a manifest file or lockfile and use [supported package managers and filenames](/docs/supported-languages#semgrep-supply-chain).
+To scan your project with Semgrep Supply Chain, it must use a [supported package manager and supported file names](/docs/semgrep-supply-chain/sca-package-manager-support).
 
 Semgrep Supply Chain can correctly parse code files, manifest files, and lockfiles in subfolders as well. Code files that use the dependencies in the manifest file or lockfile must be nested in the same directory as the manifest file or lockfile. Manifest files and lockfiles must all use supported file names.
 
@@ -40,9 +40,6 @@ In the following example, Semgrep Supply Chain assumes that all code files using
 
 If you have code files in `my-project/biking,` Semgrep Supply Chain does not associate them with the dependencies in `my-project/running/lockfile.json.` If there is another manifest file or lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
 
-:::info Apache Maven
-To run a Semgrep Supply Chain scan, generate a [dependency tree for Apache Maven](/semgrep-supply-chain/setup-maven).
-:::
 
 ## Enable Semgrep Supply Chain
 
@@ -85,18 +82,13 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
  </tr>
 </table>
 
-## Scan a project without lockfiles (beta)
+## Dynamic Dependency Resolution (beta) to scan without lockfiles
 
 :::info
 This feature is currently in beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
-Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects without requiring lockfiles. This simplifies the configuration of Supply Chain scans. This feature is available for the following languages:
-
-- C# (CLI scans only)
-- Java projects built using Maven or Gradle (Gradle Wrapper required)
-- Kotlin projects built using Maven or Gradle (Gradle Wrapper required)
-- Python (CLI scans only)
+Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects without requiring lockfiles. This simplifies the configuration of Supply Chain scans. See [Feature support](docs/semgrep-supply-chain/sca-feature-support) for more information.
 
 ### CLI Scans, including self-managed CI systems
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
@@ -105,7 +97,8 @@ Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects 
     semgrep ci --allow-local-builds
     ```
     For existing CI jobs, you may have to edit your configuration file to include this flag.
-    Semgrep builds the project, using the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
+    
+    This flag allows Semgrep to build the project, if needed, to dynamically resolve dependencies. Semgrep uses the build information included in the `pom.xml` or `build.gradle` file to determine the set of dependencies used by the project. 
 
 ### Semgrep Managed Scans
 1. [Configure private
