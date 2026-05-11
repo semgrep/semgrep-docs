@@ -88,7 +88,7 @@ You can configure your CI/CD system to trigger a Semgrep Supply Chain scan whene
 This feature is currently in beta. Please contact [Semgrep Support](/support) for more information.
 :::
 
-Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects without requiring lockfiles. This simplifies the configuration of Supply Chain scans. See [Feature support](docs/semgrep-supply-chain/sca-feature-support) for more information.
+Semgrep Supply Chain can use **Dynamic Dependency Resolution** to scan projects without requiring lockfiles. This simplifies the configuration of Supply Chain scans. See [Feature support](/semgrep-supply-chain/sca-feature-support) for more information.
 
 ### CLI Scans, including self-managed CI systems
 1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
