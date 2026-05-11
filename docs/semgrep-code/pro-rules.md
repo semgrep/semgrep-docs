@@ -29,7 +29,7 @@ Semgrep Pro rules provide improved findings across many languages on specific cl
 
 Semgrep's Security Research team plans to keep improving coverage by adding support for more languages and popular frameworks, as well as reducing potential false positives by monitoring rules’ performance.
 
-To see the languages with Pro rules, go to [Supported languages](/supported-languages#language-maturity-summary).
+To see the languages with Pro rules, go to [Supported languages](/supported-languages).
 
 ## Scan with Semgrep Pro rules
 
