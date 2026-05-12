@@ -81,7 +81,7 @@ These steps are the same regardless of which IDE you use.
     claude
     ```
 
-2.  Open the plugin browser:
+2.  Open the plugin manager:
     ```bash
     /plugin
     ```
@@ -117,7 +117,9 @@ Codex does not expose a post-write hook, so Semgrep tools are surfaced through M
 
 2. Restart Cursor to apply configuration.
 
-The plugin uses [Cursor hooks](https://cursor.com/docs/hooks) to scan code as the agent writes it, and exposes Semgrep tools through [Cursor MCP](https://cursor.com/docs/mcp).
+3. In Cursor's chat, run the `/setup-semgrep-plugin` skill to finish wiring up the plugin.
+
+The plugin uses [Cursor hooks](https://cursor.com/docs/hooks) (`afterFileEdit` and `stop`) to scan code as the agent writes it, and exposes Semgrep tools through [Cursor MCP](https://cursor.com/docs/mcp).
 
 </TabItem>
 
