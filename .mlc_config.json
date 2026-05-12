@@ -8,6 +8,9 @@
     },
     {
       "pattern": "https://gitlab.com/-/*"
+    },
+    {
+      "pattern": "^https://go.semgrep.dev/"
     }
   ],
   "timeout": "20s",
