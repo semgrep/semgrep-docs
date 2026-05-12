@@ -29,8 +29,9 @@ This guide covers setup for each, but the plugin works with any MCP client.
 
 ## Prerequisites
 
+* Python 3.10 or later (the Semgrep CLI requires it at runtime regardless of how it was installed)
+* Homebrew, [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), or [`uv`](https://docs.astral.sh/uv/) to install Semgrep
 * A Semgrep account
-* Homebrew, [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), or [`uv`](https://docs.astral.sh/uv/) to install Semgrep (`pipx` and `uv` require Python 3.10 or later)
 
 ## Install the Semgrep CLI
 
