@@ -18,12 +18,12 @@ Semgrep's plugin integrates natively with AI coding agents like Claude Code and 
 
 The plugin uses each IDE's native hook or MCP system:
 
-* **Claude Code** — [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins)
-* **Codex** — [MCP](https://developers.openai.com/codex/mcp)
-* **Cursor** — [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp)
-* **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse) — [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
-* **VS Code** — [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
-* **Windsurf** — [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
+* **Claude Code**: [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins)
+* **Codex**: [MCP](https://developers.openai.com/codex/mcp)
+* **Cursor**: [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp)
+* **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse): [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+* **Windsurf**: [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
 
 This guide covers setup for each, but the plugin works with any MCP client.
 
