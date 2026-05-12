@@ -24,7 +24,7 @@ The following updates were made to Semgrep in April 2026.
 * Added Jira ticketing support for AI-powered detection findings. <!-- source: [PR #27471](https://github.com/semgrep/semgrep-app/pull/27471) -->
 * Added the ability to manually run full scans for the non-default or non-primary branches using Semgrep Managed Scans.
 * Added the ability to retry Semgrep Managed Scans that failed or didn't complete.
-* **Semgrep Plugin**: added support for a Supply Chain hook.
+* **Semgrep Guardian**: added support for a Supply Chain hook.
 
 ### Changed
 
