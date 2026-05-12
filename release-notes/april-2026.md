@@ -32,7 +32,7 @@ The following updates were made to Semgrep in April 2026.
 * Contributor seat limit alerts now explain that scans continue as a courtesy when an organization exceeds its seat limit, replacing the previous inaccurate "scans will be paused" text. <!-- source: [PR #27894](https://github.com/semgrep/semgrep-app/pull/27894) -->
 * Removed the **Fixed in** time filter option from all **Findings** pages. <!-- source: [PR #27324](https://github.com/semgrep/semgrep-app/pull/27324) -->
 * The **Projects** list now includes Semgrep Managed Scans that are pending or have never started scanning.
-* Semgrep Editor is now mobile-friendly.
+* [Semgrep Playground](https://semgrep.dev/playground/new) is now mobile-friendly.
 
 ### Fixed
 
@@ -106,9 +106,9 @@ The following updates were made to Semgrep in April 2026.
 
 * Fixed an issue with pull request comment URL construction for tag-scoped and deployment-wide memories that previously resulted in no pull request comments being posted. <!-- source: [PR #27891](https://github.com/semgrep/semgrep-app/pull/27891) -->
 
-## 🔧 OSS Engine
+## 🔧 Semgrep Community Edition
 
-- The following versions of the OSS Engine were released in April 2026:
+- The following versions of Semgrep Community Edition were released in April 2026:
 
   - [<i class="fas fa-external-link fa-xs"></i>1.161.0](https://github.com/semgrep/semgrep/releases/tag/v1.161.0)
   - [<i class="fas fa-external-link fa-xs"></i>1.160.0](https://github.com/semgrep/semgrep/releases/tag/v1.160.0)
