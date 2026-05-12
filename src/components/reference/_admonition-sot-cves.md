@@ -1,4 +1,4 @@
-### Semgrep Supply Chain rule update frequency
+### Rule update frequency
 
 Semgrep ingests CVE information and security advisories from the following sources:
 
@@ -7,5 +7,5 @@ Semgrep ingests CVE information and security advisories from the following sourc
 
 Semgrep processes new information at least once per day to:
 
-* Generate rules for new security advisories
-* Update rules based on changes to existing security advisories
+- Generate rules for new security advisories
+- Update rules based on changes to existing security advisories

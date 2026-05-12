@@ -13,7 +13,7 @@ import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md
 
 <SscIntro />
 
-## Open source security vulnerabilities
+## Discover and detect vulnerabilities
 
 Semgrep Supply Chain detects [security
 vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's %%reachability|reachability%%.
@@ -31,7 +31,7 @@ _**Figure**. Relationship between a Supply Chain rule, manifest file or lockfile
 
 <AdmonitionSotCves />
 
-### Types of Semgrep Supply Chain findings
+### Types of Supply Chain findings
 
 Semgrep Supply Chain generates a **finding** whenever it determines that your codebase uses or imports a package containing a vulnerability. In addition, Semgrep supports **reachability** for [generally available (GA) languages](/supported-languages):
 
@@ -45,7 +45,7 @@ Semgrep Supply Chain generates a **finding** whenever it determines that your co
 
 Specific dependency and code match findings are called **usages**. Semgrep AppSec Platform groups all usages together by vulnerability. For each vulnerability, the UI also displays a CVE number corresponding to the [CVE program record](https://www.cve.org/About/Overview).
 
-### Transitive dependencies and reachability analysis
+#### Transitive dependencies and reachability analysis
 
 A %%transitive dependency|transitive_or_indirect_dependency%%, also known as an indirect dependency, is a dependency of a dependency. Semgrep Supply Chain scans transitive dependencies for [all supported languages](/supported-languages#semgrep-supply-chain), looking for security vulnerabilities, but it does *not* perform reachability analysis. This means that Semgrep Supply Chain doesn't check the source code of your project's dependencies to determine if their dependencies produce a reachable finding in your code.
 
@@ -53,33 +53,43 @@ However, some dependencies are vulnerable simply through their inclusion in a co
 
 Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
-## Language support and integrations
+## Triage and remediate vulnerabilities
 
-Semgrep Supply Chain supports a broad set of languages with varying feature coverage. 
+Once Supply Chain has identified vulnerabilities in your code and generated findings, you can take the following actions:
 
-* See the full list of [supported programming languages](/supported-languages)
-* For a list of Semgrep-supported package managers for each language, see [Package manager support](/semgrep-supply-chain/sca-package-manager-support).
-* For feature support by language, see [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support).
-* For definitions of language maturity levels, see [Language maturity levels](/docs/references/language-maturity-levels#semgrep-supply-chain).
-* For analysis terminology, see [Feature definitions](/docs/references/feature-definitions).
-* For a list of supported source code managers (SCM), see [Supported source code managers](/getting-started/scm-support) or learn how to [Connect a source code manager](/docs/deployment/connect-scm).
+- **Review provisionally ignored findings**: Provisionally ignored findings are those identified by Semgrep as unreachable. These types of findings are flagged so that you can prioritize attention to them based on the priority of competing demands.
+- **Ignore findings**: If the finding is a false positive, or if your company's business policies deem the use of the dependency an acceptable risk, you can choose to ignore the finding.
+- **Remediate true positives**: If the finding is one that you must address, you can:
+  - **Remove dependencies and refactor code**: You can remediate true positives identified by Supply Chain by updating the dependency to a safe version or removing the dependency, then refactoring all usages of that dependency in your project.
+  - **Use upgrade guidance and Autofix**: If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. Semgrep can also create a pull request (PR) or merge request (MR) that updates the version used by your repository and guide the developer on any breaking changes in the PR or MR description.
+  - **Open a pull request or merge request with fixes**:
 
+## Policies
 
-## Software bill of materials
+Policies allow you to choose the rules and rulesets used for your Supply Chain scans and define what happens to a finding after identification, such as whether a finding is monitored, generates a pull request (PR) or merge request (MR) comment, or blocks a PR or MR.
 
-Semgrep Supply Chain can [generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your third-party or open source components, to assist you with your auditing procedures.
+## Malware detection and response
 
-## Dependency search
+Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
+
 
 Semgrep Supply Chain's [dependency search](/semgrep-supply-chain/dependency-search) feature allows you to query for dependencies in your codebase; it can detect direct and transitive dependencies in any repository on which you have run a full scan. The results list the dependency, along with all of the repositories that use the dependency.
+
+[TODO - dependency path]
 
 ## License compliance
 
 The [license compliance](/semgrep-supply-chain/license-compliance) feature ensures that you're only using open source packages whose licensing meets your organization's requirements.
 
-## Malicious dependencies detection
+## Reporting
 
-Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
+### Reports through the Semgrep API
+
+[TODO]
+
+### Software bill of materials
+
+Semgrep Supply Chain can [generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your third-party or open source components, to assist you with your auditing procedures.
 
 ## Next steps
 
