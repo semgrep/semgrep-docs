@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Semgrep's plugin integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
-This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plugin works with any MCP client.
+The plugin uses each IDE's native hook or MCP system: Claude Code [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins), [Cursor hooks](https://cursor.com/docs/hooks), [Windsurf Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks), [Codex MCP](https://developers.openai.com/codex/mcp), [VS Code MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), and [GitHub Copilot MCP](https://docs.github.com/en/copilot/customizing-copilot/extending-copilot-chat-with-mcp). This guide covers setup for each, but the plugin works with any MCP client.
 
 ## Prerequisites
 
@@ -33,6 +33,8 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     {label: 'Cursor', value: 'cursor'},
     {label: 'Windsurf', value: 'windsurf'},
     {label: 'Codex', value: 'codex'},
+    {label: 'VS Code', value: 'vscode'},
+    {label: 'GitHub Copilot', value: 'copilot'},
     {label: 'Other IDEs', value: 'other'},
     ]}
 >
@@ -73,6 +75,8 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     /setup-semgrep-plugin
     ```
 
+The plugin registers a post-tool hook so Claude Code scans every file it writes. Learn more about [Claude Code plugins](https://code.claude.com/docs/en/plugins) and [hooks](https://code.claude.com/docs/en/hooks).
+
 </TabItem>
 
 <TabItem value='cursor'>
@@ -103,6 +107,8 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 1. Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open **Cursor > ⌘⇧J > Plugins**. Search "Semgrep" and click **Add to Cursor**.
 
 1. Restart Cursor to apply configuration.
+
+The plugin uses [Cursor hooks](https://cursor.com/docs/hooks) to scan code as the agent writes it, and exposes Semgrep tools through [Cursor MCP](https://cursor.com/docs/mcp).
 
 </TabItem>
 
@@ -148,6 +154,8 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 
 1. Restart Windsurf to apply hook configuration.
 
+The `post_write_code` event fires after Cascade writes or modifies any file. Learn more about [Windsurf Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+
 </TabItem>
 
 <TabItem value='codex'>
@@ -188,6 +196,98 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     args = ["mcp"]
     ```
 
+Codex does not expose a post-write hook, so Semgrep tools are surfaced through MCP and invoked when the agent calls them. Learn more about [Codex MCP configuration](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+
+<TabItem value='vscode'>
+
+1. Install Semgrep using Homebrew, pipx, or uv:
+    ```bash
+    # install using Homebrew
+    brew install semgrep
+
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
+    ```
+
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3. Sign in to your Semgrep account, then install the Semgrep Pro engine:
+    ```bash
+    semgrep login && semgrep install-semgrep-pro
+    ```
+
+4. Add the Semgrep MCP server to VS Code. Create `.vscode/mcp.json` in your workspace (or open **MCP: Open User Configuration** from the Command Palette for a user-wide entry) and paste the following:
+
+    ```json
+    {
+      "servers": {
+        "semgrep": {
+          "command": "semgrep",
+          "args": ["mcp"]
+        }
+      }
+    }
+    ```
+
+5. Reload VS Code. Semgrep tools become available in the Copilot Chat **Agent** mode.
+
+VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP. Learn more about [adding and managing MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+
+</TabItem>
+
+<TabItem value='copilot'>
+
+Use this tab for GitHub Copilot in Visual Studio, JetBrains IDEs, Xcode, or Eclipse. (For Copilot in VS Code, use the **VS Code** tab.)
+
+1. Install Semgrep using Homebrew, pipx, or uv:
+    ```bash
+    # install using Homebrew
+    brew install semgrep
+
+    # or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+    pipx install semgrep
+
+    # or, install using uv (https://docs.astral.sh/uv/)
+    uv tool install semgrep
+    ```
+
+2. Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+    ```bash
+    semgrep --version
+    ```
+
+3. Sign in to your Semgrep account, then install the Semgrep Pro engine:
+    ```bash
+    semgrep login && semgrep install-semgrep-pro
+    ```
+
+4. Register the Semgrep MCP server with your IDE's Copilot configuration. The JSON shape is the same across IDEs:
+
+    ```json
+    {
+      "servers": {
+        "semgrep": {
+          "command": "semgrep",
+          "args": ["mcp"]
+        }
+      }
+    }
+    ```
+
+    Follow your IDE's instructions for *where* to put this entry: [Extending Copilot Chat with MCP servers](https://docs.github.com/en/copilot/customizing-copilot/extending-copilot-chat-with-mcp) covers Visual Studio, JetBrains, Xcode, and Eclipse.
+
+5. Restart your IDE and open Copilot Chat. Semgrep tools become available in **Agent** mode.
+
+Copilot does not expose a post-write hook, so Semgrep tools are invoked when the agent calls them through MCP.
+
 </TabItem>
 
 <TabItem value='other'>
@@ -221,6 +321,8 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     ```
 
 5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
+
+If your IDE supports a post-write or post-tool hook, point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically. The Windsurf tab above shows this pattern.
 
 </TabItem>
 </Tabs>
