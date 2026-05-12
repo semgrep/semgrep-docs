@@ -1,22 +1,21 @@
 ---
-slug: mcp
+slug: guardian
 append_help_link: false
-title: Semgrep Plugin
+title: Semgrep Guardian
 hide_title: true
-description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
+description: Learn about using Semgrep Guardian to scan code for security vulnerabilities.
 tags:
- - Semgrep Plugin
- - MCP
+ - Semgrep Guardian
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Semgrep Plugin
+# Semgrep Guardian
 
-Semgrep's plugin integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+Semgrep Guardian integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
-This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plugin works with any MCP client.
+This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the Guardian works with any MCP client.
 
 ## Prerequisites
 
@@ -61,14 +60,14 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     claude
     ```
 
-4.  Open the plugin browser:
+4.  Open Guardian's browser:
     ```bash
     /plugin
     ```
 
 5.  Go to **Discover**, search for **Semgrep**, and click **Install**.
 
-6.  Set up the Semgrep plugin by running the following skill. This also installs the Semgrep CLI:
+6.  Set up Guardian by running the following skill. This also installs the Semgrep CLI:
     ```bash
     /setup-semgrep-plugin
     ```
@@ -220,7 +219,7 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
     semgrep install-semgrep-pro
     ```
 
-5. Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
+5. Add Semgrep Guardian to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point for your configuration. Refer to your IDE's documentation for specific details on where to add the MCP server configuration information.
 
 </TabItem>
 </Tabs>
@@ -231,7 +230,7 @@ This guide covers setup for Claude Code, Cursor, Windsurf, and Codex but the plu
 2. Ensure that you're in the correct context to use Semgrep.
 3. Prompt your IDE to scan with Semgrep.
 
-By default, the MCP Server runs all three Semgrep products: Code, Supply Chain, and Secrets.
+By default, the Semgrep Guardian runs all three Semgrep products: Code, Supply Chain, and Secrets.
 
 ## Additional resources
 
