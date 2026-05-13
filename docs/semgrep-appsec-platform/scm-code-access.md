@@ -32,16 +32,18 @@ Some Semgrep features require additional levels of code access. You can grant th
 If you already have a private Semgrep GitHub app set up and configured for your deployment that **doesn't** have code access enabled, follow these steps to update the app and grant code access to Semgrep.
 
 :::tip App slug
-If you don't know the name of your app slug, you can find it on the [**Settings > Source code managers** page](https://semgrep.dev/orgs/-/settings/source-code). 
+To find the name of your app slug:
+1. Go to [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code).
+2. Find the panel for your source code manager. The app slug is listed immediately following the name of the source code manager.
 :::
 
 <!-- markdown-link-check-disable -->
 
 1. Navigate to the GitHub Application permissions and events page. GitHub Enterprise users must replace the `https://github.com` base URL with the base URL of the GitHub Enterprise instance.
     1. For organization accounts, go to <code>https://github.com/organizations/<PL>ORGANIZATION_NAME</PL>/settings/apps/<PL>APP_SLUG</PL>/permissions</code>.
-    1. For user accounts, go to <code>https://github.com/settings/apps/<PL>APP_SLUG</PL>/permissions</code>
+    2. For user accounts, go to <code>https://github.com/settings/apps/<PL>APP_SLUG</PL>/permissions</code>
 2. Expand **Repository Permissions**.
-3. Under **Contents**, change the access level to **Read and write**.
+3. Under **Contents**, change the access level to **Read and write**. If you don't want to grant write permissions, change the access level to **Read**.
 4. Click **Save Changes**.
 5. At this point, GitHub sends you or your GitHub admin an email to approve the permissions changes. Once approved, Semgrep has code access to your GitHub instance.
 
