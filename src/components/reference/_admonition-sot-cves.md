@@ -1,4 +1,4 @@
-### Supply Chain rule update frequency
+### New CVEs and rule updates
 
 Semgrep ingests CVE information and security advisories from the following sources:
 
