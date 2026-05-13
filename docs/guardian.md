@@ -1,20 +1,19 @@
 ---
-slug: mcp
+slug: guardian
 append_help_link: false
-title: Semgrep Plugin
+title: Semgrep Guardian
 hide_title: true
-description: Learn about the MCP server for using Semgrep to scan code for security vulnerabilities.
+description: Learn about using Semgrep Guardian to scan code for security vulnerabilities.
 tags:
- - Semgrep Plugin
- - MCP
+ - Semgrep Guardian
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Semgrep Plugin
+# Semgrep Guardian
 
-Semgrep's plugin integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+Semgrep Guardian integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
 The plugin uses each IDE's native hook or MCP system:
 
@@ -25,7 +24,7 @@ The plugin uses each IDE's native hook or MCP system:
 * **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 * **Windsurf**: [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
 
-This guide covers setup for each, but the plugin works with any MCP client.
+This guide covers setup for each of the preceding products listed, but the plugin works with any MCP client.
 
 ## Prerequisites
 
@@ -89,7 +88,7 @@ These steps are the same regardless of which IDE you use.
 
 3.  Go to **Discover**, search for **Semgrep**, and click **Install**.
 
-4.  Set up the Semgrep plugin:
+4.  Set up the Guardian:
     ```bash
     /setup-semgrep-plugin
     ```
@@ -208,7 +207,7 @@ If your IDE supports a post-write or post-tool hook, point it at `semgrep mcp -k
 2. Ensure that you're in the correct context to use Semgrep.
 3. Prompt your IDE to scan with Semgrep.
 
-By default, the MCP Server runs all three Semgrep products: Code, Supply Chain, and Secrets.
+By default, the Semgrep Guardian runs all three Semgrep products: Code, Supply Chain, and Secrets.
 
 ## Additional resources
 

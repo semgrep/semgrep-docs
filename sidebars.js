@@ -309,7 +309,7 @@ module.exports = {
           label: 'Integrations',
           collapsible: true,
           items: [
-            'mcp',
+            'guardian',
             'semgrep-appsec-platform/cortex',
             'semgrep-appsec-platform/jira',
             'semgrep-appsec-platform/sysdig',
