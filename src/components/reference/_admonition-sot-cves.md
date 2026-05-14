@@ -6,7 +6,7 @@ Semgrep ingests CVE information and security advisories from the following sourc
 - [<i class="fas fa-external-link fa-xs"></i> Electron release notes](https://releases.electronjs.org/releases/stable)
 - [<i class="fas fa-external-link fa-xs"></i> OSV](http://osv.dev/)
 
-Semgrep processes new information at least four times per day, ensuring a maximum lag time of no more than six hours. With this information, Semgrep:
+Semgrep processes new information multiple times per day, ensuring a maximum lag time of no more than one hour. With this information, Semgrep:
 
 * Generates rules for new security advisories
 * Updates existing rules based on changes to security advisories
