@@ -11,4 +11,4 @@ Semgrep processes new information multiple times per day, ensuring a maximum lag
 * Generates rules for new security advisories
 * Updates existing rules based on changes to security advisories
 
-For active incidents, Semgrep's security response team can ship its own advisories, including rules, before third-party databases are updated. Semgrep processes [KEVs](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the same way it processes other types of vulnerabilities.
+For major incidents that might affect customers, Semgrep's Security Research team ships its own advisories, even before third-party databases are updated. Semgrep processes [KEVs](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the same way it processes other types of vulnerabilities.
