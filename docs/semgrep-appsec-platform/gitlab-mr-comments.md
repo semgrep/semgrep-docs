@@ -45,10 +45,6 @@ MR comments appear for the following types of scans under these conditions:
 
 ## Steps to set up MR comments
 
-### Prerequisites
-
-In addition to finishing the previous steps in your deployment journey, it is recommended to have completed a **full scan** on your **default branch** for the repository in which you want to receive comments.
-
 ### Confirm your Semgrep account's connection
 
 PR comments are enabled by default for users who have connected their GitLab group to Semgrep AppSec Platform. Confirm that you have the correct connection and access:
