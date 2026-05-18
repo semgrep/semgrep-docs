@@ -1,0 +1,100 @@
+---
+title: "Why aren't Supply Chain findings showing?"
+---
+
+## Ensure compatibility
+
+First, verify that your repository meets the basic requirements for Semgrep Supply Chain:
+
+<AccordionGroup>
+<Accordion title="Are the language and ecosystem supported?">
+
+Check the [Supported Languages table](/supported-languages#semgrep-supply-chain) to verify support for the project's language and ecosystem, as well as any ecosystem-specific requirements.
+</Accordion>
+<Accordion title="Is the supported manifest file or lockfile present in an appropriate location with the expected name?">
+
+Semgrep Supply Chain searches the parent directories of any code files for the nearest relevant manifest file or lockfile. Monolithic repositories (monorepos) have their findings grouped based on the manifest files or lockfiles present in subdirectories.
+
+Semgrep Supply Chain only recognizes the manifest file or lockfile names indicated in the [Supported Languages table](/supported-languages#semgrep-supply-chain).
+If you do not use the standard manifest file or lockfile name for your ecosystem, renaming it to the standard name before scanning with Semgrep in CI is recommended.
+
+[Reach out for help](#if-youre-still-having-trouble) if you run into trouble with the file location or naming.
+</Accordion>
+<Accordion title="Does the manifest file or lockfile contain dependencies with exact versions?">
+
+If your dependency file is a <Tooltip tip="Describes dependencies used in a codebase. Package managers read manifest files to resolve and install specific dependency versions and generate lockfiles. See full definition.">manifest file</Tooltip> and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view. See full definition and Advisories.">Advisory</Tooltip>, and not require upgrade.
+
+Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files or lockfiles can also be helpful to determine whether a dependency is <Tooltip tip="A dependency of a dependency. If your codebase uses dependency A, and A depends on B, then B is a transitive dependency. See full definition.">transitive</Tooltip>.
+
+## Check scan status and result location
+
+Next, ensure that the scan was successful and sent results to the expected location.
+</Accordion>
+<Accordion title="Did the scan run successfully?">
+
+If the scan did not complete, or failed when trying to send results, the dependency information will not be available.
+
+Review the logs from the scan and determine whether it was successful, or ran into an issue.
+
+#### Manifest file or lockfile parsing failure
+
+The manifest file or lockfile may not have been parsed successfully. The CI output should point to the line where the error occurred. Here is an example from a failed attempt to parse a `Pipfile.lock` (Python):
+
+```
+Error Returned: Failed to parse app/Pipfile** at 40:1 - expected one of ['([^\\s=]+)\\s*=\\s*', 'EOF', '\\n+'] 40 | [requires]
+```
+
+If the manifest file or lockfile contains any special or additional details, such as environmental markers, variables, or hashes specific to your organization, those may affect parse results. [Reach out for help](#if-youre-still-having-trouble) if you run into this!
+
+#### Data sent to a different organization
+
+If the scan did run successfully, the scan data may have been sent to a different Semgrep organization than expected.
+
+- Check other organizations you belong to in Semgrep AppSec Platform to see if the results appear there.
+- If you are running `semgrep ci` locally, use `semgrep logout` and `semgrep login`, and ensure you log in to the desired Semgrep AppSec Platform organization.
+</Accordion>
+<Accordion title="If the scan was a diff-aware (PR/MR) scan, was the manifest file or lockfile modified?">
+
+Semgrep Supply Chain only runs in [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) if the manifest file or lockfile was modified in the PR/MR.
+
+If code is modified, but the manifest file or lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability. See full definition.">reachability</Tooltip> will be identified on the next full scan.
+</Accordion>
+
+<Accordion title="Did Semgrep scan a ref other than your default branch, or does your default branch have a less common name?">
+
+If the Semgrep Supply Chain scan ran on a branch other than the default, or a default branch with a less common name, make sure to select the desired branch on the Vulnerabilities page to see findings.
+
+<Frame>
+![Branch selector with branch options shown](/images/kb/semgrep-supply-chain/why-no-findings/ssc-branch-selector.png)
+</Frame>
+
+Using the example in the screenshot, to see vulnerabilities from `new-vuln-branch`, select it from the list.
+
+By default, the Vulnerabilities page displays vulnerabilities from:
+
+- The repository's default branch, if that information is available. This information is typically available for CI scans performed through GitHub Actions.
+- One of a set of standard default branch names, such as:
+  - `develop` (or `development`)
+  - `main`
+  - `master`
+  - `trunk`
+</Accordion>
+<Accordion title="Are all findings in the scan unreachable vulnerabilities?">
+
+By default, Semgrep AppSec Platform shows only <Tooltip tip="A reachable finding means your codebase uses both a vulnerable code pattern and a vulnerable dependency version. Findings (usages) are grouped by vulnerability.">reachable</Tooltip>
+
+To see all vulnerabilities, select all boxes under the "Exposure" filter.
+
+<Frame>
+![Exposure filter with all boxes selected](/images/kb/semgrep-supply-chain/why-no-findings/ssc-vuln-filter.png)
+</Frame>
+</Accordion>
+</AccordionGroup>
+
+## Additional references
+
+If the project uses Java and Apache Maven with `pom.xml`, see [Setting up SSC scans for specific project management tools: Apache Maven (Java)](/semgrep-supply-chain/setup-maven).
+
+## If you're still having trouble
+
+If you've addressed these issues but are still not seeing vulnerability findings, or if you need assistance setting up Semgrep Supply Chain for your projects, such as handling manifest file or lockfile naming or addressing parsing issues, [reach out for help](/support).

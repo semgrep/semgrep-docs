@@ -1,0 +1,271 @@
+---
+title: "Single-sign on (SSO) configuration"
+sidebarTitle: "SSO authentication"
+---
+
+<Note>
+**YOUR DEPLOYMENT JOURNEY**
+
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
+- You are an admin for both your Semgrep deployment and your IdP provider.
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
+</Note>
+
+This article walks you through single-sign on (SSO) configuration. Semgrep supports SSO through [OpenID Connect / OAuth 2.0](#openid-connect--oauth-20) and [SAML 2.0](#saml-20).
+
+After setting up SSO, users are provisioned and managed on your IdP. Semgrep grants access to the deployment to any user at the configured domain who logs in and has the correct permissions in the IdP. If a user attempts to log in through GitHub or GitLab with an email at your configured domain, Semgrep prompts them to log in using corporate SSO instead.
+
+<Tabs>
+  <Tab title="Guided setup (beta)">
+
+### OpenID Connect / OAuth 2.0
+
+<Note>
+**MICROSOFT ENTRA ID**
+
+Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. Follow the instructions to [set up SAML SSO with Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id) instead.
+</Note>
+
+To set up SSO in Semgrep AppSec Platform:
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+</Step>
+<Step>
+The **Configure Single Sign-On** dialog appears. Begin by selecting your identity provider, or choose **Custom OIDC**.
+</Step>
+<Step>
+Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, use **Test sign-in** to test the connection.
+</Step>
+<Step>
+Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
+</Step>
+<Step>
+Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
+</Step>
+<Step>
+To use the new connection, log out of Semgrep, then log back in using SSO.
+</Step>
+</Steps>
+
+If you encounter issues during the setup process, please [reach out to support](/support) for assistance.
+
+### SAML 2.0
+
+<Note>
+**GOOGLE WORKSPACE SAML**
+
+If you're using Google Workspace SAML, see [SAML Single Sign-on with Google Workspace](/kb/semgrep-appsec-platform/saml-google-workspace) for specific guidance.
+</Note>
+
+SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
+
+<Steps>
+<Step>
+Create a SAML app with your authentication provider.
+</Step>
+<Step>
+With your authentication provider, add in two attribute statements: `name` and `email`.
+</Step>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+</Step>
+<Step>
+The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting your identity provider, or choose **Custom SAML**.
+</Step>
+<Step>
+Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. If prompted, add in the requested attribute statements. Semgrep recommends the following mappings:
+        | Name | Value |
+        | :--- | :--- |
+        | id | `user.login` **OR** `user.email` |
+        | email | `user.email` |
+        | firstName | `user.firstName` |
+        | lastName | `user.lastName` |
+    When you've completed the required steps, use **Test sign-in** to test the connection.
+</Step>
+<Step>
+Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
+</Step>
+<Step>
+Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
+</Step>
+<Step>
+To use the new connection, log out of Semgrep, then log back in using SSO.
+</Step>
+</Steps>
+
+  </Tab>
+
+  <Tab title="Legacy manual configuration">
+
+### OpenID Connect / OAuth 2.0
+
+<Note>
+**MICROSOFT ENTRA ID**
+
+Semgrep AppSec Platform does not support using OpenID with Microsoft Entra ID. Follow the instructions to [set up SAML SSO with Microsoft Entra ID](/kb/semgrep-appsec-platform/saml-microsoft-entra-id) instead.
+</Note>
+
+To set up SSO in Semgrep AppSec Platform:
+
+<Steps>
+<Step>
+Sign in to Semgrep AppSec Platform.
+</Step>
+<Step>
+Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+</Step>
+<Step>
+Click **Add SSO configuration** and select **OpenID SSO**.
+</Step>
+<Step>
+Provide a **Display name** and the **Email domain**.
+</Step>
+<Step>
+Copy the **Redirect URL**, and provide it to your authentication provider.
+    <Frame>
+      ![SSO configuration form displaying the redirect URL](/images/sso-redirect-url-6174b1e776a42c1c4915495349005d66.png)
+    </Frame>
+</Step>
+<Step>
+Generate a **Client ID** and **Client Secret** through your authentication provider and paste these values into Semgrep.
+    <Frame>
+      ![Generating Client ID and Client Secret via the Okta](/images/sso-clientID-clientSecret-310403f630d93b528baaf02f4215c86d.png)
+    </Frame>
+</Step>
+<Step>
+From your authentication provider, copy the **Base URL** value, and provide it to Semgrep. For example, if you're using Okta SSO, the base URL is the **Okta domain**.
+</Step>
+<Step>
+Optional: provide the following values from your authentication provider if necessary:
+   - **Well Known URL**
+   - **Authorize URI**
+   - **Token URI**
+   - **Userinfo URI**
+</Step>
+<Step>
+Click **Save** to proceed.
+</Step>
+</Steps>
+
+If you encounter issues during the setup process, please [reach out to support](/support) for assistance.
+
+### SAML 2.0
+
+<Note>
+**GOOGLE WORKSPACE SAML**
+
+If you're using Google Workspace SAML, see [SAML Single Sign-on with Google Workspace](/kb/semgrep-appsec-platform/saml-google-workspace) for specific guidance.
+</Note>
+
+SAML2.0 is configured through **Semgrep AppSec Platform**. To set up SSO:
+
+<Steps>
+<Step>
+Create a SAML app with your authentication provider.
+    <Frame>
+      ![Creating SAML app through Okta](/images/saml-creating-app-377a1d48768c46f026f9940f5512b773.png)
+    </Frame>
+</Step>
+<Step>
+With your authentication provider, add in two attribute statements: `name` and `email`.
+    <Frame>
+      ![Filling in attribute statements in Okta](/images/saml-attribute-statements-2ac1ee3e4d422a51d0c3d0ad8c95d332.png)
+    </Frame>
+</Step>
+<Step>
+Sign in to Semgrep AppSec Platform.
+</Step>
+<Step>
+Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+</Step>
+<Step>
+Click **Add SSO configuration** and select **SAML2 SSO**.
+</Step>
+<Step>
+Provide a **Display name** and the **Email domain**.
+</Step>
+<Step>
+Copy the **SSO URL** and **Audience URL (SP Entity ID)**, and provide it to your authentication provider.
+    <Frame>
+      ![Finding Single sign on URL, and Audience URI via Semgrep AppSec Platform](/images/saml-copy-urls-76bcb9e07c9e9d3b64f2e29e3943ff9f.png)
+    </Frame>
+</Step>
+<Step>
+From your authentication provider, copy your **IdP SSO URL** and **IdP Issuer ID** values, and download the **X509 Certificate**.
+    <Frame>
+      ![Finding IdP SSO URL, IdP Issuer ID, and X509 Certificate through Okta](/images/saml-copy-IdPSSO-IdPID-and-X509-61f4be0b299a3bc32c4cf3fb1c49a387.png)
+    </Frame>
+</Step>
+<Step>
+Return to Semgrep AppSec Platform, and paste the **IdP SSO URL** and **IdP Issuer ID** values, and upload your **X509 Certificate**.
+    <Frame>
+      ![Filling in IdP SSO URL, IdP Issuer ID, and X509 Certificate on Semgrep](/images/saml-filling-IdpSSO-IdpID-X509-9b0c382094a3881dd89b8f6191e8db76.png)
+    </Frame>
+</Step>
+<Step>
+Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
+</Step>
+<Step>
+Click **Save** to proceed.
+</Step>
+</Steps>
+
+  </Tab>
+</Tabs>
+
+If you encounter issues during the setup process, [reach out to support](/support) for assistance.
+
+<Note>
+**ADMIN AND ORG OWNER ACCOUNTS**
+
+By default, Semgrep creates new SSO accounts with the **Member** role assigned. You can change the default role assigned to a new user by going to [Settings > Access](https://semgrep.dev/orgs/-/settings/access/defaults).
+
+If you're an admin setting up SSO, and Semgrep creates an SSO account for you  with the role of **Member**, you can elevate the permissions granted to your SSO account. To do so, log in to Semgrep with your admin account using the original login method, then [change the role](https://semgrep.dev/orgs/-/settings/access/members) of your newly created SSO account to **Admin**.
+</Note>
+
+### Turn off sign in with GitHub / GitLab
+
+If you have SSO enabled, you can turn off login using GitHub or GitLab credentials. Doing so forces members of your organization to log in using an email address with an approved domain.
+
+<Steps>
+<Step>
+Sign in to your [Semgrep account](https://semgrep.dev/login).
+</Step>
+<Step>
+Navigate to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/docs-test/settings/access/loginMethods).
+</Step>
+<Step>
+GitHub users: Click the **GitHub SSO** <Icon icon="toggle-large-on" iconType="solid"/> toggle to turn off logins using GitHub.
+</Step>
+<Step>
+GitLab users: Click the **GitLab SSO** <Icon icon="toggle-large-on" iconType="solid"/> toggle to turn off logins using GitLab.
+</Step>
+</Steps>
+
+<Warning>
+**WARNING**
+
+Ensure that you have at least one user who can log in as an admin through SSO before disabling sign in with GitHub or GitLab.
+</Warning>
+
+### See also
+
+<CardGroup>
+  <Card title="SAML SSO with Google Workspace" icon="shield-check" href="/kb/semgrep-appsec-platform/saml-google-workspace" horizontal />
+  <Card title="SAML SSO with Microsoft Entra ID" icon="shield-check" href="/kb/semgrep-appsec-platform/saml-microsoft-entra-id" horizontal />
+</CardGroup>

@@ -1,0 +1,112 @@
+---
+title: "October 2023"
+description: "October 30, 2023 · 4 min read"
+rss: true
+---
+
+
+## 🔧 Semgrep OSS Engine
+
+- The following versions of Semgrep OSS Engine were released in October 2023:
+
+<CardGroup>
+  <Card title="1.43.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.43.0" horizontal />
+  <Card title="1.44.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.44.0" horizontal />
+  <Card title="1.45.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.45.0" horizontal />
+  <Card title="1.46.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.46.0" horizontal />
+</CardGroup>
+
+## 🌐 Semgrep Cloud Platform
+
+### Added
+- Added a button to **Remove** source code manager (SCM) apps. This is helpful when you have a misconfigured SCM app, such as GitHub's `semgrep-app`, and want to reinstall it. {/*(10688)*/} To remove an SCM, click **<Icon icon="gear" iconType="solid"/> Settings > Source code managers**.
+    <Frame>
+    ![Remove your source code manager](/images/settings-scm-remove-6fb3eb8b77d3a61239ff95d963806dc6.png)
+    </Frame>
+- Added Semgrep Assistant to the new **Getting started** guide in the onboarding flow. {/*(10716) */}
+- **OpenAPI:** Renamed instances of r2c to Semgrep. {/*(10685) */}
+- **CLI login:** New users are now directed to create a Semgrep org when they are logging in for the first time to Semgrep Cloud Platform from the CLI. {/* (10596) */}
+
+### Changed
+
+- Updated the default CircleCI YAML snippet to include full and diff scans. {/* (#10678) */}
+
+### Fixed
+
+- Fixed UI issues in the new onboarding flow.
+- Fixed an issue where Semgrep Cloud Platform could crash during the onboarding flow. {/*(#10940) */}
+- Various frontend fixes and improvements to the following:
+	- Finding detail page
+	- Projects page
+- Fixed an issue where the **Delete user** functionality did not work for some Semgrep orgs. {/* (#10756) */}
+
+## 💻 Semgrep Code
+
+### Fixed
+
+- Speed and stability improvements across the product. Semgrep Code pages, such as Findings and Policies, now load faster.
+- **Semgrep Assistant:** Component tags are now visible for all Assistant users.
+    - **Component tags** use GPT-4 to categorize a finding based on its function, such as:
+        - Payments
+        - User authentication
+        - Infrastructure
+    - By categorizing your code through component tags, Semgrep Assistant is able to help you prioritize **high-risk issues**, for example if Semgrep has detected a code finding related to payments or user authentication.
+    <Frame>
+    ![Semgrep Assistant Component tag list](/images/assistant-component-tags-644723bf4fd6f07a6951b9f3182e4e6a.png)
+    </Frame>
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- Added a new, public [<Icon icon="external-link" iconType="solid"/> Semgrep Supply Chain API](https://semgrep.dev/api/v1/#tag/SupplyChainService) where you can filter and query third-party vulnerability findings by a variety of parameters, such as:
+    - Severity
+    - Repository
+    - Exposure
+- **C# reachability** is now **GA (generally available)**. Semgrep Supply Chain has added reachability rule support for all C# CVEs from May 2022 onward.
+- **SBOM export:** Add vulnerabilities enriched with reachability analysis to export SBOMs. {/* (#10879 ) */}
+- Dependency license scanning:
+    - Added support for NuGet (C#) license detection. {/* (10777) */}
+    - Added support for RubyGems (Ruby) license detection.
+- **Advisories:** Added a tooltip displaying the date when a CVE Numbering Authority (CNA) created the security advisory. [<Icon icon="external-link" iconType="solid"/> CVE Numbering Authorities](https://nvd.nist.gov/general/cve-process) include the MITRE Corporation. These dates are not assigned by Semgrep, Inc. {/* (10743) */}
+    <Frame>
+    ![Tooltip of advisory creation date](/images/advisories-date-created-2884a1e067259d7f43beb936c1e2225d.png)
+    </Frame>
+
+### Changed
+
+- **SBOM (software bill of materials) export:** The name of the exported SBOM file now follows the following format: `sbom-<org_name>-<repo_name>-<MM-DD-YY_H-m-s>--<serial_number>.<xml|json>` {/* (10850) */}
+
+### Fixed
+
+* **SBOM export:** Fixed an issue where SBOM export failed when encountering dependencies with empty names.
+* **Vulnerabilities page:** Fixed an issue where triage states did not update until a page refresh. Triage states now update as the user performs a triage action. {/* (10887) */}
+
+## 🔐 Semgrep Secrets (beta)
+
+### Added
+
+- Semgrep Secrets is now in **public beta**.
+- **Projects page:** Added a new column to display a Semgrep Secrets counter. This counter counts all secrets regardless of validation state. {/*(10588)*/}
+
+### Fixed
+
+- Fixed links to branches in GitLab self-hosted repositories. {/* (#10897) */}
+
+## 📝 Documentation and knowledge base
+
+### Added
+- Added Semgrep Secrets documentation:
+	- [<Icon icon="file-lines" iconType="regular"/> Conceptual overview of Semgrep Secrets](/semgrep-secrets/conceptual-overview)
+	- [<Icon icon="file-lines" iconType="regular"/> Getting started with Semgrep Secrets](/semgrep-secrets/getting-started)
+- Added [<Icon icon="file-lines" iconType="regular"/> Repository rulesets](/kb/semgrep-ci/github-repository-rulesets-semgrep) knowledge base article. This article explains how to scale Semgrep across many GitHub repositories.
+- Created an automated job to sync the help output of the Semgrep CLI tool with [<Icon icon="file-lines" iconType="regular"/> CLI reference](/cli-reference).
+
+### Changed
+
+- The [<Icon icon="file-lines" iconType="regular"/> Policies](/semgrep-code/policies) documentation has been improved.
+
+### Fixed
+
+* Various improvements to knowledge base articles.
+

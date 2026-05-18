@@ -1,0 +1,347 @@
+---
+title: "Add a Bitbucket repository to Semgrep Managed Scans"
+sidebarTitle: "Bitbucket"
+description: "Add Bitbucket repositories to your Semgrep organization in bulk without adding or changing your existing CI workflows through **Managed Scans**."
+---
+
+## Prerequisites and permissions
+
+Semgrep Managed Scans require one of the following plans:
+
+- Bitbucket Cloud Premium
+- Bitbucket Data Center (v8.8 or above for diff-aware scans)
+
+### Bitbucket Cloud
+
+You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/workspace-access-tokens/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Semgrep Managed Scans fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
+
+- `webhook (read and write)`
+- `repository (read and write)`
+- `pullrequest (read and write)`
+- `project (admin)`
+- `account (read)`
+
+Webhook permissions are required to support diff-aware scans.
+
+### Bitbucket Data Center
+
+You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Project Admin` role. This access token must be created with `PROJECT_ADMIN` permissions.
+
+Project-level webhooks are required to support diff-aware scans.
+
+## Enable Semgrep Managed Scans and scan your first repository
+
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Click **Scan new project > Semgrep Managed Scan**.
+</Step>
+<Step>
+Click **Manage Connections** and then **+ Connect more**.
+</Step>
+<Step>
+Select **Bitbucket**.
+</Step>
+<Step>
+In the **Set up Managed Scans** page that appears, provide the information needed by Semgrep to connect to your Bitbucket project:<br/><br/>
+   i. Select **Bitbucket** or **Bitbucket Data Center**.<br/><br/>
+   ii. Provide your **Access token**.<br/><br/>
+   iii. Provide the name of your **Bitbucket workspace**.<br/><br/>
+   iv. *For Bitbucket Data Center users only*: provide the **Bitbucket Data Center URL**.<br/><br/>
+   v. Click **Connect**.
+</Step>
+<Step>
+Repeat the steps above for each additional Bitbucket workspace you'd like added to Semgrep.
+</Step>
+</Steps>
+
+
+You have successfully set up Managed Scans for your workspace or project.
+
+- After enabling Managed Scans, Semgrep performs a full scan in batches on all the repositories in the workspace.
+- Once a repository has been added to Semgrep AppSec Platform, it becomes a **project**. A project in Semgrep AppSec Platform includes all the findings, history, and scan metadata of that repository.
+- Projects with a Managed Scan configuration are tagged with `managed-scan`, regardless of whether the project is actively being scanned by Semgrep Managed Scans or not. The **Projects** list also contains pending scans and scans that never started.
+
+## Add additional Bitbucket projects
+
+You can enable Managed Scans for additional repositories after onboarding using the following steps:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Click **Scan new project > Semgrep Managed Scan**.
+</Step>
+<Step>
+In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.<br/><br/>
+    i. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
+</Step>
+<Step>
+Select the repositories you want to scan from the list.
+</Step>
+<Step>
+Click **Enable Managed Scans**. The **Enable Managed Scans** dialog appears. By default, Semgrep runs both full and diff-aware scans.
+</Step>
+<Step>
+Optional: Disable PR or MR diff-aware scans by turning off the **Enable PR/MR scans** toggle.
+</Step>
+<Step>
+Click **Enable**.
+</Step>
+</Steps>
+
+### If the page doesn't display any repositories
+
+<Steps>
+<Step>
+Ensure that you've connected your Bitbucket account by following the steps in [Connect a source code manager](/deployment/connect-scm) and confirm the workspace access token is created with the required scopes listed above with the `Product Admin` role.
+</Step>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+If the page doesn't display the repository you want to add, click **Can't find your project? > Sync projects**.
+</Step>
+<Step>
+If the page doesn't display any repositories, click **Sync projects**.
+</Step>
+<Step>
+Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
+</Step>
+</Steps>
+
+### Convert or migrate an existing Semgrep CI job
+
+You can immediately add any existing project to Managed Scans.
+
+<Steps>
+<Step>
+Follow the steps in [Enable Semgrep Managed Scans](#enable-managed-scanning-and-scan-your-first-repository).
+</Step>
+<Step>
+Delete the `bitbucket-pipelines.yml` file in your Bitbucket repository if appropriate.
+</Step>
+</Steps>
+
+If you plan to continue running some scans in Bitbucket CI/CD Pipelines (for example, using Managed Scans to run weekly full scans but Bitbucket CI/CD Pipelines for diff-aware scans) you can leave the workflow file in place, and edit it to reflect your desired configuration.
+
+<Tip>
+**TIP**
+
+Semgrep preserves your findings, scans, and triage history.
+</Tip>
+
+## Scan management and configuration
+
+### Manually run a full scan
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Search for your repository's name.
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/> **gear icon** to access the settings page for that repository.
+</Step>
+<Step>
+Click **Run a new scan > Rule-based detection**.
+</Step>
+</Steps>
+
+> You can manually run a full scan for both primary and non-primary branches.
+
+### Re-run a failed scan or a scan that never finished
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Click on the project name.
+</Step>
+<Step>
+Find the scan that failed or never finished using the **Status** column, and click **Details** to open the **Scan logs** dialog.
+</Step>
+<Step>
+Ensure that you're on the **Overview** tab of the **Scan logs** dialog, then click **Retry scan**.
+</Step>
+</Steps>
+
+### Disable diff-aware scans on PRs
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Search for your repository's name.
+</Step>
+<Step>
+Click the <Icon icon="window-restore" iconType="solid"/> **window icon** under **Details** to access the settings page for that repository.
+</Step>
+<Step>
+Click the toggle for diff-aware scans.
+</Step>
+</Steps>
+
+### Delete a project
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Search for your repository's name.
+</Step>
+<Step>
+Click the <Icon icon="window-restore" iconType="solid"/> **window icon** under **Details** to access the settings page for that repository.
+</Step>
+<Step>
+Click the dropdown at the header and click **Delete project**.
+</Step>
+</Steps>
+
+To delete an archived project:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
+</Step>
+<Step>
+Switch to the **Not Scanning** tab of the **Projects** page.
+</Step>
+<Step>
+Select the checkbox to **Show archived** projects.
+</Step>
+<Step>
+Search for the archived repository's name.
+</Step>
+<Step>
+Click the <Icon icon="window-restore" iconType="solid"/> **window icon** under **Details** to access the settings page for that repository.
+</Step>
+<Step>
+Click the dropdown at the header and click **Delete project**.
+</Step>
+</Steps>
+
+
+### Configure fail open to prevent diff-aware scans from blocking pull requests and merge requests
+
+By default, diff-aware managed scans are set to **fail open** if a scan errors out or takes too long. This means that diff-aware scans are marked as successful on the pull request (PR) or merge request (MR), even if they haven't completed after the specified timeout, allowing you to make the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
+
+<Frame caption="Sample pull request showing the status of a diff-aware scan.">
+![Sample pull request showing the status of a diff-aware scan.](/images/pr-status-check-06f80c71ec387d84294255bdbfcdc25e.png)
+</Frame>
+
+#### How fail open works
+
+<Steps>
+<Step>
+If enabled, the fail open feature is triggered whenever you open a PR or MR.
+</Step>
+<Step>
+Initially, Semgrep sends an update to mark the PR or MR as `pending`.
+</Step>
+<Step>
+Once the diff-aware scan begins, the PR or MR is updated to a status of `running`.
+</Step>
+<Step>
+The diff-aware scan completes, and the PR or MR is updated to a status of `succeeded` or `failed`.
+</Step>
+<Step>
+If the diff-aware scan is in `pending` or `running` status longer than the configured timeout, then the fail open process updates the PR or MR to display a status of `succeeded`. This prevents the Semgrep scan from blocking the developer from merging their changes.
+</Step>
+</Steps>
+
+If Semgrep marks a PR or MR as `succeeded`, you can merge the PR or MR without waiting for the diff-aware scan to complete. However, if the PR or MR is still open and the scan completes *after* the fail open timeout is reached, Semgrep can still report the findings and mark the status as `failed`. 
+
+#### Configure fail open
+
+By default, fail open is enabled. However, you can disable this feature and adjust the timeout value:
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to **Settings > General > Managed Scans**.
+</Step>
+<Step>
+Click the <Icon icon="toggle-large-on" iconType="solid"/> **Fail open** toggle to turn off this feature.
+</Step>
+<Step>
+Set the **Timeout** value in minutes. The default value is **10 minutes**, the minimum value is **1 minute**, and the maximum value is **60 minutes**.
+ <Frame caption="Semgrep AppSec Platform settings page with fail open configuration options.">
+ ![Semgrep AppSec Platform settings page with fail open configuration options.](/images/fail-open-config-ccc1c4b81d5710e419b725b1a1d193e0.png)
+ </Frame>
+</Step>
+</Steps>
+
+## Disable webhooks
+
+Performing diff-aware Managed Scans of Bitbucket projects requires webhooks to be enabled. Webhooks are enabled by default when you add Bitbucket as a source code manager when setting up Semgrep Managed Scans. You can disable webhooks at any time by following these steps:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, go to [Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code).
+</Step>
+<Step>
+Find your Bitbucket connection, and click the <Icon icon="toggle-large-on" iconType="solid"/> toggle to disable **Incoming webhooks**.
+</Step>
+</Steps>
+
+This will stop any diff-aware scans of your projects.
+
+## Revoke Semgrep's access to your repositories
+
+The following steps revoke the code access you previously granted Semgrep for all repositories you selected.
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click <Icon icon="gear" iconType="solid"/> **Settings > Source Code Managers**.
+</Step>
+<Step>
+On the entry of the SCM you want to remove, click **Remove app**.
+</Step>
+<Step>
+Click **Remove** to confirm.
+</Step>
+</Steps>
+
+## Turn off Managed Scans for specific repositories in Semgrep AppSec Platform
+
+<Steps>
+<Step>
+Sign in to Semgrep AppSec Platform.
+</Step>
+<Step>
+Go to Projects and find the project you no longer want scanned with Semgrep Managed Scanning. Click the project's **Details** page > **Settings** tab. 
+</Step>
+<Step>
+Toggle the switch for **Managed diff scans** to turn off scans of new pull requests and merge requests and **Managed full scans** to turn off full scans of the base branch.
+ <Frame>
+ ![Semgrep AppSec Platform toggles to turn off managed scans of repositories](/images/turn-off-sms-4b1b14b41b9fb0f8b3f2e9bffc2d96e8.png)
+ </Frame>
+</Step>
+</Steps>
+## Appendices
+
+### Scan logs
+
+To view your scan logs in Semgrep AppSec Platform, go to **Projects**, then click on the project name. The projects in the list are sorted by scan date, with the most recent scans listed first.
+
+<Note>
+**INFO**
+
+It can take a few minutes for your latest scan logs to appear. However, if the logs do not update 15 minutes after the scan, there may be issues with the scan itself.
+</Note>
+
+### Scan statistics
+
+**Scan statistics**, such as how many of your repositories are being scanned, the scan success rate, and so on, can be provided once a week upon request. Contact your Semgrep account manager to request scan statistics.

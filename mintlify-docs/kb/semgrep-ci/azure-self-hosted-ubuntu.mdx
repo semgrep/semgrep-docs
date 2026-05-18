@@ -1,0 +1,192 @@
+---
+title: "Semgrep with self-hosted Ubuntu runners in Azure Pipelines"
+---
+
+Semgrep provides a [sample configuration for Azure-hosted runners](/semgrep-ci/sample-ci-configs#azure-pipelines). If you use self-hosted Ubuntu Linux runners, you have significantly more control over their configuration, but as a result, they require additional preparation and configuration to run Semgrep.
+
+This guide adds two approaches to configuring self-hosted runners that use Ubuntu (the default self-hosted option for Azure DevOps Linux runners):
+
+- [Using pipx](#using-pipx)
+- [Using uv](#using-uv)
+
+Both `pipx` and `uv` install Semgrep into an isolated environment, which avoids issues with system-managed Python vs user-installed Python.
+
+## Using pipx
+
+[`pipx`](https://pipx.pypa.io/stable/) installs standalone Python applications into isolated environments. This is the recommended approach for installing Semgrep on a self-hosted runner.
+
+### Prepare your runner
+
+Access the runner and execute the following commands:
+
+```bash
+$ sudo apt update
+$ sudo apt install pipx
+$ pipx ensurepath
+```
+
+After completing the commands:
+
+<Steps>
+<Step>
+Start a new shell session, so that the changes from `pipx ensurepath` are available.
+</Step>
+<Step>
+Ensure the [Azure DevOps agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops) is set up and running.
+</Step>
+</Steps>
+
+### Create your configuration
+
+<Steps>
+<Step>
+Follow the steps provided in the [sample configuration for Azure-hosted runners](/semgrep-ci/sample-ci-configs#azure-pipelines).
+</Step>
+<Step>
+Add the following snippet to the `azure-pipelines.yml` for the repository.
+
+```yaml expandable
+variables:
+  - group: Semgrep_Variables
+
+pool:
+  name: Default
+
+steps:
+  - checkout: self
+    clean: true
+    fetchDepth: 20
+    persistCredentials: true
+  - script: |
+      pipx install semgrep
+      if [ $(Build.SourceBranchName) = "master" ]; then
+          echo "Semgrep full scan"
+          semgrep ci
+      elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+          echo "Semgrep diff scan"
+          git fetch origin master:origin/master
+          export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+          export SEMGREP_BASELINE_REF='origin/master'
+          semgrep ci
+      fi
+    env:
+      SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
+```
+
+<Note>
+**CUSTOMIZING THE CONFIGURATION**
+
+- If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
+- If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
+</Note>
+</Step>
+</Steps>
+
+## Set environment variables in Azure Pipelines
+Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report results to the platform, and other variables may be helpful as well. To set these variables in Azure Pipelines:
+
+<Steps>
+  <Step>
+  Set up a variable group called Semgrep_Variables.
+  </Step>
+  <Step>
+  Set SEMGREP_APP_TOKEN in the variable group, following the steps for secret variables. The variable is mapped into the env in the provided config.
+  </Step>
+  <Step>
+  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform.These variables are not sensitive and do not need to be secret variables.
+  - SEMGREP_REPO_NAME
+  - SEMGREP_REPO_URL
+  - SEMGREP_BRANCH
+  - SEMGREP_COMMIT
+  - SEMGREP_JOB_URL
+  </Step>
+  <Step>
+  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as main or master.
+
+  - If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the elif section of the script step.
+  </Step>
+  <Step>
+  For diff-aware scans: add a build validation policy. Adding and enabling a branch policy for build validation is required to trigger Azure Pipelines on pull requests.
+  </Step>
+</Steps>
+
+## Using uv
+
+### Prepare your runner
+
+[`uv`](https://docs.astral.sh/uv/) is a fast Python package and project manager. Its `uv tool install` command installs standalone Python applications into isolated environments, similar to `pipx`.
+
+Access the runner and install `uv` following [Astral's installation instructions](https://docs.astral.sh/uv/getting-started/installation/), for example:
+
+```bash
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+After installing, ensure the [Azure DevOps agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops) is set up and running.
+
+### Create your configuration
+
+Add the following snippet to the `azure-pipelines.yml` for the repository.
+
+```yaml expandable
+variables:
+  - group: Semgrep_Variables
+
+pool:
+  name: Default
+
+steps:
+  - checkout: self
+    clean: true
+    fetchDepth: 20
+    persistCredentials: true
+  - script: |
+      uv tool install semgrep
+      if [ $(Build.SourceBranchName) = "master" ]; then
+          echo "Semgrep full scan"
+          semgrep ci
+      elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+          echo "Semgrep diff scan"
+          git fetch origin master:origin/master
+          export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+          export SEMGREP_BASELINE_REF='origin/master'
+          semgrep ci
+      fi
+    env:
+      SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
+```
+
+<Note>
+**CUSTOMIZING THE CONFIGURATION**
+
+- If your self-hosted runner [agent pool](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) has a different name, update the `name` key under `pool` to match the desired agent pool.
+- If your default branch is not called `master`, update the references to `master` to match the name of your default branch.
+</Note>
+
+## Set environment variables in Azure Pipelines
+
+Semgrep minimally requires the variable SEMGREP_APP_TOKEN in order to report results to the platform, and other variables may be helpful as well. To set these variables in Azure Pipelines:
+
+<Steps>
+  <Step>
+  Set up a variable group called Semgrep_Variables.
+  </Step>
+  <Step>
+  Set SEMGREP_APP_TOKEN in the variable group, following the steps for secret variables. The variable is mapped into the env in the provided config.
+  </Step>
+  <Step>
+  Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at Environment variables for creating hyperlinks in Semgrep AppSec Platform.These variables are not sensitive and do not need to be secret variables.
+  - SEMGREP_REPO_NAME
+  - SEMGREP_REPO_URL
+  - SEMGREP_BRANCH
+  - SEMGREP_COMMIT
+  - SEMGREP_JOB_URL
+  </Step>
+  <Step>
+  Set variables for diff-aware scanning. The provided config sets SEMGREP_PR_ID to the system variable System.PullRequest.PullRequestId and SEMGREP_BASELINE_REF to origin/master within the script section of the config. The value of SEMGREP_BASELINE_REF is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as main or master.
+  - If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the elif section of the script step.
+  </Step>
+  <Step>
+  For diff-aware scans: add a build validation policy. Adding and enabling a branch policy for build validation is required to trigger Azure Pipelines on pull requests.
+  </Step>
+</Steps>

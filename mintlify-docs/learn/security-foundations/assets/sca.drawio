@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram id="lJ17Pb-WO4H6HfT7KDVG" name="sast-or-sca">
+    <mxGraphModel dx="928" dy="866" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-1" value="&amp;nbsp; class Foo&lt;div&gt;&amp;nbsp; import Baz&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; def foo ( data )&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;exec ( data )&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;Baz.baz( data )&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;fillColor=#f8cecc;strokeColor=#b85450;align=left;" parent="1" vertex="1">
+          <mxGeometry x="435" y="173" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;entryX=0.014;entryY=0.655;entryDx=0;entryDy=0;entryPerimeter=0;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="TxdZNFVJb_VBLljkh_zo-2" target="TxdZNFVJb_VBLljkh_zo-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="375" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-2" value="&lt;div&gt;&amp;nbsp; import Foo, Bar&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&amp;nbsp; data = Foo.foo ( user input )&lt;div&gt;&amp;nbsp; send ( data )&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; Bar.print()&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;" parent="1" vertex="1">
+          <mxGeometry x="105" y="173" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-7" value="SCA" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="332.5" y="100" width="415" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-8" value="&amp;nbsp; class Bar&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; def bar ( data )&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;exec ( data )&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;fillColor=#f8cecc;strokeColor=#b85450;align=left;" parent="1" vertex="1">
+          <mxGeometry x="355" y="310" width="150" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-9" value="Unreachable&amp;nbsp;&lt;div&gt;Dependency&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;" parent="1" vertex="1">
+          <mxGeometry x="270" y="390" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-10" value="Exploitable&amp;nbsp;&lt;div&gt;Dependency&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;" parent="1" vertex="1">
+          <mxGeometry x="355" y="190" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TxdZNFVJb_VBLljkh_zo-11" value="Your Code" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;" parent="1" vertex="1">
+          <mxGeometry x="177.5" y="135" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-1" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="TxdZNFVJb_VBLljkh_zo-1" target="xlltZDTEV8Xp8ppHM145-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="495" y="300" as="sourcePoint" />
+            <mxPoint x="505" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="535" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-2" value="&amp;nbsp; class Baz&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; def baz ( data )&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;exec ( data )&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" parent="1" vertex="1">
+          <mxGeometry x="615" y="190" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-3" value="Your Supply Chain" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;" parent="1" vertex="1">
+          <mxGeometry x="480" y="135" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-4" value="Transitive&lt;div&gt;Dependency&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Gloria Hallelujah;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DGloria%2BHallelujah;" parent="1" vertex="1">
+          <mxGeometry x="565" y="320" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xlltZDTEV8Xp8ppHM145-8" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.013;entryY=0.609;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="TxdZNFVJb_VBLljkh_zo-2" target="TxdZNFVJb_VBLljkh_zo-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="245" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

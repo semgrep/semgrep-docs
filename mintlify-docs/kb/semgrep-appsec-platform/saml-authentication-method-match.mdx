@@ -1,0 +1,28 @@
+---
+title: "SAML SSO Error: Authentication method doesn't match requested"
+---
+
+When logging in to Semgrep using SAML single-sign on (SSO), you may see the error `Authentication method doesn't match requested`:
+
+<Frame>
+![SAML auth method error](/images/kb/semgrep-appsec-platform/saml-authentication-method-match/image.png)
+</Frame>
+
+This error only occurs when starting sign-in from Semgrep. To prevent the error, start your sign-in from your IdP (SSO provider).
+
+To fix this problem, you must be an `admin` in Semgrep AppSec Platform.
+
+<Steps>
+  <Step>
+  Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+  </Step>
+  <Step>
+  Click **<Icon icon="gear" iconType="solid" /> Settings > Access > [SSO](https://semgrep.dev/orgs/-/settings/access/sso)**.
+  </Step>
+  <Step>
+  Check the box labeled **Check if your SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)**.
+  </Step>
+  <Step>
+  Click **Save** to save this setting.
+  </Step>
+</Steps>

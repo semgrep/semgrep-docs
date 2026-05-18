@@ -1,0 +1,50 @@
+---
+title: "Collecting Semgrep GitHub Actions logs from GitHub"
+---
+
+
+To retrieve a log, perform the following steps:
+
+<Steps>
+  <Step>
+  Navigate to the main page of the GitHub repository you are troubleshooting or scanning.
+  </Step>
+  <Step>
+  Click the **Actions** tab. 
+  
+  <Frame>
+  ![actions-tab](/images/kb/semgrep-ci/collect-gha-logs/image-1.png)
+  </Frame>
+  </Step>
+  <Step>
+  In the Actions page, click the Semgrep workflow run that you want to retrieve logs for. The name depends on your configuration. By default, it is named **Semgrep**.
+    <Tip>
+    **TIP**
+
+    Your repository may have different workflow runs, such as linters. To quickly browse through workflow runs, you can also click the name of your workflow, typically **Semgrep** under **Actions** in the navigation bar to view only Semgrep runs.
+    </Tip>
+  </Step>
+  <Step>
+  Click the job name, typically **semgrep/ci**.
+  </Step>
+  <Step>
+  You are taken to the specific job page. Click the gear icon **\> Download log archive**. 
+  
+  <Frame>
+  ![Retrieve a GitHub Actions log.](/images/kb/semgrep-ci/collect-gha-logs/image-2.png)
+  </Frame>
+  </Step>
+</Steps>
+
+You have successfully downloaded a GitHub Actions log. You can send this as part of your ticket to [Support](/support).
+
+## Additional references
+
+<Columns cols={2}>
+<Card 
+  title="Using workflow run logs - Downloading logs" 
+  href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs" 
+  icon="file" 
+  horizontal 
+/>
+</Columns>

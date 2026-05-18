@@ -1,0 +1,145 @@
+---
+sidebarTitle: "Customize scans"
+title: "Customize Semgrep Community Edition (CE) scans"
+description: "This article shows you how to customize your local scans with Semgrep Community Edition (CE). Before proceeding with this article, ensure that you are familiar with [scanning a project using Semgrep CE](/getting-started/quickstart-ce)."
+---
+
+## Scan your codebase and export results
+
+Navigate to the root of your codebase to run first scan. The specific command you use depends on how you want to view the results.
+
+To view the results in the CLI:
+
+```bash
+semgrep scan
+```
+
+To export the results to a plain text file:
+
+```bash
+semgrep scan --text --text-output=semgrep.txt
+```
+
+To export the results to a SARIF file:
+
+```bash
+semgrep scan --sarif --sarif-output=semgrep.sarif
+```
+
+To export the results to a JSON file:
+
+```bash
+semgrep scan --json --json-output=semgrep.json
+```
+
+> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
+
+In addition to the `--text`, `--json`, and `--sarif` flags, which set the primary output formats, and the `--output= ` flag that saves the results to a file or posts to a URL, you can append `-- -output= ` to obtain additional output streams:
+
+```bash expandable
+# prints findings in SARIF format to standard output and writes in JSON format to `findings.json`.
+semgrep scan --sarif --json-output=findings.json
+
+# prints findings in text to standard out and writes JSON output to `findings.json`.
+semgrep scan --json-output=findings.json
+
+# prints text output to `findings.txt` and writes in SARIF to `findings.sarif`.
+semgrep scan --output=findings.txt --sarif-output=findings.sarif
+
+# writes text to `semgrep.txt`, JSON to `semgrep.json`, and SARIF to `semgrep.sarif`.
+semgrep scan --text --output=semgrep.txt --json-output=semgrep.json --sarif-output=semgrep.sarif
+```
+
+Accepted values for ` `: `text`, `json`, `sarif`, `gitlab-sast`, `gitlab-secrets`, `junit-xml`, `emacs`, `vim`
+
+## Scan your codebase with a specific ruleset
+
+You can scan your codebase using `--config auto` to run Semgrep with rules that apply to your programming languages and frameworks:
+
+```bash
+semgrep scan --config auto
+```
+
+<Note>
+**INFO**
+
+Semgrep collects pseudonymous metrics when you use rules from the Registry. You can turn this off with `--metrics=off`.
+</Note>
+
+To scan your codebase with a specific ruleset, either one that you write or one that you obtain from the [ Semgrep Registry](https://semgrep.dev/explore), use the `--config` flag.
+
+```bash
+# Scan with the the JavaScript rules from Semgrep Registry
+semgrep scan --config p/javascript
+```
+
+```bash
+# Scan with the rules defined in your custom rules.yaml file
+semgrep scan --config rules.yaml
+```
+
+You can include as many configuration flags as necessary.
+
+```bash
+# Scan with rules defined in two separate config files
+semgrep scan --config rules.yaml --config more_rules.yaml
+```
+
+Rules stored under a **hidden directory**, such as `dir/.hidden/myrule.yml`, are processed by Semgrep when scanning with the `--config` flag.
+
+Scan with rules in a **directory** and **all** its subdirectories:
+
+```bash
+semgrep scan --config DIRECTORY_NAME
+```
+
+Scan with all YAML rules detected in the **current working directory** and all its **subdirectories**:
+
+```bash
+semgrep scan --config .
+```
+
+#### Test custom rules
+
+Semgrep includes features to [test the custom rules that you write](/writing-rules/testing-rules):
+
+```bash
+semgrep scan --test
+```
+
+## Improve performance for large codebases
+
+You can set the number of subprocesses Semgrep uses to run checks in parallel:
+
+```bash
+semgrep scan -j NUMBER_OF_SUBPROCESSES
+```
+
+By default, the number of jobs Semgrep uses is equivalent to the number of cores detected on the system.
+
+<Info>
+Semgrep doesn't currently support parallelism on Windows.
+</Info>
+
+## Set log levels
+
+Semgrep provides three levels of logging:
+
+| **Log level** | **Flag** | **Description** |
+| :--- | :--- | :--- |
+| Default | None | Prints scan progress, findings information, warnings, and errors. |
+| Verbose | `-v` or `--verbose` | Includes everything printed when using the default logging level, adding a list of rules and details such as skipped files. |
+| Debug | `--debug` | Logs the entire scan process at a high level of detail. |
+
+### Example usage
+
+To set the logging level for a scan, include the flag when scanning your project:
+
+```bash
+# run a scan and get debug logs
+semgrep scan --debug
+```
+
+## Exit codes
+
+The command `semgrep scan` finishes with exit code `0` as long as the scan completes, regardless of whether there were findings. To finish with exit code `1` when there are findings, pass in the `--error` flag.

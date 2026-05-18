@@ -1,0 +1,125 @@
+---
+title: "Rule Pattern Syntax"
+description: "Learn Semgrep's pattern syntax for writing custom rules"
+---
+
+<Tip>
+**TIP**
+
+Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
+</Tip>
+
+This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](https://semgrep.dev/writing-rules/pattern-examples). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple coordinating patterns may be specified in a configuration file. See [rule syntax](https://semgrep.dev/writing-rules/rule-syntax) for more information.
+
+## Pattern matching
+Pattern matching searches code for a given pattern. For example, the expression pattern `1 + func(42)` can match a full expression or be part of a subexpression:
+```
+foo(1 + func(42)) + bar()
+```
+In the same way, the statement pattern `return 42` can match a top statement in a function or any nested statement:
+```
+def foo(x):
+  if x > 1:
+     if x > 2:
+       return 42
+  return 42
+```
+## Ellipses operator
+
+The `...` ellipsis operator abstracts away a sequence of zero or more items such as arguments, statements, parameters, fields, characters.
+
+The `...` ellipsis can also match any single item that is not part of a sequence when the context allows it.
+
+See the use cases in the subsections below.
+
+## Function calls
+Use the ellipsis operator to search for function calls or function calls with specific arguments. For example, the pattern `insecure_function(...)` finds calls regardless of its arguments.
+```
+insecure_function("MALICIOUS_STRING", arg1, arg2)
+```
+Functions and classes can be referenced by their fully qualified name, e.g.,
+
+- `django.utils.safestring.mark_safe(...)` or `mark_safe(...)`
+- `System.out.println(...)` or `println(...)`
+You can also search for calls with arguments after a match. The pattern `func(1, ...)` will match both:
+```
+func(1, "extra stuff", False)
+func(1)  # Matches no arguments as well
+```
+
+Or find calls with arguments before a match with `func(..., 1)`:
+```
+func("extra stuff", False, 1)
+func(1)  # Matches no arguments as well
+```
+
+The pattern `requests.get(..., verify=False, ...)` finds calls where an argument appears anywhere:
+```
+requests.get(verify=False, url=URL)
+requests.get(URL, verify=False, timeout=3)
+requests.get(URL, verify=False)
+```
+
+Match the keyword argument value with the pattern `$FUNC(..., $KEY=$VALUE, ...)`.
+
+## Method calls
+The ellipsis operator can also be used to search for method calls. For example, the pattern `$OBJECT.extractall(...)` matches:
+```
+tarball.extractall('/path/to/directory')  # Oops, potential arbitrary file overwrite
+```
+
+You can also use the ellipsis in chains of method calls. For example, the pattern `$O.foo(). ... .bar()` will match:
+```
+obj = MakeObject()
+obj.foo().other_method(1,2).again(3,4).bar()
+```
+## Function definitions
+The ellipsis operator can be used in function parameter lists or in the function body. To find function definitions with [mutable default arguments](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments):
+```
+pattern: |
+  def $FUNC(..., $ARG={}, ...):
+      ...
+```
+```
+def parse_data(parser, data={}):  # Oops, mutable default arguments
+    pass
+```
+
+<Tip>
+**TIP**
+
+The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+</Tip>
+
+The ellipsis operator can match the function name. Match any function definition: Regular functions, methods, and also anonymous functions (such as lambdas). To match named or anonymous functions use an ellipsis `...` in place of the name of the function. For example, in JavaScript the pattern `function ...($X) { ... }` matches any function with one parameter:
+```
+function foo(a) {
+  return a;
+}
+var bar = function (a) {
+  return a;
+};
+```
+
+## Class definitions
+The ellipsis operator can be used in class definitions. To find classes that inherit from a certain parent:
+```
+pattern: |
+  class $CLASS(InsecureBaseClass):
+      ...
+```
+```
+class DataRetriever(InsecureBaseClass):
+    def __init__(self):
+        pass
+```
+<Tip>
+**TIP**
+
+The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
+</Tip>
+
+### Ellipses operator scope
+Ellipsis operator scope
+The `...` ellipsis operator matches everything in its current scope. The current scope of this operator is defined by the patterns that precede `...` in a rule.
+

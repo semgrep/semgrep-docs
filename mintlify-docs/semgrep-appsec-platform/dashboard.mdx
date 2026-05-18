@@ -1,0 +1,165 @@
+---
+title: "Dashboard"
+---
+
+The [Semgrep dashboard](https://semgrep.dev/orgs/-/) is an overview of your organization’s security posture based on data aggregated within Semgrep AppSec Platform. It helps you:
+
+- Evaluate your AppSec program, enabling you to know your current security risk.
+- Assess the deployment and adoption of **[secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep)** to your organization.
+- Become aware of trends and opportunities that you can use to improve your security posture.
+- Quickly filter data granularly for all the charts on the page and view priority findings.
+- Export the information as a PDF report.
+
+## Dashboard overview
+
+The dashboard is divided into several sections:
+
+| Section | Description |
+| :--- | :--- |
+| Reporting summary top bar | Sets the filters for all the data in the page. |
+| Production backlog | Displays data about all the findings detected in your primary or default branch and helps you answer the following questions:<br />- How is my security posture doing over time?<br />- Is my backlog decreasing or increasing?<br />- Is the team addressing findings faster than new findings are coming in? |
+| [Secure guardrails](/secure-guardrails/secure-guardrails-in-semgrep) | Displays data relevant to the deployment and adoption of secure guardrails. It helps address the following:<br />- How many vulnerabilities did Semgrep prevent from entering production over time?<br />- Am I effectively introducing guardrails to my developers?<br />- Of the issues shown to developers, are they being fixed, or are they being ignored? |
+| Most findings by project | Lists projects arranged by most open findings to least, grouped by **product** or **severity**. Helps answer the following:<br />- Which of my projects have the most findings in a particular product area?<br />- Which of my projects have the most findings for a particular severity? |
+| Median open age | A graph showing the middle age of all Open findings, grouped by product or severity. Half of the open findings are older than this age, and half are newer. Helps you answer:<br />- What is the amount of time a finding remains open, by product or by severity? |
+
+<Tip>
+**TIP**
+
+Use the **filters** to quickly generate views for a single Semgrep product or all products.
+
+When viewing data for a single Semgrep product, you can't group by product in **Most findings by project** and **Median open age**.
+</Tip>
+
+## Export reports
+
+To generate reports from the current view, click **Dashboard > <Icon icon="download" iconType="solid"/> Download**.
+
+## Triage states
+
+The following triage states are displayed:
+
+- Open
+- Ignored, including provisionally ignored
+- Fixed
+
+Additional triage states, such as **Fixing** or **Reviewing**, are not displayed at this time.
+
+## Filters and configuration
+
+Use the filters to gain a top-level view or zoom in to a single product, specific period of time, or other slice of data. Create quarterly overviews or recent incident statements for various AppSec stakeholders.
+
+Configurations set here apply to the entire page.
+
+The following quick filters are visible on the page:
+  - Time period
+  - Semgrep product or type of scan (SAST, SCA, or Secrets)
+  - Project (a repository or a subfolder of a monorepo)
+  - [Recommended priority](#recommended-priority) toggle
+
+<Note>
+**INFO**
+
+- By default, the Dashboard displays data for projects that members or managers have access to. Admins can view findings from all the projects in the organization. See the [Teams documentation](/deployment/teams/overview#teams-beta) for more information.
+- It can take up to a day **(24 hours)** for the Dashboard to correctly update and remove findings if you have recently deleted a project.
+</Note>
+
+To access **all** filters:
+
+<Steps>
+<Step>
+Click **All filters** to open the filter drawer.
+</Step>
+<Step>
+Turn off the **<Icon icon="toggle-large-on" iconType="solid"/> Recommended priority** toggle.
+</Step>
+</Steps>
+
+This displays the following filters in the filter drawer:
+
+- [Severity](/writing-rules/rule-syntax#required)
+- [Confidence](/contributing/contributing-to-semgrep-rules-repository#confidence)
+- [Reachability](/semgrep-supply-chain/findings#reachability)
+- [Validation](/semgrep-secrets/conceptual-overview#validate-secrets)
+- Time period
+- Product
+- Project
+- Tags
+- Teams
+
+### Recommended priority
+
+This refers to any finding that is **Critical** or **High** severity in **addition** to being:
+
+- [High confidence](/contributing/contributing-to-semgrep-rules-repository#confidence) - if the finding is from Semgrep Code.
+- [Reachable](/semgrep-supply-chain/findings#reachability) - if the finding is from Semgrep Supply Chain.
+- [Valid](/semgrep-secrets/conceptual-overview#validate-secrets) - if the finding is from Semgrep Secrets.
+
+By default, **<Icon icon="toggle-large-on" iconType="solid"/> Recommended priority** filters are enabled.
+
+If you choose to turn off recommended priority filters, **all** findings are displayed.
+
+## Production backlog
+
+This pane displays analytics related to findings detected in your **primary or default branch**. This typically means that the finding, usually a security issue, has made it to production environments.
+
+### Key metrics
+
+| Key metrics    | Description |
+| :--- | :--- |
+| Total opened      | Total number of findings set to **Open** during the time period. This includes new findings as well as re-opened findings that were previously in a different state. |
+| Total fixed    | Total number of **Fixed** findings during the time period that **remained** fixed until the end of the time period. |
+| Total ignored  | Total number of **Ignored** findings during the time period that **remained** ignored until the end of the time period. **Ignored** findings includes those with a status of **Provisionally ignored**. |
+| Total net new  | The difference between the number of **Open** findings at the beginning of the time period and the end of the time period. |
+
+<Tip>
+**TIP**
+
+A low or negative value for **Total net new** is ideal. It indicates that, within the period, more findings are being triaged or resolved than opened. This reduces the backlog of security issues.
+</Tip>
+
+### Charts
+
+| Chart | Description |
+| :--- | :--- |
+| Open backlog         | This tracks the total findings from each scan and displays them. Lower values are better. <br /><br />Hover over the chart to see a breakdown of findings by product for the selected time period. |
+| Backlog activity | Displays the number of new, net new, fixed, and ignored, including provisionally ignored, findings. A greater **Fixed** value is better. <br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period. |
+
+
+## Secure guardrails
+
+This provides an overview of how secure guardrails in **PR or MR comments** are used in your organization, including how often Semgrep shows findings to developers, how the developers handle the findings, and how often Semgrep flags a finding as provisionally ignored.
+
+Other guardrail interfaces, such as the IDE or `pre-commit`, are not counted in this section.
+
+### Key metrics
+
+| Key metrics    | Description |
+| :--- | :--- |
+| Findings shown to devs      | Number of findings shown to developers in PR or MR comments (the numerator) against the total findings count (denominator). An upward or stable trend is better. |
+| Findings fixed in development   | Number of findings that were fixed before they could be detected in a default branch or production backlog (numerator) against the total findings count in the specified time period (denominator). An upward or stable trend is better. <br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period.  |
+
+### Charts
+
+| Chart | Description |
+| :--- | :--- |
+| Secure guardrails adoption  | Percent of new findings shown to developers over the specified time period. An upward or stable trend is better. |
+| Guardrails activity | This chart displays a breakdown of the status of findings shown to developers; whether they were ignored, provisionally ignored, fixed, or remained open. A greater **Fixed** value is better.<br /><br />Hover over the chart to see a breakdown of findings by triage state for that selected time period. |
+
+## Most findings by project
+
+A table listing projects from most open findings to least, grouped by product or severity. Lower values are better.
+
+<Tip>
+**TIP**
+
+It is recommended to prioritize triage and remediation for the top projects listed in this table, especially if the priority filters are enabled.
+</Tip>
+
+## Median open age
+
+A chart displaying the median open age of a finding in **days** over the specified time period. Lower is better.
+
+For a finding to be remediated, it must have any of the following statuses:
+
+- Fixed
+- Ignored, including provisionally ignored

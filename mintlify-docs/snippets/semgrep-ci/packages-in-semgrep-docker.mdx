@@ -1,0 +1,33 @@
+## Packages
+
+In addition to the `semgrep` binary, the [`semgrep/semgrep:latest` docker image](https://hub.docker.com/r/semgrep/semgrep/tags) contains the following packages:
+
+- `bash`
+- `jq`
+- `curl`
+- Python 3.11 (`alpine:3.22` base image)
+
+The Alpine 3.22 docker image includes additional packages that can change without notice. To review them, run `docker run alpine:3.22 apk list`.
+
+<Warning>
+**CAUTION**
+
+* Do **not** rely on the presence of packages from the Alpine docker image in your CI workflows. They are not guaranteed to be included in the future and are not managed by Semgrep.
+* `jq` and `curl` may be removed in future Semgrep releases. You can install them directly in the Docker image if necessary. For example:
+
+```yaml
+  job:
+    container: semgrep/semgrep:latest
+    runs-on: ubuntu-latest-16-core
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install dependencies
+        run: apk add bash jq curl
+      - run: semgrep scan --json ... | jq ...
+```
+
+</Warning>
+
+## Previous incidents
+
+- [<Icon icon="external-link" iconType="solid"/> Semgrep v.1.66.0](https://github.com/semgrep/semgrep/releases/tag/v1.66.0) removed `bash`, `jq`, and `curl` to reduce the attack surface of the Semgrep docker image. They were subsequently re-added for future Semgrep releases.
