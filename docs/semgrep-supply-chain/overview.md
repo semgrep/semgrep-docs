@@ -53,7 +53,7 @@ However, some dependencies are vulnerable simply through their inclusion in a co
 
 Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Semgrep Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
-## Triage and remediate vulnerabilities
+## Triage and fix vulnerabilities
 
 Once Supply Chain has identified vulnerabilities in your code and generated findings, you can take the following actions:
 
@@ -62,7 +62,7 @@ Once Supply Chain has identified vulnerabilities in your code and generated find
 - **Remediate true positives**: If the finding is one that you must address, you can:
   - **Remove dependencies and refactor code**: You can remediate true positives identified by Supply Chain by updating the dependency to a safe version or removing the dependency, then refactoring all usages of that dependency in your project.
   - **Use upgrade guidance and Autofix**: If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. Semgrep can also create a pull request (PR) or merge request (MR) that updates the version used by your repository and guide the developer on any breaking changes in the PR or MR description.
-  - **Open a pull request or merge request with fixes**:
+  - **Open a pull request or merge request with fixes**: Semgrep can open a pull request (PR) or merge request (MR) that updates the vulnerable version used by your repository and guide the developer on any breaking changes in the PR or MR description.
 
 ## Policies
 
@@ -72,10 +72,11 @@ Policies allow you to choose the rules and rulesets used for your Supply Chain s
 
 Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
 
-
 Semgrep Supply Chain's [dependency search](/semgrep-supply-chain/dependency-search) feature allows you to query for dependencies in your codebase; it can detect direct and transitive dependencies in any repository on which you have run a full scan. The results list the dependency, along with all of the repositories that use the dependency.
 
-[TODO - dependency path]
+### Dependency paths
+
+Supply Chain's dependency paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. This provides information on how a transitive dependency was introduced and how deeply the transitive dependency is nested in the dependency tree.
 
 ## License compliance
 
@@ -85,7 +86,13 @@ The [license compliance](/semgrep-supply-chain/license-compliance) feature ensur
 
 ### Reports through the Semgrep API
 
-[TODO]
+The Semgrep API allows you to obtain project and dependency information, as well as generate an SBOM. The following endpoints are available to you:
+
+- [List dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListDependencies)
+- [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListRepositoriesForDependencies)
+- [List lockfiles in a given repository with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListLockfilesForDependencies)
+- [Create a new SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport)
+- [Get the status of a SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_GetSbomExport)
 
 ### Software bill of materials
 
