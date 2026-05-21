@@ -13,7 +13,7 @@ import AdmonitionSotCves from "/src/components/reference/_admonition-sot-cves.md
 
 <SscIntro />
 
-## Discover and detect vulnerabilities
+## Detect vulnerabilities
 
 Semgrep Supply Chain detects [security
 vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's %%reachability|reachability%%.
@@ -23,6 +23,8 @@ To do this, Supply Chain first determines the list of dependencies and versions 
 * The dependency versions that contain a vulnerability
 * The pattern for the vulnerable code that Semgrep compares against your code
 * The severity of the vulnerability
+
+For projects with a missing or incomplete lockfile, Supply Chain's **Dynamic Dependency Resolution** provides a complete inventory of your project's dependencies using a combination of manifest parsing and repository integration with package managers and private registries.
 
 The following diagram shows the relationship between a Supply Chain rule, the codebase scanned, and in this case, a lockfile:
 
