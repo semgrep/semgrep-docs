@@ -1,0 +1,69 @@
+---
+title: "Supported languages"
+---
+
+The following table lists all **Generally available (GA)** and **Beta** languages for [Semgrep Code (SAST)](/semgrep-code/overview) and [Semgrep Supply Chain (SCA)](/semgrep-supply-chain/overview). 
+
+Languages are arranged by feature completeness from most to least. If applicable, click on the language name to learn more. 
+
+**Cross-file (interfile)** analysis for Semgrep Code and **reachability** analysis for Semgrep Supply Chain are the most advanced analyses that Semgrep provides. See [Feature definitions](/references/feature-definitions) for more details.
+
+| **Languages** | **Semgrep Code**<br />Supports 35+ languages | **Semgrep Supply Chain**<br />Supports 14 languages |
+| --- | --- | --- |
+| [C#](/languages/csharp) | **Generally available**<br />• Cross-file dataflow analysis<br />• Supports up to C# 13<br />• 170+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| [Go](/languages/go) | **Generally available**<br />• Cross-file dataflow analysis<br />• 80+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| [Java](/languages/java) | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 190+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| [JavaScript](/languages/javascript) | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 250+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| [Kotlin](/languages/kotlin) | **Generally available**<br />• Cross-file dataflow analysis<br />• 60+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| [Python](/languages/python) | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 710+ Pro rules<br />• See [Python-specific support details](/languages/python) | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| Typescript | **Generally available**<br />• Cross-file dataflow analysis<br />• Framework-specific control flow analysis<br />• 230+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect malicious dependencies<br />• Can detect open source licenses |
+| C / C++ | **Generally available**<br />• Cross-file dataflow analysis<br />• 150+ Pro rules | N/a |
+| JSX | **Generally available**<br />• Cross-function dataflow analysis<br />• 70+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| [Ruby](/languages/ruby) | **Generally available**<br />• Cross-function dataflow analysis<br />• 40+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| [Scala](/languages/scala) | **Generally available**<br />• Cross-function dataflow analysis<br />• Community rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| [Swift](/languages/swift) | **Generally available**<br />• Cross-function dataflow analysis<br />• 60+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| Rust | **Generally available**<br />• Cross-function dataflow analysis<br />• 40+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses<br />• Can detect malicious dependencies |
+| PHP | **Generally available**<br />• Cross-function dataflow analysis<br />• 50+ Pro rules | **Generally available**<br />• Reachability analysis<br />• Can detect open source licenses |
+| Terraform | **Generally available**<br />• Cross-function dataflow analysis<br />• Community rules | N/a |
+| Generic | **Generally available** | N/a |
+| JSON | **Generally available** | N/a |
+| Elixir | **Generally available** | **Beta** |
+| APEX | **Beta** | -- |
+| Dart | **Experimental** | **Beta** |
+
+<Accordion title="Click to view experimental languages for Semgrep Code.">
+- Bash
+- Cairo
+- Circom
+- Clojure
+- Dockerfile
+- Hack
+- HTML
+- Jsonnet
+- Julia
+- Lisp
+- Lua
+- Move on Aptos
+- Move on Sui
+- OCaml
+- R
+- Scheme
+- Solidity
+- YAML
+- XML
+</Accordion>
+
+## Additional information
+
+Language maturity levels differ from feature and product maturity levels.
+
+
+* See [Language maturity levels](/references/language-maturity-levels) for maturity definitions used on this document.
+* See [Feature definitions](/references/feature-definitions) for analysis terminology definitions used on this document.
+* See [Package manager support](/semgrep-supply-chain/sca-package-manager-support) for Supply Chain dependency metadata support.
+* See [Supply Chain feature support](/semgrep-supply-chain/sca-feature-support) for Supply Chain feature coverage by language.
+
+
+Visit the cheat sheet generation script and associated semgrep-core test files to learn more about each feature:
+* [Generation script](https://github.com/semgrep/semgrep/blob/develop/scripts/generate_cheatsheet.py)
+* [`semgrep-core` test files](https://github.com/semgrep/semgrep/tree/develop/tests)

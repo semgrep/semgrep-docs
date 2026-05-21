@@ -1,0 +1,47 @@
+---
+title: "Semgrep Multimodal metrics and methodology"
+description: "Metrics for evaluating Semgrep Multimodal's performance are derived from two sources:"
+sidebarTitle: "Metrics and methodology"
+---
+
+- **User feedback** on Multimodal recommendations within the product
+- **Internal triage and benchmarking** conducted by Semgrep's security research team 
+
+This methodology ensures that Multimodal is evaluated from both user and expert perspectives. This gives Semgrep's product and engineering teams a holistic view into Multimodal's real-world performance. <sup>1</sup>
+
+## User feedback
+
+User feedback shows the aggregated and anonymized performance of Multimodal across **more than 1000 customers**, providing a comprehensive **real-world dataset**. 
+
+Users are prompted in-line to "thumbs up" or "thumbs down" Multimodal suggestions as they receive Multimodal suggestions in their PR or MR. This ensures that sampling bias is reduced, as both developers and AppSec engineers can provide feedback. 
+
+**Results as of Aug 21, 2025:**
+
+| Measure | Value |
+| :--- | :--- |
+| Customers in dataset | **3500+** |
+| Findings analyzed | **6,500,000+** |
+| Average reduction in findings <sup>2</sup> | **60%** |
+| Human-agree rate | **96%** |
+| Median time to resolution | **22% faster than baseline** |
+| Average time saved per finding | **30 minutes** |
+
+## Internal benchmarks
+
+Internal benchmarks for Multimodal use a process in which a rotating team of security engineers conduct periodic reviews of findings and their Multimodal generated triage recommendations or remediation guidance. This is the same process used to evaluate Semgrep's SAST engine and rule performance.
+
+Internal benchmarks for Multimodal run on the same dataset used by Semgrep's security research team to analyze Semgrep rule performance. This means the dataset is not prone to cherry-picked findings that are easier for AI to analyze, and accurately represents real-world performance across a variety of contexts. 
+
+| Measure | Value |
+| :--- | :--- |
+| Findings analyzed | **2000+** |
+| False positive confidence rate<sup>3</sup> | **96%** |
+| Remediation guidance confidence rate<sup>4</sup> | **80%** |
+
+1. Learn more about how Semgrep achieved these numbers in [How we built an AppSec AI that security researchers agree with 96% of the time](https://semgrep.dev/blog/2025/building-an-appsec-ai-that-security-researchers-agree-with-96-of-the-time/).
+
+2. The average % of SAST findings that Multimodal filters out as noise.
+
+3. False positive confidence rate measures how often Multimodal is correct when it identifies a false positive. **A high confidence rate means users can trust when Multimodal identifies a false positive - it does not mean that Multimodal catches all false positives.** 
+
+4. Remediation guidance is rated on a binary scale of "helpful" / "not helpful".

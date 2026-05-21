@@ -1,0 +1,43 @@
+---
+title: "Prerequisites"
+description: "This document details the required software or services to run Semgrep products."
+---
+
+
+## Overall
+
+A programming language must be supported by Semgrep for your chosen product.
+
+| Product              | Scan type | Link   |
+| -------              | ------    | ------ |
+| Semgrep Community Edition (CE)          | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Code         | SAST      | [Supported languages](/supported-languages#language-maturity-levels)  |
+| Semgrep Supply Chain | SCA       | [Supported languages](/supported-languages#semgrep-supply-chain)       |
+| Semgrep Secrets      | Secrets   | Language-agnostic       |
+
+
+## Semgrep command-line tool
+
+These requirements apply to both Semgrep AppSec Platform and Semgrep CE.
+
+### Software
+
+- Python 3.10 or later installed on the machine you are running Semgrep on.
+
+### Operating system
+
+- macOS
+- Linux
+- Windows (beta)
+
+## Semgrep AppSec Platform
+
+These requirements apply to Semgrep AppSec Platform.
+
+- A GitHub or GitLab cloud account. The credentials are used to authenticate and identify you.
+- A Git repository to scan, stored in any of the following source code managers:
+    - GitHub
+    - GitLab
+    - Bitbucket
+    - Azure DevOps
+- A CI provider and sufficient permissions to create CI jobs.

@@ -1,0 +1,103 @@
+---
+title: "Add Semgrep to your Semaphore pipeline"
+---
+
+This document shows you how to add Semgrep into Semaphore.
+
+In Semaphore:
+
+<Steps>
+  <Step>
+  Create a secret with your `SEMGREP_APP_TOKEN`.
+  </Step>
+  <Step>
+  Open the YAML pipeline for your project using the Visual Editor.
+  </Step>
+  <Step>
+  Click **+Add Block**.
+  </Step>
+  <Step>
+  Expand **Jobs**, and add the following commands to perform a full scan:
+  ```bash
+  checkout
+  pipx install semgrep
+  semgrep ci
+  ```
+  </Step>
+  <Step>
+  Enable the secret that you created in Step 1. To do this, expand **Secret**, and select `SEMGREP_APP_TOKEN`.
+  </Step>
+  <Step>
+  Click **Run the workflow**, provide a **Commit summary**, and click **Looks good, Start** to save your changes and run the pipeline job.
+  </Step>
+</Steps>
+
+### Sample Semaphore configuration snippet
+
+<Tabs>
+<Tab title='Default'>
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```yaml expandable
+version: v1.0
+name: Semaphore Semgrep Example
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: Semgrep
+    task:
+      jobs:
+        # Job performing a full scan
+        - name: Semgrep Full Scan
+          commands:
+            - checkout
+            - pipx install semgrep
+            - semgrep ci
+        # Job performing a diff scan for PR/branches
+        - name: Semgrep Diff-aware Scan
+          commands:
+            - checkout
+            - export SEMGREP_BRANCH=$SEMAPHORE_GIT_BRANCH
+            - export SEMGREP_BASELINE_COMMIT=$SEMAPHORE_GIT_SHA
+            - pipx install semgrep
+            - semgrep ci
+      # import a secret named 'semgrep' with the SEMGREP_APP_TOKEN
+      secrets:
+        - name: SEMGREP_APP_TOKEN
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</Tab>
+
+<Tab title='Semgrep CE'>
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml
+version: v1.0
+name: Semaphore Semgrep CE Example
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: Semgrep
+    task:
+      jobs:
+        # Job performing a full scan using Semgrep CE
+        - name: Semgrep CE Scan
+          commands:
+            - checkout
+            - pipx install semgrep
+            - semgrep scan
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+
+</Tabs>

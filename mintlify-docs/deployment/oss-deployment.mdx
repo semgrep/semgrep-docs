@@ -1,0 +1,289 @@
+---
+title: "Semgrep Community Edition in CI"
+description: "Semgrep Community Edition (CE) can be set up run static application security testing (SAST) scans on repositories of any size."
+sidebarTitle: "Semgrep CE in CI"
+---
+
+This guide explains how to set up Semgrep CE in your CI pipeline using entirely open source components, also known as a **stand-alone** CI setup. The preferred Semgrep CE command is `semgrep scan`.
+
+## Prerequisites
+
+- Sufficient permissions in your repository to:
+    - Commit a CI configuration file.
+    - Start or stop a CI job.
+- Optional: Create environment variables.
+
+## Ensure your scans use open source components
+
+This setup uses only the **LGPL 2.1** Semgrep CLI tool. It is not subject to the usage limits of Semgrep AppSec Platform. In order to remain strictly open source, you must ensure that the rules you run use open source licenses or are your own custom Semgrep rules.
+
+To verify a rule's license, read the `license` key under the `metadata` of a Semgrep rule.
+
+<Accordion title="Click to expand for an example of a rule with a license key.">
+
+This rule's last line displays a `license: MIT` key-value pair.
+
+```yaml expandable
+rules:
+  - id: eslint.detect-object-injection
+    patterns:
+      - pattern: $O[$ARG]
+      - pattern-not: $O["..."]
+      - pattern-not: "$O[($ARG : float)]"
+      - pattern-not-inside: |
+          $ARG = [$V];
+          ...
+          <... $O[$ARG] ...>;
+      - pattern-not-inside: |
+          $ARG = $V;
+          ...
+          <... $O[$ARG] ...>;
+      - metavariable-regex:
+          metavariable: $ARG
+          regex: (?![0-9]+)
+    message: Bracket object notation with user input is present, this might allow an
+      attacker to access all properties of the object and even it's prototype,
+      leading to possible code execution.
+    languages:
+      - javascript
+      - typescript
+    severity: MEDIUM
+    metadata:
+      cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+      primary_identifier: eslint.detect-object-injection
+      secondary_identifiers:
+        - name: ESLint rule ID security/detect-object-injection
+          type: eslint_rule_id
+          value: security/detect-object-injection
+      license: MIT
+```
+</Accordion>
+
+For a comparison of the behavior between Semgrep CE CI scans and Semgrep AppSec Platform scans, see [Semgrep AppSec Platform versus Semgrep Community Edition](/semgrep-pro-vs-oss-1).
+
+## Set up the CI job
+
+### Use template configuration files
+
+Click the link of your CI provider to view a configuration file you can commit to your repository to create a Semgrep job:
+
+<CardGroup>
+  <Card
+    title="GitHub Actions"
+    icon="github"
+    href="/semgrep-ci/sample-ci-configs#github-actions"
+    horizontal
+  />
+  <Card
+    title="GitLab CI/CD"
+    icon="gitlab"
+    href="/semgrep-ci/sample-ci-configs#gitlab-cicd"
+    horizontal
+  />
+  <Card
+    title="Jenkins"
+    icon="jenkins"
+    href="/semgrep-ci/sample-ci-configs/#jenkins"
+    horizontal
+  />
+  <Card
+    title="Bitbucket Pipelines"
+    icon="bitbucket"
+    href="/semgrep-ci/sample-ci-configs#bitbucket-pipelines"
+    horizontal
+  />
+  <Card
+    title="Buildkite"
+    icon="layer-group"
+    href="/semgrep-ci/sample-ci-configs#buildkite"
+    horizontal
+  />
+  <Card
+    title="CircleCI"
+    icon="arrows-rotate"
+    href="/semgrep-ci/sample-ci-configs#circleci"
+    horizontal
+  />
+  <Card
+    title="Azure Pipelines"
+    icon="microsoft"
+    href="/semgrep-ci/sample-ci-configs#azure-pipelines"
+    horizontal
+  />
+</CardGroup>
+
+### Use other methods
+
+Use either of the following methods to run Semgrep on other CI providers.
+
+#### Direct docker usage
+
+Reference or add the [semgrep/semgrep](https://hub.docker.com/r/semgrep/semgrep) Docker image directly. The method to add the Docker image varies based on the CI provider. This method is used in the [Bitbucket Pipelines code snippet](/semgrep-ci/sample-ci-configs#sample-bitbucket-pipelines-configuration-snippet).
+
+#### Install `semgrep` within your CI job
+
+If you cannot use the Semgrep Docker image, install Semgrep as a step or command within your CI job:
+
+1. Add `pipx install semgrep` (or `uv tool install semgrep` if you use [`uv`](https://docs.astral.sh/uv/)) into the configuration file as a step or command, depending on your CI provider's syntax. See the [Python Packaging guide](https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/) for more on installing standalone Python CLI tools.
+2. Run any valid `semgrep scan` command, such as `semgrep scan --config auto`.
+
+For an example, see the [Azure Pipelines code snippet](/semgrep-ci/sample-ci-configs/#sample-azure-pipelines-configuration-snippet).
+
+## Configure your CI job
+
+The following sections describe methods to customize your CI job.
+
+```bash
+<!--
+### Pass or fail the CI job
+
+By default, a Semgrep CI job exits with exit code 1 if the scan returns any findings. This causes the job to fail.
+
+Semgrep provides **fail open** options. These options enable you to suppress findings that block your pipeline:
+
+<dl>
+	<dt><code>semgrep scan</code></dt>
+	<dd><strong>Fail</strong> on blocking findings, but <strong>passes</strong> on internal errors. This is the default behavior.</dd>
+	<dt><code>semgrep scan --no-suppress-errors</code></dt>
+	<dd>The Semgrep CI job <strong>fails</strong> on blocking findings and on internal errors.</dd>
+	<dt><code>semgrep scan || true</code></dt>
+	<dd><strong>Pass</strong> on blocking findings and on internal errors.</dd>
+</dl>
+
+Refer to [Semgrep exit codes](/cli-reference/#exit-codes) to understand various internal issues that cause Semgrep to fail.
+-->
+<!--
+### Diff-aware scanning
+
+<DiffAwareScanning />
+-->
+```
+
+### Schedule your scans
+
+The following table is a summary of methods and resources to set up schedules for different CI providers.
+
+| CI provider | Where to set schedule |
+| :--- | :--- |
+| GitHub Actions | See [Sample CI configs](/semgrep-ci/sample-ci-configs#sample-github-actions-configuration-file) for information on how to modify your `semgrep.yml` file |
+| GitLab CI/CD | Refer to [GitLab documentation](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) |
+| Jenkins | Refer to [Jenkins documentation](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#scheduling-jobs-in-jenkins) |
+| Bitbucket Pipelines | Refer to [Bitbucket documentation](https://support.atlassian.com/bitbucket-cloud/pipeline-triggers/) |
+| CircleCI | Refer to [CircleCI documentation](https://circleci.com/scheduled-pipelines#get-started-with-scheduled-pipelines-in-circleci) |
+| Buildkite | Refer to [Buildkite documentation](https://buildkite.com/pipelines/scheduled-builds) |
+| Azure Pipelines | Refer to [Azure documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml) |
+| Semaphore | Refer to [Semaphore documentation](https://docs.semaphore.io/using-semaphore/tasks) |
+
+### Customize rules and rulesets
+
+#### Add rules to scan with `semgrep scan`
+
+You can customize what rules to run in your CI job. The rules and rulesets can come from the [Semgrep Registry](https://semgrep.dev/explore/), or your own rules. The sources for rules to scan with are:
+
+* The value of the `SEMGREP_RULES` environment variable.
+* The value passed after `--config`. You can use multiple `--config` arguments, one per value. For example: `semgrep scan --config p/default --config p/comment`.
+
+The `SEMGREP_RULES` environment variable accepts a list of local and remote rules and rulesets to run. The `SEMGREP_RULES` list is delimited by a space (` `) if the variable is exported from a shell command or script block. For example, see the following BitBucket Pipeline snippet:
+
+```yaml
+# ...
+  script:
+    - export SEMGREP_RULES="p/nginx p/ci no-exec.yml"
+    - semgrep ci
+# ...
+```
+
+The line defining `SEMGREP_RULES` defines three different sources, delimited by a space:
+
+```bash
+- export SEMGREP_RULES="p/nginx p/ci no-exec.yml"
+```
+
+The example references two rulesets from Semgrep Registry (`p/nginx` and `p/ci`) and a rule available in the repository (`no-exec.yml`).
+
+If the `SEMGREP_RULES` environment variable is defined from a YAML block, the list of rules and rulesets to run is delimited by a newline. See the following example of a GitLab CI/CD snippet:
+
+```yaml
+# ...
+variables:
+  SEMGREP_RULES: >-
+    p/nginx
+    p/ci
+    no-exec.yml
+# ...
+```
+
+#### Write your own rules
+
+Write custom rules to enforce your team's coding standards and security practices. Rules can be forked from existing community-written rules.
+
+See [Writing rules](/writing-rules/overview) to learn how to write custom rules.
+
+### Ignore files
+
+See [<Icon icon="file-lines" iconType="regular"/> Ignore files, folders, and code](/ignoring-files-folders-code).
+
+By default `semgrep ci` skips files and directories such as `tests/`, `node_modules/`, and `vendor/`. It uses the default `.semgrepignore` file which you can find in the [Semgrep GitHub repository](https://github.com/semgrep/semgrep/blob/develop/cli/src/semgrep/templates/.semgrepignore). This default is used when no explicit `.semgrepignore` file is found in the root of your repository.
+
+Optional: Copy and commit the default `.semgrepignore` file to the **root of your repository** and extend it with your own entries or write your `.semgrepignore` file from scratch. If Semgrep detects a `.semgrepignore` file within your repository, it does not append entries from the default `.semgrepignore` file.
+
+For a complete example, see the [.semgrepignore file in Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
+
+<Warning>
+**CAUTION**
+
+`.semgrepignore` is only used by Semgrep. Integrations such as [GitLab's Semgrep SAST Analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) do not use it.
+</Warning>
+
+### Save or export findings to a file
+
+To save or export findings, pass file format options and send the formatted findings to a file.
+
+For example, to save to a JSON file:
+
+`semgrep scan --json > findings.json`
+
+> The JSON schema for Semgrep's CLI output can be found in [semgrep/semgrep-interfaces](https://github.com/semgrep/semgrep-interfaces/blob/main/semgrep_output_v1.jsonschema).
+
+You can also use the SARIF format:
+
+`semgrep scan --sarif > findings.sarif`
+
+Refer to the [CLI reference](/cli-reference) for output formats.
+
+## Migrate to Semgrep AppSec Platform from a stand-alone CI setup
+
+Migrate to Semgrep AppSec Platform to:
+
+* **View and manage findings in a centralized location**. False positives can be ignored through triage actions. These actions can be undertaken in bulk.
+* **Configure rules and actions to undertake when a finding is generated by the rule**. You can undertake the following actions:
+    * Audit the rule. This means that findings are kept within Semgrep's **Findings** page and are not surfaced to your team's SCM.
+    * Show the finding to your team through the use of PR and MR comments.
+    * Block the pull request or merge request.
+
+To migrate to Semgrep AppSec Platform:
+
+<Steps>
+  <Step>
+Create an account in [Semgrep AppSec Platform](https://semgrep.dev/login).
+  </Step>
+  <Step>
+      Click **[Projects](https://semgrep.dev/orgs/-/projects)** > **Scan New Project** > Run scan in CI.
+  </Step>
+  <Step>
+      Follow the steps in the setup page to complete your migration.
+  </Step>
+  <Step>
+      Optional: Remove the old CI job that does not use Semgrep AppSec Platform.
+  </Step>
+</Steps>
+
+## Semgrep CE jobs versus Semgrep jobs
+
+| Feature  | Semgrep CI (`semgrep ci`)| Semgrep CE CI (`semgrep scan`) |
+| :--- | :--- | :--- |
+| Customized SAST scans         |  ✔️        | ✔️       |
+| [SCA (software composition analysis) scans](/semgrep-supply-chain/overview)         |  ✔️        | --       |
+| [Secrets  scans](/semgrep-secrets/conceptual-overview)         |  ✔️       | --        |
+| [PR (pull request) or MR (merge request) comments](/category/pr-or-mr-comments)         |  ✔️        | --       |
+| [Finding status tracked over lifetime](/semgrep-code/findings)         |  ✔️        | --       |

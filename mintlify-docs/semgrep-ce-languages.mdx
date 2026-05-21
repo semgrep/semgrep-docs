@@ -1,0 +1,75 @@
+---
+sidebarTitle: "Supported languages"
+title: "Supported languages for Semgrep Community Edition (CE)"
+description: "This document provides information about supported languages for Semgrep Code and Semgrep CE."
+---
+
+## Semgrep Code and CE
+
+Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine. These languages are supported by the Semgrep community, at best effort.
+
+Semgrep Code is a static application security testing (SAST) solution designed to detect complex security vulnerabilities. It makes use of proprietary Semgrep analyses, such as cross-file (interfile) dataflow analysis and framework specific analyses, in addition to Semgrep CE. This results in a [**higher true positive rate than Semgrep CE**](/semgrep-pro-vs-oss). Semgrep Code provides the highest quality support by the Semgrep team: reported issues are resolved promptly.
+
+Use either tool to scan local code or integrate it into your CI/CD pipeline to automate the continuous scanning of your repositories.
+
+| **Languages** | **🚀 Semgrep Code:** [Free for small teams](https://semgrep.dev/pricing) | **Semgrep CE** |
+| :--- | :--- | :--- |
+| C / C++ | **Generally available**<br /> • Cross-file dataflow analysis<br /> • 150+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| C# | **Generally available **<br /> • Cross-file dataflow analysis<br /> • Supports up to C# 13<br /> • 170+ Pro rules  | Community supported <br /> • Limited to single-function analysis<br /> • Community rules <br /> • Supports up to C# 7.0 |
+| Go | **Generally available**<br /> • Cross-file dataflow analysis<br /> • 80+ Pro rules  | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Java | **Generally available**<br /> • Cross-file dataflow analysis<br /> • Framework-specific control flow analysis<br /> • 190+ Pro rules  | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| JavaScript | **Generally available**<br /> • Cross-file dataflow analysis<br /> • Framework-specific control flow analysis<br /> • 250+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Kotlin | **Generally available **<br /> • Cross-file dataflow analysis<br /> • 60+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| [Python](/languages/python) | **Generally available**<br /> • Cross-file dataflow analysis<br /> • Framework-specific control flow analysis<br /> • 710+ Pro rules<br /> • See [Python-specific support details](/languages/python) | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Typescript | **Generally available **<br /> • Cross-file dataflow analysis<br /> • Framework-specific control flow analysis<br /> • 230+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Ruby | **Generally available **<br /> • Cross-function dataflow analysis<br /> • 40+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Rust | **Generally available **<br /> • Cross-function dataflow analysis<br /> • 40+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| JSX | **Generally available **<br /> • Cross-function dataflow analysis<br /> • 70+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| PHP | **Generally available **<br /> • Cross-function dataflow analysis<br /> • 50+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Scala | **Generally available **<br /> • Cross-function dataflow analysis<br /> • Community rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Swift | **Generally available **<br /> • Cross-function dataflow analysis<br /> • 60+ Pro rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Terraform | **Generally available**<br /> • Cross-function dataflow analysis<br /> • Community rules | Community supported <br /> • Limited to single-function analysis<br /> • Community rules |
+| Generic | **Generally available ** | Community supported |
+| JSON | **Generally available ** | Community supported |
+| APEX | **Beta** | Not available |
+| Elixir | **Beta** | Not available |
+
+<Accordion title="Click to view experimental languages.">
+- Bash
+- Cairo
+- Circom
+- Clojure
+- Dockerfile
+- Hack
+- HTML
+- Jsonnet
+- Julia
+- Lisp
+- Lua
+- Move on Aptos
+- Move on Sui
+- OCaml
+- R
+- Scheme
+- Solidity
+- YAML
+- XML
+</Accordion>
+
+## Language maturity definitions
+
+Semgrep Code languages can be classified into four maturity levels:
+
+* Generally available (GA)
+* Beta
+* Experimental
+* Community supported\*
+
+\*Community supported languages meet the parse rate and syntax requirements of **Experimental** languages. Users can still access community rules or write their own rules.
+
+| **Feature** | **GA** | **Beta** | **Experimental** | **Community supported** |
+| :--- | :--- | :--- | :--- | :--- |
+| Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort. | These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized. |
+| Parse Rate | 99%+ | 95%+ | 90%+ | 90%+ |
+| Number of Pro rules | 10+ | 5+ | 0+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. | 0+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. |
+| Semgrep syntax | Regex, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality. | Syntax, ellipsis operator, basic metavariable functionality. |

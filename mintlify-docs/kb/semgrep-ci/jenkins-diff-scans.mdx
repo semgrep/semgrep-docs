@@ -1,0 +1,182 @@
+---
+title: "Scan GitHub projects in Jenkins"
+---
+
+This document shows you how to configure Jenkins pipelines to scan code hosted in GitHub repositories.
+
+The configuration described in this document is intended to run full scans on your default branch `main` and diff-aware scans on pull request (PR) branches. It sets up a Multibranch Pipeline project using `when` conditions in the Jenkinsfile and provides access to the variables needed for diff-aware scans.
+
+<Note>
+**INFO**
+
+Your UI (user interface) may vary depending on your Jenkins installation. This document references the Classic UI.
+</Note>
+
+
+## Create the Jenkinsfile
+
+Create the `Jenkinsfile` in the root of your repository based on the following code snippet, which uses Jenkins declarative syntax and runs Semgrep in Docker:
+
+```bash expandable
+pipeline {
+  agent any
+  environment {
+    // Required for a Semgrep AppSec Platform-connected scan:
+    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+    // Set typical project (repo) name
+    SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
+  }
+  stages {
+    stage('semgrep-scan') {
+      steps {
+        sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+  }
+}
+```
+
+Semgrep %%diff-aware scans|diff_aware_scan%% can be set up in several different ways using Jenkins. This example sets up a Multibranch Pipeline using `when` conditions in the Jenkinsfile. The Multibranch Pipeline provides access to useful variables for the diff-aware scan configuration. The intent of the configuration is to run full scans on the default branch and diff-aware scans on PR branches.
+
+### Create the Jenkinsfile
+
+To start the process, create the initial `Jenkinsfile` in the root of the repository where you're setting up Semgrep. This code snippet uses Jenkins declarative syntax and runs Semgrep in Docker.
+
+```bash expandable
+pipeline {
+  agent any
+  environment {
+    // Required for a Semgrep Cloud Platform-connected scan:
+    SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+    // Set repo name to expected format
+    SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*)$/, '$1')
+  }
+  stages {
+    stage('semgrep-diff-scan') {
+      when {
+        branch "PR-*"
+      }
+      steps {
+        sh '''git fetch --no-tags --force --progress -- $GIT_URL +refs/heads/$CHANGE_TARGET:refs/remotes/origin/$CHANGE_TARGET
+              git checkout -b $CHANGE_TARGET origin/$CHANGE_TARGET
+              git checkout $GIT_BRANCH
+           '''
+        sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -e SEMGREP_BASELINE_REF=$(git merge-base $GIT_BRANCH $CHANGE_TARGET) \
+            -e SEMGREP_PR_ID="${env.CHANGE_ID}"
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+    stage('semgrep-scan') {
+      when {
+        branch "main"
+      }
+      steps {
+        sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+  }
+  post {
+    // Clean after build
+    always {
+      cleanWs()
+    }
+  }
+}
+```
+
+This Jenkinsfile uses a `SEMGREP_APP_TOKEN` [stored in the Jenkins instance credentials store](https://www.jenkins.io/doc/book/security/credentials/#working-with-credentials).
+
+It defines two Semgrep stages: one runs a full scan of the main branch, while the other runs a diff-aware scan of the PR branch. The diff-aware scan configuration uses a computed merge base rather than setting the merge base to the default branch. This is similar to how Semgrep runs in GitHub actions. Setting the `SEMGREP_REPO_NAME` and `SEMGREP_PR_ID` allows Semgrep to identify the connected project and related PR.
+
+To compute the merge base, the pipeline runs additional Git commands to ensure the default branch is available to Git. Afterward, the pipeline cleans the workspace, ensuring that subsequent use of these commands for future scans is successful.
+
+<Note>
+**INFO**
+
+When possible, use a computed merge base. Diff-aware scans may produce spurious results if you set `SEMGREP_BASELINE_REF` to `main` or another primary branch and either of the following conditions apply:
+
+- The remote branch has been updated independently of the PR branch
+- The branch isn't available locally because you haven't run `git fetch` or `git checkout`, as shown in the example in this document
+</Note>
+
+
+## Configure the Multibranch Pipeline project
+
+<Steps>
+  <Step>
+  Log in to Jenkins, and click **New Item**.
+  </Step>
+  <Step>
+  Provide a name for your project, select **Multibranch Pipeline**, and click **OK**.
+  </Step>
+  <Step>
+  Under **Branch Sources**, click **Add source** and select **GitHub**.
+  </Step>
+  <Step>
+  Select **Repository HTTPS URL** and provide your project URL in the following format: `https://github.com/<namespace>/<project>/`.
+  </Step>
+  <Step>
+  Under **Behaviors > Discover branches > Strategy**, select **Exclude branches that are also filed as PRs**.
+  </Step>
+  <Step>
+  For **Discover pull requests from origin > Strategy**, select **The current pull request revision**.
+  </Step>
+  <Step>
+  For **Property strategy**, select **All branches get the same properties**.
+  </Step>
+  <Step>
+  Under **Build Configuration**, for **Mode**, select **by Jenkinsfile**, and enter the script path as `Jenkinsfile`.
+  </Step>
+  <Step>
+  Optional: Under **Scan Multibranch Pipeline Triggers**, select **Periodically if not otherwise run** if you want to run the pipeline occasionally, if it's not run for other reasons, and choose the desired interval.
+  </Step>
+  <Step>
+  Optional: Under **Orphaned Item Strategy**, select **Discard old items** and select the desired time interval and number of items, so that you don’t lose logs for deleted branches immediately.
+  </Step>
+  <Step>
+  Click **Save** to proceed.
+  </Step>
+</Steps>
+
+### Add GitHub webhooks
+
+If your Jenkins instance is already configured to manage webhooks automatically on GitHub, these steps are not necessary. To review the settings and view the webhook URL, go to **Manage Jenkins > System Configuration > System > GitHub**. Expand the <Icon icon="circle-question" iconType="solid"/> next to **GitHub Servers** to see the webhook URL, and review the information provided to determine whether hooks are managed automatically. If not, follow these steps:
+
+<Steps>
+  <Step>
+  Go to the repository on GitHub.
+  </Step>
+  <Step>
+  Go to <Icon icon="gear" /> **Settings** > <Icon icon="webhook"/> **Webhooks**.
+  </Step>
+  <Step>
+  Click **Add webhook**.
+  </Step>
+  <Step>
+  In **Payload URL**, enter your Jenkins instance's webhook URL. This URL is in the form `$JENKINS_BASE_URL/github-webhook/`.
+  </Step>
+  <Step>
+  For **Content type**, select **application/json**.
+  </Step>
+  <Step>
+  Under **Which events would you like to trigger this webhook?** select **Send me everything**.
+  </Step>
+  <Step>
+  Click **Add webhook** to proceed.
+  </Step>
+</Steps>

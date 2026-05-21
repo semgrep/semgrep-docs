@@ -1,0 +1,222 @@
+---
+title: "Semgrep Guardian"
+---
+
+Semgrep Guardian integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+
+The plugin uses each IDE's native hook or MCP system:
+
+* **Claude Code**: [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins)
+* **Codex**: [MCP](https://developers.openai.com/codex/mcp)
+* **Cursor**: [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp)
+* **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse): [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+* **Windsurf**: [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
+
+This guide covers setup for each of the preceding products listed, but the plugin works with any MCP client.
+
+## Prerequisites
+
+* Python 3.10 or later (the Semgrep CLI requires it at runtime regardless of how it was installed)
+* Homebrew, [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/), or [`uv`](https://docs.astral.sh/uv/) to install Semgrep
+* A Semgrep account
+
+## Install the Semgrep CLI
+
+These steps are the same regardless of which IDE you use.
+
+<Steps>
+<Step>
+Install Semgrep using Homebrew, pipx, or uv:
+
+```bash
+@@ -50,86 +48,129 @@
+# or, install using uv (https://docs.astral.sh/uv/)
+uv tool install semgrep
+```
+</Step>
+<Step>
+Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep:
+
+```bash
+semgrep --version
+```
+</Step>
+<Step>
+Sign in to your Semgrep account and install the Semgrep Pro engine:
+
+```bash
+semgrep login && semgrep install-semgrep-pro
+```
+
+`semgrep login` launches a browser window. You can also use the activation link printed in the terminal.
+</Step>
+</Steps>
+## Connect to your IDE
+
+<Tabs>
+  <Tab title="Claude Code">
+    <Steps>
+      <Step>
+        Start a new Claude Code instance in the terminal:
+
+        ```bash
+        claude
+        ```
+      </Step>
+      <Step>
+        Open the plugin manager:
+
+        ```bash
+        /plugin
+        ```
+      </Step>
+      <Step>
+         Go to **Discover**, search for **Semgrep**, and click **Install**.
+      </Step>
+      <Step>
+      Set up the Guardian:
+
+        ```bash
+        /setup-semgrep-plugin
+        ```
+      </Step>
+    </Steps>
+    The plugin registers a post-tool hook so Claude Code scans every file it writes. Learn more about [Claude Code plugins](https://code.claude.com/docs/en/plugins) and [hooks](https://code.claude.com/docs/en/hooks).
+  </Tab>
+  <Tab title="Codex">
+    <Steps>
+      <Step>
+        Update your `~/.codex/config.toml` file and paste the following:
+
+        ```bash
+        [mcp_servers.semgrep]
+        command = "semgrep"
+        args = ["mcp"]
+        ```
+      </Step>
+    </Steps>
+    Codex does not expose a post-write hook, so Semgrep tools are surfaced through MCP and invoked when the agent calls them. Learn more about [Codex MCP configuration](https://developers.openai.com/codex/mcp).
+  </Tab>
+  <Tab title="Cursor">
+    <Steps>
+      <Step>
+        Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open **Cursor > ⌘⇧J > Plugins**. Search "Semgrep" and click **Add to Cursor**.
+      </Step>
+      <Step>
+        Restart Cursor to apply configuration.
+      </Step>
+      <Step>
+        In Cursor's chat, run the `/setup-semgrep-plugin` skill to finish wiring up the plugin.
+
+        The plugin uses [Cursor hooks](https://cursor.com/docs/hooks) (`afterFileEdit` and `stop`) to scan code as the agent writes it, and exposes Semgrep tools through [Cursor MCP](https://cursor.com/docs/mcp).
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="GitHub Copilot">
+  Use this tab for GitHub Copilot in Visual Studio, JetBrains IDEs, Xcode, or Eclipse. (For Copilot in VS Code, use the **VS Code** tab.)
+    <Steps>
+      <Step>
+        Register the Semgrep MCP server with your IDE's Copilot configuration. The JSON shape is the same across IDEs:
+
+        ```json
+          {
+            "servers": {
+              "semgrep": {
+                  "command": "semgrep",
+                  "args": ["mcp"]
+              }
+            }
+          }
+          ```
+        Follow your IDE's instructions for *where* to put this entry: [Extending Copilot Chat with MCP servers](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) covers Visual Studio, JetBrains, Xcode, and Eclipse.
+      </Step>
+      <Step>
+        Restart your IDE and open Copilot Chat. Semgrep tools become available in **Agent** mode.
+      </Step>
+    </Steps>
+    Copilot does not expose a post-write hook, so Semgrep tools are invoked when the agent calls them through MCP.
+  </Tab>
+
+  <Tab title="VS Code">
+    <Steps>
+      <Step>
+        Add the Semgrep MCP server to VS Code. Create `.vscode/mcp.json` in your workspace (or run the **MCP: Open User Configuration** command from the Command Palette for a user-wide entry) and paste the following:
+
+        ```json
+          {
+            "servers": {
+              "semgrep": {
+                  "command": "semgrep",
+                  "args": ["mcp"]
+              }
+            }
+          }
+          ```
+      </Step>
+      <Step>
+        Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep by running the following:
+
+        ```bash
+        semgrep --version
+        ```
+      </Step>
+      <Step>
+        Reload VS Code. Semgrep tools become available in the Copilot Chat **Agent** mode.
+      </Step>
+    </Steps>
+    VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP. Learn more about [adding and managing MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+  </Tab>
+
+  <Tab title="Windsurf">
+    <Steps>
+      <Step>
+        Create a `hooks.json` file at `~/.codeium/windsurf/hooks.json` and paste the following configuration:
+
+        ```json
+        {
+          "hooks": {
+            "post_write_code": [
+              {
+                "command": "semgrep mcp -k post-tool-cli-scan -a windsurf",
+                "show_output": true
+              }
+            ]
+          }
+        }
+        ```
+      </Step>
+      <Step>
+      Restart Windsurf to apply hook configuration.
+    </Step>
+    </Steps>
+      The `post_write_code` event fires after Cascade writes or modifies any file. Learn more about [Windsurf Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+  </Tab>
+
+  <Tab title="Other IDEs">
+  Add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point. Refer to your IDE's documentation for specific details on where to add the MCP server configuration.
+
+  If your IDE supports a post-write or post-tool hook, point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically. The Windsurf tab above shows this pattern.
+  </Tab>
+</Tabs>
+
+## Scan your code
+
+<Steps>
+  <Step>
+    Open up your IDE's AI chat window.
+  </Step>
+  <Step>
+    Ensure that you're in the correct context to use Semgrep.
+  </Step>
+  <Step>
+    Prompt your IDE to scan with Semgrep.
+  </Step>
+</Steps>
+
+By default, the Semgrep Guardian runs all three Semgrep products: Code, Supply Chain, and Secrets.
+
+## Additional resources
+
+* Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack)
+* The [Semgrep MCP server repo on GitHub](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp)

@@ -1,0 +1,87 @@
+---
+title: "Kotlin support"
+sidebarTitle: "Kotlin"
+---
+
+<Tip>
+**TIP**
+
+Semgrep's Kotlin coverage leverages framework-specific analysis capabilities that are not present in Semgrep Community Edition (CE). As a result, many framework specific Pro rules will **fail** to return findings if run on Semgrep CE. To ensure full security coverage, run: `semgrep login && semgrep ci`.
+</Tip>
+
+## Semgrep Code analyses
+
+* Interfile analysis (cross-file)
+* Interprocedural analysis (cross-function)
+* All analyses performed by [Semgrep Community Edition (CE)](#kotlin-support-in-semgrep-ce)
+
+## Coverage 
+
+Semgrep aims to provide comprehensive and accurate detection of common OWASP Top 10 issues in source code. Semgrep uses **rules**, which are instructions based on which it detects patterns in code. These rules are usually organized in rulesets.
+
+By default, Semgrep Code provides you with the [ `p/comment`](https://semgrep.dev/p/comment) and [ `p/default`](https://semgrep.dev/p/default) rulesets. These rulesets provide the most accurate and comprehensive coverage across Semgrep's supported languages.
+
+The following is an example of a Kotlin rule:
+
+- [CWE-327: Use of a broken or risky cryptographic algorithm. NullCipher does not encrypt anything; avoid](https://semgrep.dev/playground/r/kotlin.lang.security.no-null-cipher.no-null-cipher?editorMode=advanced)
+
+Many, but not all Kotlin rules require a Semgrep account. Sign in to Semgrep AppSec Platform to view this rule:
+
+- [CWE-776: XML entity expansion. Securely configure your XML parser](https://semgrep.dev/orgs/-/editor/r/kotlin.xxe.xmlreader-xxe.xmlreader-xxe?editorMode=advanced)
+
+## Kotlin support in Semgrep Supply Chain
+
+Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies.
+
+<Tip>
+**NO NEED FOR LOCKFILES**
+
+Kotlin projects can be scanned **without** the need for lockfiles. See [Scan a project without lockfiles (beta)](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+</Tip>
+
+### Supported package managers
+
+Semgrep supports the following Kotlin package managers:
+
+- Gradle
+- Maven
+
+### Analyses and features
+
+The following analyses and features are available for Kotlin:
+
+| | |
+| :--- | :--- |
+| Reachability analysis | Reachability refers to whether or not a vulnerable code pattern from a dependency is used in the codebase that imports it. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable. |
+| License detection | Semgrep Supply Chain's **license compliance** feature enables you to explicitly allow or disallow (block) a package's use in your repository based on its license. For example, your company policy may disallow the use of packages with the Creative Commons Attribution-NonCommercial (CC-BY-NC) license. |
+| SBOM generation | Semgrep enables you to generate a software bill of materials (SBOM) to assess your third-party dependencies and comply with auditing procedures. Semgrep Supply Chain (SSC) can generate an SBOM for each repository you have added to Semgrep AppSec Platform. |
+
+## Kotlin support in Semgrep CE
+
+Semgrep CE is a fast, lightweight program analysis tool that can help you detect bugs in your code. It makes use of Semgrep's LGPL 2.1 open source engine.
+
+### Analyses
+
+- Single-file, cross-function constant propagation
+- Single-function taint analysis
+- Semantic analysis 
+
+### Coverage
+
+<Tip>
+**TIP**
+
+- Check the `license` of a rule to ensure it meets your licensing requirements. See [Licensing](/licensing) for more details.
+</Tip>
+
+The Semgrep Registry provides the following Kotlin rule sets (many rules require a Semgrep account):
+
+- [`p/default`](https://semgrep.dev/p/default)
+- [`p/kotlin`](https://semgrep.dev/p/kotlin)
+
+
+Sample usage:
+
+```bash
+semgrep scan --config p/kotlin
+```

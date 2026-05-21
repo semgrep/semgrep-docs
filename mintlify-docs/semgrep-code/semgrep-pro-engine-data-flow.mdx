@@ -1,0 +1,57 @@
+---
+title: "Cross-file analysis taint traces"
+---
+
+## Introduction
+
+This article documents the cross-file (interfile) dataflow analysis in Semgrep Code. This document helps you to enable these features and provides an overview of the benefits compared to the analysis of Semgrep Community Edition (CE).
+
+## Viewing the path of tainted data
+
+With **dataflow traces**, Semgrep Code can provide you with a visualization of
+the path of tainted, or untrusted, data in specific findings. This path can help
+you track the sources and sinks of the tainted data as they propagate through
+the body of a function or a method. For general information about taint
+analysis, see [Taint tracking](/writing-rules/data-flow/taint-mode/overview).
+
+When running Semgrep Code from the command line, you can pass in the flag
+`--dataflow-traces` to use this feature.
+
+You can view dataflow traces in:
+
+- Semgrep AppSec Platform by going to Semgrep Code's [Findings page](https://semgrep.dev/orgs/-/findings?tab=open). For more details, see [Path of tainted data in Semgrep
+  Code](/semgrep-code/semgrep-pro-engine-data-flow).
+- The PR or MR comments created by Semgrep Code running in your CI/CD system. To enable
+  this feature, see:
+  - _GitHub users_: [Dataflow traces in PR
+    comments](/semgrep-appsec-platform/github-pr-comments/#view-the-path-of-tainted-data-in-pr-comments)
+  - _GitLab users_: [Dataflow traces in MR
+    comments](/semgrep-appsec-platform/gitlab-mr-comments/#view-the-path-of-tainted-data-in-mr-comments)
+
+### Get cross-file findings
+
+To get cross-file (interfile) findings in your organization, follow the steps in [<Icon icon="file-lines" iconType="regular"/> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro).
+
+### Displaying tainted data in Semgrep Code
+
+<Info>
+**PREREQUISITE**
+Not all Semgrep rules or rulesets make use of dataflow traces, or taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
+
+</Info>
+
+To view the detailed path of tainted data with dataflow traces:
+
+<Steps>
+<Step>
+Log in to Semgrep AppSec Platform, and click **[Code](https://semgrep.dev/orgs/-/findings)** in the **Navigation Bar** to view your findings.
+</Step>
+<Step>
+Select the finding you're interested in, then do one of the following actions:
+   - If the default **Group by Rule** is enabled, click <Icon icon="window-restore" iconType="regular"/> **View details** icon on the card of the finding.
+   - If **No grouping** view is enabled, click the **header hyperlink** on the card of the finding. In the example screenshot below, the link is titled **tainted-sql-string**.
+</Step>
+<Step>
+In the section titled **Your code**, you can see the source, traces, and sink of the tainted data. Clicking on a specific line in the trace will highlight it in the context of the file, while clicking on the file name at the top of the right pane will take you directly to that file in your source code manager, such as GitHub or GitLab.
+</Step>
+</Steps>

@@ -1,0 +1,34 @@
+---
+title: "Upload Semgrep CI findings to GitLab Security Dashboard"
+---
+
+This document shows an sample job configuration that uploads your Semgrep findings to GitLab Security Dashboard. See [GitLab CI/CD](/semgrep-ci/sample-ci-configs#gitlab-cicd) for information on adding a Semgrep configuration file to your GitLab CI/CD pipeline.
+
+```bash expandable
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: semgrep/semgrep
+
+  rules:
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  variables:
+    # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep AppSec Platform > Settings
+    # and add it as a variable in your GitLab CI/CD project settings.
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+
+    # Upload findings to GitLab SAST Dashboard:
+    SEMGREP_GITLAB_JSON: "1"
+
+  # Run the "semgrep ci" command on the command line of the docker image and send findings
+  # to GitLab SAST.
+  script: semgrep ci --code --gitlab-sast > gl-sast-report.json || true
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+```

@@ -1,0 +1,38 @@
+---
+title: "What does 'Act on your behalf' mean?"
+---
+
+**Act on your behalf** is a permission that GitHub requires of all third-party apps that verify a user's identity, that is, when GitHub is used as an identity provider (IdP). The actual scope of this permission is limited to what the user explicitly permits. As stated in the [GitHub documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps#about-github-apps-acting-on-your-behalf):
+
+<Info>
+The GitHub App can only do things that both you and the app have permission to do.
+</Info>
+
+This restriction also applies to read and write permissions&mdash;for example, you have to explicitly grant read and write permissions on a granular level for an app to act on your behalf.
+
+At the start of your Semgrep onboarding experience, the resource granted to Semgrep is read access to your **email address**, but Semgrep itself never acts on your behalf.
+
+<Frame caption="Figure. You grant Semgrep read access to your email address when you sign in for the first time.">
+![You grant Semgrep read access to your email address when you sign in for the first time.](/images/kb/semgrep-appsec-platform/act-on-your-behalf/new-onboarding.png)
+</Frame>
+
+## How to detect when an app acts on your behalf
+
+When an action is undertaken by an app on your behalf, GitHub adds a label **&mdash; with <span className="placeholder">NAME_OF_APP</span> app**.
+
+
+<Frame caption="Figure. GitHub ExampleApp performing an action on behalf of a user.">
+![GitHub ExampleApp performing an action on behalf of a user.](/images/kb/semgrep-appsec-platform/act-on-your-behalf/github-act-on-your-behalf.png)
+</Frame>
+
+In contrast, the Semgrep GitHub app performs the action it's permitted to perform as itself. It does not use your identity to perform any actions. You can see this when Semgrep posts PR comments:
+
+<Frame caption="Figure. The Semgrep GitHub app commenting on a pull request as itself.">
+![The Semgrep GitHub app commenting on a pull request as itself.](/images/kb/semgrep-appsec-platform/act-on-your-behalf/semgrep-not-acting-on-your-behalf.png)
+</Frame>
+
+## Further reading
+
+<CardGroup>
+  <Card title="Permissions required by Semgrep for scanning a remote repository" icon="key" href="/deployment/checklist#appendices" horizontal />
+</CardGroup>

@@ -1,0 +1,51 @@
+---
+title: "Receive email notifications"
+sidebarTitle: "Email"
+description: "You can receive emails from Semgrep regarding **new findings** and **failed scans**."
+---
+
+Perform these steps in Semgrep AppSec Platform to create an email integration and receive notifications:
+
+<Steps>
+<Step>
+Create an email integration:
+
+   i. On the navigation menu, click **<Icon icon="gear" iconType="solid"/> Settings > Integrations > Add**.
+
+   ii. Click on **Email**.
+
+   iii. Enter a **Name** for the integration.
+
+   iv. Enter the **Email** address to receive Semgrep findings.
+
+   v. Click **Subscribe**.
+</Step>
+<Step>
+Turn notifications on:
+
+   i. Click **Rules > Policies > <Icon icon="gear" iconType="solid"/> Rule Modes**.
+
+   ii. Click the **Edit** button of the Rule Mode for which you want to receive email notifications. For example, if you want to be notified of all blocking findings through email, click the **Edit** button of the **Block** mode.
+
+   iii. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+</Step>
+</Steps>
+
+
+## Notification and alert de-duplication
+
+Notifications are sent only the first time a given finding is detected.
+
+When running a diff-aware scan, Semgrep doesn't notify you when a pull request has a finding that existed on the base branch already, even if that line is moved or re-indented.
+
+Semgrep also tracks notifications that have already been sent, so subsequent scans of the same changes in a pull request won't result in duplicate notifications.
+
+<Info>
+**NOTE**
+
+See [Findings in CI](/semgrep-ci/findings-ci) for more information about how Semgrep tracks a finding through its lifetime.
+</Info>
+
+### Number of emails
+
+Emails about new findings are triggered only once. These emails also include a **summary** of current open findings.
