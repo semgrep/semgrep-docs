@@ -1,6 +1,54 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const FEATURED_DOCS = [
+  {
+    docId: 'index',
+    title: 'Docs home',
+    description: 'Start page for Semgrep documentation.',
+  },
+  {
+    docId: 'getting-started/introduction',
+    title: 'Introduction to Semgrep',
+    description: 'Overview of Semgrep products and scan workflows.',
+  },
+  {
+    docId: 'getting-started/quickstart',
+    title: 'Quickstart',
+    description: 'Set up Semgrep and scan a project.',
+  },
+  {
+    docId: 'cli-reference',
+    title: 'CLI reference',
+    description: 'Command-line options and exit code behavior.',
+  },
+  {
+    docId: 'writing-rules/overview',
+    title: 'Write Semgrep rules',
+    description: 'Starting point for Semgrep rule writing.',
+  },
+  {
+    docId: 'writing-rules/rule-syntax',
+    title: 'Rule syntax',
+    description: 'YAML rule syntax reference.',
+  },
+  {
+    docId: 'semgrep-ci/sample-ci-configs',
+    title: 'Sample CI configurations',
+    description: 'Example CI/CD configurations for Semgrep scans.',
+  },
+  {
+    docId: 'semgrep-appsec-platform/semgrep-api',
+    title: 'Semgrep API',
+    description: 'Semgrep API overview and usage guidance.',
+  },
+  {
+    docId: 'mcp',
+    title: 'Semgrep Plugin',
+    description: 'MCP server setup for AI coding tools.',
+  },
+];
+
 function walk(dir, extFilter = ['.md', '.mdx']) {
   const results = [];
 
@@ -47,10 +95,6 @@ function normalizeBasePath(baseUrl) {
     : `/${basePath.replace(/^\/|\/$/g, '')}/`;
 }
 
-function getOutputDir(outDir) {
-  return path.dirname(outDir);
-}
-
 function toAbsoluteUrl(siteUrl, pathUrl) {
   if (!siteUrl) {
     return pathUrl;
@@ -58,32 +102,51 @@ function toAbsoluteUrl(siteUrl, pathUrl) {
   return new URL(pathUrl, siteUrl).toString();
 }
 
-function buildLlmsTxt({
-  siteUrl,
-  basePath,
-  htmlRelativeUrls,
-  markdownRelativeUrls,
-}) {
+function getMarkdownUrl({siteUrl, basePath, docId}) {
+  return toAbsoluteUrl(siteUrl, `${basePath}markdown/${docId}.md`);
+}
+
+function getDocIds(docsDir) {
+  return walk(docsDir)
+    .map((file) => getDocId(path.relative(docsDir, file)))
+    .filter(Boolean)
+    .sort();
+}
+
+function renderFeaturedDocs({docIds, siteUrl, basePath}) {
+  const availableDocIds = new Set(docIds);
+
+  return FEATURED_DOCS.filter(({docId}) => availableDocIds.has(docId)).map(
+    ({docId, title, description}) =>
+      `- [${title}](${getMarkdownUrl({siteUrl, basePath, docId})}): ${description}`,
+  );
+}
+
+function renderAllDocs({docIds, siteUrl, basePath}) {
+  return docIds.map(
+    (docId) =>
+      `- [${docId}](${getMarkdownUrl({siteUrl, basePath, docId})})`,
+  );
+}
+
+function buildLlmsTxt({siteUrl, basePath, docIds}) {
   const baseUrl = toAbsoluteUrl(siteUrl, basePath);
-  const htmlAbsoluteUrls = htmlRelativeUrls.map((url) =>
-    toAbsoluteUrl(siteUrl, url),
-  );
-  const markdownAbsoluteUrls = markdownRelativeUrls.map((url) =>
-    toAbsoluteUrl(siteUrl, url),
-  );
 
   return [
     '# Semgrep Docs',
-    '# This file lists documentation pages for AI tooling.',
-    `# Base URL: ${baseUrl}`,
-    '# Absolute HTML routes:',
-    ...htmlAbsoluteUrls.map((url) => `- ${url}`),
-    '# Absolute Markdown mirror:',
-    ...markdownAbsoluteUrls.map((url) => `- ${url}`),
-    '# Relative HTML routes:',
-    ...htmlRelativeUrls.map((url) => `- ${url}`),
-    '# Relative Markdown mirror:',
-    ...markdownRelativeUrls.map((url) => `- ${url}`),
+    '',
+    '> Documentation for using Semgrep AppSec Platform, Semgrep Code, Semgrep Supply Chain, Semgrep Secrets, CI, rule writing, and related references.',
+    '',
+    `Base URL: ${baseUrl}`,
+    `Markdown mirror pages: ${docIds.length}`,
+    '',
+    'Use the Markdown mirror links below when possible. They are generated from the docs source and avoid the navigation, script, and layout noise in rendered HTML pages.',
+    '',
+    '## Start Here',
+    ...renderFeaturedDocs({docIds, siteUrl, basePath}),
+    '',
+    '## All Markdown Docs',
+    ...renderAllDocs({docIds, siteUrl, basePath}),
     '',
   ].join('\n');
 }
@@ -93,29 +156,16 @@ module.exports = function llmsTxtPlugin(context, options) {
     name: 'llms-txt',
     async postBuild({outDir}) {
       const docsDir = path.resolve(context.siteDir, 'docs');
-      const markdownFiles = walk(docsDir);
       const basePath = normalizeBasePath(context.siteConfig.baseUrl);
-      const docIds = markdownFiles
-        .map((file) => getDocId(path.relative(docsDir, file)))
-        .filter(Boolean)
-        .sort();
+      const siteUrl = context.siteConfig.url;
+      const docIds = getDocIds(docsDir);
 
-      const htmlRelativeUrls = docIds.map((docId) =>
-        docId === 'index' ? basePath : `${basePath}${docId}`,
+      fs.mkdirSync(outDir, {recursive: true});
+      fs.writeFileSync(
+        path.join(outDir, 'llms.txt'),
+        buildLlmsTxt({siteUrl, basePath, docIds}),
+        'utf-8',
       );
-      const markdownRelativeUrls = docIds.map(
-        (docId) => `${basePath}markdown/${docId}.md`,
-      );
-
-      const llmsTxt = buildLlmsTxt({
-        siteUrl: context.siteConfig.url,
-        basePath,
-        htmlRelativeUrls,
-        markdownRelativeUrls,
-      });
-      const outputDir = getOutputDir(outDir);
-      fs.mkdirSync(outputDir, {recursive: true});
-      fs.writeFileSync(path.join(outputDir, 'llms.txt'), llmsTxt, 'utf-8');
     },
   };
 };
