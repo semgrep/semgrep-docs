@@ -57,16 +57,18 @@ Some package ecosystems allow the use of a transitive dependency as if it were a
 
 Once Supply Chain has identified vulnerabilities in your code and generated findings, you can take the following actions:
 
-- **Review provisionally ignored findings**: Provisionally ignored findings are those identified by Semgrep as unreachable. These types of findings are flagged so that you can prioritize attention to them based on the priority of competing demands.
 - **Ignore findings**: If the finding is a false positive, or if your company's business policies deem the use of the dependency an acceptable risk, you can choose to ignore the finding.
 - **Remediate true positives**: If the finding is one that you must address, you can:
   - **Remove dependencies and refactor code**: You can remediate true positives identified by Supply Chain by updating the dependency to a safe version or removing the dependency, then refactoring all usages of that dependency in your project.
-  - **Use upgrade guidance and Autofix**: If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. Semgrep can also create a pull request (PR) or merge request (MR) that updates the version used by your repository and guide the developer on any breaking changes in the PR or MR description.
-  - **Open a pull request or merge request with fixes**: Semgrep can open a pull request (PR) or merge request (MR) that updates the vulnerable version used by your repository and guide the developer on any breaking changes in the PR or MR description.
+  - **Use upgrade guidance and Autofix**: If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. Semgrep can also open a pull request (PR) or merge request (MR) that updates the vulnerable version used by your repository and guide the developer on any breaking changes in the PR or MR description.
 
 ## Policies
 
-Policies allow you to choose the rules and rulesets used for your Supply Chain scans and define what happens to a finding after identification, such as whether a finding is monitored, generates a pull request (PR) or merge request (MR) comment, or blocks a PR or MR.
+Policies, which are scoped on a per-project basis, allow you to define the conditions that must be met for an automation action to occur. These actions include:
+
+- Leaving a comment on the PR or MR
+- Blocking the PR or MR from being merged
+- Failing the build
 
 ## Malware detection and response
 
