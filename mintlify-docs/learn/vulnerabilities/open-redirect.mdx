@@ -63,7 +63,7 @@ In this fictional example, we notice an open redirect in the `redirect_view` . A
 
 ### Chaining with SSRF
 
-Even if an application tries to restrict which hosts it can fetch from, an open redirect can bypass those defenses. Suppose `semgrep.dev` has an image loader that only allows fetching from `*.semgrep.dev` , the implementation might look something like the Python code snippet below.
+Even if an application tries to restrict which hosts it can fetch from, an open redirect can bypass those defenses. Suppose `semgrep.dev` has an image loader that only allows fetching from `*.semgrep.dev`, the implementation might look something like the Python code snippet below.
 
 ```python
 import requests
