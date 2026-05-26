@@ -14,16 +14,18 @@ import DeleteAProject from "/src/components/procedure/_delete-a-project.md"
 
 View, sort, and tag your projects through the **Projects** page. Refer to this page to manage and troubleshoot thousands of repositories by identifying scan issues or scans with a high number of findings.
 
-:::note What is a project?
+:::note What is a project in Semgrep AppSec Platform?
 A **project** is a repository, or part of a repository, that you scan through Semgrep AppSec Platform, either using CI or Semgrep Managed Scans. This also includes local CLI scans whose results you have sent for viewing on Semgrep AppSec Platform. A project's scans can be viewed on the **Project details** page, and its findings can be viewed on the individual Semgrep products' **Findings** pages.
 :::
 
 The **Projects** page features two tabs:
 
 - The **Scanning** tab lists all projects that have been provisioned or scanned by Semgrep, regardless of whether the project is actively being scanned. If the project's repository has been archived in the source code manager, it is listed under **Not scanning**.
-- The **Not scanning** tab lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. For GitHub and GitLab. the **Not scanning** page also lists projects where you've archived the corresponding SCM repositories.
+- The **Not scanning** tab lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but which aren't actively being scanned by Semgrep. For GitHub, GitLab, and Bitbucket Data Center, the **Not scanning** page also lists projects where you've archived the corresponding SCM repositories.
 
-
+:::note
+Findings from a project marked as archived still show in the Semgrep AppSec Platform **Findings** pages.
+:::
 
 ## Sort projects
 
