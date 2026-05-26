@@ -19,7 +19,9 @@
     "tabs": [
       {
         "tab": "Home",
-        "pages": ["index"]
+        "pages": [
+          "index"
+        ]
       },
       {
         "tab": "Scan with Semgrep",
@@ -71,7 +73,9 @@
                   {
                     "group": "Connect a source code manager",
                     "root": "deployment/connect-scm",
-                    "pages": ["semgrep-appsec-platform/scm-code-access"]
+                    "pages": [
+                      "semgrep-appsec-platform/scm-code-access"
+                    ]
                   },
                   "deployment/sso",
                   {
@@ -91,7 +95,9 @@
                       {
                         "group": "AI-powered detection",
                         "root": "semgrep-code/ai-powered-detection-concepts",
-                        "pages": ["deployment/add-ai-to-scans"]
+                        "pages": [
+                          "deployment/add-ai-to-scans"
+                        ]
                       },
                       "deployment/add-semgrep-to-ci",
                       "deployment/add-semgrep-to-other-ci-providers",
@@ -100,7 +106,9 @@
                       {
                         "group": "Configuring SCA scans",
                         "root": "semgrep-supply-chain/setup-infrastructure",
-                        "pages": ["semgrep-supply-chain/setup-maven"]
+                        "pages": [
+                          "semgrep-supply-chain/setup-maven"
+                        ]
                       },
                       "deployment/manage-projects",
                       "deployment/primary-branch",
@@ -150,7 +158,9 @@
                   {
                     "group": "Teams and users",
                     "root": "deployment/teams/overview",
-                    "pages": ["deployment/teams/manage"]
+                    "pages": [
+                      "deployment/teams/manage"
+                    ]
                   },
                   "deployment/tokens",
                   "semgrep-appsec-platform/tags",
@@ -206,27 +216,38 @@
                   {
                     "group": "AI-powered detection",
                     "root": "semgrep-code/ai-powered-detection-concepts",
-                    "pages": ["deployment/add-ai-to-scans"]
+                    "pages": [
+                      "deployment/add-ai-to-scans"
+                    ]
                   },
                   {
                     "group": "View findings",
                     "root": "semgrep-code/findings",
-                    "pages": ["semgrep-code/finding-details"]
+                    "pages": [
+                      "semgrep-code/finding-details"
+                    ]
                   },
                   {
                     "group": "Triage and remediation",
                     "root": "semgrep-code/triage-remediation",
-                    "pages": ["semgrep-code/triage-remediation/autofix"]
+                    "pages": [
+                      "semgrep-code/triage-remediation/autofix"
+                    ]
                   },
                   {
                     "group": "Manage rules and policies",
                     "root": "semgrep-code/policies",
-                    "pages": ["semgrep-code/pro-rules", "semgrep-code/editor"]
+                    "pages": [
+                      "semgrep-code/pro-rules",
+                      "semgrep-code/editor"
+                    ]
                   },
                   {
                     "group": "Perform cross-file analysis",
                     "root": "semgrep-code/semgrep-pro-engine-intro",
-                    "pages": ["semgrep-code/semgrep-pro-engine-examples"]
+                    "pages": [
+                      "semgrep-code/semgrep-pro-engine-examples"
+                    ]
                   },
                   "semgrep-code/remove-duplicates"
                 ]
@@ -249,7 +270,9 @@
                       {
                         "group": "View findings",
                         "root": "semgrep-supply-chain/findings",
-                        "pages": ["semgrep-supply-chain/finding-details"]
+                        "pages": [
+                          "semgrep-supply-chain/finding-details"
+                        ]
                       },
                       "semgrep-supply-chain/triage-and-remediation",
                       "semgrep-supply-chain/advisories",
@@ -278,7 +301,9 @@
                   {
                     "group": "View findings",
                     "root": "semgrep-secrets/findings",
-                    "pages": ["semgrep-secrets/finding-details"]
+                    "pages": [
+                      "semgrep-secrets/finding-details"
+                    ]
                   },
                   "semgrep-secrets/triage-remediation",
                   "semgrep-secrets/policies",
@@ -295,7 +320,9 @@
               {
                 "group": "Overview",
                 "root": "semgrep-multimodal/overview",
-                "pages": ["semgrep-multimodal/metrics"]
+                "pages": [
+                  "semgrep-multimodal/metrics"
+                ]
               },
               {
                 "group": "Getting started",
@@ -315,7 +342,9 @@
               {
                 "group": "Get started",
                 "root": "getting-started/quickstart-ce",
-                "pages": ["customize-semgrep-ce"]
+                "pages": [
+                  "customize-semgrep-ce"
+                ]
               },
               "semgrep-ce-languages",
               "deployment/oss-deployment",
@@ -376,12 +405,16 @@
               {
                 "group": "Rule structure syntax",
                 "root": "writing-rules/rule-syntax",
-                "pages": ["writing-rules/rule-ideas"]
+                "pages": [
+                  "writing-rules/rule-ideas"
+                ]
               },
               {
                 "group": "Rule pattern syntax",
                 "root": "writing-rules/pattern-syntax",
-                "pages": ["writing-rules/pattern-examples"]
+                "pages": [
+                  "writing-rules/pattern-examples"
+                ]
               },
               {
                 "group": "Advanced rule-writing techniques",
@@ -395,7 +428,9 @@
                       {
                         "group": "Taint analysis",
                         "root": "writing-rules/data-flow/taint-mode/overview",
-                        "pages": ["writing-rules/data-flow/taint-mode/advanced"]
+                        "pages": [
+                          "writing-rules/data-flow/taint-mode/advanced"
+                        ]
                       },
                       "writing-rules/data-flow/status"
                     ]
@@ -433,7 +468,10 @@
           },
           {
             "group": "Write rules for Semgrep Secrets",
-            "pages": ["semgrep-secrets/rules", "semgrep-secrets/validators"]
+            "pages": [
+              "semgrep-secrets/rules",
+              "semgrep-secrets/validators"
+            ]
           }
         ]
       },
@@ -544,7 +582,9 @@
               {
                 "group": "Deployment",
                 "root": "api-reference/DeploymentsService",
-                "pages": ["api-reference/deploymentsservice/list-deployments"]
+                "pages": [
+                  "api-reference/deploymentsservice/list-deployments"
+                ]
               },
               {
                 "group": "Code, Supply Chain, and AI-Powered Scan",
@@ -593,7 +633,9 @@
               {
                 "group": "Secrets",
                 "root": "api-reference/SecretsService",
-                "pages": ["api-reference/secretsservice/list-secrets"]
+                "pages": [
+                  "api-reference/secretsservice/list-secrets"
+                ]
               },
               {
                 "group": "Supply Chain",
@@ -617,7 +659,9 @@
               {
                 "group": "Triage",
                 "root": "api-reference/TriageService",
-                "pages": ["api-reference/triageservice/bulk-triage"]
+                "pages": [
+                  "api-reference/triageservice/bulk-triage"
+                ]
               }
             ]
           }
@@ -871,11 +915,16 @@
               },
               {
                 "group": "Run scans",
-                "pages": ["for-developers/cli", "for-developers/ide"]
+                "pages": [
+                  "for-developers/cli",
+                  "for-developers/ide"
+                ]
               },
               {
                 "group": "References",
-                "pages": ["for-developers/detection"]
+                "pages": [
+                  "for-developers/detection"
+                ]
               }
             ]
           },
@@ -896,7 +945,9 @@
               {
                 "group": "Language-specific features",
                 "root": "category/language-specific-features",
-                "pages": ["semgrep-code/java"]
+                "pages": [
+                  "semgrep-code/java"
+                ]
               },
               {
                 "group": "Glossaries",
@@ -948,7 +999,9 @@
           {
             "item": "Support & resources",
             "icon": "headset",
-            "pages": ["support"]
+            "pages": [
+              "support"
+            ]
           },
           {
             "item": "Registry",
@@ -1024,5 +1077,599 @@
       "github": "https://github.com/semgrep/semgrep",
       "linkedin": "https://www.linkedin.com/company/semgrep"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/writing-rules/pattern-logic",
+      "destination": "/writing-rules/rule-syntax"
+    },
+    {
+      "source": "/writing-rules/index",
+      "destination": "/writing-rules/overview"
+    },
+    {
+      "source": "/semgrep-ci/managing-policy",
+      "destination": "/semgrep-code/policies"
+    },
+    {
+      "source": "/managing-policy",
+      "destination": "/semgrep-code/policies"
+    },
+    {
+      "source": "/semgrep-app/managing-policy",
+      "destination": "/semgrep-code/policies"
+    },
+    {
+      "source": "/integrations",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/notifications",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/experiments",
+      "destination": "/writing-rules/experiments/introduction"
+    },
+    {
+      "source": "/upgrade",
+      "destination": "/update"
+    },
+    {
+      "source": "/semgrep-ci",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/sample-ci-configs",
+      "destination": "/semgrep-ci/sample-ci-configs"
+    },
+    {
+      "source": "/status/",
+      "destination": "/supported-languages"
+    },
+    {
+      "source": "/language-support/",
+      "destination": "/supported-languages"
+    },
+    {
+      "source": "/ignoring-findings/",
+      "destination": "/ignoring-files-folders-code"
+    },
+    {
+      "source": "/experiments/join-mode/",
+      "destination": "/writing-rules/experiments/join-mode/overview"
+    },
+    {
+      "source": "/providers/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/cli-usage/",
+      "destination": "/cli-reference"
+    },
+    {
+      "source": "/writing-rules/data-flow",
+      "destination": "/writing-rules/data-flow/data-flow-overview"
+    },
+    {
+      "source": "/writing-rules/data-flow/overview/",
+      "destination": "/writing-rules/data-flow/data-flow-overview"
+    },
+    {
+      "source": "/rule-updates/",
+      "destination": "/release-notes/rule-updates"
+    },
+    {
+      "source": "/experiments/overview/",
+      "destination": "/writing-rules/experiments/introduction"
+    },
+    {
+      "source": "/experiments/generic-pattern-matching/",
+      "destination": "/writing-rules/generic-pattern-matching"
+    },
+    {
+      "source": "/experiments/join-mode/overview/",
+      "destination": "/writing-rules/experiments/join-mode/overview"
+    },
+    {
+      "source": "/experiments/join-mode/recursive-joins/",
+      "destination": "/writing-rules/experiments/join-mode/recursive-joins"
+    },
+    {
+      "source": "/experiments/extract-mode/",
+      "destination": "/writing-rules/experiments/deprecated-experiments"
+    },
+    {
+      "source": "/experiments/r2c-internal-project-depends-on/",
+      "destination": "/writing-rules/experiments/r2c-internal-project-depends-on"
+    },
+    {
+      "source": "/experiments/symbolic-propagation/",
+      "destination": "/writing-rules/experiments/symbolic-propagation"
+    },
+    {
+      "source": "/experiments/taint-propagators/",
+      "destination": "/writing-rules/data-flow/taint-mode/overview"
+    },
+    {
+      "source": "/writing-rules/experiments/taint-propagators/",
+      "destination": "/writing-rules/data-flow/taint-mode/overview"
+    },
+    {
+      "source": "/experiments/taint-labels/",
+      "destination": "/writing-rules/data-flow/taint-mode/overview"
+    },
+    {
+      "source": "/experiments/metavariable-analysis/",
+      "destination": "/writing-rules/metavariable-analysis"
+    },
+    {
+      "source": "/experiments/multiple-focus-metavariables/",
+      "destination": "/writing-rules/experiments/multiple-focus-metavariables"
+    },
+    {
+      "source": "/experiments/display-propagated-metavariable/",
+      "destination": "/writing-rules/experiments/display-propagated-metavariable"
+    },
+    {
+      "source": "/experiments/deprecated-experiments/",
+      "destination": "/writing-rules/experiments/deprecated-experiments"
+    },
+    {
+      "source": "/semgrep-sc/supply-chain-supported-languages/",
+      "destination": "/supported-languages"
+    },
+    {
+      "source": "/writing-rules/autofix",
+      "destination": "/writing-rules/rule-defined-fix"
+    },
+    {
+      "source": "/writing-rules/experiments/autofix/",
+      "destination": "/writing-rules/rule-defined-fix"
+    },
+    {
+      "source": "/writing-rules/experiments/generic-pattern-matching/",
+      "destination": "/writing-rules/generic-pattern-matching"
+    },
+    {
+      "source": "/writing-rules/experiments/metavariable-analysis/",
+      "destination": "/writing-rules/metavariable-analysis"
+    },
+    {
+      "source": "/deepsemgrep/",
+      "destination": "/semgrep-code/semgrep-pro-engine-intro"
+    },
+    {
+      "source": "/deepsemgrep/deepsemgrep-introduction",
+      "destination": "/semgrep-code/semgrep-pro-engine-intro"
+    },
+    {
+      "source": "/deepsemgrep/deepsemgrep-examples",
+      "destination": "/semgrep-code/semgrep-pro-engine-examples"
+    },
+    {
+      "source": "/deepsemgrep/semgrep-pro-data-flow",
+      "destination": "/semgrep-code/semgrep-pro-engine-data-flow"
+    },
+    {
+      "source": "/troubleshooting/gitlab-sast/",
+      "destination": "/troubleshooting/semgrep-app"
+    },
+    {
+      "source": "/semgrep-code/semgrep-assistant-code",
+      "destination": "/semgrep-multimodal/overview"
+    },
+    {
+      "source": "/semgrep-app/integrations",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/semgrep-app/demo-project/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-app/rule-board/",
+      "destination": "/semgrep-code/policies"
+    },
+    {
+      "source": "/semgrep-app/findings/",
+      "destination": "/semgrep-code/findings"
+    },
+    {
+      "source": "/semgrep-app/editor/",
+      "destination": "/semgrep-code/editor"
+    },
+    {
+      "source": "/semgrep-app/notifications/",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/semgrep-code/getting-started-with-semgrep-code/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-app/dashboard/",
+      "destination": "/semgrep-appsec-platform/dashboard"
+    },
+    {
+      "source": "/semgrep-app/getting-started-with-semgrep-app/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-app/pricing-and-billing/",
+      "destination": "/usage-and-billing/overview"
+    },
+    {
+      "source": "/semgrep-app/scm/",
+      "destination": "/deployment/connect-scm"
+    },
+    {
+      "source": "/semgrep-app/semgrep-api/",
+      "destination": "/semgrep-appsec-platform/semgrep-api"
+    },
+    {
+      "source": "/semgrep-app/tags/",
+      "destination": "/semgrep-appsec-platform/tags"
+    },
+    {
+      "source": "/semgrep-sc/scanning-open-source-dependencies/",
+      "destination": "/semgrep-supply-chain/getting-started"
+    },
+    {
+      "source": "/semgrep-sc/sc-glossary/",
+      "destination": "/semgrep-supply-chain/glossary"
+    },
+    {
+      "source": "/semgrep-sc/ignoring-lockfiles-dependencies/",
+      "destination": "/semgrep-supply-chain/ignoring-dependencies"
+    },
+    {
+      "source": "/semgrep-sc/receiving-notifications-from-ssc/",
+      "destination": "/semgrep-appsec-platform/github-pr-comments"
+    },
+    {
+      "source": "/semgrep-sc/semgrep-supply-chain-overview/",
+      "destination": "/semgrep-supply-chain/overview"
+    },
+    {
+      "source": "/semgrep-sc/triaging-and-remediating-vulnerabilities/",
+      "destination": "/semgrep-supply-chain/triage-and-remediation"
+    },
+    {
+      "source": "/semgrep-code/notifications/",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/semgrep-ci/configuration-reference",
+      "destination": "/semgrep-ci/ci-environment-variables"
+    },
+    {
+      "source": "/semgrep-cloud-platform/pricing-and-billing/",
+      "destination": "/usage-and-billing/overview"
+    },
+    {
+      "source": "/extensions/",
+      "destination": "/extensions/overview"
+    },
+    {
+      "source": "/semgrep-code/rule-board/",
+      "destination": "/semgrep-code/policies"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/running-semgrep-on-windows/",
+      "destination": "/extensions/semgrep-vs-code"
+    },
+    {
+      "source": "/kb/semgrep-ci/github-required-workflows-semgrep/",
+      "destination": "/kb/semgrep-ci/github-repository-rulesets-semgrep"
+    },
+    {
+      "source": "/getting-started/",
+      "destination": "/getting-started/quickstart"
+    },
+    {
+      "source": "/semgrep-app/role-based-access-control/",
+      "destination": "/deployment/teams/overview"
+    },
+    {
+      "source": "/semgrep-app/user-management/",
+      "destination": "/deployment/teams/overview"
+    },
+    {
+      "source": "/semgrep-cloud-platform/user-management/",
+      "destination": "/deployment/teams/overview"
+    },
+    {
+      "source": "/sso",
+      "destination": "/deployment/sso"
+    },
+    {
+      "source": "/semgrep-cloud-platform/sso",
+      "destination": "/deployment/sso"
+    },
+    {
+      "source": "/semgrep-app/sso/",
+      "destination": "/deployment/sso"
+    },
+    {
+      "source": "/usage-limits/",
+      "destination": "/usage-and-billing/overview"
+    },
+    {
+      "source": "/upgrading/",
+      "destination": "/update"
+    },
+    {
+      "source": "/semgrep-code/getting-started/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-cloud-platform/getting-started/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-cloud-platform/scm/",
+      "destination": "/deployment/connect-scm"
+    },
+    {
+      "source": "/managing-findings/",
+      "destination": "/semgrep-ci/findings-ci"
+    },
+    {
+      "source": "/semgrep-supply-chain/notifications/",
+      "destination": "/semgrep-appsec-platform/github-pr-comments"
+    },
+    {
+      "source": "/semgrep-ci/overview/",
+      "destination": "/deployment/add-semgrep-to-ci"
+    },
+    {
+      "source": "/semgrep-ci/running-semgrep-ci-with-semgrep-cloud-platform/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-ci/running-semgrep-ci-without-semgrep-cloud-platform/",
+      "destination": "/deployment/oss-deployment"
+    },
+    {
+      "source": "/semgrep-code/demo-project",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-ci/running-semgrep-ci-with-semgrep-app/",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/semgrep-ci/running-semgrep-ci-without-semgrep-app/",
+      "destination": "/deployment/oss-deployment"
+    },
+    {
+      "source": "/playground/",
+      "destination": "/semgrep-code/editor"
+    },
+    {
+      "source": "/semgrep-cloud-platform/semgrep-api/",
+      "destination": "/semgrep-appsec-platform/semgrep-api"
+    },
+    {
+      "source": "/semgrep-cloud-platform/asana/",
+      "destination": "/semgrep-appsec-platform/jira"
+    },
+    {
+      "source": "/semgrep-cloud-platform/bitbucket-pr-comments/",
+      "destination": "/category/bitbucket-pr-comments"
+    },
+    {
+      "source": "/semgrep-cloud-platform/github-pr-comments/",
+      "destination": "/semgrep-appsec-platform/github-pr-comments"
+    },
+    {
+      "source": "/semgrep-cloud-platform/gitlab-mr-comments/",
+      "destination": "/semgrep-appsec-platform/gitlab-mr-comments"
+    },
+    {
+      "source": "/semgrep-cloud-platform/dashboard/",
+      "destination": "/semgrep-appsec-platform/dashboard"
+    },
+    {
+      "source": "/semgrep-cloud-platform/email-notifications/",
+      "destination": "/semgrep-appsec-platform/email-notifications"
+    },
+    {
+      "source": "/semgrep-cloud-platform/jira/",
+      "destination": "/semgrep-appsec-platform/jira"
+    },
+    {
+      "source": "/semgrep-cloud-platform/linear/",
+      "destination": "/semgrep-appsec-platform/jira"
+    },
+    {
+      "source": "/semgrep-cloud-platform/notifications/",
+      "destination": "/semgrep-appsec-platform/notifications"
+    },
+    {
+      "source": "/semgrep-cloud-platform/slack-notifications/",
+      "destination": "/semgrep-appsec-platform/slack-notifications"
+    },
+    {
+      "source": "/semgrep-cloud-platform/tags/",
+      "destination": "/semgrep-appsec-platform/tags"
+    },
+    {
+      "source": "/semgrep-cloud-platform/ticketing/",
+      "destination": "/semgrep-appsec-platform/jira"
+    },
+    {
+      "source": "/semgrep-cloud-platform/webhooks/",
+      "destination": "/semgrep-appsec-platform/webhooks"
+    },
+    {
+      "source": "/kb/semgrep-secrets/secrets_pr_comments",
+      "destination": "/semgrep-secrets/policies"
+    },
+    {
+      "source": "/prerequisites-oss",
+      "destination": "/prerequisites"
+    },
+    {
+      "source": "/supported-languages-oss",
+      "destination": "/supported-languages"
+    },
+    {
+      "source": "/ignore-oss",
+      "destination": "/ignoring-files-folders-code"
+    },
+    {
+      "source": "/cli-reference-oss",
+      "destination": "/cli-reference"
+    },
+    {
+      "source": "/getting-started/quickstart-oss",
+      "destination": "/getting-started/quickstart-ce"
+    },
+    {
+      "source": "/semgrep-appsec-platform/bitbucket-pr-comments",
+      "destination": "/category/bitbucket-pr-comments"
+    },
+    {
+      "source": "/kb/rules/match-commments",
+      "destination": "/kb/rules/match-comments"
+    },
+    {
+      "source": "/semgrep-appsec-platform/dashboard-beta/",
+      "destination": "/semgrep-appsec-platform/dashboard"
+    },
+    {
+      "source": "/deployment/managed-scanning",
+      "destination": "/deployment/managed-scanning/overview"
+    },
+    {
+      "source": "/writing-rules/experiments/extract-mode",
+      "destination": "/writing-rules/experiments/deprecated-experiments"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq/overview"
+    },
+    {
+      "source": "/kb/integrations/wiz",
+      "destination": "/semgrep-appsec-platform/wiz"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/inline-pr-comments",
+      "destination": "/kb/semgrep-appsec-platform/inline-pr-comments"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/missing-pr-comments",
+      "destination": "/kb/semgrep-appsec-platform/missing-pr-comments"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/saml-attributestatement",
+      "destination": "/kb/semgrep-appsec-platform/saml-attributestatement"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/saml-bad-signature",
+      "destination": "/kb/semgrep-appsec-platform/saml-bad-signature"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/saml-stops-working",
+      "destination": "/kb/semgrep-appsec-platform/saml-stops-working"
+    },
+    {
+      "source": "/kb/semgrep-cloud-platform/sso-attribute-error",
+      "destination": "/kb/semgrep-appsec-platform/sso-attribute-error"
+    },
+    {
+      "source": "/semgrep-code/supported-languages-python",
+      "destination": "/languages/python"
+    },
+    {
+      "source": "/deployment/overview",
+      "destination": "/deployment/core-deployment"
+    },
+    {
+      "source": "/kb/semgrep-appsec-platform/find-specific-findings",
+      "destination": "/kb/semgrep-appsec-platform/search-filter-sort-findings"
+    },
+    {
+      "source": "/semgrep-supply-chain/upgrade-guidance",
+      "destination": "/semgrep-supply-chain/triage-and-remediation"
+    },
+    {
+      "source": "/writing-rules/data-flow/taint-mode",
+      "destination": "/writing-rules/data-flow/taint-mode/overview"
+    },
+    {
+      "source": "/getting-started/cli-oss",
+      "destination": "/getting-started/quickstart-ce"
+    },
+    {
+      "source": "/semgrep-supply-chain/view-export",
+      "destination": "/semgrep-supply-chain/findings"
+    },
+    {
+      "source": "/semgrep-secrets/view-triage",
+      "destination": "/semgrep-secrets/triage-remediation"
+    },
+    {
+      "source": "/kb/integrations/semgrep-vs-code-windows",
+      "destination": "/extensions/semgrep-vs-code"
+    },
+    {
+      "source": "/kb/semgrep-ci/bitbucket-triggering-events-to-jenkins",
+      "destination": "/kb/semgrep-ci/bitbucket-jenkins"
+    },
+    {
+      "source": "/kb/semgrep-ci/bitbucket-jenkins-freestyle-projects",
+      "destination": "/kb/semgrep-ci/bitbucket-jenkins"
+    },
+    {
+      "source": "/kb/semgrep-ci/bitbuket-jenkins-pipeline-projects",
+      "destination": "/kb/semgrep-ci/bitbucket-jenkins"
+    },
+    {
+      "source": "/semgrep-assistant/analyze",
+      "destination": "/semgrep-multimodal/analyze"
+    },
+    {
+      "source": "/semgrep-assistant/best-practices-for-memories",
+      "destination": "/semgrep-multimodal/best-practices-for-memories"
+    },
+    {
+      "source": "/semgrep-assistant/customize",
+      "destination": "/semgrep-multimodal/customize"
+    },
+    {
+      "source": "/semgrep-assistant/getting-started",
+      "destination": "/semgrep-multimodal/getting-started"
+    },
+    {
+      "source": "/semgrep-assistant/metrics",
+      "destination": "/semgrep-multimodal/metrics"
+    },
+    {
+      "source": "/semgrep-assistant/overview",
+      "destination": "/semgrep-multimodal/overview"
+    },
+    {
+      "source": "/semgrep-assistant/privacy",
+      "destination": "/semgrep-multimodal/privacy"
+    },
+    {
+      "source": "/kb/semgrep-assistant/azure-openai-error-429",
+      "destination": "/kb/semgrep-multimodal/azure-openai-error-429"
+    },
+    {
+      "source": "/kb/semgrep-assistant/missing-pr-mr-comments",
+      "destination": "/kb/semgrep-multimodal/missing-pr-mr-comments"
+    },
+    {
+      "source": "/deployment/teams",
+      "destination": "/deployment/teams/overview"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/guardian"
+    }
+  ]
 }
