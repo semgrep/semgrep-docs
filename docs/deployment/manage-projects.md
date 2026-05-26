@@ -21,7 +21,7 @@ A **project** is a repository, or part of a repository, that you scan through Se
 The **Projects** page features two tabs:
 
 - The **Scanning** tab lists all projects that have been provisioned or scanned by Semgrep, regardless of whether the project is actively being scanned. If the project's repository has been archived in the source code manager, it is listed under **Not scanning**.
-- The **Not scanning** tab lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. The **Not scanning** page also lists projects where you've archived the corresponding GitHub repositories.
+- The **Not scanning** tab lists projects that are associated with [source code manager (SCM) connections that you've added](/deployment/connect-scm), but these projects aren't actively being scanned by Semgrep. For GitHub and GitLab. the **Not scanning** page also lists projects where you've archived the corresponding SCM repositories.
 
 
 
