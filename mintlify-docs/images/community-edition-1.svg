@@ -1,0 +1,282 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="731"
+  height="321"
+  viewBox="-0.5 -0.5 731 321"
+>
+  <rect fill="#ffffff" width="100%" height="100%" x="0" y="0" />
+
+  <!-- Title (h1, wraps to 3 lines in 190px box) -->
+  <text
+    x="10"
+    y="32"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="32"
+    font-weight="bold"
+    fill="#000000"
+  >
+    Semgrep
+  </text>
+  <text
+    x="10"
+    y="64"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="32"
+    font-weight="bold"
+    fill="#000000"
+  >
+    Community
+  </text>
+  <text
+    x="10"
+    y="96"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="32"
+    font-weight="bold"
+    fill="#000000"
+  >
+    Edition
+  </text>
+
+  <!-- Rules callout -->
+<path
+    d="M 385 20 L 605 20 L 605 70 L 515 70 L 495 100 L 495 70 L 385 70 Z"
+    fill="#fff2cc"
+    stroke="#d6b656"
+    stroke-miterlimit="20"
+  />
+<text
+  x="380"
+  y="32"
+  font-family="Helvetica, Arial, sans-serif"
+  font-size="12"
+  fill="#000000"
+>
+  <tspan x="394" dy="0">• Custom rules</tspan>
+  <tspan x="394" dy="15">• Community-written and maintained</tspan>
+  <tspan x="403" dy="15">maintained rules</tspan>
+</text>
+
+
+  <!-- Rules -->
+  <rect
+    x="405"
+    y="95"
+    width="120"
+    height="40"
+    fill="#ffffff"
+    stroke="#000000"
+  />
+  <text
+    x="465"
+    y="120"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="bold"
+    fill="#000000"
+    text-anchor="middle"
+  >
+    Rules
+  </text>
+
+  <!-- Arrow: Rules to Analyses -->
+  <path
+    d="M 465 135 L 465 168.63"
+    fill="none"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+  <path
+    d="M 465 173.88 L 461.5 166.88 L 465 168.63 L 468.5 166.88 Z"
+    fill="#000000"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+
+  <!-- Source code -->
+  <rect
+    x="5"
+    y="175"
+    width="120"
+    height="40"
+    rx="19.2"
+    ry="19.2"
+    fill="#ffffff"
+    stroke="#000000"
+  />
+  <text
+    x="65"
+    y="200"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="bold"
+    fill="#000000"
+    text-anchor="middle"
+  >
+    Source code
+  </text>
+
+  <!-- Arrow: Source code to Parser -->
+  <path
+    d="M 125 195 L 198.63 195"
+    fill="none"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+  <path
+    d="M 203.88 195 L 196.88 198.5 L 198.63 195 L 196.88 191.5 Z"
+    fill="#000000"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+
+  <!-- Parser -->
+  <rect
+    x="205"
+    y="175"
+    width="120"
+    height="40"
+    fill="#ffffff"
+    stroke="#000000"
+  />
+  <text
+    x="265"
+    y="200"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="bold"
+    fill="#000000"
+    text-anchor="middle"
+  >
+    Parser
+  </text>
+
+  <!-- Arrow: Parser to Analyses -->
+  <path
+    d="M 325 195 L 398.63 195"
+    fill="none"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+  <path
+    d="M 403.88 195 L 396.88 198.5 L 398.63 195 L 396.88 191.5 Z"
+    fill="#000000"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+
+  <!-- Analyses -->
+  <rect
+    x="405"
+    y="175"
+    width="120"
+    height="40"
+    fill="#ffffff"
+    stroke="#000000"
+  />
+  <text
+    x="465"
+    y="200"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="bold"
+    fill="#000000"
+    text-anchor="middle"
+  >
+    Analyses
+  </text>
+
+  <!-- Arrow: Analyses to Results -->
+  <path
+    d="M 525 195 L 598.63 195"
+    fill="none"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+  <path
+    d="M 603.88 195 L 596.88 198.5 L 598.63 195 L 596.88 191.5 Z"
+    fill="#000000"
+    stroke="#000000"
+    stroke-miterlimit="10"
+  />
+
+  <!-- Results -->
+  <rect
+    x="605"
+    y="175"
+    width="120"
+    height="40"
+    rx="19.2"
+    ry="19.2"
+    fill="#ffffff"
+    stroke="#000000"
+  />
+  <text
+    x="665"
+    y="200"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="bold"
+    fill="#000000"
+    text-anchor="middle"
+  >
+    Results
+  </text>
+
+  <!-- Parser callout -->
+  <path
+    d="M 135 215 L 355 215 L 355 265 L 265 265 L 245 295 L 245 265 L 135 265 Z"
+    fill="#fff2cc"
+    stroke="#d6b656"
+    stroke-miterlimit="10"
+    transform="rotate(180,245,255)"
+  />
+  <text
+    x="138"
+    y="268"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="12"
+    fill="#000000"
+  >
+    <tspan>• </tspan>
+    <tspan font-weight="bold">Community support</tspan>
+    <tspan x="146" dy="15">for 30+ languages</tspan>
+  </text>
+  
+
+  <!-- Analyses callout -->
+  <path
+    d="M 365 215 L 605 215 L 605 285 L 505 285 L 485 315 L 485 285 L 365 285 Z"
+    fill="#fff2cc"
+    stroke="#d6b656"
+    stroke-miterlimit="10"
+    transform="rotate(180,485,265)"
+  />
+  <text
+    x="370"
+    y="268"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="12"
+    fill="#000000"
+  >
+    • Single file constant propagation
+  </text>
+  <text
+    x="370"
+    y="284"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="12"
+    fill="#000000"
+  >
+    • Single function taint analysis
+  </text>
+  <text
+    x="370"
+    y="300"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="12"
+    fill="#000000"
+  >
+    • Semantic analysis
+  </text>
+</svg>

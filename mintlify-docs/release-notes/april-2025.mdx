@@ -1,7 +1,6 @@
 ---
 title: "April 2025"
 description: "April 30, 2025 · 4 min read"
-rss: true
 ---
 
 The following updates were made to Semgrep in April 2025.
@@ -35,7 +34,7 @@ The following updates were made to Semgrep in April 2025.
 
 ### Added
 
-- [SBOM export through the Semgrep API](https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/semgrep_app.products.sca.handlers.sbom.openapi_create_sbom_export) is now generally available.
+- [SBOM export through the Semgrep API](/api-reference/supplychainservice/create-a-new-sbom-export-job) is now generally available.
 - [Malicious dependency detection](/semgrep-supply-chain/malicious-dependencies) is now in **public beta**. Semgrep enables you to block pull requests (PRs) or merge requests (MRs) introducing these dependencies. You can also filter for malicious dependency findings, which assists in identifying and removing these dependencies.
 - Added support for PR comments warning users that they may be adding malicious dependencies. {/* 20447 */}
 - **Upgrade guidance** and **click to fix** are now in **private beta** for users with Python projects hosted by GitHub.com and with Semgrep Assistant enabled. With upgrade guidance and click to fix, Supply Chain analyzes your project to surface breaking changes that you must fix as part of a version upgrade. Semgrep AppSec Platform provides you with a one-click option that opens a pull request to:<br/>

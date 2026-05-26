@@ -78,7 +78,7 @@ The following filters are available:
 
 ### Project
 
-The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
+The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
 
 
 ### Status
@@ -100,11 +100,11 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 
 | Filter | Description |
 | :--- | :--- |
-| **<Tooltip tip="Status indicating whether a secret poses an immediate threat. States include Confirmed valid, Confirmed invalid, Validation error, and No validator. See full definition.">Validation state</Tooltip>** | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
-| **<Tooltip tip="Sensitive information such as API keys, credentials, SSH keys, or certificates. If secrets are stored in source code, they can be leaked and misused. See full definition.">Secret</Tooltip>** type| Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
-| **<Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories. See full definition.">Repository</Tooltip>** visibility | Filter by whether the repository's [visibility](#repository-visibility) status. |
+| **<Tooltip tip="Status indicating whether a secret poses an immediate threat. States include Confirmed valid, Confirmed invalid, Validation error, and No validator." cta="See full definition." href="/semgrep-secrets/glossary#validation-state">Validation state</Tooltip>** | Filter by [whether the secret is operative on the related service](#validation). Semgrep Secrets rules include validators, which can check whether the secret is valid for the service with which it is associated. |
+| **<Tooltip tip="Sensitive information such as API keys, credentials, SSH keys, or certificates. If secrets are stored in source code, they can be leaked and misused." cta="See full definition." href="/semgrep-secrets/glossary#secret">Secret</Tooltip>** type| Filter by the type of secret, such as **private key**, or the web service that makes use of the secret, such as **Sendgrid** or **Stripe**. |
+| **<Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip>** visibility | Filter by whether the repository's [visibility](#repository-visibility) status. |
 | **Historical findings**   | Filter for findings that are valid, leaked secrets in previous Git commits. |
-| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** tags| Filter for findings based on the tags associated with the project. |
+| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** tags| Filter for findings based on the tags associated with the project. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
 | **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
 
@@ -142,10 +142,10 @@ Refers to whether or not a secret is active and can be used to grant resources o
 
 Refers to whether or not the repository is a public repository or private. This is detected through your source code manager.
 
-| <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories. See full definition.">Repository</Tooltip> visibility | Description |
+| <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip> visibility | Description |
 | -----------  | ------------ |
-| Public | <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories. See full definition.">Repository</Tooltip> access doesn't require authentication; at a minimum, it can be viewed by anyone. |
-| Private | <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories. See full definition.">Repository</Tooltip> access requires authentication. |
+| Public | <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip> access doesn't require authentication; at a minimum, it can be viewed by anyone. |
+| Private | <Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip> access requires authentication. |
 | Unknown | Semgrep Secrets is unable to detect your repository visibility. This is typically assigned to: <ul><li>Scans from local developer machines.</li><li>Scans from any non-GitHub source code manager, such as GitLab.</li></ul> |
 
 <Note>
@@ -162,7 +162,7 @@ To view findings individually, click **Group & sort > No grouping**. Findings ar
 
 ## Export findings
 
-You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> API](https://semgrep.dev/api/v1/).
+You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [API](/api-reference/Introduction).
 
 Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 

@@ -147,7 +147,7 @@ Define your **Sinks**.
       &emsp;&emsp;b. Provide the pattern for the code for which the constraint should be applied.
 </Step>
 <Step>
-Add **<Tooltip tip="Code that cleans untrusted or tainted data, such as validation or encoding functions that remove unsafe characters. See full definition.">Sanitizers</Tooltip>**.
+Add **<Tooltip tip="Code that cleans untrusted or tainted data, such as validation or encoding functions that remove unsafe characters." cta="See full definition." href="/writing-rules/glossary#sanitizers">Sanitizers</Tooltip>**.
 
    i. Select your first operator. Options include: `pattern`, `any`, `all`, `inside`, `regex`.
 
@@ -195,8 +195,8 @@ Ensure that you are in **advanced** mode.
 </Step>
 <Step>
 Click the **plus sign** and select a template. The **New rule** template includes the minimum keys required for a Semgrep rule, but there are additional templates that can help you write more complex rules:
-   - **<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip>-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
-   - **<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip>-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
+   - **<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip>-comparison**: demonstrates how to use [the `metavariable-comparison` key](/writing-rules/rule-syntax/#metavariable-comparison)
+   - **<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip>-pattern**: demonstrates how to use [the `metavariable-pattern` key](/writing-rules/rule-syntax/#metavariable-pattern)
    - **Dataflow analysis**: demonstrates how to leverage dataflow analysis through [`pattern-sources`](/writing-rules/data-flow/taint-mode/overview#sources), [`pattern-sinks`](/writing-rules/data-flow/taint-mode/overview#sinks), and [`pattern-sanitizers`](/writing-rules/data-flow/taint-mode/overview#sanitizers).
    - **Dataflow analysis with taint labels**: demonstrates [how to define the sources you want to track and how data must flow](/writing-rules/data-flow/taint-mode/advanced#taint-labels-)
    - **HTTP validators**: Demonstrates how to write [Semgrep Secrets rules](/semgrep-secrets/rules/) that include [validators](/semgrep-secrets/validators/)
@@ -373,7 +373,7 @@ To add a rule to the **Policies** page:
 Ensure you're [signed in to Semgrep](https://semgrep.dev/login).
 </Step>
 <Step>
-Click **Add to <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip>**.
+Click **Add to <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip>**.
 </Step>
 <Step>
 Select one of the following rule mode options based on the relevance of the rule: **Monitor mode**, **Comment mode**, or **Block mode**.

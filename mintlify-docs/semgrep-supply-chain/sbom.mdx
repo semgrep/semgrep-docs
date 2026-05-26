@@ -25,7 +25,7 @@ Semgrep Supply Chain supports the following SBOM formats:
 
 ## Generate and download an SBOM for a single project
 
-SBOM generation can be performed through Semgrep AppSec Platform or the [<Icon icon="external-link" iconType="solid"/> Semgrep API](https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport).
+SBOM generation can be performed through Semgrep AppSec Platform or the [Semgrep API](/api-reference/supplychainservice/create-a-new-sbom-export-job).
 
 <Steps>
 <Step>
@@ -53,7 +53,7 @@ Typically, full scans are run only on primary (default) branches. However, if yo
 
 ### Generate an SBOM through the API
 
-Refer to the [<Icon icon="external-link" iconType="solid"/> Semgrep API > SBOM documentation](https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport). 
+Refer to the [Semgrep API > SBOM documentation](/api-reference/supplychainservice/create-a-new-sbom-export-job). 
 
 ## Semgrep-specific SBOM data fields
 
@@ -68,6 +68,6 @@ In addition to the [<Icon icon="external-link" iconType="solid"/> minimum elemen
 | Description | A short description of the vulnerability. |
 | Detail | A longer description of the vulnerability, including the affected versions. |
 | Ratings | Semgrep Supply Chain's severity rating of this vulnerability. |
-| References | Links to the specific CVE. References can come from NIST, Electron release notes, and GitHub Security <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view. See full definition and Advisories.">Advisory</Tooltip>. |
-| <Tooltip tip="In taint analysis, code that introduces tainted data, typically user input. See full definition.">Source</Tooltip> | The primary source of this vulnerability's advisory. |
+| References | Links to the specific CVE. References can come from NIST, Electron release notes, and GitHub Security <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip>. |
+| <Tooltip tip="In taint analysis, code that introduces tainted data, typically user input." cta="See full definition." href="/writing-rules/glossary#source">Source</Tooltip> | The primary source of this vulnerability's advisory. |
 | Tools | Details about Semgrep, the tool used to generate the SBOM. |

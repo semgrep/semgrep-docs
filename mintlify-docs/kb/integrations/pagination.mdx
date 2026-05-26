@@ -11,9 +11,9 @@ Offset-based pagination defines a **limit** to specify the number of entries fet
 The following API endpoints support offset-based pagination:
 
 <CardGroup cols={2}>
-<Card title="List all projects" horizontal icon="ballot" href="https://semgrep.dev/api/v1/#tag/ProjectsService/operation/ProjectsService_ListProjects" />
+<Card title="List all projects" horizontal icon="ballot" href="/api-reference/projectsservice/list-all-projects" />
 
-<Card title="List code or supply chain findings" horizontal icon="code" href="https://semgrep.dev/api/v1/#tag/FindingsService/operation/FindingsService_ListFindings" />
+<Card title="List code or supply chain findings" horizontal icon="code" href="/api-reference/findingsservice/list-code-or-supply-chain-findings" />
 </CardGroup>
 
 For these endpoints, include the following query parameters to paginate through results:
@@ -34,7 +34,7 @@ curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_SLUG/findings?page=
 
 ## Cursor-based pagination
 
-The [List Secrets](https://semgrep.dev/api/v1/#tag/SecretsService/operation/SecretsService_ListSecretsPath) endpoint supports cursor-based pagination:
+The [List Secrets](/api-reference/secretsservice/list-secrets) endpoint supports cursor-based pagination:
 
 For these endpoints, include the following query parameters to paginate through results.
 
@@ -67,9 +67,9 @@ Repeat this process for additional pages.
 The following API endpoints support mixed usages of page- and cursor-based pagination:
 
 <CardGroup cols={2}>
-  <Card title="List repositories with dependencies" href="https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/SupplyChainService_ListRepositoriesForDependencies" icon="file" horizontal/>
-  <Card title="List lockfiles in a given repository with dependencies" href="https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/SupplyChainService_ListLockfilesForDependencies" icon="file" horizontal/>
-  <Card title="List dependencies" href="https://semgrep.dev/api/v1/#tag/SupplyChainService/operation/SupplyChainService_ListDependencies" icon="file" horizontal/>
+  <Card title="List repositories with dependencies" href="/api-reference/supplychainservice/list-repositories-with-dependencies" icon="file" horizontal/>
+  <Card title="List lockfiles in a given repository with dependencies" href="/api-reference/supplychainservice/list-lockfiles-in-a-given-repository-with-dependencies" icon="file" horizontal/>
+  <Card title="List dependencies" href="/api-reference/supplychainservice/list-dependencies" icon="file" horizontal/>
 </CardGroup>
 
 ### Example

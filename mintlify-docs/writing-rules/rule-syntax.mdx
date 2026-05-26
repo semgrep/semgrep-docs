@@ -1001,11 +1001,11 @@ The `$F` metavariable ensures that the same variable name is used in the `open` 
 
 ## Metavariable matches
 
-<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip> matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
+<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip> matching operates differently for logical AND (`patterns`) and logical OR (`pattern-either`) parent operators. Behavior is consistent across all child operators: `pattern`, `pattern-not`, `pattern-regex`, `pattern-inside`, `pattern-not-inside`.
 
 ### Metavariables in logical ANDs
 
-<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip> values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
+<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip> values must be identical across sub-patterns when performing logical AND operations with the `patterns` operator.
 
 Example:
 
@@ -1038,7 +1038,7 @@ def foo(path):
 
 ### Metavariables in logical ORs
 
-<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip> matching does not affect the matching of logical OR operations with the `pattern-either` operator.
+<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip> matching does not affect the matching of logical OR operations with the `pattern-either` operator.
 
 Example:
 
@@ -1067,7 +1067,7 @@ insecure_func2(something_else)
 
 ### Metavariables in complex logic
 
-<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores. See full definition.">Metavariable</Tooltip> matching still affects subsequent logical ORs if the parent is a logical AND.
+<Tooltip tip="Abstraction that matches unknown values. Metavariables begin with $ and can include uppercase letters, digits, and underscores." cta="See full definition." href="/writing-rules/glossary#metavariable">Metavariable</Tooltip> matching still affects subsequent logical ORs if the parent is a logical AND.
 
 Example:
 

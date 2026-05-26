@@ -22,9 +22,9 @@ If you do not use the standard manifest file or lockfile name for your ecosystem
 </Accordion>
 <Accordion title="Does the manifest file or lockfile contain dependencies with exact versions?">
 
-If your dependency file is a <Tooltip tip="Describes dependencies used in a codebase. Package managers read manifest files to resolve and install specific dependency versions and generate lockfiles. See full definition.">manifest file</Tooltip> and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view. See full definition and Advisories.">Advisory</Tooltip>, and not require upgrade.
+If your dependency file is a <Tooltip tip="Describes dependencies used in a codebase. Package managers read manifest files to resolve and install specific dependency versions and generate lockfiles." cta="See full definition." href="/semgrep-supply-chain/glossary#manifest-file">manifest file</Tooltip> and does not specify exact (pinned) versions for all dependencies, Semgrep Supply Chain does not report vulnerabilities for the dependencies that are not pinned. This is because an unpinned dependency may already be installed at a safe version for a particular <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip>, and not require upgrade.
 
-Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files or lockfiles can also be helpful to determine whether a dependency is <Tooltip tip="A dependency of a dependency. If your codebase uses dependency A, and A depends on B, then B is a transitive dependency. See full definition.">transitive</Tooltip>.
+Pinned dependencies can be analyzed even if the file contains other unpinned dependencies. Manifest files or lockfiles can also be helpful to determine whether a dependency is <Tooltip tip="A dependency of a dependency. If your codebase uses dependency A, and A depends on B, then B is a transitive dependency." cta="See full definition." href="/semgrep-supply-chain/glossary#transitive-or-indirect-dependency">transitive</Tooltip>.
 
 ## Check scan status and result location
 
@@ -57,7 +57,7 @@ If the scan did run successfully, the scan data may have been sent to a differen
 
 Semgrep Supply Chain only runs in [diff-aware scans](/deployment/customize-ci-jobs#set-up-diff-aware-scans) if the manifest file or lockfile was modified in the PR/MR.
 
-If code is modified, but the manifest file or lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability. See full definition.">reachability</Tooltip> will be identified on the next full scan.
+If code is modified, but the manifest file or lockfile is not, Supply Chain does not analyze the changes. Any code changes that might impact <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> will be identified on the next full scan.
 </Accordion>
 
 <Accordion title="Did Semgrep scan a ref other than your default branch, or does your default branch have a less common name?">
@@ -81,7 +81,7 @@ By default, the Vulnerabilities page displays vulnerabilities from:
 </Accordion>
 <Accordion title="Are all findings in the scan unreachable vulnerabilities?">
 
-By default, Semgrep AppSec Platform shows only <Tooltip tip="A reachable finding means your codebase uses both a vulnerable code pattern and a vulnerable dependency version. Findings (usages) are grouped by vulnerability.">reachable</Tooltip>
+By default, Semgrep AppSec Platform shows only <Tooltip tip="A reachable finding means your codebase uses both a vulnerable code pattern and a vulnerable dependency version. Findings (usages) are grouped by vulnerability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachable-finding-and-reachable-vulnerability">reachable</Tooltip>
 
 To see all vulnerabilities, select all boxes under the "Exposure" filter.
 

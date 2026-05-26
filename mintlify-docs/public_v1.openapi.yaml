@@ -3645,6 +3645,8 @@ info:
   title: Semgrep Web App
   version: 1.0.0
 openapi: 3.0.3
+servers:
+  - url: https://semgrep.dev
 paths:
   /api/v1/bootstrap-sms-vpc:
     get:

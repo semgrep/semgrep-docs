@@ -10,7 +10,7 @@ You can automate private rules deployment using the Semgrep API using the follow
   </Step>
 
   <Step>
-  Once you've published your rules, activate the rules by setting the rules' `policyMode` parameters using the [Update policies endpoint](https://semgrep.dev/api/v1/#tag/PoliciesService/operation/PoliciesService_UpdatePolicy).
+  Once you've published your rules, activate the rules by setting the rules' `policyMode` parameters using the [Update policies endpoint](/api-reference/policiesservice/update-policy).
 
   This endpoint requires you to provide the `rulePath`, which is the **Organization slug** + `.` + the **Rule ID**. You can find the **Organization slug** in Semgrep AppSec Platform under [**Settings > General > Identifiers**](https://semgrep.dev/orgs/-/settings/general/identifiers), and you can see the **Rule ID** defined in the rule's YAML file.
 

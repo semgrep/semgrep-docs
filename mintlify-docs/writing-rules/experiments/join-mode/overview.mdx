@@ -8,7 +8,7 @@ Think of join mode like this: distinct Semgrep rules are used to gather informat
 <Note>
 **INFO**
 
-You can also use cross-file (interfile) analysis. For more information, see [<Icon icon="file-lines" iconType="regular"/> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro). <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip> is preferred over join mode where either of the two are feasible. Neither is currently available in Semgrep Community Edition (CE).
+You can also use cross-file (interfile) analysis. For more information, see [<Icon icon="file-lines" iconType="regular"/> Perform cross-file analysis](/semgrep-code/semgrep-pro-engine-intro). <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> is preferred over join mode where either of the two are feasible. Neither is currently available in Semgrep Community Edition (CE).
 </Note>
 
 ## Example
@@ -42,7 +42,7 @@ rules:
 
 Let's explore how this works. First, some background on the vulnerability. Second, we'll walk through the join mode rule.
 
-**<Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity. See full definition.">Vulnerability</Tooltip> background**
+**<Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> background**
 
 In Flask, templates are only HTML-escaped if the [template file ends with the `.html` extension](https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup). Therefore, detecting these two conditions present in a Flask application is a high indicator of
 

@@ -16,9 +16,9 @@ Semgrep saves security engineers time and effort by prioritizing valid leaked se
 To ensure that findings are high-signal, comprehensive, and easy for users to prioritize, a Semgrep Secrets scan performs the following:
 
 * Search using regex
-* <Tooltip tip="Semgrep Secrets' ability to understand how data is used in code, including dataflow analysis and constant propagation. See full definition.">Semantic analysis</Tooltip>
+* <Tooltip tip="Semgrep Secrets' ability to understand how data is used in code, including dataflow analysis and constant propagation." cta="See full definition." href="/semgrep-secrets/glossary#semantic-analysis">Semantic analysis</Tooltip>
 * Validation
-* <Tooltip tip="Measures how random a string is to help determine whether it is likely a secret and reduce false positives. See full definition.">Entropy analysis</Tooltip>
+* <Tooltip tip="Measures how random a string is to help determine whether it is likely a secret and reduce false positives." cta="See full definition." href="/semgrep-secrets/glossary#entropy-analysis">Entropy analysis</Tooltip>
 
 The following sections explain how each step works.
 
@@ -30,11 +30,11 @@ To reduce the number of false positives this process raises, Semgrep uses and co
 
 - Removal of results that are likely to be false positives
 - Validation
-- <Tooltip tip="Measures how random a string is to help determine whether it is likely a secret and reduce false positives. See full definition.">Entropy analysis</Tooltip>
+- <Tooltip tip="Measures how random a string is to help determine whether it is likely a secret and reduce false positives." cta="See full definition." href="/semgrep-secrets/glossary#entropy-analysis">Entropy analysis</Tooltip>
 
 ### Detect secrets through semantic analysis
 
-<Tooltip tip="Semgrep Secrets' ability to understand how data is used in code, including dataflow analysis and constant propagation. See full definition.">Semantic analysis</Tooltip> refers to Semgrep Secrets' ability to understand how data is used within your code. This differentiates Semgrep Secrets from regex-based detectors that simply define a pattern to match a piece of code.
+<Tooltip tip="Semgrep Secrets' ability to understand how data is used in code, including dataflow analysis and constant propagation." cta="See full definition." href="/semgrep-secrets/glossary#semantic-analysis">Semantic analysis</Tooltip> refers to Semgrep Secrets' ability to understand how data is used within your code. This differentiates Semgrep Secrets from regex-based detectors that simply define a pattern to match a piece of code.
 
 Semgrep Secrets uses several mechanisms to perform semantic analysis. It uses [<Icon icon="file-text" iconType="solid"/> dataflow analysis](/writing-rules/data-flow/data-flow-overview) and [<Icon icon="file-text" iconType="solid"/> constant propagation](/writing-rules/data-flow/constant-propagation) which means that it is able to track data, such as variables, and the flow of that data across files and functions in your codebase.
 

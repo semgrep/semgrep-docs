@@ -5,7 +5,7 @@
   "colors": {
     "primary": "#008456",
     "light": "#008456",
-    "dark": "#624DEF"
+    "dark": "#54D8B7"
   },
   "background": {
     "color": {
@@ -14,7 +14,7 @@
     },
     "decoration": "gradient"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -387,14 +387,19 @@
                 "group": "Advanced rule-writing techniques",
                 "pages": [
                   "writing-rules/rule-defined-fix",
-                  "writing-rules/data-flow/data-flow-overview",
-                  "writing-rules/data-flow/constant-propagation",
                   {
-                    "group": "Taint analysis",
-                    "root": "writing-rules/data-flow/taint-mode/overview",
-                    "pages": ["writing-rules/data-flow/taint-mode/advanced"]
+                    "group": "Dataflow analysis",
+                    "root": "writing-rules/data-flow/data-flow-overview",
+                    "pages": [
+                      "writing-rules/data-flow/constant-propagation",
+                      {
+                        "group": "Taint analysis",
+                        "root": "writing-rules/data-flow/taint-mode/overview",
+                        "pages": ["writing-rules/data-flow/taint-mode/advanced"]
+                      },
+                      "writing-rules/data-flow/status"
+                    ]
                   },
-                  "writing-rules/data-flow/status",
                   "writing-rules/generic-pattern-matching",
                   "writing-rules/metavariable-analysis",
                   {
@@ -620,9 +625,9 @@
       },
       {
         "tab": "Help",
-        "dropdowns": [
+        "menu": [
           {
-            "dropdown": "Knowledge base",
+            "item": "Knowledge base",
             "icon": "book",
             "groups": [
               {
@@ -765,7 +770,7 @@
             ]
           },
           {
-            "dropdown": "Support",
+            "item": "Support",
             "icon": "headset",
             "groups": [
               {
@@ -822,9 +827,9 @@
       },
       {
         "tab": "Explore",
-        "dropdowns": [
+        "menu": [
           {
-            "dropdown": "What's Semgrep",
+            "item": "What's Semgrep",
             "icon": "sparkles",
             "groups": [
               {
@@ -852,7 +857,7 @@
             ]
           },
           {
-            "dropdown": "For developers",
+            "item": "For developers",
             "icon": "code",
             "pages": [
               "for-developers/overview",
@@ -875,9 +880,9 @@
             ]
           },
           {
-            "dropdown": "References",
-            "icon":"code-simple",
-            "pages":[
+            "item": "References",
+            "icon": "code-simple",
+            "pages": [
               {
                 "group": "CI references",
                 "root": "category/ci-references",
@@ -891,9 +896,7 @@
               {
                 "group": "Language-specific features",
                 "root": "category/language-specific-features",
-                "pages": [
-                  "semgrep-code/java"
-                ]
+                "pages": ["semgrep-code/java"]
               },
               {
                 "group": "Glossaries",
@@ -908,7 +911,7 @@
             ]
           },
           {
-            "dropdown": "Release notes",
+            "item": "Release notes",
             "icon": "bullhorn",
             "groups": [
               {
@@ -918,7 +921,6 @@
                   {
                     "group": "2026",
                     "pages": [
-                      "release-notes/may-2026",
                       "release-notes/april-2026",
                       "release-notes/march-2026",
                       "release-notes/february-2026",
@@ -942,6 +944,26 @@
                 ]
               }
             ]
+          },
+          {
+            "item": "Support & resources",
+            "icon": "headset",
+            "pages": ["support"]
+          },
+          {
+            "item": "Registry",
+            "icon": "database",
+            "href": "https://semgrep.dev/explore"
+          },
+          {
+            "item": "Playground",
+            "icon": "codepen",
+            "href": "https://semgrep.dev/playground/new"
+          },
+          {
+            "item": "Semgrep Academy",
+            "icon": "graduation-cap",
+            "href": "https://academy.semgrep.dev/"
           }
         ]
       }
@@ -949,9 +971,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Blog",
-          "href": "https://semgrep.dev/blog",
-          "icon": "newspaper"
+          "anchor": "Registry",
+          "href": "https://semgrep.dev/explore/",
+          "icon": "database"
+        },
+        {
+          "anchor": "Playground",
+          "href": "https://semgrep.dev/playground/new",
+          "icon": "codepen"
         },
         {
           "anchor": "Academy",
@@ -962,8 +989,9 @@
     }
   },
   "logo": {
-    "light": "logo/light.svg",
-    "dark": "logo/dark.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://semgrep.dev"
   },
   "navbar": {
     "links": [
@@ -973,8 +1001,9 @@
       }
     ],
     "primary": {
-      "type": "github",
-      "href": "https://github.com/semgrep/semgrep"
+      "type": "button",
+      "label": "Book demo",
+      "href": "https://semgrep.dev/contact/demo/"
     }
   },
   "contextual": {

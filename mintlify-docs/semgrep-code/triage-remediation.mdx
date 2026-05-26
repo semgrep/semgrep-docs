@@ -251,7 +251,7 @@ To turn off a **ruleset** using the Policies page:
 Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
 </Step>
 <Step>
-Use the **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry. See full definition.">Ruleset</Tooltip>** filter's drop-down box to find and click the ruleset to remove.
+Use the **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip>** filter's drop-down box to find and click the ruleset to remove.
 </Step>
 <Step>
 Click <Icon icon="square-check" iconType="solid"/> **Matching rules**.
@@ -337,4 +337,4 @@ If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored
 When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
 </Info>
 
-Refer to [<Icon icon="external-link" iconType="solid"/> Bulk triage API documentation](https://semgrep.dev/api/v1/#tag/TriageService) for complete details.
+Refer to [Bulk triage API documentation](/api-reference/triageservice/bulk-triage) for complete details.
