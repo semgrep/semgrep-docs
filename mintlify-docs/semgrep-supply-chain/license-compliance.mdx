@@ -22,7 +22,7 @@ Licenses are detected based on the **package manager** used. See [Supported lang
 
 Licenses in Semgrep can be assigned any of the following policies:
 
-| <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip> | Description |
+| <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip> | Description |
 | :--- | :--- |
 | **Allow** | Packages with licenses assigned this type of permission are allowed for use in the codebase. |
 | **Comment** | Packages with licenses assigned this type of permission are allowed for use in the codebase. A comment is added to the PR or MR introducing the package into the codebase. This permission can be useful when you want to remind or warn developers to use certain licenses for internal use only. |
@@ -132,7 +132,7 @@ You can add an [exemption for the package](#create-exemptions) if subsequent rev
 
 You can create exemptions to **allow** specific dependencies with licenses that are typically blocked. This feature is useful for internal dependencies not accessed by users or external APIs. 
 
-<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> exemptions are currently version-specific, so each version used must be exempted individually.
+<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> exemptions are currently version-specific, so each version used must be exempted individually.
 
 To exempt a package:
 

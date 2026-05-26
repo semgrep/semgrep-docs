@@ -82,7 +82,7 @@ The following filters are available:
 
 ### Project
 
-The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
+The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
 
 ### Status
 
@@ -99,10 +99,10 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | **Confidence** | Filter by the likelihood of the rule to detect true positives. The higher the confidence, the more true positives the rule may detect. |
 | **Rule mode** | Filter by monitoring, commenting, or blocking rules in your Policies. |
 | **Rule** | Filter by rules included in your Policies page. You can select more than one rule or ruleset for filtering. |
-| **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry. See full definition.">Ruleset</Tooltip>** | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
+| **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip>** | Filter by the ruleset name where rules that match the code belong. More than one rule or ruleset can be selected for filtering. |
 | **Pro findings only** | Filter for findings identified using Semgrep Pro rules. Also includes findings originating from cross-file or cross-function analysis. |
 | **Code lifecycle** | Filter for findings based on whether they are **Production** findings or **Pre-production** findings. **Production** findings are those identified on primary branches, while **Pre-production** findings are those identified on pull request or merge requests. |
-| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** | Filter for findings based on the tags associated with the project. |
+| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** | Filter for findings based on the tags associated with the project. |
 | **Teams** | Filter for findings in projects owned by the selected teams. |
 | **Multimodal file risk level** | Filter for findings based on Multimodal's assessment of risk level of files based on the type of code identified. High-risk files contain sensitive information, such as authorization and authentication details, while low-risk files may be things like test files. You can further filter by file type, such as **payments** or **tests**. |
 | **Multimodal autotriage** | Filter by whether [Multimodal autotriage](/semgrep-multimodal/overview#auto-triage) has determined the finding to be a **True positive** or **False positive**. |
@@ -113,7 +113,7 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 <Accordion title={"Expand to learn about how Semgrep categorizes your findings."}>
 A finding can be categorized in two ways:
 
-1. **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions. See full definition.">Finding</Tooltip> categorization based on the issue or code it detects**:
+1. **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> categorization based on the issue or code it detects**:
 
     - Anti-patterns
     - Security vulnerabilities, such as dangerous function usage
@@ -122,7 +122,7 @@ A finding can be categorized in two ways:
 
     Semgrep rules provide a metadata schema to identify these common categories. Semgrep findings include a `message` field that describes the security issue or bug found in matching code. Additionally, findings can provide a `fix` field that fixes the issue by creating a suggestion within your source code management (SCM) tool, such as GitHub, GitLab, and Bitbucket.
 
-2. **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions. See full definition.">Finding</Tooltip> categorization based on the validity of the match**:
+2. **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> categorization based on the validity of the match**:
 
     - **True positive**: Rules are written to match a certain code pattern. A true positive is a genuine match. The rule is capturing the code as intended.
     - **False positive**: A false positive is a mismatch between the intended purpose of the rule and the code it matched. A finding is generated but does not meet the rule's intended need. Rules with a high false positivity rate are said to be **noisy**.
@@ -147,7 +147,7 @@ To view findings individually, click **Group & sort > No grouping**. Findings ar
 
 ## Export findings
 
-You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> API](https://semgrep.dev/api/v1/).
+You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [API](/api-reference/Introduction).
 
 Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 

@@ -35,10 +35,10 @@ Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platfor
 Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
 </Step>
 <Step>
-Click the **<Icon icon="toggle-large-on" iconType="solid"/> <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip>** toggle to turn on this feature.
+Click the **<Icon icon="toggle-large-on" iconType="solid"/> <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip>** toggle to turn on this feature.
 </Step>
 <Step>
-Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<Icon icon="external-link" iconType="solid"/> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip>**. For best results, set this ruleset to the **Monitor** rule mode.
+Ensure that you have the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is **not** added, go to [<Icon icon="external-link" iconType="solid"/> Semgrep Registry - Default ruleset page](https://semgrep.dev/p/default), then click **Add to <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip>**. For best results, set this ruleset to the **Monitor** rule mode.
 </Step>
 </Steps>
 
@@ -63,7 +63,7 @@ For first-time users, click **Create an organization**. Note that you can furthe
 Go to **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)**.
 </Step>
 <Step>
-Click the **<Icon icon="toggle-large-on" iconType="solid"/> <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip>** toggle to turn on this feature.
+Click the **<Icon icon="toggle-large-on" iconType="solid"/> <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip>** toggle to turn on this feature.
 </Step>
 <Step>
 Ensure that you are in the **root directory** of the repository you want to scan.
@@ -78,7 +78,7 @@ semgrep login && semgrep ci
 
 #### Update cross-file analysis in the CLI
 
-<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip> uses a separate `semgrep` binary. To update to the latest version, follow these steps:
+<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> uses a separate `semgrep` binary. To update to the latest version, follow these steps:
 
 <Steps>
 <Step>
@@ -176,7 +176,7 @@ This results in a failure to detect the true positive, because Semgrep did not p
 
 ### CommonJS
 
-Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip> does not track the code below:
+Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> does not track the code below:
 
 ```js
 function get_user() {
@@ -188,7 +188,7 @@ module.exports = get_user
 
 ### Regressions in cross-file analysis
 
-<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip> resolves names differently than Semgrep CE's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep CE. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
+<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> resolves names differently than Semgrep CE's analysis. Consequently, rules with `interfile: true` may produce different results than Semgrep CE. Some instances could be regarded as regressions; if you encounter them, please file a bug report. When you need to report a bug in Semgrep's cross-file analysis, go through [Semgrep Support](/support). You can also contact us through [Semgrep Community Slack group](https://go.semgrep.dev/slack).
 
 ## Appendix
 
@@ -218,7 +218,7 @@ If many repositories cause scan issues, or you have critical repositories you ar
 
 <Steps>
 <Step>
-Disable the <Icon icon="toggle-large-on" iconType="solid"/> **<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip>** toggle in the **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)** page of your organization.
+Disable the <Icon icon="toggle-large-on" iconType="solid"/> **<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip>** toggle in the **[Settings > General > Code](https://semgrep.dev/orgs/-/settings/general/code)** page of your organization.
 </Step>
 <Step>
 Review scan troubleshooting guides such as [A Semgrep scan is having a problem - what next?](/kb/semgrep-code/semgrep-scan-troubleshooting) or [Troubleshooting "You are seeing this because the engine was killed."](/kb/semgrep-code/scan-engine-kill)
@@ -230,7 +230,7 @@ If you need additional guidance, [contact Semgrep Support](/support), or reach o
 
 ### Difference between cross-file analysis and join mode
 
-<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference. See full definition.">Cross-file analysis</Tooltip> is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
+<Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> is different from [join mode](/writing-rules/experiments/join-mode/overview), which also allows you to perform cross-file analyses by letting you join on the metavariable matches in separate rules. Join mode is an experimental feature which is not actively developed or maintained. You may encounter many issues while using join mode.
 
 ### Feedback for Semgrep Code's advanced analyses
 

@@ -89,7 +89,7 @@ The following filters are available:
 
 ### Project
 
-The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
+The **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** filter allows you to search for findings associated with the selected projects.
 
 ### Status
 
@@ -113,9 +113,9 @@ Semgrep offers additional filters that you can use to narrow down your results. 
 | [**EPSS probability**](#epss-probability) | The finding's [Exploit prediction scoring system (EPSS) probability](https://www.first.org/epss/). |
 | **Upgrade guidance (beta)** | The impact of a dependency upgrade on your project as determined by Multimodal. |
 | **Dependencies** | The name of the dependency involved. |
-| **<Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view. See full definition and Advisories.">Advisory</Tooltip>** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
+| **<Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip>** | The vulnerabilities' ID number, such as CVE, GHSA, MAL, or keyword. |
 | **Malicious dependency** | Whether the finding is for a malicious dependency |
-| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** | The tags associated with the project. |
+| **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** | The tags associated with the project. |
 | **Multimodal file risk level** | Filter by the risk level determined by Semgrep Multimodal. |
 
 
@@ -161,12 +161,12 @@ You can view findings individually or grouped by the rule that identified the fi
 
 By default, Semgrep displays your findings using the **Group by Rule** view. This view shows your findings grouped by the rule Semgrep used to match the code. Your findings are shown sorted **by severity**, but you can opt to sort **by number of findings** for a given rule.
 
-A specific finding in the code is called a **usage**. <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity. See full definition.">Vulnerability</Tooltip> entries are sorted as cards by severity from critical to low, then from oldest to newest.
+A specific finding in the code is called a **usage**. <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> entries are sorted as cards by severity from critical to low, then from oldest to newest.
 
 
 ## Export findings
 
-You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> API](https://semgrep.dev/api/v1/).
+You can export findings to a **CSV** file. Semgrep can export up to **10,000 most recent findings**. To export more than 10,000 findings, you must use the [<Icon icon="external-link" iconType="solid"/> API](/api-reference/Introduction).
 
 Semgrep exports all findings to the CSV file regardless of the filters you apply on the page.
 

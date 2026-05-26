@@ -5,7 +5,7 @@ description: "Semgrep Supply Chain (SCA) scans dependencies by parsing manifest 
 
 For language-level coverage and feature maturity, see [Supported languages](/supported-languages).
 
-For some languages, a lockfile or manifest file is required to accurately to determine <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity. See full definition.">transitivity</Tooltip>. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+For some languages, a lockfile or manifest file is required to accurately to determine <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip>. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
 The following table lists all Semgrep-supported package managers for each language. Languages with **reachability** support are listed first.
 
@@ -127,4 +127,4 @@ The following table lists all Semgrep-supported package managers for each langua
 
 _<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._
 
-_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability. See full definition.">reachability</Tooltip> Analysis.**_<br />
+_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br />

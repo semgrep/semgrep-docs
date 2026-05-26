@@ -9,7 +9,7 @@ At least one project (a repository or subfolder in a monorepo) that scans for de
 
 </Info>
 
-Semgrep Supply Chain's dependency search feature allows you to view and query for any dependency in your project at any time. This feature detects all transitive and direct dependencies across all of your projects in Semgrep AppSec Platform. <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> search lists all the versions of a dependency, as well as the projects that use the dependency.
+Semgrep Supply Chain's dependency search feature allows you to view and query for any dependency in your project at any time. This feature detects all transitive and direct dependencies across all of your projects in Semgrep AppSec Platform. <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> search lists all the versions of a dependency, as well as the projects that use the dependency.
 
 For newly discovered vulnerabilities, which may not yet have a formal CVE or Supply Chain rule, you can use dependency search to see if you use the vulnerable dependency in any of your repositories. You can also use dependency search to see all the versions of a dependency, which can be useful for standardization purposes.
 
@@ -25,7 +25,7 @@ Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 Go to **Settings > General > Supply Chain**.
 </Step>
 <Step>
-Click <Icon icon="toggle-large-on" iconType="solid"/> **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> search** if it's not already enabled.
+Click <Icon icon="toggle-large-on" iconType="solid"/> **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> search** if it's not already enabled.
 </Step>
 <Step>
 Navigate to **Supply Chain > Dependencies**.
@@ -62,7 +62,7 @@ Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 Navigate to **Supply Chain > Dependencies**.
 </Step>
 <Step>
-Using the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip>** search bar, enter the name of the dependency you are searching for.
+Using the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip>** search bar, enter the name of the dependency you are searching for.
 </Step>
 <Step>
 Optional: Apply filters as necessary for your search.
@@ -77,7 +77,7 @@ To filter your results by version number:
 <Step>
 Enter the dependency name and press **Enter** or **Return**. This returns a list of matches, but you can then filter your results further by version number:
 
-   i. Click the name of your dependency to open the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip>** dialog:
+   i. Click the name of your dependency to open the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip>** dialog:
 
    ii. To search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
 
@@ -94,7 +94,7 @@ You can also use the **Advanced search** to search for specific versions of depe
 Click **Advanced search**.
 </Step>
 <Step>
-Enter the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip>** name.
+Enter the **<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip>** name.
 </Step>
 <Step>
 To specify a **version** number, click **Exact match**. For a range, click **Range** and provide the minimum and maximum versions.
@@ -111,14 +111,14 @@ You can search for multiple packages simultaneously.
 
 ## Search filters
 
-<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> search provides the following filters, which correspond to the data points displayed by Semgrep about each dependency:
+<Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> search provides the following filters, which correspond to the data points displayed by Semgrep about each dependency:
 
 | Filter | Description |
 | :--- | :--- |
-| <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> | The name and version of the dependency. |
+| <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> | The name and version of the dependency. |
 | Projects | The projects where the dependency can be found. |
-| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity. See full definition.">Transitivity</Tooltip>| The relationship of the dependency to your codebase. |
-| License <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip> | The License <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip> you set. Determines whether a dependency can be used based on its license. |
+| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip>| The relationship of the dependency to your codebase. |
+| License <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip> | The License <Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip> you set. Determines whether a dependency can be used based on its license. |
 | License | The dependency's license type. |
 | Language | The language of the dependency. |
 
@@ -131,7 +131,7 @@ This feature is currently in invite-only beta. Please contact [Semgrep Support](
 
 </Note>
 
-The <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. With this information, you can understand:
+The <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. With this information, you can understand:
 
 - How a transitive dependency was introduced
 - How deeply the transitive dependency is nested in the dependency tree.
@@ -148,7 +148,7 @@ Semgrep generates dependency paths for C# projects using NuGet.
 
 Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
 
-Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> paths for such projects are available when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths for such projects are available when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
 
 #### JavaScript
 
@@ -175,9 +175,9 @@ when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-p
 
 ### View the dependency path
 
-After you have been added to the <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python. See full definition.">Dependency</Tooltip> paths beta and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
+After you have been added to the <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths beta and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
 
-- The **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions. See full definition.">Finding</Tooltip> Details** page for a transitive finding
+- The **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details** page for a transitive finding
 - The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path
 
 ## Troubleshooting: no dependencies appear on the Dependencies page

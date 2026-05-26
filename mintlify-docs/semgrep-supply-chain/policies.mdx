@@ -44,20 +44,20 @@ Click **Supply Chain**. This takes you to the Supply Chain policies tab. Your po
 From the Supply Chain policies tab, Click **<Icon icon="plus" iconType="solid"/> Create policy**.
 </Step>
 <Step>
-Provide a **<Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code. See full definition.">Policy</Tooltip> name**.
+Provide a **<Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip> name**.
 </Step>
 <Step>
 Define the scope of the policy:
 
-    i. Click the drop-down box to select between **All Projects**, **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>**, or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip> tag**. Note that you can only select either a scope based on projects or tags, but not both.
+    i. Click the drop-down box to select between **All Projects**, **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>**, or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip> tag**. Note that you can only select either a scope based on projects or tags, but not both.
 
-    ii. For **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip>** or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources. See full definition.">Project</Tooltip> tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
+    ii. For **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip> tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
 </Step>
 <Step>
 Define the **Conditions** of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
     - For each condition, you can select multiple values by clicking on the **plus sign (<Icon icon="plus" iconType="solid"/>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
     - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
-    - You can define conditions that are exclusionary, such as **When <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity. See full definition.">transitivity</Tooltip> *is not* Transitive....**
+    - You can define conditions that are exclusionary, such as **When <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip> *is not* Transitive....**
 </Step>
 <Step>
 Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
@@ -84,8 +84,7 @@ Use the following recommendations to help you create policies. These guidelines 
 - **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
 - **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
 - **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
-- **Critical and high <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%). See full definition and Exploit Prediction Scoring System (EPSS).">EPSS probability</Tooltip>**. There is a chance of these findings being exploited regardless of reachability.
-
+- **Critical and high <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>**. There is a chance of these findings being exploited regardless of reachability.
 
 ### Turn off PR and MR comments
 
@@ -117,11 +116,11 @@ The following table lists available conditions and their values:
 
 | Condition | Values|
 | :--- | :--- |
-| <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability. See full definition.">Reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
+| <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
-| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity. See full definition.">Transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
-| <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%). See full definition and Exploit Prediction Scoring System (EPSS).">EPSS probability</Tooltip>  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
+| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 | [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
 
 
