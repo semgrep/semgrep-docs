@@ -1,9 +1,7 @@
-var hostname =
-    window.location && window.location.hostname !== "localhost"
-        ? window.location.hostname
-        : "semgrep.dev";
-window["_fs_host"] = hostname + "/fs";
-window["_fs_script"] = hostname + "/fs/s/fs.js";
+// FullStory's first-party proxy is served from semgrep.dev (not docs.semgrep.dev).
+var fsProxyHost = "semgrep.dev";
+window["_fs_host"] = fsProxyHost + "/fs";
+window["_fs_script"] = fsProxyHost + "/fs/s/fs.js";
 window["_fs_org"] = "S99QT";
 window["_fs_namespace"] = "FSDocs";
 !(function (m, n, e, t, l, o, g, y) {
