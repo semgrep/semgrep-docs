@@ -973,7 +973,7 @@
               {
                 "group": "Most recent posts",
                 "pages": [
-                  "release-notes",
+                  "release-notes/index",
                   {
                     "group": "2026",
                     "pages": [
