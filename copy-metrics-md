@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
+# Build docs/snippets/metrics.mdx from Semgrep's upstream metrics.md.
+# Imported by docs/metrics.mdx and docs/metrics-1.mdx via:
+#   import Metrics from "/snippets/metrics.mdx"
 set -euo pipefail
 
-OUTPUT="docs/snippets/metrics.mdx"
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+OUTPUT="${REPO_ROOT}/docs/snippets/metrics.mdx"
 METRICS_URL="https://raw.githubusercontent.com/semgrep/semgrep/develop/metrics.md"
 
 cat > "$OUTPUT" <<'HEADER'
