@@ -1,3 +1,17 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-cat docs/metrics-helmet.md <(curl 'https://raw.githubusercontent.com/semgrep/semgrep/develop/metrics.md') > docs/metrics.md
+OUTPUT="docs/snippets/metrics.mdx"
+METRICS_URL="https://raw.githubusercontent.com/semgrep/semgrep/develop/metrics.md"
+
+cat > "$OUTPUT" <<'HEADER'
+- [the principles that guide our data-collection decisions](#principles)
+- [how to change when Semgrep sends metrics](#automatic-collection-opt-in-and-opt-out)
+- [what data is not collected](#data-not-collected)
+- [what data is collected](#data-collected-as-metrics)
+
+
+HEADER
+
+curl -fsSL "$METRICS_URL" >> "$OUTPUT"
+echo "Wrote $OUTPUT"

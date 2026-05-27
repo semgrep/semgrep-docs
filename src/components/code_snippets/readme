@@ -1,3 +1,0 @@
-This folder has many code snippets that are similar except for some additional lines or the semgrep ci command. Why?
-
-The many duplicates are due to how props interact with ``` in mdx. We cannot pass props in ``` (because it's meant to be rendered as text).
