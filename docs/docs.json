@@ -1022,6 +1022,11 @@
             "item": "Semgrep Academy",
             "icon": "graduation-cap",
             "href": "https://academy.semgrep.dev/"
+          },
+          {
+            "item": "GitHub",
+            "icon": "github",
+            "href": "https://github.com/semgrep/semgrep-docs"
           }
         ]
       }
