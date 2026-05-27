@@ -1,27 +1,17 @@
 ---
-slug: ruby-code-injection
-displayed_sidebar: learnSidebar
-title: Code Injection for Ruby
-hide_title: true
-description: "Cheat sheet for the prevention of Code Injection vulnerabilities for Ruby."
-tags:
-  - ruby
-  - code-injection
+title: "Prevent Code Injection for Ruby"
+sidebarTitle: "Code Injection for Ruby"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a code injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of code injection in your code. By following these recommendations, you can be reasonably sure your code is free of code injection.
 
-# Prevent Code Injection for Ruby
-
-<CodeInjectionIntro />
-
-Learn more about [Code Injection](/docs/learn/vulnerabilities/code-injection) vulnerability concepts.
+Learn more about [Code Injection](/learn/vulnerabilities/code-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Evaluating code
 
@@ -66,7 +56,7 @@ Thing.module_eval(%q{def hello() "#{user_input}" end})
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+[`ruby.lang.security.no-eval.ruby-eval`](https://semgrep.dev/r/ruby.lang.security.no-eval.ruby-eval)
 
 ### 1.B. Evaluating code with RubyVM::InstructionSequence
 
@@ -95,4 +85,4 @@ RubyVM::InstructionSequence.compile("a = 1 + #{user_input}")
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="ruby.lang.security.no-eval.ruby-eval" />
+[`ruby.lang.security.no-eval.ruby-eval`](https://semgrep.dev/r/ruby.lang.security.no-eval.ruby-eval)

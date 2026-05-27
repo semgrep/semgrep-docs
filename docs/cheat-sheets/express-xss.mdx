@@ -1,23 +1,11 @@
 ---
-slug: express-xss
-displayed_sidebar: learnSidebar
-title: XSS in ExpressJS
-hide_title: true
-description: "Cheat sheet for the prevention of Cross-site Scripting (XSS) vulnerabilities for ExpressJS."
-tags:
-  - javascript
-  - xss
+title: "Prevent XSS in ExpressJS"
+sidebarTitle: "XSS in ExpressJS"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a cross-site scripting (XSS) prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
 
-# Prevent XSS in ExpressJS
-
-<XssInjectionIntro />
-
-Learn more about [Cross-site Scripting](/docs/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
+Learn more about [Cross-site Scripting](/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
 
 ## Mitigation summary
 
@@ -25,7 +13,9 @@ In general, always use a template engine and `res.render()` to render HTML conte
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Server code: Bypassing the template engine
 
@@ -52,7 +42,7 @@ Ban `res.send()`. Alternatively, use a template engine and call `res.render()`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+[`javascript.express.security.audit.xss.direct-response-write.direct-response-write`](https://semgrep.dev/r/javascript.express.security.audit.xss.direct-response-write.direct-response-write)
 
 
 ### 1.B. Direct use of `res.write()`
@@ -77,7 +67,7 @@ Ban `response.write()`. Alternatively, use a template engine and call `res.rende
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.direct-response-write.direct-response-write" />
+[`javascript.express.security.audit.xss.direct-response-write.direct-response-write`](https://semgrep.dev/r/javascript.express.security.audit.xss.direct-response-write.direct-response-write)
 
 
 ### 1.C. Mustache: overwriting the global escape function
@@ -97,14 +87,13 @@ Mustache.escape = function(text) {return text;};
 
 #### Mitigation
 
-Ban overwriting `Mustache.escape`. If necessary, use triple braces to escape only what you need in the template. Review each usage carefully and exempt with `<!-- nosemgrepgrep -->`.
+Ban overwriting `Mustache.escape`. If necessary, use triple braces to escape only what you need in the template. Review each usage carefully and exempt with `{/* nosemgrepgrep */}`.
 
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.escape-function-overwrite.escape-function-overwrite" />
+[`javascript.express.security.audit.xss.mustache.escape-function-overwrite.escape-function-overwrite`](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.escape-function-overwrite.escape-function-overwrite)
 
----
 
 ## 2. Templates: Variable explicitly unescaped
 
@@ -124,11 +113,11 @@ Example:
 
 #### Mitigation:
 
-Ban triple braces. Alternatively, only use this if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+Ban triple braces. Alternatively, only use this if necessary. Review each usage carefully and exempt with `{/* nosemgrep */}`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape" />
+[`javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape`](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape)
 
 ### 2.B. Mustache: Ampersand `&`
 
@@ -150,7 +139,7 @@ Ban ampersand escaping in template expressions. Alternatively, prefer triple bra
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape" />
+[`javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape`](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.explicit-unescape.template-explicit-unescape)
 
 ### 2.C. Pug: The unescape operator, `!=`
 
@@ -168,11 +157,11 @@ a(href!=url) Documentation
 
 #### Mitigation
 
-Ban `!=`; it is rarely necessary. Often, you want `!{...}`. If you must use this, review each usage carefully and exempt with `<!-- nosemgrep -->`.
+Ban `!=`; it is rarely necessary. Often, you want `!{...}`. If you must use this, review each usage carefully and exempt with `{/* nosemgrep */}`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape" />
+[`javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape`](https://semgrep.dev/r/javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape)
 
 ### 2.D. Pug: Unescaped strings with `!{ ... }`
 
@@ -191,12 +180,12 @@ p Joel: !{riskyBusiness}
 
 #### Mitigation:
 
-Ban `!{...}`. Alternatively, only use this if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+Ban `!{...}`. Alternatively, only use this if necessary. Review each usage carefully and exempt with `{/* nosemgrep */}`.
 
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape" />
+[`javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape`](https://semgrep.dev/r/javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape)
 
 
 ### 2.E Pug: And-attributes, `$attributes(...)`
@@ -219,7 +208,7 @@ Ban `&attributes(...)`. Alternatively, prefer `!=` only if necessary.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.and-attributes.template-and-attributes" />
+[`javascript.express.security.audit.xss.pug.and-attributes.template-and-attributes`](https://semgrep.dev/r/javascript.express.security.audit.xss.pug.and-attributes.template-and-attributes)
 
 ### 2.F. EJS: Unescaped content, `<%- ... %>`
 
@@ -235,13 +224,12 @@ Example:
 
 #### Mitigation
 
-Ban `<%- ... %>`. Alternatively, only use it if necessary. Review each usage carefully and exempt with `<!-- nosemgrep -->`.
+Ban `<%- ... %>`. Alternatively, only use it if necessary. Review each usage carefully and exempt with `{/* nosemgrep */}`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.explicit-unescape.template-explicit-unescape" />
+[`javascript.express.security.audit.xss.ejs.explicit-unescape.template-explicit-unescape`](https://semgrep.dev/r/javascript.express.security.audit.xss.ejs.explicit-unescape.template-explicit-unescape)
 
----
 
 ## 3. Templates: Variable in dangerous location
 
@@ -300,7 +288,7 @@ Flag template variables in `href` attributes. Alternatively, use a literal forwa
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.var-in-href.var-in-href" />
+[`javascript.express.security.audit.xss.mustache.var-in-href.var-in-href`](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-href.var-in-href)
 
 ### 3.D. Pug: Variable in `href` attribute
 
@@ -322,7 +310,7 @@ Flag template variables in `href` attributes. Alternatively, append the link to 
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.var-in-href.var-in-href" />
+[`javascript.express.security.audit.xss.pug.var-in-href.var-in-href`](https://semgrep.dev/r/javascript.express.security.audit.xss.pug.var-in-href.var-in-href)
 
 ### 3.E. EJS: Variable in `href` attribute
 
@@ -344,7 +332,7 @@ Flag template variables in `href` attributes. Alternatively, use a literal forwa
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.var-in-href.var-in-href" />
+[`javascript.express.security.audit.xss.ejs.var-in-href.var-in-href`](https://semgrep.dev/r/javascript.express.security.audit.xss.ejs.var-in-href.var-in-href)
 
 ### 3.F. Mustache: Variable in `<script>` block
 
@@ -366,7 +354,7 @@ Ban template variables in `<script>` blocks. Alternatively, avoid wherever possi
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.mustache.var-in-script-tag.var-in-script-tag" />
+[`javascript.express.security.audit.xss.mustache.var-in-script-tag.var-in-script-tag`](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-script-tag.var-in-script-tag)
 
 ### 3.G. Pug: Variable in `<script>` block
 
@@ -389,7 +377,7 @@ Ban template variables in `<script>` blocks. Alternatively, avoid wherever possi
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.pug.var-in-script-tag.var-in-script-tag" />
+[`javascript.express.security.audit.xss.pug.var-in-script-tag.var-in-script-tag`](https://semgrep.dev/r/javascript.express.security.audit.xss.pug.var-in-script-tag.var-in-script-tag)
 
 ### 3.H. EJS: Variable in `<script>` block
 
@@ -412,4 +400,4 @@ Ban template variables in `<script>` blocks. Alternatively, avoid wherever possi
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.express.security.audit.xss.ejs.var-in-script-tag.var-in-script-tag" />
+[`javascript.express.security.audit.xss.ejs.var-in-script-tag.var-in-script-tag`](https://semgrep.dev/r/javascript.express.security.audit.xss.ejs.var-in-script-tag.var-in-script-tag)

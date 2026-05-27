@@ -1,27 +1,17 @@
 ---
-slug: python-command-injection
-displayed_sidebar: learnSidebar
-title: Command Injection in Python
-hide_title: true
-description: "Cheat sheet for the prevention of Command Injection vulnerabilities for Python."
-tags:
-  - python
-  - command-injection
+title: "Prevent Command Injection for Python"
+sidebarTitle: "Command Injection in Python"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a command injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run an OS command in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
 
-# Prevent Command Injection for Python
-
-<CommandInjectionIntro />
-
-Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
+Learn more about [Command Injection](/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Running an OS command
 
@@ -80,7 +70,7 @@ Do not let a user input into `subprocess` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subprocess-use" />
+[`python.lang.security.audit.dangerous-subprocess-use`](https://semgrep.dev/r/python.lang.security.audit.dangerous-subprocess-use)
 
 ### 1.B. shell=True
 
@@ -110,7 +100,7 @@ Avoid using `shell=True`. Alternatively, use `shell=False` instead.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.subprocess-shell-true" />
+[`python.lang.security.audit.subprocess-shell-true`](https://semgrep.dev/r/python.lang.security.audit.subprocess-shell-true)
 
 ### 1.C. Using os module to execute commands
 
@@ -145,7 +135,7 @@ Do not let a user input into `os` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-system-call" />
+[`python.lang.security.audit.dangerous-system-call`](https://semgrep.dev/r/python.lang.security.audit.dangerous-system-call)
 
 ### 1.D. Using os module to spawn a process
 
@@ -189,7 +179,7 @@ Do not let a user input into `spawn` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process" />
+[`python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process)
 
 ### 1.E. Replacing current process with exec
 
@@ -233,7 +223,7 @@ Do not let a user input into `exec` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process" />
+[`python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.lang.security.audit.dangerous-spawn-process.dangerous-spawn-process)
 
 ### 1.F. Wildcard character in a system call that spawns a shell
 
@@ -268,7 +258,7 @@ Avoid wildcards in Unix shell commands.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.system-wildcard-detected" />
+[`python.lang.security.audit.system-wildcard-detected`](https://semgrep.dev/r/python.lang.security.audit.system-wildcard-detected)
 
 ### 1.G. Running shell commands asynchronously
 
@@ -306,7 +296,7 @@ Do not let a user input into `asyncio.subprocess` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-shell.dangerous-asyncio-shell" />
+[`python.lang.security.audit.dangerous-asyncio-shell.dangerous-asyncio-shell`](https://semgrep.dev/r/python.lang.security.audit.dangerous-asyncio-shell.dangerous-asyncio-shell)
 
 ### 1.H. Creating subprocesses asynchronously
 
@@ -356,5 +346,5 @@ Do not let a user input into `asyncio subprocess` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-exec.dangerous-asyncio-exec" /><br/>
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-asyncio-create-exec.dangerous-asyncio-create-exec" />
+[`python.lang.security.audit.dangerous-asyncio-exec.dangerous-asyncio-exec`](https://semgrep.dev/r/python.lang.security.audit.dangerous-asyncio-exec.dangerous-asyncio-exec)<br/>
+[`python.lang.security.audit.dangerous-asyncio-create-exec.dangerous-asyncio-create-exec`](https://semgrep.dev/r/python.lang.security.audit.dangerous-asyncio-create-exec.dangerous-asyncio-create-exec)

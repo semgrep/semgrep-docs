@@ -1,17 +1,13 @@
 ---
-append_help_link: true
-slug: pattern-syntax
-title: Rule pattern syntax
-description: "Learn Semgrep's pattern syntax to search code for a given code pattern."
-tags:
-  - Rule writing
+title: "Rule pattern syntax"
 ---
 
-# Rule pattern syntax
 
-:::tip
+<Tip>
+**TIP**
+
 Getting started with rule writing? Try the [Semgrep Tutorial](https://semgrep.dev/learn) 🎓
-:::
+</Tip>
 
 This document describes Semgrep’s pattern syntax. You can also see pattern [examples by language](/writing-rules/pattern-examples). In the command line, patterns are specified with the flag `--pattern` (or `-e`). Multiple
 coordinating patterns may be specified in a configuration file. See
@@ -120,9 +116,11 @@ def parse_data(parser, data={}):  # Oops, mutable default arguments
     pass
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
-:::
+</Tip>
 
 The ellipsis operator can match the function name.
 Match any function definition:
@@ -157,14 +155,17 @@ class DataRetriever(InsecureBaseClass):
         pass
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
-:::
+</Tip>
 
 #### Ellipsis operator scope
 
 The `...` ellipsis operator matches everything in its current scope. The current scope of this operator is defined by the patterns that precede `...` in a rule. See the following example:
 
+<Frame>
 <iframe
   src="https://semgrep.dev/embed/editor?snippet=zZx0"
   border="0"
@@ -173,6 +174,7 @@ The `...` ellipsis operator matches everything in its current scope. The current
   height="432"
   loading="lazy"
 ></iframe>
+</Frame>
 
 Semgrep matches the first occurrence of `bar` and `baz` in the test code as these objects fall under the scope of `foo` and `...`. The ellipsis operator does not match the second occurrence of `bar` and `baz` as they are not inside of the function definition, therefore these objects in their second occurrence are not inside the scope of the ellipsis operator.
 
@@ -246,9 +248,11 @@ pattern: |
       ...
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
-:::
+</Tip>
 
 matches:
 
@@ -274,9 +278,11 @@ if can_make_request:
     single_request_statement()
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
-:::
+</Tip>
 
 ### Matching single items with an ellipsis
 
@@ -351,9 +357,11 @@ initial_value = 10  # Oops, useless assignment
 initial_value = get_initial_value()
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 The YAML `|` operator allows for [multiline strings](https://yaml-multiline.info/).
-:::
+</Tip>
 
 ### Literal Metavariables
 
@@ -366,7 +374,9 @@ You can also use `/$X/` and `:$X` to respectively match
 any regular expressions or atoms (in languages that support
 those constructs, e.g., Ruby).
 
-:::info
+<Note>
+**INFO**
+
 Because literal metavariables bind to strings that may not be valid code, if you want to match them in more detail with a [`metavariable-pattern`](/writing-rules/rule-syntax/#metavariable-pattern), you must [specify `generic` language](/writing-rules/rule-syntax#metavariable-pattern-with-nested-language) inside the `metavariable-pattern`. For example:
 
 ```
@@ -383,7 +393,7 @@ rules:
           metavariable: $STRING
           pattern: "literal string contents"
 ```
-:::
+</Note>
 
 ### Typed metavariables
 
@@ -469,9 +479,11 @@ func read_file(reader *zip.Reader, filename) {
 }
 ```
 
-:::caution
+<Warning>
+**CAUTION**
+
 For Go, Semgrep currently does not recognize the type of all variables that are declared on the same line. That is, the following will not take both `a` and `b` as `int`s: `var a, b = 1, 2`
-:::
+</Warning>
 
 ##### TypeScript:
 
@@ -514,9 +526,11 @@ class Test {
 
 If you searched for `$X.log(...)`, you can also match `Math.log(num)`. Instead, you can search for `(Logger $X).log(...)` which gives you the call to `logger`. See the rule [`logger_search`](https://semgrep.dev/playground/s/lgAo).
 
-:::caution
+<Warning>
+**CAUTION**
+
 Since matching happens within a single file, this is only guaranteed to work for local variables and arguments. Additionally, Semgrep currently understands types on a shallow level. For example, if you have `int[] A`, it will not recognize `A[0]` as an integer. If you have a class with fields, you will not be able to use typechecking on field accesses, and it will not recognize the class’s field as the expected type. Literal types are understood to a limited extent. Expanded type support is under active development.
-:::
+</Warning>
 
 ### Ellipsis metavariables
 
@@ -571,19 +585,27 @@ Display values of matched metavariables in rule messages. Add a metavariable to 
 
 To display matched metavariable in a rule message, add the same metavariable as you are searching for in your rule to the rule message.
 
-1. Find the metavariable used in the Semgrep rule. See the following example of a part Semgrep rule (formula):
+<Steps>
+<Step>
+Find the metavariable used in the Semgrep rule. See the following example of a part Semgrep rule (formula):
    ```yaml
    - pattern: $MODEL.set_password(…)
    ```
    This formula uses `$MODEL` as a metavariable.
-2. Insert the metavariable to rule message:
+</Step>
+<Step>
+Insert the metavariable to rule message:
    ```yaml
    - message: Setting a password on $MODEL
    ```
-3. Use the formula displayed above against the following code:
+</Step>
+<Step>
+Use the formula displayed above against the following code:
    ```python
    user.set_password(new_password)
    ```
+</Step>
+</Steps>
 
 The resulting message is:
 
@@ -593,6 +615,7 @@ Setting a password on user
 
 Run the following example in Semgrep Playground to see the message (click **Open in Editor**, and then **Run**, unroll the **1 Match** to see the message):
 
+<Frame>
 <iframe
   title="Metavariable value in message example"
   src="https://semgrep.dev/embed/editor?snippet=6KpK"
@@ -601,10 +624,13 @@ Run the following example in Semgrep Playground to see the message (click **Open
   loading="lazy"
   frameborder="0"
 ></iframe>
+</Frame>
 
-:::info
+<Note>
+**INFO**
+
 If you're using Semgrep's advanced dataflow features, see documentation of experimental feature [Displaying propagated value of metavariable](/writing-rules/experiments/display-propagated-metavariable).
-:::
+</Note>
 
 ## Equivalences
 
@@ -655,9 +681,11 @@ def update_system():
     set_password(password)
 ```
 
-:::tip
+<Tip>
+**TIP**
+
 It is possible to disable constant propagation in a per-rule basis via the [`options` rule field](/writing-rules/rule-syntax#options).
-:::
+</Tip>
 
 ### Associative and commutative operators
 
@@ -725,9 +753,11 @@ When you write the expression `foo()` in a pattern, Semgrep will visit every exp
 
 Many programmers don't really see the difference between `foo()` and `foo();`. This is why when one looks for `foo()`; Semgrep thinks the user wants to match statements like `a = foo();`, or `print(foo());`.
 
-:::info
+<Note>
+**INFO**
+
 Note that in some programming languages such as Python, which does not use semicolons as a separator or terminator, the difference between expressions and statements is even more confusing. Indentation in Python matters, and a newline after `foo()` is really the same than `foo();` in other programming languages such as C.
-:::
+</Note>
 
 ### Partial expressions
 
@@ -800,11 +830,13 @@ function `foo`. In the same way, you can just match a class header
 
 ### String matching
 
-:::warning
-String matching has been deprecated. You should use [`metavariable-regex`](/writing-rules/rule-syntax#metavariable-regex) instead.
-:::
+<Warning>
+**WARNING**
 
-Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/docs/pcre/).
+String matching has been deprecated. You should use [`metavariable-regex`](/writing-rules/rule-syntax#metavariable-regex) instead.
+</Warning>
+
+Search string literals within code with [Perl Compatible Regular Expressions (PCRE)](https://learnxinyminutes.com/pcre/).
 
 The pattern `requests.get("=~/dev\./i")` matches:
 

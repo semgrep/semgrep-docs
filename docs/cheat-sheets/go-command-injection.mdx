@@ -1,28 +1,18 @@
 ---
-slug: go-command-injection
-displayed_sidebar: learnSidebar
-title: "Command Injection in Go"
-hide_title: true
-description: "Cheat sheet for the prevention of Command Injection vulnerabilities for Go."
-tags:
-  - go
-  - command-injection
+title: "Prevent Command Injection for Go"
+sidebarTile: "Command Injection in Go"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a command injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run an OS command in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
 
-## Prevent Command Injection for Go
-
-<CommandInjectionIntro />
-
-Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
+Learn more about [Command Injection](/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Running an OS command
 
@@ -32,7 +22,7 @@ The `Command` and `CommandContext` execute commands provided as arguments. If un
 
 Example:
 
-```go
+```go expandable
 package main
 
 import "os/exec"
@@ -83,7 +73,7 @@ Do not let the user input in `exec.Command` and `exec.CommandContext` functions.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-command.dangerous-exec-command" />
+[`go.lang.security.audit.dangerous-exec-command.dangerous-exec-command`](https://semgrep.dev/r/go.lang.security.audit.dangerous-exec-command.dangerous-exec-command)
 
 ### 1.B. Creating exec.Cmd struct
 
@@ -91,7 +81,7 @@ The `Cmd` represents an external command that is prepared or run. If unverified 
 
 Example:
 
-```go
+```go expandable
 package main
 
 import (
@@ -163,7 +153,7 @@ Do not let the user input in `exec.Cmd` struct. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd" />
+[`go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd`](https://semgrep.dev/r/go.lang.security.audit.dangerous-exec-cmd.dangerous-exec-cmd)
 
 ### 1.C. Writing to a command's StdinPipe
 
@@ -207,7 +197,7 @@ Do not let the user input in command's `StdinPipe`. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-command-write.dangerous-command-write" />
+[`go.lang.security.audit.dangerous-command-write.dangerous-command-write`](https://semgrep.dev/r/go.lang.security.audit.dangerous-command-write.dangerous-command-write)
 
 ### 1.D. Running OS commands with syscall.Exec()
 
@@ -261,4 +251,4 @@ Do not let the user input in `syscall.Exec` and `syscall.ForkExec` functions. Al
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec" />
+[`go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec`](https://semgrep.dev/r/go.lang.security.audit.dangerous-syscall-exec.dangerous-syscall-exec)
