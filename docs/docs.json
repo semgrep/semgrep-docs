@@ -1094,10 +1094,6 @@
       "destination": "/:slug*"
     },
     {
-      "source": "/release-notes/rss",
-      "destination": "/release-notes/rss.xml"
-    },
-    {
       "source": "/writing-rules/pattern-logic",
       "destination": "/writing-rules/rule-syntax"
     },
