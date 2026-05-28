@@ -2,9 +2,9 @@
 title: "Receive Semgrep MR comments through a GitLab runner"
 ---
 
-Generally, Semgrep recommends using the [<Icon icon="external-link" iconType="solid"/> GitLab merge request pipeline](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html) to receive MR comments. This method is used in the default [Semgrep GitLab config file](/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file).
+Generally, Semgrep recommends using the <a href="https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html" target="_blank" rel="noopener noreferrer"><Icon icon="external-link" iconType="solid"/> GitLab merge request pipeline</a> to receive MR comments. This method is used in the default [Semgrep GitLab config file](/semgrep-ci/sample-ci-configs/#sample-github-actions-configuration-file).
 
-However, you can also receive comments through your own [<Icon icon="external-link" iconType="solid"/> GitLab runner](https://docs.gitlab.com/runner/) by setting the following variables in your CI job:
+However, you can also receive comments through your own <a href="https://docs.gitlab.com/runner/" target="_blank" rel="noopener noreferrer"><Icon icon="external-link" iconType="solid"/> GitLab runner</a> by setting the following variables in your CI job:
 
 ```sh
  export GITLAB_CI='true'
