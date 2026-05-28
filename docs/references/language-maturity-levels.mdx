@@ -1,0 +1,40 @@
+---
+title: "Language maturity levels"
+---
+
+This document defines the language maturity levels used on the [Supported languages](/supported-languages) page.
+
+## Semgrep Code
+
+Semgrep Code languages can be classified into four maturity levels:
+
+- Generally available (GA)
+- Beta
+- Experimental
+- Community supported\*
+
+\*Community supported languages meet the parse rate and syntax requirements of
+**Experimental** languages. Users can still access community rules or write their
+own rules.
+
+| Feature | GA | Beta | Experimental | Community supported |
+| :--- | :--- | :--- | :--- | :--- |
+| Support | Highest quality support by the Semgrep team. Reported issues are resolved promptly. | Supported by the Semgrep team. Reported issues are fixed after GA languages. | There are limitations to this language's functionality. Reported issues are tracked and prioritized with best effort. | These languages are supported by the Semgrep community. While Semgrep may develop rules or engine updates for these languages, they are not prioritized. |
+| Parse Rate | 99\%\+ | 95\%\+ | 90\%\+ | 90\%\+ |
+| Number of Pro rules | 10\+ | 5\+ | 0\+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. | 0\+. Query the [Registry](https://semgrep.dev/r) to see if any rules exist for your language. |
+| Semgrep syntax | Regex, equivalence, deep expression operators, types and typing. All features supported in Beta. | Complete metavariable support, metavariable equality. All features supported in Experimental. | Syntax, ellipsis operator, basic metavariable functionality. | Syntax, ellipsis operator, basic metavariable functionality. |
+
+## Semgrep Supply Chain
+
+Semgrep Supply Chain has two language maturity levels:
+
+- Generally available
+- Beta
+
+| Feature | Generally available | Beta |
+| :--- | :--- | :--- |
+| Number of reachability rules | As defined by [CVE coverage](/semgrep-supply-chain/sca-feature-support#cve-coverage). | All critical severity CVEs from [supported sources](/semgrep-supply-chain/sca-feature-support#supported-sources) starting 2022 onwards, for packages used by customers with an active, paid subscription. |
+| Semgrep, Inc. rule-writing support | Quickly support CVE coverage with reachability analysis for all critical and high vulnerabilities based on the latest [security advisories](https://nvd.nist.gov/vuln). | Coverage for CVEs but without reachability analysis. |
+| [Semgrep Community Edition (CE) language support](/supported-languages#semgrep-oss-language-support) | Semgrep CE support is GA. | Semgrep CE support is at least Beta. |
+
+Not finding what you need in this doc? Ask questions in our [Community Slack group](https://go.semgrep.dev/slack), or see [Support](/support/) for other ways to get help.

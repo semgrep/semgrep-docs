@@ -1,0 +1,73 @@
+---
+title: "Change rule severity and other metadata by forking rules"
+---
+
+To alter the severity or other metadata of a Semgrep rule, it must be forked and then updated. Forking means to copy or duplicate the rule, thereby creating your own custom version of it. Once this custom version is created, it can then be modified as needed.
+
+<Info>
+**NOTE**
+
+Only Semgrep Code and Secrets rules can be forked.
+</Info>
+
+
+## Fork a rule
+
+One way to create new rules is to fork an existing rule in the Semgrep Registry and modify it to meet your software and business requirements.
+
+For example, Semgrep’s Java `crypto` ruleset prohibits the use of weak hashing algorithms `SHA-1` and `MD5`. However, your organization also prohibits the use of other hash functions as part of its standards or security compliance. The following steps illustrate the process of forking an existing `use-of-sha1` rule and changing it to forbid MD2 hashes.
+
+<Steps>
+  <Step>
+  Use the search bar to find relevant rules. For this example, you can search for rules using `SHA1`. 
+  <Frame>
+  ![Save a rule in the Editor](/images/editor-SHA1-f41a776780370d556b5683e6493d98c6.png)
+  </Frame>
+  </Step>
+  <Step>
+  Under **java > lang > security > audit > crypto**, click **use-of-sha1** to load the rule. You cannot directly edit the rules in Semgrep Registry, so click **Fork** to make a copy. 
+  <Frame>
+  ![Custom rules in registry](/images/editor-forking-50fbce13ac8a483d7dbe1861228fb5f0.png)
+  </Frame>
+
+  </Step>
+  <Step>
+  Semgrep copies the rule to your organization's set of rules.
+  </Step>
+  <Step>
+  Edit the rule.
+  </Step>
+  <Step>
+  Update your test cases.
+  </Step>
+  <Step>
+  Click **Run** to test and validate your rule.
+  </Step>
+  <Step>
+  When you finish your changes, click **Save**.
+  </Step>
+</Steps>
+
+The following example shows how [the original rule, identifying uses of `SHA-1` and `MD5`, has been modified to find uses of MD2](https://docs.oracle.com/javase/9/specs/security/standard-names.html#messagedigest-algorithms) and the severity of such findings is increased from `WARNING` to `ERROR`.
+
+<Frame>
+<iframe title="Prevent use of MD2" src="https://semgrep.dev/embed/editor?snippet=RDxN" width="100%" height="432px" loading="lazy" frameborder="0"></iframe>
+</Frame>
+
+When you fork a rule, the copy is independent from the original. To run your new rule in your scans, [add it to a policy](/semgrep-code/policies#add-rules). If you want your copy to replace the rule you forked, add it to a policy, then disable the original on the Policies page.
+
+## Changing the severity
+
+Once you have forked the rule, you can change the [severity or other metadata](/writing-rules/rule-syntax#required) to your liking. 
+
+Then, save this custom version of the rule to your organization's rules, making it available to use within your policy as defined in Semgrep AppSec Platform.
+
+<Frame>
+![Save a rule in the Editor](/images/kb/rules/changing-rule-severity-and-other-metadata/save_rule_editor.png)
+</Frame>
+
+By default, saving the rule also enables you to search for it in the [Semgrep Registry](https://semgrep.dev/r), with visibility limited to your organization.
+
+<Frame>
+![Custom rules in registry](/images/kb/rules/changing-rule-severity-and-other-metadata/custom_rules_in_editor.png)
+</Frame>

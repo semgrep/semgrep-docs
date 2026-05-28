@@ -1,27 +1,17 @@
 ---
-slug: java-code-injection
-title: Code Injection in Java
-hide_title: true
-description: "Cheat sheet for the prevention of Code Injection vulnerabilities for Java."
-displayed_sidebar: learnSidebar
-tags:
-  - java
-  - code-injection
+title: "Prevent Code Injection for Java"
+sidebarTitle: "Code Injection in Java"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a code injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of code injection in your code. By following these recommendations, you can be reasonably sure your code is free of code injection.
 
-## Prevent Code Injection for Java
-
-<CodeInjectionIntro />
-
-Learn more about [Code Injection](/docs/learn/vulnerabilities/code-injection) vulnerability concepts.
+Learn more about [Code Injection](/learn/vulnerabilities/code-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Unsafe Reflection
 
@@ -38,7 +28,7 @@ Class<?> loadClass = Class.forName(userInput + ".AttackerThread");
 
 #### References
 
-- [`Class.forName` documentation](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html#forName-java.lang.String-)
+- [`Class.forName` documentation](https://docs.oracle.com/javase/8/api/java/lang/Class.html#forName-java.lang.String-)
 
 #### Mitigation
 
@@ -47,4 +37,4 @@ Class<?> loadClass = Class.forName(userInput + ".AttackerThread");
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="java.lang.security.audit.unsafe-reflection.unsafe-reflection" />
+[`java.lang.security.audit.unsafe-reflection.unsafe-reflection`](https://semgrep.dev/r/java.lang.security.audit.unsafe-reflection.unsafe-reflection)

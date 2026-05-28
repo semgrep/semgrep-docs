@@ -1,0 +1,259 @@
+---
+title: "Manage teams and roles"
+---
+
+Semgrep allows you to manage user membership and access to Semgrep resources, such as scans, findings, and repositories or codebases you have added to Semgrep. To configure those settings, go to **[Settings > Access](https://semgrep.dev/orgs/-/settings/access)** in Semgrep AppSec Platform.
+
+## Invite a user through email
+
+You can add new users to your organization by sending them an email. This email contains instructions for them to join your org through the same auth provider configured for your account. The invitation only facilitates access for users who are already provisioned in the configured auth provider.
+
+You must be an **admin** to perform this operation.
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Click **<Icon icon="gear" iconType="solid"/> Settings > Access**. This brings you to the **Users** tab.
+</Step>
+<Step>
+Click **Invite users**.
+</Step>
+<Step>
+In the dialog, enter your team members' email addresses. You can invite up to 20 users at a time. Separate each email address with a <kbd>Space</kbd> or <kbd>Tab</kbd> key. You can also paste a comma-separated list of email addresses.
+</Step>
+<Step>
+Click **Send invites**.
+</Step>
+</Steps>
+
+## Set a default role for the organization
+
+Users are assigned a role based on your organization's default. New organizations are created with the default role set to **admin**. To change this setting, perform the following steps:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click **<Icon icon="gear" iconType="solid"/> Settings**.
+</Step>
+<Step>
+Click **Access > Defaults**.
+</Step>
+</Steps>
+
+## Change a user's role
+
+You must be an **admin** to perform this operation.
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Click **<Icon icon="gear" iconType="solid"/> Settings > Access**.
+</Step>
+<Step>
+Search for the user whose role will be changed.
+</Step>
+<Step>
+Click on the user's current role, under the role header. A drop-down box appears.
+</Step>
+<Step>
+Select the new role for the user.
+</Step>
+</Steps>
+
+<Info>
+**NOTE**
+
+You cannot change your own role.
+</Info>
+
+## Enable teams
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Click **[<Icon icon="gear" iconType="solid"/> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
+</Step>
+<Step>
+Optional: Click **<Icon icon="square-check" iconType="solid"/> Yes, add new users to the default team** if you want new members and projects to be added to the default team.
+</Step>
+<Step>
+Click **Enable**.
+</Step>
+<Step>
+Read the dialog box to ensure that your settings are correct, then click **Enable beta**.
+</Step>
+</Steps>
+
+When you have enabled teams for the first time, a team is automatically created with the name of your deployment. This preserves the settings you previously had using the **Users** feature; all current members retain their existing projects.
+
+## View your teams
+
+You must be an admin or manager to view the **Teams** tab.
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Click **[<Icon icon="gear" iconType="solid"/> Settings > Access > Teams](https://semgrep.dev/orgs/-/settings/access/teams)**.
+</Step>
+</Steps>
+
+## Create a team
+
+<Steps>
+<Step>
+In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **New team**. The **Create New Team** form appears.
+</Step>
+<Step>
+Enter a **Name** for the team.
+</Step>
+<Step>
+The **Projects** tab opens. Click the <Icon icon="square-check" iconType="solid"/> checkbox next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
+</Step>
+<Step>
+Click the **Users** tab, then click the <Icon icon="square-check" iconType="solid"/> checkbox next to the name of the team members you want to add. You can also use the **Search** box to help you find members.
+</Step>
+<Step>
+Optional: Appoint a manager. Under the **Role** column, click the drop-down box and select **Manager**.
+</Step>
+<Step>
+Click **Create**.
+</Step>
+</Steps>
+
+### Create a subteam
+
+<Steps>
+<Step>
+In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click **<Icon icon="plus" iconType="solid"/> Add subteam** next to the name of the top-level team you want to create a subteam for. The **Create new subteam** form appears.
+</Step>
+<Step>
+Enter a **Name** for the subteam.
+</Step>
+<Step>
+The **Projects** tab opens. Click the **<Icon icon="square-check" iconType="solid"/> checkbox** next to the name of the projects you want to give access to. You can also use the **Search** box or **tags** to help you find projects.
+</Step>
+<Step>
+Click the **Users** tab, then click the **<Icon icon="square-check" iconType="solid"/> checkbox** next to the name of the team members you want to add. You can also use the Search box to help you find members.
+</Step>
+<Step>
+Optional: Appoint a manager. Under the Role column, click the drop-down box and select **Manager**.
+</Step>
+<Step>
+Click **Create**.
+</Step>
+</Steps>
+
+<Note>
+**INFO**
+
+- You must have at least one team before you can create a subteam.
+- In subteams, you can add members that are not part of the top-level team.
+</Note>
+
+## Manage your teams
+
+### Update an existing team or subteam
+
+<Steps>
+<Step>
+In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<Icon icon="pen-to-square" iconType="solid"/> edit** icon on the row of the team or subteam you want to edit.
+</Step>
+<Step>
+Make your changes.
+</Step>
+<Step>
+Click **Review > Save changes**.
+</Step>
+</Steps>
+
+### Delete a team or subteam
+
+<Steps>
+<Step>
+If you are deleting a team, delete its subteams first.
+
+   i. In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<Icon icon="chevron-down" iconType="solid"/> down arrow** to show all subteams under a team, then follow steps 2-3.
+</Step>
+<Step>
+Click the **<Icon icon="trash" iconType="solid"/> trash can** icon.
+</Step>
+<Step>
+Click **Delete** to confirm.
+</Step>
+</Steps>
+
+### Appoint a manager
+
+To set a member as a manager for a subteam:
+
+<Steps>
+<Step>
+In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<Icon icon="pen-to-square" iconType="solid"/> edit** icon on the row of the team or subteam you want to edit.
+</Step>
+<Step>
+Click on the **Users** tab.
+</Step>
+<Step>
+Under the Role column of the member you want to appoint, click the drop-down box and select **Manager**. Perform this step for all members you want to set as managers.
+</Step>
+<Step>
+Click **Review**.
+</Step>
+<Step>
+Click **Save changes**.
+</Step>
+</Steps>
+
+#### View and edit subteams
+
+<Note>
+**INFO**
+
+This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
+</Note>
+
+<Steps>
+<Step>
+In the [<Icon icon="external-link" iconType="solid"/> **Teams** tab](https://semgrep.dev/orgs/-/settings/access/teams), click the **<Icon icon="pen-to-square" iconType="solid"/> edit** icon on the row of the team or subteam you want to edit.
+</Step>
+<Step>
+Find the team to which the subteam should be added. Click **Add subteam**.
+</Step>
+<Step>
+Provide a **Team name**. Click **Add projects**.
+</Step>
+<Step>
+Select one or more projects to add to the subteam. Click **Add members**.
+</Step>
+<Step>
+Select one or more users to add to the subteam. Click **Review**.
+</Step>
+<Step>
+Review the changes you have made. If this looks correct, click **Create team** to proceed.
+</Step>
+</Steps>
+
+Managers can view their subteams by going to the **Settings > Access > Teams** tab. Within this tab, they are also able to assign any of the projects they manage from one subteam to another.
+
+Note that this feature allows managers to view **all projects** in the **Edit teams** panel, including projects they are not assigned to. However, they cannot perform admin-level actions on those projects, such as assigning projects they are not designated to manage.
+
+### Filter findings for a team's projects
+
+<Steps>
+<Step>
+Navigate to the **Findings** page.
+</Step>
+<Step>
+Click the **Teams** filter. This filter displays teams you have access to.
+</Step>
+<Step>
+Select the teams you want to see findings for.
+</Step>
+</Steps>

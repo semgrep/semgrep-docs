@@ -1,0 +1,168 @@
+---
+title: "Manage policies"
+---
+
+By default, Semgrep AppSec Platform collects Supply Chain findings without notifying developers, similar to the [**Monitor** mode](/semgrep-code/policies#block-a-pr-or-mr-through-rule-modes) in Semgrep Code. This prevents developers from receiving notifications while you evaluate the tool.
+
+Once you are ready to notify developers through a **comment**, or potentially **block** them from merging a pull request or merge request (PR or MR), define a **Supply Chain policy**. This feature helps you manage noise and ensures that developers are only notified or potentially blocked based on the conditions you set.
+
+This feature enables you to configure the following:
+
+- **Scope**: These are the projects (repositories) that are affected by the policy.
+- **Conditions**: The conditions under which **actions** are performed. These conditions are typically attributes of a finding such as severity or reachability. 
+- **Actions**: Actions that are performed on the defined scope when conditions are met.
+
+You can create as many policies as you need.
+
+## Prerequisites
+
+This feature requires the `semgrep:latest` Docker image or at least version 1.101.0 of the Semgrep CLI tool.
+
+## View your policies
+
+Only **admins** can view, create, edit, or delete policies.
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+From the navigation menu, click **Rules** to expand the drop-down box, then click **Policies**.
+</Step>
+<Step>
+Click **Supply Chain**. This takes you to the Supply Chain policies tab. Your policies are arranged as cards.
+
+- To view and edit an existing policy, click its **name** or **the three-dot ellipsis (<Icon icon="ellipsis" iconType="solid"/>) > Edit policy**.
+- View a popup of a policy's **scope** (affected projects or tags) or a summary of its **actions and conditions** by clicking on the two summary links beside the policy name.
+</Step>
+</Steps>
+
+## Create a policy
+
+<Steps>
+<Step>
+From the Supply Chain policies tab, Click **<Icon icon="plus" iconType="solid"/> Create policy**.
+</Step>
+<Step>
+Provide a **<Tooltip tip="A policy defines the set of rules that Semgrep runs and the workflow actions it undertakes when a rule from the policy generates a finding. The workflow action can include notifying Slack channels or posting a comment in the pull request or merge request that generated the finding. Not to be confused with policy-as-code." cta="See full definition." href="/semgrep-code/glossary#policy">Policy</Tooltip> name**.
+</Step>
+<Step>
+Define the scope of the policy:
+
+    i. Click the drop-down box to select between **All Projects**, **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>**, or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip> tag**. Note that you can only select either a scope based on projects or tags, but not both.
+
+    ii. For **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip>** or **<Tooltip tip="A repository or codebase that you have added to Semgrep Cloud Platform for scanning along with finding metadata and other Semgrep data and resources." cta="See full definition." href="/semgrep-code/glossary#project">Project</Tooltip> tag** values, a second drop-down box appears. Choose the **projects** or **project tags** to finish defining the scope.
+</Step>
+<Step>
+Define the **Conditions** of the policy. See the [Policy conditions](#policy-conditions) section for more information. You can create more than one condition by clicking **Add condition**.
+    - For each condition, you can select multiple values by clicking on the **plus sign (<Icon icon="plus" iconType="solid"/>)** on the same row. The policy is applied when **any** of those values are met (`OR`).
+    - Each additional condition is additive. The policy is applied when **all** conditions are met (`AND`).
+    - You can define conditions that are exclusionary, such as **When <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip> *is not* Transitive....**
+</Step>
+<Step>
+Define the actions of the policy. You can choose to **Leave a comment** or **Block and leave a comment**.
+</Step>
+<Step>
+Click **Save**. This brings you back to the Supply Chain policies tab.
+</Step>
+<Step>
+After creating a policy, it is **not** automatically enabled. Click the **<Icon icon="toggle-large-on" iconType="solid"/> toggle** to enable a policy. This applies the policy to future scans.
+</Step>
+</Steps>
+
+## Common use cases for policies
+
+Use the following recommendations to help you create policies. These guidelines help ensure your policies align with your business and organizational needs.
+
+### Recommended conditions for blocking PRs or MRs
+
+- **Always block PRs or MRs that introduce dependencies or dependency versions identified as malicious**. These represent known supply chain attacks and should never be allowed into your codebase.
+- **Always reachable and reachable findings with upgradeable dependencies**. This provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
+
+### Recommended conditions for leaving a comment
+
+- **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
+- **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
+- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
+- **Critical and high <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>**. There is a chance of these findings being exploited regardless of reachability.
+
+### Turn off PR and MR comments
+
+By default, Semgrep pull request (PR) and merge request (MR) comments include both Semgrep Code and Semgrep Supply Chain (SSC) findings information. However, if you would like to turn off PR or MR comments for reachable SSC findings, you can do so as follows:
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to [Rules & Policies > Policies > Supply Chain](https://semgrep.dev/orgs/-/policies/supply-chain).
+</Step>
+<Step>
+Click <Icon icon="toggle-large-on" iconType="solid"/> **Comment on reachable Supply Chain findings** to turn off the SSC policy supporting comments.
+</Step>
+</Steps>
+
+> Turning off PR/MR comments doesn't turn off notifications regarding [license policy violations](/semgrep-supply-chain/license-compliance).
+
+## Policy scopes
+
+A policy's scope can consist of tags or projects, but not both. If you need to create a policy with both tags and projects, simply make another policy.
+
+If a project or project tag that's included in a policy scope gets deleted, it is **removed from the policy scope**. If all projects or all project tags are deleted for a given policy, you must edit the policy for it to be applied to a valid scope.
+
+## Policy conditions
+
+The following table lists available conditions and their values:
+
+| Condition | Values|
+| :--- | :--- |
+| <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
+| Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
+| Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
+| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
+| [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
+
+
+## Other operations
+
+### Edit a policy
+
+<Steps>
+<Step>
+From the Supply Chain policies tab, click the **three-dot (...) button > Edit policy** for the policy you want to edit. This takes you to the specific policy page.
+</Step>
+<Step>
+Make your changes.
+</Step>
+<Step>
+Click **Save**.
+</Step>
+</Steps>
+
+### Disable or enable a policy
+
+From the Supply Chain policies tab, click the toggle for the policy you want to edit.
+
+You can also disable or enable a policy from the policy's page:
+
+<Steps>
+<Step>
+From the Supply Chain policies tab, click the **three-dot (...) button > Edit policy**.
+</Step>
+<Step>
+Turn off or on the **Enable policy** toggle.
+</Step>
+<Step>
+Click **Save**.
+</Step>
+</Steps>
+
+### Delete a policy
+
+From the Supply Chain policies tab, click the **three dot (...) button > Delete policy**, then click **Remove**.
+
+Note that: 
+
+- This does not remove comments from existing PRs or MRs with findings.
+- If a policy is the **sole culprit** for blocking a PR, deleting it **and** re-running a scan unblocks the PR or MR.

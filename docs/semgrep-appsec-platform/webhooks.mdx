@@ -1,0 +1,236 @@
+---
+title: "Enable webhooks"
+sidebarTitle: "Webhooks"
+description: "Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint."
+---
+
+<Tip>
+**FOR SLACK INTEGRATIONS**
+
+- To integrate with Slack, use the [Semgrep Slack app](/semgrep-appsec-platform/slack-notifications). The webhook setup described in this guide does not work for Slack integrations.
+</Tip>
+
+Semgrep sends two types of JSON objects:
+
+
+`semgrep_scan` JSON object<br/><br/>
+A `semgrep_scan` object contains information about the CI job and other scan parameters, such as ignored files. Semgrep sends a single `semgrep_scan` object **every time a scan is run**. This includes diff-aware scans, full scans, and scans that have no findings.
+
+`semgrep_finding` JSON object<br/><br/>
+A `semgrep_finding` object is a single record of a new finding. Semgrep sends new `semgrep_finding` objects based on how you have configured your notifications in Policies. See [Set up webhooks](#set-up-webhooks) to learn more.
+
+## Set up webhooks
+
+Perform these steps in Semgrep AppSec Platform to set up webhooks:
+
+<Steps>
+<Step>
+Create a webhook integration:
+
+   i. On the navigation menu, click **<Icon icon="gear" iconType="solid"/> Settings > Integrations > Add**.
+
+   ii. Click **Webhook**.
+
+   iii. In the **Name** field, enter a name for the integration.
+
+   iv. In the **Webhook URL** field, enter the target webhook URL for the integration.
+
+   v. Optional: Provide a **Signature Secret**. The secret must be at least 15 characters long. If you provide a secret, Semgrep sends an `X-Semgrep-Signature-256` signature header with the payload.
+
+   vi. Optional: If you use the [Semgrep Network Broker](/semgrep-ci/network-broker), and your webhook URL is only accessible from your private network, enable the **Use Network Broker** toggle.
+
+   vii. Click **Subscribe**.
+</Step>
+<Step>
+Turn notifications on:
+
+   i. Click **Rules > Policies > <Icon icon="gear" iconType="solid"/> Rule Modes**.
+
+   ii. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
+
+   iii. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+</Step>
+</Steps>
+
+## Test webhooks
+
+To verify that Semgrep can post to your URL:
+
+<Steps>
+<Step>
+Navigate to **<Icon icon="gear" iconType="solid"/> Settings > Integrations**
+</Step>
+<Step>
+Click the **Test** button of the webhook integration you want to test.
+</Step>
+<Step>
+The following sample code in Python shows how to verify the signature in the `X-Semgrep-Signature-256` header:
+
+    ```python
+    provided_signature = request.headers['X-Semgrep-Signature-256']
+
+    secret = "this_is_a_secret"
+    payload_str = json.dumps(request.get_json(), separators=(',', ':'))
+    computed_sig = hmac.new(
+        secret.encode('utf-8'),
+        payload_str.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
+
+    logger.info(f"valid signature: {hmac.compare_digest(provided_sig, computed_sig)}")
+    ```
+</Step>
+</Steps>
+
+## Notification and alert de-duplication
+
+Notifications are sent only the first time a given finding is detected.
+
+When running a diff-aware scan, Semgrep doesn't notify you when a pull request has a finding that existed on the base branch already, even if that line is moved or re-indented.
+
+Semgrep also tracks notifications that have already been sent, so subsequent scans of the same changes in a pull request won't result in duplicate notifications.
+
+<Info>
+**NOTE**
+
+See [Findings in CI](/semgrep-ci/findings-ci) for more information about how Semgrep tracks a finding through its lifetime.
+</Info>
+
+## Semgrep findings object
+
+Currently, only Semgrep Code (SAST) findings are sent through webhooks. The `numeric_id` field represents the finding's ID in Semgrep AppSec Platform.
+
+The following is an example of a `semgrep_finding` object sent by Semgrep:
+
+```json expandable
+[
+  {
+    "semgrep_finding": {
+      "check_id": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+      "column": 28,
+      "commit_date": "2024-06-11T20:39:36",
+      "commit_url": "https://github.com/owasp/juice-shop/commit/1bb71fff3589e51293e373274092d82c426025d2",
+      "end_column": 159,
+      "end_line": 10,
+      "first_seen_scan_id": "j4an6ro33aJM",
+      "id": "c409ef941eec3008da6e1fd347e793aa",
+      "index": 0,
+      "line": 10,
+      "message": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+      "metadata": {
+        "category": "security",
+        "confidence": "HIGH",
+        "cwe": [
+          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+        ],
+        "cwe2021-top25": 1,
+        "cwe2022-top25": 1,
+        "dev.semgrep.actions": [
+          "comment"
+        ],
+        "impact": "HIGH",
+        "interfile": 1,
+        "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+        "likelihood": "HIGH",
+        "owasp": [
+          "A01:2017 - Injection",
+          "A03:2021 - Injection"
+        ],
+        "references": [
+          "https://sequelize.org/v6/core-concepts/raw-queries/#replacements"
+        ],
+        "semgrep.dev": {
+          "rule": {
+            "origin": "community",
+            "r_id": 22085,
+            "rule_id": "yyU0GX",
+            "rule_name": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "rv_id": 109973,
+            "url": "https://semgrep.dev/playground/r/3ZTkQwW/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "version_id": "3ZTkQwW"
+          },
+          "src": "unchanged"
+        },
+        "semgrep.policy": {
+          "id": 61271,
+          "name": "Rule Board - PR Comments column",
+          "slug": "rule-board-pr-comments"
+        },
+        "semgrep.url": "https://semgrep.dev/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+        "shortlink": "https://sg.run/gjoe",
+        "source": "https://semgrep.dev/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+        "subcategory": [
+          "vuln"
+        ],
+        "technology": [
+          "express"
+        ],
+        "vulnerability_class": [
+          "SQL Injection"
+        ]
+      },
+      "numeric_id": 11301071,
+      "path": "data/static/codefixes/unionSqlInjectionChallenge_3.ts",
+      "ref": "refs/heads/master",
+      "repo_name": "owasp/juice-shop",
+      "severity": 2,
+      "start_date": "2023-02-12 00:50:21.552606+00:00"
+    }
+  }
+]
+```
+
+## Semgrep scan object
+
+The following is an example of a `semgrep_scan` object sent by Semgrep:
+
+```json expandable
+{
+  "semgrep_scan": {
+    "deployment_id": 1,
+    "enabled_products": [
+      "sast",
+      "sca",
+      "secrets"
+    ],
+    "exit_code": null,
+    "hashed_id": "Y4QdEwR2qPgK",
+    "id": 27714135,
+    "meta": {
+      "app_block_override": null,
+      "branch": "refs/pull/7/merge",
+      "ci_job_url": "https://github.com/owasp/juice-shop/actions/runs/9999999",
+      "commit": "4166d6fd19ce97e65cf3278ce85afe4f444a7842",
+      "commit_author_image_url": "https://avatars.githubusercontent.com/u/1274037?v=4",
+      "commit_author_email": "support@semgrep.com",
+      "commit_author_name": "Semgrep User",
+      "commit_author_username": "semgrepuser",
+      "commit_timestamp": "2024-06-11T21:25:13",
+      "commit_title": "random code changes",
+      "is_code_scan": 0,
+      "is_full_scan": 0,
+      "is_sca_scan": 0,
+      "is_secrets_scan": 0,
+      "on": "pull_request",
+      "org_id": "1274037",
+      "pull_request_author_username": "semgrepuser",
+      "pull_request_author_image_url": "https://avatars.githubusercontent.com/u/29760937?s=200&v=4",
+      "pull_request_id": "7",
+      "pull_request_title": "random code changes",
+      "renamed_paths": [],
+      "repo_display_name": "owasp/juice-shop",
+      "repo_id": "600593544",
+      "repo_url": "https://github.com/owasp/juice-shop",
+      "repository": "owasp/juice-shop",
+      "scan_environment": "github-actions",
+      "semgrep_version": "1.75.0",
+      "version": "v1"
+    },
+    "repository_id": 158684,
+    "started_at": "2024-06-11T21:26:22.844158+00:00",
+    "completed_at": null,
+    "stats": null,
+    "tenant_name": "default"
+  }
+}
+```

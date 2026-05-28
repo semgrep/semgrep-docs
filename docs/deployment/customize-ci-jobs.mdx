@@ -1,0 +1,66 @@
+---
+title: "Customize your CI job"
+---
+
+<Note>
+**YOUR DEPLOYMENT JOURNEY**
+
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+- You have [created a Semgrep account and organization](/deployment/create-account-and-orgs).
+- For GitHub and GitLab users: You have [connected your source code manager](/deployment/connect-scm).
+- Optionally, you have [set up SSO](/deployment/sso).
+- You have successfully added a [Semgrep job](/deployment/add-semgrep-to-ci) to your CI workflow.
+</Note>
+
+Customize your CI job to achieve the following goals:
+
+* **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
+* **Run Semgrep when an event triggers**. Run Semgrep when a pull request or merge request (PR or MR) is created.
+- **Set a timeout to increase or decrease Semgrep's overall runtime.** If scans are taking too long, or rules aren't running, customize your per-rule timeout.
+
+
+## Set up diff-aware scans
+
+<Note>
+**INFO**
+
+Follow the steps in this section only for the following CI providers:
+
+- Jenkins
+- CI providers without guidance from Semgrep AppSec Platform
+</Note>
+
+
+Some Semgrep CI jobs require manual configuration of <Tooltip tip="A diff-aware scan shows only findings caused by changes in files starting from a specific Git baseline. It is typically performed on feature branches when a pull request or merge request is opened. Unlike full scans, diff-aware scans only consider changes within modified files. Cross-file analysis is not supported for diff-aware scans." cta="See full definition." href="/semgrep-code/glossary#diff-aware-scan">diff-aware scans</Tooltip>, which scan pull requests or merge requests in feature branches. For the CI providers outlined in the preceding list, you can configure a diff-aware job by performing the following steps:
+
+1. Create a separate CI job following the steps in [Add Semgrep to CI through Semgrep AppSec Platform](/deployment/add-semgrep-to-ci/#add-semgrep-to-ci-1).
+1. Set the `SEMGREP_BASELINE_REF` variable in your CI configuration file. The value of this environment variable is typically your trunk branch, such as `main` or `master`.
+
+## Set a scan schedule
+
+The following table is a summary of methods and resources to set up schedules for different CI providers.
+
+| CI provider | Where to set schedule |
+| :--- | :--- |
+| GitHub Actions | See [Sample CI configs](/semgrep-ci/sample-ci-configs#sample-github-actions-configuration-file) for information on how to modify your `semgrep.yml` file |
+| GitLab CI/CD | Refer to [GitLab documentation](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) |
+| Jenkins | Refer to [Jenkins documentation](https://www.jenkins.io/doc/book/pipeline/running-pipelines/#scheduling-jobs-in-jenkins) |
+| Bitbucket Pipelines | Refer to [Bitbucket documentation](https://support.atlassian.com/bitbucket-cloud/pipeline-triggers/) |
+| CircleCI | Refer to [CircleCI documentation](https://circleci.com/scheduled-pipelines#get-started-with-scheduled-pipelines-in-circleci) |
+| Buildkite | Refer to [Buildkite documentation](https://buildkite.com/pipelines/scheduled-builds) |
+| Azure Pipelines | Refer to [Azure documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml) |
+| Semaphore | Refer to [Semaphore documentation](https://docs.semaphore.io/using-semaphore/tasks) |
+
+## Set a custom timeout
+
+By default, Semgrep spends a maximum of **5 seconds** to scan with **each rule** on each %%targeted|scan_target%% file. To **set a different timeout**, set the `SEMGREP_TIMEOUT` environment variable (the value is in seconds). Decreasing this value speeds up your scans, but with the possibility of skipping some rules. Alternatively, increasing this value ensures that your most complex rules finish running. For example:
+
+```bash
+SEMGREP_TIMEOUT="3" # Sets the per-rule timeout to 3 seconds.
+```
+
+<Warning>
+**CAUTION**
+
+Setting this variable to **0** removes the time limit, meaning that rules can take any amount of time to run. This is not recommended.
+</Warning>

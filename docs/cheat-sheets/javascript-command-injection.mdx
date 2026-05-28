@@ -1,27 +1,17 @@
 ---
-slug: javascript-command-injection
-title: Command Injection in JavaScript
-hide_title: true
-displayed_sidebar: learnSidebar
-description: "Cheat sheet for the prevention of Command Injection vulnerabilities for JavaScript."
-tags:
-  - javascript
-  - command-injection
+title: "Prevent Command Injection for JavaScript"
+sidebarTitle: "Command Injection in JavaScript"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CommandInjectionIntro from "/src/components/concept/_command-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a command injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run an OS command in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
 
-# Prevent Command Injection for JavaScript
-
-<CommandInjectionIntro />
-
-Learn more about [Command Injection](/docs/learn/vulnerabilities/command-injection) vulnerability concepts.
+Learn more about [Command Injection](/learn/vulnerabilities/command-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Running an OS command
 
@@ -44,7 +34,7 @@ exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
 
 #### References
 
-- [`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/docs/api/child_process.html)
+- [`child_process` module documentation](https://nodejs.org/dist/latest-v14.x/api/child_process.html)
 
 #### Mitigation
 
@@ -55,7 +45,7 @@ exec(`cat *.js ${userInput}`, (error, stdout, stderr) => {
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+[`javascript.lang.security.detect-child-process.detect-child-process`](https://semgrep.dev/r/javascript.lang.security.detect-child-process.detect-child-process)
 
 ### 1.B. Spawning a process with spawn function
 
@@ -81,7 +71,7 @@ spawn("sh", ["-c", userInput])
 
 #### References
 
-[`child_process` module documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)
+[`child_process` module documentation](https://docs.oracle.com/javase/7/api/java/lang/ProcessBuilder.html)
 
 #### Mitigation
 
@@ -101,4 +91,4 @@ spawn("sh", ["-c", userInput])
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="javascript.lang.security.detect-child-process.detect-child-process" />
+[`javascript.lang.security.detect-child-process.detect-child-process`](https://semgrep.dev/r/javascript.lang.security.detect-child-process.detect-child-process)

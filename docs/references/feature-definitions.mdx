@@ -1,0 +1,23 @@
+---
+title: "Feature definitions"
+---
+
+This document defines the terms used when discussing Semgrep analysis features in [Supported languages](/supported-languages).
+
+## Cross-file dataflow analysis
+
+Cross-file analysis (also known as **interfile analysis**) takes into account how information flows between files. In particular, cross-file analysis includes **cross-file taint analysis**, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many files. Other analyses performed across files include constant propagation and type inference.
+
+Cross-file analysis is usually used in contrast to intrafile, or per-file analysis, where each file is analyzed as a standalone block of code.
+
+Languages with cross-file support also include cross-function support.
+
+## Cross-function dataflow analysis
+
+Cross-function analysis means that interactions between functions are taken into account. This improves taint analysis, which tracks unsanitized variables flowing from a source to a sink through arbitrarily many functions.
+
+## Reachability analysis
+
+Reachability refers to whether or not a vulnerable code pattern from a dependency is used in the codebase that imports it. In Semgrep Supply Chain, both a dependency's vulnerable version and code pattern must match for a vulnerability to be considered reachable.
+
+See [Overview of Semgrep Supply Chain](/semgrep-supply-chain/overview) to learn how Semgrep leverages its code-scanning and rule syntax capabilities to provide high-signal rules that determine a finding's reachability. This assists security engineers in remediation and triage processes.

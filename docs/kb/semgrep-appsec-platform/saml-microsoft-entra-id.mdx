@@ -1,0 +1,172 @@
+---
+title: "SAML SSO with Microsoft Entra ID"
+---
+
+This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Microsoft Entra ID.
+
+This article describes how to set up SAML Single Sign-on for Semgrep AppSec Platform with Microsoft Entra ID.
+
+<Note> 
+**PREREQUISITES**
+
+- An existing Microsoft Entra ID account.
+- Sufficient permissions within Microsoft Entra ID to create enterprise apps. See [Microsoft Entra ID roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference).
+- Admin privileges for your Semgrep deployment.
+</Note>
+
+Setting up SAML SSO using Microsoft Entra ID consists of the following general steps:
+
+<Steps>
+    <Step>
+    Create a custom **enterprise app** within Microsoft Entra ID.
+    </Step>
+    <Step>
+    Set up SAML SSO for your new enterprise app.
+    </Step>
+    <Step>
+    Configure Semgrep.
+    </Step>
+    <Step>
+    Add users to your new enterprise app.
+    </Step>
+</Steps>
+
+## Configure SSO
+
+<Tabs>
+    <Tab title='Guided setup (beta)'>
+
+    <Steps>
+        <Step>
+        Sign in to [<Icon icon="arrow-up-right-from-square" /> Semgrep AppSec Platform](https://semgrep.dev/login).
+        </Step>
+        <Step>
+        Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+        </Step>
+        <Step>
+        In the **Single sign-on (SSO)** section, provide a valid **Email domain**, then click **Initialize**.
+        </Step>
+        <Step>
+        The **Configure Single Sign-On** dialog appears to guide you through the remaining configuration steps. Begin by selecting **Entra ID (Azure AD) SAML**.
+        </Step>
+        <Step>
+        Follow the instructions provided on the subsequent **Configure Single Sign-On** dialog pages to complete this process. When you've completed the required steps, use **Test sign-in** to test the connection.
+        </Step>
+        <Step>
+        Once test sign-in has passed, close the test page. Verify that the **Connection details** shown on the **Connection activated** screen are correct and close the dialog.
+        </Step>
+        <Step>
+        Verify that the **Connection status** is now **active** under the **Single sign-on (SSO)** section in Semgrep AppSec Platform.
+        </Step>
+        <Step>
+        To use the new connection, log out of Semgrep, then log back in using SSO.
+        </Step>
+    </Steps>
+
+    </Tab>
+
+    <Tab title='Legacy manual configuration'>
+
+    ## Create a custom enterprise app
+    <Steps>
+        <Step>
+        Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+        </Step>
+        <Step>
+        Use the search bar to find and navigate to **enterprise applications**.
+        <Frame>
+        ![Microsoft Entra admin center's Enterprise applications screen](/images/kb/semgrep-appsec-platform/saml-microsoft-entra-id/entra-1.png)
+        </Frame>
+        </Step>
+        <Step>
+        Click **New application** > **Create your own application**. A menu appears.
+        <Frame>
+        ![Create your own application screen](/images/kb/semgrep-appsec-platform/saml-microsoft-entra-id/entra-2.png)
+        </Frame>
+        </Step>
+        <Step>
+        Name your new application something like `Semgrep SAML`.
+        </Step>
+        <Step>
+        Select **Integrate any other application you don't find in the gallery (non-gallery)**.
+        </Step>
+        <Step>
+        Click **Create**. This takes you to your new enterprise application's page.
+        </Step>
+    </Steps>
+
+    You have now created a custom enterprise app for Semgrep to integrate with Microsoft Entra ID. This enables you to set up SAML SSO.
+
+    ## Set up SAML SSO for your new enterprise app
+
+    <Steps>
+        <Step>
+        From your new enterprise app's page, go to **Single-sign on** > **SAML**.
+        <Frame>
+        ![Enterprise application's Single-sign on menu option](/images/kb/semgrep-appsec-platform/saml-microsoft-entra-id/entra-3.png)
+        </Frame>
+        </Step>
+        <Step>
+        When prompted to **Select a single sign-on method**, select **SAML**. You are redirected to the **SAML-based Sign-on** page.
+        <Frame>
+        ![SAML-based Sign-on screen](/images/kb/semgrep-appsec-platform/saml-microsoft-entra-id/entra-3.png)
+        </Frame>
+        </Step>
+        <Step>
+        In the **Basic SAML Configuration** section, click **Edit**. Provide the **Entity ID** and **Reply URL**. You can retrieve these values from Semgrep AppSec Platform by performing the following steps:<br/>
+            &emsp;&emsp;i. Sign in to Semgrep AppSec Platform.<br/>
+            &emsp;&emsp;ii. Navigate to **[Settings > Access > Login methods](https://semgrep.dev/orgs/-/settings/access/loginMethods)**.
+            &emsp;&emsp;iii. Click **Add SSO configuration** and select **SAML2 SSO**.<br/>
+            &emsp;&emsp;iv. Copy the **Audience URL (SP Entity ID)** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add identifier** to paste this value as the **Identifier (Entity ID)**.<br/>
+            &emsp;&emsp;v. Copy the **SSO URL** value from Semgrep AppSec Platform. Return to **Basic SAML Configuration**. Click **Add reply URL** to paste this value as the **Reply URL (Assertion Consumer Service URL)**.
+        </Step>
+        <Step>
+        Click **Save** and close out of **Basic SAML Configuration**.
+        </Step>
+        <Step>
+        In the **Attributes and Claims** section, click **Edit**. You must add two claims. To add your first claim:<br/>
+            &emsp;&emsp;i. Click **Add new claim**.<br/>
+            &emsp;&emsp;ii. Enter `name` in the **Name** field.<br/>
+            &emsp;&emsp;iii. For the **Source attribute** drop-down box, select `user.displayname`.<br/>
+            &emsp;&emsp;iv. Click **Save**.
+        </Step>
+        <Step>
+        To add your second claim:<br/>
+            &emsp;&emsp;i. Click **Add new claim**<br/>
+            &emsp;&emsp;ii. Enter `email` in the **Name** field.<br/>
+            &emsp;&emsp;iii. From the **Source attribute** drop-down box, select `user.mail`.<br/>
+            &emsp;&emsp;iv. Click **Save**.
+        </Step>
+        <Step>
+        Close out of **Attributes & Claims**.
+        </Step>
+    </Steps>
+
+    ## Configure Semgrep
+
+    <Steps>
+        <Step>
+        Navigate to Semgrep AppSec Platform, and provide the values required by the SAML2 form:<br/>
+            &emsp;&emsp;i. Provide the **Display name** and the **Email domain** you are using for the integration.<br/>
+            &emsp;&emsp;ii. Copy the **Login URL** value from Microsoft Entra ID and paste it in into Semgrep AppSec Platform's **IDP SSO URL** field.<br/>
+            &emsp;&emsp;iii. Copy and paste the **Microsoft Entra ID Identifier** value into Semgrep AppSec Platform's **IdP Issuer ID** field.<br/>
+            &emsp;&emsp;iv. In Entra ID's **SAML-based Sign-on** page, click **Download** to obtain the **Certificate (Base64)**.<br/>
+            &emsp;&emsp;v. In Semgrep AppSec Platform, under **Upload/Paste certificate**, click **Browse** and then select the certificate you downloaded.
+        <Frame>
+        ![Semgrep AppSec Platform's SAML2 configuration screen](/images/kb/semgrep-appsec-platform/saml-microsoft-entra-id/entra-4.png)
+        </Frame>
+        </Step>
+        <Step>
+        Select the box next to **This SSO supports non-password authentication mechanisms (e.g. MFA, X509, PasswordLessPhoneSignin)** if applicable.
+        </Step>
+        <Step>
+        Click **Save** to proceed.
+        </Step>
+    </Steps>
+
+    </Tab>
+</Tabs>
+
+## Add users to your new enterprise app
+
+To add users to the application in so they can log in with their domain emails, refer to [Assign users and groups to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal).

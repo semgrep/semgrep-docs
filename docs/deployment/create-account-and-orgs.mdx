@@ -1,0 +1,240 @@
+---
+title: "Create a Semgrep account and set up organizations"
+sidebarTitle: "Create an account"
+---
+
+
+<Note>
+**YOUR DEPLOYMENT JOURNEY**
+
+- You have gained the necessary [resource access and permissions](/deployment/checklist) required for deployment.
+</Note>
+
+Create a Semgrep account by signing in to Semgrep AppSec Platform with your GitHub or GitLab account. This enables you to:
+
+* Add the rest of your GitHub or GitLab organization (org) members to Semgrep.
+* Configure Semgrep to scan repositories in other source code managers, such as Bitbucket.
+
+<Tip>
+**USING SSO FOR YOUR INITIAL SIGN-IN**
+
+Alternatively, reach out to [<Icon icon="envelope" color="#86EFAC"/> sales@semgrep.com](mailto:sales@semgrep.com) to set up SSO. This removes the need to sign in through a GitHub or GitLab account if you don't have one.
+</Tip>
+
+## Semgrep AppSec Platform
+
+Semgrep AppSec Platform is used to manage all Semgrep products, and it is where you can:
+
+- View and manage your Semgrep findings.
+- Customize how Semgrep scans your code.
+- Manage the users associated with your Semgrep organization.
+- Set up alerts and notifications, including Slack alerts, emails, and pull request or merge request comments pushed to your source code manager
+
+## Initial sign in to Semgrep AppSec Platform
+
+The following steps walk you through creating a **user account** and your first **organization**:
+
+<Tabs>
+  <Tab title="Sign in with GitHub">
+
+To sign in using your GitHub account:
+
+<Steps>
+<Step>
+Navigate to the [ Semgrep AppSec Platform login page](https://semgrep.dev/login/) and click **Sign in with GitHub**.
+</Step>
+<Step>
+Click **Authorize semgrep-app** to [grant Semgrep the needed permissions](/deployment/checklist#permissions) and proceed.
+</Step>
+<Step>
+Enter an **organization name** when prompted then click **Create new organization**. This organization name is typically the name of the org in GitHub that you want to connect Semgrep to. For individual users, this can also be a personal account.
+</Step>
+<Step>
+Either select a **scan environment** or click **Don't want to connect to anything yet?**
+<Frame>
+  ![Select a scan environment](/images/onboarding-scan-location-edb6c536ee437983c9b1cc9403a325d4.png)
+</Frame>
+</Step>
+<Step>
+If you selected a **scan environment**:
+
+  i. Follow the prompts to set up the scan.
+</Step>
+<Step>
+If you clicked **Don't want to connect to anything yet**:
+  
+  i. Choose either **Skip setup** if you prefer not to scan anything yet or **See demo project** to view how Semgrep scans and presents findings from a demo `juice-shop` project.
+</Step>
+</Steps>
+  </Tab>
+  <Tab title="Sign in with GitLab">
+
+To sign in using your GitLab account:
+
+<Steps>
+<Step>
+Navigate to the [ Semgrep AppSec Platform login page](https://semgrep.dev/login/) and click **Sign in with GitLab**.
+</Step>
+<Step>
+Click **Authorize** to grant Semgrep the needed permissions and proceed.
+</Step>
+<Step>
+Enter an **organization name** when prompted then click **Create new organization**. This organization name is typically the name of the org in GitLab that you want to connect Semgrep to. For individual users, this can also be a personal account.
+</Step>
+<Step>
+Either select a **scan environment** or click **Don't want to connect to anything yet?**
+<Frame>
+  ![Select a scan environment](/images/onboarding-scan-location-edb6c536ee437983c9b1cc9403a325d4.png)
+</Frame>
+</Step>
+<Step>
+If you selected a **scan environment**:
+  
+  i. Follow the prompts to set up the scan.
+</Step>
+<Step>
+If you clicked **Don't want to connect to anything yet**:
+
+  ii. Choose either **Skip setup** if you prefer not to scan anything yet or **See demo project** to view how Semgrep scans and presents findings from a demo `juice-shop` project.
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+
+You have successfully created an account, your first organization, and have optionally run your first scan.
+
+## Set up organizations
+
+Organizations (orgs) in Semgrep enable users to share access to, and management of, Semgrep resources such as findings and reports.
+
+Semgrep organizations can be **connected** to equivalent GitHub, GitLab, and SSO organizations, which enables users from those organizations to easily join your Semgrep deployment through their existing credentials.
+
+### Next steps for GitHub and GitLab users
+
+- Connect your Semgrep org to your GitHub or GitLab SCM. Refer to [<Icon icon="file-lines" iconType="regular"/> Connect a source code manager](/deployment/connect-scm) for steps.
+
+### Next steps for Bitbucket and Azure Repos users
+
+- Connect your Semgrep org to your Bitbucket Data Center project or your Azure DevOps project. Refer to [<Icon icon="file-lines" iconType="regular"/> Connect a source code manager](/deployment/connect-scm) for steps.
+- To add members to your Semgrep organization, set up [<Icon icon="file-lines" iconType="regular"/> SSO authentication](/deployment/sso).
+- You can also opt to scan a repository instead.
+
+## Appendices
+
+<Info>
+**NOTE**
+
+These sections are helpful, but are not necessary to set up a deployment.
+</Info>
+
+### How Semgrep organizations work
+
+Users can have more than one organization, and an organization can consist of one or many user accounts. Users must belong to at least one organization when they first sign in to Semgrep.
+
+Organizations can be as small as a single user in a department, or encompass whole companies.
+
+By default, orgs do not manage any authentication or repositories. You add resources and users to an org by connecting to an SCM or SSO, or setting up a Semgrep scan.
+
+Once you have connected to your SSO or SCM, any team member from your GitHub, GitLab, or SSO organization can sign in to Semgrep. This includes developers not part of your security team. To control which resources they are able to see or what policies they can change, configure their **role** through [<Icon icon="file-lines" iconType="regular"/> user access control features](/deployment/teams/overview).
+
+### Create additional orgs
+
+After you create your first org, you can create multiple orgs to group related resources together:
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, click the drop-down box with your organization name, located at the sidebar.
+</Step>
+<Step>
+Click **Add org**.
+</Step>
+<Step>
+Click **Create an organization**.
+</Step>
+<Step>
+In the popup, provide an **Organization display name**.
+</Step>
+</Steps>
+
+### Organization setup examples
+
+The following examples illustrate what a completed organizational set-up can look like.
+
+#### Single-user organization in GitLab
+
+- In this example, a single GitLab user, `john-doe`, has a Semgrep org account with the same name.
+- He has set up his CI workflow to scan `repo-A` and `repo-B` in his GitLab account. The CI job sends scan results (findings) to Semgrep AppSec Platform.
+- This is similar to a **personal account** in GitHub or GitLab.
+
+<Frame caption="A simple example of a single-user, single-org setup (a personal account)">
+  ![A simple example of a single-user, single-org setup.](/images/personal-org-97a1b6929bdbfcc0b563fdb397a995a2.png)
+</Frame>
+
+#### Enterprise org with SSO and multiple orgs in GitHub
+
+In this example, a `parent-company` has multiple `subsidiaries`, and wants to use SSO for user authentication:
+
+- Each `subsidiary` is its own GitHub organization.
+- The security team is responsible for all `subsidiaries` in `parent-company`. Thus, the security team is a part of all `subsidiaries`.
+- The `parent-company` enforces SSO for all of its `subsidiaries`.
+- Here, membership and repository scanning are separately managed by two different services.
+
+The Semgrep deployment could look like this:
+
+- Each GitHub org has a corresponding Semgrep org.
+- The security team has configured SSO for each Semgrep org.
+    - This means that `team-member-R` can also access `subsidiary-1-org`. The resources they are able to view or change can be constrained through **roles**.
+
+<Frame caption="A complex organization setup using SSO and multiple GitHub orgs.">
+  ![A complex organization setup using SSO and multiple GitHub orgs.](/images/multiple-orgs-74e1ab656f772b1908062b0659e95051.png)
+</Frame>
+
+### Join an existing org
+
+Team members can join a Semgrep organization by logging in through the auth provider specified by your Semgrep admin:
+
+<Tabs>
+<Tab title="GitHub or GitLab">
+To join an existing org using your GitHub or GitLab credentials:
+
+<Steps>
+<Step>
+Sign in to [ Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
+</Step>
+<Step>
+Follow the on-screen prompts to grant Semgrep the needed permissions and proceed. This creates your **personal** Semgrep account.
+</Step>
+<Step>
+Click the organization name displayed at the top of the **navigation bar** to expand the drop-down menu.
+</Step>
+<Step>
+Click **Add org > Join an organization**.
+</Step>
+<Step>
+Provide the name of the organization you'd like to join. Then, click **Join**.
+</Step>
+</Steps>
+</Tab>
+<Tab title="SSO">
+To join an existing org through your SSO provider:
+
+<Steps>
+<Step>
+Sign in to [ Semgrep AppSec Platform](https://semgrep.dev/login) with the account credentials specified by your admin.
+</Step>
+<Step>
+You are automatically signed in to all organizations that your admin has set up for you.
+</Step>
+</Steps>
+</Tab>
+</Tabs>
+
+<Tip>
+**TIP**
+
+Semgrep admins can also [send developers invites to join their Semgrep org](/deployment/teams/manage#invite-a-user-through-email).
+</Tip>
+
+### Delete an existing org
+
+Reach out to [Support](/support) to delete an organization.

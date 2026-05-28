@@ -1,0 +1,71 @@
+name: Docs CI
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "run-build-scripts"
+      - "replace-on-build.py"
+      - "copy-metrics-md"
+  push:
+    branches: [main, develop]
+    paths:
+      - "docs/**"
+      - "run-build-scripts"
+      - "replace-on-build.py"
+      - "copy-metrics-md"
+  workflow_dispatch: {}
+
+jobs:
+  regenerate:
+    name: Regenerate docs from templates
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Run build scripts
+        run: bash run-build-scripts
+
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: regenerate docs from build scripts"
+          file_pattern: |
+            docs/extensions/pre-commit.mdx
+            docs/snippets/metrics.mdx
+
+  validate:
+    name: Validate docs
+    needs: regenerate
+    if: always() && (needs.regenerate.result == 'success' || needs.regenerate.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate dynamic content
+        run: bash run-build-scripts
+
+      - name: Verify generated files are committed
+        run: |
+          git diff --exit-code -- \
+            docs/extensions/pre-commit.mdx \
+            docs/snippets/metrics.mdx || {
+            echo "::error::Generated files are out of date. On pull requests from this repo, the regenerate job should commit them automatically; otherwise run 'bash run-build-scripts' locally."
+            exit 1
+          }
+
+      - name: Check links and redirects
+        working-directory: docs
+        run: npx --yes mintlify@latest broken-links --check-redirects

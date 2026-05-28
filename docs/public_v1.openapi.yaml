@@ -1,0 +1,4933 @@
+components:
+  schemas:
+    protos.ai.v1.Autotriage:
+      properties:
+        feedback:
+          $ref: '#/components/schemas/protos.ai.v1.AutotriageFeedback'
+        id:
+          type: string
+        issueId:
+          type: string
+        matchBasedId:
+          type: string
+        memoryIdsReferenced:
+          items:
+            type: string
+          type: array
+        memoryIdsRendered:
+          items:
+            type: string
+          type: array
+        reason:
+          description: The reasoning for a false positive verdict, explaining why
+            you might want to ignore the finding. Empty string if verdict is true
+            positive.
+          type: string
+        verdict:
+          description: '
+
+            | value | description |
+
+            |-------|---------------|
+
+            | VERDICT_TRUE_POSITIVE |  |
+
+            | VERDICT_FALSE_POSITIVE |  |
+
+            | VERDICT_NO_VERDICT |  |
+
+
+            '
+          enum:
+          - VERDICT_TRUE_POSITIVE
+          - VERDICT_FALSE_POSITIVE
+          - VERDICT_NO_VERDICT
+          format: enum
+          type: string
+      type: object
+    protos.ai.v1.AutotriageFeedback:
+      properties:
+        autotriageId:
+          type: string
+        note:
+          type: string
+        rating:
+          description: '
+
+            | value | description |
+
+            |-------|---------------|
+
+            | RATING_GOOD | Autotriage rated positively by a user. |
+
+            | RATING_BAD | Autotriage rated negatively by a user. |
+
+
+            '
+          enum:
+          - RATING_GOOD
+          - RATING_BAD
+          format: enum
+          type: string
+      type: object
+    protos.common.v1.FloatRange:
+      properties:
+        max:
+          description: End of the range
+          format: float
+          type: number
+        min:
+          description: Start of the range
+          format: float
+          type: number
+      title: Float Range
+      type: object
+    protos.common.v1.Policy:
+      properties:
+        id:
+          description: ID of the Policy.
+          example: '1'
+          format: uint64
+          type: string
+        isDefault:
+          description: When True, the Policy applies to all repositories.
+          example: true
+          type: boolean
+        name:
+          description: Name of the Policy.
+          example: Global Policy
+          type: string
+        productType:
+          description: 'Product type the Policy applies to.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | PRODUCT_TYPE_SAST | The product type for Code rules. |
+
+            | PRODUCT_TYPE_SECRETS | The product type for Secrets rules. |
+
+
+            '
+          enum:
+          - PRODUCT_TYPE_SAST
+          - PRODUCT_TYPE_SECRETS
+          example: PRODUCT_TYPE_SAST
+          format: enum
+          type: string
+        slug:
+          description: Sanitized machine-readable name of the Policy.
+          example: global_policy
+          type: string
+      title: Policy
+      type: object
+    protos.common.v1.ReviewComment:
+      properties:
+        externalDiscussionId:
+          description: External ID of the review comment or discussion thread.
+          type: string
+        externalNoteId:
+          description: External ID of the specific note in the review comment discussion
+            thread. Only applicable for GitLab.com, GitLab Self-Managed and Azure
+            DevOps.
+          type: string
+      type: object
+    protos.common.v1.Rule:
+      properties:
+        category:
+          description: Category the Rule is associated with.
+          example: security
+          type: string
+        confidence:
+          description: 'Confidence based on the Rule''s false-positive rate.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | CONFIDENCE_HIGH |  |
+
+            | CONFIDENCE_MEDIUM |  |
+
+            | CONFIDENCE_LOW |  |
+
+
+            '
+          enum:
+          - CONFIDENCE_HIGH
+          - CONFIDENCE_MEDIUM
+          - CONFIDENCE_LOW
+          example: CONFIDENCE_HIGH
+          format: enum
+          type: string
+        cweCategories:
+          description: The CWE associated with the Rule.
+          example:
+          - 'CWE-918: Server-Side Request Forgery (SSRF)'
+          items:
+            type: string
+          type: array
+        hasValidators:
+          description: When True, the secrets rule has validators.
+          type: boolean
+        id:
+          description: ID of the Rule.
+          format: uint64
+          type: string
+        languages:
+          description: Languages the Rule applies to.
+          example:
+          - python
+          items:
+            type: string
+          type: array
+        lastChangeAt:
+          description: Timestamp of when the Rule was last changed.
+          example: 2024-07-29 22:33:37.380293+00:00
+          format: date-time
+          type: string
+        lastChangeBy:
+          description: Username of who last changed the Rule.
+          type: string
+        owaspCategories:
+          description: Owasp categories the Rule is associated with.
+          example:
+          - 'A07: Cross-Site Scripting (XSS)'
+          items:
+            type: string
+          type: array
+        path:
+          description: Full path of the Rule.
+          example: python.rule.1
+          type: string
+        policyMode:
+          description: 'Mode behavior: Monitor / Comment / Block / Disabled
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | MODE_MONITOR | Monitor mode, silently report findings |
+
+            | MODE_COMMENT | Comment mode, leaves PR comments but does not block |
+
+            | MODE_BLOCK | Block mode, leaves PR comments and blocks PR |
+
+            | MODE_DISABLED | Disabled mode, not active |
+
+
+            '
+          enum:
+          - MODE_MONITOR
+          - MODE_COMMENT
+          - MODE_BLOCK
+          - MODE_DISABLED
+          example: MODE_BLOCK
+          format: enum
+          type: string
+        registryMaintainer:
+          description: The Registry maintainer associated with the Rule (if applicable).
+          example: semgrep
+          type: string
+        rulesets:
+          description: Rulesets to which the Rule belongs (if applicable).
+          example: []
+          items:
+            type: string
+          type: array
+        secretType:
+          description: The secret type (if applicable).
+          type: string
+        severity:
+          description: 'Severity level ("seriousness" of the finding)
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SEVERITY_HIGH |  |
+
+            | SEVERITY_MEDIUM |  |
+
+            | SEVERITY_LOW |  |
+
+            | SEVERITY_CRITICAL |  |
+
+
+            '
+          enum:
+          - SEVERITY_HIGH
+          - SEVERITY_MEDIUM
+          - SEVERITY_LOW
+          - SEVERITY_CRITICAL
+          example: SEVERITY_HIGH
+          format: enum
+          type: string
+        source:
+          description: 'Source of the Rule
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SOURCE_PRO | From Pro rules |
+
+            | SOURCE_COMMUNITY | From Semgrep Community rules |
+
+            | SOURCE_CUSTOM | From Custom rules |
+
+
+            '
+          enum:
+          - SOURCE_PRO
+          - SOURCE_COMMUNITY
+          - SOURCE_CUSTOM
+          example: SOURCE_COMMUNITY
+          format: enum
+          type: string
+        technologies:
+          description: Technologies the Rule is associated with.
+          example:
+          - django
+          - flask
+          items:
+            type: string
+          type: array
+        url:
+          description: The URL of the Rule.
+          type: string
+        vulnerabilityClass:
+          description: Vulnerability classes the Rule is associated with.
+          example: Improper Authentication
+          items:
+            type: string
+          type: array
+      title: Rule
+      type: object
+    protos.openapi.v1.AddProjectTagsRequest:
+      example:
+      - tag
+      properties:
+        deploymentSlug:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+        projectName:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+        tags:
+          example:
+          - tag
+          items:
+            type: string
+          type: array
+      required:
+      - deployment_slug
+      - project_name
+      title: Add Project Tags Request
+      type: object
+    protos.openapi.v1.AddProjectTagsResponse:
+      description: Successfully added tags to project.
+      properties:
+        project:
+          $ref: '#/components/schemas/protos.openapi.v1.Project'
+      required:
+      - projects
+      title: Add Project Tags Response
+      type: object
+    protos.openapi.v1.Assistant_Autofix:
+      description: Fix data generated by Semgrep Assistant
+      properties:
+        explanation:
+          description: 'DEPRECATED: This field is deprecated and will always be an
+            empty string. Find a description of how this fix works under `assistant.guidance`'
+          example: null
+          type: string
+        fix_code:
+          description: Source code that replaces all matched lines to fix this finding.
+            AI generated content, review carefully
+          example: cookie.setHttpOnly(true);\nresponse.addCookie(cookie);
+          type: string
+      title: Autofix
+      type: object
+    protos.openapi.v1.Assistant_Autotriage:
+      description: Triage recommendation generated by Semgrep Assistant
+      properties:
+        reason:
+          description: The reasoning for a `false_positive` verdict; this explains
+            why you might want to ignore the finding. Empty string if verdict is `true_positive`
+          example: The matched code is used for a non-security related feature.
+          type: string
+        verdict:
+          description: The verdict is `true_positive` if Assistant recommends fixing,
+            `false_positive` if Assistant recommends ignoring this finding. AI generated
+            decision, review carefully
+          enum:
+          - false_positive
+          - true_positive
+          example: false_positive
+          type: string
+      title: Autotriage
+      type: object
+    protos.openapi.v1.Assistant_Component:
+      description: Semgrep Assistant's guess as for what the matched source code's
+        purpose is
+      properties:
+        risk:
+          description: Component risk level
+          enum:
+          - high
+          - low
+          - neutral
+          example: high
+          type: string
+        tag:
+          description: Component tag
+          example: user data
+          type: string
+      title: Component
+      type: object
+    protos.openapi.v1.Assistant_Guidance:
+      description: Remediation guidance generated by Semgrep Assistant
+      properties:
+        instructions:
+          description: Step-by-step instructions explaining to a developer how to
+            fix the finding. AI generated content, review carefully
+          example: null
+          type: string
+        summary:
+          description: Short title explaining to a developer how to fix the finding.
+            AI generated content, review carefully
+          example: Use a template rendering engine such as EJS instead of string concatenation.
+          type: string
+      title: Guidance
+      type: object
+    protos.openapi.v1.Assistant_RuleExplanation:
+      description: AI-generated explanation of why a rule flagged this specific code
+      properties:
+        explanation:
+          description: Detailed explanation of why this rule flagged the code, including
+            context about the security issue and why it applies to this specific code.
+            AI generated content, review carefully
+          example: This code is vulnerable to SQL injection because user input from
+            the `username` parameter is directly concatenated into the SQL query string
+            without sanitization or parameterization.
+          type: string
+        summary:
+          description: A concise summary of the rule explanation. May not be present
+            for all findings
+          example: User input directly concatenated into SQL query
+          type: string
+      title: Rule Explanation
+      type: object
+    protos.openapi.v1.BulkTriageRequest:
+      properties:
+        autotriage_verdict:
+          description: The autotriage verdict to filter by
+          enum:
+          - true_positive
+          - false_positive
+          example: true_positive
+          type: string
+        categories:
+          description: List of categories to filter by
+          example:
+          - security
+          - performance
+          items:
+            type: string
+          type: array
+        component_tags:
+          description: List of component tags to filter by
+          example:
+          - user authentication
+          - user data
+          items:
+            type: string
+          type: array
+        confidence:
+          description: List of confidence levels to filter by
+          enum:
+          - low
+          - medium
+          - high
+          example: high
+          type: string
+        dependencies:
+          description: Filter by dependency name. Only applies for sca findings.
+          example:
+          - lodash
+          - express
+          items:
+            type: string
+          type: array
+        deploymentSlug:
+          description: Deployment slug. Can be found at /deployments, or in your Settings
+            in the web UI.
+          type: string
+        epss_probability:
+          description: Filter by EPSS probability (likelihood of exploit). Only applies
+            for sca findings.
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          example:
+          - high
+          - medium
+          items:
+            type: string
+          type: array
+        exposures:
+          description: Filter by exposure (reachability type). Only applies for sca
+            findings. Reachability is the ability of an attacker to access a vulnerability
+            in a system.
+          enum:
+          - reachable
+          - always_reachable
+          - conditionally_reachable
+          - unreachable
+          - unknown
+          example:
+          - reachable
+          - always_reachable
+          items:
+            type: string
+          type: array
+        include_historical:
+          description: Whether to include historical findings. Only applies for secrets
+            findings. Defaults to true.
+          example: true
+          type: boolean
+        issue_ids:
+          description: An array of issue IDs to act on. If this is not provided, an
+            issue filter should be provided.
+          example:
+          - 123
+          - 456
+          items:
+            format: uint32
+            type: integer
+          type: array
+        issue_type:
+          description: Type of findings to bulk triage.
+          enum:
+          - sast
+          - sca
+          - secrets
+          example: sca
+          type: string
+        limit:
+          default: 3000.0
+          description: Max number of issues to triage. Must be an integer between
+            1 and 3000. Defaults to 3000. When selecting findings to triage, Semgrep
+            will also triage findings with the same fingerprint on other branches.
+            As a result, the list of triaged issue_ids returned in the response may
+            be higher than the specified limit.
+          example: 100
+          format: uint32
+          type: integer
+        new_note:
+          description: The note to attach to the bulk triaged findings.
+          example: some note here
+          type: string
+        new_triage_reason:
+          description: The reason for triaging to a given triage state.
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          - no_triage_reason
+          example: acceptable_risk
+          type: string
+        new_triage_state:
+          description: The triage state you would like to bulk triage your findings
+            to.
+          enum:
+          - ignored
+          - reviewing
+          - fixing
+          - reopened
+          example: reopened
+          type: string
+        policies:
+          description: List of policy modes to filter by
+          example:
+          - rule-board-block
+          - rule-board-pr-comments
+          - rule-board-audit
+          items:
+            type: string
+          type: array
+        policy_mode:
+          description: List of policy modes to filter by
+          enum:
+          - monitor
+          - comment
+          - block
+          example:
+          - monitor
+          - block
+          items:
+            type: string
+          type: array
+        pro_only:
+          description: Filter by whether a finding is only available with Semgrep
+            Pro features. Only applies for sast findings.
+          example: true
+          type: boolean
+        project_tags:
+          description: List of project tags to filter by
+          example:
+          - my_project_tag_1
+          - my_project_tag_2
+          items:
+            type: string
+          type: array
+        ref:
+          description: Branch reference to filter by
+          example: refs/pull/1234/merge
+          type: string
+        repos:
+          description: List of repository names to filter by
+          example:
+          - myorg/repo1
+          - myorg/repo2
+          items:
+            type: string
+          type: array
+        repository_visibility:
+          description: Filter by repository visibility. Only applies for secrets findings.
+          enum:
+          - public
+          - private
+          - unknown
+          example:
+          - public
+          - private
+          items:
+            type: string
+          type: array
+        rules:
+          description: List of rule names to filter by
+          example:
+          - typescript.react.security.audit.react-no-refs.react-no-refs
+          - ajinabraham.njsscan.hardcoded_secrets.node_username
+          items:
+            type: string
+          type: array
+        ruleset:
+          description: List of Semgrep Registry rulesets to filter by
+          example:
+          - owasp-top-ten
+          - default
+          items:
+            type: string
+          type: array
+        secret_types:
+          description: Filter by type of secret (typically provider-related). Only
+            applies for secrets findings.
+          example:
+          - Github
+          - Heroku
+          - AWS
+          items:
+            type: string
+          type: array
+        severities:
+          description: List of severities to filter by
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example:
+          - low
+          - high
+          items:
+            type: string
+          type: array
+        since:
+          description: 'Epoch timestamp in seconds. Filters using the relevant_since
+            field: the timestamp when this finding was detected by Semgrep (the first
+            time, or when reintroduced).'
+          example: 1717334400
+          type: string
+        status:
+          description: The status to filter by
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          example: open
+          type: string
+        transitivities:
+          description: Filter by transitivity of a dependency. Only applies for sca
+            findings.
+          enum:
+          - direct
+          - transitive
+          - unknown
+          example:
+          - transitive
+          - direct
+          items:
+            type: string
+          type: array
+        triage_reasons:
+          description: List of triage reasons to filter by
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          - no_triage_reason
+          example:
+          - acceptable_risk
+          - false_positive
+          items:
+            type: string
+          type: array
+        validation_state:
+          description: Filter by whether a secret could be validated. Only applies
+            for secrets findings.
+          enum:
+          - confirmed_valid
+          - confirmed_invalid
+          - validation_error
+          - no_validator
+          example:
+          - valid
+          - invalid
+          items:
+            type: string
+          type: array
+      required:
+      - deployment_slug
+      - issue_type
+      title: Bulk Triage Request
+      type: object
+    protos.openapi.v1.BulkTriageResponse:
+      properties:
+        num_triaged:
+          description: Number of items updated
+          format: uint32
+          type: integer
+        triaged_issues:
+          description: List of triaged issue IDs
+          items:
+            format: uint32
+            type: integer
+          type: array
+      required:
+      - num_triaged
+      - triaged_issues
+      title: Bulk Triage Response
+      type: object
+    protos.openapi.v1.CreateSbomExportRequest:
+      properties:
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+        formatVersion:
+          $ref: '#/components/schemas/protos.sca.v1.SbomFormatVersion'
+        metadataComponentType:
+          default: SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_APPLICATION
+          description: 'Metadata component type for the SBOM export.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_APPLICATION |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FRAMEWORK |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_LIBRARY |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_CONTAINER |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_PLATFORM |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_OPERATING_SYSTEM |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DEVICE |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DEVICE_DRIVER |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FIRMWARE |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FILE |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_MACHINE_LEARNING_MODEL |  |
+
+            | SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DATA |  |
+
+
+            '
+          enum:
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_APPLICATION
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FRAMEWORK
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_LIBRARY
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_CONTAINER
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_PLATFORM
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_OPERATING_SYSTEM
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DEVICE
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DEVICE_DRIVER
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FIRMWARE
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_FILE
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_MACHINE_LEARNING_MODEL
+          - SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_DATA
+          example: SBOM_METADATA_COMPONENT_TYPE_CYCLONE_DX_V15_APPLICATION
+          format: enum
+          type: string
+        metadataSupplier:
+          $ref: '#/components/schemas/protos.sca.v1.SbomMetadataSupplier'
+        ref:
+          description: Branch to export SBOM for (Ex. ref=`refs/pull/1234/merge`).
+          example: refs/pull/1234/merge
+          type: string
+        repositoryId:
+          description: Repository ID to export SBOM for.
+          example: 123
+          format: uint64
+          type: string
+        sbomOutputFormat:
+          description: 'SBOM output format for the SBOM export.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SBOM_OUTPUT_FORMAT_JSON |  |
+
+
+            '
+          enum:
+          - SBOM_OUTPUT_FORMAT_JSON
+          - SBOM_OUTPUT_FORMAT_CYCLONEDX
+          example: SBOM_OUTPUT_FORMAT_JSON
+          format: enum
+          type: string
+      required:
+      - deployment_id
+      title: Create Sbom Export Request
+      type: object
+    protos.openapi.v1.CreateSbomExportResponse:
+      properties:
+        taskToken:
+          description: Task token for the SBOM export job.
+          type: string
+      required:
+      - task_token
+      title: Create Sbom Export Response
+      type: object
+    protos.openapi.v1.CreateTicketRequest:
+      description: Create ticket request
+      properties:
+        autotriage_verdict:
+          description: The autotriage verdict to filter by
+          enum:
+          - true_positive
+          - false_positive
+          example: true_positive
+          type: string
+        categories:
+          description: List of categories to filter by
+          example:
+          - security
+          - performance
+          items:
+            type: string
+          type: array
+        component_tags:
+          description: List of component tags to filter by
+          example:
+          - user authentication
+          - user data
+          items:
+            type: string
+          type: array
+        confidence:
+          description: List of confidence levels to filter by
+          enum:
+          - low
+          - medium
+          - high
+          example: high
+          type: string
+        dependencies:
+          description: Filter by dependency name. Only applies for sca findings.
+          example:
+          - lodash
+          - express
+          items:
+            type: string
+          type: array
+        deploymentSlug:
+          description: Deployment slug. Can be found at `/deployments`, or in your
+            Settings in the web UI.
+          type: string
+        epss_probability:
+          description: Filter by EPSS probability (likelihood of exploit). Only applies
+            for sca findings.
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          example:
+          - high
+          - medium
+          items:
+            type: string
+          type: array
+        exposures:
+          description: Filter by exposure (reachability type). Only applies for sca
+            findings. Reachability is the ability of an attacker to access a vulnerability
+            in a system.
+          enum:
+          - reachable
+          - always_reachable
+          - conditionally_reachable
+          - unreachable
+          - unknown
+          example:
+          - reachable
+          - always_reachable
+          items:
+            type: string
+          type: array
+        group_issues:
+          default: 'true'
+          description: Whether or not to group findings from the same rule and repository
+            into a single ticket. Defaults to true.
+          example: true
+          type: boolean
+        include_historical:
+          description: Whether to include historical findings. Only applies for secrets
+            findings. Defaults to true.
+          example: true
+          type: boolean
+        issue_ids:
+          description: An array of issue IDs to act on. If this is not provided, an
+            issue filter should be provided.
+          example:
+          - 123
+          - 456
+          items:
+            type: string
+          type: array
+        issue_type:
+          description: Type of findings to create tickets for.
+          enum:
+          - sast
+          - sca
+          - secrets
+          example: sca
+          type: string
+        jira_project_id:
+          description: Optional numeric Jira project ID to associate with the created
+            tickets. If not specified, defaults to the project configured in your
+            integration settings. You can fetch this ID using the Jira API.
+          example: 12345
+          type: string
+        limit:
+          default: 20.0
+          description: Max number of tickets to create. Must be an integer between
+            1 and 20. Defaults to 20
+          example: 20
+          format: uint32
+          type: integer
+        policies:
+          description: List of policy modes to filter by
+          example:
+          - rule-board-block
+          - rule-board-pr-comments
+          - rule-board-audit
+          items:
+            type: string
+          type: array
+        policy_mode:
+          description: List of policy modes to filter by
+          enum:
+          - monitor
+          - comment
+          - block
+          example:
+          - monitor
+          - block
+          items:
+            type: string
+          type: array
+        pro_only:
+          description: Filter by whether a finding is only available with Semgrep
+            Pro features. Only applies for sast findings.
+          example: true
+          type: boolean
+        project_tags:
+          description: List of project tags to filter by
+          example:
+          - my_project_tag_1
+          - my_project_tag_2
+          items:
+            type: string
+          type: array
+        ref:
+          description: Branch reference to filter by
+          example: refs/pull/1234/merge
+          type: string
+        repos:
+          description: List of repository names to filter by
+          example:
+          - myorg/repo1
+          - myorg/repo2
+          items:
+            type: string
+          type: array
+        repository_visibility:
+          description: Filter by repository visibility. Only applies for secrets findings.
+          enum:
+          - public
+          - private
+          - unknown
+          example:
+          - public
+          - private
+          items:
+            type: string
+          type: array
+        rules:
+          description: List of rule names to filter by
+          example:
+          - typescript.react.security.audit.react-no-refs.react-no-refs
+          - ajinabraham.njsscan.hardcoded_secrets.node_username
+          items:
+            type: string
+          type: array
+        ruleset:
+          description: List of Semgrep Registry rulesets to filter by
+          example:
+          - owasp-top-ten
+          - default
+          items:
+            type: string
+          type: array
+        secret_types:
+          description: Filter by type of secret (typically provider-related). Only
+            applies for secrets findings.
+          example:
+          - Github
+          - Heroku
+          - AWS
+          items:
+            type: string
+          type: array
+        severities:
+          description: List of severities to filter by
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example:
+          - low
+          - high
+          items:
+            type: string
+          type: array
+        since:
+          description: 'Epoch timestamp in seconds. Filters using the relevant_since
+            field: the timestamp when this finding was detected by Semgrep (the first
+            time, or when reintroduced).'
+          example: 1717334400
+          type: string
+        status:
+          description: The status to filter by
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          example: open
+          type: string
+        transitivities:
+          description: Filter by transitivity of a dependency. Only applies for sca
+            findings.
+          enum:
+          - direct
+          - transitive
+          - unknown
+          example:
+          - transitive
+          - direct
+          items:
+            type: string
+          type: array
+        triage_reasons:
+          description: List of triage reasons to filter by
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          - no_triage_reason
+          example:
+          - acceptable_risk
+          - false_positive
+          items:
+            type: string
+          type: array
+        validation_state:
+          description: Filter by whether a secret could be validated. Only applies
+            for secrets findings.
+          enum:
+          - confirmed_valid
+          - confirmed_invalid
+          - validation_error
+          - no_validator
+          example:
+          - valid
+          - invalid
+          items:
+            type: string
+          type: array
+      required:
+      - deployment_slug
+      - issue_type
+      title: Create Ticket Request
+      type: object
+    protos.openapi.v1.CreateTicketResponse:
+      properties:
+        failed:
+          description: List of issues where ticket creation failed. This list may
+            include issues that were skipped because they exceed the specified limit.
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.CreateTicketResponse_TicketCreationFailed'
+          type: array
+        skipped:
+          description: List of issues that were skipped
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.CreateTicketResponse_TicketCreationSkipped'
+          type: array
+        succeeded:
+          description: List of successfully created tickets
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.CreateTicketResponse_TicketCreationSuccess'
+          type: array
+      type: object
+    protos.openapi.v1.CreateTicketResponse_TicketCreationFailed:
+      properties:
+        error:
+          description: The error message for the failure
+          type: string
+        issue_ids:
+          description: List of issue IDs
+          items:
+            format: uint32
+            type: integer
+          type: array
+      type: object
+    protos.openapi.v1.CreateTicketResponse_TicketCreationSkipped:
+      properties:
+        issue_ids:
+          description: List of issue IDs
+          items:
+            format: uint32
+            type: integer
+          type: array
+        reason:
+          description: The reason why the issue was skipped
+          type: string
+      type: object
+    protos.openapi.v1.CreateTicketResponse_TicketCreationSuccess:
+      properties:
+        external_slug:
+          description: The external slug identifier for the ticket
+          type: string
+        issue_ids:
+          description: List of issue IDs
+          items:
+            format: uint32
+            type: integer
+          type: array
+        ticket_id:
+          description: The ID of the created ticket
+          format: uint32
+          type: integer
+        ticket_url:
+          description: The URL of the created ticket
+          type: string
+      type: object
+    protos.openapi.v1.DeleteProjectResponse:
+      description: Successfully deleted the project.
+      properties:
+        project_name:
+          description: The name of the deleted project.
+          example: organization/project
+          type: string
+      required:
+      - projects
+      title: Delete Project Response
+      type: object
+    protos.openapi.v1.DeleteProjectTagsResponse:
+      description: Successfully removed tags from project.
+      properties:
+        project:
+          $ref: '#/components/schemas/protos.openapi.v1.Project'
+      required:
+      - projects
+      title: Delete Project Tags Response
+      type: object
+    protos.openapi.v1.DeleteTicketResponse:
+      properties:
+        issueIds:
+          description: List of issue IDs unlinked from ticket
+          example:
+          - '18759'
+          - '18760'
+          items:
+            type: string
+          type: array
+      type: object
+    protos.openapi.v1.Deployment:
+      description: Deployment record, with relevant meta-data and further accesses.
+      properties:
+        findings:
+          $ref: '#/components/schemas/protos.openapi.v1.EndpointReference'
+        id:
+          description: Unique numerical identifier of the deployment.
+          example: 120
+          format: uint32
+          type: number
+        name:
+          description: Human readable name.
+          example: Your Deployment
+          type: string
+        slug:
+          description: Sanitized machine-readable name. Used as primary identifier
+            through the web API.
+          example: your-deployment
+          type: string
+      required:
+      - slug
+      - id
+      - name
+      title: Deployment
+      type: object
+    protos.openapi.v1.DiffScan:
+      properties:
+        enabled:
+          description: When true, diff-aware scans are enabled for the project.
+          type: boolean
+      type: object
+    protos.openapi.v1.EndpointReference:
+      properties:
+        url:
+          description: URL that the reference is pointing to.
+          example: https://semgrep.dev/api/v1/deployments/123/findings
+          type: string
+      required:
+      - url
+      title: Endpoint Reference
+      type: object
+    protos.openapi.v1.ExternalTicket:
+      description: External ticket associated with finding
+      properties:
+        externalSlug:
+          description: Identifier of the external ticket
+          example: OPS-158
+          type: string
+        id:
+          description: External ticket id
+          format: uint32
+          type: integer
+        linkedIssueIds:
+          description: Semgrep issue ids that are linked to this external ticket
+          items:
+            format: uint32
+            type: integer
+          type: array
+        url:
+          description: URL of the external ticket
+          type: string
+      title: External Ticket
+      type: object
+    protos.openapi.v1.FindingLocation:
+      description: Location of the record in a file, as reported by Semgrep. If null,
+        then the information does not exist or lacks integrity (older or broken scans)
+      properties:
+        column:
+          description: Column at which the target starts
+          example: 8
+          format: uint32
+          type: integer
+        endColumn:
+          description: Column at which the target ends
+          example: 16
+          format: uint32
+          type: integer
+        endLine:
+          description: Line at which the target ends
+          example: 124
+          format: uint32
+          type: integer
+        filePath:
+          description: File path of the relevant line and column numbers
+          example: frontend/src/corpComponents/Code.tsx
+          type: string
+        line:
+          description: Line at which the target starts
+          example: 120
+          format: uint32
+          type: integer
+      title: Finding Location
+      type: object
+    protos.openapi.v1.FindingRepository:
+      description: Which repository this finding was identified in
+      properties:
+        name:
+          description: The repository or named project that the finding is associated
+            with
+          example: semgrep
+          type: string
+        url:
+          description: The source URL from which this repository last scanned
+          example: https://github.com/semgrep/semgrep
+          type: string
+      title: Finding Repository
+      type: object
+    protos.openapi.v1.FindingRule:
+      description: Rule that applies to this finding
+      properties:
+        category:
+          description: Category the rule is associated with
+          example: security
+          type: string
+        confidence:
+          description: Confidence level of the rule
+          enum:
+          - low
+          - medium
+          - high
+          example: high
+          type: string
+        cweNames:
+          description: CWE names associated with the rule
+          example:
+          - 'CWE-319: Cleartext Transmission of Sensitive Information'
+          items:
+            type: string
+          type: array
+        message:
+          description: Rule message
+          example: This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS
+            URL if possible.
+          type: string
+        name:
+          description: Name of the rule
+          example: html.security.plaintext-http-link.plaintext-http-link
+          type: string
+        owaspNames:
+          description: OWASP names associated with the rule
+          example:
+          - A03:2017 - Sensitive Data Exposure
+          - A02:2021 - Cryptographic Failures
+          items:
+            type: string
+          type: array
+        subcategories:
+          description: Subcategories of the rule
+          example:
+          - vuln
+          items:
+            type: string
+          type: array
+        vulnerabilityClasses:
+          description: Vulnerability classes the rule is associated with
+          example:
+          - Mishandled Sensitive Information
+          items:
+            type: string
+          type: array
+      title: Finding Rule
+      type: object
+    protos.openapi.v1.FullScan:
+      properties:
+        enabled:
+          description: When true, weekly full scans are enabled.
+          type: boolean
+      type: object
+    protos.openapi.v1.GetBootstrapSmsVpcResponse:
+      properties:
+        AWSTemplateFormatVersion:
+          description: The AWSTemplateFormatVersion that the template conforms to
+          type: string
+        Description:
+          description: Template description
+          type: string
+        Metadata:
+          description: Template metadata including version and last updated date
+          type: object
+        Outputs:
+          description: Output values of the stack
+          type: object
+        Parameters:
+          description: Template parameters
+          type: object
+        Resources:
+          description: Declaration of AWS resources
+          type: object
+      type: object
+    protos.openapi.v1.GetProjectResponse:
+      description: Successfully retrieved details for the project.
+      properties:
+        project:
+          $ref: '#/components/schemas/protos.openapi.v1.Project'
+      required:
+      - projects
+      title: Get Project Response
+      type: object
+    protos.openapi.v1.GetSbomExportResponse:
+      properties:
+        downloadUrl:
+          description: URL to download the SBOM when status is COMPLETED.
+          type: string
+        errorMessage:
+          description: Error message when status is FAILED.
+          type: string
+        status:
+          description: 'Status of the SBOM export job.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SBOM_EXPORT_STATUS_IN_PROGRESS | The SBOM export job is in progress.
+            |
+
+            | SBOM_EXPORT_STATUS_COMPLETED | The SBOM export job has completed. |
+
+            | SBOM_EXPORT_STATUS_FAILED | The SBOM export job has failed. |
+
+
+            '
+          enum:
+          - SBOM_EXPORT_STATUS_IN_PROGRESS
+          - SBOM_EXPORT_STATUS_COMPLETED
+          - SBOM_EXPORT_STATUS_FAILED
+          format: enum
+          type: string
+      required:
+      - status
+      title: Get Sbom Export Response
+      type: object
+    protos.openapi.v1.GetScanResponse:
+      properties:
+        completed_at:
+          description: imestamp of when the scan started.
+          example: 2023-11-18 23:28:12.391807+00:00
+          type: string
+        deployment_id:
+          description: The unique ID of the deployment associated with the scanned
+            repository.
+          example: 120
+          format: uint32
+          type: integer
+        enabled_products:
+          description: The products used when running the scan.
+          example:
+          - secrets
+          items:
+            type: string
+          type: array
+        exit_code:
+          format: uint32
+          type: integer
+        has_logs:
+          type: boolean
+        id:
+          description: The unique ID representing this scan.
+          example: 123
+          format: uint32
+          type: integer
+        meta:
+          $ref: '#/components/schemas/protos.openapi.v1.GetScanResponse_ScanMeta'
+        repository_id:
+          description: The unique ID of the repository that was scanned.
+          example: 1234567
+          format: uint32
+          type: integer
+        started_at:
+          description: when the scan was started
+          example: 2023-11-18 23:28:12.391807+00:00
+          type: string
+        stats:
+          description: Miscellaneous statistics about the scan, like number of findings
+            found and scan duration.
+          example:
+            findings: 5
+            total_time: 100
+          type: object
+      type: object
+    protos.openapi.v1.GetScanResponse_ScanMeta:
+      properties:
+        true:
+          description: What triggered this scan, if applicable.
+          example: pull_request
+          type: string
+        branch:
+          description: The branch that was scanned, if applicable.
+          example: refs/heads/main
+          type: string
+        commit:
+          description: The commit SHA associated with the scan, if applicable.
+          example: 94c5be1312a9da03b7c4bfcc1c50b4379c83412
+          type: string
+        config:
+          description: The path of the configuration file used for this scan, if applicable.
+          example: r/python
+          type: string
+        repo_url:
+          description: The URL of the scanned repository, if applicable.
+          example: https://github.com/semgrep/semgrep
+          type: string
+        ci_job_url:
+          description: The URL of the CI job that ran the scan, if applicable.
+          example: https://github.com/semgrep/semgrep/actions/runs/12345
+          type: string
+        repository:
+          description: The name and organization of the scanned repository, if applicable.
+          example: semgrep/semgrep
+          type: string
+        commit_title:
+          description: The commit message associated with the scan, if applicable.
+          example:
+            fix(feature): Added XYZ component
+          type: string
+        pull_request_id:
+          description: The ID of the pull request associated with the scan, if applicable.
+          example: 12345
+          type: string
+        pull_request_title:
+          description: The title of the pull request associated with the scan if applicable.
+          example:
+            fix(feature): Added XYZ component
+          type: string
+        commit_author_name:
+          description: The name of the author of the commit associated with the scan,
+            if applicable.
+          example: Sven Greppe
+          type: string
+        commit_author_image_url:
+          description: The avatar image url of the author of the commit associated
+            with the scan, if applicable.
+          example: https://github.com/link/to/avatar.png
+          type: string
+        commit_author_email:
+          description: The email of the author of the commit associated with the scan,
+            if applicable.
+          example: sven.greppe@semgrep.com
+          type: string
+        commit_author_username:
+          description: The username of the author of the commit associated with the
+            scan, if applicable.
+          example: SvenGreppe
+          type: string
+        pull_request_author_username:
+          description: The username of the author of the pull request associated with
+            the scan, if applicable.
+          example: SvenGreppe
+          type: string
+        pull_request_author_image_url:
+          description: The avatar image url of the author of the pull request associated
+            with the scan, if applicable.
+          example: https://github.com/link/to/avatar.png
+          type: string
+      type: object
+    protos.openapi.v1.ListDependenciesRequest:
+      properties:
+        cursor:
+          description: Cursor to paginate through the dependencies. Provide a cursor
+            value from the response to retrieve the next page.
+          format: uint64
+          type: string
+        dependencyFilter:
+          $ref: '#/components/schemas/protos.sca.v1.DependencyFilter'
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+        pageSize:
+          description: 'Number of dependencies per page. Default: 1000, min: 1, max:
+            10000.'
+          example: 1000
+          format: int64
+          maximum: 10000.0
+          minimum: 1.0
+          type: integer
+      required:
+      - deployment_id
+      title: List Dependencies Request
+      type: object
+    protos.openapi.v1.ListDependenciesResponse:
+      properties:
+        cursor:
+          description: Pass to next request to get next page of results.
+          format: uint64
+          type: string
+        dependencies:
+          description: List of dependencies.
+          example:
+          - id: '1'
+            name: dependency1
+            version: 1.0.0
+          - id: '2'
+            name: dependency2
+            version: 2.0.0
+          items:
+            $ref: '#/components/schemas/protos.sca.v1.FoundDependency'
+          type: array
+        hasMore:
+          description: True if there are more dependencies to get.
+          type: boolean
+      required:
+      - dependencies
+      - has_more
+      title: List Dependencies Response
+      type: object
+    protos.openapi.v1.ListDeploymentsResponse:
+      properties:
+        deployments:
+          description: Return the deployment the supplied token can access.
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.Deployment'
+          type: array
+      type: object
+    protos.openapi.v1.ListFindingsResponse:
+      description: Response containing a paginated list of findings (either Code or
+        Supply Chain findings) with optional filtering applied
+      properties:
+        sastFindings:
+          $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse_SastFindings'
+        scaFindings:
+          $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse_ScaFindings'
+      title: List Findings Response
+      type: object
+    protos.openapi.v1.ListFindingsResponse_SastFindings:
+      description: A list of Code findings that Semgrep has identified in your organization
+      properties:
+        findings:
+          description: A list of Code findings.
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.SastFinding'
+          type: array
+      title: Sast Findings
+      type: object
+    protos.openapi.v1.ListFindingsResponse_ScaFindings:
+      description: A list of Supply Chain findings that Semgrep has identified in
+        your organization
+      properties:
+        findings:
+          description: A list of Supply Chain findings.
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ScaFinding'
+          type: array
+      title: Sca Findings
+      type: object
+    protos.openapi.v1.ListLockfilesForDependenciesRequest:
+      properties:
+        cursor:
+          description: Use cursor in response to get next page of results.
+          type: string
+        dependencyFilter:
+          $ref: '#/components/schemas/protos.sca.v1.DependencyFilter'
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          format: uint64
+          type: string
+        pageSize:
+          default: 5.0
+          description: 'Number of repositories per page. Default: 5, min: 1, max:
+            100.'
+          example: 100
+          format: uint32
+          maximum: 100.0
+          minimum: 1.0
+          type: integer
+        repositoryId:
+          description: Repository ID to filter by. Use Projects endpoints to retrieve
+            repository IDs.
+          format: uint64
+          type: string
+      required:
+      - deployment_id
+      - repository_id
+      title: List Lockfiles For Dependencies Request
+      type: object
+    protos.openapi.v1.ListLockfilesForDependenciesResponse:
+      properties:
+        cursor:
+          description: Pass to next request to get next page of results.
+          type: string
+        hasMore:
+          description: True if there are more lockfiles to get.
+          type: boolean
+        lockfileSummaries:
+          description: List of lockfiles.
+          items:
+            $ref: '#/components/schemas/protos.sca.v1.LockfileDependencySummary'
+          type: array
+      required:
+      - has_more
+      - lockfile_summaries
+      title: List Lockfiles For Dependencies Response
+      type: object
+    protos.openapi.v1.ListPoliciesResponse:
+      properties:
+        policies:
+          description: List of Policies associated with the given Deployment.
+          example:
+          - id: '1'
+            isDefault: true
+            name: Global Policy
+            productType: PRODUCT_TYPE_SAST
+            slug: global_policy
+          - id: '2'
+            isDefault: false
+            name: Semgrep test
+            productType: PRODUCT_TYPE_SAST
+            slug: semgrep_test
+          - id: '3'
+            isDefault: true
+            name: Global Secrets Policy
+            productType: PRODUCT_TYPE_SECRETS
+            slug: global_secrets_policy
+          items:
+            $ref: '#/components/schemas/protos.common.v1.Policy'
+          type: array
+      type: object
+    protos.openapi.v1.ListPolicyRulesResponse:
+      properties:
+        cursor:
+          description: Cursor to paginate through the rules.
+          example: Pm0ROjIwMjQtMDItMDYgMjA6MDQ6NDguMEDzNzk2fmk6NYTM2zUxOTI
+          type: string
+        policy:
+          $ref: '#/components/schemas/protos.common.v1.Policy'
+        rules:
+          description: List of Rules for the given Policy.
+          example:
+          - category: security
+            confidence: CONFIDENCE_HIGH
+            cweCategories:
+            - 'CWE-918: Server-Side Request Forgery (SSRF)'
+            id: '1'
+            languages:
+            - python
+            lastChangeAt: '2024-07-29T22:33:37.380293Z'
+            owaspCategories:
+            - 'A07: Cross-Site Scripting (XSS)'
+            path: python.rule.1
+            policyMode: MODE_MONITOR
+            registryMaintainer: semgrep
+            rulesets: []
+            severity: SEVERITY_HIGH
+            source: SOURCE_COMMUNITY
+            technologies:
+            - django
+            - flask
+            url: https://semgrep.com/r/123/python.rule.1
+            vulnerabilityClass:
+            - Improper Authentication
+          - category: security
+            confidence: CONFIDENCE_HIGH
+            cweCategories:
+            - 'CWE-918: Server-Side Request Forgery (SSRF)'
+            id: '2'
+            languages:
+            - python
+            lastChangeAt: '2024-07-29T22:33:37.380293Z'
+            owaspCategories:
+            - A01:2021 - Broken Access Control
+            - 'A07: Cross-Site Scripting (XSS)'
+            path: python.rule.shared
+            policyMode: MODE_COMMENT
+            registryMaintainer: semgrep
+            rulesets:
+            - comment
+            - default
+            severity: SEVERITY_MEDIUM
+            source: SOURCE_PRO
+            technologies:
+            - django
+            - flask
+            url: https://semgrep.com/r/123/python.rule.shared
+            vulnerabilityClass:
+            - Improper Authentication
+          - category: best-practice
+            confidence: CONFIDENCE_HIGH
+            cweCategories: []
+            id: '3'
+            languages:
+            - python
+            lastChangeAt: '2024-07-29T22:33:37.380293Z'
+            lastChangeBy: example-user
+            owaspCategories: []
+            path: python.rule.custom_rule
+            policyMode: MODE_BLOCK
+            registryMaintainer: semgrep
+            rulesets: []
+            severity: SEVERITY_MEDIUM
+            source: SOURCE_CUSTOM
+            technologies:
+            - django
+            - flask
+            url: https://semgrep.com/r/123/python.rule.custom_rule
+            vulnerabilityClass:
+            - Improper Authentication
+          items:
+            $ref: '#/components/schemas/protos.common.v1.Rule'
+          type: array
+      type: object
+    protos.openapi.v1.ListProject:
+      description: A project in your organization that uses Semgrep.
+      properties:
+        created_at:
+          description: Time when this project was created.
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        default_branch:
+          description: The default branch in the SCM.
+          example: refs/heads/main
+          type: string
+        id:
+          description: Unique ID of this project.
+          example: 1234567
+          format: uint32
+          type: number
+        latest_scan_at:
+          description: Time of latest scan, if there is one.
+          example: 2023-01-13 20:51:51.449081+00:00
+          type: string
+        name:
+          description: Name of the project.
+          example: returntocorp/semgrep
+          type: string
+        primary_branch:
+          description: The primary branch of the project, if known.
+          example: refs/heads/custom-main
+          type: string
+        tags:
+          description: Tags associated to this project.
+          example:
+          - tag
+          items:
+            type: string
+          type: string
+        url:
+          description: URL of the project, if there is one.
+          example: https://github.com/returntocorp/semgrep
+          type: string
+      required:
+      - id
+      - name
+      - tags
+      title: Project
+      type: object
+    protos.openapi.v1.ListProjectsResponse:
+      description: Return the list of projects in an organization.
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ListProject'
+          type: array
+      required:
+      - projects
+      title: List Projects Response
+      type: object
+    protos.openapi.v1.ListRepositoriesForDependenciesRequest:
+      properties:
+        cursor:
+          description: Use cursor in response to get next page of results.
+          format: uint32
+          type: number
+        dependencyFilter:
+          $ref: '#/components/schemas/protos.sca.v1.DependencyFilter'
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          format: uint64
+          type: string
+        pageSize:
+          default: 5.0
+          description: 'Number of repositories per page. Default: 5, min: 1, max:
+            100.'
+          example: 100
+          format: uint32
+          maximum: 100.0
+          minimum: 1.0
+          type: number
+      required:
+      - deployment_id
+      title: List Repositories For Dependencies Request
+      type: object
+    protos.openapi.v1.ListRepositoriesForDependenciesResponse:
+      properties:
+        cursor:
+          description: Pass to next request to get next page of results.
+          format: uint32
+          type: number
+        hasMore:
+          description: True if there are more repositories to get.
+          type: boolean
+        repositorySummaries:
+          description: List of repositories.
+          items:
+            $ref: '#/components/schemas/protos.sca.v1.RepositoryDependencySummary'
+          type: array
+      required:
+      - has_more
+      - repository_summaries
+      title: List Repositories For Dependencies Response
+      type: object
+    protos.openapi.v1.ListSecretsPathResponse:
+      properties:
+        cursor:
+          description: Cursor to paginate through the results.
+          type: string
+        findings:
+          description: List of Secrets associated with the given Deployment.
+          example:
+            cursor: Pm0ROjIwMjQtMDItMDYgMjA6MDQ6NDguMEDzNzk2fmk6NYTM2zUxOTI=
+            findings:
+            - confidence: CONFIDENCE_HIGH
+              createdAt: '2024-06-17T17:23:01.901204Z'
+              findingPath: src/ai.py:232
+              findingPathUrl: https://github.com/foo/bar/blob/6ad16b240d4b6ae5bd6e326dd71053c21344e311/src/ai.py#L232
+              id: '691234'
+              mode: MODE_MONITOR
+              ref: refs/pull/148/merge
+              refUrl: https://github.com/foo/bar/pull/148
+              repository:
+                name: foo/bar
+                scmType: SCM_TYPE_GITHUB
+                url: https://github.com/foo/bar
+                visibility: REPOSITORY_VISIBILITY_PRIVATE
+              reviewComments:
+              - externalDiscussionId: af0433345acfb74c8f9
+                externalNoteId: '5678'
+              ruleHashId: lBU41LA
+              severity: SEVERITY_HIGH
+              status: FINDING_STATUS_FIXED
+              type: OpenAI
+              updatedAt: '2024-06-20T17:33:00.669343Z'
+              validationState: VALIDATION_STATE_CONFIRMED_VALID
+            - confidence: CONFIDENCE_MEDIUM
+              createdAt: '2024-06-08T11:01:23.380293Z'
+              findingPath: config.yaml:801
+              findingPathUrl: https://github.com/foo/baz/blob/e2b6d5ca75d830e10f5f617481a66a981bd093c0/config.yaml#L801
+              id: '6881234'
+              mode: MODE_COMMENT
+              ref: develop
+              refUrl: https://github.com/foo/baz/tree/develop
+              repository:
+                name: foo/baz
+                scmType: SCM_TYPE_GITHUB
+                url: https://github.com/foo/baz
+                visibility: REPOSITORY_VISIBILITY_PRIVATE
+              reviewComments:
+              - externalDiscussionId: af0476223423b74c8f9
+                externalNoteId: '6789'
+              ruleHashId: pKUYdA
+              severity: SEVERITY_HIGH
+              status: FINDING_STATUS_IGNORED
+              type: Heroku
+              updatedAt: '2024-06-22T11:07:02.384500Z'
+              validationState: VALIDATION_STATE_CONFIRMED_INVALID
+          items:
+            $ref: '#/components/schemas/protos.secrets.v1.SecretsFinding'
+          type: array
+        previous:
+          description: Cursor to paginate backwards through the results.
+          type: string
+      type: object
+    protos.openapi.v1.ManagedScanConfig:
+      description: '[Beta] Configuration of Semgrep Managed Scans for the project,
+        if relevant.'
+      properties:
+        diff_scan:
+          $ref: '#/components/schemas/protos.openapi.v1.DiffScan'
+        full_scan:
+          $ref: '#/components/schemas/protos.openapi.v1.FullScan'
+      title: Managed Scan Config
+      type: object
+    protos.openapi.v1.PingResponse:
+      description: OK
+      properties: {}
+      title: Ping Response
+      type: object
+    protos.openapi.v1.Project:
+      description: A project in your organization that uses Semgrep.
+      properties:
+        created_at:
+          description: Time when this project was created.
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        default_branch:
+          description: The default branch in the SCM.
+          example: refs/heads/main
+          type: string
+        id:
+          description: Unique ID of this project.
+          example: 1234567
+          format: uint32
+          type: number
+        latest_scan_at:
+          description: Time of latest scan, if there is one.
+          example: 2023-01-13 20:51:51.449081+00:00
+          type: string
+        managed_scan_config:
+          $ref: '#/components/schemas/protos.openapi.v1.ManagedScanConfig'
+        name:
+          description: Name of the project.
+          example: returntocorp/semgrep
+          type: string
+        primary_branch:
+          description: The primary branch of the project, if known.
+          example: refs/heads/custom-main
+          type: string
+        tags:
+          description: Tags associated to this project.
+          example:
+          - tag
+          items:
+            type: string
+          type: string
+        url:
+          description: URL of the project, if there is one.
+          example: https://github.com/returntocorp/semgrep
+          type: string
+      required:
+      - id
+      - name
+      - tags
+      title: Project
+      type: object
+    protos.openapi.v1.ReviewComment:
+      description: External review comment information associated with a finding
+      properties:
+        externalDiscussionId:
+          description: External ID of the review comment or discussion thread
+          example: af04762b69acfb74c8f9
+          type: string
+        externalNoteId:
+          description: External ID of the specific note in the review comment discussion
+            thread. Only applicable for GitLab.com, GitLab Self-Managed and Azure
+            DevOps
+          example: 123523
+          type: string
+      title: Review Comment
+      type: object
+    protos.openapi.v1.SastFinding:
+      description: A Code finding that Semgrep has identified in your organization
+      properties:
+        assistant:
+          $ref: '#/components/schemas/protos.openapi.v1.SastFinding_Assistant'
+        categories:
+          description: The categories of the finding as classified by the associated
+            rule metadata
+          example:
+          - security
+          items:
+            type: string
+          type: array
+        click_to_fix_failures:
+          description: Failed PR creation attempts by Semgrep's autofix feature (Click
+            to Fix) for this finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.SastFinding_ClickToFixFailure'
+          type: array
+        click_to_fix_prs:
+          description: Pull requests created by Semgrep's autofix feature (Click to
+            Fix) for this finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.SastFinding_ClickToFixPr'
+          type: array
+        confidence:
+          description: Confidence of the finding, derived from the rule that triggered
+            it
+          enum:
+          - low
+          - medium
+          - high
+          example: medium
+          type: string
+        created_at:
+          description: The timestamp when this finding was created
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        external_ticket:
+          $ref: '#/components/schemas/protos.openapi.v1.ExternalTicket'
+        first_seen_scan_id:
+          description: Unique ID of the Semgrep scan that first identified this finding
+          example: 1234
+          format: uint32
+          type: integer
+        id:
+          description: Unique ID of this finding
+          example: 1234567
+          format: uint32
+          type: integer
+        line_of_code_url:
+          description: The source URL including file and line number
+          example: https://github.com/semgrep/semgrep/blob/39f95450a7d4d70e54c9edbd109bed8210a36889/src/core_cli/Core_CLI.ml#L1
+          type: string
+        location:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingLocation'
+        match_based_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and pattern, and index
+          example: 0f8c79a6f7e0ff2f908ff5bc366ae1548465069bae8892088051e1c3b4b12c6b8df37d5bcbb181eb868aa79f81f239d14bf2336d552786ab8ccdc7279adf07a6_1
+          type: string
+        ref:
+          description: External reference to the source of this finding (e.g. PR)
+          example: refs/pull/1234/merge
+          type: string
+        relevant_since:
+          description: The timestamp when this finding was detected by Semgrep (the
+            first time, or when reintroduced)
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        repository:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRepository'
+        review_comments:
+          description: List of external review comment information associated with
+            a finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ReviewComment'
+          type: array
+        rule:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
+        rule_message:
+          description: Deprecated in favor of rule.message. Rule message at the time
+            of finding identification. Older findings may not have a value for this
+            field
+          example: null
+          type: string
+        rule_name:
+          description: Deprecated in favor of rule.name
+          example: typescript.react.security.audit.react-no-refs.react-no-refs
+          type: string
+        severity:
+          description: Severity of the finding, derived from the rule that triggered
+            it. Low is equivalent to INFO, Medium to WARNING, and High to ERROR
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example: medium
+          type: string
+        sourcing_policy:
+          $ref: '#/components/schemas/protos.openapi.v1.SastFinding_PolicyReference'
+        state:
+          description: The finding's resolution state. Managed only by changes detected
+            at scan time, the `state` is combined with `triage_state` to ultimately
+            determine a final `status` which is exposed in the UI and API
+          enum:
+          - fixed
+          - muted
+          - removed
+          - unresolved
+          example: unresolved
+          type: string
+        state_updated_at:
+          description: When this issue's `state` (resolution state) was last updated,
+            as distinct from when the issue was triaged (`triaged_at`)
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+        status:
+          description: The finding's status as exposed in the UI. Status is a derived
+            property combining information from the finding `state` and `triage_state`.
+            The `triage_state` can be used to override the scan state if the finding
+            is still detected
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: open
+          type: string
+        syntactic_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and matched code, and index. Prefer `match_based_id`
+          example: 440eeface888e78afceac3dc7d4cc2cf
+          type: string
+        triage_comment:
+          description: The detailed comment provided during triage
+          example: This finding is from the test repo
+          type: string
+        triage_reason:
+          description: Reason provided when this issue was triaged
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          example: acceptable_risk
+          type: string
+        triage_state:
+          description: 'The finding''s triage state. Note: "reviewing" and "fixing"
+            are only in private beta. Set by the user and used along with state to
+            generate the final "status" viewable in the UI'
+          enum:
+          - untriaged
+          - ignored
+          - reopened
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: untriaged
+          type: string
+        triaged_at:
+          description: When the finding was triaged
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+      title: Sast Finding
+      type: object
+    protos.openapi.v1.SastFinding_Assistant:
+      description: Semgrep Assistant data. Only present if Assistant is enabled
+      properties:
+        autofix:
+          $ref: '#/components/schemas/protos.openapi.v1.Assistant_Autofix'
+        autotriage:
+          $ref: '#/components/schemas/protos.openapi.v1.Assistant_Autotriage'
+        component:
+          $ref: '#/components/schemas/protos.openapi.v1.Assistant_Component'
+        guidance:
+          $ref: '#/components/schemas/protos.openapi.v1.Assistant_Guidance'
+        rule_explanation:
+          $ref: '#/components/schemas/protos.openapi.v1.Assistant_RuleExplanation'
+      title: Assistant
+      type: object
+    protos.openapi.v1.SastFinding_ClickToFixFailure:
+      description: A failed PR creation attempt by Semgrep's Click to Fix feature
+      properties:
+        created_at:
+          description: When this failure occurred
+          example: 2024-01-15 10:30:00+00:00
+          type: string
+        reason:
+          description: Reason for the PR creation failure
+          example: merge conflict in target branch
+          type: string
+      title: Click To Fix Failure
+      type: object
+    protos.openapi.v1.SastFinding_ClickToFixPr:
+      description: A pull request created by Semgrep's Click to Fix feature
+      properties:
+        created_at:
+          description: When this PR was created
+          example: 2024-01-15 10:30:00+00:00
+          type: string
+        url:
+          description: URL of the pull request
+          example: https://github.com/myorg/myrepo/pull/123
+          type: string
+      title: Click To Fix Pr
+      type: object
+    protos.openapi.v1.SastFinding_PolicyReference:
+      description: Reference to a policy, with some basic information. If null, then
+        the information does not exist or lacks integrity (older or broken scans)
+      properties:
+        id:
+          description: Unique numerical identifier of the policy
+          example: 120
+          format: uint32
+          type: integer
+        name:
+          description: Human readable name
+          example: Default Policy
+          type: string
+        slug:
+          description: Sanitized machine-readable name
+          example: default-policy
+          type: string
+      title: Policy Reference
+      type: object
+    protos.openapi.v1.ScaFinding:
+      description: A Supply Chain finding that Semgrep has identified in your organization
+      properties:
+        categories:
+          description: The categories of the finding as classified by the associated
+            rule metadata
+          example:
+          - security
+          items:
+            type: string
+          type: array
+        confidence:
+          description: Confidence of the finding, derived from the rule that triggered
+            it
+          enum:
+          - low
+          - medium
+          - high
+          example: medium
+          type: string
+        created_at:
+          description: The timestamp when this finding was created
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        epss_score:
+          $ref: '#/components/schemas/protos.openapi.v1.ScaFinding_EpssScore'
+        external_ticket:
+          $ref: '#/components/schemas/protos.openapi.v1.ExternalTicket'
+        first_seen_scan_id:
+          description: Unique ID of the Semgrep scan that first identified this finding
+          example: 1234
+          format: uint32
+          type: integer
+        fix_recommendations:
+          description: Recommendations for fixing the vulnerability
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ScaFinding_FixRecommendation'
+          type: array
+        found_dependency:
+          $ref: '#/components/schemas/protos.openapi.v1.ScaFinding_FoundDependency'
+        id:
+          description: Unique ID of this finding
+          example: 1234567
+          format: uint32
+          type: integer
+        is_malicious:
+          description: True if the finding is from a malicious dependency
+          example: true
+          type: boolean
+        line_of_code_url:
+          description: The source URL including file and line number
+          example: https://github.com/semgrep/semgrep/blob/39f95450a7d4d70e54c9edbd109bed8210a36889/src/core_cli/Core_CLI.ml#L1
+          type: string
+        location:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingLocation'
+        match_based_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and pattern, and index
+          example: 0f8c79a6f7e0ff2f908ff5bc366ae1548465069bae8892088051e1c3b4b12c6b8df37d5bcbb181eb868aa79f81f239d14bf2336d552786ab8ccdc7279adf07a6_1
+          type: string
+        reachability:
+          description: Indicates whether the vulnerable code is reachable
+          enum:
+          - no reachability analysis
+          - reachable
+          - always reachable
+          - conditionally reachable
+          - unreachable
+          example: reachable
+          type: string
+        reachable_condition:
+          description: Description of the condition under which the vulnerability
+            becomes reachable. Applies to conditionally reachable findings
+          example: you use the package on a host running Linux or MacOS
+          type: string
+        ref:
+          description: External reference to the source of this finding (e.g. PR)
+          example: refs/pull/1234/merge
+          type: string
+        relevant_since:
+          description: The timestamp when this finding was detected by Semgrep (the
+            first time, or when reintroduced)
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        repository:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRepository'
+        review_comments:
+          description: List of external review comment information associated with
+            a finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ReviewComment'
+          type: array
+        rule:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
+        rule_message:
+          description: Deprecated in favor of rule.message. Rule message at the time
+            of finding identification. Older findings may not have a value for this
+            field
+          example: null
+          type: string
+        rule_name:
+          description: Deprecated in favor of rule.name
+          example: typescript.react.security.audit.react-no-refs.react-no-refs
+          type: string
+        severity:
+          description: Severity of the finding, derived from the rule that triggered
+            it. Low is equivalent to INFO, Medium to WARNING, and High to ERROR
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example: medium
+          type: string
+        state:
+          description: The finding's resolution state. Managed only by changes detected
+            at scan time, the `state` is combined with `triage_state` to ultimately
+            determine a final `status` which is exposed in the UI and API
+          enum:
+          - fixed
+          - muted
+          - removed
+          - unresolved
+          example: unresolved
+          type: string
+        state_updated_at:
+          description: When this issue's `state` (resolution state) was last updated,
+            as distinct from when the issue was triaged (`triaged_at`)
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+        status:
+          description: The finding's status as exposed in the UI. Status is a derived
+            property combining information from the finding `state` and `triage_state`.
+            The `triage_state` can be used to override the scan state if the finding
+            is still detected
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: open
+          type: string
+        syntactic_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and matched code, and index. Prefer `match_based_id`
+          example: 440eeface888e78afceac3dc7d4cc2cf
+          type: string
+        triage_comment:
+          description: The detailed comment provided during triage
+          example: This finding is from the test repo
+          type: string
+        triage_reason:
+          description: Reason provided when this issue was triaged
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          example: acceptable_risk
+          type: string
+        triage_state:
+          description: 'The finding''s triage state. Note: "reviewing" and "fixing"
+            are only in private beta. Set by the user and used along with state to
+            generate the final "status" viewable in the UI'
+          enum:
+          - untriaged
+          - ignored
+          - reopened
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: untriaged
+          type: string
+        triaged_at:
+          description: When the finding was triaged
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+        usage:
+          $ref: '#/components/schemas/protos.openapi.v1.ScaFinding_Usage'
+        vulnerability_identifier:
+          description: Identifier of the vulnerability in the vulnerability database
+          example: CVE-2021-24112
+          type: string
+      title: Sca Finding
+      type: object
+    protos.openapi.v1.ScaFinding_EpssScore:
+      description: The score assigned by FIRST.org's Exploitation Probability Scoring
+        System
+      properties:
+        percentile:
+          description: This EPSS score's percentile among all EPSS scores, from 0
+            to 1
+          example: 0.994
+          format: float
+          type: number
+        score:
+          description: The explotation probability, from 0 to 1
+          example: 0.97
+          format: float
+          type: number
+      title: Epss Score
+      type: object
+    protos.openapi.v1.ScaFinding_FixRecommendation:
+      description: Recommendation for fixing the vulnerability
+      properties:
+        package:
+          description: The package for which a fix is recommended
+          example: System.Drawing.Common
+          type: string
+        version:
+          description: The recommended version of the package
+          example: 5.0.3
+          type: string
+      title: Fix Recommendation
+      type: object
+    protos.openapi.v1.ScaFinding_FoundDependency:
+      description: Information about the vulnerable package that was found in the
+        codebase
+      properties:
+        ecosystem:
+          default: no_package_manager
+          description: Ecosystem of the package
+          enum:
+          - no_package_manager
+          - npm
+          - pypi
+          - gomod
+          - cargo
+          - maven
+          - gem
+          - composer
+          - nuget
+          - pub
+          - swiftpm
+          - hex
+          example: npm
+          type: string
+        lockfile_line_url:
+          description: URL to the specific line in the lockfile where the dependency
+            is listed
+          example: https://github.com/yourorg/yourrepo/blob/main/package-lock.json#L25
+          type: string
+        package:
+          description: Name of the package that contains the vulnerability
+          example: System.Drawing.Common
+          type: string
+        transitivity:
+          description: Indicates whether the dependency is direct or transitive
+          enum:
+          - direct
+          - transitive
+          - unknown
+          example: direct
+          type: string
+        version:
+          description: Version of the package that was found to be vulnerable
+          example: 5.0.0
+          type: string
+      title: Found Dependency
+      type: object
+    protos.openapi.v1.ScaFinding_Usage:
+      description: Usage of the vulnerable package in the codebase. Applies to reachable
+        findings
+      properties:
+        external_ticket:
+          $ref: '#/components/schemas/protos.openapi.v1.ExternalTicket'
+        location:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingLocation'
+      title: Usage
+      type: object
+    protos.openapi.v1.SearchScansRequest:
+      properties:
+        branch:
+          description: Only get scans from the specified branch
+          type: string
+        cursor:
+          description: Cursor to paginate through the results
+          type: string
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+        is_full_scan:
+          description: Only get scans that are full scans (if false, only get diff
+            scans)
+          type: integer
+        limit:
+          description: Page size to paginate through the results (default is 100,
+            max is 500)
+          type: integer
+        products:
+          description: 'Only get scans that have these enabled products
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | PRODUCT_SAST |  |
+
+            | PRODUCT_SCA |  |
+
+            | PRODUCT_SECRETS |  |
+
+            | PRODUCT_AI_SAST |  |
+
+
+            '
+          enum:
+          - PRODUCT_SAST
+          - PRODUCT_SCA
+          - PRODUCT_SECRETS
+          - PRODUCT_AI_SAST
+          items:
+            enum:
+            - PRODUCT_UNSPECIFIED
+            - PRODUCT_SAST
+            - PRODUCT_SCA
+            - PRODUCT_SECRETS
+            - PRODUCT_AI_SAST
+            format: enum
+            type: string
+          type: array
+        repository_id:
+          description: Only get scans for this repo
+          type: integer
+        since:
+          description: Only get scans created after this time. Provide time in ISO
+            8601 format.
+          format: date-time
+          type: string
+        statuses:
+          description: 'Only get scans that have one of these statuses
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SCAN_STATUS_RUNNING | The scan is currently running |
+
+            | SCAN_STATUS_COMPLETED | The scan has completed successfully (0 or 1
+            exit code) |
+
+            | SCAN_STATUS_ERROR | The scan has exited with a failure (exit code not
+            0 or 1) |
+
+            | SCAN_STATUS_NEVER_FINISHED | The scan did not report an error or success
+            after over an hour |
+
+
+            '
+          enum:
+          - SCAN_STATUS_RUNNING
+          - SCAN_STATUS_COMPLETED
+          - SCAN_STATUS_ERROR
+          - SCAN_STATUS_NEVER_FINISHED
+          items:
+            enum:
+            - SCAN_STATUS_UNSPECIFIED
+            - SCAN_STATUS_RUNNING
+            - SCAN_STATUS_COMPLETED
+            - SCAN_STATUS_ERROR
+            - SCAN_STATUS_NEVER_FINISHED
+            format: enum
+            type: string
+          type: integer
+        total_time:
+          $ref: '#/components/schemas/protos.common.v1.FloatRange'
+      required:
+      - deployment_id
+      title: Search Scans Request
+      type: object
+    protos.openapi.v1.SearchScansResponse:
+      properties:
+        cursor:
+          description: Cursor to retrieve the next page of results.
+          type: string
+        scans:
+          description: List of scans.
+          items:
+            $ref: '#/components/schemas/protos.scan.v1.ScanPublic'
+          type: array
+      type: object
+    protos.openapi.v1.ToggleProjectManagedScanRequest:
+      properties:
+        deploymentSlug:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+        diff_scan:
+          $ref: '#/components/schemas/protos.openapi.v1.DiffScan'
+        full_scan:
+          $ref: '#/components/schemas/protos.openapi.v1.FullScan'
+        projectName:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      required:
+      - deployment_slug
+      - project_name
+      title: Toggle Project Managed Scan Request
+      type: object
+    protos.openapi.v1.ToggleProjectManagedScanResponse:
+      description: Successfully updated managed scan settings for project.
+      properties:
+        project:
+          $ref: '#/components/schemas/protos.openapi.v1.Project'
+      required:
+      - projects
+      title: Toggle Project Managed Scan Response
+      type: object
+    protos.openapi.v1.UpdatePolicyRequest:
+      properties:
+        deploymentId:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+        policyId:
+          description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
+          example: 456
+          format: uint64
+          type: string
+        policyMode:
+          description: "New policy mode to set for the Rule.\n\n - MODE_MONITOR: Monitor
+            mode, silently report findings\n - MODE_COMMENT: Comment mode, leaves
+            PR comments but does not block\n - MODE_BLOCK: Block mode, leaves PR comments
+            and blocks PR\n - MODE_DISABLED: Disabled mode, not active\n\n| value
+            | description |\n|-------|---------------|\n| MODE_MONITOR | Monitor mode,
+            silently report findings |\n| MODE_COMMENT | Comment mode, leaves PR comments
+            but does not block |\n| MODE_BLOCK | Block mode, leaves PR comments and
+            blocks PR |\n| MODE_DISABLED | Disabled mode, not active |\n\n"
+          enum:
+          - MODE_MONITOR
+          - MODE_COMMENT
+          - MODE_BLOCK
+          - MODE_DISABLED
+          format: enum
+          type: string
+        rulePath:
+          description: Full path of the Rule.
+          type: string
+      required:
+      - deployment_id
+      - policy_id
+      - rule_path
+      - policy_mode
+      title: Update Policy Request
+      type: object
+    protos.openapi.v1.UpdatePolicyResponse:
+      properties:
+        policyId:
+          description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
+          example: '1'
+          format: uint64
+          type: string
+        updatedRule:
+          $ref: '#/components/schemas/protos.common.v1.Rule'
+      type: object
+    protos.openapi.v1.UpdateProjectRequest:
+      properties:
+        deploymentSlug:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+        managed_scan_config:
+          $ref: '#/components/schemas/protos.openapi.v1.ManagedScanConfig'
+        primary_branch:
+          description: The full name of the branch you would like to set as primary.
+            Use "None" if default_branch is known and you wish to set primary to always
+            be the default branch.
+          example: refs/heads/develop
+          type: string
+        projectName:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+        tags:
+          description: Tags associated to this project.
+          example:
+          - tag
+          items:
+            type: string
+          type: string
+      required:
+      - deployment_slug
+      - project_name
+      title: Update Project Request
+      type: object
+    protos.openapi.v1.UpdateProjectResponse:
+      description: Successfully updated details for the project.
+      properties:
+        project:
+          $ref: '#/components/schemas/protos.openapi.v1.Project'
+      required:
+      - projects
+      title: Update Project Response
+      type: object
+    protos.sca.v1.CodeLocation:
+      description: Specific location in a file.
+      properties:
+        committedAt:
+          description: Timestamp when code file was last modified, if available.
+          format: date-time
+          type: string
+        endCol:
+          description: Ending column number (1 indexed).
+          type: string
+        endLine:
+          description: Ending line number (1 indexed).
+          type: string
+        path:
+          description: Path to a file.
+          type: string
+        startCol:
+          description: Starting column number (1 indexed).
+          type: string
+        startLine:
+          description: Starting line number (1 indexed).
+          type: string
+        url:
+          description: URL to code location if available, otherwise empty.
+          type: string
+      type: object
+    protos.sca.v1.Dependency:
+      description: A specific dependency.
+      properties:
+        name:
+          description: String identifier of dependency
+          type: string
+        versionSpecifier:
+          description: Version specifier of dependency.
+          type: string
+      type: object
+    protos.sca.v1.DependencyFilter:
+      description: Object to provide dependency details to filter by.
+      properties:
+        ecosystem:
+          description: 'Filter by ecosystem (e.g. npm, pypi, etc).
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | no_package_manager |  |
+
+            | npm |  |
+
+            | pypi |  |
+
+            | gomod |  |
+
+            | cargo |  |
+
+            | maven |  |
+
+            | gem |  |
+
+            | composer |  |
+
+            | nuget |  |
+
+            | pub |  |
+
+            | swiftpm |  |
+
+            | hex |  |
+
+
+            '
+          enum:
+          - no_package_manager
+          - npm
+          - pypi
+          - gomod
+          - cargo
+          - maven
+          - gem
+          - composer
+          - nuget
+          - pub
+          - swiftpm
+          - hex
+          items:
+            enum:
+            - no_package_manager
+            - npm
+            - pypi
+            - gomod
+            - cargo
+            - maven
+            - gem
+            - composer
+            - nuget
+            - pub
+            - swiftpm
+            - hex
+            format: enum
+            type: string
+          type: array
+        license:
+          description: Filter by license (e.g. MIT).
+          items:
+            type: string
+          type: array
+        licensePolicySettings:
+          description: 'Filter by license policy setting outcome.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | LICENSE_POLICY_SETTING_ALLOW |  |
+
+            | LICENSE_POLICY_SETTING_COMMENT |  |
+
+            | LICENSE_POLICY_SETTING_BLOCK |  |
+
+
+            '
+          enum:
+          - LICENSE_POLICY_SETTING_ALLOW
+          - LICENSE_POLICY_SETTING_COMMENT
+          - LICENSE_POLICY_SETTING_BLOCK
+          items:
+            enum:
+            - LICENSE_POLICY_SETTING_UNSPECIFIED
+            - LICENSE_POLICY_SETTING_ALLOW
+            - LICENSE_POLICY_SETTING_COMMENT
+            - LICENSE_POLICY_SETTING_BLOCK
+            format: enum
+            type: string
+          type: array
+        lockfilePath:
+          description: Filter by path to the lockfile (e.g. `foo/bar/package-lock.json`).
+          type: string
+        name:
+          description: Deprecated - use package_filters instead. Filter by dependency
+            name (e.g. lodash).
+          type: string
+        packageFilters:
+          description: Multiple package filters with exact name matching and version
+            bounds.
+          items:
+            $ref: '#/components/schemas/protos.sca.v1.PackageFilter'
+          type: array
+        repositoryId:
+          description: "Repository IDs (numeric) to filter by. Omit if the endpoint
+            has Repository ID as a path parameter.\n Use Projects endpoints to retrieve
+            Repository IDs."
+          items:
+            format: uint32
+            type: integer
+          type: array
+        transitivity:
+          description: 'Filter by transitivity.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | UNKNOWN_TRANSITIVITY |  |
+
+            | TRANSITIVE |  |
+
+            | DIRECT |  |
+
+
+            '
+          enum:
+          - UNKNOWN_TRANSITIVITY
+          - TRANSITIVE
+          - DIRECT
+          items:
+            enum:
+            - UNKNOWN_TRANSITIVITY
+            - TRANSITIVE
+            - DIRECT
+            format: enum
+            type: string
+          type: array
+        version:
+          description: Deprecated - use package_filters instead. Filter by dependency
+            version (e.g. 1.0.1).
+          type: string
+      type: object
+    protos.sca.v1.FoundDependency:
+      properties:
+        definedAt:
+          allOf:
+          - $ref: '#/components/schemas/protos.sca.v1.CodeLocation'
+          description: Path and line number dependency is declared in.
+        ecosystem:
+          description: 'The ecosystem the dependency is in (e.g. pypi, npm, etc).
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | no_package_manager |  |
+
+            | npm |  |
+
+            | pypi |  |
+
+            | gomod |  |
+
+            | cargo |  |
+
+            | maven |  |
+
+            | gem |  |
+
+            | composer |  |
+
+            | nuget |  |
+
+            | pub |  |
+
+            | swiftpm |  |
+
+            | hex |  |
+
+
+            '
+          enum:
+          - no_package_manager
+          - npm
+          - pypi
+          - gomod
+          - cargo
+          - maven
+          - gem
+          - composer
+          - nuget
+          - pub
+          - swiftpm
+          - hex
+          format: enum
+          type: string
+        licenses:
+          description: Licenses the dependency is using.
+          items:
+            type: string
+          type: array
+        manifestDefinition:
+          allOf:
+          - $ref: '#/components/schemas/protos.sca.v1.CodeLocation'
+          description: Path to the manifest file that defines the subproject containing
+            this dependency
+        package:
+          allOf:
+          - $ref: '#/components/schemas/protos.sca.v1.Dependency'
+          description: What the dependency is.
+        repositoryId:
+          description: ID of repository dependency is found in.
+          type: string
+        resolvedUrl:
+          description: The resolved URL of the dependency. Could point to a compressed
+            source code directory (e.g. tarball), source code repository, or a package
+            manager cache directory. May be empty if the package manager doesn't supply
+            a URL.
+          type: string
+        transitivity:
+          description: 'Whether dependency is direct or transitive.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | UNKNOWN_TRANSITIVITY |  |
+
+            | TRANSITIVE |  |
+
+            | DIRECT |  |
+
+
+            '
+          enum:
+          - UNKNOWN_TRANSITIVITY
+          - TRANSITIVE
+          - DIRECT
+          format: enum
+          type: string
+      type: object
+    protos.sca.v1.LockfileDependencySummary:
+      properties:
+        lockfilePath:
+          description: Path to lockfile (e.g. foo/bar/package-lock.json).
+          type: string
+        numDependencies:
+          description: Total number of dependencies in the lockfile.
+          format: uint32
+          type: integer
+      type: object
+    protos.sca.v1.PackageFilter:
+      description: Individual package filter with optional version bounds.
+      properties:
+        exactNameMatch:
+          description: When true, name must match exactly. When false (default), name
+            is fuzzy-matched (contains).
+          type: boolean
+        exactVersion:
+          description: "Exact version match (e.g. \"1.0.0\").\n Takes precedence over
+            version bounds if set."
+          type: string
+        name:
+          description: Exact package name (e.g. lodash).
+          type: string
+        versionLowerBound:
+          description: "Lower bound version constraint (e.g. \">=1.0.0\").\n Ignored
+            if exact_version is set."
+          type: string
+        versionUpperBound:
+          description: "Upper bound version constraint (e.g. \"<2.0.0\").\n Ignored
+            if exact_version is set."
+          type: string
+      type: object
+    protos.sca.v1.RepositoryDependencySummary:
+      properties:
+        hasDependencyPathScan:
+          description: "True if the repository has been scanned with the `hasPathToTransitivityInScans`
+            feature flag\n which means it will have dependency graph data in DGraph
+            available to query"
+          type: boolean
+        id:
+          description: ID of repository.
+          format: uint32
+          type: integer
+        name:
+          description: Name of repository.
+          type: string
+        numDependencies:
+          description: Total number of dependencies in the repository.
+          format: uint32
+          type: integer
+      type: object
+    protos.sca.v1.SbomFormatVersion:
+      properties:
+        format:
+          default: SBOM_FORMAT_CYCLONEDX
+          description: 'Format for the SBOM export.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SBOM_FORMAT_CYCLONEDX |  |
+
+
+            '
+          enum:
+          - SBOM_FORMAT_CYCLONEDX
+          format: enum
+          type: string
+        version:
+          default: '1.5'
+          description: Version of the SBOM format.
+          type: string
+      type: object
+    protos.sca.v1.SbomMetadataContact:
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+      type: object
+    protos.sca.v1.SbomMetadataSupplier:
+      properties:
+        contact:
+          $ref: '#/components/schemas/protos.sca.v1.SbomMetadataContact'
+        name:
+          type: string
+        url:
+          type: string
+      type: object
+    protos.scan.v1.ScanFindingsCounts:
+      properties:
+        code:
+          description: Total number of Code findings in the scan
+          example: 2
+          format: uint64
+          type: string
+        secrets:
+          description: Total number of Secrets findings in the scan
+          example: 1
+          format: uint64
+          type: string
+        supply_chain:
+          description: Total number of Supply Chain findings in the scan
+          example: 1
+          format: uint64
+          type: string
+        total:
+          description: Total number of findings in the scan
+          example: 4
+          format: uint64
+          type: string
+      type: object
+    protos.scan.v1.ScanPublic:
+      properties:
+        branch:
+          description: The scanned branch
+          example: main
+          type: string
+        commit:
+          description: The commit hash that was scanned
+          example: 6d3de02545f820febf2af9820568fa5f697d4087
+          type: string
+        completed_at:
+          description: The timestamp when this scan completed (if it has completed).
+          example: 2020-11-18 23:30:10.216670+00:00
+          format: date-time
+          type: string
+        deployment_id:
+          description: Unique identifier for the deployment of the scan.
+          format: uint64
+          type: string
+        enabled_products:
+          description: The products used when running the scan.
+          example:
+          - secrets
+          items:
+            type: string
+          type: array
+        exit_code:
+          description: The exit_code of the scan (see https://semgrep.dev/cli-reference#exit-codes)
+          example: 0
+          format: int64
+          type: string
+        findings_counts:
+          $ref: '#/components/schemas/protos.scan.v1.ScanFindingsCounts'
+        id:
+          description: ID of the scan.
+          format: uint64
+          type: string
+        is_full_scan:
+          description: Whether the scan was a full scan (true) or a diff scan (false)
+          example: true
+          type: boolean
+        repository_id:
+          description: Unique identifier for the repository of the scan.
+          format: uint64
+          type: string
+        started_at:
+          description: The timestamp when this scan started.
+          example: 2020-11-18 23:28:12.391807+00:00
+          format: date-time
+          type: string
+        status:
+          description: 'The current status of the scan
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SCAN_STATUS_RUNNING | The scan is currently running |
+
+            | SCAN_STATUS_COMPLETED | The scan has completed successfully (0 or 1
+            exit code) |
+
+            | SCAN_STATUS_ERROR | The scan has exited with a failure (exit code not
+            0 or 1) |
+
+            | SCAN_STATUS_NEVER_FINISHED | The scan did not report an error or success
+            after over an hour |
+
+
+            '
+          enum:
+          - SCAN_STATUS_RUNNING
+          - SCAN_STATUS_COMPLETED
+          - SCAN_STATUS_ERROR
+          - SCAN_STATUS_NEVER_FINISHED
+          example: SCAN_STATUS_RUNNING
+          format: enum
+          type: string
+        total_time:
+          description: Duration of scan, in seconds
+          example: 17.32
+          format: float
+          type: number
+      type: object
+    protos.secrets.v1.HistoricalInfo:
+      properties:
+        gitBlob:
+          description: "Git blob at which the finding is present. Sent in addition
+            to the commit\n since some SCMs have permalinks which use the blob sha,
+            so this information\n is useful when generating links back to the SCM."
+          type: string
+        gitCommit:
+          description: "Git commit at which the finding is present. Used by \"historical\"
+            scans,\n which scan non-HEAD commits in the git history. Relevant for
+            finding, e.g.,\n secrets which are buried in the git history which we
+            wouldn't find at HEAD"
+          type: string
+        gitCommitTimestamp:
+          format: date-time
+          type: string
+      type: object
+    protos.secrets.v1.SecretsFinding:
+      description: A Finding represents a single secret finding.
+      properties:
+        autotriage:
+          allOf:
+          - $ref: '#/components/schemas/protos.ai.v1.Autotriage'
+          description: "* Autotriage info for the finding.\n This is used for the
+            Generic Secrets Detection project, for\n autotriaging secrets findings
+            with LLMs"
+        confidence:
+          description: 'Confidence of the finding.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | CONFIDENCE_HIGH |  |
+
+            | CONFIDENCE_MEDIUM |  |
+
+            | CONFIDENCE_LOW |  |
+
+
+            '
+          enum:
+          - CONFIDENCE_HIGH
+          - CONFIDENCE_MEDIUM
+          - CONFIDENCE_LOW
+          format: enum
+          type: string
+        createdAt:
+          description: Creation timestamp.
+          format: date-time
+          type: string
+        externalTicket:
+          allOf:
+          - $ref: '#/components/schemas/protos.ticketing.v1.ExternalTicket'
+          description: The external ticket reference
+        findingPath:
+          description: File path where the finding was detected.
+          type: string
+        findingPathUrl:
+          description: URL to the file where the finding was detected.
+          type: string
+        historicalInfo:
+          allOf:
+          - $ref: '#/components/schemas/protos.secrets.v1.HistoricalInfo'
+          description: Historical scanning info for the finding.
+        id:
+          description: ID of the finding.
+          type: string
+        mode:
+          description: 'The behavior of the finding reporting: Monitor / Comment /
+            Block.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | MODE_MONITOR | Monitor mode, silently report findings |
+
+            | MODE_COMMENT | Comment mode, leaves PR comments but does not block |
+
+            | MODE_BLOCK | Block mode, leaves PR comments and blocks PR |
+
+            | MODE_DISABLED | Disabled mode, not active |
+
+
+            '
+          enum:
+          - MODE_MONITOR
+          - MODE_COMMENT
+          - MODE_BLOCK
+          - MODE_DISABLED
+          format: enum
+          type: string
+        ref:
+          description: Branch where the finding was detected.
+          type: string
+        refUrl:
+          description: URL to the branch where the finding was detected.
+          type: string
+        repository:
+          allOf:
+          - $ref: '#/components/schemas/protos.secrets.v1.SecretsFinding_Repository'
+          description: Repository where the finding was detected.
+        reviewComments:
+          description: List of external review comment information associated with
+            a finding
+          items:
+            $ref: '#/components/schemas/protos.common.v1.ReviewComment'
+          type: array
+        ruleHashId:
+          description: ID of the rule that triggered the finding.
+          type: string
+        severity:
+          description: 'Severity of the finding.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SEVERITY_HIGH |  |
+
+            | SEVERITY_MEDIUM |  |
+
+            | SEVERITY_LOW |  |
+
+            | SEVERITY_CRITICAL |  |
+
+
+            '
+          enum:
+          - SEVERITY_HIGH
+          - SEVERITY_MEDIUM
+          - SEVERITY_LOW
+          - SEVERITY_CRITICAL
+          format: enum
+          type: string
+        status:
+          description: 'Status of the finding.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | FINDING_STATUS_OPEN |  |
+
+            | FINDING_STATUS_IGNORED |  |
+
+            | FINDING_STATUS_FIXED |  |
+
+            | FINDING_STATUS_REMOVED |  |
+
+            | FINDING_STATUS_UNKNOWN |  |
+
+            | FINDING_STATUS_PROVISIONALLY_IGNORED |  |
+
+
+            '
+          enum:
+          - FINDING_STATUS_OPEN
+          - FINDING_STATUS_IGNORED
+          - FINDING_STATUS_FIXED
+          - FINDING_STATUS_REMOVED
+          - FINDING_STATUS_UNKNOWN
+          - FINDING_STATUS_PROVISIONALLY_IGNORED
+          format: enum
+          type: string
+        type:
+          description: Service type for the secrets finding (e.g. AWS, GitHub, GitLab,
+            etc).
+          type: string
+        updatedAt:
+          description: Update timestamp.
+          format: date-time
+          type: string
+        validationState:
+          description: 'Whether the finding was validated or not.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | VALIDATION_STATE_CONFIRMED_VALID |  |
+
+            | VALIDATION_STATE_CONFIRMED_INVALID |  |
+
+            | VALIDATION_STATE_VALIDATION_ERROR |  |
+
+            | VALIDATION_STATE_NO_VALIDATOR |  |
+
+
+            '
+          enum:
+          - VALIDATION_STATE_CONFIRMED_VALID
+          - VALIDATION_STATE_CONFIRMED_INVALID
+          - VALIDATION_STATE_VALIDATION_ERROR
+          - VALIDATION_STATE_NO_VALIDATOR
+          format: enum
+          type: string
+      type: object
+    protos.secrets.v1.SecretsFinding_Repository:
+      description: Repository where the finding was detected.
+      properties:
+        name:
+          description: Repository name
+          type: string
+        scmType:
+          description: 'Provider for the finding (e.g. GitHub, GitLab, GHE, etc).
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SCM_TYPE_GITHUB | GitHub Cloud |
+
+            | SCM_TYPE_GITHUB_ENTERPRISE | GitHub Enterprise |
+
+            | SCM_TYPE_GITLAB | GitLab Cloud |
+
+            | SCM_TYPE_GITLAB_SELFMANAGED | GitLab Self-Managed |
+
+            | SCM_TYPE_BITBUCKET | Bitbucket Cloud |
+
+            | SCM_TYPE_BITBUCKET_DATACENTER | Bitbucket Data Center |
+
+            | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
+
+            | SCM_TYPE_UNKNOWN |  |
+
+
+            '
+          enum:
+          - SCM_TYPE_GITHUB
+          - SCM_TYPE_GITHUB_ENTERPRISE
+          - SCM_TYPE_GITLAB
+          - SCM_TYPE_GITLAB_SELFMANAGED
+          - SCM_TYPE_BITBUCKET
+          - SCM_TYPE_BITBUCKET_DATACENTER
+          - SCM_TYPE_AZURE_DEVOPS
+          - SCM_TYPE_UNKNOWN
+          format: enum
+          type: string
+        url:
+          description: URL to the repository where the finding was detected.
+          type: string
+        visibility:
+          description: 'Repository visbility (e.g. public, private, unknown).
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | REPOSITORY_VISIBILITY_PUBLIC |  |
+
+            | REPOSITORY_VISIBILITY_PRIVATE |  |
+
+            | REPOSITORY_VISIBILITY_UNKNOWN |  |
+
+
+            '
+          enum:
+          - REPOSITORY_VISIBILITY_PUBLIC
+          - REPOSITORY_VISIBILITY_PRIVATE
+          - REPOSITORY_VISIBILITY_UNKNOWN
+          format: enum
+          type: string
+      type: object
+    protos.ticketing.v1.ExternalTicket:
+      properties:
+        externalSlug:
+          description: Identifier of the external ticket (e.g. for Jira, something
+            like OPS-158).
+          type: string
+        id:
+          description: Nango ticket id
+          type: string
+        linkedIssueIds:
+          description: Semgrep issue ids that are linked to this external ticket
+          items:
+            type: string
+          type: array
+        url:
+          description: URL of the external ticket.
+          type: string
+      type: object
+  securitySchemes:
+    SemgrepAdminJWT:
+      bearerFormat: string
+      description: Get access to data with a Semgrep Admin JSON Web Token.
+      scheme: bearer
+      type: http
+    SemgrepJWT:
+      bearerFormat: string
+      description: Get access to data with your user's JSON Web Token.
+      scheme: bearer
+      type: http
+    SemgrepWebToken:
+      bearerFormat: string
+      description: 'Get access to data with your API token. Example header:
+
+
+        `Authorization: Bearer 2991e2fb4b540fe75b8f90677b0b892b6314e4961cb001fe6eb452eee248a628`
+
+
+        The token can be provisioned from the Tokens section in your Settings, and
+        requires explicitly enabling `Web API` access.'
+      scheme: bearer
+      type: http
+info:
+  description: '
+
+    Welcome to Semgrep''s portal for the Semgrep AppSec Platform web API.
+
+
+    # Introduction
+
+    Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing
+    code standards at editor,
+
+    commit, and CI time. [Get started.](https://semgrep.dev/getting-started/)
+
+
+    Semgrep analyzes code locally on your computer or in your build environment: **code
+    is never uploaded.**
+
+
+    This API is documented in the **OpenAPI format**.
+
+
+    # Authentication
+
+    The API supports authentication with an API token with the "Web API" permission,
+    without limited
+
+    scopes of access.
+
+
+    You can provision an API token [from the Settings page](https://semgrep.dev/orgs/-/settings/tokens).
+
+
+    # Terms of Use
+
+
+    Please note, the materials made available herein are subject to the
+
+    [Semgrep Terms of Use](https://semgrep.dev/resources/website-terms/), and your
+
+    access or use of any of the same is your acknowledgment and acceptance of the
+
+    such terms.
+
+
+    <br>
+
+
+    ___
+
+    '
+  title: Semgrep Web App
+  version: 1.0.0
+openapi: 3.0.3
+servers:
+  - url: https://semgrep.dev
+paths:
+  /api/v1/bootstrap-sms-vpc:
+    get:
+      description: 'VPC support for Managed Scans is in private beta.
+
+
+        Returns the Managed Scans VPC Bootstrap CloudFormation template in JSON format
+        for setting up cross-account infrastructure.
+
+
+        This template creates IAM roles and policies needed for Semgrep Managed Scanning
+        (SMS) VPC infrastructure automation,
+
+        including the semgrep-sms-vpc-automation role and EC2 Image Builder distribution
+        roles for gVisor container runtime.
+
+
+        See the original AWS cloudformation template format at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html
+
+        '
+      operationId: MiscService_GetBootstrapSmsVpc
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.GetBootstrapSmsVpcResponse'
+          description: OK
+      summary: '[Beta] Get SMS VPC Bootstrap CloudFormation Template'
+      tags:
+      - MiscService
+      x-badges: []
+  /api/v1/deployments:
+    get:
+      description: 'Request the deployments your auth can access.
+
+
+        Currently available auth scope does not extend over more than one deployment.
+        This endpoint returns the single deployment your token can access. The endpoint
+        additionally returns links to related resources available on this API.'
+      operationId: DeploymentsService_ListDeployments
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListDeploymentsResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List deployments
+      tags:
+      - DeploymentsService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/dependencies:
+    post:
+      operationId: SupplyChainService_ListDependencies
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.ListDependenciesRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListDependenciesResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List dependencies
+      tags:
+      - SupplyChainService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/dependencies/repositories:
+    post:
+      operationId: SupplyChainService_ListRepositoriesForDependencies
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.ListRepositoriesForDependenciesRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListRepositoriesForDependenciesResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List repositories with dependencies
+      tags:
+      - SupplyChainService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/dependencies/repositories/{repositoryId}/lockfiles:
+    post:
+      operationId: SupplyChainService_ListLockfilesForDependencies
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          format: uint64
+          type: string
+      - in: path
+        name: repositoryId
+        required: true
+        schema:
+          description: Repository ID to filter by. Use Projects endpoints to retrieve
+            repository IDs.
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.ListLockfilesForDependenciesRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListLockfilesForDependenciesResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List lockfiles in a given repository with dependencies
+      tags:
+      - SupplyChainService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/policies:
+    get:
+      operationId: PoliciesService_ListPolicies
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListPoliciesResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List policies
+      tags:
+      - PoliciesService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/policies/{policyId}:
+    get:
+      operationId: PoliciesService_ListPolicyRules
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      - in: path
+        name: policyId
+        required: true
+        schema:
+          description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
+          example: 456
+          format: uint64
+          type: string
+      - in: query
+        name: cursor
+        schema:
+          description: Cursor to paginate through the rules. Provide a cursor value
+            from the response to retrieve the next page.
+          type: string
+      - in: query
+        name: limit
+        schema:
+          description: Page size to paginate through the rules. The default page size
+            is `500` and the maximum allowed page size is `2000`.
+          format: uint32
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListPolicyRulesResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List policy rules
+      tags:
+      - PoliciesService
+      x-badges: []
+    put:
+      operationId: PoliciesService_UpdatePolicy
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      - in: path
+        name: policyId
+        required: true
+        schema:
+          description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
+          example: 456
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.UpdatePolicyRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.UpdatePolicyResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Update policy
+      tags:
+      - PoliciesService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/sbom/export:
+    post:
+      operationId: SupplyChainService_CreateSbomExport
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.CreateSbomExportRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.CreateSbomExportResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Create a new SBOM export job
+      tags:
+      - SupplyChainService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/sbom/export/{taskToken}:
+    get:
+      operationId: SupplyChainService_GetSbomExport
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: int64
+          type: string
+      - in: path
+        name: taskToken
+        required: true
+        schema:
+          description: Task token for the SBOM export job.
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.GetSbomExportResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Get the status of a SBOM export job
+      tags:
+      - SupplyChainService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/scan/{scanId}:
+    get:
+      description: Request the details of a scan including the associated deployment,
+        repository, and commit information.
+      operationId: ScansService_GetScan
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      - in: path
+        name: scanId
+        required: true
+        schema:
+          description: 'Scan ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/scans/search`.'
+          example: 456
+          format: uint64
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.GetScanResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Get scan details
+      tags:
+      - ScansService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/scans/search:
+    post:
+      description: List the scans associated with a particular repository over the
+        past 30 days.
+      operationId: ScansService_SearchScans
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.SearchScansRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.SearchScansResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List scans (beta)
+      tags:
+      - ScansService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/secrets:
+    get:
+      operationId: SecretsService_ListSecretsPath
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
+            or in your Settings in the web UI.'
+          example: 123
+          format: uint64
+          type: string
+      - in: query
+        name: cursor
+        schema:
+          description: Cursor to paginate through the rules. Provide a cursor value
+            from the response to retrieve the next page.
+          type: string
+      - in: query
+        name: limit
+        schema:
+          description: Page size to paginate through the results.
+          format: uint32
+          type: integer
+      - in: query
+        name: since
+        schema:
+          format: date-time
+          type: string
+      - in: query
+        name: validationState
+        schema:
+          description: "Whether the finding was validated or not.\n\n - VALIDATION_STATE_UNSPECIFIED:
+            Return results for all validation states (can also omit this parameter).\n-
+            VALIDATION_STATE_CONFIRMED_VALID: Secret has been tested and is confirmed
+            valid.\n - VALIDATION_STATE_CONFIRMED_INVALID: Secret has been tested
+            and is confirmed invalid.\n - VALIDATION_STATE_VALIDATION_ERROR: Secret
+            test was attempted and there was an error.\n - VALIDATION_STATE_NO_VALIDATOR:
+            There is no validator for this secret."
+          format: string
+          items:
+            enum:
+            - VALIDATION_STATE_UNSPECIFIED
+            - VALIDATION_STATE_CONFIRMED_VALID
+            - VALIDATION_STATE_CONFIRMED_INVALID
+            - VALIDATION_STATE_VALIDATION_ERROR
+            - VALIDATION_STATE_NO_VALIDATOR
+            format: enum
+            type: string
+          type: array
+      - in: query
+        name: status
+        schema:
+          default: FINDING_STATUS_UNSPECIFIED
+          description: "Status of the finding.\n\n - FINDING_STATUS_UNSPECIFIED: Return
+            results for all finding statuses (if used as a parameter).\n - FINDING_STATUS_OPEN:
+            Finding is open and needs to be triaged\n - FINDING_STATUS_IGNORED: Finding
+            has been triaged and is being ignored\n - FINDING_STATUS_FIXED: Finding
+            has been fixed\n - FINDING_STATUS_REMOVED: Finding has been removed\n
+            - FINDING_STATUS_UNKNOWN: Finding status is unknown"
+          enum:
+          - FINDING_STATUS_UNSPECIFIED
+          - FINDING_STATUS_OPEN
+          - FINDING_STATUS_IGNORED
+          - FINDING_STATUS_FIXED
+          - FINDING_STATUS_REMOVED
+          - FINDING_STATUS_UNKNOWN
+          - FINDING_STATUS_PROVISIONALLY_IGNORED
+          format: enum
+          type: string
+      - in: query
+        name: severity
+        schema:
+          description: "Severity of the finding.\n\n - SEVERITY_UNSPECIFIED: Return
+            results for all severities (if used as a parameter)."
+          format: string
+          items:
+            enum:
+            - SEVERITY_UNSPECIFIED
+            - SEVERITY_HIGH
+            - SEVERITY_MEDIUM
+            - SEVERITY_LOW
+            - SEVERITY_CRITICAL
+            format: enum
+            type: string
+          type: array
+      - in: query
+        name: repo
+        schema:
+          description: Repositories to view results for. If not specified, returns
+            all.
+          format: string
+          items:
+            type: string
+          type: array
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListSecretsPathResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List secrets
+      tags:
+      - SecretsService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/ticketing/v2/tickets/{externalTicketId}:
+    delete:
+      description: Unlink a Jira ticket by its ID
+      operationId: TicketingService_DeleteTicket
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: Deployment ID. Can be found at /deployments, or in your Settings
+            in the web UI.
+          example: 123
+          type: string
+      - in: path
+        name: externalTicketId
+        required: true
+        schema:
+          description: The ID of the external ticket
+          example: 456
+          format: uint32
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.DeleteTicketResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Unlink a Jira ticket
+      tags:
+      - TicketingService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/findings:
+    get:
+      description: 'Request the list of code or supply chain findings in an organization,
+        paginated in pages of 100 entries and limited by the `since` timestamp. Findings
+        are returned by `relevant_since` descending (see `since` in the Query Parameters
+        list). Examples: List SAST findings with pagination, List SCA findings since
+        timestamp, List findings with filters.'
+      operationId: FindingsService_ListFindings
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: query
+        name: issue_type
+        schema:
+          default: sast
+          description: 'Type of findings to return. If not specified, returns `sast`
+            (Code) findings. Can either be `sast` (Code) or `sca` (Supply Chain).
+            Valid values: sast, sca'
+          enum:
+          - sast
+          - sca
+          example: sca
+          type: string
+      - in: query
+        name: since
+        schema:
+          description: 'What timestamp should the results start at? If not specified,
+            returns results from all timestamps. Provide epoch timestamp in seconds.
+            Filters using the `relevant_since` field: the timestamp when this finding
+            was detected by Semgrep (the first time, or when reintroduced).'
+          example: 1636942398.45
+          format: double
+          type: number
+      - in: query
+        name: page
+        schema:
+          default: '0'
+          description: Which page of the results do you require? If not specified,
+            returns first page. Pages are numbered from zero (0).
+          example: 1
+          format: uint32
+          type: integer
+      - in: query
+        name: dedup
+        schema:
+          default: false
+          description: Deduplicates findings across all your refs/branches if true.
+            If not specified, returns all findings across all refs/branches without
+            deduplicating them. Set this to `true` if you are not filtering for a
+            particular set of refs/branches in order to match the counts listed in
+            the Semgrep UI.
+          example: true
+          type: boolean
+      - in: query
+        name: page_size
+        schema:
+          default: '100'
+          description: 'Maximum number of records per returned page. If not specified,
+            defaults to 100 records. Minimum: 100, Maximum: 3000'
+          example: 100
+          format: uint32
+          maximum: 3000.0
+          minimum: 100.0
+          type: integer
+      - in: query
+        name: repos
+        schema:
+          description: Which repositories (by name) do you want to include? If not
+            specified, includes all.
+          example:
+          - myorg/repo1
+          - myorg/repo2
+          items:
+            type: string
+          type: array
+      - in: query
+        name: repository_ids
+        schema:
+          description: Which repositories (by ID) do you want to include? If not specified,
+            includes all.
+          example:
+          - 1
+          - 2
+          - 3
+          items:
+            format: uint32
+            type: integer
+          type: array
+      - in: query
+        name: status
+        schema:
+          description: 'Which status do you want to include? If not specified, includes
+            all. Valid values: open, fixed, ignored, reviewing, fixing'
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          example: open
+          type: string
+      - in: query
+        name: triage_reasons
+        schema:
+          description: 'Which triage reasons do you want to include? If not specified,
+            includes all. This filter is applicable when `status` is `ignored`. Valid
+            values: acceptable_risk, false_positive, no_time, no_triage_reason'
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          - no_triage_reason
+          example:
+          - acceptable_risk
+          - false_positive
+          items:
+            type: string
+          type: array
+      - in: query
+        name: severities
+        schema:
+          description: 'What severities of issues do you want to include? If not specified,
+            returns all. Valid values: low, medium, high, critical'
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example:
+          - low
+          - high
+          items:
+            type: string
+          type: array
+      - in: query
+        name: ref
+        schema:
+          description: Which ref (branch) do you want to filter for?
+          example: refs/pull/1234/merge
+          type: string
+      - in: query
+        name: policies
+        schema:
+          description: 'Which policy modes do you want to include? If not specified,
+            includes all. Monitor: `rule-board-audit`, Comment: `rule-board-pr-comments`,
+            Block: `rule-board-block`. This filter is applicable when `issue_type`
+            is `sast` or unspecified.'
+          example:
+          - rule-board-block
+          - rule-board-pr-comments
+          - rule-board-audit
+          items:
+            type: string
+          type: array
+      - in: query
+        name: rules
+        schema:
+          description: Which rule names do you want to include? If not specified,
+            includes all. This filter is applicable when `issue_type` is `sast` or
+            unspecified.
+          example:
+          - typescript.react.security.audit.react-no-refs.react-no-refs
+          - ajinabraham.njsscan.hardcoded_secrets.node_username
+          items:
+            type: string
+          type: array
+      - in: query
+        name: categories
+        schema:
+          description: Which categories of findings do you want to include? If not
+            specified, includes all. This filter is applicable when `issue_type` is
+            `sast` or unspecified.
+          example:
+          - security
+          - correctness
+          - caching
+          items:
+            type: string
+          type: array
+      - in: query
+        name: confidence
+        schema:
+          description: 'Which rule confidence level do you want to include? If not
+            specified, includes all. This filter is applicable when `issue_type` is
+            `sast` or unspecified. Valid values: low, medium, high'
+          enum:
+          - low
+          - medium
+          - high
+          example: high
+          type: string
+      - in: query
+        name: autotriage_verdict
+        schema:
+          description: 'Which autotriage verdict do you want to include? If not specified,
+            includes all. This filter is applicable when `issue_type` is `sast` or
+            unspecified. Valid values: true_positive, false_positive'
+          enum:
+          - true_positive
+          - false_positive
+          example: true_positive
+          type: string
+      - in: query
+        name: component_tags
+        schema:
+          description: Which component tags do you want to include? If not specified,
+            includes all.
+          example:
+          - user authentication
+          - user data
+          items:
+            type: string
+          type: array
+      - in: query
+        name: exposures
+        schema:
+          description: 'List of exposures or reachability types to filter by. If not
+            specified, returns findings across all exposures. This filter is applicable
+            when `issue_type=sca` is specified. Valid values: reachable, always_reachable,
+            conditionally_reachable, unreachable, unknown'
+          enum:
+          - reachable
+          - always_reachable
+          - conditionally_reachable
+          - unreachable
+          - unknown
+          example:
+          - reachable
+          - always_reachable
+          items:
+            type: string
+          type: array
+      - in: query
+        name: transitivities
+        schema:
+          description: 'List of transitivities to filter by. If not specified, returns
+            all transitivities. This filter is applicable when `issue_type=sca` is
+            specified. Valid values: direct, transitive, unknown'
+          enum:
+          - direct
+          - transitive
+          - unknown
+          example:
+          - transitive
+          items:
+            type: string
+          type: array
+      - in: query
+        name: is_malicious
+        schema:
+          description: 'Filter SCA findings by whether they are from malicious dependencies.
+            If not specified, returns all SCA findings. This filter is only applicable
+            when `issue_type=sca` is specified.
+
+            - true: Returns only findings from malicious dependencies
+
+            - false: Returns only findings from all other reachabilities (reachable
+            in code, always reachable, conditionally reachable, etc.)'
+          example: true
+          type: boolean
+      - in: query
+        name: click_to_fix_pr_state
+        schema:
+          description: 'Filter findings by Click-to-Fix PR state. If not specified,
+            returns all findings regardless of autofix PR status. This filter applies
+            to both sast and sca issue types. Valid values: open, merged'
+          enum:
+          - open
+          - merged
+          example:
+          - open
+          - merged
+          items:
+            type: string
+          type: array
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                properties:
+                  findings:
+                    items:
+                      oneOf:
+                      - title: Sast Finding
+                        allOf:
+                        - $ref: '#/components/schemas/protos.openapi.v1.SastFinding'
+                      - title: Sca Finding
+                        allOf:
+                        - $ref: '#/components/schemas/protos.openapi.v1.ScaFinding'
+                    type: array
+                type: object
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List code or supply chain findings
+      tags:
+      - FindingsService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/projects:
+    get:
+      description: Request the list of projects that have been scanned or onboarded
+        to Managed Scans. Does not return archived repositories. Returns 100 projects
+        per page by default.
+      operationId: ProjectsService_ListProjects
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: query
+        name: page
+        schema:
+          description: Which page of the results do you require? If not specified,
+            returns first page. Pages are numbered from zero (0).
+          example: 1
+          format: uint32
+          type: number
+      - in: query
+        name: page_size
+        schema:
+          default: 100.0
+          description: Maximum number of records per returned page. If not specified,
+            defaults to 100 records.
+          example: 100
+          format: uint32
+          type: number
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ListProjectsResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: List all projects
+      tags:
+      - ProjectsService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/projects/{projectName}:
+    delete:
+      description: Delete a project for a deployment you have access to. This will
+        also delete all of the associated findings.
+      operationId: ProjectsService_DeleteProject
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.DeleteProjectResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Delete project
+      tags:
+      - ProjectsService
+      x-badges: []
+    get:
+      description: Retrieve details for a single project associated with a deployment
+        that you have access to.
+      operationId: ProjectsService_GetProject
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.GetProjectResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Get project details
+      tags:
+      - ProjectsService
+      x-badges: []
+    patch:
+      description: 'Update attributes for the project using the value passed in to
+        the request body.
+
+
+        Note: The only attribute that is supported as of January 2023 is `tags`.'
+      operationId: ProjectsService_UpdateProject
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.UpdateProjectRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.UpdateProjectResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Update project details
+      tags:
+      - ProjectsService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/projects/{projectName}/managed-scan:
+    patch:
+      description: 'Enable or disable
+
+        [Semgrep Managed Scans](/deployment/managed-scanning/overview)
+
+        for a project.'
+      operationId: ProjectsService_ToggleProjectManagedScan
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.ToggleProjectManagedScanRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.ToggleProjectManagedScanResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Toggle Managed Scans for a project
+      tags:
+      - ProjectsService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/projects/{projectName}/tags:
+    delete:
+      description: 'Remove tags from a project for a deployment you have access to.
+
+
+        This request will not delete project tags from the deployment and will only
+        remove
+
+        them from the requested project. Any other projects associated with the requested
+
+        tag will remain unaffected.'
+      operationId: ProjectsService_DeleteProjectTags
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      - in: query
+        name: tags
+        schema:
+          example:
+          - tag
+          items:
+            type: string
+          type: array
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.DeleteProjectTagsResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Remove tags from project
+      tags:
+      - ProjectsService
+      x-badges: []
+    put:
+      description: 'Add tags to a project for a deployment you have access to.
+
+
+        Any project tags that do not already exist for the deployment will be created
+        automatically and associated with the project.'
+      operationId: ProjectsService_AddProjectTags
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Slug of the deployment name. Can be found at `/deployments`,
+            or in your Settings in the web UI.
+          example: your-deployment
+          type: string
+      - in: path
+        name: projectName
+        required: true
+        schema:
+          description: Name of the project, typically the repository formatted as
+            a path.
+          example: organization/project
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.AddProjectTagsRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.AddProjectTagsResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Add tags to project
+      tags:
+      - ProjectsService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/tickets:
+    post:
+      description: Create Jira tickets for your findings. You can create tickets by
+        passing in a list of issue_ids or by passing in filter query parameters to
+        dynamically select findings. If passing in filters, Semgrep will skip already
+        ticketed findings. This endpoint is synchronous, so it may take some time
+        for your request to resolve. Unlike creating tickets in-app, if ticket creation
+        fails we won't automatically retry. This endpoint accepts a limit parameter
+        (defaulting to 20) to limit the number of tickets created per request. If
+        you specify a list of issue_ids greater than this limit, or your selected
+        filters match on a number of issues greater than this limit, issues that were
+        not ticketed are included in the Failed part of the response object. You can
+        send another request to create tickets for these skipped issues. By default,
+        findings belonging to the same repository and the same rule will be grouped
+        together into a single Jira ticket. You can override this using the group_issues
+        query parameter. Up to 50 issues can be grouped into a single ticket. You
+        can optionally override the Jira project you create tickets in by passing
+        in a Jira project ID as jira_project_id (the numeric ID rather than the project
+        key). You can fetch this ID using the Jira API.
+      operationId: TicketingService_CreateTicket
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Deployment slug. Can be found at `/deployments`, or in your
+            Settings in the web UI.
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.CreateTicketRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.CreateTicketResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Create Jira tickets
+      tags:
+      - TicketingService
+      x-badges: []
+  /api/v1/deployments/{deploymentSlug}/triage:
+    post:
+      description: Bulk triage your findings. You can select the findings to triage
+        by passing in a list of finding IDs as issue_ids, or by passing in filter
+        query parameters. You must specify the issue_type of the findings you want
+        to bulk triage. One of new_triage_state or new_note is required. If specifying
+        a new_triage_reason, you must also use new_triage_state=ignored. Some filters
+        only apply for findings associated with a given product.
+      operationId: TriageService_BulkTriage
+      parameters:
+      - in: path
+        name: deploymentSlug
+        required: true
+        schema:
+          description: Deployment slug. Can be found at /deployments, or in your Settings
+            in the web UI.
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.BulkTriageRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.BulkTriageResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Bulk triage
+      tags:
+      - TriageService
+      x-badges: []
+  /api/v1/ping:
+    get:
+      description: Use to ping the server and assert liveness.
+      operationId: MiscService_Ping
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.PingResponse'
+          description: OK
+      summary: Ping
+      tags:
+      - MiscService
+      x-badges: []
+tags:
+- description: Deployments encapsulate your organization's security organization,
+    with multiple projects, policies, and integrations. As the root object of the
+    organization, they're similarly the root object of the API.
+  name: DeploymentsService
+  x-displayName: Deployment
+- description: Manage and retrieve code and supply chain security findings from Semgrep
+    scans
+  name: FindingsService
+  x-displayName: Code and Supply Chain
+- description: Utility endpoints.
+  name: MiscService
+  x-displayName: Other
+- description: View and manage the Policies of your organization.
+  name: PoliciesService
+  x-displayName: Policies
+- name: ProjectsService
+  x-displayName: Projects
+- description: View details of scans associated with projects in your organization.
+  name: ScansService
+  x-displayName: Scans
+- description: View and manage the Secrets of your organization.
+  name: SecretsService
+  x-displayName: Secrets
+- description: 'Manage the Supply Chain findings and dependencies of your organization.
+
+
+    A request body is required, but may be an empty object.'
+  name: SupplyChainService
+  x-displayName: Supply Chain
+- description: Create and manage external tickets
+  name: TicketingService
+  x-displayName: Ticketing
+- description: View and manage the triage of your organization.
+  name: TriageService
+  x-displayName: Triage

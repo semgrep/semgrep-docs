@@ -8,7 +8,7 @@ on:
 
 jobs:
   update-output:
-    name: Update `--help` and `--help scan` command output
+    name: Update CLI reference help output
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -33,30 +33,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
-      - name: Run `semgrep --help` and update reference file with output
+      - name: Update CLI reference help snippets
         run: |
-          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-output.md
-          sed -i '1i```' src/components/reference/_cli-help-output.md
-          echo '```' >> src/components/reference/_cli-help-output.md
+          SNIPPET_DIR=docs/snippets/cli-reference
+          mkdir -p "$SNIPPET_DIR"
 
-      - name: Run `semgrep scan --help` and update reference file with output
-        run: |
-          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep scan --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-scan-output.md
-          sed -i '1i```' src/components/reference/_cli-help-scan-output.md
-          echo '```' >> src/components/reference/_cli-help-scan-output.md
+          write_help() {
+            local out="$1"
+            shift
+            {
+              echo '```bash expandable'
+              if [ "$#" -eq 0 ]; then
+                docker run --rm "semgrep/semgrep:${LATEST_VERSION}" semgrep --help
+              else
+                docker run --rm "semgrep/semgrep:${LATEST_VERSION}" semgrep "$@" --help
+              fi | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g'
+              echo '```'
+            } > "$out"
+          }
 
-      - name: Run `semgrep ci --help` and update reference file with output
-        run: |
-          docker run --rm semgrep/semgrep:$LATEST_VERSION semgrep ci --help | sed -r 's/\x1B\[[0-9;]*[a-zA-Z]//g' | tee src/components/reference/_cli-help-ci-output.md
-          sed -i '1i```' src/components/reference/_cli-help-ci-output.md
-          echo '```' >> src/components/reference/_cli-help-ci-output.md
+          write_help "$SNIPPET_DIR/help-main.mdx"
+          write_help "$SNIPPET_DIR/help-scan.mdx" scan
+          write_help "$SNIPPET_DIR/help-ci.mdx" ci
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ steps.generate-token.outputs.token }}
           branch: update_help_commands_${{ env.LATEST_VERSION }}
-          commit-message: Updated help command output based on latest Semgrep release
-          title: Update help command output for Semgrep ${{ env.LATEST_VERSION }}
-          body: This is an automatically generated PR
+          commit-message: Updated CLI reference help output for Semgrep ${{ env.LATEST_VERSION }}
+          title: Update CLI reference help output for Semgrep ${{ env.LATEST_VERSION }}
+          body: This is an automatically generated PR that updates `docs/snippets/cli-reference/*.mdx`.
           delete-branch: true

@@ -1,41 +1,61 @@
 #!/usr/bin/env python3
 #
-# Inject Semgrep version info and other variable data into the documentation.
+# Inject Semgrep version info and other variable data into Mintlify documentation.
 #
-# 'foo.md.template' becomes 'foo.md' which is ready to be processed by the
-# documentation server.
+# Template naming:
+#   docs/foo.mdx       <- docs/foo.md.template.mdx
+#   docs/foo.md        <- docs/foo.md.template
 #
+
+from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from dataclasses import dataclass
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent
+
+# (destination page, placeholder, template is derived from destination)
+GENERATED_PAGES = (
+    {
+        "dst": REPO_ROOT / "docs/extensions/pre-commit.mdx",
+        "placeholder": "SEMGREP_VERSION_LATEST",
+    },
+)
+
+RELEASES_API_URL = "https://api.github.com/repos/semgrep/semgrep/releases/latest"
 
 
 @dataclass
 class Replace:
-    """A search-and-replace query.
-    The output file is 'dst_file'.
-    The input file has an extra ".template" extension.
-    """
-    dst_file: str
+    """A search-and-replace query."""
+
+    dst_file: Path
     find: str
     replace: str
 
 
-def replace_in_file(rep: Replace):
-    src_file = rep.dst_file + ".template"
-    with open(src_file) as f:
-        in_data = f.read()
+def template_path_for(dst_file: Path) -> Path:
+    name = dst_file.name
+    if name.endswith(".mdx"):
+        # pre-commit.mdx <- pre-commit.md.template.mdx
+        return dst_file.with_name(name.replace(".mdx", ".md.template.mdx"))
+    if name.endswith(".md"):
+        return dst_file.with_name(f"{name}.template")
+    raise ValueError(f"Unsupported file type: {dst_file}")
 
+
+def replace_in_file(rep: Replace) -> None:
+    src_file = template_path_for(rep.dst_file)
+    if not src_file.is_file():
+        print(f"::error::Missing template file: {src_file}", file=sys.stderr)
+        sys.exit(1)
+
+    in_data = src_file.read_text()
     out_data = in_data.replace(rep.find, rep.replace)
-
-    with open(rep.dst_file,"w") as f:
-        f.write(out_data)
-
-DEFAULT_SEMGREPIGNORE_URL = (
-    "https://raw.githubusercontent.com/semgrep/semgrep/develop/src/targeting/default.semgrepignore"
-)
-RELEASES_API_URL = "https://api.github.com/repos/semgrep/semgrep/releases/latest"
+    rep.dst_file.write_text(out_data)
 
 
 def fetch_url(url: str) -> str:
@@ -45,8 +65,6 @@ def fetch_url(url: str) -> str:
     return result.stdout.decode("utf-8")
 
 
-DEFAULT_SEMGREPIGNORE = fetch_url(DEFAULT_SEMGREPIGNORE_URL)
-
 release_data_raw = fetch_url(RELEASES_API_URL)
 try:
     release_data = json.loads(release_data_raw) if release_data_raw else {}
@@ -55,24 +73,13 @@ except json.JSONDecodeError:
 
 RELEASE_NAME = release_data.get("tag_name", "latest")
 
-
-# List of text replacements to occur when building the docs
 replacements = [
     Replace(
-        dst_file="docs/cli-reference.md",
-        find="DEFAULT_SEMGREPIGNORE_TEXT",
-        replace=DEFAULT_SEMGREPIGNORE,
-    ),
-    Replace(
-        dst_file="docs/ignoring-files-folders-code.md",
-        find="DEFAULT_SEMGREPIGNORE_TEXT",
-        replace=DEFAULT_SEMGREPIGNORE,
-    ),
-    Replace(
-        dst_file="docs/extensions/pre-commit.md",
-        find="SEMGREP_VERSION_LATEST",
+        dst_file=page["dst"],
+        find=page["placeholder"],
         replace=RELEASE_NAME,
-    ),
+    )
+    for page in GENERATED_PAGES
 ]
 
 for replacement in replacements:

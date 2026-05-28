@@ -1,0 +1,846 @@
+## Feature support
+
+Support for certain features of Semgrep AppSec Platform depends on your CI provider or source code management (SCM) tool.
+
+| Feature | GitHub with GitHub Actions | GitLab with GL CI/CD | *GitHub, GitLab, or Bitbucket with other CI providers |
+| :--- | :--- | :--- | :--- |
+| **Diff-aware scanning** | ✅ | ✅ | ✅ |
+| **Hyperlinks** | ✅ | ✅ | ✅ |
+| **PR or MR comments** | ✅ | ✅ | ✅ |
+| **SCM security dashboard** | ✅ GitHub Advanced Security Dashboard | ✅ GitLab Security Dashboard | ❌ No |
+
+*For example, if you use CircleCI as your CI provider on a GitHub repository, Semgrep AppSec Platform does not have any support for GitHub Advanced Security Dashboard.
+
+### Feature definitions
+
+| Feature | Description |
+| :--- | :--- |
+| Diff-aware scanning | Semgrep AppSec Platform can scan only changes in files when running on a pull request or merge request (PR or MR). This keeps the scan fast and reduces finding duplication. |
+| Hyperlinks to code | Semgrep AppSec Platform collects findings in a Findings page. In this page, you can click on a finding to return to your SCM (GitHub, GitLab, or Bitbucket) to view the lines of code in your repository that generated the finding. |
+| Receiving results (findings) as PR or MR comments |  This feature enables you to receive PR or MR comments from Semgrep AppSec Platform on the lines of code that generated a finding. |
+| SCM security dashboard | Send Semgrep findings to your SCM's security dashboard. |
+
+
+## GitHub Actions
+
+To add a Semgrep configuration file in your GitHub Actions pipeline:
+
+<Steps>
+<Step>
+Create a `semgrep.yml` file in `.github/workflows` in the repository you want to scan.
+</Step>
+<Step>
+Copy the relevant code snippet provided in [Sample GitHub Actions configuration file](#sample-github-actions-configuration-file).
+</Step>
+<Step>
+Paste the relevant code snippet to `semgrep.yml` file. This is your Semgrep configuration file for GitHub Actions.
+</Step>
+<Step>
+Commit the configuration file under <code><span className="placeholder">/REPOSITORY-ROOT-DIRECTORY/.github/workflows/semgrep.yml</span></code>.
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the committed `semgrep.yml` file.
+
+<Info>
+**NOTE**
+
+If you are self-hosting your repository, you must [use a self-hosted runner](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-self-hosted-runners).
+</Info>
+</Step>
+</Steps>
+
+### Sample GitHub Actions configuration file
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+
+
+```yaml expandable
+# Name of this GitHub Actions workflow.
+name: Semgrep
+
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan mainline branches if there are changes to .github/workflows/semgrep.yml:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/semgrep.yml
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job.
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v6
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci
+        env:
+          # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+          # Generate a token from Semgrep AppSec Platform > Settings
+          # and add it to your GitHub secrets.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep Community Edition (CE) scans using rules configured for your programming language.
+
+
+```yaml expandable
+# Name of this GitHub Actions workflow.
+name: Semgrep CE scan
+
+on:
+  # Scan in PRs:
+  pull_request: {}
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan mainline branches and report all findings:
+  push:
+    branches: ["master", "main"]
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    - cron: '20 17 * * *' # Sets Semgrep to scan every day at 17:20 UTC.
+    # It is recommended to change the schedule to a random time.
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    # User definable name of this GitHub Actions job.
+    name: semgrep-oss/scan
+    # If you are self-hosting, change the following `runs-on` value: 
+    runs-on: ubuntu-latest
+
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      # Fetch project source with GitHub Actions Checkout. Use either v3 or v4.
+      - uses: actions/checkout@v6
+      # Run the "semgrep scan" command on the command line of the docker image.
+      - run: semgrep scan --config auto
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+<Warning>
+**CAUTION**
+
+If you define both `branches` or `branches-ignore` *and* `paths` or `paths-ignore`, the workflow only runs when both filters are satisfied.
+
+For example, if your configuration file includes the following definition, the workflow runs only if there are changes on the `development` branch to `.github/workflows/semgrep.yml` :
+
+```yaml
+push:
+  branches:
+    - development
+  paths:
+    - .github/workflows/semgrep.yml
+```
+
+
+</Warning>
+
+
+
+## GitLab CI/CD
+
+To add a Semgrep configuration snippet in your GitLab CI/CD pipeline:
+
+<Steps>
+<Step>
+Create or edit your `.gitlab-ci.yml` file in the repository you want to scan.
+</Step>
+<Step>
+Copy the relevant code snippet provided in [Sample GitLab CI/CD configuration snippet](#sample-gitlab-cicd-configuration-snippet), and then paste it to your `.gitlab-ci.yml` file.
+</Step>
+<Step>
+Commit the updated `.gitlab-ci.yml` file.
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the committed `.gitlab-ci.yml` file. You can also view the job from your GitLab project's **CI/CD > Pipelines** page.
+</Step>
+</Steps>
+### Sample GitLab CI/CD configuration snippet
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```yaml
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: semgrep/semgrep
+  # Run the "semgrep ci" command on the command line of the docker image.
+  script: semgrep ci
+
+  rules:
+    # Allow triggering a scan manually from the GitLab UI
+    - if: $CI_PIPELINE_SOURCE == "web"
+    # Scan changed files in MRs, (diff-aware scanning):
+    - if: $CI_MERGE_REQUEST_IID
+    # Scan mainline (default) branches and report all findings.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  variables:
+    # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
+    # Generate a token from Semgrep AppSec Platform > Settings
+    # and add it as a variable in your GitLab CI/CD project settings.
+    SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+Prefer to use GitLab group variables? See [this guide](/kb/semgrep-code/gitlab-group-variables) for an appropriate configuration.
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml
+semgrep:
+  # A Docker image with Semgrep installed.
+  image: semgrep/semgrep
+  # Run the "semgrep scan" command on the command line of the docker image.
+  script: semgrep scan --config auto .
+
+  rules:
+  # Scan in MRs.
+  - if: $CI_MERGE_REQUEST_IID
+
+  # Scan mainline (default) branches and report all findings.
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+
+
+## Jenkins
+
+<Info>
+**NOTE**
+
+Your user interface (UI) may vary depending on your Jenkins installation. The following steps refer to Jenkins' Classic UI.
+</Info>
+
+To add a Semgrep configuration snippet in your Jenkins pipeline:
+
+<Steps>
+<Step>
+Create or edit your `Jenkinsfile` configuration file in the repository you want to scan. You can also edit your `Jenkinsfile` from Jenkins's interface.
+</Step>
+<Step>
+Copy the relevant code snippet provided in [Sample Jenkins configuration snippet](#sample-jenkins-configuration-snippet).
+</Step>
+<Step>
+Paste the code to your `Jenkinsfile`, and then commit the file.
+
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the `Jenkinsfile` update.
+</Step>
+<Step>
+Optional: Create a separate CI job for diff-aware scanning, which scans only changed files in PRs or MRs, by repeating steps 1-3 and uncommenting the `SEMGREP_BASELINE_REF` definition provided within the code snippet.
+</Step>
+</Steps>
+
+### Sample Jenkins configuration snippet
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```js expandable
+pipeline {
+  agent any
+    environment {
+      // The following variable is required for a Semgrep AppSec Platform-connected scan:
+      SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+
+      // Uncomment the following line to scan changed
+      // files in PRs or MRs (diff-aware scanning):
+      // SEMGREP_BASELINE_REF = "main"
+
+      // Troubleshooting:
+
+      // Uncomment the following lines if Semgrep AppSec Platform > Findings Page does not create links
+      // to the code that generated a finding or if you are not receiving PR or MR comments.
+      // SEMGREP_JOB_URL = "${BUILD_URL}"
+      // SEMGREP_COMMIT = "${GIT_COMMIT}"
+      // SEMGREP_BRANCH = "${GIT_BRANCH}"
+      // SEMGREP_REPO_NAME = env.GIT_URL.replaceFirst(/^https:\/\/github.com\/(.*).git$/, '$1')
+      // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
+      // SEMGREP_PR_ID = "${env.CHANGE_ID}"
+    }
+    stages {
+      stage('Semgrep-Scan') {
+        steps {
+            sh '''docker pull semgrep/semgrep && \
+            docker run \
+            -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+            -e SEMGREP_REPO_URL=$SEMGREP_REPO_URL \
+            -e SEMGREP_REPO_NAME=$SEMGREP_REPO_NAME \
+            -e SEMGREP_BRANCH=$SEMGREP_BRANCH \
+            -e SEMGREP_COMMIT=$SEMGREP_COMMIT \
+            -e SEMGREP_PR_ID=$SEMGREP_PR_ID \
+            -v "$(pwd):$(pwd)" --workdir $(pwd) \
+            semgrep/semgrep semgrep ci '''
+      }
+    }
+  }
+}
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+This code snippet uses Jenkins declarative syntax.
+
+```groovy
+pipeline {
+  agent any
+  stages {
+    stage('Semgrep-Scan') {
+      steps {
+        sh 'pipx install semgrep'
+        sh 'semgrep scan --config auto'
+      }
+    }
+  }
+}
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+## Bitbucket Pipelines
+
+To add a Semgrep configuration snippet into Bitbucket Pipelines:
+
+<Steps>
+<Step>
+Create or edit your `bitbucket-pipelines.yml` file in the repository you want to scan.
+</Step>
+<Step>
+Copy the relevant code snippet provided in [Sample Bitbucket Pipelines configuration snippet](#sample-bitbucket-pipelines-configuration-snippet), and then paste it to your `bitbucket-pipelines.yml`.
+</Step>
+<Step>
+Commit the updated `bitbucket-pipelines.yml` configuration file.
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the committed `bitbucket-pipelines.yml` file. You can view the job through Bitbucket's interface, by clicking **<span className="placeholder">REPOSITORY_NAME</span> > Pipelines**.
+</Step>
+<Step>
+Optional: Create a daily scheduled run for the custom pipeline on the main branch by [scheduling a pipeline in Bitbucket](https://support.atlassian.com/bitbucket-cloud/pipeline-triggers/#On-schedule).
+
+<Info>
+**NOTE**
+
+These steps can also be performed through Bitbucket's UI wizard. This UI wizard can be accessed through **Bitbucket > <span className="placeholder">REPOSITORY_NAME</span> > Pipelines > Create your first pipeline**.
+</Info>
+</Step>
+</Steps>
+
+### Sample Bitbucket Pipelines configuration snippet
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```yaml expandable
+image: semgrep/semgrep:latest
+
+pipelines:
+  branches:
+    # Change to your default branch if different from main
+    main:
+    - step:
+        name: Semgrep scan on push
+        script:
+          - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+          - semgrep ci
+
+  pull-requests:
+    '**': # This applies to pull requests for all branches
+      - step:
+          name: Semgrep scan on PR
+          script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+            # Change to your default branch if different from main
+            - export SEMGREP_BASELINE_REF="origin/main"
+            - git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+            - semgrep ci
+
+  custom:
+  # Trigger job manually. For cron in Bitbucket, see: https://support.atlassian.com/bitbucket-cloud/pipeline-triggers/#On-schedule
+    semgrep-manual:
+      - step:
+          name: Semgrep manual scan
+          script:
+            - export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN
+            - semgrep ci
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml
+image: semgrep/semgrep:latest
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Run Semgrep scan with current branch'
+          deployment: dev # https://support.atlassian.com/bitbucket-cloud/set-up-and-monitor-deployments/
+          script:
+            - semgrep scan --config auto
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+<Tip>
+**TIP**
+
+If the pipeline's default runner runs out of memory, you can limit the number of subprocesses Semgrep uses with the [`-j` flag](/cli-reference), or [add the `size` directive](https://support.atlassian.com/bitbucket-cloud/global-options/#Size) to the Semgrep step to increase the memory available:
+
+```yaml
+pipelines:
+  default:
+    - step:
+        size: 2x
+        script:
+          - echo "This step gets double the memory!"
+```
+
+
+</Tip>
+
+## Buildkite
+
+To add Semgrep into your Buildkite pipeline:
+
+<Steps>
+<Step>
+Prepare a configuration file to add a Semgrep scan as part of your pipeline. This configuration file can be stored within Buildkite or as a `pipeline.yml` file in the target repository.
+</Step>
+<Step>
+Copy the code snippet provided in [Sample Buildkite configuration snippet](#sample-buildkite-configuration-snippet), making alterations if necessary for your environment.
+</Step>
+<Step>
+If you are using Buildkite to store the configuration, save the updated file. Otherwise, commit the updated `pipeline.yml` file into the `/.buildkite` folder within the target repository.
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the committed `pipeline.yml` file. Alternatively, if you are using the Buildkite UI, you can select **New build**. You can view the job through Buildkite's interface by clicking **Pipelines > pipeline name**.
+
+<Info>
+**NOTE**
+
+These steps can be performed within Buildkite's UI. To do so, navigate to Buildkite's main page, and click **Pipelines > New Pipeline**.
+</Info>
+</Step>
+</Steps>
+
+### Sample Buildkite configuration snippet
+
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans according to the products you have enabled in Semgrep AppSec Platform. The provided environment variables are commonly needed to correctly configure scans from Buildkite.
+
+This file configures two mutually exclusive command steps, one for full scans, and one for diff-aware scans. The latter is used for pull requests or merge requests.
+
+In order for this configuration to run the correct type of scan for each condition, it requires both [branch filtering](https://buildkite.com/pipelines/branch-configuration) and configuration to build on pull requests.
+
+#### Branch filtering
+
+<Steps>
+<Step>
+In the Buildkite UI, go to the pipeline **Settings** and select the connected source code manager in the left sidebar.
+</Step>
+<Step>
+Under **Branch Limiting**, enter your default branch name in the **Branch Filter Pattern** box. You can include any other branch names that require full scans as well, such as `release-*`.
+</Step>
+<Step>
+Click **Save Branch Limiting**.
+</Step>
+</Steps>
+
+#### Build on pull requests
+
+To run diff-aware scans, your pipeline must run builds on pull requests or merge requests. Buildkite integrates with several source code managers and each one has different options to handle PRs or MRs. The most common options are a checkbox within the pipeline settings, or webhooks within the source control manager. Review the [documentation for your source control](https://buildkite.com/integrations/source-control) system to ensure your Semgrep pipeline builds on pull requests or merge requests.
+
+```yaml expandable
+- label: ":semgrep: Semgrep Full Scan"
+  commands:
+    - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#git@github.com:##' | sed -e 's#.git##')"
+    - semgrep ci
+  if: |
+    build.pull_request.id == null
+
+- label: ":semgrep: Semgrep Diff Scan"
+  commands:
+    - if [[ $BUILDKITE_COMMIT =~ ^[a-fA-F0-9]{40}$ ]]; then export SEMGREP_COMMIT=${BUILDKITE_COMMIT}; fi
+    - export SEMGREP_PR_ID=${BUILDKITE_PULL_REQUEST}
+    - export SEMGREP_BRANCH=${BUILDKITE_BRANCH}
+    - export SEMGREP_REPO_URL=${BUILDKITE_REPO}
+    - export SEMGREP_REPO_NAME="$(echo "$BUILDKITE_REPO" | sed -e 's#git@github.com:##' | sed -e 's#.git##')"
+    - SEMGREP_BASELINE_REF=${BUILDKITE_PULL_REQUEST_BASE_BRANCH} semgrep ci
+  if: |
+    build.pull_request.id != null
+
+  plugins:
+    - docker#v5.11.0:
+        image: semgrep/semgrep:latest
+        environment:
+          # The following variable is required to set up a scan connected to Semgrep AppSec Platform:
+          - "SEMGREP_APP_TOKEN"
+```
+
+You can [run specific product scans by passing the appropriate argument](/getting-started/cli#scan-using-specific-semgrep-products), such as `--supply-chain`.
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml
+- label: ":semgrep: Semgrep CE"
+  commands:
+    - semgrep scan --config auto
+  plugins:
+    - docker#v5.11.0:
+        image: semgrep/semgrep
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+## CircleCI
+
+To add Semgrep into your CircleCI pipeline:
+<Steps>
+<Step>
+Create a [context](https://circleci.com/contexts/):
+    
+    i. In CircleCI web app, click **Organization Settings** > **Contexts**.
+    
+    ii. Click **Create Context**.
+    
+    iii. Enter `semgrep` as the name for the context.
+    
+    iv. Click **Add Environment Variable** and enter your `SEMGREP_APP_TOKEN`.
+</Step>
+<Step>
+Create or edit your `config.yml` configuration file in the repository you want to scan.
+</Step>
+<Step>
+Copy the relevant code snippet provided in [Sample CircleCI configuration snippet](#sample-circleci-configuration-snippet).
+</Step>
+<Step>
+If your default branch is not `main`, change the occurrences of `main` to the name of your default branch.
+</Step>
+<Step>
+Commit the updated `config.yml` configuration file into the `/.circleci` folder in the target repository.
+</Step>
+<Step>
+The Semgrep job starts automatically upon detecting the `config.yml` update.
+</Step>
+</Steps>
+
+The sample configuration provides jobs for both full scanning and [diff-aware scanning](/deployment/customize-ci-jobs#set-up-diff-aware-scans), which scans only changed files in PRs or MRs. You do not need to create any other jobs.
+
+CircleCI always runs the Semgrep CI job on all commits for the default branch and tags. If you want the job to scan only branches that have an associated a pull request open, you can enable the option "Only build pull requests" in **Project Settings** > **Advanced**.
+
+### Sample CircleCI configuration snippet
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```yaml expandable
+version: 2.1
+workflows:
+  semgrep:
+    jobs:
+      - semgrep-full-scan:
+          filters:
+            branches:
+              only: main
+          context:
+            - semgrep
+      - semgrep-diff-scan:
+          filters:
+            branches:
+              ignore: main
+          context:
+            - semgrep
+jobs:
+  semgrep-full-scan:
+    docker:
+      - image: semgrep/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep full scan"
+          command: semgrep ci     
+  semgrep-diff-scan:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    docker:
+      - image: semgrep/semgrep
+    steps:
+      - checkout
+      - run: 
+          name: Semgrep diff scan
+          environment: 
+            SEMGREP_BASELINE_REF: << parameters.default_branch >>
+          command: semgrep ci
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml expandable
+version: 2.1
+workflows:
+  semgrep:
+    jobs:
+      - semgrep-full-scan:
+          filters:
+            branches:
+              only: main
+          context:
+            - semgrep
+jobs:
+  semgrep-full-scan:
+    docker:
+      - image: semgrep/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep CE full scan"
+          command: semgrep scan --config auto
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+## Azure Pipelines
+
+<Note>
+**INFO**
+
+Scanning a project with the `semgrep ci` command requires the project to be version-controlled by Git. If you have Azure Repos that are version-controlled with [Team Foundations Version Control](https://learn.microsoft.com/en-us/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops), they must be migrated to Git to be scanned with `semgrep ci` and have results reported to the Semgrep AppSec Platform.
+</Note>
+
+To add Semgrep into Azure Pipelines:
+
+<Steps>
+<Step>
+Access the YAML pipeline editor within Azure Pipelines by following the [YAML pipeline editor](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops#edit-a-yaml-pipeline) guide.
+</Step>
+<Step>
+Copy the code snippet provided in [Sample Azure Pipelines configuration snippet](#sample-azure-pipelines-configuration-snippet) into the Azure Pipelines YAML editor.
+</Step>
+<Step>
+Save the code snippet.
+</Step>
+<Step>
+Follow any additional instructions provided with the snippet.
+</Step>
+</Steps>
+
+### Sample Azure Pipelines configuration snippet
+
+This configuration snippet is tested with **hosted** Azure runners. If you are using self-hosted runners, you may need to make adjustments to ensure that the necessary software is available. Consult [Semgrep with self-hosted Ubuntu runners in Azure Pipelines](/kb/semgrep-ci/azure-self-hosted-ubuntu) for two recommended options.
+
+<Tabs>
+<Tab title="Default">
+
+The following configuration creates a CI job that runs scans using the products and options you have enabled in Semgrep AppSec Platform.
+
+```yaml expandable
+pool:
+  vmImage: ubuntu-latest
+variables:
+- group: Semgrep_Variables
+
+steps:
+- checkout: self
+  clean: true
+  fetchDepth: 20
+  persistCredentials: true
+# Replace master with the repository default branch if different.
+- script: |
+    python -m pip install --upgrade pipx
+    pipx install semgrep
+    if [ $(Build.SourceBranchName) = "master" ]; then
+        echo "Semgrep full scan"
+        semgrep ci
+    elif [ $(System.PullRequest.PullRequestId) -ge 0 ]; then
+        echo "Semgrep diff scan"
+        export SEMGREP_PR_ID=$(System.PullRequest.PullRequestId)
+        export SEMGREP_BASELINE_REF='origin/master'
+        git fetch origin master:origin/master
+        semgrep ci
+    fi
+  env:
+    SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)
+```
+
+You can **run specific product scans** by passing an argument, such as `--supply-chain`. View the [list of arguments](/getting-started/cli/#scan-using-specific-semgrep-products).
+
+### Set environment variables in Azure Pipelines
+
+Semgrep minimally requires the variable `SEMGREP_APP_TOKEN` in order to report results to the platform, and other variables may be helpful as well. To set these variables in Azure Pipelines:
+
+<Steps>
+<Step>
+Set up a [variable group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=classic) called `Semgrep_Variables`.
+</Step>
+<Step>
+Set `SEMGREP_APP_TOKEN` in the variable group, following the steps for [secret variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#set-a-secret-variable-in-a-variable-group). The variable is mapped into the `env` in the provided config.
+</Step>
+<Step>
+Optional: Add the following environment variables to the group if you aren't seeing hyperlinks to the code that generated a finding, or if you are not receiving PR or MR comments. Review the use of these variables at [Environment variables for creating hyperlinks in Semgrep AppSec Platform](/semgrep-ci/ci-environment-variables#environment-variables-for-creating-hyperlinks-in-semgrep-appsec-platform).These variables are not sensitive and do not need to be secret variables.
+    * `SEMGREP_REPO_NAME`
+    * `SEMGREP_REPO_URL`
+    * `SEMGREP_BRANCH`
+    * `SEMGREP_COMMIT`
+    * `SEMGREP_JOB_URL`
+</Step>
+<Step>
+Set variables for diff-aware scanning. The provided config sets `SEMGREP_PR_ID` to the system variable `System.PullRequest.PullRequestId` and `SEMGREP_BASELINE_REF` to `origin/master` within the `script` section of the config. The value of `SEMGREP_BASELINE_REF` is typically your trunk or default branch, so if you use a different branch than master, update the name accordingly. as `main` or `master`.
+    * If you prefer not to implement diff-aware scanning, you can skip setting these variables and remove the `elif` section of the `script` step.
+</Step>
+<Step>
+For diff-aware scans: add a [build validation policy](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser#build-validation). Adding and enabling a branch policy for build validation is required to trigger Azure Pipelines on pull requests.
+</Step>
+</Steps>
+
+</Tab>
+<Tab title="Semgrep CE">
+
+The following configuration creates a CI job that runs Semgrep CE scans using rules configured for your programming language.
+
+```yaml
+
+steps:
+- checkout: self
+  clean: true
+  fetchDepth: 20
+  persistCredentials: true
+- script: |
+    python -m pip install --upgrade pipx
+    pipx install semgrep
+    echo "Semgrep CE full scan"
+    semgrep scan --config auto
+```
+
+You can customize the scan by entering custom rules or other rulesets to scan with. See [Scan your codebase with a specific ruleset](/customize-semgrep-ce#scan-your-codebase-with-a-specific-ruleset).
+
+</Tab>
+</Tabs>
+
+## Other providers
+
+To run Semgrep CI on any other provider, use the `semgrep/semgrep` image, and run the `semgrep ci` command with `SEMGREP_BASELINE_REF` set for diff-aware scanning.
+
+<Info>
+**NOTE**: 
+
+If you need to use a different Docker image or are not running in Docker, install Semgrep CI with [`pipx`](https://pipx.pypa.io/stable/how-to/install-pipx/) using `pipx install semgrep`, or with [`uv`](https://docs.astral.sh/uv/) using `uv tool install semgrep`.
+</Info>
+
+By setting various [CI environment variables](/semgrep-ci/ci-environment-variables), you can run Semgrep in the following CI providers:
+
+- AppVeyor
+- Bamboo
+- Bitrise
+- Buildbot
+- Codeship
+- Codefresh
+- Drone CI
+- Semaphore
+- TeamCity CI
+- Travis CI
+
+Is your CI provider missing? Let the Semgrep team know by [<Icon icon="external-link" iconType="solid"/> filing an issue](https://github.com/semgrep/semgrep-docs/issues/), or [<Icon icon="external-link" iconType="solid"/> submit a contribution](https://github.com/semgrep/semgrep-docs/pulls/).

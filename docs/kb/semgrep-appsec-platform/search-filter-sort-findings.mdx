@@ -1,0 +1,65 @@
+---
+title: "Search, filter, and sort findings in Semgrep AppSec Platform"
+description: "Semgrep AppSec Platform provides you with an overview of the findings identified by Semgrep Code, Supply Chain, and Secrets. Each product-specific page provides you with filters to narrow down the list of findings shown to you. For example, you can filter for Semgrep Code findings that are flagged as false positives, or you can filter for Semgrep Supply Chain findings based on CVE."
+---
+
+Learn more about the filters Semgrep offers using the following articles:
+
+<CardGroup cols={2}>
+  <Card title="Semgrep Code filters" horizontal href="/semgrep-code/findings#filter-findings" icon="file" />
+  <Card title="Supply Chain filters" horizontal href="/semgrep-supply-chain/findings#filter-findings" icon="file" />
+  <Card title="Secrets filters" horizontal href="/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic" icon="file" />
+</CardGroup>
+
+The following sections of this article explain how you can use filters to identify a specific subset of findings.
+
+## Identify Semgrep Code findings flagged as false positives
+
+Sign in to [<Icon icon="arrow-up-right-from-square" /> Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **Code**. You can view findings with a status of **Ignored > False positive** from either the default **Production backlog** view or the **Pre-production** view. The **Production backlog** displays all Semgrep Code findings, while **Pre-production** displays the findings about which Semgrep left comments.
+
+## Identify Semgrep Code findings flagged by Multimodal as false positives
+
+<Steps>
+  <Step>
+  Sign in to [<Icon icon="arrow-up-right-from-square" /> Semgrep AppSec Platform](https://semgrep.dev/login).
+  </Step>
+  <Step>
+  Navigate to **Code**.
+  </Step>
+  <Step>
+  Find the **Multimodal autotriage** filter, and click **False positive**. 
+  </Step>
+</Steps>
+
+## Search for specific findings by rule or CVE
+
+This guide walks you through finding the specific rule ID in Semgrep, then applying it as a filter. You can then combine this filter with other filters, such as **Projects** or **Status**.
+
+This method can be used for Semgrep Code and Supply Chain.
+
+<Steps>
+  <Step>
+    Sign in to [<Icon icon="arrow-up-right-from-square" /> Semgrep AppSec Platform](https://semgrep.dev/login).
+  </Step>
+  <Step>
+    Navigate to either the **Code** or **Supply Chain** page depending on which type of finding you're looking for.
+    
+    &emsp;&emsp;i. For Semgrep Code findings, the Rule ID is the heading of each group of findings. Copy this value.
+      <Frame caption="Figure. Rule ID and Rule filter placement.">
+      ![Rule ID and Rule filter placement.](/images/kb/semgrep-appsec-platform/search-filter-sort-findings/code-ruleID.png)
+      </Frame>
+    
+    &emsp;&emsp;ii. For Semgrep Supply Chain findings, the **CVE** or **MAL** ID is shown on the upper-right heading of each group of findings. Copy this value. Add a dash between the prefix, such as MAL or CVE, and the numerical value.
+      <Frame caption="Figure. Rule ID and Rules filter placement.">
+      ![Rule ID and Rules filter placement.](/images/kb/semgrep-appsec-platform/search-filter-sort-findings/sca-ruleid.png)
+      </Frame>
+  </Step>
+  <Step>
+    Enter the value you copied in the **Rule** filter for Semgrep Code or **Rules** filter for Semgrep Supply Chain. This narrows down the findings to that specific rule or CVE.
+    </Step>
+  <Step>
+    You can continue adding values to the rules filter. The rules filter includes findings from **any** of the values indicated.
+    </Step>
+</Steps>
+
+From there, you can apply any other filters as necessary.

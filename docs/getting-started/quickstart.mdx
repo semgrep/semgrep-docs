@@ -1,0 +1,205 @@
+---
+title: "Quickstart"
+description: "Learn how to set up Semgrep, scan your first project, which can be any codebase, repository, or folder within a monorepo, for security issues, and view your findings."
+---
+
+
+<Note>
+**PREREQUISITES**
+
+You must have Python 3.10 or later installed on the machine where the Semgrep CLI is running.
+</Note>
+
+<Steps>
+  <Step>
+    Go to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Continue with GitHub** or **Continue with GitLab**. Follow the on-screen prompts to grant Semgrep the necessary permissions.
+  </Step>
+  <Step>
+    Provide the **Organization display name** you'd like to use, then click **Create new organization**.
+  </Step>
+  <Step>
+    When asked **Where do you want to scan?** click **Run on CLI**.
+  </Step>
+  <Step>
+    Launch your CLI, and follow the instructions on the [**Scan a project on your machine**](https://semgrep.dev/onboarding/scan) page. For your convenience, the same information is presented below, along with instructions for Windows users.
+
+    <Tabs>
+        <Tab title="macOS">
+        i. Install the Semgrep CLI and confirm the installation:
+
+        ```bash
+        # install through homebrew
+        brew install semgrep
+
+        # or, install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+        pipx install semgrep
+
+        # or, install through uv (https://docs.astral.sh/uv/)
+        uv tool install semgrep
+
+        # confirm installation succeeded by printing the currently installed version
+        semgrep --version
+        ```
+
+        <Info>
+        **NOTE**
+
+        **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+        </Info>
+
+        ii. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+
+        ```bash
+        semgrep login
+        ```
+
+        iii. In the **Semgrep CLI login**, click **Activate** to proceed.
+
+        iv. Return to the CLI, navigate to the root of your project, and run your first scan:
+
+        ```bash
+        semgrep ci
+        ```
+
+
+        </Tab>
+
+        <Tab title="Linux">
+
+        i. Install the Semgrep CLI and confirm the installation:
+
+        ```bash
+        # install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+        pipx install semgrep
+
+        # or, install through uv (https://docs.astral.sh/uv/)
+        uv tool install semgrep
+
+        # confirm installation succeeded by printing the currently installed version
+        semgrep --version
+        ```
+
+        ii. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+
+        ```bash
+        semgrep login
+        ```
+
+       iii. In the **Semgrep CLI login**, click **Activate** to proceed.
+
+        iv. Return to the CLI, navigate to the root of your project, and run your first scan:
+
+        ```bash
+        semgrep ci
+        ```
+        </Tab>
+
+        <Tab title="Windows (beta)">
+        i. [Download](https://www.python.org/downloads/) and install Python. Make sure to check the box to add python.exe to the PATH, otherwise you will have difficulty running Semgrep.
+
+        ii. Configure your system to run Python with UTF-8 text encodings by default. In PowerShell, run:
+
+        ```powershell
+        [System.Environment]::SetEnvironmentVariable('PYTHONUTF8', '1', 'User')
+        ```
+
+        iii. Install the Semgrep CLI and confirm the installation. In PowerShell, run:
+
+        ```bash
+        # install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+        pipx install semgrep
+
+        # or, install through uv (https://docs.astral.sh/uv/)
+        uv tool install semgrep
+
+        # confirm installation succeeded by printing the currently installed version
+        semgrep --version
+        ```
+
+        iv. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+
+        ```bash
+        semgrep login
+        ```
+
+       v. In the **Semgrep CLI login**, click **Activate** to proceed.
+
+        vi. Return to the CLI, navigate to the root of your project, and run your first scan:
+
+        ```bash
+        semgrep ci
+        ```
+
+
+        </Tab>
+
+        <Tab title="Docker">
+
+    <Note>
+    **PREREQUISITES**
+
+    Ensure that you have [Docker installed](https://docs.docker.com/desktop/) before proceeding.
+    </Note>
+
+    i. Pull the latest image and confirm the version:
+
+        ```bash
+        docker pull semgrep/semgrep
+
+        # confirm version
+        docker run --rm semgrep/semgrep semgrep --version
+        ```
+
+    ii. For users running Docker on **macOS or Linux** Docker:
+
+        a. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
+
+            ```bash
+            docker run -it semgrep/semgrep semgrep login
+            ```
+
+        b. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI and copy the login token that's shown.
+
+        c. Navigate into the root of your project, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
+
+            ```bash
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "${PWD}:/src" semgrep/semgrep semgrep ci
+            ```
+
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
+
+    iii. For users running Docker on **Windows**:
+
+        a. Log in to your Semgrep account (running this command will launch a browser window, but you can also use the link that's returned in the CLI to proceed):
+
+            ```bash
+            docker run -it semgrep/semgrep semgrep login
+            ```
+
+        b. In the **Semgrep CLI login**, click **Activate** to proceed. Return to the CLI, and copy the login token that's shown.
+
+        c. Navigate into the root of your project, and run your first scan. Be sure to substitute <code><span class="placeholder">YOUR_TOKEN</span></code> with the login token value you copied in the previous step:
+
+            ```bash
+            docker run -e SEMGREP_APP_TOKEN=YOUR_TOKEN --rm -v "%cd%:/src" semgrep/semgrep semgrep ci
+            ```
+
+            The provided `-v` option mounts the current directory into the container to be scanned. Navigate into a different project or provide a specific local directory in the command to scan a different project.
+
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step>
+    Once you've scanned your first application, return to [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/) to see the security vulnerabilities in your project. For detailed information, click **Code** to access your SAST findings or **Supply Chain** to access your SCA findings.
+
+    <Note>
+    **INFO**
+
+    **Code is not uploaded.** Only **findings** are sent to Semgrep AppSec Platform.
+    </Note>
+  </Step>
+</Steps>
+
+## Scan without a GitHub or GitLab account
+
+If you don't have a GitHub or GitLab account, you can use `semgrep scan` in your CLI. See [Scan your project](/getting-started/cli#scan-your-project) for more details.

@@ -1,27 +1,17 @@
 ---
-slug: python-code-injection
-displayed_sidebar: learnSidebar
-title: Code Injection in Python
-hide_title: true
-description: "Cheat sheet for the prevention of Code Injection vulnerabilities for Python."
-tags:
-  - python
-  - code-injection
+title: "Prevent Code Injection for Python"
+sidebarTitle: "Code Injection in Python"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import CodeInjectionIntro from "/src/components/concept/_code-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a code injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run arbitrary code in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of code injection in your code. By following these recommendations, you can be reasonably sure your code is free of code injection.
 
-# Prevent Code Injection for Python
-
-<CodeInjectionIntro />
-
-Learn more about [Code Injection](/docs/learn/vulnerabilities/code-injection) vulnerability concepts.
+Learn more about [Code Injection](/learn/vulnerabilities/code-injection) vulnerability concepts.
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config auto .
+```
 
 ## 1. Executing or evaluating code
 
@@ -53,7 +43,7 @@ Do not use `exec()` for non-literal values. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.exec-detected.exec-detected" />
+[`python.lang.security.audit.exec-detected.exec-detected`](https://semgrep.dev/r/python.lang.security.audit.exec-detected.exec-detected)
 
 ### 1.B. Evaluating code with eval
 
@@ -83,7 +73,7 @@ Do not use `eval()`. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.eval-detected.eval-detected" />
+[`python.lang.security.audit.eval-detected.eval-detected`](https://semgrep.dev/r/python.lang.security.audit.eval-detected.eval-detected)
 
 ### 1.C. Accepting logging configuration with logging.config.listen()
 
@@ -93,7 +83,7 @@ While the function only binds to a socket on localhost, and so does not accept c
 
 Example:
 
-```python
+```python expandable
 # Server example: starting up a socket server on 9999 port, and listening for new configurations.
 import logging
 import logging.config
@@ -151,7 +141,7 @@ s.close()
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.logging.listeneval.listen-eval" />
+[`python.lang.security.audit.logging.listeneval.listen-eval`](https://semgrep.dev/r/python.lang.security.audit.logging.listeneval.listen-eval)
 
 ### 1.D. Running code in an interactive interpreter
 
@@ -188,7 +178,7 @@ Do not let the user input in `InteractiveInterpreter` or `InteractiveConsole` me
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-code-run.dangerous-interactive-code-run" />
+[`python.lang.security.audit.dangerous-code-run.dangerous-interactive-code-run`](https://semgrep.dev/r/python.lang.security.audit.dangerous-code-run.dangerous-interactive-code-run)
 
 ### 1.E. Using subinterpreter to run code
 
@@ -219,7 +209,7 @@ Do not let a user input in `_xxsubinterpreters` methods. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-subinterpreters-run-string.dangerous-subinterpreters-run-string" />
+[`python.lang.security.audit.dangerous-subinterpreters-run-string.dangerous-subinterpreters-run-string`](https://semgrep.dev/r/python.lang.security.audit.dangerous-subinterpreters-run-string.dangerous-subinterpreters-run-string)
 
 ### 1.F. Running subinterpreter from regression tests package
 
@@ -259,7 +249,7 @@ Do not let a user input in `run_in_subinterp` function. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-testcapi-run-in-subinterp" />
+[`python.lang.security.audit.dangerous-testcapi-run-in-subinterp`](https://semgrep.dev/r/python.lang.security.audit.dangerous-testcapi-run-in-subinterp)
 
 ## 2. Abusing built-in functions
 
@@ -297,7 +287,7 @@ Do not access global or local symbol tables. Refactor your code not to use `glob
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.dangerous-globals-use.dangerous-globals-use" />
+[`python.lang.security.dangerous-globals-use.dangerous-globals-use`](https://semgrep.dev/r/python.lang.security.dangerous-globals-use.dangerous-globals-use)
 
 ### 2.B. Dynamically updating and accessing code annotations
 
@@ -331,4 +321,4 @@ Do not programmatically rewrite code annotations. Alternatively:
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.lang.security.audit.dangerous-annotations-usage" />
+[`python.lang.security.audit.dangerous-annotations-usage`](https://semgrep.dev/r/python.lang.security.audit.dangerous-annotations-usage)

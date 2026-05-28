@@ -1,23 +1,11 @@
 ---
-slug: flask-xss
-displayed_sidebar: learnSidebar
-title: "XSS in Flask"
-hide_title: false
-description: "Cheat sheet for the prevention of Cross-site Scripting (XSS) vulnerabilities for Python and Flask."
-tags:
-  - python
-  - xss
+title: "Prevent XSS for Flask"
+sidebarTitle: "XSS in Flask"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a cross-site scripting (XSS) prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
 
-# Prevent XSS for Flask
-
-<XssInjectionIntro />
-
-Learn more about [Cross-site Scripting](/docs/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
+Learn more about [Cross-site Scripting](/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
 
 ## Mitigation summary
 
@@ -29,7 +17,9 @@ Semgrep ruleset for this cheatsheet: [https://semgrep.dev/p/minusworld.flask-xss
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config p/minusworld.flask-xss
+```
 
 ## 1. Server code: Unescaped variable enters template engine in Python code
 
@@ -54,7 +44,7 @@ Ban `render_template_string()`. Alternatively, use `render_template()`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.audit.render-template-string.render-template-string" />
+[`python.flask.security.audit.render-template-string.render-template-string`](https://semgrep.dev/r/python.flask.security.audit.render-template-string.render-template-string)
 
 
 ### 1.B. **render_template()** with unescaped file extension
@@ -80,7 +70,7 @@ Ban unescaped extensions. Alternatively, only use `.html` extensions for templat
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.unescaped-template-extension.unescaped-template-extension" />
+[`python.flask.security.unescaped-template-extension.unescaped-template-extension`](https://semgrep.dev/r/python.flask.security.unescaped-template-extension.unescaped-template-extension)
 
 
 ### 1.C. Explicitly unescaping variables using **Markup()**
@@ -104,9 +94,8 @@ Ban `Markup()`. Alternatively, if needed, review each usage and exempt with `# n
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.explicit-unescape-with-markup.explicit-unescape-with-markup" />
+[`python.flask.security.xss.audit.explicit-unescape-with-markup.explicit-unescape-with-markup`](https://semgrep.dev/r/python.flask.security.xss.audit.explicit-unescape-with-markup.explicit-unescape-with-markup)
 
----
 ## 2. Server code: Bypassing the template engine"
 
 ### 2.A. Returning directly from a route
@@ -131,7 +120,7 @@ Ban returning values directly from routes. Alternatively, use `render_template()
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.audit.directly-returned-format-string.directly-returned-format-string" />
+[`python.flask.security.audit.directly-returned-format-string.directly-returned-format-string`](https://semgrep.dev/r/python.flask.security.audit.directly-returned-format-string.directly-returned-format-string)
 
 ### 2.B. Using a Jinja2 environment directly
 
@@ -154,9 +143,7 @@ Ban using Jinja2 directly. Alternatively, use `render_template()`.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2" />
-
----
+[`python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2`](https://semgrep.dev/r/python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2)
 
 ## 3. Templates: Variable explicitly unescaped
 
@@ -180,7 +167,7 @@ Ban `| safe`. Alternatively, use `Markup()` in Python code if necessary.
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe" />
+[`python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe`](https://semgrep.dev/r/python.flask.security.xss.audit.template-unescaped-with-safe.template-unescaped-with-safe)
 
 ### 3.B. Disabling autoescaping with **\{% autoescape false %\}**
 
@@ -202,9 +189,8 @@ Ban `{$ autoescape false %}`. Alternatively, use `Markup()` in Python code if ne
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-autoescape-off.template-autoescape-off" />
+[`python.flask.security.xss.audit.template-autoescape-off.template-autoescape-off`](https://semgrep.dev/r/python.flask.security.xss.audit.template-autoescape-off.template-autoescape-off)
 
----
 
 ## 4. Templates: Variable in dangerous location
 
@@ -228,7 +214,7 @@ Flag unquoted HTML attributes with Jinja expressions. Alternatively, always use 
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var" />
+[`python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var`](https://semgrep.dev/r/python.flask.security.xss.audit.template-unquoted-attribute-var.template-unquoted-attribute-var)
 
 ### 4.B. Variable in **href** attribute
 
@@ -250,7 +236,7 @@ Flag template variables in `href` attributes. Alternatively, use `url_for` to ge
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="python.flask.security.xss.audit.template-href-var.template-href-var" />
+[`python.flask.security.xss.audit.template-href-var.template-href-var`](https://semgrep.dev/r/python.flask.security.xss.audit.template-href-var.template-href-var)
 
 ### 4.C Variable in **&lt;script&gt;** block"
 

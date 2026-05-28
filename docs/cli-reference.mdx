@@ -1,0 +1,105 @@
+---
+title: "CLI reference"
+sidebarTitle: "CLI reference"
+---
+
+import HelpMain from "/snippets/cli-reference/help-main.mdx"
+import HelpScan from "/snippets/cli-reference/help-scan.mdx"
+import HelpCi from "/snippets/cli-reference/help-ci.mdx"
+
+This document provides the outputs of the following [Semgrep CLI](https://github.com/semgrep/semgrep) tool commands:
+
+- `semgrep --help`
+- `semgrep scan --help`
+- `semgrep ci --help`
+
+In addition, this page also gives an overview of the Semgrep CLI exit codes.
+
+## Semgrep commands
+
+For a list of available commands, run the following command:
+
+```bash
+semgrep --help
+```
+
+Command output:
+
+<HelpMain />
+
+## `semgrep ci` and `semgrep scan` command options
+
+You can invoke Semgrep using the CLI with either `semgrep ci` or `semgrep scan`.
+
+<Accordion title="Differences between semgrep ci and semgrep scan">
+
+The `semgrep scan` command is primarily used for local scans and is suitable if you want to scan your codebase for security issues without requiring a Semgrep account. You can run scans using specific rules or rulesets. For example, to use the default ruleset, the command would be `semgrep scan --config "p/default"`. By default, these scans don't return failing error codes on findings for further handling.
+
+The `semgrep ci` command is primarily used in CI pipelines for both full scans of codebases, as well as diff-aware scans that are initiated in the context of a pull request or a merge request. With `semgrep ci`, Semgrep uses the policies and rules defined by your organization. It also uses cross-file (interfile) and cross-function (intrafile) analysis for improved results. By default, these scans return failing error codes on findings for further handling.
+
+</Accordion>
+
+You can list all available `semgrep ci` or `semgrep scan` options by running `semgrep ci --help` or `semgrep scan --help`, respectively. The available options are also listed below; **select the tab that best fits the command that you're using.**
+
+<Tabs>
+  <Tab title="semgrep scan --help">
+<HelpScan />
+  </Tab>
+  <Tab title="semgrep ci --help">
+<HelpCi />
+  </Tab>
+</Tabs>
+
+## Ignore files
+
+The Semgrep command line tool supports a `.semgrepignore` file that follows `.gitignore` syntax and is used to skip files and directories during scanning. This is commonly used to avoid vendor and test related code. For a complete example, see the [.semgrepignore file on Semgrep’s source code](https://github.com/semgrep/semgrep/blob/develop/.semgrepignore).
+
+In addition to `.semgrepignore` there are several methods to set up ignore patterns. See [Ignoring files, folders, or code](/ignoring-files-folders-code).
+
+## Connect to Semgrep Registry through a proxy
+
+Semgrep uses the Python3 `requests` library. Set the following environment variables to point to your proxy:
+
+```bash
+export HTTP_PROXY="HTTP_PROXY_URL"
+
+export HTTPS_PROXY="HTTPS_PROXY_URL"
+```
+
+For example:
+
+```bash
+export HTTP_PROXY="http://10.10.1.10:3128" 
+
+export HTTPS_PROXY="http://10.10.1.10:1080"
+```
+
+## Exit codes
+
+Semgrep can finish with the following exit codes:
+
+- **0**: Semgrep ran successfully and found no errors (or did find errors, but the `--error` flag is **not** being used).
+- **1**: Semgrep ran successfully and found issues in your code (while using the `--error` flag).
+- **2**: Semgrep failed.
+- **3**: Invalid syntax of the scanned language. This error occurs only while using the `--strict` flag.
+- **4**: Semgrep encountered an invalid pattern in the rule schema.
+- **5**: Semgrep configuration is not valid YAML.
+- **7**: At least one rule in the configuration is invalid.
+- **8**: Semgrep does not understand specified language.
+- **13**: The API key is invalid.
+- **14**: [Deprecated] Semgrep scan failed.
+
+<Tip>
+**TIP**
+
+To view the exit code when running `semgrep scan`, enter the following command immediately after the Semgrep scan finishes:
+```bash
+echo $?
+```
+The output is a single exit code, such as:
+```bash
+1
+```
+</Tip>
+
+Not finding what you need in this doc? Ask questions in our [Community Slack group](https://go.semgrep.dev/slack), or see [Support](/support) for other ways to get help.

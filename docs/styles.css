@@ -1,0 +1,15 @@
+h1 {
+    font-weight: 400 !important;
+}
+
+.dark .accordion {
+    background-color: #131c2d !important;
+}
+
+.dark [data-component-part="accordion-button"] {
+    background-color: #131c2d !important;
+}
+
+.dark [data-component-part="accordion-button"]:hover {
+    background-color: #1f2d44 !important;
+}

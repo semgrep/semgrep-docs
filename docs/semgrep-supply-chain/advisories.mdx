@@ -1,0 +1,69 @@
+---
+title: "View advisories and search for related findings"
+sidebarTitle: "Advisories"
+---
+
+<Info>
+**PREREQUISITE**
+
+At least one project (a repository or subfolder in a monorepo) that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+
+</Info>
+
+The **Advisories** page lets you view the vulnerability announcements relevant to your Semgrep organization. These are typically, but not always, associated with a [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) number. This page also helps you identify all findings related to a given advisory.
+
+## View advisories
+
+To see the advisories relevant to your Semgrep organization:
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+</Step>
+</Steps>
+
+You can use the filters available to narrow down the results displayed:
+
+| Filter | Description |
+| :--- | :--- |
+| <Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip> | The title of the advisory or its associated CVE. |
+| Language | The language for which the advisory is applicable. |
+| Severity | The severity of the findings relevant to the advisory. |
+| Analysis type | The reachability type of the findings relevant to the advisory. |
+
+
+### Advisory details
+
+For each advisory listed, you can click the entry to view additional details, including:
+
+- A description
+- Reference links
+- The rule Semgrep uses to match your code
+- Affected projects
+
+## Identify findings associated with an advisory
+
+You can use the **Advisories** page to see if any of your projects are affected by a specific incident:
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+</Step>
+<Step>
+Using the **<Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip>** filter, provide the relevant CVE or keywords.
+</Step>
+<Step>
+Click the advisory in the results list to open up the **<Tooltip tip="Announcement of a vulnerability, typically with an associated CVE. Semgrep Supply Chain rules can find advisories, and they appear in the Advisories view." cta="See full definition and Advisories." href="/semgrep-supply-chain/glossary#advisory">Advisory</Tooltip> Details** dialog.
+</Step>
+<Step>
+Go to **Affected projects**.
+</Step>
+</Steps>
+
+Semgrep displays the number of relevant findings on each of the project's branches for each of the advisories' **affected projects**. Clicking the displayed number takes you to the **Findings** page, where you can see in-depth information about each issue.

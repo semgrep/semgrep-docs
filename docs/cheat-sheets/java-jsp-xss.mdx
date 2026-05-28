@@ -1,23 +1,11 @@
 ---
-slug: java-jsp-xss
-displayed_sidebar: learnSidebar
-title: XSS in Java + JSP
-hide_title: true
-description: "Cheat sheet for the prevention of Cross-site Scripting (XSS) vulnerabilities for Java and Java Server Pages (JSP)."
-tags:
-  - java
-  - xss
+title: "Prevent XSS for Java and Java Server Pages (JSP)"
+sidebarTitle: "XSS in Java + JSP"
 ---
 
-import LinkToRegistryRule from "/src/components/LinkToRegistryRule"
-import XssInjectionIntro from "/src/components/concept/_xss-injection-intro.mdx"
-import RecommendedRuleSet from "/src/components/code_snippets/_cheat-sheets-recommended-rule-set.mdx"
+This is a cross-site scripting (XSS) prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential XSS in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of XSS in your code. By following these recommendations, you can be reasonably sure your code is free of XSS.
 
-# Prevent XSS for Java and Java Server Pages (JSP)
-
-<XssInjectionIntro />
-
-Learn more about [Cross-site Scripting](/docs/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
+Learn more about [Cross-site Scripting](/learn/vulnerabilities/cross-site-scripting) vulnerability concepts.
 
 ## Mitigation Summary
 
@@ -30,7 +18,9 @@ Semgrep ruleset for this cheatsheet: [p/minusworld.java-httpservlet-jsp-xss](htt
 
 ### Check your project using Semgrep
 
-<RecommendedRuleSet />
+```bash
+semgrep --config p/minusworld.java-httpservlet-jsp-xss
+```
 
 ## 1. Server code: writing a response directly
 
@@ -51,7 +41,7 @@ Ban use of `PrintWriter` from `HttpServletResponse`. Alternatively, render JSP p
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer" />
+[`java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer`](https://semgrep.dev/r/java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer)
 
 ### 1.B. Using the **OutputStream** from **HttpServletResponse**
 
@@ -74,9 +64,9 @@ Ban use of `OutputStream` from `HttpServletResponse`. Render JSP pages using req
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer" />
+[`java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer`](https://semgrep.dev/r/java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer)
 
----
+
 ## 2. JSP page: Variable is not explicitly escaped
 
 ### 2.A. Any variable used without **&lt;c:out ...&gt;** tag
@@ -100,7 +90,7 @@ Require use of JSTL `escapeXml` function in every expression. Alternatively, req
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml" />
+[`java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml`](https://semgrep.dev/r/java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml)
 
 ### 2.B.Any expression without **escapeXml**
 
@@ -124,9 +114,8 @@ Require use of JSTL `escapeXml` function in every expression. Alternatively, req
 
 #### Semgrep rule
 
-<LinkToRegistryRule ruleId="java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml" />
+[`java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml`](https://semgrep.dev/r/java.lang.security.audit.xss.jsp.use-escapexml.use-escapexml)
 
----
 
 ## 3. JSP page: Variable in dangerous location
 
