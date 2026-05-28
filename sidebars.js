@@ -401,27 +401,49 @@ module.exports = {
                         label: 'View findings',
                         link: {type: 'doc', id: 'semgrep-supply-chain/findings',},
                         items: [
-                          'semgrep-supply-chain/finding-details',
+                          'semgrep-supply-chain/finding-details'
                         ]
                     },
                   'semgrep-supply-chain/advisories',
                   'semgrep-supply-chain/dependency-search',
-                  'semgrep-supply-chain/triage-remediation',
-                  {
+                  'semgrep-supply-chain/triage-remediation'
+                  ]
+                },
+                {
                     type: 'category',
                     collapsible: true,
                     label: 'Triage and fix vulnerabilities',
                     items: [
-                      'semgrep-supply-chain/triage-remediation',
+                      'semgrep-supply-chain/triage-remediation'
                     ]
-                  },
-                    'semgrep-supply-chain/policies',
-                    'semgrep-supply-chain/ignoring-deps',
-                  ]
                 },
-                'semgrep-supply-chain/malicious-dependencies',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Policies',
+                    items: [
+                      'semgrep-supply-chain/policies',
+                      'semgrep-supply-chain/ignoring-deps'
+                    ]
+                },
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Malware detection and response',
+                    items: [
+                      'semgrep-supply-chain/malicious-dependencies'
+                    ]
+                },
                 'semgrep-supply-chain/license-compliance',
-                'semgrep-supply-chain/sbom'
+                {
+                    type: 'category',
+                    
+                    collapsible: true,
+                    label: 'Reporting',
+                    items: [
+                        'semgrep-supply-chain/sbom'
+                    ]
+                },
             ]
         },
         {

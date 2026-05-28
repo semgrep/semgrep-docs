@@ -1,7 +1,7 @@
 ---
 slug: dependency-search
 append_help_link: true
-title: Dependency search and dependency paths
+title: Dependency search
 hide_title: true
 description: "View and search through all your dependencies in all your onboarded repositories at any time."
 tags:
@@ -79,61 +79,6 @@ You can search for multiple packages simultaneously.
 | License %%Policy\|policy%% | The License %%Policy\|policy%% you set. Determines whether a dependency can be used based on its license. |
 | License | The dependency's license type. |
 | Language | The language of the dependency. |
-
-## Dependency paths (beta)
-
-:::info
-This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
-:::
-
-The %%Dependency|dependency%% paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. With this information, you can understand:
-
-- How a transitive dependency was introduced
-- How deeply the transitive dependency is nested in the dependency tree.
-
-### Supported languages
-
-Semgrep generates dependency paths for most C#, Java, JavaScript, Kotlin, and Python projects.
-
-#### C#
-
-Semgrep generates dependency paths for C# projects using NuGet.
-
-#### Java
-
-Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
-
-Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. %%Dependency|dependency%% paths for such projects are available when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-
-#### JavaScript
-
-Semgrep generates dependency paths for JavaScript projects that use `npm`, `yarn`, or `pnpm` and include a lockfile whenever you invoke a scan using `semgrep ci`.
-
-#### Kotlin
-
-Semgrep generates dependency paths for Kotlin projects built using Maven when a `maven_dep_tree.txt` file is present, and for Maven or Gradle when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-
-#### Python
-
-Semgrep generates dependency paths for Python projects that use the following package managers:
-
-- `poetry` and `poetry.lock` file
-- `uv` (requires Semgrep version `1.127.0` or later)
-
-Semgrep also generates dependency paths for Python projects that use the following package managers:
-
-- `Pipenv`
-- `piptools`
-- `pip` with `requirements.txt`
-
-when [scanning without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-
-### View the dependency path
-
-After you have been added to the %%Dependency|dependency%% paths beta and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
-
-- The **%%Finding|finding%% Details** page for a transitive finding
-- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path
 
 ## Troubleshooting: no dependencies appear on the Dependencies page
 
