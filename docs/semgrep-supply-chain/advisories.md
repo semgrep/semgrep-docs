@@ -1,7 +1,7 @@
 ---
 slug: advisories
 append_help_link: true
-title: Advisories
+title: Advisories and related findings
 displayed_sidebar: scanSidebar
 hide_title: true
 description: "View the advisories related to your organization and search for relevant findings."

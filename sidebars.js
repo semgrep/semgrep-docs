@@ -388,43 +388,40 @@ module.exports = {
             label: 'SCA (Supply Chain)',
             items: [
                 'semgrep-supply-chain/overview',
+                'semgrep-supply-chain/requirements-and-feature-support',
+                'semgrep-supply-chain/getting-started',
                 {
                   type: 'category',
                   collapsible: true,
-                  label: 'Coverage',
+                  label: 'Detect vulnerabilities',
                   items: [
-                    'semgrep-supply-chain/package-manager-support',
-                    'semgrep-supply-chain/feature-support',
-                  ]
-                },
-                {
-                  type: 'category',
-                  collapsible: true,
-                  label: 'Open source security vulnerabilities',
-                  link: {
-                    type: 'doc',
-                    id: 'semgrep-supply-chain/getting-started',
-                  },
-                  items: [
-                      {
-                          type: 'category',
-                          collapsible: true,
-                          label: 'View findings',
-                          link: {type: 'doc', id: 'semgrep-supply-chain/findings',},
-                          items: [
-                            'semgrep-supply-chain/finding-details',
-                          ]
-                      },
+                    {
+                        type: 'category',
+                        collapsible: true,
+                        label: 'View findings',
+                        link: {type: 'doc', id: 'semgrep-supply-chain/findings',},
+                        items: [
+                          'semgrep-supply-chain/finding-details',
+                        ]
+                    },
+                  'semgrep-supply-chain/advisories',
+                  'semgrep-supply-chain/dependency-search',
+                  'semgrep-supply-chain/triage-remediation',
+                  {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Triage and fix vulnerabilities',
+                    items: [
                       'semgrep-supply-chain/triage-remediation',
-                      'semgrep-supply-chain/advisories',
-                      'semgrep-supply-chain/policies',
-                      'semgrep-supply-chain/ignoring-deps',
+                    ]
+                  },
+                    'semgrep-supply-chain/policies',
+                    'semgrep-supply-chain/ignoring-deps',
                   ]
                 },
-                'semgrep-supply-chain/sbom',
-                'semgrep-supply-chain/dependency-search',
+                'semgrep-supply-chain/malicious-dependencies',
                 'semgrep-supply-chain/license-compliance',
-                'semgrep-supply-chain/malicious-dependencies'
+                'semgrep-supply-chain/sbom'
             ]
         },
         {

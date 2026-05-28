@@ -1,7 +1,7 @@
 ---
 slug: dependency-search
 append_help_link: true
-title: View and search for dependencies
+title: Dependency search and dependency paths
 hide_title: true
 description: "View and search through all your dependencies in all your onboarded repositories at any time."
 tags:
@@ -12,7 +12,7 @@ tags:
 # View and search for dependencies
 
 :::info Prerequisite
-At least one project (a repository or subfolder in a monorepo) that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+At least one project (a repository or subfolder in a monorepo) that scans for dependencies through Semgrep Supply Chain. See [Supply Chain configuration](/semgrep-supply-chain/getting-started).
 :::
 
 Semgrep Supply Chain's dependency search feature allows you to view and query for any dependency in your project at any time. This feature detects all transitive and direct dependencies across all of your projects in Semgrep AppSec Platform. %%Dependency|dependency%% search lists all the versions of a dependency, as well as the projects that use the dependency.
@@ -28,8 +28,7 @@ To search your dependencies:
 1. Click <i class="fa-solid fa-toggle-large-on"></i> **%%Dependency|dependency%% search** if it's not already enabled.
 2. Navigate to **Supply Chain > Dependencies**.
 
-
-At this point, Semgrep displays the manifest files or lockfiles that it has used to determine dependency information and the dependencies included in each of the manifest files or lockfiles.
+At this point, Semgrep displays the manifest files or lockfiles that it has used to determine dependency information and the dependencies included in each of these files. You can view this information in Semgrep AppSec Platform by going to [Supply Chain > Dependencies](https://semgrep.dev/orgs/-/supply-chain/t/dependencies).
 
 ### View additional manifest files or lockfiles
 

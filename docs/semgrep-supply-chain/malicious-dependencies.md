@@ -7,7 +7,7 @@ tags:
   - Semgrep Supply Chain
 ---
 
-# Detect and remove malicious dependencies
+# Malicious dependencies
 
 **Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
 
