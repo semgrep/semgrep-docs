@@ -1,0 +1,31 @@
+---
+title: "May 2026"
+description: "May 29, 2026 · 2 min read"
+---
+
+The following updates were made to Semgrep in May 2026.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- Added an **Auto-scan** toggle to **Settings > Source code managers** so you can automatically scan every newly onboarded project for a given source code manager. See [Manage projects](/deployment/manage-projects).
+
+### Changed
+
+- **Semgrep Guardian** (previously **Semgrep Plugin**) has been renamed. The product still bundles the Semgrep MCP server, hooks, and skills for AI coding agents like Claude Code and Cursor. See [Semgrep Guardian](/guardian).
+- The **Not scanning** tab on the **Projects** page now lists archived repositories for GitHub, GitLab, and Bitbucket Data Center. Findings from archived projects continue to appear on the **Findings** pages. See [Manage projects](/deployment/manage-projects).
+- You can now grant the Semgrep GitHub app **Read** access to **Contents** (instead of **Read and write**) when you don't want to give Semgrep write permissions. See [SCM code access](/semgrep-appsec-platform/scm-code-access).
+
+## ⛓️ Semgrep Supply Chain
+
+### Changed
+
+- Semgrep now ingests CVE information and security advisories multiple times per day, with a maximum lag of one hour from upstream publication. [OSV](https://osv.dev/) has been added as a source alongside GitHub Security Advisories and Electron release notes.
+- For major incidents, Semgrep's Security Research team now ships its own advisories ahead of third-party databases. KEVs are processed the same way as other vulnerabilities.
+
+## 💻 Semgrep Code
+
+### Changed
+
+- Diff-aware scans no longer require a prior full scan to produce PR or MR comments across GitHub, GitLab, Azure DevOps, Bitbucket Cloud, and Bitbucket Data Center.
