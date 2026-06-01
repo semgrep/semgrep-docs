@@ -1,0 +1,73 @@
+---
+title: "May 2026"
+description: "June 1, 2026 · 4 min read"
+---
+
+The following updates were made to Semgrep in May 2026.
+
+## 🌐 Semgrep AppSec Platform
+
+### Fixed
+
+* Fixed an issue where bulk-triaging findings scoped to specific finding IDs from the joint Code page returned a `400 "No issues were found matching the provided filters"` error.
+* Fixed an issue where the admin **Usage** view double-counted licensed seats during license renewal windows by summing grace-period and active license seats. Counts now match the customer-facing usage page.
+* Improved onboarding checklist load times by eliminating redundant database queries when rendering task dependencies.
+* Webhook deduplication now correctly preserves successive pull request edits made at the same commit (for example, repeated description rewrites by Renovate), preventing legitimate edit events from being dropped.
+
+## 💻 Semgrep Code
+
+### Added
+
+* **Dart**: added support for typed metavariables (`$X as T`) and [`metavariable-type`](/writing-rules/rule-syntax#metavariable-type), metavariable binding inside string interpolations, and function-definition patterns that match Dart function definitions.
+* **Dart**: improved parser fidelity for Dart 3 grammar features and routed pattern parsing for statements beginning with `await`, `rethrow`, and other statement keywords, eliminating a large class of parse errors on real-world pub.dev packages.
+* **PHP**: updated target parsing to support grammar changes from PHP 8.1–8.5.
+* Improved support for tracking taint through nested functions in [interprocedural taint analysis](/semgrep-code/semgrep-pro-engine-intro).
+* Added bit shift operations (`<<`, `>>`, `>>>`) to [`metavariable-comparison`](/writing-rules/rule-syntax#metavariable-comparison), in addition to existing arithmetic and logical bit operators.
+
+### Changed
+
+* The default memory limit for Pro interfile scans on Linux now adapts to the container's cgroup memory limit (90% of it) rather than a fixed 5 GiB, with an 8 GiB fallback when no cgroup limit is detected. This makes scans more reliable on memory-constrained CI runners.
+* Lowered the [glibc requirement](/deployment/core-deployment#system-requirements) from `>=2.35` to `>=2.34`, allowing users on RHEL 9, Amazon Linux 2023, and similar distributions to install the Semgrep wheel.
+* Faster JSON rule parsing: rule files in JSON format now parse roughly 5× faster end-to-end.
+* Rule parsing and validation now run in parallel across cores on large rulesets, reducing scan startup time.
+* Improved `semgrep ci` startup time when using Semgrep AppSec Platform–provided rules by avoiding duplicate rule validation during CLI rule loading.
+* The MCP `semgrep_findings` tool now accepts a `refs` parameter to filter findings by branch (defaulting to the primary branch) and makes `autotriage_verdict` optional so findings without an AI verdict are also returned.
+
+### Fixed
+
+* Baseline diff scans (`semgrep ci` and `--baseline-commit`) no longer treat every finding in a file as newly introduced when a rule failed during the baseline run. Only the failed rule's matches on that file are now hidden from the diff comparison.
+* `--sarif-output` and `--sarif` no longer cause `nosemgrep`-suppressed findings to be reported in CLI scan output or to block scans. Suppressed findings are now correctly excluded from terminal output, the scan-summary count, and the CLI exit code.
+* Fixed a bug that could cause unreliable target filtering during parallel scans.
+* Fixed parse errors that could occur during highly parallel PHP and Scala scans.
+* **Scala**: merged consecutive top-level package declarations into a single package path.
+* **`jsonnet` rules**: `import` and `importstr` now reject paths that resolve outside the rule file's parent directory, and recursion in rule loading and evaluation is now bounded to prevent rules from hanging Semgrep through mutually recursive imports or runaway recursion.
+
+### Security
+
+* `semgrep ci` now redacts URL-embedded credentials and `Authorization` header values from git error messages and from tracebacks sent to telemetry, preventing leaks of secrets like `CI_JOB_TOKEN` from a failed `git fetch` in GitLab CI.
+* `semgrep ci` no longer transmits source code manager tokens to Semgrep AppSec Platform.
+* The on-disk Semgrep log file (`~/.semgrep/semgrep.log` or `$SEMGREP_LOG_FILE`) now respects the requested log level instead of always writing at DEBUG. Pass `--debug` to restore the previous behavior.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+* The **SBT resolver** (beta) with `--allow-local-builds` now correctly identifies dependencies as part of the Maven ecosystem.
+
+### Changed
+
+* Scala projects are now identified for Supply Chain by their root `build.sbt` only, rather than treating each `build.sbt` as a separate subproject.
+
+### Fixed
+
+* Fixed a `yarn.lock` parse error on Yarn Berry entries written in YAML explicit-key form. Affected lockfiles previously failed to parse.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released in May 2026:
+
+<CardGroup>
+  <Card title="1.164.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.164.0" horizontal />
+  <Card title="1.163.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.163.0" horizontal />
+  <Card title="1.162.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.162.0" horizontal />
+</CardGroup>
