@@ -10,6 +10,7 @@ The plugin uses each IDE's native hook or MCP system:
 * **Codex**: [MCP](https://developers.openai.com/codex/mcp)
 * **Cursor**: [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp)
 * **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse): [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* **Kiro**: [MCP](https://kiro.dev/docs/mcp/)
 * **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 * **Windsurf**: [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
 
@@ -191,6 +192,32 @@ semgrep login && semgrep install-semgrep-pro
     </Step>
     </Steps>
       The `post_write_code` event fires after Cascade writes or modifies any file. Learn more about [Windsurf Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+  </Tab>
+
+  <Tab title="Kiro">
+## Kiro
+
+Runs Semgrep locally using the CLI. Clicking the box below opens directly in Kiro to add the server — it does not open a new browser tab:
+
+[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=semgrep&config=%7B%22command%22%3A%22semgrep%22%2C%22args%22%3A%5B%22mcp%22%5D%2C%22env%22%3A%7B%22SEMGREP_APP_TOKEN%22%3A%22%24%7BSEMGREP_TOKEN%7D%22%7D%7D)
+
+Alternatively, follow the [Kiro MCP docs](https://kiro.dev/docs/mcp/) and add this file to your `.kiro/settings/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "semgrep": {
+      "command": "semgrep",
+      "args": ["mcp"],
+      "env": {
+        "SEMGREP_APP_TOKEN": "${SEMGREP_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+See [Kiro docs](https://kiro.dev/docs/mcp/) for more info.
   </Tab>
 
   <Tab title="Other IDEs">
