@@ -15,7 +15,7 @@ However, when testing or managing upgrades, it can be helpful to run different v
 If you use Semgrep with Semgrep AppSec Platform, [only the latest 10 minor versions are supported](/deployment/checklist/#semgrep-versions).
 :::
 
-Installation with Homebrew does not support multiple versions of Semgrep, but you can use either Pip or Docker to install different versions. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
+To install and run different versions of Semgrep, use PyPI (via `pip`) or Docker. In the following examples, <code><span className="placeholder">x.y.z</span></code> is a placeholder for a version string.
 
 ## Running different versions using pip
 

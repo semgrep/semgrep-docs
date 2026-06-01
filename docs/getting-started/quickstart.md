@@ -40,19 +40,15 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Install the Semgrep CLI and confirm the installation:
 
         ```console
-        # install through homebrew
-        brew install semgrep
+        # install from PyPI using pipx
+        pipx install semgrep
 
-        # install through pip
-        python3 -m pip install semgrep
+        # or install from PyPI using uv
+        uv tool install semgrep
 
         # confirm installation succeeded by printing the currently installed version
         semgrep --version
         ```
-
-        :::note
-        **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
-        :::
 
     2. Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
@@ -75,8 +71,11 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Install the Semgrep CLI and confirm the installation:
 
         ```console
-        # install through pip
-        python3 -m pip install semgrep
+        # install from PyPI using pipx
+        pipx install semgrep
+
+        # or install from PyPI using uv
+        uv tool install semgrep
 
         # confirm installation succeeded by printing the currently installed version
         semgrep --version
@@ -107,8 +106,11 @@ You must have Python 3.8 or later installed on the machine where the Semgrep CLI
     1. Using the WSL interface, install the Semgrep CLI and confirm the installation:
 
         ```console
-        # install through pip
-        python3 -m pip install semgrep
+        # install from PyPI using pipx
+        pipx install semgrep
+
+        # or install from PyPI using uv
+        uv tool install semgrep
 
         # confirm installation succeeded by printing the currently installed version
         semgrep --version

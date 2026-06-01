@@ -15,11 +15,11 @@ tags:
 The Semgrep IntelliJ extension communicates with Semgrep command-line interface (CLI) to run scans. Install Semgrep CLI before you can use the extension. To install Semgrep CLI:
 
 ```sh
-# For macOS
-$ brew install semgrep
+# install from PyPI using pipx
+$ pipx install semgrep
 
-# For Ubuntu/WSL/Linux/macOS
-$ python3 -m pip install semgrep
+# or install from PyPI using uv
+$ uv tool install semgrep
 ```
 :::
 

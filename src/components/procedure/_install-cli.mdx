@@ -1,15 +1,20 @@
-Install the Semgrep CLI and confirm the installation:
+Install the Semgrep CLI from PyPI using [pipx](https://pipx.pypa.io/) or [uv](https://docs.astral.sh/uv/), then confirm the installation:
 
 ```console
-# macOS users only
-brew install semgrep
+# install from PyPI using pipx
+pipx install semgrep
 
-# macOS, Linux, or Windows Subsystem for Linux (WSL) users
-python3 -m pip install semgrep
+# or install from PyPI using uv
+uv tool install semgrep
 
 # confirm
 semgrep --version
 ```
 
-* **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+Alternatively, run Semgrep from the [Docker image](https://hub.docker.com/r/semgrep/semgrep):
+
+```console
+docker run --rm semgrep/semgrep semgrep --version
+```
+
 * **WSL users**: Ensure that you have the [Windows Subsystem for Linux installed](https://learn.microsoft.com/en-us/windows/wsl/install) before proceeding.

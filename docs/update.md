@@ -26,12 +26,15 @@ docker run --rm semgrep/semgrep semgrep --version
 You can also use the following commands in either your CLI or CI environment:
 
 ```sh
-# macOS users only, using Homebrew
-brew upgrade semgrep
-
-# macOS, Linux, or Windows Subsystem for Linux (WSL) users, using pip
-python3 -m pip install --upgrade semgrep
+# if you installed from PyPI using pipx
+pipx upgrade semgrep
 
 # confirm your Semgrep installation
 semgrep --version
+```
+
+If you installed from PyPI using uv:
+
+```sh
+uv tool upgrade semgrep
 ```

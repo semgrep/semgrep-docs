@@ -77,33 +77,48 @@ Cross-file analysis uses a separate `semgrep` binary. To update to the latest ve
 
     <TabItem value='macOS'>
 
+    If you installed from PyPI using pipx:
+
     ```bash
-    brew upgrade semgrep
+    pipx upgrade semgrep
     ```
 
-    Alternatively:
+    If you installed from PyPI using uv:
 
     ```bash
-    python3 -m pip install --upgrade semgrep
+    uv tool upgrade semgrep
     ```
 
     </TabItem>
 
     <TabItem value='Linux'>
 
+    If you installed from PyPI using pipx:
+
     ```bash
-    python3 -m pip install --upgrade semgrep
+    pipx upgrade semgrep
+    ```
+
+    If you installed from PyPI using uv:
+
+    ```bash
+    uv tool upgrade semgrep
     ```
 
     </TabItem>
 
     <TabItem value='Windows Subsystem for Linux (WSL)'>
 
-    ```bash
-    # ensure that you have Python 3.8 or later installed
-    # on WSL before proceeding
+    If you installed from PyPI using pipx:
 
-    python3 -m pip install --upgrade semgrep
+    ```bash
+    pipx upgrade semgrep
+    ```
+
+    If you installed from PyPI using uv:
+
+    ```bash
+    uv tool upgrade semgrep
     ```
 
     </TabItem>
