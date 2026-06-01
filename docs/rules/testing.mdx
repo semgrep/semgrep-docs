@@ -12,7 +12,7 @@ Semgrep provides a testing mechanism for your rules. You can write code and prov
 When writing tests, remember that:
 
 The **--test** flag tells Semgrep to run tests in the specified directory.
-Annotations are specified as a comment immediately preceeding the offending line.
+Annotations are specified as a comment immediately preceding the offending line.
 Semgrep looks for tests based on the rule filename and the languages specified in the rule. In other words, `path/to/rule.yaml` searches for `path/to/rule.py`, `path/to/rule.js`, and similar, based on the languages specified in the rule.
 
 <Info>
@@ -50,7 +50,7 @@ rules:
   languages: [python]
   severity: MEDIUM
 ```
-If the filename with the preceeding rule is `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
+If the filename with the preceding rule is `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
 ```
 from lib import get_user_input, safe_get_user_input, secure_eval
 

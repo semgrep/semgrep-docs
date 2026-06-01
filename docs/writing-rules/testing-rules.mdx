@@ -12,7 +12,7 @@ description: "Semgrep provides a testing mechanism for your rules. You can write
 When writing tests, remember that:
 
 1. The `--test` flag tells Semgrep to run tests in the specified directory.
-2. Annotations are specified as a comment immediately preceeding the offending line.
+2. Annotations are specified as a comment immediately preceding the offending line.
 3. Semgrep looks for tests based on the rule filename and the languages
    specified in the rule. In other words, `path/to/rule.yaml` searches for
    `path/to/rule.py`, `path/to/rule.js`, and similar, based on the languages specified in the rule.
@@ -70,7 +70,7 @@ rules:
   severity: MEDIUM
 ```
 
-If the filename with the preceeding rule is `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
+If the filename with the preceding rule is `rules/detect-eval.yaml`, you can create `rules/detect-eval.py`:
 
 ```python
 from lib import get_user_input, safe_get_user_input, secure_eval
