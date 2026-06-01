@@ -4,7 +4,7 @@ sidebarTitle: "Triage and remediation"
 description: "This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:"
 ---
 
-- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings. 
+- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings.
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 
@@ -36,10 +36,10 @@ You can manually **Ignore** findings or set them as **To fix** or **Reviewing** 
 The triage statuses are as follows:
 
 | Status | Description |
-| :--- | :--- |
+| :-- | :-- |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
 | **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
-| **Provisionally ignored** | Findings that Semgrep Multimodal has flagged as false positives. You can change the status to **Ignored** if you agree with Multimodal's assement. Otherwise, you can change the status to **To fix** if you disagree. |
+| **Provisionally ignored** | Rule-based Semgrep Code findings that Semgrep Multimodal's [Auto-triage](/semgrep-multimodal/overview#auto-triage) has flagged as likely false positives. You can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree. <br /><br />**Note**: [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings are **not** automatically set to **Provisionally ignored**. Multimodal's auto-triage currently only applies to rule-based findings. AI-powered detection findings that Multimodal believes are false positives remain **Open** and must be triaged manually. |
 | **To fix** | Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
 | **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 | **Ignored** | Findings marked as ignored are present in the code but have been labeled unimportant. Ignore false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). You can also provide a reason for ignoring a finding: **False positive**, **Acceptable risk**, **No time to fix**. |
@@ -60,94 +60,105 @@ Your removed findings do not count toward the fix rate or the number of findings
 
 - When you triage a finding as ignored, reviewing, fixing, or reopened, Semgrep always triages across other branches and [Git references](https://git-scm.com/book/en/v2/Git-Internals-Git-References) (refs).
 - At scan time, there's automatic triaging that occurs in specific cases, and the behavior changes depending on the type of scan:
-    - **Full scans**: if the current branch includes a finding that was 
-        - Previously introduced in another branch ***and*** 
-        - Triaged to a specific state<br />
-        **Then** the finding in the current branch is triaged to that same state.
-    - **Diff-aware scan**: findings introduced in a diff-aware scan are **not** automatically triaged at scan time, even if there are other instances of that finding on branches that have been triaged.
+  - **Full scans**: if the current branch includes a finding that was
+    - Previously introduced in another branch **_and_**
+    - Triaged to a specific state\
+      **Then** the finding in the current branch is triaged to that same state.
+  - **Diff-aware scan**: findings introduced in a diff-aware scan are **not** automatically triaged at scan time, even if there are other instances of that finding on branches that have been triaged.
 
 ## Triage and remediation
 
 The following sections show you how to manage your findings by:
 
-* Fixing the underlying code
-* Disabling a rule or a ruleset
-* Ignoring a finding
-* Reopening a finding
+- Fixing the underlying code
+- Disabling a rule or a ruleset
+- Ignoring a finding
+- Reopening a finding
 
 Note that some actions, such as ignoring and reopening findings, require different steps based on whether you have chosen **Group by Rule** or **No Grouping** when viewing your results on the **Findings** page.
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are findings that Semgrep Multimodal has flagged as false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assement. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are rule-based Semgrep Code findings that Semgrep Multimodal's [Auto-triage](/semgrep-multimodal/overview#auto-triage) has flagged as likely false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree.
 
 Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy.
+
+<Note>
+  **AI-powered detection findings and Provisionally ignored**
+
+  Multimodal's auto-triage only runs on rule-based Semgrep Code findings. [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings are **not** automatically moved to **Provisionally ignored**, even if Multimodal believes they are false positives. AI-powered detection findings that you want to dismiss must be triaged manually to **Ignored** with reason **False positive**.
+
+  To list AI-powered detection findings that Multimodal flagged as likely false positives, go to [**Code**](https://semgrep.dev/orgs/-/findings?tab=open), apply the **Detection method** (or **Scan type**) filter to **AI-powered**, and then apply the **Multimodal autotriage** filter set to **False positive**.
+</Note>
 
 ### Ignore findings
 
 To handle **false positives** without changing the rule or your code, set the finding's triage status to **ignore**.
 
 <AccordionGroup>
-<Accordion title={"Ignore findings in Group by Rule view"}>
-To **ignore findings** in the **Group by Rule** view:
+  <Accordion title="Ignore findings in Group by Rule view">
+    To **ignore findings** in the **Group by Rule** view:
 
-<Steps>
-<Step>
-Go to [**Code > All**](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
-</Step>
-<Step>
-Perform one of these steps:
-    - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage > Ignored** .
-    - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage > Ignored**.
-</Step>
-<Step>
-Select **Ignore reason**, and optionally, provide **Comments** to describe why the finding was ignored.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
-</Accordion>
-<Accordion title={"Ignore findings in No grouping view"}>
-To **ignore individual finding** in the **No grouping** view, follow these steps:
+    <Steps>
+      <Step>
+        Go to [**Code \> All**](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
+      </Step>
+      <Step>
+        Perform one of these steps:
 
-<Steps>
-<Step>
-Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
-</Step>
-<Step>
-Select the checkbox next to a finding you want to ignore, and click **Triage > Ignored**.
-</Step>
-<Step>
-Select **Ignore reason**, and optionally, provide **Comments** to describe why the finding was ignored.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
+        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Ignored** .
+        - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage \> Ignored**.
+      </Step>
+      <Step>
+        Select **Ignore reason**, and optionally, provide **Comments** to describe why the finding was ignored.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+  </Accordion>
 
-To **ignore multiple findings** in the **No grouping** view, follow these steps:
+  <Accordion title="Ignore findings in No grouping view">
+    To **ignore individual finding** in the **No grouping** view, follow these steps:
 
-<Steps>
-<Step>
-Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
-</Step>
-<Step>
-Perform one of these steps:
-    - Select all findings on the page displayed by clicking on the header row checkbox that states **X matching findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select all findings of interest by clicking on their checkboxes.
-</Step>
-<Step>
-Click **Triage > Ignored**.
-</Step>
-<Step>
-Select **Ignore reason**, and optionally, provide **Comments** to describe why the findings were ignored.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
-</Accordion>
+    <Steps>
+      <Step>
+        Go to [Code \> All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
+      </Step>
+      <Step>
+        Select the checkbox next to a finding you want to ignore, and click **Triage \> Ignored**.
+      </Step>
+      <Step>
+        Select **Ignore reason**, and optionally, provide **Comments** to describe why the finding was ignored.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+
+    To **ignore multiple findings** in the **No grouping** view, follow these steps:
+
+    <Steps>
+      <Step>
+        Go to [Code \> All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Open** findings.
+      </Step>
+      <Step>
+        Perform one of these steps:
+
+        - Select all findings on the page displayed by clicking on the header row checkbox that states **X matching findings**. You can navigate to succeeding pages and add other results to the current selection.
+        - Select all findings of interest by clicking on their checkboxes.
+      </Step>
+      <Step>
+        Click **Triage \> Ignored**.
+      </Step>
+      <Step>
+        Select **Ignore reason**, and optionally, provide **Comments** to describe why the findings were ignored.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+  </Accordion>
 </AccordionGroup>
 
 ### Reopen findings
@@ -155,66 +166,69 @@ Click **Submit**.
 You can **reopen** a finding at any time, whether you previously marked it as **ignored** or Semgrep automatically marked it as **provisionally ignored**.
 
 <AccordionGroup>
-<Accordion title={"Reopen findings in Group by Rule view"}>
-To **reopen findings** in the **Group by Rule** view, follow these steps:
+  <Accordion title="Reopen findings in Group by Rule view">
+    To **reopen findings** in the **Group by Rule** view, follow these steps:
 
-<Steps>
-<Step>
-Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
-</Step>
-<Step>
-Perform one of these steps:
-    - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage > Open** .
-    - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage > Open**.
-</Step>
-<Step>
-Optional: Write a reason to describe why the finding was reopened.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
-</Accordion>
-<Accordion title={"Reopen findings in No grouping view"}>
-To **reopen individual findings** in the No grouping view, follow these steps:
+    <Steps>
+      <Step>
+        Go to [Code \> All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
+      </Step>
+      <Step>
+        Perform one of these steps:
 
-<Steps>
-<Step>
-Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
-</Step>
-<Step>
-Select the checkbox next to a finding you want to reopen. Click **Triage > Open**.
-</Step>
-<Step>
-Optional: Write a reason to describe why the finding was reopened.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
+        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Open** .
+        - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage \> Open**.
+      </Step>
+      <Step>
+        Optional: Write a reason to describe why the finding was reopened.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+  </Accordion>
 
-To **reopen multiple findings** in the **No grouping** view, follow these steps:
+  <Accordion title="Reopen findings in No grouping view">
+    To **reopen individual findings** in the No grouping view, follow these steps:
 
-<Steps>
-<Step>
-Go to [Code > All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
-</Step>
-<Step>
-Perform one of these steps:
-    - Select all findings on the page displayed by clicking on the header row checkbox that states **X matching findings**. You can navigate to succeeding pages and add other results to the current selection.
-    - Select all findings of interest by clicking on their checkboxes.
-</Step>
-<Step>
-Click **Triage > Open**.
-</Step>
-<Step>
-Optional: Write a reason to describe why the finding was reopened.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
-</Accordion>
+    <Steps>
+      <Step>
+        Go to [Code \> All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
+      </Step>
+      <Step>
+        Select the checkbox next to a finding you want to reopen. Click **Triage \> Open**.
+      </Step>
+      <Step>
+        Optional: Write a reason to describe why the finding was reopened.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+
+    To **reopen multiple findings** in the **No grouping** view, follow these steps:
+
+    <Steps>
+      <Step>
+        Go to [Code \> All](https://semgrep.dev/orgs/-/findings?tab=open), and ensure that your filters are set to display all **Ignored**, **Provisionally Ignored**, or **Fixed** findings.
+      </Step>
+      <Step>
+        Perform one of these steps:
+
+        - Select all findings on the page displayed by clicking on the header row checkbox that states **X matching findings**. You can navigate to succeeding pages and add other results to the current selection.
+        - Select all findings of interest by clicking on their checkboxes.
+      </Step>
+      <Step>
+        Click **Triage \> Open**.
+      </Step>
+      <Step>
+        Optional: Write a reason to describe why the finding was reopened.
+      </Step>
+      <Step>
+        Click **Submit**.
+      </Step>
+    </Steps>
+  </Accordion>
 </AccordionGroup>
 
 ### Turn off a ruleset or a rule
@@ -222,44 +236,44 @@ Click **Submit**.
 You can turn off a specific rule or ruleset to prevent Semgrep Code from using it when scanning your codebase.
 
 <Note>
-**INFO**
+  **INFO**
 
-When you turn off a rule, existing findings from that rule remain open until you re-scan your code.
+  When you turn off a rule, existing findings from that rule remain open until you re-scan your code.
 </Note>
 
+<Accordion title="Disable rules and rulesets">
+  To disable a **rule**:
 
-<Accordion title={"Disable rules and rulesets"}>
-To disable a **rule**:
+  <Steps>
+    <Step>
+      Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies) and select either:
 
-<Steps>
-<Step>
-Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies) and select either:
-    - The top **<span className="placeholder">Number</span> Matching Rules** checkbox to select all rules.
-    - Individual checkboxes next to a rule to turn off rules one by one.
-</Step>
-<Step>
-Click **(<span className="placeholder">Number</span>) Change modes**, then click **Disabled**.
-</Step>
-</Steps>
+      - The top  **Matching Rules** checkbox to select all rules.
+      - Individual checkboxes next to a rule to turn off rules one by one.
+    </Step>
+    <Step>
+      Click **() Change modes**, then click **Disabled**.
+    </Step>
+  </Steps>
 
-You can also set the state in the **Mode** column to **Disabled** for individual rules.
+  You can also set the state in the **Mode** column to **Disabled** for individual rules.
 
-To turn off a **ruleset** using the Policies page:
+  To turn off a **ruleset** using the Policies page:
 
-<Steps>
-<Step>
-Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
-</Step>
-<Step>
-Use the **<Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip>** filter's drop-down box to find and click the ruleset to remove.
-</Step>
-<Step>
-Click <Icon icon="square-check" iconType="solid"/> **Matching rules**.
-</Step>
-<Step>
-Click **Change modes > Disabled**.
-</Step>
-</Steps>
+  <Steps>
+    <Step>
+      Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
+    </Step>
+    <Step>
+      Use the <Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip> filter's drop-down box to find and click the ruleset to remove.
+    </Step>
+    <Step>
+      Click <Icon icon="square-check" iconType="solid" /> **Matching rules**.
+    </Step>
+    <Step>
+      Click **Change modes \> Disabled**.
+    </Step>
+  </Steps>
 </Accordion>
 
 ## Triage findings through PR and MR comments
@@ -267,43 +281,50 @@ Click **Change modes > Disabled**.
 You can triage your Semgrep AppSec Platform findings displayed as comments in PRs and MRs by replying with another comment.
 
 Before proceeding, ensure that you have:
- - One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
- - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
- - Enabled the option in your Semgrep organization settings.<br/>
-    &emsp;&emsp;i. Click **Settings**. This takes you to the **General > Global** settings tab.<br/>
-	&emsp;&emsp;ii. Enable the toggle under **Triage via code review comments**.<br/>
- - *For SCMs other than GitHub:*
-    - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
-    - Enabled the **Incoming webhooks** option on the SCM connection
+
+- One or more repositories hosted by a [Semgrep-supported source code manager (SCM)](/getting-started/scm-support).
+- Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
+- Enabled the option in your Semgrep organization settings.\
+    i. Click **Settings**. This takes you to the **General \> Global** settings tab.\
+    ii. Enable the toggle under **Triage via code review comments**.\\
+- _For SCMs other than GitHub:_
+  - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
+  - Enabled the **Incoming webhooks** option on the SCM connection
 
 ### Grant permission to interact with pull requests and create webhooks for your SCM
 
 See the following documents for instructions on granting the correct permissions to enable pull request interaction and webhook management:
 
 <CardGroup>
-  <Card title="GitLab" icon="gitlab" href="/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comments" horizontal />
-  <Card title="Bitbucket Cloud" icon="bitbucket" href="/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments" horizontal />
-  <Card title="Bitbucket Data Center" icon="server" href="/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments" horizontal />
-  <Card title="Azure DevOps" icon="windows" href="/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comments" horizontal />
+  <Card title="GitLab" icon="gitlab" horizontal href="/semgrep-appsec-platform/gitlab-mr-comments#triage-through-mr-comments">
+  </Card>
+
+  <Card title="Bitbucket Cloud" icon="bitbucket" horizontal href="/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments">
+  </Card>
+
+  <Card title="Bitbucket Data Center" icon="server" horizontal href="/semgrep-appsec-platform/bitbucket-cloud-pr-comments#triage-through-pr-comments">
+  </Card>
+
+  <Card title="Azure DevOps" icon="windows" horizontal href="/semgrep-appsec-platform/azure-pr-comments#triage-through-pr-comments">
+  </Card>
 </CardGroup>
 
 Once you've turned on this feature, you can triage a finding using the following steps:
 
 <Steps>
-<Step>
-Find an open comment created by Semgrep in your pull request or merge request.
-</Step>
-<Step>
-Reply to the comment with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
+  <Step>
+    Find an open comment created by Semgrep in your pull request or merge request.
+  </Step>
+  <Step>
+    Reply to the comment with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
 
-| Comment | Description |
-| :--- | :--- |
-| <code>/fp <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
-| <code>/ar <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
-| <code>/other <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
-| <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. Optionally, provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the decision to reopen the finding. |
-
-</Step>
+    | Comment | Description |
+    | :-- | :-- |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
+  </Step>
 </Steps>
 
 Semgrep attempts to reply to your comment if it successfully triages the finding.
@@ -311,11 +332,9 @@ Semgrep attempts to reply to your comment if it successfully triages the finding
 Triaging a finding as **Ignored** through a comment changes the status of the finding to **Ignored** in Semgrep AppSec Platform. However, the pull request or merge request conversation itself is **not** automatically resolved by this process.
 
 <Info>
-**LEGACY COMMANDS**
+  **LEGACY COMMANDS**
 
-Semgrep supports older versions of this feature that used the following commands:
-- <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
-- <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
+  Semgrep supports older versions of this feature that used the following commands:
 </Info>
 
 ## Triage findings in bulk through the Semgrep API
@@ -323,6 +342,7 @@ Semgrep supports older versions of this feature that used the following commands
 Semgrep provides an API endpoint you can use to triage findings in bulk, either by passing a list of `issue_ids` or filter query parameters to select findings. You must also specify an `issue_type`, such as `sast` or `sca`, and either `new_triage_state` or `new_note`.
 
 The available `new_triage_state` values you can set are:
+
 - `open`
 - `reviewing`
 - `fixing`
@@ -332,9 +352,9 @@ The available `new_triage_state` values you can set are:
 If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored`.
 
 <Info>
-**NOTE**
+  **NOTE**
 
-When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
+  When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
 </Info>
 
 Refer to [Bulk triage API documentation](/api-reference/triageservice/bulk-triage) for complete details.
