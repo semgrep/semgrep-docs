@@ -88,7 +88,7 @@ Findings with a status of **provisionally ignored** block pull requests and merg
 
   Multimodal's auto-triage only runs on rule-based Semgrep Code findings. [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings are **not** automatically moved to **Provisionally ignored**, even if Multimodal believes they are false positives. AI-powered detection findings that you want to dismiss must be triaged manually to **Ignored** with reason **False positive**.
 
-  To list AI-powered detection findings that Multimodal flagged as likely false positives, go to [**Code**](https://semgrep.dev/orgs/-/findings?tab=open), apply the **Detection method** (or **Scan type**) filter to **AI-powered**, and then apply the **Multimodal autotriage** filter set to **False positive**.
+  To list AI-powered detection findings that Multimodal flagged as likely false positives, go to [**Code**](https://semgrep.dev/orgs/-/findings?tab=open), apply the **AI-powered scan finding** filter, and then check the box next to **False positives** in the **Autotriage** filter.
 </Note>
 
 ### Ignore findings
@@ -319,11 +319,12 @@ Once you've turned on this feature, you can triage a finding using the following
     Reply to the comment with the action you want to take. You must provide a reason to help the reader understand why the finding has been triaged as ignored:
 
     | Comment | Description |
-    | :-- | :-- |
-    |  |  |
-    |  |  |
-    |  |  |
-    |  |  |
+    | :--- | :--- |
+    | <code>/fp <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **false positive**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
+    | <code>/ar <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** with the triage reason **acceptable risk**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
+    | <code>/other <span className="placeholder">&lt;COMMENT&gt;</span></code> | Triage a finding as **Ignored** without specifying the reason; the triage reason value is set to **No triage reason**. Provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the triage decision. |
+    | <code>/open <span className="placeholder">&lt;REASON&gt;</span></code> | Reopen a finding that has been triaged as **Ignored**. Optionally, provide a <code><span className="placeholder">&lt;COMMENT&gt;</span></code> with information about the decision to reopen the finding. |
+
   </Step>
 </Steps>
 
@@ -333,8 +334,10 @@ Triaging a finding as **Ignored** through a comment changes the status of the fi
 
 <Info>
   **LEGACY COMMANDS**
-
-  Semgrep supports older versions of this feature that used the following commands:
+    Semgrep supports older versions of this feature that used the following commands:
+    - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
+    - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
+    
 </Info>
 
 ## Triage findings in bulk through the Semgrep API
