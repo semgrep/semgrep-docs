@@ -252,7 +252,7 @@ You can turn off a specific rule or ruleset to prevent Semgrep Code from using i
       - Individual checkboxes next to a rule to turn off rules one by one.
     </Step>
     <Step>
-      Click **() Change modes**, then click **Disabled**.
+      Click **Change modes**, then click **Disabled**.
     </Step>
   </Steps>
 
@@ -286,10 +286,10 @@ Before proceeding, ensure that you have:
 - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
 - Enabled the option in your Semgrep organization settings.\
     i. Click **Settings**. This takes you to the **General \> Global** settings tab.\
-    ii. Enable the toggle under **Triage via code review comments**.\\
+    ii. Enable the toggle under **Triage via code review comments**.\
 - _For SCMs other than GitHub:_
-  - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM
-  - Enabled the **Incoming webhooks** option on the SCM connection
+  - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM.
+  - Enabled the **Incoming webhooks** option on the SCM connection.
 
 ### Grant permission to interact with pull requests and create webhooks for your SCM
 
@@ -334,6 +334,7 @@ Triaging a finding as **Ignored** through a comment changes the status of the fi
 
 <Info>
   **LEGACY COMMANDS**
+  
     Semgrep supports older versions of this feature that used the following commands:
     - <code>/semgrep ignore <span className="placeholder">&lt;REASON&gt;</span></code> - triage a finding as **Ignored**.
     - <code>/semgrep open <span className="placeholder">&lt;REASON&gt;</span></code> - reopen a finding that has been triaged as **Ignored**.
@@ -357,7 +358,7 @@ If specifying a `new_triage_reason`, you must also use `new_triage_state=ignored
 <Info>
   **NOTE**
 
-  When retrieving findings through the API, you may also see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
+  When retrieving findings through the API, you might see the `provisionally_ignored` status. This status is automatically set by Semgrep and cannot be manually assigned through the bulk triage API.
 </Info>
 
 Refer to [Bulk triage API documentation](/api-reference/triageservice/bulk-triage) for complete details.
