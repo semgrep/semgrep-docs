@@ -12,6 +12,7 @@ The following updates were made to Semgrep in May 2026.
 - Semgrep AppSec Platform's **Usage & billing** page now displays:
   - Information on self-service contributors. You can download a report listing all contributors who have made commits in the last 90 days, as well as contributor identities, last contribution timestamp, and associated repository URL.
   - An alert if you exceed your contributor seat limit.
+- Autofix pull requests now post the email of the user who initiated the pull request.
 
 ### Changed
 
@@ -34,7 +35,6 @@ The following updates were made to Semgrep in May 2026.
 
 ### Added
 
-- Code's Autofix pull requests now post the email of the user who requested the pull request when that user doesn’t have a source code manager handle associated with their Semgrep login.
 - Added indexes to file targeting to improve the performance of `semgrepignore` matching.
 - **Dart**: added support for:
   - Typed metavariables, such as `$X as T`
@@ -72,7 +72,6 @@ The following updates were made to Semgrep in May 2026.
 
 ### Added
 
-- Supply Chain's Autofix pull requests now post the email of the user who requested the pull request.
 - Dynamic Dependency Resolution is now in **public beta** for **Java** and **Kotlin**. With Dynamic Dependency Resolution, Supply Chain can now accurately inventory dependencies in projects without lockfiles or with incomplete lockfiles.
 
 ### Changed
