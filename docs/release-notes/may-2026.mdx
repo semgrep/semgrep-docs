@@ -23,7 +23,7 @@ The following updates were made to Semgrep in May 2026.
 
 ### Fixed
 
-- Fixed an issue where bulk triaging findings might triage findings in repos that weren't selected.
+- Fixed an issue where bulk triaging findings sometimes triaged findings in repos that weren't selected.
 - `semgrep ci` no longer transmits source code manager tokens to Semgrep AppSec Platform.
 - **CLI**: the on-disk log file, `~/.semgrep/semgrep.log` or `$SEMGREP_LOG_FILE`, now respects the requested log level instead of always being written at DEBUG. This narrows the surface for credentials to land on disk through CI runner filesystems or job artifacts.
 - **MCP**:
@@ -34,7 +34,7 @@ The following updates were made to Semgrep in May 2026.
 
 ### Added
 
-- Code's Autofix pull requests now post the email of the user who requested the pull request if they don't have a source code manager handle associated with their Semgrep login.
+- Code's Autofix pull requests now post the email of the user who requested the pull request when that user doesn’t have a source code manager handle associated with their Semgrep login.
 - Added indexes to file targeting to improve the performance of `semgrepignore` matching.
 - **Dart**: added support for:
   - Typed metavariables, such as `$X as T`
@@ -47,7 +47,7 @@ The following updates were made to Semgrep in May 2026.
 - Improved support for taint tracking through nested functions.
 - Improved the parsing speed of JSON rules through the use of a new parser.
 - The default memory limit for interfile scans on Linux machines now adapts to a maximum of 90% of the container's cgroup memory limit instead of the previous fixed value of 6 GiB. The fallback is 8 GiB if no cgroup limit is detected.
-- The glibc constraint has been lowered from `>=2.35` to `>=2.34`, allowing users on distros shipped with glibc 2.34 to run Semgrep.
+- The glibc constraint has been lowered from `>=2.35` to `>=2.34`, allowing Semgrep to run on Linux distributions that ship with glibc 2.34.
 - Improved the startup time for `semgrep ci` by eliminating duplicate `semgrep-core` rule validation during CLI rule loading while still preserving configuration-style failures for invalid rules.
 - Improved name resolution for fully qualified names in Java, Kotlin, and Scala, leading to fewer false positives and more true positives when the code under analysis uses fully qualified names instead of import statements.
 - Improved Semgrep startup time by:
