@@ -83,6 +83,52 @@ semgrep login && semgrep install-semgrep-pro
       </Step>
     </Steps>
     The plugin registers a post-tool hook so Claude Code scans every file it writes. Learn more about [Claude Code plugins](https://code.claude.com/docs/en/plugins) and [hooks](https://code.claude.com/docs/en/hooks).
+
+    <Accordion title="Alternative: Use Semgrep’s hosted remote server (beta)">
+      <Note>Beta.</Note>
+
+      If you can't install the Semgrep CLI locally, you can use Semgrep's hosted remote server instead.
+
+      <Steps>
+        <Step>
+          Start a Claude Code instance:
+
+          ```bash
+          claude
+          ```
+        </Step>
+        <Step>
+          Add the Semgrep marketplace:
+
+          ```bash
+          /plugin marketplace add semgrep/guardian-claude
+          ```
+        </Step>
+        <Step>
+          Install the plugin from the marketplace:
+
+          ```bash
+          /plugin install semgrep-plugin@semgrep-guardian-claude
+          ```
+        </Step>
+        <Step>
+          Tell Claude to load the plugin:
+
+          ```bash
+          /reload-plugins
+          ```
+        </Step>
+        <Step>
+          Start a new session in Claude to begin the Semgrep login flow:
+
+          ```bash
+          /clear
+          ```
+
+          Alternatively, exit and relaunch Claude Code.
+        </Step>
+      </Steps>
+    </Accordion>
   </Tab>
   <Tab title="Codex">
     <Steps>
