@@ -148,7 +148,6 @@
                           },
                           "semgrep-code/semgrep-pro-engine-intro",
                           "semgrep-code/policies",
-                          "semgrep-supply-chain/license-compliance",
                           "writing-rules/overview-1"
                         ]
                       }
@@ -291,7 +290,7 @@
                   {
                     "group": "Triage and fix vulnerabilities",
                     "pages": [
-                        "semgrep-supply-chain/triage-remediation"
+                        "semgrep-supply-chain/triage-and-remediation"
                     ]
                   },
                   {
