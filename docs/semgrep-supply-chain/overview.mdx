@@ -6,7 +6,7 @@ description: "Semgrep Supply Chain is a software composition analysis (SCA) tool
 - Assist with the triage and remediation of security issues
 - Prevent future security issues from the introduction and use of insecure packages
 - Detect malicious dependencies associated with Supply Chain attacks
-- Support the enforcement of your business' [open source package licensing requirements](/semgrep-supply-chain/license-compliance)
+- Support the enforcement of your business' open source package licensing requirements
 - Generate reports and software bills of materials (SBOM) that provide a complete inventory of your open source components
 
 ## Detect vulnerabilities
@@ -27,23 +27,6 @@ The following diagram shows the relationship between a Supply Chain rule, the co
 <Frame caption="Relationship between a Supply Chain rule, manifest file or lockfile, CVE record, and codebase.">
 ![Relationship between a Semgrep Supply Chain rule, manifest file or lockfile, CVE record, and codebase](/images/sc-reachability-analysis-e502bad7703f0187525620fdf91de26f.png)
 </Frame>
-
-### New CVEs and rule updates
-
-Semgrep ingests CVE information and security advisories from the following sources:
-
-<CardGroup>
-  <Card title="Reviewed GitHub Security Advisories" icon="shield-check" href="https://github.com/advisories?query=type%3Areviewed" horizontal />
-  <Card title="Electron release notes" icon="file-text" href="https://releases.electronjs.org/releases/stable" horizontal />
-  <Card title="OSV" icon="file-text" href="http://osv.dev/" horizontal />
-</CardGroup>
-
-Semgrep processes new information multiple times per day, ensuring a maximum lag time of no more than one hour. With this information, Semgrep:
-
-- Generates rules for new security advisories
-- Updates existing rules based on changes to security advisories
-
-For major incidents that might affect customers, Semgrep's Security Research team ships its own advisories, even before third-party databases are updated. Semgrep processes [KEVs](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the same way it processes other types of vulnerabilities.
 
 ### Types of Supply Chain findings
 
@@ -67,6 +50,23 @@ However, some dependencies are vulnerable simply through their inclusion in a co
 
 Some package ecosystems allow the use of a transitive dependency as if it were a direct dependency. Though this feature is uncommon, Supply Chain can scan for such usages and flag vulnerabilities in transitive dependencies as unreachable if not used directly.
 
+### New CVEs and rule updates
+
+Semgrep ingests CVE information and security advisories from the following sources:
+
+<CardGroup>
+  <Card title="Reviewed GitHub Security Advisories" icon="shield-check" href="https://github.com/advisories?query=type%3Areviewed" horizontal />
+  <Card title="Electron release notes" icon="file-text" href="https://releases.electronjs.org/releases/stable" horizontal />
+  <Card title="OSV" icon="file-text" href="http://osv.dev/" horizontal />
+</CardGroup>
+
+Semgrep processes new information multiple times per day, ensuring a maximum lag time of no more than one hour. With this information, Semgrep:
+
+- Generates rules for new security advisories
+- Updates existing rules based on changes to security advisories
+
+For major incidents that might affect customers, Semgrep's Security Research team ships its own advisories, even before third-party databases are updated. Semgrep processes [KEVs](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the same way it processes other types of vulnerabilities.
+
 ## Triage and fix vulnerabilities
 
 Once Supply Chain has identified vulnerabilities in your code and generated findings, you can take the following actions:
@@ -87,6 +87,8 @@ Policies, which are scoped on a per-project basis, allow you to define the condi
 ## Malware detection and response
 
 Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
+
+### Dependency search
 
 Supply Chain's [dependency search](/semgrep-supply-chain/dependency-search) feature allows you to query for dependencies in your codebase; it can detect direct and transitive dependencies in any repository on which you have run a full scan. The results list the dependency, along with all of the repositories that use the dependency.
 
@@ -111,13 +113,3 @@ The Semgrep API allows you to obtain project and dependency information, as well
 ### Software bill of materials
 
 Supply Chain can [generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom), a complete inventory of your third-party or open source components, to assist you with your auditing procedures. You can export the SBOM using the [Semgrep API](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport) or [Semgrep AppSec Platform > Dependencies](https://semgrep.dev/orgs/-/supply-chain/t/dependencies).
-
-## Next steps
-
-Supply Chain automatically scans repositories that you have added to Semgrep AppSec Platform. Once your first scan is completed:
-
-* [View, triage, and remediate](/semgrep-supply-chain/triage-and-remediation) your Supply Chain findings.
-  * [Customize Supply Chain to ignore files and dependencies](/semgrep-supply-chain/ignoring-dependencies) to support your security and business goals.
-* [Generate a software bill of materials (SBOM)](/semgrep-supply-chain/sbom).
-* Query for dependencies in your codebase using [dependency search](/semgrep-supply-chain/dependency-search).
-* Ensure that you're only [using open source packages whose licensing meets your organization's requirements](/semgrep-supply-chain/license-compliance).
