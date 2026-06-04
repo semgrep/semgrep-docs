@@ -7,7 +7,7 @@ sidebarTitle: "Triage and remediation"
 <Info>
 **PREREQUISITE**
 
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/getting-started).
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/set-up-and-configure).
 </Info>
 
 Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can assess, triage, and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page. Semgrep provides the following methods to help you evaluate your findings:
@@ -76,7 +76,7 @@ This **includes** projects added to Semgrep through Semgrep Managed Scans.
 To access all upgrade guidance and Autofix features, you must have:
 
 - Enabled upgrade guidance Semgrep AppSec Platform by going to **Settings > General > Supply Chain**
-- At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/getting-started).
+- At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/set-up-and-configure).
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
 - The **private** GitHub app for Semgrep installed.
   - The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they haven't already.
@@ -262,7 +262,7 @@ Click **Connect** to save your changes and proceed.
 <Note>
 **INFO**
 
-Semgrep currently supports integrations with private Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
+Semgrep currently supports integrations with private Maven package registries for [scans without lockfiles](/semgrep-supply-chain/set-up-and-configure#scan-a-project-without-lockfiles-beta).
 
 </Note>
 </Accordion>

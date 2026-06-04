@@ -270,7 +270,7 @@
                   },
                   {
                     "group": "Open source security vulnerabilities",
-                    "root": "semgrep-supply-chain/getting-started",
+                    "root": "semgrep-supply-chain/set-up-and-configure",
                     "pages": [
                       {
                         "group": "View findings",
@@ -1327,7 +1327,7 @@
     },
     {
       "source": "/semgrep-sc/scanning-open-source-dependencies/",
-      "destination": "/semgrep-supply-chain/getting-started"
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     },
     {
       "source": "/semgrep-sc/sc-glossary/",

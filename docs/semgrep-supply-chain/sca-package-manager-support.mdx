@@ -33,13 +33,13 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Gradle</td>
    <td><code>gradle.lockfile</code> <b>or</b> <br /><code>build.gradle</code> or
    <code>build.gradle.kts</code> through <a
-   href="/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
+   href="/semgrep-supply-chain/set-up-and-configure#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>
   <tr>
    <td>Maven</td>
    <td>Maven-generated dependency tree (see <a href="/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions) <b>or</b> <br /><code>pom.xml</code> through <a
-   href="/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
+   href="/semgrep-supply-chain/set-up-and-configure#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution</a>.</td>
   </tr>
   <tr>
@@ -68,7 +68,7 @@ The following table lists all Semgrep-supported package managers for each langua
    <td rowspan="5">Python</td>
    <td>pip</td>
    <td rowspan="2">A<ul><li>`*requirement*.txt`, `*requirement*.pip`, `**/requirements/*.txt`, or `**/requirements/*.pip` with dependencies pinned†</li><li>setup.py with <a
-   href="/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta">Dynamic
+   href="/semgrep-supply-chain/set-up-and-configure#scan-a-project-without-lockfiles-beta">Dynamic
    Dependency Resolution.</a></li></ul></td>
   </tr>
   <tr>
@@ -125,6 +125,6 @@ The following table lists all Semgrep-supported package managers for each langua
 </table>
 </div>
 
-_<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._
+_<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/set-up-and-configure#scan-a-project-without-lockfiles-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._
 
 _<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br />
