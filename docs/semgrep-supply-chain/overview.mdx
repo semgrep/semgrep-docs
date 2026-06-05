@@ -1,8 +1,9 @@
 ---
 title: "Overview"
-description: "Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies. 
+description: "Semgrep Supply Chain is a software composition analysis (SCA) tool that detects security vulnerabilities in your codebase introduced by open source dependencies."
+---
 
-It can also:"
+In addition to detecting vulnerabilities introduced by open source dependencies, Supply Chain can also:
 
 - Assist with the triage and remediation of security issues
 - Prevent future security issues that may arise when insecure packages are introduced or used.
@@ -13,7 +14,7 @@ It can also:"
 ## Detect vulnerabilities
 
 Semgrep Supply Chain detects [security
-vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules, which are instructions Semgrep uses detect patterns in code, to determine the vulnerability's <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip>.
+vulnerabilities](https://nvd.nist.gov/vuln/full-listing) in your codebase introduced by open source dependencies using high-signal rules. Rules are instructions Semgrep uses to detect patterns in code, and to determine the vulnerability's <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip>.
 
 To do this, Supply Chain first determines the list of dependencies and versions in the code, then scans your codebase using rules that specify the following information:
 
