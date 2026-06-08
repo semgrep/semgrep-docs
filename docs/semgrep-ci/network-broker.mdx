@@ -376,6 +376,23 @@ inbound:
 
 In Network Broker `v0.31.0` and later, this URL is part of the default allowlist.
 
+## Use Semgrep Network Broker for private registry access
+
+Semgrep Supply Chain can route [private registry](/semgrep-supply-chain/triage-and-remediation#registry-support) traffic through the Network Broker, allowing Semgrep to reach registries that aren't publicly accessible on the internet. This is useful when your package registry is hosted inside your private network and can't be accessed directly from the Semgrep backend.
+
+To enable this, select **Use network broker for registry access** when you [connect the registry to Semgrep](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep).
+
+For the broker to reach your registry, add the registry URL to the `allowlist` and permit `GET` and `HEAD` requests:
+
+```yaml
+inbound:
+  allowlist:
+    - url: "https://<registry-host>/*"
+      methods: ["GET", "HEAD"]
+```
+
+Replace `<registry-host>` with the host of your registry.
+
 ## Run multiple instances of the Semgrep Network Broker
 
 Do not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
