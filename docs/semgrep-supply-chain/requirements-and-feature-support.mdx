@@ -4,15 +4,13 @@ sidebarTitle: "Requirements and feature support"
 description: "This document discusses the requirements to use Supply Chain and the features supported by Semgrep Supply Chain."
 ---
 
-# Supported languages and package managers
+Supply Chain begins the scan process by parsing the manifest file or lockfile. For projects without a lockfile or an incomplete lockfile, Supply Chain's Dynamic Dependency Resolution provides a complete inventory of dependencies. The following sections list the requirements for both projects with and without lockfiles, as well as the features available to you based on your project's language and package manager.
 
-Supply Chain begins the scan process by parsing the manifest file or lockfile. For projects without a lockfile or an incomplete lockfile, Supply Chain's Dynamic Dependency Resolution provides a complete inventory of dependencies. This article lists the requirements for both projects with and without lockfiles, as well as the features available to you based on your project's language and package manager.
+## Package manager support
 
-## Language and package manager support
-
+<Note>
 See [Supported languages](/supported-languages) for language-level coverage and feature maturity.
-
-For some languages, a lockfile or manifest file is **required** to accurately to determine <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip>. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+</Note>
 
 The following table lists all Semgrep-supported package managers for each language. Languages with **reachability** support are listed first.
 
@@ -133,21 +131,17 @@ The following table lists all Semgrep-supported package managers for each langua
 </div>
 
 _<strong>†</strong>Supply Chain can treat `requirements.txt` as a lockfile with Pip-compiled output and fully pinned dependencies or as a manifest file with more flexible specifiers. If your `requirements.txt` file doesn't use pinned dependencies exclusively, use the [`--allow-local-builds` flag](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta) when invoking your scan. This ensures that the dependencies using non-exact version specifiers, such as `>=`, `>`, `~=`, are included in the dependency graph. Otherwise, Semgrep ingests only pinned (`==`) dependencies._<br /><br />
-_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for
-these language and manifest file or lockfile combinations. All dependencies are
-listed as <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br />
+_<strong>‡</strong>Supply Chain does not analyze the transitivity of packages for these language and manifest file or lockfile combinations. All dependencies are listed as **No <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip> Analysis.**_<br />
 
-## Feature support
+## Feature availability
 
-The following section discusses the features supported by Supply Chain.
-
-### Lockfiles and manifest files
+The following sections discuss the features supported by Supply Chain and available to you based on your project's language, package manager, and lockfile or manifest file availability.
 
 For projects with lockfiles, Semgrep parses lockfiles for dependencies, then scans your codebase for reachable findings based on the lockfiles. For a lockfile to be scanned by Semgrep Supply Chain, it must have one of the supported lockfile names.
 
-For some languages, a lockfile or manifest file is required to determine <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip>. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
+For some languages, a lockfile or manifest file is required to determine accurately <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip>. See [Transitive dependencies and reachability analysis](/semgrep-supply-chain/overview/#transitive-dependencies-and-reachability-analysis) for more information.
 
-Additionally, Semgrep offers beta support for the scanning of projects written in the following languages without lockfiles using Dynamic Dependency Resolution. See the following table for more information.
+Semgrep offers beta support for the scanning of projects written in several languages without lockfiles using Dynamic Dependency Resolution. See the table in the following section for more information.
 
 ### Features for supported languages
 {/*
@@ -268,7 +262,7 @@ _<strong>†</strong>License detection for new packages is asynchronous and proc
 
 ### CVE coverage
 
-For customers with an active paid subscription, Semgrep’s reachability analysis
+For customers with an active paid subscription, Semgrep's reachability analysis
 covers all **critical and high severity** CVEs from [supported sources](#supported-sources)
 starting in 2017 across all supported languages.
 
