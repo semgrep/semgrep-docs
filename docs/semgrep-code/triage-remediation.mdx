@@ -4,7 +4,7 @@ sidebarTitle: "Triage and remediation"
 description: "This article shows you how to manage and triage findings identified by Semgrep Code using Semgrep AppSec Platform. The specific actions available to you when managing your findings include:"
 ---
 
-- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generates proposed code changes for findings.
+- **Fixing the issue detected.** This is Semgrep's primary goal. If the rule produces a **true positive** finding, the code must be updated or refactored so that the Semgrep rule pattern no longer matches it. Developers can refactor code manually based on Semgrep's suggestions, or use [Semgrep's **Autofix**](/semgrep-code/triage-remediation/autofix), a feature that uses AI to automatically generate proposed code changes for findings.
 - **Triaging the finding.** Deprioritize a finding if it's not helpful or important through triage. Triage actions include ignoring and reopening a previously ignored finding. Triaging a finding to **ignore** is one method to handle **false positives** without changing a rule or your code.
 - **Removing the rule or code that generated the finding.** There are cases where Semgrep scans a file it should ignore or scans the file with an irrelevant rule. You can [disable the rule](/semgrep-code/policies#disable-rules) from the **Policies** page or [add the file to the ignore list](/ignoring-files-folders-code).
 
@@ -106,7 +106,7 @@ To handle **false positives** without changing the rule or your code, set the fi
       <Step>
         Perform one of these steps:
 
-        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Ignored** .
+        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Ignored**.
         - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage \> Ignored**.
       </Step>
       <Step>
@@ -119,7 +119,7 @@ To handle **false positives** without changing the rule or your code, set the fi
   </Accordion>
 
   <Accordion title="Ignore findings in No grouping view">
-    To **ignore individual finding** in the **No grouping** view, follow these steps:
+    To **ignore individual findings** in the **No grouping** view, follow these steps:
 
     <Steps>
       <Step>
@@ -176,7 +176,7 @@ You can **reopen** a finding at any time, whether you previously marked it as **
       <Step>
         Perform one of these steps:
 
-        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Open** .
+        - To select all findings for the same rule, select the first checkbox on the finding's card, then click **Triage \> Open**.
         - To select individual findings reported by a rule, fill in the checkboxes of the finding, and then click **Triage \> Open**.
       </Step>
       <Step>
@@ -248,7 +248,7 @@ You can turn off a specific rule or ruleset to prevent Semgrep Code from using i
     <Step>
       Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies) and select either:
 
-      - The top  **Matching Rules** checkbox to select all rules.
+      - The top **Matching Rules** checkbox to select all rules.
       - Individual checkboxes next to a rule to turn off rules one by one.
     </Step>
     <Step>
@@ -262,7 +262,7 @@ You can turn off a specific rule or ruleset to prevent Semgrep Code from using i
 
   <Steps>
     <Step>
-      Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies), .
+      Go to the [**Policies** page](https://semgrep.dev/orgs/-/policies).
     </Step>
     <Step>
       Use the <Tooltip tip="Rulesets are rules related through a programming language, OWASP category, or framework. Rulesets are curated by the team at Semgrep and updated as new rules are added to the Semgrep Registry." cta="See full definition." href="/semgrep-code/glossary#ruleset">Ruleset</Tooltip> filter's drop-down box to find and click the ruleset to remove.
