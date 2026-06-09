@@ -18,7 +18,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.164.0'
+  rev: 'v1.165.0'
   hooks:
     - id: semgrep
       entry: semgrep
@@ -29,13 +29,13 @@ repos:
 
 ## `pre-commit` with your Semgrep AppSec Platform configuration
 
-You  can also run custom rules and rulesets from Semgrep AppSec Platform, similar to running `semgrep ci`.
+You can also run custom rules and rulesets from Semgrep AppSec Platform, similar to running `semgrep ci`.
 
 Ensure that you are logged in:
 
 <Steps>
   <Step>
-    og in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
+    Log in to your Semgrep account. Running this command launches a browser window, but you can also use the link that's returned in the CLI to proceed:
 
     ```bash
     semgrep login
@@ -51,9 +51,9 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.164.0'
+  rev: 'v1.165.0'
   hooks:
-    - id:  semgrep-ci
+    - id: semgrep-ci
 ```
 
 For guidance on customizing Semgrep's behavior in pre-commit, see [Customize Semgrep in pre-commit](/kb/integrations/customize-semgrep-precommit).
