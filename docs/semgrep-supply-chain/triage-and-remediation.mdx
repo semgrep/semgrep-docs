@@ -66,10 +66,9 @@ Semgrep's dependency upgrade guidance can determine if the package upgrade neede
 
 ### Registry support
 
-- Registries other than the public pypi and npm registry are not supported.
-- Private registries are not supported.
+Public npm and PyPI registries are supported. Private PyPI registries are also supported.
 
-This **includes** projects added to Semgrep through Semgrep Managed Scans.
+See [Connect a private registry to Semgrep](#connect-a-private-registry-to-semgrep).
 
 ### Prerequisites
 
@@ -229,7 +228,6 @@ Click **Review request** next to the **Permission updates requested** message, t
 
 ### Connect a private registry to Semgrep
 
-
 <Accordion title={"Expand to learn how to connect a private registry to Semgrep"}>
 <Steps>
 <Step>
@@ -244,27 +242,25 @@ Click **Add**, then select **Registry**.
 <Step>
 In the dialog that appears, provide the following information:
 
-   i. The **Name** of your registry.
+1. The **Name** of your registry.
+2. The <Tooltip tip="Software that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles." cta="See full definition." href="/semgrep-supply-chain/glossary#package-manager">**Package manager**</Tooltip>.
+3. The **Authentication method**. If none is required, select **None (public registry)**.
+    - **Username and password**: provide the required **Username** and **Password**.
+    - **API token**: provide the required token value.
+</Step>
+<Step>
+Optional: if your registry is only accessible from your private network, select **Use network broker for registry access**. This option requires a [Semgrep Network Broker](/semgrep-ci/network-broker) deployed within your network.
 
-   ii. Select the **%%Package manager|package_manager%%**.
+When enabled, Semgrep routes registry traffic through the broker, allowing Semgrep to access registries that aren't publicly accessible on the internet.
 
-   iii. Select the **Authentication method**. If none is required, select **None (public registry)**.
-
-      &emsp;&emsp;a. If you select **Username and password**, provide the required **Username** and **Password**.
-
-      &emsp;&emsp;b. If you select **API token**, provide the required token value.
+<Note>
+For the broker to reach your registry, its allowlist must include the registry URL. See [Use Semgrep Network Broker for private registry access](/semgrep-ci/network-broker#use-semgrep-network-broker-for-private-registry-access).
+</Note>
 </Step>
 <Step>
 Click **Connect** to save your changes and proceed.
 </Step>
 </Steps>
-
-<Note>
-**INFO**
-
-Semgrep currently supports integrations with private Maven package registries for [scans without lockfiles](/semgrep-supply-chain/getting-started#scan-a-project-without-lockfiles-beta).
-
-</Note>
 </Accordion>
 
 ### Troubleshooting: Semgrep is not displaying Upgrade guidance or Autofix functionality

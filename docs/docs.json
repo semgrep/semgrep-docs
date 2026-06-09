@@ -150,16 +150,10 @@
                           },
                           "semgrep-code/semgrep-pro-engine-intro",
                           {
-                            "group": "Manage rules and policies",
-                            "root": "semgrep-appsec-platform/manage-rules-and-policies",
+                            "group": "Unified policies",
+                            "root": "semgrep-appsec-platform/unified-policies/overview",
                             "pages": [
-                              {
-                                "group": "Unified policies",
-                                "root": "semgrep-appsec-platform/unified-policies/overview",
-                                "pages": [
-                                  "semgrep-appsec-platform/unified-policies/get-started"
-                                ]
-                              }
+                              "semgrep-appsec-platform/unified-policies/get-started"
                             ]
                           },
                           "semgrep-supply-chain/license-compliance",
@@ -274,33 +268,53 @@
                 "pages": [
                   "semgrep-supply-chain/overview",
                   {
-                    "group": "Coverage",
+                    "group": "Requirements and feature support",
                     "pages": [
                       "semgrep-supply-chain/sca-package-manager-support",
                       "semgrep-supply-chain/sca-feature-support"
                     ]
                   },
                   {
-                    "group": "Open source security vulnerabilities",
-                    "root": "semgrep-supply-chain/getting-started",
+                    "group": "Setup and configuration",
+                    "pages": [
+                      "semgrep-supply-chain/getting-started"
+                    ]
+                  },
+                  {
+                    "group": "Detect vulnerabilities",
                     "pages": [
                       {
-                        "group": "View findings",
+                        "group": "Findings",
                         "root": "semgrep-supply-chain/findings",
-                        "pages": [
+                        "pages": [  
                           "semgrep-supply-chain/finding-details"
                         ]
                       },
-                      "semgrep-supply-chain/triage-and-remediation",
                       "semgrep-supply-chain/advisories",
+                      "semgrep-supply-chain/dependency-search"
+                    ]
+                  },
+                  {
+                    "group": "Triage and fix vulnerabilities",
+                    "pages": [
+                        "semgrep-supply-chain/triage-and-remediation"
+                    ]
+                  },
+                  {
+                    "group": "Policies",
+                    "pages": [
                       "semgrep-supply-chain/policies",
                       "semgrep-supply-chain/ignoring-deps"
                     ]
                   },
-                  "semgrep-supply-chain/sbom",
-                  "semgrep-supply-chain/dependency-search",
+                  {
+                    "group": "Malware detection and response",
+                    "pages": [
+                      "semgrep-supply-chain/malicious-dependencies"
+                    ]
+                  },
                   "semgrep-supply-chain/license-compliance",
-                  "semgrep-supply-chain/malicious-dependencies"
+                  "semgrep-supply-chain/sbom"
                 ]
               },
               {
