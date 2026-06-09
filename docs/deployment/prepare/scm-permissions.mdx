@@ -1,0 +1,168 @@
+---
+title: "Source code manager permissions"
+sidebarTitle: "SCM permissions"
+description: "Reference for source code manager permissions required by Semgrep features, with links to configuration guides."
+---
+
+Use this page as the canonical reference for Source code manager (SCM) permissions. It lists what each feature requires and where to configure access.
+
+<Note>
+**Before you configure**
+
+Confirm organizational readiness on the [Pre-deployment checklist](/deployment/checklist). This page covers permission details and links to setup guides.
+</Note>
+
+## Permissions {#permissions}
+
+The following tables summarize **organizational access** you need before setup—the authority to create tokens, install apps, or change repository settings. For code access scopes and configuration steps, see [Grant code access](/semgrep-appsec-platform/scm-code-access). For other features, use the links in [Configure permissions](#configure-permissions).
+
+### Azure DevOps
+
+| Feature | Permission required | Configure |
+| :--- | :--- | :--- |
+| Pull request comments | Create [user personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
+| Managed Scans | **Owner** or **Project Collection Administrator** role; create a PAT with required scopes | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
+| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+
+### Bitbucket
+
+| Feature | Permission required | Configure |
+| :--- | :--- | :--- |
+| Pull request comments | Create repository variables | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Managed Scans | Create a workspace or HTTP access token with required scopes | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket) |
+| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+
+### GitHub
+
+| Feature | Permission required | Configure |
+| :--- | :--- | :--- |
+| Sign in and connect repositories | Install the public [`semgrep-app`](https://github.com/apps/semgrep-app) GitHub App | [Connect a source code manager](/deployment/connect-scm), [Create an account](/deployment/create-account-and-orgs) |
+| Create CI jobs in bulk | Install GitHub Apps | [Connect a source code manager](/deployment/connect-scm) |
+| Pull request comments | GitHub App permissions on selected repositories | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
+| Managed Scans and AI-assisted features | Install a private Semgrep GitHub App with [code access](/semgrep-appsec-platform/scm-code-access) | [GitHub Managed Scans](/deployment/managed-scanning/github), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
+
+### GitLab
+
+| Feature | Permission required | Configure |
+| :--- | :--- | :--- |
+| Sign in | `openid`, `email`, `profile`, and `API` scopes | [Connect a source code manager](/deployment/connect-scm) |
+| Merge request comments | Create personal access tokens | [GitLab MR comments](/semgrep-appsec-platform/gitlab-mr-comments) |
+| Managed Scans and AI-assisted features | Create personal or project-level access tokens; grant read access to user-selected repositories | [GitLab Managed Scans](/deployment/managed-scanning/gitlab), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
+| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+
+### GitLab sign-in scopes
+
+When users sign in with GitLab, Semgrep requires the following scopes to authenticate a session:
+
+- `openid`
+- `email`
+- `profile`
+- `API`
+
+## GitHub App permissions {#github-app-permissions}
+
+Semgrep AppSec Platform requests different GitHub App permissions depending on when you grant access.
+
+### Permissions when signing in with GitHub
+
+Semgrep AppSec Platform requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep AppSec Platform.
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions when signing in.">
+
+**Verify your GitHub identity**<br/>
+Enables Semgrep AppSec Platform to read your GitHub profile data, such as your username.
+
+**Know which resources you can access**<br/>
+Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point to add repositories into Semgrep AppSec Platform.
+
+**Act on your behalf**<br/>
+Enables Semgrep AppSec Platform to perform certain tasks **only on resources that you choose to share with Semgrep AppSec Platform**. Semgrep AppSec Platform never uses this permission and never performs any actions on your behalf, even after you have installed `semgrep-app`. For more information, see [What does 'Act on your behalf' mean?](/kb/semgrep-appsec-platform/act-on-your-behalf) and [GitHub Apps acting on your behalf](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps) in GitHub documentation.
+</Accordion>
+
+### Permissions when adding members or repositories
+
+The public GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app integrates Semgrep into user-selected GitHub repositories.
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions when adding members or repositories.">
+
+**Reading metadata of the repositories you select**<br/>
+Enables Semgrep AppSec Platform to list repository names on the project setup page.
+
+**Reading the list of organization members**<br/>
+Enables Semgrep AppSec Platform to determine who can manage your Semgrep organization based on your GitHub organization's members list.
+
+**Reading and writing pull requests**<br/>
+Enables Semgrep AppSec Platform to comment about findings on pull requests. Read permissions allow Semgrep AppSec Platform to automatically remove findings when the pull request that introduced them is closed without merging.
+
+**Reading and writing actions**<br/>
+Enables Semgrep AppSec Platform to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.
+
+**Reading [GitHub Checks](https://docs.github.com/en/rest/reference/checks)**<br/>
+Facilitates debugging of Semgrep AppSec Platform when configured out of [GitHub Actions](https://docs.github.com/en/actions).
+
+**Reading and writing security events**<br/>
+Enables integration with GitHub Advanced Security (for example, to show Semgrep results).
+
+**Reading and writing secrets**<br/>
+Enables automatically adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
+
+**Reading and writing 2 files**<br/>
+Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `.github/workflows/semgrep.yml` and `.semgrepignore` files.
+
+**Reading and writing workflows**<br/>
+Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `.github/workflows/semgrep.yml`. GitHub allows writing to files within `.github/workflows/` directory only if this permission is granted along with "Writing a single file."
+</Accordion>
+
+### Permissions for Managed Scans and AI features
+
+You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for:
+
+- [Semgrep Managed Scans](/deployment/managed-scanning/overview)
+- [Semgrep Multimodal](/semgrep-multimodal/overview) and other AI-assisted features
+
+<Note>
+These features require **read access** to your code. See [Grant code access](/semgrep-appsec-platform/scm-code-access) for scopes and configuration steps.
+</Note>
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions for Managed Scans and AI features.">
+
+**Reading metadata of the repositories you select**<br/>
+Lets Semgrep list their names on the project setup page.
+
+**Reading the list of organization members**<br/>
+Lets Semgrep determine who can manage your Semgrep organization based on your GitHub organization's members list.
+
+**Writing (and reading) pull requests**<br/>
+Lets Semgrep comment about findings on pull requests.
+
+**Writing (and reading) actions**<br/>
+Allows Semgrep AppSec Platform to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.
+
+**Reading checks**<br/>
+Facilitates debugging of Semgrep AppSec Platform when configured out of GitHub Actions.
+
+**Writing (and reading) security events**<br/>
+Enables integration with GitHub Advanced Security (for example, to show Semgrep results).
+
+**Writing (and reading) secrets**<br/>
+Enables automatic adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
+
+**Writing (and reading) 2 files**<br/>
+Lets Semgrep configure itself to run in CI by writing to `.github/workflows/semgrep.yml` and `.semgrepignore`.
+
+**Writing (and reading) workflows**<br/>
+Lets Semgrep configure itself to run in CI by writing to `.github/workflows/semgrep.yml`. GitHub allows writing to files within `.github/workflows/` only if this permission is granted along with "Writing a single file."
+
+**Read source code of the repositories you select**<br/>
+Allows Semgrep Multimodal to fetch source code files on-demand to construct AI prompts.
+</Accordion>
+
+## Configure permissions {#configure-permissions}
+
+| Goal | Guide |
+| :--- | :--- |
+| Connect your SCM | [Connect a source code manager](/deployment/connect-scm) |
+| Grant code read or write access | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Enable PR or MR comments | [PR or MR comments](/category/pr-or-mr-comments) |
+| Add repositories without CI changes | [Managed Scans](/deployment/managed-scanning/overview) |
+| Enable AI-assisted triage | [Semgrep Multimodal getting started](/semgrep-multimodal/getting-started) |

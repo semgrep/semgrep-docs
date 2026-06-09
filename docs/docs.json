@@ -75,13 +75,10 @@
                 "pages": [
                   "deployment/checklist",
                   "deployment/create-account-and-orgs",
-                  {
-                    "group": "Connect a source code manager",
-                    "root": "deployment/connect-scm",
-                    "pages": [
-                      "semgrep-appsec-platform/scm-code-access"
-                    ]
-                  },
+                  "deployment/prepare/scm-permissions",
+                  "deployment/prepare/network-access",
+                  "deployment/connect-scm",
+                  "semgrep-appsec-platform/scm-code-access",
                   "deployment/sso",
                   {
                     "group": "Scan repositories with the AppSec Platform",

@@ -1,8 +1,17 @@
 ---
 title: "Enable source code manager code access"
+sidebarTitle: "Grant code access"
 ---
 
-Some Semgrep features require additional levels of code access. You can grant these permissions to Semgrep by assigning additional scopes to the access token that facilitates communication between Semgrep and the source code manager (SCM). The following table shows the minimum scope needed to enable the required code access level.
+Some Semgrep features require Semgrep to read repository contents, including [Semgrep Managed Scans](/deployment/managed-scanning/overview) and [Semgrep Multimodal](/semgrep-multimodal/overview).
+
+<Note>
+**Other SCM permissions**
+
+This page covers **code read and write access** only. For PR or MR comments, GitHub App installation, sign-in scopes, and other requirements, see [SCM permissions](/deployment/prepare/scm-permissions).
+</Note>
+
+Grant code access by assigning additional scopes to the access token or GitHub App that facilitates communication between Semgrep and your source code manager (SCM). The following table shows the minimum scope needed for each SCM.
 
 #### Required SCM code access scopes
 
