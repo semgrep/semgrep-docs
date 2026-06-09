@@ -134,7 +134,9 @@
                           "semgrep-appsec-platform/bitbucket-cloud-pr-comments",
                           "semgrep-appsec-platform/bitbucket-data-center-pr-comments"
                         ]
-                      },
+                      }
+                    ]
+                  },
                       {
                         "group": "Customize core deployment",
                         "root": "deployment/beyond-core-deployment",
@@ -147,12 +149,17 @@
                             ]
                           },
                           "semgrep-code/semgrep-pro-engine-intro",
-                          "semgrep-code/policies",
+                          {
+                            "group": "Unified policies",
+                            "root": "semgrep-appsec-platform/unified-policies/overview",
+                            "pages": [
+                              "semgrep-appsec-platform/unified-policies/get-started"
+                            ]
+                          },
+                          "semgrep-supply-chain/license-compliance",
                           "writing-rules/overview-1"
                         ]
                       }
-                    ]
-                  }
                 ]
               },
               {
