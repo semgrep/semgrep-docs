@@ -15,7 +15,7 @@ Semgrep Managed Scans requires one of the following plans:
 You must provide a GitLab group access token or personal access token to Semgrep. The token must have the `api` scope assigned to it.
 
 
-When onboarding to Semgrep Managed Scanning, the group or user assigned to the token must have the **`Owner`** or **`Admin`** role. The `Owner` or `Admin` role is required because Managed Scans of GitLab repositories require group webhooks. Semgrep uses these webhooks to facilitate diff-aware scans and create pull request (PR) comments. Webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. After onboarding is complete, you can downgrade the token’s role to `Developer`.
+When onboarding to Semgrep Managed Scans, the group or user assigned to the token must have the **`Owner`** or **`Admin`** role. The `Owner` or `Admin` role is required because Managed Scans of GitLab repositories require group webhooks. Semgrep uses these webhooks to facilitate diff-aware scans and create pull request (PR) comments. Webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. After onboarding is complete, you can downgrade the token’s role to `Developer`.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
