@@ -267,12 +267,7 @@
                       "semgrep-supply-chain/sca-feature-support"
                     ]
                   },
-                  {
-                    "group": "Setup and configuration",
-                    "pages": [
-                      "semgrep-supply-chain/getting-started"
-                    ]
-                  },
+                  "/semgrep-supply-chain/set-up-and-configure",
                   {
                     "group": "Detect vulnerabilities",
                     "pages": [
