@@ -16,11 +16,10 @@ You must provide a GitLab group access token or personal access token to Semgrep
 
 During SMS onboarding, the group or user to which the token is assigned must have one of the following roles: 
 
-- `Maintainer`
 - `Owner`
 - `Admin`
 
-This is because managed scans of GitLab repositories require the enablement of webhooks to facilitate diff-aware scans and the creation of pull request comments by Semgrep. The webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. Once onboarding is complete, you can downgrade the role assigned to the token to `Developer`.
+`Owner` or `Admin` role is required because managed scans of GitLab repositories require the configuration of group webhooks to facilitate diff-aware scans and the creation of pull request comments by Semgrep. The webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. Once onboarding is complete, you can downgrade the role assigned to the token to `Developer`.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
