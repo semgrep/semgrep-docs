@@ -1,6 +1,6 @@
 ---
 title: "Pre-deployment checklist"
-description: "Confirm your deployment scope, required access, and setup requirements before deploying Semgrep."
+description: "Confirm your deployment scope, access, and setup requirements before deploying Semgrep."
 ---
 
 Before you deploy Semgrep, use this checklist to confirm that your organization is ready to begin setup.
@@ -20,7 +20,7 @@ Confirm the following:
 
 - Which users and departments will use Semgrep.
 - Which repositories Semgrep will scan.
-- How often scans will run, and at what time if you use scheduled scans. Scan timing can affect other processes, such as PR approvals.
+- How frequently scans will run, and at what time if you use scheduled scans. Scan timing can affect other processes, such as PR approvals.
 - Whether scans will run on a schedule, in CI, or both.
 - Whether the deployment will happen all at once or in phases.
 - The expected timeframe for deployment.
@@ -35,8 +35,8 @@ Identify the teams that need to participate in the deployment. Depending on your
 
 | Team | Common responsibilities |
 | :--- | :--- |
-| Infrastructure | SSO, CI/CD, and source code manager configuration |
-| Engineering | Repository ownership and PR or MR workflows |
+| Infrastructure | SSO, CI/CD, and source code manager (SCM) configuration |
+| Engineering | Repository ownership, displaying findings to developers in PRs or MRs. |
 | IT | Firewall, virtual private network (VPN), and network access configuration |
 
 ## Assign Semgrep roles
@@ -47,7 +47,7 @@ Semgrep provides three primary roles: **Admin**, **Member**, and **Readonly**. O
 
 For single-user deployments, you are the sole **Admin** of your deployment.
 
-For multi-user deployments, confirm:
+For multi-user deployments, identify:
 
 - Which users will administer the deployment.
 - Which users need member access.
@@ -73,7 +73,7 @@ Confirm that you have the permissions required for the Semgrep features you plan
 This section is a readiness check only. For scope names, GitHub App permission details, and configuration steps, see [SCM permissions](/deployment/prepare/scm-permissions).
 </Note>
 
-Source code manager requirements vary depending on the provider and features you enable. Confirm that the right teams can create tokens, install apps, or update repository settings before you begin setup.
+SCM requirements vary depending on the provider and features you enable. Confirm that the right teams can create tokens, install apps, or update repository settings before you begin setup.
 
 
 Confirm access for the features you plan to enable:
@@ -148,7 +148,7 @@ After you complete this checklist, continue with the setup guide for your deploy
 
 Common next steps include:
 
-- [Connect your source code manager](/deployment/connect-scm)
+- [Connect your SCM](/deployment/connect-scm)
 - [Configure SSO](/deployment/sso)
 - [Set up Semgrep in CI](/deployment/add-semgrep-to-ci)
 - [Enable PR or MR comments](/category/pr-or-mr-comments)

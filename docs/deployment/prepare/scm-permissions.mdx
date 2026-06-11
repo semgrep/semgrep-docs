@@ -7,57 +7,49 @@ description: "Reference for source code manager permissions required by Semgrep 
 Use this page as the canonical reference for Source code manager (SCM) permissions. It lists what each feature requires and where to configure access.
 
 <Note>
-**Before you configure**
+**Before you configure** 
 
 Confirm organizational readiness on the [Pre-deployment checklist](/deployment/checklist). This page covers permission details and links to setup guides.
 </Note>
 
 ## Permissions {#permissions}
 
-The following tables summarize **organizational access** you need before setup—the authority to create tokens, install apps, or change repository settings. For code access scopes and configuration steps, see [Grant code access](/semgrep-appsec-platform/scm-code-access). For other features, use the links in [Configure permissions](#configure-permissions).
+The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Use **Configure** for step-by-step setup. For additional GitHub App permission details, see [GitHub App permissions](#github-app-permissions). For code access procedures, see [Grant code access](/semgrep-appsec-platform/scm-code-access).
 
 ### Azure DevOps
 
-| Feature | Permission required | Configure |
-| :--- | :--- | :--- |
-| Pull request comments | Create [user personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
-| Managed Scans | **Owner** or **Project Collection Administrator** role; create a PAT with required scopes | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
-| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Pull request comments | **Owner** or **Project Collection Administrator** (required for triage through PR comments) | **Full access** on the [user PAT](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) used for triage through PR comments | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
+| Managed Scans | **Owner** or **Project Collection Administrator** | **Full access** on the PAT during setup; then `Code: Read`, `Code: Status`, `Member Entitlement Management: Read`, `Project and Team: Read & write`, `Pull Request Threads: Read & write` | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
+| Code access | User who can update the SCM connection token | `Code: Read`, `Code: Write` on the connection PAT | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
 
 ### Bitbucket
 
-| Feature | Permission required | Configure |
-| :--- | :--- | :--- |
-| Pull request comments | Create repository variables | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
-| Managed Scans | Create a workspace or HTTP access token with required scopes | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket) |
-| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Pull request comments (Cloud) | User who can create workspace or repository variables; workspace path requires Bitbucket Cloud Premium | Workspace access token: **Pull requests** Read and Write; repository access token: **Pull requests** Read and Write | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Managed Scans (Cloud) | **Product Admin** | `webhook` (read and write), `repository` (read and write), `pullrequest` (read and write), `project` (admin), `account` (read) | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
+| Managed Scans (Data Center) | **Project Admin** | HTTP access token with `PROJECT_ADMIN` permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
+| Code access | User who can update the SCM connection token | Cloud: `repository:read`, `pullrequest:read`, `repository:write`, `pullrequest:write`; Data Center: `repository:read`, `repository:write` | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
 
 ### GitHub
 
-| Feature | Permission required | Configure |
-| :--- | :--- | :--- |
-| Sign in and connect repositories | Install the public [`semgrep-app`](https://github.com/apps/semgrep-app) GitHub App | [Connect a source code manager](/deployment/connect-scm), [Create an account](/deployment/create-account-and-orgs) |
-| Create CI jobs in bulk | Install GitHub Apps | [Connect a source code manager](/deployment/connect-scm) |
-| Pull request comments | GitHub App permissions on selected repositories | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
-| Managed Scans and AI-assisted features | Install a private Semgrep GitHub App with [code access](/semgrep-appsec-platform/scm-code-access) | [GitHub Managed Scans](/deployment/managed-scanning/github), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Sign in and connect repositories | Org member who can install GitHub Apps on the organization | Public [`semgrep-app`](https://github.com/apps/semgrep-app) installation; see [GitHub App permissions](#github-app-permissions) | [Connect a source code manager](/deployment/connect-scm), [Create an account](/deployment/create-account-and-orgs) |
+| Create CI jobs in bulk | Org member who can install GitHub Apps | Same as public `semgrep-app` permissions for repository onboarding | [Connect a source code manager](/deployment/connect-scm) |
+| Pull request comments | Org member who can configure `semgrep-app` on target repositories | Read and write access to **actions**, **pull requests**, **secrets**, **security events**, and **workflows** | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
+| Managed Scans and AI-assisted features | Org member who can install GitHub Apps | Public `semgrep-app` plus private Semgrep GitHub App with **Contents: Read** and permissions listed in [GitHub App permissions](#github-app-permissions) | [GitHub Managed Scans](/deployment/managed-scanning/github), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
 
 ### GitLab
 
-| Feature | Permission required | Configure |
-| :--- | :--- | :--- |
-| Sign in | `openid`, `email`, `profile`, and `API` scopes | [Connect a source code manager](/deployment/connect-scm) |
-| Merge request comments | Create personal access tokens | [GitLab MR comments](/semgrep-appsec-platform/gitlab-mr-comments) |
-| Managed Scans and AI-assisted features | Create personal or project-level access tokens; grant read access to user-selected repositories | [GitLab Managed Scans](/deployment/managed-scanning/gitlab), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
-| Code access | Grant read and write code access on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
-
-### GitLab sign-in scopes
-
-When users sign in with GitLab, Semgrep requires the following scopes to authenticate a session:
-
-- `openid`
-- `email`
-- `profile`
-- `API`
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Sign in | GitLab user authorizing Semgrep | `openid`, `email`, `profile`, `api` | [Connect a source code manager](/deployment/connect-scm) |
+| Merge request comments | **Owner** or **Admin** on the GitLab group | `api` on the group access token | [GitLab MR comments](/semgrep-appsec-platform/gitlab-mr-comments) |
+| Managed Scans and AI-assisted features | **Maintainer**, **Owner**, or **Admin** during onboarding (can downgrade to **Developer** after setup) | `api` on group or personal access token; `read_repository` for code access | [GitLab Managed Scans](/deployment/managed-scanning/gitlab), [Semgrep Multimodal](/semgrep-multimodal/getting-started) |
+| Code access | User who can update the SCM connection token | `read_repository`, `write_repository` on the connection token | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
 
 ## GitHub App permissions {#github-app-permissions}
 
