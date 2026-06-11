@@ -111,7 +111,7 @@ Semgrep provides several methods to customize ignore behavior. Refer to the foll
 
 ## Define ignored files and folders in `.semgrepignore`
 
-Configure a `.semgrepignore` file to ignore files and folders each time you run a Code or Supply Chain scan. 
+Configure a `.semgrepignore` file to ignore files and folders each time you run a Code or Supply Chain scan.
 
 <Warning>
 **CAUTION**
@@ -143,7 +143,7 @@ All files and folders defined using Semgrep AppSec Platform's **Path Ignores** f
 <Tip>
 **TIP**
 
-This method is utilized by the `semgrep ci` command. For `semgrep scan`, you can only define ignored files and folders through `.semgrepignore`.
+This method is used by the `semgrep ci` command. For `semgrep scan`, you can only define ignored files and folders through `.semgrepignore`.
 </Tip>
 
 ### Define files and folders for a specific project
@@ -182,7 +182,7 @@ Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platfor
 Click **Settings**. This takes you to the **General > Global** settings tab.
 </Step>
 <Step>
-Expand the box for **Path ignores**, and enter files and folders to ignore under either **For Code and Supply Chain** or **For Secrets**, depending on which products you want to ignore those files for.
+Expand the **Path ignores** section. Enter the file and folder paths you want Code and Supply Chain to ignore in **For Code and Supply Chain**. Enter the file and folder paths you want Secrets to ignore in **For Secrets**.
 </Step>
 <Step>
 Click **Save changes**.
@@ -305,7 +305,7 @@ Semgrep AppSec Platform users can disable rules and rulesets through the Policie
 <Tip>
 **TIP**
 
-This section focuses on ignoring as excluding or skipping files, not as a triage action. 
+This section focuses on ignoring as excluding or skipping files, not as a triage action.
 </Tip>
 
 Because Semgrep ignore logic is configured at the file, repository, and platform level, you may sometimes encounter unexpected behavior.
