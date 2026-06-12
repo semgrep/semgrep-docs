@@ -240,6 +240,10 @@ Lets Semgrep configure itself to run in CI by writing to .github/workflows/semgr
 Allows Semgrep Multimodal to fetch source code files on-demand to construct AI prompts.
 </Accordion>
 
+<Tip>
+**Autofix** (Semgrep Code and Semgrep Supply Chain upgrade PRs) needs **Contents: Read and write** on the private app, plus other permissions, so Semgrep can clone and push branches and open draft PRs. For a breakdown of Git operations versus REST endpoints, see [GitHub permissions and API usage for Autofix](/semgrep-code/triage-remediation/autofix#github-permissions-and-api-usage-for-autofix).
+</Tip>
+
 </Tab>
 
 <Tab title="Permissions for GitLab">
