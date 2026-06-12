@@ -62,54 +62,19 @@ Confirm that you have the permissions required for the Semgrep features you plan
 | :--- | :--- |
 | Run Semgrep continuously in your CI workflows | Add or change CI jobs, including committing configuration files for each repository |
 | Run Semgrep continuously in your CI workflows | Define environment variables and store secrets |
-| Run Semgrep continuously without changing your CI workflows | Grant read access to user-selected repositories |
 | Manage user authentication with SSO | View and edit SSO configurations |
 | Receive Slack notifications | Be a Slack workspace owner, or coordinate with the team responsible |
 | Send pull requests or merge requests to your SCM | Edit firewall or VPN allowlists for self-hosted repositories |
 
 ## Review SCM-specific requirements
 
-<Note>
-This section is a readiness check only. For scope names, GitHub App permission details, and configuration steps, see [SCM permissions](/deployment/prepare/scm-permissions).
-</Note>
+Confirm the following before you connect your SCM:
 
-SCM requirements vary depending on the provider and features you enable. Confirm that the right teams can create tokens, install apps, or update repository settings before you begin setup.
+- Which SCM provider or providers Semgrep will use.
+- Which features require SCM integration, such as PR or MR comments, Managed Scans, or AI-assisted triage.
+- Whether someone in your organization can complete SCM setup for those features.
 
-
-Confirm access for the features you plan to enable:
-
-<Tabs>
-<Tab title="Azure DevOps">
-
-- Pull request comments — someone can create [user personal access tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
-- Managed Scans or code access — someone has **Owner** or **Project Collection Administrator** access
-
-</Tab>
-
-<Tab title="Bitbucket">
-
-- Pull request comments — someone can create repository variables
-- Managed Scans or code access — someone can create workspace or repository access tokens
-
-</Tab>
-
-<Tab title="GitHub">
-
-- Bulk CI onboarding — someone can install GitHub Apps
-- Pull request comments — someone can configure the Semgrep GitHub App on target repositories
-- Managed Scans or AI-assisted features — someone can install a private Semgrep GitHub App and grant [code access](/semgrep-appsec-platform/scm-code-access)
-
-</Tab>
-
-<Tab title="GitLab">
-
-- Merge request comments — someone can create personal access tokens
-- Managed Scans or AI-assisted features — someone can create personal or project-level access tokens and grant repository read access
-
-</Tab>
-</Tabs>
-
-For permission details and setup guides, see [SCM permissions](/deployment/prepare/scm-permissions).
+Roles, token scopes, and setup steps are listed in [SCM permissions](/deployment/prepare/scm-permissions).
 
 ## Review network requirements
 
