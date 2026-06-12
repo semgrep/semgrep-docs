@@ -6,7 +6,7 @@ description: "Add GitLab repositories to your Semgrep organization in bulk witho
 
 ## Prerequisites and permissions
 
-Semgrep Managed Scanning (SMS) requires one of the following plans:
+Semgrep Managed Scans requires one of the following plans:
 
 - GitLab Premium
 - GitLab Ultimate
@@ -14,13 +14,10 @@ Semgrep Managed Scanning (SMS) requires one of the following plans:
 
 You must provide a GitLab group access token or personal access token to Semgrep. The token must have the `api` scope assigned to it.
 
-During SMS onboarding, the group or user to which the token is assigned must have one of the following roles: 
 
-- `Maintainer`
-- `Owner`
-- `Admin`
+When onboarding to Semgrep Managed Scans, the group or user assigned to the token must have the **`Owner`** or **`Admin`** role. The `Owner` or `Admin` role is required because Managed Scans of GitLab repositories require group webhooks. Semgrep uses these webhooks to facilitate diff-aware scans and create pull request (PR) comments. 
 
-This is because managed scans of GitLab repositories require the enablement of webhooks to facilitate diff-aware scans and the creation of pull request comments by Semgrep. The webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. Once onboarding is complete, you can downgrade the role assigned to the token to `Developer`.
+Webhooks are enabled by default when you set up Managed Scans and add GitLab as a source code manager. After onboarding is complete, you can downgrade the token’s role to `Developer`.
 
 See [Pre-deployment checklist > Permissions](/deployment/checklist#permissions) for more information about the permissions used by Semgrep.
 
@@ -320,7 +317,7 @@ Click **Remove** to confirm.
 Sign in to Semgrep AppSec Platform.
 </Step>
 <Step>
-Go to Projects and find the project you no longer want scanned with Semgrep Managed Scanning. Click the project's **Details** page > **Settings** tab. 
+Go to Projects and find the project you no longer want scanned with Semgrep Managed Scans. Click the project's **Details** page > **Settings** tab. 
 </Step>
 <Step>
 Toggle the switch for **Managed diff scans** to turn off scans of new pull requests and merge requests and **Managed full scans** to turn off full scans of the base branch.
