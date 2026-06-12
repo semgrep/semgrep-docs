@@ -75,11 +75,11 @@
                 "pages": [
                   "deployment/checklist",
                   "deployment/create-account-and-orgs",
-                  "deployment/prepare/scm-permissions",
-                  "deployment/prepare/network-access",
                   "deployment/connect-scm",
                   "semgrep-appsec-platform/scm-code-access",
                   "deployment/sso",
+                  "deployment/prepare/scm-permissions",
+                  "deployment/prepare/network-access",
                   {
                     "group": "Scan repositories with the AppSec Platform",
                     "root": "category/scan-repositories-with-the-appsec-platform",
