@@ -19,7 +19,7 @@ If you haven't already enabled Supply Chain:
     </Step>
 </Steps>
 
-Once you enable Semgrep Supply Chain, it automatically scans repositories that you have added to Semgrep AppSec Platform if your repositories meet the requirements for a successful scan.
+Once you enable Semgrep Supply Chain, it automatically scans any repositories that meet the scan requirements in Semgrep AppSec Platform.
 
 ## Project directory structure
 
@@ -40,14 +40,14 @@ In the following example, Supply Chain assumes that all code files using the dep
 ├───/biking
 ```
 
-If you have code files in `my-project/biking,` Supply Chain does not associate them with the dependencies in `my-project/running/lockfile.json.` If there is another manifest file or lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
+If you have code files in `my-project/biking,` Supply Chain does not associate them with the dependencies in `my-project/running/lockfile.json`. If there is another manifest file or lockfile in `my-project/running`, such as `my-project/running/uphill/lockfile.json`, then this overrides the original `my-project/running/lockfile.json` for all code files in `my-project/running/uphill/` or deeper directories.
 
 ## Scan frequency
 
 You can modify your CI configuration so that Supply Chain scans your code at a specified frequency or whenever a specific event occurs, such as opening a pull request or merge request.
 
 ### Rule updates
-Supply Chain [frequently receives rule updates](/semgrep-supply-chain/overview#new-cves-and-rule-updates). To take advantage of these updates, adjust the frequency with which Supply Chain scans your codebase.
+Semgrep Supply Chain [frequently receives rule updates](/semgrep-supply-chain/overview#new-cves-and-rule-updates). To take advantage of these updates, adjust the frequency with which Supply Chain scans your codebase.
 
 If a rule is updated, findings generated against the revised rule are considered **new findings**, even if the previous version generated a finding. The new finding is not affected by any triage actions on findings related to the prior version of the rule. Because the finding is new, you'll also receive notifications through the channels you've set up, such as Slack.
 
@@ -85,9 +85,9 @@ Semgrep prints a list of findings directly to the CLI, including the finding's r
 
 You can also view your results in Semgrep AppSec Platform. It displays all of the information displayed in the CLI, but offers additional functionality such as:
 
-- [Additional finding details](/semgrep-supply-chain/findings), such as whether the finding is always reachable or if it's reachable if certain conditions are met, and its transitivity status
-- [Dependency search](/semgrep-supply-chain/dependency-search) to view all of your project's dependencies and their associated vulnerabilities
-- [License compliance](/semgrep-supply-chain/license-compliance) to manage the dependencies used in your project based on their licenses
+- [Additional finding details](/semgrep-supply-chain/findings), such as whether the finding is always reachable, conditionally reachable, or transitive.
+- [Dependency search](/semgrep-supply-chain/dependency-search) to view all of your project's dependencies and their associated vulnerabilities.
+- [License compliance](/semgrep-supply-chain/license-compliance) to manage the dependencies used in your project based on their licenses.
 
 ## Scan a monorepo's dependencies
 
