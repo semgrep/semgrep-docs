@@ -54,27 +54,20 @@ For multi-user deployments, identify:
 - Which sign-in method members will use, such as SSO, GitHub Cloud, or GitLab Cloud.
 
 
-## Review required permissions
+## Review permissions and access
 
-Confirm that you have the permissions required for the Semgrep features you plan to enable.
+Confirm that your organization has the access needed for the features you plan to enable.
 
 | Feature | Permission required |
 | :--- | :--- |
 | Run Semgrep continuously in your CI workflows | Add or change CI jobs, including committing configuration files for each repository |
 | Run Semgrep continuously in your CI workflows | Define environment variables and store secrets |
+| Run Semgrep continuously without changing your CI workflows | Grant read access to user-selected repositories |
 | Manage user authentication with SSO | View and edit SSO configurations |
 | Receive Slack notifications | Be a Slack workspace owner, or coordinate with the team responsible |
 | Send pull requests or merge requests to your SCM | Edit firewall or VPN allowlists for self-hosted repositories |
 
-## Review SCM-specific requirements
-
-Confirm the following before you connect your SCM:
-
-- Which SCM provider or providers Semgrep will use.
-- Which features require SCM integration, such as PR or MR comments, Managed Scans, or AI-assisted triage.
-- Whether someone in your organization can complete SCM setup for those features.
-
-Roles, token scopes, and setup steps are listed in [SCM permissions](/deployment/prepare/scm-permissions).
+For SCM roles, token scopes, and setup steps by provider, see [SCM permissions](/deployment/prepare/scm-permissions).
 
 ## Review network requirements
 
