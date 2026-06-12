@@ -1707,6 +1707,10 @@
     {
       "source": "/semgrep-supply-chain/sca-package-manager-support",
       "destination": "/semgrep-supply-chain/requirements-and-feature-support"
+    },
+    {
+      "source": "/semgrep-supply-chain/getting-started",
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     }
   ]
 }
