@@ -267,13 +267,7 @@
                 "group": "SCA (Supply Chain)",
                 "pages": [
                   "semgrep-supply-chain/overview",
-                  {
-                    "group": "Requirements and feature support",
-                    "pages": [
-                      "semgrep-supply-chain/sca-package-manager-support",
-                      "semgrep-supply-chain/sca-feature-support"
-                    ]
-                  },
+                  "semgrep-supply-chain/requirements-and-feature-support",
                   {
                     "group": "Setup and configuration",
                     "pages": [
@@ -1710,6 +1704,14 @@
     {
       "source": "/mcp",
       "destination": "/guardian"
+    },
+    {
+      "source": "/semgrep-supply-chain/sca-feature-support",
+      "destination": "/semgrep-supply-chain/requirements-and-feature-support"
+    },
+    {
+      "source": "/semgrep-supply-chain/sca-package-manager-support",
+      "destination": "/semgrep-supply-chain/requirements-and-feature-support"
     }
   ]
 }
