@@ -268,12 +268,7 @@
                 "pages": [
                   "semgrep-supply-chain/overview",
                   "semgrep-supply-chain/requirements-and-feature-support",
-                  {
-                    "group": "Setup and configuration",
-                    "pages": [
-                      "semgrep-supply-chain/getting-started"
-                    ]
-                  },
+                  "semgrep-supply-chain/set-up-and-configure",
                   {
                     "group": "Detect vulnerabilities",
                     "pages": [
@@ -1347,7 +1342,7 @@
     },
     {
       "source": "/semgrep-sc/scanning-open-source-dependencies/",
-      "destination": "/semgrep-supply-chain/getting-started"
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     },
     {
       "source": "/semgrep-sc/sc-glossary/",
@@ -1712,6 +1707,10 @@
     {
       "source": "/semgrep-supply-chain/sca-package-manager-support",
       "destination": "/semgrep-supply-chain/requirements-and-feature-support"
+    },
+    {
+      "source": "/semgrep-supply-chain/getting-started",
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     }
   ]
 }
