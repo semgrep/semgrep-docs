@@ -28,14 +28,14 @@ You must have Python 3.10 or later installed on the machine where the Semgrep CL
         i. Install the Semgrep CLI and confirm the installation:
 
         ```bash
-        # install through homebrew
-        brew install semgrep
-
-        # or, install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+        # preferred: install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
         pipx install semgrep
 
-        # or, install through uv (https://docs.astral.sh/uv/)
+        # preferred: install through uv (https://docs.astral.sh/uv/)
         uv tool install semgrep
+
+        # best-effort: install through homebrew (maintained on a best-effort basis; often lags behind the latest release)
+        brew install semgrep
 
         # confirm installation succeeded by printing the currently installed version
         semgrep --version
@@ -43,6 +43,8 @@ You must have Python 3.10 or later installed on the machine where the Semgrep CL
 
         <Info>
         **NOTE**
+
+        `pipx` and `uv` are the preferred installation methods. The Homebrew formula is maintained on a best-effort basis and often lags behind the latest release.
 
         **Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
         </Info>

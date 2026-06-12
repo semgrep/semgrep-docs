@@ -131,7 +131,9 @@
                           "semgrep-appsec-platform/bitbucket-cloud-pr-comments",
                           "semgrep-appsec-platform/bitbucket-data-center-pr-comments"
                         ]
-                      },
+                      }
+                    ]
+                  },
                       {
                         "group": "Customize core deployment",
                         "root": "deployment/beyond-core-deployment",
@@ -144,12 +146,17 @@
                             ]
                           },
                           "semgrep-code/semgrep-pro-engine-intro",
-                          "semgrep-code/policies",
+                          {
+                            "group": "Unified policies",
+                            "root": "semgrep-appsec-platform/unified-policies/overview",
+                            "pages": [
+                              "semgrep-appsec-platform/unified-policies/get-started"
+                            ]
+                          },
+                          "semgrep-supply-chain/license-compliance",
                           "writing-rules/overview-1"
                         ]
                       }
-                    ]
-                  }
                 ]
               },
               {
@@ -257,19 +264,8 @@
                 "group": "SCA (Supply Chain)",
                 "pages": [
                   "semgrep-supply-chain/overview",
-                  {
-                    "group": "Requirements and feature support",
-                    "pages": [
-                      "semgrep-supply-chain/sca-package-manager-support",
-                      "semgrep-supply-chain/sca-feature-support"
-                    ]
-                  },
-                  {
-                    "group": "Setup and configuration",
-                    "pages": [
-                      "semgrep-supply-chain/getting-started"
-                    ]
-                  },
+                  "semgrep-supply-chain/requirements-and-feature-support",
+                  "semgrep-supply-chain/set-up-and-configure",
                   {
                     "group": "Detect vulnerabilities",
                     "pages": [
@@ -1343,7 +1339,7 @@
     },
     {
       "source": "/semgrep-sc/scanning-open-source-dependencies/",
-      "destination": "/semgrep-supply-chain/getting-started"
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     },
     {
       "source": "/semgrep-sc/sc-glossary/",
@@ -1700,6 +1696,18 @@
     {
       "source": "/mcp",
       "destination": "/guardian"
+    },
+    {
+      "source": "/semgrep-supply-chain/sca-feature-support",
+      "destination": "/semgrep-supply-chain/requirements-and-feature-support"
+    },
+    {
+      "source": "/semgrep-supply-chain/sca-package-manager-support",
+      "destination": "/semgrep-supply-chain/requirements-and-feature-support"
+    },
+    {
+      "source": "/semgrep-supply-chain/getting-started",
+      "destination": "/semgrep-supply-chain/set-up-and-configure"
     }
   ]
 }
