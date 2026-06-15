@@ -13,19 +13,17 @@ You should know which repositories you want to scan, which users and teams need 
 
 ## Confirm deployment scope
 
-Decide how broadly your organization will deploy Semgrep. The more users and repositories you onboard, the more important training becomes for security champions and other users who help manage findings.
-
+Decide how broadly your organization will deploy Semgrep. The more users and repositories you onboard, the more important training becomes for security champions and other users who help [manage findings](/for-developers/resolve-findings-through-comments).
 
 Confirm the following:
 
 - Which users and departments will use Semgrep.
-- Which repositories Semgrep will scan.
-- How frequently scans will run, and at what time if you use scheduled scans. Scan timing can affect other processes, such as PR approvals.
-- Whether scans will run on a schedule, in CI, or both.
-- Whether the deployment will happen all at once or in phases.
-- The expected timeframe for deployment.
+- Which [repositories](/deployment/manage-projects) Semgrep will scan. 
+- How frequently scans will run, and at what time if you use [scheduled scans](/deployment/customize-ci-jobs#set-a-scan-schedule). Scan timing can affect other processes, such as PR approvals.
+- Whether scans will run on a [schedule](/deployment/customize-ci-jobs#set-a-scan-schedule), in [CI](/deployment/add-semgrep-to-ci), through [Managed Scans](/deployment/managed-scanning/overview), or a combination of these methods.
+- The expected timeframe for deployment. Whether the deployment will happen all at once or in [phases](/deployment/core-deployment#deploy-semgrep-in-phases).
 
-Deployment times vary greatly depending on your processes and size. For example, monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) for more information.
+**Deployment times** vary greatly depending on your processes and size. For example, monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) for more information.
 
 ## Identify stakeholders
 
@@ -89,9 +87,7 @@ Confirm that your Semgrep CLI version is supported before deployment.
 
 Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. Semgrep AppSec Platform supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release is 1.60.0, all versions greater than 1.50.0 are supported, while earlier versions, such as 1.49.0, can be deprecated or can result in failures.
 
-To update Semgrep, see [Update Semgrep](/update).
-
-Docker users should use the [latest tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to stay up to date.
+To update Semgrep, see [Update Semgrep](/update). Docker users should use the [latest tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to stay up to date.
 
 Semgrep AppSec Platform session details:
 

@@ -75,9 +75,9 @@
                 "pages": [
                   "deployment/checklist",
                   "deployment/create-account-and-orgs",
+                  "deployment/sso",
                   "deployment/connect-scm",
                   "semgrep-appsec-platform/scm-code-access",
-                  "deployment/sso",
                   "deployment/prepare/scm-permissions",
                   "deployment/prepare/network-access",
                   {
