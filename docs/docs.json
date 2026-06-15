@@ -273,7 +273,7 @@
                     "group": "Detect vulnerabilities",
                     "pages": [
                       {
-                        "group": "Findings",
+                        "group": "View findings",
                         "root": "semgrep-supply-chain/findings",
                         "pages": [  
                           "semgrep-supply-chain/finding-details"
