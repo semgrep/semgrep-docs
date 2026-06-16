@@ -122,64 +122,6 @@ You can search for multiple packages simultaneously.
 | License | The dependency's license type. |
 | Language | The language of the dependency. |
 
-## Dependency paths (beta)
-
-<Note>
-**INFO**
-
-This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
-
-</Note>
-
-The <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. With this information, you can understand:
-
-- How a transitive dependency was introduced
-- How deeply the transitive dependency is nested in the dependency tree.
-
-### Supported languages
-
-Semgrep generates dependency paths for most C#, Java, JavaScript, Kotlin, and Python projects.
-
-#### C#
-
-Semgrep generates dependency paths for C# projects using NuGet.
-
-#### Java
-
-Semgrep generates dependency paths for Java projects that include a `maven_dep_tree.txt` file whenever you invoke a scan using `semgrep ci`.
-
-Semgrep can also generate dependency paths for Java projects with lockfiles and Java projects **without lockfiles** if they're built using Maven or Gradle with the help of the Gradle Wrapper. <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths for such projects are available when [scanning without lockfiles](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
-
-#### JavaScript
-
-Semgrep generates dependency paths for JavaScript projects that use `npm`, `yarn`, or `pnpm` and include a lockfile whenever you invoke a scan using `semgrep ci`.
-
-#### Kotlin
-
-Semgrep generates dependency paths for Kotlin projects built using Maven when a `maven_dep_tree.txt` file is present, and for Maven or Gradle when [scanning without lockfiles](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
-
-#### Python
-
-Semgrep generates dependency paths for Python projects that use the following package managers:
-
-- `poetry` and `poetry.lock` file
-- `uv` (requires Semgrep version `1.127.0` or later)
-
-Semgrep also generates dependency paths for Python projects that use the following package managers:
-
-- `Pipenv`
-- `piptools`
-- `pip` with `requirements.txt`
-
-when [scanning without lockfiles](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
-
-### View the dependency path
-
-After you have been added to the <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths beta and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
-
-- The **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details** page for a transitive finding
-- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path
-
 ## Troubleshooting: no dependencies appear on the Dependencies page
 
 If you don't see any results on the Dependencies page, ensure that:
