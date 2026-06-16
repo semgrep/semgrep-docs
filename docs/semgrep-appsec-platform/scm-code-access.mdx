@@ -112,10 +112,7 @@ Click **Save**.
   <Tab title="Bitbucket Data Center">
 <Steps>
 <Step>
-Navigate to the Bitbucket Data Center access token settings page: <code>BITBUCKET_BASE_URL/plugins/servlet/access-tokens/projects/PROJECT</code>.
-</Step>
-<Step>
-Create a new HTTP access token, ensuring that you assign the `repository:read` and `repository:write` scopes to the token, along with [any other scopes or permissions you may need](/deployment/managed-scanning/bitbucket#bitbucket-data-center) for other features you've enabled for your Semgrep deployment. Copy the token's value.
+See [Bitbucket Data Center HTTP access token requirements](/deployment/managed-scanning/bitbucket#bitbucket-data-center) to create a token with the permissions your deployment needs, including repository read and write access. Copy the token's value.
 </Step>
 <Step>
 Return to Semgrep AppSec Platform, and go to [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code). 

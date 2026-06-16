@@ -38,10 +38,10 @@ For additional GitHub App permission details, see [GitHub App permissions](#gith
 | PR comments (Cloud) | User who can create workspace or repository variables. Workspace path requires Bitbucket Cloud Premium. | <ul><li>Workspace access token: `Pull requests (read and write)`</li><li>Repository access token: `Pull requests (read and write)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
 | Triage through PR comments (Cloud) | **Product Admin**. Requires a paid Bitbucket Cloud plan and a workspace access token. | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
 | Managed Scans (Cloud) | **Product Admin** | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
-| Managed Scans (Data Center) | **Project Admin** | HTTP access token with `PROJECT_ADMIN` permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
+| Managed Scans (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
 | Code access | User who can update the SCM connection token | Connection token scopes (colon notation): <ul><li>Cloud:<ul><li>`repository:read`</li><li>`pullrequest:read`</li><li>`repository:write`</li><li>`pullrequest:write`</li></ul></li><li>Data Center:<ul><li>`repository:read`</li><li>`repository:write`</li></ul></li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
 | Autofix (Cloud) | **Product Admin** | <ul><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li></ul> on a workspace access token | [Autofix](/semgrep-code/triage-remediation/autofix) |
-| Autofix (Data Center) | **Project Admin** | HTTP access token with `PROJECT_ADMIN` permissions and repository write access | [Autofix](/semgrep-code/triage-remediation/autofix) |
+| Autofix (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions and repository write access | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
 </Tab>
 
