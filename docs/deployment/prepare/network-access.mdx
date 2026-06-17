@@ -4,7 +4,7 @@ sidebarTitle: "Network access"
 description: "Configure ingress and egress allowlists, IP addresses, and the Semgrep Network Broker so Semgrep can reach your SCM and related services."
 ---
 
-If your organization uses a firewall, VPN, self-hosted source code manager (SCM), or other network restrictions, confirm that Semgrep can connect to the systems it needs before you deploy.
+If your organization uses a self-hosted source code manager (SCM), IP allowlisting, or other network restrictions, confirm that Semgrep can connect to the systems it needs before you deploy.
 
 <Note>
 **Before you configure**
@@ -14,7 +14,7 @@ Use the [Pre-deployment checklist](/deployment/checklist) to confirm whether net
 
 ## When to configure allowlists
 
-You may need to update ingress or egress allowlists if any of the following apply:
+You might need to update ingress or egress allowlists if any of the following apply:
 
 - Your SCM offers security features that limit access to your resources.
 - Your SCM is behind a firewall or protected by network restrictions.
@@ -23,16 +23,16 @@ You may need to update ingress or egress allowlists if any of the following appl
 
 ## Ingress and egress allowlists
 
-Semgrep deployments may require both **ingress** and **egress** allowlist updates:
+Semgrep deployments might require both **ingress** and **egress** allowlist updates:
 
 - **Ingress allowlists** control traffic from Semgrep into your infrastructure.
 - **Egress allowlists** control traffic from your infrastructure to Semgrep.
 
-Depending on your network, you may need to configure one or both.
+Depending on your network, you might need to configure one or both.
 
 ## IP addresses {#ip-addresses}
 
-If you are behind a firewall, are using a virtual private network (VPN), or have network restrictions regarding access, you may need to add the following IP addresses to the **ingress** allowlist and **egress** allowlist:
+If you are behind a firewall, are using a virtual private network (VPN), or have network restrictions regarding access, you might need to add the following IP addresses to the **ingress** allowlist and **egress** allowlist:
 
 ```bash
 # Ingress IP addresses (from Semgrep to your infrastructure)
@@ -45,7 +45,7 @@ If you are behind a firewall, are using a virtual private network (VPN), or have
 
 ### CloudFront egress IP addresses
 
-You must also add **CloudFront IP addresses** to your **egress** allowlist. Refer to [Locations and IP address ranges of CloudFront edge servers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html) for a list of IP addresses.
+You must add **CloudFront IP addresses** to your **egress** allowlist. Refer to [Locations and IP address ranges of CloudFront edge servers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html) for a list of IP addresses.
 
 ## Semgrep Network Broker
 
@@ -53,7 +53,7 @@ The [Semgrep Network Broker](/semgrep-ci/network-broker) facilitates secure acce
 
 The Network Broker, however, only facilitates requests from Semgrep to your network. It does *not* assist with requests originating from your network to Semgrep, including egress traffic from your infrastructure to Semgrep.
 
-In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, or your tenant's equivalent. Depending on how restrictive your network is, you may also need to modify your egress allowlist to include the IP addresses listed in [IP addresses](#ip-addresses).
+In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, or your tenant's equivalent. Depending on how restrictive your network is, you might also need to modify your egress allowlist to include the IP addresses listed in [IP addresses](#ip-addresses).
 
 For setup instructions, see [Set up the Semgrep Network Broker](/semgrep-ci/network-broker).
 

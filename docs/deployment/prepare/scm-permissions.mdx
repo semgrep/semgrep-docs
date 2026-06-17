@@ -9,10 +9,11 @@ Use this page as the canonical reference for Source code manager (SCM) permissio
 <Note>
 **Before you configure** 
 
-Confirm organizational readiness on the [Pre-deployment checklist](/deployment/checklist). This page covers permission details and links to setup guides.
+Confirm organizational readiness using the [Pre-deployment checklist](/deployment/checklist), which covers permission details and includes links to setup guides.
 </Note>
 
-The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Unless noted otherwise, **pull request (PR)** refers to a proposed set of code changes in your SCM (GitLab uses **merge request (MR)** for the same concept). Use **Configure** for step-by-step setup. 
+
+The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Unless noted otherwise, **pull request (PR)** or merge request (MR) refers to a proposed set of code changes in your SCM. See **Configure** for setup guides. 
 
 <Tabs>
 
@@ -112,7 +113,7 @@ Facilitates debugging of Semgrep AppSec Platform when configured out of [GitHub 
 Enables integration with GitHub Advanced Security (for example, to show Semgrep results).
 
 **Reading and writing secrets**<br/>
-Enables automatically adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
+Enables the automatic adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
 
 **Reading and writing 2 files**<br/>
 Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `.github/workflows/semgrep.yml` and `.semgrepignore` files.
@@ -130,7 +131,7 @@ You can create a private GitHub app, which follows the naming convention **Semgr
 - [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix)
 
 <Note>
-Managed Scans and Multimodal require **read access** to your code. Autofix also requires **write access** and permission to open PRs. See [Grant code access](/semgrep-appsec-platform/scm-code-access) and [Autofix permissions](#autofix-permissions).
+Managed Scans and Multimodal [require **read access** to your code](/semgrep-appsec-platform/scm-code-access). Autofix also [requires **write access** and permission to open PRs](#autofix-permissions).
 </Note>
 
 <Accordion title="Click to review how Semgrep AppSec Platform uses permissions for Managed Scans and AI features.">
@@ -170,11 +171,11 @@ Allows Semgrep Multimodal to fetch source code files on-demand to construct AI p
 
 [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix) creates a branch with AI-generated changes and opens a **draft** PR or MR. Autofix requires [Semgrep Multimodal](/semgrep-multimodal/getting-started), code **read and write** access on your SCM connection, and permission to create PRs or MRs.
 
-For SCM and plan availability, see [Supported source code managers](/getting-started/scm-support). For roles, scopes, and setup links by provider, see the **Autofix** row in each table under [Permissions](#permissions).
+For SCM and plan availability, see [Supported source code managers](/getting-started/scm-support). For roles, scopes, and setup links, see the **Autofix** row for each provider in [Permissions](#permissions).
 
 ### GitHub App permissions and API usage {#autofix-github-permissions}
 
-Autofix uses your **private Semgrep GitHub App** with the permissions below. Use this section for security reviews (for example, which GitHub operations require **Contents: Read and write**).
+Autofix uses your **private Semgrep GitHub App** with the permissions below. Use this section for security reviews, such as determining which GitHub operations require **Contents: Read and write**).
 
 See [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure **Contents: Read and write** under **Repository permissions > Contents** on the private app.
 
@@ -189,7 +190,7 @@ See [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure *
 
 #### How repository contents are accessed
 
-Semgrep does **not** read or write file contents through the REST Contents API (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
+Semgrep does **not** read or write file contents through the API's `contents` endpoints (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
 
 ## Configure permissions {#configure-permissions}
 
