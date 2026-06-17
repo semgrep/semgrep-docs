@@ -17,6 +17,7 @@ Customize your CI job to achieve the following goals:
 * **Run Semgrep on a schedule**. Run full scans on main or trunk branches at the least intrusive time on developer teams.
 * **Run Semgrep when an event triggers**. Run Semgrep when a pull request or merge request (PR or MR) is created.
 - **Set a timeout to increase or decrease Semgrep's overall runtime.** If scans are taking too long, or rules aren't running, customize your per-rule timeout.
+- **Scan large monorepos in parts.** Split a monorepo into separate projects to reduce scan duration. See [Scan monorepos](#scan-monorepos).
 
 
 ## Set up diff-aware scans
@@ -64,3 +65,9 @@ SEMGREP_TIMEOUT="3" # Sets the per-rule timeout to 3 seconds.
 
 Setting this variable to **0** removes the time limit, meaning that rules can take any amount of time to run. This is not recommended.
 </Warning>
+
+## Scan monorepos {#scan-monorepos}
+
+Monorepos and other large codebases often take longer to scan than smaller repositories. Scan duration depends on codebase size, rule set, and CI resources—not on how long deployment takes.
+
+Semgrep supports scanning a monorepo in parts by treating each subfolder as a separate project in Semgrep AppSec Platform. This can improve scan performance and keep findings organized by component. See [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) for configuration steps.

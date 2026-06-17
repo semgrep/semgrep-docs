@@ -18,12 +18,12 @@ Decide how broadly your organization will deploy Semgrep. The more users and rep
 Confirm the following:
 
 - Which users and departments will use Semgrep.
-- Which [repositories](/deployment/manage-projects) Semgrep will scan. 
+- Which [repositories](/deployment/manage-projects) Semgrep will scan. For monorepos, also plan for [scan duration](/deployment/customize-ci-jobs#scan-monorepos).
 - How frequently scans will run, and at what time if you use [scheduled scans](/deployment/customize-ci-jobs#set-a-scan-schedule). Scan timing can affect other processes, such as PR approvals.
 - Whether scans will run on a [schedule](/deployment/customize-ci-jobs#set-a-scan-schedule), in [CI](/deployment/add-semgrep-to-ci), through [Managed Scans](/deployment/managed-scanning/overview), or a combination of these methods.
 - The expected timeframe for deployment. Whether the deployment will happen all at once or in [phases](/deployment/core-deployment#deploy-semgrep-in-phases).
 
-**Deployment times** vary greatly depending on your processes and size. For example, monorepos may take longer to finish scanning. Semgrep provides several options to improve performance, including piecemeal scanning of the monorepo. See [Scanning a monorepo in parts](/kb/semgrep-ci/scan-monorepo-in-parts) for more information.
+**Deployment timelines** vary based on organization size, how many repositories you onboard, and whether you roll out in phases.
 
 ## Identify stakeholders
 
@@ -56,14 +56,36 @@ For multi-user deployments, identify:
 
 Confirm that your organization has the access needed for the features you plan to enable.
 
-| Feature | Permission required |
-| :--- | :--- |
-| Run Semgrep continuously in your CI workflows | Add or change CI jobs, including committing configuration files for each repository |
-| Run Semgrep continuously in your CI workflows | Define environment variables and store secrets |
-| Run Semgrep continuously without changing your CI workflows | Grant read access to user-selected repositories |
-| Manage user authentication with SSO | View and edit SSO configurations |
-| Receive Slack notifications | Be a Slack workspace owner, or coordinate with the team responsible |
-| Send pull requests or merge requests to your SCM | Edit firewall or VPN allowlists for self-hosted repositories |
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Permission required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Run Semgrep continuously in your CI workflows</td>
+  <td><ul><li>Add or change CI jobs, including committing configuration files for each repository.</li><li>Define environment variables and store secrets.</li></ul></td>
+</tr>
+<tr>
+  <td>Run Semgrep continuously without changing your CI workflows</td>
+  <td>Grant read access to user-selected repositories.</td>
+</tr>
+<tr>
+  <td>Manage user authentication with SSO</td>
+  <td>View and edit SSO configurations.</td>
+</tr>
+<tr>
+  <td>Receive Slack notifications</td>
+  <td>Be a Slack workspace owner, or coordinate with the team responsible.</td>
+</tr>
+<tr>
+  <td>Send PRs or MRs to your SCM</td>
+  <td>Edit firewall or VPN allowlists for self-hosted repositories.</td>
+</tr>
+</tbody>
+</table>
 
 For SCM roles, token scopes, and setup steps by provider, see [SCM permissions](/deployment/prepare/scm-permissions).
 

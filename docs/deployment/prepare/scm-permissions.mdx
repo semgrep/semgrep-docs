@@ -12,11 +12,7 @@ Use this page as the canonical reference for Source code manager (SCM) permissio
 Confirm organizational readiness on the [Pre-deployment checklist](/deployment/checklist). This page covers permission details and links to setup guides.
 </Note>
 
-## Permissions {#permissions}
-
 The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Unless noted otherwise, **pull request (PR)** refers to a proposed set of code changes in your SCM (GitLab uses **merge request (MR)** for the same concept). Use **Configure** for step-by-step setup. 
-
-For additional GitHub App permission details, see [GitHub App permissions](#github-app-permissions). For [Autofix](/semgrep-code/triage-remediation/autofix) security review details on GitHub, see [Autofix permissions](#autofix-permissions). For code access procedures, see [Grant code access](/semgrep-appsec-platform/scm-code-access).
 
 <Tabs>
 
@@ -127,7 +123,7 @@ Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `
 
 ### Permissions for Managed Scans and AI features
 
-You can optionally create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for:
+You can create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for:
 
 - [Semgrep Managed Scans](/deployment/managed-scanning/overview)
 - [Semgrep Multimodal](/semgrep-multimodal/overview) and other AI-assisted features
