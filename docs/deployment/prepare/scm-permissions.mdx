@@ -171,7 +171,7 @@ Allows Semgrep Multimodal to fetch source code files on-demand to construct AI p
 
 [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix) creates a branch with AI-generated changes and opens a **draft** PR or MR. Autofix requires [Semgrep Multimodal](/semgrep-multimodal/getting-started), code **read and write** access on your SCM connection, and permission to create PRs or MRs.
 
-For SCM and plan availability, see [Supported source code managers](/getting-started/scm-support). For roles, scopes, and setup links, see the **Autofix** row for each provider in [Permissions](#permissions).
+For SCM and plan availability, see [Supported source code managers](/getting-started/scm-support). For roles, scopes, and setup links, see the **Autofix** row for each provider in [Permissions table](/deployment/prepare/scm-permissions).
 
 ### GitHub App permissions and API usage {#autofix-github-permissions}
 
@@ -192,13 +192,3 @@ See [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure *
 
 Semgrep does **not** read or write file contents through the API's `contents` endpoints (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
 
-## Configure permissions {#configure-permissions}
-
-| Goal | Guide |
-| :--- | :--- |
-| Connect your SCM | [Connect a source code manager](/deployment/connect-scm) |
-| Grant code read or write access | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
-| Enable PR or MR comments | [PR or MR comments](/category/pr-or-mr-comments) |
-| Add repositories without CI changes | [Managed Scans](/deployment/managed-scanning/overview) |
-| Enable AI-assisted triage | [Semgrep Multimodal getting started](/semgrep-multimodal/getting-started) |
-| Open Autofix PRs or MRs | [Autofix](/semgrep-code/triage-remediation/autofix) |
