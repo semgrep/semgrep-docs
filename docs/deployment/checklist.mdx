@@ -8,7 +8,7 @@ Before you deploy Semgrep, use this checklist to confirm that your organization 
 You should know which repositories you want to scan, which users and teams need access, which Semgrep features you plan to enable, and who owns the systems required for deployment.
 
 <Note>
-  Ensure that your infrastructure meets all [Prerequisites](/prerequisites) before running Semgrep.
+  Ensure that your infrastructure meets all [Prerequisites](/prerequisites) before deploying Semgrep.
 </Note>
 
 ## Confirm deployment scope
@@ -33,9 +33,9 @@ Identify the teams that need to participate in the deployment. Depending on your
 
 | Team | Common responsibilities |
 | :--- | :--- |
-| Infrastructure | SSO, CI/CD, and source code manager (SCM) configuration |
+| Infrastructure | SSO, CI/CD, and source code manager (SCM) configuration. |
 | Engineering | Repository ownership, displaying findings to developers in PRs or MRs. |
-| IT | Firewall, virtual private network (VPN), and network access configuration |
+| IT | Firewall, virtual private network (VPN), and network access configuration. |
 
 ## Assign Semgrep roles
 
@@ -71,7 +71,7 @@ For SCM roles, token scopes, and setup steps by provider, see [SCM permissions](
 
 If your organization uses a firewall, VPN, self-hosted SCM, or other network restrictions, confirm that Semgrep can connect to the systems it needs.
 
-You may need to configure:
+You might need to configure:
 
 - Ingress allowlists.
 - Egress allowlists.
@@ -85,9 +85,11 @@ For more information, see [Network access and allowlists](/deployment/prepare/ne
 
 Confirm that your Semgrep CLI version is supported before deployment.
 
-Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. Semgrep AppSec Platform supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release is 1.60.0, all versions greater than 1.50.0 are supported, while earlier versions, such as 1.49.0, can be deprecated or can result in failures.
+Many improvements to the Semgrep AppSec Platform experience only work with up-to-date Semgrep CLI versions. Semgrep AppSec Platform supports the 10 most recent minor versions of Semgrep CLI. For example, if the latest release is 1.60.0, all versions greater than 1.50.0 are supported, while earlier versions, such as 1.49.0, can result in failures.
 
 To update Semgrep, see [Update Semgrep](/update). Docker users should use the [latest tag](https://hub.docker.com/r/semgrep/semgrep/tags?page=1&name=latest) to stay up to date.
+
+### Review session requirements
 
 Semgrep AppSec Platform session details:
 
@@ -109,4 +111,4 @@ Common next steps include:
 - [Configure notifications](/semgrep-appsec-platform/notifications)
 - [Add users and assign roles](/deployment/teams/overview)
 
-Check out [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
+See [How to introduce Semgrep to your organization](https://blog.trailofbits.com/2024/01/12/how-to-introduce-semgrep-to-your-organization/) from Trail of Bits for tips on how to evaluate and deploy Semgrep for your org.
