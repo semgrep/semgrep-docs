@@ -189,42 +189,7 @@ To prevent security vulnerabilities from being merged into your codebase, see [S
 
 ### Grant **Read and write** access to a private GitHub Semgrep app
 
-Autofix PRs for Supply Chain use the same private GitHub App permissions and GitHub access patterns as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix#github-permissions-and-api-usage-for-autofix).
-
-<Accordion title={"Expand for instructions on granting read and write access to a private GitHub Semgrep app"}>
-If you are an **existing** Semgrep user and you need to change 
-your Semgrep app's permissions:
-
-<Steps>
-<Step>
-In GitHub, navigate to **[Settings > Developer Settings](https://github.com/settings/apps)**. You should see your Semgrep App listed in the **GitHub Apps** tab.
-</Step>
-<Step>
-Click **Edit** on the Semgrep app.
-</Step>
-<Step>
-Navigate to the **Permissions & events** section.
-</Step>
-<Step>
-Expand **Repository permissions** and go to **Contents**.
-</Step>
-<Step>
-Click the drop-down menu and select **Read and write**.
-</Step>
-<Step>
-Save these settings.
-</Step>
-<Step>
-Next, navigate back to the main **[GitHub Settings](https://github.com/settings/)** page. One way to do so is by clicking **Settings** in GitHub’s website breadcrumbs.
-</Step>
-<Step>
-In the **[Applications](https://github.com/settings/installations)** tab, locate the Semgrep app under the **Installed GitHub Apps** tab.
-</Step>
-<Step>
-Click **Review request** next to the **Permission updates requested** message, then choose **Accept new permissions**.
-</Step>
-</Steps>
-</Accordion>
+Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 
 ### Connect a private registry to Semgrep
 

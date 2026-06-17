@@ -3,7 +3,7 @@ title: "Enable source code manager code access"
 sidebarTitle: "Grant code access"
 ---
 
-Some Semgrep features require Semgrep to read repository contents, including [Semgrep Managed Scans](/deployment/managed-scanning/overview) and [Semgrep Multimodal](/semgrep-multimodal/overview).
+Some Semgrep features require Semgrep to read repository contents, including [Semgrep Managed Scans](/deployment/managed-scanning/overview), [Semgrep Multimodal](/semgrep-multimodal/overview), and [Autofix](/semgrep-code/triage-remediation/autofix) PRs for Semgrep Code and Supply Chain findings.
 
 <Note>
 **Other SCM permissions**
@@ -23,9 +23,15 @@ Grant code access by assigning additional scopes to the access token or GitHub A
 | GitHub.com and Github Enterprise | `contents:read` | `contents:write` |
 | GitLab and Gitlab Self-Managed | `read_repository` | `write_repository` |
 
-## Grant code access to Semgrep with a private GitHub app
+## Grant code access to Semgrep with a private GitHub app {#grant-code-access-to-semgrep-with-a-private-github-app}
 
-If you already have a private Semgrep GitHub app set up and configured for your deployment that **doesn't** have code access enabled, follow these steps to update the app and grant code access to Semgrep.
+If you are an **existing** Semgrep user and your private Semgrep GitHub app does not have code access enabled, follow these steps to update the app and grant code access to Semgrep.
+
+<Note>
+**Contents permission**
+
+The **Contents: Read and write** repository permission is separate from the permissions shown on the GitHub App overview page. It is **not** enabled automatically by other read/write permissions on the app.
+</Note>
 
 <Tip>
 **APP SLUG**
@@ -37,23 +43,38 @@ To find the name of your app slug:
 
 <Steps>
 <Step>
-Navigate to the GitHub Application permissions and events page. GitHub Enterprise users must replace the `https://github.com` base URL with the base URL of the GitHub Enterprise instance.<br/>
-    i. For organization accounts, go to <code>https://github.com/organizations/ORGANIZATION_NAME/settings/apps/APP_SLUG/permissions</code>.<br/>
-    ii. For user accounts, go to <code>https://github.com/settings/apps/APP_SLUG/permissions</code>
+In GitHub, navigate to **[Settings > Developer Settings](https://github.com/settings/apps)**. You should see your Semgrep App listed in the **GitHub Apps** tab. GitHub Enterprise users must replace the `https://github.com` base URL with the base URL of your GitHub Enterprise instance.
 </Step>
 <Step>
-Expand **Repository Permissions**.
+Click **Edit** on the Semgrep app.
 </Step>
 <Step>
-Under **Contents**, change the access level to **Read and write**. If you don't want to grant write permissions, change the access level to **Read**.
+Navigate to the **Permissions & events** section.
+</Step>
+<Step>
+Expand **Repository permissions** and go to **Contents**.
+</Step>
+<Step>
+Click the drop-down menu and select **Read and write**. **Read and write** is required to create [Autofix](/semgrep-code/triage-remediation/autofix) PRs. If you only need Semgrep to read repository contents, select **Read** instead.
 </Step>
 <Step>
 Click **Save Changes**.
 </Step>
 <Step>
-At this point, GitHub sends you or your GitHub admin an email to approve the permissions changes. Once approved, Semgrep has code access to your GitHub instance.
+GitHub may send you or your GitHub admin an email to approve the permission changes.
+</Step>
+<Step>
+Navigate back to the main **[GitHub Settings](https://github.com/settings/)** page. One way to do so is by clicking **Settings** in GitHub's website breadcrumbs.
+</Step>
+<Step>
+In the **[Applications](https://github.com/settings/installations)** tab, locate the Semgrep app under the **Installed GitHub Apps** tab.
+</Step>
+<Step>
+Click **Review request** next to the **Permission updates requested** message, then choose **Accept new permissions**.
 </Step>
 </Steps>
+
+Once approved, Semgrep has code access to your GitHub instance.
 
 
 ## Grant code access to Semgrep with an access token
