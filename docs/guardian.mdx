@@ -21,8 +21,6 @@ This guide covers setup for each of the preceding products listed, but the plugi
 
 * A Semgrep account
 
-Claude Code uses Semgrep's hosted remote server by default, so no local install is required. Every other IDE runs Semgrep from your locally installed CLI; the steps for those IDEs link to [Install the Semgrep CLI](#install-the-semgrep-cli).
-
 ## Connect to your IDE
 
 <Tabs>
@@ -40,10 +38,24 @@ Claude Code uses Semgrep's hosted remote server by default, so no local install 
       <Step>
         Open the plugin marketplace, search for **Semgrep**, and install it.
       </Step>
+      <Step>
+        Tell Claude to load the plugin:
+
+        ```bash
+        /reload-plugins
+        ```
+      </Step>
+      <Step>
+        Start a new session in Claude to begin the Semgrep login flow:
+
+        ```bash
+        /clear
+        ```
+      </Step>
     </Steps>
     The plugin registers a post-tool hook so Claude Code scans every file it writes. Learn more about [Claude Code plugins](https://code.claude.com/docs/en/plugins) and [hooks](https://code.claude.com/docs/en/hooks).
 
-    <Accordion title="Legacy: run Semgrep from a local plugin">
+    <Accordion title="Legacy: Run Semgrep Guardian locally">
       The remote server is the recommended default. If you need to run Semgrep locally instead, you can install the legacy local plugin from the [`semgrep/guardian-local`](https://github.com/semgrep/guardian-local) repo.
 
       <Steps>
