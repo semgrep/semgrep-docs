@@ -21,12 +21,12 @@ To use Autofix, you must meet the following requirements:
 * Accept Amazon Bedrock or Anthropic's Claude models.
   * During beta, Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
-* Confirm that your SCM and plan support Autofix. See [Supported source code managers](/getting-started/scm-support).
+* Confirm that your source code manager (SCM) and plan support Autofix. See [Supported source code managers](/getting-started/scm-support).
 * Grant the SCM roles, scopes, and app permissions Autofix needs for your provider. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) and, for GitHub security review details, [Autofix permissions](/deployment/prepare/scm-permissions#autofix-permissions).
 
 For GitHub, Autofix uses your **private Semgrep GitHub App**. The app is installed when you [add GitHub repositories to Semgrep Managed Scans](/deployment/managed-scanning/github#permissions). Verify the connection at **[Semgrep AppSec Platform > Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code)**.
 
-On GitHub, set **Repository permissions > Contents** to **Read and write** on the private app. This permission is separate from the permissions shown on the GitHub App overview page and is **not** enabled automatically by other read/write permissions. See [Grant code access](/semgrep-appsec-platform/scm-code-access) for steps.
+On GitHub, set **Repository permissions > Contents** to **Read and write** on the private app. See [Grant code access](/semgrep-appsec-platform/scm-code-access) for setup steps and how **Contents** differs from other GitHub App permissions.
 
 ## Use Autofix
 
