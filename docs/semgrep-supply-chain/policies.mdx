@@ -83,8 +83,8 @@ Use the following recommendations to help you create policies. These guidelines 
 
 - **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
 - **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
-- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
-- **Critical and high <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>**. There is a chance of these findings being exploited regardless of reachability.
+- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against the benefits of showing them more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
+- **Critical and high severity findings**. These findings could pose a significant risk, regardless of their reachability, and should be reviewed by a developer.
 
 ### Turn off PR and MR comments
 
@@ -116,12 +116,13 @@ The following table lists available conditions and their values:
 
 | Condition | Values|
 | :--- | :--- |
-| <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
+| <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">Reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
 | Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
-| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
+| <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">Transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
 | <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 | [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
+| Advisory | Provide an advisory ID, typically a CVE, GHSA, or MAL identifier, or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain. Similar to CVE, but allows more advisory identifier options. |
 
 
 ## Other operations
@@ -165,4 +166,4 @@ From the Supply Chain policies tab, click the **three dot (...) button > Delete 
 Note that: 
 
 - This does not remove comments from existing PRs or MRs with findings.
-- If a policy is the **sole culprit** for blocking a PR, deleting it **and** re-running a scan unblocks the PR or MR.
+- If a policy is the **sole reason** for blocking a PR, deleting it **and** re-running a scan unblocks the PR or MR.
