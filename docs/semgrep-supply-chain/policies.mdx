@@ -77,11 +77,11 @@ Use the following recommendations to help you create policies. These guidelines 
 ### Recommended conditions for blocking PRs or MRs
 
 - **Always block PRs or MRs that introduce dependencies or dependency versions identified as malicious**. These represent known supply chain attacks and should never be allowed into your codebase.
-- **Always reachable and reachable findings with upgradeable dependencies**. This provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
+- **Always reachable and reachable findings with <Tooltip tip="A finding only meets the Upgrade available condition when the package name in the finding has a fixed version under that exact same package name." cta="See full definition." href="/semgrep-supply-chain/glossary#upgrade-available">upgradeable dependencies</Tooltip>**. This provides a path to unblock the user, as Semgrep can leave a comment with the upgrade instructions.
 
 ### Recommended conditions for leaving a comment
 
-- **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
+- **Reachable findings without <Tooltip tip="A finding only meets the Upgrade available condition when the package name in the finding has a fixed version under that exact same package name." cta="See full definition." href="/semgrep-supply-chain/glossary#upgrade-available">upgradeable dependencies</Tooltip>**. This makes the developer aware of the risk.
 - **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
 - **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against the benefits of showing them more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
 - **Critical and high severity findings**. These findings could pose a significant risk, regardless of their reachability, and should be reviewed by a developer.
@@ -118,7 +118,7 @@ The following table lists available conditions and their values:
 | :--- | :--- |
 | <Tooltip tip="Whether a vulnerable code pattern from a dependency is used in the codebase that imports it. Semgrep Supply Chain requires both a vulnerable version and a matching pattern for reachability." cta="See full definition." href="/semgrep-supply-chain/glossary#reachability">Reachability</Tooltip>      | <ul><li>Always reachable</li><li>Reachable</li><li>Conditionally reachable</li> <li>Unreachable</li> <li>No reachability analysis</li> </ul>       |
 | Severity         | <ul><li>Critical</li><li>High</li><li>Medium</li><li>Low</li>  </ul>      |
-| Upgrade availability         | <ul> <li>Upgrade available</li> <li>Upgrade unavailable</li> </ul>       |
+| Upgrade availability         | <ul> <li><Tooltip tip="A finding only meets the Upgrade available condition when the package name in the finding has a fixed version under that exact same package name." cta="See full definition." href="/semgrep-supply-chain/glossary#upgrade-available">Upgrade available</Tooltip></li> <li>Upgrade unavailable</li> </ul>       |
 | <Tooltip tip="Describes a dependency's relationship to your codebase or first-party code. Semgrep uses Direct, Transitive, and Undetermined transitivity." cta="See full definition." href="/semgrep-supply-chain/glossary#transitivity">Transitivity</Tooltip> | <ul><li>Direct</li> <li>Transitive</li></ul> |
 | <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>  | <ul> <li>High</li><li>Medium</li><li>Low</li><li>None</li> </ul>   |
 | [CVE](https://www.cve.org/) | Manually provide a CVE ID, formatted as `CVE-YYYY-NNNN+` or choose from a list of values. The values listed are generated from findings identified by Semgrep Supply Chain.  |
