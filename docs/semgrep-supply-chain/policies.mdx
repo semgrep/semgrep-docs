@@ -83,8 +83,8 @@ Use the following recommendations to help you create policies. These guidelines 
 
 - **Reachable findings without upgradeable dependencies**. This makes the developer aware of the risk.
 - **Reachable, yet transitive findings**. Depending on your organization's policies, these may need to be flagged for risk.
-- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against showing developers more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
-- **Critical and high <Tooltip tip="Likelihood that a vulnerability will be exploited in the next 30 days. Semgrep groups probabilities as High (50 to 100%), Medium (10 to less than 50%), and Low (less than 10%)." cta="See full definition and Exploit Prediction Scoring System (EPSS)." href="/semgrep-supply-chain/glossary#epss-probability">EPSS probability</Tooltip>**. There is a chance of these findings being exploited regardless of reachability.
+- **Conditionally reachable findings**. The decision to show developers conditionally reachable findings may depend on weighing your compliance policies against the benefits of showing them more findings. Conditionally reachable findings typically require further investigation, manual triage, and ticketing.
+- **Critical and high severity findings**. These findings could pose a significant risk, regardless of their reachability, and should be reviewed by a developer.
 
 ### Turn off PR and MR comments
 
