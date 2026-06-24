@@ -8,8 +8,6 @@ description: "Semgrep’s Autofix feature uses AI to generate proposed code chan
 Autofix creates a branch, applies the changes, and opens a draft pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
 
 <Note>
-**INFO**
-
 Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
 </Note>
 
@@ -21,12 +19,11 @@ To use Autofix, you must meet the following requirements:
 * Accept Amazon Bedrock or Anthropic's Claude models.
   * During beta, Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
-* Confirm that your source code manager (SCM) and plan support Autofix. See [Supported source code managers](/getting-started/scm-support).
-* Grant the SCM roles, scopes, and app permissions Autofix needs for your provider. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) and, for GitHub security review details, [Autofix permissions](/deployment/prepare/scm-permissions#autofix-permissions).
+* Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 
-For GitHub, Autofix uses your **private Semgrep GitHub App**. The app is installed when you [add GitHub repositories to Semgrep Managed Scans](/deployment/managed-scanning/github#permissions). Verify the connection at **[Semgrep AppSec Platform > Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code)**.
-
-On GitHub, set **Repository permissions > Contents** to **Read and write** on the private app. See [Grant code access](/semgrep-appsec-platform/scm-code-access) for setup steps and how **Contents** differs from other GitHub App permissions.
+<Warning>
+Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
+</Warning>
 
 ## Use Autofix
 
@@ -59,7 +56,7 @@ Click **View Autofix PR** in the **FIX DETAILS** section to review the newly cre
 
 ### PR or MR details
 
-* The pull or merge request is opened as a **draft**.  
+* The pull or merge request is opened as a **draft** for Semgrep Code findings.  
 * Semgrep provides an AI-generated description of the changes in the PR or MR.  
 * On GitHub, the pull request is authored by the **Semgrep GitHub App**.  
 * If your SCM account is connected to Semgrep, you are automatically **mentioned** in the PR or MR.
