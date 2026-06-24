@@ -100,7 +100,7 @@ Pertains to a dependency's relationship to your codebase or first-party code.
 
 An upgrade is available when the exact package identified in a finding has a fixed version that can be upgraded to.
 
-Some advisories affect multiple packages, but not every affected package has its own fixed version. A finding only meets the **Upgrade available** condition when the package name in the finding has a fixed version under that exact same package name. If the advisory has a fix for a different affected package, but not for the package used in your project, the finding is considered **Upgrade unavailable**.
+Some advisories affect multiple packages, but not every affected package has its own fixed version. A finding only meets the **Upgrade available** condition when the package name in the finding has a fixed version under that exact package name. If the advisory has a fix for a different affected package, but not for the package used in your project, the finding is considered **Upgrade unavailable**.
 
 See [Manage policies](/semgrep-supply-chain/policies#policy-conditions) to use upgrade availability as a policy condition.
 
