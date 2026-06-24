@@ -1,11 +1,13 @@
 ---
-title: "View findings details"
-description: "The finding's details page displays in-depth information about the finding, including:"
+title: "View finding details"
+description: "Learn how to view details about a specific Supply Chain finding in Semgrep AppSec Platform."
 ---
 
-- A detailed description of the finding
+The **finding's details** page displays in-depth information about the finding, including:
+
+- A detailed description of the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip>
 - Rule details, including the severity level, EPSS scores, and identifiers such as the CVE ID
-- <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> details, such as whether the finding is reachable, when the finding was identified, and the projectname, branch name, and commit ID where the issue was introduced
+- Finding details, such as whether the finding is reachable, when the finding was identified, and the project name, branch name, and commit ID where the issue was introduced
 - Remediation suggestions
 - The code snippet where the issue was identified, along with a link to the source code where Semgrep identified the issue
 - <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> path information
@@ -13,14 +15,12 @@ description: "The finding's details page displays in-depth information about the
 
 ## View a finding's details
 
-To view a finding's details page:
-
 <Steps>
 <Step>
 Log in to [Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-In the **Navigation bar**, click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)**.
+In the **navigation bar**, click **[Supply Chain](https://semgrep.dev/orgs/-/supply-chain)**.
 </Step>
 <Step>
 Identify the finding whose details you want to view:
@@ -29,7 +29,7 @@ Identify the finding whose details you want to view:
 </Step>
 </Steps>
 
-## Available actions on the finding details' page
+## Available actions on the finding's details page
 
 Click on the **kebab** icon to see the menu that includes the following options:
 
