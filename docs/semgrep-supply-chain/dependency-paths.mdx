@@ -1,11 +1,8 @@
 ---
-title: "View dependency paths"
+title: "View Dependency paths (beta)"
 ---
 
-# Dependency paths (beta)
-
 <Note>
-**INFO**
 
 This feature is currently in invite-only beta. Please contact [Semgrep Support](/support) for more information.
 
@@ -13,7 +10,7 @@ This feature is currently in invite-only beta. Please contact [Semgrep Support](
 
 The <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths feature allows you to view dependency paths for all transitive dependencies introduced in a project, up to seven layers of depth. With this information, you can understand:
 
-- How a transitive dependency was introduced
+- How a transitive dependency was introduced.
 - How deeply the transitive dependency is nested in the dependency tree.
 
 ### Supported languages
@@ -45,17 +42,14 @@ Semgrep generates dependency paths for Python projects that use the following pa
 - `poetry` and `poetry.lock` file
 - `uv` (requires Semgrep version `1.127.0` or later)
 
-Semgrep also generates dependency paths for Python projects that use the following package managers:
-
+When [scanning without lockfiles](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta), Semgrep also generates dependency paths for Python projects that use the following package managers:
 - `Pipenv`
 - `piptools`
 - `pip` with `requirements.txt`
 
-when [scanning without lockfiles](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
-
 ### View the dependency path
 
-After you have been added to the <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths beta and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
+After you have been added to the <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> paths and a new scan completes on a repository, view the dependency paths in Semgrep AppSec Platform on:
 
-- The **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details** page for a transitive finding
-- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path
+- The **<Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details** page for a transitive finding.
+- The **Supply Chain > Dependencies** tab when you view a transitive dependency; click **Transitive** to see the dependency path.
