@@ -3,9 +3,9 @@ title: "Customize Semgrep Multimodal"
 description: "You can customize Semgrep Multimodal by enabling and using the features detailed on this page."
 ---
 
-## Remediation
+## Suggested fix
 
-Multimodal **Suggested fix** allows you to receive AI-generated code snippets for true positives. Perform the following to enable it:
+Multimodal **Suggested fix** includes suggestions on how to fix true positives. Suggested fix does **not** include inline code diffs. Perform the following to enable it:
 
 <Steps>
   <Step>
@@ -15,15 +15,28 @@ Multimodal **Suggested fix** allows you to receive AI-generated code snippets fo
   Click the **Suggested fix** <Icon icon="toggle-large-on"/> toggle to enable this feature.
   </Step>
   <Step>
-  *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix. For example, if you select lower confidence, Semgrep Multimodal suggests a fix even when the code quality is poor.
+  *Optional*: Select a **confidence level** in the drop-down box. This value determines the quality of Suggested fix guidance. For example, if you select lower confidence, Semgrep Multimodal suggests a fix even when the guidance quality is lower.
   </Step>
 </Steps>
 
 <Tip>
 **TIP**
 
-Semgrep recommends setting a low confidence level since even incorrect suggestions may be useful starting points for triage and remediation.
+Semgrep recommends setting a low confidence level since even imperfect guidance may be useful starting points for triage and remediation.
 </Tip>
+
+## Autofix
+
+To receive AI-generated code changes for Semgrep Code findings, enable [Autofix](/semgrep-code/triage-remediation/autofix). Autofix opens a draft pull request or merge request with proposed fixes.
+
+<Steps>
+  <Step>
+  Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Code**.
+  </Step>
+  <Step>
+  Click the **Autofix** <Icon icon="toggle-large-on"/> toggle to enable this feature.
+  </Step>
+</Steps>
 
 ## Weekly priority emails
 
@@ -60,7 +73,7 @@ Findings filtered out by Multimodal can be reviewed at any time in Semgrep by go
 
 ## Add Memories
 
-Memories allow admins to tailor Multimodal's remediation guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Multimodal gives a suggested fix.
+Memories allow admins to tailor Multimodal's Suggested fix guidance to their organization's standards and defaults. You can provide feedback by adding custom instructions whenever Multimodal provides a Suggested fix.
 
 Memories are enabled by default for all organizations with Multimodal enabled.
 
@@ -91,13 +104,13 @@ Memories are enabled by default for all organizations with Multimodal enabled.
 
 See [Best practices for writing Memories](/semgrep-multimodal/best-practices-for-memories) for information on writing effective memories.
 
-### Add a memory based on Multimodal's suggested fix
+### Add a memory based on Multimodal's Suggested fix
 
-To add a memory based on a suggested fix presented by Multimodal:
+To add a memory based on a Suggested fix presented by Multimodal:
 
 <Steps>
   <Step>
-  Identify the specific instance of **Multimodal's suggested fix** that you want to modify. These can be found on the finding details page or in the PR or MR comment.
+  Identify the specific instance of **Multimodal's Suggested fix** that you want to modify. This can be found on the finding details page or in the PR or MR comment.
    - If Multimodal used existing memories to generate the guidance, you can click on **Referenced <span className="placeholder">X</span> memories while writing this guidance** to see the memories used.
   </Step>
   <Step>
@@ -107,7 +120,7 @@ To add a memory based on a suggested fix presented by Multimodal:
   Click **Save and regenerate**.
   </Step>
   <Step>
-  Multimodal regenerates the suggested fix to reflect the instructions you provided.
+  Multimodal regenerates the Suggested fix guidance to reflect the instructions you provided.
   </Step>
 </Steps>
 

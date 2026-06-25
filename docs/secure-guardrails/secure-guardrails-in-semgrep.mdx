@@ -57,10 +57,10 @@ Semgrep supports the following interfaces:
 | :--- | :--- | :--- |
 | IDEs | [Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep) | <ul><li>Receive human-written remediation guidance.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
 | IDEs | [IntelliJ-based IDEs](https://plugins.jetbrains.com/plugin/22622-semgrep) | <ul><li>Receive human-written remediation guidance.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
-| PR or MR comments | [All GitHub plans](/semgrep-appsec-platform/github-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
-| PR or MR comments | [All GitLab plans](/semgrep-appsec-platform/gitlab-mr-comments) | <ul><li>Receive human-written and Semgrep Multimodal remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
-| PR or MR comments | [All Bitbucket plans](/category/bitbucket-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
-| PR or MR comments | [Azure DevOps Cloud](/semgrep-appsec-platform/azure-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal remediation guidance\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
+| PR or MR comments | [All GitHub plans](/semgrep-appsec-platform/github-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal suggestions on how to fix findings\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
+| PR or MR comments | [All GitLab plans](/semgrep-appsec-platform/gitlab-mr-comments) | <ul><li>Receive human-written and Semgrep Multimodal suggestions on how to fix findings\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
+| PR or MR comments | [All Bitbucket plans](/category/bitbucket-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal suggestions on how to fix findings\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
+| PR or MR comments | [Azure DevOps Cloud](/semgrep-appsec-platform/azure-pr-comments) | <ul><li>Receive human-written and Semgrep Multimodal suggestions on how to fix findings\*; you can customize the confidence level at which the AI leaves a comment.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
 | CLI through `pre-commit` | Most terminal emulator apps | <ul><li>Receive human-written remediation guidance.</li><li>Ignore or apply a [Rule-defined fix](/writing-rules/rule-defined-fix), if it is available, to findings individually.</li></ul> |
 
 _\*To receive Multimodal guidance, check that your source code manager (SCM) is supported: [list of supported source code managers (SCMs)](/semgrep-multimodal/overview#support-and-availability)._
@@ -151,31 +151,32 @@ rules:
 
 This description explains **why** the finding was generated and outlines **general advice** on resolving the issue. Messages notify developers in all interfaces where you've deployed a guardrail.
 
-#### AI-generated remediation guidance and code suggestions (Semgrep Multimodal)
+#### Suggested fix (Semgrep Multimodal)
 
-This is a tailored, **step-by-step** outline of what a developer must change to fix the insecure code.
+Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix the insecure code. Suggested fix does **not** include inline code diffs.
 The guidance makes use of the Semgrep rule, AI's understanding of code, and a prompt tree that incorporates inputs such as:
 
 - Prior triage decisions
 - Custom instructions
 - Broader context of the file
 
-<Frame caption="AI-generated guidance. Developers are able to commit the suggestion directly.">
+<Frame caption="Suggested fix suggestions on how to fix a finding in a pull request comment.">
 <img src="/images/guardrails-comment-step-by-step-604332ef3b7bb64d2911ca032dd03faf.png" alt="Semgrep PR comment with detailed remediation steps" />
 </Frame>
 
 <Note>
 **INFO**
 
-- Within developer-native interfaces, Semgrep Multimodal only appears in PR or MR comments. Multimodal guidance does not appear in the IDE or `pre-commit`.
-- You can adjust when the guidance is shown to developers based on the level of confidence in the guidance.
+- Within developer-native interfaces, Semgrep Multimodal only appears in PR or MR comments. Suggested fix guidance does not appear in the IDE or `pre-commit`.
+- You can adjust when Suggested fix guidance is shown to developers based on the level of confidence in the guidance.
+- For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix) from Semgrep AppSec Platform.
 </Note>
 
 #### The rule's human-written fix (`fix`)
 
-Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
+Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix that developers can commit directly from a pull request or merge request comment.
 
-Semgrep Multimodal does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
+For AI-generated code changes that open a draft pull request or merge request, use Semgrep's [Autofix](/semgrep-code/triage-remediation/autofix) feature.
 
 ## Deploy secure guardrails
 
