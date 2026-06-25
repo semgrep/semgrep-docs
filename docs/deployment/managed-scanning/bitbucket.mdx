@@ -11,7 +11,7 @@ Semgrep Managed Scans require one of the following plans:
 - Bitbucket Cloud Premium
 - Bitbucket Data Center (v8.8 or above for diff-aware scans)
 
-### Bitbucket Cloud
+### Bitbucket Cloud {#bitbucket-cloud}
 
 You must provide a Bitbucket [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) to Semgrep, which can be created by a user with the `Product Admin` role. Once you have Semgrep Managed Scans fully configured, you can update the token provided to Semgrep to one that's more restrictive. The scopes you must assign to the token include:
 
@@ -23,9 +23,33 @@ You must provide a Bitbucket [workspace access token](https://support.atlassian.
 
 Webhook permissions are required to support diff-aware scans.
 
-### Bitbucket Data Center
+### Bitbucket Data Center {#bitbucket-data-center}
 
-You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep, which can be created by a user with the `Project Admin` role. This access token must be created with `PROJECT_ADMIN` permissions.
+You must provide a Bitbucket [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) to Semgrep. The user who creates the token must be assigned the **Project Admin** role for the project you connect to Semgrep.
+
+
+
+
+#### Create an HTTP access token
+
+<Steps>
+<Step>
+Log in to Bitbucket Data Center as a user with the **Project Admin** role for the project you want to scan.
+</Step>
+<Step>
+Go to **Profile picture > Manage account > HTTP access tokens**.
+</Step>
+<Step>
+Click **Create token**.
+</Step>
+<Step>
+Set the token name, permissions, and expiry. Under **Permissions**, select **Project admin** for the project Semgrep will access.
+</Step>
+<Step>
+Copy the token value and provide it when you [connect Bitbucket Data Center to Semgrep](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects) or enable Managed Scans.
+</Step>
+</Steps>
+
 
 Project-level webhooks are required to support diff-aware scans.
 
@@ -98,7 +122,7 @@ Click **Enable**.
 
 <Steps>
 <Step>
-Ensure that you've connected your Bitbucket account by following the steps in [Connect a source code manager](/deployment/connect-scm) and confirm the workspace access token is created with the required scopes listed above with the `Product Admin` role.
+Ensure that you've connected your Bitbucket account by following the steps in [Connect a source code manager](/deployment/connect-scm) and confirm your token meets the [prerequisites](#prerequisites-and-permissions).
 </Step>
 <Step>
 In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.

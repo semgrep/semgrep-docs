@@ -1,37 +1,39 @@
 ---
 title: "Supported source code managers"
+sidebarTitle: "Supported SCMs"
 description: "Semgrep supports the following source code managers (SCM) and plans to varying degrees. Please review the information for your specific SCM and plan to see what Semgrep features are available to you."
 ---
 
 | Plan | Unsupported Semgrep features |
 | :--- | :--- |
-| Azure DevOps Cloud | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Azure DevOps Server | <ul><li>Semgrep Multimodal</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li> Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| Azure DevOps Cloud | <ul><li>Query console</li></ul> |
+| Azure DevOps Server | <ul><li>Semgrep Multimodal</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Premium | <ul><li>Query console</li></ul> |
+| Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.</li></ul> |
 | GitHub Free | - |
 | GitHub Pro | - |
 | GitHub Team | - |
 | GitHub Enterprise Cloud | - |
-| GitHub Enterprise Server | <ul><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Free | <ul><li>Semgrep Managed Scans*</li><li>Triage though MR comments*</li><li> Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Dedicated / Dedicated for Government | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Self-Managed Free | <ul><li>Semgrep Managed Scans*</li><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Self-Managed Premium | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
-| GitLab Self-Managed Ultimate | <ul><li>Query console</li><li>Auto PRs for Supply Chain findings</li></ul> |
+| GitHub Enterprise Server | - |
+| GitLab Free | <ul><li>Semgrep Managed Scans*</li><li>Triage through MR comments*</li><li>Query console</li></ul> |
+| GitLab Premium | <ul><li>Query console</li></ul> |
+| GitLab Ultimate | <ul><li>Query console</li></ul> |
+| GitLab Dedicated / Dedicated for Government | <ul><li>Query console</li></ul> |
+| GitLab Self-Managed Free | <ul><li>Semgrep Managed Scans*</li><li>Query console</li></ul> |
+| GitLab Self-Managed Premium | <ul><li>Query console</li></ul> |
+| GitLab Self-Managed Ultimate | <ul><li>Query console</li></ul> |
 
 <strong>†</strong>Semgrep Multimodal and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
 
 <strong>*</strong>Semgrep Managed Scans and triage through MR comments require access to group webhooks, which is unavailable to GitLab Free users.
 
+[Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above. Autofix is not yet available when Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker). 
 
 ## Access limitations
 
-You may need to add [Semgrep's IP addresses](/deployment/checklist#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker), if any of the following conditions apply:
+You may need to add [Semgrep's IP addresses](/deployment/prepare/network-access#ip-addresses) to your ingress and egress allowlists, or you can use the [Network Broker](/semgrep-ci/network-broker), if any of the following conditions apply:
 
 - Your SCM offers security features that limit access to your resources
 - Your SCM is behind a firewall or protected by network restrictions regarding access

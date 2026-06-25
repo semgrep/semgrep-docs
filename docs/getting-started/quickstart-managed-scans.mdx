@@ -83,7 +83,7 @@ You must have admin access to your Bitbucket organization.
 
 - V8.8 or above for diff-aware scans. Additionally, project-level webhooks are required to support diff-aware scans.
 - Read access is granted through an [HTTP access token](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html) you generate on Bitbucket. You can provide this token by [adding Bitbucket as a source code manager](/deployment/connect-scm#connect-to-on-premise-orgs-and-projects).
-- The user generating the workspace token must be a **Product Admin** for the workspace. The token must be created with `PROJECT_ADMIN` permissions.
+- The user generating the token must be a **Project Admin** for the project. See [Bitbucket Data Center prerequisites](/deployment/managed-scanning/bitbucket#bitbucket-data-center).
 
 ### Add a project
 
@@ -119,7 +119,7 @@ To enable and use this feature, you must grant Semgrep **Read access** to your c
 
 <Steps>
   <Step>
-  Go to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/checklist/#permissions) and proceed.
+  Go to [Semgrep AppSec Platform](https://semgrep.dev/login), and sign up by clicking on **Sign in with GitHub**. Follow the on-screen prompts to [grant Semgrep the necessary permissions](/deployment/prepare/scm-permissions#github-app-permissions) and proceed.
   </Step>
   <Step>
   Provide the **Organization display name** you'd like to use, then click **Create new organization**.

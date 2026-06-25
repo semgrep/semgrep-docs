@@ -1,75 +1,29 @@
 ---
 title: "Autofix for Semgrep Code (beta)"
 sidebarTitle: "Autofix (beta)"
-description: "Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Code findings. This page also describes required GitHub App permissions and how Semgrep accesses your repository."
+description: "Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Code findings and open a draft pull or merge request."
 ---
 
 
-Autofix creates a GitHub branch, applies the changes, and opens a draft pull request (PR). You remain in full control over reviewing and merging the PR.
+Autofix creates a branch, applies the changes, and opens a draft pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
 
 <Note>
-**INFO**
-
 Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
 </Note>
 
 ## Prerequisites
-
-<Info>
-**NOTE**
-
-Autofix is available only for GitHub Cloud repositories.
-</Info>
 
 To use Autofix, you must meet the following requirements:
 
 * [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).  
 * Accept Amazon Bedrock or Anthropic's Claude models.
   * During beta, Semgrep Code does not respect AI model selection.
-* Have at least one GitHub Cloud repository with new or existing Semgrep Code findings.  
-* Ensure the Semgrep private GitHub App is installed.
-  - The app is installed when you [add GitHub repositories to Semgrep Managed Scans](/deployment/managed-scanning/github#permissions).
-  - Verify that the app is connected by navigating to **[Semgrep AppSec Platform > Settings > Source code managers](https://semgrep.dev/orgs/-/settings/source-code)**.
-* Ensure that your GitHub App has `Contents: Read and write` permissions configured.
-  - Note that the `Contents: Read and write` repository permission is separate from the permissions shown on the GitHub App overview page. You must explicitly set **<Tooltip tip="A location, typically remote, for source code, including metadata relating to the source code. Semgrep supports Git repositories." cta="See full definition." href="/semgrep-code/glossary#repository">Repository</Tooltip> permissions > Contents** under **Developer Settings > GitHub Apps**. This setting is **not** enabled automatically by the other read/write permissions listed for the app.
+* Have at least one connected repository with new or existing Semgrep Code findings.
+* Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 
-
-<AccordionGroup>
-<Accordion title={"Expand for instructions on granting read and write access to a private GitHub Semgrep app"}>
-If you are an **existing** Semgrep user and you need to change 
-your Semgrep app's permissions:
-
-<Steps>
-<Step>
-In GitHub, navigate to **[Settings > Developer Settings](https://github.com/settings/apps)**. You should see your Semgrep App listed in the **GitHub Apps** tab.
-</Step>
-<Step>
-Click **Edit** on the Semgrep app.
-</Step>
-<Step>
-Navigate to the **Permissions & events** section.
-</Step>
-<Step>
-Expand **Repository permissions** and go to **Contents**.
-</Step>
-<Step>
-Click the drop-down menu and select **Read and write**.
-</Step>
-<Step>
-Save these settings.
-</Step>
-<Step>
-Next, navigate back to the main **[GitHub Settings](https://github.com/settings/)** page. One way to do so is by clicking **Settings** in GitHub’s website breadcrumbs.
-</Step>
-<Step>
-In the **[Applications](https://github.com/settings/installations)** tab, locate the Semgrep app under the **Installed GitHub Apps** tab.
-</Step>
-<Step>
-Click **Review request** next to the **Permission updates requested** message, then choose **Accept new permissions**.
-</Step>
-</Steps>
-</Accordion>
-</AccordionGroup>
+<Warning>
+Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
+</Warning>
 
 ## Use Autofix
 
@@ -92,20 +46,20 @@ You will see the following message:
 
 </Step>
 <Step>
-In **2 to 10 minutes**, Semgrep generates a proposed fix and opens a draft PR in GitHub.  
+In **2 to 10 minutes**, Semgrep generates a proposed fix and opens a draft PR or MR in your SCM.  
   * This action is recorded in the **Activity** section at the bottom of the finding’s **Details** page.  
 </Step>
 <Step>
-Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR in GitHub.
+Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR or MR.
 </Step>
 </Steps>
 
-### PR details
+### PR or MR details
 
-* The pull request is opened as a **draft**.  
-* Semgrep provides an AI-generated description of the changes in the pull request.  
-* The pull request is authored by the **Semgrep GitHub App**.  
-* If your GitHub account is connected to Semgrep, you are automatically **mentioned** in the pull request.
+* The pull or merge request is opened as a **draft** for Semgrep Code findings.  
+* Semgrep provides an AI-generated description of the changes in the PR or MR.  
+* On GitHub, the pull request is authored by the **Semgrep GitHub App**.  
+* If your SCM account is connected to Semgrep, you are automatically **mentioned** in the PR or MR.
 
 ### Findings with open PRs on Semgrep AppSec Platform
 
@@ -144,21 +98,3 @@ Because the code changes displayed on findings and PRs are generated separately,
 At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
 Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
-
-## GitHub permissions and API usage for Autofix
-
-Autofix uses your **private Semgrep GitHub App** with the permissions below. Use this section for security reviews (for example, which GitHub operations require **Contents: Read and write**).
-
-### Repository permissions
-
-| GitHub App permission | Why Autofix needs it |
-| :--- | :--- |
-| **Contents: Read** | Clone the repository using git+https (shallow, single-branch) so Semgrep can analyze the code and generate a fix. |
-| **Contents: Write** | Push the Autofix branch back to the repository using git+https. |
-| **Metadata: Read** | Read repository metadata, including the default branch, using `GET /repos/{owner}/{repo}`. |
-| **Pull requests: Write** | Open a **draft** pull request using `POST /repos/{owner}/{repo}/pulls`. |
-
-### How repository contents are accessed
-
-Semgrep does **not** read or write file contents through the REST Contents API (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
-

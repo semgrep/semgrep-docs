@@ -1,0 +1,196 @@
+---
+title: "Source code manager permissions"
+sidebarTitle: "SCM permissions"
+description: "Reference for source code manager permissions required by Semgrep features"
+---
+
+Use this page as the canonical reference for Source code manager (SCM) permissions. It lists what each feature requires and where to configure access.
+
+<Note>
+**Before you configure** 
+
+Confirm organizational readiness using the [Pre-deployment checklist](/deployment/checklist), which covers permission details and includes links to setup guides.
+</Note>
+
+
+## Permissions {#permissions}
+
+The following tables list **SCM roles** and **token or app scopes** required for each Semgrep feature. Unless noted otherwise, **pull request (PR)** or merge request (MR) refers to a proposed set of code changes in your SCM. See **Configure** for setup guides. 
+
+<Tabs>
+
+<Tab title="Azure DevOps Cloud">
+
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| PR comments | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> Required for triage through PR comments. | <ul><li>**Full access** during setup/triage-webhook enablement</li><li>After configuration:<ul><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul></li></ul> | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
+| Managed Scans | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | <ul><li>**Full access** on the PAT during setup</li><li>`Code: Read`</li><li>`Code: Status`</li><li>`Member Entitlement Management: Read`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
+| Code access | User who can update the SCM connection token | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Autofix | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
+
+</Tab>
+
+<Tab title="Bitbucket Cloud">
+
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| PR comments (Cloud) | User who can create workspace or repository variables. Workspace path requires Bitbucket Cloud Premium. | <ul><li>Workspace access token: `Pull requests (read and write)`</li><li>Repository access token: `Pull requests (read and write)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Triage through PR comments (Cloud) | **Product Admin**. Requires a paid Bitbucket Cloud plan and a workspace access token. | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Cloud PR comments](/semgrep-appsec-platform/bitbucket-cloud-pr-comments) |
+| Managed Scans (Cloud) | **Product Admin** | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
+| Managed Scans (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
+| Code access | User who can update the SCM connection token | Connection token scopes (colon notation): <ul><li>Cloud:<ul><li>`repository:read`</li><li>`pullrequest:read`</li><li>`repository:write`</li><li>`pullrequest:write`</li></ul></li><li>Data Center:<ul><li>`repository:read`</li><li>`repository:write`</li></ul></li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Autofix (Cloud) | **Product Admin** | <ul><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li></ul> on a workspace access token | [Autofix](/semgrep-code/triage-remediation/autofix) |
+| Autofix (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions and repository write access | [Autofix](/semgrep-code/triage-remediation/autofix) |
+
+</Tab>
+
+<Tab title="GitHub Cloud">
+
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Sign in and connect repositories | Org member who can install GitHub Apps on the organization | Public [`semgrep-app`](https://github.com/apps/semgrep-app) installation. See [GitHub App permissions](#github-app-permissions). | <ul><li>[Connect a source code manager](/deployment/connect-scm)</li><li>[Create an account](/deployment/create-account-and-orgs)</li></ul> |
+| Create CI jobs in bulk | Org member who can install GitHub Apps | Same as public [`semgrep-app`](https://github.com/apps/semgrep-app) permissions for repository onboarding | [Connect a source code manager](/deployment/connect-scm) |
+| PR comments | Org member who can configure [`semgrep-app`](https://github.com/apps/semgrep-app) on target repositories | <ul><li>`actions (read and write)`</li><li>`pull requests (read and write)`</li><li>`secrets (read and write)`</li><li>`security events (read and write)`</li><li>`workflows (read and write)`</li></ul> | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
+| Managed Scans and AI-assisted features | Org member who can install GitHub Apps | <ul><li>Public [`semgrep-app`](https://github.com/apps/semgrep-app) permissions</li><li>Private Semgrep GitHub App with `Contents: Read` and permissions listed in [GitHub App permissions](#github-app-permissions)</li></ul> | <ul><li>[GitHub Managed Scans](/deployment/managed-scanning/github)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
+| Autofix | Org member who can install GitHub Apps | Private Semgrep GitHub App repository permissions: <ul><li>`Contents: Read`</li><li>`Contents: Write`</li><li>`Metadata: Read`</li><li>`Pull requests: Write`</li></ul> See [GitHub Autofix permissions and API usage](#autofix-github-permissions). | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
+
+</Tab>
+
+<Tab title="GitLab Cloud">
+
+| Feature | Role | Scopes | Configure |
+| :--- | :--- | :--- | :--- |
+| Sign in | GitLab user authorizing Semgrep | <ul><li>`openid`</li><li>`email`</li><li>`profile`</li><li>`api`</li></ul> | [Connect a source code manager](/deployment/connect-scm) |
+| MR comments | <ul><li>**Owner**</li><li>**Admin**</li></ul> on the GitLab group | <ul><li>`api` on the group access token</li></ul> | [GitLab MR comments](/semgrep-appsec-platform/gitlab-mr-comments) |
+| Managed Scans and AI-assisted features | <ul><li>**Maintainer**</li><li>**Owner**</li><li>**Admin**</li></ul> during onboarding (can downgrade to **Developer** after setup) | <ul><li>`api` on group or personal access token</li><li>`read_repository` for code access</li></ul> | <ul><li>[GitLab Managed Scans](/deployment/managed-scanning/gitlab)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
+| Code access | User who can update the SCM connection token | Connection token scopes: <ul><li>`read_repository`</li><li>`write_repository`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Autofix | <ul><li>**Maintainer**</li><li>**Owner**</li><li>**Admin**</li></ul> during onboarding (can downgrade to **Developer** after setup) | Connection token scopes: <ul><li>`api`</li><li>`read_repository`</li><li>`write_repository`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
+
+</Tab>
+
+</Tabs>
+
+## GitHub App permissions {#github-app-permissions}
+
+Semgrep AppSec Platform requests different GitHub App permissions depending on when you grant access.
+
+### Permissions when signing in with GitHub
+
+Semgrep AppSec Platform requests the following standard permissions set by GitHub when you first sign in. However, not all permissions are used by Semgrep AppSec Platform.
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions when signing in.">
+
+**Verify your GitHub identity**<br/>
+Enables Semgrep AppSec Platform to read your GitHub profile data, such as your username.
+
+**Know which resources you can access**<br/>
+Semgrep does not use or access any resources when first logging in. However, you can choose to share resources at a later point to add repositories into Semgrep AppSec Platform.
+
+**Act on your behalf**<br/>
+Enables Semgrep AppSec Platform to perform certain tasks **only on resources that you choose to share with Semgrep AppSec Platform**. Semgrep AppSec Platform never uses this permission and never performs any actions on your behalf, even after you have installed `semgrep-app`. For more information, see [What does 'Act on your behalf' mean?](/kb/semgrep-appsec-platform/act-on-your-behalf) and [GitHub Apps acting on your behalf](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps) in GitHub documentation.
+</Accordion>
+
+### Permissions when adding members or repositories
+
+The public GitHub integration app is called [`semgrep-app`](https://github.com/apps/semgrep-app). This app integrates Semgrep into user-selected GitHub repositories.
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions when adding members or repositories.">
+
+**Reading metadata of the repositories you select**<br/>
+Enables Semgrep AppSec Platform to list repository names on the project setup page.
+
+**Reading the list of organization members**<br/>
+Enables Semgrep AppSec Platform to determine who can manage your Semgrep organization based on your GitHub organization's members list.
+
+**Reading and writing pull requests**<br/>
+Enables Semgrep AppSec Platform to comment about findings on PRs. Read permissions allow Semgrep AppSec Platform to automatically remove findings when the PR that introduced them is closed without merging.
+
+**Reading and writing actions**<br/>
+Enables Semgrep AppSec Platform to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.
+
+**Reading [GitHub Checks](https://docs.github.com/en/rest/reference/checks)**<br/>
+Facilitates debugging of Semgrep AppSec Platform when configured out of [GitHub Actions](https://docs.github.com/en/actions).
+
+**Reading and writing security events**<br/>
+Enables integration with GitHub Advanced Security (for example, to show Semgrep results).
+
+**Reading and writing secrets**<br/>
+Enables the automatic adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
+
+**Reading and writing 2 files**<br/>
+Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `.github/workflows/semgrep.yml` and `.semgrepignore` files.
+
+**Reading and writing workflows**<br/>
+Enables Semgrep AppSec Platform to configure itself to run in CI by writing to `.github/workflows/semgrep.yml`. GitHub allows writing to files within `.github/workflows/` directory only if this permission is granted along with "Writing a single file."
+</Accordion>
+
+### Permissions for Managed Scans and AI features
+
+You can create a private GitHub app, which follows the naming convention **Semgrep Code - <span className="placeholder">YOUR_ORG_NAME</span>**. This private app is used for:
+
+- [Semgrep Managed Scans](/deployment/managed-scanning/overview)
+- [Semgrep Multimodal](/semgrep-multimodal/overview) and other AI-assisted features
+- [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix)
+
+<Note>
+Managed Scans and Multimodal [require **read access** to your code](/semgrep-appsec-platform/scm-code-access). Autofix also [requires **write access** and permission to open PRs](#autofix-permissions).
+</Note>
+
+<Accordion title="Click to review how Semgrep AppSec Platform uses permissions for Managed Scans and AI features.">
+
+**Reading metadata of the repositories you select**<br/>
+Lets Semgrep list their names on the project setup page.
+
+**Reading the list of organization members**<br/>
+Lets Semgrep determine who can manage your Semgrep organization based on your GitHub organization's members list.
+
+**Writing (and reading) pull requests**<br/>
+Lets Semgrep comment about findings on PRs.
+
+**Writing (and reading) actions**<br/>
+Allows Semgrep AppSec Platform to cancel stuck jobs, rerun jobs, pull logs from jobs, and perform on-demand scanning.
+
+**Reading checks**<br/>
+Facilitates debugging of Semgrep AppSec Platform when configured out of GitHub Actions.
+
+**Writing (and reading) security events**<br/>
+Enables integration with GitHub Advanced Security (for example, to show Semgrep results).
+
+**Writing (and reading) secrets**<br/>
+Enables automatic adding of the Semgrep AppSec Platform Token to your repository secrets when onboarding projects. Note: Semgrep cannot read the values of your existing or future secrets (only the names).
+
+**Writing (and reading) 2 files**<br/>
+Lets Semgrep configure itself to run in CI by writing to `.github/workflows/semgrep.yml` and `.semgrepignore`.
+
+**Writing (and reading) workflows**<br/>
+Lets Semgrep configure itself to run in CI by writing to `.github/workflows/semgrep.yml`. GitHub allows writing to files within `.github/workflows/` only if this permission is granted along with "Writing a single file."
+
+**Read source code of the repositories you select**<br/>
+Allows Semgrep Multimodal to fetch source code files on-demand to construct AI prompts.
+</Accordion>
+
+## Autofix permissions {#autofix-permissions}
+
+[Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix) creates a branch with AI-generated changes and opens a **draft** PR or MR. Autofix requires [Semgrep Multimodal](/semgrep-multimodal/getting-started), code **read and write** access on your SCM connection, and permission to create PRs or MRs.
+
+For SCM and plan availability, see [Supported source code managers](/getting-started/scm-support). For roles, scopes, and setup links, see the **Autofix** row for each provider in [Permissions table](/deployment/prepare/scm-permissions).
+
+### GitHub App permissions and API usage {#autofix-github-permissions}
+
+Autofix uses your **private Semgrep GitHub App** with the permissions below. Use this section for security reviews, such as determining which GitHub operations require **Contents: Read and write**).
+
+See [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure **Contents: Read and write** under **Repository permissions > Contents** on the private app.
+
+#### Repository permissions
+
+| GitHub App permission | Why Autofix needs it |
+| :--- | :--- |
+| **Contents: Read** | Clone the repository using git+https (shallow, single-branch) so Semgrep can analyze the code and generate a fix. |
+| **Contents: Write** | Push the Autofix branch back to the repository using git+https. |
+| **Metadata: Read** | Read repository metadata, including the default branch, using `GET /repos/{owner}/{repo}`. |
+| **Pull requests: Write** | Open a **draft** PR using `POST /repos/{owner}/{repo}/pulls`. |
+
+#### How repository contents are accessed
+
+Semgrep does **not** read or write file contents through the API's `contents` endpoints (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Autofix reads and writes code only through the **Git transport layer** (clone and push), which still requires the GitHub **Contents** permissions above.
+
