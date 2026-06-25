@@ -48,25 +48,32 @@ Note that Multimodal-generated explanations are **not** available for custom rul
 
 ### Remediation
 
-Semgrep Multimodal can provide **Suggested fix** suggestions on how to fix Semgrep Code findings. For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix). For deterministic inline code changes in pull request or merge request comments, use [Rule-defined fix](/writing-rules/rule-defined-fix).
+Semgrep Multimodal can provide remediation guidance and Suggested fix for Semgrep Code findings. For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix). For deterministic inline code changes in pull request or merge request comments, use [Rule-defined fix](/writing-rules/rule-defined-fix).
 
-#### Suggested fix
+#### Guidance
 
-Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix does **not** include inline code diffs. For code changes, use [Autofix](/semgrep-code/triage-remediation/autofix) or a [Rule-defined fix](/writing-rules/rule-defined-fix) when the rule includes one.
+With Multimodal enabled, pull request or merge request comments from Semgrep include step-by-step remediation instructions for the finding identified by Semgrep Code.
 
-With Multimodal enabled, pull request or merge request comments from Semgrep include Suggested fix suggestions for the finding identified by Semgrep Code.
 
-Semgrep also displays Suggested fix information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
+Semgrep also displays remediation information on Semgrep AppSec Platform's **Findings page** under **Your code & fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding) page.
 
-You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Suggested fix recommendations as are available, set the minimum to **low confidence**.
-
-Multimodal customizes the guidance it provides based on any previous feedback and your rule customizations. For example, if you've created a custom rule that recommends a specific sanitizer, Multimodal will reference that sanitizer in its Suggested fix guidance whenever the rule is triggered.
 
 <Note>
 **INFO**
 
-Semgrep only waits for a limited amount of time for Multimodal Suggested fix guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
+Semgrep only waits for a limited amount of time for Multimodal guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
 </Note>
+
+#### Suggested fix
+
+Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix does **not** include inline code diffs. Multimodal only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Suggested fix recommendations as are available, set the minimum to **low confidence**.
+
+Multimodal customizes the suggestions it provides based on any previous feedback and your rule customizations. For example, if you've created a custom rule that recommends a specific sanitizer, Multimodal will reference that sanitizer in its Suggested fix whenever the rule is triggered.
+
+
+**Suggested fix** is also available in:
+- PR and MR comments so that you can review Semgrep's suggestions before applying a fix.
+- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 <Note>
 **INFO**
@@ -109,9 +116,9 @@ Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false 
 
 ### Memories
 
-Memories allows AppSec teams and developers to tailor Multimodal's Suggested fix guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal provides a Suggested fix, you can provide feedback by adding custom instructions.
+Memories allows AppSec teams and developers to tailor Multimodal's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal provides a Suggested fix, you can provide feedback by adding custom instructions.
 
-For example, if the code contains a hardcoded secret, Multimodal might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Multimodal. Multimodal then generates Suggested fix guidance that works with your specific secrets manager in the future.
+For example, if the code contains a hardcoded secret, Multimodal might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Multimodal. Multimodal then generates remediation guidance that works with your specific secrets manager in the future.
 
 ### Upgrade guidance (beta)
 

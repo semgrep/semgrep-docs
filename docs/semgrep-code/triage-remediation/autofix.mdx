@@ -8,7 +8,7 @@ description: "Semgrep’s Autofix feature uses AI to generate proposed code chan
 Autofix creates a branch, applies the changes, and opens a draft pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
 
 <Note>
-Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). Rule-defined fix provides deterministic, human-written inline code changes in pull request or merge request comments. Suggested fix includes suggestions on how to fix findings only and does not include inline code diffs. Autofix uses AI to generate code changes and open a draft pull request or merge request.
+Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
 </Note>
 
 ## Prerequisites
@@ -87,12 +87,14 @@ Set the Autofix toggle to enabled or disabled
 
 Autofix generates a proposed change specifically for the PR workflow. This process uses the detected pattern and surrounding code context to produce the fix. 
 
-### Use of Suggested fix guidance
+### Use of remediation guidance
 
-When Multimodal Suggested fix guidance exists for a finding, the descriptive guidance is used to generate the code changes included in the PR.
+Autofix PRs are generated independently of Semgrep Multimodal's Suggested fixes. When Multimodal remediation guidance exists for a finding, the descriptive guidance is used to generate the code changes included in the PR.
+
+Because the code changes displayed on findings and PRs are generated separately, the exact changes in an Autofix PR may differ from Multimodal's Suggested fix displayed on the finding.
 
 ### How memories affect PR generation
 
 At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
-Memories may affect PRs indirectly through Suggested fix guidance. If Suggested fix guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
+Memories may affect PRs indirectly through remediation guidance. If remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
