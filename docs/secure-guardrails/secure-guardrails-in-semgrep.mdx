@@ -175,7 +175,7 @@ The guidance makes use of the Semgrep rule, AI's understanding of code, and a pr
 
 When enabled, [Suggested fix](/semgrep-multimodal/overview#suggested-fix) includes suggestions on how to fix the insecure code. Suggested fix does **not** include inline code diffs. For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix) from Semgrep AppSec Platform.
 
-#### The rule's human-written fix (`fix`)
+#### Rule-defined fix 
 
 Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix that developers can commit directly from a pull request or merge request comment.
 
