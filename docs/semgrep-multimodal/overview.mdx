@@ -48,7 +48,7 @@ Note that Multimodal-generated explanations are **not** available for custom rul
 
 ### Remediation
 
-Semgrep Multimodal can provide remediation advice or Suggested fixes for Semgrep Code findings.
+Semgrep Multimodal can provide remediation guidance and Suggested fix for Semgrep Code findings. For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix). For deterministic inline code changes in pull request or merge request comments, use [Rule-defined fix](/writing-rules/rule-defined-fix).
 
 #### Guidance
 
@@ -59,27 +59,24 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 
 
 <Note>
-**INFO**
-
 Semgrep only waits for a limited amount of time for Multimodal guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
 </Note>
 
 #### Suggested fix
 
-Semgrep Multimodal's [**Suggested fix**](/writing-rules/rule-defined-fix/) feature suggests changes to code snippets for Semgrep Code findings when it identifies a true positive. Multimodal only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Multimodal suggestions as are available, set the minimum to **low confidence**.
+Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix provides an explanation of the finding and guidance on how to remediate it. It does not include inline code diffs. 
 
-Multimodal customizes the code snippets it provides based on any previous feedback and your rule customizations. For example, if you’ve created a custom rule that recommends a specific sanitizer, Multimodal will automatically suggest that sanitizer whenever the rule is triggered.
+Multimodal customizes the suggestions it provides based on any previous feedback and your rule customizations. For example, if you've created a custom rule that recommends a specific sanitizer, Multimodal will reference that sanitizer in its Suggested fix whenever the rule is triggered.
 
-
-**Suggested fix** is also available in: 
-- PR and MR comments so that you can review and verify Semgrep's generated fixes before applying them.
-- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+**Suggested fix** is available in Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding). You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To display the maximum number of available suggestions, set confidenve level to **low**.
 
 <Note>
-**INFO**
-
 If many new issues are found in a given scan, Multimodal auto-triage and Suggested fix may not run on every issue.
 </Note>
+
+#### Autofix (beta)
+
+Autofix uses AI to generate proposed code changes for Semgrep Code and Supply Chain findings. Enable Semgrep [Autofix](/semgrep-code/triage-remediation/autofix) to automatically create pull requests or merge requests with those changes.
 
 ### Component tags
 
@@ -116,7 +113,7 @@ Multimodal is [over 95% accurate in categorizing Semgrep Code findings as false 
 
 ### Memories
 
-Memories allows AppSec teams and developers to tailor Multimodal's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal gives a suggested fix, you can provide feedback by adding custom instructions.
+Memories allows AppSec teams and developers to tailor Multimodal's remediation guidance to their organization's standards and defaults on a per-project, per-rule basis. When Multimodal provides a Suggested fix, you can provide feedback by adding custom instructions.
 
 For example, if the code contains a hardcoded secret, Multimodal might suggest using an SDK that handles credentialing. However, if your company prefers to use a different secrets manager, you can provide this information to Multimodal. Multimodal then generates remediation guidance that works with your specific secrets manager in the future.
 

@@ -89,12 +89,11 @@ Autofix generates a proposed change specifically for the PR workflow. This proce
 
 ### Use of remediation guidance
 
-Autofix PRs are generated independently of Semgrep Multimodal's Suggested fixes. When Multimodal remediation guidance exists for a finding, the descriptive guidance is used to generate the code changes included in the PR.
+When Multimodal remediation guidance exists for a finding, the descriptive guidance is used to generate the code changes included in the PR.
 
-Because the code changes displayed on findings and PRs are generated separately, the exact changes in an Autofix PR may differ from Multimodal's suggested fix displayed on the finding.
 
 ### How memories affect PR generation
 
 At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
-Memories may affect PRs indirectly through remediation guidance. If general remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
+Memories may affect PRs indirectly through remediation guidance. If remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.

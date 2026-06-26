@@ -151,7 +151,7 @@ rules:
 
 This description explains **why** the finding was generated and outlines **general advice** on resolving the issue. Messages notify developers in all interfaces where you've deployed a guardrail.
 
-#### AI-generated remediation guidance and code suggestions (Semgrep Multimodal)
+#### Remediation guidance (Semgrep Multimodal)
 
 This is a tailored, **step-by-step** outline of what a developer must change to fix the insecure code.
 The guidance makes use of the Semgrep rule, AI's understanding of code, and a prompt tree that incorporates inputs such as:
@@ -160,22 +160,26 @@ The guidance makes use of the Semgrep rule, AI's understanding of code, and a pr
 - Custom instructions
 - Broader context of the file
 
-<Frame caption="AI-generated guidance. Developers are able to commit the suggestion directly.">
+<Frame caption="Remediation guidance in a pull request comment.">
 <img src="/images/guardrails-comment-step-by-step-604332ef3b7bb64d2911ca032dd03faf.png" alt="Semgrep PR comment with detailed remediation steps" />
 </Frame>
 
 <Note>
 **INFO**
 
-- Within developer-native interfaces, Semgrep Multimodal only appears in PR or MR comments. Multimodal guidance does not appear in the IDE or `pre-commit`.
-- You can adjust when the guidance is shown to developers based on the level of confidence in the guidance.
+- Within developer-native interfaces, Semgrep Multimodal only appears in PR or MR comments. Remediation guidance does not appear in the IDE or `pre-commit`.
+- You can adjust when remediation guidance is shown to developers based on the level of confidence in the guidance.
 </Note>
 
-#### The rule's human-written fix (`fix`)
+#### Suggested fix (Semgrep Multimodal)
 
-Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix, as opposed to Semgrep's [Autofix](/semgrep-code/triage-remediation#autofix-findings) feature which is AI powered.
+When enabled, [Suggested fix](/semgrep-multimodal/overview#suggested-fix) includes suggestions on how to fix the insecure code. Suggested fix does **not** include inline code diffs. For AI-generated code changes, use [Autofix](/semgrep-code/triage-remediation/autofix) from Semgrep AppSec Platform.
 
-Semgrep Multimodal does **not** provide a code snippet suggestion when a human-written fix is provided in the rule.
+#### Rule-defined fix 
+
+Sometimes a rule can resolve a finding by replacing an insecure function with a secure one. These rules make use of Semgrep's [Rule-defined fix](/writing-rules/rule-defined-fix) feature, which lets rule-writers provide a human-written deterministic fix that developers can commit directly from a pull request or merge request comment.
+
+For AI-generated code changes that open a draft pull request or merge request, use Semgrep's [Autofix](/semgrep-code/triage-remediation/autofix) feature.
 
 ## Deploy secure guardrails
 
