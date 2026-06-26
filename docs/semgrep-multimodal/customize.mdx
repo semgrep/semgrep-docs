@@ -5,7 +5,7 @@ description: "You can customize Semgrep Multimodal by enabling and using the fea
 
 ## Suggested fix
 
-Multimodal **Suggested fix** includes suggestions on how to fix true positives. Suggested fix does **not** include inline code diffs. 
+Multimodal **Suggested fix** includes an explanation on how to fix true positives. Unlike [Autofix](/semgrep-code/triage-remediation/autofix), Suggested fix does not include inline code diffs.
 
 To enable Suggested fix, follow these steps:
 
@@ -27,18 +27,10 @@ To enable Suggested fix, follow these steps:
 Semgrep recommends setting a low confidence level since even imperfect suggestions may be useful starting points for triage and remediation.
 </Tip>
 
-## Autofix
+## Autofix (beta)
 
-To receive AI-generated code changes for Semgrep Code findings, enable [Autofix](/semgrep-code/triage-remediation/autofix). Autofix opens a draft pull request or merge request with proposed fixes.
+To receive AI-generated code changes for Semgrep Code findings, enable [Autofix](/semgrep-code/triage-remediation/autofix). Autofix opens a pull request or merge request with proposed fixes.
 
-<Steps>
-  <Step>
-  Sign in to Semgrep AppSec Platform, and navigate to **Settings > General > Code**.
-  </Step>
-  <Step>
-  Click the **Autofix** <Icon icon="toggle-large-on"/> toggle to enable this feature.
-  </Step>
-</Steps>
 
 ## Weekly priority emails
 

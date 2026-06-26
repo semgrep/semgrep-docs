@@ -66,7 +66,9 @@ Semgrep only waits for a limited amount of time for Multimodal guidance before p
 
 #### Suggested fix
 
-Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix does **not** include inline code diffs. Multimodal only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To receive as many Suggested fix recommendations as are available, set the minimum to **low confidence**.
+Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix provides an explanation of the finding and guidance on how to remediate it. It does not include inline code diffs. 
+
+Semgrep Multimodal only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To display the maximum number of available suggestions, set the minimum level to **low confidence**.
 
 Multimodal customizes the suggestions it provides based on any previous feedback and your rule customizations. For example, if you've created a custom rule that recommends a specific sanitizer, Multimodal will reference that sanitizer in its Suggested fix whenever the rule is triggered.
 
