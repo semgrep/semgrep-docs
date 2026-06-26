@@ -59,8 +59,6 @@ Semgrep also displays remediation information on Semgrep AppSec Platform's **Fin
 
 
 <Note>
-**INFO**
-
 Semgrep only waits for a limited amount of time for Multimodal guidance before posting a PR or MR comment, since comments are time-sensitive. If guidance is missing from the PR or MR comment because it was not yet available, it should still be present on Semgrep AppSec Platform's **Findings page** for the finding.
 </Note>
 
@@ -68,18 +66,13 @@ Semgrep only waits for a limited amount of time for Multimodal guidance before p
 
 Semgrep Multimodal's **Suggested fix** includes suggestions on how to fix Semgrep Code findings when it identifies a true positive. Suggested fix provides an explanation of the finding and guidance on how to remediate it. It does not include inline code diffs. 
 
-Semgrep Multimodal only suggests a fix if the rule doesn't have a Rule-defined fix. You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To display the maximum number of available suggestions, set the minimum level to **low confidence**.
+You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To display the maximum number of available suggestions, set the minimum level to **low confidence**.
 
 Multimodal customizes the suggestions it provides based on any previous feedback and your rule customizations. For example, if you've created a custom rule that recommends a specific sanitizer, Multimodal will reference that sanitizer in its Suggested fix whenever the rule is triggered.
 
-
-**Suggested fix** is also available in:
-- PR and MR comments so that you can review Semgrep's suggestions before applying a fix.
-- Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+**Suggested fix** is available in Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 <Note>
-**INFO**
-
 If many new issues are found in a given scan, Multimodal auto-triage and Suggested fix may not run on every issue.
 </Note>
 
