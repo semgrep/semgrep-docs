@@ -46,7 +46,7 @@ description: "July 30, 2024 · 5 min read"
 
 - Fixed an error with Julia list comprehensions. For example, the pattern `[$A for $B in $C]` matches `[x for y in z]` and result in three bindings `[$A/x,$B/y,$C/z]` instead of one `[$A/x]`.
 - Fixed an issue resulting in deadlock when a scan has interfile analysis and tracing enabled and the number of subprocesses is greater than 1 (`j < 1`). {/* SAF-1157 */}
-- Fixed an issue where the number of files reported as scanned by Semgrep CLI was inflated due double-counting of generic and regex modes. {/* SAF-507 */}
+- Fixed an issue where the number of files reported as scanned by Semgrep CLI was inflated due to double-counting of generic and regex modes. {/* SAF-507 */}
 - `--debug` now generates fewer log entries. Additionally, when the number of ignored files, rules, or other entities is too large, Semgrep indicates this in the logs with `<SKIPPED DATA>` to keep the output minimal.
 
 ## ⛓️ Semgrep Supply Chain
@@ -81,7 +81,7 @@ description: "July 30, 2024 · 5 min read"
 
 ### Fixed
 
-- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, fail to be scanned by Semgrep Secrets. {/* SAF-1459 */}
+- Fixed an issue that caused files ignored by Semgrep Code, but not Semgrep Secrets, to fail to be scanned by Semgrep Secrets. {/* SAF-1459 */}
 
 ## 📝 Documentation and knowledge base
 

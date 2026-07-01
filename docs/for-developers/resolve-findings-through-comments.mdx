@@ -38,7 +38,7 @@ A human-written description always appears in a PR or MR comment, describing why
 Some Code findings have a dataflow graph, which indicates that the finding was detected through %%taint analysis|taint_analysis%%. The dataflow graph provides the lines of code identifying sources, sinks, and traces of unsanitized data flowing through your program. You can click the links on the boxes to take you to the lines of code.
 
 **D - Resolution or remediation section**<br/>
-Various options are provided to help your resolve the finding. Depending on the type of finding, resolution options may vary.
+Various options are provided to help you resolve the finding. Depending on the type of finding, resolution options may vary.
 
 **E - Ignore instructions**<br/>
 Click to view instructions about how to ignore the finding by replying to the comment.
@@ -67,7 +67,7 @@ If a line of code contains several findings, Semgrep does not provide the **Comm
 
 Semgrep Multimodal provides the following AI-powered security recommendations:
 
-- Step-by-step [remediation guidance](/semgrep-multimodal/overview#guidance)) in PR or MR comments. 
+- Step-by-step [remediation guidance](/semgrep-multimodal/overview#guidance) in PR or MR comments. 
 - "Safe to ignore" suggestions.
 
 <Frame caption="PR comment with remediation guidance and Suggested fix.">
@@ -98,8 +98,6 @@ If the finding is a false positive, acceptable risk, or similar, you can choose 
 <Frame caption="A completed triage flow.">
 ![A completed triage flow.](/images/pr-comment-triage-response-28597fb003b04c21f57912ad9f11802a.png)
 </Frame>
-_**Figure**. ._
-
 ## Re-run a job or workflow
 
 Resolving or ignoring findings does not automatically re-run Semgrep checks. After resolving or triaging the findings in your PR or MR, you must re-run the Semgrep job or workflow. See the following list for a link to your CI provider's documentation:
@@ -122,7 +120,7 @@ Resolving or ignoring findings does not automatically re-run Semgrep checks. Aft
 | :--- | :--- |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
 | **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
-| **Provisionally ignored** | Findings that Semgrep Multimodal has flagged as false positives. You can change the status to **Ignored** if you agree with Multimodal's assement. Otherwise, you can change the status to **To fix** if you disagree. |
+| **Provisionally ignored** | Findings that Semgrep Multimodal has flagged as false positives. You can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree. |
 | **To fix** | Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
 | **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 | **Ignored** | Findings marked as ignored are present in the code but have been labeled unimportant. Ignore false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). You can also provide a reason for ignoring a finding: **False positive**, **Acceptable risk**, **No time to fix**. |
