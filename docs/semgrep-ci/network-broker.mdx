@@ -29,7 +29,7 @@ If you will be using the Network Broker with a dedicated Semgrep tenant, please 
 ## Deployment
 The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
 
-Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and packet loss.
 
 ### System Requirements
 - CPU: 1
@@ -65,7 +65,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 <Tabs>
 <Tab title="v0.25.0 and later">
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
@@ -85,10 +85,10 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
 <Info>
 **NOTE**
 
-Semgrep recommends that users running Network Broker v0.24.0 or earlier to upgrade to v0.25.0 or later. This enables the use of a simplified config file.
+Semgrep recommends that users running Network Broker v0.24.0 or earlier upgrade to v0.25.0 or later. This enables the use of a simplified config file.
 </Info>
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
