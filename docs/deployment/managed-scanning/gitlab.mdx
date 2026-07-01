@@ -33,7 +33,7 @@ Click **Scan new project > Semgrep Managed Scan**.
 </Step>
 <Step>
 In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.<br/><br/>
-    i. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
+    i. Optional: If you do not see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
 </Step>
 <Step>
 Click **+ Connect more**.
@@ -74,7 +74,7 @@ Click **Scan new project > Semgrep Managed Scan**.
 </Step>
 <Step>
 In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.<br/><br/>
-    i. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
+    i. Optional: If you do not see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
 </Step>
 <Step>
 Select the repositories you want to scan from the list.
@@ -91,7 +91,7 @@ Click **Enable**.
 </Steps>
 
 
-### If the page doesn't display any repositories
+### If the page does not display any repositories
 
 <Steps>
 <Step>
@@ -102,10 +102,10 @@ Ensure that you've connected your GitLab account by following the steps in [Conn
 In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
 </Step>
 <Step>
-If the page doesn't display the repository you want to add, click **Can't find your project? > Sync projects**.
+If the page does not display the repository you want to add, click **Can't find your project? > Sync projects**.
 </Step>
 <Step>
-If the page doesn't display any repositories, click **Sync projects**.
+If the page does not display any repositories, click **Sync projects**.
 </Step>
 <Step>
 Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
@@ -231,7 +231,7 @@ Click the dropdown at the header and click **Delete project**.
 
 ### Configure fail open to prevent diff-aware scans from blocking pull requests and merge requests
 
-By default, diff-aware managed scans are set to **fail open** if a scan errors out or takes too long. This means that diff-aware scans are marked as successful on the pull request (PR) or merge request (MR), even if they haven't completed after the specified timeout, allowing you to make the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
+By default, diff-aware managed scans are set to **fail open** if a scan errors out or takes too long. This means that diff-aware scans are marked as successful on the pull request (PR) or merge request (MR), even if they have not completed after the specified timeout. This lets you make the Semgrep status check required in your source code manager (SCM) without blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
 
 <Frame caption="Sample pull request showing the status of a diff-aware scan.">
 ![Sample pull request showing the status of a diff-aware scan.](/images/pr-status-check-06f80c71ec387d84294255bdbfcdc25e.png)
