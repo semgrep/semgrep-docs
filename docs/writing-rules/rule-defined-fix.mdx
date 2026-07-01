@@ -1,6 +1,6 @@
 ---
 title: "Rule-defined fix"
-description: "Rule-defined fix is a Semgrep feature that lets you add suggested fixes to rules."
+description: "Rule-defined fix is a Semgrep feature that lets rule authors add suggested code changes to rules so scans can propose or apply automatic fixes."
 ---
 
 Semgrep's rule format supports a `fix:` key that supports the replacement of metavariables and regex matches with potential fixes. When rules that include a Rule-defined fix are triggered, Semgrep suggests these fixes in your pull request or merge request comments. You can view and easily resolve the findings as part of your code review workflow.
