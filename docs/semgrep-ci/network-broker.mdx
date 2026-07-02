@@ -15,7 +15,7 @@ Examples of inbound traffic include:
 - Code access for [Semgrep Managed Scans](/deployment/managed-scanning/overview) if enabled
 - [Webhooks](/semgrep-appsec-platform/webhooks)
 
-## Feature Availability
+## Feature availability
 <Info>
 **TIER AVAILABILITY**
 
@@ -31,11 +31,11 @@ The Network Broker can be run as a bare Docker container, in a Kubernetes cluste
 
 Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
 
-### System Requirements
+### System requirements
 - CPU: 1
 - RAM: 512 MB
 
-### Network Requirements
+### Network requirements
 - Between Semgrep and Broker:
   - Allow traffic from `wireguard.semgrep.dev` on UDP port 51820. If you are on a dedicated Semgrep tenant, allow traffic from `wireguard.<tenant-name>.semgrep.dev` instead.
   - If using the `--deployment-id` CLI flag, allow outbound to `semgrep.dev` on TCP port 443 for HTTPS.
@@ -44,7 +44,7 @@ Only one instance of the WireGuard-based Network Broker can be run at any time. 
 <Info>
 **DETERMINING IP ADDRESSES**
 
-To determine the IP addresses for a domain, use dig. The addresses are listed under the ANSWER section. Example: `dig wireguard.semgrep.dev`
+To determine the IP addresses for a domain, use `dig`. The addresses are listed under the ANSWER section. Example: `dig wireguard.semgrep.dev`
 </Info>
 
 ### Artifacts
@@ -53,7 +53,7 @@ You can choose between deploying pre-made artifacts or building your own.
 - Docker images are available from [ghcr.io/semgrep/semgrep-network-broker](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker).
 - A sample [Kubernetes Manifest](https://github.com/semgrep/semgrep-network-broker/blob/develop/kubernetes.yaml) is present within the repository. This should be extended for production.
 
-#### Build Yourself
+#### Build it yourself
 See the [Network Broker repository](https://github.com/semgrep/semgrep-network-broker)'s README for instructions on how to build it yourself.
 
 ## Configure Semgrep Network Broker
@@ -130,7 +130,7 @@ The broker requires a WireGuard keypair to establish a secure connection. To gen
 
 <Steps>
 <Step>
-Determine the [Network Broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.22.0`. Most users should use the latest version, especially when setting up the broker for the first time.
+Determine the [Network Broker version](https://github.com/semgrep/semgrep-network-broker/pkgs/container/semgrep-network-broker) you want to use. The format should be similar to `v0.42.0`. Most users should use the latest version, especially when setting up the broker for the first time.
 </Step>
 <Step>
 Run the following command in the CLI to generate your private key, replacing the placeholder with the Network Broker version number:
@@ -176,6 +176,9 @@ Update the `config.yaml` by replacing the SCM information containing `YOUR_BASE_
 
 <Tabs>
 <Tab title="Azure DevOps">
+
+Azure DevOps is compatible with Network Broker versions 0.28.0 and later.
+
 
 ```yaml
 inbound:
@@ -253,7 +256,7 @@ sudo docker logs CONTAINER_ID
 
 ### Adjusting log verbosity
 
-The Semgrep Network Broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
+Semgrep Network Broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
 
 <Warning>
 **PERFORMANCE IMPACT**
@@ -354,27 +357,17 @@ inbound:
 </Tab>
 </Tabs>
 
-The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`. For other source code managers, or earlier Network Broker versions the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`, and for other supported souce code managers from `v0.36.0`. For earlier Network Broker versions, the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
   allowlist:
-    # allow GET requests from Semgrep to https://git.example.com/*
+    # allow GET and POST requests from Semgrep to https://git.example.com/*
     - url: https://git.example.com/*
       methods: [GET, POST]
 ```
 
-Semgrep also creates and updates [GitHub Checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) when performing Managed Scans on pull requests. If you are running `v0.30.0` or earlier of the Network Broker: to ensure checks can be both created and updated, add the `PATCH` method to the preceding allowlist example, or add a separate entry to allowlist check updates:
-
-```yaml
-inbound:
-  allowlist:
-    # allow PATCH requests to update checks
-    - url: https://git.example.com/api/v3/repos/:owner/:repo/check-runs/:id
-      methods: [GET, POST, PATCH]
-```
-
-In Network Broker `v0.31.0` and later, this URL is part of the default allowlist.
+Semgrep also creates and updates PR/MR status checks and verifies the existence of branches to be scanned when performing Managed Scans. To ensure access is allowed for these endpoints for all source code managers, please upgrade to Semgrep Network Broker 0.41.0 or later.
 
 ## Use Semgrep Network Broker for private registry access
 
@@ -430,3 +423,4 @@ inbound:
         Authorization: "Bearer GITHUB_PAT"
     ...
 ```
+See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file) for more details on required endpoints.
