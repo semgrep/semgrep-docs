@@ -1,6 +1,6 @@
 ---
 title: "Run scans on pre-commit"
-description: "Run Semgrep as a pre-commit hook to catch security issues before code is committed, using Semgrep CE or a Semgrep AppSec Platform configuration."
+description: "Set up a Semgrep pre-commit hook to scan changed files before each commit, using either Semgrep CE or your Semgrep AppSec Platform rules."
 ---
 
 
@@ -19,7 +19,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.166.0'
+  rev: 'v1.168.0'
   hooks:
     - id: semgrep
       entry: semgrep
@@ -52,7 +52,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
 - repo: https://github.com/semgrep/pre-commit
-  rev: 'v1.166.0'
+  rev: 'v1.168.0'
   hooks:
     - id: semgrep-ci
 ```
