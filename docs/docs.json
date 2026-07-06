@@ -730,7 +730,8 @@
                       "kb/semgrep-supply-chain/scanning_multiple_lockfiles",
                       "kb/semgrep-supply-chain/ssc-lockfiles-circleci",
                       "kb/semgrep-supply-chain/ssc-python-lockfiles",
-                      "kb/semgrep-supply-chain/why-no-findings"
+                      "kb/semgrep-supply-chain/why-no-findings",
+                      "kb/semgrep-supply-chain/connect-a-private-registry"
                     ]
                   },
                   {
@@ -1709,6 +1710,10 @@
     {
       "source": "/semgrep-supply-chain/getting-started",
       "destination": "/semgrep-supply-chain/set-up-and-configure"
+    },
+    {
+      "source": "/semgrep-supply-chain/triage-and-remediation",
+      "destination": "/semgrep-supply-chain/triage-and-fix/overview"
     }
   ]
 }

@@ -1,0 +1,31 @@
+---
+title: "Triage and fix Supply Chain findings"
+sidebarTitle: "Triage and fix"
+---
+
+Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can assess, triage, and fix the findings presented in Semgrep AppSec Platform using the **Supply Chain** page.
+
+<Info>
+**PREREQUISITE**
+
+At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/set-up-and-configure).
+</Info>
+
+Semgrep provides the following methods to help you evaluate your findings:
+
+| Assessment action | Method |
+| :--- | :--- |
+| Filter findings. | Click any filter on the **Supply Chain** page. |
+| View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>. | Click the finding's <strong>CVE badge</strong>. |
+| View specific pattern matches in your codebase. | View the Supply Chain finding's **Details** page. |
+| View the [dependency path for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta). | View the Supply Chain finding's **Details** page. |
+| View safe versions to upgrade your dependencies. |  View the Supply Chain finding's **Details** page. |
+
+Once you've assessed the findings, the following actions are available to you:
+
+- Ignore findings
+- Remediate findings that are true positives
+- Remove the dependency and refactor the code
+- Use Upgrade Guidance and Autofix to...
+- Open a pull request or merge request with the fix for the finding
+

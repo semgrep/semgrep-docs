@@ -1,45 +1,4 @@
----
-title: "Triage and remediate Supply Chain findings"
-sidebarTitle: "Triage and remediation"
----
-
-
-<Info>
-**PREREQUISITE**
-
-At least one repository that scans for dependencies through Semgrep Supply Chain. See [Scan third-party dependencies](/semgrep-supply-chain/set-up-and-configure).
-</Info>
-
-Once Semgrep Supply Chain successfully scans your repository and you've [viewed your results](/semgrep-supply-chain/findings), you can assess, triage, and remediate the findings presented in Semgrep AppSec Platform using the **Supply Chain** page. Semgrep provides the following methods to help you evaluate your findings:
-
-| Assessment action | Method |
-| :--- | :--- |
-| Filter findings. | Click any filter on the **Supply Chain** page. |
-| View specific CVE entries in <a href="https://www.cve.org/">cve.org</a>. | Click the finding's <strong>CVE badge</strong>. |
-| View specific pattern matches in your codebase. | View the Supply Chain finding's **Details** page. |
-| View the [dependency path for a transitive dependency](/semgrep-supply-chain/dependency-search#dependency-paths-beta). | View the Supply Chain finding's **Details** page. |
-| View safe versions to upgrade your dependencies. |  View the Supply Chain finding's **Details** page. |
-
-Once you've assessed the findings, the following actions are available to you.
-
-## Remediate true positives
-
-Remediate (or resolve) true positives in Semgrep Supply Chain by:
-
-* Updating the dependency to a safe version that does not contain the vulnerability.
-* Removing the dependency and refactoring all usages in the codebase.
-
-## Review provisionally ignored findings
-
-Provisionally ignored findings are those identified by Semgrep as unreachable. These findings block pull requests and merge requests if the corresponding rule is included in a blocking policy.
-
-You can change the status of provisionally ignored findings to indicate the next steps in the triage process. For instance, you can set the status to **Reviewing** if you decide to manually review the finding.
-
-### Remove the dependency and refactor the code
-
-Removing dependencies and refactoring code are other methods to remediate vulnerabilities. Upon merging any dependency removals, Semgrep Supply Chain scans the pull request or merge request, detects changes to your manifest file or lockfile, and updates the status to **Fixed**.
-
-## Upgrade guidance and Autofix (beta)
+# Upgrade guidance and Autofix (beta)
 
 If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
@@ -156,77 +115,11 @@ The following context is included in the pull request description:
 - <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> references
   - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
 
-## Ignore findings
-
-The **Supply Chain** tab allows you to identify reachable true positives so you can fix or resolve the related issues. However, you can ignore any false positives, acceptable risks, or deprioritized findings due to some factor. To do this:
-
-<Steps>
-<Step>
-In Semgrep AppSec Platform, go to [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain).
-</Step>
-<Step>
-Select one or more findings.
-</Step>
-<Step>
-Click **Triage > Ignored**.
-</Step>
-<Step>
-Provide **Comments** to describe why you're ignoring the selected findings.
-</Step>
-<Step>
-Click **Submit**.
-</Step>
-</Steps>
-
-## Block pull requests or merge requests
-
-To prevent security vulnerabilities from being merged into your codebase, see [Supply Chain Policies](/semgrep-supply-chain/policies) for information on how to:
-
-- Block pull requests or merge requests with security vulnerabilities
-- Leave comments on pull requests or merge requests with security vulnerabilities
-
 ## Appendix
 
 ### Grant **Read and write** access to a private GitHub Semgrep app
 
 Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
-
-### Connect a private registry to Semgrep
-
-<Accordion title={"Expand to learn how to connect a private registry to Semgrep"}>
-<Steps>
-<Step>
-Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
-</Step>
-<Step>
-Navigate to **Settings > Integrations**.
-</Step>
-<Step>
-Click **Add**, then select **Registry**.
-</Step>
-<Step>
-In the dialog that appears, provide the following information:
-
-1. The **Name** of your registry.
-2. The <Tooltip tip="Software that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles." cta="See full definition." href="/semgrep-supply-chain/glossary#package-manager">**Package manager**</Tooltip>.
-3. The **Authentication method**. If none is required, select **None (public registry)**.
-    - **Username and password**: provide the required **Username** and **Password**.
-    - **API token**: provide the required token value.
-</Step>
-<Step>
-Optional: if your registry is only accessible from your private network, select **Use network broker for registry access**. This option requires a [Semgrep Network Broker](/semgrep-ci/network-broker) deployed within your network.
-
-When enabled, Semgrep routes registry traffic through the broker, allowing Semgrep to access registries that are not publicly accessible on the internet.
-
-<Note>
-For the broker to reach your registry, its allowlist must include the registry URL. See [Use Semgrep Network Broker for private registry access](/semgrep-ci/network-broker#use-semgrep-network-broker-for-private-registry-access).
-</Note>
-</Step>
-<Step>
-Click **Connect** to save your changes and proceed.
-</Step>
-</Steps>
-</Accordion>
 
 ### Troubleshooting: Semgrep is not displaying Upgrade guidance or Autofix functionality
 
