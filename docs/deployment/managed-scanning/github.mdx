@@ -12,7 +12,7 @@ To add a repository, you must install the public Semgrep GitHub app and create a
 - The public Semgrep GitHub app is required to easily add members of your GitHub org to your Semgrep org.
 - The private Semgrep GitHub app is required to enable code access for Managed Scans.
 
-If you haven't completed the installation of public and private Semgrep GitHub apps, Semgrep prompts you to do so when adding a repository.
+If you have not completed the installation of public and private Semgrep GitHub apps, Semgrep prompts you to do so when adding a repository.
 
 See [SCM permissions](/deployment/prepare/scm-permissions#github-app-permissions) for more information about the permissions used by Semgrep.
 
@@ -27,12 +27,12 @@ In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **
 Click **Scan new project > Semgrep Managed Scan**.
 </Step>
 <Step>
-If you haven't completed the installation of public and private Semgrep GitHub apps, you are redirected to the **Set up Managed Scans** page, which facilitates the creation of both.<br/><br/>
+If you have not completed the installation of public and private Semgrep GitHub apps, you are redirected to the **Set up Managed Scans** page, which facilitates the creation of both.<br/><br/>
     i. Follow the steps in the page to create and register both a public and private Semgrep GitHub app.
 </Step>
 <Step>
 In the **Enable Managed Scans for repos** page, select the repositories you want to add to Semgrep Managed Scans.<br/><br/>
-    i. Optional: If you don't see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
+    i. Optional: If you do not see the repository you want to add, click **Can't find your project?** and follow the troubleshooting steps provided.
 </Step>
 <Step>
 Select the repositories you want to scan from the list.
@@ -74,7 +74,7 @@ You can also confirm a complete installation through your GitHub settings page, 
 </Frame>
 _**Figure**. **GitHub > Settings > Applications** displaying both Semgrep apps. The private Semgrep app follows the convention **Semgrep Code - <span style={{color: '#e3116c'}}>YOUR_ORG_NAME</span>**_.
 
-### If the page doesn't display any repositories
+### If the page does not display any repositories
 
 <Steps>
 <Step>
@@ -84,10 +84,10 @@ Ensure you have provided access to **both** the private and public Semgrep GitHu
 In Semgrep AppSec Platform, click <Icon icon="folder-open" iconType="solid"/> **Projects**.
 </Step>
 <Step>
-If the page doesn't display the repository you want to add, click **Can't find your project? > Sync projects**.
+If the page does not display the repository you want to add, click **Can't find your project? > Sync projects**.
 </Step>
 <Step>
-If the page doesn't display any repositories, click **Sync projects**.
+If the page does not display any repositories, click **Sync projects**.
 </Step>
 <Step>
 Optional: Perform a hard refresh (<kbd>Ctrl</kbd>+<kbd>F5</kbd> or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
@@ -215,7 +215,7 @@ Click the dropdown at the header and click **Delete project**.
 
 ### Configure fail open to prevent diff-aware scans from blocking pull requests and merge requests
 
-By default, diff-aware managed scans are set to **fail open** if a scan errors out or takes too long. This means that diff-aware scans are marked as successful on the pull request (PR) or merge request (MR), even if they haven't completed after the specified timeout, allowing you to make the Semgrep status check required in your source code manager (SCM) while not blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
+By default, diff-aware managed scans are set to **fail open** if a scan errors out or takes too long. This means that diff-aware scans are marked as successful on the pull request (PR) or merge request (MR), even if they have not completed after the specified timeout. This lets you make the Semgrep status check required in your source code manager (SCM) without blocking someone from merging a PR or MR if the check encounters an unexpected issue or takes too long.
 
 <Frame caption="Sample pull request showing the status of a diff-aware scan.">
 ![Sample pull request showing the status of a diff-aware scan.](/images/pr-status-check-06f80c71ec387d84294255bdbfcdc25e.png)
