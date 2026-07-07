@@ -15,7 +15,7 @@ The plugin uses each IDE's native hook or MCP system:
 * **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse): [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
 * **Kiro**: [MCP](https://kiro.dev/docs/mcp/)
 * **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
-* **Windsurf**: [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
+* **Devin** (Windsurf): [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
 
 This guide covers setup for each of the preceding products listed, but the plugin works with any MCP client.
 
@@ -48,7 +48,7 @@ If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it. Semgr
 
 <Tabs>
   <Tab title="Claude Code">
-    Claude Code uses Semgrep's hosted remote server by default, so you don't need to install the Semgrep CLI locally.
+    Claude Code uses Semgrep's hosted remote server by default, so you do not need to install the Semgrep CLI locally.
 
     <Steps>
       <Step>
@@ -219,7 +219,7 @@ If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it. Semgr
     VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP. Learn more about [adding and managing MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
   </Tab>
 
-  <Tab title="Windsurf">
+  <Tab title="Devin (Windsurf)">
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -248,7 +248,7 @@ If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it. Semgr
   </Tab>
 
   <Tab title="Kiro">
-Kiro uses your locally installed Semgrep CLI to run Semgrep on your machine, so [install the Semgrep CLI](#install-the-semgrep-cli) first. Clicking the box below opens Kiro directly so you can add the server; it won’t open a new browser tab.
+Kiro uses your locally installed Semgrep CLI to run Semgrep on your machine, so [install the Semgrep CLI](#install-the-semgrep-cli) first. Clicking the box below opens Kiro directly so you can add the server; it will not open a new browser tab.
 
 [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=semgrep&config=%7B%22command%22%3A%22semgrep%22%2C%22args%22%3A%5B%22mcp%22%5D%2C%22env%22%3A%7B%22SEMGREP_APP_TOKEN%22%3A%22%24%7BSEMGREP_TOKEN%7D%22%7D%7D)
 
@@ -314,6 +314,25 @@ semgrep login && semgrep install-semgrep-pro
 `semgrep login` launches a browser window. You can also use the activation link printed in the terminal.
 </Step>
 </Steps>
+
+## Enterprise deployment guide
+
+To roll out Semgrep Guardian across an organization, standardize the install so every developer's agent picks up the plugin automatically instead of relying on each developer to install it by hand.
+
+### Use your agent's built-in enterprise controls
+
+Most coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to make Guardian available (or required) everywhere:
+
+* **Claude Code**: [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team)
+* **Cursor**: [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces)
+
+### Deploy through a mobile device management (MDM) platform for more granularity
+
+Deploy through your MDM platform to scope rollout by device group, or to combine Guardian with other managed configuration deployed via your MDM. Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS (`.plist` and `.mobileconfig` profiles via Jamf, Kandji, and similar) and Windows (PowerShell file deployment or ADMX/registry policy via Intune and Group Policy), along with how to verify that managed settings are applied.
+
+### Get help with a custom rollout
+
+Reach out if you want help building something custom for your MDM or agent fleet. You can find us in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) or check out our [support options](/support).
 
 ## Additional resources
 
