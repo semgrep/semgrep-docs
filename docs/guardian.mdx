@@ -31,9 +31,17 @@ How you sign in depends on which IDE you use.
 
 **Other IDEs:** These integrations run Semgrep through a locally installed CLI. Each developer signs in with `semgrep login`, which opens a browser-based login flow. See [Install the Semgrep CLI](#install-the-semgrep-cli).
 
+### CLI and OAuth credentials
+
+Guardian reads credentials from the same `~/.semgrep/settings.yml` file that the Semgrep CLI uses. If you are already logged in through `semgrep login`, Guardian inherits that session.
+
+For Claude Code's remote plugin, OAuth takes precedence. If you have both an OAuth session and CLI credentials in `~/.semgrep/settings.yml`, Guardian uses the OAuth session and ignores the CLI credentials.
+
+If you are switching from a local CLI setup to the remote Claude Code plugin, keep in mind that an active OAuth session takes precedence over an existing `semgrep login` session. If scans run under a different account than you expect, verify which credential type is active. Use [`semgrep logout`](/getting-started/cli#log-out) to remove CLI credentials from `~/.semgrep/settings.yml`.
+
 ### Enterprise rollout
 
-Semgrep does not support shared API tokens or service accounts for Guardian. Each developer should authenticate individually through OAuth (Claude Code) or `semgrep login` (local CLI integrations).
+Semgrep does not support shared API tokens or service accounts for Guardian. Each developer should authenticate individually through OAuth for Claude Code or `semgrep login` for local CLI integrations.
 
 Semgrep discourages sharing app or API tokens across a team because:
 
