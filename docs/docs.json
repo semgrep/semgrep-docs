@@ -283,8 +283,9 @@
                   },
                   {
                     "group": "Triage and fix vulnerabilities",
+                    "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/triage-and-remediation"
+                        "semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix"
                     ]
                   },
                   {
@@ -731,7 +732,8 @@
                       "kb/semgrep-supply-chain/ssc-lockfiles-circleci",
                       "kb/semgrep-supply-chain/ssc-python-lockfiles",
                       "kb/semgrep-supply-chain/why-no-findings",
-                      "kb/semgrep-supply-chain/connect-a-private-registry"
+                      "kb/semgrep-supply-chain/connect-a-private-registry",
+                      "kb/semgrep-supply-chain/no-upgrade-guidance-or-autofix"
                     ]
                   },
                   {

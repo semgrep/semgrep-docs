@@ -1,45 +1,45 @@
-# Upgrade guidance and Autofix (beta)
+---
+title: Upgrade Guidance and Autofix (beta)
+---
 
-If the remediation for a finding is to upgrade the package, **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
+**Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep Supply Chain scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Have Semgrep open a pull request or merge request that updates the version used by your repository and guide the developer on any breaking changes in the PR description
-- Create a Jira ticket
+- Use **Autofix** and have Semgrep open a pull request (PR) or merge request (MR) that updates the version used by your repository. If the update is a breaking change, Semgrep provides you with guidance on handling this in the PR or MR description.
+- Create a Jira ticket to track further work on the finding.
 - Set the finding's triage status as **To fix**
 
-Semgrep's dependency upgrade guidance can determine if the package upgrade needed to remediate the finding causes breaking changes. Semgrep can then create a PR to upgrade the package, offering a one-click solution to you.
+## Prerequisites
 
-### Supported languages and package managers
+Upgrade Guidance and Autofix are supported for:
 
 - **JavaScript** projects
-- **Python** codebases with the following package managers:
+- **Python** projects that use the following package managers:
   - `pip`
   - `pip-tools`
   - `pipenv`
   - `poetry`
   - `uv`
 
-### Supported SCMs
+You must use one of the following source code managers:
  
 - GitHub Cloud 
 - GitLab Cloud
 
-### Registry support
+Upgrade Guidance and Autofix support the use of:
 
-Public npm and PyPI registries are supported. Private PyPI registries are also supported.
+- Public `npm` and PyPI registries
+- Private PyPI registries
 
-See [Connect a private registry to Semgrep](#connect-a-private-registry-to-semgrep).
+### Feature availability
 
-### Prerequisites
+To access **all** upgrade guidance and Autofix features, you must have:
 
-To access all upgrade guidance and Autofix features, you must have:
-
-- Enabled upgrade guidance in Semgrep AppSec Platform by going to **Settings > General > Supply Chain**
-- At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/set-up-and-configure).
+- Enabled Upgrade Guidance in Semgrep AppSec Platform by going to [**Settings > General > Supply Chain**](https://semgrep.dev/orgs/-/settings/general/supplyChain), then clicking the **Upgrade Guidance & Autofix** toggle.
+- At least one repository with [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure).
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
 - The **private** GitHub app for Semgrep installed. The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they have not already.
+  - Autofix PRs and MRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep) to improve results.
-
-### Features and permissions required
 
 The following table summarizes the features available to you depending on the prerequisites you meet:
 
@@ -51,10 +51,9 @@ The following table summarizes the features available to you depending on the pr
 | All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
 | All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
 
+## How Upgrade Guidance works
 
-### How this works
-
-After enabling upgrade guidance, Semgrep performs post-scan analysis and marks applicable findings as **Safe to upgrade** or with **Breaking changes**.
+After you turn on Upgrade Guidance, Semgrep performs post-scan analysis on your existing results and marks applicable findings as either **Safe to upgrade** or with **Breaking changes**.
 
 - This analysis is performed every **two hours** on the latest **full scan**.
 - Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
@@ -66,9 +65,9 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 ![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/images/upgrade-guidance-flowchart-b8ff76ae3e794eecb0217fbbee21beef.png)
 </Frame>
 
-### Review a finding's upgrade guidance 
+## Review a finding's Upgrade Guidance 
 
-To view detailed information about a finding in Semgrep AppSec Platform, go to the **Supply Chain** page. Locate the finding you want to review, then click **Details**.
+To view detailed information about a finding in Semgrep AppSec Platform, use the **navigation bar** to go to the **Supply Chain** page. Locate the finding you want to review, then click to open its **Details** page.
 
 The details page is divided into several panels:
 
@@ -87,48 +86,24 @@ The details page is divided into several panels:
   - **Dependency path**: displays the path of dependencies; useful when analyzing transitive dependencies
   - **Pattern** and **Rule**: the pattern and rule logic that determined the match
 
-### Open a pull request or merge request with fixes
+## Open a pull request or merge request with fixes
+
+After reviewing a finding's Upgrade Guidance, you can open a pull request or merge request to upgrade the dependency to a safe version:
 
 <Steps>
 <Step>
-Navigate to the **Details** page of the finding for which you want to make a pull request or merge request.
+Go to the finding's **Details** page.
 </Step>
 <Step>
 Click **Fix** > **Open Autofix PR**.
 </Step>
 </Steps>
 
-A pull request or merge request includes:
+The newly created PR or MR includes the following:
 
-- The manifest and/or lockfile changes necessary to upgrade the dependency
-- The context necessary for developers to fix potentially breaking changes
-
-The following context is included in the pull request description:
-
-- Summary
-  - Severity and reachability of the finding
-  - The specific version of the dependency that the PR upgrades to
-- <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> details
-  - A description of the vulnerability and links to its CVE references
-- Upgrade guidance
-  - The files and functions in the code which make use of the dependency and likely include breaking changes
-- <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> references
-  - Release notes, changelogs, and commits of the dependency, which may be helpful to resolve the breaking changes
-
-## Appendix
-
-### Grant **Read and write** access to a private GitHub Semgrep app
-
-Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
-
-### Troubleshooting: Semgrep is not displaying Upgrade guidance or Autofix functionality
-
-<Accordion title={"Expand for information on troubleshooting if Semgrep is not displaying any upgrade guidance or Autofix functionality"}>
-If you cannot see any **Breaking changes** or **Safe to upgrade** badges or findings, this may be due to the following reasons:
-
-- Your language or package ecosystem is not supported
-- Your source code manager is not supported
-- You have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access-to-a-private-github-semgrep-app)
-- Your findings do not have safe versions to upgrade to yet
-- You have no findings within the supported scope of this feature
-</Accordion>
+- The lockfile or manifest file changes needed to upgrade the dependency
+- The context necessary for developers to fix potentially breaking changes in the PR or MR's description. This includes:
+  - A summary including the severity and reachability of the finding and the specific version of the dependency that the PR upgrades to.
+  - <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> details, including a description of the vulnerability and links to its CVE references.
+  - Upgrade guidance that includes the files and functions in the code which make use of the dependency and might include breaking changes.
+  - <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> references, such as release notes, changelogs, and commits of the dependency, which might be helpful to resolve the breaking changes.

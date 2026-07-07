@@ -1,0 +1,11 @@
+---
+title: Semgrep is not displaying Upgrade Guidance or Autofix functionality
+---
+
+If you cannot see any **Breaking changes** or **Safe to upgrade** badges or findings, this may be due to the following reasons:
+
+- Your language or package ecosystem is not supported.
+- Your source code manager is not supported.
+- You have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app).
+- Your findings do not have safe versions to upgrade to yet.
+- You have no findings within the supported scope of this feature.
