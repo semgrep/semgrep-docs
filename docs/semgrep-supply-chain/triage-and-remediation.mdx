@@ -74,10 +74,10 @@ See [Connect a private registry to Semgrep](#connect-a-private-registry-to-semgr
 
 To access all upgrade guidance and Autofix features, you must have:
 
-- Enabled upgrade guidance Semgrep AppSec Platform by going to **Settings > General > Supply Chain**
+- Enabled upgrade guidance in Semgrep AppSec Platform by going to **Settings > General > Supply Chain**
 - At least one repository with full [scans with Semgrep Supply Chain](/semgrep-supply-chain/set-up-and-configure).
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
-- The **private** GitHub app for Semgrep installed. The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they haven't already.
+- The **private** GitHub app for Semgrep installed. The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they have not already.
 - Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep) to improve results.
 
 ### Features and permissions required
@@ -178,7 +178,7 @@ Click **Submit**.
 </Step>
 </Steps>
 
-## Block pull request or merge requests
+## Block pull requests or merge requests
 
 To prevent security vulnerabilities from being merged into your codebase, see [Supply Chain Policies](/semgrep-supply-chain/policies) for information on how to:
 
@@ -216,7 +216,7 @@ In the dialog that appears, provide the following information:
 <Step>
 Optional: if your registry is only accessible from your private network, select **Use network broker for registry access**. This option requires a [Semgrep Network Broker](/semgrep-ci/network-broker) deployed within your network.
 
-When enabled, Semgrep routes registry traffic through the broker, allowing Semgrep to access registries that aren't publicly accessible on the internet.
+When enabled, Semgrep routes registry traffic through the broker, allowing Semgrep to access registries that are not publicly accessible on the internet.
 
 <Note>
 For the broker to reach your registry, its allowlist must include the registry URL. See [Use Semgrep Network Broker for private registry access](/semgrep-ci/network-broker#use-semgrep-network-broker-for-private-registry-access).
@@ -231,11 +231,11 @@ Click **Connect** to save your changes and proceed.
 ### Troubleshooting: Semgrep is not displaying Upgrade guidance or Autofix functionality
 
 <Accordion title={"Expand for information on troubleshooting if Semgrep is not displaying any upgrade guidance or Autofix functionality"}>
-If you can't see any **Breaking changes** or **Safe to upgrade** badges or findings, this may be due to the following reasons:
+If you cannot see any **Breaking changes** or **Safe to upgrade** badges or findings, this may be due to the following reasons:
 
-- Your language or package ecosystem isn't supported
-- Your source code manager isn't supported
-- Your you have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access-to-a-private-github-semgrep-app)
-- Your findings don't have safe versions to upgrade to yet
+- Your language or package ecosystem is not supported
+- Your source code manager is not supported
+- You have not set **Read and write** access for the **Contents** permission; see [Grant read and write access](#grant-read-and-write-access-to-a-private-github-semgrep-app)
+- Your findings do not have safe versions to upgrade to yet
 - You have no findings within the supported scope of this feature
 </Accordion>

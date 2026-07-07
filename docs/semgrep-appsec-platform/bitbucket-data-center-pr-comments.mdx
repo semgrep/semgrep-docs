@@ -173,7 +173,7 @@ You have successfully configured PR comments for Semgrep Secrets.
 
 Validation state policies allow you to define how Semgrep handles the following issues:
 
-- **Invalid findings**: the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep can't communicate with. For example, a Semgrep rule that tests GitHub credentials may return an invalid finding if Semgrep can't communicate with an on-premise deployment.
+- **Invalid findings**: the secret has been revoked, was never functional, or used for a custom or private endpoint that Semgrep cannot communicate with. For example, a Semgrep rule that tests GitHub credentials may return an invalid finding if Semgrep cannot communicate with an on-premise deployment.
 - **Validation errors**: Semgrep was unable to reach the secrets provider to test the validity of the credential, or Semgrep received an unexpected response from the API
 
 To edit the policy for invalid secrets and errors:
