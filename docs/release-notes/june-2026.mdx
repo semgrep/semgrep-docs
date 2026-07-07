@@ -1,0 +1,120 @@
+---
+title: "June 2026"
+description: "TODO: add publish date · 7 min read"
+---
+
+The following updates were made to Semgrep in June 2026.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- Unified policies is now in **beta**. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
+{/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1780590877946899) */}
+- Autofix updates:
+  - Autofix can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps through the shared SCM drivers. {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1781539808977049) */}
+  - Repositories connected through a personal access token instead of a GitHub App now show tailored instructions for enabling Autofix. {/* source: [PR #29772](https://github.com/semgrep/semgrep-app/pull/29772) */}
+- Added a bulk endpoint for deleting API tokens. {/* source: [PR #29231](https://github.com/semgrep/semgrep-app/pull/29231) */}
+- Users with Admin access to the organization can now disable nosemgrep comments using a toggle in **Settings > General**. {/* source: [PR #29488](https://github.com/semgrep/semgrep-app/pull/29488) */}
+- The findings list filter menu now includes an **Ignored via nosemgrep** option with its own count, so you can filter to findings suppressed by inline `nosemgrep` comments separately from other ignored findings. The **Ignored** row still shows the combined total. {/* source: [PR #29227](https://github.com/semgrep/semgrep-app/pull/29227) */}
+- Jira, Slack, and webhook integrations can now be created directly from the remediation policy form instead of navigating away to **Settings**. {/* source: [PR #29058](https://github.com/semgrep/semgrep-app/pull/29058) */}
+- Remediation policies now autogenerate a name by default, with the option to turn this off and customize it. {/* source: [PR #29192](https://github.com/semgrep/semgrep-app/pull/29192) */}
+- You can now search for rules by name when selecting rules for a remediation policy. {/* source: [PR #29586](https://github.com/semgrep/semgrep-app/pull/29586) */}
+- Remediation policy conditions now include a **File risk level** filter with the same grouped options available on the **Findings** page. {/* source: [PR #29489](https://github.com/semgrep/semgrep-app/pull/29489) */}
+- Added beta support for connecting Harness as a source code manager, including onboarding, webhooks, and PR comments. {/* source: [PR #29621](https://github.com/semgrep/semgrep-app/pull/29621) */}
+- Findings now expose their first-detected date through the public API via a new `created_at` field on related issues. {/* source: [PR #29814](https://github.com/semgrep/semgrep-app/pull/29814) */}
+
+
+### Changed
+
+- Policy detail pages such as **Code rules**, **Secrets rules**, and **License configuration** no longer show **Detection** and **Remediation** tabs. Use the breadcrumbs to return to **Policies**, where those tabs switch between detection and remediation views. {/* source: [PR #29008](https://github.com/semgrep/semgrep-app/pull/29008) */}
+- The v1 findings API no longer stops at 50,000 findings when paginating through large result sets, so integrations and scripts can retrieve your organization's full findings catalog. {/* source: [PR #29813](https://github.com/semgrep/semgrep-app/pull/29813) */}
+- Repositories connected through an Azure DevOps service principal are now queued for sync automatically after installation, instead of requiring a manual sync. {/* source: [PR #29578](https://github.com/semgrep/semgrep-app/pull/29578) */}
+- Semgrep AppSec Platform's **Usage** page includes several updates to AI credit visibility and billing:
+  - The AI usage breakdown is now an interactive chart showing daily credit spend by category.
+  - Free-tier users see a simplified AI credit balance panel. {/* source: [PR #29522](https://github.com/semgrep/semgrep-app/pull/29522) */}
+  - AI autotriage cache hits are no longer counted against a deployment's AI credit balance. {/* source: [PR #29208](https://github.com/semgrep/semgrep-app/pull/29208) */}
+  - Free-tier AI-powered detection scans that are stopped after exceeding their spend cap are now billed for the credits they consumed before the failure, closing a gap that let scans run for free. {/* source: [PR #29877](https://github.com/semgrep/semgrep-app/pull/29877) */}
+  {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1781718768709229) */}
+
+### Fixed
+
+- Fixed the project filter search field on the **Findings** page. Clicking the clear button now clears the text. {/* source: [PR #29268](https://github.com/semgrep/semgrep-app/pull/29268) */}
+- Fixed an issue where the **Findings** page incorrectly showed **This combination of filters isn't supported** when using filters such as action, CVE, exposure, fixed date, policy, and status. {/* source: [PR #29474](https://github.com/semgrep/semgrep-app/pull/29474) */}
+- Fixed an issue where the **Findings** page kept refreshing every 10 seconds after a filter error instead of stopping. {/* source: [PR #29695](https://github.com/semgrep/semgrep-app/pull/29695) */}
+- Fixed an issue where exporting findings to CSV from the **Findings** page failed before the download completed. {/* source: [PR #29213](https://github.com/semgrep/semgrep-app/pull/29213) */}
+- Fixed the branches tooltip on a finding's **Details** page so it no longer scrolls horizontally and clips content. {/* source: [PR #29186](https://github.com/semgrep/semgrep-app/pull/29186) */}
+- Fixed links in finding descriptions not opening when right-clicked or opened in a new tab. {/* source: [PR #29708](https://github.com/semgrep/semgrep-app/pull/29708) */}
+- Fixed an issue where selecting **Ignore files in future scans** on a finding's ignore menu did not add the file path to the project's path ignores. {/* source: [PR #29826](https://github.com/semgrep/semgrep-app/pull/29826) */}
+- Fixed an issue where triage notes were not saved when you resubmitted the same note text. {/* source: [PR #29549](https://github.com/semgrep/semgrep-app/pull/29549) */}
+- Fixed an issue where a disabled pack-level rule on the detection policies page showed an incorrect project count instead of **Disabled**. {/* source: [PR #29219](https://github.com/semgrep/semgrep-app/pull/29219) */}
+- Fixed an issue where organizations remained on the legacy policies UI after completing the unified policies upgrade wizard. {/* source: [PR #29531](https://github.com/semgrep/semgrep-app/pull/29531) */}
+- Fixed an issue where the **Policies** page could hang indefinitely while creating default policies. {/* source: [PR #29458](https://github.com/semgrep/semgrep-app/pull/29458) */}
+- Fixed an issue where newly provisioned organizations saw a 403 error and a stuck loading state on the **Code rules** page. {/* source: [PR #29528](https://github.com/semgrep/semgrep-app/pull/29528) */}
+- Fixed an issue where the **Invite users** button on the **Access** page still opened the invite panel when SCIM user provisioning was enabled, even though the button appeared disabled. {/* source: [PR #29242](https://github.com/semgrep/semgrep-app/pull/29242) */}
+- Fixed an issue where users could create sub-teams in organizations with an active SCIM directory, even though SCIM should manage team membership. {/* source: [PR #29123](https://github.com/semgrep/semgrep-app/pull/29123) */}
+- Fixed overlapping tooltips on the **Actions** menu in **Settings > Access > Members**. {/* source: [PR #29494](https://github.com/semgrep/semgrep-app/pull/29494) */}
+- Fixed Azure DevOps merge-preview events being shown as merged pull requests. {/* source: [PR #29872](https://github.com/semgrep/semgrep-app/pull/29872) */}
+- Fixed SCM merge-base lookups returning server errors instead of actionable responses when GitHub, GitLab, or Azure DevOps rate-limits a request. Semgrep now returns the provider's `Retry-After` header when available. {/* source: [PR #29936](https://github.com/semgrep/semgrep-app/pull/29936) */}
+- Fixed an issue where Autofix pull requests failed to open for organizations routing traffic through an ingress proxy. {/* source: [PR #29645](https://github.com/semgrep/semgrep-app/pull/29645) */}
+- Fixed an issue where the v1 findings API excluded findings that already had a Jira ticket, which caused Jira ticketing automations to miss affected findings. {/* source: [PR #29918](https://github.com/semgrep/semgrep-app/pull/29918) */}
+- Fixed an issue where AI-powered detection findings did not trigger Slack and webhook policy actions. {/* source: [PR #29800](https://github.com/semgrep/semgrep-app/pull/29800) */}
+- Saved Wiz client secrets are now masked in integration API responses. {/* source: [PR #29203](https://github.com/semgrep/semgrep-app/pull/29203) */}
+- Fixed an issue where the reporting dashboard project filter returned no results when repository names used different capitalization, and restored bookmarks saved before the fix. {/* source: [PR #29613](https://github.com/semgrep/semgrep-app/pull/29613) */}
+- Fixed an issue where the full-screen scan logs page loaded blank even though the scan logs were available. {/* source: [PR #29377](https://github.com/semgrep/semgrep-app/pull/29377) */}
+- Fixed an issue where the project scan list showed scans that did not match the selected product filter. {/* source: [PR #29367](https://github.com/semgrep/semgrep-app/pull/29367) */}
+- Fixed an issue where the Registry search endpoint returned a server error for rulesets with no published version. {/* source: [PR #29840](https://github.com/semgrep/semgrep-app/pull/29840) */}
+- Improved rate limiting on the public deployment endpoint to reduce deployment ID enumeration. {/* source: [PR #29223](https://github.com/semgrep/semgrep-app/pull/29223) */}
+
+## 💻 Semgrep Code
+
+### Added
+
+- You can now use `--max-match-context-size` to limit how much surrounding source code Semgrep includes with each match, keeping scan output manageable for minified files. {/* source: [v1.165.0](https://github.com/semgrep/semgrep/releases/tag/v1.165.0) */}
+- `metavariable-comparison` now supports bit shift operators in addition to arithmetic and logical bitwise operators. {/* source: [v1.165.0](https://github.com/semgrep/semgrep/releases/tag/v1.165.0) */}
+
+### Changed
+
+- Replaced `--x-no-python-schema-validation` with a value-taking `--x-rule-validation=full|core-only|none` flag for controlling rule validation behavior. {/* source: [v1.165.0](https://github.com/semgrep/semgrep/releases/tag/v1.165.0) */}
+- Updated the Python grammar used for parsing target code. {/* source: [v1.165.0](https://github.com/semgrep/semgrep/releases/tag/v1.165.0) */}
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- New organizations with Supply Chain enabled now automatically get the default **Block malicious dependencies** policy. {/* source: [PR #29559](https://github.com/semgrep/semgrep-app/pull/29559) */}
+- Expanded private registry support: lockfileless scanning, upgrade guidance, and Autofix PRs now work for customers with self-hosted Python private registries, routed through the Semgrep Network Broker. {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1780605724103029) */}
+- Supply Chain Incident Response dependency lookups now support version ranges instead of only exact-version matches. {/* source: [PR #29536](https://github.com/semgrep/semgrep-app/pull/29536) */}
+- You can now export SBOMs in CycloneDX 1.5, 1.6, or 1.7. Choose the version from the **Export SBOM** menu. {/* source: [PR #29774](https://github.com/semgrep/semgrep-app/pull/29774) */}
+- You can now open Autofix pull requests even when upgrade-guidance analysis for the upgrade has not finished assessing requirements. {/* source: [PR #29565](https://github.com/semgrep/semgrep-app/pull/29565) */}
+
+### Fixed
+
+- Fixed an issue where Supply Chain findings on the **Findings** page did not show their advisory identifier, such as CVE, GHSA, or MAL. {/* source: [PR #29485](https://github.com/semgrep/semgrep-app/pull/29485) */}
+- Fixed an issue where exporting an SBOM a second time from the same repository returned the wrong file format, such as JSON instead of XML or the reverse. {/* source: [PR #29718](https://github.com/semgrep/semgrep-app/pull/29718) */}
+
+## 🤖 Semgrep Multimodal
+
+### Fixed
+
+- Fixed an issue where autotriage sometimes returned a verdict, such as **Likely true positive**, that did not match its written explanation. {/* source: [PR #29787](https://github.com/semgrep/semgrep-app/pull/29787) */}
+- Fixed an issue where autotriage stopped running without notice after a project reached its monthly backfill limit on free-tier deployments. {/* source: [PR #29228](https://github.com/semgrep/semgrep-app/pull/29228) */}
+- Fixed an issue where a stuck **In progress** AI-powered detection scan permanently blocked free-tier organizations from starting new AI-powered detection scans. Stuck scans are now cleared automatically. {/* source: [PR #29340](https://github.com/semgrep/semgrep-app/pull/29340) */}
+- Fixed an issue where scan results were discarded if AI-powered detection was turned off while a scan was still running. {/* source: [PR #29253](https://github.com/semgrep/semgrep-app/pull/29253) */}
+- Fixed an issue where bulk AI-powered detection scans used the SCM default branch instead of each project's configured primary branch. {/* source: [PR #29275](https://github.com/semgrep/semgrep-app/pull/29275) */}
+- Fixed a server error when retrieving scan results for findings with certain vulnerability types. {/* source: [PR #29167](https://github.com/semgrep/semgrep-app/pull/29167) */}
+- Fixed an issue where **Suggested fix** status updates timed out for repositories with many open findings. {/* source: [PR #29182](https://github.com/semgrep/semgrep-app/pull/29182) */}
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Reduced intermittent validation errors on HTTP-based secret validators for services such as Facebook, Slack, Stripe, Google, and Cloudflare by retrying transient network failures. {/* source: [v1.165.0](https://github.com/semgrep/semgrep/releases/tag/v1.165.0) */}
+
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released in June 2026:
+<CardGroup cols={4}>
+  <Card title="1.165.0" href="https://github.com/semgrep/semgrep/releases/tag/v1.165.0" />
+</CardGroup>
