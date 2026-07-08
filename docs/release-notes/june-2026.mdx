@@ -12,7 +12,7 @@ The following updates were made to Semgrep in June 2026.
 - **Unified policies** is now in beta. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
 {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1780590877946899) */}
 - **Autofix**:
-  - Autofix can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps through shared SCM drivers. {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1781539808977049) */}
+  - Autofix can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps. {/* source: [#product-updates](https://semgrepinc.slack.com/archives/C03A5BETNS3/p1781539808977049) */}
   - Repositories connected through a personal access token (PAT) instead of a GitHub App now show tailored instructions for enabling Autofix. {/* source: [PR #29772](https://github.com/semgrep/semgrep-app/pull/29772) */}
 - Users with **Admin** access to the organization can now disable `nosemgrep` comments using a toggle in **Settings > General**. {/* source: [PR #29488](https://github.com/semgrep/semgrep-app/pull/29488) */}
 - The findings list filter menu now includes an **Ignored via nosemgrep** option with its own count, so you can filter to findings suppressed by inline `nosemgrep` comments separately from other ignored findings. The **Ignored** row still shows the combined total. {/* source: [PR #29227](https://github.com/semgrep/semgrep-app/pull/29227) */}
