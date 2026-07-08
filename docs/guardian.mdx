@@ -38,7 +38,7 @@ Guardian stores credentials in two local files under `~/.semgrep/`:
 * `settings.yml`: written when you sign in through `semgrep login` or set an API token manually. This is the same file the Semgrep CLI uses.
 * `guardian.yml`: written when you sign in through OAuth in the remote Claude Code plugin.
 
-If you are already logged in through `semgrep login`, Guardian can use those credentials from `settings.yml`. For the remote Claude Code plugin, Guardian checks for OAuth credentials in `guardian.yml` first. If an OAuth session is present, Guardian uses it instead of any API token in `settings.yml`.
+If you are already logged in through `semgrep login`, Guardian can use the credentials from `settings.yml`. For the remote Claude Code plugin, Guardian checks for OAuth credentials in `guardian.yml` first. If OAuth credentials are present, Guardian uses them instead of any API token in `settings.yml`.
 
 At startup, Guardian fetches its default authentication method from Semgrep's remote server. OAuth is currently the default for users who are not yet signed in. This setting is global and not configurable per user.
 
@@ -52,16 +52,19 @@ Semgrep may disable API-token login for Guardian in the future, but there are no
 
 ### Enterprise rollout
 
-Semgrep does not support shared API tokens or service accounts for Guardian. Each developer should authenticate individually through OAuth for Claude Code or `semgrep login` for local CLI integrations.
+Shared API tokens and service accounts are not recommended for Guardian. Each developer should authenticate individually through OAuth for Claude Code or `semgrep login` for local CLI integrations.
+
+For Claude Code with remote scans, OAuth helps Semgrep associate activity with the correct user and avoids the risks of shared credentials.
 
 Semgrep discourages sharing app or API tokens across a team because:
 
-* Revoking a shared token affects every user who depends on it
-* Shared credentials are rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently
+* Revoking a shared token affects every user who depends on it.
+* Shared credentials are rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently.
 
 <Note>
 If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it when no OAuth session exists in `guardian.yml`. Semgrep does not recommend this pattern for enterprise rollouts.
 </Note>
+
 
 ## Connect to your IDE
 
