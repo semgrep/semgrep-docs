@@ -33,11 +33,22 @@ How you sign in depends on which IDE you use.
 
 ### CLI and OAuth credentials
 
-Guardian reads credentials from the same `~/.semgrep/settings.yml` file that the Semgrep CLI uses. If you are already logged in through `semgrep login`, Guardian inherits that session.
+Guardian stores credentials in two local files under `~/.semgrep/`:
 
-For Claude Code's remote plugin, OAuth takes precedence. If you have both an OAuth session and CLI credentials in `~/.semgrep/settings.yml`, Guardian uses the OAuth session and ignores the CLI credentials.
+* `settings.yml`: written when you sign in through `semgrep login` or set an API token manually. This is the same file the Semgrep CLI uses.
+* `guardian.yml`: written when you sign in through OAuth in the remote Claude Code plugin.
 
-If you are switching from a local CLI setup to the remote Claude Code plugin, keep in mind that an active OAuth session takes precedence over an existing `semgrep login` session. If scans run under a different account than you expect, verify which credential type is active. Use [`semgrep logout`](/getting-started/cli#log-out) to remove CLI credentials from `~/.semgrep/settings.yml`.
+If you are already logged in through `semgrep login`, Guardian can use those credentials from `settings.yml`. For the remote Claude Code plugin, Guardian checks for OAuth credentials in `guardian.yml` first. If an OAuth session is present, Guardian uses it instead of any API token in `settings.yml`.
+
+At startup, Guardian fetches its default authentication method from Semgrep's remote server. OAuth is currently the default for users who are not yet signed in. This setting is global and not configurable per user.
+
+If you are switching from a local CLI setup to the remote Claude Code plugin, keep in mind that an existing OAuth session in `guardian.yml` takes precedence over CLI credentials in `settings.yml`. If scans run under a different account than you expect, check which file contains active credentials. Use [`semgrep logout`](/getting-started/cli#log-out) to remove CLI credentials from `settings.yml`.
+
+To sign in with the legacy API-token method in Claude Code, ask the Guardian MCP to log in to Semgrep using the legacy method.
+
+<Note>
+Semgrep may disable API-token login for Guardian in the future, but there are no definite plans as of now.
+</Note>
 
 ### Enterprise rollout
 
@@ -49,7 +60,7 @@ Semgrep discourages sharing app or API tokens across a team because:
 * Shared credentials are rate-limited as a single user, which can throttle scans when many developers run Guardian concurrently
 
 <Note>
-If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it. Semgrep does not recommend this pattern for enterprise rollouts.
+If you set an API token in `~/.semgrep/settings.yml`, Guardian can use it when no OAuth session exists in `guardian.yml`. Semgrep does not recommend this pattern for enterprise rollouts.
 </Note>
 
 ## Connect to your IDE
