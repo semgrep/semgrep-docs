@@ -380,7 +380,7 @@ In Network Broker `v0.31.0` and later, this URL is part of the default allowlist
 
 Semgrep Supply Chain can route [private registry](/semgrep-supply-chain/triage-and-remediation#registry-support) traffic through the Network Broker, allowing Semgrep to reach registries that aren't publicly accessible on the internet. This is useful when your package registry is hosted inside your private network and can't be accessed directly from the Semgrep backend.
 
-To enable this, select **Use network broker for registry access** when you [connect the registry to Semgrep](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep).
+To enable this, select **Use network broker for registry access** when you [connect the registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
 
 For the broker to reach your registry, add the registry URL to the `allowlist` and permit `GET` and `HEAD` requests:
 
