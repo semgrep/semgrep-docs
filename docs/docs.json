@@ -1116,15 +1116,15 @@
     },
     {
       "source": "/semgrep-ci/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/semgrep-app/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/integrations",
@@ -1296,7 +1296,7 @@
     },
     {
       "source": "/semgrep-app/rule-board/",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/semgrep-app/findings/",
@@ -1380,7 +1380,7 @@
     },
     {
       "source": "/semgrep-code/rule-board/",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/kb/semgrep-cloud-platform/running-semgrep-on-windows/",
@@ -1532,7 +1532,7 @@
     },
     {
       "source": "/kb/semgrep-secrets/secrets_pr_comments",
-      "destination": "/semgrep-secrets/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/prerequisites-oss",
