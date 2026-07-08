@@ -58,7 +58,7 @@ The **Supply Chain** tab allows you to identify reachable true positives so you 
 
 To fix findings that are true positives in Semgrep Supply Chain, you can:
 
-- Remove the dependency and refactoring the codebase to remove all usage.
+- Remove the dependency and refactor the codebase to remove all usage.
 - Update the dependency to a safe version that does not contain the vulnerability.
 
 ### Remove the dependency and refactor the code
@@ -69,6 +69,6 @@ You can remove a dependency that introduces a security vulnerability, then refac
 
 **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version.
 
-With the information from Upgrade Guidance, **Autofix** can open pull requests and merge requests that updates the version used by your project and guide you through any breaking changes the update introduces.
+With the information from Upgrade Guidance, **Autofix** can open pull requests and merge requests that update the version used by your project and guide you through any breaking changes the update introduces.
 
 See [Upgrade guidance and Autofix](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix) for more information.
