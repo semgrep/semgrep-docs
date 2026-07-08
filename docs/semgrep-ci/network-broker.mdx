@@ -357,7 +357,9 @@ inbound:
 </Tab>
 </Tabs>
 
-The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`, and for other supported souce code managers from `v0.36.0`. For earlier Network Broker versions, the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+Semgrep Network Broker supports repository cloning when `allowCodeAccess` is `true`, beginning with Network Broker `v0.36.0` (for GitHub, beginning with `v0.32.0`). 
+
+For earlier Network Broker versions, the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
