@@ -733,7 +733,8 @@
                       "kb/semgrep-supply-chain/ssc-python-lockfiles",
                       "kb/semgrep-supply-chain/why-no-findings",
                       "kb/semgrep-supply-chain/connect-a-private-registry",
-                      "kb/semgrep-supply-chain/no-upgrade-guidance-or-autofix"
+                      "kb/semgrep-supply-chain/no-upgrade-guidance-or-autofix",
+                      "kb/semgrep-supply-chain/no-dependency-results"
                     ]
                   },
                   {
@@ -993,6 +994,7 @@
                   {
                     "group": "2026",
                     "pages": [
+                      "release-notes/june-2026",
                       "release-notes/april-2026",
                       "release-notes/march-2026",
                       "release-notes/february-2026",

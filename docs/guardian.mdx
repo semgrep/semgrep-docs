@@ -292,6 +292,25 @@ semgrep login && semgrep install-semgrep-pro
 </Step>
 </Steps>
 
+## Enterprise deployment guide
+
+To roll out Semgrep Guardian across an organization, standardize the install so every developer's agent picks up the plugin automatically instead of relying on each developer to install it by hand.
+
+### Use your agent's built-in enterprise controls
+
+Most coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to make Guardian available (or required) everywhere:
+
+* **Claude Code**: [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team)
+* **Cursor**: [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces)
+
+### Deploy through a mobile device management (MDM) platform for more granularity
+
+Deploy through your MDM platform to scope rollout by device group, or to combine Guardian with other managed configuration deployed via your MDM. Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS (`.plist` and `.mobileconfig` profiles via Jamf, Kandji, and similar) and Windows (PowerShell file deployment or ADMX/registry policy via Intune and Group Policy), along with how to verify that managed settings are applied.
+
+### Get help with a custom rollout
+
+Reach out if you want help building something custom for your MDM or agent fleet. You can find us in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) or check out our [support options](/support).
+
 ## Additional resources
 
 * Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack)

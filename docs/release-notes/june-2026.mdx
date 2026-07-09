@@ -1,0 +1,130 @@
+---
+title: "June 2026"
+description: "July 8, 2026 · 7 min read"
+---
+
+The following updates were made to Semgrep in June 2026.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- **Unified policies** is now in beta. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
+- **Autofix**:
+  - Autofix can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps.
+  - Repositories connected through a personal access token (PAT) instead of a GitHub App now show tailored instructions for enabling Autofix.
+- Users with **Admin** access to the organization can now disable `nosemgrep` comments using a toggle in **Settings > General**.
+- The findings list filter menu now includes an **Ignored via nosemgrep** option with its own count, so you can filter for findings suppressed by inline `nosemgrep` comments. The **Ignored** row count still shows the combined total.
+- When configuring Slack notification actions in a remediation policy, you can now connect or reconnect a Slack workspace directly from the form instead of navigating away to **Settings > Integrations**.
+- **Harness**: Added beta support for connecting Harness as a source code manager, including onboarding, webhooks, and PR comments.
+- **API**:
+  - Findings now expose their first-detected date through the public API via a new `created_at` field on related issues.
+  - The public API now includes a bulk delete endpoint for API tokens, so you can revoke multiple tokens in a single request instead of one at a time.
+
+### Changed
+
+- Policy detail pages such as **Code rules**, **Secrets rules**, and **License configuration** no longer show **Detection** and **Remediation** tabs. Use the breadcrumbs to return to **Policies** and use its **Remediation** and **Detection** tabs.
+- **API**: The API's findings endpoint no longer stops at 50,000 findings when paginating through large result sets, so integrations and scripts can retrieve your organization's full findings catalog.
+- Repositories connected through an Azure DevOps service principal are now queued for sync automatically after installation, instead of requiring a manual sync.
+- Semgrep AppSec Platform's **Usage & billing** page includes several updates to AI credit visibility and billing:
+  - The AI usage breakdown is now an interactive chart showing daily credit spend by category.
+  - Free-tier users see a simplified AI credit balance panel.
+  - AI autotriage cache hits are no longer counted against a deployment's AI credit balance.
+  - Free-tier users whose AI-powered detection scans that are stopped after exceeding their spend cap are now billed for the credits they consumed before the failure, closing a gap that let scans run for free.
+
+### Fixed
+
+- Fixed the project filter search field on the **Findings** page. Clicking the clear button now clears the text.
+- Fixed an issue where the **Findings** page incorrectly showed **This combination of filters isn't supported** for some filter combinations
+- Fixed an issue where the **Findings** page refreshed every 10 seconds after a filter error.
+- Fixed an issue where exporting findings to CSV from the **Findings** page failed before the download completed.
+- Fixed the branches tooltip on a finding's **Details** page so it no longer scrolls horizontally and clips content.
+- Fixed links in finding descriptions not opening when right-clicked or opened in a new tab.
+- Fixed an issue where selecting **Ignore files in future scans** on a finding's ignore menu did not add the file path to the project's path ignores.
+- Fixed an issue where triage notes were not saved when you resubmitted the same note text.
+- Fixed an issue where a disabled project-scoped rule on the **Policies** page showed an incorrect project count instead of **Disabled**.
+- Fixed an issue where the **Policies** page could hang indefinitely while creating default policies.
+- Fixed an issue where newly provisioned organizations saw a 403 error and a stuck loading state on the **Code rules** page.
+- Fixed overlapping tooltips on the **Actions** menu in **Settings > Access > Members**.
+- Fixed an issue where Autofix pull requests for Azure DevOps were shown with the incorrect status in Semgrep AppSec Platform.
+- Fixed an issue where **Autofix** pull requests failed to open for organizations routing traffic through an ingress proxy.
+- Fixed an issue where the Semgrep API's findings endpoint excluded findings that have Jira tickets associated, causing Jira ticketing automations to miss affected findings.
+- Fixed an issue where AI-powered detection findings did not trigger Slack and webhook policy actions.
+- Saved Wiz client secrets are now masked in integration API responses.
+- Fixed an issue where the **Reporting** page project filter returned no results when repository names used different capitalization.
+- Fixed an issue where the full-screen scan logs page loaded blank even though the scan logs were available.
+- Fixed an issue where the **Projects** page scan list showed scans that did not match the selected product filter.
+- Fixed an issue where the Registry search endpoint returned a server error for rulesets with no published version.
+
+## 💻 Semgrep Code
+
+### Added
+
+- You can now use the `--max-match-context-size` CLI flag to limit how much surrounding source code Semgrep includes with each match, keeping scan output manageable for minified files.
+- `metavariable-comparison` now supports bit shift operators in addition to arithmetic and logical bitwise operators.
+- **Gosu**: Added experimental cross-file interfile analysis for taint tracking across multiple source files. Pro users only.
+- Added support for more operators in constant propagation folding, including subtraction, division, bitwise operations, bit shifts, and comparisons.
+- Semgrep now skips binary files such as images, archives, and compiled executables during scans by default. Pass the `--no-exclude-binary-files` CLI flag to scan them as before.
+
+### Changed
+
+- `--x-no-python-schema-validation` has been replaced with a value-taking `--x-rule-validation=full|core-only|none` flag for controlling rule validation behavior.
+- **Python**: 
+  - Parsing now preserves type parameters on `def` and `class` definitions.
+  - Python grammar used for parsing target code has been updated.
+
+### Fixed
+
+- Fixed parsing of integer literals with an underscore immediately after the radix prefix, such as `0x_dead_beef`.
+- Semgrep no longer stores the API token in `~/.semgrep/settings.yml` when the scan uses a token supplied through the `SEMGREP_APP_TOKEN` environment variable.
+- **CLI**: Fixed an issue where `semgrep ci` scans started from a pre-commit hook failed with `Unable to create '<tmp>/.git/index.lock': Not a directory` in certain cases.
+- `semgrep ci` with `--sarif` now correctly populates the output's `ignores` field with `nosemgrep`-suppressed findings, matching other output formatters.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- New organizations with Supply Chain enabled now automatically get the default **Block malicious dependencies** policy.
+- Scans with Dynamic Dependency Resolution, **Upgrade guidance**, and **Autofix** PRs now work for customers with self-hosted Python private registries.
+- Supply Chain dependency searches now support version ranges instead of only exact-version matches.
+- You can now export SBOMs in CycloneDX 1.5, 1.6, or 1.7. Choose the version from the **Export SBOM** menu.
+- You can now open **Autofix** pull requests even when Upgrade guidance analysis for the upgrade has not finished assessing requirements.
+- You can now use the experimental `--x-dependency-paths` flag with `semgrep scan` and `semgrep ci` to include full dependency paths for transitive Supply Chain findings in JSON and SARIF outputs.
+
+### Changed
+
+- Supply Chain malicious dependency rules are now labeled **Malicious** instead of **Basic** in the scan analysis summary table.
+
+### Fixed
+
+- Fixed an issue where Supply Chain findings on the **Findings** page did not show their advisory identifier, such as CVE, GHSA, or MAL.
+- Fixed an issue where exporting an SBOM a second time from the same repository returned the wrong file format, such as JSON instead of XML.
+
+## 🤖 Semgrep Multimodal
+
+### Fixed
+
+- Fixed an issue where autotriage sometimes returned a verdict, such as **Likely true positive**, that did not match its written explanation.
+- Fixed an issue where autotriage stopped running without notice after a project reached its monthly backfill limit on free-tier deployments.
+- Fixed an issue where a stuck **In progress** AI-powered detection scan permanently blocked free-tier organizations from starting new AI-powered detection scans. Stuck scans are now cleared automatically.
+- Fixed an issue where scan results were discarded if AI-powered detection was turned off while a scan was still running.
+- Fixed an issue where bulk AI-powered detection scans used the SCM default branch instead of each project's configured primary branch.
+- Fixed a server error when retrieving scan results for findings with certain vulnerability types.
+- Fixed an issue where **Suggested fix** status updates timed out for repositories with many open findings.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Reduced intermittent validation errors on HTTP-based secret validators for services such as Facebook, Slack, Stripe, Google, and Cloudflare by retrying transient network failures.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released in June 2026:
+
+<CardGroup>
+  <Card title="1.168.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.168.0" horizontal />
+  <Card title="1.167.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.167.0" horizontal />
+  <Card title="1.166.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.166.0" horizontal />
+  <Card title="1.165.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.165.0" horizontal />
+</CardGroup>
