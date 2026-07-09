@@ -8,8 +8,8 @@ description: "Semgrep supports the following source code managers (SCM) and plan
 | :--- | :--- |
 | Azure DevOps Cloud | <ul><li>Query console</li></ul> |
 | Azure DevOps Server | <ul><li>Semgrep Multimodal</li><li>Semgrep Managed Scans</li><li>Pull request comments</li><li>Query console</li><li>Diff-aware scans</li><li>Sending findings to Semgrep AppSec Platform</li><li>Default branch identification</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
-| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Free | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Autofix†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
+| Bitbucket Cloud Standard | <ul><li>Semgrep Multimodal†</li><li>Semgrep Managed Scan†</li><li>Autofix†</li><li>Query console</li><li>Generic secrets (requires Semgrep Multimodal)</li></ul> |
 | Bitbucket Cloud Premium | <ul><li>Query console</li></ul> |
 | Bitbucket Data Center | <ul><li>Query console</li><li>Diff-aware scans and triage through PR comments require Bitbucket Data Center version 8.8 or later.</li></ul> |
 | GitHub Free | - |
@@ -25,11 +25,11 @@ description: "Semgrep supports the following source code managers (SCM) and plan
 | GitLab Self-Managed Premium | <ul><li>Query console</li></ul> |
 | GitLab Self-Managed Ultimate | <ul><li>Query console</li></ul> |
 
-<strong>†</strong>Semgrep Multimodal and Managed Scans require a workspace access token, which is only available to users with Bitbucket Cloud Premium.
+<strong>†</strong>Semgrep Multimodal, Managed Scans, and Autofix on Bitbucket Cloud require a [workspace access token](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/), which is only available on **Bitbucket Cloud Premium**. Managed Scans and triage through PR comments also require workspace-level webhooks, which are not available on Bitbucket Cloud Free or Standard.
 
 <strong>*</strong>Semgrep Managed Scans and triage through MR comments require access to group webhooks, which is unavailable to GitLab Free users.
 
-[Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above. Autofix is not yet available when Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker). 
+[Autofix](/semgrep-code/triage-remediation/autofix) is supported on all source code managers in the table above at supported plan tiers (see footnotes † and * above). Autofix is not yet available when Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker). 
 
 ## Access limitations
 
