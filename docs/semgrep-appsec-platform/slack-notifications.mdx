@@ -34,6 +34,12 @@ To install the Semgrep Slack app, follow these steps:
 
 ## Set up notifications for findings in Slack 
 
+<Info>
+The commands you use depend on whether your organization has migrated to [unified policies](/semgrep-appsec-platform/unified-policies/overview):
+
+* If your organization uses **legacy policies**, use `/semgrep_subscribe` (Code and Supply Chain) or `/semgrep_subscribe_secrets` (Secrets), as described in the following sections.
+* If your organization has migrated to **unified policies**, use `/semgrep_add_channel` and configure notifications from the **Remediation** page. See [Unified policies](#unified-policies).
+</Info>
 
 ### Code and Supply Chain 
 
@@ -103,6 +109,35 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
   </Step>
 </Steps>
 
+### Unified policies
+
+If your organization has migrated to [unified policies](/semgrep-appsec-platform/unified-policies/overview), the `/semgrep_subscribe` and `/semgrep_unsubscribe` commands no longer apply. Instead, use `/semgrep_add_channel` to make a channel available to your remediation policies, then send findings to it by adding a **Send a Slack message** action to a remediation policy. The projects a channel receives findings for are controlled by each remediation policy's **Scope**, not by the Slack command.
+
+To set up notifications:
+
+<Steps>
+  <Step>
+  In your Slack workspace, find or create a channel for Semgrep notifications.
+  * If you use a private channel for notifications, first invite the Semgrep app by entering the command `/invite @Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
+  </Step>
+  <Step>
+  In the selected Slack channel, enter the following command: `/semgrep_add_channel`.
+
+  <Frame caption="The Semgrep notifications dialog in Slack, opened with the /semgrep_add_channel command.">
+  ![The Semgrep notifications dialog in Slack, opened with the /semgrep_add_channel command.](/images/slack-add-channel-modal.png)
+  </Frame>
+  </Step>
+  <Step>
+  Choose an organization in the list under **Select target organization**.
+  </Step>
+  <Step>
+  Click **Add channel**. The channel is now available to your remediation policies.
+  </Step>
+  <Step>
+  Go to **Rules & Policies > Remediation** in Semgrep AppSec Platform and add a **Send a Slack message** action to a new or existing remediation policy, selecting this channel. To send findings for specific projects only, set the policy's **Scope** to those projects. For more information, see [Create a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy).
+  </Step>
+</Steps>
+
 
 ## Remove notifications for findings in Slack
 <Info>
@@ -164,6 +199,27 @@ To unsubscribe a channel:
 </Steps>
 
 Unsubscribing removes this channel from your list of available channels for all Semgrep Secrets policies. You will no longer be able to create policies using this channel, and it will be removed from existing policies, stopping all notifications to this channel. 
+
+### Unified policies
+
+To remove a channel from your remediation policies:
+
+<Steps>
+  <Step>
+  In Slack, enter the channel that you want to remove.
+  </Step>
+  <Step>
+  Type `/semgrep_remove_channel`.
+  </Step>
+  <Step>
+  Select the target organization.
+  </Step>
+  <Step>
+  Click **Remove channel**.
+  </Step>
+</Steps>
+
+Removing a channel takes it out of your list of available channels for remediation policies and stops all remediation policy notifications to that channel.
 
 ## Notification and alert de-duplication
 
