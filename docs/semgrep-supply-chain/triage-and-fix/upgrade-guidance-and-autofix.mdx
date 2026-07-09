@@ -1,5 +1,5 @@
 ---
-title: Upgrade Guidance and Autofix (beta)
+title: Upgrade guidance and Autofix (beta)
 ---
 
 **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep Supply Chain scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
@@ -10,7 +10,7 @@ title: Upgrade Guidance and Autofix (beta)
 
 ## Prerequisites
 
-Upgrade Guidance and Autofix are supported for:
+Upgrade guidance and Autofix are supported for:
 
 - **JavaScript** projects
 - **Python** projects that use the following package managers:
@@ -25,16 +25,16 @@ You must use one of the following source code managers:
 - GitHub Cloud 
 - GitLab Cloud
 
-Upgrade Guidance and Autofix support the use of:
+Upgrade guidance and Autofix support the use of:
 
 - Public `npm` and PyPI registries
 - Private PyPI registries
 
 ### Feature availability
 
-To access **all** upgrade guidance and Autofix features, you must have:
+To access **all** Upgrade guidance and Autofix features, you must have:
 
-- Enabled Upgrade Guidance in Semgrep AppSec Platform by going to [**Settings > General > Supply Chain**](https://semgrep.dev/orgs/-/settings/general/supplyChain), then clicking the **Upgrade Guidance & Autofix** toggle.
+- Enabled Upgrade guidance in Semgrep AppSec Platform by going to [**Settings > General > Supply Chain**](https://semgrep.dev/orgs/-/settings/general/supplyChain), then clicking the **Upgrade guidance & Autofix** toggle.
 - At least one repository with [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure).
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
 - The **private** GitHub app for Semgrep installed. The app must have [**Read and write** access on the **Contents** permission](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Current customers must manually enable this if they have not already.
@@ -45,15 +45,15 @@ The following table summarizes the features available to you depending on the pr
 
 | Semgrep features available | [Read and write `Content` permission granted](#grant-read-and-write-access-to-a-private-github-semgrep-app) | [Code access granted to Semgrep through installation of the private GitHub app](/deployment/managed-scanning/github#permissions) | [Semgrep Multimodal enabled](/semgrep-multimodal/getting-started) | [Private registry connected to Semgrep](#connect-a-private-registry-to-semgrep) |
 | :--- | :--- | :--- | :--- | :--- |
-| All Autofix and upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
-| All Autofix and upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
+| All Autofix and Upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
+| All Autofix and Upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
 | Autofix, but <b>not for dependencies in a private registry</b>: <ul><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="ban" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
-| All upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
-| All upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
+| All Upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
+| All Upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li></ul> | <Icon icon="ban" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
 
-## How Upgrade Guidance works
+## How Upgrade guidance works
 
-After you turn on Upgrade Guidance, Semgrep performs post-scan analysis on your existing results and marks applicable findings as either **Safe to upgrade** or with **Breaking changes**.
+After you turn on Upgrade guidance, Semgrep performs post-scan analysis on your existing results and marks applicable findings as either **Safe to upgrade** or with **Breaking changes**.
 
 - This analysis is performed every **two hours** on the latest **full scan**.
 - Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
@@ -62,10 +62,10 @@ After you turn on Upgrade Guidance, Semgrep performs post-scan analysis on your 
 The following chart illustrates the steps Semgrep performs, from scanning to analysis, and the actions you can take based on the advice it provides.
 
 <Frame>
-![Flowchart explaining how Semgrep provides upgrade guidance and possible actions to take based on its advice.](/images/upgrade-guidance-flowchart-b8ff76ae3e794eecb0217fbbee21beef.png)
+![Flowchart explaining how Semgrep provides Upgrade guidance and possible actions to take based on its advice.](/images/upgrade-guidance-flowchart-b8ff76ae3e794eecb0217fbbee21beef.png)
 </Frame>
 
-## Review a finding's Upgrade Guidance 
+## Review a finding's Upgrade guidance 
 
 To view detailed information about a finding in Semgrep AppSec Platform, use the **navigation bar** to go to the **Supply Chain** page. Locate the finding you want to review, then click to open its **Details** page.
 
@@ -88,7 +88,7 @@ The details page is divided into several panels:
 
 ## Open a pull request or merge request with fixes
 
-After reviewing a finding's Upgrade Guidance, you can open a pull request or merge request to upgrade the dependency to a safe version:
+After reviewing a finding's Upgrade guidance, you can open a pull request or merge request to upgrade the dependency to a safe version:
 
 <Steps>
 <Step>
