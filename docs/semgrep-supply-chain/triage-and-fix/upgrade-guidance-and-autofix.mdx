@@ -4,7 +4,7 @@ title: Upgrade guidance and Autofix (beta)
 
 **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep Supply Chain scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version. From there, you can choose to:
 
-- Use **Autofix** and have Semgrep open a pull request (PR) or merge request (MR) that updates the version used by your repository. If the update is a breaking change, Semgrep provides you with guidance on handling this in the PR or MR description.
+- Use **Autofix** and have Semgrep open a pull request (PR) or merge request (MR) that updates the dependency to a fixed version. If the update is a breaking change, Semgrep provides guidance on how to handle it in the PR or MR description.
 - Create a Jira ticket to track further work on the finding.
 - Set the finding's triage status as **To fix**
 
@@ -25,7 +25,7 @@ You must use one of the following source code managers:
 - GitHub Cloud 
 - GitLab Cloud
 
-Upgrade guidance and Autofix support the use of:
+Upgrade guidance and Autofix support:
 
 - Public `npm` and PyPI registries
 - Private PyPI registries
@@ -56,9 +56,9 @@ The following table summarizes the features available to you depending on the pr
 
 After you turn on Upgrade guidance, Semgrep performs post-scan analysis on your existing results and marks applicable findings as either **Safe to upgrade** or with **Breaking changes**.
 
-- This analysis is performed every **two hours** on the latest **full scan**.
-- Only findings whose dependencies have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
-- Findings without any fixed versions have no badge; instead, they say **no patch available**.
+- This analysis is performed after every **full scan**.
+- Only findings with dependencies that have **fixed versions** that resolve the vulnerability are marked by Semgrep as **Safe to upgrade** or with **Breaking changes**.
+- Findings without any fixed versions say **no patch available**. They do not have a badge.
 
 The following chart illustrates the steps Semgrep performs, from scanning to analysis, and the actions you can take based on the advice it provides.
 
@@ -68,9 +68,9 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 
 ## Review a finding's Upgrade guidance 
 
-To view detailed information about a finding in Semgrep AppSec Platform, use the **navigation bar** to go to the **Supply Chain** page. Locate the finding you want to review, then click to open its **Details** page.
+To view detailed information about a finding in Semgrep AppSec Platform, use the **navigation bar** to go to the **Supply Chain** page. Click the finding to open its **Details** page.
 
-The details page is divided into several panels:
+The **Details** page is divided into several panels:
 
 - General information: 
   - The name of the package and a description of the finding
@@ -79,15 +79,15 @@ The details page is divided into several panels:
   - Links to references
   - A badge indicating if it can cause breaking changes or not (beta)
 - Branch and finding history information
-  - Branches in which it can be found
+  - Branches where the finding appears
   - Where it was first detected
-  - AI analysis performed, if any
+  - AI analysis, if available
 - Graphs and code:
   - **Your code**: the source file in which a match was detected; the highlight indicates where the match was found
   - **Dependency path**: displays the path of dependencies; useful when analyzing transitive dependencies
   - **Pattern** and **Rule**: the pattern and rule logic that determined the match
 
-## Open a pull request or merge request with fixes
+## Open a PR or MR with fixes
 
 After reviewing a finding's Upgrade guidance, you can open a pull request or merge request to upgrade the dependency to a safe version:
 
@@ -102,7 +102,7 @@ Click **Fix** > **Open Autofix PR**.
 
 The newly created PR or MR includes the following:
 
-- The lockfile or manifest file changes needed to upgrade the dependency
+- The lockfile or manifest file changes needed to upgrade the dependency.
 - The context necessary for developers to fix potentially breaking changes in the PR or MR's description. This includes:
   - A summary including the severity and reachability of the finding and the specific version of the dependency that the PR upgrades to.
   - <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> details, including a description of the vulnerability and links to its CVE references.
