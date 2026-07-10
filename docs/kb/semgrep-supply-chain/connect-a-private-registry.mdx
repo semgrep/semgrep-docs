@@ -1,0 +1,43 @@
+---
+title: Connect a private registry to Semgrep
+---
+
+If you're using a private registry, connect it to Semgrep to provide the context necessary to:
+- [Open Autofix pull requests or merge requests](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix).
+- [Generate Upgrade guidance for Supply Chain findings](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix).
+- [Run a Managed Scan](/deployment/managed-scanning/overview) for a project using Maven registries.
+
+To connect a private registry to Semgrep:
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Navigate to **Settings > Integrations**.
+</Step>
+<Step>
+Click **Add**, then select **Registry**.
+</Step>
+<Step>
+In the dialog that appears, provide the following information:
+
+1. The **Name** of your registry.
+2. The <Tooltip tip="Software that interacts with a package registry to download, upload, or search for dependencies. Package managers typically generate manifest files or lockfiles." cta="See full definition." href="/semgrep-supply-chain/glossary#package-manager">**Package manager**</Tooltip>.
+3. The **Authentication method**. If none is required, select **None (public registry)**.
+    - **Username and password**: provide the required **Username** and **Password**.
+    - **API token**: provide the required token value.
+</Step>
+<Step>
+Optional: if your registry is only accessible from your private network, select **Use network broker for registry access**. This option requires a [Semgrep Network Broker](/semgrep-ci/network-broker) deployed within your network.
+
+When enabled, Semgrep routes registry traffic through the broker, allowing Semgrep to access registries that are not publicly accessible on the internet.
+
+<Note>
+For the broker to reach your registry, its allowlist must include the registry URL. See [Use Semgrep Network Broker for private registry access](/semgrep-ci/network-broker#use-semgrep-network-broker-for-private-registry-access).
+</Note>
+</Step>
+<Step>
+Click **Connect** to save your changes and proceed.
+</Step>
+</Steps>
