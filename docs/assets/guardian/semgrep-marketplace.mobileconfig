@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDisplayName</key>
+	<string>Claude Code – Semgrep Guardian Plugin Settings</string>
+	<key>PayloadDescription</key>
+	<string>Enforces the Semgrep Guardian marketplace and the plugin enable/disable policy.</string>
+	<key>PayloadIdentifier</key>
+	<string>com.yourorg.com</string>
+	<key>PayloadOrganization</key>
+	<string>yourorg</string>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Claude Code Marketplace Settings</string>
+			<key>PayloadIdentifier</key>
+			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadContent</key>
+			<dict>
+				<key>com.anthropic.claudecode</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<!-- Plugin enable/disable policy -->
+								<key>enabledPlugins</key>
+								<dict>
+									<key>semgrep@semgrep-marketplace</key>
+									<true/>
+								</dict>
+
+								<!-- Extra known marketplaces: Semgrep Guardian -->
+								<key>extraKnownMarketplaces</key>
+								<dict>
+									<key>semgrep-marketplace</key>
+									<dict>
+										<key>autoUpdate</key>
+										<true/>
+										<key>source</key>
+										<dict>
+											<key>source</key>
+											<string>github</string>
+											<key>repo</key>
+											<string>semgrep/guardian</string>
+										</dict>
+									</dict>
+								</dict>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
