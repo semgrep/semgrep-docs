@@ -82,7 +82,12 @@ OPTIONS
            '--exclude' options may be specified. PATTERN is a glob-style
            pattern that uses the same syntax as gitignore and semgrepignore,
            which is documented at
-           https://git-scm.com/gitignore#_pattern_format 
+           https://git-scm.com/docs/gitignore#_pattern_format 
+
+       --exclude-binary-files
+           Skip binary files. These are files that contain magic bytes at the
+           start that correspond to their file extension. Enabled by default;
+           use --no-exclude-binary-files to scan binary files. 
 
        --exclude-minified-files
            Skip minified files. These are files that are < 7% whitespace, or
@@ -138,7 +143,7 @@ OPTIONS
            '--include=foo.* --include=bar.*' will select both 'src/foo.jsx'
            and 'lib/bar.js'. Glob-style patterns follow the syntax supported
            by gitignore and semgrepignore, which is documented at
-           https://git-scm.com/gitignore#_pattern_format 
+           https://git-scm.com/docs/gitignore#_pattern_format 
 
        --incremental-output
            Output results incrementally. REQUIRES --experimental
@@ -197,11 +202,18 @@ OPTIONS
            list of rule ids, list of skipped files). A zero or negative value
            disables this filter. Defaults to 100
 
+       --max-match-context-size=INT (absent=0)
+           Maximum number of characters of source code to include as context
+           surrounding the match in output. Prevents enormous output for
+           minified files. 0 means unlimited. Defaults to 0
+
        --max-memory=INT (absent=0)
            Maximum system memory in MiB to use during the interfile
            pre-processing phase, or when running a rule on a single file. If
            set to 0, will not have memory limit. Defaults to 0. For CI scans
-           that use the Pro Engine, defaults to 5000 MiB. 
+           that use the Pro Engine, defaults to either 90 percent of the
+           container's available memory; or 8 GiB if querying the available
+           system memory is not feasible. 
 
        --max-target-bytes=VALUE (absent=1000000)
            Maximum size for a file to be scanned by Semgrep, e.g '1.5MB'. Any
@@ -222,6 +234,9 @@ OPTIONS
 
        --no-dryrun
            negates --dryrun
+
+       --no-exclude-binary-files
+           negates --exclude-binary-files
 
        --no-exclude-minified-files
            negates --exclude-minified-files
@@ -412,8 +427,15 @@ EXPERIMENTAL OPTIONS
        --no-x-run-taint-once
            [INTERNAL] Disable running taint analysis just once
 
+       --x-cache-rules
+           Internal flag.
+
        --x-computed-dependencies-dir=VAL
            Internal flag.
+
+       --x-dependency-paths
+           (experimental) Include the full dependency path(s) for transitive
+           supply-chain findings in --json and --sarif output.
 
        --x-disable-transitive-reachability
            [INTERNAL] Disable transitive reachability analysis regardless of
@@ -457,8 +479,8 @@ EXPERIMENTAL OPTIONS
            Internal flag.
 
        --x-no-python-schema-validation
-           [INTERNAL] Skip JSON schema validation; rely on osemgrep parser to
-           validate rules files
+           [DEPRECATED] No-op alias kept for backward compatibility. Use
+           --x-rule-validation=core-only instead.
 
        --x-parmap
            [INTERNAL] Rely on legacy Parmap-based parallelism
@@ -469,8 +491,17 @@ EXPERIMENTAL OPTIONS
        --x-partial-output=VAL
            Internal flag.
 
+       --x-partial-scan-rule-id=VAL
+           Internal flag.
+
        --x-pro-naming
            [INTERNAL] Do not use
+
+       --x-rule-validation=VAL (absent=full)
+           [INTERNAL] Control rule pre-validation. 'full' (default) runs
+           Python jsonschema + semgrep-core RPC validation. 'core-only' runs
+           only the RPC validation. 'none' skips both; rule errors surface
+           from the scan subprocess instead.
 
        --x-run-taint-once
            [INTERNAL] Run taint analysis just once (default: true)
