@@ -1,0 +1,22 @@
+.github/workflows/update-openapi-specs.yml
+  s_b82b6a0e103f66::t_3213175f0af978 1-37,51-54,58-79
+  s_b82b6a0e103f66::t_f8cf0706bdb14d 43-49
+  s_b82b6a0e103f66::t_a327bd735dc891 55-57
+  s_b82b6a0e103f66::t_fc3b5ac1dc0de4 38-42,50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "095946b08c167c93321a4f57e76b392d79d181ef",
+  "prompts": {},
+  "sessions": {
+    "s_b82b6a0e103f66": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a82f6eaa-0eea-470d-bf53-9d54e1501fe5",
+        "model": "claude-fable-5"
+      },
+      "human_author": null
+    }
+  }
+}
