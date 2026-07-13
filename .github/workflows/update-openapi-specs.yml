@@ -1,0 +1,79 @@
+name: Update OpenAPI specs
+
+# Keeps the checked-in OpenAPI specs in sync with what semgrep-app serves in
+# production. Mintlify auto-generates the API reference pages from these files
+# (see the `openapi` groups in docs/docs.json), so merging the PR this workflow
+# opens is all it takes to publish new or changed endpoints.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5" # weekday mornings UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-openapi-specs
+  cancel-in-progress: true
+
+jobs:
+  update-specs:
+    name: Fetch specs and open PR if changed
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Fetch latest specs from semgrep.dev
+        run: |
+          curl --fail --silent --show-error --location --retry 3 \
+            https://semgrep.dev/api/v1/public_v1.openapi.yaml \
+            --output docs/public_v1.openapi.yaml
+          curl --fail --silent --show-error --location --retry 3 \
+            https://semgrep.dev/api/v2/openapi.yaml \
+            --output docs/public_v2.openapi.yaml
+
+      # Mintlify ignores ReDoc's x-displayName tag extension and labels nav
+      # groups with the raw tag name unless x-group is set. Mirror the pretty
+      # names until semgrep-app emits x-group natively (safe to remove then).
+      - name: Mirror x-displayName tag names into x-group
+        run: |
+          for spec in docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml; do
+            if grep -q "x-group:" "$spec"; then
+              echo "$spec already has x-group (upstream emits it now); skipping"
+            else
+              perl -i -pe 's/^(\s*)x-displayName:(.*)$/$1x-displayName:$2\n$1x-group:$2/' "$spec"
+            fi
+          done
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Validate docs build with fetched specs
+        working-directory: docs
+        run: npx --yes mintlify@latest validate
+
+      # Note: PRs opened with the default GITHUB_TOKEN do not trigger other
+      # workflows (Docs CI). Reviewers can close/reopen the PR to run CI, or
+      # provide a bot PAT via the DOCS_BOT_TOKEN secret to remove that step.
+      - name: Open PR if specs changed
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.DOCS_BOT_TOKEN || github.token }}
+          add-paths: |
+            docs/public_v1.openapi.yaml
+            docs/public_v2.openapi.yaml
+          branch: chore/update-openapi-specs
+          delete-branch: true
+          commit-message: "chore: sync OpenAPI specs from semgrep.dev"
+          title: "chore: sync OpenAPI specs from semgrep.dev"
+          body: |
+            Automated refresh of the API specs that Mintlify renders the API
+            reference from. Review the diff for unintended endpoint or schema
+            removals before merging.
+
+            - `docs/public_v1.openapi.yaml` ← https://semgrep.dev/api/v1/public_v1.openapi.yaml
+            - `docs/public_v2.openapi.yaml` ← https://semgrep.dev/api/v2/openapi.yaml
