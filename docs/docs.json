@@ -1233,6 +1233,7 @@
       "source": "/rule-updates/",
       "destination": "/release-notes/rule-updates"
     },
+
     {
       "source": "/experiments/overview/",
       "destination": "/writing-rules/experiments/introduction"
@@ -1612,6 +1613,10 @@
     {
       "source": "/semgrep-appsec-platform/dashboard-beta/",
       "destination": "/semgrep-appsec-platform/dashboard"
+    },
+    {
+      "source": "/semgrep-appsec-platform/details-page",
+      "destination": "/semgrep-appsec-platform/findings-details"
     },
     {
       "source": "/deployment/managed-scanning",
