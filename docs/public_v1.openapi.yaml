@@ -87,7 +87,7 @@ components:
         id:
           description: ID of the Policy.
           example: '1'
-          format: uint64
+          format: int64
           type: string
         isDefault:
           description: When True, the Policy applies to all repositories.
@@ -175,7 +175,7 @@ components:
           type: boolean
         id:
           description: ID of the Rule.
-          format: uint64
+          format: int64
           type: string
         languages:
           description: Languages the Rule applies to.
@@ -344,6 +344,173 @@ components:
       - projects
       title: Add Project Tags Response
       type: object
+    protos.openapi.v1.AiSastFinding:
+      description: An AI-powered scan finding that Semgrep has identified in your
+        organization
+      properties:
+        ai_impact:
+          description: AI-generated description of the potential impact if this vulnerability
+            is exploited
+          example: An attacker could access or modify other users' data by manipulating
+            the resource identifier in the request
+          type: string
+        assistant:
+          $ref: '#/components/schemas/protos.openapi.v1.SastFinding_Assistant'
+        click_to_fix_failures:
+          description: Failed PR creation attempts by Semgrep's autofix feature (Click
+            to Fix) for this finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.SastFinding_ClickToFixFailure'
+          type: array
+        click_to_fix_prs:
+          description: Pull requests created by Semgrep's autofix feature (Click to
+            Fix) for this finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.SastFinding_ClickToFixPr'
+          type: array
+        confidence:
+          description: Confidence of the finding, derived from the rule that triggered
+            it
+          enum:
+          - low
+          - medium
+          - high
+          example: medium
+          type: string
+        created_at:
+          description: The timestamp when this finding was created
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        external_ticket:
+          $ref: '#/components/schemas/protos.openapi.v1.ExternalTicket'
+        first_seen_scan_id:
+          description: Unique ID of the Semgrep scan that first identified this finding
+          example: 1234
+          format: int64
+          type: integer
+        id:
+          description: Unique ID of this finding
+          example: 1234567
+          format: int64
+          type: integer
+        line_of_code_url:
+          description: The source URL including file and line number
+          example: https://github.com/semgrep/semgrep/blob/39f95450a7d4d70e54c9edbd109bed8210a36889/src/core_cli/Core_CLI.ml#L1
+          type: string
+        location:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingLocation'
+        match_based_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and pattern, and index
+          example: 0f8c79a6f7e0ff2f908ff5bc366ae1548465069bae8892088051e1c3b4b12c6b8df37d5bcbb181eb868aa79f81f239d14bf2336d552786ab8ccdc7279adf07a6_1
+          type: string
+        ref:
+          description: External reference to the source of this finding (e.g. PR)
+          example: refs/pull/1234/merge
+          type: string
+        relevant_since:
+          description: The timestamp when this finding was detected by Semgrep (the
+            first time, or when reintroduced)
+          example: 2020-11-18 23:28:12.391807+00:00
+          type: string
+        repository:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRepository'
+        review_comments:
+          description: List of external review comment information associated with
+            a finding
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.ReviewComment'
+          type: array
+        rule:
+          $ref: '#/components/schemas/protos.openapi.v1.FindingRule'
+        rule_message:
+          description: Deprecated in favor of rule.message. Rule message at the time
+            of finding identification. Older findings may not have a value for this
+            field
+          type: string
+        rule_name:
+          description: Deprecated in favor of rule.name
+          example: ai.detection.idor
+          type: string
+        severity:
+          description: Severity of the finding, derived from the rule that triggered
+            it. Low is equivalent to INFO, Medium to WARNING, and High to ERROR
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          example: high
+          type: string
+        sourcing_policy:
+          $ref: '#/components/schemas/protos.openapi.v1.SastFinding_PolicyReference'
+        state:
+          description: The finding's resolution state. Managed only by changes detected
+            at scan time, the `state` is combined with `triage_state` to ultimately
+            determine a final `status` which is exposed in the UI and API
+          enum:
+          - fixed
+          - muted
+          - unresolved
+          example: unresolved
+          type: string
+        state_updated_at:
+          description: When this issue's `state` (resolution state) was last updated,
+            as distinct from when the issue was triaged (`triaged_at`)
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+        status:
+          description: The finding's status as exposed in the UI. Status is a derived
+            property combining information from the finding `state` and `triage_state`.
+            The `triage_state` can be used to override the scan state if the finding
+            is still detected
+          enum:
+          - open
+          - fixed
+          - ignored
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: open
+          type: string
+        syntactic_id:
+          description: ID calculated based on a finding's file path, rule identifier
+            and matched code, and index. Prefer `match_based_id`
+          example: 440eeface888e78afceac3dc7d4cc2cf
+          type: string
+        triage_comment:
+          description: The detailed comment provided during triage
+          example: This finding is from the test repo
+          type: string
+        triage_reason:
+          description: Reason provided when this issue was triaged
+          enum:
+          - acceptable_risk
+          - false_positive
+          - no_time
+          - no_triage_reason
+          - duplicate
+          example: acceptable_risk
+          type: string
+        triage_state:
+          description: 'The finding''s triage state. Note: "reviewing" and "fixing"
+            are only in private beta. Set by the user and used along with state to
+            generate the final "status" viewable in the UI'
+          enum:
+          - untriaged
+          - ignored
+          - reopened
+          - reviewing
+          - fixing
+          - provisionally_ignored
+          example: untriaged
+          type: string
+        triaged_at:
+          description: When the finding was triaged
+          example: 2020-11-19 23:28:12.391807+00:00
+          type: string
+      title: AI-Powered Scan Finding
+      type: object
     protos.openapi.v1.Assistant_Autofix:
       description: Fix data generated by Semgrep Assistant
       properties:
@@ -470,10 +637,6 @@ components:
           items:
             type: string
           type: array
-        deploymentSlug:
-          description: Deployment slug. Can be found at /deployments, or in your Settings
-            in the web UI.
-          type: string
         epss_probability:
           description: Filter by EPSS probability (likelihood of exploit). Only applies
             for sca findings.
@@ -516,7 +679,7 @@ components:
           - 123
           - 456
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
         issue_type:
@@ -535,10 +698,11 @@ components:
             As a result, the list of triaged issue_ids returned in the response may
             be higher than the specified limit.
           example: 100
-          format: uint32
+          format: int64
           type: integer
         new_note:
-          description: The note to attach to the bulk triaged findings.
+          description: The note to attach to the bulk triaged findings. Maximum 3000
+            characters.
           example: some note here
           type: string
         new_triage_reason:
@@ -548,6 +712,7 @@ components:
           - false_positive
           - no_time
           - no_triage_reason
+          - duplicate
           example: acceptable_risk
           type: string
         new_triage_state:
@@ -558,6 +723,7 @@ components:
           - reviewing
           - fixing
           - reopened
+          - provisionally_ignored
           example: reopened
           type: string
         policies:
@@ -583,7 +749,7 @@ components:
           type: array
         pro_only:
           description: Filter by whether a finding is only available with Semgrep
-            Pro features. Only applies for sast findings.
+            Pro features.
           example: true
           type: boolean
         project_tags:
@@ -671,6 +837,7 @@ components:
           - ignored
           - reviewing
           - fixing
+          - provisionally_ignored
           example: open
           type: string
         transitivities:
@@ -693,6 +860,7 @@ components:
           - false_positive
           - no_time
           - no_triage_reason
+          - duplicate
           example:
           - acceptable_risk
           - false_positive
@@ -722,12 +890,12 @@ components:
       properties:
         num_triaged:
           description: Number of items updated
-          format: uint32
+          format: int64
           type: integer
         triaged_issues:
           description: List of triaged issue IDs
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
       required:
@@ -741,7 +909,7 @@ components:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
         formatVersion:
           $ref: '#/components/schemas/protos.sca.v1.SbomFormatVersion'
@@ -805,7 +973,7 @@ components:
         repositoryId:
           description: Repository ID to export SBOM for.
           example: 123
-          format: uint64
+          format: int64
           type: string
         sbomOutputFormat:
           description: 'SBOM output format for the SBOM export.
@@ -953,7 +1121,7 @@ components:
           description: Max number of tickets to create. Must be an integer between
             1 and 20. Defaults to 20
           example: 20
-          format: uint32
+          format: int64
           type: integer
         policies:
           description: List of policy modes to filter by
@@ -1066,6 +1234,7 @@ components:
           - ignored
           - reviewing
           - fixing
+          - provisionally_ignored
           example: open
           type: string
         transitivities:
@@ -1088,6 +1257,7 @@ components:
           - false_positive
           - no_time
           - no_triage_reason
+          - duplicate
           example:
           - acceptable_risk
           - false_positive
@@ -1140,7 +1310,7 @@ components:
         issue_ids:
           description: List of issue IDs
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
       type: object
@@ -1149,7 +1319,7 @@ components:
         issue_ids:
           description: List of issue IDs
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
         reason:
@@ -1164,12 +1334,12 @@ components:
         issue_ids:
           description: List of issue IDs
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
         ticket_id:
           description: The ID of the created ticket
-          format: uint32
+          format: int64
           type: integer
         ticket_url:
           description: The URL of the created ticket
@@ -1214,7 +1384,7 @@ components:
         id:
           description: Unique numerical identifier of the deployment.
           example: 120
-          format: uint32
+          format: int64
           type: number
         name:
           description: Human readable name.
@@ -1250,18 +1420,18 @@ components:
     protos.openapi.v1.ExternalTicket:
       description: External ticket associated with finding
       properties:
-        externalSlug:
+        external_slug:
           description: Identifier of the external ticket
           example: OPS-158
           type: string
         id:
           description: External ticket id
-          format: uint32
+          format: int64
           type: integer
-        linkedIssueIds:
+        linked_issue_ids:
           description: Semgrep issue ids that are linked to this external ticket
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
         url:
@@ -1276,26 +1446,26 @@ components:
         column:
           description: Column at which the target starts
           example: 8
-          format: uint32
+          format: int64
           type: integer
-        endColumn:
+        end_column:
           description: Column at which the target ends
           example: 16
-          format: uint32
+          format: int64
           type: integer
-        endLine:
+        end_line:
           description: Line at which the target ends
           example: 124
-          format: uint32
+          format: int64
           type: integer
-        filePath:
+        file_path:
           description: File path of the relevant line and column numbers
           example: frontend/src/corpComponents/Code.tsx
           type: string
         line:
           description: Line at which the target starts
           example: 120
-          format: uint32
+          format: int64
           type: integer
       title: Finding Location
       type: object
@@ -1328,7 +1498,7 @@ components:
           - high
           example: high
           type: string
-        cweNames:
+        cwe_names:
           description: CWE names associated with the rule
           example:
           - 'CWE-319: Cleartext Transmission of Sensitive Information'
@@ -1344,7 +1514,7 @@ components:
           description: Name of the rule
           example: html.security.plaintext-http-link.plaintext-http-link
           type: string
-        owaspNames:
+        owasp_names:
           description: OWASP names associated with the rule
           example:
           - A03:2017 - Sensitive Data Exposure
@@ -1359,7 +1529,7 @@ components:
           items:
             type: string
           type: array
-        vulnerabilityClasses:
+        vulnerability_classes:
           description: Vulnerability classes the rule is associated with
           example:
           - Mishandled Sensitive Information
@@ -1449,7 +1619,7 @@ components:
           description: The unique ID of the deployment associated with the scanned
             repository.
           example: 120
-          format: uint32
+          format: int64
           type: integer
         enabled_products:
           description: The products used when running the scan.
@@ -1459,21 +1629,21 @@ components:
             type: string
           type: array
         exit_code:
-          format: uint32
+          format: int64
           type: integer
         has_logs:
           type: boolean
         id:
           description: The unique ID representing this scan.
           example: 123
-          format: uint32
+          format: int64
           type: integer
         meta:
           $ref: '#/components/schemas/protos.openapi.v1.GetScanResponse_ScanMeta'
         repository_id:
           description: The unique ID of the repository that was scanned.
           example: 1234567
-          format: uint32
+          format: int64
           type: integer
         started_at:
           description: when the scan was started
@@ -1562,12 +1732,61 @@ components:
           example: https://github.com/link/to/avatar.png
           type: string
       type: object
+    protos.openapi.v1.LinkTicketRequest:
+      description: Link ticket request
+      properties:
+        deploymentId:
+          description: Deployment ID. Can be found at /deployments, or in your Settings
+            in the web UI.
+          example: 123
+          type: string
+        issue_ids:
+          description: An array of Semgrep finding IDs to link the ticket to.
+          example:
+          - 123
+          - 456
+          items:
+            type: string
+          type: array
+        ticket_url:
+          description: The URL of the external ticket to link (e.g. https://myorg.atlassian.net/browse/SEC-123).
+          example: https://myorg.atlassian.net/browse/SEC-123
+          type: string
+      required:
+      - deployment_id
+      - ticket_url
+      - issue_ids
+      title: Link Ticket Request
+      type: object
+    protos.openapi.v1.LinkTicketResponse:
+      properties:
+        external_slug:
+          description: The external slug identifier for the ticket (e.g. SEC-123)
+          type: string
+        linked_issue_ids:
+          description: List of finding IDs that were successfully linked to the ticket
+          items:
+            type: string
+          type: array
+        replaced_issue_ids:
+          description: List of finding IDs where an existing ticket link was replaced
+          items:
+            type: string
+          type: array
+        ticket_id:
+          description: The internal ID of the linked ticket record
+          format: int64
+          type: integer
+        ticket_url:
+          description: The URL of the linked ticket
+          type: string
+      type: object
     protos.openapi.v1.ListDependenciesRequest:
       properties:
         cursor:
           description: Cursor to paginate through the dependencies. Provide a cursor
             value from the response to retrieve the next page.
-          format: uint64
+          format: int64
           type: string
         dependencyFilter:
           $ref: '#/components/schemas/protos.sca.v1.DependencyFilter'
@@ -1575,7 +1794,7 @@ components:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
         pageSize:
           description: 'Number of dependencies per page. Default: 1000, min: 1, max:
@@ -1593,7 +1812,7 @@ components:
       properties:
         cursor:
           description: Pass to next request to get next page of results.
-          format: uint64
+          format: int64
           type: string
         dependencies:
           description: List of dependencies.
@@ -1627,11 +1846,24 @@ components:
       description: Response containing a paginated list of findings (either Code or
         Supply Chain findings) with optional filtering applied
       properties:
+        aiSastFindings:
+          $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse_AiSastFindings'
         sastFindings:
           $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse_SastFindings'
         scaFindings:
           $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse_ScaFindings'
       title: List Findings Response
+      type: object
+    protos.openapi.v1.ListFindingsResponse_AiSastFindings:
+      description: A list of AI-powered scan findings that Semgrep has identified
+        in your organization
+      properties:
+        findings:
+          description: A list of AI-powered scan findings.
+          items:
+            $ref: '#/components/schemas/protos.openapi.v1.AiSastFinding'
+          type: array
+      title: Ai Sast Findings
       type: object
     protos.openapi.v1.ListFindingsResponse_SastFindings:
       description: A list of Code findings that Semgrep has identified in your organization
@@ -1664,21 +1896,21 @@ components:
         deploymentId:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
-          format: uint64
+          format: int64
           type: string
         pageSize:
           default: 5.0
           description: 'Number of repositories per page. Default: 5, min: 1, max:
             100.'
           example: 100
-          format: uint32
+          format: int64
           maximum: 100.0
           minimum: 1.0
           type: integer
         repositoryId:
           description: Repository ID to filter by. Use Projects endpoints to retrieve
             repository IDs.
-          format: uint64
+          format: int64
           type: string
       required:
       - deployment_id
@@ -1824,7 +2056,7 @@ components:
         id:
           description: Unique ID of this project.
           example: 1234567
-          format: uint32
+          format: int64
           type: number
         latest_scan_at:
           description: Time of latest scan, if there is one.
@@ -1870,21 +2102,21 @@ components:
       properties:
         cursor:
           description: Use cursor in response to get next page of results.
-          format: uint32
+          format: int64
           type: number
         dependencyFilter:
           $ref: '#/components/schemas/protos.sca.v1.DependencyFilter'
         deploymentId:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
-          format: uint64
+          format: int64
           type: string
         pageSize:
           default: 5.0
           description: 'Number of repositories per page. Default: 5, min: 1, max:
             100.'
           example: 100
-          format: uint32
+          format: int64
           maximum: 100.0
           minimum: 1.0
           type: number
@@ -1896,7 +2128,7 @@ components:
       properties:
         cursor:
           description: Pass to next request to get next page of results.
-          format: uint32
+          format: int64
           type: number
         hasMore:
           description: True if there are more repositories to get.
@@ -2001,7 +2233,7 @@ components:
         id:
           description: Unique ID of this project.
           example: 1234567
-          format: uint32
+          format: int64
           type: number
         latest_scan_at:
           description: Time of latest scan, if there is one.
@@ -2037,11 +2269,11 @@ components:
     protos.openapi.v1.ReviewComment:
       description: External review comment information associated with a finding
       properties:
-        externalDiscussionId:
+        external_discussion_id:
           description: External ID of the review comment or discussion thread
           example: af04762b69acfb74c8f9
           type: string
-        externalNoteId:
+        external_note_id:
           description: External ID of the specific note in the review comment discussion
             thread. Only applicable for GitLab.com, GitLab Self-Managed and Azure
             DevOps
@@ -2092,12 +2324,12 @@ components:
         first_seen_scan_id:
           description: Unique ID of the Semgrep scan that first identified this finding
           example: 1234
-          format: uint32
+          format: int64
           type: integer
         id:
           description: Unique ID of this finding
           example: 1234567
-          format: uint32
+          format: int64
           type: integer
         line_of_code_url:
           description: The source URL including file and line number
@@ -2158,7 +2390,6 @@ components:
           enum:
           - fixed
           - muted
-          - removed
           - unresolved
           example: unresolved
           type: string
@@ -2196,6 +2427,8 @@ components:
           - acceptable_risk
           - false_positive
           - no_time
+          - no_triage_reason
+          - duplicate
           example: acceptable_risk
           type: string
         triage_state:
@@ -2265,7 +2498,7 @@ components:
         id:
           description: Unique numerical identifier of the policy
           example: 120
-          format: uint32
+          format: int64
           type: integer
         name:
           description: Human readable name
@@ -2308,7 +2541,7 @@ components:
         first_seen_scan_id:
           description: Unique ID of the Semgrep scan that first identified this finding
           example: 1234
-          format: uint32
+          format: int64
           type: integer
         fix_recommendations:
           description: Recommendations for fixing the vulnerability
@@ -2320,7 +2553,7 @@ components:
         id:
           description: Unique ID of this finding
           example: 1234567
-          format: uint32
+          format: int64
           type: integer
         is_malicious:
           description: True if the finding is from a malicious dependency
@@ -2398,7 +2631,6 @@ components:
           enum:
           - fixed
           - muted
-          - removed
           - unresolved
           example: unresolved
           type: string
@@ -2436,6 +2668,8 @@ components:
           - acceptable_risk
           - false_positive
           - no_time
+          - no_triage_reason
+          - duplicate
           example: acceptable_risk
           type: string
         triage_state:
@@ -2560,7 +2794,7 @@ components:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
         is_full_scan:
           description: Only get scans that are full scans (if false, only get diff
@@ -2624,6 +2858,10 @@ components:
             | SCAN_STATUS_COMPLETED | The scan has completed successfully (0 or 1
             exit code) |
 
+            | SCAN_STATUS_PENDING | The scan is queued and waiting to start |
+
+            | SCAN_STATUS_CANCELLED | The scan was cancelled before completion |
+
             | SCAN_STATUS_ERROR | The scan has exited with a failure (exit code not
             0 or 1) |
 
@@ -2635,6 +2873,8 @@ components:
           enum:
           - SCAN_STATUS_RUNNING
           - SCAN_STATUS_COMPLETED
+          - SCAN_STATUS_PENDING
+          - SCAN_STATUS_CANCELLED
           - SCAN_STATUS_ERROR
           - SCAN_STATUS_NEVER_FINISHED
           items:
@@ -2642,6 +2882,8 @@ components:
             - SCAN_STATUS_UNSPECIFIED
             - SCAN_STATUS_RUNNING
             - SCAN_STATUS_COMPLETED
+            - SCAN_STATUS_PENDING
+            - SCAN_STATUS_CANCELLED
             - SCAN_STATUS_ERROR
             - SCAN_STATUS_NEVER_FINISHED
             format: enum
@@ -2694,18 +2936,48 @@ components:
       - projects
       title: Toggle Project Managed Scan Response
       type: object
+    protos.openapi.v1.UnlinkTicketRequest:
+      description: Unlink ticket request
+      properties:
+        deploymentId:
+          description: Deployment ID. Can be found at /deployments, or in your Settings
+            in the web UI.
+          example: 123
+          type: string
+        issue_ids:
+          description: An array of Semgrep finding IDs to unlink tickets from.
+          example:
+          - 123
+          - 456
+          items:
+            type: string
+          type: array
+      required:
+      - deployment_id
+      - issue_ids
+      title: Unlink Ticket Request
+      type: object
+    protos.openapi.v1.UnlinkTicketResponse:
+      properties:
+        unlinked_issue_ids:
+          description: List of finding IDs that were successfully unlinked from their
+            tickets
+          items:
+            type: string
+          type: array
+      type: object
     protos.openapi.v1.UpdatePolicyRequest:
       properties:
         deploymentId:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
         policyId:
           description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
           example: 456
-          format: uint64
+          format: int64
           type: string
         policyMode:
           description: "New policy mode to set for the Rule.\n\n - MODE_MONITOR: Monitor
@@ -2738,7 +3010,7 @@ components:
         policyId:
           description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
           example: '1'
-          format: uint64
+          format: int64
           type: string
         updatedRule:
           $ref: '#/components/schemas/protos.common.v1.Rule'
@@ -2855,6 +3127,12 @@ components:
 
             | hex |  |
 
+            | cocoapods |  |
+
+            | mix |  |
+
+            | opam |  |
+
 
             '
           enum:
@@ -2870,6 +3148,9 @@ components:
           - pub
           - swiftpm
           - hex
+          - cocoapods
+          - mix
+          - opam
           items:
             enum:
             - no_package_manager
@@ -2884,6 +3165,9 @@ components:
             - pub
             - swiftpm
             - hex
+            - cocoapods
+            - mix
+            - opam
             format: enum
             type: string
           type: array
@@ -2939,7 +3223,7 @@ components:
             has Repository ID as a path parameter.\n Use Projects endpoints to retrieve
             Repository IDs."
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
         transitivity:
@@ -3013,6 +3297,12 @@ components:
 
             | hex |  |
 
+            | cocoapods |  |
+
+            | mix |  |
+
+            | opam |  |
+
 
             '
           enum:
@@ -3028,6 +3318,9 @@ components:
           - pub
           - swiftpm
           - hex
+          - cocoapods
+          - mix
+          - opam
           format: enum
           type: string
         licenses:
@@ -3083,7 +3376,7 @@ components:
           type: string
         numDependencies:
           description: Total number of dependencies in the lockfile.
-          format: uint32
+          format: int64
           type: integer
       type: object
     protos.sca.v1.PackageFilter:
@@ -3118,18 +3411,45 @@ components:
           type: boolean
         id:
           description: ID of repository.
-          format: uint32
+          format: int64
           type: integer
         name:
           description: Name of repository.
           type: string
         numDependencies:
           description: Total number of dependencies in the repository.
-          format: uint32
+          format: int64
           type: integer
       type: object
     protos.sca.v1.SbomFormatVersion:
       properties:
+        cyclonedxVersion:
+          description: 'CycloneDX schema version for the SBOM export. Supported: 1.4,
+            1.5, 1.6, 1.7. Defaults to 1.4 when unset.
+
+
+            | value | description |
+
+            |-------|---------------|
+
+            | SBOM_CYCLONE_DX_VERSION_V1_4 |  |
+
+            | SBOM_CYCLONE_DX_VERSION_V1_5 |  |
+
+            | SBOM_CYCLONE_DX_VERSION_V1_6 |  |
+
+            | SBOM_CYCLONE_DX_VERSION_V1_7 |  |
+
+
+            '
+          enum:
+          - SBOM_CYCLONE_DX_VERSION_V1_4
+          - SBOM_CYCLONE_DX_VERSION_V1_5
+          - SBOM_CYCLONE_DX_VERSION_V1_6
+          - SBOM_CYCLONE_DX_VERSION_V1_7
+          example: SBOM_CYCLONE_DX_VERSION_V1_7
+          format: enum
+          type: string
         format:
           default: SBOM_FORMAT_CYCLONEDX
           description: 'Format for the SBOM export.
@@ -3146,10 +3466,6 @@ components:
           enum:
           - SBOM_FORMAT_CYCLONEDX
           format: enum
-          type: string
-        version:
-          default: '1.5'
-          description: Version of the SBOM format.
           type: string
       type: object
     protos.sca.v1.SbomMetadataContact:
@@ -3175,22 +3491,22 @@ components:
         code:
           description: Total number of Code findings in the scan
           example: 2
-          format: uint64
+          format: int64
           type: string
         secrets:
           description: Total number of Secrets findings in the scan
           example: 1
-          format: uint64
+          format: int64
           type: string
         supply_chain:
           description: Total number of Supply Chain findings in the scan
           example: 1
-          format: uint64
+          format: int64
           type: string
         total:
           description: Total number of findings in the scan
           example: 4
-          format: uint64
+          format: int64
           type: string
       type: object
     protos.scan.v1.ScanPublic:
@@ -3210,7 +3526,7 @@ components:
           type: string
         deployment_id:
           description: Unique identifier for the deployment of the scan.
-          format: uint64
+          format: int64
           type: string
         enabled_products:
           description: The products used when running the scan.
@@ -3220,7 +3536,7 @@ components:
             type: string
           type: array
         exit_code:
-          description: The exit_code of the scan (see https://semgrep.dev/cli-reference#exit-codes)
+          description: The exit_code of the scan (see https://semgrep.dev/docs/cli-reference#exit-codes)
           example: 0
           format: int64
           type: string
@@ -3228,7 +3544,7 @@ components:
           $ref: '#/components/schemas/protos.scan.v1.ScanFindingsCounts'
         id:
           description: ID of the scan.
-          format: uint64
+          format: int64
           type: string
         is_full_scan:
           description: Whether the scan was a full scan (true) or a diff scan (false)
@@ -3236,7 +3552,7 @@ components:
           type: boolean
         repository_id:
           description: Unique identifier for the repository of the scan.
-          format: uint64
+          format: int64
           type: string
         started_at:
           description: The timestamp when this scan started.
@@ -3256,6 +3572,10 @@ components:
             | SCAN_STATUS_COMPLETED | The scan has completed successfully (0 or 1
             exit code) |
 
+            | SCAN_STATUS_PENDING | The scan is queued and waiting to start |
+
+            | SCAN_STATUS_CANCELLED | The scan was cancelled before completion |
+
             | SCAN_STATUS_ERROR | The scan has exited with a failure (exit code not
             0 or 1) |
 
@@ -3267,6 +3587,8 @@ components:
           enum:
           - SCAN_STATUS_RUNNING
           - SCAN_STATUS_COMPLETED
+          - SCAN_STATUS_PENDING
+          - SCAN_STATUS_CANCELLED
           - SCAN_STATUS_ERROR
           - SCAN_STATUS_NEVER_FINISHED
           example: SCAN_STATUS_RUNNING
@@ -3512,6 +3834,8 @@ components:
 
             | SCM_TYPE_UNKNOWN |  |
 
+            | SCM_TYPE_HARNESS | Harness |
+
 
             '
           enum:
@@ -3523,6 +3847,7 @@ components:
           - SCM_TYPE_BITBUCKET_DATACENTER
           - SCM_TYPE_AZURE_DEVOPS
           - SCM_TYPE_UNKNOWN
+          - SCM_TYPE_HARNESS
           format: enum
           type: string
         url:
@@ -3603,11 +3928,7 @@ info:
     Semgrep is a fast, open-source, static analysis tool for finding bugs and enforcing
     code standards at editor,
 
-    commit, and CI time. [Get started.](https://semgrep.dev/getting-started/)
-
-
-    Semgrep analyzes code locally on your computer or in your build environment: **code
-    is never uploaded.**
+    commit, and CI time. [Get started.](https://semgrep.dev/docs/getting-started/)
 
 
     This API is documented in the **OpenAPI format**.
@@ -3645,8 +3966,6 @@ info:
   title: Semgrep Web App
   version: 1.0.0
 openapi: 3.0.3
-servers:
-  - url: https://semgrep.dev
 paths:
   /api/v1/bootstrap-sms-vpc:
     get:
@@ -3712,7 +4031,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -3743,7 +4062,7 @@ paths:
         schema:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -3774,7 +4093,7 @@ paths:
         schema:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
-          format: uint64
+          format: int64
           type: string
       - in: path
         name: repositoryId
@@ -3782,7 +4101,7 @@ paths:
         schema:
           description: Repository ID to filter by. Use Projects endpoints to retrieve
             repository IDs.
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -3814,7 +4133,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       responses:
         '200':
@@ -3840,7 +4159,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       - in: path
         name: policyId
@@ -3848,7 +4167,7 @@ paths:
         schema:
           description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
           example: 456
-          format: uint64
+          format: int64
           type: string
       - in: query
         name: cursor
@@ -3861,7 +4180,7 @@ paths:
         schema:
           description: Page size to paginate through the rules. The default page size
             is `500` and the maximum allowed page size is `2000`.
-          format: uint32
+          format: int64
           type: integer
       responses:
         '200':
@@ -3886,7 +4205,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       - in: path
         name: policyId
@@ -3894,7 +4213,7 @@ paths:
         schema:
           description: 'Policy ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/policies`.'
           example: 456
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -3926,7 +4245,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -3992,7 +4311,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       - in: path
         name: scanId
@@ -4000,7 +4319,7 @@ paths:
         schema:
           description: 'Scan ID (numeric). Example: `456`. Can be found at `/deployments/{deploymentId}/scans/search`.'
           example: 456
-          format: uint64
+          format: int64
           type: string
       responses:
         '200':
@@ -4028,7 +4347,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       requestBody:
         content:
@@ -4060,7 +4379,7 @@ paths:
           description: 'Deployment ID (numeric). Example: `123`. Can be found at `/deployments`,
             or in your Settings in the web UI.'
           example: 123
-          format: uint64
+          format: int64
           type: string
       - in: query
         name: cursor
@@ -4072,7 +4391,7 @@ paths:
         name: limit
         schema:
           description: Page size to paginate through the results.
-          format: uint32
+          format: int64
           type: integer
       - in: query
         name: since
@@ -4177,7 +4496,7 @@ paths:
         schema:
           description: The ID of the external ticket
           example: 456
-          format: uint32
+          format: int64
           type: integer
       responses:
         '200':
@@ -4192,13 +4511,84 @@ paths:
       tags:
       - TicketingService
       x-badges: []
+  /api/v1/deployments/{deploymentId}/tickets/link:
+    post:
+      description: "Link an existing external ticket (e.g. Jira) to one or more Semgrep
+        findings by providing the ticket URL and a list of finding IDs. This does
+        not create a ticket in your issue tracker \u2014 it only records the association
+        in Semgrep. If a finding is already linked to a different ticket, the existing
+        link is replaced. Requires a configured ticketing integration."
+      operationId: TicketingService_LinkTicket
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: Deployment ID. Can be found at /deployments, or in your Settings
+            in the web UI.
+          example: 123
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.LinkTicketRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.LinkTicketResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Link an existing ticket to findings
+      tags:
+      - TicketingService
+      x-badges: []
+  /api/v1/deployments/{deploymentId}/tickets/unlink:
+    post:
+      description: "Remove the ticket association from one or more Semgrep findings
+        by providing a list of finding IDs. This does not delete the ticket in your
+        issue tracker \u2014 it only removes the association in Semgrep."
+      operationId: TicketingService_UnlinkTicket
+      parameters:
+      - in: path
+        name: deploymentId
+        required: true
+        schema:
+          description: Deployment ID. Can be found at /deployments, or in your Settings
+            in the web UI.
+          example: 123
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/protos.openapi.v1.UnlinkTicketRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protos.openapi.v1.UnlinkTicketResponse'
+          description: OK
+      security:
+      - SemgrepWebToken: []
+      summary: Unlink a ticket from findings
+      tags:
+      - TicketingService
+      x-badges: []
   /api/v1/deployments/{deploymentSlug}/findings:
     get:
-      description: 'Request the list of code or supply chain findings in an organization,
-        paginated in pages of 100 entries and limited by the `since` timestamp. Findings
-        are returned by `relevant_since` descending (see `since` in the Query Parameters
-        list). Examples: List SAST findings with pagination, List SCA findings since
-        timestamp, List findings with filters.'
+      description: 'Request the list of code, supply chain, or AI-powered scan findings
+        in an organization, paginated in pages of 100 entries and limited by the `since`
+        timestamp. Findings are returned by `relevant_since` descending (see `since`
+        in the Query Parameters list). Examples: List SAST findings with pagination,
+        List SCA findings since timestamp, List AI-powered scan findings, List findings
+        with filters.'
       operationId: FindingsService_ListFindings
       parameters:
       - in: path
@@ -4214,11 +4604,12 @@ paths:
         schema:
           default: sast
           description: 'Type of findings to return. If not specified, returns `sast`
-            (Code) findings. Can either be `sast` (Code) or `sca` (Supply Chain).
-            Valid values: sast, sca'
+            (Code) findings. Can be `sast` (Code), `sca` (Supply Chain), or `ai_sast`
+            (AI-powered scan). Valid values: sast, sca, ai_sast'
           enum:
           - sast
           - sca
+          - ai_sast
           example: sca
           type: string
       - in: query
@@ -4238,7 +4629,7 @@ paths:
           description: Which page of the results do you require? If not specified,
             returns first page. Pages are numbered from zero (0).
           example: 1
-          format: uint32
+          format: int64
           type: integer
       - in: query
         name: dedup
@@ -4258,7 +4649,7 @@ paths:
           description: 'Maximum number of records per returned page. If not specified,
             defaults to 100 records. Minimum: 100, Maximum: 3000'
           example: 100
-          format: uint32
+          format: int64
           maximum: 3000.0
           minimum: 100.0
           type: integer
@@ -4283,20 +4674,23 @@ paths:
           - 2
           - 3
           items:
-            format: uint32
+            format: int64
             type: integer
           type: array
       - in: query
         name: status
         schema:
           description: 'Which status do you want to include? If not specified, includes
-            all. Valid values: open, fixed, ignored, reviewing, fixing'
+            all statuses. Findings in the `removed` state are always excluded from
+            this endpoint. Valid values: open, fixed, ignored, reviewing, fixing,
+            provisionally_ignored'
           enum:
           - open
           - fixed
           - ignored
           - reviewing
           - fixing
+          - provisionally_ignored
           example: open
           type: string
       - in: query
@@ -4304,12 +4698,13 @@ paths:
         schema:
           description: 'Which triage reasons do you want to include? If not specified,
             includes all. This filter is applicable when `status` is `ignored`. Valid
-            values: acceptable_risk, false_positive, no_time, no_triage_reason'
+            values: acceptable_risk, false_positive, no_time, no_triage_reason, duplicate'
           enum:
           - acceptable_risk
           - false_positive
           - no_time
           - no_triage_reason
+          - duplicate
           example:
           - acceptable_risk
           - false_positive
@@ -4478,28 +4873,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/protos.openapi.v1.ListFindingsResponse'
-          description: OK
-        default:
-          content:
-            application/json:
-              schema:
                 properties:
                   findings:
                     items:
                       oneOf:
-                      - title: Sast Finding
-                        allOf:
-                        - $ref: '#/components/schemas/protos.openapi.v1.SastFinding'
-                      - title: Sca Finding
-                        allOf:
-                        - $ref: '#/components/schemas/protos.openapi.v1.ScaFinding'
+                      - $ref: '#/components/schemas/protos.openapi.v1.SastFinding'
+                        summary: Sast Finding
+                      - $ref: '#/components/schemas/protos.openapi.v1.ScaFinding'
+                        summary: Sca Finding
+                      - $ref: '#/components/schemas/protos.openapi.v1.AiSastFinding'
+                        summary: AI-Powered Scan Finding
                     type: array
                 type: object
           description: OK
       security:
       - SemgrepWebToken: []
-      summary: List code or supply chain findings
+      summary: List code, supply chain, or AI-powered scan findings
       tags:
       - FindingsService
       x-badges: []
@@ -4524,7 +4913,7 @@ paths:
           description: Which page of the results do you require? If not specified,
             returns first page. Pages are numbered from zero (0).
           example: 1
-          format: uint32
+          format: int64
           type: number
       - in: query
         name: page_size
@@ -4533,7 +4922,7 @@ paths:
           description: Maximum number of records per returned page. If not specified,
             defaults to 100 records.
           example: 100
-          format: uint32
+          format: int64
           type: number
       responses:
         '200':
@@ -4618,11 +5007,8 @@ paths:
       - ProjectsService
       x-badges: []
     patch:
-      description: 'Update attributes for the project using the value passed in to
+      description: Update attributes for the project using the value passed in to
         the request body.
-
-
-        Note: The only attribute that is supported as of January 2023 is `tags`.'
       operationId: ProjectsService_UpdateProject
       parameters:
       - in: path
@@ -4664,7 +5050,7 @@ paths:
     patch:
       description: 'Enable or disable
 
-        [Semgrep Managed Scans](/deployment/managed-scanning/overview)
+        [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview)
 
         for a project.'
       operationId: ProjectsService_ToggleProjectManagedScan
@@ -4901,33 +5287,47 @@ tags:
     organization, they're similarly the root object of the API.
   name: DeploymentsService
   x-displayName: Deployment
-- description: Manage and retrieve code and supply chain security findings from Semgrep
-    scans
+  x-group: Deployment
+- description: Manage and retrieve code, supply chain, and AI-powered scan findings
+    from Semgrep scans
   name: FindingsService
-  x-displayName: Code and Supply Chain
+  x-displayName: Code, Supply Chain, and AI-Powered Scan
+  x-group: Code, Supply Chain, and AI-Powered Scan
 - description: Utility endpoints.
   name: MiscService
   x-displayName: Other
-- description: View and manage the Policies of your organization.
+  x-group: Other
+- description: 'View and manage the Policies of your organization.
+
+
+    Deployments on the Unified Policies model use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service)
+    instead; this service stops working after the migration.'
   name: PoliciesService
   x-displayName: Policies
+  x-group: Policies
 - name: ProjectsService
   x-displayName: Projects
+  x-group: Projects
 - description: View details of scans associated with projects in your organization.
   name: ScansService
   x-displayName: Scans
+  x-group: Scans
 - description: View and manage the Secrets of your organization.
   name: SecretsService
   x-displayName: Secrets
+  x-group: Secrets
 - description: 'Manage the Supply Chain findings and dependencies of your organization.
 
 
     A request body is required, but may be an empty object.'
   name: SupplyChainService
   x-displayName: Supply Chain
+  x-group: Supply Chain
 - description: Create and manage external tickets
   name: TicketingService
   x-displayName: Ticketing
+  x-group: Ticketing
 - description: View and manage the triage of your organization.
   name: TriageService
   x-displayName: Triage
+  x-group: Triage

@@ -8,8 +8,8 @@ description: "March 30, 2025 · 4 min read"
 
 ### Added
 
-- Added the capability to delete projects through the Semgrep API. Deleting a project also deletes all of its findings. Refer to the [API documentation](/api-reference/Introduction).
-- You can now view the `cwe_names` and `owasp_names` for findings fetched through the Semgrep API. See the [API documentation](/api-reference/Introduction).
+- Added the capability to delete projects through the Semgrep API. Deleting a project also deletes all of its findings. Refer to the [API documentation](/api-reference/v1/Introduction).
+- You can now view the `cwe_names` and `owasp_names` for findings fetched through the Semgrep API. See the [API documentation](/api-reference/v1/Introduction).
 - Added `external_discussion_id` and `external_note_id` to findings returned by the Semgrep API. Use these fields to build links, put together dashboards, or other functionalities.
 - Various performance enhancements around full scans performed by Semgrep Managed Scans.
 - **Teams**: Members are able to view the **Project details** page. This enables them to view the scan logs for diff-aware scans. {/* FS1564 */}
@@ -41,7 +41,7 @@ description: "March 30, 2025 · 4 min read"
 
 - Added the ability to use transitivity and EPSS score as conditions when creating block and comment policies for Supply Chain.
 - Added [dependency path support](/semgrep-supply-chain/dependency-search#dependency-paths-beta) for the following Python package managers: `pip`, `pip-tools`, and `pipenv`.
-- Added the ability to [download SBOM exports using the Semgrep API](/api-reference/supplychainservice/create-a-new-sbom-export-job).
+- Added the ability to [download SBOM exports using the Semgrep API](/api-reference/v1/supplychainservice/create-a-new-sbom-export-job).
 
 ### Fixed
 
