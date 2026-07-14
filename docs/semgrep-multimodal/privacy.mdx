@@ -13,7 +13,7 @@ Semgrep Multimodal’s data privacy and legal considerations apply across the fo
 When using Semgrep AI features:
 
 1. Semgrep accesses repository code on a file-by-file basis. In limited cases, broader repository access may be required.
-1. Relevant data, including portions of source code, are sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
+1. Relevant data, including portions of source code, is sent outside your repository to AI subprocessors for analysis. Semgrep supports AI subprocessors from the following model vendors:
     - OpenAI (default)
     - Amazon Bedrock (default)
     - Anthropic (BYOK; not available for AI-powered detection scans)
@@ -49,10 +49,10 @@ Semgrep stores some of your data to support product functionality and performanc
 ### Finding remediation
 
 Data stored may include:
-- Finding metadata, include severity, terence repository, file and line number
+- Finding metadata, including severity, repository, file path, and line number
 - Remediation guidance
 
-This data is retained indefinitely unless otherwise noted. Customer can request for account data to be deleted by contacting support@semgrep.com.
+This data is retained indefinitely unless otherwise noted. CCustomers can request that account data be deleted by contacting support@semgrep.com.
 
 ### Memories
 
@@ -62,7 +62,7 @@ Includes all data from findings remediation, and adds:
 
 Semgrep does not retrieve or access external data sources referenced in Memories.
 
-This data is retained indefinitely unless otherwise noted. Customer can request for account data to be deleted by contacting support@semgrep.com.
+This data is retained indefinitely unless otherwise noted. Customers can request that account data be deleted by contacting support@semgrep.com.
 
 ### Detection source data
 
@@ -72,9 +72,9 @@ Data stored may include:
 - Uploaded context documentation
 - Scan reports, including metadata such as file names and, in some cases, code snippets
 
-Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused across scans.
+Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused in future scans.
 
-Source data is retained for up to 6 months, unless otherwise noted. Semgrep will provide at least 30 days' notice before making changes to retention policies.
+Source data is retained for up to 6 months unless otherwise noted. Semgrep will provide at least 30 days' notice before making changes to retention policies.
 
 
 ### Purpose of storage
@@ -88,9 +88,9 @@ Stored data is used to:
 
 ## Data handling and protections
 - Customer data is logically isolated and never commingled across tenants
-- Semgrep does not intentionally send personal data to AI subprocessors
+- Semgrep does not intentionally send personal data to AI model vendors
 - Semgrep and its subprocessors do not obtain ownership rights to your source code
-- Data sent to AI subprocessors is deleted after processing in accordance with zero data retention agreements
+- Data sent to AI model vendors is deleted after processing in accordance with zero data retention agreements
 
 
 ## Minimal data retention policy (optional)
@@ -128,7 +128,7 @@ The table below compares default data handling with the minimal data retention p
 Under the minimal data retention policy, the following behavior remains unchanged for AI-powered detection scans:
 
 - If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
-- AI-powered scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
+- AI-powered detection scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Multimodal functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts.
 
