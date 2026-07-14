@@ -44,33 +44,29 @@ Semgrep maintains Data Protection Agreements (DPAs) with all AI subprocessors. C
 
 ## Data retention and storage by Semgrep
 
-Semgrep stores a limited amount of your data to support product functionality and performance evaluation. The type of data stored depends on the feature being used.
+Semgrep stores some of your data to support product functionality and performance evaluation. The type of data stored depends on the Semgrep feature you use.
 
-### Triage and remediation
+### Finding remediation
 
 Data stored may include:
+- Finding metadata, include severity, terence repository, file and line number
+- Remediation guidance
 
-- AI prompts and responses
-- Code snippets associated with findings
-- Minimal surrounding context required for accurate results
-
-**Retention:** Data is stored persistently for the lifetime of the finding and account.
+This data is retained indefinitely unless otherwise noted. Customer can request for account data to be deleted by contacting support@semgrep.com.
 
 ### Memories
 
-Includes all data from triage and remediation, and adds:
-
+Includes all data from findings remediation, and adds:
 - User-defined Memory content that is stored as text
-- Code snippets included in Memories
+- User-defined code snippets provided in Memories
 
 Semgrep does not retrieve or access external data sources referenced in Memories.
 
-**Retention:** Memories are stored persistently for the lifetime of the account.
+This data is retained indefinitely unless otherwise noted. Customer can request for account data to be deleted by contacting support@semgrep.com.
 
-### AI-powered detection scans
+### Detection source data
 
 Data stored may include:
-
 - AI prompts and responses
 - Code snippets and, where required, full file contents
 - Uploaded context documentation
@@ -78,15 +74,8 @@ Data stored may include:
 
 Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused across scans.
 
-### Retention period
+Source data is retained for up to 6 months, unless otherwise noted. Semgrep will provide at least 30 days' notice before making changes to retention policies.
 
-Retention periods vary by feature:
-
-- **Triage and remediation:** Stored for the lifetime of the finding and account.
-- **Memories:** Stored for the lifetime of the account.
-- **AI-powered detection scans:** Stored for up to 6 months, unless otherwise noted.
-
-Semgrep will provide at least 30 days’ notice before making changes to retention policies.
 
 ### Purpose of storage
 
