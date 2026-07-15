@@ -205,7 +205,7 @@
               {
                 "group": "Integrations",
                 "pages": [
-                  "guardian",
+                  "semgrep-guardian/overview",
                   "semgrep-appsec-platform/cortex",
                   "semgrep-appsec-platform/jira",
                   "semgrep-appsec-platform/sysdig",
@@ -1701,7 +1701,7 @@
     },
     {
       "source": "/mcp",
-      "destination": "/guardian"
+      "destination": "/semgrep-guardian/overview"
     },
     {
       "source": "/semgrep-supply-chain/sca-feature-support",
@@ -1718,6 +1718,10 @@
     {
       "source": "/semgrep-supply-chain/triage-and-remediation",
       "destination": "/semgrep-supply-chain/triage-and-fix/overview"
+    },
+    {
+      "source": "/guardian",
+      "destination": "/semgrep-guardian/overview"
     }
   ]
 }
