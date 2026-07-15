@@ -34,6 +34,48 @@ To install the Semgrep Slack app, follow these steps:
 
 ## Set up notifications for findings in Slack 
 
+The commands you use depend on whether your organization has migrated to [unified policies](/semgrep-appsec-platform/unified-policies/overview):
+
+* If your organization uses **legacy policies**, use `/semgrep_subscribe` (Code and Supply Chain) or `/semgrep_subscribe_secrets` (Secrets), as described in the following sections.
+* If your organization has [migrated to **unified policies**](/semgrep-appsec-platform/unified-policies/overview), use `/semgrep_add_channel` and configure notifications from the **Remediation** page.
+
+<Tabs>
+<Tab title="Unified policies">
+
+If your organization has migrated to [Unified policies](/semgrep-appsec-platform/unified-policies/overview), you must use the `/semgrep_add_channel` command to make a Slack channel available to your remediation policies. Then, you can send findings notifications to the channel by adding a **Send a Slack message** action to a remediation policy.
+
+The projects a channel receives findings for are controlled by each remediation policy's **Scope**, *not* by the Slack command.
+
+To set up notifications:
+
+<Steps>
+  <Step>
+  In your Slack workspace, find or create a channel for Semgrep notifications.
+  * If you use a private channel for notifications, first invite the Semgrep app by entering the command `/invite @Semgrep` in the channel. If the app is not invited to a private channel, it cannot send notifications there.
+  </Step>
+  <Step>
+  In the selected Slack channel, enter the following command: `/semgrep_add_channel`. This opens the **Semgrep Notifications** dialog.
+
+  <Frame caption="The Semgrep notifications dialog in Slack, opened with the /semgrep_add_channel command.">
+  ![The Semgrep notifications dialog in Slack, opened with the /semgrep_add_channel command.](/images/slack-add-channel-modal.png)
+  </Frame>
+  </Step>
+  <Step>
+  Choose an organization from the list under **Select target organization**.
+  </Step>
+  <Step>
+  Click **Add channel**. The channel is now available as an option to your remediation policies.
+  </Step>
+  <Step>
+  In Semgrep AppSec Platform, go to **Rules & Policies > Remediation**, and add a **Send a Slack message** action to a new or existing remediation policy. Ensure that you select the channel you configured in the preceding steps.
+  
+  To send findings for specific projects only, set the policy's **Scope** to those projects. For more information, see [Create a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy).
+  </Step>
+</Steps>
+</Tab>
+
+
+<Tab title="Legacy policies">
 
 ### Code and Supply Chain 
 
@@ -103,6 +145,9 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
   </Step>
 </Steps>
 
+</Tab>
+</Tabs>
+
 
 ## Remove notifications for findings in Slack
 <Info>
@@ -111,6 +156,28 @@ To set up or subscribe to notifications for findings in your Slack workspace, pe
 This operation removes or unsubscribes a channel from notifications. To uninstall the Semgrep Slack App, refer to [Uninstall the Semgrep Slack App](#uninstall-the-semgrep-slack-app).
 </Info>
 
+<Tabs>
+<Tab title="Unified policies">
+To remove a Slack channel from your remediation policies:
+
+<Steps>
+  <Step>
+  In Slack, enter the channel that you want to remove.
+  </Step>
+  <Step>
+  Type `/semgrep_remove_channel`.
+  </Step>
+  <Step>
+  Select the target organization.
+  </Step>
+  <Step>
+  Click **Remove channel**.
+  </Step>
+</Steps>
+
+Removing a channel takes it out of your list of available channels for remediation policies and stops all remediation policy notifications to that channel.
+</Tab>
+<Tab title="Legacy policies">
 ### Code and Supply Chain 
 To remove or unsubscribe to notifications:
 
@@ -164,6 +231,8 @@ To unsubscribe a channel:
 </Steps>
 
 Unsubscribing removes this channel from your list of available channels for all Semgrep Secrets policies. You will no longer be able to create policies using this channel, and it will be removed from existing policies, stopping all notifications to this channel. 
+</Tab>
+</Tabs>
 
 ## Notification and alert de-duplication
 

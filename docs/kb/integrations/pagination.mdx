@@ -13,7 +13,7 @@ The following API endpoints support offset-based pagination:
 <CardGroup cols={2}>
 <Card title="List all projects" horizontal icon="ballot" href="/api-reference/projectsservice/list-all-projects" />
 
-<Card title="List code or supply chain findings" horizontal icon="code" href="/api-reference/findingsservice/list-code-or-supply-chain-findings" />
+<Card title="List code or supply chain findings" horizontal icon="code" href="/api-reference/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings" />
 </CardGroup>
 
 For these endpoints, include the following query parameters to paginate through results:
@@ -34,7 +34,7 @@ curl 'https://semgrep.dev/api/v1/deployments/YOUR_DEPLOYMENT_SLUG/findings?page=
 
 ## Cursor-based pagination
 
-The [List Secrets](/api-reference/secretsservice/list-secrets) endpoint supports cursor-based pagination:
+The [List Secrets](/api-reference/v1/secretsservice/list-secrets) endpoint supports cursor-based pagination:
 
 For these endpoints, include the following query parameters to paginate through results.
 
