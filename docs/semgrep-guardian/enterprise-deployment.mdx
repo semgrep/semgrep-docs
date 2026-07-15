@@ -1,24 +1,27 @@
 ---
 title: Semgrep Guardian enterprise deployment
 description: How to deploy Semgrep Guardian in your enterprise environment.
+sidebarTitle: Enterprise deployment
 ---
 
-To roll out Semgrep Guardian across an organization, standardize the install so every developer's agent picks up the plugin automatically instead of relying on each developer to install it by hand.
+To roll out Semgrep Guardian organization-wide, standardize the installation process so that the plugin is automatically installed by the developer's agent, rather than relying on each developer to install it manually.
 
-### Use your agent's built-in enterprise controls
+## Use your agent's built-in enterprise controls
 
-Most coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to make Guardian available (or required) everywhere:
+Many coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to make Guardian available, or required, everywhere:
 
-* **Claude Code**: [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team)
-* **Cursor**: [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces)
+- Claude Code: [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team)
+- Cursor: [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces)
 
-### Deploy through a mobile device management (MDM) platform for more granularity
+## Deploy through a mobile device management (MDM) platform for more granularity
 
-Deploy through your MDM platform to scope rollout by device group, or to combine Guardian with other managed configuration deployed via your MDM. Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS (`.plist` and `.mobileconfig` profiles via Jamf, Kandji, and similar) and Windows (PowerShell file deployment or ADMX/registry policy via Intune and Group Policy), along with how to verify that managed settings are applied.
+Deploy through your MDM platform to scope rollout by device group, or to combine Guardian with other managed configurations deployed through your MDM. 
 
-For Claude Code, the managed settings automatically add the Guardian marketplace and enable the plugin for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (MDM mobileconfig or MDM plist). Settings deployed via MDM cannot be overridden by users, so the plugin stays enabled.
+Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS, including `.plist` and `.mobileconfig` profiles through Jamf, Kandji, and similar, and Windows, including PowerShell file deployment or ADMX/registry policy via Intune and Group Policy, along with how to verify that managed settings are applied.
 
-The minimal managed-settings payload looks like this:
+For Claude Code, the managed settings automatically add the Guardian marketplace and enable the plugin for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (MDM mobileconfig or MDM plist). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
+
+The minimal managed-settings payload looks like the following:
 
 ```json
 {
@@ -37,9 +40,13 @@ The minimal managed-settings payload looks like this:
 }
 ```
 
-For the Iru and Jamf paths, the same payload is provided as a ready-to-upload property list: [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist).
+For the Iru and Jamf paths, the same payload is provided as a ready-to-upload property list [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist).
 
-<Accordion title="View com.anthropic.claudecode.plist">
+<Warning>
+These are community-maintained templates and may be unsupported or incorrect. You are responsible for verifying the configuration before deploying it to a fleet.
+</Warning>
+
+<Accordion title="Expand to view com.anthropic.claudecode.plist">
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -70,123 +77,125 @@ For the Iru and Jamf paths, the same payload is provided as a ready-to-upload pr
 ```
 </Accordion>
 
-<Warning>
-These are community-maintained templates and may be unsupported or incorrect. You are responsible for verifying the configuration before deploying it to a fleet.
-</Warning>
+<Tabs>
+    <Tab title="Iru">
 
-| MDM platform | How to roll out |
-|--------------|-----------------|
-| **Iru** | Deploy a Custom Profile by uploading the [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) configuration profile. Steps below. |
-| **Jamf** | Deploy a Custom Settings payload (preference domain `com.anthropic.claudecode`) via a Configuration Profile. Steps below. |
+    Deploy a Custom Profile by uploading the [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) configuration profile.
+
+        <Steps>
+            <Step>
+                Go to **Library > Add Library Item > Custom Profile** and upload the [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) file.
+
+                    <Accordion title="Click to expand and view the semgrep-marketplace.mobileconfig file">
+                        Update `PayloadIdentifier` and `PayloadOrganization` to match your organization before uploading.
+
+                        ```xml
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                        <plist version="1.0">
+                        <dict>
+                            <key>PayloadDisplayName</key>
+                            <string>Claude Code – Semgrep Guardian Plugin Settings</string>
+                            <key>PayloadDescription</key>
+                            <string>Enforces the Semgrep Guardian marketplace and the plugin enable/disable policy.</string>
+                            <key>PayloadIdentifier</key>
+                            <string>com.yourorg.com</string>
+                            <key>PayloadOrganization</key>
+                            <string>yourorg</string>
+                            <key>PayloadScope</key>
+                            <string>System</string>
+                            <key>PayloadType</key>
+                            <string>Configuration</string>
+                            <key>PayloadUUID</key>
+                            <string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
+                            <key>PayloadVersion</key>
+                            <integer>1</integer>
+                            <key>PayloadContent</key>
+                            <array>
+                                <dict>
+                                    <key>PayloadDisplayName</key>
+                                    <string>Claude Code Marketplace Settings</string>
+                                    <key>PayloadIdentifier</key>
+                                    <string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+                                    <key>PayloadType</key>
+                                    <string>com.apple.ManagedClient.preferences</string>
+                                    <key>PayloadUUID</key>
+                                    <string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+                                    <key>PayloadVersion</key>
+                                    <integer>1</integer>
+                                    <key>PayloadContent</key>
+                                    <dict>
+                                        <key>com.anthropic.claudecode</key>
+                                        <dict>
+                                            <key>Forced</key>
+                                            <array>
+                                                <dict>
+                                                    <key>mcx_preference_settings</key>
+                                                    <dict>
+                                                        <!-- Plugin enable/disable policy -->
+                                                        <key>enabledPlugins</key>
+                                                        <dict>
+                                                            <key>semgrep@semgrep-marketplace</key>
+                                                            <true/>
+                                                        </dict>
+
+                                                        <!-- Extra known marketplaces: Semgrep Guardian -->
+                                                        <key>extraKnownMarketplaces</key>
+                                                        <dict>
+                                                            <key>semgrep-marketplace</key>
+                                                            <dict>
+                                                                <key>autoUpdate</key>
+                                                                <true/>
+                                                                <key>source</key>
+                                                                <dict>
+                                                                    <key>source</key>
+                                                                    <string>github</string>
+                                                                    <key>repo</key>
+                                                                    <string>semgrep/guardian</string>
+                                                                </dict>
+                                                            </dict>
+                                                        </dict>
+                                                    </dict>
+                                                </dict>
+                                            </array>
+                                        </dict>
+                                    </dict>
+                                </dict>
+                            </array>
+                        </dict>
+                        </plist>
+                        ```
+                    </Accordion>
+
+            </Step>
+            <Step>
+                Name the profile `Semgrep Guardian - Managed Settings`.
+            </Step>
+            <Step>
+                Assign the profile to your blueprint as needed.
+            </Step>
+            <Step>
+                Save.
+            </Step>
+        </Steps>
+
+    </Tab>
+    <Tab title="Jamf">
+
+        Deploy a Custom Settings payload with preference domain `com.anthropic.claudecode` through a Configuration Profile.
+
+        To do so, refer to Jamf's guide,[Deploying Custom Computer Configuration Profiles Using the Application and Custom Settings Payload](https://learn.jamf.com/r/en-US/technical-articles/Deploying_Custom_Computer_Configuration_Profiles_Using_the_Application_and_Custom_Settings_Payload). Ensure that you use the preference domain `com.anthropic.claudecode` and the provided [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist) file as the uploaded property list.
+
+    </Tab>
+</Tabs>
 
 **Tips**
 
 * Test the rollout on a single machine before pushing to the whole fleet.
-* After deploying, confirm Guardian loaded by running `/plugin` (it should show as installed and enabled) and that the Guardian MCP appears.
-* Users still need to log in to Semgrep once Guardian is installed — see the setup steps in [Connect to your IDE](#connect-to-your-ide).
+* After deploying, confirm that Guardian loaded by running `/plugin` (it should show as installed and enabled) and that the Guardian MCP appears.
+* Users still need to log in to Semgrep once Guardian is installed. See the setup steps in [Connect to your IDE](/semgrep-guardian/overview#connect-to-your-ide).
 
-#### Iru: step by step
 
-<Accordion title="View semgrep-marketplace.mobileconfig">
-Update `PayloadIdentifier` and `PayloadOrganization` to match your organization before uploading.
+## Get help with a custom rollout
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>PayloadDisplayName</key>
-	<string>Claude Code – Semgrep Guardian Plugin Settings</string>
-	<key>PayloadDescription</key>
-	<string>Enforces the Semgrep Guardian marketplace and the plugin enable/disable policy.</string>
-	<key>PayloadIdentifier</key>
-	<string>com.yourorg.com</string>
-	<key>PayloadOrganization</key>
-	<string>yourorg</string>
-	<key>PayloadScope</key>
-	<string>System</string>
-	<key>PayloadType</key>
-	<string>Configuration</string>
-	<key>PayloadUUID</key>
-	<string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
-	<key>PayloadVersion</key>
-	<integer>1</integer>
-	<key>PayloadContent</key>
-	<array>
-		<dict>
-			<key>PayloadDisplayName</key>
-			<string>Claude Code Marketplace Settings</string>
-			<key>PayloadIdentifier</key>
-			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
-			<key>PayloadType</key>
-			<string>com.apple.ManagedClient.preferences</string>
-			<key>PayloadUUID</key>
-			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>PayloadContent</key>
-			<dict>
-				<key>com.anthropic.claudecode</key>
-				<dict>
-					<key>Forced</key>
-					<array>
-						<dict>
-							<key>mcx_preference_settings</key>
-							<dict>
-								<!-- Plugin enable/disable policy -->
-								<key>enabledPlugins</key>
-								<dict>
-									<key>semgrep@semgrep-marketplace</key>
-									<true/>
-								</dict>
-
-								<!-- Extra known marketplaces: Semgrep Guardian -->
-								<key>extraKnownMarketplaces</key>
-								<dict>
-									<key>semgrep-marketplace</key>
-									<dict>
-										<key>autoUpdate</key>
-										<true/>
-										<key>source</key>
-										<dict>
-											<key>source</key>
-											<string>github</string>
-											<key>repo</key>
-											<string>semgrep/guardian</string>
-										</dict>
-									</dict>
-								</dict>
-							</dict>
-						</dict>
-					</array>
-				</dict>
-			</dict>
-		</dict>
-	</array>
-</dict>
-</plist>
-```
-</Accordion>
-
-<Steps>
-  <Step>
-    Go to **Library > Add Library Item > Custom Profile** and upload the [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) file.
-  </Step>
-  <Step>
-    Name the profile `Semgrep Guardian - Managed Settings`.
-  </Step>
-  <Step>
-    Assign it to your blueprint as you see fit.
-  </Step>
-  <Step>
-    Save.
-  </Step>
-</Steps>
-
-#### Jamf: step by step
-
-Follow Jamf's guide, [Deploying Custom Computer Configuration Profiles Using the Application and Custom Settings Payload](https://learn.jamf.com/r/en-US/technical-articles/Deploying_Custom_Computer_Configuration_Profiles_Using_the_Application_and_Custom_Settings_Payload), using the preference domain `com.anthropic.claudecode` and the provided [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist) as the uploaded property list.
-
-### Get help with a custom rollout
-
-Reach out if you want help building something custom for your MDM or agent fleet. You can find us in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack) or check out our [support options](/support).
+[Contact Semgrep](/support) or send a message to the [#mcp channel on Slack](https://go.semgrep.dev/slack) if you would like help building something custom for your MDM or agent fleet.

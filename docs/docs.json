@@ -205,10 +205,9 @@
               {
                 "group": "Integrations",
                 "pages": [
-                  "semgrep-guardian/overview",
                   {
                     "group": "Semgrep Guardian",
-                    "root": "category/semgrep-guardian",
+                    "root": "/semgrep-guardian/overview",
                     "pages": [
                       "semgrep-guardian/enterprise-deployment"
                     ]
