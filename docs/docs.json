@@ -206,6 +206,13 @@
                 "group": "Integrations",
                 "pages": [
                   "semgrep-guardian/overview",
+                  {
+                    "group": "Semgrep Guardian",
+                    "root": "category/semgrep-guardian",
+                    "pages": [
+                      "semgrep-guardian/enterprise-deployment"
+                    ]
+                  },
                   "semgrep-appsec-platform/cortex",
                   "semgrep-appsec-platform/jira",
                   "semgrep-appsec-platform/sysdig",
