@@ -261,18 +261,26 @@ Every IDE except Claude Code runs Semgrep from a locally installed CLI. (Claude 
 
 <Steps>
 <Step>
-Install the Semgrep CLI using Homebrew, pipx, or uv. This requires Python 3.10 or later (the Semgrep CLI needs it at runtime regardless of how it was installed):
+Install the Semgrep CLI using pipx, uv, or Homebrew. This requires Python 3.10 or later (the Semgrep CLI needs it at runtime regardless of how it was installed):
 
 ```bash
-# install using Homebrew
-brew install semgrep
-
-# or, install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+# preferred: install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
 pipx install semgrep
 
-# or, install using uv (https://docs.astral.sh/uv/)
+# preferred: install using uv (https://docs.astral.sh/uv/)
 uv tool install semgrep
+
+# best-effort (macOS): install using Homebrew (maintained on a best-effort basis; often lags behind the latest release)
+brew install semgrep
 ```
+
+<Info>
+**NOTE**
+
+`pipx` and `uv` are the preferred installation methods. The Homebrew formula is maintained on a best-effort basis and often lags behind the latest release.
+
+**Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+</Info>
 </Step>
 <Step>
 Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep:
