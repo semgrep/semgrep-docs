@@ -298,8 +298,7 @@
                   {
                     "group": "Malware detection and response",
                     "pages": [
-                      "semgrep-supply-chain/malicious-dependencies",
-                      "semgrep-supply-chain/malware-firewall"
+                      "semgrep-supply-chain/malicious-dependencies"
                     ]
                   },
                   "semgrep-supply-chain/license-compliance",
