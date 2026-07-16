@@ -4,23 +4,8 @@
 <dict>
 	<key>enabledPlugins</key>
 	<dict>
-		<key>semgrep@semgrep-marketplace</key>
+		<key>semgrep@claude-plugins-official</key>
 		<true/>
-	</dict>
-	<key>extraKnownMarketplaces</key>
-	<dict>
-		<key>semgrep-marketplace</key>
-		<dict>
-			<key>autoUpdate</key>
-			<true/>
-			<key>source</key>
-			<dict>
-				<key>repo</key>
-				<string>semgrep/guardian</string>
-				<key>source</key>
-				<string>github</string>
-			</dict>
-		</dict>
 	</dict>
 </dict>
 </plist>

@@ -19,26 +19,19 @@ Deploy through your MDM platform to scope rollout by device group, or to combine
 
 Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS, including `.plist` and `.mobileconfig` profiles through Jamf, Kandji, and similar, and Windows, including PowerShell file deployment or ADMX/registry policy via Intune and Group Policy, along with how to verify that managed settings are applied.
 
-For Claude Code, the managed settings automatically add the Guardian marketplace and enable the plugin for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (MDM mobileconfig or MDM plist). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
+For Claude Code, the managed settings enable the Giardian plugin from the Claude official marketplace for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (MDM mobileconfig or MDM plist). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
 
 The minimal managed-settings payload looks like the following:
 
 ```json
 {
   "enabledPlugins": {
-    "semgrep@semgrep-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "semgrep-marketplace": {
-      "autoUpdate": true,
-      "source": {
-        "source": "github",
-        "repo": "semgrep/guardian"
-      }
-    }
+    "semgrep@claude-plugins-official" : true
   }
 }
 ```
+
+Guardian is published to the Claude official marketplace (`claude-plugins-official`), so the payload only needs to enable the plugin. There's no separate marketplace to declare.
 
 For the Iru and Jamf paths, the same payload is provided as a ready-to-upload property list [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist).
 
