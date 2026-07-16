@@ -1,0 +1,81 @@
+---
+title: "Week of July 6, 2026"
+description: "Updates made to Semgrep during the week of July 6-12, 2026."
+sidebarTitle: "Week of July 6, 2026"
+---
+
+The following updates were made to Semgrep during the week of July 6-12, 2026.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- You can now archive a project from **Project settings**. Projects archived in Semgrep appear on an **Archived** tab with an archived badge, alongside projects archived in your source code manager.
+- You can configure Jira subtasks in the Jira integration settings.
+- The automations condition builder menus now include typeahead search, so you can find condition types more quickly.
+- Remediation policy automations can now include a vulnerability class condition, so you can scope a policy to a class such as SQL Injection or Path Traversal.
+- **Developer exception requests**:
+  - Renamed from **developer approvals** throughout the product.
+  - You can now require developer exception requests through a remediation policy automation action.
+  - Settings now show which policies require developer exception requests, with links to each policy.
+  - When bulk-creating exception requests, you can filter by multiple issue types.
+- **API**: Added public API endpoints to read, validate, dry-run, and apply detection and remediation policies for Code, Secrets, and Supply Chain. A related endpoint lists the accepted condition and action values.
+
+### Changed
+
+- The dashboard's **Secure guardrails** section is now **Developer engagement**, and its charts have updated titles.
+- Redesigned the contributor seats and AI credit usage cards on the **Usage & billing** page with a headline-led layout and updated status badges.
+- SCIM group provisioning now creates Semgrep teams only for groups whose names include a role-mapping tag, instead of for every provisioned group.
+- The findings list now excludes archived issues by default.
+- When you bulk triage findings, Semgrep applies the action only to findings that do not require a developer exception request and reports which findings still need approval, instead of failing the entire selection.
+- Improved performance of the project scan page and Managed Scans search for large and highly active organizations.
+
+### Fixed
+
+- Fixed an issue where audit events from background tasks, such as SCIM sync, were silently dropped instead of recorded.
+- Fixed an issue where expired license alerts on the **Usage & billing** page continued to display after live seats were available.
+- Fixed issues when migrating Slack notifications to unified policies:
+  - Migrating legacy Slack notifications could drop Supply Chain notifications or misclassify a policy's product.
+  - Migrating a project-scoped Slack subscription could create a global policy for every project instead of only the subscribed project.
+- Fixed an issue where Azure DevOps webhook validation called the wrong URL.
+
+## 💻 Semgrep Code
+
+### Changed
+
+- **Dart**: Updated the Dart parser to a more recent upstream version.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- You can now update and enable an inactive supply chain incident policy in one step, instead of editing and then enabling separately.
+
+### Fixed
+
+- Fixed an issue where the **Open Autofix PR** action was hidden for some organizations that use Upgrade guidance and Autofix separately.
+- Fixed an issue where Supply Chain finding details timed out for findings with long dependency paths.
+
+## 🤖 Semgrep Multimodal
+
+### Fixed
+
+- Fixed an issue where AI-assisted scan submissions could bypass a customer's configured Amazon Bedrock opt-out.
+- Fixed permission errors when creating or listing organization-wide context documentation for AI-powered detection.
+- Fixed an issue where secrets in customer code, such as hardcoded credentials, could appear verbatim in saved AI remediation guidance. Secrets are now redacted before guidance is saved.
+- Fixed an issue where automatically creating a Memory from a bulk ignore-with-note action could apply to the wrong findings when multiple issue-state filters were selected.
+- Fixed an issue where **Suggested memories** PR comment links pointed to the wrong pull request and returned a 404 on GitHub.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Fixed an issue where generic secrets findings without an AI autotriage verdict did not appear in the Secrets findings list, even though their detail page rendered correctly.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of July 6-12, 2026:
+
+<CardGroup>
+  <Card title="1.169.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.169.0" horizontal />
+</CardGroup>

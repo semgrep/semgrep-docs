@@ -934,42 +934,6 @@
             ]
           },
           {
-            "item": "Release notes",
-            "icon": "bullhorn",
-            "groups": [
-              {
-                "group": "Most recent posts",
-                "pages": [
-                  "release-notes/index",
-                  {
-                    "group": "2026",
-                    "pages": [
-                      "release-notes/june-2026",
-                      "release-notes/april-2026",
-                      "release-notes/march-2026",
-                      "release-notes/february-2026",
-                      "release-notes/january-2026",
-                      "release-notes/december-2025"
-                    ]
-                  },
-                  {
-                    "group": "2025",
-                    "pages": [
-                      "release-notes/november-2025",
-                      "release-notes/october-2025",
-                      "release-notes/september-2025",
-                      "release-notes/august-2025",
-                      "release-notes/july-2025",
-                      "release-notes/june-2025",
-                      "release-notes/may-2025",
-                      "release-notes/april-2025"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
             "item": "Support & resources",
             "icon": "headset",
             "pages": [
@@ -995,6 +959,56 @@
             "item": "GitHub",
             "icon": "github",
             "href": "https://github.com/semgrep/semgrep-docs"
+          }
+        ]
+      },
+      {
+        "tab": "What's New",
+        "icon": "bullhorn",
+        "menu": [
+          {
+            "item": "What's New",
+            "icon": "sparkles",
+            "pages": [
+              "whats-new/index"
+            ]
+          },
+          {
+            "item": "Release notes",
+            "icon": "newspaper",
+            "groups": [
+              {
+                "group": "Most recent posts",
+                "pages": [
+                  {
+                    "group": "2026",
+                    "pages": [
+                      "release-notes/2026-07-06",
+                      "release-notes/june-2026",
+                      "release-notes/may-2026",
+                      "release-notes/april-2026",
+                      "release-notes/march-2026",
+                      "release-notes/february-2026",
+                      "release-notes/january-2026",
+                      "release-notes/december-2025"
+                    ]
+                  },
+                  {
+                    "group": "2025",
+                    "pages": [
+                      "release-notes/november-2025",
+                      "release-notes/october-2025",
+                      "release-notes/september-2025",
+                      "release-notes/august-2025",
+                      "release-notes/july-2025",
+                      "release-notes/june-2025",
+                      "release-notes/may-2025",
+                      "release-notes/april-2025"
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1057,6 +1071,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/release-notes",
+      "destination": "/release-notes/2026-07-06"
+    },
     {
       "source": "/docs/:slug*",
       "destination": "/:slug*"
