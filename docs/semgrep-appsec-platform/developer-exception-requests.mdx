@@ -45,13 +45,13 @@ Developer exception requests is a feature that allows developers to request that
 
     ## Review responses to your requests
 
-    **For requests initiated in a PR or MR comment: **Once an admin has reviewed and responded to your request, Semgrep posts a follow-up comment to the existing PR or MR comment thread.
+    **For requests initiated in a PR or MR comment:** Once an admin has reviewed and responded to your request, Semgrep posts a follow-up comment to the existing PR or MR comment thread.
     
     If the admin has **approved** your request and the finding involved was a blocking finding, you can rescan your PR or MR to unblock it. The finding's status in Semgrep AppSec Platform also changes to **Ignored**. If the finding was *not* a blocking finding, the status of the finding in Semgrep changes to **Ignored**.
 
-    If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep changes to **To Fix**, indicating that you must address the finding before proceeding.
+    If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep changes to **To fix**, indicating that you must address the finding before proceeding.
 
-    **For requests initiated in Semgrep AppSec Platform:** View the finding to see its status. If your request is approved, the status updates to **Ignored**. Otherwise, the status is updated to **To Fix**.
+    **For requests initiated in Semgrep AppSec Platform:** View the finding to see its status. If your request is approved, the status updates to **Ignored**. Otherwise, the status is updated to **To fix**.
 
     </Tab>
     <Tab title="For admins">
@@ -75,7 +75,7 @@ Developer exception requests is a feature that allows developers to request that
 
     When you approve an exception request, Semgrep updates the finding's status to **Ignored**. Semgrep then posts a new comment on the PR or MR, informing the developer that they can now rerun the scan to unblock it.
 
-    When you deny an exception request, Semgrep posts a new comment to the PR or MR to inform the developer that their request was denied. The finding's status in Semgrep AppSec Platform changes to **To Fix** to indicate that the finding must be addressed through code changes.
+    When you deny an exception request, Semgrep posts a new comment to the PR or MR to inform the developer that their request was denied. The finding's status in Semgrep AppSec Platform changes to **To fix** to indicate that the finding must be addressed through code changes.
 
     </Tab>
 </Tabs>
