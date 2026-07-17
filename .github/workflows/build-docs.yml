@@ -1,0 +1,54 @@
+name: Update docs
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "run-build-scripts"
+      - "replace-on-build.py"
+      - "copy-metrics-md"
+  push:
+    branches: [main, develop]
+    paths:
+      - "docs/**"
+      - "run-build-scripts"
+      - "replace-on-build.py"
+      - "copy-metrics-md"
+  workflow_dispatch: {}
+
+jobs:
+  regenerate:
+    name: Regenerate docs from templates
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+
+      - name: Authenticate as semgrep-autoapprover
+        id: generate-token
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
+        with:
+          app-id: ${{ vars.SEMGREP_DOCS_RELEASE_APP_ID }}
+          private-key: ${{ secrets.SEMGREP_DOCS_RELEASE_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Run build scripts
+        run: bash run-build-scripts
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          sign-commits: true
+          branch: update_generated_files_${{ env.TODAY }}
+          commit-message: Updated generated files ${{ env.TODAY }}
+          title: Update generated files ${{ env.TODAY }}
+          body: This is an automatically generated PR that updates any generated files.
+          delete-branch: true
