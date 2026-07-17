@@ -1,0 +1,16 @@
+name: Check links and redirects
+
+on: [pull_request]
+workflow_dispatch: {}
+
+jobs:
+  check-links-and-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check links and redirects
+        working-directory: docs
+        run: npx --yes mintlify@latest broken-links --check-redirects
