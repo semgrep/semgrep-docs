@@ -58,12 +58,16 @@ Developer exception requests is a feature that allows developers to request that
 
     ## Enable developer exception requests
 
-    1. Log in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login). Ensure that the account you're using has been granted admin privileges. 
-    1. Go to **Settings > General > Global > Developer permissions**.
-    1. For each Semgrep product, choose one of the following options:
-        - **None**: Developers cannot triage findings. They can only leave comments on the findings in Semgrep AppSec Platform.
-        - **Request exceptions**: Developers can request exceptions to ignore findings.
-        - **Ignore**: Developers can make final triage decisions, including the decision to ignore blocking findings.
+    To enable exception requests:
+    
+    1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with an admin account.
+    1. Go to [**Rules & Policies > Policies**](https://semgrep.dev/orgs/-/policies), and ensure that you're on the **Remediation** tab.
+    1. [Create a new remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy), or [modify an existing remediation policy](/semgrep-appsec-platform/unified-policies/get-started#manage-existing-detection-policies). Under **Action**, ensure that one of the actions you select is **Require developer exception requests** and you provide the handle of the person who approves the requests.
+
+    Once you enable exception requests:
+
+    - For blocking findings, developers must request and receive an exception to ignore the finding. Once they receive approval, they can re-scan the PR or MR and unblock it.
+    - For non-blocking findings, developers must request and receive an exception to ignore the finding. They can, however, merge the PR or MR without receiving an approval. Only when an admin approves the request does the finding's status change.
 
     ## Review an exception request
 
