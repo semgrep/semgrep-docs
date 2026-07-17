@@ -81,7 +81,7 @@ Note that some actions, such as ignoring and reopening findings, require differe
 
 If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are rule-based Semgrep Code findings that Semgrep Multimodal's [Auto-triage](/semgrep-multimodal/overview#auto-triage) has flagged as likely false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree.
 
-Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy.
+Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy. This ensures that findings from rules that have been promoted to blocking status are always reviewed, to improve security posture.
 
 <Note>
   **AI-powered detection findings and Provisionally ignored**
