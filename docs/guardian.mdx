@@ -257,12 +257,10 @@ See [Kiro docs](https://kiro.dev/docs/mcp/) for more info.
 
 ## What rules does Semgrep Guardian scan with?
 
-Guardian resolves rules differently depending on how you run it:
+Guardian uses different rules depending on the environment:
 
-* **Claude Code remote server (default):** scans with the fixed [**Guardian default** rule set](https://semgrep.dev/p/guardian-default). This is the rule set that runs for every Claude Code install that uses the hosted remote server, and it is not configurable today.
-* **Local and other IDE integrations:** running Guardian locally, or using any of the other IDE integrations, authenticates with `semgrep login` and pulls rules from the policies configured in your Semgrep organization.
-
-We're working on adding support for custom rules on the remote server. If you want this, reach out in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack).
+* **Claude Code remote server (default):** scans with the [Guardian default ruleset](https://semgrep.dev/p/guardian-default). This is not configurable today, but we're working on adding support for custom rules on the remote server. If you want this, please reach out in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack).
+* **Claude Code local and all other IDE integrations:** scans with the rules enabled on your Policy within your Semgrep organization.
 
 ## Install the Semgrep CLI
 
