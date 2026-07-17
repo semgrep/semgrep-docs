@@ -108,3 +108,7 @@ The newly created PR or MR includes the following:
   - <Tooltip tip="Unintentional flaw in a dependency that can be exploited. Vulnerabilities are typically assigned a CVE and categorized by GHSA severity." cta="See full definition." href="/semgrep-supply-chain/glossary#vulnerability">Vulnerability</Tooltip> details, including a description of the vulnerability and links to its CVE references.
   - Upgrade guidance that includes the files and functions in the code that make use of the dependency and might include breaking changes.
   - <Tooltip tip="Publicly available code used as part of your application. Dependencies are listed in registries such as npm for JavaScript and PyPI for Python." cta="See full definition." href="/semgrep-supply-chain/glossary#dependency">Dependency</Tooltip> references, such as release notes, changelogs, and commits of the dependency, which might be helpful to resolve the breaking changes.
+
+## Create Autofix PR with remediation policies
+
+You can automate Autofix PR creation for Supply Chain findings by adding **Create Autofix PR** as an action in a [remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy). See [Create Autofix PR with remediation policies](/semgrep-code/triage-remediation/autofix#create-autofix-pr-with-remediation-policies) for setup steps and best practices.
