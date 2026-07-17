@@ -283,8 +283,9 @@
                   },
                   {
                     "group": "Triage and fix vulnerabilities",
+                    "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/triage-and-remediation"
+                        "semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix"
                     ]
                   },
                   {
@@ -590,96 +591,46 @@
       },
       {
         "tab": "API",
-        "groups": [
+        "dropdowns": [
           {
-            "group": " ",
-            "pages": [
-              "api-reference/Introduction",
-              "api-reference/Authentication",
-              "api-reference/Terms-of-Use",
+            "dropdown": "v1",
+            "icon": "code",
+            "groups": [
               {
-                "group": "Deployment",
-                "root": "api-reference/DeploymentsService",
+                "group": "Overview",
                 "pages": [
-                  "api-reference/deploymentsservice/list-deployments"
+                  "api-reference/v1/Introduction",
+                  "api-reference/v1/Authentication",
+                  "api-reference/v1/Terms-of-Use"
                 ]
               },
               {
-                "group": "Code, Supply Chain, and AI-Powered Scan",
-                "root": "api-reference/FindingsService",
+                "group": "Endpoints",
+                "openapi": {
+                  "source": "public_v1.openapi.yaml",
+                  "directory": "api-reference/v1"
+                }
+              }
+            ]
+          },
+          {
+            "dropdown": "v2 (Experimental)",
+            "icon": "flask",
+            "groups": [
+              {
+                "group": "Overview",
                 "pages": [
-                  "api-reference/findingsservice/list-code-or-supply-chain-findings"
+                  "api-reference/v2/Introduction",
+                  "api-reference/v2/Authentication",
+                  "api-reference/v2/Terms-of-Use"
                 ]
               },
               {
-                "group": "Other",
-                "root": "api-reference/MiscService",
-                "pages": [
-                  "api-reference/miscservice/[beta]-get-sms-vpc-bootstrap-cloudformation-template",
-                  "api-reference/miscservice/ping"
-                ]
-              },
-              {
-                "group": "Policies",
-                "root": "api-reference/PoliciesService",
-                "pages": [
-                  "api-reference/policiesservice/list-policies",
-                  "api-reference/policiesservice/list-policy-rules",
-                  "api-reference/policiesservice/update-policy"
-                ]
-              },
-              {
-                "group": "Projects",
-                "pages": [
-                  "api-reference/projectsservice/list-all-projects",
-                  "api-reference/projectsservice/delete-project",
-                  "api-reference/projectsservice/get-project-details",
-                  "api-reference/projectsservice/update-project-details",
-                  "api-reference/projectsservice/toggle-managed-scans-for-a-project",
-                  "api-reference/projectsservice/remove-tags-from-project",
-                  "api-reference/projectsservice/add-tags-to-project"
-                ]
-              },
-              {
-                "group": "Scans",
-                "root": "api-reference/ScansService",
-                "pages": [
-                  "api-reference/scansservice/get-scan-details",
-                  "api-reference/scansservice/list-scans-beta"
-                ]
-              },
-              {
-                "group": "Secrets",
-                "root": "api-reference/SecretsService",
-                "pages": [
-                  "api-reference/secretsservice/list-secrets"
-                ]
-              },
-              {
-                "group": "Supply Chain",
-                "root": "api-reference/SupplyChainService",
-                "pages": [
-                  "api-reference/supplychainservice/list-dependencies",
-                  "api-reference/supplychainservice/list-repositories-with-dependencies",
-                  "api-reference/supplychainservice/list-lockfiles-in-a-given-repository-with-dependencies",
-                  "api-reference/supplychainservice/create-a-new-sbom-export-job",
-                  "api-reference/supplychainservice/get-the-status-of-a-sbom-export-job"
-                ]
-              },
-              {
-                "group": "Ticketing",
-                "root": "api-reference/TicketingService",
-                "pages": [
-                  "api-reference/ticketingservice/unlink-a-jira-ticket",
-                  "api-reference/ticketingservice/create-jira-tickets"
-                ]
-              },
-              {
-                "group": "Triage",
-                "root": "api-reference/TriageService",
-                "pages": [
-                  "api-reference/triageservice/bulk-triage"
-                ]
+                "group": "Endpoints",
+                "openapi": {
+                  "source": "public_v2.openapi.yaml",
+                  "directory": "api-reference/v2"
+                }
               }
             ]
           }
@@ -731,6 +682,8 @@
                       "kb/semgrep-supply-chain/ssc-lockfiles-circleci",
                       "kb/semgrep-supply-chain/ssc-python-lockfiles",
                       "kb/semgrep-supply-chain/why-no-findings",
+                      "kb/semgrep-supply-chain/connect-a-private-registry",
+                      "kb/semgrep-supply-chain/no-upgrade-guidance-or-autofix",
                       "kb/semgrep-supply-chain/no-dependency-results"
                     ]
                   },
@@ -1109,6 +1062,98 @@
       "destination": "/:slug*"
     },
     {
+      "source": "/api-reference/Introduction",
+      "destination": "/api-reference/v1/Introduction"
+    },
+    {
+      "source": "/api-reference/Authentication",
+      "destination": "/api-reference/v1/Authentication"
+    },
+    {
+      "source": "/api-reference/Terms-of-Use",
+      "destination": "/api-reference/v1/Terms-of-Use"
+    },
+    {
+      "source": "/api-reference/DeploymentsService",
+      "destination": "/api-reference/v1/deploymentsservice/list-deployments"
+    },
+    {
+      "source": "/api-reference/FindingsService",
+      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings"
+    },
+    {
+      "source": "/api-reference/MiscService",
+      "destination": "/api-reference/v1/miscservice/ping"
+    },
+    {
+      "source": "/api-reference/PoliciesService",
+      "destination": "/api-reference/v1/policiesservice/list-policies"
+    },
+    {
+      "source": "/api-reference/ScansService",
+      "destination": "/api-reference/v1/scansservice/get-scan-details"
+    },
+    {
+      "source": "/api-reference/SecretsService",
+      "destination": "/api-reference/v1/secretsservice/list-secrets"
+    },
+    {
+      "source": "/api-reference/SupplyChainService",
+      "destination": "/api-reference/v1/supplychainservice/list-dependencies"
+    },
+    {
+      "source": "/api-reference/TicketingService",
+      "destination": "/api-reference/v1/ticketingservice/create-jira-tickets"
+    },
+    {
+      "source": "/api-reference/TriageService",
+      "destination": "/api-reference/v1/triageservice/bulk-triage"
+    },
+    {
+      "source": "/api-reference/findingsservice/list-code-or-supply-chain-findings",
+      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings"
+    },
+    {
+      "source": "/api-reference/deploymentsservice/:slug*",
+      "destination": "/api-reference/v1/deploymentsservice/:slug*"
+    },
+    {
+      "source": "/api-reference/findingsservice/:slug*",
+      "destination": "/api-reference/v1/findingsservice/:slug*"
+    },
+    {
+      "source": "/api-reference/miscservice/:slug*",
+      "destination": "/api-reference/v1/miscservice/:slug*"
+    },
+    {
+      "source": "/api-reference/policiesservice/:slug*",
+      "destination": "/api-reference/v1/policiesservice/:slug*"
+    },
+    {
+      "source": "/api-reference/projectsservice/:slug*",
+      "destination": "/api-reference/v1/projectsservice/:slug*"
+    },
+    {
+      "source": "/api-reference/scansservice/:slug*",
+      "destination": "/api-reference/v1/scansservice/:slug*"
+    },
+    {
+      "source": "/api-reference/secretsservice/:slug*",
+      "destination": "/api-reference/v1/secretsservice/:slug*"
+    },
+    {
+      "source": "/api-reference/supplychainservice/:slug*",
+      "destination": "/api-reference/v1/supplychainservice/:slug*"
+    },
+    {
+      "source": "/api-reference/ticketingservice/:slug*",
+      "destination": "/api-reference/v1/ticketingservice/:slug*"
+    },
+    {
+      "source": "/api-reference/triageservice/:slug*",
+      "destination": "/api-reference/v1/triageservice/:slug*"
+    },
+    {
       "source": "/writing-rules/pattern-logic",
       "destination": "/writing-rules/rule-syntax"
     },
@@ -1118,15 +1163,15 @@
     },
     {
       "source": "/semgrep-ci/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/semgrep-app/managing-policy",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/integrations",
@@ -1298,7 +1343,7 @@
     },
     {
       "source": "/semgrep-app/rule-board/",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/semgrep-app/findings/",
@@ -1382,7 +1427,7 @@
     },
     {
       "source": "/semgrep-code/rule-board/",
-      "destination": "/semgrep-code/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/kb/semgrep-cloud-platform/running-semgrep-on-windows/",
@@ -1534,7 +1579,7 @@
     },
     {
       "source": "/kb/semgrep-secrets/secrets_pr_comments",
-      "destination": "/semgrep-secrets/policies"
+      "destination": "/semgrep-appsec-platform/unified-policies/overview"
     },
     {
       "source": "/prerequisites-oss",
@@ -1711,6 +1756,10 @@
     {
       "source": "/semgrep-supply-chain/getting-started",
       "destination": "/semgrep-supply-chain/set-up-and-configure"
+    },
+    {
+      "source": "/semgrep-supply-chain/triage-and-remediation",
+      "destination": "/semgrep-supply-chain/triage-and-fix/overview"
     }
   ]
 }
