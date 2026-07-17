@@ -1,8 +1,12 @@
 name: Check links and redirects
 
 on:
-    [pull_request]
-    workflow_dispatch: {}
+  pull_request:
+    types:
+    - opened
+  push:
+    branches: [main, develop]
+  workflow_dispatch: {}
 
 jobs:
   check-links-and-redirects:
