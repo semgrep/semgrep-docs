@@ -70,6 +70,10 @@ Developer exception requests is a feature that allows developers to request that
     - For blocking findings, developers must request and receive an exception to ignore the finding. Once they receive approval, they can re-scan the PR or MR and unblock it.
     - For non-blocking findings, developers must request and receive an exception to ignore the finding. They can, however, merge the PR or MR without receiving an approval. Only when an admin approves the request does the finding's status change.
 
+    <Warning>
+        Exception requests override the **Default developer triage permissions** setting in Semgrep AppSec Platform under **Settings > Global**. For example, even if that setting is turned off and developers can't triage findings, developers can still request exceptions for findings that a policy definition requires exceptions to ignore.
+    </Warning>
+
     ## Review an exception request
 
     Semgrep admins can review and approve or deny exception requests in Semgrep AppSec Platform.
