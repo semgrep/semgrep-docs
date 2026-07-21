@@ -27,7 +27,7 @@ These principles inform our decisions around data collection:
 $ semgrep --config=myrule.yaml  # → no metrics (loading rules from local file)
 $ semgrep --config=p/python     # → metrics enabled (fetching Registry)
 $ semgrep login && semgrep ci   # → metrics enabled (logged in to semgrep.dev)
-$ semgrep install-semgrep-pro   # → metrics enabled (requires log in)
+$ semgrep install-semgrep-pro   # → metrics enabled (requires being logged in)
 ```
 
 Semgrep does **not** enable metrics when running with only local configuration files or command-line search patterns.
@@ -142,7 +142,10 @@ Note: For all officially supported Semgrep IDE integrations, these metrics can b
 
 ### Pro Engine installation
 
-When running `semgrep install-semgrep-pro`, which requires logging in, data on installations, including whether the installation was successful, is reported to Semgrep. If the installation failed, Semgrep receives a fixed identifier about the step that failed, such as `download-403` or `version-check-failed`, never a free-form error message.
+When running `semgrep install-semgrep-pro` (which requires being logged in), additional data is reported to help us understand how many Pro Engine installations happen and how many succeed; e.g.
+
+- Whether the installation completed successfully
+- Which installation step failed, as a fixed identifier such as `download-403` or `version-check-failed` (never a free-form error message)
 
 ### Pseudoanonymization
 
