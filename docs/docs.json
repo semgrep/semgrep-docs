@@ -134,29 +134,30 @@
                       }
                     ]
                   },
+                  "/semgrep-appsec-platform/developer-exception-requests",
+                  {
+                    "group": "Customize core deployment",
+                    "root": "deployment/beyond-core-deployment",
+                    "pages": [
                       {
-                        "group": "Customize core deployment",
-                        "root": "deployment/beyond-core-deployment",
+                        "group": "Ignore files, folders, and code",
                         "pages": [
-                          {
-                            "group": "Ignore files, folders, and code",
-                            "pages": [
-                              "ignoring-files-folders-code",
-                              "semgrep-supply-chain/ignoring-dependencies"
-                            ]
-                          },
-                          "semgrep-code/semgrep-pro-engine-intro",
-                          {
-                            "group": "Unified policies",
-                            "root": "semgrep-appsec-platform/unified-policies/overview",
-                            "pages": [
-                              "semgrep-appsec-platform/unified-policies/get-started"
-                            ]
-                          },
-                          "semgrep-supply-chain/license-compliance",
-                          "writing-rules/overview-1"
+                          "ignoring-files-folders-code",
+                          "semgrep-supply-chain/ignoring-dependencies"
                         ]
-                      }
+                      },
+                      "semgrep-code/semgrep-pro-engine-intro",
+                      {
+                        "group": "Unified policies",
+                        "root": "semgrep-appsec-platform/unified-policies/overview",
+                        "pages": [
+                          "semgrep-appsec-platform/unified-policies/get-started"
+                        ]
+                      },
+                      "semgrep-supply-chain/license-compliance",
+                      "writing-rules/overview-1"
+                    ]
+                  }
                 ]
               },
               {

@@ -1,0 +1,90 @@
+---
+title: Developer exception requests
+---
+
+Developer exception requests is a feature that allows developers to request that findings identified by Semgrep be triaged as **Ignored** if they think it is safe to ignore, a false positive, or an acceptable risk.
+
+<Tabs>
+    <Tab title="For developers">
+
+    After Semgrep scans your project, you can review your findings and request an exception to ignore a finding.
+
+    For blocking findings, you must request and receive approval to ignore the finding. Once you receive approval from a Semgrep admin, you can re-scan the project to unblock your pull request (PR) or merge request (MR).
+
+    For non-blocking findings, you can merge the PR or MR without an approved exception request from an admin. However, the finding's status remains unchanged and is only changed to **Ignored** when a Semgrep admin approves the request.
+
+    ## Request an exception
+
+    To request an exception:
+
+    - [Respond to the PR or MR comment](#respond-to-a-pr-or-mr-comment) that Semgrep posted
+    - [Triage a finding and submit a request in Semgrep AppSec Platform](#triage-a-finding-and-submit-a-request-in-semgrep-appsec-platform). Whenever you triage a finding in Semgrep AppSec Platform, your actions are automatically converted to requests instead of directly modifying the status of the finding.
+
+    ### Respond to a PR or MR comment
+
+    When Semgrep identifies a finding in your PR or MR, it posts a comment that indicates whether the finding is blocking, provides a description of the issue, provides instructions on resolving the issue, and provides a link to the finding on the Semgrep AppSec Platform.
+
+    To request an exception, reply to Semgrep's comment using one of the following options:
+
+    - `/ignore <explanation of why the finding is safe to ignore>`
+    - `/fp <explanation of why the finding is a false positive>`
+    - `/ar <explanation of why the finding is an acceptable risk>`
+
+    ### Triage a finding and submit a request in Semgrep AppSec Platform
+
+    1. Log in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+    1. Go to the **Findings** page for the product of interest: [Code](https://semgrep.dev/orgs/-/findings), [Supply Chain](https://semgrep.dev/orgs/-/supply-chain), or [Secrets](https://semgrep.dev/orgs/-/secrets).
+    1. To triage a finding in the **Group by Rule** view:
+        1. Find the rule used to generate the finding. Select the checkbox for the associated finding. Then, click **Triage > Ignored**.
+        1. Select **Ignore reason**, and optionally, provide **Comments** to describe why you're ignoring the finding.
+        1. Click **Request to ignore**.
+    1. To triage a finding in the **No grouping** view:
+        1. Select the checkbox next to the finding you want to ignore, and click **Triage > Ignored**.
+        1. Select **Ignore reason**, and optionally, provide **Comments** to describe why you're ignoring the finding.
+        1. Click **Request to ignore**.
+
+    ## Review responses to your requests
+
+    **For requests initiated in a PR or MR comment:** Once an admin has reviewed and responded to your request, Semgrep posts a follow-up comment to the existing PR or MR comment thread.
+    
+    If the admin has **approved** your request and the finding involved was a blocking finding, you can rescan your PR or MR to unblock it. The finding's status in Semgrep AppSec Platform also changes to **Ignored**. If the finding was *not* a blocking finding, the status of the finding in Semgrep changes to **Ignored**.
+
+    If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep changes to **To fix**, indicating that you must address the finding before proceeding.
+
+    **For requests initiated in Semgrep AppSec Platform:** View the finding to see its status. If your request is approved, the status updates to **Ignored**. Otherwise, the status is updated to **To fix**.
+
+    </Tab>
+    <Tab title="For admins">
+
+    ## Enable developer exception requests
+
+    To enable exception requests:
+    
+    1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with an admin account.
+    1. Go to [**Rules & Policies > Policies**](https://semgrep.dev/orgs/-/policies), and ensure that you're on the **Remediation** tab.
+    1. [Create a new remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy), or modify an existing remediation policy by finding the policy of interest, then clicking **<Icon icon="ellipsis" /> icon** to open the policy definition. 
+    1. In the policy defintion, go to **Action**. Then, ensure that one of the actions you select is **Require developer exception requests** and you provide the handle of the person who approves the requests.
+
+    Once you enable exception requests:
+
+    - For blocking findings, developers must request and receive an exception to ignore the finding. Once they receive approval, they can re-scan the PR or MR and unblock it.
+    - For non-blocking findings, developers must request and receive an exception to ignore the finding. They can, however, merge the PR or MR without receiving an approval. Only when an admin approves the request does the finding's status change.
+
+    <Warning>
+        Exception requests override the **Default developer triage permissions** setting in Semgrep AppSec Platform under **Settings > Global**. For example, even if that setting is turned off and developers can't triage findings, developers can still request exceptions for findings that a policy definition requires exceptions to ignore.
+    </Warning>
+
+    ## Review an exception request
+
+    Semgrep admins can review and approve or deny exception requests in Semgrep AppSec Platform.
+
+    1. Log in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login). Ensure that the account you're using has been granted admin privileges. 
+    1. Go to the **Findings** page for the product of interest: [Code](https://semgrep.dev/orgs/-/findings), [Supply Chain](https://semgrep.dev/orgs/-/supply-chain), or [Secrets](https://semgrep.dev/orgs/-/secrets).
+    1. Click on the **Pending approval** tab to view all pending requests.
+
+    When you approve an exception request, Semgrep updates the finding's status to **Ignored**. Semgrep then posts a new comment on the PR or MR, informing the developer that they can now rerun the scan to unblock it.
+
+    When you deny an exception request, Semgrep posts a new comment to the PR or MR to inform the developer that their request was denied. The finding's status in Semgrep AppSec Platform changes to **To fix** to indicate that the finding must be addressed through code changes.
+
+    </Tab>
+</Tabs>
