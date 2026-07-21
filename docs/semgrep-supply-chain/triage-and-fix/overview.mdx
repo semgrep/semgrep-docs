@@ -65,7 +65,7 @@ To fix findings that are true positives in Semgrep Supply Chain, you can:
 
 You can remove a dependency that introduces a security vulnerability, then refactor your project to remove all usage of that dependency. Supply Chain scans the pull request or merge request with these changes, detects the updates to your lockfile or manifest file, and updates the status of the finding to **Fixed**.
 
-### Upgrade guidance and Autofix (beta)
+### Upgrade guidance and Autofix
 
 **Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version.
 
