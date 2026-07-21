@@ -24,14 +24,14 @@ See [Prerequisites](/prerequisites) to ensure your machine meets Semgrep's requi
     Install the Semgrep CLI and confirm the installation:
 
  ```bash
- # install through homebrew
- brew install semgrep
-
  # or, install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
  pipx install semgrep
 
  # or, install through uv (https://docs.astral.sh/uv/)
  uv tool install semgrep
+
+ # best-effort: install through homebrew (maintained on a best-effort basis; often lags behind the latest release)
+ brew install semgrep
 
  # confirm installation succeeded by printing the currently installed version
  semgrep --version
