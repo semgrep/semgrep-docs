@@ -4,7 +4,6 @@ description: "Updates made to Semgrep during the week of July 13-19, 2026."
 sidebarTitle: "Week of July 13, 2026"
 ---
 
-The following updates were made to Semgrep during the week of July 13-19, 2026.
 
 ## 🌐 Semgrep AppSec Platform
 
@@ -13,22 +12,21 @@ The following updates were made to Semgrep during the week of July 13-19, 2026.
 - **[Unified policies](/semgrep-appsec-platform/unified-policies/overview)** is now generally available. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
 - You can sort detection policy rules by name, severity, confidence, source, ruleset, open findings, and fix rate.
 - When multiple findings are grouped into a single Jira ticket, Semgrep now creates Jira subtasks for those findings.
-- Developers submitting an exception request now see a warning when `nosemgrep` is still enabled.
 
 ### Changed
 
-- Project names must be unique within a deployment regardless of case, so near-duplicate names such as `Foo/Bar` and `foo/bar` can no longer coexist.
+- Project names must be unique within a deployment and are case-insensitive, so near-duplicate names such as `Foo/Bar` and `foo/bar` can no longer coexist.
 - Semgrep cancels scans for a repository when Managed Scans are disabled for that repository's SCM configuration.
 
 ### Fixed
 
-- Fixed an issue where migrating Slack notifications to unified policies could break Slack notification delivery.
+- Fixed an issue where migrating Slack notifications to Unified policies could break Slack notification delivery.
 - Fixed an issue where findings automatically triaged or marked as likely false positive and moved to **Provisionally ignored** could still sync to Wiz as **Open**.
 - Fixed an issue where the **Update Access Token** button was not visible for GitHub and GitHub Enterprise SCM configurations.
 - Fixed an issue where self-serve checkout could use outdated Stripe prices instead of the current default price.
 - Fixed an issue where users with multiple authentication providers appeared as duplicates in the organization users and team members tables.
-- Fixed an issue where the Code findings page could hang when using the Rule Mode filter together with a severity filter on deployments with combined SAST and AI-powered detection findings.
-- Fixed an issue where the Findings page could get stuck in an endless loading state when a query failed. Semgrep now shows an error state instead.
+- Fixed an issue where the Code **Findings** page could hang when using the Rule Mode filter together with a severity filter on deployments with combined SAST and AI-powered detection findings.
+- Fixed an issue where the **Findings** page could get stuck in an endless loading state when a query failed. Semgrep now shows an error state instead.
 - Fixed an issue where AI-powered detection findings could be dropped from grouped Jira tickets created from the combined SAST and AI-powered detection view.
 
 ## 💻 Semgrep Code

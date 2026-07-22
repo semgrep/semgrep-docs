@@ -32,7 +32,7 @@ The following updates were made to Semgrep during the week of July 6-12, 2026.
 
 ### Fixed
 
-- Fixed an issue where audit events from background tasks, such as SCIM sync, were silently dropped instead of recorded.
+- Fixed an issue where audit events from background tasks were silently dropped instead of recorded.
 - Fixed an issue where expired license alerts on the **Usage & billing** page continued to display after live seats were available.
 - Fixed issues when migrating Slack notifications to unified policies:
   - Migrating legacy Slack notifications could drop Supply Chain notifications or misclassify a policy's product.
@@ -49,7 +49,7 @@ The following updates were made to Semgrep during the week of July 6-12, 2026.
 
 ### Added
 
-- You can now update and enable an inactive supply chain incident policy in one step, instead of editing and then enabling separately.
+- You can now update and enable an inactive Supply Chain incident policy in one step, instead of editing and then enabling separately.
 
 ### Fixed
 
@@ -64,13 +64,13 @@ The following updates were made to Semgrep during the week of July 6-12, 2026.
 - Fixed permission errors when creating or listing organization-wide context documentation for AI-powered detection.
 - Fixed an issue where secrets in customer code, such as hardcoded credentials, could appear verbatim in saved AI remediation guidance. Secrets are now redacted before guidance is saved.
 - Fixed an issue where automatically creating a Memory from a bulk ignore-with-note action could apply to the wrong findings when multiple issue-state filters were selected.
-- Fixed an issue where **Suggested memories** PR comment links pointed to the wrong pull request and returned a 404 on GitHub.
+- Fixed an issue where **Suggested memories** pull request (PR) comment links pointed to the wrong PR and returned a 404 on GitHub.
 
 ## 🔐 Semgrep Secrets
 
 ### Fixed
 
-- Fixed an issue where generic secrets findings without an AI autotriage verdict did not appear in the Secrets findings list, even though their detail page rendered correctly.
+- Fixed an issue where generic secrets findings without an AI autotriage verdict did not appear in the Secrets findings list, even though their **Details** page rendered correctly.
 
 ## 🔧 Semgrep Community Edition
 
