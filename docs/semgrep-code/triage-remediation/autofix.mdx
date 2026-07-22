@@ -16,7 +16,7 @@ Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) an
 To use Autofix, you must meet the following requirements:
 
 * [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).  
-* Accept Amazon Bedrock or Anthropic's Claude models.
+* Accept Amazon Bedrock, including Anthropic Claude models.
   * During beta, Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
 * Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
