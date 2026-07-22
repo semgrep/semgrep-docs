@@ -1,0 +1,89 @@
+---
+title: "Week of July 13, 2026"
+description: "Updates made to Semgrep during the week of July 13-19, 2026."
+sidebarTitle: "Week of July 13, 2026"
+---
+
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- **[Unified policies](/semgrep-appsec-platform/unified-policies/overview)** is now generally available. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
+- You can sort detection policy rules by name, severity, confidence, source, ruleset, open findings, and fix rate.
+- When multiple findings are grouped into a single Jira ticket, Semgrep now creates Jira subtasks for those findings.
+
+### Changed
+
+- Project names must be unique within a deployment and are case-insensitive, so near-duplicate names such as `Foo/Bar` and `foo/bar` can no longer coexist.
+- Semgrep cancels scans for a repository when Managed Scans are disabled for that repository's SCM configuration.
+
+### Fixed
+
+- Fixed an issue where migrating Slack notifications to Unified policies could break Slack notification delivery.
+- Fixed an issue where findings automatically triaged or marked as likely false positive and moved to **Provisionally ignored** could still sync to Wiz as **Open**.
+- Fixed an issue where the **Update Access Token** button was not visible for GitHub and GitHub Enterprise SCM configurations.
+- Fixed an issue where self-serve checkout could use outdated Stripe prices instead of the current default price.
+- Fixed an issue where users with multiple authentication providers appeared as duplicates in the organization users and team members tables.
+- Fixed an issue where the Code **Findings** page could hang when using the Rule Mode filter together with a severity filter on deployments with combined SAST and AI-powered detection findings.
+- Fixed an issue where the **Findings** page could get stuck in an endless loading state when a query failed. Semgrep now shows an error state instead.
+- Fixed an issue where AI-powered detection findings could be dropped from grouped Jira tickets created from the combined SAST and AI-powered detection view.
+
+## 💻 Semgrep Code
+
+### Added
+
+- Added the 0xdea community rules registry as a remote ruleset source.
+- Pro C/C++ scans now skip code inside statically dead preprocessor branches (for example, `#if 0 ... #else ... #endif`), so patterns no longer match against intentionally disabled code.
+- `semgrep install-semgrep-pro` now sends usage metrics so installation errors can be tracked, including the detected install method (pip, Homebrew, or Docker). Disable metrics with `--metrics off` or `SEMGREP_SEND_METRICS=off`.
+
+### Fixed
+
+- Fixed a crash at startup on systems running musl 1.2.6 (such as Alpine 3.24) on recent Intel CPUs.
+- **Dockerfile**: Fixed parse errors on `RUN` instructions that use heredoc syntax (`<<EOF`, `<<-EOF`, and quoted delimiters).
+- [`metavariable-type`](/writing-rules/experiments/metavariable-type) now supports fully qualified type names in more languages, including Python, when the metavariable's type is determined by Pro engine cross-file type resolution.
+- Restored backtraces printed by `semgrep-core` and `semgrep-core-proprietary` when receiving a fatal signal.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- You can configure a remediation policy automation to automatically open a Supply Chain Autofix pull request when findings match the policy.
+- The Advisories page includes an **Incidents** filter, so you can filter advisories by the incidents that surfaced them.
+- The supply chain incident declaration form includes a custom message field.
+
+### Changed
+
+- Increased the timeout for dynamic dependency resolution subprocesses from 600 to 900 seconds, giving large projects more time to resolve dependencies before timing out.
+- Renamed the default Supply Chain incident policy from **malware** to **supply chain** to better reflect its scope.
+- Renamed the incident response dispatch form field **Internal title** to **Incident name**.
+- Updated the Advisories page search placeholder from "Title or CVE" to "Rule ID or CVE" to match search behavior.
+- Incident scan targeting now honors scan opt-outs and skips disabled scan types, Dynamic Dependency Resolution configurations, and local-scan projects before dispatching scans.
+
+### Fixed
+
+- Fixed an issue where SBOMs could be missing vulnerability data when the `ref` field was empty.
+- Fixed an issue where Supply Chain page URLs using the legacy `reachability` query parameter would crash the page.
+
+## 🤖 Semgrep Multimodal
+
+### Fixed
+
+- Fixed an issue where AI scan settings could not be disabled after prerequisites changed, and where available scan actions were incorrectly reported for repositories without Managed Scans enabled.
+- Fixed an issue where opening the **New memory** modal, or creating a memory from the findings triage flow, crashed the page.
+- Fixed an issue where AI-powered detection scans could fail to start due to a JSON serialization error.
+- Fixed an issue where Semgrep tokens and clone-URL credentials for AI-powered detection workflow runs could be stored in plaintext.
+
+## 📝 Documentation and knowledge base
+
+### Fixed
+
+- Fixed several OpenAPI specification issues, including invalid field types and duplicate service tags, that blocked automated syncing of API documentation.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of July 13-19, 2026:
+
+<CardGroup>
+  <Card title="1.170.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.170.0" horizontal />
+</CardGroup>
