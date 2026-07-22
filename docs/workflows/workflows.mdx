@@ -7,24 +7,22 @@ description: "Use Semgrep Workflows to run automated application security analys
 Semgrep Workflows is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback.
 </Note>
 
-Semgrep Workflows encodes multi-step application security analysis as reproducible pipelines. Semgrep Workflow takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security findings, traige decisions, and/or code changes.
-
-A single Semgrep Workflow can run several analysis steps in sequence. For example, it can be used to extract embedded code, running a specialized analyzer, then applying AI-based reasoning to the results. Use Semgrep Workflows when your security analysis requires multiple techniques or additional context beyond pattern matching.
+Semgrep Workflows encodes multi-step application security analysis as reproducible pipelines. A single Semgrep Workflow can run several analysis steps in sequence. Semgrep Workflow takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security findings, traige decisions, and/or code changes.
 
 During the beta, Semgrep Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom workflows is not supported. Local CLI execution is not available; Workflows run as a Semgrep-hosted service.
 
 
-## Workflows and other Semgrep analysis
+## Workflows versus other Semgrep analysis
 
-Semgrep Workflows can perform more targeted analysis that combines multiple analysis techniques and reasoning steps. It complements Semgrep Code's rule-based scanning and AI-powered detection. 
+Semgrep Workflows performs targeted analysis that combines multiple analysis techniques and reasoning steps. It complements Semgrep Code's rule-based scanning and AI-powered detection. 
 
  The following table summarizes when to use each type of analysis.
 
 | Analysis | Primary use | How it works | Output |
 | --- | --- | --- | --- |
 | [Semgrep Code](/semgrep-code/overview) rule-based scanning | Continuously identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
-| [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
-| [Semgrep Multimodal](/semgrep-multimodal/overview) | Help prioritize, understand, and remediate existing findings | Applies AI to Semgrep findings and related context | Triage and remediation guidance |
+| [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
+| [Semgrep Multimodal](/semgrep-multimodal/overview) | Help prioritize and remediate existing findings | Applies AI to Semgrep findings and related context | Triage and remediation guidance |
 | Semgrep Workflows | Combine multiple analysis techniques and execute them stepwise across repositories | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against selected repositories | Workflow findings in Semgrep AppSec Platform |
 
 
@@ -32,7 +30,7 @@ Semgrep Workflows can perform more targeted analysis that combines multiple anal
 
 ## Before you begin
 
-To use Workflows:
+### Prerequisites
 
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).
 - Semgrep AppSec Platform must be [connected to your source code manager](/deployment/connect-scm) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze.
@@ -81,9 +79,11 @@ To start a run:
 1. In Semgrep AppSec Platform, go to **Projects**.
 2. Select one or more projects to analyze.
 3. Click **Run a new scan > Workflow**.
-4. Select the workflow to run. ==list options here==
-5. Review the workflow description, expected coverage, and credit usage.
-6. Click **Scan**.
+4. Choose which workflows to run:
+   - **Run Semgrep's default** to run the default workflow, which combines all nine [available workflows](#available-workflows).
+   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](#available-workflows).
+5. Review the workflow description, expected coverage, and credit usage. The Workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
+6. Click **Run workflows**.
 
 Each on-demand request creates a workflow run. A run can contain one or more jobs that perform the individual analysis steps required by the workflow. Jobs can run in sequence or use the output of an earlier job as input.
 
@@ -109,7 +109,7 @@ During the beta, contact **[Semgrep Community Slack channel]** to provide feedba
 
 During the beta, Semgrep offers nine pre-built detection workflows. Together, these workflows cover 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, and cryptography issues, as well as broader web, API, and crypto security analysis. This coverage is **additional** to what [Semgrep Code](/semgrep-code/overview) and [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) already cover.
 
-**Semgrep's default** runs all nine of these workflows.
+**Semgrep's default Workflow** runs all nine of these workflows.
 
 Coverage depends on the workflow, repository language, framework, and available code context. A workflow might not analyze every file or detect every instance of a vulnerability class. Continue to use Semgrep Code and Semgrep Supply Chain for continuous rule-based scanning.
 
@@ -138,15 +138,16 @@ The following concepts describe how analysis is organized:
 - **Job**: An individual unit of work within a run. A job can perform program analysis, run a deterministic tool, apply AI-based reasoning, or review intermediate output.
 - **Issue**: A reviewable result produced by a workflow. An issue includes the evidence and context available from the run.
 
-When you start a workflow, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and combines their output into reviewable issues. You can monitor the run and review its issues in Semgrep AppSec Platform.
+When you start a workflow, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and combines their output into reviewable issues. You can monitor the run and review its issues in the **Workflows** page in Semgrep AppSec Platform.
 
 {/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. */}
+
 
 ## Review workflow issues
 
 Workflow issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets findings. Actions taken on a workflow issue do not automatically change the status of a related finding from another Semgrep product.
 
-To review issues, go to **[Issues UI location]**. You can **[filter or group behavior]** and select an issue to view its evidence, affected repository and code, workflow run, and status.
+To review issues, go to the **Workflows** page in Semgrep AppSec Platform. You can **==[filter or group behavior]==** and select an issue to view its evidence, affected repository and code, workflow run, and status.
 
 {/* TODO: Document the complete issue status model and transitions. Confirm whether issues can be assigned, commented on, ignored, reopened, or linked to existing findings. Confirm deduplication behavior across repeated runs and branches. Add exact UI navigation for the all-issues view and the issues belonging to a single run. */}
 
@@ -191,3 +192,14 @@ During the beta:
 - Detection coverage and supported repositories vary by workflow.
 
 Semgrep plans to refine Workflows throughout the beta based on customer feedback.
+
+## What's next
+
+Detection is one stage of a longer loop that also includes triage and remediation. Semgrep is developing additional workflow types on the same platform, including:
+
+- **Triage workflows**: In early testing, a triage workflow reached 96% agreement with security analysts.
+- **Remediation workflows**: An Autofix workflow saved roughly 30 minutes per finding.
+
+Expect continued investment in triage and remediation workflows, and in the context that improves accuracy across all workflows.
+
+{/* TODO: Confirm the 96% triage agreement and 30-minutes-per-finding Autofix figures are approved for public docs, and link to triage/remediation workflow docs when available. */}
