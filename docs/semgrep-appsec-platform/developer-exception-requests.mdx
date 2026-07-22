@@ -2,7 +2,7 @@
 title: Developer exception requests
 ---
 
-Developer exception requests is a feature that allows developers to request that findings identified by Semgrep be triaged as **Ignored** if they think it is safe to ignore, a false positive, or an acceptable risk.
+Developer exception requests is a Semgrep feature that allows you to request that a finding be triaged as **Ignored** if you think it is safe to ignore, a false positive, or an acceptable risk.
 
 <Tabs>
     <Tab title="For developers">
@@ -17,12 +17,12 @@ Developer exception requests is a feature that allows developers to request that
 
     To request an exception:
 
-    - [Respond to the PR or MR comment](#respond-to-a-pr-or-mr-comment) that Semgrep posted
-    - [Triage a finding and submit a request in Semgrep AppSec Platform](#triage-a-finding-and-submit-a-request-in-semgrep-appsec-platform). Whenever you triage a finding in Semgrep AppSec Platform, your actions are automatically converted to requests instead of directly modifying the status of the finding.
+    - [Respond to the PR or MR comment](#respond-to-a-pr-or-mr-comment) that Semgrep posted.
+    - [Triage a finding and submit a request in Semgrep AppSec Platform](#triage-a-finding-and-submit-a-request-in-semgrep-appsec-platform). When you triage a finding in Semgrep AppSec Platform, your action is submitted as a request instead of immediately changing the finding's status.
 
     ### Respond to a PR or MR comment
 
-    When Semgrep identifies a finding in your PR or MR, it posts a comment that indicates whether the finding is blocking, provides a description of the issue, provides instructions on resolving the issue, and provides a link to the finding on the Semgrep AppSec Platform.
+    When Semgrep identifies a finding in your PR or MR, it posts a comment indicating whether the finding is blocking, provides a description of the issue, provides instructions on resolving the issue, and provides a link to the finding on Semgrep AppSec Platform.
 
     To request an exception, reply to Semgrep's comment using one of the following options:
 
@@ -47,11 +47,11 @@ Developer exception requests is a feature that allows developers to request that
 
     **For requests initiated in a PR or MR comment:** Once an admin has reviewed and responded to your request, Semgrep posts a follow-up comment to the existing PR or MR comment thread.
     
-    If the admin has **approved** your request and the finding involved was a blocking finding, you can rescan your PR or MR to unblock it. The finding's status in Semgrep AppSec Platform also changes to **Ignored**. If the finding was *not* a blocking finding, the status of the finding in Semgrep changes to **Ignored**.
+    If the admin has **approved** your request and the finding involved was a blocking finding, you can rescan your PR or MR to unblock it. The finding's status in Semgrep AppSec Platform also changes to **Ignored**. If the finding was *not* a blocking finding, the status of the finding in AppSec Platform changes to **Ignored**.
 
-    If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep changes to **To fix**, indicating that you must address the finding before proceeding.
+    If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep AppSec Platform changes to **To fix**, indicating that you must address the finding before proceeding.
 
-    **For requests initiated in Semgrep AppSec Platform:** View the finding to see its status. If your request is approved, the status updates to **Ignored**. Otherwise, the status is updated to **To fix**.
+    **For requests initiated in Semgrep AppSec Platform:** View the finding to see its status. If your request is approved, the status updates to **Ignored**. Otherwise, the status remains **To fix**.
 
     </Tab>
     <Tab title="For admins">
