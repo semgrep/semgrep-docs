@@ -16,15 +16,23 @@ Semgrep's IntelliJ extension for Windows users is currently in beta.
 The Semgrep IntelliJ extension communicates with Semgrep command-line interface (CLI) to run scans. Install Semgrep CLI before you can use the extension. To install Semgrep CLI:
 
 ```bash
-# For macOS
-$ brew install semgrep
-
-# For Ubuntu/Windows/Linux/macOS, using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+# preferred: install through pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
 $ pipx install semgrep
 
-# Or, using uv (https://docs.astral.sh/uv/)
+# recommended for users already using uv (https://docs.astral.sh/uv/)
 $ uv tool install semgrep
+
+# best-effort: install through homebrew (maintained on a best-effort basis and can lag behind the latest release)
+$ brew install semgrep
 ```
+
+<Info>
+**NOTE**
+
+`pipx` and `uv` are the preferred installation methods. The Homebrew formula is maintained on a best-effort basis and often lags behind the latest release.
+
+**Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+</Info>
 
 ## Quickstart
 
