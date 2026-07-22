@@ -86,16 +86,19 @@ Update your Semgrep CLI tool with the following command:
 <Tabs>
 <Tab title="macOS">
 
-```bash
-    brew upgrade semgrep
-    ```
-
-    Alternatively, using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/) or uv (https://docs.astral.sh/uv/):
+    Use pipx (https://pipx.pypa.io/stable/how-to/install-pipx/) or uv (https://docs.astral.sh/uv/):
 
     ```bash
     pipx upgrade semgrep
     # or
     uv tool upgrade semgrep
+    ```
+
+    Alternatively, use Homebrew:
+
+    ```bash
+    # best-effort: install through Homebrew (maintained on a best-effort basis; often lags behind the latest release)
+    brew upgrade semgrep
     ```
 
 </Tab>
