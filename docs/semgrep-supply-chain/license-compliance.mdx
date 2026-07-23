@@ -124,7 +124,7 @@ The **Other** license category may include packages with copyleft or permissive 
 
 ### Multiple license types
 
-Some packages utilize multiple licenses. Semgrep treats packages with multiple licenses as if all licenses apply and behaves according to the strictest policy. For example, if a package allows use under the MIT license or the GPL-3.0 license, and the GPL-3.0 license is set to Block, but the MIT license is set to Allow, a pull request that adds the package is blocked.
+Some packages utilize multiple licenses. By default, Semgrep choses to **Block dependencies if any license is blocked**. For example, if a package allows use under the MIT license or the GPL-3.0 license, and the GPL-3.0 license is set to Block, but the MIT license is set to Allow, a pull request that adds the package is blocked. You can toggle this behavior in **Settings > Supply Chain**.
 
 You can add an [exemption for the package](#create-exemptions) if subsequent review indicates the dependency is safe for use under any of the detected licenses.
 
@@ -148,7 +148,7 @@ Click the dependency's <Icon icon="list-check" iconType="solid"/> icon to exempt
 </Step>
 </Steps>
 
-Exempted dependencies appear in the **Supply Chain > Settings** tab.
+Exempted dependencies appear in the **Rules & Policies > Policies > Supply Chain > License configuration** tab.
 
 ### Create custom dependency exceptions
 
@@ -160,7 +160,7 @@ To set a custom dependency exception:
 
 <Steps>
 <Step>
-Sign in to Semgrep AppSec Platform and navigate to **Supply Chain > License configuration**.
+Sign in to Semgrep AppSec Platform and navigate to **Rules & Polices > Policies > Supply Chain > License configuration**.
 </Step>
 <Step>
 In **Custom dependency exceptions**, click **Add custom exception**.
