@@ -26,6 +26,7 @@ The following tables list **SCM roles** and **token or app scopes** required for
 | PR comments | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> Required for triage through PR comments. | <ul><li>**Full access** during setup/triage-webhook enablement</li><li>After configuration:<ul><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul></li></ul> | [Azure PR comments](/semgrep-appsec-platform/azure-pr-comments) |
 | Managed Scans | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | <ul><li>**Full access** on the PAT during setup</li><li>`Code: Read`</li><li>`Code: Status`</li><li>`Member Entitlement Management: Read`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Azure Managed Scans](/deployment/managed-scanning/azure#prerequisites-and-permissions) |
 | Code access | User who can update the SCM connection token | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Agentic Workflows (beta) | User who can update the SCM connection token | Connection PAT scopes: <ul><li>`Code: Read`</li></ul> | <ul><li>[Semgrep Agentic Workflows](/workflows/overview)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
 | Autofix | <ul><li>**Owner**</li><li>**Project Collection Administrator**</li></ul> | Connection PAT scopes: <ul><li>`Code: Read`</li><li>`Code: Write`</li><li>`Project and Team: Read & write`</li><li>`Pull Request Threads: Read & write`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
 </Tab>
@@ -39,6 +40,7 @@ The following tables list **SCM roles** and **token or app scopes** required for
 | Managed Scans (Cloud) | **Product Admin** | <ul><li>`webhook (read and write)`</li><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li><li>`project (admin)`</li><li>`account (read)`</li></ul> | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-cloud) |
 | Managed Scans (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions | [Bitbucket Managed Scans](/deployment/managed-scanning/bitbucket#bitbucket-data-center) |
 | Code access | User who can update the SCM connection token | Connection token scopes (colon notation): <ul><li>Cloud:<ul><li>`repository:read`</li><li>`pullrequest:read`</li><li>`repository:write`</li><li>`pullrequest:write`</li></ul></li><li>Data Center:<ul><li>`repository:read`</li><li>`repository:write`</li></ul></li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
+| Agentic Workflows (beta) | User who can update the SCM connection token | Connection token scopes (colon notation): <ul><li>Cloud: `repository:read`</li><li>Data Center: `repository:read`</li></ul> | <ul><li>[Semgrep Agentic Workflows](/workflows/overview)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
 | Autofix (Cloud) | **Product Admin**. Requires **Bitbucket Cloud Premium** and a workspace access token. | <ul><li>`repository (read and write)`</li><li>`pullrequest (read and write)`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
 | Autofix (Data Center) | **Project Admin** | HTTP access token with **Project admin** permissions and repository write access | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
@@ -51,7 +53,7 @@ The following tables list **SCM roles** and **token or app scopes** required for
 | Sign in and connect repositories | Org member who can install GitHub Apps on the organization | Public [`semgrep-app`](https://github.com/apps/semgrep-app) installation. See [GitHub App permissions](#github-app-permissions). | <ul><li>[Connect a source code manager](/deployment/connect-scm)</li><li>[Create an account](/deployment/create-account-and-orgs)</li></ul> |
 | Create CI jobs in bulk | Org member who can install GitHub Apps | Same as public [`semgrep-app`](https://github.com/apps/semgrep-app) permissions for repository onboarding | [Connect a source code manager](/deployment/connect-scm) |
 | PR comments | Org member who can configure [`semgrep-app`](https://github.com/apps/semgrep-app) on target repositories | <ul><li>`actions (read and write)`</li><li>`pull requests (read and write)`</li><li>`secrets (read and write)`</li><li>`security events (read and write)`</li><li>`workflows (read and write)`</li></ul> | [GitHub PR comments](/semgrep-appsec-platform/github-pr-comments) |
-| Managed Scans and AI-assisted features | Org member who can install GitHub Apps | <ul><li>Public [`semgrep-app`](https://github.com/apps/semgrep-app) permissions</li><li>Private Semgrep GitHub App with `Contents: Read` and permissions listed in [GitHub App permissions](#github-app-permissions)</li></ul> | <ul><li>[GitHub Managed Scans](/deployment/managed-scanning/github)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
+| Managed Scans and AI-assisted features | Org member who can install GitHub Apps | <ul><li>Public [`semgrep-app`](https://github.com/apps/semgrep-app) permissions</li><li>Private Semgrep GitHub App with `Contents: Read` and permissions listed in [GitHub App permissions](#github-app-permissions)</li></ul> | <ul><li>[GitHub Managed Scans](/deployment/managed-scanning/github)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li><li>[Semgrep Agentic Workflows](/workflows/overview) (beta)</li></ul> |
 | Autofix | Org member who can install GitHub Apps | Private Semgrep GitHub App repository permissions: <ul><li>`Contents: Read`</li><li>`Contents: Write`</li><li>`Metadata: Read`</li><li>`Pull requests: Write`</li></ul> See [GitHub Autofix permissions and API usage](#autofix-github-permissions). | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access)</li></ul> |
 
 </Tab>
@@ -62,7 +64,7 @@ The following tables list **SCM roles** and **token or app scopes** required for
 | :--- | :--- | :--- | :--- |
 | Sign in | GitLab user authorizing Semgrep | <ul><li>`openid`</li><li>`email`</li><li>`profile`</li><li>`api`</li></ul> | [Connect a source code manager](/deployment/connect-scm) |
 | MR comments | <ul><li>**Owner**</li><li>**Admin**</li></ul> on the GitLab group | <ul><li>`api` on the group access token</li></ul> | [GitLab MR comments](/semgrep-appsec-platform/gitlab-mr-comments) |
-| Managed Scans and AI-assisted features | <ul><li>**Maintainer**</li><li>**Owner**</li><li>**Admin**</li></ul> during onboarding (can downgrade to **Developer** after setup) | <ul><li>`api` on group or personal access token</li><li>`read_repository` for code access</li></ul> | <ul><li>[GitLab Managed Scans](/deployment/managed-scanning/gitlab)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
+| Managed Scans and AI-assisted features | <ul><li>**Maintainer**</li><li>**Owner**</li><li>**Admin**</li></ul> during onboarding (can downgrade to **Developer** after setup) | <ul><li>`api` on group or personal access token</li><li>`read_repository` for code access</li></ul> | <ul><li>[GitLab Managed Scans](/deployment/managed-scanning/gitlab)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li><li>[Semgrep Agentic Workflows](/workflows/overview) (beta)</li></ul> |
 | Code access | User who can update the SCM connection token | Connection token scopes: <ul><li>`read_repository`</li><li>`write_repository`</li></ul> | [Grant code access](/semgrep-appsec-platform/scm-code-access) |
 | Autofix | <ul><li>**Maintainer**</li><li>**Owner**</li><li>**Admin**</li></ul> during onboarding (can downgrade to **Developer** after setup) | Connection token scopes: <ul><li>`api`</li><li>`read_repository`</li><li>`write_repository`</li></ul> | [Autofix](/semgrep-code/triage-remediation/autofix) |
 
@@ -130,10 +132,11 @@ You can create a private GitHub app, which follows the naming convention **Semgr
 
 - [Semgrep Managed Scans](/deployment/managed-scanning/overview)
 - [Semgrep Multimodal](/semgrep-multimodal/overview) and other AI-assisted features
+- [Semgrep Agentic Workflows](/workflows/overview) (beta)
 - [Semgrep Code Autofix](/semgrep-code/triage-remediation/autofix)
 
 <Note>
-Managed Scans and Multimodal [require **read access** to your code](/semgrep-appsec-platform/scm-code-access). Autofix also [requires **write access** and permission to open PRs](#autofix-permissions).
+Managed Scans, Multimodal, and Agentic Workflows [require **read access** to your code](/semgrep-appsec-platform/scm-code-access). Autofix also [requires **write access** and permission to open PRs](#autofix-permissions).
 </Note>
 
 <Accordion title="Click to review how Semgrep AppSec Platform uses permissions for Managed Scans and AI features.">
