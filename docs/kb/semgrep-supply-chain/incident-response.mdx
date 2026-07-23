@@ -3,11 +3,11 @@ title: "Malware incident response with Semgrep Supply Chain"
 description: "This document describes how to respond to a malicious dependency incident using Semgrep Supply Chain."
 ---
 
+## 1. Check the results from your most recent full scan
+
 <Info>
 If you've configured [Supply Chain incident notifications](/semgrep-supply-chain/incident-notifications), Semgrep will notify you on Slack within minutes of declaring an incident and tell you whether any of your projects are affected. In this case, you can skip this step, which describes the manual process and is useful if you haven't configured notifications or want to investigate a package independently of an automatic notification.
 </Info>
-
-## 1. Check the results from your most recent full scan
 
 Semgrep maintains a record of the dependencies in your project that is updated whenever a full scan runs. As soon as you have reason to be concerned, check this record to see if those packages and versions were present in your environment at the time of the scan.
 
