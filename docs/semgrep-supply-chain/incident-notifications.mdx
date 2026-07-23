@@ -1,0 +1,76 @@
+---
+title: "Supply Chain incident notifications"
+description: "Get notifications in Slack when Semgrep declares a new Supply Chain incident and learn whether it affects your projects."
+---
+
+Semgrep's Security Research team monitors the open source ecosystem and responds in real time when a package is compromised, publishing an [Advisory](/semgrep-supply-chain/advisories) as soon as an incident is confirmed.
+
+If you've configured the **Early notification for Supply Chain incidents** policy, Semgrep automatically posts to a Slack channel of your choosing within minutes of declaring the incident. You don't have to look for the news yourself: Semgrep checks the compromised package versions against your projects' most recent dependency data and tells you whether any of them are affected in the same notification.
+
+You are notified every time Semgrep declares a new supply chain incident, whether or not any of your projects use the affected packages.
+
+## Prerequisites
+
+Ensure that: 
+* You have enabled [Slack notifications from Semgrep](/semgrep-appsec-platform/slack-notifications).
+* Your organization uses [Unified Policies](/semgrep-appsec-platform/unified-policies/overview).
+
+## Set up incident notifications
+
+<Frame caption="The Early notification for Supply Chain incidents policy on the Policies page.">
+![The Early notification for Supply Chain incidents policy, showing its condition (Supply chain incident declared) and action (Send a Slack message)](/images/ssc-incident-early-notification-policy.png)
+</Frame>
+
+<Steps>
+<Step>
+In your Slack workspace, find or create a channel for Semgrep notifications. Then, run `/semgrep_add_channel` in the channel to make it available to your policies. See [Receive Slack notifications](/semgrep-appsec-platform/slack-notifications#set-up-notifications-for-findings-in-slack) for more information.
+</Step>
+<Step>
+In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
+</Step>
+<Step>
+Find the policy named **Early notification for Supply Chain incidents**. Click its **<Icon icon="ellipsis" /> icon**, then select **Edit policy**.
+</Step>
+<Step>
+Go to **Actions**. Click **Add action > Send a Slack message**, and select the Slack channel you configured at the beginning of the setup process.
+</Step>
+<Step>
+Click **Update**.
+</Step>
+<Step>
+You will be redirected back to the **Remediation** policies page. Click the policy's **<Icon icon="ellipsis" /> icon**, then select **Enable policy**.
+</Step>
+</Steps>
+
+## What to do during an incident
+
+Every notification includes a **View incident advisories** button that takes you to the [Advisories](/semgrep-supply-chain/advisories) page, filtered to that incident. A **View blog post** button appears when Semgrep has published a blog post about the incident.
+
+<Steps>
+<Step>
+Click **View incident advisories** to see the list of related advisories, including compromised packages and versions.
+</Step>
+<Step>
+If your notification lists affected projects, [initiate a scan](/kb/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules) on them to confirm and get up-to-date findings.
+</Step>
+<Step>
+Remove or upgrade any compromised dependencies you find, then re-scan to confirm the findings clear. See [Detect and remove malicious dependencies](/semgrep-supply-chain/malicious-dependencies#triage-and-remediation-for-malicious-dependencies) for remediation guidance.
+</Step>
+</Steps>
+
+## Related reading
+
+<CardGroup>
+  <Card
+    title="Malware incident response with Semgrep Supply Chain"
+    icon="life-ring"
+    href="/kb/semgrep-supply-chain/incident-response"
+    horizontal
+  />
+  <Card
+    title="Detect and remove malicious dependencies"
+    icon="shield-virus"
+    href="/semgrep-supply-chain/malicious-dependencies"
+    horizontal
+  />
+</CardGroup>

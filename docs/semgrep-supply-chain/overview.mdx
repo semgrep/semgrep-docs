@@ -90,6 +90,8 @@ Policies, which are scoped on a per-project basis, allow you to define the condi
 
 Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-supply-chain/policies) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
 
+You can also configure [Supply Chain incident notifications](/semgrep-supply-chain/incident-notifications) to get notified in Slack within minutes whenever Semgrep declares a new Supply Chain incident and whether it affects your projects.
+
 ### Dependency search
 
 Supply Chain's [dependency search](/semgrep-supply-chain/dependency-search) feature allows you to query for dependencies in your codebase; it can detect direct and transitive dependencies in any repository on which you have run a full scan. The results list the dependency, along with all of the repositories that use the dependency.
