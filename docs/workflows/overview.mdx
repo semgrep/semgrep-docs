@@ -1,51 +1,104 @@
 ---
-title: "Semgrep Workflows (beta)"
-sidebarTitle: "Workflows (beta)"
-description: "Semgrep Workflows is a framework for building automated code security pipelines that allow you to detect, triage, and remediate security issues."
+title: "Semgrep Agentic Workflows (beta)"
+sidebarTitle: "Overview"
+description: "Learn how Semgrep Agentic Workflows run multi-step AI-enabled detection across your repositories."
 ---
 
-Each workflow is a series of steps, defined in Python, that include deterministic tools such as Semgrep Code, Supply Chain, and Secrets, as well as Semgrep Multimodal. You can also integrate third-party tools and any custom tooling required. Once you’ve defined your workflow, Semgrep handles its deployment and execution at scale.
+<Note>
+Semgrep Agentic Workflows is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback.
+</Note>
 
-<Frame caption="Architectural overview of Semgrep Workflows.">
-<img src="/images/workflow-architecture-4db0965849a21a7df14b80883b0fa4ab.png" alt="Architectural overview of Semgrep Workflows" />
-</Frame>
+Semgrep Agentic Workflows encodes multi-step application security analysis as reproducible pipelines. A single agentic workflow can run several analysis steps in sequence. An agentic workflow takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security issues.
 
-As input, Semgrep workflows take your project code and security context. This includes your organization's risk tolerance, findings triage rules, and other internal security program logic and definitions. The workflow is triggered by actions such as:
+During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom agentic workflows is not supported. Local CLI execution is not available; Agentic Workflows run as a Semgrep-hosted service.
 
-- The opening of a pull request (PR) or a merge request (MR)
-- A scheduled scan
-- An API call
+To run your first agentic workflow, see [Get started](/workflows/get-started).
 
-Semgrep then runs security tools, such as static analysis, software composition analysis, and secrets detection, and applies LLM-backed analysis on your project. The resulting security findings, triage decisions, research artifacts, and code changes are provided to you in a structured, actionable format. 
+## Agentic Workflows versus other Semgrep analysis
 
-## Types of workflows
+Semgrep Agentic Workflows performs targeted analysis that combines multiple analysis techniques and reasoning steps. It complements Semgrep Code's rule-based scanning and AI-powered detection.
 
-Semgrep provides built-in workflows you can run immediately, or you can define custom ones for your organization's needs. All workflows deploy on Semgrep’s managed infrastructure, minimizing your operational overhead.
+The following table summarizes when to use each type of analysis.
 
-Semgrep's **pre-built workflows**, covering common use cases, include:
+| Analysis | Primary use | How it works | Output |
+| --- | --- | --- | --- |
+| [Semgrep Code](/semgrep-code/overview) rule-based scanning | Continuously identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
+| [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
+| [Semgrep Multimodal](/semgrep-multimodal/overview) | Help prioritize and remediate existing findings | Applies AI to Semgrep findings and related context | Triage and remediation guidance |
+| Semgrep Agentic Workflows | Combine multiple analysis techniques and execute them stepwise across repositories | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against selected repositories | Agentic Workflows issues |
 
-- **Insecure direct object references (IDORs) and broken authorization**: combine static analysis and AI detection to find broken authorization, authentication bypasses, insecure access patterns, and other business logic issues
-- **Triage**: filter out false positives from your results to help your security teams prioritize real issues
-- **Autofix**: turn dependency findings into actionable remediation guidance, including information on whether the upgrade is safe or requires code modification
+{/* TODO: Confirm the boundaries between Agentic Workflows, AI-powered detection, and Multimodal with Product. In particular, confirm whether AI-powered detection findings are still the correct public term and whether all Multimodal outputs can be described as operating on existing findings. Confirm that UI labels have been updated from Workflows to Agentic Workflows. */}
 
-You can integrate any of these workflows individually, combine them to implement the functionality you need, or use them all to create an end-to-end security workflow for your organization. Alternatively, you can define **[custom workflows](#custom-workflows)** to meet your organization's needs. You can adapt a pre-built Semgrep workflow for your organization, or create entirely new ones using the Semgrep agent SDK.
+## How Agentic Workflows work
 
-## Custom workflows
+The following concepts describe how analysis is organized:
 
-Semgrep workflows are defined using Python and have a clear structure that includes steps, tool decorators, and standard control flow. This structure makes it straightforward for AI assistants to generate, modify, and extend your workflows -- you can describe what you want your workflow to do in natural language, and the AI assistant presents you with a draft workflow.
+- **Agentic workflow**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
+- **Run**: One execution of an agentic workflow against the repositories selected by a user.
+- **Job**: An individual unit of work within a run. A job can perform program analysis, run a deterministic tool, apply AI-based reasoning, or review intermediate output.
+- **Finding**: The immutable raw output of a detection workflow. Findings appear on the job details page after a run finishes.
+- **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Agentic Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
 
-You can run workflows locally for testing and iteration, on Kubernetes with a single deploy command, or through CI/CD systems like GitHub Actions or GitLab CI. Semgrep’s managed infrastructure handles orchestration, optimization, and monitoring regardless of deployment method.
+When you start an agentic workflow, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces findings. Semgrep processes and deduplicates those findings into reviewable issues. You can monitor the run and review its issues in the **Agentic Workflows** page in Semgrep AppSec Platform.
 
-Custom workflow patterns include, but aren't limited to, the following:
+{/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Confirm whether the UI tab is labeled Workflows or Agentic Workflows. */}
 
-| Workflow | Description |
-| :--- | :--- |
-| Detection | combine Semgrep with other security tools, project code context, and LLM-assisted reasoning to identify patterns that your organization deems important but can't be categorized neatly into generic, out-of-the-box rules |
-| Policies | encode internal security and compliance logic, then run it across multiple environments and repositories |
-| Remediation | generate upgrade guidance, code change suggestions, and PRs with the context developers need to fix issues safely |
-| Triage | review findings from a scanning tool while using repository context and custom review logic to produce decisions about the validity and priority of the findings |
-| Validation | review suspected issues with additional checks to determine if the issues are exploitable or worth escalating |
+## Detection coverage
 
-## Get started
+During the beta, Semgrep offers nine pre-built detection workflows. Together, these workflows cover 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, and cryptography issues, as well as broader web, API, and crypto security analysis. This coverage is **additional** to what [Semgrep Code](/semgrep-code/overview) and [Semgrep Pro Engine](/semgrep-code/semgrep-pro-engine-intro) already cover.
 
-To get started with your first automated workflows, [<Icon icon="envelope" color="#04A876"/> contact Semgrep](mailto:sales@semgrep.com).
+**Semgrep's default** runs all nine of these workflows.
+
+Coverage depends on the workflow, repository language, framework, and available code context. A workflow might not analyze every file or detect every instance of a vulnerability class. Continue to use Semgrep Code and Semgrep Supply Chain for continuous rule-based scanning.
+
+### Available workflows
+
+| Workflow | What it finds |
+| --- | --- |
+| SQL injection | Traces user-controlled data into dynamic queries that lack effective parameter binding or allow-list validation. |
+| XSS | Traces user-controlled input to unsafe HTML rendering sinks, across reflected, stored, and DOM-based cases. |
+| SSRF | Analyzes attacker control, validation, and bypass paths using repository-specific rules. |
+| Command injection | Traces untrusted input to shell and process-execution APIs across supported languages. |
+| NoSQL injection | Traces untrusted input into query and scripting operations in MongoDB, Redis, and Elasticsearch. |
+| Crypto weak hash | Flags security-sensitive use of MD2, MD4, MD5, and SHA-1, while filtering out benign checksum, cache-key, and identifier uses. |
+| Broad web security | Audits application code across web, API, cryptography, access control, and AI security, then filters by confidence and exploitability. |
+| Broad API security | Audits REST, GraphQL, gRPC, SOAP, JSON-RPC, and webhook APIs, then prioritizes findings by exploitability. |
+| Broad crypto security | Audits cryptography, password hashing, key management, signatures, randomness, and TLS, then prioritizes by exploitability. |
+
+{/* TODO: Confirm exact UI display names vs these shipping labels, and whether to link individual CWEs or OWASP categories per workflow. */}
+
+## Credit usage and billing
+
+Agentic workflow runs consume [AI credits](/usage-and-billing/overview#ai-credits). Credit use is variable per run and depends on compute, AI tokens, repository size, and complexity. Agentic Workflows typically use more credits than [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) scans because they perform broader, multi-step analysis. For a large repository, running the full recommended pack can cost $100 or more.
+
+Before expanding Agentic Workflows to more repositories, review usage in **[usage and billing UI location]** and confirm that your organization has enough credits for the planned rollout. Start with a small set of important projects so you can understand credit consumption before scaling.
+
+{/* TODO: Confirm the usage and billing UI location, what happens when a run contains multiple repositories, whether failed or canceled runs consume credits, and what happens when the organization has insufficient credits mid-run. */}
+
+## Beta limitations
+
+During the beta:
+
+- Runs must be started on demand. Scheduled runs are not available.
+- Agentic Workflows runs only as a Semgrep-hosted service and cannot be run in customer CI environments.
+- Agentic Workflows issues are managed separately from findings in other Semgrep products.
+- The API is experimental and can change.
+- BYOK, MDR or ZDR, and Network Broker configurations are not supported.
+- Detection coverage and supported repositories vary by workflow.
+
+Semgrep plans to refine Agentic Workflows throughout the beta based on customer feedback.
+
+## What's next
+
+Detection is one stage of a longer loop that also includes triage and remediation. Semgrep is developing additional workflow types on the same platform, including:
+
+- **Triage workflows**: In early testing, a triage workflow reached 96% agreement with security analysts.
+- **Remediation workflows**: An Autofix workflow saved roughly 30 minutes per finding.
+
+Expect continued investment in triage and remediation workflows, and in the context that improves accuracy across all workflows.
+
+{/* TODO: Confirm the 96% triage agreement and 30-minutes-per-finding Autofix figures are approved for public docs, and link to triage/remediation workflow docs when available. */}
+
+## Next steps
+
+To satisfy prerequisites and run your first agentic workflow, see [Get started](/workflows/get-started).
