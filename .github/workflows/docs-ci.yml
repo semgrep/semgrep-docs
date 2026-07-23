@@ -1,87 +1,68 @@
 name: Docs CI
 
+# Scheduled regeneration + validation of the docs.
+#
+# Runs everything the old PR-triggered CI used to do — regenerates the
+# machine-managed files from their templates (bash run-build-scripts) and runs
+# the Mintlify link/redirect check — then, if regeneration produced any changes,
+# opens a NEW pull request with them rather than committing onto an existing
+# branch. See docs/docs.json and CLAUDE.md for what run-build-scripts generates.
+
 on:
-  pull_request:
-    paths:
-      - "docs/**"
-      - "run-build-scripts"
-      - "replace-on-build.py"
-      - "copy-metrics-md"
-  push:
-    branches: [main, develop]
-    paths:
-      - "docs/**"
-      - "run-build-scripts"
-      - "replace-on-build.py"
-      - "copy-metrics-md"
+  schedule:
+    # 10:00 UTC = 02:00 America/Los_Angeles during PST. GitHub cron is UTC-only
+    # and does not observe DST, so this runs at 03:00 local during PDT.
+    - cron: "0 10 * * 1-5"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: docs-ci
+  cancel-in-progress: true
+
 jobs:
-  regenerate:
-    name: Regenerate docs from templates
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-
-      - name: Run build scripts
-        run: bash run-build-scripts
-
-      - name: Import GPG key
-        id: import-gpg
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          git_user_signingkey: true
-          git_commit_gpgsign: true
-
-      - name: Commit generated files
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: regenerate docs from build scripts"
-          commit_user_name: ${{ steps.import-gpg.outputs.name }}
-          commit_user_email: ${{ steps.import-gpg.outputs.email }}
-          commit_author: "${{ steps.import-gpg.outputs.name }} <${{ steps.import-gpg.outputs.email }}>"
-          file_pattern: |
-            docs/extensions/pre-commit.mdx
-            docs/snippets/metrics.mdx
-
-  validate:
-    name: Validate docs
-    needs: regenerate
-    if: always() && (needs.regenerate.result == 'success' || needs.regenerate.result == 'skipped')
+  regenerate-and-validate:
+    name: Regenerate, validate, and open PR if changed
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
 
-      - name: Generate dynamic content
+      - name: Regenerate dynamic content
         run: bash run-build-scripts
-
-      - name: Verify generated files are committed
-        run: |
-          git diff --exit-code -- \
-            docs/extensions/pre-commit.mdx \
-            docs/snippets/metrics.mdx || {
-            echo "::error::Generated files are out of date. On pull requests from this repo, the regenerate job should commit them automatically; otherwise run 'bash run-build-scripts' locally."
-            exit 1
-          }
 
       - name: Check links and redirects
         working-directory: docs
         # Pinned: mintlify@latest 4.2.697+ regressed and fails to parse
         # cheat-sheets/django-xss.mdx ("URIError: URI malformed" on the Django
-        # {% %} template syntax), breaking this check on every PR. 4.2.696 is
-        # the last version that parses it. Re-evaluate/bump when upstream fixes it.
+        # {% %} template syntax), breaking this check. 4.2.696 is the last
+        # version that parses it. Re-evaluate/bump when upstream fixes it.
         run: npx --yes mintlify@4.2.696 broken-links --check-redirects
+
+      # Note: PRs opened with the default GITHUB_TOKEN do not trigger other
+      # workflows. Provide a bot PAT via the DOCS_BOT_TOKEN secret if you need
+      # downstream checks to run on the PR this creates.
+      - name: Open PR if generated files changed
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.DOCS_BOT_TOKEN || github.token }}
+          add-paths: |
+            docs/extensions/pre-commit.mdx
+            docs/snippets/metrics.mdx
+          branch: chore/regenerate-docs
+          delete-branch: true
+          commit-message: "chore: regenerate docs from build scripts"
+          title: "chore: regenerate docs from build scripts"
+          body: |
+            Automated regeneration of the machine-managed docs files from their
+            templates (`bash run-build-scripts`). Review the diff before merging.
+
+            - `docs/extensions/pre-commit.mdx` ← `docs/extensions/pre-commit.md.template.mdx`
+            - `docs/snippets/metrics.mdx` ← upstream `semgrep/semgrep` `metrics.md`

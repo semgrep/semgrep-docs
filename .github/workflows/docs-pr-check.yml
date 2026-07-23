@@ -1,0 +1,44 @@
+name: Docs PR check
+
+# Merge gate for docs pull requests: regenerates dynamic content so links
+# resolve, then runs the Mintlify link/redirect check. This does NOT commit or
+# open a PR — regeneration of the machine-managed files is handled on a schedule
+# by docs-ci.yml. This job only validates.
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "run-build-scripts"
+      - "replace-on-build.py"
+      - "copy-metrics-md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Generate dynamic content
+        run: bash run-build-scripts
+
+      - name: Check links and redirects
+        working-directory: docs
+        # Pinned: mintlify@latest 4.2.697+ regressed and fails to parse
+        # cheat-sheets/django-xss.mdx ("URIError: URI malformed" on the Django
+        # {% %} template syntax), breaking this check. 4.2.696 is the last
+        # version that parses it. Re-evaluate/bump when upstream fixes it.
+        run: npx --yes mintlify@4.2.696 broken-links --check-redirects
