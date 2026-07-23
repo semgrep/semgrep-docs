@@ -22,8 +22,8 @@ The notification is based on dependency data from your projects' most recent sca
 
 ## Set up incident notifications
 
-<Frame caption="Placeholder: screenshot of the Early notification for supply chain incidents policy on the Remediation page.">
-![Placeholder for Early notification for supply chain incidents policy screenshot](/images/placeholder.png)
+<Frame caption="The Early notification for supply chain incidents policy on the Policies page.">
+![The Early notification for supply chain incidents policy, showing its condition (Supply chain incident declared) and action (Send a Slack message)](/images/ssc-incident-early-notification-policy.png)
 </Frame>
 
 <Steps>
@@ -31,37 +31,26 @@ The notification is based on dependency data from your projects' most recent sca
 In your Slack workspace, find or create a channel for Semgrep notifications, then run `/semgrep_add_channel` to make it available to your policies. See [Receive Slack notifications](/semgrep-appsec-platform/slack-notifications#set-up-notifications-for-findings-in-slack) for details.
 </Step>
 <Step>
-In Semgrep AppSec Platform, go to **Rules & Policies > Remediation**.
+In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
 </Step>
 <Step>
-Find the policy named **Early notification for supply chain incidents**. This policy already exists for your organization — you don't create it, and it can't be renamed or deleted.
+Find and edit the policy named **Early notification for supply chain incidents**. This policy cannot be renamed or deleted.
 </Step>
 <Step>
-Click **+ Add action > Send a Slack message**, and select the channel you configured in step 1.
+Under **Actions** Click **Add action > Send a Slack message**, and select the channel you configured in step 1.
 </Step>
 <Step>
-Enable the policy.
+Update and enable the policy.
 </Step>
 </Steps>
 
-## Reading the notification
-
-<Frame caption="Placeholder: screenshot of the Supply Chain incident Slack notification.">
-![Placeholder for Supply Chain incident Slack notification screenshot](/images/placeholder.png)
-</Frame>
-
-Every notification names the compromised package(s) and when the incident was declared. What appears next depends on whether the incident affects you:
-
-* **If any of your projects use the compromised packages**, the notification lists them (up to the first 10, with a count of any remaining) and states how many affected projects were found.
-* **If none of your projects are affected**, based on the most recent dependency data, the notification says so — it doesn't enumerate projects.
+## What to do during an incident
 
 Every notification includes a **View incident advisories** button that takes you to the [Advisories](/semgrep-supply-chain/advisories) page, filtered to that incident. A **View blog post** button appears when Semgrep has published a blog post about the incident.
 
-## What to do next
-
 <Steps>
 <Step>
-Click **View incident advisories** to see the full advisory, including every compromised package and version.
+Click **View incident advisories** to see the list of related advisories, including compromised packages and versions.
 </Step>
 <Step>
 If your notification lists affected projects, [initiate a scan](/kb/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules) on them to confirm and get up-to-date findings.
