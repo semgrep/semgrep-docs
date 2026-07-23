@@ -1,0 +1,19 @@
+.github/workflows/update-openapi-specs.yml
+  s_9a123534a19c84::t_3a0a5fb73bca89 66-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "5ddc579dff86c85954330d4084e22eaec2dd07ec",
+  "prompts": {},
+  "sessions": {
+    "s_9a123534a19c84": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cb0bd334-8e0e-4dd2-932d-58524892eeb9",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
