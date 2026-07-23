@@ -46,7 +46,7 @@ Small teams may be eligible for Semgrep's discounted startup pricing. Fill out t
 
 ## AI credits
 
-Each Semgrep license, regardless of plan, includes a monthly allocation of AI credits for AI-powered features.
+AI credits let you choose how much AI to use and scale AI-powered security features based on your organization's needs. Each Semgrep license, regardless of plan, includes a monthly allocation of AI credits.
 
 | Plan | AI credits per month |
 | :--- | :--- |
@@ -62,16 +62,21 @@ Entitlement credits, or the credits that come with your Semgrep licenses, expire
 
 The following table lists the credits required for AI-powered features:
 
-| Feature | AI credits required |
-| :--- | :--- |
-| AI-powered pull request or merge request comments | 0 credits |
-| AI analysis<sup>*</sup> | 1 credit per finding |
-| AI autofix | 20 credits per finding |
-| AI-powered detection scanning<sup>**</sup> | Variable per scan |
+| Feature | AI credits required | What it does |
+| :--- | :--- | :--- |
+| AI-powered pull request or merge request comments | 0 credits | Leaves AI guidance on pull requests or merge requests |
+| AI analysis<sup>*</sup> | 1 credit per finding | Provides triage, remediation guidance, and component tagging. Re-analysis due to Memories does not consume additional credits. |
+| AI autofix | 20 credits per finding | Creates a pull request or merge request to fix a finding |
+| AI-powered detection scanning<sup>**</sup> | Variable per scan | Runs a full API-focused scan for issues such as IDOR and broken authorization |
+| [Semgrep Agentic Workflows](/workflows/workflows) (beta)<sup>***</sup> | Variable per run | Runs multi-step detection using AI and deterministic tools across 70+ CWEs |
 
-<sup>*</sup>Includes autotriage, remediation guidance, and component tagging
+<sup>*</sup>Includes autotriage, remediation guidance, and component tagging.
 
 <sup>**</sup>AI-powered detection scans use a variable number of credits per scan. Credit use depends on scan size and complexity, so larger or more complex scans may use more credits.
+
+<sup>***</sup>Agentic Workflow runs use a variable number of credits based on compute and AI tokens consumed. Credit use depends on repository size and complexity. Agentic Workflows typically use more credits than AI-powered detection scans because they perform broader, multi-step analysis. For a large repository, running the full recommended pack can cost $100 or more. Scheduled Agentic Workflow runs are not available during the beta; you start runs on demand so you can control credit usage.
+
+Start with a small set of important projects before expanding Agentic Workflows coverage.
 
 ## How to determine your plan needs
 
@@ -101,4 +106,4 @@ There are no contributor limits on public projects.
 If you exceed your allotment of AI credits:
 
 - AI autotriage continues to work, but you'll be warned that you're over your credit allotment
-- Both AI scans and autofixes stop
+- AI-powered detection scans, autofixes, and Agentic Workflow runs stop
