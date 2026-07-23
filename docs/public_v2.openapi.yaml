@@ -4161,6 +4161,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.policies.v1.ListPoliciesResponse'
+            deprecated: true
             security:
                 - SemgrepWebToken: []
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
@@ -4206,6 +4207,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.policies.v1.ListPolicyRulesResponse'
+            deprecated: true
             security:
                 - SemgrepWebToken: []
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
@@ -4256,6 +4258,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/protos.policies.v1.UpdatePolicyRuleResponse'
+            deprecated: true
             security:
                 - SemgrepWebToken: []
             x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
@@ -4985,6 +4988,74 @@ paths:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
             x-badges: [{"name": "Beta", "position": "after", "color": "blue"}]
+    /api/reporting/{deploymentId}/reports/malware-firewall/scan-activity:
+        post:
+            tags:
+                - ReportsService
+            summary: Get Malware Firewall Scan Activity Report
+            description: ' '
+            operationId: ReportsService_GetMalwareFirewallScanActivityReport
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: 'The unique numerical identifier of the deployment associated with the report. '
+                    format: int64
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallReportRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallScanActivityReportResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Beta", "position": "after", "color": "blue"}]
+    /api/reporting/{deploymentId}/reports/malware-firewall/summary:
+        post:
+            tags:
+                - ReportsService
+            summary: Get Malware Firewall Summary Report
+            description: ' '
+            operationId: ReportsService_GetMalwareFirewallSummaryReport
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: 'The unique numerical identifier of the deployment associated with the report. '
+                    format: int64
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallReportRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallSummaryReportResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Beta", "position": "after", "color": "blue"}]
     /api/reporting/{deploymentId}/reports/median-open-age/by-product:
         post:
             tags:
@@ -5213,6 +5284,11 @@ paths:
                     type: array
                     items:
                         type: string
+                - name: dependencyFilter.includeArchived
+                  in: query
+                  description: When true, return only dependencies from archived repositories. When false or unset (default), archived repositories are excluded.
+                  schema:
+                    type: boolean
                 - name: cursor
                   in: query
                   schema:
@@ -7815,6 +7891,8 @@ components:
                         - ACTION_TYPE_WIZ
                         - ACTION_TYPE_TRIAGE
                         - ACTION_TYPE_DEVELOPER_EXCEPTION_REQUESTS
+                        - ACTION_TYPE_OPEN_AUTOFIX_PR
+                        - ACTION_TYPE_TRIGGER_WORKFLOW
                     type: string
                     description: |4+
 
@@ -7832,6 +7910,8 @@ components:
                         | ACTION_TYPE_WIZ |  |
                         | ACTION_TYPE_TRIAGE |  |
                         | ACTION_TYPE_DEVELOPER_EXCEPTION_REQUESTS |  |
+                        | ACTION_TYPE_OPEN_AUTOFIX_PR |  |
+                        | ACTION_TYPE_TRIGGER_WORKFLOW |  |
 
                     format: enum
                 config:
@@ -7954,6 +8034,8 @@ components:
                         - CONDITION_TYPE_WORKFLOW_ID
                         - CONDITION_TYPE_VULNERABILITY_CLASS
                         - CONDITION_TYPE_TRIAGE_STATE
+                        - CONDITION_TYPE_CWE
+                        - CONDITION_TYPE_OWASP
                     type: string
                     description: |4+
 
@@ -7988,6 +8070,8 @@ components:
                         | CONDITION_TYPE_WORKFLOW_ID |  |
                         | CONDITION_TYPE_VULNERABILITY_CLASS |  |
                         | CONDITION_TYPE_TRIAGE_STATE |  |
+                        | CONDITION_TYPE_CWE |  |
+                        | CONDITION_TYPE_OWASP |  |
 
                     format: enum
                 values:
@@ -8624,6 +8708,12 @@ components:
                     type: string
                 active:
                     type: boolean
+                scimManaged:
+                    type: boolean
+                    description: |-
+                        True when this membership is provisioned/managed by the deployment's SCIM
+                         directory. False for members added manually or who predate the directory
+                         connection.
         protos.deployment.v1.FeatureFlag:
             type: object
             properties:
@@ -9942,6 +10032,10 @@ components:
                 isArchived:
                     type: boolean
                     description: True if this finding's project is archived (Semgrep-initiated via is_semgrep_archived, or SCM-archived).
+                firstDetectedAt:
+                    type: string
+                    description: The timestamp when the issue was first detected in the project on any ref. Always populated by the GetIssue RPC; populated by ListIssues only when ListIssuesRequest.include_first_detected_at is true.
+                    format: date-time
         protos.issues.v1.IssueExceptionRequestSummary:
             type: object
             properties:
@@ -9963,7 +10057,10 @@ components:
                     format: enum
                 requesterLogin:
                     type: string
-                    description: Login of the user who submitted the request. Absent if created programmatically.
+                    description: Login of the user who submitted the request.
+                requesterName:
+                    type: string
+                    description: Display name of the requester, when known.
                 requesterNote:
                     type: string
                     description: Note provided by the requester.
@@ -10008,6 +10105,9 @@ components:
                 reviewerLogin:
                     type: string
                     description: Login of the reviewer. Only populated when exception_state is APPROVED or REJECTED.
+                reviewerName:
+                    type: string
+                    description: Display name of the reviewer, when known. Also only populated when exception_state is APPROVED or REJECTED.
                 requestId:
                     type: string
                     description: Unique identifier for this exception request.
@@ -11098,12 +11198,9 @@ components:
                 includeArchived:
                     type: boolean
                     description: |-
-                        When true, include findings on archived projects in results. By default
-                         (unset/false), findings on archived projects are hidden from all product
-                         tabs and their counts — but only for deployments that have archived
-                         projects (gated by the `appex.has_archived_projects` config). Applies to
-                         all issue types. Archival is a separate dimension from aggregate state, so
-                         this is an independent toggle rather than an `aggregate_issue_states` value.
+                        When true, returns only findings on archived projects. By default
+                         (unset/false), findings on archived projects are excluded. Applies to all
+                         issue types.
         protos.issues.v1.ListIssueGroupsRequest:
             type: object
             properties:
@@ -11439,6 +11536,11 @@ components:
                     type: boolean
                     description: |-
                         When true, populate the is_archived field on each issue in the response.
+                         Defaults to false.
+                includeFirstDetectedAt:
+                    type: boolean
+                    description: |-
+                        When true, populate the first_detected_at field on each issue in the response.
                          Defaults to false.
         protos.issues.v1.ListIssuesResponse:
             type: object
@@ -14681,6 +14783,48 @@ components:
                 limit:
                     type: integer
                     format: int64
+        protos.reporting.v1.GetMalwareFirewallReportRequest:
+            type: object
+            properties:
+                filters:
+                    $ref: '#/components/schemas/protos.reporting.v1.MalwareFirewallReportFilters'
+        protos.reporting.v1.GetMalwareFirewallScanActivityReportResponse:
+            type: object
+            properties:
+                buckets:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallScanActivityReportResponse_Bucket'
+        protos.reporting.v1.GetMalwareFirewallScanActivityReportResponse_Bucket:
+            type: object
+            properties:
+                timePeriod:
+                    $ref: '#/components/schemas/protos.reporting.v1.TimePeriod'
+                blockingScans:
+                    type: integer
+                    format: int64
+                nonBlockingScans:
+                    type: integer
+                    format: int64
+        protos.reporting.v1.GetMalwareFirewallSummaryReportResponse:
+            type: object
+            properties:
+                thisPeriod:
+                    $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallSummaryReportResponse_SummaryTotals'
+                previousPeriod:
+                    $ref: '#/components/schemas/protos.reporting.v1.GetMalwareFirewallSummaryReportResponse_SummaryTotals'
+        protos.reporting.v1.GetMalwareFirewallSummaryReportResponse_SummaryTotals:
+            type: object
+            properties:
+                totalScans:
+                    type: integer
+                    format: int64
+                totalBlockingScans:
+                    type: integer
+                    format: int64
+                totalScanningUsers:
+                    type: integer
+                    format: int64
         protos.reporting.v1.GetMedianOpenAgeByProductReportResponse:
             type: object
             properties:
@@ -14824,6 +14968,21 @@ components:
             properties:
                 timePeriod:
                     $ref: '#/components/schemas/protos.reporting.v1.TimePeriod'
+                timeBucketSize:
+                    enum:
+                        - TIME_BUCKET_SIZE_DAY
+                        - TIME_BUCKET_SIZE_WEEK
+                        - TIME_BUCKET_SIZE_MONTH
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TIME_BUCKET_SIZE_DAY |  |
+                        | TIME_BUCKET_SIZE_WEEK |  |
+                        | TIME_BUCKET_SIZE_MONTH |  |
+
+                    format: enum
         protos.reporting.v1.ReportFilters:
             type: object
             properties:
@@ -15445,6 +15604,9 @@ components:
                     items:
                         $ref: '#/components/schemas/protos.sca.v1.PackageFilter'
                     description: Multiple package filters with exact name matching and version bounds.
+                includeArchived:
+                    type: boolean
+                    description: When true, return only dependencies from archived repositories. When false or unset (default), archived repositories are excluded.
             description: Object to provide dependency details to filter by.
         protos.sca.v1.DependencyParserError:
             type: object
@@ -17636,6 +17798,36 @@ components:
                     format: enum
                 issueFilters:
                     $ref: '#/components/schemas/protos.issues.v1.IssuesFilter'
+                issueTypes:
+                    enum:
+                        - ISSUE_TYPE_SAST
+                        - ISSUE_TYPE_SCA
+                        - ISSUE_TYPE_SECRETS
+                        - ISSUE_TYPE_RESEARCH
+                        - ISSUE_TYPE_AI_SAST
+                    type: array
+                    items:
+                        enum:
+                            - ISSUE_TYPE_UNSPECIFIED
+                            - ISSUE_TYPE_SAST
+                            - ISSUE_TYPE_SCA
+                            - ISSUE_TYPE_SECRETS
+                            - ISSUE_TYPE_RESEARCH
+                            - ISSUE_TYPE_AI_SAST
+                        type: string
+                        format: enum
+                    description: |+
+                        Filters issues to those with any of the specified types (based on the product which produced these issues).
+                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_TYPE_SAST | Detected by Code rules |
+                        | ISSUE_TYPE_SCA | Detected by Supply Chain rules |
+                        | ISSUE_TYPE_SECRETS | Detected by Secrets rules |
+                        | ISSUE_TYPE_RESEARCH | Detected by research rules or scanners |
+                        | ISSUE_TYPE_AI_SAST | Detected by AI detection code scanning |
+
             description: NangoCreateTickets
         protos.ticketing.v2.NangoCreateTicketsResponse:
             type: object
@@ -17900,9 +18092,9 @@ tags:
       x-group: Notifications
     - name: PoliciesService
       description: |-
-        View and manage the Policies of your organization.
+        **Deprecated.** View and manage the Policies of your organization.
 
-        Deployments on the Unified Policies model use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead; this service stops working after the migration.
+        This API is deprecated. Use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead. Deployments on the Unified Policies model must use Policies V2; this service stops working after the migration.
       x-displayName: Policies
       x-group: Policies
     - name: PoliciesV2Service
