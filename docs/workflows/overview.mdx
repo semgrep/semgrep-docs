@@ -10,7 +10,7 @@ Semgrep Agentic Workflows is in **beta**. Beta features are subject to change wi
 
 Semgrep Agentic Workflows encodes multi-step application security analysis as reproducible pipelines. A single Agentic Workflow can run several analysis steps in sequence. It takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security issues.
 
-During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom agentic workflows is not supported. Local CLI execution is not available; Agentic Workflows run as a Semgrep-hosted service.
+During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom Agentic Workflows is not supported. Local CLI execution is not available; Agentic Workflows run as a Semgrep-hosted service.
 
 To run your first Agentic Workflow, see [Get started with Semgrep Agentic Workflows (beta)](/workflows/get-started).
 
@@ -34,7 +34,7 @@ The following table summarizes when to use each type of analysis:
 The following concepts describe how analysis is organized:
 
 - **Agentic workflow**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
-- **Run**: One execution of an agentic workflow against the repositories selected by a user.
+- **Run**: One execution of an Agentic Workflow against the repositories selected by a user.
 - **Job**: An individual unit of work within a run. A job can perform program analysis, run a deterministic tool, apply AI-based reasoning, or review intermediate output.
 - **Finding**: The immutable raw output of a detection workflow. Findings appear on the job details page after a run finishes.
 - **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Agentic Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
@@ -93,10 +93,6 @@ Detection is one stage of a longer loop that also includes triage and remediatio
 - **Triage workflows**: In early testing, a triage workflow reached 96% agreement with security analysts.
 - **Remediation workflows**: An Autofix workflow saved roughly 30 minutes per finding.
 
-Expect continued investment in triage and remediation workflows, and in the context that improves accuracy across all workflows.
-
-{/* TODO: Confirm the 96% triage agreement and 30-minutes-per-finding Autofix figures are approved for public docs, and link to triage/remediation workflow docs when available. */}
-
 ## Next steps
 
-To satisfy prerequisites and run your first agentic workflow, see [Get started](/workflows/get-started).
+To satisfy prerequisites and run your first Agentic Workflow, see [Get started](/workflows/get-started).
