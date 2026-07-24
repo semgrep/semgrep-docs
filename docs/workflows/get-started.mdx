@@ -17,6 +17,7 @@ There is no separate enable step for Agentic Workflows. Activation is self-servi
 ### Prerequisites
 
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).
+- You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start or cancel Agentic Workflow runs.
 - Semgrep AppSec Platform must be [connected to your source code manager](/deployment/connect-scm) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze.
 - Your organization must have enough credits to run the selected workflows.
 
@@ -61,7 +62,7 @@ To view the jobs for a run, open the [Jobs](https://semgrep.dev/orgs/-/projects/
 
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
 
-{/* TODO: Verify exact menu labels (Agentic Workflow vs Agentic Workflows), whether users can select multiple projects in one run, whether the UI displays a credit estimate before confirmation, and whether jobs are customer-visible. Confirm whether non-default branch scans follow the same Projects > Details flow as AI-powered detection. Confirm the recommended pack UI wording. Document the RBAC permission required to start or cancel a run. */}
+{/* TODO: If Admin-only start/cancel becomes a blocker, product may drop the restriction to match general scan permissions. */}
 
 
 ## Review Agentic Workflows Issues
