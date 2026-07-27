@@ -7967,6 +7967,7 @@ components:
                         - TRIGGER_SOURCE_SUPPLY_CHAIN_INCIDENT
                         - TRIGGER_SOURCE_WORKFLOW
                         - TRIGGER_SOURCE_ISSUE_TRIAGED
+                        - TRIGGER_SOURCE_UPGRADE_GUIDANCE
                     type: string
                     description: |+
                         Trigger source for the automation — determines when its actions fire.
@@ -7981,6 +7982,7 @@ components:
                         | TRIGGER_SOURCE_SUPPLY_CHAIN_INCIDENT |  |
                         | TRIGGER_SOURCE_WORKFLOW |  |
                         | TRIGGER_SOURCE_ISSUE_TRIAGED |  |
+                        | TRIGGER_SOURCE_UPGRADE_GUIDANCE |  |
 
                     format: enum
         protos.automations.v1.Condition:
@@ -8036,6 +8038,8 @@ components:
                         - CONDITION_TYPE_TRIAGE_STATE
                         - CONDITION_TYPE_CWE
                         - CONDITION_TYPE_OWASP
+                        - CONDITION_TYPE_BREAKING_CHANGE
+                        - CONDITION_TYPE_FULL_SCAN
                     type: string
                     description: |4+
 
@@ -8072,6 +8076,8 @@ components:
                         | CONDITION_TYPE_TRIAGE_STATE |  |
                         | CONDITION_TYPE_CWE |  |
                         | CONDITION_TYPE_OWASP |  |
+                        | CONDITION_TYPE_BREAKING_CHANGE |  |
+                        | CONDITION_TYPE_FULL_SCAN |  |
 
                     format: enum
                 values:
