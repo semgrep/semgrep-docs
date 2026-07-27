@@ -38,7 +38,7 @@ The following concepts describe how analysis is organized:
 - **Finding**: The immutable raw output of a single detection workflow job. Findings appear on the job details page after a job finishes.
 - **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
 
-When you start Agentic Workflows, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor the run and review its issues on the **Workflows** page in Semgrep AppSec Platform.
+When you start Agentic Workflows, Semgrep clones the repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor jobs on the **Projects** page and then review Issues on the **Workflows** page in Semgrep AppSec Platform.
 
 {/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Product name in docs is Agentic Workflows; some UI surfaces use Workflows (for example, left-hand nav). Confirm remaining UI strings (activation prompts use Agentic Workflows). */}
 
