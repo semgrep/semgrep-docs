@@ -4,8 +4,6 @@ description: "Updates made to Semgrep during the week of July 6-12, 2026."
 sidebarTitle: "Week of July 6, 2026"
 ---
 
-The following updates were made to Semgrep during the week of July 6-12, 2026.
-
 ## 🌐 Semgrep AppSec Platform
 
 ### Added
@@ -14,18 +12,12 @@ The following updates were made to Semgrep during the week of July 6-12, 2026.
 - You can configure Jira subtasks in the Jira integration settings.
 - The Policies automations condition builder menus now include typeahead search, so you can find condition types more quickly.
 - Remediation policy automations can now include a vulnerability class condition, so you can scope a policy to a class such as SQL Injection or Path Traversal.
-- **Developer exception requests**:
-  - Renamed from **developer approvals** throughout the product.
-  - You can now require developer exception requests through a remediation policy automation action.
-  - Settings now show which policies require developer exception requests, with links to each policy.
-  - When bulk-creating developer exception requests, you can filter by multiple issue types.
 - **API**: Added public API endpoints to read, validate, dry-run, and apply detection and remediation policies for Code, Secrets, and Supply Chain. A related endpoint lists the accepted condition and action values.
 
 ### Changed
 
 - The **Dashboard's** **Secure guardrails** section is now **Developer engagement**, and its charts have updated titles.
 - Redesigned the contributor seats and AI credit usage cards on the **Usage & billing** page with a headline-led layout and updated status badges.
-- SCIM group provisioning now creates Semgrep teams only for groups whose names include a role-mapping tag, instead of for every provisioned group.
 - The **Findings** list now excludes archived issues by default.
 - Improved performance of the project scan page and Managed Scans search for large and highly active organizations.
 
