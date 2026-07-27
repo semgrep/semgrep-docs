@@ -10,7 +10,7 @@ Semgrep Agentic Workflows is in **beta**. Beta features are subject to change wi
 
 Semgrep Agentic Workflows encodes multi-step application security analysis as reproducible pipelines. A single Agentic Workflows pipeline can run several analysis steps in sequence. It takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security issues.
 
-During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom Agentic Workflows is not supported. Local CLI execution is not available; Agentic Workflows run as a Semgrep-hosted service.
+During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**.
 
 To run Agentic Workflows for the first time, see [Get started with Semgrep Agentic Workflows (beta)](/workflows/get-started).
 
@@ -24,10 +24,9 @@ The following table summarizes when to use each type of analysis:
 | --- | --- | --- | --- |
 | [Semgrep Code](/semgrep-code/overview) rule-based scanning | Continuously identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
 | [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
-| [Semgrep Multimodal](/semgrep-multimodal/overview) | Help prioritize and remediate existing findings | Applies AI to Semgrep findings and related context | Triage and remediation guidance |
 | Semgrep Agentic Workflows | Combine multiple analysis techniques and execute them stepwise across repositories | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against selected repositories | Agentic Workflows issues |
 
-{/* TODO: Confirm the boundaries between Agentic Workflows, AI-powered detection, and Multimodal with Product. In particular, confirm whether AI-powered detection findings are still the correct public term and whether all Multimodal outputs can be described as operating on existing findings. Confirm that UI labels have been updated from Workflows to Agentic Workflows. */}
+{/* TODO: Confirm the boundaries between Agentic Workflows and AI-powered detection with Product. In particular, confirm whether AI-powered detection findings are still the correct public term. */}
 
 ## How Agentic Workflows work
 
@@ -35,13 +34,13 @@ The following concepts describe how analysis is organized:
 
 - **Agentic Workflows**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
 - **Run**: One execution of Agentic Workflows against the repositories selected by a user.
-- **Job**: An individual unit of work within a run. A job can perform program analysis, run a deterministic tool, apply AI-based reasoning, or review intermediate output.
-- **Finding**: The immutable raw output of a detection workflow. Findings appear on the job details page after a run finishes.
-- **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Agentic Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
+- **Job**: One execution of Agentic Workflows against a single repository.
+- **Finding**: The immutable raw output of a single detection workflow job. Findings appear on the job details page after a job finishes.
+- **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
 
-When you start Agentic Workflows, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor the run and review its issues in the **Agentic Workflows** page in Semgrep AppSec Platform.
+When you start Agentic Workflows, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor the run and review its issues on the **Workflows** page in Semgrep AppSec Platform.
 
-{/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Confirm whether the UI tab is labeled Workflows or Agentic Workflows. */}
+{/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Product name in docs is Agentic Workflows; some UI surfaces use Workflows (for example, left-hand nav). Confirm remaining UI strings (activation prompts use Agentic Workflows). */}
 
 ## Detection coverage
 
@@ -79,7 +78,8 @@ During the beta:
 
 - Runs must be started on demand. Scheduled runs are not available.
 - Only organization [Admins](/deployment/teams/overview#roles-and-access) can start or cancel Agentic Workflows runs.
-- Agentic Workflows runs only as a Semgrep-hosted service and cannot be run in customer CI environments.
+- Creating, modifying, or publishing custom Agentic Workflows is not supported.
+- Agentic Workflows runs only as a Semgrep-hosted service. Local CLI execution and customer CI environments are not supported.
 - Agentic Workflows issues are managed separately from findings in other Semgrep products.
 - The API is experimental and can change.
 - Some deployment configurations are unsupported. See [Unsupported configurations](/workflows/get-started#unsupported-configurations).
