@@ -51,13 +51,13 @@ To start a run:
 3. Click **Run a new scan > Agentic Workflow**.
 4. Choose which workflows to run:
    - **Run Semgrep's default** to run the recommended workflow pack, which combines all nine [available workflows](/workflows/overview#available-workflows).
-   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows).
-5. Review the workflow description, expected coverage, and credit usage. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
+   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows). Review the workflow description to understand its expected coverage. 
+5. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
 6. Click **Run Agentic Workflows**.
 
-Each on-demand request creates an Agentic Workflow run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the individual analysis steps required by the workflow. Jobs can run in sequence or use the output of an earlier job as input. 
+Each on-demand request creates an Agentic Workflow run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on a single repository.
 
-To view the jobs for a run, open the [Jobs](https://semgrep.dev/orgs/-/projects/4781510/jobs) tab on the **Project Details** page.
+To view the jobs for a run, open the **Jobs** tab on the **Project Details** page.
 
 
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
@@ -72,13 +72,11 @@ Agentic Workflows produces [**Issues**](http://localhost:3000/workflows/overview
 To review Issues:
 
 1. In Semgrep AppSec Platform, go to **Agentic Workflows**.
-2. Browse Issues by severity: **Critical**, **High**, **Medium**, or **Low**.
-3. Optionally, filter the list by the criteria you care about.
+2. Optionally, filter the list by the criteria you care about, or select "Group and sort" to customize how Issues are displayed.
 4. Select an Issue to open its **Details** page and review evidence, the affected repository and code, the workflow run, and the Issue status.
 
 You can triage an Issue from the dropdown on the Issues list or from the dropdown next to the Issue title on the **Details** page.
 
-To inspect the raw output of a run, go to the  **Project Details > Jobs**. 
 
 {/* TODO: Document the complete issue status model and transitions. Confirm whether issues can be assigned, commented on, ignored, reopened, or linked to existing findings. Confirm deduplication behavior across repeated runs and branches. Add exact UI navigation for the all-issues view, issues belonging to a single run, and the job details findings view. */}
 
@@ -99,12 +97,12 @@ To configure notifications:
 
 ## Expand coverage gradually
 
-Start with a small set of high-value repositories. Agentic workflow runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running broad coverage until you understand the results and usage for your environment.
+Start with a small set of high-value repositories. Agentic workflow runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running across all your projects until you understand the results and usage for your environment.
 
 Semgrep recommends the following rollout process:
 
 1. Select a few important repositories that represent your primary languages, frameworks, and application architectures.
-2. Run the workflows most relevant to the risks in those repositories.
+2. Run the Semgrep-recommended workflows. Optionally, skip workflows that you know aren't relevant to the risks in those repositories.
 3. Review the resulting issues for accuracy and usefulness.
 4. Share feedback with Semgrep, including missed vulnerabilities, unexpected results, and unclear issue details.
 5. Expand to more repositories after you understand expected results and credit consumption.
