@@ -12,16 +12,16 @@ This page explains how to run Semgrep Agentic Workflows and review issues. For c
 
 ## Before you begin
 
-There is no separate enable step for Agentic Workflows. Activation is self-service: choose projects and run an on-demand Agentic Workflow. If your deployment is not ready, Semgrep AppSec Platform shows an activation prompt that directs you to the settings you need to configure first.
+There is no separate enable step for Agentic Workflows. Activation is self-service: choose projects and run Agentic Workflows on demand. If your deployment is not ready, Semgrep AppSec Platform shows an activation prompt that directs you to the settings you need to configure first.
 
 ### Prerequisites
 
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).
-- You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start or cancel Agentic Workflow runs.
+- You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start or cancel Agentic Workflows runs.
 - Semgrep AppSec Platform must be [connected to your source code manager](/deployment/connect-scm) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze.
 - Your organization must have enough credits to run the selected workflows.
 
-Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-access) through a [supported source code manager](/getting-started/scm-support). See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run an Agentic Workflow.
+Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-access) through a [supported source code manager](/getting-started/scm-support). See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
 
 {/* TODO: Confirm Agentic Workflows-specific SCM support (which plans/SCMs), whether read access is sufficient for every launch workflow, and whether forked or archived repositories are supported. Confirm the exact activation-prompt UI and which settings it checks. */}
 
@@ -38,36 +38,36 @@ If your organization uses one of these configurations, contact your Semgrep acco
 
 {/* TODO: Confirm whether "Semgrep-hosted service" is the preferred external phrasing for SaaS only. Confirm whether customers using MDR or ZDR are blocked from the entire beta or whether Agentic Workflows data follows a separate retention policy that customers can accept. Link the relevant data usage and retention documentation. */}
 
-## Run an Agentic Workflow
+## Run Agentic Workflows
 
-You start an Agentic Workflow from the same place as a [Rule-based scan](/deployment/managed-scanning/overview) or [AI-powered detection](/deployment/add-ai-to-scans) scan: the **Projects** page in Semgrep AppSec Platform.
+You start Agentic Workflows from the same place as a [Rule-based scan](/deployment/managed-scanning/overview) or [AI-powered detection](/deployment/add-ai-to-scans) scan: the **Projects** page in Semgrep AppSec Platform.
 
-You can also trigger a one-off Agentic Workflow run from a project's **Details** page.
+You can also trigger a one-off Agentic Workflows run from a project's **Details** page.
 
 To start a run:
 
 1. In Semgrep AppSec Platform, go to **Projects**.
 2. Select one or more projects to analyze.
-3. Click **Run a new scan > Agentic Workflow**.
+3. Click **Run a new scan > Agentic Workflows**.
 4. Choose which workflows to run:
    - **Run Semgrep's default** to run the recommended workflow pack, which combines all nine [available workflows](/workflows/overview#available-workflows).
    - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows).
 5. Review the workflow description, expected coverage, and credit usage. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
 6. Click **Run Agentic Workflows**.
 
-Each on-demand request creates an Agentic Workflow run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the individual analysis steps required by the workflow. Jobs can run in sequence or use the output of an earlier job as input. 
+Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the individual analysis steps required by the workflow. Jobs can run in sequence or use the output of an earlier job as input. 
 
 To view the jobs for a run, open the [Jobs](https://semgrep.dev/orgs/-/projects/4781510/jobs) tab on the **Project Details** page.
 
 
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
 
-{/* TODO: If Admin-only start/cancel becomes a blocker, product may drop the restriction to match general scan permissions. */}
+{/* TODO: If Admin-only start/cancel becomes a blocker, product may drop the restriction to match general scan permissions. Verify exact menu labels if the UI still uses Agentic Workflow (singular) in any place. */}
 
 
 ## Review Agentic Workflows Issues
 
-Agentic Workflows produces [**Issues**](http://localhost:3000/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets **Findings**. Actions taken on an Agentic Workflows Issue do not change the status of a related Finding from another Semgrep product.
+Agentic Workflows produces [**Issues**](/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets **Findings**. Actions taken on an Agentic Workflows Issue do not change the status of a related Finding from another Semgrep product.
 
 To review Issues:
 
@@ -92,14 +92,14 @@ To configure notifications:
 
 1. In Semgrep AppSec Platform, go to **[configuration location]**.
 2. Select **[notification or integration type]**.
-3. Choose the Agentic Workflow events that trigger the notification.
+3. Choose the Agentic Workflows events that trigger the notification.
 4. Select the destination and save the configuration.
 
 {/* TODO: Confirm support and exact behavior for email, Slack, Jira, webhooks, and SCM comments. Document permission requirements, delivery scope, retry behavior, and whether existing Semgrep policies or automations can act on Agentic Workflows issues. */}
 
 ## Expand coverage gradually
 
-Start with a small set of high-value repositories. Agentic workflow runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running broad coverage until you understand the results and usage for your environment.
+Start with a small set of high-value repositories. Agentic Workflows runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running broad coverage until you understand the results and usage for your environment.
 
 Semgrep recommends the following rollout process:
 

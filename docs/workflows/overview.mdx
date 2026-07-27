@@ -8,11 +8,11 @@ description: "Learn how Semgrep Agentic Workflows run multi-step AI-enabled dete
 Semgrep Agentic Workflows is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback.
 </Note>
 
-Semgrep Agentic Workflows encodes multi-step application security analysis as reproducible pipelines. A single Agentic Workflow can run several analysis steps in sequence. It takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security issues.
+Semgrep Agentic Workflows encodes multi-step application security analysis as reproducible pipelines. A single Agentic Workflows pipeline can run several analysis steps in sequence. It takes code and security context as input, combines program analysis, deterministic tools, and constrained AI-based reasoning, and produces reviewable security issues.
 
 During the beta, Semgrep Agentic Workflows provides a curated set of vulnerability **detection** workflows that you run from **Semgrep AppSec Platform**. Creating, modifying, or publishing custom Agentic Workflows is not supported. Local CLI execution is not available; Agentic Workflows run as a Semgrep-hosted service.
 
-To run your first Agentic Workflow, see [Get started with Semgrep Agentic Workflows (beta)](/workflows/get-started).
+To run Agentic Workflows for the first time, see [Get started with Semgrep Agentic Workflows (beta)](/workflows/get-started).
 
 ## Agentic Workflows versus other Semgrep analysis
 
@@ -33,13 +33,13 @@ The following table summarizes when to use each type of analysis:
 
 The following concepts describe how analysis is organized:
 
-- **Agentic workflow**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
-- **Run**: One execution of an Agentic Workflow against the repositories selected by a user.
+- **Agentic Workflows**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
+- **Run**: One execution of Agentic Workflows against the repositories selected by a user.
 - **Job**: An individual unit of work within a run. A job can perform program analysis, run a deterministic tool, apply AI-based reasoning, or review intermediate output.
 - **Finding**: The immutable raw output of a detection workflow. Findings appear on the job details page after a run finishes.
 - **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Agentic Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
 
-When you start an Agentic Workflow, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor the run and review its issues in the **Agentic Workflows** page in Semgrep AppSec Platform.
+When you start Agentic Workflows, Semgrep accesses the selected repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor the run and review its issues in the **Agentic Workflows** page in Semgrep AppSec Platform.
 
 {/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Confirm whether the UI tab is labeled Workflows or Agentic Workflows. */}
 
@@ -69,16 +69,16 @@ Coverage depends on the workflow, repository language, framework, and available 
 
 ## Credit usage and billing
 
-Agentic Workflow runs consume [AI credits](/usage-and-billing/overview#ai-credits). See [Usage and billing]/usage-and-billing/overview#ai-credits) page for details.
+Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). See [Usage and billing](/usage-and-billing/overview#ai-credits) page for details.
 
-{/* TODO: What happens when a run contains multiple repositories, whether failed or canceled runs consume credits, and what happens when the organization has insufficient credits mid-run. */}
+{/* TODO: Whether failed or canceled runs consume credits, and what happens when the organization has insufficient credits mid-run. */}
 
 ## Beta limitations
 
 During the beta:
 
 - Runs must be started on demand. Scheduled runs are not available.
-- Only organization [Admins](/deployment/teams/overview#roles-and-access) can start or cancel Agentic Workflow runs.
+- Only organization [Admins](/deployment/teams/overview#roles-and-access) can start or cancel Agentic Workflows runs.
 - Agentic Workflows runs only as a Semgrep-hosted service and cannot be run in customer CI environments.
 - Agentic Workflows issues are managed separately from findings in other Semgrep products.
 - The API is experimental and can change.
@@ -96,4 +96,4 @@ Detection is one stage of a longer loop that also includes triage and remediatio
 
 ## Next steps
 
-To satisfy prerequisites and run your first Agentic Workflow, see [Get started](/workflows/get-started).
+To satisfy prerequisites and run Agentic Workflows for the first time, see [Get started](/workflows/get-started).
