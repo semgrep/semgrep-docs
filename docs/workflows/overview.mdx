@@ -1,7 +1,7 @@
 ---
 title: "Semgrep Agentic Workflows (beta)"
 sidebarTitle: "Overview"
-description: "Learn how Semgrep Agentic Workflows run multi-step AI-enabled detection across your repositories."
+description: "Learn how Semgrep Agentic Workflows run multi-step AI-enabled detection on a repository."
 ---
 
 <Note>
@@ -24,7 +24,7 @@ The following table summarizes when to use each type of analysis:
 | --- | --- | --- | --- |
 | [Semgrep Code](/semgrep-code/overview) rule-based scanning | Continuously identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
 | [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
-| [Semgrep Agentic Workflows](/workflows/get-started) | Combine multiple analysis techniques and execute them stepwise across repositories | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against selected repositories | Agentic Workflows issues |
+| [Semgrep Agentic Workflows](/workflows/get-started) | Combine multiple analysis techniques and execute them stepwise against a repository | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against a selected repository | Agentic Workflows issues |
 
 {/* TODO: Confirm the boundaries between Agentic Workflows and AI-powered detection with Product. In particular, confirm whether AI-powered detection findings are still the correct public term. */}
 
@@ -33,7 +33,7 @@ The following table summarizes when to use each type of analysis:
 The following concepts describe how analysis is organized:
 
 - **Agentic Workflows**: A reusable definition of an application security pipeline. It specifies the analysis to perform and the type of issue or coverage objective to evaluate.
-- **Run**: One execution of Agentic Workflows against the repositories selected by a user.
+- **Run**: One execution of Agentic Workflows against a repository selected by a user.
 - **Job**: One execution of Agentic Workflows against a single repository.
 - **Finding**: The immutable raw output of a single detection workflow job. Findings appear on the job details page after a job finishes.
 - **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
