@@ -251,7 +251,7 @@ When you use your own Amazon Bedrock account, you can select one of the followin
 All Bedrock calls are pinned to the region you select. Semgrep does not use AWS cross-region inference profiles for customer-managed Bedrock accounts, so requests stay within your configured region. 
 
 <Note>
-The models Multimodal requires must be available for on-demand inference in the selected region. Because of that requirement, regions outside the US are not currently supported. In those regions, AWS offers the required Anthropic Claude models only through cross-region inference profiles rather than as direct on-demand models.
+Since Semgrep does not use AWS cross-region inference profiles, the models Multimodal requires must be available for on-demand inference in the selected region. Because of that requirement, regions outside the US (where the models are offered only through cross-region inference profiles) are not currently supported.
 </Note>
 
 ### Azure OpenAI
