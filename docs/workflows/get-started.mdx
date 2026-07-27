@@ -30,13 +30,12 @@ Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-acces
 During the beta, Agentic Workflows does not support:
 
 - CI-based execution. Agentic Workflows runs as a Semgrep-hosted service.
-- Semgrep Network Broker.
 - Bring your own key (BYOK) configurations.
-- Modified data retention or zero data retention (MDR or ZDR) configurations.
+- [Minimal data retention (MDR)](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional) mode.
 
 If your organization uses one of these configurations, contact your Semgrep account representative before running Agentic Workflows.
 
-{/* TODO: Confirm whether "Semgrep-hosted service" is the preferred external phrasing for SaaS only. Confirm whether customers using MDR or ZDR are blocked from the entire beta or whether Agentic Workflows data follows a separate retention policy that customers can accept. Link the relevant data usage and retention documentation. */}
+{/* TODO: Confirm whether "Semgrep-hosted service" is the preferred external phrasing for SaaS only. */}
 
 ## Run Agentic Workflows
 
@@ -48,16 +47,15 @@ To start a run:
 
 1. In Semgrep AppSec Platform, go to **Projects**.
 2. Select one or more projects to analyze.
-3. Click **Run a new scan > Agentic Workflows**.
+3. Click **Run a new scan > Run workflows**.
 4. Choose which workflows to run:
    - **Run Semgrep's default** to run the recommended workflow pack, which combines all nine [available workflows](/workflows/overview#available-workflows).
-   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows).
-5. Review the workflow description, expected coverage, and credit usage. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
-6. Click **Run Agentic Workflows**.
+   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows). Review the workflow description to understand its expected coverage. 
+5. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
+6. Click **Run workflows**.
 
-Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the individual analysis steps required by the workflow. Jobs can run in sequence or use the output of an earlier job as input. 
-
-To view the jobs for a run, open the [Jobs](https://semgrep.dev/orgs/-/projects/4781510/jobs) tab on the **Project Details** page.
+Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on a single repository.
+To view the jobs for a run, open the **Jobs** tab on the **Project Details** page.
 
 
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
@@ -72,44 +70,39 @@ Agentic Workflows produces [**Issues**](/workflows/overview#how-agentic-workflow
 To review Issues:
 
 1. In Semgrep AppSec Platform, go to **Agentic Workflows**.
-2. Browse Issues by severity: **Critical**, **High**, **Medium**, or **Low**.
-3. Optionally, filter the list by the criteria you care about.
-4. Select an Issue to open its **Details** page and review evidence, the affected repository and code, the workflow run, and the Issue status.
+2. Optionally, filter the list by the criteria you care about, or select **Group and sort** to customize how Issues are displayed.
+3. Select an Issue to open its **Details** page and review evidence, the affected repository and code, the workflow run, and the Issue status.
 
 You can triage an Issue from the dropdown on the Issues list or from the dropdown next to the Issue title on the **Details** page.
 
-To inspect the raw output of a run, go to the  **Project Details > Jobs**. 
 
 {/* TODO: Document the complete issue status model and transitions. Confirm whether issues can be assigned, commented on, ignored, reopened, or linked to existing findings. Confirm deduplication behavior across repeated runs and branches. Add exact UI navigation for the all-issues view, issues belonging to a single run, and the job details findings view. */}
 
 ### Notifications and integrations
 
-{/* TODO: This behavior was not included in the supplied launch context. Replace this section after confirming which integrations are supported and whether they operate at the run, job, or issue level. */}
+Configure Agentic Workflows notifications with [unified policies](/semgrep-appsec-platform/unified-policies/overview). Use a remediation policy that triggers when a workflow job finishes.
 
-Agentic Workflows can **[send supported notifications or create supported integration objects]** when **[supported event]** occurs.
+To configure a notification:
 
-To configure notifications:
+1. In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
+2. Open the **Remediation** tab, then click **Create policy**.
+3. Select the event **A workflow job finishes**.
+4. Choose the scope, conditions, and actions for the policy, then save.
 
-1. In Semgrep AppSec Platform, go to **[configuration location]**.
-2. Select **[notification or integration type]**.
-3. Choose the Agentic Workflows events that trigger the notification.
-4. Select the destination and save the configuration.
-
-{/* TODO: Confirm support and exact behavior for email, Slack, Jira, webhooks, and SCM comments. Document permission requirements, delivery scope, retry behavior, and whether existing Semgrep policies or automations can act on Agentic Workflows issues. */}
+{/* TODO: Confirm whether docs should mention that unified policies must be enabled for this flow. Confirm exact UI labels (Create policy vs Create automation; Policies vs Remediation nav). Document which actions are supported for the workflow-job-finished event (Slack, Jira, webhooks, email, SCM comments) and any permission requirements. */}
 
 ## Expand coverage gradually
 
-Start with a small set of high-value repositories. Agentic Workflows runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running broad coverage until you understand the results and usage for your environment.
-
+Start with a small set of high-value repositories. Agentic Workflows runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running across all your projects until you understand the results and usage for your environment.
 Semgrep recommends the following rollout process:
 
 1. Select a few important repositories that represent your primary languages, frameworks, and application architectures.
-2. Run the workflows most relevant to the risks in those repositories.
+2. Run the Semgrep-recommended workflows. Optionally, skip workflows that you know aren't relevant to the risks in those repositories.
 3. Review the resulting issues for accuracy and usefulness.
 4. Share feedback with Semgrep, including missed vulnerabilities, unexpected results, and unclear issue details.
 5. Expand to more repositories after you understand expected results and credit consumption.
 
-During the beta, contact **[Semgrep Community Slack channel]** to provide feedback.
+Contact [Semgrep Support](/support) or your account executive to provide feedback during the beta period.
 
 {/* TODO: Replace the feedback placeholder with the supported channel, such as an in-product form, Support, or the customer's account team. */}
 
