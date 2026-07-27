@@ -237,7 +237,22 @@ If you want to keep all data within your AWS account, you can use your own Amazo
 
 Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
 
-Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
+Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARNs `anthropic.claude-sonnet-4-6` and `anthropic.claude-haiku-4-5-20251001-v1:0`.
+
+#### Supported AWS regions
+
+When you use your own Amazon Bedrock account, you can select one of the following AWS regions:
+
+- US East (N. Virginia) - `us-east-1`
+- US East (Ohio) - `us-east-2`
+- US West (N. California) - `us-west-1`
+- US West (Oregon) - `us-west-2`
+
+All Bedrock calls are pinned to the region you select. Semgrep does not use AWS cross-region inference profiles for customer-managed Bedrock accounts, so requests stay within your configured region. 
+
+<Note>
+Since Semgrep does not use AWS cross-region inference profiles, the models Multimodal requires must be available for on-demand inference in the selected region. Because of that requirement, regions outside the US (where the models are offered only through cross-region inference profiles) are not currently supported.
+</Note>
 
 ### Azure OpenAI
 
