@@ -49,13 +49,11 @@ sidebarTitle: "Week of July 13, 2026"
 
 - You can configure a remediation policy automation to automatically open a Supply Chain Autofix pull request when findings match the policy.
 - The Advisories page includes an **Incidents** filter, so you can filter advisories by the incidents that surfaced them.
-- The supply chain incident declaration form includes a custom message field.
 
 ### Changed
 
 - Increased the timeout for dynamic dependency resolution subprocesses from 600 to 900 seconds, giving large projects more time to resolve dependencies before timing out.
 - Renamed the default Supply Chain incident policy from **malware** to **supply chain** to better reflect its scope.
-- Renamed the incident response dispatch form field **Internal title** to **Incident name**.
 - Updated the Advisories page search placeholder from "Title or CVE" to "Rule ID or CVE" to match search behavior.
 - Incident scan targeting now honors scan opt-outs and skips disabled scan types, Dynamic Dependency Resolution configurations, and local-scan projects before dispatching scans.
 
