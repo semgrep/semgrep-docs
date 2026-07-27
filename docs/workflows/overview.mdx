@@ -26,8 +26,6 @@ The following table summarizes when to use each type of analysis:
 | [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
 | [Semgrep Agentic Workflows](/workflows/get-started) | Combine multiple analysis techniques and execute them stepwise against a repository | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against a selected repository | Agentic Workflows issues |
 
-{/* TODO: Confirm the boundaries between Agentic Workflows and AI-powered detection with Product. In particular, confirm whether AI-powered detection findings are still the correct public term. */}
-
 ## How Agentic Workflows work
 
 The following concepts describe how analysis is organized:
@@ -39,8 +37,6 @@ The following concepts describe how analysis is organized:
 - **Issue**: The deduplicated, processed output of the pipeline. Issues appear on the **Workflows** page in Semgrep AppSec Platform and include the evidence and context available from the run.
 
 When you start Agentic Workflows, Semgrep clones the repository through its source code manager connection. The workflow runs its jobs and produces **Findings**. Semgrep processes and deduplicates those findings into reviewable **Issues**. You can monitor jobs on the **Projects** page and then review Issues on the **Workflows** page in Semgrep AppSec Platform.
-
-{/* TODO: Verify every term against the UI and API schema. Add status definitions for runs and jobs, including queued, running, completed, failed, and canceled, if applicable. Document retry and cancellation semantics. Product name in docs is Agentic Workflows; some UI surfaces use Workflows (for example, left-hand nav). Confirm remaining UI strings (activation prompts use Agentic Workflows). */}
 
 ## Detection coverage
 
@@ -64,13 +60,9 @@ Coverage depends on the workflow, repository language, framework, and available 
 | Broad API security | Audits REST, GraphQL, gRPC, SOAP, JSON-RPC, and webhook APIs, then prioritizes findings by exploitability. |
 | Broad crypto security | Audits cryptography, password hashing, key management, signatures, randomness, and TLS, then prioritizes by exploitability. |
 
-{/* TODO: Confirm exact UI display names vs these shipping labels, and whether to link individual CWEs or OWASP categories per workflow. */}
-
 ## Credit usage and billing
 
 Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). See [Usage and billing](/usage-and-billing/overview#ai-credits) page for details.
-
-{/* TODO: Whether failed or canceled runs consume credits, and what happens when the organization has insufficient credits mid-run. */}
 
 ## Beta limitations
 

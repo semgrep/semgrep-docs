@@ -23,8 +23,6 @@ There is no separate enable step for Agentic Workflows. Activation is self-servi
 
 Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-access) through a [supported source code manager](/getting-started/scm-support). See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
 
-{/* TODO: Confirm Agentic Workflows-specific SCM support (which plans/SCMs), whether read access is sufficient for every launch workflow, and whether forked or archived repositories are supported. Confirm the exact activation-prompt UI and which settings it checks. */}
-
 ### Unsupported configurations
 
 During the beta, Agentic Workflows does not support:
@@ -34,8 +32,6 @@ During the beta, Agentic Workflows does not support:
 - [Minimal data retention (MDR)](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional) mode.
 
 If your organization uses one of these configurations, contact your Semgrep account representative before running Agentic Workflows.
-
-{/* TODO: Confirm whether "Semgrep-hosted service" is the preferred external phrasing for SaaS only. */}
 
 ## Run Agentic Workflows
 
@@ -57,11 +53,7 @@ To start a run:
 Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on that repository.
 To view the jobs for a run, open the **Jobs** tab on the **Project Details** page.
 
-
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
-
-{/* TODO: If Admin-only start/cancel becomes a blocker, product may drop the restriction to match general scan permissions. UI labels are mixed: product name is Agentic Workflows; some surfaces (for example left-hand nav) use Workflows. Confirm remaining click-path labels such as Run workflows. */}
-
 
 ## Review Agentic Workflows Issues
 
@@ -75,9 +67,6 @@ To review Issues:
 
 You can triage an Issue from the dropdown on the Issues list or from the dropdown next to the Issue title on the **Details** page.
 
-
-{/* TODO: Document the complete issue status model and transitions. Confirm whether issues can be assigned, commented on, ignored, reopened, or linked to existing findings. Confirm deduplication behavior across repeated runs and branches. Add exact UI navigation for the all-issues view, issues belonging to a single run, and the job details findings view. */}
-
 ### Notifications and integrations
 
 Configure Agentic Workflows notifications with [unified policies](/semgrep-appsec-platform/unified-policies/overview). Use a remediation policy that triggers when a workflow job finishes.
@@ -88,8 +77,6 @@ To configure a notification:
 2. Open the **Remediation** tab, then click **Create policy**.
 3. Select the event **A workflow job finishes**.
 4. Choose the scope, conditions, and actions for the policy, then save.
-
-{/* TODO: Confirm whether docs should mention that unified policies must be enabled for this flow. Confirm exact UI labels (Create policy vs Create automation; Policies vs Remediation nav). Document which actions are supported for the workflow-job-finished event (Slack, Jira, webhooks, email, SCM comments) and any permission requirements. */}
 
 ## Expand coverage gradually
 
@@ -104,10 +91,7 @@ Semgrep recommends the following rollout process:
 
 Contact [Semgrep Support](/support) or your account executive to provide feedback during the beta period.
 
-{/* TODO: Replace the feedback placeholder with the supported channel, such as an in-product form, Support, or the customer's account team. */}
-
 ## API access
 
 The Agentic Workflows API is experimental during the beta. Experimental APIs can change or be removed without notice and are not covered by Semgrep's standard API stability guarantees. Do not rely on the API for production automation.
 
-{/* TODO: Link to the experimental API reference and confirm authentication, rate limits, supported operations, and the precise stability disclaimer. If the API is not intended for public discovery, remove this section. */}
