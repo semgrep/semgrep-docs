@@ -22,7 +22,7 @@ The following table summarizes when to use each type of analysis:
 
 | Analysis | Primary use | How it works | Output |
 | --- | --- | --- | --- |
-| [Semgrep Code](/semgrep-code/overview) rule-based scanning | Continuously identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
+| [Semgrep Code](/semgrep-code/overview) rule-based scanning | Identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
 | [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
 | [Semgrep Agentic Workflows](/workflows/get-started) | Combine multiple analysis techniques and execute them stepwise against a repository | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against a selected repository | Agentic Workflows issues |
 
@@ -42,7 +42,7 @@ When you start Agentic Workflows, Semgrep clones the repository through its sour
 
 During the beta, Semgrep offers nine pre-built detection workflows. Together, these workflows cover 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, and cryptography issues, as well as broader web, API, and crypto security analysis. This coverage is **additional** to what [Semgrep Code](/semgrep-code/overview) already covers.
 
-**Semgrep's default** runs all nine of these workflows.
+**Semgrep's default** workflow runs all nine of these workflows.
 
 Coverage depends on the workflow, repository language, framework, and available code context. A workflow might not analyze every file or detect every instance of a vulnerability class. Continue to use Semgrep Code and Semgrep Supply Chain for continuous rule-based scanning.
 
@@ -77,12 +77,7 @@ During the beta:
 - Some deployment configurations are unsupported. See [Unsupported configurations](/workflows/get-started#unsupported-configurations).
 - Detection coverage and supported repositories vary by workflow.
 
-Semgrep plans to refine Agentic Workflows throughout the beta based on customer feedback.
-
-## What's next
-
-Detection is one stage of a longer loop that also includes triage and remediation. Semgrep is developing additional workflow types on the same platform, including for triage and remediation.
 
 ## Next steps
 
-To satisfy prerequisites and run Agentic Workflows for the first time, see [Get started](/workflows/get-started).
+See [Get started](/workflows/get-started) to run your first Agentic Workflows.

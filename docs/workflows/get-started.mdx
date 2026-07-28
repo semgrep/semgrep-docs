@@ -19,7 +19,7 @@ There is no separate enable step for Agentic Workflows. Activation is self-servi
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).
 - You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start Agentic Workflows runs.
 - Semgrep AppSec Platform must be [connected to your source code manager](/deployment/connect-scm) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze.
-- Your organization must have enough credits to run the selected workflows.
+- Your organization must have enough AI credits to run the selected workflows.
 
 Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-access) through a [supported source code manager](/getting-started/scm-support). See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
 
@@ -34,18 +34,18 @@ If your organization uses BYOK or MDR, contact your Semgrep account representati
 
 ## Run Agentic Workflows
 
-You start Agentic Workflows from the same place as a [Rule-based scan](/deployment/managed-scanning/overview) or [AI-powered detection](/deployment/add-ai-to-scans) scan: the **Projects** page in Semgrep AppSec Platform.
+You can start Agentic Workflows from the **Projects** page in Semgrep AppSec Platform.
 
-You can also trigger a one-off Agentic Workflows run from a project's **Details** page.
+You can also start a single Agentic Workflows run from a project's **Details** page.
 
 To start a run:
 
 1. In Semgrep AppSec Platform, go to **Projects**.
-2. Select a project to analyze.
+2. Select one or more projects to analyze.
 3. Click **Run a new scan > Run workflows**.
 4. Choose which workflows to run:
    - **Run Semgrep's default** to run the recommended workflow pack, which combines all nine [available workflows](/workflows/overview#available-workflows).
-   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows). Review the workflow description to understand its expected coverage. 
+   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows). Review the workflow descriptions to understand their expected coverage. 
 5. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
 6. Click **Run workflows**.
 
@@ -61,32 +61,32 @@ Agentic Workflows produces [**Issues**](/workflows/overview#how-agentic-workflow
 To review Issues:
 
 1. In Semgrep AppSec Platform, go to **Workflows**.
-2. Optionally, filter the list by the criteria you care about, or select **Group and sort** to customize how Issues are displayed.
-3. Select an Issue to open its **Details** page and review evidence, the affected repository and code, the workflow run, and the Issue status.
+2. Optionally, filter the list by the criteria you choose, or select **Group and sort** to customize how Issues are displayed.
+3. Select an Issue to open its **Details** page and review the evidence, affected repository and code, workflow run, and Issue status.
 
-You can triage an Issue from the dropdown on the Issues list or from the dropdown next to the Issue title on the **Details** page.
+You can triage an Issue from the dropdown on the Issues list or from the drop-down menu next to the Issue title on the **Details** page.
 
 ### Notifications and integrations
 
-Configure Agentic Workflows notifications with [unified policies](/semgrep-appsec-platform/unified-policies/overview). Use a remediation policy that triggers when a workflow job finishes.
+Configure Agentic Workflows notifications with [Unified policies](/semgrep-appsec-platform/unified-policies/overview). Use a remediation policy that runs when a workflow job finishes.
 
 To configure a notification:
 
 1. In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
 2. Open the **Remediation** tab, then click **Create policy**.
 3. Select the event **A workflow job finishes**.
-4. Choose the scope, conditions, and actions for the policy, then save.
+4. Choose the scope, conditions, and actions for the policy, then click **Save**.
 
 ## Expand coverage gradually
 
-Start with a small set of high-value repositories. Agentic Workflows runs consume [AI credits](/workflows/overview#credit-usage-and-billing), so avoid running across all your projects until you understand the results and usage for your environment.
+Because Agentic Workflow runs consume [AI credits](/workflows/overview#credit-usage-and-billing), Semgrep recommends starting with a small set of high-value repositories and avoiding runs across all your projects until you understand the results and usage for your environment.
 Semgrep recommends the following rollout process:
 
 1. Select a few important repositories that represent your primary languages, frameworks, and application architectures.
 2. Run the Semgrep-recommended workflows. Optionally, skip workflows that you know aren't relevant to the risks in those repositories.
 3. Review the resulting issues for accuracy and usefulness.
 4. Share feedback with Semgrep, including missed vulnerabilities, unexpected results, and unclear issue details.
-5. Expand to more repositories after you understand expected results and credit consumption.
+5. Expand runs to more repositories after you understand expected results and credit consumption.
 
 Contact [Semgrep Support](/support) or your account executive to provide feedback during the beta period.
 
