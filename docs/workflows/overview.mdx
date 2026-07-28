@@ -18,13 +18,13 @@ To run Agentic Workflows for the first time, see [Get started with Semgrep Agent
 
 Semgrep Agentic Workflows performs targeted analysis that combines multiple analysis techniques and reasoning steps. It complements Semgrep Code's rule-based scanning and AI-powered detection.
 
-The following table summarizes when to use each type of analysis:
+The following table compares Semgrep detection options. For the nine Agentic Workflows and the classes they target, see [Detection coverage](#detection-coverage).
 
-| Analysis | Primary use | How it works | Output |
+| Analysis | Coverage | How it works | Output |
 | --- | --- | --- | --- |
-| [Semgrep Code](/semgrep-code/overview) rule-based scanning | Identify code that matches known insecure patterns | Applies deterministic rules to source code | Code findings |
-| [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Find business logic flaws such as IDORs and broken authorization that are hard to express as generic rules | Uses AI-based analysis together with Semgrep program analysis | AI-powered detection findings |
-| [Semgrep Agentic Workflows](/workflows/get-started) | Combine multiple analysis techniques and execute them stepwise against a repository | Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against a selected repository | Agentic Workflows issues |
+| [Semgrep Code](/semgrep-code/overview) | Known insecure patterns defined in Semgrep rules. | Applies deterministic rules to source code. | Code findings |
+| [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) | Business-logic flaws that are difficult to express as generic rules, such as IDORs and broken authorization. | Uses AI-based analysis together with Semgrep program analysis. | AI-powered detection findings |
+| [Semgrep Agentic Workflows](/workflows/get-started) | On-demand detection across 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, cryptography, and broader web, API, and crypto security analysis.| Runs a built-in sequence of analysis steps, such as specialized analyzers and AI reasoning, against a selected repository. | Agentic Workflows issues |
 
 ## How Agentic Workflows work
 
@@ -40,7 +40,7 @@ When you start Agentic Workflows, Semgrep clones the repository through its sour
 
 ## Detection coverage
 
-During the beta, Semgrep offers nine pre-built detection workflows. Together, these workflows cover 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, and cryptography issues, as well as broader web, API, and crypto security analysis. This coverage is **additional** to what [Semgrep Code](/semgrep-code/overview) already covers.
+During the beta, Semgrep offers nine pre-built detection workflows. Together, these workflows cover 70+ [CWEs](https://cwe.mitre.org/), including common injection, XSS, SSRF, and cryptography issues, as well as broader web, API, and crypto security analysis. This coverage is **additional** to what [Semgrep Code](/semgrep-code/overview) and [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) already cover.
 
 **Semgrep's default** workflow runs all nine of these workflows.
 
