@@ -41,7 +41,13 @@ To view a package's license policy:
 [Sign in to Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-Navigate to **[Rules & Policies > Policies > Supply Chain > License configuration](https://semgrep.dev/orgs/-/policies/supply-chain#license-config)**.
+Navigate to **[Rules & Policies > Policies > Detection](https://semgrep.dev/orgs/-/detection)**.
+</Step>
+<Step>
+Go to the **Supply Chain licenses** section, and click **Edit**.
+</Step>
+<Step>
+Review the information displayed on the **Supply Chain license configuration** page.
 </Step>
 </Steps>
 
@@ -51,10 +57,13 @@ To change the policies of packages based on the license:
 
 <Steps>
 <Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login), and navigate to **[Rules & Policies > Policies > Supply Chain > License configuration](https://semgrep.dev/orgs/-/policies/supply-chain#license-config)**.
+[Sign in to Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-Browse the available licenses within the **License configuration** section.
+Navigate to **[Rules & Policies > Policies > Detection](https://semgrep.dev/orgs/-/detection)**.
+</Step>
+<Step>
+Browse the available licenses listed on the **Supply Chain license configuration** page. The licenses are grouped by category, so click the category name to expand and display the list of licenses included.
 </Step>
 <Step>
 Click the permission (**Allow**, **Comment**, or **Block**) you want to set the license to.
@@ -124,7 +133,7 @@ The **Other** license category may include packages with copyleft or permissive 
 
 ### Multiple license types
 
-Some packages utilize multiple licenses. By default, Semgrep choses to **Block dependencies if any license is blocked**. For example, if a package allows use under the MIT license or the GPL-3.0 license, and the GPL-3.0 license is set to **Block**, but the MIT license is set to **Allow**, a pull request that adds the package is blocked. You can change this behavior in **Settings > Supply Chain**.
+Some packages utilize multiple licenses. By default, Semgrep defaults to **Block dependencies if any license is blocked**. For example, if a package allows use under the MIT license or the GPL-3.0 license, and the GPL-3.0 license is set to **Block**, but the MIT license is set to **Allow**, a pull request that adds the package is blocked. You can change this behavior in **Settings > Supply Chain**.
 
 You can add an [exemption for the package](#create-exemptions) if subsequent review indicates the dependency is safe for use under any of the detected licenses.
 
@@ -148,7 +157,7 @@ Click the dependency's <Icon icon="list-check" iconType="solid"/> icon to exempt
 </Step>
 </Steps>
 
-Exempted dependencies appear in the **Rules & Policies > Policies > Supply Chain > License configuration** tab.
+To view exempted dependencies in Semgrep AppSec Platform, go to [**Rules & Policies > Policies > Detection**](https://semgrep.dev/orgs/-/detection). The exceptions are listed in **Custom dependency exceptions**.
 
 ### Create custom dependency exceptions
 
@@ -160,13 +169,13 @@ To set a custom dependency exception:
 
 <Steps>
 <Step>
-Sign in to Semgrep AppSec Platform and navigate to **Rules & Polices > Policies > Supply Chain > License configuration**.
+Sign in to Semgrep AppSec Platform and go to [**Rules & Policies > Policies > Detection**](https://semgrep.dev/orgs/-/detection)
 </Step>
 <Step>
 In **Custom dependency exceptions**, click **Add custom exception**.
 </Step>
 <Step>
-In the **Add custom dependency exception** window that appears:
+In the **Add custom dependency exception** dialog that appears:
 
    i. Select the **Ecosystem** where this dependency applies.
 
