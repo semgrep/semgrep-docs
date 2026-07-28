@@ -24,7 +24,7 @@ If your deployment is not ready, Semgrep AppSec Platform shows an activation pro
 During the beta:
 
 - CI-based execution is not supported. Agentic Workflows runs as a Semgrep-hosted service.
-- Agentic Workflows does not support bring your own key (BYOK) or [minimal data retention (MDR)](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional). If you use these configurations, you cannot trigger workflow runs.
+- You must leave the default AI providers enabled. Agentic Workflows does not support bring your own key (BYOK) or [minimal data retention (MDR)](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional). If you use these configurations, you cannot trigger workflow runs.
 
 If your organization uses BYOK or MDR, contact your Semgrep account representative.
 
@@ -46,7 +46,7 @@ To start a run:
 6. Click **Run workflows**.
 
 Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on that repository.
-To view the jobs for a run, open the **Jobs** tab on the **Project Details** page.
+To view the jobs for a run, open the **Workflow jobs** tab on the **Project Details** page.
 
 After the run completes, review the results in Semgrep AppSec Platform to see the detection [issues](#review-agentic-workflows-issues) produced by the workflow.
 

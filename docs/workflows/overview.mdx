@@ -52,7 +52,7 @@ Coverage depends on the workflow, repository language, framework, and available 
 | --- | --- |
 | SQL injection | Traces user-controlled data into dynamic queries that lack effective parameter binding or allow-list validation. |
 | XSS | Traces user-controlled input to unsafe HTML rendering sinks, across reflected, stored, and DOM-based cases. |
-| SSRF | Analyzes attacker control, validation, and bypass paths using repository-specific rules. |
+| SSRF | Traces user-controlled data into network requests that lack effective validation. |
 | Command injection | Traces untrusted input to shell and process-execution APIs across supported languages. |
 | NoSQL injection | Traces untrusted input into query and scripting operations in MongoDB, Redis, and Elasticsearch. |
 | Crypto weak hash | Flags security-sensitive use of MD2, MD4, MD5, and SHA-1, while filtering out benign checksum, cache-key, and identifier uses. |
@@ -62,7 +62,7 @@ Coverage depends on the workflow, repository language, framework, and available 
 
 ## Credit usage and billing
 
-Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). The amount of credits used for each run is shown in the **Jobs** view for each project. If a run fails, Semgrep still debits credits for any steps that already completed. See [Usage and billing](/usage-and-billing/overview#ai-credits) for details.
+Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). The amount of credits used for each run is shown in the **Workflow jobs** view for each project. If a run fails, Semgrep still debits credits for any steps that already completed. See [Usage and billing](/usage-and-billing/overview#ai-credits) for details.
 
 ## Beta limitations
 
