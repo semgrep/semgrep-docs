@@ -407,7 +407,7 @@ inbound:
     baseURL: https://GITHUB_BASE_URL/api/v3
 ```
 
-Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
+Subsequent entries for the same SCM type (e.g. a second GitHub Enterprise Server instance) require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
 
 ```yaml
 inbound:
@@ -430,3 +430,5 @@ inbound:
         Authorization: "Bearer GITHUB_PAT"
     ...
 ```
+
+If you are setting the SCM token in the Network Broker config, rather than in Semgrep AppSec Platform, the token must be specified in all entries referring to the same base URL. Missing token entries may result in authentication errors.
