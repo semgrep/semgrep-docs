@@ -62,14 +62,14 @@ Coverage depends on the workflow, repository language, framework, and available 
 
 ## Credit usage and billing
 
-Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). The amount of credits used for each run is shown in the **Jobs** view for each project. See [Usage and billing](/usage-and-billing/overview#ai-credits) for details.
+Agentic Workflows runs consume [AI credits](/usage-and-billing/overview#ai-credits). The amount of credits used for each run is shown in the **Jobs** view for each project. If a run fails, Semgrep still debits credits for any steps that already completed. See [Usage and billing](/usage-and-billing/overview#ai-credits) for details.
 
 ## Beta limitations
 
 During the beta:
 
 - Runs must be started on demand. Scheduled runs are not available.
-- Only organization [Admins](/deployment/teams/overview#roles-and-access) can start or cancel Agentic Workflows runs.
+- Only organization [Admins](/deployment/teams/overview#roles-and-access) can start Agentic Workflows runs.
 - Creating, modifying, or publishing custom Agentic Workflows is not supported.
 - Agentic Workflows runs only as a Semgrep-hosted service. Local CLI execution and customer CI environments are not supported.
 - Agentic Workflows issues are shown separately from findings created by other types of scans.
