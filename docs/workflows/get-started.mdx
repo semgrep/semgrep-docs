@@ -10,20 +10,16 @@ Semgrep Agentic Workflows is in **beta**. Beta features are subject to change wi
 
 This page explains how to run Semgrep Agentic Workflows and review issues. For concepts, coverage, credit usage, and how Agentic Workflows compare to other Semgrep analysis, see the [Overview](/workflows/overview).
 
-## Before you begin
-
-There is no separate enable step for Agentic Workflows. Activation is self-service: choose projects and run Agentic Workflows on demand. If your deployment is not ready, Semgrep AppSec Platform shows an activation prompt that directs you to the settings you need to configure first.
-
-### Prerequisites
+## Prerequisites
 
 - Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/).
 - You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start Agentic Workflows runs.
-- Semgrep AppSec Platform must be [connected to your source code manager](/deployment/connect-scm) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze.
+- Semgrep AppSec Platform must be [connected to a supported source code manager](/getting-started/scm-support) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze. See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
 - Your organization must have enough AI credits to run the selected workflows.
 
-Agentic Workflows requires [code access](/semgrep-appsec-platform/scm-code-access) through a [supported source code manager](/getting-started/scm-support). See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You do not need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
+If your deployment is not ready, Semgrep AppSec Platform shows an activation prompt that directs you to the settings you need to configure first.
 
-### Unsupported configurations
+## Unsupported configurations
 
 During the beta:
 
@@ -52,19 +48,19 @@ To start a run:
 Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on that repository.
 To view the jobs for a run, open the **Jobs** tab on the **Project Details** page.
 
-After the run completes, review the results in Semgrep AppSec Platform to see the detection [Issues](#review-agentic-workflows-issues) produced by the workflow.
+After the run completes, review the results in Semgrep AppSec Platform to see the detection [issues](#review-agentic-workflows-issues) produced by the workflow.
 
-## Review Agentic Workflows Issues
+## Review Agentic Workflows issues
 
-Agentic Workflows produces [**Issues**](/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets **Findings**. Actions taken on an Agentic Workflows Issue do not change the status of a related Finding from another Semgrep product.
+Agentic Workflows produces [issues](/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets findings. Actions taken on an Agentic Workflows issue do not change the status of a related finding from another Semgrep product.
 
-To review Issues:
+To review issues:
 
 1. In Semgrep AppSec Platform, go to **Workflows**.
-2. Optionally, filter the list by the criteria you choose, or select **Group and sort** to customize how Issues are displayed.
-3. Select an Issue to open its **Details** page and review the evidence, affected repository and code, workflow run, and Issue status.
+2. Optionally, filter the list by the criteria you choose, or select **Group and sort** to customize how issues are displayed.
+3. Select an issue to open its **Details** page and review the evidence, affected repository and code, workflow run, and issue status.
 
-You can triage an Issue from the dropdown on the Issues list or from the drop-down menu next to the Issue title on the **Details** page.
+You can triage an issue from the dropdown on the issues list or from the drop-down menu next to the issue title on the **Details** page.
 
 ### Notifications and integrations
 
