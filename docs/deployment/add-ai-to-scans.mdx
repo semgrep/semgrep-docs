@@ -8,10 +8,13 @@ This page provides step-by-step instructions on enabling and running an AI-power
 
 ## Prerequisites
 
-To run Semgrep Code's [AI-powered detection](/semgrep-code/overview#ai-powered-detection-beta-feature), ensure that you meet the following requirements:
+To run Semgrep Code's [AI-powered detection](/semgrep-code/overview#ai-powered-detection-beta-feature), you must have enabled [Semgrep Multimodal](/semgrep-multimodal/getting-started#enable-multimodal) for your organization.
 
-* You have added your projects to [Semgrep Managed Scans](/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans). Look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning). 
-* You have enabled [Semgrep Multimodal](/semgrep-multimodal/getting-started#enable-multimodal) for your organization.
+<Note>
+**INFO**
+
+AI-powered detection analyzes your code on Semgrep's managed scanning infrastructure. Semgrep clones your repository into that environment to run the scan, even if your other scans run in your own CI.
+</Note>
 
 ## Enable or disable AI-powered detection
 
@@ -42,7 +45,7 @@ Click **Run a new scan > AI-powered detection**.
 <Step>
 A dialog appears that displays the number of projects that were selected for scanning. Click **Scan** to begin.  
 
-  * If you would like Semgrep to automatically perform an AI scan on these projects every week, select **Enable weekly scans**.
+  * If you would like Semgrep to automatically perform an AI scan on these projects every week, select **Enable weekly scans**. Weekly AI scans require that you have added the projects to [Semgrep Managed Scans](/getting-started/quickstart-managed-scans#add-projects-to-semgrep-managed-scans); look for the `managed-scan` tag in the [**Projects** section of the Semgrep AppSec Platform](https://semgrep.dev/orgs/-/projects/scanning).
 </Step>
 </Steps>
 
