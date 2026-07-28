@@ -338,7 +338,7 @@
                 ]
               },
               {
-                "group": "Agentic Workflows",
+                "group": "Semgrep Agentic Workflows (beta)",
                 "pages": [
                   "workflows/overview",
                   "workflows/get-started"
