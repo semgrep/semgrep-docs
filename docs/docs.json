@@ -336,6 +336,13 @@
                   "semgrep-secrets/validators-1",
                   "semgrep-secrets/glossary"
                 ]
+              },
+              {
+                "group": "Agentic Workflows",
+                "pages": [
+                  "workflows/overview",
+                  "workflows/get-started"
+                ]
               }
             ]
           },
