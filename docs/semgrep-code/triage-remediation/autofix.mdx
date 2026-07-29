@@ -67,6 +67,43 @@ You can filter for findings with Autofix PRs directly from the **Code** page in 
 
 This filter shows findings that have Autofix PRs. It may also include findings that were manually marked as **To fix**.
 
+## Create Autofix PR with remediation policies
+
+You can automate Autofix PR creation by adding **Create Autofix PR** as an action in a [remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy). When findings match the policy's scope and conditions, Semgrep opens a PR or MR with the proposed fix.
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to **Rules & Policies > Remediation**, then click **+ Create automation**.
+</Step>
+<Step>
+Provide a **Policy name** and set the **Scope** to the projects where you want Autofix PRs created.
+</Step>
+<Step>
+Under **Conditions**, add **Branch type** and set it to **Primary branch** only. Semgrep requires this condition to use the **Create Autofix PR** action.
+</Step>
+<Step>
+Under **Actions**, select **Create Autofix PR**.
+</Step>
+<Step>
+Click **Create & Enable** to save and activate the policy.
+</Step>
+</Steps>
+
+### Control the number of PRs created
+
+For best results, use **Conditions** to narrow which findings trigger Autofix PRs. Without additional filters, a policy can open many PRs at once. Consider adding conditions such as severity, reachability, or specific rules to limit the volume of PRs Semgrep creates.
+
+### Enable auto-merge through your SCM
+
+Semgrep opens Autofix PRs for your team to review and merge. Auto-merge is not configured in Semgrep. If you want approved Autofix PRs to merge automatically after checks pass, enable auto-merge in your source code manager (SCM).
+
+<Tip>
+Configure auto-merge in GitHub, GitLab, Bitbucket, or Azure DevOps according to your team's review requirements. For example, you may require passing status checks or a minimum number of approvals before a PR merges automatically.
+</Tip>
+
 ## Disable Autofix
 
 If you use Semgrep Multimodal, Autofix is enabled by default. To adjust settings:
