@@ -7621,6 +7621,7 @@ components:
                         - ScaAutofixIntro
                         - MultimodalBanner
                         - CombinedFindings
+                        - WorkflowsActivationBanner
                     type: string
                     description: |+
                         capture the event source, which may be passed as a query param (e.g. ?event_source=Welcome)
@@ -7639,6 +7640,7 @@ components:
                         | ScaAutofixIntro |  |
                         | MultimodalBanner |  |
                         | CombinedFindings |  |
+                        | WorkflowsActivationBanner |  |
 
                     format: enum
                 tourStates:
@@ -7719,6 +7721,7 @@ components:
                         - TOUR_ID_SCA_AUTOFIX_INTRO
                         - TOUR_ID_MULTIMODAL_BANNER
                         - TOUR_ID_COMBINED_FINDINGS
+                        - TOUR_ID_WORKFLOWS_ACTIVATION
                     type: string
                     description: |4+
 
@@ -7729,6 +7732,7 @@ components:
                         | TOUR_ID_SCA_AUTOFIX_INTRO |  |
                         | TOUR_ID_MULTIMODAL_BANNER |  |
                         | TOUR_ID_COMBINED_FINDINGS |  |
+                        | TOUR_ID_WORKFLOWS_ACTIVATION |  |
 
                     format: enum
                 state:
