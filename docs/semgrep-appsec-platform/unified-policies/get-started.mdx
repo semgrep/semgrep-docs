@@ -113,3 +113,18 @@ To create a policy that defines the automated responses to security findings:<br
    vi. Click **Create & Enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Create** to save your changes without enabling the policy.
 </Step>
 </Steps>
+
+## Configure default remediation policies
+
+Some remediation policies are created for you by default and can't be renamed or deleted — only enabled and configured with actions. Supply Chain incidents, for example, use a dedicated policy that already exists for your organization.
+
+<Steps>
+<Step>
+Go to **Rules & Policies > Remediation**, and find the default policy for the feature you want to configure.
+</Step>
+<Step>
+Add the **Actions** you want it to perform, then enable the policy.
+</Step>
+</Steps>
+
+See [Supply Chain incident notifications and response](/semgrep-supply-chain/incident-notifications) for a complete walkthrough of the default Supply Chain incident policy.
