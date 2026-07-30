@@ -19,7 +19,7 @@ Deploy through your MDM platform to scope rollout by device group, or to combine
 
 Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS, including `.plist` and `.mobileconfig` profiles through Jamf, Kandji, and similar, and Windows, including PowerShell file deployment or ADMX/registry policy via Intune and Group Policy, along with how to verify that managed settings are applied.
 
-For Claude Code, the managed settings enable the Guardian plugin from the Claude official marketplace for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (MDM mobileconfig or MDM plist). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
+For Claude Code, the managed settings enable the Guardian plugin from the Claude official marketplace for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (as an MDM `.mobileconfig` or `.plist`). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
 
 The minimal managed-settings payload looks like the following:
 
