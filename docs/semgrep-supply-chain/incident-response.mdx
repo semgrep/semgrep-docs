@@ -53,10 +53,6 @@ You can also use the **Advanced search** to search for specific versions of depe
   </Step>
 </Steps>
 
-<Frame caption="Figure. Sample dependency search for lodash.">
-![Sample dependency search for lodash 4.17 or later.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-1.png)
-</Frame>
-
 <Note>
   **Tip**: If you know the query parameter, you can view your dependencies by navigating directly to your results:
   
@@ -177,10 +173,6 @@ Even if you're using Semgrep Managed Scans, you can choose to run full scans on 
   </Step>
 </Steps>
 
-<Frame caption="Figure. Select and run Managed Scans projects manually.">
-![Select and run Managed Scans projects manually.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-2.png)
-</Frame>
-
 ### Initiate scans in your CI/CD pipelines
 
 If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan of any projects that might be impacted.
@@ -215,33 +207,13 @@ Semgrep AppSec Platform displays all affected projects and their findings after 
   </Step>
 </Steps>
 
-<Frame caption="Figure. View affected projects for a specific advisory.">
-![View affected projects for a specific advisory.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-3.png)
-</Frame>
-
 If Semgrep provides you with a direct link in a notification, such as a Slack message, you can use that to view the same information.
 
-To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog:
-
-<Frame caption="Figure. Search for advisories by package name.">
-![Search for advisories by package name.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-4.png)
-</Frame>
-
-If there are no findings for the rules run on the projects scanned, Semgrep shows no results:
-
-<Frame caption="Figure. Advisory details dialog with no findings found.">
-![Advisory details dialog with no findings found.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-5.png)
-</Frame>
+To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog. If there are no findings for the rules run on the projects scanned, Semgrep shows **No findings**.
 
 Before concluding you're not affected, verify that the rules corresponding to the incident were included in recent scans.
 
-If there are results, Semgrep shows the number of findings by project, as well as the breakdown of which branches in the codebase are impacted:
-
-<Frame caption="Figure. Advisory details dialog with findings found.">
-![Advisory details dialog with findings found.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-6.png)
-</Frame>
-
-Click on the number of findings to go to the **Findings** page, where you will see a list of results for that project's branch.
+If there are results, Semgrep shows the number of findings by project, as well as the breakdown of which branches in the codebase are impacted. You can click on the number of findings to go to the **Findings** page, where you will see a list of results for that project's branch.
 
 ## 5. Remove any malicious versions and re-scan your project
 
