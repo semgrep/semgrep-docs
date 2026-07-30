@@ -1,7 +1,7 @@
 ---
-title: "Set up the Semgrep Network Broker"
+title: "Set up Semgrep Network Broker"
 sidebarTitle: "Semgrep Network Broker"
-description: "The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet."
+description: "Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet."
 ---
 
 
@@ -19,10 +19,10 @@ Examples of inbound traffic include:
 <Info>
 **TIER AVAILABILITY**
 
-The Semgrep Network Broker is available to Enterprise tier users.
+Semgrep Network Broker is available to Enterprise tier users.
 </Info>
 
-The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/support) to discuss having it enabled for your organization.
+Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/support) to discuss having it enabled for your organization.
 
 If you will be using the Network Broker with a dedicated Semgrep tenant, please note that in your request.
 
@@ -253,7 +253,7 @@ sudo docker logs CONTAINER_ID
 
 ### Adjusting log verbosity
 
-The Semgrep Network Broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
+Semgrep Network Broker can log details of the proxied requests and responses for troubleshooting. To log additional details, add this snippet to your broker configuration:
 
 <Warning>
 **PERFORMANCE IMPACT**
@@ -354,7 +354,7 @@ inbound:
 </Tab>
 </Tabs>
 
-The Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`. For other source code managers, or earlier Network Broker versions the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
+Semgrep Network Broker supports repository cloning with GitHub when `allowCodeAccess` is `true`, beginning with Network Broker `v0.32.0`. For other source code managers, or earlier Network Broker versions the URL allowlist must include the base URL of your instance in order to clone repositories for scanning from **any** organization or group. For example, if your source code manager is at `https://git.example.com/`, the following allowlist will permit cloning repositories:
 
 ```yaml
 inbound:
@@ -393,9 +393,9 @@ inbound:
 
 Replace `<registry-host>` with the host of your registry.
 
-## Run multiple instances of the Semgrep Network Broker
+## Run multiple instances of Semgrep Network Broker
 
-Do not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
+Do not attempt to run multiple instances of Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
 
 ## Allowlist multiple source code managers with one configuration file
 

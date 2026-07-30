@@ -3171,6 +3171,10 @@ components:
             format: enum
             type: string
           type: array
+        includeArchived:
+          description: When true, return only dependencies from archived repositories.
+            When false or unset (default), archived repositories are excluded.
+          type: boolean
         license:
           description: Filter by license (e.g. MIT).
           items:
@@ -4124,6 +4128,7 @@ paths:
       x-badges: []
   /api/v1/deployments/{deploymentId}/policies:
     get:
+      deprecated: true
       operationId: PoliciesService_ListPolicies
       parameters:
       - in: path
@@ -4150,6 +4155,7 @@ paths:
       x-badges: []
   /api/v1/deployments/{deploymentId}/policies/{policyId}:
     get:
+      deprecated: true
       operationId: PoliciesService_ListPolicyRules
       parameters:
       - in: path
@@ -4196,6 +4202,7 @@ paths:
       - PoliciesService
       x-badges: []
     put:
+      deprecated: true
       operationId: PoliciesService_UpdatePolicy
       parameters:
       - in: path
@@ -5297,11 +5304,12 @@ tags:
   name: MiscService
   x-displayName: Other
   x-group: Other
-- description: 'View and manage the Policies of your organization.
+- description: '**Deprecated.** View and manage the Policies of your organization.
 
 
-    Deployments on the Unified Policies model use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service)
-    instead; this service stops working after the migration.'
+    This API is deprecated. Use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service)
+    instead. Deployments on the Unified Policies model must use Policies V2; this
+    service stops working after the migration.'
   name: PoliciesService
   x-displayName: Policies
   x-group: Policies

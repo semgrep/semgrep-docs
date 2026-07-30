@@ -304,7 +304,8 @@
                   {
                     "group": "Malware detection and response",
                     "pages": [
-                      "semgrep-supply-chain/malicious-dependencies"
+                      "semgrep-supply-chain/malicious-dependencies",
+                      "semgrep-supply-chain/incident-notifications"
                     ]
                   },
                   "semgrep-supply-chain/license-compliance",
@@ -335,6 +336,13 @@
                   "semgrep-secrets/rules-1",
                   "semgrep-secrets/validators-1",
                   "semgrep-secrets/glossary"
+                ]
+              },
+              {
+                "group": "Agentic Workflows",
+                "pages": [
+                  "workflows/overview",
+                  "workflows/get-started"
                 ]
               }
             ]
