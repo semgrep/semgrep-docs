@@ -67,14 +67,16 @@ This data is retained indefinitely unless otherwise noted. Customers can request
 ### Detection source data
 
 Data stored may include:
+
 - AI prompts and responses
 - Code snippets and, where required, full file contents
 - Uploaded context documentation
 - Scan reports, including metadata such as file names and, in some cases, code snippets
 
-Uploaded context documentation and scan reports are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused in future scans.
+Uploaded context documentation, **scan reports, and derived context about the source code*** are persistently stored in a Semgrep-managed Amazon S3 bucket. Context documentation may be reused in future scans. 
 
-Source data is retained for up to 6 months unless otherwise noted. Semgrep will provide at least 30 days' notice before making changes to retention policies.
+Source data is retained for up to 6 months unless otherwise noted. Semgrep will provide at least 30 days’ notice before making changes to retention policies.
+
 
 
 ### Purpose of storage
@@ -111,7 +113,6 @@ Organizations enrolled in the minimal data retention policy cannot run [Semgrep 
 When the minimal data retention policy is enabled:
 
 - AI prompts and code are **not logged or captured** by observability tools  
-- Data is **not stored in external storage systems**, such as Amazon S3  
 - Stored data is limited to what is strictly required to provide functionality  
 
 The table below compares default data handling with the minimal data retention policy. All stored data is handled by Semgrep or Semgrep-managed systems, not its AI vendors.
@@ -123,9 +124,11 @@ The table below compares default data handling with the minimal data retention p
 | AI responses (triage and remediation) | Stored for the lifetime of the finding and account | Stored only as required to provide functionality, with reduced persistence |
 | AI responses (other features) | Stored for up to 6 months to provide functionality and access to prior results | Stored only as required to provide functionality, with reduced persistence |
 | Memories | Stored for the lifetime of the account; may include user-provided content and small code snippets | No change |
-| AI-powered detection data | Full file analysis, context documentation, and scan reports may be stored and reused | No change |
-| External storage (Semgrep-managed S3) | Used for certain data | Not used, except for AI-powered detection context documents and scan reports |
+| AI-powered detection data | Full file analysis, context documentation, derived context, and scan reports may be stored and reused | No change |
+| External storage (Semgrep-managed S3) | Used for certain data | Not used, except for AI-powered detection derived context, uploaded context documents and scan reports |
 | Data deletion | Available upon request | Available upon request |
+
+
 
 ### Exceptions for AI-powered detection scans
 
@@ -133,9 +136,8 @@ Under the minimal data retention policy, the following behavior remains unchange
 
 - If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
 - AI-powered detection scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
+- Context discovered during scans is stored in a Semgrep-managed Amazon S3 bucket. This can include detected facts about the codebase, such as languages, frameworks, and structured data about relevant code features including file names and symbols.
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Multimodal functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts.
 
 Any stored data can be deleted upon customer request. Semgrep, Inc. will provide at least 30 days' notice before making any changes to the retention policy.
-
-
