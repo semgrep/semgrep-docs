@@ -214,9 +214,10 @@ Click **Change status** to save.
 </Step>
 </Steps>
 
-## Ignore code through nosemgrep
+## Ignore code through `nosemgrep`
 
-To ignore blocks of code, define an **inline comment**, followed by the word `nosemgrep`, at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches. This functionality works across all supported languages.
+`nosemgrep` comments are inline comments that allow you to ignore the specified blocks of code. This functionality works across all supported languages.
+
 
 <Warning>
 **CAUTION**
@@ -224,65 +225,67 @@ To ignore blocks of code, define an **inline comment**, followed by the word `no
 Ignoring code through this method still generates a finding. The finding is automatically set to the **Ignored** triage state.
 </Warning>
 
-`nosemgrep` in Python:
+To use `nosemgrep` comments:
 
-```python
+1. Enable `nosemgrep` comments in Semgrep AppSec Platform:
+    1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login).
+    1. Go to **Settings > Global**. Click the **Allow inline comments to disable Semgrep** toggle to enable this feature.
+1. Go to your code file where there are blocks of code you want Semgrep to ignore. Define an **inline comment**, followed by the word `nosemgrep`, at either the **first line** or **the line preceding** the potential match. Semgrep ignores all rule pattern matches.
 
-bad_func1()  # nosemgrep
+### Examples
 
-# nosemgrep
-bad_func2()
+<Tabs>
+  <Tab title="Python">
+    ```python
+    bad_func1()  # nosemgrep
 
-```
+    # nosemgrep
+    bad_func2()
+    ```
+  </Tab>
+  <Tab title="JavaScript">
+    ```javascript
+    // nosemgrep
+    bad_func1()
 
-`nosemgrep` in JavaScript:
+    bad_func2(); // nosemgrep
 
-```javascript
+    bad_func3(   // nosemgrep
+        arg
+    );
+    ```    
+  </Tab>
+</Tabs>
 
-// nosemgrep
-bad_func1()
-
-bad_func2(); // nosemgrep
-
-bad_func3(   // nosemgrep
-    arg
-);
-
-```
+To ignore blocks of code for a **specific rule**, enter its `rule-id` as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list. `rule-ids` must be referenced with their namespace.
 
 
-To ignore blocks of code for a **particular rule**, enter its `rule-id` as follows: `nosemgrep: RULE_ID`. To ignore **multiple rules**, use a comma-delimited list. `rule-ids` must be referenced with their namespace.
+<Tabs>
+  <Tab title="Python">
+    ```python
+    bad_func1()  # nosemgrep: rule-id-1
 
-Python examples:
+    # nosemgrep: rule-id-1, rule-id-2
+    bad_func2()
+    ```    
+  </Tab>
+  <Tab title="JavaScript">
+    For this example, assume that the rules are stored in a `configs` subdirectory:
+    ```javascript
+    // nosemgrep: configs.rule-id-3
+    bad_func1()
 
-```python
+    bad_func2(); // nosemgrep: configs.rule-id-3
 
-bad_func1()  # nosemgrep: rule-id-1
-
-# nosemgrep: rule-id-1, rule-id-2
-bad_func2()
-
-```
-
-JavaScript examples wherein rules are stored in a `configs` subdirectory:
-
-```javascript
-
-// nosemgrep: configs.rule-id-3
-bad_func1()
-
-bad_func2(); // nosemgrep: configs.rule-id-3
-
-bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
-    arg
-);
-
-```
+    bad_func3(   // nosemgrep: configs.rule-id-3, configs.rule-id-4
+        arg
+    );
+    ```    
+  </Tab>
+</Tabs>
 
 <Info>
-**NOTE**
-
-Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
+**NOTE**: Previous annotations for ignoring code inline, such as `nosem`, are deprecated.
 </Info>
 
 ## Disable rules on Semgrep AppSec Platform
