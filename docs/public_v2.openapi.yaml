@@ -18013,7 +18013,7 @@ tags:
       x-displayName: AI Fix Jobs
       x-group: AI Fix Jobs
     - name: AiTasksService
-      description: Manage AI tasks, such as triage, auto-triage, and issue tagging backfill
+      description: Manage AI tasks, such as triage, autotriage, and issue tagging backfill
       x-displayName: Ai Tasks
       x-group: Ai Tasks
     - name: AutofixService

@@ -17,7 +17,7 @@ If you have Semgrep Multimodal enabled, you receive AI-powered security recommen
   - [Suggested fix](/semgrep-multimodal/overview#suggested-fix) highlights the affected code and explains how to remediate the finding.
 - [Component tagging](/semgrep-multimodal/overview#component-tags) to help identify high-priority issues
 
-Semgrep Multimodal can also [auto-triage findings](/semgrep-multimodal/overview#auto-triage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-multimodal/overview#noise-filtering-beta) to help increase developer velocity.
+Semgrep Multimodal can also [autotriage findings](/semgrep-multimodal/overview#autotriage), suggest whether a finding can safely be ignored, and [filter out potential false positives](/semgrep-multimodal/overview#noise-filtering-beta) to help increase developer velocity.
 
 ## Autofix findings
 
@@ -39,7 +39,7 @@ The triage statuses are as follows:
 | :-- | :-- |
 | **Open** | Findings are open by default. A finding is open if it was present the last time Semgrep scanned the code and has not been ignored. An open finding represents a match between the code and a rule enabled in the repository. Open findings require action, such as rewriting the code to eliminate the detected vulnerability. |
 | **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
-| **Provisionally ignored** | Rule-based Semgrep Code findings that Semgrep Multimodal's [Auto-triage](/semgrep-multimodal/overview#auto-triage) has flagged as likely false positives. You can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree. <br /><br />**Note**: [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings are **not** automatically set to **Provisionally ignored**. Multimodal's auto-triage currently only applies to rule-based findings. AI-powered detection findings that Multimodal believes are false positives remain **Open** and must be triaged manually. |
+| **Provisionally ignored** | Rule-based Semgrep Code findings that Semgrep Multimodal's [Autotriage](/semgrep-multimodal/overview#autotriage) has flagged as likely false positives. You can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree. <br /><br />**Note**: [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings remain **Open** even when Multimodal flags them as false positives. They are **not** automatically set to **Provisionally ignored**; change the status to **Ignored** if you want to dismiss them. |
 | **To fix** | Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
 | **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
 | **Ignored** | Findings marked as ignored are present in the code but have been labeled unimportant. Ignore false positives or deprioritized issues. Mark findings as [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code/#reference-summary). You can also provide a reason for ignoring a finding: **False positive**, **Acceptable risk**, **No time to fix**. |
@@ -79,14 +79,14 @@ Note that some actions, such as ignoring and reopening findings, require differe
 
 ## Review provisionally ignored findings
 
-If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are rule-based Semgrep Code findings that Semgrep Multimodal's [Auto-triage](/semgrep-multimodal/overview#auto-triage) has flagged as likely false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree.
+If you have Semgrep Multimodal enabled, review the findings that have been **provisionally ignored**. These are rule-based Semgrep Code findings that Semgrep Multimodal's [Autotriage](/semgrep-multimodal/overview#autotriage) has flagged as likely false positives. For each finding, you can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree.
 
 Findings with a status of **provisionally ignored** block pull requests and merge requests if the matching rule is included in a blocking policy.
 
 <Note>
   **AI-powered detection findings and Provisionally ignored**
 
-  Multimodal's auto-triage only runs on rule-based Semgrep Code findings. [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings are **not** automatically moved to **Provisionally ignored**, even if Multimodal believes they are false positives. AI-powered detection findings that you want to dismiss must be triaged manually to **Ignored** with reason **False positive**.
+  Only rule-based Semgrep Code findings are moved to **Provisionally ignored**. [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings remain **Open** even when Multimodal flags them as false positives. To dismiss them, change the status to **Ignored** with reason **False positive**.
 
   To list AI-powered detection findings that Multimodal flagged as likely false positives, go to [**Code**](https://semgrep.dev/orgs/-/findings?tab=open), apply the **AI-powered scan finding** filter, and then check the box next to **False positives** in the **Autotriage** filter.
 </Note>
