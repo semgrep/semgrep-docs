@@ -983,6 +983,7 @@
                   {
                     "group": "2026",
                     "pages": [
+                      "release-notes/2026-07-27",
                       "release-notes/2026-07-20",
                       "release-notes/2026-07-13",
                       "release-notes/2026-07-06",
@@ -1075,7 +1076,7 @@
   "redirects": [
     {
       "source": "/release-notes",
-      "destination": "/release-notes/2026-07-20"
+      "destination": "/release-notes/2026-07-27"
     },
     {
       "source": "/docs/:slug*",
