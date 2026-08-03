@@ -431,4 +431,4 @@ inbound:
     ...
 ```
 
-If you are setting the SCM token in the Network Broker config, rather than in Semgrep AppSec Platform, the token must be specified in all entries referring to the same base URL. Missing token entries may result in authentication errors.
+If you are seeing authorization issues but are confident the token provided in your Network Broker configuration has the correct permissions, review all entries in the allowlist to be sure that they specify the correct token.
