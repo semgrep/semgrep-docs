@@ -34,6 +34,12 @@ Optionally, you can appoint members to a fourth role: the **manager** role. Mana
 - **Projects**
 - **Settings**
 
+#### Scan permission vs Projects access
+
+Having permission to scan is separate from whether you can open the **Projects** page. Members can have scan permission to run local CLI scans and upload results to the organization, even when they cannot open **Projects** and therefore cannot use **Run a new scan** in Semgrep AppSec Platform.
+
+With **Teams** enabled, **Members** assigned to a team can open the **Projects** page for those projects. That visibility alone does not let them use **Run a new scan**. Only roles with scan permission in Semgrep AppSec Platform, such as **Admin**, can start an on-demand scan. A **Member** who lacks that permission can still run local CLI scans and upload results.
+
 ## Teams (beta)
 
 The **Teams** feature enables admins to grant or limit access to **specific projects** in Semgrep AppSec Platform. This provides more granular control than the [**Users**](#user-permissions-and-visibility) feature alone. Teams helps security engineers and developers in large organizations focus on projects relevant to their specific department or team.
