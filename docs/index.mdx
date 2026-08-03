@@ -160,23 +160,14 @@ mode: custom
 </div>
 
 <div className='flex flex-col gap-2 mb-6 mt-10 justify-center items-left'>
-<h2 className='text-3xl font-bold text-[#24434f] dark:text-white'>May 2026 release notes summary</h2>
-<ul className='text-base text-[#24434f] dark:text-white list-disc ml-6 space-y-2 mt-4'>
-  <li>Semgrep AppSec Platform's **Usage & billing** page now allows you to download a report listing all contributors who have made commits in the last 90 days, as well as contributor identities, last contribution timestamp, and associated repository URL. This page also displays an alert if you exceed your contributor seat limit.</li>
-  <li>Autofix pull requests now post the email of the user who initiated the pull request.</li>
-  <li>Added indexes to file targeting to improve the performance of `semgrepignore` matching.</li>
-  <li>Improved support for taint tracking through nested functions.</li>
-  <li>Improved the parsing speed of JSON rules through the use of a new parser.</li>
-  <li>Dynamic Dependency Resolution is now in **public beta** for **Java** and **Kotlin**. With Dynamic Dependency Resolution, Supply Chain can now accurately inventory dependencies in projects without lockfiles or with incomplete lockfiles.</li>
-  <li>Improved Semgrep performance when parsing transitive reachability rules.</li>
-</ul>
-<p className='text-base text-[#24434f] dark:text-white mt-4'>
-  <a href="/release-notes/2026-07-06" style={{ color: '#624def', textDecoration: 'none', fontWeight: '500' }} onMouseOver={(e) => e.target.style.textDecoration = 'underline'} onMouseOut={(e) => e.target.style.textDecoration = 'none'}>See the latest release notes →</a>
-</p>
-<p className='text-base text-[#24434f] dark:text-white' style={{ textAlign: 'right' }}>
-  <a href="https://docs.semgrep.dev/whats-new/rss.xml" style={{ color: '#624def', textDecoration: 'none', fontWeight: '500' }} onMouseOver={(e) => e.target.style.textDecoration = 'underline'} onMouseOut={(e) => e.target.style.textDecoration = 'none'}>Subscribe to RSS feed</a>
-</p>
+<h2 className='text-3xl font-bold text-[#24434f] dark:text-white'>What's New</h2>
+<p className='text-xl text-[#24434f] dark:text-white'>See the latest Semgrep product highlights and weekly release notes.</p>
 </div>
+
+<CardGroup cols={2}>
+  <Card title="What's New" icon="bullhorn" href="/whats-new" horizontal />
+  <Card title="Subscribe to RSS" icon="rss" href="https://docs.semgrep.dev/whats-new/rss.xml" horizontal />
+</CardGroup>
 
 </div>
 </div>
