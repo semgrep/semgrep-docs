@@ -23,8 +23,8 @@ sidebarTitle: "Week of July 27, 2026"
 
 ### Fixed
 
-- Fixed an issue where an auto-ignore automation could revert a manually triaged finding back to **Provisionally ignored** on other matching issues.
-- Fixed an issue where a failed namespace lookup for a personal access token could incorrectly resolve to the token owner's account instead of surfacing an error.
+- Fixed an issue where the auto-ignore automation sometimes reverted a manual triage decision by setting all instances of the finding back to **Provisionally ignored**.
+- Fixed GitHub PAT setup errors so namespace permission failures now show clearer, more actionable messages.
 - Fixed an issue where **Provisionally ignored** findings could not be reopened from the finding **Details** page.
 - Fixed an issue where a Slack notification channel mapping was deleted when the Semgrep Slack app lacked permission to post to a private channel. Semgrep now removes the mapping only when the channel is deleted.
 
