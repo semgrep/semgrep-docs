@@ -1,0 +1,96 @@
+---
+title: "Get started with Semgrep Agentic Workflows (beta)"
+sidebarTitle: "Get started"
+description: "Run Semgrep Agentic Workflows from Semgrep AppSec Platform and review issues."
+---
+
+<Note>
+Semgrep Agentic Workflows is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback.
+</Note>
+
+This page explains how to run Semgrep Agentic Workflows and review issues. For concepts, coverage, credit usage, and how Agentic Workflows compare to other Semgrep analysis, see the [Overview](/workflows/overview).
+
+## Prerequisites
+
+- Your organization must use [Semgrep AppSec Platform](https://semgrep.dev/orgs/-/) with a paid subscription.
+- You must be an organization [Admin](/deployment/teams/overview#roles-and-access). During the beta, only Admins can start Agentic Workflows runs.
+- Semgrep AppSec Platform must be [connected to a supported source code manager](/getting-started/scm-support) and have [code access](/semgrep-appsec-platform/scm-code-access) to the repositories you want to analyze. See [SCM permissions](/deployment/prepare/scm-permissions) for the scopes Semgrep needs. You **do not** need to use [Semgrep Managed Scans](/deployment/managed-scanning/overview) to run Agentic Workflows.
+- Your organization must allow AI features to run in Semgrep-managed infrastructure:
+  - You must have enabled [Semgrep Multimodal](/semgrep-multimodal/getting-started#enable-multimodal) for your organization.
+  - You must have enabled [AI-powered scans](/deployment/add-ai-to-scans#enable-or-disable-ai-powered-detection) for your organization.
+- Your organization must have enough [AI credits](/workflows/overview#credit-usage-and-billing) to run the selected workflows.
+
+
+If your deployment is not ready, Semgrep AppSec Platform shows an activation prompt that directs you to the settings you need to configure first.
+
+## Unsupported configurations
+
+During the beta:
+
+- CI-based execution is not supported. Agentic Workflows runs as a Semgrep-hosted service.
+- You must leave the default AI providers enabled. Agentic Workflows does not support bring your own key (BYOK) or [minimal data retention (MDR)](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional). If you use these configurations, you cannot run Agentic Workflows.
+
+If your organization meets one of these criteria, contact your Semgrep account executive for more information.
+
+## Run Agentic Workflows
+
+You can start Agentic Workflows from the **Projects** page in Semgrep AppSec Platform.
+
+You can also start a single Agentic Workflows run from a project's **Details** page.
+
+To start a run:
+
+1. In Semgrep AppSec Platform, go to **Projects**.
+2. Select one or more projects to analyze.
+3. Click **Run a new scan > Run workflows**.
+4. Choose which workflows to run:
+   - **Run Semgrep's default** to run the recommended workflow pack, which combines all nine [available workflows](/workflows/overview#available-workflows).
+   - **Select individual workflows** to run one or more workflows from the [list of nine available workflows](/workflows/overview#available-workflows). Review the workflow descriptions to understand their expected coverage. 
+5. The workflow runs on the primary project branch by default. Uncheck the box to specify a different branch.
+6. Click **Run workflows**.
+
+Each on-demand request creates an Agentic Workflows run. A run can contain one or more **[jobs](/workflows/overview#how-agentic-workflows-work)** that perform the analysis on that repository.
+To view the jobs for a run, open the **Workflow jobs** tab on the **Project Details** page.
+
+After the run completes, review the results in Semgrep AppSec Platform to see the detection [issues](#review-agentic-workflows-issues) produced by the workflow.
+
+## Review Agentic Workflows issues
+
+Agentic Workflows produces [issues](/workflows/overview#how-agentic-workflows-work): deduplicated results you review in Semgrep AppSec Platform. Issues are separate from Semgrep Code, Semgrep Supply Chain, and Secrets findings. Actions taken on an Agentic Workflows issue do not change the status of a related finding from another Semgrep product.
+
+To review issues:
+
+1. In Semgrep AppSec Platform, go to **Workflows**.
+2. Optionally, filter the list by the criteria you choose, or select **Group and sort** to customize how issues are displayed.
+3. Select an issue to open its **Details** page and review the evidence, affected repository and code, workflow run, and issue status.
+
+You can triage an issue from the dropdown on the issues list or from the drop-down menu next to the issue title on the **Details** page.
+
+### Notifications and integrations
+
+Configure Agentic Workflows notifications with [Unified policies](/semgrep-appsec-platform/unified-policies/overview). Use a remediation policy that runs when a workflow job finishes.
+
+To configure a notification:
+
+1. In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
+2. Open the **Remediation** tab, then click **Create policy**.
+3. Select the event **A workflow job finishes**.
+4. Choose the scope, conditions, and actions for the policy, then click **Save**.
+
+## Expand coverage gradually
+
+Because Agentic Workflow runs consume [AI credits](/workflows/overview#credit-usage-and-billing), Semgrep recommends starting with a small set of high-value repositories and avoiding runs across all your projects until you understand the results and usage for your environment.
+Semgrep recommends the following rollout process:
+
+1. Select a few important repositories that represent your primary languages, frameworks, and application architectures.
+2. Run the Semgrep-recommended workflows. Optionally, skip workflows that you know aren't relevant to the risks in those repositories.
+3. Review the resulting issues for accuracy and usefulness.
+4. Share feedback with Semgrep, including missed vulnerabilities, unexpected results, and unclear issue details.
+5. Expand runs to more repositories after you understand expected results and credit consumption.
+
+Contact [Semgrep Support](/support) or your account executive to provide feedback during the beta period.
+
+## API access
+
+The Agentic Workflows API is experimental during the beta. Experimental APIs can change or be removed without notice and are not covered by Semgrep's standard API stability guarantees. Do not rely on the API for production automation.
+
