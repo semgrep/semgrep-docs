@@ -136,7 +136,7 @@ Under the minimal data retention policy, the following behavior remains unchange
 
 - If you upload context documentation to enhance AI-powered detection scans, these files are persistently stored in a Semgrep-managed Amazon S3 bucket to enable reuse across future AI-powered detection scans.
 - AI-powered detection scan reports are stored in a Semgrep-managed Amazon S3 bucket. These reports may contain metadata such as file names and, in some cases, code snippets included in issue descriptions.
-- Context discovered during scans is stored in a Semgrep-managed Amazon S3 bucket. This can include detected facts about the codebase, such as languages, frameworks, and structured data about relevant code features including file names and symbols.
+- Context discovered during scans is stored in a Semgrep-managed Amazon S3 bucket. This can include detected facts about the codebase, such as languages, frameworks, and structured data about relevant code features, including file names and symbols.
 
 Responses from Semgrep's AI model vendors are stored in the Semgrep database solely for providing Multimodal functionality. For instance, AI-generated remediation advice is stored so users can access it in the Semgrep AppSec Platform. However, code snippets are never retained to improve future prompts.
 
