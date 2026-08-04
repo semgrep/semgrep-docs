@@ -77,16 +77,18 @@ After signing in to your org's account, you can now sign in and scan with Semgre
 Install the Semgrep CLI tool and confirm the installation:
 
 ```bash
-# macOS users only - ensure that you've added Homebrew to your PATH
-# https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities
-brew install semgrep
-
 # macOS, Linux, Windows users - using pipx (recommended)
 # See https://pipx.pypa.io/stable/how-to/install-pipx/ to install pipx
 pipx install semgrep
 
 # Or, if you use uv (https://docs.astral.sh/uv/)
 uv tool install semgrep
+
+# macOS users only - ensure that you've added Homebrew to your PATH
+# https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities
+#
+# maintained on a best-effort basis; often lags behind the latest release
+brew install semgrep
 
 # confirm
 semgrep --version

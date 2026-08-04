@@ -1,7 +1,7 @@
 ---
-title: "Set up the Semgrep Network Broker"
+title: "Set up Semgrep Network Broker"
 sidebarTitle: "Semgrep Network Broker"
-description: "The Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet."
+description: "Semgrep Network Broker facilitates secure access between Semgrep and your private network. The Network Broker creates a WireGuard VPN tunnel to the Semgrep backend and proxies **inbound** HTTP requests from Semgrep to the customer through the tunnel. This allows Semgrep to communicate with private network resources like a Source Code Manager (SCM) without exposing them to the public internet."
 ---
 
 
@@ -19,17 +19,17 @@ Examples of inbound traffic include:
 <Info>
 **TIER AVAILABILITY**
 
-The Semgrep Network Broker is available to Enterprise tier users.
+Semgrep Network Broker is available to Enterprise tier users.
 </Info>
 
-The Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/support) to discuss having it enabled for your organization.
+Semgrep Network Broker is a feature that must be enabled in your Semgrep organization before setup. It is only available to paying customers. Contact the [Semgrep support team](/support) to discuss having it enabled for your organization.
 
 If you will be using the Network Broker with a dedicated Semgrep tenant, please note that in your request.
 
 ## Deployment
 The Network Broker can be run as a bare Docker container, in a Kubernetes cluster, or simply as a standalone binary on a machine.
 
-Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and package loss.
+Only one instance of the WireGuard-based Network Broker can be run at any time. Multiple brokers with the same configuration can cause disconnects, instability, and packet loss.
 
 ### System requirements
 - CPU: 1
@@ -65,7 +65,7 @@ Ensure that you are logged in to the server where you want to run Semgrep Networ
 <Tabs>
 <Tab title="v0.25.0 and later">
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL`, as well as the scopes required for the access tokens, are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
@@ -85,10 +85,10 @@ Create a `config.yaml` file similar to the following snippet, or copy a starting
 <Info>
 **NOTE**
 
-Semgrep recommends that users running Network Broker v0.24.0 or earlier to upgrade to v0.25.0 or later. This enables the use of a simplified config file.
+Semgrep recommends that users running Network Broker v0.24.0 or earlier upgrade to v0.25.0 or later. This enables the use of a simplified config file.
 </Info>
 
-Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at  **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
+Create a `config.yaml` file similar to the following snippet, or copy a starting config from the Semgrep AppSec Platform at **Settings > Broker**. The steps required to generate values for the placeholders `SEMGREP_LOCAL_ADDRESS`, `YOUR_PRIVATE_KEY`, and `YOUR_BASE_URL` are provided in subsequent steps of this guide.
 
 ```yaml
   inbound:
@@ -375,7 +375,7 @@ Semgrep creates and updates PR and MR status checks and verifies the existence o
 
 Semgrep Supply Chain can route [private registry](/semgrep-supply-chain/triage-and-remediation#registry-support) traffic through the Network Broker, allowing Semgrep to reach registries that aren't publicly accessible on the internet. This is useful when your package registry is hosted inside your private network and can't be accessed directly from the Semgrep backend.
 
-To enable this, select **Use network broker for registry access** when you [connect the registry to Semgrep](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep).
+To enable this, select **Use network broker for registry access** when you [connect the registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
 
 For the broker to reach your registry, add the registry URL to the `allowlist` and permit `GET` and `HEAD` requests:
 
@@ -388,9 +388,9 @@ inbound:
 
 Replace `<registry-host>` with the host of your registry.
 
-## Run multiple instances of the Semgrep Network Broker
+## Run multiple instances of Semgrep Network Broker
 
-Do not attempt to run multiple instances of the Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
+Do not attempt to run multiple instances of Semgrep Network Broker to increase availability. Running multiple instances can result in contention and is less reliable than running a single instance.
 
 ## Allowlist multiple source code managers with one configuration file
 
@@ -402,7 +402,7 @@ inbound:
     baseURL: https://GITHUB_BASE_URL/api/v3
 ```
 
-Subsequent entries for the same SCM require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
+Subsequent entries for the same SCM type, such as a second GitHub Enterprise Server instance, require you to modify `allowlist` and add specific information needed for the HTTP requests. The following is a sample allowlist for additional GitHub entries:
 
 ```yaml
 inbound:
@@ -426,3 +426,5 @@ inbound:
     ...
 ```
 See the [broker README](https://github.com/semgrep/semgrep-network-broker?tab=readme-ov-file) for more details on required endpoints.
+
+If you are seeing authorization issues but are confident the token provided in your Network Broker configuration has the correct permissions, review all entries in the allowlist to be sure that they specify the correct token.

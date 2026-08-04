@@ -4,9 +4,9 @@ description: "You can customize Semgrep Multimodal by enabling and using the fea
 ---
 
 
-## Autofix (beta)
+## Autofix
 
-To receive AI-generated code changes for Semgrep Code findings, enable [Autofix](/semgrep-code/triage-remediation/autofix). Autofix (beta) opens a pull request or merge request with proposed fixes.
+To receive AI-generated code changes for Semgrep Code findings, enable [Autofix](/semgrep-code/triage-remediation/autofix). Autofix opens a pull request or merge request with proposed fixes.
 
 ## Suggested fix
 
@@ -34,7 +34,7 @@ Semgrep recommends setting a low confidence level since even imperfect suggestio
 
 ## Weekly priority emails
 
-[Weekly priority emails](/semgrep-multimodal/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature isn't enabled for your deployment, you can do so as follows:
+[Weekly priority emails](/semgrep-multimodal/overview/#weekly-priority-emails) allows organization admins to receive information on top backlog tasks according to Multimodal. If this feature is not enabled for your deployment, you can do so as follows:
 
 <Steps>
   <Step>
@@ -171,7 +171,7 @@ Only users assigned the `admin` role in Semgrep can activate suggested memories.
   Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
   </Step>
   <Step>
-  Navigate to [<Icon icon="gear" iconType="solid"/>**Rules * Policies > Memories**](https://semgrep.dev/orgs/-/memories).
+  Navigate to [<Icon icon="gear" iconType="solid"/>**Rules & Policies > Memories**](https://semgrep.dev/orgs/-/memories).
   </Step>
   <Step>
   Identify the memory you would like to delete, then click the <Icon icon="trash"/>**icon** to remove the memory.
@@ -237,7 +237,22 @@ If you want to keep all data within your AWS account, you can use your own Amazo
 
 Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
 
-Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARN `us.anthropic.claude-sonnet-4-20250514-v1:0`
+Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARNs `anthropic.claude-sonnet-4-6` and `anthropic.claude-haiku-4-5-20251001-v1:0`.
+
+#### Supported AWS regions
+
+When you use your own Amazon Bedrock account, you can select one of the following AWS regions:
+
+- US East (N. Virginia) - `us-east-1`
+- US East (Ohio) - `us-east-2`
+- US West (N. California) - `us-west-1`
+- US West (Oregon) - `us-west-2`
+
+All Bedrock calls are pinned to the region you select. Semgrep does not use AWS cross-region inference profiles for customer-managed Bedrock accounts, so requests stay within your configured region. 
+
+<Note>
+Since Semgrep does not use AWS cross-region inference profiles, the models Multimodal requires must be available for on-demand inference in the selected region. Because of that requirement, regions outside the US (where the models are offered only through cross-region inference profiles) are not currently supported.
+</Note>
 
 ### Azure OpenAI
 
@@ -258,7 +273,7 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
 <Note>
 **NOTE**
 
-As of May 2025, the best model for noise filtering is `o3-mini`, which performs better than `o4-mini`. The best model for other Semgrep Multimodal features is `gpt-4.1`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
+As of May 2025, the best model for noise filtering is `gpt-5.4`. The best model for other Semgrep Multimodal features is `gpt-5.5`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
 </Note>
 
 ### Google Gemini
