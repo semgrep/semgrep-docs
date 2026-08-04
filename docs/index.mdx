@@ -160,21 +160,14 @@ mode: custom
 </div>
 
 <div className='flex flex-col gap-2 mb-6 mt-10 justify-center items-left'>
-<h2 className='text-3xl font-bold text-[#24434f] dark:text-white'>June 2026 release notes summary</h2>
-<ul className='text-base text-[#24434f] dark:text-white list-disc ml-6 space-y-2 mt-4'>
-  <li>**Unified policies** is now in beta. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.</li>
-  <li>**Autofix** can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps.</li>
-  <li>Semgrep AppSec Platform's **Usage & billing** page now includes an interactive chart of daily AI credit spend by category, along with other AI credit visibility and billing updates.</li>
-  <li>You can now use the `--max-match-context-size` CLI flag to limit how much surrounding source code Semgrep includes with each match, keeping scan output manageable for minified files.</li>
-  <li>Supply Chain dependency searches now support version ranges, and you can export SBOMs in CycloneDX 1.5, 1.6, or 1.7.</li>
-</ul>
-<p className='text-base text-[#24434f] dark:text-white mt-4'>
-  <a href="/release-notes" style={{ color: '#624def', textDecoration: 'none', fontWeight: '500' }} onMouseOver={(e) => e.target.style.textDecoration = 'underline'} onMouseOut={(e) => e.target.style.textDecoration = 'none'}>See the latest release notes →</a>
-</p>
-<p className='text-base text-[#24434f] dark:text-white' style={{ textAlign: 'right' }}>
-  <a href="https://docs.semgrep.dev/release-notes/rss.xml" style={{ color: '#624def', textDecoration: 'none', fontWeight: '500' }} onMouseOver={(e) => e.target.style.textDecoration = 'underline'} onMouseOut={(e) => e.target.style.textDecoration = 'none'}>Subscribe to RSS feed</a>
-</p>
+<h2 className='text-3xl font-bold text-[#24434f] dark:text-white'>What's New</h2>
+<p className='text-xl text-[#24434f] dark:text-white'>See the latest Semgrep product highlights and weekly release notes.</p>
 </div>
+
+<CardGroup cols={2}>
+  <Card title="What's New" icon="bullhorn" href="/whats-new" horizontal />
+  <Card title="Subscribe to RSS" icon="rss" href="https://docs.semgrep.dev/whats-new/rss.xml" horizontal />
+</CardGroup>
 
 </div>
 </div>
