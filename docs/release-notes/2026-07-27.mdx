@@ -19,6 +19,7 @@ sidebarTitle: "Week of July 27, 2026"
 ### Added
 
 - Webhook validation and test failure error messages now include specific failure reasons.
+- Semgrep now shows a confirmation warning when you add or remove project tags that are attached to policies, both during bulk edit and from a project's settings page.
 
 ### Fixed
 
@@ -28,6 +29,10 @@ sidebarTitle: "Week of July 27, 2026"
 - Fixed an issue where a Slack notification channel mapping was deleted when the Semgrep Slack app lacked permission to post to a private channel. Semgrep now removes the mapping only when the channel is deleted.
 
 ## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- You can configure [license compliance](/semgrep-supply-chain/license-compliance) to block a dependency only when all of its licenses are blocked, instead of when any license is blocked.
 
 ### Changed
 
