@@ -15,17 +15,17 @@ sidebarTitle: "Week of July 20, 2026"
 
 - Semgrep cancels in-progress, full Managed Scans when an incident-response scan starts for the same repository, so a late-finishing scan cannot overwrite incident-response findings. Superseded scans appear as **Cancelled** with an explanatory tooltip.
 - Opening Slack connect from a policy now opens in a new tab instead of a side drawer.
-- Standardized the order and grouping of the integrations settings menu and page.
+- Standardized the order and grouping of items on the **Settings > Integrations** page.
 
 ## 💻 Semgrep Code
 
 ### Added
 
-- Extended the window for collecting git contributor information during `semgrep ci` from the last 30 days to the last 90 days, matching the contributor usage policy.
+- Extended the period for collecting Git contributor information when you run `semgrep ci` from the last 30 days to the last 90 days, matching the contributor usage policy.
 
 ### Changed
 
-- Improved the scan status output when no Code rules will run, such as a Secrets-only or Supply Chain-only scan. The summary no longer reports a confusing "0 Code rules" count and instead states that code scanning is not enabled or that there are no Code rules to run.
+- Improved the scan status output when no Code rules run, such as a Secrets-only or Supply Chain-only scan. The summary no longer reports a "0 Code rules" count and instead states that Code scanning is not enabled or that there are no Code rules to run.
 
 ### Fixed
 
@@ -45,17 +45,17 @@ sidebarTitle: "Week of July 20, 2026"
 
 ### Fixed
 
-- Fixed an issue where lockfileless Gradle dependency resolution failed with a "Parsing dependency output failed" error.
+- Fixed an issue where Dynamic Dependency Resolution for Gradle projects failed with a "Parsing dependency output failed" error.
 
 ## 🤖 Semgrep Multimodal
 
 ### Added
 
-- Findings that span multiple files can now be verified against their entire fileset when Semgrep checks whether an AI-powered detection finding is still present, instead of being judged against only one file.
+- Findings that span multiple files can now be verified against their entire fileset when Semgrep verifies whether an AI-powered detection finding is still present, instead of being compared against only one file.
 
 ### Fixed
 
-- Fixed an issue where AI-powered detection scan eligibility was disabled entirely when Semgrep Managed Scans was disabled, instead of only when no valid AI providers were configured.
+- Fixed an issue where AI-powered detection scan eligibility was disabled when Semgrep Managed Scans was disabled, instead of when no valid AI providers were configured.
 
 ## 🔧 Semgrep Community Edition
 
