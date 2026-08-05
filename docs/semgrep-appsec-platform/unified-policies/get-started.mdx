@@ -1,10 +1,12 @@
 ---
-title: "Create and manage unified policies"
+title: "Migrate to and create Unified policies"
 ---
 
 This document explains how to migrate existing policies to [unified policies](/semgrep-appsec-platform/unified-policies/overview), as well as how to create new unified policies.
 
 ## Migrate existing policies
+
+To migrate your existing legacy policies and use Unified policies:
 
 <Steps>
 <Step>
@@ -28,35 +30,6 @@ When you have completed the migration process, you are redirected to the new **P
 <note>
   <strong>Note:</strong> Email notifications are not supported by Unified Policies. If you currently have an email integration set up, no additional emails will be sent after you migrate to Unified Policies.
 </note>
-
-## Manage existing detection policies
-
-<Steps>
-<Step>
-Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
-</Step>
-<Step>
-Go to **Rules & Policies > Detection**. You can manage your policies for:
-      - Code rules
-      - Secrets rules
-      - Supply Chain advisories
-</Step>
-<Step>
-Select the product for which you’d like to manage your Detection policy, and click **Edit**.
-</Step>
-<Step>
-Find the rules and rulesets you’d like to modify. Filters allow you to narrow the list of rules based on scanning behaviors, languages, rulesets, and more. You can also search for a rule using its name or label.
-</Step>
-<Step>
-To change the behavior of your rules:<br/><br/>
-      i. Select the rules by clicking the checkboxes next to their names, then click **Change scanning behavior (n)**. If you're modifying only one rule, you can click the rule’s link in the **Projects scanning** column.<br/><br/>
-      ii. The **Projects scanning** dialog appears. You can choose to use the rules with **All projects**, **Selected projects** by **Project name**, **Selected projects** by **Tags**, **All with exceptions**, or **None (disable)**.<br/><br/>
-      iii. To use the rules with all of your projects, click **All projects**, then click **Save**.<br/><br/>
-      iv. To use the rules with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.<br/><br/>
-      v. To exclude specific projects, click **All with exceptions**, then select the projects to which the rule doesn’t apply. Click **Save** to proceed.<br/><br/>
-      vi. To prevent the rules from being used at all, click **None (Disable)**, then **Save** to proceed.
-</Step>
-</Steps>
 
 ## Create a remediation policy
 
@@ -122,7 +95,7 @@ To create a policy that defines the automated responses to security findings:<br
 
 ## Configure default remediation policies
 
-Some remediation policies are created for you by default and can't be renamed or deleted — only enabled and configured with actions. Supply Chain incidents, for example, use a dedicated policy that already exists for your organization.
+Some remediation policies are created for you by default and can't be renamed or deleted. They can only be enabled and configured with the actions you choose. Supply Chain incidents, for example, use a dedicated policy that already exists for your organization.
 
 <Steps>
 <Step>
