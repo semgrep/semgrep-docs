@@ -1650,6 +1650,10 @@
       "destination": "/semgrep-appsec-platform/dashboard"
     },
     {
+      "source": "/semgrep-appsec-platform/details-page",
+      "destination": "/semgrep-appsec-platform/findings-details"
+    },
+    {
       "source": "/deployment/managed-scanning",
       "destination": "/deployment/managed-scanning/overview"
     },
