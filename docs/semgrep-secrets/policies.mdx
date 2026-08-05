@@ -1,11 +1,12 @@
 ---
-title: "Manage Semgrep Secrets rules using the policies page"
-sidebarTitle: "Manage rules and policies"
+title: "Manage rules and policies"
 ---
 
-<Note>
-<b>Upgrade to Unified Policies:</b> Semgrep's latest version of **Policies** unifies policies across finding types, allows you to assign different policies to different projects, and adds conditional logic. See [Unified Policies](/semgrep-appsec-platform/unified-policies/overview) for more information.
-</Note>
+Legacy policies for Semgrep Secrets have been deprecated. However, if you haven't migrated to [Unified policies](/semgrep-appsec-platform/unified-policies/overview), refer to the information in the following expandable section to view and manage your existing policies.
+
+<Accordion
+    title="Legacy policies for Semgrep Secrets (deprecated)"
+>
 
 To access the policies page for Semgrep Secrets, sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to **Rules & policies > Policies > Secrets**.
 
@@ -257,12 +258,16 @@ Semgrep enables you to set a **workflow action** based on the presence of a find
 
 You can trigger these actions based on the [rule mode](#rule-modes) set for the rule.
 
-
-<Accordion title={"Troubleshooting: no pull request or merge request comments for Semgrep Secrets"}>
+## Troubleshooting: no pull request or merge request comments for Semgrep Secrets
 
 If you're encountering issues getting PR comments for Semgrep Secrets:
 
 * Make sure the rule is in **Comment** or **Block** mode
 * Review the [PR or MR comments guide for your SCM](/category/pr-or-mr-comments)
 * Explore [other reasons you may not see PR or MR comments](/kb/semgrep-appsec-platform/missing-pr-comments)
+
 </Accordion>
+
+<Note>
+Semgrep's latest version of **Policies** unifies policies across finding types, allows you to assign different policies to different projects, and adds conditional logic. See [Unified policies](/semgrep-appsec-platform/unified-policies/overview) for more information.
+</Note>
