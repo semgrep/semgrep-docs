@@ -266,9 +266,17 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
    1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/>**Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
    2. Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
    3. Select **Azure OpenAI**.
-   4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**.
+   4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**. The endpoint must include the full path and API version query parameter. The expected format is:
+
+      `https://<YOUR_RESOURCE_NAME>.openai.azure.com/openai/deployments/<DEPLOYMENT_NAME>/chat/completions?api-version=<API_VERSION>`
+
+      For example: `https://my-resource.openai.azure.com/openai/deployments/mymodel/chat/completions?api-version=2023-05-06-preview`.
    5. Paste the API key you copied from Azure into **Your Azure OpenAI API key**.
    6. Click **Save** to proceed.
+
+<Warning>
+If Semgrep cannot save your endpoint and API key, confirm that the endpoint includes both `/openai/deployments/<DEPLOYMENT_NAME>/chat/completions` and the `?api-version=` query parameter. Pasting only the base resource URL (for example, `https://my-resource.openai.azure.com`) fails with a missing configuration error.
+</Warning>
 
 <Note>
 **NOTE**
