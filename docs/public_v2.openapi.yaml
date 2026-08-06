@@ -7039,6 +7039,13 @@ components:
                         - FIX_JOB_ERROR_TYPE_CREDITS_EXHAUSTED
                         - FIX_JOB_ERROR_TYPE_SCM_TOKEN_FAILED
                         - FIX_JOB_ERROR_TYPE_CODE_ACCESS_NOT_GRANTED
+                        - FIX_JOB_ERROR_TYPE_ARCHIVED_REPOSITORY
+                        - FIX_JOB_ERROR_TYPE_AUTOFIX_DISABLED
+                        - FIX_JOB_ERROR_TYPE_NON_PRIMARY_BRANCH_DISABLED
+                        - FIX_JOB_ERROR_TYPE_AI_PROVIDER_NOT_ALLOWED
+                        - FIX_JOB_ERROR_TYPE_GROUPING_DISABLED
+                        - FIX_JOB_ERROR_TYPE_INVALID_GROUP
+                        - FIX_JOB_ERROR_TYPE_UNSUPPORTED_ISSUE_TYPE
                     type: string
                     description: |+
                         The type of error that occurred during fix job creation.
@@ -7051,6 +7058,13 @@ components:
                         | FIX_JOB_ERROR_TYPE_CREDITS_EXHAUSTED | The organization has exhausted its AI credits. |
                         | FIX_JOB_ERROR_TYPE_SCM_TOKEN_FAILED | Failed to obtain an SCM access token for the repository. |
                         | FIX_JOB_ERROR_TYPE_CODE_ACCESS_NOT_GRANTED | Code access has not been granted for the repository. |
+                        | FIX_JOB_ERROR_TYPE_ARCHIVED_REPOSITORY | The repository is archived and cannot receive an Autofix pull request. |
+                        | FIX_JOB_ERROR_TYPE_AUTOFIX_DISABLED | Code Autofix is not enabled for the requested issue. |
+                        | FIX_JOB_ERROR_TYPE_NON_PRIMARY_BRANCH_DISABLED | Code Autofix is not enabled for the requested issue's non-primary branch. |
+                        | FIX_JOB_ERROR_TYPE_AI_PROVIDER_NOT_ALLOWED | The deployment does not allow an AI provider required by Code Autofix. |
+                        | FIX_JOB_ERROR_TYPE_GROUPING_DISABLED | Grouping multiple findings into one Autofix pull request is not enabled. |
+                        | FIX_JOB_ERROR_TYPE_INVALID_GROUP | The requested Autofix group is invalid. |
+                        | FIX_JOB_ERROR_TYPE_UNSUPPORTED_ISSUE_TYPE | The requested issue type is not supported by Code Autofix. |
 
                     format: enum
                 message:
@@ -7922,6 +7936,12 @@ components:
                     type: object
                     additionalProperties:
                         type: string
+                id:
+                    type: string
+                    description: |-
+                        Server-assigned id of the stored automation action. Output only: set on
+                         read responses so clients can fetch the action's execution results
+                         (ListAutomationActionResults); ignored on create/update.
         protos.automations.v1.Automation:
             type: object
             properties:
@@ -8563,6 +8583,9 @@ components:
                     type: array
                     items:
                         type: string
+                mdr_enabled:
+                    readOnly: true
+                    type: boolean
         protos.deployment.v1.CreateDeploymentRequest:
             type: object
             properties:
@@ -12152,6 +12175,9 @@ components:
             properties:
                 success:
                     type: boolean
+                errorDetail:
+                    type: string
+                    description: When success is false, a short human-readable explanation of the failure (HTTP status, timeout, DNS, etc.).
         protos.notification_webhooks.v1.CreateNotificationWebhookRequest:
             type: object
             properties:
@@ -12220,6 +12246,9 @@ components:
                 success:
                     type: boolean
                     description: Whether the test was successful
+                errorDetail:
+                    type: string
+                    description: When success is false, a short human-readable explanation of the failure (HTTP status, timeout, DNS, etc.).
         protos.notification_webhooks.v1.UpdateNotificationWebhookRequest:
             type: object
             properties:
@@ -17911,12 +17940,14 @@ components:
                     type: object
                 automationStates:
                     $ref: '#/components/schemas/protos.ticketing.v2.AutomationStates'
-                transitionStates:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/protos.ticketing.v2.JiraTransition'
                 subtaskIssueTypeId:
                     type: string
+                fixedTransitionState:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ticketing.v2.JiraTransition'
+                    description: |-
+                        The Jira transition fired when a finding reaches the fixed state. Read from
+                         the nango_ticketing_instance.config column, not Nango metadata.
         protos.ticketing.v2.UnlinkTicketRequest:
             type: object
             properties:
@@ -18013,7 +18044,7 @@ tags:
       x-displayName: AI Fix Jobs
       x-group: AI Fix Jobs
     - name: AiTasksService
-      description: Manage AI tasks, such as triage, autotriage, and issue tagging backfill
+      description: Manage AI tasks, such as triage, auto-triage, and issue tagging backfill
       x-displayName: Ai Tasks
       x-group: Ai Tasks
     - name: AutofixService
