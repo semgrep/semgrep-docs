@@ -2,7 +2,7 @@
 title: "Detect and remove malicious dependencies"
 ---
 
-**Malicious dependencies**, also known as malware, are dangerous packages or versions of packages designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code.
+**Malicious dependencies**, also known as malware, are dangerous packages or versions of packages designed to compromise systems. These threats include packages that have always been malicious, such as typosquatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code.
 
 Semgrep can detect malicious dependencies in your projects and pull requests (PRs) or merge requests (MRs).
 
@@ -62,12 +62,12 @@ After reviewing your findings, you can choose one of the following actions:
 <Warning>
 **CAUTION**
 
-If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > General > Global > Default developer triage permissions**, your developers are able to triage these findings as **Ignored**.
+If you have configured your policies to display malicious dependency findings to your developers and enabled **Settings > General > Global > Default developer triage permissions**, your developers can triage these findings as **Ignored**.
 </Warning>
 
 ## Create Jira tickets
 
-Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch. This capability enables developers to respond immediately when a malicious package is detected.
+Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch, so developers can respond immediately when a malicious package is detected. 
 
 To enable Jira ticket creation for malicious dependencies:
 
@@ -96,4 +96,4 @@ Go to the **Advisory type** filter, and ensure that only **<Icon icon="square-ch
 </Step>
 </Steps>
 
-Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it might be appropriate to set the status of all findings for that advisory as **Ignored**.
+Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you don't use those sources and have never done so, then it might be appropriate to set the status of all findings for that advisory as **Ignored**.
