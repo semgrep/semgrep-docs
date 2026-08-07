@@ -7,7 +7,8 @@ description: "You may see different findings counts across the [Dashboard](/semg
 
 Semgrep AppSec Platform computes the findings count displayed on the **Projects** page as follows:
 
-- For Semgrep Code and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](/deployment/primary-branch). The Projects page displays **Open** findings. This does not currently include findings in the **To Fix** or **Fixing** statuses.
+- The Projects page includes findings with the **Open**, **Reviewing**, and **To fix** statuses.
+- For Semgrep Code and Semgrep Supply Chain, the findings count is computed using the [**primary branch**](/deployment/primary-branch).
 - For Semgrep Secrets, the findings count is computed from [deduplicated findings across all branches](/semgrep-secrets/triage-remediation#default-secrets-page-view-and-branch-logic).
 
 The product-specific **Findings** pages display findings as follows:
@@ -18,7 +19,7 @@ The product-specific **Findings** pages display findings as follows:
 
 ## The Projects page displays a different findings count from the Scans page
 
-The **Projects** page counts the **Open** findings identified in the **primary branch**, while the **Projects > Project Details > Scans** page lists each scan individually, with a count of the findings identified on the branch that Semgrep scanned. The **Scans** page entry for a scan displays all findings that were identified in that scan, regardless of their current status.
+For Semgrep Code and Semgrep Supply Chain, the **Projects** page counts findings with the **Open**, **Reviewing**, or **To fix** status identified in the **primary branch**. The **Projects > Project Details > Scans** page lists each scan individually, with a count of the findings identified on the branch that Semgrep scanned. The **Scans** page entry for a scan displays all findings that were identified in that scan, regardless of their current status.
 
 ## The Dashboard page displays a different findings count from the Findings pages
 
@@ -39,7 +40,7 @@ By default, **Recommended priority** filters are enabled. If you choose to turn 
 
 ## The Time period filter
 
-The **Time period** filter that is active on a page can also significantly affect what data is shown. The **Projects** page does not have a time period filter; it always displays currently open findings.
+The **Time period** filter that is active on a page can also significantly affect what data is shown. The **Projects** page does not have a time period filter; it always displays findings currently in the **Open**, **Reviewing**, or **To fix** statuses.
 
 - The **Dashboard** page defaults to a time period of 3 months, and can display time periods between 7 days and 1 year.
 - The **Findings** pages default to **All time**. The **Time period** filters on these pages allow selection between **Opened**, **Triaged**, and **Fixed** options, and between 1 day and all time (as long as the organization has been running Semgrep scans). For example, you can view findings that have been **Triaged** in the last 7 days.
