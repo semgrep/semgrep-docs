@@ -1,10 +1,12 @@
 ---
-title: "Create and manage unified policies"
+title: "Create and manage Unified policies"
 ---
 
-This document explains how to migrate existing policies to [unified policies](/semgrep-appsec-platform/unified-policies/overview), as well as how to create new unified policies.
+This document explains how to migrate existing policies to [unified policies](/semgrep-appsec-platform/unified-policies/overview), how to create new policies, and how to manage existing ones.
 
 ## Migrate existing policies
+
+To migrate your existing legacy policies and use Unified policies:
 
 <Steps>
 <Step>
@@ -29,35 +31,6 @@ When you have completed the migration process, you are redirected to the new **P
   <strong>Note:</strong> Email notifications are not supported by Unified Policies. If you currently have an email integration set up, no additional emails will be sent after you migrate to Unified Policies.
 </note>
 
-## Manage existing detection policies
-
-<Steps>
-<Step>
-Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
-</Step>
-<Step>
-Go to **Rules & Policies > Detection**. You can manage your policies for:
-      - Code rules
-      - Secrets rules
-      - Supply Chain advisories
-</Step>
-<Step>
-Select the product for which you’d like to manage your Detection policy, and click **Edit**.
-</Step>
-<Step>
-Find the rules and rulesets you’d like to modify. Filters allow you to narrow the list of rules based on scanning behaviors, languages, rulesets, and more. You can also search for a rule using its name or label.
-</Step>
-<Step>
-To change the behavior of your rules:<br/><br/>
-      i. Select the rules by clicking the checkboxes next to their names, then click **Change scanning behavior (n)**. If you're modifying only one rule, you can click the rule’s link in the **Projects scanning** column.<br/><br/>
-      ii. The **Projects scanning** dialog appears. You can choose to use the rules with **All projects**, **Selected projects** by **Project name**, **Selected projects** by **Tags**, **All with exceptions**, or **None (disable)**.<br/><br/>
-      iii. To use the rules with all of your projects, click **All projects**, then click **Save**.<br/><br/>
-      iv. To use the rules with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.<br/><br/>
-      v. To exclude specific projects, click **All with exceptions**, then select the projects to which the rule doesn’t apply. Click **Save** to proceed.<br/><br/>
-      vi. To prevent the rules from being used at all, click **None (Disable)**, then **Save** to proceed.
-</Step>
-</Steps>
-
 ## Create a remediation policy
 
 <Steps>
@@ -68,69 +41,136 @@ Sign in to Semgrep AppSec Platform.
 Go to **Rules & Policies > Remediation**. 
 </Step>
 <Step>
-To create a policy that defines the automated responses to security findings:<br/><br/>
-   i. Click **+ Create automation**.<br/><br/>
-   ii. Provide a **Policy name**.<br/><br/>
-   iii. Set the **Scope** of the policy by selecting all of the projects to which this policy applies.<br/><br/>
-   iv. Define the **Conditions** that trigger the policy by clicking **+ Add condition** to expand a drop-down list of attributes that you can use. Select the attribute, then set the specific conditions. 
+To create a policy that defines the automated responses to security findings:
+   1. Click **+ Create automation**.
+   1. Provide a **Policy name**. If **Auto** is enabled, this field auto-populates with a descriptive name based on the conditions and actions you define for the policy. Toggle to **Auto-off** to manually enter a name for the policy.
+   1. Set the **Scope** of the policy by selecting all of the projects to which this policy applies. You can select all projects, select specific projects by name, or select specific projects by project tags.
+   1. Define the **Conditions** that trigger the policy by clicking **+ Add condition** to expand a drop-down list of attributes that you can use. Select the attribute, then set the specific conditions. 
       - For example, you can select **Severity**, then complete the conditional statement provided to read **When Severity is any of Critical, High**.
       - You can define as many conditions as necessary, and Semgrep treats them additively.
+   1. Choose the **Actions** that occur if there are findings that trigger the policy by clicking **+ Add action**. You can choose multiple **Actions**, including:
 
-   v. Choose the **Actions** that occur if there are findings that trigger the policy by clicking **+ Add action**. You can choose multiple **Actions**, including:
       <CardGroup>
-      <Card
-      title="Block merge and comment on PR/MR"
-      icon="code-branch"
-      href="/category/pr-or-mr-comments"
-      horizontal
-      />
-      <Card
-      title="Comment on PR/MR"
-      icon="message"
-      href="/category/pr-or-mr-comments"
-      horizontal
-      />
-      <Card
-      title="Create a JIRA ticket"
-      icon="jira"
-      href="/semgrep-appsec-platform/jira"
-      horizontal
-      />
-      <Card
-      title="Send a Slack message"
-      icon="paper-plane"
-      href="/semgrep-appsec-platform/slack-notifications"
-      horizontal
-      />
-      <Card
-      title="Call a webhook"
-      icon="globe"
-      href="/semgrep-appsec-platform/webhooks"
-      horizontal
-      />
-      <Card
-      title="Require developer exception requests"
-      icon="lock-open"
-      href="/semgrep-appsec-platform/developer-exception-requests"
-      horizontal
-      />
-</CardGroup>
+         <Card
+         title="Block merge and comment on PR/MR"
+         icon="code-branch"
+         href="/category/pr-or-mr-comments"
+         horizontal
+         />
+         <Card
+         title="Comment on PR/MR"
+         icon="message"
+         href="/category/pr-or-mr-comments"
+         horizontal
+         />
+         <Card
+         title="Create a JIRA ticket"
+         icon="jira"
+         href="/semgrep-appsec-platform/jira"
+         horizontal
+         />
+         <Card
+         title="Send a Slack message"
+         icon="paper-plane"
+         href="/semgrep-appsec-platform/slack-notifications"
+         horizontal
+         />
+         <Card
+         title="Call a webhook"
+         icon="globe"
+         href="/semgrep-appsec-platform/webhooks"
+         horizontal
+         />
+         <Card
+         title="Require developer exception requests"
+         icon="lock-open"
+         href="/semgrep-appsec-platform/developer-exception-requests"
+         horizontal
+         />
+      </CardGroup>
 
-   vi. Click **Create & Enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Create** to save your changes without enabling the policy.
+   1. Click **Create & Enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Create** to save your changes without enabling the policy.
 </Step>
 </Steps>
 
 ## Configure default remediation policies
 
-Some remediation policies are created for you by default and can't be renamed or deleted — only enabled and configured with actions. Supply Chain incidents, for example, use a dedicated policy that already exists for your organization.
+Some remediation policies are created for you by default and can't be renamed or deleted. They can only be enabled and configured with the actions you choose. Supply Chain incidents, for example, use a dedicated policy called **Early notification for Supply Chain incidents** that already exists for your organization.
 
 <Steps>
 <Step>
 Go to **Rules & Policies > Remediation**, and find the default policy for the feature you want to configure.
 </Step>
 <Step>
-Add the **Actions** you want it to perform, then enable the policy.
+Go to **Rules & Policies > Remediation**, and find the default policy for the feature you want to configure. Click its <Icon icon="ellipsis" iconType="solid"/> icon, then click **Edit policy**.
+</Step>
+<Step>
+Go to **Actions**, and add the **Actions** you want to occur when Semgrep identifies findings and the defined **Conditions are met.
+</Step>
+<Step>
+Click **Update and enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Update** to save your changes without enabling the policy.
 </Step>
 </Steps>
 
 See [Supply Chain incident notifications and response](/semgrep-supply-chain/incident-notifications) for a complete walkthrough of the default Supply Chain incident policy.
+
+## Manage detection policies
+
+<Steps>
+    <Step>
+        Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+    </Step>
+    <Step>
+        Go to **Rules & Policies > Detection**. Find the policy that you'd like to edit, and click **Edit** to open the editor. You can manage your policies for Code rules, Secrets rules, and Supply Chain licenses. 
+    </Step>
+    <Step>
+    To modify your detection policy for:
+    <Tabs>
+        <Tab title="Code and Secrets rules">
+            <Steps>
+                <Step>
+                    Find the rules and rulesets you'd like to modify. Filters allow you to narrow the list of rules based on scanning behaviors, languages, rulesets, and more. You can also search for a rule using its name or label.
+                </Step>
+                <Step>
+                    To change the behavior of your rules:
+                    1. Select the rules by clicking the checkboxes next to their names. Then, click **Change scanning behavior (n)**. If you're modifying only one rule, you can click the rule's link in the **Projects scanning** column.
+                    1. The **Projects scanning** dialog appears. You can choose to use the rules with **All projects**, **Selected projects** by **Project name**, **Selected projects** by **Tags**, **All with exceptions**, or **None (disable)**.
+                    1. To use the rules with all of your projects, click **All projects**, then click **Save**.
+                    1. To use the rules with some of your projects, click **Selected projects**, then click the checkboxes next to the projects to which the rule applies. Click **Save** to proceed.
+                    1. To exclude specific projects, click **All with exceptions**, then select the projects to which the rule doesn't apply. Click **Save** to proceed.
+                    1. To prevent the rules from being used at all, click **None (Disable)**, then **Save** to proceed.
+                </Step>
+            </Steps>            
+        </Tab>
+        <Tab title="Supply Chain licenses">
+            See [License compliance](/semgrep-supply-chain/license-compliance#view-license-policy) to learn how to view and manage your detection policies regarding Supply Chain licenses.
+        </Tab>
+    </Tabs>
+    </Step>
+</Steps>
+
+## Manage remediation policies
+
+<Steps>
+<Step>
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
+</Step>
+<Step>
+Go to **Rules & Policies > Remediation**. You can manage your policies for individual Semgrep products, as well as those that apply to findings from multiple Semgrep products. For policies that apply to multiple products, the policies are triggered whenever the findings meet the criteria that you define.
+</Step>
+<Step>
+Find the Remediation policy that you'd like to edit. Click its <Icon icon="ellipsis" iconType="solid"/> icon, then click **Edit policy**.
+</Step>
+<Step>
+On the **Edit policy** page, you can:
+
+- Change the **Policy name**.
+- Choose the **Event** that triggers the policy.
+- Define the **Scope**, which is the set of projects to which the policy applies.
+- Define the **Conditions** that trigger the policy.
+- Choose the **Actions** that occur if there are findings that trigger the policy.
+</Step>
+<Step>
+Click **Update** to save and proceed.
+</Step>
+</Steps>
