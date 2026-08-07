@@ -1,6 +1,6 @@
 ---
-title: "Malware incident response with Semgrep Supply Chain"
-description: "This document describes how to respond to a malicious dependency incident using Semgrep Supply Chain."
+title: "Respond to a malware incident with Semgrep Supply Chain"
+description: "How to respond to a malicious dependency incident using Semgrep Supply Chain."
 ---
 
 ## 0. Configure notifications for supply chain incidents
@@ -11,28 +11,31 @@ The rest of this document describes the manual process, which is useful if you h
 
 ## 1. Check the results from your most recent full scan
 
-Semgrep maintains a record of the dependencies in your project that is updated whenever a full scan runs. As soon as you have reason to be concerned, check this record to see if those packages and versions were present in your environment at the time of the scan.
+Semgrep maintains a record of the dependencies in your project. This record is updated whenever a full scan runs. As soon as you have reason to be concerned, check this record to see if the affected packages and versions were present in your environment at the time of the scan.
 
-You can do this in Semgrep AppSec Platform using the [**Dependencies** tab](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) and its dependency search functionality or through the Semgrep API.
+You can do this [in Semgrep AppSec Platform using the **Dependencies** tab and its dependency search functionality](#find-malicious-versions-of-packages-with-dependency-search), or you can [use the Semgrep API](#find-malicious-versions-of-packages-using-the-semgrep-api).
 
 ### Find malicious versions of packages with dependency search
 
-The [dependency search](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) allows you to search:
+The [dependency search](https://semgrep.dev/orgs/-/supply-chain/t/dependencies) allows you to search for:
 
-- For a package using its name, such as `gitdb2`
-- For a specific version of a package
-- For a range of versions, such as `tar` versions between 4.0 and 5.0
+- A package using its name, such as `gitdb2`
+- A specific version of a package
+- A range of versions, such as `tar` versions between 4.0 and 5.0
 
-To search for dependencies:
-
+To search for dependencies, enter the dependency name and press **Enter** or **Return**. You can also search for multiple packages simultaneously. Your search returns a list of matches, but you can then filter your results further by version number:
 <Steps>
   <Step>
-  Enter the dependency name and press **Enter** or **Return**. This returns a list of matches, but you can then filter your results further by version number:
-    
-    i. Click the name of your dependency to open the **Dependency** dialog: <br />
-    ii. To search for a **specific version** of a package, click **Exact match**, then enter the **version** number. <br />
-    iii. To search for a **range of versions**, click **Range**, then enter the minimum and maximum versions. <br />
-    iv. Click **Apply** to save your changes and see your results.
+  Click the name of your dependency to open the **Dependency** dialog: 
+  </Step>
+  <Step>
+  To search for a **specific version** of a package, click **Exact match**, then enter the **version** number.
+  </Step>
+  <Step>
+  To search for a **range of versions**, click **Range**, then enter the minimum and maximum versions.
+  </Step>
+  <Step>
+  Click **Apply** to save your changes and see your results.
   </Step>
 </Steps>
 
@@ -56,13 +59,14 @@ You can also use the **Advanced search** to search for specific versions of depe
   </Step>
 </Steps>
 
-You can search for multiple packages simultaneously.
-
-<Frame caption="Figure. Sample dependency search for lodash.">
-![Sample dependency search for lodash 4.17 or later.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-1.png)
-</Frame>
-
-You can also use a URL like this: https://semgrep.dev/orgs/-/supply-chain/t/dependencies?q=lodash%40%>4.17
+<Note>
+  **Tip**: If you know the query parameter, you can view your dependencies by navigating directly to your results:
+  
+  ```console
+  # sample URL 
+  https://semgrep.dev/orgs/-/supply-chain/t/dependencies?q=lodash%40%>4.17
+  ```
+</Note>
 
 ### Find malicious versions of packages using the Semgrep API
 
@@ -161,36 +165,30 @@ Furthermore, running a full scan with Semgrep rules provides clear visibility in
 
 ### Initiate scans with Semgrep Managed Scanning
 
-If you're using Semgrep Managed Scans, you can choose to run full scans on any potentially affected repositories manually:
+Even if you're using Semgrep Managed Scans, you can choose to run full scans on potentially affected repositories manually:
 
 <Steps>
   <Step>
-  Go to the **Projects** page in Semgrep App Platform.
+  Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and go to the **Projects** page.
   </Step>
   <Step>
   Select the projects of interest.
   </Step>
   <Step>
-  Click **Run a new scan > Rule-based detection** to start scans on the repositories that may be affected. For example, in an `npm` package compromise, Semgrep recommends scanning any project that may contain JavaScript.
+  Click **Run a new scan > Rule-based detection** to start scans on the repositories that may be affected. For example, in an `npm` package compromise, Semgrep recommends scanning any project that might contain JavaScript.
   </Step>
 </Steps>
 
-<Frame caption="Figure. Select and run Managed Scans projects manually.">
-![Select and run Managed Scans projects manually.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-2.png)
-</Frame>
-
 ### Initiate scans in your CI/CD pipelines
 
-If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan of any projects that may be impacted.
+If you're running scans in your CI/CD pipelines, manually trigger a Semgrep scan of any projects that might be impacted.
 
 ### Initiate a local scan
 
-If you have large repositories or difficulty accessing your CI/CD system, it may be most efficient to run a local scan.
+If you have large repositories or difficulty accessing your CI/CD system, it might be most efficient to run a local scan. To do so, navigate to the directory where you want to run the scan, then choose one of the following commands:
 
-In the directory where you want to run the scan, choose one of the following commands:
-
-- Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform. Note: to view findings in the Semgrep AppSec Platform, you must be logged in before running a scan. Log in by running `semgrep login`.
-- Run `semgrep scan --config supply-chain .` if you want to scan without a Git checkout. In this mode, findings are available for local review and are not sent to the Semgrep AppSec Platform.
+- Run `semgrep ci --supply-chain` if the repository is checked out using Git. This uploads findings to Semgrep AppSec Platform. **Note**: to view findings in Semgrep AppSec Platform, you must be logged in *before* running a scan. Log in by running `semgrep login`.
+- Run `semgrep scan --config supply-chain .` if you want to scan without a Git checkout. In this mode, findings are available for local review and are not sent to Semgrep AppSec Platform.
 
 ### Scan results
 
@@ -202,10 +200,10 @@ Semgrep AppSec Platform displays all affected projects and their findings after 
 
 <Steps>
   <Step>
-  Go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+  Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login), and go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
   </Step>
   <Step>
-  Using the **Advisory** filter, provide the relevant CVE or keywords. If a CVE ID hasn’t been assigned, use the ID provided by Semgrep.
+  Using the **Advisory** filter, provide the relevant CVE or keywords. If a CVE ID hasn't been assigned, use the ID provided by Semgrep.
   </Step>
   <Step>
   Click the advisory in the results list to open up the **Advisory Details** dialog.
@@ -215,33 +213,13 @@ Semgrep AppSec Platform displays all affected projects and their findings after 
   </Step>
 </Steps>
 
-<Frame caption="Figure. View affected projects for a specific advisory.">
-![View affected projects for a specific advisory.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-3.png)
-</Frame>
-
 If Semgrep provides you with a direct link in a notification, such as a Slack message, you can use that to view the same information.
 
-To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog:
+To search for an advisory by package name, click on the advisory in the list and open the **Advisory Details** dialog. If there are no findings for the rules run on the projects scanned, Semgrep shows **No findings**.
 
-<Frame caption="Figure. Search for advisories by package name.">
-![Search for advisories by package name.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-4.png)
-</Frame>
+Before concluding you're not affected, verify that the rules corresponding to the incident were included in recent scans.
 
-If there are no findings for the rules run on the projects scanned, Semgrep shows no results:
-
-<Frame caption="Figure. Advisory details dialog with no findings found.">
-![Advisory details dialog with no findings found.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-5.png)
-</Frame>
-
-Before concluding you’re not affected, verify that the rules corresponding to the incident were included in recent scans.
-
-However, if there are results, Semgrep shows the number of findings by project, as well as the breakdown of which branches in the codebase are impacted:
-
-<Frame caption="Figure. Advisory details dialog with findings found.">
-![Advisory details dialog with findings found.](/images/kb/semgrep-supply-chain/incident-response/ssc-incident-6.png)
-</Frame>
-
-Click on the number of findings to go to the **Findings** page, where you will see a list of results for that project's branch.
+If there are results, Semgrep shows the number of findings by project, as well as the breakdown of which branches in the codebase are impacted. You can click the number of findings to go to the **Findings** page, where you will see a list of results for that project's branch.
 
 ## 5. Remove any malicious versions and re-scan your project
 
@@ -249,11 +227,11 @@ Once the incident's impact is clear, immediately remove the malicious dependency
 
 It is essential to follow any other response steps specific to the incident, which could involve changes to CI/CD workflows, internal package registries, and other aspects of your software supply chain.
 
-Once you’ve completed your incident response, re-run a Supply Chain scan on the same set of repositories and verify that the outcome shows no findings for the malicious advisory.
+Once you've completed your incident response, re-run a Supply Chain scan on the same set of repositories and verify that the outcome shows no findings for the malicious advisory.
 
 ## 6. Block the introduction of malicious packages
 
-To reduce the frequency of such issues, [create Supply Chain policies](/semgrep-supply-chain/policies#create-a-policy) to block the introduction of malicious package versions.
+To reduce the frequency of such issues, [create Supply Chain policies](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy) to block the introduction of malicious package versions.
 
 ## 7. Additional steps
 

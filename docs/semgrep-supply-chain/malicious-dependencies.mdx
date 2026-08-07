@@ -2,7 +2,7 @@
 title: "Detect and remove malicious dependencies"
 ---
 
-**Malicious dependencies** are dangerous packages, or dangerous versions of packages, that are designed to compromise systems. These threats include packages that have always been malicious, such as typo-squatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code. They are also known as malware.
+**Malicious dependencies** are dangerous packages or versions of packages designed to compromise systems. These threats include packages that have always been malicious, such as typosquatting attacks, or packages that become malicious after an attacker compromises a maintainer or injects harmful code.
 
 Semgrep can detect malicious dependencies in your projects and pull requests (PRs) or merge requests (MRs).
 
@@ -23,22 +23,17 @@ The following table lists the languages for which Supply Chain can detect malici
 | TypeScript | npm |
 
 
-## Enabling malicious dependency rules
+## Enable rules
 
-To include malicious dependency rules in your Supply Chain scan, navigate to **Settings > Supply Chain** and enable **Malicious dependency advisories**. 
+To include malicious dependency rules in your Supply Chain scan, navigate to **Settings > General > Supply Chain** and click the **Malicious dependency advisories** toggle. You can also use this setting to disable malicious dependency scanning for your Semgrep organization.
 
-You can also use this setting to disable malicious dependency scanning for your Semgrep organization.
-
-## Malicious dependency findings
+## Create policy actions
 
 Malicious dependency findings are treated as **critical severity** findings.
 
-If you set up your Supply Chain [policies](https://semgrep.dev/orgs/-/policies/supply-chain) to block critical severity findings, malicious dependency findings block a PR or MR in the same way as any other Supply Chain finding.
+If you [set up your Supply Chain policies](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy) to block critical severity findings, malicious dependency findings block a PR or MR the same way any other Supply Chain finding does. You can also create or update a Supply Chain policy and configure it to trigger automatically by including the condition **Dependency is malicious**.
 
-From the Supply Chain policies page, you can also configure a policy to trigger conditionally based on whether a dependency is marked **Malicious**.
-
-
-## View malicious dependencies
+## View findings
 
 Malicious dependencies appear in the [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain/vulnerabilities?primary=true&tab=open&last_opened=All+time) tab, alongside other Supply Chain findings. They are denoted by the **MAL** badge.
 
@@ -49,28 +44,30 @@ To view malicious dependencies detected in your projects:
 Navigate to [Supply Chain](https://semgrep.dev/orgs/-/supply-chain).
 </Step>
 <Step>
-Click the **filters** icon and enable the **Malicious dependency** filter.
+Click the **filters** icon and select **Malicious dependency**.
 </Step>
 <Step>
-Review the results listed. Click **Details** to learn more about available remediation guidance.
+Review the results listed.
 </Step>
 </Steps>
 
-## Triage and remediation for malicious dependencies
+## Triage and remediate
+
+After reviewing your findings, you can choose one of the following actions:
 
 - If there is no fix available, **remove** the malicious dependency from your codebase and re-run a Supply Chain scan.
 - If there is a safe version to update to, fix the finding by updating the dependency. Then, re-run a Supply Chain scan.
-- You can apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
+- Manually apply [any Semgrep triage state](/semgrep-supply-chain/triage-and-remediation#ignore-findings), such as **Ignored**, though this is not recommended.
 
 <Warning>
 **CAUTION**
 
-If you have configured your policies to display malicious dependency findings to your developers, and you have enabled **Settings > General > Global > Default developer triage permissions**, your developers are able to triage these findings as **Ignored**.
+If you have configured your policies to display malicious dependency findings to your developers and enabled **Settings > General > Global > Default developer triage permissions**, your developers can triage these findings as **Ignored**.
 </Warning>
 
-## Create Jira tickets for malicious dependency findings
+## Create Jira tickets
 
-Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch. This capability enables developers to respond immediately when a malicious package is detected.
+Semgrep provides a Jira integration option that lets you create Jira tickets for malicious dependency findings across any branch, not just the primary branch, so developers can respond immediately when a malicious package is detected. 
 
 To enable Jira ticket creation for malicious dependencies:
 
@@ -83,17 +80,20 @@ Select the option to **Automatically create tickets for malicious dependency fin
 </Step>
 </Steps>
 
-## Advisories for malicious dependencies
+## View advisories
 
-You can view all the malicious dependencies that Semgrep can detect. To do so:
+You can view advisories for the malicious dependencies that Semgrep can detect:
 
 <Steps>
 <Step>
-Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login) and go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platform](https://semgrep.dev/login).
 </Step>
 <Step>
-Find the **Advisory type** filter, and select **<Icon icon="square-check" iconType="solid"/> Malicious**.
+Go to [**Rules & Policies > Advisories**](https://semgrep.dev/orgs/-/advisories).
+</Step>
+<Step>
+Go to the **Advisory type** filter, and ensure that only **<Icon icon="square-check" iconType="solid"/> Malicious** is selected.
 </Step>
 </Steps>
 
-Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you do not use those sources and have never done so, then it may be appropriate to mark the findings for that advisory as ignored.
+Currently, advisories for malicious dependencies are generated automatically and use the package name and version to identify the dependency. In some cases, the advisory indicates that only specific sources of the dependency have been compromised. If you don't use those sources and have never done so, then it might be appropriate to set the status of all findings for that advisory as **Ignored**.

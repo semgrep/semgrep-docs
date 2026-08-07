@@ -306,7 +306,8 @@
                     "group": "Malware detection and response",
                     "pages": [
                       "semgrep-supply-chain/malicious-dependencies",
-                      "semgrep-supply-chain/incident-notifications"
+                      "semgrep-supply-chain/incident-notifications",
+                      "/semgrep-supply-chain/incident-response"
                     ]
                   },
                   "semgrep-supply-chain/license-compliance",
@@ -1804,6 +1805,10 @@
     {
       "source": "/guardian",
       "destination": "/semgrep-guardian/overview"
+    },
+    {
+      "source": "/kb/semgrep-supply-chain/incident-response",
+      "destination": "/semgrep-supply-chain/incident-response"
     }
   ]
 }
