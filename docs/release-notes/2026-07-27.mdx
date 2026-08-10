@@ -1,0 +1,47 @@
+---
+title: "Week of July 27, 2026"
+description: "Updates made to Semgrep during the week of July 27-August 2, 2026."
+sidebarTitle: "Week of July 27, 2026"
+---
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- **[Semgrep Agentic Workflows](/workflows/overview)** is now in public beta. Agentic Workflows run multi-step AI-enabled detection pipelines from Semgrep AppSec Platform, combining program analysis, deterministic tools, and constrained AI-based reasoning to produce reviewable security issues. See [Get started with Semgrep Agentic Workflows](/workflows/get-started).
+
+### Fixed
+
+- Fixed an issue where customers were required to enable Semgrep Managed Scans before they could run an on-demand AI-powered detection scan.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- Webhook validation and test failure error messages now include specific failure reasons.
+- Semgrep now shows a confirmation warning when you add or remove project tags that are attached to policies, both during bulk edit and from a project's settings page.
+
+### Fixed
+
+- Fixed an issue where the auto-ignore automation sometimes reverted a manual triage decision by setting all instances of the finding back to **Provisionally ignored**.
+- Fixed GitHub PAT setup errors so namespace permission failures now show clearer, more actionable messages.
+- Fixed an issue where **Provisionally ignored** findings could not be reopened from the finding **Details** page.
+- Fixed an issue where a Slack notification channel mapping was deleted when the Semgrep Slack app lacked permission to post to a private channel. Semgrep now removes the mapping only when the channel is deleted.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- You can configure [license compliance](/semgrep-supply-chain/license-compliance) to block a dependency only when all of its licenses are blocked, instead of when any license is blocked.
+
+### Changed
+
+- Released a default Supply Chain incident notification policy to all Supply Chain customers using [Unified policies](/semgrep-appsec-platform/unified-policies/overview). Organizations can configure a Slack channel to be notified during an ongoing Supply Chain incident, including whether they may be affected based on their most recent SBOM. Semgrep AppSec Platform's incident policy page has been redesigned to be visually distinctive from regular policy pages, and Semgrep now warns when a configured Slack channel cannot receive automated messages.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of July 27-August 2, 2026:
+
+<CardGroup>
+  <Card title="1.172.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.172.0" horizontal />
+</CardGroup>
