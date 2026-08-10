@@ -729,7 +729,7 @@
                       "kb/semgrep-appsec-platform/search-filter-sort-findings",
                       "kb/semgrep-appsec-platform/semgrep-login-cli-tenant",
                       "kb/semgrep-appsec-platform/sso-attribute-error",
-                      "/kb/semgrep-appsec-platform/findings-in-open-not-provisionally-ignored"
+                      "kb/semgrep-appsec-platform/findings-in-open-not-provisionally-ignored"
                     ]
                   },
                   {
