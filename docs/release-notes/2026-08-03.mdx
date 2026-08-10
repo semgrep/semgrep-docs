@@ -22,7 +22,7 @@ sidebarTitle: "Week of August 3, 2026"
 
 ### Changed
 
-- **Projects** page findings counts now include findings in **Open**, **Reviewing**, and **To fix** statuses. Counts on the page increase to reflect the additional triage states, and a callout on the Projects list explains the new count semantics.
+- Findings counts on the **Projects** page now include **Reviewing** and **To fix** findings, in addition to **Open**. A **Counts updated** tooltip on the Projects list explains the change.
 - The unified policies migration banner now includes the migration schedule: Semgrep will start migrating some organizations to unified policies on August 24, 2026, and will sunset the current version of Policies on November 1, 2026. Organizations that do not want to migrate yet can contact Support.
 - Features that require [unified policies](/semgrep-appsec-platform/unified-policies/overview), including Autofix draft fix requests, now show a prompt to upgrade when your organization has not migrated yet.
 - The rules table on the detection policies page keeps its actions column visible on narrow screens, so the primary action stays reachable without horizontal scrolling.
@@ -32,8 +32,3 @@ sidebarTitle: "Week of August 3, 2026"
 - Fixed an issue where the Code detection policies page did not load if a rule without a path was included in a policy, which blocked policy edits.
 - Fixed an issue where the scanning behavior drawer used the same project selection when switching between include and exclude, and did not clearly distinguish included projects from excluded projects.
 
-## 📝 Documentation and knowledge base
-
-### Changed
-
-- The in-app API reference pages at `/api/v1/docs` and `/api/v2/docs` now redirect to the [API reference](/api-reference/v1/Introduction) on docs.semgrep.dev.
