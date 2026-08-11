@@ -260,11 +260,6 @@ Since Semgrep does not use AWS cross-region inference profiles, the models Multi
 
 ### Azure OpenAI
 
-<Note>
-As of May 2025, the best model for noise filtering is `gpt-5.4`. The best model for other Semgrep Multimodal features is `gpt-5.5`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
-</Note>
-
-
 To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key for your model from Azure, then provide it to Semgrep.
 
 1. To retrieve the endpoint URL and API key from Azure:
@@ -286,6 +281,11 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
 If Semgrep cannot save your endpoint and API key, confirm that the endpoint includes both `/openai/deployments/DEPLOYMENT_NAME/chat/completions` and the `?api-version=` query parameter. Pasting only the base resource URL (for example, `https://my-resource.openai.azure.com`) fails with a missing configuration error.
 </Warning>
 
+<Note>
+Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, that model is used for all Semgrep Multimodal features, including noise filtering. If you want a different model, deploy it in Azure and then repeat the steps above with its Target URI and API key, which replaces your existing configuration.
+</Note>
+
+Azure OpenAI is not available for [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) or [Agentic Workflows](/workflows/overview). Those features require a Semgrep-managed OpenAI or Amazon Bedrock provider.
 
 </Tab>
 <Tab title="Google Gemini">
