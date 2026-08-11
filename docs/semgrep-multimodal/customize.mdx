@@ -184,28 +184,26 @@ By default, Semgrep Multimodal uses OpenAI and Amazon Bedrock with Semgrep's API
 
 Semgrep evaluates available models from multiple providers and selects the most performant option for each Multimodal feature, based on the providers enabled for your organization. For optimal results, keep both OpenAI and Amazon Bedrock enabled. Enabling additional model providers can further improve performance.
 
-You can opt to:
+You can also use your own API keys or accounts for the following providers:
 
-- Use OpenAI with your own API key
-- Use your own Amazon Bedrock account
-- Use Azure OpenAI
-- Use Google Gemini.
-- Use xAI.
+<Tabs>
+
+<Tab title="OpenAI">
 
 ### OpenAI API with your own key
 
 If you want complete control over how OpenAI handles your data, you can use your OpenAI API key instead of Semgrep's. To provide your OpenAI API key:
 
 <Steps>
-  <Step>
-  Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-  </Step>
-  <Step>
-  Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-  </Step>
-  <Step>
-  Select **Your OpenAI API key**, and provide your API key.
-  </Step>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
+</Step>
+<Step>
+Select **Your OpenAI API key**, and provide your API key.
+</Step>
 </Steps>
 
 Click **Save** to proceed.
@@ -216,26 +214,29 @@ By switching from Semgrep's key to your key, note that you lose access to the fo
 - Semgrep's [Zero Data Retention agreement](/semgrep-multimodal/privacy) that prevents OpenAI from saving input or output data.
 - Semgrep paying for the cost of your AI usage.
 
+</Tab>
+<Tab title="Amazon Bedrock">
+
 ### Your own Amazon Bedrock account
 
 If you want to keep all data within your AWS account, you can use your own Amazon Bedrock instance:
 
 <Steps>
-  <Step>
-  Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [ <Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-  </Step>
-  <Step>
-  Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-  </Step>
-  <Step>
-  Select **Amazon Bedrock** then **Your AWS account**
-  </Step>
-  <Step>
-  Provide your AWS IAM role details.
-  </Step>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [ <Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
+</Step>
+<Step>
+Select **Amazon Bedrock** then **Your AWS account**
+</Step>
+<Step>
+Provide your AWS IAM role details.
+</Step>
 </Steps>
 
-Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset. 
+Note that the IAM role that is being used must have access to the **AmazonBedrockLimitedAccess** AWS IAM Permissions preset.
 
 Semgrep constantly evaluates new models for Multimodal features and frequently swaps out requested models, so it is recommended to always have the most recent models in Bedrock enabled. Currently, Multimodal is using the model ARNs `anthropic.claude-sonnet-4-6` and `anthropic.claude-haiku-4-5-20251001-v1:0`.
 
@@ -248,11 +249,14 @@ When you use your own Amazon Bedrock account, you can select one of the followin
 - US West (N. California) - `us-west-1`
 - US West (Oregon) - `us-west-2`
 
-All Bedrock calls are pinned to the region you select. Semgrep does not use AWS cross-region inference profiles for customer-managed Bedrock accounts, so requests stay within your configured region. 
+All Bedrock calls are pinned to the region you select. Semgrep does not use AWS cross-region inference profiles for customer-managed Bedrock accounts, so requests stay within your configured region.
 
 <Note>
 Since Semgrep does not use AWS cross-region inference profiles, the models Multimodal requires must be available for on-demand inference in the selected region. Because of that requirement, regions outside the US (where the models are offered only through cross-region inference profiles) are not currently supported.
 </Note>
+
+</Tab>
+<Tab title="Azure OpenAI">
 
 ### Azure OpenAI
 
@@ -266,58 +270,74 @@ To use Azure OpenAI with Semgrep Multimodal, you must retrieve the endpoint URL 
    1. Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/>**Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
    2. Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
    3. Select **Azure OpenAI**.
-   4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**.
+   4. Paste the **Target URI** you copied from Azure into **Your Azure OpenAI Endpoint**. The endpoint must include the full path and API version query parameter. The expected format is:
+
+      `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/chat/completions?api-version=API_VERSION`
+
    5. Paste the API key you copied from Azure into **Your Azure OpenAI API key**.
    6. Click **Save** to proceed.
 
-<Note>
-**NOTE**
+<Warning>
+If Semgrep cannot save your endpoint and API key, confirm that the endpoint includes both `/openai/deployments/DEPLOYMENT_NAME/chat/completions` and the `?api-version=` query parameter. Pasting only the base resource URL (for example, `https://my-resource.openai.azure.com`) fails with a missing configuration error.
+</Warning>
 
-As of May 2025, the best model for noise filtering is `gpt-5.4`. The best model for other Semgrep Multimodal features is `gpt-5.5`. You cannot have multiple Azure OpenAI models active at a given time, but you can switch to a different one by repeating these configuration steps using the Target URI and API key for the new model.
+<Note>
+Semgrep supports one Azure OpenAI deployment at a time. Because each Azure deployment serves a single model, that model is used for all Semgrep Multimodal features, including noise filtering. If you want a different model, deploy it in Azure and then repeat the steps above with its Target URI and API key, which replaces your existing configuration.
 </Note>
+
+Azure OpenAI is not available for [AI-powered detection scans](/semgrep-code/ai-powered-detection-concepts) or [Agentic Workflows](/workflows/overview). Those features require a Semgrep-managed OpenAI or Amazon Bedrock provider.
+
+</Tab>
+<Tab title="Google Gemini">
 
 ### Google Gemini
 
 To use Google Gemini with Semgrep Multimodal:
 
 <Steps>
-  <Step>
-  Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-  </Step>
-  <Step>
-  Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
-  </Step>
-  <Step>
-  Select **Google Gemini**.
-  </Step>
-  <Step>
-  Paste in your API key.
-  </Step>
-  <Step>
-  Click **Save** to proceed.
-  </Step>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/> **icon** next to **AI provider**.
+</Step>
+<Step>
+Select **Google Gemini**.
+</Step>
+<Step>
+Paste in your API key.
+</Step>
+<Step>
+Click **Save** to proceed.
+</Step>
 </Steps>
 
 > Semgrep Multimodal only supports Google Gemini with Google AI Studio, not Vertex AI.
+
+</Tab>
+<Tab title="xAI">
 
 ### xAI
 
 To use xAI with Semgrep Multimodal, you must retrieve the endpoint URL and API key from xAI, then provide it to Semgrep.
 
 <Steps>
-  <Step>
-  Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
-  </Step>
-  <Step>
-  Click the <Icon icon="gear" iconType="solid"/>  **icon** next to **AI provider**.
-  </Step>
-  <Step>
-  Select **xAI**.
-  </Step>
-  <Step>
-  Paste in your API key and API endpoint.
-  </Step>
-  <Step>
-  Click **Save** to proceed.
-  </Step>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) and navigate to [<Icon icon="gear" iconType="solid"/> **Settings > Global**](https://semgrep.dev/orgs/-/settings/general).
+</Step>
+<Step>
+Click the <Icon icon="gear" iconType="solid"/>  **icon** next to **AI provider**.
+</Step>
+<Step>
+Select **xAI**.
+</Step>
+<Step>
+Paste in your API key and API endpoint.
+</Step>
+<Step>
+Click **Save** to proceed.
+</Step>
 </Steps>
+
+</Tab>
+</Tabs>
