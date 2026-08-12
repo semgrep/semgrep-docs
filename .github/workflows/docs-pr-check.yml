@@ -12,8 +12,7 @@ on:
       - "run-build-scripts"
       - "replace-on-build.py"
       - "copy-metrics-md"
-      - "sort_openapi_nav.py"
-      - "test_sort_openapi_nav.py"
+      - "scripts/**"
 
 permissions:
   contents: read
@@ -34,14 +33,14 @@ jobs:
       - uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
 
       - name: Run unit tests
-        run: uv run --with pyyaml --with pytest pytest test_sort_openapi_nav.py -q
+        run: uv run --with pyyaml --with pytest pytest scripts/test_sort_openapi_nav.py -q
 
       # The scheduled sync always re-sorts after fetching, so the checked-in
       # specs must already be in sorted order or the next sync PR will carry an
       # unrelated reshuffle alongside its real changes.
       - name: Check committed specs are already sorted
         run: |
-          uv run sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+          uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
           git diff --exit-code --stat docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
 
   validate:

@@ -55,7 +55,7 @@ jobs:
       # the sidebar. Re-sort into display-name order. Must run after the x-group
       # step above, which supplies the names this sorts on.
       - name: Sort API navigation into alphabetical order
-        run: uv run sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+        run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
