@@ -264,7 +264,7 @@ In Claude Code, the Guardian plugin registers three hooks:
 
 ### Other IDEs
 
-Other IDEs connect to Guardian through the Semgrep MCP Server. If your IDE supports a post-write or post-tool hook, you can point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically, as shown in the [Devin (Windsurf)](#connect-to-your-ide) setup. Otherwise, the agent calls Guardian's MCP tools directly and no hooks are involved.
+Other IDEs connect to Guardian through the Semgrep MCP Server. In these IDEs, Guardian is called on a best-effort basis, since it depends on the agent remembering to call it. Deploy Guardian alongside a skill to ensure that the agent calls Semgrep reliably.
 
 ## What rules does Semgrep Guardian scan with?
 
