@@ -101,9 +101,9 @@ This feature is currently in beta. Please contact [Semgrep Support](/support) fo
 
 Supply Chain can use **Dynamic Dependency Resolution** to scan projects without lockfiles or with incomplete lockfiles.
 
-### CLI Scans, including self-managed CI systems
+### CLI scans, including self-managed CI systems
 
-1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as Java and Maven or Python and pip.
+1. Ensure that the environment where you run Semgrep scans has installed all of the dependencies required to build your project, such as a compatible JDK and Maven, or Python and pip. You control which JDK is available, so projects that require Java versions below 11 can still use Dynamic Dependency Resolution in your own environment.
 2. Initiate a Semgrep scan, ensuring that you include the `--allow-local-builds` flag to enable Semgrep to invoke package managers on the system:
     ```console
     semgrep ci --allow-local-builds
@@ -114,9 +114,27 @@ Supply Chain can use **Dynamic Dependency Resolution** to scan projects without 
 
 <Steps>
 <Step>
-[Configure private registry credentials](/semgrep-supply-chain/triage-and-remediation#connect-a-private-registry-to-semgrep) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
+[Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) in **Settings > Integrations**. Note that only Maven registries are currently supported for Managed Scans.
 </Step>
 <Step>
-Contact [Semgrep Support](/support) to enable Dynamic Dependency resolution for the necessary repositories.
+Contact [Semgrep Support](/support) to enable Dynamic Dependency Resolution for the necessary repositories.
 </Step>
 </Steps>
+
+#### Java version support
+
+Dynamic Dependency Resolution on Managed Scans includes the following JDKs: **11**, **17**, and **21**. Semgrep starts resolution with JDK 21 and falls back to JDK 11 or 17 when a repository indicates an older Gradle version.
+
+| Java version | Managed Scans Dynamic Dependency Resolution |
+| --- | --- |
+| Java 11 and later | Supported |
+| Java versions below 11, including Java 8 | Not supported |
+
+This requirement applies only to Dynamic Dependency Resolution without lockfiles in the Managed Scans environment. It does **not** change Semgrep Code (SAST) Java coverage.
+
+If your repository includes a supported lockfile or a Maven-generated [`maven_dep_tree.txt`](/semgrep-supply-chain/setup-maven), Semgrep parses that file and does not need to invoke a JDK for dependency resolution. The JDK version of the project then does not affect Supply Chain scanning.
+
+For Java projects that require a JDK below 11 and do not have a lockfile or dependency tree:
+
+- Run Supply Chain scans from your own CI after generating a lockfile or [`maven_dep_tree.txt`](/semgrep-supply-chain/setup-maven), or
+- Run Dynamic Dependency Resolution in your own CI or CLI environment with [`--allow-local-builds`](#cli-scans-including-self-managed-ci-systems), where you control the installed JDK.

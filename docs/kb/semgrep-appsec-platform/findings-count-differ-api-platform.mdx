@@ -6,11 +6,11 @@ title: "Why do the findings count differ in the API and the Semgrep AppSec Platf
 
 Semgrep Code and Supply Chain findings shown in Semgrep AppSec Platform are automatically deduplicated by default. This means that a finding that appears across multiple branches or scans is counted only once (typically for the most recent occurrence on a primary branch). The findings, however, aren't deduplicated by default when you request them through the Semgrep API.
 
-You can see results from the API that match those shown in Semgrep AppSec Platform by making a call to the [List code or supply chain findings](/api-reference/findingsservice/list-code-or-supply-chain-findings) endpoint, ensuring that you include the `dedup=true` parameter.
+You can see results from the API that match those shown in Semgrep AppSec Platform by making a call to the [List code or supply chain findings](/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings) endpoint, ensuring that you include the `dedup=true` parameter.
 
 ## Semgrep Secrets findings
 
-Semgrep AppSec Platform displays the latest instance of a Semgrep Secrets finding by default, even if the finding appears on a non-primary branch. A Secrets finding is considered relevant if it exists on *any* branch. Semgrep's [Secrets API endpoint](/api-reference/SecretsService) also behaves this way, so the counts shown in Semgrep AppSec Platform and by the API are typically in agreement.
+Semgrep AppSec Platform displays the latest instance of a Semgrep Secrets finding by default, even if the finding appears on a non-primary branch. A Secrets finding is considered relevant if it exists on *any* branch. Semgrep's [Secrets API endpoint](/api-reference/v1/secretsservice/list-secrets) also behaves this way, so the counts shown in Semgrep AppSec Platform and by the API are typically in agreement.
 
 ## Filters and scoping the API call to ensure consistency
 

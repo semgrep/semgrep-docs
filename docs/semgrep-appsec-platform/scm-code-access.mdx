@@ -211,6 +211,10 @@ Once saved, Semgrep has code access to your Azure DevOps repositories.
 
 Bitbucket Cloud access tokens are tied to a workspace, project, or repository, not to an individual user account. Create the token at the narrowest level that includes the repositories Semgrep scans.
 
+<Note>
+Workspace access tokens, required for features such as [Autofix](/semgrep-code/triage-remediation/autofix) write access, are only available on **Bitbucket Cloud Premium**.
+</Note>
+
 Branch permissions can restrict who can push or merge code. If you grant write access for features such as Autofix PRs, ensure that the access token can push branches and create PRs into the target branch.
 
 <Steps>
