@@ -1,0 +1,20 @@
+scripts/sort_openapi_nav.py
+  s_12fb7f3a19bf34::t_45d2ee5fb35d7d 182-184,188
+  s_12fb7f3a19bf34::t_b88b7d18bfd6d3 201
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "549e9c5d374fd4c4c89750a29abe22f456a9afc8",
+  "prompts": {},
+  "sessions": {
+    "s_12fb7f3a19bf34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "232e265f-464f-4fc0-b06e-19831a86e223",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
