@@ -179,12 +179,13 @@ def sort_spec(text: str) -> str:
     return "\n".join(out) + ("\n" if trailing_newline else "")
 
 
-def main(argv: list[str]) -> int:
-    if not argv:
+def main(argv: list[str] | None = None) -> int:
+    specs = sys.argv[1:] if argv is None else argv
+    if not specs:
         print(f"usage: {Path(__file__).name} SPEC [SPEC ...]", file=sys.stderr)
         return 2
 
-    for name in argv:
+    for name in specs:
         path = Path(name)
         original = path.read_text()
         sorted_text = sort_spec(original)
@@ -197,4 +198,4 @@ def main(argv: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1:]))
+    sys.exit(main())
