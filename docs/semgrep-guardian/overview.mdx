@@ -248,6 +248,24 @@ See [Kiro docs](https://kiro.dev/docs/mcp/) for more info.
   </Tab>
 </Tabs>
 
+## What hooks does Semgrep Guardian use?
+
+Guardian uses different hooks depending on the IDE you use it in.
+
+### Claude Code
+
+In Claude Code, the Guardian plugin registers three hooks:
+
+| Hook | What it does |
+| --- | --- |
+| `PreToolUse` | Prevents malware installation. Looks up each package to confirm it isn't malicious before the agent downloads it. |
+| `PostToolUse` | Scans the code your agent just wrote for hardcoded secrets and software vulnerabilities. |
+| `SessionStart` | Starts the Semgrep login flow if you aren't already authenticated. |
+
+### Other IDEs
+
+Other IDEs connect to Guardian through the Semgrep MCP Server. If your IDE supports a post-write or post-tool hook, you can point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically, as shown in the [Devin (Windsurf)](#connect-to-your-ide) setup. Otherwise, the agent calls Guardian's MCP tools directly and no hooks are involved.
+
 ## What rules does Semgrep Guardian scan with?
 
 Guardian uses different rules depending on the environment in which you use it:
