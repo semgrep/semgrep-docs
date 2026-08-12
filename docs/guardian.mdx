@@ -35,8 +35,8 @@ How you sign in depends on which IDE you use.
 
 Guardian stores credentials in two local files under `~/.semgrep/`:
 
-* `settings.yml`: written when you sign in through `semgrep login` or set an API token manually. This is the same file the Semgrep CLI uses.
-* `guardian.yml`: written when you sign in through OAuth in the remote Claude Code plugin.
+* `settings.yml`: written to when you sign in through `semgrep login` or set an API token manually. This is the same file the Semgrep CLI uses.
+* `guardian.yml`: written to when you sign in through OAuth in the remote Claude Code plugin.
 
 If you are already logged in through `semgrep login`, Guardian can use the credentials from `settings.yml`. For the remote Claude Code plugin, Guardian checks for OAuth credentials in `guardian.yml` first. If OAuth credentials are present, Guardian uses them instead of any API token in `settings.yml`.
 
