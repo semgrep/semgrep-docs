@@ -84,6 +84,10 @@ Semgrep uses [deps.dev](https://deps.dev/) as the primary source for license dat
 
 [deps.dev](https://deps.dev/) aggregates license metadata from package registry APIs, such as PyPI and npm. This metadata is provided by package maintainers through their manifest files and may be missing, incomplete, or inaccurate. If the license data displayed in Semgrep AppSec Platform for a particular package is missing or doesn't show the expected value, the data provided by the package maintainer to populate the package registry API is likely incomplete or incorrect.
 
+In addition to deps.dev, Semgrep currently uses [Packagist](https://packagist.org/) for PHP licenses and [Rubygems](https://rubygems.org/) for Ruby licenses.
+
+For SwiftPM, Semgrep detects licenses asynchronously by attempting to retrieve the data from the source repository. This method is best-effort and delays detection capability until after the first scan. See support details and caveat at [Features for supported languages](/semgrep-supply-chain/requirements-and-feature-support#features-for-supported-languages).
+
 ## License categories
 
 Semgrep Supply Chain can identify the following licenses and license categories.

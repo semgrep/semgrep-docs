@@ -34,15 +34,15 @@ To install the Semgrep Slack app, follow these steps:
 
 ## Set up notifications for findings in Slack 
 
-The commands you use depend on whether your organization has migrated to [unified policies](/semgrep-appsec-platform/unified-policies/overview):
+The commands you use depend on whether your organization has migrated to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview):
 
 * If your organization uses **legacy policies**, use `/semgrep_subscribe` (Code and Supply Chain) or `/semgrep_subscribe_secrets` (Secrets), as described in the following sections.
-* If your organization has [migrated to **unified policies**](/semgrep-appsec-platform/unified-policies/overview), use `/semgrep_add_channel` and configure notifications from the **Remediation** page.
+* If your organization has [migrated to **Unified Policies**](/semgrep-appsec-platform/unified-policies/overview), use `/semgrep_add_channel` and configure notifications from the **Remediation** page.
 
 <Tabs>
-<Tab title="Unified policies">
+<Tab title="Unified Policies">
 
-If your organization has migrated to [Unified policies](/semgrep-appsec-platform/unified-policies/overview), you must use the `/semgrep_add_channel` command to make a Slack channel available to your remediation policies. Then, you can send findings notifications to the channel by adding a **Send a Slack message** action to a remediation policy.
+If your organization has migrated to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview), you must use the `/semgrep_add_channel` command to make a Slack channel available to your remediation policies. Then, you can send findings notifications to the channel by adding a **Send a Slack message** action to a remediation policy.
 
 The projects a channel receives findings for are controlled by each remediation policy's **Scope**, *not* by the Slack command.
 
@@ -157,7 +157,7 @@ This operation removes or unsubscribes a channel from notifications. To uninstal
 </Info>
 
 <Tabs>
-<Tab title="Unified policies">
+<Tab title="Unified Policies">
 To remove a Slack channel from your remediation policies:
 
 <Steps>

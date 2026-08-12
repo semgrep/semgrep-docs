@@ -1,12 +1,12 @@
 ---
-title: "Create and manage Unified policies"
+title: "Create and manage Unified Policies"
 ---
 
-This document explains how to migrate existing policies to [unified policies](/semgrep-appsec-platform/unified-policies/overview), how to create new policies, and how to manage existing ones.
+This document explains how to migrate existing policies to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview), create new policies, and manage existing ones.
 
 ## Migrate existing policies
 
-To migrate your existing legacy policies and use Unified policies:
+To migrate your existing legacy policies and use Unified Policies:
 
 <Steps>
 <Step>
@@ -14,7 +14,7 @@ Sign in to [<Icon icon="external-link" iconType="solid"/> Semgrep AppSec Platfor
 
 </Step>
 <Step>
-Go to **Rules & Policies > Policies**. You will see a banner that prompts you to begin the upgrade to unified policies. Click to launch the **Upgrade to Unified Policies** dialog, and follow the on-screen prompts to proceed.
+Go to **Rules & Policies > Policies**. You will see a banner that prompts you to begin the upgrade to Unified Policies. Click to launch the **Upgrade to Unified Policies** dialog, and follow the on-screen prompts to proceed.
 
 </Step>
 <Step>
@@ -64,7 +64,7 @@ To create a policy that defines the automated responses to security findings:
          horizontal
          />
          <Card
-         title="Create a JIRA ticket"
+         title="Create a Jira ticket"
          icon="jira"
          href="/semgrep-appsec-platform/jira"
          horizontal
@@ -99,13 +99,10 @@ Some remediation policies are created for you by default and can't be renamed or
 
 <Steps>
 <Step>
-Go to **Rules & Policies > Remediation**, and find the default policy for the feature you want to configure.
-</Step>
-<Step>
 Go to **Rules & Policies > Remediation**, and find the default policy for the feature you want to configure. Click its <Icon icon="ellipsis" iconType="solid"/> icon, then click **Edit policy**.
 </Step>
 <Step>
-Go to **Actions**, and add the **Actions** you want to occur when Semgrep identifies findings and the defined **Conditions are met.
+Go to **Actions**, and add the **Actions** you want to occur when Semgrep identifies findings and the defined **Conditions** are met.
 </Step>
 <Step>
 Click **Update and enable** to save and proceed, so that Semgrep uses your new policy the next time you scan a project within its scope. Otherwise, click **Update** to save your changes without enabling the policy.
