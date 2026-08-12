@@ -148,7 +148,7 @@
                       },
                       "semgrep-code/semgrep-pro-engine-intro",
                       {
-                        "group": "Unified policies",
+                        "group": "Unified Policies",
                         "root": "semgrep-appsec-platform/unified-policies/overview",
                         "pages": [
                           "semgrep-appsec-platform/unified-policies/get-started"
