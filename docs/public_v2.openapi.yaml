@@ -10585,7 +10585,7 @@ components:
                         format: enum
                     description: |+
                         Filters SAST issues whose action mode matches one of the specified values. Only applies when the provided issue_type is SAST.
-                         Deprecated: action mode is tied to the legacy policy model and has no effect for deployments on unified policies. This filter will be removed in a future release.
+                         Deprecated: action mode is tied to the legacy policy model and has no effect for deployments on Unified Policies. This filter will be removed in a future release.
 
                         | value | description |
                         |-------|---------------|

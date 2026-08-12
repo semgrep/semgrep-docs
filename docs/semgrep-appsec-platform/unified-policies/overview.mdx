@@ -1,16 +1,16 @@
 ---
-title: "Unified policies"
+title: "Unified Policies"
 ---
 
-Unified policies allow you to choose the rules and rulesets used for Semgrep scans to increase the breadth and depth of your scan coverage or remove noise from scans. You can also define what happens to a finding after identification, such as whether a finding is monitored, generates a pull request (PR) or merge request (MR) comment, or blocks a PR or MR.
+Unified Policies allow you to choose the rules and rulesets used for Semgrep scans to increase the breadth and depth of your scan coverage or remove noise from scans. You can also define what happens to a finding after identification, such as whether a finding is monitored, generates a pull request (PR) or merge request (MR) comment, or blocks a PR or MR.
 
-With unified policies, there are two types of policy definitions available to you:
+With Unified Policies, there are two types of policy definitions available to you:
 
 - **Detection policies**, which determine what rules are used to scan your project.
 - **Remediation policies**, which determine what happens to the findings identified by Semgrep. These actions can include leaving PR/MR comments, blocking the PRs/MRs, creating Jira tickets, sending Slack notifications, and more.
 
 <Accordion
-    title="A comparison of legacy policy behavior versus Unified policies behavior"
+    title="A comparison of legacy policy behavior versus Unified Policies behavior"
 >
     With legacy policies, you were able to define Policies for each Semgrep product on a rule-by-rule basis. For each rule, you could determine whether findings identified based on that rule would be **monitored**, where the findings are only sent to Semgrep AppSec Platform for review, **generate a PR or MR comment**, or **block a PR or MR from being merged**:
 
@@ -20,7 +20,7 @@ With unified policies, there are two types of policy definitions available to yo
     | **Rule C** | Block |
     | **Rule D** | Block |
 
-    With unified policies, your definitions are now split into detection and remediation policies. The following tables show the detection policy enabling the rules for all projects and the remediation policy defining the actions that occur when the specified rules generate findings:
+    With Unified Policies, your definitions are now split into detection and remediation policies. The following tables show the detection policy enabling the rules for all projects and the remediation policy defining the actions that occur when the specified rules generate findings:
 
     ### Detection policy
 
@@ -48,7 +48,7 @@ With unified policies, there are two types of policy definitions available to yo
 
 <CardGroup>
   <Card
-    title="Get started with Unified policies"
+    title="Get started with Unified Policies"
     icon="shield-check"
     href="/semgrep-appsec-platform/unified-policies/get-started"
     horizontal
