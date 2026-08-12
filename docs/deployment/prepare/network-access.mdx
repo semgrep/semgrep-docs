@@ -49,13 +49,13 @@ You must add **CloudFront IP addresses** to your **egress** allowlist. Refer to 
 
 ## Semgrep Network Broker
 
-The [Semgrep Network Broker](/semgrep-ci/network-broker) facilitates secure access between Semgrep and your private network. Its use can replace allowlisting the IP addresses required for **ingress** traffic from Semgrep.
+[Semgrep Network Broker](/semgrep-ci/network-broker) facilitates secure access between Semgrep and your private network. Its use can replace allowlisting the IP addresses required for **ingress** traffic from Semgrep.
 
 The Network Broker, however, only facilitates requests from Semgrep to your network. It does *not* assist with requests originating from your network to Semgrep, including egress traffic from your infrastructure to Semgrep.
 
-In other words, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, or your tenant's equivalent. Depending on how restrictive your network is, you might also need to modify your egress allowlist to include the IP addresses listed in [IP addresses](#ip-addresses).
+When using the Network Broker, the only address you would have to allow inbound is `wireguard.semgrep.dev` on UDP port `51820`, or your tenant's equivalent. Depending on how restrictive your network is, you might also need to modify your egress allowlist to include the IP addresses listed in [IP addresses](#ip-addresses).
 
-For setup instructions, see [Set up Semgrep Network Broker](/semgrep-ci/network-broker).
+For general setup instructions, see [Set up Semgrep Network Broker](/semgrep-ci/network-broker). For network-specific setup, see [](/semgrep-ci/network-broker##network-requirements).
 
 ## Features that require inbound network connectivity
 
@@ -67,3 +67,4 @@ The following Semgrep features require Semgrep to reach resources in your networ
 | PR and MR comments | [PR or MR comments](/category/pr-or-mr-comments) |
 | Semgrep Managed Scans | [Managed Scans overview](/deployment/managed-scanning/overview) |
 | Semgrep Multimodal | [Semgrep Multimodal getting started](/semgrep-multimodal/getting-started) |
+| Notification webhooks | [Enable webhooks](/semgrep-appsec-platform/webhooks) |
