@@ -21,6 +21,10 @@ To use Autofix, you must meet the following requirements:
 * Have at least one connected repository with new or existing Semgrep Code findings.
 * Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 
+<Warning>
+Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
+</Warning>
+
 ## Use Autofix
 
 <Steps>
