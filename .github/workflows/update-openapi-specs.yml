@@ -48,6 +48,15 @@ jobs:
             fi
           done
 
+      - uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+
+      # Mintlify ignores the `tags:` array and derives nav order from the order
+      # paths appear in, so upstream's URL-alphabetical emission order decides
+      # the sidebar. Re-sort into display-name order. Must run after the x-group
+      # step above, which supplies the names this sorts on.
+      - name: Sort API navigation into alphabetical order
+        run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
