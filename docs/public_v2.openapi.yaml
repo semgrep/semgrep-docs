@@ -1883,6 +1883,187 @@ paths:
                 metadata:
                     tag: "Experimental"
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/counts:
+        post:
+            tags:
+                - PublicIssuesService
+            summary: Count issues
+            description: Count Semgrep Agentic Workflows issues matching the supplied filters.
+            operationId: PublicIssuesService_CountIssues
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.issues.api.CountIssuesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.CountIssuesResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/issue/{issueId}/activity:
+        get:
+            tags:
+                - PublicIssuesService
+            summary: Get issue activity history
+            description: Get a page of activity history for a Semgrep Agentic Workflows issue, newest first.
+            operationId: PublicIssuesService_GetIssueActivityHistory
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: issueId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: limit
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+                - name: cursor
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.GetIssueActivityHistoryResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/issue/{issueId}:
+        get:
+            tags:
+                - PublicIssuesService
+            summary: Get issue by ID
+            description: Get a Semgrep Agentic Workflows issue by ID.
+            operationId: PublicIssuesService_GetIssue
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: issueId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.GetIssueResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+        post:
+            tags:
+                - PublicIssuesService
+            summary: Triage issue
+            description: Set the triage state and reason for a Semgrep Agentic Workflows issue.
+            operationId: PublicIssuesService_TriageIssue
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: issueId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.issues.api.TriageIssueRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.TriageIssueResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+    /api/issues/{deploymentId}/search:
+        post:
+            tags:
+                - PublicIssuesService
+            summary: Search issues
+            description: Search Semgrep Agentic Workflows issues with filtering, sorting, and cursor pagination.
+            operationId: PublicIssuesService_SearchIssues
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.issues.api.SearchIssuesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.issues.api.SearchIssuesResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/managed_scan_settings:
         post:
             tags:
@@ -10157,6 +10338,488 @@ components:
                 Outputs:
                     type: object
                     description: Output values of the stack
+        protos.issues.api.CountIssuesRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                filters:
+                    $ref: '#/components/schemas/protos.issues.api.IssueFilters'
+        protos.issues.api.CountIssuesResponse:
+            type: object
+            properties:
+                count:
+                    type: string
+        protos.issues.api.GetIssueActivityHistoryResponse:
+            type: object
+            properties:
+                history:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.issues.api.IssueActivity'
+                cursor:
+                    type: string
+        protos.issues.api.GetIssueResponse:
+            type: object
+            properties:
+                data:
+                    $ref: '#/components/schemas/protos.issues.api.Issue'
+        protos.issues.api.Issue:
+            title: Issue
+            type: object
+            properties:
+                id:
+                    type: string
+                deploymentId:
+                    type: string
+                title:
+                    type: string
+                description:
+                    type: string
+                reasoning:
+                    type: string
+                createdAt:
+                    type: string
+                    format: date-time
+                lastDetectedAt:
+                    type: string
+                    format: date-time
+                detectionState:
+                    enum:
+                        - DETECTION_STATE_DETECTED
+                        - DETECTION_STATE_NOT_DETECTED
+                        - DETECTION_STATE_VERIFIED_ABSENT
+                        - DETECTION_STATE_VERIFIED_PRESENT
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | DETECTION_STATE_DETECTED |  |
+                        | DETECTION_STATE_NOT_DETECTED |  |
+                        | DETECTION_STATE_VERIFIED_ABSENT |  |
+                        | DETECTION_STATE_VERIFIED_PRESENT |  |
+
+                    format: enum
+                severity:
+                    enum:
+                        - SEVERITY_INFO
+                        - SEVERITY_LOW
+                        - SEVERITY_MEDIUM
+                        - SEVERITY_HIGH
+                        - SEVERITY_CRITICAL
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SEVERITY_INFO |  |
+                        | SEVERITY_LOW |  |
+                        | SEVERITY_MEDIUM |  |
+                        | SEVERITY_HIGH |  |
+                        | SEVERITY_CRITICAL |  |
+
+                    format: enum
+                triageState:
+                    enum:
+                        - TRIAGE_STATE_IGNORED
+                        - TRIAGE_STATE_OPEN
+                        - TRIAGE_STATE_REOPENED
+                        - TRIAGE_STATE_REVIEWING
+                        - TRIAGE_STATE_FIXING
+                        - TRIAGE_STATE_PROVISIONALLY_IGNORED
+                        - TRIAGE_STATE_FIXED
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_STATE_IGNORED |  |
+                        | TRIAGE_STATE_OPEN |  |
+                        | TRIAGE_STATE_REOPENED |  |
+                        | TRIAGE_STATE_REVIEWING |  |
+                        | TRIAGE_STATE_FIXING |  |
+                        | TRIAGE_STATE_PROVISIONALLY_IGNORED |  |
+                        | TRIAGE_STATE_FIXED |  |
+
+                    format: enum
+                triageReason:
+                    enum:
+                        - TRIAGE_REASON_FALSE_POSITIVE
+                        - TRIAGE_REASON_ACCEPTABLE_RISK
+                        - TRIAGE_REASON_NO_TIME
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_REASON_FALSE_POSITIVE |  |
+                        | TRIAGE_REASON_ACCEPTABLE_RISK |  |
+                        | TRIAGE_REASON_NO_TIME |  |
+
+                    format: enum
+                triagedAt:
+                    type: string
+                    format: date-time
+                actions:
+                    type: array
+                    items:
+                        type: string
+                workflowIds:
+                    type: array
+                    items:
+                        type: string
+                identities:
+                    type: array
+                    items:
+                        type: string
+                triggerSources:
+                    type: array
+                    items:
+                        type: string
+                projectIds:
+                    type: array
+                    items:
+                        type: string
+                refIds:
+                    type: array
+                    items:
+                        type: string
+                filePaths:
+                    type: array
+                    items:
+                        type: string
+                dependencyPaths:
+                    type: array
+                    items:
+                        type: string
+                directDependencies:
+                    type: array
+                    items:
+                        type: string
+                domains:
+                    type: array
+                    items:
+                        type: string
+                cwes:
+                    type: array
+                    items:
+                        type: string
+                owasps:
+                    type: array
+                    items:
+                        type: string
+            description: An issue generated by a Semgrep Agentic Workflow.
+        protos.issues.api.IssueActivity:
+            title: Issue activity
+            type: object
+            properties:
+                id:
+                    type: string
+                deploymentId:
+                    type: string
+                issueId:
+                    type: string
+                oldValues:
+                    $ref: '#/components/schemas/protos.issues.api.Issue'
+                newValues:
+                    $ref: '#/components/schemas/protos.issues.api.Issue'
+                changedFields:
+                    type: string
+                    format: field-mask
+                reason:
+                    type: string
+                actorType:
+                    enum:
+                        - ACTOR_TYPE_SEMGREP
+                        - ACTOR_TYPE_USER
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | ACTOR_TYPE_SEMGREP |  |
+                        | ACTOR_TYPE_USER |  |
+
+                    format: enum
+                actorId:
+                    type: string
+                createdAt:
+                    type: string
+                    format: date-time
+            description: A change made to an issue.
+        protos.issues.api.IssueFilters:
+            title: Issue filters
+            type: object
+            properties:
+                ids:
+                    type: array
+                    items:
+                        type: string
+                titleQuery:
+                    type: string
+                descriptionQuery:
+                    type: string
+                reasoningQuery:
+                    type: string
+                detectionStates:
+                    enum:
+                        - DETECTION_STATE_DETECTED
+                        - DETECTION_STATE_NOT_DETECTED
+                        - DETECTION_STATE_VERIFIED_ABSENT
+                        - DETECTION_STATE_VERIFIED_PRESENT
+                    type: array
+                    items:
+                        enum:
+                            - DETECTION_STATE_UNSPECIFIED
+                            - DETECTION_STATE_DETECTED
+                            - DETECTION_STATE_NOT_DETECTED
+                            - DETECTION_STATE_VERIFIED_ABSENT
+                            - DETECTION_STATE_VERIFIED_PRESENT
+                        type: string
+                        format: enum
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | DETECTION_STATE_DETECTED |  |
+                        | DETECTION_STATE_NOT_DETECTED |  |
+                        | DETECTION_STATE_VERIFIED_ABSENT |  |
+                        | DETECTION_STATE_VERIFIED_PRESENT |  |
+
+                severities:
+                    enum:
+                        - SEVERITY_INFO
+                        - SEVERITY_LOW
+                        - SEVERITY_MEDIUM
+                        - SEVERITY_HIGH
+                        - SEVERITY_CRITICAL
+                    type: array
+                    items:
+                        enum:
+                            - SEVERITY_UNSPECIFIED
+                            - SEVERITY_INFO
+                            - SEVERITY_LOW
+                            - SEVERITY_MEDIUM
+                            - SEVERITY_HIGH
+                            - SEVERITY_CRITICAL
+                        type: string
+                        format: enum
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SEVERITY_INFO |  |
+                        | SEVERITY_LOW |  |
+                        | SEVERITY_MEDIUM |  |
+                        | SEVERITY_HIGH |  |
+                        | SEVERITY_CRITICAL |  |
+
+                triageStates:
+                    enum:
+                        - TRIAGE_STATE_IGNORED
+                        - TRIAGE_STATE_OPEN
+                        - TRIAGE_STATE_REOPENED
+                        - TRIAGE_STATE_REVIEWING
+                        - TRIAGE_STATE_FIXING
+                        - TRIAGE_STATE_PROVISIONALLY_IGNORED
+                        - TRIAGE_STATE_FIXED
+                    type: array
+                    items:
+                        enum:
+                            - TRIAGE_STATE_UNSPECIFIED
+                            - TRIAGE_STATE_IGNORED
+                            - TRIAGE_STATE_OPEN
+                            - TRIAGE_STATE_REOPENED
+                            - TRIAGE_STATE_REVIEWING
+                            - TRIAGE_STATE_FIXING
+                            - TRIAGE_STATE_PROVISIONALLY_IGNORED
+                            - TRIAGE_STATE_FIXED
+                        type: string
+                        format: enum
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_STATE_IGNORED |  |
+                        | TRIAGE_STATE_OPEN |  |
+                        | TRIAGE_STATE_REOPENED |  |
+                        | TRIAGE_STATE_REVIEWING |  |
+                        | TRIAGE_STATE_FIXING |  |
+                        | TRIAGE_STATE_PROVISIONALLY_IGNORED |  |
+                        | TRIAGE_STATE_FIXED |  |
+
+                triageReasons:
+                    enum:
+                        - TRIAGE_REASON_FALSE_POSITIVE
+                        - TRIAGE_REASON_ACCEPTABLE_RISK
+                        - TRIAGE_REASON_NO_TIME
+                    type: array
+                    items:
+                        enum:
+                            - TRIAGE_REASON_UNSPECIFIED
+                            - TRIAGE_REASON_FALSE_POSITIVE
+                            - TRIAGE_REASON_ACCEPTABLE_RISK
+                            - TRIAGE_REASON_NO_TIME
+                        type: string
+                        format: enum
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_REASON_FALSE_POSITIVE |  |
+                        | TRIAGE_REASON_ACCEPTABLE_RISK |  |
+                        | TRIAGE_REASON_NO_TIME |  |
+
+                actions:
+                    type: array
+                    items:
+                        type: string
+                workflowIds:
+                    type: array
+                    items:
+                        type: string
+                identities:
+                    type: array
+                    items:
+                        type: string
+                triggerSources:
+                    type: array
+                    items:
+                        type: string
+                projectIds:
+                    type: array
+                    items:
+                        type: string
+                refIds:
+                    type: array
+                    items:
+                        type: string
+                filePathQuery:
+                    type: string
+                createdAt:
+                    $ref: '#/components/schemas/protos.issues.api.TimeRange'
+                lastDetectedAt:
+                    $ref: '#/components/schemas/protos.issues.api.TimeRange'
+                triagedAt:
+                    $ref: '#/components/schemas/protos.issues.api.TimeRange'
+                workflowJobIds:
+                    type: array
+                    items:
+                        type: string
+            description: Filters for narrowing issue search results. Fields are combined with AND; multiple values within a field are combined with OR.
+        protos.issues.api.SearchIssuesRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                filters:
+                    $ref: '#/components/schemas/protos.issues.api.IssueFilters'
+                sortField:
+                    enum:
+                        - ISSUE_SORT_FIELD_SEVERITY
+                        - ISSUE_SORT_FIELD_LAST_DETECTED_AT
+                        - ISSUE_SORT_FIELD_CREATED_AT
+                        - ISSUE_SORT_FIELD_FILE_PATH
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | ISSUE_SORT_FIELD_SEVERITY |  |
+                        | ISSUE_SORT_FIELD_LAST_DETECTED_AT |  |
+                        | ISSUE_SORT_FIELD_CREATED_AT |  |
+                        | ISSUE_SORT_FIELD_FILE_PATH |  |
+
+                    format: enum
+                sortDirection:
+                    enum:
+                        - SORT_DIRECTION_ASC
+                        - SORT_DIRECTION_DESC
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SORT_DIRECTION_ASC |  |
+                        | SORT_DIRECTION_DESC |  |
+
+                    format: enum
+                limit:
+                    type: integer
+                    format: int64
+                cursor:
+                    type: string
+        protos.issues.api.SearchIssuesResponse:
+            type: object
+            properties:
+                issues:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.issues.api.Issue'
+                total:
+                    type: string
+                cursor:
+                    type: string
+        protos.issues.api.TimeRange:
+            type: object
+            properties:
+                startAt:
+                    type: string
+                    format: date-time
+                endAt:
+                    type: string
+                    format: date-time
+        protos.issues.api.TriageIssueRequest:
+            type: object
+            properties:
+                deploymentId:
+                    type: string
+                issueId:
+                    type: string
+                triageState:
+                    enum:
+                        - TRIAGE_STATE_IGNORED
+                        - TRIAGE_STATE_OPEN
+                        - TRIAGE_STATE_REOPENED
+                        - TRIAGE_STATE_REVIEWING
+                        - TRIAGE_STATE_FIXING
+                        - TRIAGE_STATE_PROVISIONALLY_IGNORED
+                        - TRIAGE_STATE_FIXED
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_STATE_IGNORED |  |
+                        | TRIAGE_STATE_OPEN |  |
+                        | TRIAGE_STATE_REOPENED |  |
+                        | TRIAGE_STATE_REVIEWING |  |
+                        | TRIAGE_STATE_FIXING |  |
+                        | TRIAGE_STATE_PROVISIONALLY_IGNORED |  |
+                        | TRIAGE_STATE_FIXED |  |
+
+                    format: enum
+                triageReason:
+                    enum:
+                        - TRIAGE_REASON_FALSE_POSITIVE
+                        - TRIAGE_REASON_ACCEPTABLE_RISK
+                        - TRIAGE_REASON_NO_TIME
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | TRIAGE_REASON_FALSE_POSITIVE |  |
+                        | TRIAGE_REASON_ACCEPTABLE_RISK |  |
+                        | TRIAGE_REASON_NO_TIME |  |
+
+                    format: enum
+        protos.issues.api.TriageIssueResponse:
+            type: object
+            properties:
+                data:
+                    $ref: '#/components/schemas/protos.issues.api.Issue'
         protos.issues.v1.ActivityHistoryEvent_ExceptionRequestDetails:
             type: object
             properties:
@@ -10808,7 +11471,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.ai.v1.ExploitCondition'
-                    description: 'AI Detection only: Conditions that must be true for the vulnerability to be exploitable. Only available when fetching a single issue at a time via the GetIssue RPC.'
+                    description: 'Deprecated: AI exploit conditions were only tested internally and are no longer returned by the Issues API.'
                 clickToFixCommitMsg:
                     type: string
                     description: The commit message for the Click-to-Fix PR (if any). Only available when fetching a single issue at a time via the GetIssue RPC.
@@ -11388,7 +12051,7 @@ components:
                         format: enum
                     description: |+
                         Filters SAST issues whose action mode matches one of the specified values. Only applies when the provided issue_type is SAST.
-                         Deprecated: action mode is tied to the legacy policy model and has no effect for deployments on Unified Policies. This filter will be removed in a future release.
+                         Deprecated: action mode is tied to the legacy policy model and has no effect for deployments on unified policies. This filter will be removed in a future release.
 
                         | value | description |
                         |-------|---------------|
@@ -12014,6 +12677,14 @@ components:
                         When true, returns only findings on archived projects. By default
                          (unset/false), findings on archived projects are excluded. Applies to all
                          issue types.
+                hasInFlightAutofixPr:
+                    type: boolean
+                    description: |-
+                        Filter by whether an issue has an in-flight Autofix PR request: the latest
+                         pr_requested/pr_opened/pr_failed lifecycle event is pr_requested and within
+                         a 10-minute cooldown. false excludes in-flight issues, true returns only
+                         them, unset applies no filtering. Not supported by Duplo — setting it
+                         forces the Postgres query path.
         protos.issues.v1.ListIssueGroupsRequest:
             type: object
             properties:
@@ -15230,6 +15901,35 @@ components:
                         The ID of default branch as retrieved from the source code manager.
 
                         Get more details about the branch from [Get Branch](#tag/ProjectsService/operation/ProjectsService_GetBranch).
+                scmType:
+                    example: SCM_TYPE_GITHUB
+                    enum:
+                        - SCM_TYPE_GITHUB
+                        - SCM_TYPE_GITHUB_ENTERPRISE
+                        - SCM_TYPE_GITLAB
+                        - SCM_TYPE_GITLAB_SELFMANAGED
+                        - SCM_TYPE_BITBUCKET
+                        - SCM_TYPE_BITBUCKET_DATACENTER
+                        - SCM_TYPE_AZURE_DEVOPS
+                        - SCM_TYPE_UNKNOWN
+                        - SCM_TYPE_HARNESS
+                    type: string
+                    description: |+
+                        The source code manager (SCM) this project's repository lives on.
+
+                        | value | description |
+                        |-------|---------------|
+                        | SCM_TYPE_GITHUB | GitHub Cloud |
+                        | SCM_TYPE_GITHUB_ENTERPRISE | GitHub Enterprise |
+                        | SCM_TYPE_GITLAB | GitLab Cloud |
+                        | SCM_TYPE_GITLAB_SELFMANAGED | GitLab Self-Managed |
+                        | SCM_TYPE_BITBUCKET | Bitbucket Cloud |
+                        | SCM_TYPE_BITBUCKET_DATACENTER | Bitbucket Data Center |
+                        | SCM_TYPE_AZURE_DEVOPS | Azure DevOps |
+                        | SCM_TYPE_UNKNOWN |  |
+                        | SCM_TYPE_HARNESS | Harness |
+
+                    format: enum
         protos.projects.v2.ProjectsFilter:
             title: Projects Filter
             type: object
@@ -18198,6 +18898,21 @@ components:
                     description: Whether or not requests to this package registry should be routed through the network broker.
                 additionalConfig:
                     $ref: '#/components/schemas/protos.sms.v2.AdditionalConfig'
+                registryType:
+                    example: REGISTRY_TYPE_PACKAGE_MANAGER_AUTH
+                    enum:
+                        - REGISTRY_TYPE_PACKAGE_MANAGER_AUTH
+                        - REGISTRY_TYPE_MALWARE_FIREWALL
+                    type: string
+                    description: |+
+                        How this registry entry is used. Unset is treated as REGISTRY_TYPE_PACKAGE_MANAGER_AUTH. For REGISTRY_TYPE_MALWARE_FIREWALL entries, `url` holds a host pattern (host[:port], optional leading `*.` wildcard) instead of a URL, and ecosystem/credentials must not be set.
+
+                        | value | description |
+                        |-------|---------------|
+                        | REGISTRY_TYPE_PACKAGE_MANAGER_AUTH |  |
+                        | REGISTRY_TYPE_MALWARE_FIREWALL |  |
+
+                    format: enum
             description: |-
                 Represents properties of the PackageManagerConfig model
                  without the credentials
@@ -18930,6 +19645,10 @@ tags:
       description: Projects are groups of files that are scanned by Semgrep. These normally correspond to repositories.
       x-displayName: Projects
       x-group: Projects
+    - name: PublicIssuesService
+      description: Search, inspect, and triage issues generated by Semgrep Agentic Workflows. This API does not include issues from other Semgrep products.
+      x-displayName: Issues (Semgrep Agentic Workflows)
+      x-group: Issues (Semgrep Agentic Workflows)
     - name: ReportsService
       description: APIs for Reporting Dashboards
       x-displayName: Reporting
