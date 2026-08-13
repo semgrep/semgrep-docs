@@ -93,10 +93,10 @@ Click **Ignore** to proceed.
 
 ### Fix the finding
 
-Click **Fix** see the menu that includes the following options:
+Click **Fix** to see the menu that includes the following options:
 
 - View the associated Jira ticket, if available
-- Open a PR that fixes the issue, if possible
+- **Open Autofix PR** to create an AI-generated draft PR or MR that fixes the finding, when [Autofix](/semgrep-code/triage-remediation/autofix) is available. This option appears only when Semgrep Multimodal is enabled. If your SCM connection is missing write access, Semgrep shows a modal with setup instructions instead of opening a PR.
 - Change the status of the issue as **To fix**, indicating that you plan to return to the finding in the future
 
 Semgrep automatically marks findings as fixed when they're no longer detected in subsequent scans.

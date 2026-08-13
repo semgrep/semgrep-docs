@@ -25,6 +25,10 @@ To use Autofix, you must meet the following requirements:
 Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
 </Warning>
 
+<Note>
+There is no organization-level **Autofix PR/MR** toggle under **Settings > General > Code**. When Semgrep Multimodal is enabled and your SCM connection has the required permissions, you can open Autofix PRs or MRs from a finding's **Details** page.
+</Note>
+
 ## Use Autofix
 
 <Steps>
@@ -39,6 +43,8 @@ Identify the finding you want to Autofix and click the hyperlink on the card to 
 </Step>
 <Step>
 From the **Fix** drop-down, select **Open Autofix PR**.
+  * If Semgrep Multimodal is not enabled, **Open Autofix PR** does not appear in the drop-down.
+  * If your SCM connection is missing write access (for example, **Contents: Write** on GitHub), Semgrep shows a modal with setup instructions instead of starting the Autofix PR.
 </Step>
 <Step>
 You will see the following message:
