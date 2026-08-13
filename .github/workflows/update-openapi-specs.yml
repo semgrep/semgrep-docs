@@ -35,18 +35,21 @@ jobs:
             https://semgrep.dev/api/v2/openapi.yaml \
             --output docs/public_v2.openapi.yaml
 
-      # Mintlify ignores ReDoc's x-displayName tag extension and labels nav
-      # groups with the raw tag name unless x-group is set. Mirror the pretty
-      # names until semgrep-app emits x-group natively (safe to remove then).
-      - name: Mirror x-displayName tag names into x-group
-        run: |
-          for spec in docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml; do
-            if grep -q "x-group:" "$spec"; then
-              echo "$spec already has x-group (upstream emits it now); skipping"
-            else
-              perl -i -pe 's/^(\s*)x-displayName:(.*)$/$1x-displayName:$2\n$1x-group:$2/' "$spec"
-            fi
-          done
+      - uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+
+      # Upstream ships ReDoc vendor extensions that Mintlify does not read, so
+      # nav group labels (x-displayName) and beta/experimental badges
+      # (x-badges) render as nothing. Mirror them into x-group and x-mint.
+      # Safe to drop once semgrep-app emits the Mintlify keys natively.
+      - name: Mirror ReDoc extensions into Mintlify equivalents
+        run: uv run scripts/mirror_openapi.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Mintlify ignores the `tags:` array and derives nav order from the order
+      # paths appear in, so upstream's URL-alphabetical emission order decides
+      # the sidebar. Re-sort into display-name order. Must run after the mirror
+      # step above, which supplies the x-group names this sorts on.
+      - name: Sort API navigation into alphabetical order
+        run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:

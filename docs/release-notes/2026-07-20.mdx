@@ -1,0 +1,61 @@
+---
+title: "Week of July 20, 2026"
+description: "Updates made to Semgrep during the week of July 20-26, 2026."
+sidebarTitle: "Week of July 20, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- All **Findings** pages now show the reason why a finding was ignored.
+
+### Changed
+
+- Semgrep cancels in-progress, full Managed Scans when an incident-response scan starts for the same repository, so a late-finishing scan cannot overwrite incident-response findings. Superseded scans appear as **Cancelled** with an explanatory tooltip.
+- Removed the display of an extraneous drawer when adding the **Send a Slack message** action to a policy; you can now proceed directly to the Slack authentication flow in a new browser window.
+- Standardized the order and grouping of items on the **Settings > Integrations** page.
+
+
+## 💻 Semgrep Code
+
+### Added
+
+- Extended the period for collecting Git contributor information when you run `semgrep ci` from the last 30 days to the last 90 days, matching the contributor usage policy.
+
+### Changed
+
+- Improved the scan status output when no Code rules run, such as a Secrets-only or Supply Chain-only scan. The summary no longer reports a "0 Code rules" count and instead states that Code scanning is not enabled or that there are no Code rules to run.
+
+### Fixed
+
+- Fixed rare, nondeterministic crashes and incorrect results caused by an OCaml compiler bug.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- The Supply Chain **Dependencies** page includes an archived projects filter toggle.
+- Supply Chain incident Slack notifications include a custom message field.
+
+### Changed
+
+- Removed the timestamp from malware incident Slack notifications, since it could inaccurately suggest a slow response to an incident.
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- Findings that span multiple files can now be verified against their entire fileset when Semgrep verifies whether an AI-powered detection finding is still present, instead of being compared against only one file.
+
+### Fixed
+
+- Fixed an issue where AI-powered detection scan eligibility was disabled when Semgrep Managed Scans was disabled, instead of when no valid AI providers were configured.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of July 20-26, 2026:
+
+<CardGroup>
+  <Card title="1.171.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.171.0" horizontal />
+</CardGroup>

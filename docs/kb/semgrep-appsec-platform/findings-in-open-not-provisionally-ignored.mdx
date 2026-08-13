@@ -1,0 +1,11 @@
+---
+title: Why are some of my findings in Open status instead of Provisionally ignored when Semgrep has also flagged the findings as False positives?
+---
+
+Occasionally, you might see findings that Semgrep Multimodal has flagged as **False positives** in **Open** status instead of **Provisionally ignored**. This can happen if the AI analysis takes too long:
+
+1. Semgrep scans your project and identifies a finding.
+2. Semgrep Multimodal analyzes your finding to try to auto-triage it.
+3. If auto-triage analysis results are returned in time and the finding is a **False positive**, Semgrep can use this information to set the finding's status to **Provisionally ignored**.
+4. If auto-triage results aren't returned in time, Semgrep sets the finding's status as **Open**.
+5. If auto-triage results return at a later time, indicating that the finding is a **False positive**, Semgrep flags the finding accordingly but does *not* update the status of the finding.

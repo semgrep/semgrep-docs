@@ -1,31 +1,29 @@
 ---
 title: "Semgrep Guardian"
-description: "Set up Semgrep's AI coding agent security plugin to scan AI-generated code and identify security issues before they ship."
+description: "Set up Semgrep Guardian to scan AI-generated code and catch security issues before they ship."
 ---
 
-Semgrep Guardian integrates natively with AI coding agents like Claude Code and Cursor to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
+Semgrep Guardian integrates natively with AI coding agents to catch security issues before they ship. It bundles the Semgrep MCP server, Hooks, and Skills into a single install, and scans every file an agent generates using Semgrep Code, Supply Chain, and Secrets. When findings are detected, the agent is prompted to regenerate code until Semgrep returns clean results or you choose to dismiss them.
 
-The plugin uses each IDE's native hook or MCP system:
-
-* **Claude Code**: [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins)
-* **Codex**: [MCP](https://developers.openai.com/codex/mcp)
-* **Cursor**: [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp)
-* **GitHub Copilot** (Visual Studio, JetBrains, Xcode, Eclipse): [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
-* **Kiro**: [MCP](https://kiro.dev/docs/mcp/)
-* **VS Code**: [MCP](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
-* **Devin** (Windsurf): [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks)
-
-This guide covers setup for each of the preceding products listed, but the plugin works with any MCP client.
+**Claude Code is the recommended setup.** Follow the [Claude Code](#connect-to-your-ide) tab below to get started — no local Semgrep CLI required. Guardian also works with other AI coding agents. Pick your agent in the tabs below; each tab covers that product's native hooks or MCP integration. The plugin also works with any MCP client.
 
 ## Prerequisites
 
 * A Semgrep account
 
+For organization-wide rollout, OAuth and credential details, and shared-token guidance, see [Enterprise deployment](/semgrep-guardian/enterprise-deployment).
+
 ## Connect to your IDE
+
+Start with the **Claude Code** tab. That path uses Semgrep's hosted remote plugin and does not require a local Semgrep CLI install. Use the other tabs only if you are setting up a different agent.
 
 <Tabs>
   <Tab title="Claude Code">
-    Claude Code uses Semgrep's hosted remote server by default, so you do not need to install the Semgrep CLI locally.
+    Uses Claude Code [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins). Claude Code uses Semgrep's hosted remote server by default, so you do not need to install the Semgrep CLI locally.
+
+    <Info>
+      The MCP server bundled with this plugin works on all platforms. On Windows, however, it requires [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) for the MCP server to work out of the box.
+    </Info>
 
     <Steps>
       <Step>
@@ -53,14 +51,14 @@ This guide covers setup for each of the preceding products listed, but the plugi
         ```
       </Step>
       <Step>
-        Start a new session in Claude to begin the Semgrep login flow:
+        Start a new session in Claude to begin the OAuth login flow:
 
         ```bash
         /clear
         ```
       </Step>
     </Steps>
-    The plugin registers a post-tool hook so Claude Code scans every file it writes. Learn more about [Claude Code plugins](https://code.claude.com/docs/en/plugins) and [hooks](https://code.claude.com/docs/en/hooks).
+    The plugin registers a post-tool hook so Claude Code scans every file it writes.
 
     <Accordion title="Run Semgrep Guardian locally">
       The remote server is the recommended default. If you need to run Semgrep locally instead, you can install the local plugin from the [`semgrep/guardian-local`](https://github.com/semgrep/guardian-local) repo.
@@ -97,6 +95,8 @@ This guide covers setup for each of the preceding products listed, but the plugi
     </Accordion>
   </Tab>
   <Tab title="Codex">
+    Uses [Codex MCP](https://developers.openai.com/codex/mcp).
+
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -111,9 +111,11 @@ This guide covers setup for each of the preceding products listed, but the plugi
         ```
       </Step>
     </Steps>
-    Codex does not expose a post-write hook, so Semgrep tools are surfaced through MCP and invoked when the agent calls them. Learn more about [Codex MCP configuration](https://developers.openai.com/codex/mcp).
+    Codex does not expose a post-write hook, so Semgrep tools are surfaced through MCP and invoked when the agent calls them.
   </Tab>
   <Tab title="Cursor">
+    Uses Cursor [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp).
+
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -127,12 +129,13 @@ This guide covers setup for each of the preceding products listed, but the plugi
       <Step>
         In Cursor's chat, run the `/setup-semgrep-plugin` skill to finish wiring up the plugin.
 
-        The plugin uses [Cursor hooks](https://cursor.com/docs/hooks) (`afterFileEdit` and `stop`) to scan code as the agent writes it, and exposes Semgrep tools through [Cursor MCP](https://cursor.com/docs/mcp).
+        The plugin uses Cursor hooks (`afterFileEdit` and `stop`) to scan code as the agent writes it, and exposes Semgrep tools through Cursor MCP.
       </Step>
     </Steps>
   </Tab>
   <Tab title="GitHub Copilot">
-  Use this tab for GitHub Copilot in Visual Studio, JetBrains IDEs, Xcode, or Eclipse. (For Copilot in VS Code, use the **VS Code** tab.)
+  Uses GitHub Copilot [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) in Visual Studio, JetBrains IDEs, Xcode, or Eclipse. (For Copilot in VS Code, use the **VS Code** tab.)
+
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -160,6 +163,8 @@ This guide covers setup for each of the preceding products listed, but the plugi
   </Tab>
 
   <Tab title="VS Code">
+    Uses [VS Code MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -182,10 +187,12 @@ This guide covers setup for each of the preceding products listed, but the plugi
         Reload VS Code. Semgrep tools become available in the Copilot Chat **Agent** mode.
       </Step>
     </Steps>
-    VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP. Learn more about [adding and managing MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+    VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP.
   </Tab>
 
   <Tab title="Devin (Windsurf)">
+    Uses Windsurf [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+
     <Steps>
       <Step>
         [Install the Semgrep CLI](#install-the-semgrep-cli).
@@ -210,15 +217,15 @@ This guide covers setup for each of the preceding products listed, but the plugi
       Restart Windsurf to apply hook configuration.
     </Step>
     </Steps>
-      The `post_write_code` event fires after Cascade writes or modifies any file. Learn more about [Windsurf Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+      The `post_write_code` event fires after Cascade writes or modifies any file.
   </Tab>
 
   <Tab title="Kiro">
-Kiro uses your locally installed Semgrep CLI to run Semgrep on your machine, so [install the Semgrep CLI](#install-the-semgrep-cli) first. Clicking the box below opens Kiro directly so you can add the server; it will not open a new browser tab.
+Uses [Kiro MCP](https://kiro.dev/docs/mcp/). Kiro uses your locally installed Semgrep CLI to run Semgrep on your machine, so [install the Semgrep CLI](#install-the-semgrep-cli) first. Clicking the box below opens Kiro directly so you can add the server; it will not open a new browser tab.
 
 [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=semgrep&config=%7B%22command%22%3A%22semgrep%22%2C%22args%22%3A%5B%22mcp%22%5D%2C%22env%22%3A%7B%22SEMGREP_APP_TOKEN%22%3A%22%24%7BSEMGREP_TOKEN%7D%22%7D%7D)
 
-Alternatively, follow the [Kiro MCP docs](https://kiro.dev/docs/mcp/) and add this file to your `.kiro/settings/mcp.json`:
+Alternatively, add this file to your `.kiro/settings/mcp.json`:
 
 ```json
 {
@@ -233,12 +240,10 @@ Alternatively, follow the [Kiro MCP docs](https://kiro.dev/docs/mcp/) and add th
   }
 }
 ```
-
-See [Kiro docs](https://kiro.dev/docs/mcp/) for more info.
   </Tab>
 
   <Tab title="Other IDEs">
-  [Install the Semgrep CLI](#install-the-semgrep-cli), then add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point. Refer to your IDE's documentation for specific details on where to add the MCP server configuration.
+  Uses your IDE's MCP (or hook) integration. [Install the Semgrep CLI](#install-the-semgrep-cli), then add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point. Refer to your IDE's documentation for specific details on where to add the MCP server configuration.
 
   If your IDE supports a post-write or post-tool hook, point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically. The Windsurf tab above shows this pattern.
   </Tab>
@@ -253,8 +258,11 @@ Guardian uses different rules depending on the environment in which you use it:
 
 ## Install the Semgrep CLI
 
-Every IDE except Claude Code runs Semgrep from a locally installed CLI. Claude Code uses Semgrep's hosted remote server by default and does not need a local CLI.
+<Warning>
+This section is only for non-Claude Code setups (or the optional [local Claude Code plugin](#run-semgrep-guardian-locally)). **Claude Code with the remote plugin is the recommended path** and does not require a local Semgrep CLI. Prefer the [Claude Code](#connect-to-your-ide) tab above unless you specifically need a local CLI integration.
+</Warning>
 
+<Accordion title="CLI install steps for other IDEs">
 <Steps>
 <Step>
 Install the Semgrep CLI using pipx, uv, or Homebrew. This requires Python 3.10 or later -- the Semgrep CLI needs Python at runtime regardless of how you installed the CLI:
@@ -295,8 +303,10 @@ semgrep login && semgrep install-semgrep-pro
 `semgrep login` launches a browser window. You can also use the activation link printed in the terminal.
 </Step>
 </Steps>
+</Accordion>
 
 ## Additional resources
 
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication, OAuth credentials, and organization-wide rollout
 * Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack)
 * The [Semgrep MCP server repo on GitHub](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp)

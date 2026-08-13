@@ -9,14 +9,11 @@ The following updates were made to Semgrep in June 2026.
 
 ### Added
 
-- **Unified policies** is now in beta. Unified policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
+- **Unified Policies** is now in beta. Unified Policies provide a centralized way to choose the rules and rulesets used for Semgrep scans and define what happens after Semgrep identifies a finding, such as leaving PR or MR comments, blocking PRs or MRs, creating Jira tickets, or sending Slack notifications.
 - **Autofix**:
   - Autofix can now open pull requests and merge requests on GitHub, GitLab, Bitbucket, and Azure DevOps.
   - Repositories connected through a personal access token (PAT) instead of a GitHub App now show tailored instructions for enabling Autofix.
-- Users with **Admin** access to the organization can now disable `nosemgrep` comments using a toggle in **Settings > General**.
-- The findings list filter menu now includes an **Ignored via nosemgrep** option with its own count, so you can filter for findings suppressed by inline `nosemgrep` comments. The **Ignored** row count still shows the combined total.
 - When configuring Slack notification actions in a remediation policy, you can now connect or reconnect a Slack workspace directly from the form instead of navigating away to **Settings > Integrations**.
-- **Harness**: Added beta support for connecting Harness as a source code manager, including onboarding, webhooks, and PR comments.
 - **API**:
   - Findings now expose their first-detected date through the public API via a new `created_at` field on related issues.
   - The public API now includes a bulk delete endpoint for API tokens, so you can revoke multiple tokens in a single request instead of one at a time.
@@ -30,12 +27,12 @@ The following updates were made to Semgrep in June 2026.
   - The AI usage breakdown is now an interactive chart showing daily credit spend by category.
   - Free-tier users see a simplified AI credit balance panel.
   - AI autotriage cache hits are no longer counted against a deployment's AI credit balance.
-  - Free-tier users whose AI-powered detection scans that are stopped after exceeding their spend cap are now billed for the credits they consumed before the failure, closing a gap that let scans run for free.
+  - Free-tier users whose AI-powered detection scans are stopped after exceeding their spend cap are now billed for the credits they consumed before the failure, closing a gap that let scans run for free.
 
 ### Fixed
 
 - Fixed the project filter search field on the **Findings** page. Clicking the clear button now clears the text.
-- Fixed an issue where the **Findings** page incorrectly showed **This combination of filters isn't supported** for some filter combinations
+- Fixed an issue where the **Findings** page incorrectly showed **This combination of filters isn't supported** for some filter combinations.
 - Fixed an issue where the **Findings** page refreshed every 10 seconds after a filter error.
 - Fixed an issue where exporting findings to CSV from the **Findings** page failed before the download completed.
 - Fixed the branches tooltip on a finding's **Details** page so it no longer scrolls horizontally and clips content.
