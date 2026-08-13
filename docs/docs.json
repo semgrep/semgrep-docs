@@ -693,7 +693,6 @@
                     "root": "kb/semgrep-supply-chain",
                     "pages": [
                       "kb/semgrep-supply-chain/exclude-rule",
-                      "kb/semgrep-supply-chain/incident-response",
                       "kb/semgrep-supply-chain/scanning_multiple_lockfiles",
                       "kb/semgrep-supply-chain/ssc-lockfiles-circleci",
                       "kb/semgrep-supply-chain/ssc-python-lockfiles",
