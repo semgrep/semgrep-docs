@@ -23,13 +23,11 @@ When running Semgrep in CI, if the triggering event is a pull request or merge r
 
 ## Rule configuration
 
-If you use Semgrep with Semgrep AppSec Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/semgrep-code/policies) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
-
-Findings on rules in the Blocking policy cause the scan to finish with exit code 1. See also [Blocking findings and errors](#blocking-findings-and-errors).
+If you use Semgrep with Semgrep AppSec Platform, `semgrep ci` with no additional arguments executes a scan using your organization's [policies](/semgrep-appsec-platform/unified-policies/overview) configuration. Findings are determined by the rules present in different policies. If you have any organization-specific rules in your policies, those are included as well.
 
 On the other hand, `semgrep --config auto` executes a scan using relevant rules from the [Semgrep Registry](https://semgrep.dev/explore), without using a particular configuration. It does not include organization-specific rules from Semgrep AppSec Platform.
 
-To address this difference, run `semgrep scan` with specific rules or rulesets that closely match your policies. For example, if your policies include only the "default" ruleset in the Monitor column, running:
+To address this difference, run `semgrep scan` with specific rules or rulesets that closely match your policies. For example, if your policies include only the "default" ruleset, running:
 
 ```bash
 semgrep --config "p/default"

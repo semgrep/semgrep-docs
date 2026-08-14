@@ -201,9 +201,9 @@ Rules can be **configured on a per-product, per-interface basis** to notify deve
 
 | Interface | Semgrep Code | Semgrep Secrets | Semgrep Supply Chain |
 | :--- | :--- | :--- | :--- |
-| IDE | To notify developers of findings from a rule, add the rule to your Policies. | To notify developers of findings from a rule, add the rule to your Policies. | Coming soon |
-| PR or MR comments | To notify developers, a rule must be in Comment mode; you can configure your Policies to include only **high confidence, high severity rules**. | To notify developers, a rule must be in Comment mode; you can configure your Policies to include only **high confidence, high severity rules**. | Developers receive comments about any **reachable vulnerability of high or critical severity.** |
-| CLI through `pre-commit` | To notify developers of findings from a rule, add the rule to your Policies. | To notify developers of findings from a rule, add the rule to your Policies. | Developers are notified of **all** findings by default. |
+| IDE | To notify developers of findings from a rule, add the rule to your Code remediation policy. | To notify developers of findings from a rule, add the rule to your remediation policy for multiple finding types. | To notify developers of findings from a rule, add the rule to your Supply Chain remediation policy. |
+| PR or MR comments | To notify developers, create a remediation policy with the **Comment on PR/MR** action that triggers when Semgrep identifies a finding and the conditions of the policy are met. | To notify developers, create a remediation policy with the **Comment on PR/MR** action that triggers when Semgrep identifies a finding and the conditions of the policy are met. You can configure your policy's conditions to include only **high confidence, high severity rules**. | Developers receive comments about any **reachable vulnerability of high or critical severity due to the default Semgrep remediation policy.** |
+| CLI through `pre-commit` | To notify developers of findings from a rule, create a remediation policy with the **Comment on PR/MR** action that triggers when Semgrep identifies a finding and the conditions of the policy are met. | To notify developers of findings from a rule, create a remediation policy with the **Comment on PR/MR** action that triggers when Semgrep identifies a finding and the conditions of the policy are met. | Developers are notified of **all** findings by default. |
 
 
 ## Next steps
