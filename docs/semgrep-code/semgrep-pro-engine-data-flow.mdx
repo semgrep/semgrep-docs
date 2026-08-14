@@ -36,8 +36,7 @@ To get cross-file (interfile) findings in your organization, follow the steps in
 
 <Info>
 **PREREQUISITE**
-Not all Semgrep rules or rulesets make use of dataflow traces, or taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
-
+Not all Semgrep rules or rulesets make use of dataflow traces, or taint tracking. Ensure that you have a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) that includes rules that use dataflow traces. Semgrep's default ruleset includes rules that meet this requirement, but if you're using a custom ruleset, you must add individual rules from the [Semgrep Registry](https://semgrep.dev/explore) that utilize dataflow traces to see results.
 </Info>
 
 To view the detailed path of tainted data with dataflow traces:
