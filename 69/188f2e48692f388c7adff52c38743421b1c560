@@ -1,0 +1,19 @@
+scripts/mirror_openapi.py
+  s_d8afd48dece3d2::t_9a6cf2698618bd 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "69188f2e48692f388c7adff52c38743421b1c560",
+  "prompts": {},
+  "sessions": {
+    "s_d8afd48dece3d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "de2d7b47-5e21-4136-8db1-6081ccacc5fe",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
