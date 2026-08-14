@@ -21,9 +21,9 @@ PR comments appear for the following types of scans under these conditions:
 
 | Type of scan | Product name | Trigger condition | How to set up |
 | :--- | :--- | :--- | :--- |
-| Static application security testing (SAST) | Semgrep Code | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. This lets you customize which findings generate comments for developers. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure comments for Semgrep Code](#configure-comments-for-semgrep-code). |
+| Static application security testing (SAST) | Semgrep Code | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. This lets you customize which findings generate comments for developers. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure pull request comments](#configure-pull-request-comments). |
 | Software composition analysis (SCA) | Semgrep Supply Chain (SSC) | A comment appears based on the conditions you explicitly set in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) or when Semgrep detects a [license violation](/semgrep-supply-chain/license-compliance). | To receive Supply Chain comments, complete the steps in [Confirm account connection and access](#confirm-your-semgrep-accounts-connection) and [set up a policy](/semgrep-supply-chain/policies). <br/><br/> To receive license violation comments, [enable dependency search](/semgrep-supply-chain/dependency-search#enable-and-use-dependency-search). |
-| Secrets | Semgrep Secrets | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure comments for Semgrep Secrets](#configure-comments-for-semgrep-secrets). |
+| Secrets | Semgrep Secrets | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR comments. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure pull request comments](#configure-pull-request-comments). |
 
 ## Steps to set up PR comments
 
@@ -60,7 +60,7 @@ Navigate to your `semgrep-app` settings:
 On the `semgrep-app` row, click **Configure**.
 </Step>
 <Step>
-Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
+Check that you have granted the following permission: `Read and write access to actions, pull requests, secrets, security events, and workflows`.
 </Step>
 <Step>
 Under **Repository access**, check that you have included the repositories that you added to Semgrep AppSec Platform.
@@ -102,7 +102,6 @@ If you are behind a firewall, are using a virtual private network (VPN), or have
 #### Additional egress IP addresses
 
 You must also add **CloudFront IP addresses** to your **egress** allowlist. Refer to [ Locations and IP address ranges of CloudFront edge servers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html) for a list of IP addresses.
-
 
 #### Test your configuration
 
