@@ -144,14 +144,16 @@ To remove a private rule, follow these steps:
 In the [Semgrep Editor](https://semgrep.dev/orgs/-/editor), find the private rule to delete under the <Icon icon="server" iconType="solid"/> **Library** tab. Private rules are usually stored in the folder with the same name as your Semgrep AppSec Platform organization.
 </Step>
 <Step>
-Click the rule you want to delete, and then click the three vertical dots.
+Do one of the following:
+   * Open the rule, click the three vertical dots, then click <Icon icon="trash-can"/> **Delete**.
+   * Right-click the rule file in the navigation, then click <Icon icon="trash-can"/> **Delete**.
 </Step>
 <Step>
-Click <Icon icon="trash-can"/> **Delete**.
+Review the confirmation modal, which lists the policies that use the rule, then confirm the deletion.
 </Step>
 </Steps>
 
-Deleting a rule is permanent. If the rule was previously added to the **Policies** page, it is removed upon deletion.
+Deleting a rule is permanent. Semgrep removes the rule from policies that still have other conditions. If a policy has no remaining conditions after the rule is removed, Semgrep deletes the policy.
 
 ## Appendix
 
