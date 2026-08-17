@@ -1,0 +1,83 @@
+---
+title: "Week of August 10, 2026"
+description: "Updates made to Semgrep during the week of August 10-16, 2026."
+sidebarTitle: "Week of August 10, 2026"
+---
+
+## 💻 Semgrep Code
+
+### Added
+
+- You can now [fix multiple Code findings in a single Autofix pull request or merge request](/semgrep-code/triage-remediation/autofix#fix-multiple-findings-in-one-autofix-pr). When several findings in the same file come from the same rule, Semgrep offers to open one pull request or merge request for the group.
+
+### Changed
+
+- The Code **Autofix** toggle has been removed from **Settings**. Supply Chain keeps its own toggle for Upgrade guidance and Supply Chain Autofix.
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- Issues created by [Semgrep Agentic Workflows](/workflows/overview) are now available through the experimental [v2 API](/api-reference/v2/publicissuesservice/search-issues).
+- The **Workflow jobs** tab on a project's **Details** page now includes a branch filter, with the primary branch pinned to the top of the list.
+- On **Rules & Policies > Memories**, you can now sort suggested memories by the number of findings they affect.
+
+### Changed
+
+- When a scan hits the free-tier AI scan limit, Semgrep now shows **Free-tier AI scan limit reached** instead of a generic internal error. **Retry scan** is not offered in that case.
+
+### Fixed
+
+- Fixed an issue where [Suggested fix](/semgrep-multimodal/overview#suggested-fix) guidance could include dependency versions, commit SHAs, or hashes that Semgrep could not verify. Semgrep now uses a placeholder in the guidance instead of an unverified value.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- You can now search for a workflow by name when configuring the **Run a workflow** action in a remediation policy.
+
+### Changed
+
+- When you delete a rule in [Semgrep Editor](/semgrep-code/editor), Semgrep now asks for confirmation and shows which policies use that rule. Confirming the deletion removes the rule from those policies. If a policy has no remaining conditions, Semgrep deletes the policy.
+- Teams that are pending deletion are no longer listed in **Settings > Teams** or in team search results.
+
+### Fixed
+
+- Fixed an issue where a single failure while updating a pull request status stopped Semgrep from updating the remaining pull requests in the same batch.
+- Fixed an issue where the Semgrep Code findings tour did not launch and Supply Chain triage did not advance onboarding checklist completion.
+
+## ⛓️ Semgrep Supply Chain
+
+### Changed
+
+- On **Rules & Policies > Advisories**, an advisory's **Details** page now shows affected projects directly below the description.
+- Improved the load time of the **Dependencies** page for organizations with large dependency sets.
+- Supply Chain incident notifications now refer to affected packages rather than dependencies.
+
+### Fixed
+
+- Fixed an issue where Semgrep Managed Scans that use [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) failed if the organization had a private registry configured.
+- Fixed an issue where Semgrep could not clone Azure DevOps repositories when opening a Supply Chain Autofix pull request.
+- Fixed an issue where a long dependency name in the dependency search field pushed the filter's remove button out of view, making the filter impossible to remove.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Fixed an issue where [historical scanning](/semgrep-secrets/historical-scanning) on Semgrep Managed Scans examined only a single commit instead of Git history. The setting now applies before the repository is cloned.
+- Fixed an issue where requesting a historical secrets scan for an organization without Semgrep Secrets caused the entire scan to fail, including Code and Supply Chain results.
+
+## 📝 Documentation and knowledge base
+
+### Added
+
+- Added a knowledge base article for [troubleshooting GitLab group permissions when no SCMs with code access are found](/kb/semgrep-appsec-platform/gitlab-no-scms-with-code-access-found).
+- Added a knowledge base article explaining [why some findings remain in **Open** status instead of **Provisionally ignored**](/kb/semgrep-appsec-platform/findings-in-open-not-provisionally-ignored) when Semgrep flags them as **False positives**.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of August 10-16, 2026:
+
+<CardGroup>
+  <Card title="1.173.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.173.0" horizontal />
+</CardGroup>
