@@ -55,7 +55,7 @@ import yaml
 CALLOUTS = {
     "experimental": (
         "<Warning>This endpoint is **experimental**. It may change or be "
-        "removed without notice, and is not covered by API stability "
+        "removed without notice and is not covered by API stability "
         "guarantees.</Warning>"
     ),
     "beta": (
