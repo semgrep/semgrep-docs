@@ -1,0 +1,35 @@
+scripts/tests/test_generate_api_changelog.py
+  s_6a62956be4af43::t_f1fe0bf0462c58 386-387,392-393,397-398,402-403,407-408,414-415,421-422,426-427
+  s_6a62956be4af43::t_a73e3d618b7e35 390-391,401,411-412,425
+  s_6a62956be4af43::t_c5cac2e1fc1d7c 685-687
+  s_6a62956be4af43::t_7d0e861653f40f 503-521
+  s_6a62956be4af43::t_b987126a5526af 534
+scripts/generate_api_changelog.py
+  s_6a62956be4af43::t_a0c23900c4ad00 490-497,507
+  s_6a62956be4af43::t_cc19ba751d76ad 448-483,499
+docs/api-reference/v1/Changelog.mdx
+  s_6a62956be4af43::t_d1eb9683ea9080 20-25,37-80,90-96,106-126
+  s_6a62956be4af43::t_41b5903d05da86 16-17,26-27,33-34,81-82,86-87,97-98,102-103,127-128
+docs/styles.css
+  s_6a62956be4af43::t_5170ec5e6aee87 16-17,21-22,24-26
+  s_6a62956be4af43::t_14b34fba56ccfd 18-20,23
+docs/api-reference/v2/Changelog.mdx
+  s_6a62956be4af43::t_41b5903d05da86 16-17,22-23,27-28,42-43,49-50,54-55,59-60,65-66,72-73,84-85,89-90,97-98,104-105,116-117,121-122,155-156
+  s_6a62956be4af43::t_d1eb9683ea9080 20-21,31-41,53,63-64,76-83,93-96,108-115,125-154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "48a73363f8c7294c37d2b8ec496f1bb60f4ed9bd",
+  "prompts": {},
+  "sessions": {
+    "s_6a62956be4af43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2a90531-9ef0-4d9b-b907-532e54956dfc",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
