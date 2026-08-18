@@ -383,32 +383,48 @@ GOLDEN_TABLE_BODY = """\
 <Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]}>
 ## Breaking changes
 
+<div className="api-changelog-table">
+
 | Change | Description | Endpoint |
 |---|---|---|
-| <Badge color="red" size="sm">Removed</Badge> | api path removed without deprecation | <Badge color="green" size="sm">GET</Badge> `/api/v1/agents` |
-| <Badge color="red" size="sm">Removed</Badge> | removed the required property `tags` from the response with the `200` status | <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects) |
+| <Badge color="red" size="sm">Removed</Badge> | api path removed without deprecation | <Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/agents</Badge> |
+| <Badge color="red" size="sm">Removed</Badge> | removed the required property `tags` from the response with the `200` status | <a href="/api-reference/v1/projectsservice/list-projects" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deployment_id&#125;<wbr/>/projects</Badge></a> |
+
+</div>
 
 ## Potentially breaking changes
 
+<div className="api-changelog-table">
+
 | Change | Description | Endpoint |
 |---|---|---|
-| <Badge color="red" size="sm">Removed</Badge> | deleted the `query` request parameter `page_token` | <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects) |
+| <Badge color="red" size="sm">Removed</Badge> | deleted the `query` request parameter `page_token` | <a href="/api-reference/v1/projectsservice/list-projects" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deployment_id&#125;<wbr/>/projects</Badge></a> |
+
+</div>
 
 ## Changes
 
+<div className="api-changelog-table">
+
 | Change | Description | Endpoint |
 |---|---|---|
-| <Badge color="green" size="sm">Added</Badge> | added the new optional `query` request parameter `page_size` | <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects) |
-| <Badge color="green" size="sm">Added</Badge> | endpoint added | <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy) |
+| <Badge color="green" size="sm">Added</Badge> | added the new optional `query` request parameter `page_size` | <a href="/api-reference/v1/projectsservice/list-projects" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deployment_id&#125;<wbr/>/projects</Badge></a> |
+| <Badge color="green" size="sm">Added</Badge> | endpoint added | <a href="/api-reference/v1/policiesservice/create-policy" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/policies</Badge></a> |
 | <Badge color="red" size="sm">Removed</Badge> | removed the schema `ProjectFilter` | — |
+
+</div>
 </Update>
 
 <Update label="July 23, 2026" description="1 change">
 ## Changes
 
+<div className="api-changelog-table">
+
 | Change | Description | Endpoint |
 |---|---|---|
-| <Badge color="green" size="sm">Added</Badge> | endpoint added | <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy) |
+| <Badge color="green" size="sm">Added</Badge> | endpoint added | <a href="/api-reference/v1/policiesservice/create-policy" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/policies</Badge></a> |
+
+</div>
 </Update>
 """
 
@@ -484,6 +500,25 @@ def test_render_update_nests_multiple_changes_per_endpoint():
     ) in rendered
 
 
+def test_endpoint_pill_escapes_braces_and_marks_wrap_points():
+    key = (0, "/api/v1/deps/{depId}/files", "GET")
+    links = {("GET", "/api/v1/deps/{depId}/files"): "/api-reference/v1/depsservice/list-files"}
+    pill = gac._endpoint_pill(key, links)
+    # entire pill is the link: raw anchor (markdown links keep Mintlify's
+    # underline border), underline suppressed, JSX-hazardous braces as
+    # entities, <wbr/> wrap opportunities after each path segment
+    assert pill == (
+        '<a href="/api-reference/v1/depsservice/list-files"'
+        ' style={{ textDecoration: "none", borderBottom: "none" }}>'
+        '<Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deps'
+        "<wbr/>/&#123;depId&#125;<wbr/>/files</Badge></a>"
+    )
+    assert gac._endpoint_pill(key, {}) == (
+        '<Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deps'
+        "<wbr/>/&#123;depId&#125;<wbr/>/files</Badge>"
+    )
+
+
 def test_render_update_method_badge_colors():
     def change(operation, path):
         return {
@@ -496,7 +531,7 @@ def test_render_update_method_badge_colors():
         links={},
         style="list",
     )
-    assert '<Badge color="red" size="sm">DELETE</Badge>' in rendered
+    assert '<Badge color="red" size="sm">DELETE</Badge>' in rendered  # list style keeps split pill
     assert '<Badge color="gray" size="sm">BREW</Badge>' in rendered  # unknown method
 
 
@@ -647,8 +682,9 @@ def test_main_link_base_links_endpoints(wired_main, tmp_path):
     )
     assert run("--link-base", "/api-reference/v1") == 0
     assert (
-        '<Badge color="blue" size="sm">POST</Badge>'
-        " [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy)"
+        '<a href="/api-reference/v1/policiesservice/create-policy"'
+        ' style={{ textDecoration: "none", borderBottom: "none" }}>'
+        '<Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/policies</Badge></a>'
         in out.read_text()
     )
 
