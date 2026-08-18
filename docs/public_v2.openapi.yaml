@@ -12,6 +12,9 @@ info:
         url: "https://semgrep.dev/images/SemgrepLogoWithTextWithMargin.svg"
         backgroundColor: "#fafafa"
         altText: "Semgrep logo"
+servers:
+    - url: https://semgrep.dev
+      description: Semgrep AppSec Platform
 paths:
     /api/agent/deployments/{deploymentId}/issues/{issueId}/fix_jobs:
         post:
