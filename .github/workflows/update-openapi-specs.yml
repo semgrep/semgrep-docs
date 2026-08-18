@@ -22,7 +22,7 @@ jobs:
   update-specs:
     name: Fetch specs and open PR if changed
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       # Runs as the semgrep-docs-release App rather than GITHUB_TOKEN for two
       # reasons: App-authored PRs trigger Docs CI (GITHUB_TOKEN-authored ones do
@@ -39,6 +39,9 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           token: ${{ steps.generate-token.outputs.token }}
+          # Full history: the changelog generator diffs the specs across git
+          # revisions, which oasdiff reads with `git show` under the hood.
+          fetch-depth: 0
 
       - name: Fetch latest specs from semgrep.dev
         run: |
@@ -67,12 +70,39 @@ jobs:
 
       # Upstream emits no `servers:` block, and Mintlify has no docs.json
       # override for OpenAPI-generated pages, so without this the playground
-      # renders https://api.example.com and cannot send requests. Runs last:
-      # the two steps above parse `paths:` and `tags:`, and neither needs to
-      # see the block this adds. Safe to drop once semgrep-app emits `servers`
-      # natively -- this step no-ops rather than overwriting it.
+      # renders https://api.example.com and cannot send requests. Runs after
+      # the two steps above, which parse `paths:` and `tags:` and neither of
+      # which needs to see the block this adds. Safe to drop once semgrep-app
+      # emits `servers` natively -- this step no-ops rather than overwriting it.
       - name: Add the API base URL Mintlify's playground needs
         run: uv run scripts/add_openapi_servers.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Checksummed binary download rather than a third-party action, per the
+      # supply-chain pinning policy. Keep the version pinned: bumping oasdiff
+      # regenerates every changelog entry, which belongs in its own PR.
+      - name: Install oasdiff (pinned)
+        run: |
+          curl --fail --silent --show-error --location --retry 3 \
+            --output /tmp/oasdiff.tar.gz \
+            https://github.com/oasdiff/oasdiff/releases/download/v1.28.0/oasdiff_1.28.0_linux_amd64.tar.gz
+          echo "e0ef076f2cf953d922addc04be9c3851cf3ec18f7678d2b94d44cea23dca51b5  /tmp/oasdiff.tar.gz" | sha256sum --check
+          tar -xzf /tmp/oasdiff.tar.gz -C /tmp oasdiff
+          sudo install /tmp/oasdiff /usr/local/bin/oasdiff
+
+      # Must run after the mirror, sort, and servers steps so the working-tree
+      # specs being diffed are in their final committed form. Runs before
+      # validate so the generated MDX is validated too.
+      - name: Regenerate API changelogs
+        run: |
+          uv run scripts/generate_api_changelog.py docs/public_v1.openapi.yaml \
+            docs/api-reference/v1/Changelog.mdx \
+            --api-name "Semgrep API v1" --api-href /api-reference/v1/Introduction \
+            --link-base /api-reference/v1
+          uv run scripts/generate_api_changelog.py docs/public_v2.openapi.yaml \
+            docs/api-reference/v2/Changelog.mdx \
+            --api-name "Semgrep API v2" --api-href /api-reference/v2/Introduction \
+            --link-base /api-reference/v2 \
+            --note "The v2 API is experimental; breaking changes are expected while it is in alpha."
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -92,6 +122,8 @@ jobs:
           add-paths: |
             docs/public_v1.openapi.yaml
             docs/public_v2.openapi.yaml
+            docs/api-reference/v1/Changelog.mdx
+            docs/api-reference/v2/Changelog.mdx
           branch: chore/update-openapi-specs
           delete-branch: true
           # Re-issued on every run, not just when the PR is first opened. That
@@ -113,3 +145,7 @@ jobs:
 
             - `docs/public_v1.openapi.yaml` ← https://semgrep.dev/api/v1/public_v1.openapi.yaml
             - `docs/public_v2.openapi.yaml` ← https://semgrep.dev/api/v2/openapi.yaml
+
+            The API changelog pages under `docs/api-reference/*/Changelog.mdx`
+            are regenerated from the spec's git history by
+            `scripts/generate_api_changelog.py`.
