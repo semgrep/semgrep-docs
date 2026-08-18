@@ -51,6 +51,15 @@ jobs:
       - name: Sort API navigation into alphabetical order
         run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
 
+      # Upstream emits no `servers:` block, and Mintlify has no docs.json
+      # override for OpenAPI-generated pages, so without this the playground
+      # renders https://api.example.com and cannot send requests. Runs last:
+      # the two steps above parse `paths:` and `tags:`, and neither needs to
+      # see the block this adds. Safe to drop once semgrep-app emits `servers`
+      # natively -- this step no-ops rather than overwriting it.
+      - name: Add the API base URL Mintlify's playground needs
+        run: uv run scripts/add_openapi_servers.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
