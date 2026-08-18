@@ -1,0 +1,29 @@
+.github/workflows/update-openapi-specs.yml
+  s_9cf0c09c53dad1::t_acd755c1826822 54-62
+scripts/tests/test_add_openapi_servers.py
+  s_9cf0c09c53dad1::t_9552414390835b 1-161
+scripts/add_openapi_servers.py
+  s_9cf0c09c53dad1::t_5d3659731444ac 1-139
+.github/workflows/docs-pr-check.yml
+  s_9cf0c09c53dad1::t_c2b45b355ad9bf 38,42-43,48
+docs/public_v1.openapi.yaml
+  s_9cf0c09c53dad1::t_aa6cd3eff0df0c 3973-3975
+docs/public_v2.openapi.yaml
+  s_9cf0c09c53dad1::t_cdfad5b04a336f 15-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "29f55060fed02861edf5918fa88bdf01edf53144",
+  "prompts": {},
+  "sessions": {
+    "s_9cf0c09c53dad1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "46c9ef13-63a4-46a8-bac6-2040d060faaa",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
