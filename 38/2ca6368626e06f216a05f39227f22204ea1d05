@@ -1,0 +1,76 @@
+docs/docs.json
+  s_6a62956be4af43::t_77be121a87702c 642-643
+  s_6a62956be4af43::t_c21e80a5241eba 620-621
+scripts/generate_api_changelog.py
+  s_6a62956be4af43::t_d99a61cc2912e5 260-298,387-400,402,404,406,408-416,421,423-426,468-471,474-481,483-484
+  s_6a62956be4af43::t_04ecb566d7264a 303-312
+  s_6a62956be4af43::t_3cd25945529631 539-543
+  s_6a62956be4af43::t_869a0ed5bbc980 497
+  s_6a62956be4af43::t_bdc2df3d7d1a91 65-121
+  s_6a62956be4af43::t_41a49960c3cc28 1-3,5-41,43-48,51-64,122-259,380-386,401,405,407,472,482,485,487-495,498-520,524-538,551-585,591-601
+  s_6a62956be4af43::t_e2dc6a794fddb5 49-50
+  s_6a62956be4af43::t_c655539c5a15f5 299-302,329-379
+  s_6a62956be4af43::t_eeeae1f8d1b10a 496
+  s_6a62956be4af43::t_59303232243cd6 586-589
+  s_6a62956be4af43::t_7ba1b18dc1432b 403,417,419-420,422
+  s_6a62956be4af43::t_2380fcffb5fa06 418
+  s_6a62956be4af43::t_85e2a76cc87a6c 427-467,473,486
+  s_6a62956be4af43::t_51767555199264 521-523
+  s_6a62956be4af43::t_7c8f712d2e3e71 544-550
+  s_6a62956be4af43::t_0e8526d9a10d89 4
+  s_6a62956be4af43::t_ad8475f685aedf 313-328
+  s_6a62956be4af43::t_949848c615c41f 590
+  s_6a62956be4af43::t_cca34f40f749fc 42
+scripts/tests/test_generate_api_changelog.py
+  s_6a62956be4af43::t_a06d8d1e280b38 497
+  s_6a62956be4af43::t_ec565704aa2d29 376
+  s_6a62956be4af43::t_7d25cdae480c4c 479
+  s_6a62956be4af43::t_93918ebaaeae55 80-139
+  s_6a62956be4af43::t_fcf95748b64a09 353-359
+  s_6a62956be4af43::t_69872c370129d7 650-651
+  s_6a62956be4af43::t_8d45df78396f8f 1-79,220-329,332,335,337,339,341,344-346,349,351-352,360-369,371-375,378-379,449-450,452-457,522-573,575-599,601-619,621-637,656-711
+  s_6a62956be4af43::t_32281818937a6e 333-334,338,342-343,350
+  s_6a62956be4af43::t_c3de5dda90240f 481,485-496,498-500
+  s_6a62956be4af43::t_32e81803d9d619 501-516
+  s_6a62956be4af43::t_d7732a9bf8cd5d 518-521
+  s_6a62956be4af43::t_b266630c128f43 370,377,380-448
+  s_6a62956be4af43::t_7aafdf4129bdbf 517
+  s_6a62956be4af43::t_b3fe18a626a6af 140-219,330-331,336,340,347-348,451,458-478,480,482-484,574,600,620
+  s_6a62956be4af43::t_8ed7bee30fbd02 638-649,652-655
+.github/workflows/update-openapi-specs.yml
+  s_6a62956be4af43::t_0d6ff7579cd890 25,28-31
+  s_6a62956be4af43::t_43aa695de3629d 58-76,79-81,83-84
+  s_6a62956be4af43::t_03e2ae88fbd93f 106-107
+  s_6a62956be4af43::t_83fbbc7380f471 119-122
+  s_6a62956be4af43::t_2de915f71ef738 77-78,82
+scripts/tests/fixtures/changelog_mixed_levels.json
+  s_6a62956be4af43::t_464f259ead4f28 1-66
+scripts/tests/fixtures/changelog_empty.json
+  s_6a62956be4af43::t_32dea66b5b8898 1
+docs/api-reference/v1/Changelog.mdx
+  s_6a62956be4af43::t_8086cad07f4fca 13-15,26-28,75-77,87-89
+  s_6a62956be4af43::t_d670841aaf9d6d 16-23,29-74,78-86,90-112
+  s_6a62956be4af43::t_4e4238a7ab56f7 1-12,24-25,113
+docs/api-reference/v2/Changelog.mdx
+  s_6a62956be4af43::t_4e4238a7ab56f7 1-12,36-37,40,44,46,51-52,75-76,125
+  s_6a62956be4af43::t_d670841aaf9d6d 16-19,23-35,41-43,47-50,56-65,69-74,80-89,93-124
+  s_6a62956be4af43::t_8086cad07f4fca 13-15,20-22,38-39,45,53-55,66-68,77-79,90-92
+scripts/tests/fixtures/changelog_info_only.json
+  s_6a62956be4af43::t_3dace9d8cc7402 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "382ca6368626e06f216a05f39227f22204ea1d05",
+  "prompts": {},
+  "sessions": {
+    "s_6a62956be4af43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2a90531-9ef0-4d9b-b907-532e54956dfc",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
