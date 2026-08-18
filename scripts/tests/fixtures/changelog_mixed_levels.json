@@ -1,0 +1,66 @@
+[
+  {
+    "id": "api-path-removed-without-deprecation",
+    "text": "api path removed without deprecation",
+    "level": 3,
+    "operation": "GET",
+    "operationId": "listAgents",
+    "path": "/api/v1/agents",
+    "section": "paths",
+    "fingerprint": "437410792ed8"
+  },
+  {
+    "id": "response-required-property-removed",
+    "text": "removed the required property `tags` from the response with the `200` status",
+    "level": 3,
+    "operation": "GET",
+    "operationId": "listProjects",
+    "path": "/api/v1/deployments/{deployment_id}/projects",
+    "section": "paths",
+    "fingerprint": "5011e5fc6ce1"
+  },
+  {
+    "id": "request-parameter-removed",
+    "text": "deleted the `query` request parameter `page_token`",
+    "level": 2,
+    "operation": "GET",
+    "operationId": "listProjects",
+    "path": "/api/v1/deployments/{deployment_id}/projects",
+    "section": "paths",
+    "fingerprint": "9f2b3c4d5e6a"
+  },
+  {
+    "id": "api-major-version-not-bumped",
+    "text": "a breaking change was detected but the major version did not increase, from `1.0.0` to `1.1.0`",
+    "level": 1,
+    "section": "info",
+    "fingerprint": "12dd67d7a24c"
+  },
+  {
+    "id": "new-optional-request-parameter",
+    "text": "added the new optional `query` request parameter `page_size`",
+    "level": 1,
+    "operation": "GET",
+    "operationId": "listProjects",
+    "path": "/api/v1/deployments/{deployment_id}/projects",
+    "section": "paths",
+    "fingerprint": "0b0c82b8f358"
+  },
+  {
+    "id": "endpoint-added",
+    "text": "endpoint added",
+    "level": 1,
+    "operation": "POST",
+    "operationId": "createPolicy",
+    "path": "/api/v1/policies",
+    "section": "paths",
+    "fingerprint": "285df1289de3"
+  },
+  {
+    "id": "api-schema-removed",
+    "text": "removed the schema `ProjectFilter`",
+    "level": 1,
+    "section": "components",
+    "fingerprint": "aa11bb22cc33"
+  }
+]
