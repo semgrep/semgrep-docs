@@ -1,0 +1,12 @@
+[
+  {
+    "id": "endpoint-added",
+    "text": "endpoint added",
+    "level": 1,
+    "operation": "POST",
+    "operationId": "createPolicy",
+    "path": "/api/v1/policies",
+    "section": "paths",
+    "fingerprint": "285df1289de3"
+  }
+]

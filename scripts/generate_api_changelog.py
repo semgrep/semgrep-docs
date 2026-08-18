@@ -1,0 +1,601 @@
+#!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.9"
+# dependencies = ["pyyaml"]
+#
+# [tool.uv]
+# exclude-newer = "1 week"
+# ///
+#
+# Generate a Mintlify changelog page (docs/api-reference/*/Changelog.mdx) from
+# an OpenAPI spec's git history.
+#
+# Why this exists: the API reference is rendered straight from the checked-in
+# specs, so the spec's git history *is* the API's change history — but nothing
+# surfaced it to readers. This script walks that history with oasdiff
+# (https://github.com/oasdiff/oasdiff), which diffs the specs semantically:
+# line reorders from sort_openapi_nav.py and description edits from
+# mirror_openapi.py produce no entries, only consumer-affecting changes do.
+#
+# How dates work: commits touching the spec are collapsed to one snapshot per
+# committer-date (the day's final state — intra-day flip-flops intentionally
+# vanish), and consecutive snapshots are diffed to make one <Update> block per
+# day. If the working tree differs from HEAD (the update-openapi-specs.yml
+# cron fetches fresh specs before committing), a snapshot dated "today" is
+# added so the changelog entry lands in the same PR as the spec change. Should
+# that PR merge on a later day, the next full regeneration re-dates the entry
+# to the merge commit's date — a small, self-correcting relabel diff.
+#
+# The page is fully regenerated on every run (idempotent, and retroactively
+# consistent if tooling changes). Output is a pure function of git history and
+# the oasdiff version, so keep oasdiff pinned in CI — bumping it may reword
+# every entry at once, which is expected and fine in a deliberate bump PR.
+#
+# Requires the oasdiff binary (brew install oasdiff, or see the pinned install
+# in .github/workflows/update-openapi-specs.yml) and full git history (not a
+# shallow clone).
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Callable, NamedTuple, Optional
+
+import yaml
+
+# Spec-hygiene checks aimed at API maintainers, not consumers. The `info`
+# section only ever changes when the spec's own version/title metadata does
+# (e.g. "major version did not increase"), which is meaningless noise on a
+# reader-facing changelog.
+EXCLUDED_SECTIONS = frozenset(("info",))
+
+MONTHS = (
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+)
+
+BREAKING = 3
+POTENTIALLY_BREAKING = 2
+
+SECTION_TITLES = {
+    BREAKING: "Breaking changes",
+    POTENTIALLY_BREAKING: "Potentially breaking changes",
+    1: "Changes",
+}
+
+# One upstream sync often lands the same kind of change many times over — six
+# enum values added to one property, a dozen properties switching `uint32` to
+# `int64`. Rendering each as its own bullet buries the day's real news, so
+# changes whose oasdiff text differs only in one identifier are folded into a
+# single bullet. Keyed by oasdiff check id; the regex names the varying token
+# `value` and any other groups become part of the merge key (changes merge only
+# when everything but `value` matches). Texts that don't match the expected
+# wording (e.g. after an oasdiff upgrade) are left verbatim.
+COALESCIBLE = {
+    "request-property-enum-value-added": (
+        re.compile(r"^added the new `(?P<value>[^`]+)` enum value to the request property `(?P<prop>[^`]+)`$"),
+        "added the new {values} enum values to the request property `{prop}`",
+    ),
+    "response-property-enum-value-added": (
+        re.compile(
+            r"^added the new `(?P<value>[^`]+)` enum value to the `(?P<prop>[^`]+)` response property"
+            r" for the response status `(?P<status>[^`]+)`$"
+        ),
+        "added the new {values} enum values to the `{prop}` response property"
+        " for the response status `{status}`",
+    ),
+    "request-parameter-enum-value-added": (
+        re.compile(
+            r"^added the new enum value `(?P<value>[^`]+)` to the `(?P<loc>[^`]+)`"
+            r" request parameter `(?P<param>[^`]+)`$"
+        ),
+        "added the new enum values {values} to the `{loc}` request parameter `{param}`",
+    ),
+    "request-property-type-changed": (
+        re.compile(
+            r"^the `(?P<value>[^`]+)` request property `(?P<attr>[^`]+)` changed"
+            r" from `(?P<old>[^`]+)` to `(?P<new>[^`]+)`$"
+        ),
+        "the `{attr}` of the request properties {values} changed from `{old}` to `{new}`",
+    ),
+    "response-property-type-changed": (
+        re.compile(
+            r"^the `(?P<value>[^`]+)` response's property `(?P<attr>[^`]+)` changed"
+            r" from `(?P<old>[^`]+)` to `(?P<new>[^`]+)` for status `(?P<status>[^`]+)`$"
+        ),
+        "the `{attr}` of the response properties {values} changed"
+        " from `{old}` to `{new}` for status `{status}`",
+    ),
+    "request-parameter-type-changed": (
+        re.compile(
+            r"^for the `(?P<loc>[^`]+)` request parameter `(?P<value>[^`]+)`, the `(?P<attr>[^`]+)`"
+            r" was changed from `(?P<old>[^`]+)` to `(?P<new>[^`]+)`$"
+        ),
+        "for the `{loc}` request parameters {values}, the `{attr}`"
+        " was changed from `{old}` to `{new}`",
+    ),
+}
+
+
+class Snapshot(NamedTuple):
+    ref: Optional[str]  # commit sha, or None for the working tree
+    date: str  # ISO YYYY-MM-DD
+
+
+class Entry(NamedTuple):
+    date: str  # ISO YYYY-MM-DD
+    changes: list
+
+
+def repo_root() -> Path:
+    out = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        capture_output=True, text=True, check=True,
+    )
+    return Path(out.stdout.strip())
+
+
+def list_snapshots(spec_rel: str, cwd: Path) -> list[Snapshot]:
+    """One snapshot per committer-date the spec changed on, newest first.
+
+    --first-parent keeps dates monotonic along the main branch; without it,
+    commits authored days earlier on a side branch would interleave.
+    """
+    out = subprocess.run(
+        ["git", "log", "--first-parent", "--format=%H %cs", "--", spec_rel],
+        capture_output=True, text=True, check=True, cwd=cwd,
+    )
+    snapshots: list[Snapshot] = []
+    seen_dates = set()
+    for line in out.stdout.splitlines():
+        sha, _, date = line.strip().partition(" ")
+        if not sha or date in seen_dates:
+            continue  # git log is newest-first: first hash = day's final state
+        seen_dates.add(date)
+        snapshots.append(Snapshot(sha, date))
+    return snapshots
+
+
+def working_tree_differs(spec_rel: str, cwd: Path) -> bool:
+    return (
+        subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", spec_rel], cwd=cwd
+        ).returncode
+        != 0
+    )
+
+
+def run_oasdiff(base: str, rev: str, oasdiff_bin: str, cwd: Path) -> Optional[list]:
+    """Changes between two spec revisions, or None if oasdiff failed.
+
+    Exit code 0 covers both "changes found" and "no changes" (we don't pass
+    --fail-on), so a non-zero exit always means a real error such as an
+    unparseable revision.
+    """
+    result = subprocess.run(
+        [oasdiff_bin, "changelog", "--format", "json", "--flatten-allof", base, rev],
+        capture_output=True, text=True, cwd=cwd,
+    )
+    if result.returncode != 0:
+        print(
+            f"warning: oasdiff failed for {base} -> {rev}: {result.stderr.strip()}",
+            file=sys.stderr,
+        )
+        return None
+    return json.loads(result.stdout)
+
+
+def _revision_arg(snapshot: Snapshot, spec_rel: str) -> str:
+    return f"{snapshot.ref}:{spec_rel}" if snapshot.ref else spec_rel
+
+
+def build_entries(
+    snapshots: list[Snapshot],
+    spec_rel: str,
+    diff: Callable[[str, str], Optional[list]],
+) -> list[Entry]:
+    """Diff consecutive snapshots into per-date entries, newest first.
+
+    The oldest snapshot is the baseline and never gets an entry — diffing it
+    against nothing would report every endpoint as "added".
+    """
+    ordered = list(reversed(snapshots))  # oldest -> newest
+    if not ordered:
+        return []
+
+    entries: list[Entry] = []
+    last_good = ordered[0]
+    for snapshot in ordered[1:]:
+        rev_arg = _revision_arg(snapshot, spec_rel)
+        changes = diff(_revision_arg(last_good, spec_rel), rev_arg)
+        if changes is None:
+            # Decide which side is unparseable: if the newer side self-diffs
+            # cleanly, the base was bad — drop it and let its successor's diff
+            # pick up any changes; otherwise skip the newer snapshot.
+            if diff(rev_arg, rev_arg) is not None:
+                last_good = snapshot
+            continue
+        changes = [c for c in changes if c.get("section") not in EXCLUDED_SECTIONS]
+        if changes:
+            entries.append(Entry(snapshot.date, changes))
+        last_good = snapshot
+    return list(reversed(entries))
+
+
+def format_date(iso: str) -> str:
+    """"2026-08-07" -> "August 7, 2026" (no strftime: %-d is platform-bound)."""
+    year, month, day = iso.split("-")
+    return f"{MONTHS[int(month) - 1]} {int(day)}, {int(year)}"
+
+
+def _escape_segment(text: str) -> str:
+    text = text.replace("&", "&amp;")
+    text = text.replace("<", "&lt;").replace(">", "&gt;")
+    text = text.replace("{", "&#123;").replace("}", "&#125;")
+    for char in "*_[]":
+        text = text.replace(char, "\\" + char)
+    return text
+
+
+def escape_mdx(text: str) -> str:
+    """Escape MDX-hazardous characters, preserving `code spans`.
+
+    oasdiff wraps identifiers in backticks; inside a code span MDX treats
+    braces and angle brackets literally, so only text outside spans needs
+    entity-escaping. Unbalanced backticks can't delimit spans — escape them.
+    """
+    parts = text.split("`")
+    if len(parts) % 2 == 0:  # odd backtick count: not span-delimited
+        return _escape_segment(text).replace("`", "\\`")
+    for i in range(0, len(parts), 2):  # even indices sit outside code spans
+        parts[i] = _escape_segment(parts[i])
+    return "`".join(parts)
+
+
+def coalesce_changes(changes: list) -> list:
+    """Fold same-kind changes that differ only in one identifier into one.
+
+    See COALESCIBLE. Order follows first appearance of each merge bucket, and
+    a bucket with a single change keeps its original dict untouched.
+    """
+    buckets: dict = {}
+    order: list = []
+    for change in changes:
+        pattern, template = COALESCIBLE.get(change.get("id"), (None, None))
+        match = pattern.match(change["text"]) if pattern else None
+        if match:
+            fixed = {k: v for k, v in match.groupdict().items() if k != "value"}
+            key = (
+                change["id"], change.get("operation"), change.get("path"),
+                tuple(sorted(fixed.items())),
+            )
+            bucket = buckets.setdefault(key, {"changes": [], "values": [], "fixed": fixed, "template": template})
+            bucket["changes"].append(change)
+            bucket["values"].append(match.group("value"))
+        else:
+            key = ("verbatim", len(order))
+            buckets[key] = {"changes": [change]}
+        if key not in order:
+            order.append(key)
+
+    merged = []
+    for key in order:
+        bucket = buckets[key]
+        if len(bucket["changes"]) == 1:
+            merged.append(bucket["changes"][0])
+            continue
+        values = ", ".join(f"`{v}`" for v in sorted(bucket["values"]))
+        merged.append(
+            {**bucket["changes"][0], "text": bucket["template"].format(values=values, **bucket["fixed"])}
+        )
+    return merged
+
+
+HTTP_METHODS = frozenset(
+    ("get", "post", "put", "patch", "delete", "options", "head", "trace")
+)
+
+# Mintlify Badge colors per HTTP method, matching the API playground's visual
+# language (green reads, blue creates, red deletes).
+METHOD_BADGE_COLORS = {
+    "GET": "green",
+    "POST": "blue",
+    "PUT": "orange",
+    "PATCH": "yellow",
+    "DELETE": "red",
+}
+
+# Verb chip for the table style's Change column, keyed on tokens of the
+# oasdiff check id. Order matters: "api-path-removed-without-deprecation"
+# contains both removal and deprecation words, and it is a removal.
+CHANGE_VERBS = (
+    (frozenset(("removed", "deleted")), ("Removed", "red")),
+    (frozenset(("added", "new")), ("Added", "green")),
+    (frozenset(("deprecated",)), ("Deprecated", "yellow")),
+)
+CHANGE_VERB_FALLBACKS = (
+    frozenset(
+        ("changed", "specialized", "narrowed", "generalized",
+         "increased", "decreased", "restricted")
+    ),
+    ("Changed", "orange"),
+)
+
+
+def mintlify_slug(text: str) -> str:
+    """Slugify the way Mintlify names its generated endpoint pages.
+
+    Reverse-engineered and verified against the rendered site (every
+    operation in both specs resolved with HTTP 200): lowercase; apostrophes
+    stripped outright; underscores and square brackets preserved; every other
+    run of non-alphanumerics becomes a single hyphen.
+    """
+    text = text.lower().replace("'", "")
+    return re.sub(r"[^a-z0-9_\[\]]+", "-", text).strip("-")
+
+
+def _default_page_title(method: str, path: str) -> str:
+    """Mintlify's page title for operations without a summary.
+
+    Path parameter segments become word breaks; adjacent literal segments
+    run together: GET /api/agent/deployments/{id}/ignores ->
+    "Get apiagentdeployments ignores".
+    """
+    text = "".join(
+        " " if seg.startswith("{") else seg for seg in path.strip("/").split("/")
+    )
+    return f"{method.capitalize()} {' '.join(text.split())}"
+
+
+def endpoint_urls(spec: dict, link_base: str) -> dict:
+    """(METHOD, path) -> docs URL for every operation in the spec.
+
+    Built from the *current* spec on purpose: pages only exist for endpoints
+    that are still in it, so removed endpoints simply drop out of the map and
+    render unlinked instead of pointing at a 404.
+    """
+    urls = {}
+    for path, item in (spec.get("paths") or {}).items():
+        if not isinstance(item, dict):
+            continue
+        for method, op in item.items():
+            if method not in HTTP_METHODS or not isinstance(op, dict):
+                continue
+            tags = op.get("tags") or []
+            if not tags:
+                continue
+            title = op.get("summary") or _default_page_title(method, path)
+            # brackets are legal in Mintlify slugs but break markdown link
+            # destinations, so percent-encode them
+            slug = mintlify_slug(title).replace("[", "%5B").replace("]", "%5D")
+            urls[(method.upper(), path)] = f"{link_base}/{mintlify_slug(tags[0])}/{slug}"
+    return urls
+
+
+def _endpoint_key(change: dict) -> tuple:
+    path = change.get("path") or ""
+    if not path:
+        return (1, "", "")  # General bucket sorts after all endpoints
+    return (0, path, change.get("operation") or "")
+
+
+def _summary(changes: list) -> str:
+    """Raw change counts, e.g. "2 breaking · 1 potentially breaking · 3 other changes"."""
+    breaking = sum(1 for c in changes if c["level"] == BREAKING)
+    potential = sum(1 for c in changes if c["level"] == POTENTIALLY_BREAKING)
+    other = len(changes) - breaking - potential
+    parts = []
+    if breaking:
+        parts.append(f"{breaking} breaking")
+    if potential:
+        parts.append(f"{potential} potentially breaking")
+    if other:
+        label = "other change" if parts else "change"
+        parts.append(f"{other} {label}{'s' if other != 1 else ''}")
+    return " · ".join(parts)
+
+
+def _render_section(changes: list, links: dict) -> list:
+    """Bullets for one severity section, grouped by endpoint."""
+    groups: dict[tuple, list] = {}
+    for change in changes:
+        groups.setdefault(_endpoint_key(change), []).append(change)
+
+    lines = []
+    for key in sorted(groups):
+        texts = [
+            escape_mdx(c["text"])
+            for c in sorted(groups[key], key=lambda c: (c["id"], c["text"]))
+        ]
+        if key[0] == 1:  # General bucket: schema/security changes, no endpoint
+            lines.extend(f"- {text}" for text in texts)
+            continue
+        lead = _endpoint_cell(key, links)
+        if len(texts) == 1:
+            lines.append(f"- {lead}: {texts[0]}")
+        else:
+            lines.append(f"- {lead}:")
+            lines.extend(f"  - {text}" for text in texts)
+    return lines
+
+
+def _change_verb(change: dict) -> tuple:
+    """(label, badge color) for the table's Change column, from the check id."""
+    tokens = set(change.get("id", "").split("-"))
+    for words, verb in CHANGE_VERBS:
+        if tokens & words:
+            return verb
+    if tokens & CHANGE_VERB_FALLBACKS[0]:
+        return CHANGE_VERB_FALLBACKS[1]
+    return ("Changed", "gray")
+
+
+def _endpoint_cell(key: tuple, links: dict) -> str:
+    if key[0] == 1:  # General bucket: schema/security changes, no endpoint
+        return "—"
+    operation, path = key[2], key[1]
+    color = METHOD_BADGE_COLORS.get(operation, "gray")
+    url = links.get((operation, path))
+    target = f"[`{path}`]({url})" if url else f"`{path}`"
+    return f'<Badge color="{color}" size="sm">{operation}</Badge> {target}'
+
+
+def _render_section_table(changes: list, links: dict) -> list:
+    """One table for a severity section: Change | Description | Endpoint."""
+    groups: dict[tuple, list] = {}
+    for change in changes:
+        groups.setdefault(_endpoint_key(change), []).append(change)
+
+    lines = ["| Change | Description | Endpoint |", "|---|---|---|"]
+    for key in sorted(groups):
+        cell = _endpoint_cell(key, links)
+        for change in sorted(groups[key], key=lambda c: (c["id"], c["text"])):
+            verb, color = _change_verb(change)
+            description = escape_mdx(change["text"]).replace("|", "\\|")
+            lines.append(
+                f'| <Badge color="{color}" size="sm">{verb}</Badge>'
+                f" | {description} | {cell} |"
+            )
+    return lines
+
+
+def _render_update(entry: Entry, links: dict, style: str = "table") -> str:
+    label = format_date(entry.date)
+    attrs = [f'label="{label}"', f'description="{_summary(entry.changes)}"']
+    if any(c["level"] == BREAKING for c in entry.changes):
+        attrs.append('tags={["Breaking"]}')
+
+    render_section = _render_section_table if style == "table" else _render_section
+    changes = coalesce_changes(entry.changes)
+    lines = [f"<Update {' '.join(attrs)}>"]
+    first = True
+    for level in (BREAKING, POTENTIALLY_BREAKING, 1):
+        section = [c for c in changes if (c["level"] if c["level"] in SECTION_TITLES else 1) == level]
+        if not section:
+            continue
+        if not first:
+            lines.append("")
+        first = False
+        lines.append(f"## {SECTION_TITLES[level]}")
+        lines.append("")
+        lines.extend(render_section(section, links))
+    lines.append("</Update>")
+    return "\n".join(lines)
+
+
+def render_page(
+    api_name: str,
+    api_href: Optional[str],
+    note: Optional[str],
+    entries: list[Entry],
+    links: Optional[dict] = None,
+    style: str = "table",
+) -> str:
+    name = f"[{api_name}]({api_href})" if api_href else api_name
+    intro = (
+        f"Changes to the {name}, detected by\n"
+        "comparing successive versions of its OpenAPI specification. Breaking changes\n"
+        "are labeled; documentation-only edits are not listed."
+    )
+    if note:
+        intro += f" {note}"
+
+    blocks = [
+        "---",
+        'title: "Changelog"',
+        f'description: "Changes to the {api_name}, generated from its OpenAPI specification."',
+        "rss: true",
+        "---",
+        "",
+        "{/* Auto-generated by scripts/generate_api_changelog.py -- do not edit by hand. */}",
+        "",
+        intro,
+        "",
+    ]
+    if entries:
+        blocks.append(
+            "\n\n".join(_render_update(entry, links or {}, style) for entry in entries)
+        )
+    else:
+        blocks.append("No API changes recorded yet.")
+    return "\n".join(blocks) + "\n"
+
+
+def main(argv: Optional[list[str]] = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Generate a Mintlify changelog page from an OpenAPI spec's git history."
+    )
+    parser.add_argument("spec", help="path to the OpenAPI spec (tracked in git)")
+    parser.add_argument("output", help="path of the Changelog.mdx to write")
+    parser.add_argument("--api-name", required=True, help='e.g. "Semgrep API v1"')
+    parser.add_argument("--api-href", help="docs link for the API name in the intro")
+    parser.add_argument("--note", help="extra sentence appended to the intro")
+    parser.add_argument(
+        "--link-base",
+        help="URL prefix of the generated endpoint pages (e.g. /api-reference/v1);"
+        " when set, endpoint mentions link to their reference page",
+    )
+    parser.add_argument(
+        "--style",
+        choices=("table", "list"),
+        default="table",
+        help="table: Stripe-style Change/Description/Endpoint tables (default);"
+        " list: endpoint-grouped bullets",
+    )
+    parser.add_argument(
+        "--no-working-tree", action="store_true",
+        help="ignore uncommitted spec changes (only diff committed history)",
+    )
+    parser.add_argument("--today", help="date label for working-tree changes (YYYY-MM-DD)")
+    parser.add_argument("--oasdiff-bin", default="oasdiff")
+    parser.add_argument(
+        "--max-entries", type=int, default=0,
+        help="cap the page at the newest N entries (0 = unlimited)",
+    )
+    args = parser.parse_args(argv)
+
+    cwd = repo_root()
+    spec_rel = Path(args.spec).resolve().relative_to(cwd).as_posix()
+
+    snapshots = list_snapshots(spec_rel, cwd)
+    if not snapshots:
+        print(f"error: no git history for {spec_rel} (shallow clone?)", file=sys.stderr)
+        return 1
+
+    if not args.no_working_tree and working_tree_differs(spec_rel, cwd):
+        today = args.today or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        worktree = Snapshot(None, today)
+        if snapshots[0].date == today:
+            snapshots[0] = worktree  # merge into one Update for the day
+        else:
+            snapshots.insert(0, worktree)
+
+    entries = build_entries(
+        snapshots,
+        spec_rel,
+        lambda base, rev: run_oasdiff(base, rev, oasdiff_bin=args.oasdiff_bin, cwd=cwd),
+    )
+    if args.max_entries:
+        entries = entries[: args.max_entries]
+
+    links = {}
+    if args.link_base:
+        links = endpoint_urls(yaml.safe_load(Path(args.spec).read_text()), args.link_base)
+
+    content = render_page(args.api_name, args.api_href, args.note, entries, links, args.style)
+    output = Path(args.output)
+    if output.exists() and output.read_text() == content:
+        print(f"{output}: unchanged")
+        return 0
+    output.write_text(content)
+    print(f"{output}: regenerated with {len(entries)} entries")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
