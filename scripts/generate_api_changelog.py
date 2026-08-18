@@ -445,15 +445,58 @@ def _endpoint_cell(key: tuple, links: dict) -> str:
     return f'<Badge color="{color}" size="sm">{operation}</Badge> {target}'
 
 
+def _escape_jsx_text(text: str) -> str:
+    """Escape text placed as JSX element children (Badge content).
+
+    Braces open JSX expressions and angle brackets open tags; HTML entities
+    are decoded by the JSX runtime, so they render as the literal characters.
+    """
+    text = text.replace("&", "&amp;")
+    text = text.replace("<", "&lt;").replace(">", "&gt;")
+    return text.replace("{", "&#123;").replace("}", "&#125;")
+
+
+def _endpoint_pill(key: tuple, links: dict) -> str:
+    """Table style's endpoint cell: one clickable pill with method + path.
+
+    A raw <a> rather than a markdown link because Mintlify underlines links
+    with a bottom border, which the inline style suppresses. <wbr/> after
+    each path segment lets the pill wrap instead of overflowing the table
+    (paths are single unbreakable tokens otherwise) without inserting
+    characters that would survive copy-paste.
+    """
+    if key[0] == 1:  # General bucket: schema/security changes, no endpoint
+        return "—"
+    operation, path = key[2], key[1]
+    color = METHOD_BADGE_COLORS.get(operation, "gray")
+    escaped = _escape_jsx_text(path)
+    wrappable = escaped[0] + escaped[1:].replace("/", "<wbr/>/")
+    badge = f'<Badge color="{color}" size="sm">{operation} {wrappable}</Badge>'
+    url = links.get((operation, path))
+    if not url:
+        return badge
+    return (
+        f'<a href="{url}" style={{{{ textDecoration: "none", borderBottom: "none" }}}}>'
+        f"{badge}</a>"
+    )
+
+
 def _render_section_table(changes: list, links: dict) -> list:
     """One table for a severity section: Change | Description | Endpoint."""
     groups: dict[tuple, list] = {}
     for change in changes:
         groups.setdefault(_endpoint_key(change), []).append(change)
 
-    lines = ["| Change | Description | Endpoint |", "|---|---|---|"]
+    # The div carries a hook for docs/styles.css, which hugs the Change
+    # column to its chip; plain markdown tables offer no width control.
+    lines = [
+        '<div className="api-changelog-table">',
+        "",
+        "| Change | Description | Endpoint |",
+        "|---|---|---|",
+    ]
     for key in sorted(groups):
-        cell = _endpoint_cell(key, links)
+        cell = _endpoint_pill(key, links)
         for change in sorted(groups[key], key=lambda c: (c["id"], c["text"])):
             verb, color = _change_verb(change)
             description = escape_mdx(change["text"]).replace("|", "\\|")
@@ -461,6 +504,7 @@ def _render_section_table(changes: list, links: dict) -> list:
                 f'| <Badge color="{color}" size="sm">{verb}</Badge>'
                 f" | {description} | {cell} |"
             )
+    lines.extend(["", "</div>"])
     return lines
 
 
