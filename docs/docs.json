@@ -1118,7 +1118,7 @@
     },
     {
       "source": "/api-reference/FindingsService",
-      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings"
+      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-detection-findings"
     },
     {
       "source": "/api-reference/MiscService",
@@ -1150,7 +1150,11 @@
     },
     {
       "source": "/api-reference/findingsservice/list-code-or-supply-chain-findings",
-      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings"
+      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-detection-findings"
+    },
+    {
+      "source": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-scan-findings",
+      "destination": "/api-reference/v1/findingsservice/list-code-supply-chain-or-ai-powered-detection-findings"
     },
     {
       "source": "/api-reference/deploymentsservice/:slug*",
