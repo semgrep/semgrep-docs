@@ -1218,9 +1218,9 @@ Provide a category for users of the rule. For example: `best-practice`, `correct
 ### Exclude a rule in paths
 
 To ignore a specific rule on specific files, set the `paths:` key with
-one or more filters. The patterns apply to the full file paths
-relative to the project root.
-
+one or more filters. These filters are glob patterns that apply to file
+paths relative to the project root. This works like the command-line
+filters `--exclude` and `--include`, but in a rule-specific manner.
 
 Example:
 
@@ -1234,28 +1234,73 @@ rules:
     pattern: $X == $X
     paths:
       exclude:
-        - "src/**/*.jinja2"
-        - "*_test.go"
-        - "project/tests"
-        - "project/static/*.js"
+        - "*.jinja2"
+        - "**/backend/*_test.go"
+        - "/src/tests"
+        - "/src/static/*.js"
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, the preceding rule runs on files inside `project/`, but no results are returned for:
+When invoked from the project root with `semgrep -f rule.yaml src`, the
+preceding rule runs on file paths inside `src/`, but no results are
+returned for:
 
-- any file with a `.jinja2` file extension
-- any file whose name ends in `_test.go`, such as `project/backend/server_test.go`
-- any file inside `project/tests` or its subdirectories
-- any file matching the `project/static/*.js` glob pattern
+- Any file whose name ends in `.jinja2`
+- Any file whose name ends in `_test.go` that exists in a folder named
+  `backend`, such as `src/backend/server_test.go`
+- Any file under `src/tests/`
+- Any file matching the `/src/static/*.js` glob pattern, such as
+  `src/static/hello.js`, but not `old/src/static/hello.js`
 
-<Info>
-**NOTE**
+Path filters use paths relative to the project root, so the selected set
+of files for a rule does not depend on the current working directory.
+For example, if `rule.yaml` is at the project root, these commands select
+the same files for the rule:
 
-The glob syntax is from [Python's `wcmatch`](https://pypi.org/project/wcmatch/) and is used to match against the given file and all its parent directories.
-</Info>
+```bash
+semgrep -f rule.yaml src
+(cd src; semgrep -f ../rule.yaml .)
+```
+
+<Note>
+Rule `paths` filters use
+[Semgrepignore v2](/semgrepignore-v2-reference) /
+[Gitignore](https://git-scm.com/docs/gitignore#_pattern_format)-style
+glob semantics for anchoring and `**` matching. They are not identical to
+`.semgrepignore` or `.gitignore` files.
+
+Patterns can match file paths or directory paths. A directory pattern such
+as `/src/tests` applies to files under that directory.
+
+A leading slash anchors the pattern to the project root. For example,
+`/*.c` matches `b.c` at the project root, but not `a/b.c`.
+
+Semgrep currently treats patterns with a slash in the middle, such as
+`src/*.c`, as floating (unanchored) for backward compatibility. These
+patterns are ambiguous and may produce warnings. Prefer an explicit form:
+
+- `/src/*.c` to anchor the pattern to the project root
+- `**/src/*.c` to keep floating, directory-agnostic matching
+
+Other patterns without a slash, such as `*.c`, remain unanchored and
+match at any depth.
+</Note>
 
 ### Limit a rule to paths
 
-Conversely, to run a rule _only_ on specific files, set a `paths:` key with one or more of these filters:
+Conversely, to run a rule _only_ on specific files, set a `paths:` key with one or more of these filters.
+
+For example, consider the following repository layout:
+
+```text
+repo/
+  app/
+    backend/
+    server/
+    schemata/
+    static/
+    tests/
+  rule.yaml
+```
 
 ```yaml
 rules:
@@ -1268,36 +1313,37 @@ rules:
     paths:
       include:
         - "*_test.go"
-        - "project/server"
-        - "project/schemata"
-        - "project/static/*.js"
-        - "tests/**/*.js"
+        - "/app/server"
+        - "/app/schemata"
+        - "/app/static/*.js"
+        - "/app/tests/**/*.js"
 ```
 
-When invoked with `semgrep -f rule.yaml project/`, this rule runs on files inside `project/`, but results are returned only for:
+When invoked from the project root with `semgrep -f rule.yaml app/`,
+Semgrep scans files under `app/`, and the rule returns results only for:
 
-- files whose name ends in `_test.go`, such as `project/backend/server_test.go`
-- files inside `project/server`, `project/schemata`, or their subdirectories
-- files matching the `project/static/*.js` glob pattern
-- all files with the `.js` extension, arbitrary depth inside the tests folder
+- Files whose name ends in `_test.go`, such as `app/backend/server_test.go`
+- Files inside `app/server`, `app/schemata`, or their subdirectories
+- Files matching the `/app/static/*.js` glob pattern
+- All `.js` files at any depth under `app/tests/`
 
 If you are writing tests for your rules, add any test file or directory to the included paths as well.
 
-<Info>
-**NOTE**
-
-When mixing inclusion and exclusion filters, the exclusion ones take precedence.
-</Info>
+<Note>
+When mixing inclusion and exclusion filters, the exclusion filters take precedence.
+</Note>
 
 Example:
 
 ```yaml
 paths:
-  include: "project/schemata"
-  exclude: "*_internal.py"
+  include:
+    - "/app/schemata"
+  exclude:
+    - "*_internal.py"
 ```
 
-The preceding rule returns results from `project/schemata/scan.py` but not from `project/schemata/scan_internal.py`.
+The preceding rule returns results from `app/schemata/scan.py` but not from `app/schemata/scan_internal.py`.
 
 ## Additional examples
 
