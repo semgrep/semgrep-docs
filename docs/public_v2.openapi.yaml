@@ -20,7 +20,7 @@ paths:
         post:
             tags:
                 - AiFixJobsService
-            summary: Create Fix Job
+            summary: Create fix job
             description: |-
                 This feature is currently in Public Beta.
 
@@ -67,12 +67,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/{deploymentId}/combined_task:
         post:
             tags:
                 - AiTasksService
-            summary: Create Combined Task
+            summary: Create combined task
             description: Create a combined task for a deployment
             operationId: AiTasksService_CreateCombinedTask
             parameters:
@@ -101,12 +101,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/pattern_fix:
         post:
             tags:
                 - AiTasksService
-            summary: Create Pattern Fix Task
+            summary: Create pattern fix task
             description: Create a pattern fixing task for a given pattern and language. This is used in the structure mode of the editor
             operationId: AiTasksService_CreatePatternFixTask
             requestBody:
@@ -126,12 +126,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/{deploymentId}/info:
         get:
             tags:
                 - AiTasksService
-            summary: Get Task Info
+            summary: Get task info
             description: Get the task info for a deployment
             operationId: AiTasksService_GetTaskInfo
             parameters:
@@ -154,12 +154,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v1/deployments/{deploymentId}/issues/{issueId}/autofix:
         post:
             tags:
                 - AutofixService
-            summary: Create Autofix
+            summary: Create autofix
             description: |-
                 This feature is currently in Public Beta.
 
@@ -208,12 +208,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/automations:
         post:
             tags:
                 - AutomationsService
-            summary: Create Automation
+            summary: Create automation
             description: Create a new automation.
             operationId: AutomationsService_CreateAutomation
             parameters:
@@ -242,11 +242,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - AutomationsService
-            summary: List Automations
+            summary: List automations
             description: List all automations.
             operationId: AutomationsService_ListAutomations
             parameters:
@@ -269,12 +269,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/automations/{automationId}:
         delete:
             tags:
                 - AutomationsService
-            summary: Delete Automation
+            summary: Delete automation
             description: Delete an automation by its ID.
             operationId: AutomationsService_DeleteAutomation
             parameters:
@@ -302,11 +302,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - AutomationsService
-            summary: Update Automation
+            summary: Update automation
             description: Update an existing automation.
             operationId: AutomationsService_UpdateAutomation
             parameters:
@@ -340,12 +340,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/automations:
         get:
             tags:
                 - AutomationsService
-            summary: List Automations
+            summary: List automations
             description: List all automations with pagination support.
             operationId: AutomationsService_ListAutomations
             parameters:
@@ -377,12 +377,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/autotriage_feedback:
         post:
             tags:
                 - AutotriageFeedbackService
-            summary: Post autotriage feedback
+            summary: Submit autotriage feedback
             description: Post autotriage feedback
             operationId: AutotriageFeedbackService_PostAutotriageFeedback
             parameters:
@@ -410,12 +410,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/users:
         post:
             tags:
                 - DeploymentService
-            summary: Add Deployment User
+            summary: Add deployment user
             description: Add a user to the deployment
             operationId: DeploymentService_AddDeploymentUser
             parameters:
@@ -443,11 +443,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - DeploymentService
-            summary: Get Deployment Users
+            summary: List deployment users
             description: Get deployment users
             operationId: DeploymentService_GetDeploymentUsers
             parameters:
@@ -478,12 +478,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments:
         post:
             tags:
                 - DeploymentService
-            summary: Create Deployment
+            summary: Create deployment
             description: Create adeployment
             operationId: DeploymentService_CreateDeployment
             requestBody:
@@ -505,152 +505,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/users/{userId}/roles:
-        patch:
-            tags:
-                - DeploymentService
-            operationId: DeploymentService_PatchDeploymentUser
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-                - name: userId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.deployment.v1.PatchDeploymentUserRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.PatchDeploymentUserResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-    /api/agent/deployments/{deploymentId}/products/feedback:
-        post:
-            tags:
-                - DeploymentService
-            operationId: DeploymentService_SendDeploymentToggleFeedback
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.deployment.v1.SendDeploymentToggleFeedbackRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.SendDeploymentToggleFeedbackResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-    /api/agent/deployments/{deploymentId}/has_deepsemgrep:
-        post:
-            tags:
-                - DeploymentService
-            operationId: DeploymentService_UpdateDeploymentHasDeepsemgrep
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDeepsemgrepRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDeepsemgrepResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-    /api/agent/deployments/{deploymentId}/has_dependency_query:
-        post:
-            tags:
-                - DeploymentService
-            operationId: DeploymentService_UpdateDeploymentHasDependencyQuery
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDependencyQueryRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDependencyQueryResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-    /api/agent/deployments/{deploymentId}/has_triage_via_comment:
-        post:
-            tags:
-                - DeploymentService
-            operationId: DeploymentService_UpdateDeploymentHasTriageViaComment
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasTriageViaCommentRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasTriageViaCommentResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}:
         get:
             tags:
                 - DeploymentService
-            summary: Get Deployment
+            summary: Get deployment
             description: Get a deployment
             operationId: DeploymentService_GetDeployment
             parameters:
@@ -674,11 +534,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - DeploymentService
-            summary: Update Deployment
+            summary: Update deployment
             description: Update a deployment
             operationId: DeploymentService_UpdateDeployment
             parameters:
@@ -707,13 +567,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/authorized_actions:
         get:
             tags:
                 - DeploymentService
-            summary: Get Deployment Authorized Actions
-            description: Get list of actions the user is authorized to take on the deployment
+            summary: Get deployment authorized actions
+            description: Get a list of actions the user is authorized to take on the deployment
             operationId: DeploymentService_GetDeploymentAuthorizedActions
             parameters:
                 - name: deploymentId
@@ -734,7 +594,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/default_user_role:
         get:
             tags:
@@ -762,12 +622,33 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployment:
+        get:
+            tags:
+                - DeploymentService
+            summary: Get deployment for current token
+            description: Get all deployments for a token
+            operationId: DeploymentService_GetDeploymentByToken
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentByTokenResponse'
+            security:
+                - SemgrepWebToken: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/github_app_status:
         get:
             tags:
                 - DeploymentService
-            summary: Get Deployment GitHub App Status
+            summary: Get deployment GitHub app status
             description: Check if the Semgrep GitHub app is installed for the deployment
             operationId: DeploymentService_GetDeploymentGitHubAppStatus
             parameters:
@@ -794,33 +675,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployment:
-        get:
-            tags:
-                - DeploymentService
-            summary: Get Deployments
-            description: Get all deployments for a token
-            operationId: DeploymentService_GetDeploymentByToken
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentByTokenResponse'
-            security:
-                - SemgrepWebToken: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/users/list:
         post:
             tags:
                 - DeploymentService
-            summary: List Deployment Users
+            summary: List deployment users (paginated)
             description: List deployment users (paginated)
             operationId: DeploymentService_ListDeploymentUsers
             parameters:
@@ -849,12 +709,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/users/{userId}:
         delete:
             tags:
                 - DeploymentService
-            summary: Remove Deployment User
+            summary: Remove deployment user
             description: Remove a user from the deployment
             operationId: DeploymentService_RemoveDeploymentUser
             parameters:
@@ -881,28 +741,33 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/products/admin:
-        get:
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/products/feedback:
+        post:
             tags:
-                - DeploymentProductsService
-            summary: Get deployment admin product config
-            description: Get the admin product configuration for a deployment
-            operationId: DeploymentProductsService_GetDeploymentAdminProductConfig
+                - DeploymentService
+            summary: Send product toggle feedback
+            description: Submit feedback about enabling or disabling a product for the deployment.
+            operationId: DeploymentService_SendDeploymentToggleFeedback
             parameters:
                 - name: deploymentId
                   in: path
                   required: true
                   schema:
-                    type: integer
-                    format: int64
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.deployment.v1.SendDeploymentToggleFeedbackRequest'
+                required: true
             responses:
                 "200":
                     description: OK
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentAdminProductConfigResponse'
+                                $ref: '#/components/schemas/protos.deployment.v1.SendDeploymentToggleFeedbackResponse'
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
@@ -910,40 +775,153 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/has_deepsemgrep:
+        post:
+            tags:
+                - DeploymentService
+            summary: Toggle cross-file analysis
+            description: Enable or disable cross-file analysis for the deployment's scans.
+            operationId: DeploymentService_UpdateDeploymentHasDeepsemgrep
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDeepsemgrepRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDeepsemgrepResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/has_dependency_query:
+        post:
+            tags:
+                - DeploymentService
+            summary: Toggle dependency query
+            description: Enable or disable dependency querying for the deployment.
+            operationId: DeploymentService_UpdateDeploymentHasDependencyQuery
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDependencyQueryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasDependencyQueryResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/has_triage_via_comment:
+        post:
+            tags:
+                - DeploymentService
+            summary: Toggle triage via comment
+            description: Enable or disable triaging findings by replying to Semgrep's review comments.
+            operationId: DeploymentService_UpdateDeploymentHasTriageViaComment
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasTriageViaCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.UpdateDeploymentHasTriageViaCommentResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/users/{userId}/roles:
+        patch:
+            tags:
+                - DeploymentService
+            summary: Update deployment user role
+            description: Change the organization role assigned to a user in the deployment.
+            operationId: DeploymentService_PatchDeploymentUser
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: userId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.deployment.v1.PatchDeploymentUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.PatchDeploymentUserResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/products:
-        get:
-            tags:
-                - DeploymentProductsService
-            summary: Get deployment product config
-            description: Get the product configuration for a deployment
-            operationId: DeploymentProductsService_GetDeploymentProductConfig
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: integer
-                    format: int64
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentProductConfigResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - DeploymentProductsService
-            summary: Upsert deployment product config
+            summary: Create or update deployment product config
             description: Create or update the product configuration for a deployment
             operationId: DeploymentProductsService_PutDeploymentProductConfig
             parameters:
@@ -973,12 +951,69 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+        get:
+            tags:
+                - DeploymentProductsService
+            summary: Get deployment product config
+            description: Get the product configuration for a deployment
+            operationId: DeploymentProductsService_GetDeploymentProductConfig
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentProductConfigResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/products/admin:
+        get:
+            tags:
+                - DeploymentProductsService
+            summary: Get deployment admin product config
+            description: Get the admin product configuration for a deployment
+            operationId: DeploymentProductsService_GetDeploymentAdminProductConfig
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.deployment.v1.GetDeploymentAdminProductConfigResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/sso/deployments/{deploymentId}/providers:
         get:
             tags:
                 - DeploymentSsoProvidersService
-            summary: List Deployment SSO Providers
+            summary: List deployment SSO providers
             description: List all SSO providers for a deployment
             operationId: DeploymentSsoProvidersService_ListDeploymentSsoProviders
             parameters:
@@ -1001,7 +1036,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/tags/{repositoryTag}:
         put:
             tags:
@@ -1041,7 +1076,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         delete:
             tags:
                 - DeploymentTagService
@@ -1074,7 +1109,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - DeploymentTagService
@@ -1107,7 +1142,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/tags/find:
         post:
             tags:
@@ -1142,7 +1177,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/tags:
         get:
             tags:
@@ -1171,12 +1206,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments:
         get:
             tags:
                 - DeploymentsService
-            summary: List Deployments
+            summary: List deployments
             description: |-
                 Request the deployments your auth can access.
 
@@ -1196,12 +1231,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/run:
         post:
             tags:
                 - EditorService
-            summary: Run Pattern
+            summary: Run pattern
             description: Execute a Semgrep pattern against target code and return the results
             operationId: EditorService_RunPattern
             requestBody:
@@ -1223,12 +1258,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/create_tickets:
         post:
             tags:
                 - ExternalTicketingService
-            summary: Create External Tickets
+            summary: Create external tickets
             description: Create tickets in your issue tracking system for Semgrep findings.
             operationId: ExternalTicketingService_NangoCreateTickets
             parameters:
@@ -1270,12 +1305,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/{nangoExternalTicketId}:
         delete:
             tags:
                 - ExternalTicketingService
-            summary: Delete External Ticket
+            summary: Delete external ticket
             description: Delete a ticket and unlink it from Semgrep findings.
             operationId: ExternalTicketingService_DeleteNangoTicket
             parameters:
@@ -1321,12 +1356,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/ticketing/v2:
         get:
             tags:
                 - ExternalTicketingService
-            summary: Get External Ticketing Instances
+            summary: Get external ticketing instances
             description: Gets the issue tracking systems linked to a deployment. E.g. Jira.
             operationId: ExternalTicketingService_GetNangoTicketingInstances
             parameters:
@@ -1353,12 +1388,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/link:
         post:
             tags:
                 - ExternalTicketingService
-            summary: Link an Existing Ticket to Findings
+            summary: Link an existing ticket to findings
             description: Link an existing external ticket (e.g. Jira) to one or more Semgrep findings by providing the ticket URL and a list of finding IDs. This does not create a ticket in your issue tracker — it only records the association in Semgrep. If a finding is already linked to a different ticket, the existing link is replaced.
             operationId: ExternalTicketingService_LinkTicket
             parameters:
@@ -1400,12 +1435,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/unlink:
         post:
             tags:
                 - ExternalTicketingService
-            summary: Unlink a Ticket from Findings
+            summary: Unlink a ticket from findings
             description: Remove the ticket association from one or more Semgrep findings by providing a list of finding IDs. This does not delete the ticket in your issue tracker — it only removes the association in Semgrep.
             operationId: ExternalTicketingService_UnlinkTicket
             parameters:
@@ -1447,12 +1482,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/features:
         get:
             tags:
                 - FeatureRolloutsService
-            summary: List Available Feature Rollouts
+            summary: List available feature rollouts
             description: List all available feature rollouts
             operationId: FeatureRolloutsService_ListAvailableFeatureRollouts
             responses:
@@ -1469,11 +1504,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/ignores:
         post:
             tags:
                 - IgnoresService
+            summary: Create product ignores
+            description: Add global ignore patterns for one or more products in a deployment.
             operationId: IgnoresService_CreateDeploymentProductIgnores
             parameters:
                 - name: deploymentId
@@ -1496,9 +1533,16 @@ paths:
                                 $ref: '#/components/schemas/protos.ignores.v1.CreateDeploymentProductIgnoresResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         delete:
             tags:
                 - IgnoresService
+            summary: Delete product ignores
+            description: Remove the global ignore patterns for one or more products in a deployment.
             operationId: IgnoresService_DeleteDeploymentProductIgnores
             parameters:
                 - name: deploymentId
@@ -1526,9 +1570,16 @@ paths:
                                 $ref: '#/components/schemas/protos.ignores.v1.DeleteDeploymentProductIgnoresResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - IgnoresService
+            summary: Get product ignores
+            description: Get the global ignore patterns configured for each product in a deployment.
             operationId: IgnoresService_GetDeploymentProductIgnores
             parameters:
                 - name: deploymentId
@@ -1545,9 +1596,16 @@ paths:
                                 $ref: '#/components/schemas/protos.ignores.v1.GetDeploymentProductIgnoresResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - IgnoresService
+            summary: Update product ignores
+            description: Update the global ignore patterns for one or more products in a deployment.
             operationId: IgnoresService_UpdateDeploymentProductIgnores
             parameters:
                 - name: deploymentId
@@ -1570,11 +1628,16 @@ paths:
                                 $ref: '#/components/schemas/protos.ignores.v1.UpdateDeploymentProductIgnoresResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/infra-config/bootstrap-sms-vpc:
         get:
             tags:
                 - InfrastructureConfigurationsService
-            summary: Get SMS VPC Bootstrap CloudFormation Template
+            summary: Get Managed Scans VPC bootstrap CloudFormation template
             description: |-
                 VPC support for Managed Scans is in private beta.
 
@@ -1596,12 +1659,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/findings/v2:
         patch:
             tags:
                 - IssuesService
-            summary: Bulk Update Issues
+            summary: Bulk update issues
             description: Bulk triage issues that match specified filters
             operationId: IssuesService_BulkUpdateIssues
             parameters:
@@ -1631,12 +1694,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issues/export:
         post:
             tags:
                 - IssuesService
-            summary: Export Issues
+            summary: Export issues
             description: Asynchronously export issues matching filters to a file
             operationId: IssuesService_ExportIssues
             parameters:
@@ -1666,12 +1729,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issues/v2/{issueId}:
         get:
             tags:
                 - IssuesService
-            summary: Get Issue
+            summary: Get issue
             description: Get a single issue by ID with details
             operationId: IssuesService_GetIssue
             parameters:
@@ -1712,12 +1775,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issues/v2/{issueId}/code-snippets:
         get:
             tags:
                 - IssuesService
-            summary: Get Issue Code Snippets
+            summary: Get issue code snippets
             description: Get code snippets for an issue.
             operationId: IssuesService_GetIssueCodeSnippets
             parameters:
@@ -1745,12 +1808,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issue_counts:
         post:
             tags:
                 - IssuesService
-            summary: Get Issue Counts
+            summary: Get issue counts
             description: Get counts of issues by status with filtering
             operationId: IssuesService_GetIssueCounts
             parameters:
@@ -1780,12 +1843,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issue_filters:
         post:
             tags:
                 - IssuesService
-            summary: Get Issue Filters
+            summary: Get issue filters
             description: Get available filter options for issues
             operationId: IssuesService_GetIssueFilters
             parameters:
@@ -1815,12 +1878,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issues/search:
         post:
             tags:
                 - IssuesService
-            summary: List Issue Groups
+            summary: List issue groups
             description: Search and group issues by rule with filtering and pagination
             operationId: IssuesService_ListIssueGroups
             parameters:
@@ -1850,12 +1913,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/issues:
         post:
             tags:
                 - IssuesService
-            summary: List Issues
+            summary: List issues
             description: List an organization's recent issues with filtering, sorting, and pagination
             operationId: IssuesService_ListIssues
             parameters:
@@ -1885,7 +1948,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/counts:
         post:
             tags:
@@ -1919,7 +1982,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/issue/{issueId}/activity:
         get:
             tags:
@@ -1961,7 +2024,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/issue/{issueId}:
         get:
             tags:
@@ -1994,7 +2057,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         post:
             tags:
                 - PublicIssuesService
@@ -2032,7 +2095,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/issues/{deploymentId}/search:
         post:
             tags:
@@ -2066,11 +2129,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/managed_scan_settings:
         post:
             tags:
                 - ManagedScanSettingsService
+            summary: Create Semgrep Managed Scan settings
+            description: Create the Managed Scan settings for a deployment.
             operationId: ManagedScanSettingsService_CreateManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -2095,9 +2160,16 @@ paths:
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - ManagedScanSettingsService
+            summary: Get Semgrep Managed Scan settings
+            description: Get the Managed Scan settings that apply to all of a deployment's Managed Scans.
             operationId: ManagedScanSettingsService_GetManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -2116,10 +2188,17 @@ paths:
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/managed_scan_settings/{managedScanSettingsId}:
         delete:
             tags:
                 - ManagedScanSettingsService
+            summary: Delete Semgrep Managed Scan settings
+            description: Delete a set of Managed Scan settings by ID.
             operationId: ManagedScanSettingsService_DeleteManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -2144,9 +2223,16 @@ paths:
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - ManagedScanSettingsService
+            summary: Update Semgrep Managed Scan settings
+            description: Replace an existing set of Managed Scan settings.
             operationId: ManagedScanSettingsService_UpdateManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -2177,11 +2263,16 @@ paths:
             security:
                 - SemgrepWebToken: []
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories:
         post:
             tags:
                 - MemoriesService
-            summary: Create Memory
+            summary: Create memory
             description: Create a new memory.
             operationId: MemoriesService_CreateMemory
             parameters:
@@ -2210,12 +2301,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/triage:
         post:
             tags:
                 - MemoriesService
-            summary: Create Memory from Triage
+            summary: Create memory from triage
             description: Create a new memory from a triage event.
             operationId: MemoriesService_CreateMemoryFromTriage
             parameters:
@@ -2244,12 +2335,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/{memoryId}:
         delete:
             tags:
                 - MemoriesService
-            summary: Delete Memory
+            summary: Delete memory
             description: Delete a memory by its ID.
             operationId: MemoriesService_DeleteMemory
             parameters:
@@ -2277,11 +2368,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - MemoriesService
-            summary: Update Memory
+            summary: Update memory
             description: Update a memory by replacement.
             operationId: MemoriesService_UpdateMemory
             parameters:
@@ -2315,12 +2406,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/relevant_issues:
         post:
             tags:
                 - MemoriesService
-            summary: Find Relevant Issues
+            summary: Find relevant issues
             description: Find relevant issues for a given rule and repository.
             operationId: MemoriesService_FindRelevantIssues
             parameters:
@@ -2349,12 +2440,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/ids:
         post:
             tags:
                 - MemoriesService
-            summary: Get memories by ids
+            summary: Get memories by IDs
             description: Get memories by ids.
             operationId: MemoriesService_GetMemoriesByIds
             parameters:
@@ -2383,12 +2474,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/stats:
         get:
             tags:
                 - MemoriesService
-            summary: Get memories stats
+            summary: Get memory statistics
             description: Get statistics about a deployment's memories performance
             operationId: MemoriesService_GetMemoriesStats
             parameters:
@@ -2411,12 +2502,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/list:
         post:
             tags:
                 - MemoriesService
-            summary: List Memories
+            summary: List memories
             description: List memories, optionally scoped to a single repository.
             operationId: MemoriesService_ListMemories
             parameters:
@@ -2445,12 +2536,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/ai/deployments/{deploymentId}/memories/suggested:
         get:
             tags:
                 - MemoriesService
-            summary: List Suggested Memories
+            summary: List suggested memories
             description: List all suggested memories.
             operationId: MemoriesService_ListSuggestedMemories
             parameters:
@@ -2473,12 +2564,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/actions:
         post:
             tags:
                 - NotificationRulesService
-            summary: Create Notification Rule
+            summary: Create notification rule
             description: Create a notification rule
             operationId: NotificationRulesService_CreateNotificationRule
             parameters:
@@ -2508,12 +2599,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}:
         delete:
             tags:
                 - NotificationRulesService
-            summary: Delete Notification Rule
+            summary: Delete notification rule
             description: Delete a notification rule
             operationId: NotificationRulesService_DeleteNotificationRule
             parameters:
@@ -2543,11 +2634,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - NotificationRulesService
-            summary: Replace Notification Rule
+            summary: Replace notification rule
             description: Replace a notification rule
             operationId: NotificationRulesService_ReplaceNotificationRule
             parameters:
@@ -2583,12 +2674,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/actions/list:
         post:
             tags:
                 - NotificationRulesService
-            summary: List Notification Rules
+            summary: List notification rules
             description: List notification rules
             operationId: NotificationRulesService_ListNotificationRules
             parameters:
@@ -2618,12 +2709,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}/test:
         post:
             tags:
                 - NotificationRulesService
-            summary: Test Notification Rule
+            summary: Test notification rule
             description: Test a notification rule
             operationId: NotificationRulesService_TestNotificationRule
             parameters:
@@ -2659,12 +2750,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notification_webhooks/deployments/{deploymentId}/webhooks:
         post:
             tags:
                 - NotificationWebhooksService
-            summary: Create Notification Webhook
+            summary: Create notification webhook
             description: Create a new webhook endpoint.
             operationId: NotificationWebhooksService_CreateNotificationWebhook
             parameters:
@@ -2692,11 +2783,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - NotificationWebhooksService
-            summary: List Notification Webhooks
+            summary: List notification webhooks
             description: List all notification webhooks for a deployment.
             operationId: NotificationWebhooksService_ListNotificationWebhooks
             parameters:
@@ -2718,12 +2809,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}:
         delete:
             tags:
                 - NotificationWebhooksService
-            summary: Delete Notification Webhook
+            summary: Delete notification webhook
             description: Delete a notification webhook by its ID.
             operationId: NotificationWebhooksService_DeleteNotificationWebhook
             parameters:
@@ -2750,11 +2841,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - NotificationWebhooksService
-            summary: Get Notification Webhook
+            summary: Get notification webhook
             description: Get a specific notification webhook by ID.
             operationId: NotificationWebhooksService_GetNotificationWebhook
             parameters:
@@ -2781,11 +2872,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - NotificationWebhooksService
-            summary: Update Notification Webhook
+            summary: Update notification webhook
             description: Update a notification webhook by replacement.
             operationId: NotificationWebhooksService_UpdateNotificationWebhook
             parameters:
@@ -2818,12 +2909,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}/test:
         post:
             tags:
                 - NotificationWebhooksService
-            summary: Test Notification Webhook
+            summary: Test notification webhook
             description: Send a test payload to the webhook endpoint.
             operationId: NotificationWebhooksService_TestNotificationWebhook
             parameters:
@@ -2856,12 +2947,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/in-app/deployments/{deploymentId}:
         get:
             tags:
                 - NotificationsService
-            summary: List Unread Notifications
+            summary: List unread notifications
             description: Returns a paginated list of unread notifications for a particular viewer
             operationId: NotificationsService_GetNotifications
             parameters:
@@ -2893,12 +2984,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/in-app/deployments/{deploymentId}/mark_as_seen:
         put:
             tags:
                 - NotificationsService
-            summary: Mark Notifications as Seen
+            summary: Mark notifications as seen
             description: Marks a list of notifications as seen
             operationId: NotificationsService_MarkNotificationsAsSeen
             parameters:
@@ -2927,11 +3018,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/onboarding/deployments/{deploymentId}/checklist:
         get:
             tags:
                 - ChecklistService
+            summary: Get onboarding checklist status
+            description: Get the completion status of each task in a deployment's onboarding checklist.
             operationId: ChecklistService_GetChecklistStatus
             parameters:
                 - name: deploymentId
@@ -2953,10 +3046,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - ChecklistService
+            summary: Update onboarding checklist
+            description: Update the completion status of tasks in a deployment's onboarding checklist.
             operationId: ChecklistService_PatchChecklist
             parameters:
                 - name: deploymentId
@@ -2984,11 +3079,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/onboarding/deployments/{deploymentId}/invite_members:
         post:
             tags:
                 - ChecklistService
+            summary: Invite members
+            description: Invite users to a deployment as part of the onboarding checklist.
             operationId: ChecklistService_InviteMembers
             parameters:
                 - name: deploymentId
@@ -3015,12 +3112,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/policies/v1/deployments/{deploymentId}:
         get:
             tags:
                 - PoliciesService
-            summary: List Policies
+            summary: List policies
             description: List all policies for a given deployment.
             operationId: PoliciesService_ListPolicies
             parameters:
@@ -3046,12 +3143,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/policies/v1/deployments/{deploymentId}/{policyId}/rules:
         get:
             tags:
                 - PoliciesService
-            summary: List Policy Rules
+            summary: List policy rules
             description: List the rules for a given policy.
             operationId: PoliciesService_ListPolicyRules
             parameters:
@@ -3096,12 +3193,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/policies/v1/deployments/{deploymentId}/{policyId}/rules/{rulePath}:
         put:
             tags:
                 - PoliciesService
-            summary: Update Policy Rule
+            summary: Update policy rule
             description: Update a specific rule within a policy.
             operationId: PoliciesService_UpdatePolicyRule
             parameters:
@@ -3151,7 +3248,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}:
         put:
             tags:
@@ -3457,7 +3554,7 @@ paths:
         post:
             tags:
                 - ProjectsService
-            summary: Add Semgrep CI Secrets to GitHub Repositories
+            summary: Add Semgrep CI secrets to GitHub repositories
             description: Generates and adds a secret for the "semgrep-ci" GitHub Action to the GitHub Repositories that are associated with any Semgrep Projects that match the given filters.
             operationId: ProjectsService_BulkAddRepoSecret
             parameters:
@@ -3487,12 +3584,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/repos/filtered:
         patch:
             tags:
                 - ProjectsService
-            summary: Bulk Apply Project Update
+            summary: Bulk edit projects by filter
             description: Applies a change to many projects that match the given filters.
             operationId: ProjectsService_BulkApplyRepoUpdate
             parameters:
@@ -3522,12 +3619,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/repos:
         patch:
             tags:
                 - ProjectsService
-            summary: Bulk Edit Projects
+            summary: Bulk edit selected projects
             description: Applies changes to multiple specified projects at once.
             operationId: ProjectsService_BulkEditRepos
             parameters:
@@ -3559,12 +3656,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/projects/{projectId}:
         delete:
             tags:
                 - ProjectsService
-            summary: Delete Project
+            summary: Delete project
             description: Delete a project by its ID. This will delete the project and all of its findings. This action cannot be reversed.
             operationId: ProjectsService_DeleteProject
             parameters:
@@ -3595,11 +3692,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - ProjectsService
-            summary: Get Project
+            summary: Get project
             description: Get a project by its ID.
             operationId: ProjectsService_GetProject
             parameters:
@@ -3630,40 +3727,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/repos/by-tag:
-        get:
-            tags:
-                - ProjectsService
-            summary: Get All Projects IDs by Tag
-            description: Gets a mapping from tag ID to related project IDs.
-            operationId: ProjectsService_GetReposByTag
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.projects.v1.GetReposByTagResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/projects/{projectId}/branches/{branchId}:
         get:
             tags:
                 - ProjectsService
-            summary: Get Branch
+            summary: Get branch
             description: Get a branch by its ID.
             operationId: ProjectsService_GetBranch
             parameters:
@@ -3701,12 +3770,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/repos/count:
         post:
             tags:
                 - ProjectsService
-            summary: Get Project Count
+            summary: Get project count
             description: Get the number of projects in a deployment.
             operationId: ProjectsService_GetReposCount
             parameters:
@@ -3735,12 +3804,40 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/repos/by-tag:
+        get:
+            tags:
+                - ProjectsService
+            summary: List project IDs by tag
+            description: Gets a mapping from tag ID to related project IDs.
+            operationId: ProjectsService_GetReposByTag
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.projects.v1.GetReposByTagResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/projects/list:
         post:
             tags:
                 - ProjectsService
-            summary: List Projects
+            summary: List projects
             description: List all projects based on provided filters.
             operationId: ProjectsService_ListProjects
             parameters:
@@ -3770,12 +3867,121 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/repos/_provision:
+        post:
+            tags:
+                - ProjectsService
+            summary: Provision Semgrep CI GitHub Actions
+            description: Adds a "semgrep-ci" GitHub Action to the GitHub Repositories that are associated with any Semgrep Projects that match the given filters.
+            operationId: ProjectsService_BulkProvisionRepos
+            parameters:
+                - name: deploymentId
+                  in: path
+                  description: id of the deployment
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.projects.v1.BulkProvisionReposRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.projects.v1.BulkProvisionReposResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/repos/_refresh_async:
+        post:
+            tags:
+                - ProjectsService
+            summary: Sync all projects to SCM
+            description: Schedules a job to sync all projects in a deployment to their SCM.
+            operationId: ProjectsService_RefreshProjectsAsync
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.projects.v1.RefreshProjectsAsyncRequest'
+                required: true
+            responses:
+                "202":
+                    description: Accepted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.projects.v1.RefreshProjectsAsyncResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/repos/{repoId}/_sync:
+        post:
+            tags:
+                - ProjectsService
+            summary: Sync project to SCM
+            description: Schedules a job to sync a project with its SCM.
+            operationId: ProjectsService_SyncRepo
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: repoId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.projects.v1.SyncRepoRequest'
+                required: true
+            responses:
+                "202":
+                    description: Accepted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.projects.v1.SyncRepoResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/repos/{idOrName}:
         patch:
             tags:
                 - ProjectsService
-            summary: Patch Project
+            summary: Update project
             description: Use a "Merge Patch" to update a project's name or SMS settings.
             operationId: ProjectsService_EditRepo
             parameters:
@@ -3815,122 +4021,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/repos/_provision:
-        post:
-            tags:
-                - ProjectsService
-            summary: Provision Semgrep CI GitHub Actions
-            description: Adds a "semgrep-ci" GitHub Action to the GitHub Repositories that are associated with any Semgrep Projects that match the given filters.
-            operationId: ProjectsService_BulkProvisionRepos
-            parameters:
-                - name: deploymentId
-                  in: path
-                  description: id of the deployment
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.projects.v1.BulkProvisionReposRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.projects.v1.BulkProvisionReposResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/repos/_refresh_async:
-        post:
-            tags:
-                - ProjectsService
-            summary: Sync All Projects to SCM
-            description: Schedules a job to sync all projects in a deployment to their SCM.
-            operationId: ProjectsService_RefreshProjectsAsync
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: integer
-                    format: int64
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.projects.v1.RefreshProjectsAsyncRequest'
-                required: true
-            responses:
-                "202":
-                    description: Accepted
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.projects.v1.RefreshProjectsAsyncResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/repos/{repoId}/_sync:
-        post:
-            tags:
-                - ProjectsService
-            summary: Sync Project to SCM
-            description: Schedules a job to sync a project with its SCM.
-            operationId: ProjectsService_SyncRepo
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-                - name: repoId
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/protos.projects.v1.SyncRepoRequest'
-                required: true
-            responses:
-                "202":
-                    description: Accepted
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.projects.v1.SyncRepoResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sms/v2/deployments/{deploymentId}/project_settings:
         post:
             tags:
                 - ProjectManagedScanSettingsService
-            summary: Bulk get many Projects' Managed Scan Settings
-            description: Finds the user-configurable managed scan settings for the specified projects. Projects without managed scanning set up will have empty values.
+            summary: Bulk get many projects' Managed Scan settings
+            description: Finds the user-configurable Managed Scan settings for the specified projects. Projects without Managed Scans set up will have empty values.
             operationId: ProjectManagedScanSettingsService_BulkGetProjectManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -3961,13 +4058,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sms/v2/deployments/{deploymentId}/projects/{projectId}/settings:
         get:
             tags:
                 - ProjectManagedScanSettingsService
-            summary: Get a Project's Managed Scan Settings
-            description: Finds the user-configurable managed scan settings for the specified project. Returns an empty result if the specified project does not have managed scanning set up.
+            summary: Get a project's Managed Scan settings
+            description: Finds the user-configurable Managed Scan settings for the specified project. Returns an empty result if the specified project does not have Managed Scans set up.
             operationId: ProjectManagedScanSettingsService_GetProjectManagedScanSettings
             parameters:
                 - name: deploymentId
@@ -4000,12 +4097,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/reporting/{deploymentId}/reports/backlog/by-product:
         post:
             tags:
                 - ReportsService
-            summary: Get Backlog by Product Report
+            summary: Get backlog by product report
             description: ' '
             operationId: ReportsService_GetBacklogByProductReport
             parameters:
@@ -4043,7 +4140,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Backlog by Rule Report
+            summary: Get backlog by rule report
             description: ' '
             operationId: ReportsService_GetBacklogByRuleReport
             parameters:
@@ -4081,7 +4178,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Backlog by Severity Report
+            summary: Get backlog by severity report
             description: ' '
             operationId: ReportsService_GetBacklogBySeverityReport
             parameters:
@@ -4119,7 +4216,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Findings Activity Report
+            summary: Get findings activity report
             description: ' '
             operationId: ReportsService_GetFindingsActivityReport
             parameters:
@@ -4157,7 +4254,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Findings by Project and Product Report
+            summary: Get findings by project and product report
             description: ' '
             operationId: ReportsService_GetFindingsByProjectAndProductReport
             parameters:
@@ -4195,7 +4292,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Findings by Project and Severity Report
+            summary: Get findings by project and severity report
             description: ' '
             operationId: ReportsService_GetFindingsByProjectAndSeverityReport
             parameters:
@@ -4233,7 +4330,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Findings Funnel Report
+            summary: Get findings funnel report
             description: ' '
             operationId: ReportsService_GetFindingsFunnelReport
             parameters:
@@ -4271,7 +4368,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Guardrails Activity Report
+            summary: Get guardrails activity report
             description: ' '
             operationId: ReportsService_GetGuardrailsActivityReport
             parameters:
@@ -4309,7 +4406,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Guardrails Adoption Report
+            summary: Get guardrails adoption report
             description: ' '
             operationId: ReportsService_GetGuardrailsAdoptionReport
             parameters:
@@ -4347,7 +4444,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Malware Firewall Blocked Malicious Dependencies by Advisory Report
+            summary: Get Malware Firewall blocked malicious dependencies by advisory report
             description: ' '
             operationId: ReportsService_GetMalwareFirewallBlockedMalDepsByAdvisoryReport
             parameters:
@@ -4385,7 +4482,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Malware Firewall Blocked Malicious Dependencies by Dependency, Version, and Ecosystem Report
+            summary: Get Malware Firewall blocked malicious dependencies by dependency, version, and ecosystem report
             description: ' '
             operationId: ReportsService_GetMalwareFirewallBlockedMalDepsByDepVersionAndEcosystemReport
             parameters:
@@ -4423,7 +4520,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Malware Firewall Blocked Malicious Dependencies by Ecosystem Report
+            summary: Get Malware Firewall blocked malicious dependencies by ecosystem report
             description: ' '
             operationId: ReportsService_GetMalwareFirewallBlockedMalDepsByEcosystemReport
             parameters:
@@ -4461,7 +4558,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Malware Firewall Scan Activity Report
+            summary: Get Malware Firewall scan activity report
             description: ' '
             operationId: ReportsService_GetMalwareFirewallScanActivityReport
             parameters:
@@ -4499,7 +4596,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Malware Firewall Summary Report
+            summary: Get Malware Firewall summary report
             description: ' '
             operationId: ReportsService_GetMalwareFirewallSummaryReport
             parameters:
@@ -4537,7 +4634,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Median Open Age by Product Report
+            summary: Get median open age by product report
             description: ' '
             operationId: ReportsService_GetMedianOpenAgeByProductReport
             parameters:
@@ -4575,7 +4672,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Median Open Age by Severity Report
+            summary: Get median open age by severity report
             description: ' '
             operationId: ReportsService_GetMedianOpenAgeBySeverityReport
             parameters:
@@ -4613,7 +4710,7 @@ paths:
         post:
             tags:
                 - ReportsService
-            summary: Get Report Findings
+            summary: Get report findings
             description: ' '
             operationId: ReportsService_GetReportFindings
             parameters:
@@ -4651,7 +4748,7 @@ paths:
         post:
             tags:
                 - ReviewCommentProductContentService
-            summary: Create Review Comment Product Content
+            summary: Create review comment product content
             description: Create a new review comment product content
             operationId: ReviewCommentProductContentService_CreateReviewCommentProductContent
             parameters:
@@ -4680,11 +4777,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - ReviewCommentProductContentService
-            summary: List Review Comment Product Content
+            summary: List review comment product content
             description: List all review comment product contents
             operationId: ReviewCommentProductContentService_ListReviewCommentProductContent
             parameters:
@@ -4707,12 +4804,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/deployments/{deploymentId}/scm_comment_product_content/{reviewCommentProductContentId}:
         delete:
             tags:
                 - ReviewCommentProductContentService
-            summary: Delete Review Comment Product Content
+            summary: Delete review comment product content
             description: Delete a review product content by its ID.
             operationId: ReviewCommentProductContentService_DeleteReviewCommentProductContent
             parameters:
@@ -4740,11 +4837,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - ReviewCommentProductContentService
-            summary: Update Review Comment Product Content
+            summary: Update review comment product content
             description: Update an existing review comment product content
             operationId: ReviewCommentProductContentService_UpdateReviewCommentProductContent
             parameters:
@@ -4778,7 +4875,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/ruleboards:
         post:
             tags:
@@ -4816,7 +4913,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - RuleboardService
@@ -4851,7 +4948,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}:
         delete:
             tags:
@@ -4884,7 +4981,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - RuleboardService
@@ -4915,7 +5012,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - RuleboardService
@@ -4956,7 +5053,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/finding_counts:
         get:
             tags:
@@ -5000,7 +5097,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/overview:
         get:
             tags:
@@ -5032,7 +5129,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - RuleboardService
@@ -5077,12 +5174,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/v2/deployments/{deploymentId}/scans/{scanId}:
         get:
             tags:
                 - ScansService
-            summary: Get Scan
+            summary: Get scan
             description: Get a scan by ID.
             operationId: ScansService_GetScan
             parameters:
@@ -5123,7 +5220,7 @@ paths:
         post:
             tags:
                 - ScansService
-            summary: List Scans
+            summary: List scans
             description: List the scans associated with a particular project from the past 30 days.
             operationId: ScansService_ListScans
             parameters:
@@ -5170,7 +5267,7 @@ paths:
         post:
             tags:
                 - ScansService
-            summary: Retry Failed SMS Scans
+            summary: Retry failed Managed Scans
             description: Retry one or more failed Semgrep Managed Scans (SMS). Only scans that are SMS and have failed or never finished can be retried. Send a single scan ID or multiple; returns one task per successful retry and one error per failed retry.
             operationId: ScansService_RetryScans
             parameters:
@@ -5208,7 +5305,7 @@ paths:
         delete:
             tags:
                 - SlackService
-            summary: Delete Slack Installation
+            summary: Delete Slack installation
             description: Deletes Slack app installation and revokes access token
             operationId: SlackService_DeleteSlackInstallation
             parameters:
@@ -5231,11 +5328,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - SlackService
-            summary: Get Slack Installation Details
+            summary: Get Slack installation details
             description: Retrieves Slack app installation details for a deployment
             operationId: SlackService_GetSlackInstallation
             parameters:
@@ -5258,12 +5355,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/slack/install:
         get:
             tags:
                 - SlackService
-            summary: Get Slack App Installation URL
+            summary: Get Slack app installation URL
             description: Generates the OAuth URL that initiates the Slack app installation flow
             operationId: SlackService_InstallSlackApp
             parameters:
@@ -5286,12 +5383,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/slack/channel_mappings:
         get:
             tags:
                 - SlackService
-            summary: Get Slack Channel Mappings
+            summary: Get Slack channel mappings
             description: Retrieves channel mappings for Slack channels
             operationId: SlackService_GetSlackChannelMappings
             parameters:
@@ -5314,12 +5411,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/slack/channels:
         get:
             tags:
                 - SlackService
-            summary: Get Slack Notification Mappings
+            summary: Get Slack notification mappings
             description: Retrieves notification mappings for Slack channels
             operationId: SlackService_GetSlackNotificationMappings
             parameters:
@@ -5342,12 +5439,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/slack/oauth/callback:
         post:
             tags:
                 - SlackService
-            summary: Handle Slack OAuth Callback
+            summary: Handle Slack OAuth callback
             description: Processes OAuth callback, exchanges code for access token, and stores installation data
             operationId: SlackService_HandleSlackCallback
             parameters:
@@ -5376,12 +5473,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/add_ado_project:
         post:
             tags:
                 - ScmAppsService
-            summary: Add Azure DevOps Project
+            summary: Add Azure DevOps project
             description: Add a new ADO project to an existing Entra App install. The service principal must already have permissions on the ADO project
             operationId: ScmAppsService_AddAdoScmProject
             parameters:
@@ -5415,12 +5512,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/ado_app_install:
         put:
             tags:
                 - ScmAppsService
-            summary: Complete Azure DevOps SCM App install
+            summary: Complete Azure DevOps SCM app install
             description: After the user has uploaded the certificate, verify the Service Principal can authenticate to ADO and create webhook subscriptions required for the integration. Then mark the install as ready.
             operationId: ScmAppsService_CompleteAdoScmAppInstall
             requestBody:
@@ -5443,12 +5540,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/app_request_complete:
         put:
             tags:
                 - ScmAppsService
-            summary: Complete SCMAppRequest
+            summary: Complete SCM app request
             description: Complete an SCM app request.
             operationId: ScmAppsService_CompleteScmAppRequest
             requestBody:
@@ -5470,12 +5567,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/ado_app:
         post:
             tags:
                 - ScmAppsService
-            summary: Create Azure DevOps SCM App (Service Principal)
+            summary: Create Azure DevOps SCM app (Service Principal)
             description: 'Create an ADO ScmApp using Entra ID Service Principal credentials. Generates a key pair server-side and returns the public certificate for the customer to upload to their Entra app registration. CompleteAdoScmAppInstall must be called to finish the install after the certificate is uploaded. '
             operationId: ScmAppsService_CreateAdoScmApp
             requestBody:
@@ -5498,12 +5595,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/app_request:
         post:
             tags:
                 - ScmAppsService
-            summary: Create SCMAppRequest
+            summary: Create SCM app request
             description: Create a new SCM app request.
             operationId: ScmAppsService_CreateScmAppRequest
             requestBody:
@@ -5525,12 +5622,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}:
         delete:
             tags:
                 - ScmAppsService
-            summary: Delete SCMApp
+            summary: Delete SCM app
             description: Delete an SCM app by its ID.
             operationId: ScmAppsService_DeleteScmApp
             parameters:
@@ -5558,12 +5655,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps/public_gha:
         get:
             tags:
                 - ScmAppsService
-            summary: Get Public GitHub App status
+            summary: Get public GitHub app status
             description: Get the status of a public GitHub App.
             operationId: ScmAppsService_GetGitHubAppStatus
             parameters:
@@ -5589,12 +5686,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps/{requestId}:
         get:
             tags:
                 - ScmAppsService
-            summary: Get SCMApp
+            summary: Get SCM app
             description: Get an SCM app by its request ID.
             operationId: ScmAppsService_GetScmApp
             parameters:
@@ -5621,12 +5718,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps:
         get:
             tags:
                 - ScmAppsService
-            summary: List SCM Apps
+            summary: List SCM apps
             description: List all SCM apps for a deployment.
             operationId: ScmAppsService_ListScmApps
             parameters:
@@ -5649,12 +5746,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/rotate_webhook_secret:
         post:
             tags:
                 - ScmAppsService
-            summary: Rotate SCM App Webhook Secret
+            summary: Rotate SCM app webhook secret
             description: Generate a new webhook secret, update it on the SCM provider, and persist it.
             operationId: ScmAppsService_RotateScmAppWebhookSecret
             parameters:
@@ -5681,12 +5778,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/configs/{configId}/check:
         get:
             tags:
                 - ScmService
-            summary: Check SCMConfig
+            summary: Check SCM config
             description: Check the status of an SCM config.
             operationId: ScmService_CheckScmConfig
             parameters:
@@ -5714,12 +5811,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/configs:
         post:
             tags:
                 - ScmService
-            summary: Create SCMConfig
+            summary: Create SCM config
             description: Create a new SCM config.
             operationId: ScmService_CreateScmConfig
             parameters:
@@ -5748,11 +5845,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - ScmService
-            summary: List SCMConfig
+            summary: List SCM configs
             description: List all SCM configs for a deployment.
             operationId: ScmService_ListScmConfig
             parameters:
@@ -5802,12 +5899,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/configs/{configId}:
         delete:
             tags:
                 - ScmService
-            summary: Delete SCMConfig
+            summary: Delete SCM config
             description: Delete an SCM config by its ID.
             operationId: ScmService_DeleteScmConfig
             parameters:
@@ -5835,11 +5932,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - ScmService
-            summary: Patch SCMConfig
+            summary: Update SCM config
             description: Update an existing SCM config.
             operationId: ScmService_PatchScmConfig
             parameters:
@@ -5873,12 +5970,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/configs/search:
         post:
             tags:
                 - ScmService
-            summary: Search SCMConfig
+            summary: Search SCM configs
             description: Search for SCM configs for a deployment.
             operationId: ScmService_SearchScmConfig
             parameters:
@@ -5907,12 +6004,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/configs/{configId}/_sync:
         post:
             tags:
                 - ScmService
-            summary: Sync SCMConfig
+            summary: Sync SCM config
             description: Sync an SCM config.
             operationId: ScmService_SyncScmConfig
             parameters:
@@ -5946,12 +6043,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/subscriptions/{configId}:
         get:
             tags:
                 - ScmSubscriptionsService
-            summary: List SCM Webhook Subscriptions
+            summary: List SCM webhook subscriptions
             description: List all SCM webhook subscriptions for a deployment.
             operationId: ScmSubscriptionsService_ListScmWebhookSubscription
             parameters:
@@ -5979,11 +6076,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - ScmSubscriptionsService
-            summary: Subscribe to SCM Webhook
+            summary: Subscribe to SCM webhook
             description: Subscribe to SCM webhook events.
             operationId: ScmSubscriptionsService_ScmWebhookSubscriptionSubscribe
             parameters:
@@ -6011,11 +6108,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         delete:
             tags:
                 - ScmSubscriptionsService
-            summary: Unsubscribe from SCM Webhook
+            summary: Unsubscribe from SCM webhook
             description: Unsubscribe from SCM webhook events.
             operationId: ScmSubscriptionsService_ScmWebhookSubscriptionUnsubscribe
             parameters:
@@ -6043,12 +6140,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/scm/deployments/{deploymentId}/subscriptions/{configId}/rotate_secret:
         post:
             tags:
                 - ScmSubscriptionsService
-            summary: Rotate SCM Webhook Secret
+            summary: Rotate SCM webhook secret
             description: Generate a new webhook secret, update it on the SCM provider, and persist it.
             operationId: ScmSubscriptionsService_RotateScmWebhookSecret
             parameters:
@@ -6076,7 +6173,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sca/deployments/{deploymentId}/sbom_async:
         post:
             tags:
@@ -6116,7 +6213,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sca/deployments/{deploymentId}/dependencies:
         get:
             tags:
@@ -6249,7 +6346,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         post:
             tags:
                 - SupplyChain2Service
@@ -6285,7 +6382,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sca/deployments/{deploymentId}/advisories/{advisoryId}/findings:
         post:
             tags:
@@ -6329,7 +6426,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sca/deployments/{deploymentId}/{repositoryId}/lockfiles:
         post:
             tags:
@@ -6372,7 +6469,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/sca/deployments/{deploymentId}/repositories:
         post:
             tags:
@@ -6408,12 +6505,47 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/agent/deployments/{deploymentId}/projects/{projectId}/resolution_configs:
+        get:
+            tags:
+                - SmsScaResolutionConfigService
+            summary: Get SCA resolution configs
+            description: Retrieve custom dependency resolution configurations for a given deployment and repository.
+            operationId: SmsScaResolutionConfigService_GetScaResolutionConfigs
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    description: The unique identifier for the deployment.
+                - name: projectId
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    description: The unique identifier for the project.
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.sms.v2.GetScaResolutionConfigsResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs:
         post:
             tags:
                 - SmsPackageManagerConfigService
-            summary: Create Package Manager Auth Config
+            summary: Create package manager auth config
             description: Create a new package manager authentication configuration for a deployment.
             operationId: SmsPackageManagerConfigService_PostPackageManagerAuthCredentials
             parameters:
@@ -6443,11 +6575,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - SmsPackageManagerConfigService
-            summary: List Package Manager Auth Configs
+            summary: List package manager auth configs
             description: Retrieve all package manager authentication configurations for a deployment.
             operationId: SmsPackageManagerConfigService_GetPackageManagerAuthConfigs
             parameters:
@@ -6471,12 +6603,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs/{packageManagerConfigId}:
         delete:
             tags:
                 - SmsPackageManagerConfigService
-            summary: Delete Package Manager Auth Config
+            summary: Delete package manager auth config
             description: Delete a package manager authentication configuration.
             operationId: SmsPackageManagerConfigService_DeletePackageManagerAuthConfigs
             parameters:
@@ -6507,11 +6639,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - SmsPackageManagerConfigService
-            summary: Update Package Manager Auth Config
+            summary: Update package manager auth config
             description: Update an existing package manager authentication configuration.
             operationId: SmsPackageManagerConfigService_UpdatePackageManagerAuthCredentials
             parameters:
@@ -6548,46 +6680,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
-    /api/agent/deployments/{deploymentId}/projects/{projectId}/resolution_configs:
-        get:
-            tags:
-                - SmsScaResolutionConfigService
-            summary: Get SCA Resolution Configs
-            description: Retrieve custom dependency resolution configurations for a given deployment and repository.
-            operationId: SmsScaResolutionConfigService_GetScaResolutionConfigs
-            parameters:
-                - name: deploymentId
-                  in: path
-                  required: true
-                  schema:
-                    type: integer
-                    description: The unique identifier for the deployment.
-                - name: projectId
-                  in: path
-                  required: true
-                  schema:
-                    type: integer
-                    description: The unique identifier for the project.
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/protos.sms.v2.GetScaResolutionConfigsResponse'
-            security:
-                - SemgrepWebToken: []
-                - SemgrepJWT: []
-            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
-            x-mint:
-                metadata:
-                    tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/support/cases:
         post:
             tags:
                 - SupportService
+            summary: Create support case
+            description: File a new support case.
             operationId: SupportService_CreateSupportCase
             requestBody:
                 content:
@@ -6604,10 +6703,17 @@ paths:
                                 $ref: '#/components/schemas/protos.support.v1.CreateSupportCaseResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/support/cases/{orgid}:
         get:
             tags:
                 - SupportService
+            summary: List support cases
+            description: List the support cases filed by an organization.
             operationId: SupportService_ListSupportCases
             parameters:
                 - name: orgid
@@ -6625,6 +6731,11 @@ paths:
                                 $ref: '#/components/schemas/protos.support.v1.ListSupportCasesResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/survey/name/{surveyName}:
         get:
             tags:
@@ -6651,7 +6762,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/survey/submit:
         post:
             tags:
@@ -6678,12 +6789,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/tasks/v2/{taskTokenJwt}:
         get:
             tags:
                 - TasksService
-            summary: Get Task Result
+            summary: Get task result
             description: Returns the status of a task or task group, and if completed, the result.
             operationId: TasksService_GetTaskResult
             parameters:
@@ -6707,7 +6818,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/permissions/v2/deployments/{deploymentId}/status:
         get:
             tags:
@@ -6948,7 +7059,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/repos:
         get:
             tags:
@@ -7141,6 +7252,7 @@ paths:
                         - TOKEN_ROLE_AGENT_CLI
                         - TOKEN_ROLE_WEBAPI
                         - TOKEN_ROLE_MEMBER
+                        - TOKEN_ROLE_READ_ONLY
                     type: string
                     description: Only delete tokens with this role, such as TOKEN_ROLE_MEMBER. Required when purpose is TOKEN_PURPOSE_API; must not be set for TOKEN_PURPOSE_CLI.
                     format: enum
@@ -7158,12 +7270,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/users/current:
         get:
             tags:
                 - UsersService
-            summary: Get User
+            summary: Get user
             description: Get basic information about a User, like role, email, and auth details
             operationId: UsersService_GetUser
             parameters:
@@ -7187,12 +7299,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/users/current/settings:
         get:
             tags:
                 - UsersService
-            summary: Get User Settings
+            summary: Get user settings
             description: Get basic settings & onboarding info for a user, like contact preferences and product tour state.
             operationId: UsersService_GetUserSettings
             parameters:
@@ -7216,11 +7328,11 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         patch:
             tags:
                 - UsersService
-            summary: Update User Settings
+            summary: Update user settings
             description: Update user settings and preferences for the current user
             operationId: UsersService_PatchUserSettings
             requestBody:
@@ -7242,7 +7354,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/authorized_resources:
         get:
             tags:
@@ -7263,12 +7375,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/users/current/deployments/joinable:
         get:
             tags:
                 - UsersService
-            summary: List Joinable Organizations
+            summary: List joinable organizations
             description: List all organizations/deployments that a user can join
             operationId: UsersService_ListUserJoinableOrgs
             parameters:
@@ -7292,12 +7404,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/auth/users/current/deployments:
         get:
             tags:
                 - UsersService
-            summary: List User Organizations
+            summary: List user organizations
             description: List all organizations/deployments that a user is a member of
             operationId: UsersService_ListUserOrgs
             parameters:
@@ -7321,12 +7433,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/versions/{deploymentId}/project-info/{product}:
         get:
             tags:
                 - VersionsService
-            summary: Get Project Version Info
+            summary: Get project version info
             description: Get Semgrep version information for recent scans
             operationId: VersionsService_GetProjectVersionInfo
             parameters:
@@ -7353,11 +7465,13 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/wiz:
         post:
             tags:
                 - WizCredentialService
+            summary: Create Wiz credential
+            description: Create a Wiz credential for a deployment.
             operationId: WizCredentialService_CreateWizCredential
             parameters:
                 - name: deploymentId
@@ -7381,9 +7495,16 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.CreateWizCredentialResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - WizCredentialService
+            summary: List Wiz credentials
+            description: List all Wiz credentials for a deployment.
             operationId: WizCredentialService_ListWizCredentials
             parameters:
                 - name: deploymentId
@@ -7401,10 +7522,17 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.ListWizCredentialsResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/wiz/{id}:
         delete:
             tags:
                 - WizCredentialService
+            summary: Delete Wiz credential
+            description: Delete a Wiz credential by ID.
             operationId: WizCredentialService_DeleteWizCredential
             parameters:
                 - name: deploymentId
@@ -7427,9 +7555,16 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.DeleteWizCredentialResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         get:
             tags:
                 - WizCredentialService
+            summary: Get Wiz credential
+            description: Get a single Wiz credential by ID.
             operationId: WizCredentialService_GetWizCredential
             parameters:
                 - name: deploymentId
@@ -7452,9 +7587,16 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.GetWizCredentialResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
         put:
             tags:
                 - WizCredentialService
+            summary: Update Wiz credential
+            description: Replace an existing Wiz credential.
             operationId: WizCredentialService_UpdateWizCredential
             parameters:
                 - name: deploymentId
@@ -7483,10 +7625,17 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.UpdateWizCredentialResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/notifications/deployments/{deploymentId}/wiz/validate:
         post:
             tags:
                 - WizCredentialService
+            summary: Validate Wiz credential
+            description: Check that a Wiz credential can authenticate against Wiz.
             operationId: WizCredentialService_ValidateWizCredential
             parameters:
                 - name: deploymentId
@@ -7510,6 +7659,11 @@ paths:
                                 $ref: '#/components/schemas/protos.notifications.v1.ValidateWizCredentialResponse'
             security:
                 - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/health-check:
         get:
             tags:
@@ -7528,7 +7682,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/readiness-check:
         get:
             tags:
@@ -7547,12 +7701,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/identity:
         get:
             tags:
                 - MiscService
-            summary: Get Identity
+            summary: Get identity
             description: Returns the agent's bearer identity
             operationId: MiscService_GetIdentity
             responses:
@@ -7569,7 +7723,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/ip:
         get:
             tags:
@@ -7591,12 +7745,12 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/tenant:
         get:
             tags:
                 - MiscService
-            summary: Get Tenant
+            summary: Get tenant
             description: Returns the current tenant name for the server (e.g. default)
             operationId: MiscService_GetTenant
             responses:
@@ -7610,7 +7764,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/ping:
         get:
             tags:
@@ -7629,7 +7783,7 @@ paths:
             x-mint:
                 metadata:
                     tag: "Experimental"
-                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice, and is not covered by API stability guarantees.</Warning>"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
 components:
     schemas:
         protos.ai.v1.AiMemorySource:
@@ -8956,6 +9110,7 @@ components:
                         - TRIGGER_SOURCE_WORKFLOW
                         - TRIGGER_SOURCE_ISSUE_TRIAGED
                         - TRIGGER_SOURCE_UPGRADE_GUIDANCE
+                        - TRIGGER_SOURCE_PATCH_READY
                     type: string
                     description: |+
                         Trigger source for the automation — determines when its actions fire.
@@ -8971,6 +9126,7 @@ components:
                         | TRIGGER_SOURCE_WORKFLOW |  |
                         | TRIGGER_SOURCE_ISSUE_TRIAGED |  |
                         | TRIGGER_SOURCE_UPGRADE_GUIDANCE |  |
+                        | TRIGGER_SOURCE_PATCH_READY |  |
 
                     format: enum
         protos.automations.v1.Condition:
@@ -9956,8 +10112,6 @@ components:
                     $ref: '#/components/schemas/protos.deployment.v1.AiAutotriageConfig'
                 ai_detection:
                     $ref: '#/components/schemas/protos.deployment.v1.SastAiDetectionConfig'
-                autofix_pr_enabled:
-                    type: boolean
                 triagePermission:
                     enum:
                         - TRIAGE_PERMISSION_IGNORE
@@ -12600,7 +12754,6 @@ components:
                         format: enum
                     description: |+
                         Filters issues whose aggregate state matches one of the specified values. Applies to all issue types.
-                         Only supported in the Duplo code path.
 
                         | value | description |
                         |-------|---------------|
@@ -12654,7 +12807,7 @@ components:
                         format: enum
                     description: |+
                         Frontend-only: this field is included in IssuesFilter to leverage proto-generated TypeScript
-                         types for filter state management and URL serialization. When non-empty, restricts the duplo
+                         types for filter state management and URL serialization. When non-empty, restricts the
                          combined Code view to show only the specified issue types. The backend ignores this field.
 
                         | value | description |
@@ -12671,8 +12824,7 @@ components:
                         type: string
                     description: |-
                         Fuzzy file path search. Filters issues whose file path matches one of the specified values using
-                         analyzed text search (splits on / . _ - etc. and supports typo tolerance). Only works when
-                         Duplo is enabled for the deployment — ignored otherwise. Accepts an array of strings but
+                         analyzed text search (splits on / . _ - etc. and supports typo tolerance). Accepts an array of strings but
                          currently only the first value is used.
                 includeArchived:
                     type: boolean
@@ -12686,8 +12838,7 @@ components:
                         Filter by whether an issue has an in-flight Autofix PR request: the latest
                          pr_requested/pr_opened/pr_failed lifecycle event is pr_requested and within
                          a 10-minute cooldown. false excludes in-flight issues, true returns only
-                         them, unset applies no filtering. Not supported by Duplo — setting it
-                         forces the Postgres query path.
+                         them, unset applies no filtering.
         protos.issues.v1.ListIssueGroupsRequest:
             type: object
             properties:
@@ -19543,8 +19694,8 @@ tags:
       x-group: AI Fix Jobs
     - name: AiTasksService
       description: Manage AI tasks, such as triage, auto-triage, and issue tagging backfill
-      x-displayName: Ai Tasks
-      x-group: Ai Tasks
+      x-displayName: AI tasks
+      x-group: AI tasks
     - name: AutofixService
       description: Trigger automated fixes for SAST, AI SAST, and SCA issues.
       x-displayName: Autofix
@@ -19606,7 +19757,7 @@ tags:
       x-displayName: Issues
       x-group: Issues
     - name: ManagedScanSettingsService
-      description: Settings that affect all of a deployment's managed scans
+      description: Settings that affect all of a deployment's Managed Scans
       x-displayName: Managed Scan Settings
       x-group: Managed Scan Settings
     - name: MemoriesService
@@ -19615,8 +19766,8 @@ tags:
       x-group: Memories
     - name: MiscService
       description: Miscellaneous endpoints
-      x-displayName: Misc
-      x-group: Misc
+      x-displayName: Other
+      x-group: Other
     - name: NotificationRulesService
       description: Setup rules to get notified about new findings
       x-displayName: Notification Rules
@@ -19633,7 +19784,7 @@ tags:
       description: |-
         **Deprecated.** View and manage the Policies of your organization.
 
-        This API is deprecated. Use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead. Deployments on the Unified Policies model must use Policies V2; this service stops working after the migration.
+        This API is deprecated. Use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead. Once a deployment is migrated to the Unified Policies model, every endpoint in this service returns `410 Gone` with the error code `DEPLOYMENT_MIGRATED`.
       x-displayName: Policies
       x-group: Policies
     - name: PoliciesV2Service
@@ -19641,9 +19792,9 @@ tags:
       x-displayName: Policies V2
       x-group: Policies V2
     - name: ProjectManagedScanSettingsService
-      description: Settings that affect a specific project's managed scans
-      x-displayName: Projects – Managed Scan Settings
-      x-group: Projects – Managed Scan Settings
+      description: Settings that affect a specific project's Managed Scans
+      x-displayName: Projects - Managed Scan Settings
+      x-group: Projects - Managed Scan Settings
     - name: ProjectsService
       description: Projects are groups of files that are scanned by Semgrep. These normally correspond to repositories.
       x-displayName: Projects
@@ -19662,7 +19813,7 @@ tags:
       x-group: Review Comment Product Content
     - name: RuleboardService
       description: |-
-        The [Policies API](/api/v2/docs/#tag/PoliciesService) is *strongly* recommended. It is also newer than this Ruleboard service. Deployments on the Unified Policies model use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead; this service stops working after the migration.
+        The [Policies API](/api/v2/docs/#tag/PoliciesService) is *strongly* recommended. It is also newer than this Ruleboard service. Deployments on the Unified Policies model use the [Policies V2 API](/api/v2/docs/#tag/PoliciesV2Service) instead: once a deployment is migrated, every endpoint in this service returns `410 Gone` with the error code `DEPLOYMENT_MIGRATED` to API token callers.
 
         Manage Ruleboards (sets of policies).
       x-displayName: Ruleboards
@@ -19673,33 +19824,36 @@ tags:
       x-group: Scans
     - name: ScmAppsService
       description: Manage connections to source code management systems (Github, Gitlab, etc.)
-      x-displayName: Source Code Management (SCM) App
-      x-group: Source Code Management (SCM) App
+      x-displayName: Source Code Management (SCM) apps
+      x-group: Source Code Management (SCM) apps
     - name: ScmService
       description: Manage connections to source code management systems (Github, Gitlab, etc.)
-      x-displayName: Source Code Management (SCM) Configs
-      x-group: Source Code Management (SCM) Configs
+      x-displayName: Source Code Management (SCM) configurations
+      x-group: Source Code Management (SCM) configurations
     - name: ScmSubscriptionsService
       description: Manage SCM Webhook Subscriptions
-      x-displayName: Source Code Management (SCM) Webhooks
-      x-group: Source Code Management (SCM) Webhooks
+      x-displayName: Source Code Management (SCM) webhooks
+      x-group: Source Code Management (SCM) webhooks
     - name: SlackService
+      description: Manage Slack app installations and notification channel mappings
+      x-displayName: Slack
+      x-group: Slack
     - name: SmsPackageManagerConfigService
       description: Manage authentication configurations for package managers used in Supply Chain Analysis (SCA) scans.
-      x-displayName: Supply Chain - SMS Package Manager Configurations
-      x-group: Supply Chain - SMS Package Manager Configurations
+      x-displayName: Supply Chain - Managed Scans package manager configurations
+      x-group: Supply Chain - Managed Scans package manager configurations
     - name: SmsScaResolutionConfigService
       description: Retrieve custom dependency resolution configurations for lockfileless scans.
-      x-displayName: Supply Chain - SMS SCA Resolution Configurations
-      x-group: Supply Chain - SMS SCA Resolution Configurations
+      x-displayName: Supply Chain - Managed Scans dependency resolution configurations
+      x-group: Supply Chain - Managed Scans dependency resolution configurations
     - name: SupplyChain2Service
       description: The Supply Chain is all of the dependencies of code, rather than the code itself. This service gives information about the supply chain.
       x-displayName: Supply Chain
       x-group: Supply Chain
     - name: SupportService
       description: Create and List Support Cases
-      x-displayName: Support Service
-      x-group: Support Service
+      x-displayName: Support
+      x-group: Support
     - name: SurveysService
       description: Retrieve and submit company surveys
       x-displayName: Surveys
@@ -19718,8 +19872,8 @@ tags:
       x-group: Tokens
     - name: UsersService
       description: Manage user accounts, settings, and organization memberships
-      x-displayName: Users Auth Service
-      x-group: Users Auth Service
+      x-displayName: Users
+      x-group: Users
     - name: VersionsService
       description: Semgrep version information
       x-displayName: Versions
