@@ -1,0 +1,28 @@
+docs/kb/semgrep-appsec-platform/findings-count-differ-api-platform.mdx
+  s_7a4ad45b8eeba1::t_496ac45925b699 9
+docs/semgrep-code/remove-duplicates.mdx
+  s_7a4ad45b8eeba1::t_7539f02f251c0a 111
+docs/kb/integrations/pagination.mdx
+  s_7a4ad45b8eeba1::t_d68807a110d7f2 16
+docs/semgrep-supply-chain/findings.mdx
+  s_7a4ad45b8eeba1::t_2895d1de208ef6 180
+docs/docs.json
+  s_7a4ad45b8eeba1::t_3da88ee4e4779c 1153-1157
+  s_7a4ad45b8eeba1::t_354e442198dddf 1121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "535fd87cb2271b9115c953c83a29a1df14ed7ff0",
+  "prompts": {},
+  "sessions": {
+    "s_7a4ad45b8eeba1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "95d82a49-4a50-42e5-b067-40b77f72f9ef",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Gabriel Lopes <1308394+gaprl@users.noreply.github.com>"
+    }
+  }
+}
