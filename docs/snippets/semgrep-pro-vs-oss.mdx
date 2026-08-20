@@ -213,11 +213,11 @@ Semgrep CE does not provide any metrics that may inform you of potential perform
 
 ##### Semgrep AppSec Platform
 
-The [Policies](/semgrep-code/policies) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers. This feature is available for both Semgrep Code and Secrets.
+The [Policies](/semgrep-appsec-platform/unified-policies/overview) feature manages rules, helps block PRs or MRs from entering production, and configures which findings are presented to developers.
 
 You can test a rule's performance by first **monitoring** its performance (and showing it only in AppSec environments), then changing its mode to leave comments or help block a PR or MR from merging.
 
-You can also write custom SAST and Secrets rules and share these rules to the rest of your organization.
+You can also write custom rules and share these rules with the rest of your organization.
 
 </Card>
 </CardGroup>
@@ -381,14 +381,10 @@ Minimal customization options to tune your scans:
 
 ##### Semgrep AppSec Platform
 
-- Customize SAST and Secrets scans through rule selection in [policies](/semgrep-code/triage-remediation)
+- Customize scans through rule selection in [policies](/semgrep-appsec-platform/unified-policies/overview)
 - Write, save, manage, and fork custom SAST and Secrets detection rules in the [Editor](/semgrep-code/editor)
 - Store rules in Semgrep AppSec Platform and deploy to your organization
-- Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined policies for SAST and Secrets scans
-- Semgrep Code: [Code search](/semgrep-code/editor#code-search-beta)
-- Semgrep Supply Chain:
-    - [License compliance](/semgrep-supply-chain/license-compliance)
-    - [Dependency search](/semgrep-supply-chain/dependency-search)
+- Policy-based workflows: Semgrep can perform workflow actions such as failing a CI job or leaving a PR comment based on user-defined [policies](/semgrep-appsec-platform/unified-policies/get-started) for all scans
 
 </Card>
 </CardGroup>

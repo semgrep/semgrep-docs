@@ -77,12 +77,15 @@ In addition to viewing your results in Semgrep AppSec Platform, you can set up P
 To receive PR or MR comments, ensure that:
 
 * You have set up [comments](/category/pr-or-mr-comments) as part of your core deployment.
-* You have defined which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
+* You have [created a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy) that lets you define the conditions under which Semgrep leaves a pull request comment. This customization enables you to:
+
+- Manage the amount of PR comments your developers receive.
+- Ensure that only rules that meet your criteria, such as high severity or high confidence rules, produce comments visible to developers, reducing noise.
 
 <Note>
 **INFO**
 
-Define which rules and validation states should be in Allow, Comment, or Block mode in the [Policies](/semgrep-secrets/policies) page.
+Define the rules and the automations that the findings they produce should trigger using [Unified Policies](/semgrep-appsec-platform/unified-policies/overview).
 </Note>
 
 ## Default Secrets page view and branch logic

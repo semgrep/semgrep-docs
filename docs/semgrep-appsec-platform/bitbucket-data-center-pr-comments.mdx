@@ -15,21 +15,15 @@ sidebarTitle: "Bitbucket Data Center"
 
 Semgrep can create **pull request (PR) comments** in your Bitbucket repository. These comments provide a description of the issue detected by Semgrep and may offer possible solutions. They are a means for security teams, or any team responsible for creating standards to help their fellow developers write safe and standards-compliant code.
 
-Automated comments on Bitbucket pull requests are displayed as follows:
-
-<Frame caption="Bitbucket Data Center pull request comments.">
-![Semgrep Bitbucket PR comment](/images/bbdc-pr-comments-1fa3d65c7ccd0b732f583ed20bde9562.png)
-</Frame>
-
 ## Conditions for PR comment creation
 
 PR comments appear for the following types of scans under these conditions:
 
 | Type of scan | Product name | Trigger condition | How to set up |
 | :--- | :--- | :--- | :--- |
-| Static application security testing (SAST) | Semgrep Code | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. This lets you customize which findings generate comments for developers. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure comments for Semgrep Code](#configure-comments-for-semgrep-code). |
+| Static application security testing (SAST) | Semgrep Code | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. This lets you customize which findings generate comments for developers. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure pull request comments](#configure-pr-comments). |
 | Software composition analysis (SCA) | Semgrep Supply Chain (SSC) | A comment appears based on the conditions you explicitly set in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) or when Semgrep detects a [license violation](/semgrep-supply-chain/license-compliance). | To receive Supply Chain comments, complete the steps in [Confirm account connection and access](#confirm-your-semgrep-accounts-connection) and [set up a policy](/semgrep-supply-chain/policies). <br/><br/> To receive license violation comments, [enable dependency search](/semgrep-supply-chain/dependency-search#enable-and-use-dependency-search). |
-| Secrets | Semgrep Secrets | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR or MR comments. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure comments for Semgrep Secrets](#configure-comments-for-semgrep-secrets). |
+| Secrets | Semgrep Secrets | A comment appears when Semgrep generates a finding for a rule included in a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) configured to leave PR comments. | Complete the steps in the following sections:<br/> 1. [Confirm your Semgrep account's connection and access to your source code manager](#confirm-your-semgrep-accounts-connection).<br/><br/> 2. [Configure pull request comments](#configure-pr-comments). |
 
 ## Enable PR comments in Bitbucket
 
