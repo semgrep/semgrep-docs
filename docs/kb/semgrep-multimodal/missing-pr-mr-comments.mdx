@@ -1,8 +1,9 @@
 ---
-title: "Missing PR or MR comments from Semgrep Multimodal."
+title: "Missing PR or MR comments from Semgrep Multimodal"
 ---
 
-Semgrep Multimodal messages only appear in your PR comments for rules within policies where the defined action is to leave a comment. Ensure that:
+Semgrep Multimodal messages appear in PR or MR comments only for rules in remediation policies configured to leave comments. Ensure that you have:
 
-- You have [modified your remediation policies](/semgrep-appsec-platform/unified-policies/get-started#manage-remediation-policies) so that the action triggered when Semgrep identifies a finding and the policy conditions have been met is either **Block merge and comment on PR/MR** or **Comment on PR/MR**.
-- You have turned on the **Default developer triage permissions** toggle in Semgrep AppSec Platform by going to **Settings > General**.
+- Configured your [remediation policy](/semgrep-appsec-platform/unified-policies/get-started#manage-remediation-policies) with either the **Block merge and comment on PR/MR** or **Comment on PR/MR** action.
+- Enabled the **Allow developers to triage findings** toggle in Semgrep AppSec Platform by going to **Settings > General**.
+- Enabled PR/MR comment triage.
