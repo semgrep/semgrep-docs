@@ -12282,7 +12282,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters SAST issues whose severity matches one of the specified values. Only applies when the provided issue_type is SAST.
+                        Filters issues whose severity matches one of the specified values. Applies to SAST, SCA, and Secrets issue types.
 
                         | value | description |
                         |-------|---------------|
@@ -15677,6 +15677,22 @@ components:
                     type: integer
                     description: filter repos by tag id
                     format: int64
+                latestScanStatus:
+                    enum:
+                        - LATEST_SCAN_STATUS_BUCKET_SUCCESSFUL
+                        - LATEST_SCAN_STATUS_BUCKET_HAD_PROBLEMS
+                        - LATEST_SCAN_STATUS_BUCKET_NEVER_SCANNED
+                    type: string
+                    description: |+
+                        filter repos by the status bucket of their latest finished scan
+
+                        | value | description |
+                        |-------|---------------|
+                        | LATEST_SCAN_STATUS_BUCKET_SUCCESSFUL |  |
+                        | LATEST_SCAN_STATUS_BUCKET_HAD_PROBLEMS |  |
+                        | LATEST_SCAN_STATUS_BUCKET_NEVER_SCANNED |  |
+
+                    format: enum
         protos.projects.v1.Repository:
             type: object
             properties:
