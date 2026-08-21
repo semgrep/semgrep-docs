@@ -19,46 +19,19 @@ Start with the **Claude Code** tab. That path uses Semgrep's hosted remote plugi
 
 <Tabs>
   <Tab title="Claude Code">
-    Uses Claude Code [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins). Claude Code uses Semgrep's hosted remote server by default, so you do not need to install the Semgrep CLI locally.
+    Install the Guardian plugin from the Claude Marketplace:
+
+    ```bash
+    claude plugin install semgrep@claude-plugins-official
+    ```
+
+    Start a new Claude Code session (`claude`) to log in to Semgrep.
+
+    This integration uses Claude Code [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins). By default, it uses Semgrep's hosted remote server, so you don't need to install the Semgrep CLI locally.
 
     <Info>
-      The MCP server bundled with this plugin works on all platforms. On Windows, however, it requires [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) for the MCP server to work out of the box.
+      **For Windows machines:** [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) is required. Native Windows is unsupported.
     </Info>
-
-    <Steps>
-      <Step>
-        Start a Claude Code instance:
-
-        ```bash
-        claude
-        ```
-      </Step>
-      <Step>
-        Open the plugin manager:
-
-        ```bash
-        /plugin
-        ```
-      </Step>
-      <Step>
-        Go to **Discover**, search for **Semgrep**, and click **Install**.
-      </Step>
-      <Step>
-        Tell Claude to load the plugin:
-
-        ```bash
-        /reload-plugins
-        ```
-      </Step>
-      <Step>
-        Start a new session in Claude to begin the OAuth login flow:
-
-        ```bash
-        /clear
-        ```
-      </Step>
-    </Steps>
-    The plugin registers a post-tool hook so Claude Code scans every file it writes.
 
     <Accordion title="Run Semgrep Guardian locally">
       The remote server is the recommended default. If you need to run Semgrep locally instead, you can install the local plugin from the [`semgrep/guardian-local`](https://github.com/semgrep/guardian-local) repo.
