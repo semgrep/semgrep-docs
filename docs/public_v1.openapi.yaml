@@ -4284,7 +4284,10 @@ paths:
       summary: List code, supply chain, or AI-powered detection findings
       tags:
       - FindingsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments:
     get:
       description: 'Request the deployments your auth can access.
@@ -4306,7 +4309,10 @@ paths:
       summary: List deployments
       tags:
       - DeploymentsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/policies:
     get:
       deprecated: true
@@ -4333,7 +4339,10 @@ paths:
       summary: List policies
       tags:
       - PoliciesService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/policies/{policyId}:
     get:
       deprecated: true
@@ -4381,7 +4390,10 @@ paths:
       summary: List policy rules
       tags:
       - PoliciesService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
     put:
       deprecated: true
       operationId: PoliciesService_UpdatePolicy
@@ -4421,7 +4433,10 @@ paths:
       summary: Update policy
       tags:
       - PoliciesService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/projects/{projectName}/tags:
     put:
       description: 'Add tags to a project for a deployment you have access to.
@@ -4465,7 +4480,10 @@ paths:
       summary: Add tags to project
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
     delete:
       description: 'Remove tags from a project for a deployment you have access to.
 
@@ -4514,7 +4532,10 @@ paths:
       summary: Remove tags from project
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/projects/{projectName}:
     delete:
       description: Delete a project for a deployment you have access to. This will
@@ -4549,7 +4570,10 @@ paths:
       summary: Delete project
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
     get:
       description: Retrieve details for a single project associated with a deployment
         that you have access to.
@@ -4583,7 +4607,10 @@ paths:
       summary: Get project details
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
     patch:
       description: Update attributes for the project using the value passed in to
         the request body.
@@ -4623,7 +4650,10 @@ paths:
       summary: Update project details
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/projects:
     get:
       description: Request the list of projects that have been scanned or onboarded
@@ -4668,7 +4698,10 @@ paths:
       summary: List all projects
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/projects/{projectName}/managed-scan:
     patch:
       description: 'Enable or disable
@@ -4712,7 +4745,10 @@ paths:
       summary: Toggle Managed Scans for a project
       tags:
       - ProjectsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/scan/{scanId}:
     get:
       description: Request the details of a scan including the associated deployment,
@@ -4748,7 +4784,10 @@ paths:
       summary: Get scan details
       tags:
       - ScansService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/scans/search:
     post:
       description: List the scans associated with a particular repository over the
@@ -4782,7 +4821,10 @@ paths:
       summary: List scans (beta)
       tags:
       - ScansService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/secrets:
     get:
       operationId: SecretsService_ListSecretsPath
@@ -4891,7 +4933,10 @@ paths:
       summary: List secrets
       tags:
       - SecretsService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/sbom/export:
     post:
       operationId: SupplyChainService_CreateSbomExport
@@ -4923,7 +4968,10 @@ paths:
       summary: Create a new SBOM export job
       tags:
       - SupplyChainService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/sbom/export/{taskToken}:
     get:
       operationId: SupplyChainService_GetSbomExport
@@ -4955,7 +5003,10 @@ paths:
       summary: Get the status of a SBOM export job
       tags:
       - SupplyChainService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/dependencies:
     post:
       operationId: SupplyChainService_ListDependencies
@@ -4987,7 +5038,10 @@ paths:
       summary: List dependencies
       tags:
       - SupplyChainService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/dependencies/repositories/{repositoryId}/lockfiles:
     post:
       operationId: SupplyChainService_ListLockfilesForDependencies
@@ -5026,7 +5080,10 @@ paths:
       summary: List lockfiles in a given repository with dependencies
       tags:
       - SupplyChainService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/dependencies/repositories:
     post:
       operationId: SupplyChainService_ListRepositoriesForDependencies
@@ -5057,7 +5114,10 @@ paths:
       summary: List repositories with dependencies
       tags:
       - SupplyChainService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/tickets:
     post:
       description: Create Jira tickets for your findings. You can create tickets by
@@ -5104,7 +5164,10 @@ paths:
       summary: Create Jira tickets
       tags:
       - TicketingService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/tickets/link:
     post:
       description: "Link an existing external ticket (e.g. Jira) to one or more Semgrep
@@ -5140,7 +5203,10 @@ paths:
       summary: Link an existing ticket to findings
       tags:
       - TicketingService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/ticketing/v2/tickets/{externalTicketId}:
     delete:
       description: Unlink a Jira ticket by its ID
@@ -5174,7 +5240,10 @@ paths:
       summary: Unlink a Jira ticket
       tags:
       - TicketingService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentId}/tickets/unlink:
     post:
       description: "Remove the ticket association from one or more Semgrep findings
@@ -5208,7 +5277,10 @@ paths:
       summary: Unlink a ticket from findings
       tags:
       - TicketingService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/deployments/{deploymentSlug}/triage:
     post:
       description: Bulk triage your findings. You can select the findings to triage
@@ -5244,7 +5316,10 @@ paths:
       summary: Bulk triage
       tags:
       - TriageService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/bootstrap-sms-vpc:
     get:
       description: 'VPC support for Managed Scans is in private beta.
@@ -5275,7 +5350,10 @@ paths:
       summary: '[Beta] Get Managed Scans VPC bootstrap CloudFormation template'
       tags:
       - MiscService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
   /api/v1/ping:
     get:
       description: Use to ping the server and assert liveness.
@@ -5290,7 +5368,10 @@ paths:
       summary: Ping
       tags:
       - MiscService
-      x-badges: []
+      x-badges:
+      - color: red
+        name: Experimental
+        position: after
 tags:
 - description: Deployments encapsulate your organization's security organization,
     with multiple projects, policies, and integrations. As the root object of the
