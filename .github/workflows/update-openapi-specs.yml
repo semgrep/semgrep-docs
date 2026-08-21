@@ -1,0 +1,94 @@
+name: Update OpenAPI specs
+
+# Keeps the checked-in OpenAPI specs in sync with what semgrep-app serves in
+# production. Mintlify auto-generates the API reference pages from these files
+# (see the `openapi` groups in docs/docs.json), so merging the PR this workflow
+# opens is all it takes to publish new or changed endpoints.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5" # weekday mornings UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-openapi-specs
+  cancel-in-progress: true
+
+jobs:
+  update-specs:
+    name: Fetch specs and open PR if changed
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Fetch latest specs from semgrep.dev
+        run: |
+          curl --fail --silent --show-error --location --retry 3 \
+            https://semgrep.dev/api/v1/public_v1.openapi.yaml \
+            --output docs/public_v1.openapi.yaml
+          curl --fail --silent --show-error --location --retry 3 \
+            https://semgrep.dev/api/v2/openapi.yaml \
+            --output docs/public_v2.openapi.yaml
+
+      - uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+
+      # Upstream ships ReDoc vendor extensions that Mintlify does not read, so
+      # nav group labels (x-displayName) and beta/experimental badges
+      # (x-badges) render as nothing. Mirror them into x-group and x-mint.
+      # Safe to drop once semgrep-app emits the Mintlify keys natively.
+      - name: Mirror ReDoc extensions into Mintlify equivalents
+        run: uv run scripts/mirror_openapi.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Mintlify ignores the `tags:` array and derives nav order from the order
+      # paths appear in, so upstream's URL-alphabetical emission order decides
+      # the sidebar. Re-sort into display-name order. Must run after the mirror
+      # step above, which supplies the x-group names this sorts on.
+      - name: Sort API navigation into alphabetical order
+        run: uv run scripts/sort_openapi_nav.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      # Upstream emits no `servers:` block, and Mintlify has no docs.json
+      # override for OpenAPI-generated pages, so without this the playground
+      # renders https://api.example.com and cannot send requests. Runs last:
+      # the two steps above parse `paths:` and `tags:`, and neither needs to
+      # see the block this adds. Safe to drop once semgrep-app emits `servers`
+      # natively -- this step no-ops rather than overwriting it.
+      - name: Add the API base URL Mintlify's playground needs
+        run: uv run scripts/add_openapi_servers.py docs/public_v1.openapi.yaml docs/public_v2.openapi.yaml
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Validate docs build with fetched specs
+        working-directory: docs
+        run: npx --yes mintlify@latest validate
+
+      # Note: PRs opened with the default GITHUB_TOKEN do not trigger other
+      # workflows (Docs CI). Reviewers can close/reopen the PR to run CI, or
+      # provide a bot PAT via the DOCS_BOT_TOKEN secret to remove that step.
+      - name: Open PR if specs changed
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.DOCS_BOT_TOKEN || github.token }}
+          # Commit via the GitHub API so GitHub signs the commit — the repo's
+          # "Require Signed Commits" ruleset rejects unsigned CLI commits.
+          sign-commits: true
+          add-paths: |
+            docs/public_v1.openapi.yaml
+            docs/public_v2.openapi.yaml
+          branch: chore/update-openapi-specs
+          delete-branch: true
+          commit-message: "chore: sync OpenAPI specs from semgrep.dev"
+          title: "chore: sync OpenAPI specs from semgrep.dev"
+          body: |
+            Automated refresh of the API specs that Mintlify renders the API
+            reference from. Review the diff for unintended endpoint or schema
+            removals before merging.
+
+            - `docs/public_v1.openapi.yaml` ← https://semgrep.dev/api/v1/public_v1.openapi.yaml
+            - `docs/public_v2.openapi.yaml` ← https://semgrep.dev/api/v2/openapi.yaml

@@ -32,29 +32,9 @@ Your Semgrep AppSec Platform account already includes Pro rules that are likely 
 - Rules that don't apply to your target repository's language or framework are skipped automatically even if they are in your Policies page. For example, if your repository contains JavaScript code and you have added Go rules, the Go rules are unused. Unused rules do not add to scan time.
 </Note>
 
-### Change rule modes or disable Pro rules in Semgrep AppSec Platform
+### Change rule behavior in Semgrep AppSec Platform
 
-Like any other rule or ruleset, you can disable Pro rules or change their rule mode to leave comments for developers or potentially block a PR.
-
-<Steps>
-<Step>
-Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login).
-</Step>
-<Step>
-Navigate to **Rules > Policies**.
-</Step>
-<Step>
-Under **<Tooltip tip="In taint analysis, code that introduces tainted data, typically user input." cta="See full definition." href="/writing-rules/glossary#source">Source</Tooltip>**, click **Pro <Icon icon="gem" iconType="solid"/>** to view all the Semgrep Pro rules currently in your Policies.
-</Step>
-<Step>
-Find and select the rules you want to disable or change.
-</Step>
-<Step>
-Click **Change modes** and select one of the provided options.
-</Step>
-</Steps>
-
-You can find all previously added Semgrep Pro rules in your Policies page, so if you want to re-enable Pro rules or adjust the mode again in the future, use the **<Tooltip tip="In taint analysis, code that introduces tainted data, typically user input." cta="See full definition." href="/writing-rules/glossary#source">Source</Tooltip> > Pro <Icon icon="gem" iconType="solid"/>** filter as described previously.
+You can use [remediation policies](/semgrep-appsec-platform/unified-policies/get-started#manage-remediation-policies) to change the action taken by Semgrep whenever it detects a finding that matches a rule and to disable rules and rulesets you no longer want to use.
 
 ### Add Semgrep Pro rules in CLI or CI
 

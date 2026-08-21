@@ -71,12 +71,12 @@ Multimodal customizes the suggestions it provides based on any previous feedback
 **Suggested fix** is available in Semgrep AppSec Platform's **Findings page** under **Suggested fix** in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding). You can set the minimum **Suggested fix** confidence level required to display Multimodal suggestions on Semgrep AppSec Platform's **Settings** page. To display the maximum number of available suggestions, set confidence level to **low**.
 
 <Note>
-If many new issues are found in a given scan, Multimodal auto-triage and Suggested fix may not run on every issue.
+If many new issues are found in a given scan, Multimodal autotriage and Suggested fix may not run on every issue.
 </Note>
 
-#### Autofix (beta)
+#### Autofix
 
-Autofix uses AI to generate proposed code changes for Semgrep Code and Supply Chain findings. Enable Semgrep [Autofix](/semgrep-code/triage-remediation/autofix) to automatically create pull requests or merge requests with those changes.
+[Autofix](/semgrep-code/triage-remediation/autofix) generates code changes to remediate Semgrep Code and Supply Chain findings, then creates pull requests or merge requests with the proposed changes.
 
 ### Component tags
 
@@ -90,11 +90,11 @@ By categorizing your code through component tags, Semgrep Multimodal can help yo
 
 Component tags can be viewed in Semgrep AppSec Platform's **Findings** page.
 
-### Auto-triage
+### Autotriage
 
-Semgrep Multimodal uses AI's understanding of programming languages and libraries, and your code and triage history, to auto-triage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
+Semgrep Multimodal uses AI's understanding of programming languages and libraries, and your code and triage history, to autotriage findings and suggest whether a finding can safely be ignored. For every recommendation to ignore a finding, Semgrep also provides guidance with an explanation on why this is the case.
 
-Auto-triage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Multimodal suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
+Autotriage recommendations are available in Semgrep AppSec Platform's **Findings** page when you filter for findings that Multimodal suggests should be ignored, and in the [finding's details](/semgrep-code/findings#view-details-about-a-specific-finding).
 
 
 Multimodal's suggestions to ignore findings are also surfaced in PR or MR comments, so developers can triage an issue directly without leaving their PR or MR.

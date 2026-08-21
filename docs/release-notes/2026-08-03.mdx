@@ -1,0 +1,34 @@
+---
+title: "Week of August 3, 2026"
+description: "Updates made to Semgrep during the week of August 3-9, 2026."
+sidebarTitle: "Week of August 3, 2026"
+---
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- [Agentic Workflows](/workflows/overview) step logs now use a structured viewer. Run logs are parsed into individual fields that you can search and filter, instead of reading a single block of text.
+
+### Fixed
+
+- Fixed an issue where Agentic Workflows issues showed no link to the source file when the SCM connection was disconnected or in a bad state. Semgrep now builds file links from stored repository metadata and displays a repository or settings fallback when code cannot be loaded.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- The public policies API vocabulary now includes `breaking_change` and `full_scan`, so scan policies that use those options can be represented through the API. The policies API is in public beta for organizations using [Unified Policies](/semgrep-appsec-platform/unified-policies/overview).
+
+### Changed
+
+- Findings counts on the **Projects** page now include **Reviewing** and **To fix** findings, in addition to **Open**. A **Counts updated** tooltip on the **Projects** page explains the change.
+- The Unified Policies migration banner now includes the migration schedule: Semgrep will start migrating some organizations to Unified Policies on August 24, 2026, and will sunset the current version of Policies on November 1, 2026. Organizations that do not want to migrate yet can [contact Support](/support).
+- Features that require [Unified Policies](/semgrep-appsec-platform/unified-policies/overview), including Autofix draft fix requests, now show a prompt to upgrade when your organization has not migrated yet.
+- The rules table on the **Detection** policies page keeps its actions column visible on narrow screens, so the primary action stays reachable without horizontal scrolling.
+
+### Fixed
+
+- Fixed an issue where the **Code detection policies** page did not load if a rule without a path was included in a policy, which blocked policy edits.
+- Fixed an issue where the scanning behavior drawer used the same project selection when switching between include and exclude, and did not clearly distinguish included projects from excluded projects.
+

@@ -47,8 +47,7 @@ Dataflow traces allow you to visualize the path of tainted, or untrusted, data i
 <Info>
 **PREREQUISITE**
 
-Not all Semgrep rules or rulesets make use of dataflow traces, or taint tracking. Ensure that you have a ruleset, such as the **default ruleset** added in your **[Policies page](https://semgrep.dev/orgs/-/policies)**. If this ruleset is not added, go to [https://semgrep.dev/p/default](https://semgrep.dev/p/default), and then click **Add to Policy**. You can add rules that use taint tracking from [Semgrep Registry](https://semgrep.dev/explore).
-
+Not all Semgrep rules or rulesets make use of dataflow traces or taint tracking. Ensure that your [remediation policy](/semgrep-appsec-platform/unified-policies/overview) includes rules that use dataflow traces. Semgrep's default ruleset includes rules that use dataflow traces. If you're using a custom ruleset, add rules from the [Semgrep Registry](https://semgrep.dev/explore) that use dataflow traces to see results.
 </Info>
 
 To view the detailed path of tainted data with dataflow traces:
@@ -93,10 +92,10 @@ Click **Ignore** to proceed.
 
 ### Fix the finding
 
-Click **Fix** see the menu that includes the following options:
+Click **Fix** to see the menu that includes the following options:
 
 - View the associated Jira ticket, if available
-- Open a PR that fixes the issue, if possible
+- **Open Autofix PR** to create an AI-generated draft PR or MR that fixes the finding, when [Autofix](/semgrep-code/triage-remediation/autofix) is available. This option appears only when Semgrep Multimodal is enabled. If your SCM connection is missing write access, Semgrep shows a modal with setup instructions instead of opening a PR. You can also [fix multiple findings in one Autofix PR](/semgrep-code/triage-remediation/autofix#fix-multiple-findings-in-one-autofix-pr) when they share the same file and rule.
 - Change the status of the issue as **To fix**, indicating that you plan to return to the finding in the future
 
 Semgrep automatically marks findings as fixed when they're no longer detected in subsequent scans.
