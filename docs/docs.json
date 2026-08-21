@@ -16,8 +16,8 @@
   },
   "favicon": "/favicon.svg",
   "integrations": {
-    "ga4": {
-      "measurementId": "G-XYYV814DDN"
+    "gtm": {
+      "tagId": "GTM-NNHHMTCL"
     }
   },
   "navigation": {
