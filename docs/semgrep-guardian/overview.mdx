@@ -25,39 +25,14 @@ Start with the **Claude Code** tab. That path uses Semgrep's hosted remote plugi
       The MCP server bundled with this plugin works on all platforms. On Windows, however, it requires [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) for the MCP server to work out of the box.
     </Info>
 
-    <Steps>
-      <Step>
-        Start a Claude Code instance:
+    Install the Guardian plugin from the Claude official marketplace:
 
-        ```bash
-        claude
-        ```
-      </Step>
-      <Step>
-        Open the plugin manager:
+    ```bash
+    claude plugin install semgrep@claude-plugins-official
+    ```
 
-        ```bash
-        /plugin
-        ```
-      </Step>
-      <Step>
-        Go to **Discover**, search for **Semgrep**, and click **Install**.
-      </Step>
-      <Step>
-        Tell Claude to load the plugin:
+    Then start a new Claude Code session to begin the OAuth login flow.
 
-        ```bash
-        /reload-plugins
-        ```
-      </Step>
-      <Step>
-        Start a new session in Claude to begin the OAuth login flow:
-
-        ```bash
-        /clear
-        ```
-      </Step>
-    </Steps>
     The plugin registers a post-tool hook so Claude Code scans every file it writes.
 
     <Accordion title="Run Semgrep Guardian locally">
