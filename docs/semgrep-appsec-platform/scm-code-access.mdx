@@ -3,24 +3,20 @@ title: "Enable source code manager code access"
 sidebarTitle: "Grant code access"
 ---
 
-Some Semgrep features, including [Semgrep Managed Scans](/deployment/managed-scanning/overview), [Semgrep Multimodal](/semgrep-multimodal/overview), and [Autofix](/semgrep-code/triage-remediation/autofix), require Semgrep to read repository contents.
+Use this page for **how** to grant Semgrep code read or write access on an existing SCM connection: update a private GitHub App, or create and paste an access token.
 
-Grant code access by assigning additional scopes to the access token or GitHub App that facilitates communication between Semgrep and your source code manager (SCM).
+Some Semgrep features, including [Semgrep Managed Scans](/deployment/managed-scanning/overview), [Semgrep Multimodal](/semgrep-multimodal/overview), and [Autofix](/semgrep-code/triage-remediation/autofix), require Semgrep to read repository contents. Autofix also requires write access.
 
-<Note>
-**Other SCM permissions**
+For **what** roles and scopes each feature needs, see [SCM permissions](/deployment/prepare/scm-permissions). That reference covers GitHub App permissions, personal access token details, PR or MR comments, and sign-in scopes.
 
-This page covers **code read and write access** only. For PR or MR comments, GitHub App installation, sign-in scopes, and other requirements, see [SCM permissions](/deployment/prepare/scm-permissions).
-</Note>
-
-The following table shows the minimum scopes required for each SCM.
+The following table shows the minimum scopes required for each SCM. For GitHub personal access tokens, including classic vs fine-grained details, account roles, and connection validation, see [GitHub personal access tokens](/deployment/prepare/scm-permissions#github-personal-access-tokens).
 
 | SCM | Read access scope | Write access scope |
 | :--- | :--- | :--- |
 | Azure DevOps | `Code (read)` | `Code (read and write)` |
 | Bitbucket Cloud | `repository:read`<br />`pullrequest:read` | `repository:write`<br />`pullrequest:write` |
 | Bitbucket Data Center | `repository:read` | `repository:write` |
-| GitHub.com and GitHub Enterprise Server | `contents:read` | `contents:write` |
+| GitHub.com and GitHub Enterprise Server | `Contents: Read` | `Contents: Read and write`<br />`Pull requests: Read and write` |
 | GitLab and GitLab Self-Managed | `read_repository` | `write_repository` |
 
 ## Grant code access to Semgrep with a private GitHub app {#grant-code-access-to-semgrep-with-a-private-github-app}
@@ -278,13 +274,17 @@ Once saved, Semgrep has code access to your Bitbucket Data Center repositories.
 
   <Tab title="GitHub">
 
-Use these steps to create a GitHub fine-grained personal access token with code access and add it to Semgrep.
+Create a GitHub personal access token (PAT), then add it to Semgrep. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when your organization requires them.
+
+For account roles, fine-grained and classic scopes, and what Semgrep checks when you save or **Test** a connection, see [GitHub personal access tokens](/deployment/prepare/scm-permissions#github-personal-access-tokens).
+
+<Tabs>
+  <Tab title="Fine-grained PAT (recommended)">
 
 <Note>
 **Organization approval**
 
 Some GitHub organizations require approval for fine-grained personal access tokens. If your organization requires approval, an organization owner must approve the token before Semgrep can use it.
-
 </Note>
 
 <Steps>
@@ -308,9 +308,10 @@ Under **Repository permissions**, set **Contents** to **Read and write**.
 
 **Read and write** is required for [Autofix](/semgrep-code/triage-remediation/autofix) PRs. If you only need Semgrep to read repository contents, select **Read-only** instead.
 
+GitHub automatically includes **Metadata: Read** when you grant a repository permission. You do not set Metadata separately.
 </Step>
 <Step>
-Under **Repository permissions**, set **Pull requests** to **Read and write**.
+Under **Repository permissions**, set **Pull requests** to **Read and write** if you use Autofix. For read-only code access, you can leave **Pull requests** at **No access**.
 </Step>
 <Step>
 Click **Generate token** and copy its value.
@@ -325,11 +326,57 @@ Find the GitHub connection associated with your organization, and click **Update
 Paste in your new access token.
 </Step>
 <Step>
-Click **Save**.
+Click **Save**. Optionally click **Test** to confirm the connection.
 </Step>
 </Steps>
 
 Once saved, Semgrep has code access to your GitHub repositories.
+
+  </Tab>
+
+  <Tab title="Classic PAT">
+
+Use a classic PAT only when fine-grained tokens are blocked by organization policy. Choose scopes from the [classic scopes column](/deployment/prepare/scm-permissions#github-personal-access-tokens) for your use case. For most private-repository deployments, select `repo`.
+
+<Steps>
+<Step>
+Navigate to the GitHub classic personal access token settings page: <code>https://github.com/settings/tokens</code>. GitHub Enterprise Server users must replace the <code>https://github.com</code> base URL with the base URL of their GitHub Enterprise Server instance.
+
+You can also open **Settings > Developer settings > Personal access tokens > Tokens (classic)**.
+</Step>
+<Step>
+Click **Generate new token** and choose **Generate new token (classic)**.
+</Step>
+<Step>
+Enter a note for the token and set an expiration date according to your organization's token rotation policy.
+</Step>
+<Step>
+Select the classic scopes required for your use case. For most private-repository deployments, select `repo`.
+</Step>
+<Step>
+Click **Generate token** and copy its value. GitHub only shows the token value once.
+</Step>
+<Step>
+If the organization uses SAML single sign-on, open the token's **Configure SSO** options and authorize the token for that organization.
+</Step>
+<Step>
+Return to Semgrep AppSec Platform, and go to [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code).
+</Step>
+<Step>
+Find the GitHub connection associated with your organization, and click **Update access token**.
+</Step>
+<Step>
+Paste in your new access token.
+</Step>
+<Step>
+Click **Save**. Optionally click **Test** to confirm the connection.
+</Step>
+</Steps>
+
+Once saved, Semgrep has code access to your GitHub repositories.
+
+  </Tab>
+</Tabs>
 
   </Tab>
 
