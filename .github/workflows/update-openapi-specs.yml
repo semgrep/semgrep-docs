@@ -24,7 +24,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # Runs as the semgrep-docs-release App rather than GITHUB_TOKEN for two
+      # reasons: App-authored PRs trigger Docs CI (GITHUB_TOKEN-authored ones do
+      # not), and the team-reviewers request below needs org-level member read,
+      # which the repo-scoped GITHUB_TOKEN does not carry. Same app and pinned
+      # action version as update-help-command.yml.
+      - name: Authenticate as semgrep-docs-release
+        id: generate-token
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
+        with:
+          app-id: ${{ vars.SEMGREP_DOCS_RELEASE_APP_ID }}
+          private-key: ${{ secrets.SEMGREP_DOCS_RELEASE_PRIVATE_KEY }}
+
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Fetch latest specs from semgrep.dev
         run: |
@@ -68,13 +82,10 @@ jobs:
         working-directory: docs
         run: npx --yes mintlify@latest validate
 
-      # Note: PRs opened with the default GITHUB_TOKEN do not trigger other
-      # workflows (Docs CI). Reviewers can close/reopen the PR to run CI, or
-      # provide a bot PAT via the DOCS_BOT_TOKEN secret to remove that step.
       - name: Open PR if specs changed
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          token: ${{ secrets.DOCS_BOT_TOKEN || github.token }}
+          token: ${{ steps.generate-token.outputs.token }}
           # Commit via the GitHub API so GitHub signs the commit — the repo's
           # "Require Signed Commits" ruleset rejects unsigned CLI commits.
           sign-commits: true
@@ -83,6 +94,16 @@ jobs:
             docs/public_v2.openapi.yaml
           branch: chore/update-openapi-specs
           delete-branch: true
+          # Re-issued on every run, not just when the PR is first opened. That
+          # is a no-op while a request is still pending, so the daily cron does
+          # not spam -- but it does re-request anyone who already reviewed if a
+          # later run pushes another spec change.
+          # tech-writers reviews the rendered docs; appex owns the specs
+          # upstream in semgrep-app. Both need at least read on this repo or
+          # GitHub rejects the request.
+          team-reviewers: |
+            tech-writers
+            appex
           commit-message: "chore: sync OpenAPI specs from semgrep.dev"
           title: "chore: sync OpenAPI specs from semgrep.dev"
           body: |
