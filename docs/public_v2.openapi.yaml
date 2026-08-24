@@ -16287,6 +16287,9 @@ components:
                 secrets:
                     type: integer
                     format: int64
+                projectId:
+                    type: integer
+                    format: int64
         protos.reporting.v1.GetFindingsByProjectAndSeverityReportResponse:
             type: object
             properties:
@@ -16307,6 +16310,9 @@ components:
                     type: integer
                     format: int64
                 critical:
+                    type: integer
+                    format: int64
+                projectId:
                     type: integer
                     format: int64
         protos.reporting.v1.GetFindingsFunnelReportResponse:
