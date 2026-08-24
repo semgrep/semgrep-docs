@@ -1,7 +1,7 @@
 ---
 title: "Enable webhooks"
 sidebarTitle: "Webhooks"
-description: "Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted findings after each scan to your URL endpoint."
+description: "Webhooks are a generic method for Semgrep AppSec Platform to post JSON-formatted objects to your URL endpoint."
 ---
 
 <Tip>
@@ -10,14 +10,14 @@ description: "Webhooks are a generic method for Semgrep AppSec Platform to post 
 - To integrate with Slack, use the [Semgrep Slack app](/semgrep-appsec-platform/slack-notifications). The webhook setup described in this guide does not work for Slack integrations.
 </Tip>
 
-Semgrep sends two types of JSON objects:
+Semgrep sends three different types of JSON objects:
 
-
-`semgrep_scan` JSON object<br/><br/>
-A `semgrep_scan` object contains information about the CI job and other scan parameters, such as ignored files. Semgrep sends a single `semgrep_scan` object **every time a scan is run**. This includes diff-aware scans, full scans, and scans that have no findings.
-
-`semgrep_finding` JSON object<br/><br/>
-A `semgrep_finding` object is a single record of a new finding. Semgrep sends new `semgrep_finding` objects based on how you have configured your notifications in Policies. See [Set up webhooks](#set-up-webhooks) to learn more.
+* **`semgrep_scan`**: Information about the CI job and other scan parameters, such as ignored files.
+  * Sent **every time a scan is run**, including diff-aware scans, full scans, and scans that have no findings.
+* **`semgrep_finding`**: A single record of a new finding.
+  * Sent based on how you have configured your notifications in Unified Policies. See [Create a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy).
+* **`semgrep_supply_chain_incident`**: Information about a Supply Chain incident declared by Semgrep's Security Research team, including whether any of your projects are affected.
+  * Sent if configured for the **Early notification for Supply Chain incidents** policy. See [Supply Chain incidents](/semgrep-supply-chain/incident-notifications).
 
 ## Set up webhooks
 
@@ -44,11 +44,7 @@ Create a webhook integration:
 <Step>
 Turn notifications on:
 
-   i. Click **Rules > Policies > <Icon icon="gear" iconType="solid"/> Rule Modes**.
-
-   ii. Click the **Edit** button of the Rule Mode for which you want to receive webhook notifications. For example, if you want to be notified of all blocking findings through webhooks, click the **Edit** button of the **Block** mode.
-
-   iii. Repeat the previous step for all Rule Modes that you want to receive notifications for.
+   i. When creating or editing the desired policy, click **Add action > Call a webhook**, then select the webhook integration you created.
 </Step>
 </Steps>
 
@@ -98,7 +94,6 @@ See [Findings in CI](/semgrep-ci/findings-ci) for more information about how Sem
 
 ## Semgrep findings object
 
-Currently, only Semgrep Code (SAST) findings are sent through webhooks. The `numeric_id` field represents the finding's ID in Semgrep AppSec Platform.
 
 The following is an example of a `semgrep_finding` object sent by Semgrep:
 
@@ -179,6 +174,8 @@ The following is an example of a `semgrep_finding` object sent by Semgrep:
   }
 ]
 ```
+The `numeric_id` field represents the finding's ID in Semgrep AppSec Platform.
+
 
 ## Semgrep scan object
 
@@ -234,3 +231,80 @@ The following is an example of a `semgrep_scan` object sent by Semgrep:
   }
 }
 ```
+
+## Semgrep supply chain incident object
+
+The following is an example of a `semgrep_supply_chain_incident` object sent by Semgrep:
+
+```json expandable
+[
+    {
+        "semgrep_supply_chain_incident": {
+            "schema_version": 1,
+            "incident_id": 67,
+            "deployment_id": 1,
+            "title": "Embedded Malicious Code in append-only-vec",
+            "description": "Two popular Rust crates, arrayref (244M downloads) and append-only-vec (4M downloads), were compromised by an attacker who injected a malicious dependency on a typosquat package called proc-macro1 that downloads and executes a remote payload at build time. Simply compiling a project that depends on either crate is sufficient to trigger the infection.",
+            "advisories_url": "https://semgrep.dev/orgs/returntocorp/advisories?f=CAAQGRoHGgAiACoBQw",
+            "blog_url": "https://semgrep.dev/blog/2026/rust-crates-arrayref-append-only-vec-compromised-proc-macro1/",
+            "is_affected": true,
+            "incident_packages": {
+                "items": [
+                    {
+                        "name": "append-only-vec",
+                        "version": "==0.1.9",
+                        "ecosystem": "cargo"
+                    },
+                    {
+                        "name": "arrayref",
+                        "version": "==0.3.10",
+                        "ecosystem": "cargo"
+                    },
+                    {
+                        "name": "proc-macro-en",
+                        "version": "==1.0.10",
+                        "ecosystem": "cargo"
+                    },
+                    {
+                        "name": "proc-macro1",
+                        "version": "==1.0.107",
+                        "ecosystem": "cargo"
+                    },
+                ],
+                "total_count": 4,
+                "truncated": false
+            },
+            "matching_projects": {
+                "items": [
+                    {
+                        "repository_id": 1234,
+                        "repository_name": "semgrep/example-repo-1"
+                    },
+                    {
+                        "repository_id": 5678,
+                        "repository_name": "semgrep/example-repo-2"
+                    }
+                ],
+                "total_count": 2,
+                "truncated": false
+            },
+            "metadata": {
+                "dispatched_at": "2026-08-31T20:31:29.654203+00:00"
+            }
+        }
+    }
+]
+```
+
+<Note>
+**SCHEMA COMPATABILITY**
+
+Semgrep may add new fields to the payload at any time without changing the `schema_version`. Customers must ignore unrecognized fields. `schema_version` is only incremented for breaking changes, such as removing or renaming fields, or changing an existing field's type or meaning.
+</Note> 
+
+The `incident_packages` field details which dependencies are affected by an incident and `matching_projects` lists the projects that used those packages as of their last full scan. For large incidents or deployments with many projects, Semgrep truncates `items` and sets `truncated` while reporting the full number under `total_count`. Visit `advisories_url` for the most up-to-date information. 
+
+Each `incident_id` uniquely identifies an incident.
+
+The `description` and `blog_url` fields are optional and can be null. 
+
