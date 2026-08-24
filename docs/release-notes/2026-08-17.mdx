@@ -1,0 +1,54 @@
+---
+title: "Week of August 17, 2026"
+description: "Updates made to Semgrep during the week of August 17-23, 2026."
+sidebarTitle: "Week of August 17, 2026"
+---
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- A **Workflow issues** column is now available on the **Projects** page. Select a count to open the Agentic Workflows issues for that project.
+
+### Changed
+
+- Semgrep Multimodal now uses GPT-5.6 Luna as a default model in more places, with clearer validation when you add OpenAI credentials through bring-your-own-key. Alternative models remain available for bring-your-own-key and fallback.
+- Triggering [Semgrep Agentic Workflows](/workflows/overview) now requires Semgrep Multimodal to be enabled for the organization. Organizations without it receive a `403` response from every trigger path, including scheduled and API-initiated runs.
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- The organization-wide [`nosemgrep`](/ignoring-files-folders-code#ignore-code-through-nosemgrep) setting is now in public beta. Admins can enable or disable `nosemgrep` comments for their organization and filter findings to see which findings were ignored through a `nosemgrep` comment.
+- Semgrep now records audit log events when an organization updates AI provider credentials or changes which AI providers are allowed.
+
+### Changed
+
+- For organizations that have migrated to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview), the Policies V1 and Ruleboard API endpoints now return `410 Gone` with a `DEPLOYMENT_MIGRATED` code, as documented.
+
+### Fixed
+
+- Fixed an issue where merge request webhooks from self-managed GitLab instances were rejected when the merge request description was empty.
+- Fixed an issue where a permanent source code manager authentication or permission error caused Semgrep to retry posting commit status for up to 24 hours. Semgrep now stops retrying as soon as the rejection is identified as permanent.
+- Fixed an issue where scans were blocked for repositories archived in the source code manager even when the corresponding setting was not enabled.
+- Fixed an issue where removed findings were excluded from results when filtering by aggregate issue state.
+- Fixed an issue where audit log events were silently dropped when the event payload contained a value that could not be serialized.
+
+## ⛓️ Semgrep Supply Chain
+
+### Changed
+
+- Semgrep Supply Chain no longer runs license checks during diff scans when no dependency source file, such as a lockfile or manifest, changed in the pull request or merge request. Scans using Semgrep CLI versions earlier than 1.174.0 are unaffected.
+- Improved the performance of target selection for Supply Chain incident scans on organizations with large numbers of projects.
+
+### Fixed
+
+- Fixed an issue where the finding count for a Supply Chain incident did not match the findings list. The count now shows distinct findings and respects role-based access control.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of August 17-23, 2026:
+
+<CardGroup>
+  <Card title="1.174.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.174.0" horizontal />
+</CardGroup>
