@@ -54,8 +54,6 @@ Findings can also be **removed**. Semgrep considers a finding removed if it is n
 - The file path where the finding appeared is no longer found. The file path was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep AppSec Platform.
 - For GitHub organization accounts: the pull request or merge request where the finding was detected has been closed without merging.
 
-Additionally, if the rule that detected the finding is updated in such a way that the matched pattern significantly changes, new findings will be opened for that rule in the next scan, and the older findings will be marked removed. Essentially, the new findings supersede the old findings.
-
 Your removed findings do not count toward the fix rate or the number of findings. The removed findings also do not appear in Semgrep AppSec Platform.
 
 ### Triage behavior across refs and branches
