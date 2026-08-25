@@ -67,14 +67,13 @@ Regardless of whether you use the **Priority** findings view or the **All** find
 
 ### Time period
 
-The time period filters allow you to see which vulnerabilities were opened, fixed, or triaged during a certain period of time. The time period filter is **not** additive; it is a filter operation that precedes other filters on the page. For example, if you select **Last triaged** and select the status **Status Open** filter, no findings appear because, by definition, there are no triaged findings that are also open.
+The time period filters let you see which vulnerabilities were opened, fixed, or triaged during a specific period. The time period filter is **not** additive; it runs before other filters on the page.
 
 The following filters are available:
 
 - Triage state update action:
   - Opened in
   - Triaged in
-  - Fixed in
 - Time period:
   - Last day
   - Last 7 days
@@ -220,7 +219,7 @@ The finding's details page displays in-depth information about the finding. It a
 
 ## How Semgrep displays findings on multiple branches
 
-A **single** finding may appear in several branches. These appearances are called **instances** of a finding. Several instances of the same finding may differ in which line of code (LOC) they are on or in their triage state. For example, on `production` the finding may be on line 20, but the same finding was moved further to line 26 in `feature-branch-a`.
+The same finding may appear in several branches. Each appearance is an **instance** of that finding. Instances of the same finding can differ in their line number or triage state. For example, the finding might appear on line 20 in the `production` branch but on line 26 in `feature-branch-a`.
 
 Semgrep automatically recognizes that they are fundamentally the same finding and deduplicates these instances so that you do not get an inflated count of findings per ref that the finding is present in.
 
