@@ -1,0 +1,197 @@
+---
+title: "SCIM user provisioning (beta)"
+sidebarTitle: "SCIM provisioning"
+description: "Provision and deprovision Semgrep organization members from your identity provider using SCIM."
+---
+
+<Note>
+SCIM user provisioning is in **beta**. Beta features are subject to change with continued internal benchmarking and customer feedback. To join the beta, contact your Semgrep manager or [<Icon iconType="regular"/> support@semgrep.com](mailto:support@semgrep.com).
+</Note>
+
+System for Cross-domain Identity Management (SCIM) lets you provision, update, and deprovision Semgrep organization members from your identity provider (IdP). SCIM manages **who** has access to your Semgrep deployment and which **role** they receive. To control **how** users sign in, configure [SSO authentication](/deployment/sso) first.
+
+Only the IdP workflows documented in the guides linked below are tested and supported. Other identity providers and configurations are not yet validated and can cause unexpected behavior.
+
+## Prerequisites
+
+<Note>
+**PREREQUISITES**
+
+- An active [SSO configuration](/deployment/sso) for your Semgrep deployment.
+- SSO entitlement on your Semgrep plan.
+- Admin privileges for your Semgrep deployment.
+- Sufficient permissions in your IdP to configure SCIM provisioning and assign users and groups to the Semgrep application.
+- Optional: [Teams (beta)](/deployment/teams/overview) enabled, if you plan to use push groups for Semgrep teams.
+</Note>
+
+SCIM is available only when SSO is already configured and active.
+
+## SCIM and SSO
+
+SSO and SCIM work together but serve different purposes:
+
+| Capability | SSO | SCIM |
+| :--- | :--- | :--- |
+| User signs in with corporate credentials | Yes | No (SCIM does not replace login) |
+| Create Semgrep accounts when users are added in the IdP | Only with just-in-time (JIT) provisioning at login | Yes, before the user signs in |
+| Update roles when IdP group membership changes | Only after the user signs in again | Yes, typically within about a minute |
+| Deactivate access when a user is removed in the IdP | Depends on JIT behavior | Yes, when the IdP deprovisions the user |
+
+<Note>
+**RECOMMENDED USE**
+
+Use **SSO** for authentication and **SCIM** for user lifecycle management. Relying on SSO alone often means role and membership changes only apply after the user signs in again.
+</Note>
+
+## Features
+
+With SCIM enabled, Semgrep supports:
+
+- **User provisioning**: Create Semgrep members when users are assigned to the Semgrep application in your IdP.
+- **Profile updates**: Update member profile attributes when they change in your IdP.
+- **Deprovisioning**: Remove Semgrep access when users are unassigned or deactivated in your IdP.
+- **Deployment role assignment**: Map IdP push groups to Semgrep roles in the Directory Setup Portal.
+- **Team creation from push groups** (optional): When [Teams (beta)](/deployment/teams/overview) is enabled, pushed groups that follow Semgrep's `[team]` naming convention can create Semgrep teams for project-scoped access.
+
+Members provisioned through SCIM are matched and managed by email address. Users who predated the directory connection are matched to existing Semgrep accounts when they use the same SSO connection.
+
+## Push groups vs. group assignments
+
+How you use IdP groups depends on your identity provider.
+
+### Okta
+
+Okta separates **group assignments** and **push groups**. Do not use the same group for both.
+
+| Type | Okta location | Purpose |
+| :--- | :--- | :--- |
+| **Group assignment** | Application **Assignments** tab | Provisions users into the Semgrep deployment. Does not create teams or map deployment roles. New users default to **Member**. |
+| **Push group** | Application **Push Groups** tab | Maps deployment roles or creates Semgrep teams. Users must already be provisioned into the directory. |
+
+<Note>
+**RECOMMENDED USE (OKTA)**
+
+Use dedicated groups for directory assignments and separate groups for push operations. Do not use assignment groups as push groups. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta).
+</Note>
+
+### Microsoft Entra ID
+
+Entra ID uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups step.
+
+<Warning>
+Assigning a group to the Semgrep application provisions that group's members. Do not use a role-mapping or team group as a user's only assignment path into the application. See [SCIM provisioning with Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#update-deployment-permissions-via-role-groups).
+</Warning>
+
+Entra ID provisions users and groups on a **40-minute cycle** by default unless you use **Provision on demand**. Customers need at least a **P1** plan for group sync.
+
+## Team push group naming
+
+To create a Semgrep team from a push group, include `[team]` or `[team:<role>]` at the end of the Okta directory group name:
+
+| Example group name | Semgrep team | Team role |
+| :--- | :--- | :--- |
+| `Team 1 [team]` | Team 1 | **Member** (default) |
+| `Team 1 [team:manager]` | Team 1 | **Manager** |
+| `Team 1 [team:member]` | Team 1 | **Member** |
+| `Team 1 [team:readonly]` | Team 1 | **Read-only** |
+
+Do not assign deployment roles to team push groups in the Directory Setup Portal. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta#team-management) for team management guidelines.
+
+## Limitations
+
+During the public beta:
+
+- Documented workflows are available for **Okta** and **Microsoft Entra ID**. See the IdP-specific guides below.
+- SCIM requires an active SSO connection and does not replace SSO.
+- Once SCIM is active, SSO users cannot be managed through the Semgrep UI.
+- SCIM propagation timing depends on your IdP. Okta changes can take up to a minute; Entra ID uses a **40-minute provisioning cycle** by default.
+- Users must be provisioned into the directory before they are added to Okta push groups.
+- Sub-teams and team-managed projects cannot be controlled through SCIM.
+- **Disabling SCIM does not deprovision members** from the deployment.
+- SCIM is scoped to a single Semgrep deployment.
+- Entra ID customers need at least a **P1** plan for group sync.
+
+For IdP-specific limitations, see [Okta](/kb/semgrep-appsec-platform/scim-okta#expected-behavior-and-known-limitations) and [Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#expected-behavior-and-known-limitations).
+
+## Enable SCIM in Semgrep AppSec Platform
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) as an admin.
+</Step>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+Click **Set up** to launch the **Directory Setup Portal**.
+</Step>
+<Step>
+Select your IdP (**Okta** or **Microsoft Entra ID**) and follow the portal workflow: create or link an application, configure provisioning, assign users, push groups, map groups to roles, and test the directory connection.
+</Step>
+<Step>
+Confirm that SCIM connection status shows **Active** under **Identity management (SCIM)** on the **Login methods** page.
+</Step>
+</Steps>
+
+IdP-specific steps are in the following guides:
+
+<CardGroup>
+  <Card title="SCIM with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
+  <Card title="SCIM with Microsoft Entra ID" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-microsoft-entra-id" horizontal />
+</CardGroup>
+
+## Map push groups to deployment roles
+
+During directory setup, or later by reopening the portal, map role push groups to Semgrep roles:
+
+<Steps>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+Under **Identity management (SCIM)**, click **View** to open the Directory Setup Portal.
+</Step>
+<Step>
+Click **Configure role assignment**.
+</Step>
+<Step>
+For each **role-mapping** push group, select the Semgrep role from the **Role** drop-down. Do not assign roles to team push groups suffixed with `[team:<role>]`.
+</Step>
+</Steps>
+
+<Note>
+**DEFAULT ROLE**
+
+New SCIM-provisioned users receive the **Member** role until they belong to a role-mapped push group. When a user belongs to multiple role-mapped groups, Semgrep assigns the highest-privilege role among those groups.
+</Note>
+
+## Disable SCIM
+
+Disabling SCIM disconnects directory sync and removes the connected directory configuration from Semgrep. **Disabling SCIM does not deprovision members** from the deployment.
+
+<Warning>
+**WARNING**
+
+Before you disable SCIM, confirm that admins can still sign in through SSO and that you have a plan to manage members who were SCIM-provisioned.
+</Warning>
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) as an admin.
+</Step>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+Under **Identity management (SCIM)**, disable SCIM and confirm.
+</Step>
+</Steps>
+
+## See also
+
+<CardGroup>
+  <Card title="SSO authentication" icon="shield-check" href="/deployment/sso" horizontal />
+  <Card title="Teams and users" icon="users" href="/deployment/teams/overview" horizontal />
+  <Card title="Manage teams and roles" icon="users-gear" href="/deployment/teams/manage" horizontal />
+  <Card title="SAML SSO with Microsoft Entra ID" icon="shield-check" href="/kb/semgrep-appsec-platform/saml-microsoft-entra-id" horizontal />
+</CardGroup>

@@ -1,0 +1,351 @@
+---
+title: "SCIM provisioning with Microsoft Entra ID"
+sidebarTitle: "SCIM with Entra ID"
+description: "Supported Microsoft Entra ID user and group provisioning workflows for SCIM with Semgrep AppSec Platform."
+---
+
+This article documents the Microsoft Entra ID user and group provisioning operations that generate SCIM events Semgrep processes. **Only the workflows in this article are tested and supported.** Other Entra ID configurations or actions have not been validated and may cause unexpected behavior.
+
+<Note>
+SCIM user provisioning is in **public beta**. See [SCIM user provisioning (beta)](/deployment/scim) for general prerequisites, team group naming, and limitations.
+</Note>
+
+Unlike Okta, Entra ID uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta) only if you need Okta-specific push group steps.
+
+## Prerequisites
+
+Before you begin, ensure your Semgrep deployment has:
+
+- An active [SSO connection](/deployment/sso)
+- Optional: [Teams (beta)](/deployment/teams/overview) enabled, if you plan to use groups for Semgrep teams
+
+You must be an admin for your Semgrep deployment and have permissions in Microsoft Entra ID to manage enterprise applications, provisioning, and group assignments. See [Microsoft Entra ID roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference).
+
+Customers need at least a **P1** plan in Entra ID to use group sync functionality.
+
+## Set up SCIM in Semgrep
+
+<Steps>
+<Step>
+Sign in to [Semgrep AppSec Platform](https://semgrep.dev/login) as an admin.
+</Step>
+<Step>
+Go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+Click **Set up** to launch the **Directory Setup Portal**.
+</Step>
+<Step>
+Select **Entra ID** as the identity provider.
+</Step>
+</Steps>
+
+### Configure directory sync in the portal
+
+Follow the steps in the Directory Setup Portal. The high-level steps are:
+
+1. Create an Entra ID application
+2. Configure admin credentials
+3. Configure attribute mapping
+4. Assign users and groups
+5. Map groups to roles
+6. Test directory connection
+
+If the test succeeds, SCIM connection status shows **Active** under **Identity management (SCIM)** on [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+
+To reopen the Directory Setup Portal later, go to **Login methods**, find **Identity management (SCIM)**, and click **View**.
+
+### Configure provisioning in Entra ID
+
+After you connect the application in the portal, confirm these settings on the Semgrep enterprise application's **Provisioning** page in the [Microsoft Entra admin center](https://entra.microsoft.com/):
+
+<Note>
+Set **Scope** to **Sync only assigned users and groups** and set **Provisioning Status** to **On**.
+</Note>
+
+<Steps>
+<Step>
+Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+</Step>
+<Step>
+Go to **Entra ID > Enterprise applications** and open your Semgrep application.
+</Step>
+<Step>
+Open **Provisioning**, set **Provisioning Mode** to **Automatic**, and paste the tenant URL and secret from the Directory Setup Portal under **Admin Credentials**.
+</Step>
+<Step>
+Click **Test connection**, then **Save**.
+</Step>
+<Step>
+Under **Settings**, set **Scope** to **Sync only assigned users and groups**.
+</Step>
+<Step>
+Set **Provisioning Status** to **On**, then click **Save**.
+</Step>
+</Steps>
+
+Users and groups are provisioned on Entra ID's default **40-minute cycle**, unless you use **Provision on demand** on the **Provisioning** page.
+
+## User management
+
+### Add users to the deployment
+
+<Note>
+When users are provisioned into the deployment, they receive the **Member** role in Semgrep until they are added to a role-mapped group.
+</Note>
+
+<Steps>
+<Step>
+In the Microsoft Entra admin center, go to **Entra ID > Enterprise applications > All applications** and open your Semgrep application.
+</Step>
+<Step>
+Open **Users and groups**, then click **Add user/group**.
+</Step>
+<Step>
+Under **Users and groups**, click **None Selected** and select the user or group of users.
+</Step>
+<Step>
+Click **Assign**.
+</Step>
+</Steps>
+
+<Note>
+If your Entra application has defined app roles, Entra ID requires selecting a role to complete an assignment. If no custom app roles exist, Entra ID shows the built-in **Default Access** role. Select whichever role is available. Semgrep does not use Entra ID's app role value; deployment roles are controlled through group-to-role mapping in the Directory Setup Portal. See [Microsoft's documentation on assigning users and groups](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal) for details.
+</Note>
+
+### Match users who predated the directory connection
+
+Users are matched by email address from the IdP when their identity uses the SSO connection the SCIM directory was set up against. Any IdP operations for that email are applied to the existing user in Semgrep.
+
+### Update deployment permissions via role groups
+
+Semgrep uses Entra ID groups to map deployment roles. Create groups in Entra ID, assign them to the Semgrep application, map them to roles in the Directory Setup Portal, and assign users to those groups so they inherit the correct roles.
+
+<Warning>
+Any group you assign to the Semgrep application for role mapping also provisions its existing members as users if they are not already in your directory. Confirm the group's membership consists of users you want in your Semgrep deployment before assigning it.
+
+Do not rely on a role-mapping group as a user's sole path into the application. Assign the user to the application through another group or individually before adding them to a role-mapping or team group. In Entra ID, group assignment and provisioning are the same action. If a role-mapping group is a user's only assignment, removing them from that group deprovisions them from the deployment, even if your intent was only to change their role.
+</Warning>
+
+#### Add role groups
+
+<Steps>
+<Step>
+In the Microsoft Entra admin center, go to **Entra ID > Enterprise applications > All applications** and open your Semgrep application.
+</Step>
+<Step>
+Open **Users and groups**, then click **Add user/group**.
+</Step>
+<Step>
+On the **Add Assignment** page, click **None Selected** under **Users and groups**.
+</Step>
+<Step>
+In the drawer, select the groups you want to add, then click **Select**.
+</Step>
+<Step>
+Click **Assign**.
+</Step>
+</Steps>
+
+#### Map roles to groups in the Directory Setup Portal
+
+You can map roles to groups during step 5 of setup, or later by revisiting the portal:
+
+<Steps>
+<Step>
+In Semgrep, go to [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
+</Step>
+<Step>
+Under **Identity management (SCIM)**, click **View** to open the Directory Setup Portal.
+</Step>
+<Step>
+Click **Configure role assignment**.
+</Step>
+<Step>
+Use the drop-down in the **Role** column for each group to select its role. Updating the role propagates to all Semgrep users in that group.
+</Step>
+</Steps>
+
+<Note>
+Updating the role assigned to a group in the portal follows Entra ID's **40-minute provisioning cycle**. You may not see the update in Semgrep until the next cycle completes, unless you **Provision on demand** on the application's **Provisioning** page.
+
+If you use Semgrep teams, groups created as teams (using the naming convention `[team:<role>]`) also appear in the group role mapping table. **Do not assign a deployment role to these groups.**
+</Note>
+
+#### Update a user's deployment role
+
+1. Remove the user from the role group in Entra ID, or assign them to a different role group.
+2. Wait for the next provisioning cycle, or use **Provision on demand** on the **Provisioning** page.
+
+### Remove a user from the deployment
+
+<Steps>
+<Step>
+Open your Semgrep enterprise application and go to **Users and groups**.
+</Step>
+<Step>
+Select the user, then click **Remove assignment**.
+</Step>
+<Step>
+Click **Yes** in the confirmation dialog.
+</Step>
+</Steps>
+
+## Team management
+
+In Entra ID, assign groups to the Semgrep application to create Semgrep teams. Follow the same `[team]` naming convention as in the [SCIM overview](/deployment/scim#team-push-group-naming).
+
+<Warning>
+The same provisioning behavior applies as for role groups. Assigning a group to the application provisions its members. Do not use a team group as a user's only assignment path into the application.
+</Warning>
+
+<Warning>
+You cannot manage default teams or sub-teams in Semgrep through SCIM. Attempts to map a group to a default or sub-team and modify it have no effect in Semgrep.
+</Warning>
+
+<Steps>
+<Step>
+In the Microsoft Entra admin center, go to **Entra ID > Enterprise applications > All applications** and open your Semgrep application.
+</Step>
+<Step>
+Open **Users and groups**, then click **Add user/group**.
+</Step>
+<Step>
+On the **Add Assignment** page, click **None Selected** under **Users and groups**.
+</Step>
+<Step>
+In the drawer, select the `[team]` or `[team:<role>]` named groups, then click **Select**.
+</Step>
+<Step>
+Click **Assign**.
+</Step>
+</Steps>
+
+### Team-level roles
+
+Team-level roles are independent of deployment-level roles in Semgrep. Semgrep identifies the team role from a suffix in the group name: `[team:<manager|member|readonly>]`. Create one group per role suffix; Semgrep maps them to the same Semgrep team.
+
+| Entra ID group | Semgrep team | Role when adding users |
+| :--- | :--- | :--- |
+| `Team 1 [team]` | Team 1 | **Member** (default) |
+| `Team 1 [team:manager]` | Team 1 | **Manager** |
+| `Team 1 [team:member]` | Team 1 | **Member** |
+| `Team 1 [team:readonly]` | Team 1 | **Read-only** |
+
+<Note>
+**USAGE GUIDELINES**
+
+- Assign a user to only one role-suffixed group per Semgrep team. If a user is in multiple role-suffixed groups for the same team, Semgrep assigns the role from whichever group they were assigned to first.
+- When changing a member's team permission level, remove the user from the first role-suffixed group before adding them to a different one.
+- Apply team changes (rename, delete) to **all** role-suffixed groups for that team.
+- Do not assign a deployment role to a Semgrep team group in the Directory Setup Portal.
+</Note>
+
+See [Team-level permissions](#team-level-permissions) for more on how Semgrep applies team roles.
+
+### Edit a team group name
+
+<Note>
+If you have multiple role-suffixed groups for one team, update the name consistently across all of them.
+</Note>
+
+<Steps>
+<Step>
+In the Microsoft Entra admin center, go to **Entra ID > Groups > All groups**.
+</Step>
+<Step>
+Open the group assigned to your Semgrep SCIM application.
+</Step>
+<Step>
+Under **Manage**, click **Properties**.
+</Step>
+<Step>
+Under **General settings**, edit **Group name**, then click **Save**.
+</Step>
+</Steps>
+
+### Add or remove team members
+
+#### Add members
+
+<Steps>
+<Step>
+In the Microsoft Entra admin center, open your Semgrep enterprise application and go to **Users and groups**.
+</Step>
+<Step>
+Click the team group.
+</Step>
+<Step>
+Under **Manage**, click **Members**.
+</Step>
+<Step>
+Click **+ Add members**, search for the user, select them, and click **Select**.
+</Step>
+</Steps>
+
+#### Remove members
+
+<Steps>
+<Step>
+On the same **Members** page, select the user and click **Remove** in the top menu bar.
+</Step>
+</Steps>
+
+### Remove a team or group
+
+<Steps>
+<Step>
+Open your Semgrep enterprise application and go to **Users and groups**.
+</Step>
+<Step>
+Select the group you want to remove, then click **Remove assignment**.
+</Step>
+<Step>
+Click **Yes** in the confirmation dialog.
+</Step>
+</Steps>
+
+## Expected behavior and known limitations
+
+### General
+
+- Customers need at least a **P1** plan in Entra ID to use group sync functionality.
+- If the Entra application has defined app roles, Entra ID requires selecting a role to complete a user or group assignment. Semgrep does not use the Entra app role value. See [Add users to the deployment](#add-users-to-the-deployment).
+- **Assigning a group to the application provisions that group's users** into the deployment. Review group membership before assignment. See [Update deployment permissions via role groups](#update-deployment-permissions-via-role-groups).
+- **SCIM takes over user and team management.** Once SCIM is active, SSO users can no longer be managed through the Semgrep UI.
+- **SCIM events are not instantaneous.** Users and groups are provisioned on a **40-minute cycle** by default, unless you use **Provision on demand** on the **Provisioning** page.
+- **Team-managed projects are Semgrep-managed.** SCIM cannot control team-managed projects at this time.
+- **Sub-teams are Semgrep-managed.** Creating sub-teams through SCIM is not supported. **Do not create an Entra ID group whose name matches an existing sub-team in Semgrep.**
+- **Admins are not team members.** Semgrep **Admins** have implicit access to all teams and cannot be explicitly added to any team. If you add an admin to a group, they appear in the group in Entra ID but not in the team in Semgrep. This is expected.
+- **Demoting admins with group membership.** Demoting an admin who was added to an Entra ID group to **Member** or **Read-only** can cause drift. The user may not appear in the Semgrep team even after demotion. Remove them from the group in Entra ID and re-add them after their role has changed.
+- **Do not operate on the default team.** The default team is editable in Semgrep when SCIM is enabled. Mapping an Entra ID group to it and operating on that group has no effect.
+- **Shared groups.** If a group spans multiple directories, membership and team changes apply across all of them.
+- **Disabling SCIM does not deprovision members** from the deployment.
+
+### Auth configurations
+
+- **SCIM is scoped to a single deployment.** SSO applications are linked to a SCIM application that maps to one Semgrep deployment. SCIM operations do not affect other users or deployments that share the same auth provider.
+- **Assign users to the SSO connection before the SCIM app.** In a multi-app SCIM setup, Entra ID admins can assign any directory user to the SCIM app even if the user is not assigned to the corresponding SSO connection. Those users cannot sign in through SSO.
+- **Disable social auth when using SCIM.** Once SCIM is active, manual user and team management is blocked in Semgrep. If social auth (GitHub or GitLab) is also enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
+
+### Role groups
+
+- The Directory Setup Portal syncs directory groups to populate the role assignment table. Both Semgrep team groups and role-mapping groups appear there. Assign roles only to role-mapping groups, not to team groups suffixed with `[team:<role>]`.
+- If a user is not in any role-mapped group, they receive the default **Member** role until they are assigned to a role group.
+- When a user belongs to multiple role-mapped groups, Semgrep assigns the **highest-privilege** role among those groups.
+
+### Team-level permissions
+
+- If a user is assigned to multiple role-suffixed groups that map to the same Semgrep team, Semgrep assigns the role from whichever group the user was assigned to first. **Do not assign a user to multiple groups that map to the same Semgrep team.**
+- Removing a user from only one role-suffixed group removes them from the Semgrep team, even if they remain in other role-type groups for that team in Entra ID.
+- Renaming only one role-suffixed group in Entra ID renames the Semgrep team. Other role-type groups are not mapped to the Semgrep team until they are renamed as well. **Always rename all role types for a group.**
+- Deleting only one role-suffixed group in Entra ID deletes the team in Semgrep, leaving other role-type groups in Entra ID unmapped. **Always delete all role types for a group.**
+
+## See also
+
+<CardGroup>
+  <Card title="SCIM user provisioning (beta)" icon="shield-check" href="/deployment/scim" horizontal />
+  <Card title="SCIM provisioning with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
+  <Card title="SAML SSO with Microsoft Entra ID" icon="shield-check" href="/kb/semgrep-appsec-platform/saml-microsoft-entra-id" horizontal />
+  <Card title="Teams and users" icon="users" href="/deployment/teams/overview" horizontal />
+</CardGroup>
