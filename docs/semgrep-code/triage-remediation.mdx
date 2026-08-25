@@ -50,6 +50,7 @@ Findings can also be **removed**. Semgrep considers a finding removed if it is n
 
 - The rule that detected the finding is no longer enabled in the policy.
 - The rule that detected the finding was updated in a way that it no longer detects the finding.
+- The rule that detected the finding was updated and still matches the code, but identifies the issue as a [new finding](/semgrep-code/remove-duplicates#how-semgrep-distinguishes-between-new-and-duplicate-findings). The original finding is marked as **Removed** and a new finding is opened with the new version of the rule.
 - The file path where the finding appeared is no longer found. The file path was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep AppSec Platform.
 - For GitHub organization accounts: the pull request or merge request where the finding was detected has been closed without merging.
 
