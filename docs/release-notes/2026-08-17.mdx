@@ -20,7 +20,6 @@ sidebarTitle: "Week of August 17, 2026"
 ### Added
 
 - The organization-wide [`nosemgrep`](/ignoring-files-folders-code#ignore-code-through-nosemgrep) setting is now in public beta. Admins can enable or disable `nosemgrep` comments for their organization and filter findings to see which findings were ignored through a `nosemgrep` comment.
-- Semgrep now records audit log events when an organization updates AI provider credentials or changes which AI providers are allowed.
 
 ### Changed
 
@@ -32,7 +31,6 @@ sidebarTitle: "Week of August 17, 2026"
 - Fixed an issue where a permanent source code manager authentication or permission error caused Semgrep to retry posting commit status for up to 24 hours. Semgrep now stops retrying as soon as the rejection is identified as permanent.
 - Fixed an issue where scans were blocked for repositories archived in the source code manager even when the corresponding setting was not enabled.
 - Fixed an issue where removed findings were excluded from results when filtering by aggregate issue state.
-- Fixed an issue where audit log events were silently dropped when the event payload contained a value that could not be serialized.
 
 ## ⛓️ Semgrep Supply Chain
 
