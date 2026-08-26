@@ -7,7 +7,7 @@ description: "Supported Okta user and group provisioning workflows for SCIM with
 This article documents the Okta user and group provisioning operations that generate SCIM events Semgrep processes. Only the workflows in this article are tested and supported. Other identity providers and Okta configurations are not yet validated and can cause unexpected behavior.
 
 <Note>
-SCIM user provisioning is in **public beta**. See [SCIM user provisioning (beta)](/deployment/scim) for general prerequisites, beta enrollment, and how SCIM relates to SSO.
+SCIM provisioning is in **public beta**. See [SCIM provisioning (beta)](/deployment/scim) for general prerequisites, beta enrollment, and how SCIM relates to SSO.
 </Note>
 
 ## Prerequisites
@@ -58,6 +58,21 @@ You must assign users to the directory before adding them to push groups in step
 If the test succeeds, SCIM connection status shows **Active** under **Identity management (SCIM)** on [**Settings > Access > Login methods**](https://semgrep.dev/orgs/-/settings/access/loginMethods).
 
 To reopen the Directory Setup Portal later, go to **Login methods**, find **Identity management (SCIM)**, and click **View**.
+
+## Assignments versus push groups
+
+Okta separates application **Assignments** and **Push Groups**. Don't use the same group for both.
+
+| Type | Okta location | Purpose |
+| :--- | :--- | :--- |
+| **Group assignment** | Application **Assignments** tab | Provisions users into the Semgrep deployment. Does not create teams or map deployment roles. New users default to **Member**. |
+| **Push group** | Application **Push Groups** tab | Maps deployment roles or creates Semgrep teams. Users must already be provisioned into the directory. |
+
+<Note>
+**RECOMMENDED USE (OKTA)**
+
+Use dedicated groups for directory assignments and separate groups for push operations. Don't use assignment groups as push groups. See [Okta's guidance on common group push issues](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-group-push-troubleshoot.htm).
+</Note>
 
 ## User management
 
@@ -326,7 +341,7 @@ Both start from Okta directory groups but serve different purposes. Do not use a
 ## See also
 
 <CardGroup>
-  <Card title="SCIM user provisioning (beta)" icon="shield-check" href="/deployment/scim" horizontal />
+  <Card title="SCIM provisioning (beta)" icon="shield-check" href="/deployment/scim" horizontal />
   <Card title="Teams and users" icon="users" href="/deployment/teams/overview" horizontal />
   <Card title="SSO authentication" icon="shield-check" href="/deployment/sso" horizontal />
 </CardGroup>

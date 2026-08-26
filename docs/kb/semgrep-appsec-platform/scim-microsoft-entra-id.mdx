@@ -7,10 +7,10 @@ description: "Supported Microsoft Entra ID user and group provisioning workflows
 This article documents the Microsoft Entra ID user and group provisioning operations that generate SCIM events Semgrep processes. Only the workflows in this article are tested and supported. Other Entra ID configurations or actions have not been validated and may cause unexpected behavior.
 
 <Note>
-SCIM user provisioning is in **public beta**. See [SCIM user provisioning (beta)](/deployment/scim) for general prerequisites, team group naming, and limitations.
+SCIM provisioning is in **public beta**. See [SCIM provisioning (beta)](/deployment/scim) for general prerequisites, team group naming, and limitations.
 </Note>
 
-Unlike Okta, Entra ID uses group assignment to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta) only if you need Okta-specific push group steps.
+Unlike Okta, Entra ID uses a single group-assignment workflow for provisioning, deployment role mapping, and team creation. See [Identity-provider group behavior](/deployment/scim#identity-provider-group-behavior) in the SCIM overview for a comparison.
 
 ## Prerequisites
 
@@ -84,6 +84,16 @@ Set **Provisioning Status** to **On**, then click **Save**.
 </Steps>
 
 Users and groups are provisioned on Entra ID's default 40-minute cycle, unless you use **Provision on demand** on the **Provisioning** page.
+
+## Group assignments
+
+Entra ID uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow.
+
+<Warning>
+Assigning a group to the Semgrep application provisions that group's members into the deployment. Don't use a role-mapping or team group as a user's only assignment path into the application. See [Update deployment permissions via role groups](#update-deployment-permissions-via-role-groups).
+</Warning>
+
+Group sync requires Entra ID **P1** or higher. Users and groups are provisioned on a 40-minute cycle by default unless you use **Provision on demand** on the application's **Provisioning** page.
 
 ## User management
 
@@ -192,7 +202,7 @@ Click **Yes** in the confirmation dialog.
 
 ## Team management
 
-In Entra ID, assign groups to the Semgrep application to create Semgrep teams. Follow the same `[team]` naming convention as in the [SCIM overview](/deployment/scim#team-push-group-naming).
+In Entra ID, assign groups to the Semgrep application to create Semgrep teams. Follow the same `[team]` naming convention as in the [SCIM overview](/deployment/scim#group-naming).
 
 <Warning>
 The same provisioning behavior applies as for role groups. Assigning a group to the application provisions its members. Do not use a team group as a user's only assignment path into the application.
@@ -343,7 +353,7 @@ Click **Yes** in the confirmation dialog.
 ## See also
 
 <CardGroup>
-  <Card title="SCIM user provisioning (beta)" icon="shield-check" href="/deployment/scim" horizontal />
+  <Card title="SCIM provisioning (beta)" icon="shield-check" href="/deployment/scim" horizontal />
   <Card title="SCIM provisioning with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
   <Card title="SAML SSO with Microsoft Entra ID" icon="shield-check" href="/kb/semgrep-appsec-platform/saml-microsoft-entra-id" horizontal />
   <Card title="Teams and users" icon="users" href="/deployment/teams/overview" horizontal />

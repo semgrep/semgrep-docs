@@ -76,7 +76,14 @@
                   "deployment/checklist",
                   "deployment/create-account-and-orgs",
                   "deployment/sso",
-                  "deployment/scim",
+                  {
+                    "group": "SCIM provisioning",
+                    "root": "deployment/scim",
+                    "pages": [
+                      "kb/semgrep-appsec-platform/scim-okta",
+                      "kb/semgrep-appsec-platform/scim-microsoft-entra-id"
+                    ]
+                  },
                   "deployment/connect-scm",
                   "semgrep-appsec-platform/scm-code-access",
                   "deployment/prepare/scm-permissions",
@@ -727,8 +734,6 @@
                       "kb/semgrep-appsec-platform/saml-bad-signature",
                       "kb/semgrep-appsec-platform/saml-google-workspace",
                       "kb/semgrep-appsec-platform/saml-microsoft-entra-id",
-                      "kb/semgrep-appsec-platform/scim-okta",
-                      "kb/semgrep-appsec-platform/scim-microsoft-entra-id",
                       "kb/semgrep-appsec-platform/saml-stops-working",
                       "kb/semgrep-appsec-platform/scan-duration-discrepancy",
                       "kb/semgrep-appsec-platform/search-filter-sort-findings",
