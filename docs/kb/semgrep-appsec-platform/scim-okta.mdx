@@ -4,7 +4,7 @@ sidebarTitle: "SCIM with Okta"
 description: "Supported Okta user and group provisioning workflows for SCIM with Semgrep AppSec Platform."
 ---
 
-This article documents the Okta user and group provisioning operations that generate SCIM events Semgrep processes. **Only the workflows in this article are tested and supported.** Other identity providers and Okta configurations are not yet validated and can cause unexpected behavior.
+This article documents the Okta user and group provisioning operations that generate SCIM events Semgrep processes. Only the workflows in this article are tested and supported. Other identity providers and Okta configurations are not yet validated and can cause unexpected behavior.
 
 <Note>
 SCIM user provisioning is in **public beta**. See [SCIM user provisioning (beta)](/deployment/scim) for general prerequisites, beta enrollment, and how SCIM relates to SSO.
@@ -15,9 +15,10 @@ SCIM user provisioning is in **public beta**. See [SCIM user provisioning (beta)
 Before you begin, ensure your Semgrep deployment has:
 
 - An active [SSO connection](/deployment/sso)
+- [Admin privileges](/deployment/teams/overview#roles-and-access) for your Semgrep deployment
 - Optional: [Teams (beta)](/deployment/teams/overview) enabled, if you plan to use push groups for Semgrep teams
 
-You must be an admin for your Semgrep deployment and have sufficient permissions in Okta to configure applications, provisioning, and group assignments.
+In Okta, you also need permission to create or edit applications, configure SCIM API integration, and manage application assignments and push groups.
 
 ## Set up SCIM in Semgrep
 
@@ -147,7 +148,7 @@ Use the drop-down in the **Role** column for each group to select its role. Upda
 </Steps>
 
 <Note>
-If you use Semgrep teams, push groups created as teams (using the naming convention `[team:<role>]`) also appear in the group role mapping table. **Do not assign a deployment role to these groups.** They are not intended to manage deployment-level roles.
+If you use Semgrep teams, push groups created as teams (using the naming convention `[team:<role>]`) also appear in the group role mapping table. Do not assign a deployment role to these groups. They are not intended to manage deployment-level roles.
 </Note>
 
 #### Update a user's deployment role
@@ -206,7 +207,7 @@ Team-level roles are independent of deployment-level roles in Semgrep. Semgrep i
 
 - Assign a user to only one role-suffixed push group per Semgrep team. If a user is in multiple role-suffixed push groups for the same team, Semgrep assigns the role from whichever group they were added to first.
 - When changing a member's team permission level, remove the user from the first role-suffixed group before adding them to a different one.
-- Apply team changes (rename, delete) to **all** role-suffixed groups for that team.
+- Apply team changes (rename, delete) to all role-suffixed groups for that team.
 - Do not assign a deployment role to a Semgrep team push group in the Directory Setup Portal.
 </Note>
 
@@ -282,16 +283,16 @@ Select **Delete the group in the target app** (recommended) to avoid orphaning t
 
 ### General
 
-- **SCIM takes over user and team management.** Once SCIM is active, SSO users can no longer be managed through the Semgrep UI.
-- **SCIM events are not always instantaneous.** Changes can take up to a minute or longer to propagate to Semgrep.
-- **Provision before assigning.** Users must exist in the directory before they are added to push groups. Adding an unprovisioned user to a push group does nothing and does not trigger just-in-time (JIT) provisioning.
-- **Team-managed projects are Semgrep-managed.** SCIM cannot control team-managed projects at this time.
-- **Sub-teams are Semgrep-managed.** Okta push groups do not map to Semgrep sub-teams. Creating sub-teams through SCIM is not supported. **Do not create an Okta group whose name matches an existing sub-team in Semgrep.**
-- **Admins are not team members.** Semgrep **Admins** have implicit access to all teams and cannot be explicitly added to any team. If you add an admin to a push group, they appear in the group in Okta but not in the team in Semgrep. This is expected.
-- **Demoting admins with group membership.** Demoting an admin who was added to an Okta group to **Member** or **Read-only** can cause drift. The user may not appear in the Semgrep team even after demotion. Remove them from the group in Okta and re-add them after their role has changed.
-- **Do not operate on the default team.** The default team is editable in Semgrep when SCIM is enabled. Mapping an Okta group to it and operating on that group has no effect.
-- **Shared push groups.** If a push group spans multiple directories, membership and team changes apply across all of them.
-- **Disabling SCIM does not deprovision members** from the deployment.
+- SCIM takes over user and team management. Once SCIM is active, SSO users can no longer be managed through Semgrep AppSec Platform.
+- SCIM events are not always instantaneous. Changes can take up to a minute or longer to propagate to Semgrep.
+- Provision before assigning. Users must exist in the directory before they are added to push groups. Adding an unprovisioned user to a push group does nothing and does not trigger just-in-time (JIT) provisioning.
+- Team-managed projects are Semgrep-managed. SCIM cannot control team-managed projects at this time.
+- Sub-teams are Semgrep-managed. Okta push groups do not map to Semgrep sub-teams. Creating sub-teams through SCIM is not supported. Do not create an Okta group whose name matches an existing sub-team in Semgrep.
+- Admins are not team members. Semgrep **Admins** have implicit access to all teams and cannot be explicitly added to any team. If you add an admin to a push group, they appear in the group in Okta but not in the team in Semgrep. This is expected.
+- Demoting admins with group membership. Demoting an admin who was added to an Okta group to **Member** or **Read-only** can cause drift. The user may not appear in the Semgrep team even after demotion. Remove them from the group in Okta and re-add them after their role has changed.
+- Do not operate on the default team. The default team is editable in Semgrep when SCIM is enabled. Mapping an Okta group to it and operating on that group has no effect.
+- Shared push groups. If a push group spans multiple directories, membership and team changes apply across all of them.
+- Disabling SCIM does not deprovision members from the deployment.
 
 ### Push groups vs. group assignments
 
@@ -304,23 +305,23 @@ Both start from Okta directory groups but serve different purposes. Do not use a
 
 ### Auth configurations
 
-- **SCIM is scoped to a single deployment.** SSO applications are linked to a SCIM application that maps to one Semgrep deployment. SCIM operations do not affect other users or deployments that share the same auth provider.
-- **Do not share a SAML/SCIM app across multiple Semgrep deployments.** SCIM provisioning applies only to the deployment it was created for. This configuration is untested and can cause unexpected behavior.
-- **Assign users to the SSO connection before the SCIM app.** In a multi-app SCIM setup, Okta admins can assign any directory user to the SCIM app even if the user is not assigned to the corresponding SSO connection. Those users cannot sign in through SSO.
-- **Disable social auth when using SCIM.** Once SCIM is active, manual user and team management is blocked in Semgrep. If social auth (GitHub or GitLab) is also enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
+- SCIM is scoped to a single deployment. SSO applications are linked to a SCIM application that maps to one Semgrep deployment. SCIM operations do not affect other users or deployments that share the same auth provider.
+- Do not share a SAML/SCIM app across multiple Semgrep deployments. SCIM provisioning applies only to the deployment it was created for. This configuration is untested and can cause unexpected behavior.
+- Assign users to the SSO connection before the SCIM app. In a multi-app SCIM setup, Okta admins can assign any directory user to the SCIM app even if the user is not assigned to the corresponding SSO connection. Those users cannot sign in through SSO.
+- Disable social auth when using SCIM. Once SCIM is active, manual user and team management is blocked in Semgrep. If social auth (GitHub or GitLab) is also enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
 
 ### Role groups
 
 - The Directory Setup Portal syncs directory push groups to populate the role assignment table. Both Semgrep team push groups and role-mapping push groups appear there. Assign roles only to role-mapping groups, not to team groups suffixed with `[team:<role>]`.
 - If a user is not in any role-mapped group, they receive the default **Member** role until they are assigned to a role group.
-- When a user belongs to multiple role-mapped groups, Semgrep assigns the **highest-privilege** role among those groups.
+- When a user belongs to multiple role-mapped groups, Semgrep assigns the highest-privilege role among those groups.
 
 ### Team-level permissions
 
-- If a user is assigned to multiple role-suffixed push groups that map to the same Semgrep team, Semgrep assigns the role from whichever group the user was added to first. **Do not assign a user to multiple push groups that map to the same Semgrep team.**
+- If a user is assigned to multiple role-suffixed push groups that map to the same Semgrep team, Semgrep assigns the role from whichever group the user was added to first. Do not assign a user to multiple push groups that map to the same Semgrep team.
 - Removing a user from only one role-suffixed push group removes them from the Semgrep team, even if they remain in other role-type groups for that team in Okta.
-- Renaming only one role-suffixed push group in Okta renames the Semgrep team. Other role-type groups in Okta are not mapped to the Semgrep team until they are renamed as well. **Always rename all role types for a push group.**
-- Deleting only one role-suffixed group in Okta deletes the team in Semgrep, leaving other role-type groups in Okta unmapped. **Always delete all role types for a push group.**
+- Renaming only one role-suffixed push group in Okta renames the Semgrep team. Other role-type groups in Okta are not mapped to the Semgrep team until they are renamed as well. Always rename all role types for a push group.
+- Deleting only one role-suffixed group in Okta deletes the team in Semgrep, leaving other role-type groups in Okta unmapped. Always delete all role types for a push group.
 
 ## See also
 
