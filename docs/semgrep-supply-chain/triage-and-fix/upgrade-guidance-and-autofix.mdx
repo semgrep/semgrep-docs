@@ -38,13 +38,13 @@ To access **all** Upgrade guidance and Autofix features, you must have:
 - At least one repository with [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure).
 - Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
 - Granted Semgrep **Read and write** access to your repository. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
-  - **GitHub users** must have the *private* GitHub app for Semgrep installed. The app must grant [**Read and write** access for the **Contents** scope](#grant-read-and-write-access-to-a-private-github-semgrep-app) to open Autofix PRs. Existing customers must manually enable this permission if they have not already done so.
+  - **GitHub users** must have the *private* GitHub app for Semgrep installed. The app must grant [**Read and write** access for the **Contents** scope](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) to open Autofix PRs. Existing customers must manually enable this permission if they have not already done so.
     - Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
-- Optionally: if you have [a private registry, connect it to Semgrep](#connect-a-private-registry-to-semgrep) to improve results.
+- Optionally: if you have [a private registry, connect it to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) to improve results.
 
 The following table summarizes the features available to you depending on the prerequisites you meet:
 
-| Semgrep features available | [Read and write access on the `contents` scope granted](#grant-read-and-write-access-to-a-private-github-semgrep-app) | [Code access granted to Semgrep through installation of the private GitHub app](/deployment/managed-scanning/github#permissions) | [Semgrep Multimodal enabled](/semgrep-multimodal/getting-started) | [Private registry connected to Semgrep](#connect-a-private-registry-to-semgrep) |
+| Semgrep features available | [Read and write access on the `contents` scope granted](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) | [Code access granted to Semgrep through installation of the private GitHub app](/deployment/managed-scanning/github#permissions) | [Semgrep Multimodal enabled](/semgrep-multimodal/getting-started) | [Private registry connected to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) |
 | :--- | :--- | :--- | :--- | :--- |
 | All Autofix and Upgrade guidance features, including:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> |
 | All Autofix and Upgrade guidance features, but <b>not for dependencies in a private registry</b>:<ul><li>Upgrade filter for Findings</li><li>Upgrade guidance on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Coupled or blocked upgrade information shown on the <Tooltip tip="Result of Semgrep's analysis generated when a rule matches code. Findings can represent security issues, bugs, or violations of conventions." cta="See full definition." href="/writing-rules/glossary#finding">Finding</Tooltip> Details page</li><li>Ability to open a PR to upgrade</li></ul> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="check" iconType="solid"/> | <Icon icon="triangle-exclamation" iconType="solid"/> The private registry is not connected to Semgrep |
@@ -65,6 +65,15 @@ The following chart illustrates the steps Semgrep performs, from scanning to ana
 <Frame>
 ![Flowchart explaining how Semgrep provides Upgrade guidance and possible actions to take based on its advice.](/images/upgrade-guidance-flowchart-b8ff76ae3e794eecb0217fbbee21beef.png)
 </Frame>
+
+## Why Upgrade guidance may not appear when your project uses private packages
+
+To generate Upgrade guidance, Semgrep does not simply look up the vulnerable package. It runs your package manager's own dependency resolver to verify that the upgrade works in your project and to detect any other dependencies that must move with it.
+
+Dependency resolution is all-or-nothing: the resolver must fetch metadata for every package in the manifest, not just the vulnerable one. If even one package lives in a private registry that Semgrep cannot authenticate to, resolution cannot complete, and there is no way to produce a trustworthy result while skipping that package. When this happens, Semgrep does not display partial or unverified guidance for findings in that manifest. No guidance is shown rather than guidance that could not be fully verified.
+
+- **The impact is per manifest, not per finding.** A single unresolvable private package can suppress Upgrade guidance for all findings in that manifest or lockfile, including findings on public packages.
+- **Connecting your private registry helps.** [Connect your private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) so that the resolver can authenticate to it. For example, private PyPI registries are supported once connected.
 
 ## Review a finding's Upgrade guidance 
 

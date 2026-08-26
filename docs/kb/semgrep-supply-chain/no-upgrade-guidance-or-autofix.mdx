@@ -7,5 +7,6 @@ If you cannot see any **Breaking changes** or **Safe to upgrade** badges or find
 - [Your language or package ecosystem is not supported](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix#prerequisites).
 - [Your source code manager is not supported](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix#prerequisites).
 - You have not granted Semgrep **Read and write** access to your repository. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
+- Your project depends on packages in a private registry that Semgrep cannot authenticate to. A single unresolvable package suppresses Upgrade guidance for all findings in that manifest or lockfile, including findings on public packages. See [Why Upgrade guidance may not appear when your project uses private packages](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix#why-upgrade-guidance-may-not-appear-when-your-project-uses-private-packages) and [Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
 - Your findings do not have safe versions to upgrade to yet.
 - You have no findings within the supported scope of this feature.
