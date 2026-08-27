@@ -65,11 +65,11 @@ Before you set up SCIM, confirm you have the following:
 - [SSO configured and active](/deployment/sso) in your deployment.
 - [Admin privileges](/deployment/teams/overview#roles-and-access) for your Semgrep deployment.
 - Permission in your identity provider to manage the Semgrep application. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta#prerequisites) or [SCIM provisioning with Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#prerequisites) for provider-specific requirements.
-- Optional: Enable [Teams (beta)](/deployment/teams/overview) only if you want SCIM to create and manage Semgrep teams from IdP groups. Teams is not required for user provisioning or deployment-level role mapping.
+- Optional: Enable [Teams (beta)](/deployment/teams/overview) only if you want SCIM to create and manage Semgrep teams from IdP groups. Teams isn't required for user provisioning or deployment-level role mapping.
 
 ## Set up SCIM
 
-Start in Semgrep AppSec Platform, then complete setup in your identity provider using the article for your IdP.
+Start in Semgrep AppSec Platform, then complete setup in your identity provider using the IdP-specific article.
 
 <Steps>
 <Step>
@@ -86,7 +86,7 @@ Select your IdP (**Okta** or **Microsoft Entra ID**).
 </Step>
 </Steps>
 
-The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the article for your IdP.
+The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the IdP-specific article.
 
 <CardGroup>
   <Card title="SCIM provisioning with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
@@ -126,7 +126,7 @@ New SCIM-provisioned users receive the **Member** role until they belong to a ro
 
 ## Manage teams with SCIM
 
-If [Teams (beta)](/deployment/teams/overview) is enabled, SCIM can create and manage Semgrep teams from IdP groups. Teams is not required for user provisioning or deployment-level role mapping.
+If [Teams (beta)](/deployment/teams/overview) is enabled, SCIM can create and manage Semgrep teams from IdP groups. Teams isn't required for user provisioning or deployment-level role mapping.
 
 ### Group naming
 
@@ -150,20 +150,20 @@ How you assign and sync groups depends on your identity provider:
 
 ## Limitations
 
-While this feature is in beta, the following limitations:
+While this feature is in beta, the following limitations apply:
 
 - Only Okta and Microsoft Entra ID workflows are supported.
-- Once SCIM is active, you cannot manage SSO users or teams through Semgrep AppSec Platform.
-- SCIM updates are not instantaneous. Okta changes can take up to a minute; Entra ID uses a 40-minute provisioning cycle by default unless you **Provision on demand**.
-- Sub-teams and team-managed projects cannot be controlled through SCIM.
-- Disabling SCIM does not deprovision members from the deployment.
+- Once SCIM is active, you can't manage SSO users or teams through Semgrep AppSec Platform.
+- SCIM updates aren't instantaneous. Okta changes can take up to a minute; Entra ID uses a 40-minute provisioning cycle by default unless you **Provision on demand**.
+- Sub-teams and team-managed projects can't be controlled through SCIM.
+- Disabling SCIM doesn't deprovision members from the deployment.
 - SCIM applies to one Semgrep deployment. Don't share a single SAML/SCIM application across multiple deployments.
 
 For provider-specific behavior and edge cases, see [Okta](/kb/semgrep-appsec-platform/scim-okta#okta-specific-behavior-and-limitations) and [Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#entra-id-specific-behavior-and-limitations).
 
 ## Disable SCIM
 
-Disabling SCIM disconnects directory sync and removes the connected directory configuration from Semgrep. Disabling SCIM does not deprovision members from the deployment.
+Disabling SCIM disconnects directory sync and removes the connected directory configuration from Semgrep. Disabling SCIM doesn't deprovision members from the deployment.
 
 <Warning>
 **WARNING**
