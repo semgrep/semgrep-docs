@@ -14,7 +14,7 @@ SCIM keeps user access and membership synchronized between your IdP and Semgrep.
 
 SCIM manages user access, while [SSO](/deployment/sso) manages authentication. You must configure SSO authentication before setting up SCIM.
 
-This page is a setup guide for SCIM provisioning. Only the Okta and Microsoft Entra ID workflows documented here are tested and supported during the beta.
+This article covers SCIM provisioning setup. Only the Okta and Microsoft Entra ID workflows documented here are tested and supported during the beta.
 
 ## What SCIM manages
 
@@ -69,7 +69,7 @@ Before you set up SCIM, confirm you have the following:
 
 ## Set up SCIM
 
-Start in Semgrep AppSec Platform, then complete setup in your identity provider using the guide for your IdP.
+Start in Semgrep AppSec Platform, then complete setup in your identity provider using the article for your IdP.
 
 <Steps>
 <Step>
@@ -86,7 +86,7 @@ Select your IdP (**Okta** or **Microsoft Entra ID**).
 </Step>
 </Steps>
 
-The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the guide for your IdP.
+The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the article for your IdP.
 
 <CardGroup>
   <Card title="SCIM provisioning with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
@@ -139,14 +139,14 @@ To create a Semgrep team from an IdP group, add `[team]` or `[team:<role>]` to t
 | `Team 1 [team:member]` | Team 1 | **Member** |
 | `Team 1 [team:readonly]` | Team 1 | **Read-only** |
 
-Don't assign deployment roles to team groups in the Directory Setup Portal. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta#team-management) or [SCIM provisioning with Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#team-management) for provider-specific team management steps.
+Don't assign deployment roles to team groups in the Directory Setup Portal. See [SCIM provisioning with Okta](/kb/semgrep-appsec-platform/scim-okta#manage-teams) or [SCIM provisioning with Microsoft Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#manage-teams) for provider-specific team management steps.
 
 ### Identity-provider group behavior
 
 How you assign and sync groups depends on your identity provider:
 
-- **Okta** separates application **Assignments** and **Push Groups**. Use assignment groups to provision users into the deployment, and separate push groups for deployment role mapping and teams. Don't use the same group for both. See [Assignments versus push groups](/kb/semgrep-appsec-platform/scim-okta#assignments-versus-push-groups) in the Okta guide.
-- **Microsoft Entra ID** uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. Review group membership before assignment, because assigning a group provisions all of its members. See [Group assignments](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#group-assignments) in the Entra ID guide.
+- **Okta** separates application **Assignments** and **Push Groups**. Use assignment groups to provision users into the deployment, and separate push groups for deployment role mapping and teams. Don't use the same group for both. See [Understand assignments and push groups](/kb/semgrep-appsec-platform/scim-okta#understand-assignments-and-push-groups) in the Okta article.
+- **Microsoft Entra ID** uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. Review group membership before assignment, because assigning a group provisions all of its members. See [Understand group assignments](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#understand-group-assignments) in the Entra ID article.
 
 ## Limitations
 
@@ -159,7 +159,7 @@ While this feature is in beta, the following limitations:
 - Disabling SCIM does not deprovision members from the deployment.
 - SCIM applies to one Semgrep deployment. Don't share a single SAML/SCIM application across multiple deployments.
 
-For provider-specific behavior and edge cases, see [Okta](/kb/semgrep-appsec-platform/scim-okta#expected-behavior-and-known-limitations) and [Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#expected-behavior-and-known-limitations).
+For provider-specific behavior and edge cases, see [Okta](/kb/semgrep-appsec-platform/scim-okta#okta-specific-behavior-and-limitations) and [Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#entra-id-specific-behavior-and-limitations).
 
 ## Disable SCIM
 
