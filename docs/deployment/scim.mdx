@@ -69,7 +69,7 @@ Before you set up SCIM, confirm you have the following:
 
 ## Set up SCIM
 
-Start in Semgrep AppSec Platform, then complete setup in your identity provider using the IdP-specific article.
+Start in Semgrep AppSec Platform, then complete setup in your identity provider using the IdP-specific guide.
 
 <Steps>
 <Step>
@@ -86,7 +86,7 @@ Select your IdP (**Okta** or **Microsoft Entra ID**).
 </Step>
 </Steps>
 
-The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the IdP-specific article.
+The Directory Setup Portal walks you through creating or linking an application, configuring provisioning, assigning users and groups, mapping groups to roles, and testing the directory connection. Provider-specific steps differ; follow the complete workflow in the IdP-specific guide.
 
 <CardGroup>
   <Card title="SCIM provisioning with Okta" icon="shield-check" href="/kb/semgrep-appsec-platform/scim-okta" horizontal />
@@ -145,8 +145,8 @@ Don't assign deployment roles to team groups in the Directory Setup Portal. See 
 
 How you assign and sync groups depends on your identity provider:
 
-- **Okta** separates application **Assignments** and **Push Groups**. Use assignment groups to provision users into the deployment, and separate push groups for deployment role mapping and teams. Don't use the same group for both. See [Understand assignments and push groups](/kb/semgrep-appsec-platform/scim-okta#understand-assignments-and-push-groups) in the Okta article.
-- **Microsoft Entra ID** uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. Review group membership before assignment, because assigning a group provisions all of its members. See [Understand group assignments](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#understand-group-assignments) in the Entra ID article.
+- **Okta** separates application **Assignments** and **Push Groups**. Use assignment groups to provision users into the deployment, and separate push groups for deployment role mapping and teams. Don't use the same group for both. See [Understand assignments and push groups](/kb/semgrep-appsec-platform/scim-okta#understand-assignments-and-push-groups) in the Okta guide.
+- **Microsoft Entra ID** uses **group assignment** to the Semgrep enterprise application for provisioning, deployment role mapping, and team creation. There is no separate push-groups workflow. Review group membership before assignment, because assigning a group provisions all of its members. See [Understand group assignments](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#understand-group-assignments) in the Entra ID guide.
 
 ## Limitations
 
