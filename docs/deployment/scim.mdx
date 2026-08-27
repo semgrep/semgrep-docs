@@ -10,9 +10,11 @@ SCIM provisioning is in **beta**. Beta features are subject to change based on c
 
 System for Cross-domain Identity Management (SCIM) lets you provision, update, and deprovision members of your Semgrep deployment from your identity provider (IdP). You can also use identity provider groups to assign deployment roles and, optionally, manage Semgrep teams.
 
-SCIM manages user access and membership. It does not control how users authenticate. Configure [SSO authentication](/deployment/sso) before setting up SCIM.
+SCIM keeps user access and membership synchronized between your IdP and Semgrep. For example, when you add, update, or remove a user in your IdP, SCIM applies the corresponding change in Semgrep automatically.
 
-Only the Okta and Microsoft Entra ID workflows documented in this guide are tested and supported during the beta.
+SCIM manages user access, while [SSO](/deployment/sso) manages authentication. You must configure SSO authentication before setting up SCIM.
+
+This page is a setup guide for SCIM provisioning. Only the Okta and Microsoft Entra ID workflows documented here are tested and supported during the beta.
 
 ## What SCIM manages
 
@@ -21,14 +23,30 @@ With SCIM enabled, Semgrep supports:
 - **User provisioning**: Create Semgrep members when users are assigned to the Semgrep application in your IdP.
 - **Profile updates**: Update member profile attributes when they change in your IdP.
 - **Deprovisioning**: Remove Semgrep access when users are unassigned or deactivated in your IdP.
-- **Deployment role assignment**: Map IdP groups to Semgrep roles in the Directory Setup Portal.
+- **Deployment role assignment**: Map IdP groups to Semgrep roles such as **Admin**, **Member**, or **Read-only**.
 - **Team creation from IdP groups** (optional): When [Teams (beta)](/deployment/teams/overview) is enabled, IdP groups that follow Semgrep's `[team]` naming convention can create Semgrep teams for project-scoped access.
 
 Members provisioned through SCIM are matched and managed by email address. Users who predated the directory connection are matched to existing Semgrep accounts when they use the same SSO connection.
 
 ## How SCIM works with SSO
 
-Use SSO for authentication and SCIM for user lifecycle management. Relying on SSO alone often means role and membership changes only apply after the user signs in again.
+SCIM and SSO share your IdP and Semgrep deployment. SSO handles sign-in; SCIM handles membership and roles between sign-ins. Relying on SSO alone often means role and membership changes only apply after the user signs in again.
+
+```mermaid
+flowchart LR
+    A["Identity provider<br/>Okta or Microsoft Entra ID"]
+    B["SCIM<br/>Manages users, roles, and teams"]
+    C["Semgrep<br/>Membership and access"]
+    D["SSO<br/>Authenticates users"]
+
+    A -->|"Directory changes"| B
+    B -->|"Provision, update, or deprovision"| C
+    A -->|"Sign-in request"| D
+    D -->|"Verify identity"| C
+
+    classDef semgrep fill:#E6F5EF,stroke:#E6F5EF,color:#0B3D2E
+    class A,B,C,D semgrep
+```
 
 SSO and SCIM work together but serve different purposes:
 
@@ -40,6 +58,8 @@ SSO and SCIM work together but serve different purposes:
 | Deactivate access when a user is removed in the IdP | Depends on JIT behavior | Yes, when the IdP deprovisions the user |
 
 ## Prerequisites
+
+Before you set up SCIM, confirm you have the following:
 
 - A Semgrep plan that includes SSO. Contact your Semgrep account team if you are unsure whether your plan includes SSO.
 - [SSO configured and active](/deployment/sso) in your deployment.
@@ -130,7 +150,7 @@ How you assign and sync groups depends on your identity provider:
 
 ## Limitations
 
-During the public beta:
+While this feature is in beta, the following limitations:
 
 - Only Okta and Microsoft Entra ID workflows are supported.
 - Once SCIM is active, you cannot manage SSO users or teams through Semgrep AppSec Platform.
