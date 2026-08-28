@@ -46,7 +46,7 @@ Developer exception requests is a Semgrep feature that allows you to request tha
     ## Review responses to your requests
 
     **For requests initiated in a PR or MR comment:** Once an admin has reviewed and responded to your request, Semgrep posts a follow-up comment to the existing PR or MR comment thread.
-
+    
     If the admin has **approved** your request and the finding involved was a blocking finding, you can rescan your PR or MR to unblock it. The finding's status in Semgrep AppSec Platform also changes to **Ignored**. If the finding was *not* a blocking finding, the status of the finding in AppSec Platform changes to **Ignored**.
 
     If your request is **denied**, the PR comment informs you of this. The finding's status in Semgrep AppSec Platform changes to **To fix**, indicating that you must address the finding before proceeding.
@@ -59,10 +59,10 @@ Developer exception requests is a Semgrep feature that allows you to request tha
     ## Enable developer exception requests
 
     To enable exception requests:
-
+    
     1. Sign in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login) with an admin account.
     1. Go to [**Rules & Policies > Policies**](https://semgrep.dev/orgs/-/policies), and ensure that you're on the **Remediation** tab.
-    1. [Create a new remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy), or modify an existing remediation policy by finding the policy of interest, then clicking **<Icon icon="ellipsis" /> icon** to open the policy definition.
+    1. [Create a new remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy), or modify an existing remediation policy by finding the policy of interest, then clicking **<Icon icon="ellipsis" /> icon** to open the policy definition. 
     1. In the policy defintion, go to **Action**. Then, ensure that one of the actions you select is **Require developer exception requests** and you provide the handle of the person who approves the requests.
 
     Once you enable exception requests:
@@ -74,7 +74,7 @@ Developer exception requests is a Semgrep feature that allows you to request tha
 
     Semgrep admins can review and approve or deny exception requests in Semgrep AppSec Platform.
 
-    1. Log in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login). Ensure that the account you're using has been granted admin privileges.
+    1. Log in to [<i class="fas fa-external-link fa-xs"></i> Semgrep AppSec Platform](https://semgrep.dev/login). Ensure that the account you're using has been granted admin privileges. 
     1. Go to the **Findings** page for the product of interest: [Code](https://semgrep.dev/orgs/-/findings), [Supply Chain](https://semgrep.dev/orgs/-/supply-chain), or [Secrets](https://semgrep.dev/orgs/-/secrets).
     1. Click on the **Pending approval** tab to view all pending requests.
 
@@ -83,5 +83,4 @@ Developer exception requests is a Semgrep feature that allows you to request tha
     When you deny an exception request, Semgrep posts a new comment to the PR or MR to inform the developer that their request was denied. The finding's status in Semgrep AppSec Platform changes to **To fix** to indicate that the finding must be addressed through code changes.
 
     </Tab>
-
 </Tabs>
