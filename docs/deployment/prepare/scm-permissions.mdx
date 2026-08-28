@@ -213,6 +213,12 @@ Semgrep does **not** read or write file contents through the API's `contents` en
 
 <div id="github-personal-access-tokens" />
 
+<Note>
+**Managed Scans on GitHub**
+
+[Semgrep Managed Scans](/deployment/managed-scanning/github) for GitHub still require the public and private Semgrep GitHub Apps. A PAT alone does not replace those apps for Managed Scans.
+</Note>
+
 Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App, or alongside a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when org policy requires them.
 
 A PAT can only grant access that the creating GitHub user already has. Use a dedicated machine user when possible. That user must be a member of the target organization, or a collaborator on the selected repositories. For [Autofix](/semgrep-code/triage-remediation/autofix), the user must be able to push branches and open pull requests on those repositories.
@@ -225,20 +231,15 @@ When you save a token or click **Test** on [**Settings > Source code managers**]
 | Code access | Same as above; user must be able to read the target repositories | <ul><li>All **Connect or Test** requirements</li><li>**Contents: Read**</li></ul> | Same as **Connect or Test**: `repo` or `public_repo`. Classic `repo` includes content read. | [Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections) |
 | Autofix | Same as above; user must be able to push branches and open PRs on the target repositories | <ul><li>All **Code access** requirements</li><li>**Contents: Read and write**</li><li>**Pull requests: Read and write**</li></ul> | `repo`, which includes content write and pull request write. `public_repo` is not enough for private repositories. | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections)</li></ul> |
 
-<Note>
-**Managed Scans on GitHub**
-
-[Semgrep Managed Scans](/deployment/managed-scanning/github) for GitHub still require the public and private Semgrep GitHub Apps. A PAT alone does not replace those apps for Managed Scans.
-</Note>
-
 </Tab>
 </Tabs>
 
-## See also
+## Next steps
 
 - [Grant code access](/semgrep-appsec-platform/scm-code-access): configure code read or write access on an SCM connection
 - [Connect a source code manager](/deployment/connect-scm): connect GitHub, GitLab, Bitbucket, or Azure DevOps
 - [Pre-deployment checklist](/deployment/checklist): organizational readiness before setup
 - [Autofix](/semgrep-code/triage-remediation/autofix): enable and use Autofix
+- [Semgrep Multimodal](/semgrep-multimodal/getting-started): enable Multimodal and related AI-assisted features
 - [GitHub Managed Scans](/deployment/managed-scanning/github): install public and private Semgrep GitHub Apps for Managed Scans
 
