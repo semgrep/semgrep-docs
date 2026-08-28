@@ -1,0 +1,57 @@
+---
+title: "Choose your Semgrep Guardian setup"
+description: "Compare the remote Claude Code plugin against local CLI integrations before installing Semgrep Guardian."
+sidebarTitle: Choose your setup
+---
+
+Guardian has two integration paths. They differ in how you authenticate, where credentials are stored, and which rules run, so choose before you install.
+
+## Compare the two paths
+
+| | Claude Code remote plugin | Local CLI integrations |
+| :--- | :--- | :--- |
+| **Agents** | Claude Code | Cursor, Codex, GitHub Copilot, VS Code, Devin (Windsurf), Kiro, other MCP-compatible agents, and the local Claude Code plugin |
+| **Semgrep CLI required** | No | Yes |
+| **Authentication** | OAuth, one-time browser login | `semgrep login` |
+| **Credentials file** | `~/.semgrep/guardian.yml` | `~/.semgrep/settings.yml` |
+| **Rules** | Default [Guardian ruleset](https://semgrep.dev/p/guardian-default), not configurable | Rules enabled in your organization's Policies |
+| **Recommended** | Yes | Only if you use another agent |
+
+<Info>
+If OAuth credentials are present in `guardian.yml`, Guardian uses them instead of any API token in `settings.yml`. See [Authentication](/semgrep-guardian/authentication) if scans run under an unexpected account.
+</Info>
+
+## Set up with Claude Code (recommended)
+
+Follow the [Quickstart](/semgrep-guardian/quickstart), or see [Claude Code setup](/semgrep-guardian/ide-setup/claude-code) for the local plugin option and more detail.
+
+## Set up with another coding agent
+
+Each of these integrations needs the [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli) first.
+
+<CardGroup cols={2}>
+  <Card title="Cursor" icon="arrow-pointer" href="/semgrep-guardian/ide-setup/cursor">
+    Hooks and MCP through the Cursor Plugin Marketplace.
+  </Card>
+  <Card title="Codex" icon="terminal" href="/semgrep-guardian/ide-setup/codex">
+    MCP server via `~/.codex/config.toml`.
+  </Card>
+  <Card title="GitHub Copilot" icon="github" href="/semgrep-guardian/ide-setup/github-copilot">
+    MCP in Visual Studio, JetBrains, Xcode, or Eclipse.
+  </Card>
+  <Card title="VS Code" icon="code" href="/semgrep-guardian/ide-setup/vscode">
+    MCP server for Copilot Chat Agent mode.
+  </Card>
+  <Card title="Devin (Windsurf)" icon="wind" href="/semgrep-guardian/ide-setup/devin-windsurf">
+    Cascade hooks after file writes.
+  </Card>
+  <Card title="Kiro" icon="bolt" href="/semgrep-guardian/ide-setup/kiro">
+    MCP server with local Semgrep CLI.
+  </Card>
+  <Card title="Other agents" icon="puzzle-piece" href="/semgrep-guardian/ide-setup/other">
+    Generic MCP or hook configuration.
+  </Card>
+  <Card title="Claude Code (local)" icon="robot" href="/semgrep-guardian/ide-setup/claude-code">
+    Run Guardian against a local Semgrep CLI instead of the remote server.
+  </Card>
+</CardGroup>

@@ -204,15 +204,9 @@
                 ]
               },
               {
-                "group": "Integrations",
+                "group": "AppSec Platform integrations",
+                "root": "category/appsec-platform-integrations",
                 "pages": [
-                  {
-                    "group": "Semgrep Guardian",
-                    "root": "/semgrep-guardian/overview",
-                    "pages": [
-                      "semgrep-guardian/enterprise-deployment"
-                    ]
-                  },
                   "semgrep-appsec-platform/cortex",
                   "semgrep-appsec-platform/jira",
                   "semgrep-appsec-platform/sysdig",
@@ -279,7 +273,7 @@
                       {
                         "group": "View findings",
                         "root": "semgrep-supply-chain/findings",
-                        "pages": [  
+                        "pages": [
                           "semgrep-supply-chain/finding-details"
                         ]
                       },
@@ -292,7 +286,7 @@
                     "group": "Triage and fix vulnerabilities",
                     "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix"
+                      "semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix"
                     ]
                   },
                   {
@@ -426,6 +420,46 @@
               "semgrepignore-v2-reference",
               "cli-reference",
               "semgrep-appsec-platform/json-and-sarif"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Scan AI-written code",
+        "groups": [
+          {
+            "group": "Semgrep Guardian",
+            "pages": [
+              "semgrep-guardian/overview",
+              "semgrep-guardian/quickstart"
+            ]
+          },
+          {
+            "group": "Set up your coding agent",
+            "pages": [
+              "semgrep-guardian/choose-your-setup",
+              "semgrep-guardian/install-cli",
+              "semgrep-guardian/ide-setup/claude-code",
+              "semgrep-guardian/ide-setup/cursor",
+              "semgrep-guardian/ide-setup/codex",
+              "semgrep-guardian/ide-setup/github-copilot",
+              "semgrep-guardian/ide-setup/vscode",
+              "semgrep-guardian/ide-setup/devin-windsurf",
+              "semgrep-guardian/ide-setup/kiro",
+              "semgrep-guardian/ide-setup/other"
+            ]
+          },
+          {
+            "group": "Using Semgrep Guardian",
+            "pages": [
+              "semgrep-guardian/rules-and-configuration"
+            ]
+          },
+          {
+            "group": "Deploy across your organization",
+            "pages": [
+              "semgrep-guardian/authentication",
+              "semgrep-guardian/enterprise-deployment"
             ]
           }
         ]

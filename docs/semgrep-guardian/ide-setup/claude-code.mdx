@@ -1,0 +1,75 @@
+---
+title: Set up Semgrep Guardian with Claude Code
+description: Install Semgrep Guardian in Claude Code using the remote plugin (recommended) or the local plugin.
+sidebarTitle: Claude Code
+---
+
+Integrate Semgrep Guardian with Claude Code for scans of AI-generated code via [hooks](https://code.claude.com/docs/en/hooks) and [plugins](https://code.claude.com/docs/en/plugins).
+
+**Claude Code is the recommended Guardian setup.** The remote plugin uses Semgrep's hosted server and OAuth, so you do not need to install the Semgrep CLI locally.
+
+## Prerequisites
+
+* A Semgrep account
+* Claude Code installed (`claude` command)
+
+## Setup (remote plugin)
+
+Install the Guardian plugin from the Claude Marketplace:
+
+```bash
+claude plugin install semgrep@claude-plugins-official
+```
+
+Start a new Claude Code session (`claude`) to log in to Semgrep.
+
+The plugin registers a post-tool hook so Claude Code scans every file it writes.
+
+<Info>
+  **For Windows machines:** [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) is required. Native Windows is unsupported.
+</Info>
+
+## Run Semgrep Guardian locally
+
+The remote server is the recommended default. If you need to run Semgrep locally instead, you can install the local plugin from the [`semgrep/guardian-local`](https://github.com/semgrep/guardian-local) repo.
+
+<Steps>
+  <Step>
+    [Install the Semgrep CLI](/semgrep-guardian/install-cli).
+  </Step>
+  <Step>
+    Start a Claude Code instance:
+
+    ```bash
+    claude
+    ```
+  </Step>
+  <Step>
+    Open the plugin manager:
+
+    ```bash
+    /plugin
+    ```
+  </Step>
+  <Step>
+    Go to **Discover**. Search for **Semgrep**, and then click **Install**.
+  </Step>
+  <Step>
+    Load the plugin:
+
+    ```bash
+    /reload-plugins
+    ```
+  </Step>
+</Steps>
+
+## What rules does this setup use?
+
+* **Remote plugin (default):** scans with the default [Guardian ruleset](https://semgrep.dev/p/guardian-default). This is not currently configurable.
+* **Local plugin:** scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for OAuth credentials and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)

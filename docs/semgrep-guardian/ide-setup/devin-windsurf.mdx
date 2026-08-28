@@ -1,0 +1,51 @@
+---
+title: Set up Semgrep Guardian with Devin (Windsurf)
+description: Configure Cascade hooks so Windsurf runs Semgrep after file writes.
+sidebarTitle: Devin (Windsurf)
+---
+
+Integrate Semgrep Guardian with Devin (Windsurf) through [Cascade hooks](https://docs.windsurf.com/windsurf/cascade/hooks).
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+<Steps>
+  <Step>
+    [Install the Semgrep CLI](/semgrep-guardian/install-cli).
+  </Step>
+  <Step>
+    Create a `hooks.json` file at `~/.codeium/windsurf/hooks.json` and paste the following configuration:
+
+    ```json
+    {
+      "hooks": {
+        "post_write_code": [
+          {
+            "command": "semgrep mcp -k post-tool-cli-scan -a windsurf",
+            "show_output": true
+          }
+        ]
+      }
+    }
+    ```
+  </Step>
+  <Step>
+    Restart Windsurf to apply hook configuration.
+  </Step>
+</Steps>
+
+The `post_write_code` event fires after Cascade writes or modifies any file.
+
+## What rules does this setup use?
+
+This integration scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)

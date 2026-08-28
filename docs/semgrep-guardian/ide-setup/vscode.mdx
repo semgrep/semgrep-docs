@@ -1,0 +1,49 @@
+---
+title: Set up Semgrep Guardian with VS Code
+description: Configure the Semgrep MCP server for VS Code Copilot Chat Agent mode.
+sidebarTitle: VS Code
+---
+
+Integrate Semgrep Guardian with VS Code through [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+<Steps>
+  <Step>
+    [Install the Semgrep CLI](/semgrep-guardian/install-cli).
+  </Step>
+  <Step>
+    Add the Semgrep MCP server to VS Code. Create `.vscode/mcp.json` in your workspace (or run the **MCP: Open User Configuration** command from the Command Palette for a user-wide entry) and paste the following:
+
+    ```json
+      {
+        "servers": {
+          "semgrep": {
+              "command": "semgrep",
+              "args": ["mcp"]
+          }
+        }
+      }
+      ```
+  </Step>
+  <Step>
+    Reload VS Code. Semgrep tools become available in the Copilot Chat **Agent** mode.
+  </Step>
+</Steps>
+
+VS Code does not expose a post-write hook today, so Semgrep tools are invoked when the agent calls them through MCP.
+
+## What rules does this setup use?
+
+This integration scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)

@@ -1,0 +1,41 @@
+---
+title: Set up Semgrep Guardian with Cursor
+description: Install Semgrep Guardian in Cursor using hooks and MCP.
+sidebarTitle: Cursor
+---
+
+Integrate Semgrep Guardian with Cursor through [hooks](https://cursor.com/docs/hooks) and [MCP](https://cursor.com/docs/mcp).
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+<Steps>
+  <Step>
+    [Install the Semgrep CLI](/semgrep-guardian/install-cli).
+  </Step>
+  <Step>
+    Find Semgrep in the [Cursor Plugin Marketplace](https://cursor.com/marketplace/semgrep), or open **Cursor > ⌘⇧J > Plugins**. Search "Semgrep" and click **Add to Cursor**.
+  </Step>
+  <Step>
+    Restart Cursor to apply configuration.
+  </Step>
+  <Step>
+    In Cursor's chat, run the `/setup-semgrep-plugin` skill to finish wiring up the plugin.
+
+    The plugin uses Cursor hooks (`afterFileEdit` and `stop`) to scan code as the agent writes it, and exposes Semgrep tools through Cursor MCP.
+  </Step>
+</Steps>
+
+## What rules does this setup use?
+
+This integration scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)

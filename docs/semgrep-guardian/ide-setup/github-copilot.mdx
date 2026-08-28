@@ -1,0 +1,52 @@
+---
+title: Set up Semgrep Guardian with GitHub Copilot
+description: Configure the Semgrep MCP server for GitHub Copilot in Visual Studio, JetBrains, Xcode, or Eclipse.
+sidebarTitle: GitHub Copilot
+---
+
+Integrate Semgrep Guardian with GitHub Copilot through [MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) in Visual Studio, JetBrains IDEs, Xcode, or Eclipse.
+
+For Copilot in VS Code, see [VS Code setup](/semgrep-guardian/ide-setup/vscode).
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+<Steps>
+  <Step>
+    [Install the Semgrep CLI](/semgrep-guardian/install-cli).
+  </Step>
+  <Step>
+    Register the Semgrep MCP server with your IDE's Copilot configuration. The JSON shape is the same across IDEs:
+
+    ```json
+      {
+        "servers": {
+          "semgrep": {
+              "command": "semgrep",
+              "args": ["mcp"]
+          }
+        }
+      }
+      ```
+    Follow your IDE's instructions for *where* to put this entry: [Extending Copilot Chat with MCP servers](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) covers Visual Studio, JetBrains, Xcode, and Eclipse.
+  </Step>
+  <Step>
+    Restart your IDE and open Copilot Chat. Semgrep tools become available in **Agent** mode.
+  </Step>
+</Steps>
+
+Copilot does not expose a post-write hook, so Semgrep tools are invoked when the agent calls them through MCP.
+
+## What rules does this setup use?
+
+This integration scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)

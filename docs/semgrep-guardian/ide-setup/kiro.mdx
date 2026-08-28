@@ -1,0 +1,44 @@
+---
+title: Set up Semgrep Guardian with Kiro
+description: Add the Semgrep MCP server to Kiro.
+sidebarTitle: Kiro
+---
+
+Integrate Semgrep Guardian with Kiro through [Kiro MCP](https://kiro.dev/docs/mcp/). Kiro uses your locally installed Semgrep CLI to run Semgrep on your machine.
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+[Install the Semgrep CLI](/semgrep-guardian/install-cli) first. Clicking the box below opens Kiro directly so you can add the server; it will not open a new browser tab.
+
+[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=semgrep&config=%7B%22command%22%3A%22semgrep%22%2C%22args%22%3A%5B%22mcp%22%5D%2C%22env%22%3A%7B%22SEMGREP_APP_TOKEN%22%3A%22%24%7BSEMGREP_TOKEN%7D%22%7D%7D)
+
+Alternatively, add this file to your `.kiro/settings/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "semgrep": {
+      "command": "semgrep",
+      "args": ["mcp"],
+      "env": {
+        "SEMGREP_APP_TOKEN": "${SEMGREP_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+## What rules does this setup use?
+
+This integration scans with the rules enabled for your Semgrep organization through your Policies.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)
