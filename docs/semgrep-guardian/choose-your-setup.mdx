@@ -14,12 +14,14 @@ Guardian has two integration paths. They differ in how you authenticate, where c
 | **Semgrep CLI required** | No | Yes |
 | **Authentication** | OAuth, one-time browser login | `semgrep login` |
 | **Credentials file** | `~/.semgrep/guardian.yml` | `~/.semgrep/settings.yml` |
-| **Rules** | Default [Guardian ruleset](https://semgrep.dev/p/guardian-default), not configurable | Rules enabled in your organization's Policies |
+| **Rules** | Fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset | Fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset |
 | **Recommended** | Yes | Only if you use another agent |
 
 <Info>
 If OAuth credentials are present in `guardian.yml`, Guardian uses them instead of any API token in `settings.yml`. See [Authentication](/semgrep-guardian/authentication) if scans run under an unexpected account.
 </Info>
+
+Note that **rules are not a differentiator between these paths**. Both scan with the same fixed ruleset, and neither applies the rules enabled in your organization's Policies. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
 
 ## Set up with Claude Code (recommended)
 
