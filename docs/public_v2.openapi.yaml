@@ -1758,7 +1758,7 @@ paths:
                     type: boolean
                 - name: includeIsArchived
                   in: query
-                  description: When true, populate the is_archived field on the response. Defaults to false.
+                  description: When true, populate the `isArchived` field on the response. Defaults to false.
                   schema:
                     type: boolean
             responses:
@@ -5301,6 +5301,190 @@ paths:
                 metadata:
                     tag: "Beta"
                 content: "<Note>This endpoint is in **beta**. It may still change before it reaches general availability.</Note>"
+    /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/findings:
+        get:
+            tags:
+                - SemgrepWorkflowsService
+            summary: Get workflow job findings
+            description: Returns the findings produced by a completed workflow job.
+            operationId: GetWorkflowJobFindings
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: The unique numerical identifier of the deployment. Can be found via the Deployments Service or in your Settings in the web UI.
+                    format: int64
+                - name: jobId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                    description: The unique identifier of the workflow job.
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.ai.v1.GetWorkflowJobFindingsResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/overview:
+        get:
+            tags:
+                - SemgrepWorkflowsService
+            summary: Get workflow job overview
+            description: Returns run-level metadata and a registry-derived step skeleton for a workflow job, without listing run artifacts — a fast first paint. Pair with GetWorkflowJobGraph to stream live step/task status separately.
+            operationId: GetSemgrepAgenticWorkflowJobOverview
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: The unique numerical identifier of the deployment. Can be found via the Deployments Service or in your Settings in the web UI.
+                    format: int64
+                - name: jobId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                    description: The unique identifier of the workflow job.
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.ai.v1.GetWorkflowJobOverviewResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/workflows/v1/deployments/{deploymentId}/registry:
+        get:
+            tags:
+                - SemgrepWorkflowsService
+            summary: List available workflow types
+            description: Returns the catalog of workflow types available to trigger for a deployment.
+            operationId: GetSemgrepAgenticWorkflowRegistry
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: The unique numerical identifier of the deployment. Can be found via the Deployments Service or in your Settings in the web UI.
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.ai.v1.GetSemgrepWorkflowRegistryResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/workflows/v1/deployments/{deploymentId}/jobs/list:
+        post:
+            tags:
+                - SemgrepWorkflowsService
+            summary: List workflow jobs
+            description: Lists workflow jobs for a deployment, with support for filtering, sorting, and cursor-based pagination.
+            operationId: ListSemgrepAgenticWorkflowJobs
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: The unique numerical identifier of the deployment. Can be found via the Deployments Service or in your Settings in the web UI.
+                    format: int64
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.ai.v1.ListWorkflowJobsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.ai.v1.ListWorkflowJobsResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
+    /api/workflows/v1/deployments/{deploymentId}/trigger:
+        post:
+            tags:
+                - SemgrepWorkflowsService
+            summary: Trigger a workflow run
+            description: Submits a workflow job for a deployment.
+            operationId: TriggerSemgrepAgenticWorkflow
+            parameters:
+                - name: deploymentId
+                  in: path
+                  required: true
+                  schema:
+                    example: "1234"
+                    title: Deployment ID
+                    type: string
+                    description: The unique numerical identifier of the deployment. Can be found via the Deployments Service or in your Settings in the web UI.
+                    format: int64
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/protos.ai.v1.TriggerSemgrepWorkflowRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/protos.ai.v1.TriggerSemgrepWorkflowResponse'
+            security:
+                - SemgrepWebToken: []
+                - SemgrepJWT: []
+            x-badges: [{"name": "Experimental", "position": "after", "color": "red"}]
+            x-mint:
+                metadata:
+                    tag: "Experimental"
+                content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
     /api/agent/deployments/{deploymentId}/slack/installations:
         delete:
             tags:
@@ -7786,6 +7970,8 @@ paths:
                 content: "<Warning>This endpoint is **experimental**. It may change or be removed without notice and is not covered by API stability guarantees.</Warning>"
 components:
     schemas:
+        google.protobuf.Value:
+            description: Represents a dynamically typed value which can be either null, a number, a string, a boolean, a recursive struct value, or a list of values.
         protos.ai.v1.AiMemorySource:
             type: object
             properties:
@@ -8219,6 +8405,48 @@ components:
                     type: string
                 commentsPrevented:
                     type: string
+        protos.ai.v1.GetSemgrepWorkflowRegistryResponse:
+            type: object
+            properties:
+                workflows:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.GetSemgrepWorkflowRegistryResponse_SemgrepWorkflow'
+        protos.ai.v1.GetSemgrepWorkflowRegistryResponse_SemgrepWorkflow:
+            type: object
+            properties:
+                name:
+                    type: string
+                    description: Immutable workflow identifier
+                description:
+                    type: string
+                targetType:
+                    type: string
+                    description: '"repo" or "pr"'
+                version:
+                    type: string
+                    description: Semver string, e.g. "1.2.3" or "0.4.0-beta.1"
+                graph:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ai.v1.WorkflowStepGraph'
+                    description: |-
+                        Static step graph for this workflow. Absent for registry entries
+                         published before graph support.
+                displayName:
+                    type: string
+                inputs:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ai.v1.WorkflowInputs'
+                    description: |-
+                        Input schema for this workflow. Absent for registry entries published
+                         before input schema support — callers must fall back to legacy behavior.
+                enabled:
+                    type: boolean
+                    description: |-
+                        Whether this workflow can be run. The registry currently returns only
+                         enabled entries, so this is always true today; it is published so clients
+                         can render a workflow as present-but-unrunnable without a UI change once
+                         the endpoint starts surfacing disabled ones.
         protos.ai.v1.GetTaskInfoResponse:
             type: object
             properties:
@@ -8226,6 +8454,34 @@ components:
                     type: string
                 runsRemaining:
                     type: string
+        protos.ai.v1.GetWorkflowJobFindingsResponse:
+            type: object
+            properties:
+                findings:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/semgrep.wf.v1.Finding'
+                    description: |-
+                        Findings produced by the workflow run, taken from the FindingsReport in
+                         the WorkflowResult result.json artifact.
+        protos.ai.v1.GetWorkflowJobOverviewResponse:
+            type: object
+            properties:
+                summary:
+                    $ref: '#/components/schemas/protos.ai.v1.WorkflowJobSummary'
+                stepSkeleton:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ai.v1.WorkflowJobGraph'
+                    description: |-
+                        Registry-derived step skeleton: every step in topological order, all
+                         PENDING, with no tasks. Built from the published workflow graph without
+                         listing any run artifacts in S3, so it returns immediately for a fast
+                         first paint. Live per-step/task status comes from GetWorkflowJobGraph.
+                         Empty when the workflow has no published static graph.
+                reportSummary:
+                    $ref: '#/components/schemas/protos.ai.v1.WorkflowReportSummary'
+                metadata:
+                    $ref: '#/components/schemas/protos.ai.v1.WorkflowJobMetadata'
         protos.ai.v1.GitHubAppInfo:
             type: object
             properties:
@@ -8263,6 +8519,56 @@ components:
                     items:
                         type: string
                     description: The IDs of memories that were used to generate this guidance
+        protos.ai.v1.JobsFilter:
+            type: object
+            properties:
+                searchQuery:
+                    type: string
+                    description: Free-text search across job identifiers and workflow type.
+                statuses:
+                    enum:
+                        - SEMGREP_WORKFLOW_RUN_STATUS_SUBMITTED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_RUNNING
+                        - SEMGREP_WORKFLOW_RUN_STATUS_COMPLETED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_FAILED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_CANCELLED
+                    type: array
+                    items:
+                        enum:
+                            - SEMGREP_WORKFLOW_RUN_STATUS_UNSPECIFIED
+                            - SEMGREP_WORKFLOW_RUN_STATUS_SUBMITTED
+                            - SEMGREP_WORKFLOW_RUN_STATUS_RUNNING
+                            - SEMGREP_WORKFLOW_RUN_STATUS_COMPLETED
+                            - SEMGREP_WORKFLOW_RUN_STATUS_FAILED
+                            - SEMGREP_WORKFLOW_RUN_STATUS_CANCELLED
+                        type: string
+                        format: enum
+                    description: |+
+                        Filter by one or more statuses.
+
+                        | value | description |
+                        |-------|---------------|
+                        | SEMGREP_WORKFLOW_RUN_STATUS_SUBMITTED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_RUNNING |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_COMPLETED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_FAILED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_CANCELLED |  |
+
+                workflowType:
+                    type: string
+                    description: Filter by workflow type name (e.g. "ssrf-quick", "c-buffer-overflow").
+                eventSource:
+                    type: string
+                    description: 'Filter by event source: "custom" or "pr".'
+                repoId:
+                    type: string
+                    description: Filter by repository ID.
+                targetType:
+                    type: string
+                    description: 'Filter by target type: "pr" or "repo".'
+                repositoryRefId:
+                    type: string
+                    description: Filter by repository ref ID (branch, tag, or other git ref).
         protos.ai.v1.ListMemoriesRequest:
             type: object
             properties:
@@ -8288,6 +8594,46 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.ai.v1.Memory'
+        protos.ai.v1.ListWorkflowJobsRequest:
+            type: object
+            properties:
+                pageSize:
+                    type: integer
+                    description: Maximum number of jobs to return per page.
+                    format: int64
+                cursor:
+                    type: string
+                    description: Opaque pagination cursor returned as `next_cursor` in a previous response.
+                filter:
+                    allOf:
+                        - $ref: '#/components/schemas/protos.ai.v1.JobsFilter'
+                    description: Optional filters to narrow the result set.
+                sortColumn:
+                    type: string
+                    description: 'Field to sort by. Supported values: "started_at", "status", "workflow_type".'
+                sortDirection:
+                    enum:
+                        - SORT_DIRECTION_ASC
+                        - SORT_DIRECTION_DESC
+                    type: string
+                    description: |+
+                        Sort direction.
+
+                        | value | description |
+                        |-------|---------------|
+                        | SORT_DIRECTION_ASC |  |
+                        | SORT_DIRECTION_DESC |  |
+
+                    format: enum
+        protos.ai.v1.ListWorkflowJobsResponse:
+            type: object
+            properties:
+                jobs:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowJobSummary'
+                nextCursor:
+                    type: string
         protos.ai.v1.Memory:
             type: object
             properties:
@@ -8525,6 +8871,53 @@ components:
                         The memory that is associated with re-analyzing the given issue_ids
                          This is only used if someone creates a new memory and re-analyzes the relevant issues that
                          the memory applies to
+        protos.ai.v1.TriggerSemgrepWorkflowRequest:
+            type: object
+            properties:
+                repoId:
+                    type: string
+                    description: The unique numerical identifier of the repository to analyze.
+                    format: int64
+                workflowName:
+                    type: string
+                    description: Workflow type to run (e.g., "c-buffer-overflow", "bola-detection", "msaas-dockerfile-fix")
+                gitRef:
+                    type: string
+                    description: Git reference to analyze (branch name, tag, or commit SHA)
+                createPrs:
+                    type: boolean
+                    description: Whether to create fix PRs for detected issues (defaults to true)
+                baseBranch:
+                    type: string
+                    description: Base branch for fix PRs (defaults to "main")
+                findingsAnalysisLimit:
+                    type: integer
+                    description: Maximum number of findings to analyze (defaults to 50)
+                    format: int64
+                prId:
+                    type: string
+                    description: PR number to analyze. When provided, the backend resolves the head and base branches automatically.
+                sideEffects:
+                    type: boolean
+                    description: |-
+                        Whether the workflow may perform side effects (PR comments, posting
+                         results back). Defaults to true; benchmark callers set false.
+                inputs:
+                    type: object
+                    additionalProperties:
+                        $ref: '#/components/schemas/google.protobuf.Value'
+                    description: |-
+                        Arbitrary user-provided inputs for dynamic workflow fields. Keys correspond
+                         to WorkflowInputField.name values from the registry input schema. Only
+                         user/advanced visibility fields should be sent; system/secret fields are
+                         always supplied by the backend and any user-supplied values for those are
+                         ignored. When absent or empty, existing callers are unaffected.
+        protos.ai.v1.TriggerSemgrepWorkflowResponse:
+            type: object
+            properties:
+                jobId:
+                    type: string
+                    description: Canonical job identifier. Use with the Workflow Jobs API to track status and retrieve results.
         protos.ai.v1.UpdateMemoryRequest:
             type: object
             properties:
@@ -8549,6 +8942,485 @@ components:
                     type: string
                     description: The maximum number of analyses allowed in the current period
             description: Simple usage counts returned after queuing analysis tasks
+        protos.ai.v1.WorkflowFinding:
+            type: object
+            properties:
+                file:
+                    type: string
+                startLine:
+                    type: integer
+                    format: int64
+                endLine:
+                    type: integer
+                    format: int64
+                severity:
+                    type: string
+                reasoning:
+                    type: string
+        protos.ai.v1.WorkflowGraphStep:
+            type: object
+            properties:
+                name:
+                    type: string
+                type:
+                    type: string
+                    description: |-
+                        start, linear, join, end, split-static, split-foreach, split-parallel, or
+                         split-switch. Open set: render unknown values as a generic node.
+                next:
+                    type: array
+                    items:
+                        type: string
+                    description: Steps this node transitions to.
+                doc:
+                    type: string
+                    description: First line of the step's docstring (display only).
+                line:
+                    type: integer
+                    description: Source line in the workflow file.
+                    format: int32
+                matchingJoin:
+                    type: string
+                    description: 'For splits: the join step that closes the branch.'
+                foreachArtifact:
+                    type: string
+                    description: 'For split-foreach: the loop-variable artifact name.'
+                numParallel:
+                    type: integer
+                    description: 'For split-parallel: the branch count.'
+                    format: int32
+                condition:
+                    type: string
+                    description: 'For split-switch: the condition variable.'
+                switchCases:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowGraphSwitchCase'
+                    description: 'For split-switch: the case -> step branches.'
+            description: One node in a workflow's static step graph.
+        protos.ai.v1.WorkflowGraphSwitchCase:
+            type: object
+            properties:
+                caseValue:
+                    type: string
+                    description: |-
+                        JSON-encoded case value (e.g. "true", "1", "\"yes\"") so non-string
+                         scalars keep their type.
+                step:
+                    type: string
+            description: One `case -> step` branch of a `split-switch` node.
+        protos.ai.v1.WorkflowInputField:
+            type: object
+            properties:
+                name:
+                    type: string
+                type:
+                    enum:
+                        - WORKFLOW_INPUT_TYPE_STRING
+                        - WORKFLOW_INPUT_TYPE_INTEGER
+                        - WORKFLOW_INPUT_TYPE_NUMBER
+                        - WORKFLOW_INPUT_TYPE_BOOLEAN
+                        - WORKFLOW_INPUT_TYPE_JSON
+                        - WORKFLOW_INPUT_TYPE_FILE
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_INPUT_TYPE_STRING |  |
+                        | WORKFLOW_INPUT_TYPE_INTEGER |  |
+                        | WORKFLOW_INPUT_TYPE_NUMBER |  |
+                        | WORKFLOW_INPUT_TYPE_BOOLEAN |  |
+                        | WORKFLOW_INPUT_TYPE_JSON |  |
+                        | WORKFLOW_INPUT_TYPE_FILE |  |
+
+                    format: enum
+                required:
+                    type: boolean
+                defaultValue:
+                    allOf:
+                        - $ref: '#/components/schemas/google.protobuf.Value'
+                    description: JSON-encodable default value. Absent when required=true or default is null.
+                description:
+                    type: string
+                visibility:
+                    enum:
+                        - WORKFLOW_INPUT_VISIBILITY_USER
+                        - WORKFLOW_INPUT_VISIBILITY_ADVANCED
+                        - WORKFLOW_INPUT_VISIBILITY_SYSTEM
+                        - WORKFLOW_INPUT_VISIBILITY_SECRET
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_INPUT_VISIBILITY_USER |  |
+                        | WORKFLOW_INPUT_VISIBILITY_ADVANCED |  |
+                        | WORKFLOW_INPUT_VISIBILITY_SYSTEM |  |
+                        | WORKFLOW_INPUT_VISIBILITY_SECRET |  |
+
+                    format: enum
+                ui:
+                    enum:
+                        - WORKFLOW_INPUT_UI_TEXT
+                        - WORKFLOW_INPUT_UI_NUMBER
+                        - WORKFLOW_INPUT_UI_CHECKBOX
+                        - WORKFLOW_INPUT_UI_JSON
+                        - WORKFLOW_INPUT_UI_FILE
+                        - WORKFLOW_INPUT_UI_HIDDEN
+                        - WORKFLOW_INPUT_UI_SECRET
+                        - WORKFLOW_INPUT_UI_REPOSITORY_SELECT
+                        - WORKFLOW_INPUT_UI_PR_SELECT
+                        - WORKFLOW_INPUT_UI_BRANCH_SELECT
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_INPUT_UI_TEXT |  |
+                        | WORKFLOW_INPUT_UI_NUMBER |  |
+                        | WORKFLOW_INPUT_UI_CHECKBOX |  |
+                        | WORKFLOW_INPUT_UI_JSON |  |
+                        | WORKFLOW_INPUT_UI_FILE |  |
+                        | WORKFLOW_INPUT_UI_HIDDEN |  |
+                        | WORKFLOW_INPUT_UI_SECRET |  |
+                        | WORKFLOW_INPUT_UI_REPOSITORY_SELECT |  |
+                        | WORKFLOW_INPUT_UI_PR_SELECT |  |
+                        | WORKFLOW_INPUT_UI_BRANCH_SELECT |  |
+
+                    format: enum
+                semanticType:
+                    type: string
+                    description: |-
+                        Open string identifying the semantic role of this field (e.g.
+                         "repository", "branch"). Consumers must treat unknown values as generic
+                         fields for forward compatibility.
+            description: Metadata for one workflow input field.
+        protos.ai.v1.WorkflowInputs:
+            type: object
+            properties:
+                schemaVersion:
+                    type: integer
+                    format: int32
+                triggerKind:
+                    enum:
+                        - WORKFLOW_TRIGGER_KIND_GENERIC
+                        - WORKFLOW_TRIGGER_KIND_SCM_REPO
+                        - WORKFLOW_TRIGGER_KIND_SCM_PR
+                        - WORKFLOW_TRIGGER_KIND_SCM
+                        - WORKFLOW_TRIGGER_KIND_ISSUE
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_TRIGGER_KIND_GENERIC |  |
+                        | WORKFLOW_TRIGGER_KIND_SCM_REPO |  |
+                        | WORKFLOW_TRIGGER_KIND_SCM_PR |  |
+                        | WORKFLOW_TRIGGER_KIND_SCM |  |
+                        | WORKFLOW_TRIGGER_KIND_ISSUE |  |
+
+                    format: enum
+                jsonSchema:
+                    type: object
+                    description: |-
+                        Reserved for the raw JSON Schema. The registry endpoint intentionally
+                         leaves this empty: it duplicates every field's metadata (including
+                         system/secret inputs) and no client consumes it, so populating it would
+                         leak internal input details. Use ``fields`` instead.
+                fields:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowInputField'
+                    description: |-
+                        Pre-parsed, type-safe field list in declaration order. The registry
+                         endpoint emits only user-facing fields (visibility user/advanced);
+                         system- and secret-visibility fields are filtered out server-side.
+            description: |-
+                Input schema published alongside a registry entry so clients can render
+                 dynamic trigger forms without knowing the workflow's internals.
+        protos.ai.v1.WorkflowJobGraph:
+            type: object
+            properties:
+                schemaVersion:
+                    type: string
+                steps:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowStepNode'
+                tasks:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowTaskNode'
+        protos.ai.v1.WorkflowJobMetadata:
+            type: object
+            properties:
+                jobName:
+                    type: string
+                workflowType:
+                    type: string
+                deploymentId:
+                    type: string
+                repoId:
+                    type: string
+                repoName:
+                    type: string
+                gitRef:
+                    type: string
+                startedAt:
+                    type: string
+                    format: date-time
+                status:
+                    type: string
+                prId:
+                    type: string
+                repoUrl:
+                    type: string
+                    description: External URL of the repository (e.g. GitHub web URL).
+                repoScmType:
+                    type: string
+                    description: SCM provider of the repository (e.g. "github", "gitlab").
+        protos.ai.v1.WorkflowJobSummary:
+            type: object
+            properties:
+                jobId:
+                    type: string
+                workflowType:
+                    type: string
+                status:
+                    enum:
+                        - SEMGREP_WORKFLOW_RUN_STATUS_SUBMITTED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_RUNNING
+                        - SEMGREP_WORKFLOW_RUN_STATUS_COMPLETED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_FAILED
+                        - SEMGREP_WORKFLOW_RUN_STATUS_CANCELLED
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SEMGREP_WORKFLOW_RUN_STATUS_SUBMITTED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_RUNNING |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_COMPLETED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_FAILED |  |
+                        | SEMGREP_WORKFLOW_RUN_STATUS_CANCELLED |  |
+
+                    format: enum
+                deploymentId:
+                    type: string
+                repoId:
+                    type: string
+                gitRef:
+                    type: string
+                startedAt:
+                    type: string
+                    format: date-time
+                finishedAt:
+                    type: string
+                    format: date-time
+                totalFindings:
+                    type: integer
+                    format: int64
+                eventSource:
+                    type: string
+                repoUrl:
+                    type: string
+                    description: External URL of the repository (e.g. GitHub web URL).
+                totalCostCredits:
+                    type: number
+                    format: double
+                triggerSource:
+                    type: string
+        protos.ai.v1.WorkflowReportSummary:
+            type: object
+            properties:
+                repository:
+                    type: string
+                commit:
+                    type: string
+                totalFindings:
+                    type: integer
+                    format: int64
+                vulnerableFindings:
+                    type: integer
+                    format: int64
+                bySeverity:
+                    type: object
+                    additionalProperties:
+                        type: integer
+                        format: int64
+                findings:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowFinding'
+        protos.ai.v1.WorkflowStepGraph:
+            type: object
+            properties:
+                schemaVersion:
+                    type: integer
+                    description: Bumped on any breaking change to the graph block.
+                    format: int32
+                startStep:
+                    type: string
+                endStep:
+                    type: string
+                steps:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowGraphStep'
+                    description: Steps in topological execution order, ready to scaffold a step list.
+            description: A workflow's static step graph, known ahead of any run.
+        protos.ai.v1.WorkflowStepNode:
+            type: object
+            properties:
+                stepId:
+                    type: string
+                name:
+                    type: string
+                displayName:
+                    type: string
+                description:
+                    type: string
+                status:
+                    enum:
+                        - WORKFLOW_STEP_STATUS_PENDING
+                        - WORKFLOW_STEP_STATUS_RUNNING
+                        - WORKFLOW_STEP_STATUS_SUCCEEDED
+                        - WORKFLOW_STEP_STATUS_FAILED
+                        - WORKFLOW_STEP_STATUS_SKIPPED
+                        - WORKFLOW_STEP_STATUS_ERROR
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_STEP_STATUS_PENDING |  |
+                        | WORKFLOW_STEP_STATUS_RUNNING |  |
+                        | WORKFLOW_STEP_STATUS_SUCCEEDED |  |
+                        | WORKFLOW_STEP_STATUS_FAILED |  |
+                        | WORKFLOW_STEP_STATUS_SKIPPED |  |
+                        | WORKFLOW_STEP_STATUS_ERROR |  |
+
+                    format: enum
+                startedAt:
+                    type: string
+                    format: date-time
+                finishedAt:
+                    type: string
+                    format: date-time
+                costUsd:
+                    type: number
+                    format: double
+                taskCount:
+                    type: integer
+                    format: int64
+                tasksCompleted:
+                    type: integer
+                    format: int64
+                tasksFailed:
+                    type: integer
+                    format: int64
+                taskIds:
+                    type: array
+                    items:
+                        type: string
+                costCredits:
+                    type: number
+                    format: double
+        protos.ai.v1.WorkflowTaskAttempt:
+            type: object
+            properties:
+                attemptIndex:
+                    type: integer
+                    format: int64
+                status:
+                    enum:
+                        - WORKFLOW_STEP_STATUS_PENDING
+                        - WORKFLOW_STEP_STATUS_RUNNING
+                        - WORKFLOW_STEP_STATUS_SUCCEEDED
+                        - WORKFLOW_STEP_STATUS_FAILED
+                        - WORKFLOW_STEP_STATUS_SKIPPED
+                        - WORKFLOW_STEP_STATUS_ERROR
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_STEP_STATUS_PENDING |  |
+                        | WORKFLOW_STEP_STATUS_RUNNING |  |
+                        | WORKFLOW_STEP_STATUS_SUCCEEDED |  |
+                        | WORKFLOW_STEP_STATUS_FAILED |  |
+                        | WORKFLOW_STEP_STATUS_SKIPPED |  |
+                        | WORKFLOW_STEP_STATUS_ERROR |  |
+
+                    format: enum
+                startedAt:
+                    type: string
+                    format: date-time
+                finishedAt:
+                    type: string
+                    format: date-time
+                errorSummary:
+                    type: string
+        protos.ai.v1.WorkflowTaskNode:
+            type: object
+            properties:
+                taskId:
+                    type: string
+                stepId:
+                    type: string
+                displayName:
+                    type: string
+                status:
+                    enum:
+                        - WORKFLOW_STEP_STATUS_PENDING
+                        - WORKFLOW_STEP_STATUS_RUNNING
+                        - WORKFLOW_STEP_STATUS_SUCCEEDED
+                        - WORKFLOW_STEP_STATUS_FAILED
+                        - WORKFLOW_STEP_STATUS_SKIPPED
+                        - WORKFLOW_STEP_STATUS_ERROR
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | WORKFLOW_STEP_STATUS_PENDING |  |
+                        | WORKFLOW_STEP_STATUS_RUNNING |  |
+                        | WORKFLOW_STEP_STATUS_SUCCEEDED |  |
+                        | WORKFLOW_STEP_STATUS_FAILED |  |
+                        | WORKFLOW_STEP_STATUS_SKIPPED |  |
+                        | WORKFLOW_STEP_STATUS_ERROR |  |
+
+                    format: enum
+                startedAt:
+                    type: string
+                    format: date-time
+                finishedAt:
+                    type: string
+                    format: date-time
+                attemptCount:
+                    type: integer
+                    format: int64
+                latestAttemptIndex:
+                    type: integer
+                    format: int64
+                logicalPath:
+                    type: string
+                branchKey:
+                    type: string
+                foreachIndex:
+                    type: integer
+                    format: int64
+                foreachValuePreview:
+                    type: string
+                upstreamTaskIds:
+                    type: array
+                    items:
+                        type: string
+                attempts:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/protos.ai.v1.WorkflowTaskAttempt'
         protos.auth.v1.DeploymentIdentity:
             type: object
             properties:
@@ -9800,6 +10672,7 @@ components:
                     description: |-
                         optional tag for approvers on responses to PR/MR comments when developers
                          request exceptions
+                         DEPRECATED use automations instead to configure exception requests
                 hasDeveloperTriage:
                     type: boolean
                     description: whether developers can triage findings themselves; defaults to true
@@ -10081,6 +10954,10 @@ components:
                     $ref: '#/components/schemas/protos.deployment.v1.SecretsProductConfig'
                 approversTag:
                     type: string
+                    description: |-
+                        optional tag for approvers on responses to PR/MR comments when developers
+                         request exceptions
+                         DEPRECATED use automations instead to configure exception requests
                 hasDeveloperTriage:
                     type: boolean
                     description: whether developers can triage findings themselves
@@ -10120,6 +10997,7 @@ components:
                     type: string
                     description: |+
                         triage permissions for the sast product
+                         DEPRECATED use automations instead to configure exception requests
 
                         | value | description |
                         |-------|---------------|
@@ -10149,6 +11027,7 @@ components:
                     type: string
                     description: |+
                         triage permissions for the sca product
+                         DEPRECATED use automations instead to configure exception requests
 
                         | value | description |
                         |-------|---------------|
@@ -10188,6 +11067,7 @@ components:
                     type: string
                     description: |+
                         triage permissions for the secrets product
+                         DEPRECATED use automations instead to configure exception requests
 
                         | value | description |
                         |-------|---------------|
@@ -11042,7 +11922,7 @@ components:
                         - ISSUE_TYPE_AI_SAST
                     type: string
                     description: |+
-                        Deprecated: use issue_types instead. Filters issues to those with the specified type.
+                        Deprecated: use `issueTypes` instead. Filters issues to those with the specified type.
 
                         | value | description |
                         |-------|---------------|
@@ -11077,7 +11957,7 @@ components:
                         format: enum
                     description: |+
                         Filters issues to those with any of the specified types (based on the product which produced these issues).
-                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+                         When empty, falls back to the deprecated `issueType` field for backward compatibility.
 
                         | value | description |
                         |-------|---------------|
@@ -11132,7 +12012,7 @@ components:
                         - ISSUE_TYPE_AI_SAST
                     type: string
                     description: |+
-                        Deprecated: use issue_types instead. Filters issues to those with the specified type. If set to `ISSUE_TYPE_UNSPECIFIED`, only generic filters will be returned
+                        Deprecated: use `issueTypes` instead. Filters issues to those with the specified type. If set to `ISSUE_TYPE_UNSPECIFIED`, only generic filters will be returned
 
                         | value | description |
                         |-------|---------------|
@@ -11167,7 +12047,7 @@ components:
                         format: enum
                     description: |+
                         Filters issues to those with any of the specified types (based on the product which produced these issues).
-                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+                         When empty, falls back to the deprecated `issueType` field for backward compatibility.
 
                         | value | description |
                         |-------|---------------|
@@ -11229,7 +12109,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.issues.v1.RuleFilterItem'
-                    description: Applies to all issue types. Corresponds to the rule_id filter, but provides extra information for display.
+                    description: Applies to all issue types. Corresponds to the `ruleIds` filter, but provides extra information for display.
                 repos:
                     type: array
                     items:
@@ -11414,7 +12294,7 @@ components:
                     description: The URL to the specific line of code causing this issue
                 codeSnippet:
                     type: string
-                    description: The code snippet causing this issue. Only available when fetching a single issue at a time via the GetIssue RPC. Deprecated in favor of `code_snippets` for multi-file support.
+                    description: The code snippet causing this issue. Only available when fetching a single issue at a time via the GetIssue RPC. Deprecated in favor of `codeSnippets` for multi-file support.
                 dataflowTrace:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.Issue_DataflowTrace'
@@ -11426,7 +12306,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/protos.issues.v1.Issue_ActivityHistoryEvent'
-                    description: A chronologically-ordered list of events related to this issue (status change, ai tags, triage events). Always populated by the GetIssue RPC; populated by ListIssues only when ListIssuesRequest.include_activity_history is true.
+                    description: A chronologically-ordered list of events related to this issue (status change, ai tags, triage events). Always populated by the GetIssue RPC; populated by ListIssues only when `includeActivityHistory` is true.
                 relatedIssues:
                     type: array
                     items:
@@ -11437,7 +12317,7 @@ components:
                         - $ref: '#/components/schemas/protos.ai.v1.Remediation'
                     description: |-
                         AI remediation info for this issue (guidance and autofix).
-                         Available in the GetIssue RPC and in list responses when include_remediation is set to true.
+                         Available in the GetIssue RPC and in list responses when `includeRemediation` is set to true.
                 lastSeenScan:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.Issue_Scan'
@@ -11583,15 +12463,15 @@ components:
                 sastAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.Issue_SastAttributes'
-                    description: Only set for code issues (i.e. if issue_type == `SAST`)
+                    description: Only set for code issues (i.e. if `issueType` == `SAST`)
                 scaAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.Issue_ScaAttributes'
-                    description: Only set for supply chain issues (i.e. if issue_type == `SCA`)
+                    description: Only set for supply chain issues (i.e. if `issueType` == `SCA`)
                 secretsAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.Issue_SecretsAttributes'
-                    description: Only set for secrets issues (i.e. if issue_type == `SECRETS`)
+                    description: Only set for secrets issues (i.e. if `issueType` == `SECRETS`)
                 subcategories:
                     type: array
                     items:
@@ -11637,13 +12517,13 @@ components:
                         - $ref: '#/components/schemas/protos.issues.v1.IssueExceptionRequestSummary'
                     description: |-
                         A summary of the exception request for this issue, shaped for the findings
-                         list UI. Only returned if include_exception_request_info was true in the request.
+                         list UI. Only returned if `includeExceptionRequestInfo` was true in the request.
                 clickToFixPrId:
                     type: string
                     description: |-
                         The SCM-agnostic PR identifier for the Click-to-Fix PR (if any).
                          Available in the GetIssue RPC and in list responses that opt into it.
-                         Prefer this over parsing the PR number from click_to_fix_pr_url.
+                         Prefer this over parsing the PR number from `clickToFixPrUrl`.
                 triagePermission:
                     enum:
                         - TRIAGE_PERMISSION_IGNORE
@@ -11664,10 +12544,10 @@ components:
                     format: enum
                 isArchived:
                     type: boolean
-                    description: True if this finding's project is archived (Semgrep-initiated via is_semgrep_archived, or SCM-archived).
+                    description: True if this finding's project is archived (Semgrep-initiated via `isSemgrepArchived`, or SCM-archived).
                 firstDetectedAt:
                     type: string
-                    description: The timestamp when the issue was first detected in the project on any ref. Always populated by the GetIssue RPC; populated by ListIssues only when ListIssuesRequest.include_first_detected_at is true.
+                    description: The timestamp when the issue was first detected in the project on any ref. Always populated by the GetIssue RPC; populated by ListIssues only when `includeFirstDetectedAt` is true.
                     format: date-time
         protos.issues.v1.IssueExceptionRequestSummary:
             type: object
@@ -11737,10 +12617,10 @@ components:
                     format: enum
                 reviewerLogin:
                     type: string
-                    description: Login of the reviewer. Only populated when exception_state is APPROVED or REJECTED.
+                    description: Login of the reviewer. Only populated when `exceptionState` is APPROVED or REJECTED.
                 reviewerName:
                     type: string
-                    description: Display name of the reviewer, when known. Also only populated when exception_state is APPROVED or REJECTED.
+                    description: Display name of the reviewer, when known. Also only populated when `exceptionState` is APPROVED or REJECTED.
                 requestId:
                     type: string
                     description: Unique identifier for this exception request.
@@ -11760,7 +12640,7 @@ components:
                     format: date-time
             description: |-
                 A summary of the exception request state for a finding, shaped for the
-                 findings list UI. Only returned when include_exception_request_info is true.
+                 findings list UI. Only returned when `includeExceptionRequestInfo` is true.
         protos.issues.v1.Issue_ActivityHistoryEvent:
             type: object
             properties:
@@ -11995,7 +12875,7 @@ components:
                 bestFix:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.ScaAttributes_FixRecommendation'
-                    description: One of the `fix_recommendations` that we have identified as best
+                    description: One of the `fixRecommendations` that we have identified as best
                 epssScore:
                     allOf:
                         - $ref: '#/components/schemas/protos.sca.v1.EpssScore'
@@ -12154,7 +13034,7 @@ components:
                         format: enum
                     description: |+
                         Filters issues whose status matches one of the specified values. Applies to all issue types.
-                         Deprecated in favor of `aggregate_issue_states`, which is the forward-looking state filter.
+                         Deprecated in favor of `aggregateIssueStates`, which is the forward-looking state filter.
 
                         | value | description |
                         |-------|---------------|
@@ -12207,7 +13087,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters SAST issues whose action mode matches one of the specified values. Only applies when the provided issue_type is SAST.
+                        Filters SAST issues whose action mode matches one of the specified values. Only applies when the provided `issueType` is SAST.
                          Deprecated: action mode is tied to the legacy policy model and has no effect for deployments on unified policies. This filter will be removed in a future release.
 
                         | value | description |
@@ -12221,12 +13101,12 @@ components:
                     type: array
                     items:
                         type: string
-                    description: Filters SAST issues whose policy slug matches one of the specified values. Deprecated in favor of `action`. Only applies when the provided issue_type is SAST.
+                    description: Filters SAST issues whose policy slug matches one of the specified values. Deprecated in favor of `action`. Only applies when the provided `issueType` is SAST.
                 rules:
                     type: array
                     items:
                         type: string
-                    description: Filters SAST issues whose rule paths match one of the specified values. Only applies when the provided issue_type is SAST.
+                    description: Filters SAST issues whose rule paths match one of the specified values. Only applies when the provided `issueType` is SAST.
                 ruleIds:
                     type: array
                     items:
@@ -12236,12 +13116,12 @@ components:
                     type: array
                     items:
                         type: string
-                    description: Filters SAST issues whose ruleset name matches one of the specified values. Only applies when the provided issue_type is SAST.
+                    description: Filters SAST issues whose ruleset name matches one of the specified values. Only applies when the provided `issueType` is SAST.
                 categories:
                     type: array
                     items:
                         type: string
-                    description: Filters SAST issues whose category matches one of the specified values. Only applies when the provided issue_type is SAST.
+                    description: Filters SAST issues whose category matches one of the specified values. Only applies when the provided `issueType` is SAST.
                 confidences:
                     enum:
                         - CONFIDENCE_HIGH
@@ -12257,7 +13137,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters SAST issues whose confidence rating matches one of the specified values. Only applies when the provided issue_type is SAST.
+                        Filters SAST issues whose confidence rating matches one of the specified values. Only applies when the provided `issueType` is SAST.
 
                         | value | description |
                         |-------|---------------|
@@ -12305,7 +13185,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues whose transitivity matches one of the specified values. Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues whose transitivity matches one of the specified values. Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12327,7 +13207,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues whose exposure (a.k.a. "reachability") matches one of the specified values. Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues whose exposure (a.k.a. "reachability") matches one of the specified values. Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12339,12 +13219,12 @@ components:
                     type: array
                     items:
                         type: string
-                    description: Filters supply chain issues found in a dependency whose name matches any of the specified values. Only applies when the provided issue_type is SCA.
+                    description: Filters supply chain issues found in a dependency whose name matches any of the specified values. Only applies when the provided `issueType` is SCA.
                 cves:
                     type: array
                     items:
                         type: string
-                    description: Filters supply chain issues belonging to a CVE whose name matches the specified value. Only applies when the provided issue_type is SCA.
+                    description: Filters supply chain issues belonging to a CVE whose name matches the specified value. Only applies when the provided `issueType` is SCA.
                 source:
                     enum:
                         - SOURCE_PRO
@@ -12387,7 +13267,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues whose reachability matches one of the specified values. Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues whose reachability matches one of the specified values. Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12419,7 +13299,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters secrets issues whose validation state matches one of the specified values. Only applies when the provided issue_type is SECRETS.
+                        Filters secrets issues whose validation state matches one of the specified values. Only applies when the provided `issueType` is SECRETS.
 
                         | value | description |
                         |-------|---------------|
@@ -12432,7 +13312,7 @@ components:
                     type: array
                     items:
                         type: string
-                    description: Filters secrets issues whose secret type matches one of the specified values. Only applies when the provided issue_type is SECRETS.
+                    description: Filters secrets issues whose secret type matches one of the specified values. Only applies when the provided `issueType` is SECRETS.
                 repoVisibilities:
                     enum:
                         - REPOSITORY_VISIBILITY_PUBLIC
@@ -12448,7 +13328,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters secrets issues whose status matches one of the specified values. Only applies when the provided issue_type is SECRETS.
+                        Filters secrets issues whose status matches one of the specified values. Only applies when the provided `issueType` is SECRETS.
 
                         | value | description |
                         |-------|---------------|
@@ -12458,7 +13338,7 @@ components:
 
                 excludeHistorical:
                     type: boolean
-                    description: Filters out historical secrets issues if true. Only applies when the provided issue_type is SECRETS.
+                    description: Filters out historical secrets issues if true. Only applies when the provided `issueType` is SECRETS.
                 onPrimaryBranch:
                     type: boolean
                     description: Filter down to only issues that are - or are not - found on the default branch of their project.
@@ -12479,7 +13359,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues whose corresponding EPSS scores fall in one of the specified buckets. Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues whose corresponding EPSS scores fall in one of the specified buckets. Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12538,14 +13418,14 @@ components:
                     format: enum
                 includeTicketed:
                     type: boolean
-                    description: Filters issues based on if they have a nango_external_ticket associated with them
+                    description: Filters issues based on if they have an external ticket associated with them
                 backlogType:
                     enum:
                         - ISSUE_BACKLOG_TYPE_PROD
                         - ISSUE_BACKLOG_TYPE_PREPROD
                     type: string
                     description: |+
-                        Filters issues to either all (prod), or only those with review comments (pre-prod). Only applies when the provided issue_type is SAST.
+                        Filters issues to either all (prod), or only those with review comments (pre-prod). Only applies when the provided `issueType` is SAST.
                          TODO: once experiment is successful, prod should mean only issues in actual production (very similar to on_primary_branch)
                          TODO: verify if review_comment is correct for SCA/SECRETS and enable this filter for those issue types too
 
@@ -12572,7 +13452,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues by its kind (malicious dependency, reachable, upgrade-only, legacy). Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues by its kind (malicious dependency, reachable, upgrade-only, legacy). Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12664,8 +13544,8 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues whose upgrade guidance matches one of the specified values. Only applies when the provided issue_type is SCA.
-                         Deprecated in favor of `upgrade_guidance_filters`.
+                        Filters supply chain issues whose upgrade guidance matches one of the specified values. Only applies when the provided `issueType` is SCA.
+                         Deprecated in favor of `upgradeGuidanceFilters`.
 
                         | value | description |
                         |-------|---------------|
@@ -12713,7 +13593,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters issues by their Click to Fix PR state. Only applies when the provided issue_type is SAST or SCA.
+                        Filters issues by their Click to Fix PR state. Only applies when the provided `issueType` is SAST or SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12725,7 +13605,7 @@ components:
                     type: array
                     items:
                         type: string
-                    description: Filters supply chain issues by advisory IDs (CVE, GHSA, MAL, etc.). Only applies when the provided issue_type is SCA.
+                    description: Filters supply chain issues by advisory IDs (CVE, GHSA, MAL, etc.). Only applies when the provided `issueType` is SCA.
                 aggregateIssueStates:
                     enum:
                         - AGGREGATE_ISSUE_STATE_OPEN
@@ -12780,7 +13660,7 @@ components:
                         type: string
                         format: enum
                     description: |+
-                        Filters supply chain issues by generic upgrade guidance selections (safe or breaking). Only applies when the provided issue_type is SCA.
+                        Filters supply chain issues by generic upgrade guidance selections (safe or breaking). Only applies when the provided `issueType` is SCA.
 
                         | value | description |
                         |-------|---------------|
@@ -12854,7 +13734,7 @@ components:
                         - ISSUE_TYPE_AI_SAST
                     type: string
                     description: |+
-                        Deprecated: use issue_types instead. Filters issues to those with the specified type.
+                        Deprecated: use `issueTypes` instead. Filters issues to those with the specified type.
 
                         | value | description |
                         |-------|---------------|
@@ -12936,7 +13816,7 @@ components:
                         format: enum
                     description: |+
                         Filters issues to those with any of the specified types (based on the product which produced these issues).
-                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+                         When empty, falls back to the deprecated `issueType` field for backward compatibility.
 
                         | value | description |
                         |-------|---------------|
@@ -13039,15 +13919,15 @@ components:
                 sastAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.RuleGroup_SastAttributes'
-                    description: Only set for code issues (i.e. if issue_type == `SAST`)
+                    description: Only set for code issues (i.e. if `issueType` == `SAST`)
                 scaAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.RuleGroup_ScaAttributes'
-                    description: Only set for supply chain issues (i.e. if issue_type == `SCA`)
+                    description: Only set for supply chain issues (i.e. if `issueType` == `SCA`)
                 secretsAttributes:
                     allOf:
                         - $ref: '#/components/schemas/protos.issues.v1.RuleGroup_SecretsAttributes'
-                    description: Only set for secrets issues (i.e. if issue_type == `SECRETS`)
+                    description: Only set for secrets issues (i.e. if `issueType` == `SECRETS`)
         protos.issues.v1.ListIssueGroupsResponse_RuleMeta:
             type: object
             properties:
@@ -13072,7 +13952,7 @@ components:
                         - ISSUE_TYPE_AI_SAST
                     type: string
                     description: |+
-                        Deprecated: use issue_types instead. Filters issues to those with the specified type.
+                        Deprecated: use `issueTypes` instead. Filters issues to those with the specified type.
 
                         | value | description |
                         |-------|---------------|
@@ -13150,7 +14030,7 @@ components:
                         format: enum
                     description: |+
                         Filters issues to those with any of the specified types (based on the product which produced these issues).
-                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+                         When empty, falls back to the deprecated `issueType` field for backward compatibility.
 
                         | value | description |
                         |-------|---------------|
@@ -13173,12 +14053,12 @@ components:
                 includeIsArchived:
                     type: boolean
                     description: |-
-                        When true, populate the is_archived field on each issue in the response.
+                        When true, populate the `isArchived` field on each issue in the response.
                          Defaults to false.
                 includeFirstDetectedAt:
                     type: boolean
                     description: |-
-                        When true, populate the first_detected_at field on each issue in the response.
+                        When true, populate the `firstDetectedAt` field on each issue in the response.
                          Defaults to false.
         protos.issues.v1.ListIssuesResponse:
             type: object
@@ -13481,7 +14361,7 @@ components:
                         - ISSUE_TYPE_AI_SAST
                     type: string
                     description: |+
-                        Deprecated: use issue_types instead. Filters findings to those with the specified type (based on the product which produced these issues).
+                        Deprecated: use `issueTypes` instead. Filters findings to those with the specified type (based on the product which produced these issues).
 
                         | value | description |
                         |-------|---------------|
@@ -13520,7 +14400,7 @@ components:
                         format: enum
                     description: |+
                         Filters findings to those with any of the specified types.
-                         When empty, falls back to the deprecated issue_type field for backward compatibility.
+                         When empty, falls back to the deprecated `issueType` field for backward compatibility.
 
                         | value | description |
                         |-------|---------------|
@@ -13655,6 +14535,8 @@ components:
                     type: string
                 healthy:
                     type: boolean
+                gitSha:
+                    type: string
         protos.misc.v1.ReadinessCheckResponse:
             type: object
             properties:
@@ -19688,6 +20570,151 @@ components:
                         | SCAN_ENVIRONMENT_AZURE_PIPELINES |  |
 
                     format: enum
+        semgrep.wf.v1.CodeLocation:
+            type: object
+            properties:
+                path:
+                    type: string
+                startLine:
+                    type: integer
+                    format: int64
+                startColumn:
+                    type: integer
+                    format: int64
+                endLine:
+                    type: integer
+                    format: int64
+                endColumn:
+                    type: integer
+                    format: int64
+            description: A single location in source code.
+        semgrep.wf.v1.CodeSnippet:
+            type: object
+            properties:
+                location:
+                    $ref: '#/components/schemas/semgrep.wf.v1.CodeLocation'
+                text:
+                    type: string
+            description: |-
+                A source location and the text at that location matched by a rule.
+                 Lets inspectors see exactly what triggered the finding without checking out the repo.
+        semgrep.wf.v1.CodeTrace:
+            type: object
+            properties:
+                steps:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/semgrep.wf.v1.CodeLocation'
+            description: |-
+                A dataflow path through source code: source → ... → sink.
+                 steps[-1] is the sink (the primary finding location).
+                 For point findings (pattern match, no taint flow), steps has exactly one element.
+        semgrep.wf.v1.DependencyPath:
+            type: object
+            properties:
+                chain:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/semgrep.wf.v1.PackageRef'
+            description: |-
+                The dependency chain from the project root to a package.
+                 chain[0] is a direct dependency of the scanned project.
+                 chain[-1] is the vulnerable/flagged package.
+                 A single-element chain means the package is a direct dependency.
+        semgrep.wf.v1.Evidence:
+            type: object
+            properties:
+                trace:
+                    $ref: '#/components/schemas/semgrep.wf.v1.CodeTrace'
+                snippet:
+                    $ref: '#/components/schemas/semgrep.wf.v1.CodeSnippet'
+                depPath:
+                    $ref: '#/components/schemas/semgrep.wf.v1.DependencyPath'
+                rule:
+                    $ref: '#/components/schemas/semgrep.wf.v1.Rule'
+            description: |-
+                One piece of scan-time evidence. A finding carries a list of evidence items;
+                 each item holds exactly one kind. Detectors include whichever kinds are relevant.
+                 Triage assessments (validity, etc.) live on the Issue, not here.
+        semgrep.wf.v1.Finding:
+            type: object
+            properties:
+                package:
+                    allOf:
+                        - $ref: '#/components/schemas/semgrep.wf.v1.PackageRef'
+                    description: |-
+                        The vulnerable package, when the scan identified one.
+                         When evidence includes a trace, steps[-1] is the sink and steps[0] is the source.
+                domain:
+                    type: string
+                cwe:
+                    type: array
+                    items:
+                        type: string
+                    description: Weakness taxonomy — security findings only.
+                owasp:
+                    type: array
+                    items:
+                        type: string
+                severity:
+                    enum:
+                        - SEVERITY_CRITICAL
+                        - SEVERITY_HIGH
+                        - SEVERITY_MEDIUM
+                        - SEVERITY_LOW
+                        - SEVERITY_INFO
+                    type: string
+                    description: |4+
+
+                        | value | description |
+                        |-------|---------------|
+                        | SEVERITY_CRITICAL |  |
+                        | SEVERITY_HIGH |  |
+                        | SEVERITY_MEDIUM |  |
+                        | SEVERITY_LOW |  |
+                        | SEVERITY_INFO |  |
+
+                    format: enum
+                reasoning:
+                    type: string
+                evidence:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/semgrep.wf.v1.Evidence'
+                extra:
+                    type: object
+                title:
+                    type: string
+                    description: Human-readable display fields — GitHub-flavoured markdown.
+                description:
+                    type: string
+                identity:
+                    type: object
+                    description: |-
+                        Structured identity for dedup: the subset of finding fields that uniquely
+                         identify "the same problem" within a workflow.  Populated by the SDK from
+                         the workflow's identity config ([tool.wf.identity].fields).
+                         Empty when the workflow hasn't defined identity fields — no dedup is performed.
+        semgrep.wf.v1.PackageRef:
+            type: object
+            properties:
+                ecosystem:
+                    type: string
+                name:
+                    type: string
+                version:
+                    type: string
+            description: |-
+                Identifies a package in a specific ecosystem.
+                 ecosystem: "npm", "pypi", "maven", "cargo", "go", "gem", "nuget", "hex", ...
+        semgrep.wf.v1.Rule:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+            description: A rule that fired and contributed to this finding.
     securitySchemes:
         SemgrepWebToken:
             type: http
@@ -19856,6 +20883,10 @@ tags:
       description: Manage SCM Webhook Subscriptions
       x-displayName: Source Code Management (SCM) webhooks
       x-group: Source Code Management (SCM) webhooks
+    - name: SemgrepWorkflowsService
+      description: API for querying and managing Semgrep Agentic Workflow jobs.
+      x-displayName: Semgrep Agentic Workflows
+      x-group: Semgrep Agentic Workflows
     - name: SlackService
       description: Manage Slack app installations and notification channel mappings
       x-displayName: Slack
