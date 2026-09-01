@@ -355,7 +355,7 @@ likelihood: HIGH
 
 MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
-- `taint mode sources` that reach a `taint mode sink` but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: [`python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process)
+- `taint mode sources` that reach a `taint mode sink`, but the source is only vulnerable under certain conditions, for example: OS Environment Variables or loading from disk: [`python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process)
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: [`javascript.express.security.express-puppeteer-injection.express-puppeteer-injection`](https://semgrep.dev/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection)
 
 ```yaml
