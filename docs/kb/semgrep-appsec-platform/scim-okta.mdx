@@ -180,7 +180,7 @@ Create one push group per role suffix (`[team:manager]`, `[team:member]`, `[team
 
 ### Add or remove team members
 
-Users must already be assigned to the directory. Semgrep **Admins** have implicit access to all teams and can't be explicitly added to a team push group.
+Users must already be assigned to the directory. Do not add deployment **Admins** to team push groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team push groups.
 
 #### Add members
 
@@ -246,11 +246,11 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). Ok
 - SCIM events aren't always instantaneous. Changes can take up to a minute or longer to propagate to Semgrep.
 - Adding an unprovisioned user to a push group does nothing and doesn't trigger JIT provisioning.
 - Okta push groups don't map to Semgrep sub-teams. Don't create an Okta group whose name matches an existing sub-team in Semgrep.
-- If you add an **Admin** to a team push group, they appear in the group in Okta but not in the team in Semgrep. This is expected.
+- Do not add deployment **Admins** to team push groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team push groups. They appear in the Okta group but not on the corresponding Semgrep team.
 - Demoting an admin who was added to an Okta group to **Member** or **Read-only** can cause drift. Remove them from the group in Okta and re-add them after their role has changed.
 - Mapping an Okta group to the default team and operating on that group has no effect in Semgrep.
 - If a push group spans multiple organizations, membership and team changes apply across all of them.
-- Don't share a SAML/SCIM app across multiple Semgrep deployments.
+- Each SCIM application manages one Semgrep deployment. Multiple deployments can share an SSO connection, but each deployment needs its own SCIM application.
 - Assign users to the SSO connection before the SCIM app. In a multi-app setup, Okta admins can assign directory users to the SCIM app even if they're not assigned to the corresponding SSO connection. Those users can't sign in through SSO.
 - Disable social auth when using SCIM. If social auth (GitHub or GitLab) remains enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
 - Removing a user from only one role-suffixed push group removes them from the Semgrep team, even if they remain in other role-type groups for that team in Okta.

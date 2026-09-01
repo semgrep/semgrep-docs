@@ -243,7 +243,7 @@ Create one group per role suffix (`[team:manager]`, `[team:member]`, `[team:read
 
 #### Add members
 
-Users must already be assigned to the directory. Semgrep **Admins** have implicit access to all teams and can't be explicitly added to a team group.
+Users must already be assigned to the directory. Do not add deployment **Admins** to team groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team groups.
 
 <Steps>
 <Step>
@@ -312,10 +312,11 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). En
 - Assigning a group to the application provisions that group's users. Review membership before assignment.
 - Users and groups are provisioned on a 40-minute cycle by default unless you use **Provision on demand**.
 - Creating sub-teams through SCIM isn't supported. Don't create an Entra ID group whose name matches an existing sub-team in Semgrep.
-- If you add an **Admin** to a team group, they appear in the group in Entra ID but not in the team in Semgrep. This is expected.
+- Do not add deployment **Admins** to team groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team groups. They appear in the Entra ID group but not on the corresponding Semgrep team.
 - Demoting an admin who was added to an Entra ID group to **Member** or **Read-only** can cause drift. Remove them from the group and re-add them after their role has changed.
 - Mapping an Entra ID group to the default team and operating on that group has no effect in Semgrep.
 - If a group spans multiple organizations, membership and team changes apply across all of them.
+- Each SCIM application manages one Semgrep deployment. Multiple deployments can share an SSO connection, but each deployment needs its own SCIM application.
 - Assign users to the SSO connection before the SCIM app. In a multi-app setup, Entra ID admins can assign directory users to the SCIM app even if they're not assigned to the corresponding SSO connection. Those users can't sign in through SSO.
 - Disable social auth when using SCIM. If social auth (GitHub or GitLab) remains enabled, those users' access is still controlled by their GitHub org or GitLab group membership.
 - Removing a user from only one role-suffixed group removes them from the Semgrep team, even if they remain in other role-type groups for that team in Entra ID.

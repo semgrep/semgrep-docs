@@ -8,9 +8,9 @@ description: "Provision members, assign deployment roles, and optionally manage 
 SCIM provisioning is in **beta**. Beta features are subject to change based on continued internal benchmarking and customer feedback. To join the beta, contact your Semgrep account team or [<Icon iconType="regular"/> support@semgrep.com](mailto:support@semgrep.com).
 </Note>
 
-System for Cross-domain Identity Management (SCIM) lets you provision, update, and deprovision members of your Semgrep deployment from your identity provider (IdP). You can also use identity provider groups to assign deployment roles and, optionally, manage Semgrep teams.
+System for Cross-domain Identity Management (SCIM) lets you provision and deprovision members of your Semgrep deployment from your identity provider (IdP). You can also use identity provider groups to assign deployment roles and, optionally, manage Semgrep teams.
 
-SCIM keeps user access and membership synchronized between your IdP and Semgrep. For example, when you add, update, or remove a user in your IdP, SCIM applies the corresponding change in Semgrep automatically.
+SCIM keeps user access and membership synchronized between your IdP and Semgrep. For example, when you add or remove a user in your IdP, SCIM applies the corresponding change in Semgrep automatically.
 
 SCIM manages user access, while [SSO](/deployment/sso) manages authentication. You must configure SSO authentication before setting up SCIM.
 
@@ -21,12 +21,11 @@ This article covers SCIM provisioning setup. Only the Okta and Microsoft Entra I
 With SCIM enabled, Semgrep supports:
 
 - **User provisioning**: Create Semgrep members when users are assigned to the Semgrep application in your IdP.
-- **Profile updates**: Update member profile attributes when they change in your IdP.
-- **Deprovisioning**: Remove Semgrep access when users are unassigned or deactivated in your IdP.
+- **Deprovisioning**: Remove access to the Semgrep deployment when users are unassigned or deactivated in your IdP. Deprovisioning applies to the deployment connected to that directory, not to other deployments the user may belong to under the same organization or auth provider.
 - **Deployment role assignment**: Map IdP groups to Semgrep roles such as **Admin**, **Member**, or **Read-only**.
 - **Team creation from IdP groups** (optional): When [Teams (beta)](/deployment/teams/overview) is enabled, IdP groups that follow Semgrep's `[team]` naming convention can create Semgrep teams for project-scoped access.
 
-Members provisioned through SCIM are matched and managed by email address. Users who predated the directory connection are matched to existing Semgrep accounts when they use the same SSO connection.
+Members provisioned through SCIM are matched and managed by email address. Users who predated the directory connection are matched to their existing Semgrep accounts by email when assigned to the directory.
 
 ## How SCIM works with SSO
 
@@ -40,7 +39,7 @@ flowchart LR
     D["SSO<br/>Authenticates users"]
 
     A -->|"Directory changes"| B
-    B -->|"Provision, update, or deprovision"| C
+    B -->|"Provision or deprovision"| C
     A -->|"Sign-in request"| D
     D -->|"Verify identity"| C
 
@@ -55,7 +54,7 @@ SSO and SCIM work together but serve different purposes:
 | User signs in with corporate credentials | Yes | No. SCIM doesn't replace login |
 | Create Semgrep accounts when users are added in the IdP | Only with just-in-time (JIT) provisioning at login | Yes, before the user signs in |
 | Update roles when IdP group membership changes | Only after the user signs in again | Yes, typically within about a minute |
-| Deactivate access when a user is removed in the IdP | Depends on JIT behavior | Yes, when the IdP deprovisions the user |
+| Deactivate access when a user is removed in the IdP | Depends on JIT behavior | Yes, for the deployment connected to that directory when the IdP deprovisions the user |
 
 ## Prerequisites
 
@@ -70,6 +69,10 @@ Before you set up SCIM, confirm you have the following:
 ## Set up SCIM
 
 Start in Semgrep AppSec Platform, then complete setup in your identity provider using the IdP-specific guide.
+
+<Warning>
+Once a SCIM directory is activated for a deployment, user and team management is locked in Semgrep AppSec Platform. Make user and team changes through your identity provider.
+</Warning>
 
 <Steps>
 <Step>
@@ -157,7 +160,7 @@ While this feature is in beta, the following limitations apply:
 - SCIM updates aren't instantaneous. Okta changes can take up to a minute; Entra ID uses a 40-minute provisioning cycle by default unless you **Provision on demand**.
 - Sub-teams and team-managed projects can't be controlled through SCIM.
 - Disabling SCIM doesn't deprovision members from the deployment.
-- SCIM applies to one Semgrep deployment. Don't share a single SAML/SCIM application across multiple deployments.
+- Each SCIM application manages one Semgrep deployment. Multiple deployments can share an SSO connection, but each deployment needs its own SCIM application.
 
 For provider-specific behavior and edge cases, see [Okta](/kb/semgrep-appsec-platform/scim-okta#okta-specific-behavior-and-limitations) and [Entra ID](/kb/semgrep-appsec-platform/scim-microsoft-entra-id#entra-id-specific-behavior-and-limitations).
 
