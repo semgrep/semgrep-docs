@@ -1,0 +1,49 @@
+---
+title: "Supply Chain Autofix"
+sidebarTitle: "Autofix"
+description: "Open a pull request or merge request that upgrades a vulnerable dependency to a fixed version."
+---
+
+Supply Chain Autofix opens a PR or MR that upgrades a vulnerable dependency to a fixed version.
+
+For shared Autofix behavior, including availability, SCM permissions, and troubleshooting from the **Fix** menu, see [Autofix](/semgrep-code/triage-remediation/autofix).
+
+## Supply Chain-specific requirements
+
+Supply Chain Autofix is available for JavaScript (`npm`) and Python (`pip`, `pip-tools`, `pipenv`, `poetry`, `uv`) projects on GitHub Cloud or GitLab Cloud when:
+
+- The finding has a fixed version to upgrade to.
+- [Full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) have run on the repository.
+- If the dependency is in a private registry, Semgrep can access it. See [Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
+
+Supply Chain Autofix does not require Semgrep Multimodal or [Upgrade Guidance (beta)](/semgrep-supply-chain/upgrade-guidance). You can open an Autofix PR or MR even if Upgrade Guidance is disabled or has not finished running. When Upgrade Guidance analysis has completed, Semgrep can include that information in the PR or MR description.
+
+## Open an Autofix PR or MR
+
+<Steps>
+<Step>
+In Semgrep AppSec Platform, go to [**Supply Chain**](https://semgrep.dev/orgs/-/supply-chain).
+</Step>
+<Step>
+Select a finding.
+</Step>
+<Step>
+Click **Fix** > **Open Autofix PR**.
+</Step>
+</Steps>
+
+Semgrep creates the branch and opens a PR or MR in the connected source code manager.
+
+## What the PR or MR contains
+
+The PR or MR always includes:
+
+- Changes to the manifest or lockfile needed to upgrade the dependency.
+- The dependency version Semgrep selected.
+- A summary of the finding's severity and reachability.
+- Details about the vulnerability and links to its CVE references.
+- Relevant dependency release notes, changelogs, and commits.
+
+If [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) analysis has completed by the time you open the PR or MR, the description can also include affected files and functions and guidance on potential breaking changes. If analysis is still in progress or Upgrade Guidance is disabled, that information is not included.
+
+For upgrade analysis without opening a PR or MR, see [Upgrade Guidance (beta)](/semgrep-supply-chain/upgrade-guidance).
