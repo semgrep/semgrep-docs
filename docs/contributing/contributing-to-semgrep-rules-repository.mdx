@@ -48,7 +48,7 @@ Click **Continue**, and then click **Create PR**.
 
 This workflow automatically creates a pull request in the GitHub [Semgrep Registry](https://github.com/semgrep/semgrep-rules). Find more about the Semgrep Registry by reading the [Rule writing](#write-a-rule-for-semgrep-registry) and [Tests](#tests) sections.
 
-You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organisation. See the [Private rules](/writing-rules/private-rules) documentation for more information.
+You can also publish rules as private rules outside of Semgrep Registry. These rules are not included in the Semgrep Registry, but they are accessible to your Semgrep organization. See the [Private rules](/writing-rules/private-rules) documentation for more information.
 
 ## Contribute through GitHub
 
@@ -76,7 +76,7 @@ The Semgrep Registry can import rules from different repositories. These reposit
 Create a GitHub repository and store your rules there.
 </Step>
 <Step>
-Reach out to the Semgrep team through the [Community Slack](https://go.semgrep.dev/slack)  or [Support](/support)
+Reach out to the Semgrep team through the [Community Slack](https://go.semgrep.dev/slack) or [Support](/support)
 </Step>
 </Steps>
 
@@ -216,7 +216,7 @@ If your rule has a `category: security`, the following metadata are required:
   <tbody>
   <tr>
    <td><code>cwe</code></td>
-   <td>A <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a></td>
+   <td>A <a href="https://cwe.mitre.org/index.html">Common Weakness Enumeration (CWE)</a></td>
    <td><pre>cwe: "CWE-502: Deserialization of Untrusted Data"</pre></td>
   </tr>
   <tr>
@@ -278,7 +278,7 @@ Details of each field mentioned above are provided in the subsections below with
 
 #### CWE
 
-Include the appropriate <a href="https://cwe.mitre.org/index.html">Comment Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability your rule is trying to find. Examples:
+Include the appropriate <a href="https://cwe.mitre.org/index.html">Common Weakness Enumeration (CWE)</a>. CWE can explain what vulnerability your rule is trying to find. Examples:
 
 If you write an SQL Injection rule, use the following:
 ```yaml
@@ -355,7 +355,7 @@ likelihood: HIGH
 
 MEDIUM likelihood rules detect a vulnerability in most circumstances. Although it can be hard for an attacker to exploit them. Also, these rules can detect part of a problem, but not the whole issue. Examples:
 
-- `taint mode sources` that reach a `taint mode sink`  but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: [`python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process)
+- `taint mode sources` that reach a `taint mode sink` but the source is only vulnerable in certain conditions for example OS Environment Variables, or loading from disk: [`python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process`](https://semgrep.dev/r/python.aws-lambda.security.dangerous-spawn-process.dangerous-spawn-process)
 - `taint mode sources` with a `taint mode sink` but is missing a `taint mode sanitizer` which can introduce more false positives: [`javascript.express.security.express-puppeteer-injection.express-puppeteer-injection`](https://semgrep.dev/r/javascript.express.security.express-puppeteer-injection.express-puppeteer-injection)
 
 ```yaml
@@ -375,7 +375,7 @@ likelihood: LOW
 
 #### Impact
 
-Indicate how much damage can a vulnerability cause. Use LOW, MEDIUM, and HIGH.
+Indicate how much damage a vulnerability can cause. Use LOW, MEDIUM, and HIGH.
 
 
 ##### HIGH
@@ -522,7 +522,7 @@ Submit a PR to the repository with your new update.
 Follow the same instructions and recommendations as you can find in the rest of this document. For example the security category has specific metadata requirements.
 </Step>
 <Step>
-Leave a message in the PR. Explain why are you making changes. What is the motivation for this update?
+Leave a message in the PR. Explain why you are making changes. What is the motivation for this update?
 </Step>
 </Steps>
 

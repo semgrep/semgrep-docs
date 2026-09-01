@@ -281,13 +281,13 @@ if can_make_request:
 <Tip>
 **TIP**
 
-Half or partial statements can't be matches; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
+Half or partial statements can't be matched; both of the examples above must specify the contents of the condition’s body (e.g., `$BODY` or `...`), otherwise they are not valid patterns.
 </Tip>
 
 ### Matching single items with an ellipsis
 
 Ellipsis `...` is generally used to match sequences of similar elements.
-However, you can also match single item using ellipsis `...` operator.
+However, you can also match a single item using the ellipsis `...` operator.
 The following pattern is valid in languages with a C-like
 syntax even though `...` matches a single Boolean value rather
 than a sequence:
@@ -587,14 +587,14 @@ To display matched metavariable in a rule message, add the same metavariable as 
 
 <Steps>
 <Step>
-Find the metavariable used in the Semgrep rule. See the following example of a part Semgrep rule (formula):
+Find the metavariable used in the Semgrep rule. See the following example of a part of a Semgrep rule (formula):
    ```yaml
    - pattern: $MODEL.set_password(…)
    ```
    This formula uses `$MODEL` as a metavariable.
 </Step>
 <Step>
-Insert the metavariable to rule message:
+Insert the metavariable to the rule message:
    ```yaml
    - message: Setting a password on $MODEL
    ```
@@ -684,7 +684,7 @@ def update_system():
 <Tip>
 **TIP**
 
-It is possible to disable constant propagation in a per-rule basis via the [`options` rule field](/writing-rules/rule-syntax#options).
+It is possible to disable constant propagation on a per-rule basis via the [`options` rule field](/writing-rules/rule-syntax#options).
 </Tip>
 
 ### Associative and commutative operators
@@ -693,7 +693,7 @@ Semgrep performs associative-commutative (AC) matching. For example, `... && B &
 
 Under AC-matching metavariables behave similarly to `...`. For example, `A | $X` can match `A | B | C` in four different ways (`$X` can bind to `B`, or `C`, or `B | C`). In order to avoid a combinatorial explosion, Semgrep will only perform AC-matching with metavariables if the number of potential matches is _small_, otherwise it will produce just one match (if possible) where each metavariable is bound to a single operand.
 
-Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat Boolean AND and OR operators (e.g., `&&` in `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
+Using [`options`](/writing-rules/rule-syntax#options) it is possible to entirely disable AC-matching. It is also possible to treat Boolean AND and OR operators (e.g., `&&` and `||` in C-family languages) as commutative, which can be useful despite not being semantically accurate.
 
 ## Deep expression operator
 
@@ -741,7 +741,7 @@ import foo
 
 #### Statements as expressions
 
-Many programming languages differentiate between expressions and statements. Expressions can appear inside if conditions, in function call arguments, etc. Statements can not appear everywhere; they are sequence of operations (in many languages using `;` as a separator/terminator) or special control flow constructs (if, while, etc.).
+Many programming languages differentiate between expressions and statements. Expressions can appear inside if conditions, in function call arguments, etc. Statements can not appear everywhere; they are sequences of operations (in many languages using `;` as a separator/terminator) or special control flow constructs (if, while, etc.).
 
 `foo()` is an expression (in most languages).
 
@@ -756,7 +756,7 @@ Many programmers don't really see the difference between `foo()` and `foo();`. T
 <Note>
 **INFO**
 
-Note that in some programming languages such as Python, which does not use semicolons as a separator or terminator, the difference between expressions and statements is even more confusing. Indentation in Python matters, and a newline after `foo()` is really the same than `foo();` in other programming languages such as C.
+Note that in some programming languages such as Python, which does not use semicolons as a separator or terminator, the difference between expressions and statements is even more confusing. Indentation in Python matters, and a newline after `foo()` is really the same as `foo();` in other programming languages such as C.
 </Note>
 
 ### Partial expressions
@@ -767,7 +767,7 @@ Partial expressions are not valid patterns. For example, the following is invali
 pattern: 1+
 ```
 
-A complete expression is needed (like `1 + $X`)
+A complete expression is needed (like `1 + $X`).
 
 ### Ellipses and statement blocks
 

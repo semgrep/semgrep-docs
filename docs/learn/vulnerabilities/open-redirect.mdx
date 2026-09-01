@@ -55,7 +55,7 @@ def export_semgrep_findings(request):
         return JsonResponse({"success": True, "message": "Findings sent"})
 ```
 
-In this fictional example, we notice an open redirect in the `redirect_view` . Additionally, if CSRF protection is not enabled globally, the `export_semgrep_findings` function is vulnerable to a CSRF attack. The following malicious link would allow an attacker to trick a logged-in user into triggering a request that exports sensitive Semgrep findings from their project and emails them straight to the attacker.
+In this fictional example, we notice an open redirect in the `redirect_view`. Additionally, if CSRF protection is not enabled globally, the `export_semgrep_findings` function is vulnerable to a CSRF attack. The following malicious link would allow an attacker to trick a logged-in user into triggering a request that exports sensitive Semgrep findings from their project and emails them straight to the attacker.
 
 ```python
 /redirect?url=/api/project/export?id=1234&email=pieter@attacker.com
@@ -63,7 +63,7 @@ In this fictional example, we notice an open redirect in the `redirect_view` . A
 
 ### Chaining with SSRF
 
-Even if an application tries to restrict which hosts it can fetch from, an open redirect can bypass those defenses. Suppose `semgrep.dev` has an image loader that only allows fetching from `*.semgrep.dev` , the implementation might look something like the Python code snippet below.
+Even if an application tries to restrict which hosts it can fetch from, an open redirect can bypass those defenses. Suppose `semgrep.dev` has an image loader that only allows fetching from `*.semgrep.dev`, the implementation might look something like the Python code snippet below.
 
 ```python
 import requests
@@ -156,7 +156,7 @@ def safe_redirect(request):
 
 If you must implement the allowlist yourself, be careful to implement the checks correctly. Attackers have many workarounds for common implementations. Take a look at [Portswigger’s url validation bypass cheat sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet) to see how creative they can get.
 
-Even, then, if you correctly restrict the URL, as we’ve seen in the example attacks, redirects to restricted domains can still be useful to an attacker turning them into SSRF vectors.
+Even then, if you correctly restrict the URL, as we’ve seen in the example attacks, redirects to restricted domains can still be useful to an attacker turning them into SSRF vectors.
 
 If it is not possible to use any of the above defenses, another useful approach is to notify the user whenever they are leaving your site. Showing the external domain clearly gives them a chance to recognize when something looks suspicious.
 

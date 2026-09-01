@@ -51,7 +51,7 @@ An intended request might have the following value for the numbers request param
 ```
 
 The `eval` function quickly turns this string into a Python list-object, and the resulting list is easy to work with for the developer.
-But since the application uses `eval`, an attacker could instead send a malicious string instead: 
+But since the application uses `eval`, an attacker could instead send a malicious string: 
 
 ```python
 __import__('os').system('whoami')

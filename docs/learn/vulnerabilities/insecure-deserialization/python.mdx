@@ -8,7 +8,7 @@ An introduction to this concept was covered in the [Insecure Deserialization](/l
 
 The impact can range from unexpected crashes to a full system compromise. It’s worth stressing: Python’s `pickle` and similar libraries should never be used to process untrusted input. They were built for speed and flexibility, not security. A notable example is Django’s decision to deprecate the `PickleSerializer` in version 4.1, acknowledging that the `pickle` module from Python’s standard library is inherently unsafe for deserialization.
 
-In this article, we explain the fundamentals of serialization in the context of Python. Then, we illustrates the most common ways insecure deserialization is exploited, and show you how to detect these patterns in your own code. Finally, we provide some practical recommendations to avoid the risks.
+In this article, we explain the fundamentals of serialization in the context of Python. Then, we illustrate the most common ways insecure deserialization is exploited, and show you how to detect these patterns in your own code. Finally, we provide some practical recommendations to avoid the risks.
 
 
 ### Pickling and unpickling
@@ -55,7 +55,7 @@ def deserialize():
     return str(obj)
 ```
 
-In this example, the call to `pickle.load` is applied directly to data derived from user input. If an attacker crafts a malicious pickle string, it will be executed when the handler processes the request. This is precisely the kind of pattern Semgrep’s rules can detect. The rules track data flow from untrusted sources such as HTTP request paths or headers and flag places in the code where it when it reaches sensitive functions like `pickle.loads`. Semgrep currently covers over a dozen Python libraries with known insecure deserialization functions.
+In this example, the call to `pickle.load` is applied directly to data derived from user input. If an attacker crafts a malicious pickle string, it will be executed when the handler processes the request. This is precisely the kind of pattern Semgrep’s rules can detect. The rules track data flow from untrusted sources such as HTTP request paths or headers and flag places in the code where it reaches sensitive functions like `pickle.loads`. Semgrep currently covers over a dozen Python libraries with known insecure deserialization functions.
 
 
 ### Recommendations & Mitigations
@@ -70,7 +70,7 @@ From the official `pickle` [documentation](https://docs.python.org/3/library/pic
 The pickle module is not secure. Only unpickle data you trust.
 </Warning>
 
-We highly recommend to use automated tools to verify compliance, since many more libraries use deserialisation powered by libraries such as `pickle` under the hood. Running Semgrep regularly as part of your continuous integration pipeline can highlight insecure deserialization patterns before they reach production.
+We highly recommend to use automated tools to verify compliance, since many more libraries use deserialization powered by libraries such as `pickle` under the hood. Running Semgrep regularly as part of your continuous integration pipeline can highlight insecure deserialization patterns before they reach production.
 
 A few examples for popular libraries:
 

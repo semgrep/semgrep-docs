@@ -37,7 +37,7 @@ In the preceding example, Semgrep tracks the data returned by `get_user_input()`
 
 The rule specifies the sanitizer `sanitize_input(...)`, so any expression that matches that pattern is considered sanitized. In particular, the expression `sanitize_input(data)` is labeled as sanitized. Even if `data` is tainted, as it occurs inside a piece of sanitized code, it does not produce any findings.
 
-Finally, the rule specifies that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls to  `html_output(data)` that are both labeled as sinks. The first one in `route1` is not reported because `data` is sanitized before reaching the sink, whereas the second one in `route2` is reported because the `data` that reaches the sink is still tainted.
+Finally, the rule specifies that anything matching either `html_output(...)` or `eval(...)` should be regarded as a sink. There are two calls to `html_output(data)` that are both labeled as sinks. The first one in `route1` is not reported because `data` is sanitized before reaching the sink, whereas the second one in `route2` is reported because the `data` that reaches the sink is still tainted.
 
 Find more examples of taint rules in the [Semgrep Registry](https://semgrep.dev/r?owasp=injection%2Cxss), including [express-sandbox-code-injection](https://semgrep.dev/editor?registry=javascript.express.security.express-sandbox-injection.express-sandbox-code-injection).
 
@@ -71,7 +71,7 @@ Additionally, taint sources accept the following options:
 | - | - | - | - |
 | `exact` | \{`false`, `true`} | `false` | See [Exact sources](#exact-sources).                                 |
 | `by-side-effect` | \{`false`, `true`, `only`} | `false` | See [Taint sources by side-effect](/writing-rules/data-flow/taint-mode/advanced#taint-sources-by-side-effect). |
-| `control` (Pro) 🧪 | \{`false`, `true`} | `false` | See [Track control sources](/writing-rules/data-flow/taint-mode/advanced#track-control-sources-).
+| `control` (Pro) 🧪 | \{`false`, `true`} | `false` | See [Track control sources](/writing-rules/data-flow/taint-mode/advanced#track-control-sources-). |
 
 ### Exact sources
 
@@ -205,7 +205,7 @@ pattern-sources:
 - pattern: sink(...)
 ```
 
-Semgrep treats the argument passed to `sink` as the sink itself.  In this case, the argument is `"foo" if tainted else "bar"`, which evaluates to either `"foo"` or `"bar"`.  Since neither value is tainted, Semgrep does not flag the call.
+Semgrep treats the argument passed to `sink` as the sink itself. In this case, the argument is `"foo" if tainted else "bar"`, which evaluates to either `"foo"` or `"bar"`. Since neither value is tainted, Semgrep does not flag the call.
 
 <Frame>
 <iframe src="https://semgrep.dev/embed/editor?snippet=KxJ17" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
@@ -241,7 +241,7 @@ Click **Open in Playground**.
 Run the example. Semgrep returns one match.
 </Step>
 <Step>
-Expand the **Matches** section, and click **dataflow**..
+Expand the **Matches** section, and click **dataflow**.
 </Step>
 </Steps>
 Note that, even though `sink` can be tainted via `x` or via `y`, the trace will only show you one of these possibilities. If you replace `x = user_input` with `x = "safe"`, then Semgrep reports the taint trace via `y`.

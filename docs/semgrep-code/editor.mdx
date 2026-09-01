@@ -64,15 +64,15 @@ Advanced mode provides the minimum required YAML keys for a Semgrep rule. To com
 
 ### Write a rule using structure mode (beta)
 
-Structure mode is a UI-based ruled writing editor that guides you through the process of writing a rule.
+Structure mode is a UI-based rule writing editor that guides you through the process of writing a rule.
 
 Structure mode features include:
 
 - **Match badges**: Match badges are visual indicators paired with pattern operators. The match badge shows the number of matches associated with each pattern operator.
 - **Automatic indentation**: When adding a new pattern to a nested operator such as `patterns` or `pattern-either`, the editor automatically indents sub-patterns correctly.
-- **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constrains that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable.
+- **Differentiation between patterns and pattern constraints**: A pattern is one of six different operators that describes zero or more locations in a rule. These include `pattern`, `any`, `all`, `inside`, `regex`, and `not`. You can combine these in prescribed ways, such as `any` and `all`, using range union and intersection, but they still define ranges. Pattern constraints describe Boolean constraints that must be met for a match to occur. If the constraint doesn't hold, then the ranges determined by the pattern operators aren't applicable.
 - **Interoperability with advanced mode**: You can write a rule using structure mode and view or export it in YAML, or you can paste in the YAML for a rule and edit it with structure mode.
-- **Drag and drop**" You can move around the elements of a rule using drag and drop.
+- **Drag and drop**: You can move around the elements of a rule using drag and drop.
 - **Pattern disabling**: You can toggle individual patterns on or off for actions like testing.
 
 To write a **search** rule using structure mode:
@@ -117,7 +117,7 @@ To write a **taint** rule using structure mode:
 
 <Steps>
 <Step>
-Ensure that you are in **structure** mode. and that you have selected **taint**.
+Ensure that you are in **structure** mode, and that you have selected **taint**.
 </Step>
 <Step>
 Define your **Sources**.
@@ -339,7 +339,7 @@ To change an unlisted rule's visibility to private for increased security, click
 
 ## Rename a rule
 
-To rename a rule, enter the new name in the YAML editor's `id` field. The, save the rule by entering <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on Mac) or clicking the **Save** button.
+To rename a rule, enter the new name in the YAML editor's `id` field. Then, save the rule by entering <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on Mac) or clicking the **Save** button.
 
 ## Delete a rule
 

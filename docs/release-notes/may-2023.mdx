@@ -34,7 +34,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
 - Java support improvement: Semgrep OSS Engine now includes heuristics based on the Java standard library and common naming patterns. As a result, Semgrep OSS Engine can now determine more types of Java expressions, for use with [Typed Metavariables](/writing-rules/pattern-syntax#typed-metavariables).
 - We are introducing a new experimental generic matching engine [Aliengrep](/writing-rules/experiments/aliengrep) as an alternative to the default generic mode engine (Spacegrep). Generic mode is used for languages that are not supported by Semgrep OSS Engine. Try out [Aliengrep](/writing-rules/experiments/aliengrep) and let us know what you think about it!
 - Taint analysis updates:
-  - In Java, Semgrep OSS Engine can now track taint through more get and set methods (getters and setters). Before this update, taint analysis of Semgrep OSS Engine could already relate setters to getters (for example: `o.setX(taint); o.getX()`. With this update, it can relate setters and getters to properties (for example `o.setX(taint); o.x`).
+  - In Java, Semgrep OSS Engine can now track taint through more get and set methods (getters and setters). Before this update, taint analysis of Semgrep OSS Engine could already relate setters to getters (for example: `o.setX(taint); o.getX()`). With this update, it can relate setters and getters to properties (for example `o.setX(taint); o.x`).
   - Added experimental options `taint_assume_safe_booleans` and `taint_assume_safe_numbers` to avoid propagating taint that comes from expressions with boolean or number (integer, float) types.
   - Semgrep OSS Engine can recognize that an object constructed by `new Obj("tainted", "safe")` has its `x` attribute tainted, whereas its `y` attribute is safe.
   - Extract mode: users can now choose to include or exclude rules to run on, similar to `paths:`.
@@ -71,7 +71,7 @@ This section of release notes includes upgrades of Semgrep OSS Engine for versio
     - Support for search and replace with rule patterns through semgrep/search.
     - Language Server now notifies you about errors and includes a reason for the crash.
 
-- Relaxed restrictions on symbolic propagation so that symbolic values survive branching statements. Now (with symbolic-propagation enabled) `foo(bar())`  matches the following code:
+- Relaxed restrictions on symbolic propagation so that symbolic values survive branching statements. Now (with symbolic-propagation enabled) `foo(bar())` matches the following code:
 
     ```python
     def test():
@@ -106,7 +106,7 @@ Semgrep Visual Studio Code extension received new updates! Try to scan your code
     </Frame>
 - You can now rename Projects in the Semgrep Cloud Platform. Before this update, when you renamed a repository in your Source Code Manager (SCM), for example in GitHub, GitLab, or Bitbucket, all of your previous Semgrep findings and triage data were lost as Semgrep recognized the renamed repository only as a new repository. With this update, you can now manually rename the project in Semgrep Code. This is the first step before we will bring you an automated solution (as this update still requires manual action). But now you can rename a project in Semgrep Code to match the new repository name without losing your findings data! To rename a repository:
     
-    i. On the [Projects](https://semgrep.dev/orgs/-/projects) page of Semgrep Cloud Platform, click the gear icon <Icon icon="gear" iconType="solid"/> **Settings**. of the repository where you want to change the repository name.
+    i. On the [Projects](https://semgrep.dev/orgs/-/projects) page of Semgrep Cloud Platform, click the gear icon <Icon icon="gear" iconType="solid"/> **Settings** of the repository where you want to change the repository name.
       <Frame>
       ![Screenshot of the settings icon on Projects page](/images/release-notes-rename-project1-2818d8eaab431123cab25e1921aab052.png)
       </Frame>
