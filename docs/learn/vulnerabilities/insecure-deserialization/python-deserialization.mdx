@@ -57,7 +57,7 @@ In this example, the call to `pickle.load` is applied directly to data derived f
 
 The simplest and most effective recommendation is to avoid `pickle` and its variants (`_pickle`, `cPickle`, `dill`, `jsonpickle`, `shelve`) for any untrusted input. These libraries cannot be made safe against arbitrary input because they allow execution by design. Use YAML or JSON to transfer and store data instead.
 
-We highly recommend to use automated tools to verify compliance, since many more libraries use deserialization powered by libraries such as `pickle` under the hood. Running Semgrep regularly as part of your continuous integration pipeline can highlight insecure deserialization patterns before they reach production.
+We highly recommend using automated tools to verify compliance, since many more libraries use deserialization powered by libraries such as `pickle` under the hood. Running Semgrep regularly as part of your continuous integration pipeline can highlight insecure deserialization patterns before they reach production.
 
 A few examples for popular libraries:
 

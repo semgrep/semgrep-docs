@@ -63,7 +63,7 @@ There’s no direct evidence here that anything is wrong. The code will likely w
 
 This kind of problem requires context. The analyzer needs to understand not just that `user_id` came from the request, but that it controls access to a sensitive resource, and that no permission check was made before returning it.
 
-This makes generic detection difficult, even for powerful static analyzers like Semgrep. Instead, what is required is writing custom rules for your application that describe the access control logic you're expecting. For example, you might define a rule that flags any time a route parameter `user_id` is used in a query without checking it against the current user.
+This makes generic detection difficult, even for powerful static analyzers like Semgrep. Instead, write custom rules for your application that describe the access control logic you're expecting. For example, you might define a rule that flags any time a route parameter `user_id` is used in a query without checking it against the current user.
 
 ## Recommendations and Mitigations for Preventing IDOR
 
