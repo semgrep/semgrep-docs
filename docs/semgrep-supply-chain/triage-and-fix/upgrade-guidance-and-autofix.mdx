@@ -43,15 +43,11 @@ When enabled, Semgrep analyzes scan results after each full scan and marks eligi
 
 ### Enable Autofix
 
-Supply Chain Autofix has no settings toggle. Like [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix), it is available for eligible findings when your organization meets these requirements:
+Supply Chain Autofix has no settings toggle. You can use it without enabling Upgrade Guidance.
 
-- Run [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) on at least one repository.
-- Grant Semgrep **Read and write** access to your repository. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
-  - **GitHub users** must install the private GitHub app for Semgrep. To create Autofix pull requests, the app must have [Contents: Read and write](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) permissions. Existing customers who haven't already granted this permission must update their app configuration.
-  - Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as Autofix for Semgrep Code. See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
-- Optionally, [connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) if your project uses one. Without it, Autofix may not be available for dependencies in that registry.
+For SCM permissions and read/write access, see [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix#prerequisites) and [Grant read and write access](/semgrep-appsec-platform/scm-code-access). You also need [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) on at least one repository. For dependencies in a private registry, see [Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
 
-You can use Autofix without enabling Upgrade Guidance. If Upgrade Guidance is disabled, you can still open an Autofix PR or MR from an eligible finding when the other requirements are met.
+To open an Autofix PR or MR, see [Open an Autofix PR or MR with fixes](#open-an-autofix-pr-or-mr-with-fixes).
 
 ### Feature availability
 
@@ -109,7 +105,7 @@ The **Details** page is divided into several panels:
   - **Dependency path**: displays the path of dependencies; useful when analyzing transitive dependencies
   - **Pattern** and **Rule**: the pattern and rule logic that determined the match
 
-## Open a PR or MR with fixes
+## Open an Autofix PR or MR with fixes
 
 After reviewing a finding's Upgrade Guidance, you can open a pull request or merge request to upgrade the dependency to a safe version:
 
