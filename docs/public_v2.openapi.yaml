@@ -3347,6 +3347,13 @@ paths:
                     type: integer
                     description: The unique numerical identifier for the deployment.
                     format: int64
+                - name: If-Match
+                  in: header
+                  description: The state_version of the bundle being replaced, taken from a GET or dry-run response. Responds 428 when omitted and 409 when stale.
+                  required: true
+                  schema:
+                    example: d4c3b2a1
+                    type: string
             requestBody:
                 content:
                     application/json:
