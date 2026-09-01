@@ -32,12 +32,14 @@ Upgrade guidance and Autofix support:
 
 ### Feature availability
 
+**Upgrade guidance** and **Autofix** are separate. The **Upgrade guidance** setting controls only Upgrade guidance. Autofix is available for eligible findings when the prerequisites below are met, without a separate settings toggle.
+
 To access **all** Upgrade guidance and Autofix features, you must have:
 
-- Enabled Upgrade guidance in Semgrep AppSec Platform by going to [**Settings > General > Supply Chain**](https://semgrep.dev/orgs/-/settings/general/supplyChain), then clicking the **Upgrade guidance & Autofix** toggle.
+- Enabled **Upgrade guidance** in Semgrep AppSec Platform by going to [**Settings > General > Supply Chain**](https://semgrep.dev/orgs/-/settings/general/supplyChain), then clicking the **Upgrade guidance** toggle. This toggle is required for Upgrade guidance only; Autofix does not depend on it.
 - At least one repository with [full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure).
-- Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started).
-- Granted Semgrep **Read and write** access to your repository. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
+- Semgrep Multimodal [enabled](/semgrep-multimodal/getting-started). Required for Upgrade guidance.
+- Granted Semgrep **Read and write** access to your repository. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access). Required to open Autofix pull requests or merge requests.
   - **GitHub users** must install the private GitHub app for Semgrep. To create Autofix pull requests, the app must have [Contents: Read and write](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) permissions. Existing customers who haven't already granted this permission must update their app configuration.
     - Autofix PRs for Supply Chain use the same private GitHub App **Contents: Read and write** permission as [Autofix for Semgrep Code](/semgrep-code/triage-remediation/autofix). See [Grant code access to Semgrep with a private GitHub app](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) for setup steps. For GitHub Autofix API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 - Optionally: if you have [a private registry, connect it to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry) to improve results.
