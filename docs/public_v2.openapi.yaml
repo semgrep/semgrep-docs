@@ -12179,14 +12179,15 @@ components:
                         - ISSUE_STATUS_REMOVED
                         - ISSUE_STATUS_UNRESOLVED
                     type: string
-                    description: |4+
+                    description: |+
+                        The issue's scan-controlled status, before triage is taken into account. Prefer `aggregateState`, which combines this field with `triageState` into the single state shown in Semgrep AppSec Platform.
 
                         | value | description |
                         |-------|---------------|
-                        | ISSUE_STATUS_FIXED |  |
-                        | ISSUE_STATUS_MUTED |  |
-                        | ISSUE_STATUS_REMOVED |  |
-                        | ISSUE_STATUS_UNRESOLVED |  |
+                        | ISSUE_STATUS_FIXED | The most recent scan no longer detected the issue. |
+                        | ISSUE_STATUS_MUTED | The most recent scan detected the issue, but a `nosemgrep` comment in the scanned code suppresses it. |
+                        | ISSUE_STATUS_REMOVED | The most recent scan no longer detected the issue. Typically: the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. |
+                        | ISSUE_STATUS_UNRESOLVED | The most recent scan detected the issue. |
 
                     format: enum
                 repository:
@@ -12208,17 +12209,17 @@ components:
                         - FINDING_TRIAGE_STATE_PROVISIONALLY_IGNORED
                     type: string
                     description: |+
-                        The issue's current triage state.
+                        The issue's current triage state. Prefer `aggregateState`, which combines this field with `status` into the single state shown in Semgrep AppSec Platform.
 
                         | value | description |
                         |-------|---------------|
-                        | FINDING_TRIAGE_STATE_UNTRIAGED |  |
-                        | FINDING_TRIAGE_STATE_IGNORED |  |
-                        | FINDING_TRIAGE_STATE_REOPENED |  |
+                        | FINDING_TRIAGE_STATE_UNTRIAGED | The finding has not been triaged. |
+                        | FINDING_TRIAGE_STATE_IGNORED | The finding was triaged as ignored. |
+                        | FINDING_TRIAGE_STATE_REOPENED | The finding was previously ignored and has been triaged back to open. |
                         | FINDING_TRIAGE_STATE_UNKNOWN |  |
-                        | FINDING_TRIAGE_STATE_REVIEWING |  |
-                        | FINDING_TRIAGE_STATE_FIXING |  |
-                        | FINDING_TRIAGE_STATE_PROVISIONALLY_IGNORED |  |
+                        | FINDING_TRIAGE_STATE_REVIEWING | The finding was triaged as being reviewed. |
+                        | FINDING_TRIAGE_STATE_FIXING | The finding was triaged as needing to be fixed. |
+                        | FINDING_TRIAGE_STATE_PROVISIONALLY_IGNORED | Semgrep determined the finding is very likely safe to ignore. Triage it to ignored to confirm, or reopen it. |
 
                     format: enum
                 triageReason:
@@ -12264,15 +12265,15 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | AGGREGATE_ISSUE_STATE_OPEN |  |
-                        | AGGREGATE_ISSUE_STATE_FIXED |  |
-                        | AGGREGATE_ISSUE_STATE_REMOVED |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_APP |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE |  |
+                        | AGGREGATE_ISSUE_STATE_OPEN | The issue is still detected and has not been triaged into another state. |
+                        | AGGREGATE_ISSUE_STATE_FIXED | The issue is no longer detected. |
+                        | AGGREGATE_ISSUE_STATE_REMOVED | The issue is no longer detected; typically the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. Removed issues are excluded from issue lists unless you filter for this value explicitly. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_APP | The issue was triaged as ignored in Semgrep AppSec Platform, through the API, or by an automation. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE | The issue is suppressed by a `nosemgrep` comment in the scanned code. Shown as "Ignored via nosemgrep" in Semgrep AppSec Platform. |
                         | AGGREGATE_ISSUE_STATE_UNKNOWN |  |
-                        | AGGREGATE_ISSUE_STATE_REVIEWING |  |
-                        | AGGREGATE_ISSUE_STATE_FIXING |  |
-                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP |  |
+                        | AGGREGATE_ISSUE_STATE_REVIEWING | The issue was triaged as being reviewed. |
+                        | AGGREGATE_ISSUE_STATE_FIXING | The issue was triaged as needing to be fixed. Shown as "To fix" in Semgrep AppSec Platform. |
+                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP | Semgrep determined the issue is very likely safe to ignore. Triage it to ignored to confirm, or reopen it to undo. |
 
                     format: enum
                 note:
@@ -12763,15 +12764,15 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | AGGREGATE_ISSUE_STATE_OPEN |  |
-                        | AGGREGATE_ISSUE_STATE_FIXED |  |
-                        | AGGREGATE_ISSUE_STATE_REMOVED |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_APP |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE |  |
+                        | AGGREGATE_ISSUE_STATE_OPEN | The issue is still detected and has not been triaged into another state. |
+                        | AGGREGATE_ISSUE_STATE_FIXED | The issue is no longer detected. |
+                        | AGGREGATE_ISSUE_STATE_REMOVED | The issue is no longer detected; typically the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. Removed issues are excluded from issue lists unless you filter for this value explicitly. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_APP | The issue was triaged as ignored in Semgrep AppSec Platform, through the API, or by an automation. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE | The issue is suppressed by a `nosemgrep` comment in the scanned code. Shown as "Ignored via nosemgrep" in Semgrep AppSec Platform. |
                         | AGGREGATE_ISSUE_STATE_UNKNOWN |  |
-                        | AGGREGATE_ISSUE_STATE_REVIEWING |  |
-                        | AGGREGATE_ISSUE_STATE_FIXING |  |
-                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP |  |
+                        | AGGREGATE_ISSUE_STATE_REVIEWING | The issue was triaged as being reviewed. |
+                        | AGGREGATE_ISSUE_STATE_FIXING | The issue was triaged as needing to be fixed. Shown as "To fix" in Semgrep AppSec Platform. |
+                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP | Semgrep determined the issue is very likely safe to ignore. Triage it to ignored to confirm, or reopen it to undo. |
 
                     format: enum
                 createdAt:
@@ -13045,10 +13046,10 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | ISSUE_STATUS_FIXED |  |
-                        | ISSUE_STATUS_MUTED |  |
-                        | ISSUE_STATUS_REMOVED |  |
-                        | ISSUE_STATUS_UNRESOLVED |  |
+                        | ISSUE_STATUS_FIXED | The most recent scan no longer detected the issue. |
+                        | ISSUE_STATUS_MUTED | The most recent scan detected the issue, but a `nosemgrep` comment in the scanned code suppresses it. |
+                        | ISSUE_STATUS_REMOVED | The most recent scan no longer detected the issue. Typically: the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. |
+                        | ISSUE_STATUS_UNRESOLVED | The most recent scan detected the issue. |
 
                 tab:
                     enum:
@@ -13644,15 +13645,15 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | AGGREGATE_ISSUE_STATE_OPEN |  |
-                        | AGGREGATE_ISSUE_STATE_FIXED |  |
-                        | AGGREGATE_ISSUE_STATE_REMOVED |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_APP |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE |  |
+                        | AGGREGATE_ISSUE_STATE_OPEN | The issue is still detected and has not been triaged into another state. |
+                        | AGGREGATE_ISSUE_STATE_FIXED | The issue is no longer detected. |
+                        | AGGREGATE_ISSUE_STATE_REMOVED | The issue is no longer detected; typically the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. Removed issues are excluded from issue lists unless you filter for this value explicitly. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_APP | The issue was triaged as ignored in Semgrep AppSec Platform, through the API, or by an automation. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE | The issue is suppressed by a `nosemgrep` comment in the scanned code. Shown as "Ignored via nosemgrep" in Semgrep AppSec Platform. |
                         | AGGREGATE_ISSUE_STATE_UNKNOWN |  |
-                        | AGGREGATE_ISSUE_STATE_REVIEWING |  |
-                        | AGGREGATE_ISSUE_STATE_FIXING |  |
-                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP |  |
+                        | AGGREGATE_ISSUE_STATE_REVIEWING | The issue was triaged as being reviewed. |
+                        | AGGREGATE_ISSUE_STATE_FIXING | The issue was triaged as needing to be fixed. Shown as "To fix" in Semgrep AppSec Platform. |
+                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP | Semgrep determined the issue is very likely safe to ignore. Triage it to ignored to confirm, or reopen it to undo. |
 
                 upgradeGuidanceFilters:
                     enum:
@@ -14319,13 +14320,13 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | FINDING_TRIAGE_STATE_UNTRIAGED |  |
-                        | FINDING_TRIAGE_STATE_IGNORED |  |
-                        | FINDING_TRIAGE_STATE_REOPENED |  |
+                        | FINDING_TRIAGE_STATE_UNTRIAGED | The finding has not been triaged. |
+                        | FINDING_TRIAGE_STATE_IGNORED | The finding was triaged as ignored. |
+                        | FINDING_TRIAGE_STATE_REOPENED | The finding was previously ignored and has been triaged back to open. |
                         | FINDING_TRIAGE_STATE_UNKNOWN |  |
-                        | FINDING_TRIAGE_STATE_REVIEWING |  |
-                        | FINDING_TRIAGE_STATE_FIXING |  |
-                        | FINDING_TRIAGE_STATE_PROVISIONALLY_IGNORED |  |
+                        | FINDING_TRIAGE_STATE_REVIEWING | The finding was triaged as being reviewed. |
+                        | FINDING_TRIAGE_STATE_FIXING | The finding was triaged as needing to be fixed. |
+                        | FINDING_TRIAGE_STATE_PROVISIONALLY_IGNORED | Semgrep determined the finding is very likely safe to ignore. Triage it to ignored to confirm, or reopen it. |
 
                     format: enum
                 triageReason:
@@ -17508,15 +17509,15 @@ components:
 
                         | value | description |
                         |-------|---------------|
-                        | AGGREGATE_ISSUE_STATE_OPEN |  |
-                        | AGGREGATE_ISSUE_STATE_FIXED |  |
-                        | AGGREGATE_ISSUE_STATE_REMOVED |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_APP |  |
-                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE |  |
+                        | AGGREGATE_ISSUE_STATE_OPEN | The issue is still detected and has not been triaged into another state. |
+                        | AGGREGATE_ISSUE_STATE_FIXED | The issue is no longer detected. |
+                        | AGGREGATE_ISSUE_STATE_REMOVED | The issue is no longer detected; typically the file was not scanned, the rule did not run, the rule's pattern changed, or the pull request was closed. Removed issues are excluded from issue lists unless you filter for this value explicitly. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_APP | The issue was triaged as ignored in Semgrep AppSec Platform, through the API, or by an automation. |
+                        | AGGREGATE_ISSUE_STATE_IGNORED_CODE | The issue is suppressed by a `nosemgrep` comment in the scanned code. Shown as "Ignored via nosemgrep" in Semgrep AppSec Platform. |
                         | AGGREGATE_ISSUE_STATE_UNKNOWN |  |
-                        | AGGREGATE_ISSUE_STATE_REVIEWING |  |
-                        | AGGREGATE_ISSUE_STATE_FIXING |  |
-                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP |  |
+                        | AGGREGATE_ISSUE_STATE_REVIEWING | The issue was triaged as being reviewed. |
+                        | AGGREGATE_ISSUE_STATE_FIXING | The issue was triaged as needing to be fixed. Shown as "To fix" in Semgrep AppSec Platform. |
+                        | AGGREGATE_ISSUE_STATE_PROVISIONALLY_IGNORED_APP | Semgrep determined the issue is very likely safe to ignore. Triage it to ignored to confirm, or reopen it to undo. |
 
                     format: enum
                 guardrailsState:
