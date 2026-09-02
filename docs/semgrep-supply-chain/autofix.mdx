@@ -6,17 +6,24 @@ description: "Open a pull request or merge request that upgrades a vulnerable de
 
 Supply Chain Autofix opens a PR or MR that upgrades a vulnerable dependency to a fixed version.
 
-For shared Autofix behavior, including availability, SCM permissions, and troubleshooting from the **Fix** menu, see [Autofix](/semgrep-code/triage-remediation/autofix).
-
-## Supply Chain-specific requirements
-
-Supply Chain Autofix is available for JavaScript (`npm`) and Python (`pip`, `pip-tools`, `pipenv`, `poetry`, `uv`) projects on GitHub Cloud or GitLab Cloud when:
-
-- The finding has a fixed version to upgrade to.
-- [Full Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) have run on the repository.
-- If the dependency is in a private registry, Semgrep can access it. See [Connect a private registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
+Autofix is enabled for all customers. There is no settings toggle. You choose when to use Autofix by selecting **Open Autofix PR** from a finding's **Fix** menu or by calling the API.
 
 Supply Chain Autofix does not require Semgrep Multimodal or [Upgrade Guidance (beta)](/semgrep-supply-chain/upgrade-guidance). You can open an Autofix PR or MR even if Upgrade Guidance is disabled or has not finished running. When Upgrade Guidance analysis has completed, Semgrep can include that information in the PR or MR description.
+
+## Prerequisites
+
+To use Supply Chain Autofix, you must meet the following requirements:
+
+- [Enable Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) and run a full scan on a connected repository with an eligible finding.
+- The finding has a fixed version to upgrade to.
+- The project uses a supported ecosystem: JavaScript (`npm`) or Python (`pip`, `pip-tools`, `pipenv`, `poetry`, `uv`) on GitHub Cloud or GitLab Cloud.
+- Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant read and write access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
+  - **GitHub users** must install the private GitHub app for Semgrep with [Contents: Read and write](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-with-a-private-github-app) permissions.
+- If the dependency is in a private registry, [connect the registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
+
+<Warning>
+Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
+</Warning>
 
 ## Open an Autofix PR or MR
 
@@ -29,6 +36,7 @@ Select a finding.
 </Step>
 <Step>
 Click **Fix** > **Open Autofix PR**.
+  * If Autofix is unavailable, **Open Autofix PR** does not appear in the **Fix** menu, or Semgrep shows a modal with setup instructions instead of opening the PR.
 </Step>
 </Steps>
 

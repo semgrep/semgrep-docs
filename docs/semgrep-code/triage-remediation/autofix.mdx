@@ -1,12 +1,12 @@
 ---
-title: "Autofix"
+title: "Autofix for Semgrep Code"
 sidebarTitle: "Autofix"
-description: "Open a pull request or merge request to remediate Semgrep Code or Supply Chain findings."
+description: "Semgrep's Autofix feature uses AI to generate proposed code changes for Semgrep Code findings and open a draft pull or merge request."
 ---
 
-Autofix creates a branch, applies the changes, and opens a pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
+Autofix creates a branch, applies the changes, and opens a draft pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
 
-Autofix is enabled for all customers. There is no settings toggle. You choose when to use Autofix by selecting **Open Autofix PR** from a finding's **Fix** menu or by calling the API. If you do not want to use Autofix, you can ignore the option.
+Autofix is enabled for all customers. There is no settings toggle. You choose when to use Autofix by selecting **Open Autofix PR** on the finding’s **Details** page or by calling the API.
 
 <Note>
 Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
@@ -14,37 +14,19 @@ Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) an
 
 ## Prerequisites
 
-All Autofix PRs and MRs require:
+To use Autofix for Semgrep Code findings, you must meet the following requirements:
 
-- A connected repository with eligible findings.
-- [Read and write SCM access](/semgrep-appsec-platform/scm-code-access) so Semgrep can push a branch and open a PR or MR. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider. For GitHub API details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
+* [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).
+* Accept Amazon Bedrock, including Anthropic Claude models.
+  * Semgrep Code does not respect AI model selection.
+* Have at least one connected repository with new or existing Semgrep Code findings.
+* Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
 
 <Warning>
 Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
 </Warning>
 
-### Semgrep Code Autofix
-
-Semgrep Code Autofix also requires:
-
-- [Semgrep Multimodal](/semgrep-multimodal/getting-started).
-- Acceptance of Amazon Bedrock, including Anthropic Claude models. Semgrep Code does not respect AI model selection.
-
-### Supply Chain Autofix
-
-[Supply Chain Autofix](/semgrep-supply-chain/autofix) upgrades vulnerable dependencies in supported JavaScript and Python projects. It does not require Semgrep Multimodal or [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance).
-
-## If Autofix is unavailable
-
-On a finding's **Details** page, open the **Fix** drop-down. Semgrep shows **Open Autofix PR** only when Autofix is available for that finding.
-
-If Autofix is unavailable, the **Fix** menu or a modal explains why. Common reasons include:
-
-- Missing SCM **read and write** permissions.
-- For Semgrep Code findings, Semgrep Multimodal is not enabled.
-- For Supply Chain findings, the project uses an unsupported ecosystem, the dependency has no fixed version, or Semgrep cannot access a required private registry.
-
-## Use Autofix for Code findings
+## Use Autofix
 
 <Steps>
 <Step>
@@ -111,4 +93,4 @@ Memories may affect PRs indirectly through remediation guidance. If remediation 
 
 ## Supply Chain Autofix
 
-For dependency upgrade PRs and MRs, see [Supply Chain Autofix](/semgrep-supply-chain/autofix).
+To open a PR or MR that upgrades a vulnerable dependency, see [Supply Chain Autofix](/semgrep-supply-chain/autofix).
