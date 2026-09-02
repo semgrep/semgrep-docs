@@ -74,7 +74,7 @@ Semgrep recommends connecting GitHub with the public [`semgrep-app`](https://git
 
 ## GitHub permissions
 
-Semgrep recommends connecting GitHub with a GitHub App. Some organizations use a personal access token (PAT) instead. Use the tabs below for the connection method that applies to you.
+Semgrep recommends connecting GitHub with a GitHub App. Some organizations use a personal access token (PAT) instead. Use the tabs below for the method that applies to you.
 
 <Tabs>
 <Tab title="GitHub App (recommended)">
@@ -213,13 +213,7 @@ Semgrep does **not** read or write file contents through the API's `contents` en
 
 <div id="github-personal-access-tokens" />
 
-<Note>
-**Managed Scans on GitHub**
-
-[Semgrep Managed Scans](/deployment/managed-scanning/github) for GitHub still require the public and private Semgrep GitHub Apps. A PAT alone does not replace those apps for Managed Scans.
-</Note>
-
-Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App, or alongside a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when org policy requires them.
+Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when org policy requires them.
 
 A PAT can only grant access that the creating GitHub user already has. Use a dedicated machine user when possible. That user must be a member of the target organization, or a collaborator on the selected repositories. For [Autofix](/semgrep-code/triage-remediation/autofix), the user must be able to push branches and open pull requests on those repositories.
 
@@ -228,7 +222,7 @@ When you save a token or click **Test** on [**Settings > Source code managers**]
 | Feature | Role | Fine-grained scopes (recommended) | Classic scopes | Configure |
 | :--- | :--- | :--- | :--- | :--- |
 | Connect or Test SCM connection | Org member or collaborator who can create a PAT for the target org or repositories | <ul><li>**Resource owner**: the GitHub organization Semgrep connects to</li><li>**Repository access**: all or selected repositories Semgrep uses</li><li>**Metadata: Read**. GitHub includes this automatically when you grant any repository permission.</li></ul> | <ul><li>`repo` for private repositories</li><li>`public_repo` if the connection only needs public repositories</li></ul> If the organization uses SAML SSO, authorize the token for that organization after you create it. | <ul><li>[Connect a source code manager](/deployment/connect-scm)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections)</li></ul> |
-| Code access | Same as above; user must be able to read the target repositories | <ul><li>All **Connect or Test** requirements</li><li>**Contents: Read**</li></ul> | Same as **Connect or Test**: `repo` or `public_repo`. Classic `repo` includes content read. | [Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections) |
+| Code access, Managed Scans, and AI-assisted features | Same as above; user must be able to read the target repositories | <ul><li>All **Connect or Test** requirements</li><li>**Contents: Read**</li></ul> | Same as **Connect or Test**: `repo` or `public_repo`. Classic `repo` includes content read. | <ul><li>[Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections)</li><li>[Semgrep Managed Scans](/deployment/managed-scanning/overview)</li><li>[Semgrep Multimodal](/semgrep-multimodal/getting-started)</li></ul> |
 | Autofix | Same as above; user must be able to push branches and open PRs on the target repositories | <ul><li>All **Code access** requirements</li><li>**Contents: Read and write**</li><li>**Pull requests: Read and write**</li></ul> | `repo`, which includes content write and pull request write. `public_repo` is not enough for private repositories. | <ul><li>[Autofix](/semgrep-code/triage-remediation/autofix)</li><li>[Grant code access](/semgrep-appsec-platform/scm-code-access#grant-code-access-to-semgrep-for-token-based-scm-connections)</li></ul> |
 
 </Tab>
