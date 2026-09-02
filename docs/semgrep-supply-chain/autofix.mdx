@@ -16,7 +16,7 @@ To use Supply Chain Autofix, you must meet the following requirements:
 
 - [Enable Semgrep Supply Chain scans](/semgrep-supply-chain/set-up-and-configure) and run a full scan on a connected repository.
 - The finding has a fixed version to upgrade to.
-- The project uses a supported ecosystem: JavaScript (`npm`) or Python (`pip`, `pip-tools`, `pipenv`, `poetry`, `uv`) on GitHub Cloud or GitLab Cloud.
+- The project uses a supported ecosystem: JavaScript or Python on GitHub Cloud or GitLab Cloud.
 - Semgrep needs **read and write** access to the repository so it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
 - If the dependency is in a private registry, [connect the registry to Semgrep](/kb/semgrep-supply-chain/connect-a-private-registry).
 
