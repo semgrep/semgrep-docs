@@ -215,7 +215,7 @@ Semgrep does **not** read or write file contents through the API's `contents` en
 
 Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when org policy requires them.
 
-A PAT can only grant access that the creating GitHub user already has. Use a dedicated machine user when possible. That user must be a member of the target organization, or a collaborator on the selected repositories. For [Autofix](/semgrep-code/triage-remediation/autofix), the user must be able to push branches and open pull requests on those repositories.
+A PAT can only grant access that the creating GitHub user already has. Use a [machine user](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#machine-users) when possible. That user must be a member of the target organization, or a collaborator on the selected repositories. For [Autofix](/semgrep-code/triage-remediation/autofix), the user must be able to push branches and open pull requests on those repositories.
 
 When you save a token or click **Test** on [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code), Semgrep validates that the PAT can access the connected organization. That check uses the same minimum scopes as code read access. It does **not** require additional scopes beyond those listed for **Connect or Test SCM connection** and **Code access** below.
 
