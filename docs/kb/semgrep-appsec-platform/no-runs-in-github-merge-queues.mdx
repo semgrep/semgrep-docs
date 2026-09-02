@@ -14,7 +14,7 @@ Managed Scans do not run in merge queues, so the required Semgrep check never pa
 
 Semgrep doesn't run in merge queues because:
 
-- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merged.
+- Diff-aware scans during a merge queue check aren't meaningful. The purpose of a diff-aware scan is to catch issues before code is merged. Pull requests in a merge queue are already approved for merge.
 - Full scans take a long time, significantly delaying merges for larger repositories.
 
 ## Workaround

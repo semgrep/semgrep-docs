@@ -8,9 +8,9 @@ A **Static Application Security Testing (SAST)** tool can analyze your code with
 Some key features of a good SAST tool:
 
 - The static analysis engine should **support whole program taint analysis** which tracks the flow of tainted data such as untrusted user input and any expressions that operate upon it that may be exploited.
-- **Support many programming language and frameworks** used during development, this includes core programming languages, infrastructure as code, and scripts.
+- **Support many programming languages and frameworks** used during development, this includes core programming languages, infrastructure as code, and scripts.
 - Work and **integrate seamlessly with any existing developer tooling** like IDEs, pre-commit, PR/MR comments, CI/CD pipelines, etc. Finding data should be exportable into common formats such as proprietary JSON, SARIF, or CSV so information can be sent to vulnerability management systems and for viewing metrics/trends over time.
-- Support **easy to create customization**, which is crucial to be able to detect vulnerabilities for internally developed libraries and frameworks that out-of-the box solutions would miss.
+- Support **easy to create customization**, which is crucial to be able to detect vulnerabilities for internally developed libraries and frameworks that out-of-the-box solutions would miss.
 - When an issue is discovered, **provide detailed remediation** **guidance** **and code auto-fixing** capabilities helps reduce the time to remediate.
 
 We will explore how this works in the next section.
@@ -64,14 +64,14 @@ For a comprehensive guide on how to effectively incorporate security testing thr
 
 ## Customization
 
-Being able to write custom rules helps with edge-cases where internal knowledge is needed to be able accurately report if something is a security vulnerability or passes the code smell test. For example:
+Being able to write custom rules helps with edge-cases where internal knowledge is needed to be able to accurately report if something is a security vulnerability or passes the code smell test. For example:
 
 - Your developers keep seeing the same issue get introduced into a codebase and want to prevent further additions.
 - You received a bug bounty report and want to ensure that the issue does not exist in other parts of your product or re-surface in the future.
 - Your internally written library exports a method e.g. `evaluateAndRespond` that executes code once called.
 - A custom `security.json` file needs to include `"encyrpt": true` for all new entries.
 - You want to ban any calls to a library you wrote 10 years ago, and get all code repositories to migrate to a new library.
-- You have created a custom HTTP request library that you want to track that as a source if any request parameters enter dangerous sink locations that lead to SQL Injection or SSRF.
+- You have created a custom HTTP request library that you want to track as a source if any request parameters enter dangerous sink locations that lead to SQL Injection or SSRF.
 
 Without the ability to customize your SAST tool, it will be treated more like a check-box exercise for regulatory purposes. Instead, a SAST tool should *enable* your developers and security teams to internally detect and reduce risk at scale.
 

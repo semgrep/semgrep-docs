@@ -3,7 +3,7 @@ title: "Perform cross-file analysis"
 description: "Use Semgrep Code's **cross-file (interfile) analysis** to detect vulnerabilities across files and folders within a project."
 ---
 
-By design, Semgrep open source software, Semgrep Community Edition (CE) can only analyze interactions within a single function, also known as **intraprocedural analysis**. This limited scope makes Semgrep CE fast and easy to integrate into developer workflows.
+By design, Semgrep open source software, Semgrep Community Edition (CE), can only analyze interactions within a single function, also known as **intraprocedural analysis**. This limited scope makes Semgrep CE fast and easy to integrate into developer workflows.
 
 Semgrep Code runs **cross-function (interprocedural)** analysis by default, and gives security teams the option to trade off speed for better results and deeper analysis with **cross-file analysis**. By analyzing interactions across files and functions, Semgrep Code can reduce noise, uncover new vulnerabilities, and make results easier to understand.
 
@@ -179,7 +179,7 @@ This results in a failure to detect the true positive, because Semgrep did not p
 
 ### CommonJS
 
-Currently Semgrep's cross-file analysis does not handle specific cases of CommmonJS where you define a function and assign it to an export later. <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> does not track the code below:
+Currently Semgrep's cross-file analysis does not handle specific cases of CommonJS where you define a function and assign it to an export later. <Tooltip tip="Also known as interfile analysis. Accounts for information flowing between files, including cross-file taint analysis, constant propagation, and type inference." cta="See full definition." href="/writing-rules/glossary#cross-file-analysis">Cross-file analysis</Tooltip> does not track the code below:
 
 ```js
 function get_user() {
