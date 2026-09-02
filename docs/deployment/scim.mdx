@@ -155,7 +155,7 @@ How you assign and sync groups depends on your identity provider:
 
 While this feature is in beta, the following limitations apply:
 
-- Only Okta and Microsoft Entra ID workflows are supported.
+- Semgrep tested and documented only the Okta and Microsoft Entra ID provisioning workflows. These are the only supported workflows. Other IdPs may work but are not documented or officially supported.
 - Once SCIM is active, you can't manage SSO users or teams through Semgrep AppSec Platform.
 - SCIM updates aren't instantaneous. Okta changes can take up to a minute; Entra ID uses a 40-minute provisioning cycle by default unless you **Provision on demand**.
 - Sub-teams and team-managed projects can't be controlled through SCIM.
