@@ -298,7 +298,7 @@ The following example shows a `semgrep_supply_chain_incident` object sent by Sem
 <Note>
 **SCHEMA COMPATABILITY**
 
-Semgrep may add new fields to the payload at any time without changing the `schema_version`. Customers must ignore unrecognized fields. `schema_version` is only incremented for breaking changes, such as removing or renaming fields, or changing an existing field's type or meaning.
+Semgrep may add new fields to the payload at any time without changing the `schema_version`. Configure your webhook endpoint to ignore unrecognized fields. Semgrep increments the `schema_version` only for breaking changes, such as removing or renaming fields, or changing the type or meaning of an existing field.
 </Note> 
 
 The `incident_packages` field details which dependencies are affected by an incident and `matching_projects` lists the projects that used those packages as of their last full scan. For large incidents or deployments with many projects, Semgrep truncates `items` and sets `truncated` while reporting the full number under `total_count`. Visit `advisories_url` for the most up-to-date information. 
