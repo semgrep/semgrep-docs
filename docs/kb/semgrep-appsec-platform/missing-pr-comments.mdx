@@ -47,7 +47,7 @@ The GitLab token should have `api` scope. See [Enable GitLab merge request comme
 
 The `api` scoped token must be provided to Semgrep through the SCM connection. Semgrep no longer supports tokens provided in the GitLab CI/CD pipeline.
 
-#### Bitbucket
+### Bitbucket
 
 The Bitbucket token must be a repository access token or a workspace access token. See [Enable Bitbucket pull request comments](/category/bitbucket-pr-comments) for details.
 
@@ -142,7 +142,7 @@ Creating git worktree from '104...950' to scan baseline.
 
 The initial scan, which occurs at the current commit for the pull request `fcc...d21`, scans 52 files and identifies 60 findings. The baseline scan, which occurs at `104...950`, scans 4 files. Baseline scans typically scan fewer files than the original scan, as they only need to scan files and rules that have findings in the initial scan to determine which of those findings were present before the changes made in the pull or merge request.
 
-This also means that baseline scans are not conducted if all findings in the current commit that are in files added by the PR or MR, because those findings could not have been present before. This information is logged as:
+This also means that baseline scans are not conducted if all findings in the current commit are in files added by the PR or MR, because those findings could not have been present before. This information is logged as:
 
 ```bash
 Skipping baseline scan, because all current findings are in files that didn't exist in the baseline commit.

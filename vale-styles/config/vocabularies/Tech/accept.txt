@@ -12,6 +12,7 @@ autodetect
 autodetected
 autodetects
 [Aa]utofix
+[Aa]utotriage
 automation
 automations
 Azure DevOps
@@ -153,6 +154,8 @@ Semgrep Pro
 Semgrep Pro Engine
 Semgrep Pro rules
 Semgrep Supply Chain
+Semgrep Agentic Workflows
+Agentic
 Sendgrid
 [Ss]everities
 Servlets

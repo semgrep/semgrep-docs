@@ -41,9 +41,8 @@ The triage statuses are as follows:
 | **Reviewing** | Indicates that the finding requires investigation to determine what the next steps in the triage process should be. |
 | **Provisionally ignored** | Rule-based Semgrep Code findings that Semgrep Multimodal's [Autotriage](/semgrep-multimodal/overview#autotriage) has flagged as likely false positives. You can change the status to **Ignored** if you agree with Multimodal's assessment. Otherwise, you can change the status to **To fix** if you disagree. <br /><br />**Note**: [AI-powered detection](/semgrep-code/ai-powered-detection-concepts) findings remain **Open** even when Multimodal flags them as false positives. They are **not** automatically set to **Provisionally ignored**; change the status to **Ignored** if you want to dismiss them. |
 | **To fix** | Findings that you have decided to fix. Commonly used to indicate that these findings are tracked in Jira or assigned to developers for further work. |
-| **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch due to changes in the code. |
+| **Fixed** | Fixed findings were detected in a previous scan but are no longer detected in the most recent scan of that same branch, usually due to changes in the code. |
 | **Ignored** | Findings marked as ignored are present in the code but have been labeled as such due to them being deemed safe to ignore, a false positive, or an acceptable risk. You can change the finding's status to [ignored through Semgrep AppSec Platform](/semgrep-code/triage-remediation) or by adding a [nosemgrep code comment](/ignoring-files-folders-code#ignore-code-through-nosemgrep). In Semgrep AppSec Platform, you can filter for ignored findings using the reason provided: **False positive**, **Acceptable risk**, **No time**, **No triage reason**, **Duplicate**, and **Ignored via nosemgrep**. |
-| **Closed** | Vulnerabilities that are no longer detected after a scan. This can be due to changes in the underlying rule or the code. |
 
 ### Removed findings
 
@@ -51,6 +50,7 @@ Findings can also be **removed**. Semgrep considers a finding removed if it is n
 
 - The rule that detected the finding is no longer enabled in the policy.
 - The rule that detected the finding was updated in a way that it no longer detects the finding.
+- The rule that detected the finding was updated and still matches the code, but identifies the issue as a [new finding](/semgrep-code/remove-duplicates#how-semgrep-distinguishes-between-new-and-duplicate-findings). The original finding is marked as **Removed** and a new finding is opened with the new version of the rule.
 - The file path where the finding appeared is no longer found. The file path was deleted, renamed, added to a `.semgrepignore` file, added to a `.gitignore` file, or added to the list of ignored paths in Semgrep AppSec Platform.
 - For GitHub organization accounts: the pull request or merge request where the finding was detected has been closed without merging.
 
@@ -290,7 +290,8 @@ Before proceeding, ensure that you have:
 - Configured [PR or MR comments](/category/pr-or-mr-comments) for your SCM.
 - Enabled the option in your Semgrep organization settings.
     i. Click **Settings**. This takes you to the **General > Global** settings tab.
-    ii. Enable the toggle under **Default developer triage permissions**.
+    ii. Enable the toggle under **Allow developers to triage findings**.
+    iii. Enable the **Triage through code review comments** checkbox.
 - _For SCMs other than GitHub:_
   - Granted Semgrep permission to interact with pull requests and create webhooks for your SCM.
   - Enabled the **Incoming webhooks** option on the SCM connection.

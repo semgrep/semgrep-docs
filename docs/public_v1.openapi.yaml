@@ -2800,6 +2800,13 @@ components:
           description: Only get scans that are full scans (if false, only get diff
             scans)
           type: integer
+        is_partial_scan:
+          description: 'Only get scans that ran an explicit subset of rules rather
+            than the full rule set (if false, only get scans that ran the full rule
+            set). Independent of `is_full_scan`: a supply chain incident scan covers
+            the whole project but runs only the rules for that incident, so it reports
+            `is_full_scan: true` and `is_partial_scan: true`.'
+          type: boolean
         limit:
           description: Page size to paginate through the results (default is 100,
             max is 500)
@@ -3553,6 +3560,14 @@ components:
         is_full_scan:
           description: Whether the scan was a full scan (true) or a diff scan (false)
           example: true
+          type: boolean
+        is_partial_scan:
+          description: 'Whether the scan ran an explicit subset of rules rather than
+            the full rule set. Independent of `is_full_scan`: a supply chain incident
+            scan covers the whole project but runs only the rules for that incident,
+            so both are true. Findings counts for products whose rules did not run
+            will be zero because nothing was checked, not because nothing was found.'
+          example: false
           type: boolean
         repository_id:
           description: Unique identifier for the repository of the scan.
@@ -4957,12 +4972,12 @@ paths:
               $ref: '#/components/schemas/protos.openapi.v1.CreateSbomExportRequest'
         required: true
       responses:
-        '200':
+        '202':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/protos.openapi.v1.CreateSbomExportResponse'
-          description: OK
+          description: Accepted
       security:
       - SemgrepWebToken: []
       summary: Create a new SBOM export job
