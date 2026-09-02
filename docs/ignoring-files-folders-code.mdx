@@ -16,7 +16,7 @@ All Semgrep environments (CLI, CI, and Semgrep AppSec Platform) adhere to user-d
 |:--------|:---------|
 | To ignore blocks of code: Add a `nosemgrep` annotation | Create a comment, followed by `nosemgrep`, at the first line or preceding line of the pattern match. This generates a finding that is automatically ignored. <br /><br />For example:<br /><br />` // nosemgrep` &nbsp; &nbsp; &nbsp;<br />`// nosemgrep: rule-id` <br /> `# nosemgrep` |
 | For Semgrep AppSec Platform users: <br /><br /><ul><li>Ignore files and folders through the use of Semgrep AppSec Platform's **Project or Global ignores**</li><li>Override the implicit ignorelist through the use of a `.semgrepignore` file.</li></ul> | Navigate to **Projects >** ***PROJECT_NAME*** **> Settings > Path ignores**.<br /><br /> |
-| For Semgrep Community Edition (CE) users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). | [`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
+| For Semgrep Community Edition (CE) users:<br /><br />Ignore files and folders through a `.semgrepignore` file | Create a `.semgrepignore` file in your **repository's root directory** or your **project's working directory** and add patterns for files and folders there. Patterns follow `.gitignore` syntax with some caveats. See [Defining ignored files and folders in `.semgrepignore`](#define-ignored-files-and-folders-in-semgrepignore). <br /><br />[`.semgrepignore` sample file](https://raw.githubusercontent.com/semgrep/semgrep/develop/cli/src/semgrep/templates/.semgrepignore) |
 
 ## Understand Semgrep defaults
 
@@ -215,6 +215,8 @@ Click **Change status** to save.
 </Steps>
 
 ## Ignore code through `nosemgrep`
+
+The organization-wide `nosemgrep` setting is in **beta**.
 
 `nosemgrep` comments are inline comments that allow you to ignore the specified blocks of code. This functionality works across all supported languages.
 

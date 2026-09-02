@@ -38,7 +38,7 @@ html = "<div>#{name}</div>".html_safe
 #### Mitigation
 
 
-Ban `html_safe()`. Alternatively, If needed, review each usage and exempt with `# nosem`.
+Ban `html_safe()`. Alternatively, if needed, review each usage and exempt with `# nosem`.
 
 #### Semgrep rule
 
@@ -60,7 +60,7 @@ content_tag :p, "Hello, #{name}"
 
 #### Mitigation
 
-Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` due to its straightforward behavior.
+Ban `content_tag()`. Alternatively, if necessary, prefer `html_safe()` due to its straightforward behavior.
 
 #### Semgrep rule
 
@@ -85,7 +85,7 @@ raw @user.name
 #### Mitigation
 
 
-Ban `raw()`. Alternatively, Prefer `html_safe()` if necessary.
+Ban `raw()`. Alternatively, prefer `html_safe()` if necessary.
 
 #### Semgrep rule
 
@@ -110,7 +110,7 @@ config.active_support.escape_html_entities_in_json = false
 #### Mitigation
 
 
-Ban disabling of `ActiveSupport#escape_html_entities_in_json`. Alternatively, If HTML is needed in JSON, use `JSON.generate()` and review each usage carefully. Exempt each case with `# nosem`.
+Ban disabling of `ActiveSupport#escape_html_entities_in_json`. Alternatively, if HTML is needed in JSON, use `JSON.generate()` and review each usage carefully. Exempt each case with `# nosem`.
 
 
 #### Semgrep rule
@@ -138,7 +138,7 @@ ERB.new("<div>#{@user.name}</div>").result
 #### Mitigation
 
 
-Ban template creation in code. Alternatively, Use ERB template files.
+Ban template creation in code. Alternatively, use ERB template files.
 
 #### Semgrep rule
 
@@ -162,7 +162,7 @@ render inline: "<div>#{@user.name}</div>"
 #### Mitigation
 
 
-Ban `render inline:`. Alternatively, Use ERB template files.
+Ban `render inline:`. Alternatively, use ERB template files.
 
 #### Semgrep rule
 
@@ -185,7 +185,7 @@ render text: "<div>#{@user.name}</div>"
 #### Mitigation
 
 
-Ban `render text:`. Alternatively, Use ERB template files. 
+Ban `render text:`. Alternatively, use ERB template files. 
 
 #### Semgrep rule
 
@@ -212,7 +212,7 @@ Example:
 #### Mitigation
 
 
-Ban `html_safe()`. Alternatively, Prefer using `html_safe()` in Ruby code instead of templates.
+Ban `html_safe()`. Alternatively, prefer using `html_safe()` in Ruby code instead of templates.
 
 
 #### Semgrep rule
@@ -236,7 +236,7 @@ Example:
 
 #### Mitigation
 
-Ban `content_tag()`. Alternatively, If necessary, prefer `html_safe()` in Ruby code due to its straightforward behavior.
+Ban `content_tag()`. Alternatively, if necessary, prefer `html_safe()` in Ruby code due to its straightforward behavior.
 
 #### Semgrep rule
 
@@ -260,7 +260,7 @@ Example:
 #### Mitigation
 
 
-Ban `raw()`. Alternatively, Prefer `html_safe()` in Ruby code if necessary.
+Ban `raw()`. Alternatively, prefer `html_safe()` in Ruby code if necessary.
 
 #### Semgrep rule
 
@@ -284,7 +284,7 @@ Example:
 #### Mitigation
 
 
-Ban `<%== ... %>`, which is an alias for `html_safe()`. Alternatively, Prefer `html_safe()` in Ruby code if necessary.
+Ban `<%== ... %>`, which is an alias for `html_safe()`. Alternatively, prefer `html_safe()` in Ruby code if necessary.
 
 #### Semgrep rule
 
@@ -308,7 +308,7 @@ Example:
 
 #### Mitigation
 
-Flag unquoted HTML attributes ERB expressions. Alternatively, Always use quotes around HTML attributes.
+Flag unquoted HTML attributes with ERB expressions. Alternatively, always use quotes around HTML attributes.
 
 #### Semgrep rule
 
@@ -331,7 +331,7 @@ Example:
 #### Mitigation
 
 
-Flag template variables in `href` attributes. Alternatively, Use `url_for` to generate links.
+Flag template variables in `href` attributes. Alternatively, use `url_for` to generate links.
 
 #### Semgrep rule
 
@@ -339,7 +339,7 @@ Flag template variables in `href` attributes. Alternatively, Use `url_for` to ge
 
 ### 4.C. Using **link_to** with unrestricted URL scheme
 
-Detected a template variable used in 'link_to'. This will generate dynamic data in the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: `<%= link_to "Here", "/"+@link %>`. You may also consider setting the Content Security Policy (CSP) header.
+Detected a template variable used in 'link_to'. This will generate dynamic data in the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross-site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: `<%= link_to "Here", "/"+@link %>`. You may also consider setting the Content Security Policy (CSP) header.
 
 Example:
 
@@ -355,7 +355,7 @@ Example:
 #### Mitigation
 
 
-Flag `link_to` in templates. Alternatively, If you must use this, add a literal forward-slash at the beginning to create a relative url.
+Flag `link_to` in templates. Alternatively, if you must use this, add a literal forward-slash at the beginning to create a relative url.
 
 #### Semgrep rule
 
@@ -379,7 +379,7 @@ Example:
 
 #### Mitigation
 
-Ban template variables in `&lt;script&gt;` blocks. Alternatively, If necessary, use the `escape_javascript` function or its alias, `j`. Review each usage carefully and exempt with `# nosem`.
+Ban template variables in `&lt;script&gt;` blocks. Alternatively, if necessary, use the `escape_javascript` function or its alias, `j`. Review each usage carefully and exempt with `# nosem`.
 
 #### Semgrep rule
 

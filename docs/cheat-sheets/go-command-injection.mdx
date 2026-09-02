@@ -1,6 +1,6 @@
 ---
 title: "Prevent Command Injection for Go"
-sidebarTile: "Command Injection in Go"
+sidebarTitle: "Command Injection in Go"
 ---
 
 This is a command injection prevention cheat sheet by Semgrep, Inc. It contains code patterns of potential ways to run an OS command in an application. Instead of scrutinizing code for exploitable vulnerabilities, the recommendations in this cheat sheet pave a safe road for developers that mitigate the possibility of command injection in your code. By following these recommendations, you can be reasonably sure your code is free of command injection.
@@ -201,7 +201,7 @@ Do not let the user input in command's `StdinPipe`. Alternatively:
 
 ### 1.D. Running OS commands with syscall.Exec()
 
-`Exec`or `ForkExec` invokes the execve(2) system call. If unverified user data can reach its call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
+`Exec` or `ForkExec` invokes the execve(2) system call. If unverified user data can reach its call site, this is a command injection vulnerability. Make sure that the command is not controlled by the user, also do not run `sh` with any possibility of user input involved in command arguments.
 
 Example:
 

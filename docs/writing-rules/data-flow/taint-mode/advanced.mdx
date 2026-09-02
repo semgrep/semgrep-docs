@@ -395,7 +395,7 @@ The following example demonstrates the use of source and sink metavariable unifi
 ### Field sensitivity
 
 The taint engine provides basic field sensitivity support. It can:
-- Track that `x.a.b` is tainted, but `x` or `x.a` is  **not** tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is considered tainted by default.
+- Track that `x.a.b` is tainted, but `x` or `x.a` is **not** tainted. If `x.a.b` is tainted, any extension of `x.a.b` (such as `x.a.b.c`) is considered tainted by default.
 - Track that `x.a` is tainted, but remember that `x.a.b` has been sanitized. Thus, the engine records that `x.a.b` is **not** tainted, but `x.a` or `x.a.c` are still tainted.
 
 <Info>
@@ -469,7 +469,7 @@ The preceding sink pattern matches either `return` statements, which are always 
 
 Unlike regular sinks, at-exit sinks trigger a finding if any tainted l-value reaches the location of the sink. For example, the preceding at-exit sink specification triggers a finding at a `return 0` statement if some tainted l-value reaches the `return`, even if `return 0` itself is not tainted. The location itself is the sink, rather than the code that is located there.
 
-You can use behavior, for example, to check that file descriptors are being closed within the same function where they were opened.
+You can use this behavior, for example, to check that file descriptors are being closed within the same function where they were opened.
 
 <Frame>
 <iframe src="https://semgrep.dev/embed/editor?snippet=OrAzB" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>
@@ -493,7 +493,7 @@ pattern-sources:
   control: true
 ```
 
-This is useful for checking reachability, that is, to determine if control flow from a given code location can reach another code location, regardless of whether there is any data flow between them. In the following example, SEmgrep checks whether `foo()` could be followed by `bar()`:
+This is useful for checking reachability, that is, to determine if control flow from a given code location can reach another code location, regardless of whether there is any data flow between them. In the following example, Semgrep checks whether `foo()` could be followed by `bar()`:
 
 <Frame>
 <iframe src="https://semgrep.dev/embed/editor?snippet=yyjrx" border="0" frameBorder="0" width="100%" height="432" loading="lazy"></iframe>

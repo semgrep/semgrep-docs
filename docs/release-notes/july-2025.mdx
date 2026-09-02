@@ -27,7 +27,7 @@ The following updates were made to Semgrep in July 2025.
 
 - Semgrep now prints warnings for each `paths.include` and `paths.exclude` pattern found in rules that Semgrep considers ambiguous. 
   - **Example**: a pattern containing a middle slash, such as `src/*.c`, is considered floating, or unanchored. To comply with `gitignore` and `semgrepignore` specifications, `src/*.c` must be treated as anchored. Semgrep prints a warning asking the user to resolve any ambiguity if it exists. The user is asked to change the `src/*.c` pattern to either `/src/*.c`, anchored, or `**/src/*.c`, floating. 
-`HTTP{,S}_PROXY=...` now accepts URIs without a scheme, such as `HTTP_PROXY=domain.com:port`.
+- `HTTP{,S}_PROXY=...` now accepts URIs without a scheme, such as `HTTP_PROXY=domain.com:port`.
 
 ### Fixed
 
