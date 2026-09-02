@@ -12,12 +12,11 @@ description: "Webhooks are a generic method for Semgrep AppSec Platform to post 
 
 Semgrep sends three different types of JSON objects:
 
-* **`semgrep_scan`**: Information about the CI job and other scan parameters, such as ignored files.
-  * Sent **every time a scan is run**, including diff-aware scans, full scans, and scans that have no findings.
-* **`semgrep_finding`**: A single record of a new finding.
-  * Sent based on how you have configured your notifications in Unified Policies. See [Create a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy).
-* **`semgrep_supply_chain_incident`**: Information about a Supply Chain incident declared by Semgrep's Security Research team, including whether any of your projects are affected.
-  * Sent if configured for the **Early notification for Supply Chain incidents** policy. See [Supply Chain incidents](/semgrep-supply-chain/incident-notifications).
+| Object | Description | When it's sent |
+| --- | --- | --- |
+| `semgrep_scan` | Information about the CI job and other scan parameters, such as ignored files. | **Every time a scan is run**, including diff-aware scans, full scans, and scans that have no findings. |
+| `semgrep_finding` | A single record of a new finding. | Based on how you have configured your notifications in Unified Policies. See [Create a remediation policy](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy). |
+| `semgrep_supply_chain_incident` | Information about a Supply Chain incident declared by Semgrep's Security Research team, including whether any of your projects are affected. | If configured for the **Early notification for Supply Chain incidents** policy. See [Supply Chain incidents](/semgrep-supply-chain/incident-notifications). |
 
 ## Set up webhooks
 
