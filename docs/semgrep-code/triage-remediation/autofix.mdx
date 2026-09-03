@@ -1,11 +1,12 @@
 ---
 title: "Autofix for Semgrep Code"
 sidebarTitle: "Autofix"
-description: "Semgrep’s Autofix feature uses AI to generate proposed code changes for Semgrep Code findings and open a draft pull or merge request."
+description: "Semgrep's Autofix feature uses AI to generate proposed code changes for Semgrep Code findings and open a draft pull or merge request."
 ---
 
-
 Autofix creates a branch, applies the changes, and opens a draft pull request (PR) or merge request (MR). You remain in full control over reviewing and merging the PR or MR.
+
+You choose when to use Autofix by selecting **Open Autofix PR** on the finding’s **Details** page or by calling the API.
 
 <Note>
 Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
@@ -13,17 +14,13 @@ Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) an
 
 ## Prerequisites
 
-To use Autofix, you must meet the following requirements:
+To use Autofix for Semgrep Code findings, you must meet the following requirements:
 
-* [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).  
+* [Enable Semgrep Multimodal](/semgrep-multimodal/getting-started).
 * Accept Amazon Bedrock, including Anthropic Claude models.
   * Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
-* Grant the SCM roles, scopes, and app permissions Autofix needs for your SCM. See [SCM permissions](/deployment/prepare/scm-permissions#permissions) for the **Autofix** row for your provider and [Grant code access](/semgrep-appsec-platform/scm-code-access) to configure your connection. For GitHub API and security review details, see [Autofix permissions](/deployment/prepare/scm-permissions#autofix-github-permissions).
-
-<Warning>
-Autofix requires **read and write** access to your repositories on your SCM so Semgrep can push a branch and open a PR or MR.
-</Warning>
+* Semgrep needs **read and write** access to the repository so it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
 
 ## Use Autofix
 
@@ -35,7 +32,7 @@ Log in to [Semgrep AppSec Platform](https://semgrep.dev/orgs/-)
 Click **Code** to view all SAST findings.
 </Step>
 <Step>
-Identify the finding you want to Autofix and click the hyperlink on the card to navigate to the finding’s **Details** page.
+Identify the finding you want to Autofix and click the hyperlink on the card to navigate to the finding's **Details** page.
 </Step>
 <Step>
 From the **Fix** drop-down, select **Open Autofix PR**.
@@ -49,7 +46,7 @@ You will see the following message:
 </Step>
 <Step>
 In **2 to 10 minutes**, Semgrep generates a proposed fix and opens a draft PR or MR in your SCM.  
-  * This action is recorded in the **Activity** section at the bottom of the finding’s **Details** page.  
+  * This action is recorded in the **Activity** section at the bottom of the finding's **Details** page.  
 </Step>
 <Step>
 Click **View Autofix PR** in the **FIX DETAILS** section to review the newly created PR or MR.
@@ -89,3 +86,7 @@ When Multimodal remediation guidance exists for a finding, the descriptive guida
 At this time, Semgrep Memories do not directly influence Autofix PR generation.
 
 Memories may affect PRs indirectly through remediation guidance. If remediation guidance has been generated and includes information derived from memories, that guidance is passed into the PR generation process. However, memories themselves are not currently sent as direct input when generating the PR.
+
+## Supply Chain Autofix
+
+To open a PR or MR that upgrades a vulnerable dependency, see [Supply Chain Autofix](/semgrep-supply-chain/autofix).

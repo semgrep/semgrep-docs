@@ -292,7 +292,8 @@
                     "group": "Triage and fix vulnerabilities",
                     "root": "semgrep-supply-chain/triage-and-fix/overview",
                     "pages": [
-                        "semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix"
+                        "semgrep-supply-chain/upgrade-guidance",
+                        "semgrep-supply-chain/autofix"
                     ]
                   },
                   {
@@ -1715,8 +1716,8 @@
       "destination": "/kb/semgrep-appsec-platform/search-filter-sort-findings"
     },
     {
-      "source": "/semgrep-supply-chain/upgrade-guidance",
-      "destination": "/semgrep-supply-chain/triage-and-remediation"
+      "source": "/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix",
+      "destination": "/semgrep-supply-chain/upgrade-guidance"
     },
     {
       "source": "/writing-rules/data-flow/taint-mode",

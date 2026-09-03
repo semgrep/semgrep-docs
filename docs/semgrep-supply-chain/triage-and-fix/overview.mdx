@@ -26,7 +26,8 @@ The following actions are available to you after you've assessed the findings:
 - [Ignore findings](#ignore-findings) that you deem to be false positives, acceptable risks, or deprioritized findings.
 - [Fix findings that are true positives](#fix-findings-that-are-true-positives) by:
     - [Removing the dependency and refactoring the code](#remove-the-dependency-and-refactor-the-code).
-    - [Using Upgrade guidance and Autofix to update the dependency to a safe version](#using-upgrade-guidance-and-autofix-to-update-the-dependency-to-a-safe-version).
+    - [Using Upgrade Guidance (beta) to update the dependency to a fixed version](#upgrade-guidance-beta).
+    - [Using Autofix to update the dependency to a fixed version](#autofix).
 
 ## Ignore findings
 
@@ -59,16 +60,20 @@ The **Supply Chain** tab allows you to identify reachable true positives so you 
 To fix findings that are true positives in Semgrep Supply Chain, you can:
 
 - Remove the dependency and refactor the codebase to remove all usage.
-- Update the dependency to a safe version that does not contain the vulnerability.
+- Update the dependency to a fixed version that does not contain the vulnerability.
 
 ### Remove the dependency and refactor the code
 
 You can remove a dependency that introduces a security vulnerability, then refactor your project to remove all usage of that dependency. Supply Chain scans the pull request or merge request with these changes, detects the updates to your lockfile or manifest file, and updates the status of the finding to **Fixed**.
 
-### Upgrade guidance and Autofix
+### Upgrade Guidance (beta)
 
-**Upgrade guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version.
+**Upgrade Guidance** uses program analysis and AI to analyze the results of your Semgrep scans to see if you can safely and reliably update a vulnerable package or dependency to a fixed version.
 
-With the information from Upgrade guidance, **Autofix** can open pull requests and merge requests that update the version used by your project and guide you through any breaking changes the update introduces.
+See [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) for setup and usage details.
 
-See [Upgrade guidance and Autofix](/semgrep-supply-chain/triage-and-fix/upgrade-guidance-and-autofix) for more information.
+### Autofix
+
+**Autofix** can open pull requests and merge requests that update the version used by your project. If Upgrade Guidance analysis has completed, the PR or MR description can also include guidance on potential breaking changes.
+
+See [Supply Chain Autofix](/semgrep-supply-chain/autofix).
