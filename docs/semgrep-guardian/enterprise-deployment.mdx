@@ -193,7 +193,7 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
     </Steps>
 
   </Tab>
-  <Tab title="Fleet">
+  <Tab title="FleetDM">
 
     Deploy a custom OS setting by uploading a configuration profile.
 
@@ -264,17 +264,17 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
         </Accordion>
       </Step>
       <Step title="Upload the profile">
-        In the Fleet UI, go to **Controls > OS settings > Configuration profiles**, select the team you want to target in the team dropdown, then click **Add profile** and upload `semgrep-guardian.mobileconfig`. Fleet signs the profile for you.
+        In the FleetDM UI, go to **Controls > OS settings > Configuration profiles**, select the team you want to target in the team dropdown, then click **Add profile** and upload `semgrep-guardian.mobileconfig`. FleetDM signs the profile for you.
       </Step>
       <Step title="Target the right hosts">
-        Set the profile's targets to the hosts or labels that should receive Guardian. Fleet applies the profile to all macOS hosts in the selected team unless you scope it by label.
+        Set the profile's targets to the hosts or labels that should receive Guardian. FleetDM applies the profile to all macOS hosts in the selected team unless you scope it by label.
       </Step>
       <Step title="Check the deployment status">
-        Fleet reports each host as **Verified**, **Verifying**, **Pending**, or **Failed**. Confirm your target hosts reach **Verified** before rolling out more widely.
+        FleetDM reports each host as **Verified**, **Verifying**, **Pending**, or **Failed**. Confirm your target hosts reach **Verified** before rolling out more widely.
       </Step>
     </Steps>
 
-    If you manage Fleet with GitOps instead of the UI, add the profile under the `controls` key in your team YAML:
+    If you manage FleetDM with GitOps instead of the UI, add the profile under the `controls` key in your team YAML:
 
     ```yaml
     controls:
@@ -283,7 +283,7 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
           - path: ../lib/macos/profiles/semgrep-guardian.mobileconfig
     ```
 
-    Use `labels_include_any`, `labels_include_all`, or `labels_exclude_any` alongside `path` to scope the profile by label. If you later replace the uploaded file, the replacement must keep the same `PayloadIdentifier` and `PayloadDisplayName`. For more information, see Fleet's [Configuration profiles](https://fleetdm.com/guides/custom-os-settings) guide.
+    Use `labels_include_any`, `labels_include_all`, or `labels_exclude_any` alongside `path` to scope the profile by label. If you later replace the uploaded file, the replacement must keep the same `PayloadIdentifier` and `PayloadDisplayName`. For more information, see FleetDM's [Configuration profiles](https://fleetdm.com/guides/custom-os-settings) guide.
 
   </Tab>
 </Tabs>
