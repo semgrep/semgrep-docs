@@ -619,7 +619,8 @@
                   "api-reference/v1/Introduction",
                   "api-reference/v1/Authentication",
                   "api-reference/v1/Terms-of-Use",
-                  "api-reference/v1/Changelog"
+                  "api-reference/v1/Changelog",
+                  "api-reference/v1/Deprecation-Policy"
                 ]
               },
               {
@@ -641,7 +642,8 @@
                   "api-reference/v2/Introduction",
                   "api-reference/v2/Authentication",
                   "api-reference/v2/Terms-of-Use",
-                  "api-reference/v2/Changelog"
+                  "api-reference/v2/Changelog",
+                  "api-reference/v2/Deprecation-Policy"
                 ]
               },
               {
