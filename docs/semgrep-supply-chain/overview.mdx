@@ -77,7 +77,7 @@ Once Supply Chain has identified vulnerabilities in your code and generated find
 - **Remediate true positives**: If the finding is one that you must address, you can:
   - **Remove dependencies and refactor code**: You can remediate true positives identified by Supply Chain by updating the dependency to a safe version or removing the dependency, then refactoring all usages of that dependency in your project.
   - **Use Upgrade Guidance (beta)**: If the remediation is to upgrade the package, [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) uses program analysis and AI to analyze scan results and show whether you can safely update a vulnerable dependency to a fixed version.
-  - **Use Autofix**: [Supply Chain Autofix](/semgrep-supply-chain/autofix) can open a pull request (PR) or merge request (MR) that updates the vulnerable version in your repository and includes guidance on any breaking changes in the PR or MR description.
+  - **Use Autofix**: [Supply Chain Autofix](/semgrep-supply-chain/autofix) can open a pull request (PR) or merge request (MR) that updates the vulnerable version in your repository. If [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) analysis has completed, the PR or MR description can also include guidance on potential breaking changes.
 
 ## Policies
 
