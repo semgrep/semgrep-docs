@@ -6,7 +6,11 @@ sidebarTitle: Enterprise deployment
 
 To deploy Semgrep Guardian organization-wide, configure each developer's coding agent to install the plugin automatically. This eliminates the need for developers to install the plugin manually.
 
-For individual developer setup, read the instructions on the [Semgrep Guardian](/semgrep-guardian/overview) page.
+For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstart).
+
+## Before you roll out
+
+Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet rollouts.
 
 ## Prerequisites
 
@@ -195,42 +199,11 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
   </Tab>
 </Tabs>
 
-Deployment recommendations:
+## Deployment recommendations
 
 * Test the rollout on a single machine before pushing to the whole fleet.
 * After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
-* Users still need to log in to Semgrep once Guardian is installed. See [Authentication](#authentication) for how sign-in works, and [Connect to your IDE](/semgrep-guardian/overview#connect-to-your-ide) for setup steps.
-
-## Authentication
-
-How you sign in depends on which IDE you use. Claude Code is the recommended setup.
-
-<Tabs>
-  <Tab title="Claude Code">
-    **Each developer completes a one-time browser login when they first use the plugin.** Semgrep refreshes access tokens automatically, so developers rarely need to sign in again. Claude Code uses Semgrep's hosted remote server and authenticates through OAuth, so developers don't need to install or run the Semgrep CLI.
-
-    ### Credentials
-
-    OAuth credentials are written to `~/.semgrep/guardian.yml` when you sign in through the remote Claude Code plugin.
-
-    At startup, Guardian fetches its default authentication method from Semgrep's remote server. OAuth is currently the default for users who are not yet signed in. This setting is global and not configurable per user.
-
-    If OAuth credentials are present in `guardian.yml`, Guardian uses them instead of any API token in `~/.semgrep/settings.yml`.
-
-    If you are switching from a local CLI setup to the remote Claude Code plugin, an existing OAuth session in `guardian.yml` takes precedence over CLI credentials in `settings.yml`. If scans run under a different account than you expect, check which file contains active credentials. Use [`semgrep logout`](/getting-started/cli#log-out) to remove CLI credentials from `settings.yml`.
-
-    To sign in with the legacy API-token method in Claude Code, ask the Guardian MCP to log in to Semgrep using the legacy method.
-
-  </Tab>
-  <Tab title="Other IDEs">
-    Other IDE integrations run Semgrep through a locally installed CLI. Each developer signs in with `semgrep login`, which opens a browser-based login flow. See [Install the Semgrep CLI](/semgrep-guardian/overview#install-the-semgrep-cli) only if you need one of these setups.
-
-    ### Credentials
-
-    Credentials are written to `~/.semgrep/settings.yml` when you sign in through `semgrep login` or set an API token manually. This is the same file the Semgrep CLI uses. If you are already logged in through `semgrep login`, Guardian can use those credentials.
-
-  </Tab>
-</Tabs>
+* Users still need to log in to Semgrep once Guardian is installed. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
 ## Shared read-only tokens (Enterprise only)
 

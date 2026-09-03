@@ -1,0 +1,52 @@
+---
+title: Install the Semgrep CLI for Guardian
+description: Install and sign in to the Semgrep CLI for Guardian integrations that run scans locally.
+sidebarTitle: Install the Semgrep CLI
+---
+
+This page applies only if you use an IDE other than Claude Code's remote plugin, or if you run the [local Claude Code plugin](/semgrep-guardian/ide-setup/claude-code#run-semgrep-guardian-locally). **Claude Code with the remote plugin is the recommended path** and does not require a local Semgrep CLI. Prefer the [Quickstart](/semgrep-guardian/quickstart) unless you specifically need a local CLI integration.
+
+<Steps>
+<Step>
+Install the Semgrep CLI using pipx, uv, or Homebrew. This requires Python 3.10 or later -- the Semgrep CLI needs Python at runtime regardless of how you installed the CLI:
+
+```bash
+# preferred: install using pipx (https://pipx.pypa.io/stable/how-to/install-pipx/)
+pipx install semgrep
+
+# preferred: install using uv (https://docs.astral.sh/uv/)
+uv tool install semgrep
+
+# best-effort (macOS): install using Homebrew (maintained on a best-effort basis; often lags behind the latest release)
+brew install semgrep
+```
+
+<Info>
+**NOTE**
+
+`pipx` and `uv` are the preferred installation methods. The Homebrew formula is maintained on a best-effort basis and often lags behind the latest release.
+
+**Homebrew users:** ensure that you've [added Homebrew to your PATH](https://docs.brew.sh/FAQ#my-mac-apps-dont-find-homebrew-utilities).
+</Info>
+</Step>
+<Step>
+Verify that you've installed the [latest version](https://github.com/semgrep/semgrep/releases) of Semgrep:
+
+```bash
+semgrep --version
+```
+</Step>
+<Step>
+Sign in to your Semgrep account and install the Semgrep Pro Engine:
+
+```bash
+semgrep login && semgrep install-semgrep-pro
+```
+
+`semgrep login` launches a browser window. You can also use the activation link printed in the terminal.
+</Step>
+</Steps>
+
+## Next steps
+
+Return to [Choose your setup](/semgrep-guardian/choose-your-setup) and pick your coding agent to finish configuring Guardian.

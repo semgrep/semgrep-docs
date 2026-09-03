@@ -1,0 +1,47 @@
+---
+title: "Semgrep Guardian rules and configuration"
+description: "Which rules Semgrep Guardian scans with, and how to request custom rules."
+sidebarTitle: Rules and configuration
+---
+
+Semgrep Guardian scans with a **fixed default ruleset**. This applies to all Guardian integrations.
+
+<Warning>
+Rules you enable in your organization's [Policies](/semgrep-code/policies) do **not** currently apply to Semgrep Guardian scans.
+
+If you have tuned your Policies and expect those rules to run in your coding agent, they will not. Guardian uses its own ruleset, independently of your Policies configuration. This is a common source of unexpected results — if Guardian appears to be missing findings you would see in a CI or platform scan, this is usually why.
+</Warning>
+
+The default ruleset is [`guardian-default`](https://semgrep.dev/p/guardian-default).
+
+## Request custom rules
+
+Custom rule support for Guardian is available through a **private beta**. If you need Guardian to scan with your own rules, or with rules from your Policies:
+
+* Contact your Semgrep account team, or
+* Ask in Semgrep's `#mcp` [Slack community](https://go.semgrep.dev/slack)
+
+## What Guardian scans for
+
+Guardian scans generated files using Semgrep Code, Supply Chain, and Secrets, so findings can cover:
+
+* Code vulnerabilities detected by [Semgrep Code](/semgrep-code/overview)
+* Vulnerable dependencies detected by [Semgrep Supply Chain](/semgrep-supply-chain/overview)
+* Committed credentials detected by [Semgrep Secrets](/semgrep-secrets/conceptual-overview)
+
+## How this differs from CI and platform scans
+
+Guardian is not a replacement for your CI or platform scans, and it is not configured the same way:
+
+| | Semgrep Guardian | CI and platform scans |
+| :--- | :--- | :--- |
+| **Rules** | Fixed `guardian-default` ruleset | Rules enabled in your [Policies](/semgrep-code/policies) |
+| **Configurable** | Through the custom rules private beta | Yes, through Policies |
+| **Runs** | As your coding agent writes code | On push, pull request, or schedule |
+
+Continue running Semgrep in CI to enforce your organization's Policies. See [Set up and deploy scans](/deployment/checklist).
+
+## Related pages
+
+* [Choose your setup](/semgrep-guardian/choose-your-setup)
+* [Authentication](/semgrep-guardian/authentication)

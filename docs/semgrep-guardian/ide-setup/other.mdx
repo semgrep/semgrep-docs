@@ -1,0 +1,28 @@
+---
+title: Set up Semgrep Guardian with other IDEs
+description: Add the Semgrep MCP server or a post-write hook to any MCP-compatible IDE.
+sidebarTitle: Other IDEs
+---
+
+Integrate Semgrep Guardian with any IDE that supports MCP or post-write hooks.
+
+## Prerequisites
+
+* A Semgrep account
+* [Semgrep CLI installed and signed in](/semgrep-guardian/install-cli)
+
+## Setup
+
+[Install the Semgrep CLI](/semgrep-guardian/install-cli), then add the Semgrep MCP Server to your IDE. Semgrep provides [sample configuration information](https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp#integrations) that you can use as a starting point. Refer to your IDE's documentation for specific details on where to add the MCP server configuration.
+
+If your IDE supports a post-write or post-tool hook, point it at `semgrep mcp -k post-tool-cli-scan -a <ide-name>` to scan generated code automatically. The [Devin (Windsurf)](/semgrep-guardian/ide-setup/devin-windsurf) page shows this pattern.
+
+## What rules does this setup use?
+
+Guardian scans with a fixed default ruleset. Rules enabled in your organization's Policies do not apply to Guardian scans. See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for details and how to request custom rules.
+
+## Next steps
+
+* [Enterprise deployment](/semgrep-guardian/enterprise-deployment) for authentication and organization-wide rollout
+* [Semgrep Guardian overview](/semgrep-guardian/overview)
+* [Rules and configuration](/semgrep-guardian/rules-and-configuration)
