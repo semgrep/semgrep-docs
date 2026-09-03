@@ -440,7 +440,7 @@ Changes to the [Semgrep API v1](/api-reference/v1/Introduction), detected by
 comparing successive versions of its OpenAPI specification. Breaking changes
 are labeled; documentation-only edits are not listed.
 
-<Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]}>
+<Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — August 7, 2026", description: "2 breaking, 1 potentially breaking, and 3 other changes across 3 endpoints." }}>
 ## Breaking changes
 
 - <Badge color="green" size="sm">GET</Badge> `/api/v1/agents`: api path removed without deprecation
@@ -457,7 +457,7 @@ are labeled; documentation-only edits are not listed.
 - removed the schema `ProjectFilter`
 </Update>
 
-<Update label="July 23, 2026" description="1 change">
+<Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
 ## Changes
 
 - <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy): endpoint added
@@ -493,7 +493,7 @@ def test_render_page_golden_list_style():
 
 
 GOLDEN_TABLE_BODY = """\
-<Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]}>
+<Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — August 7, 2026", description: "2 breaking, 1 potentially breaking, and 3 other changes across 3 endpoints." }}>
 ## Breaking changes
 
 <div className="api-changelog-table">
@@ -528,7 +528,7 @@ GOLDEN_TABLE_BODY = """\
 </div>
 </Update>
 
-<Update label="July 23, 2026" description="1 change">
+<Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
 ## Changes
 
 <div className="api-changelog-table">
@@ -587,9 +587,110 @@ def test_render_page_breaking_tag_and_summary():
     assert (
         '<Update label="August 7, 2026" '
         'description="2 breaking · 1 potentially breaking · 3 other changes" '
-        'tags={["Breaking"]}>'
+        'tags={["Breaking"]} rss='
     ) in page
-    assert '<Update label="July 23, 2026" description="1 change">' in page
+    assert '<Update label="July 23, 2026" description="1 change" rss=' in page
+
+
+def test_render_update_emits_one_rss_prop_per_day():
+    """Without it Mintlify emits one feed entry per Markdown heading."""
+    page = gac.render_page(
+        api_name="Semgrep API v1",
+        api_href="/api-reference/v1/Introduction",
+        note=None,
+        entries=golden_entries(),
+    )
+
+    assert (
+        'rss={{ title: "Semgrep API v1 — August 7, 2026", description: '
+        '"2 breaking, 1 potentially breaking, and 3 other changes across 3 endpoints." }}'
+    ) in page
+    # a day with only additive changes is not described as "1 other change"
+    assert (
+        'rss={{ title: "Semgrep API v1 — July 23, 2026", '
+        'description: "1 change across 1 endpoint." }}'
+    ) in page
+    assert page.count("rss={{") == 2  # one per Update, not one per heading
+
+
+def test_render_update_rss_title_falls_back_to_the_date():
+    rendered = gac._render_update(
+        gac.Entry("2026-08-07", [
+            {"id": "endpoint-added", "level": 1, "section": "paths",
+             "operation": "GET", "path": "/api/v1/a", "text": "endpoint added"},
+        ]),
+        links={},
+    )
+
+    assert 'rss={{ title: "August 7, 2026"' in rendered
+
+
+def test_jsx_string_escapes_quotes_and_backslashes():
+    assert gac._jsx_string('a "b"') == 'a \\"b\\"'
+    assert gac._jsx_string("a\\b") == "a\\\\b"
+
+
+def test_render_page_emits_subscribe_instructions_when_given_a_feed_url():
+    url = "https://docs.semgrep.dev/api-reference/v1/Changelog/rss.xml"
+
+    page = gac.render_page(
+        api_name="Semgrep API v1",
+        api_href="/api-reference/v1/Introduction",
+        note=None,
+        entries=golden_entries(),
+        rss_url=url,
+    )
+
+    assert f"[`{url}`]({url})" in page
+    assert f"/feed subscribe {url}" in page
+    # sits above the entries, not buried under them
+    assert page.index("<Note>") < page.index("<Update ")
+
+
+def test_render_page_omits_subscribe_instructions_without_a_feed_url():
+    page = gac.render_page(
+        api_name="Semgrep API v1",
+        api_href="/api-reference/v1/Introduction",
+        note=None,
+        entries=golden_entries(),
+    )
+
+    assert "<Note>" not in page
+    assert "rss.xml" not in page
+
+
+@pytest.mark.parametrize(
+    "levels,summary,rss",
+    [
+        # a breaking-only day still gets its noun
+        ([3], "1 breaking change", "1 breaking change across 1 endpoint."),
+        ([3, 3], "2 breaking changes", "2 breaking changes across 1 endpoint."),
+        # "other" is not qualified when it stands alone
+        ([1], "1 change", "1 change across 1 endpoint."),
+        ([1, 1, 1], "3 changes", "3 changes across 1 endpoint."),
+        # mixed: noun lands on the final part only
+        ([3, 2, 1], "1 breaking · 1 potentially breaking · 1 other change",
+         "1 breaking, 1 potentially breaking, and 1 other change across 1 endpoint."),
+        ([3, 3, 1, 1], "2 breaking · 2 other changes",
+         "2 breaking and 2 other changes across 1 endpoint."),
+    ],
+)
+def test_summary_and_rss_description_agree_and_read_as_phrases(levels, summary, rss):
+    changes = [
+        {"id": "x", "level": lv, "section": "paths",
+         "operation": "GET", "path": "/api/v1/a", "text": f"change {i}"}
+        for i, lv in enumerate(levels)
+    ]
+
+    assert gac._summary(changes) == summary
+    assert gac._rss_description(changes) == rss
+
+
+def test_rss_description_omits_endpoint_scope_when_no_endpoint():
+    changes = [{"id": "api-schema-removed", "level": 1, "section": "components",
+                "text": "removed the schema `X`"}]
+
+    assert gac._rss_description(changes) == "1 change."
 
 
 def test_render_update_nests_multiple_changes_per_endpoint():
