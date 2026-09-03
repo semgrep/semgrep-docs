@@ -103,8 +103,7 @@ jobs:
             docs/api-reference/v2/Changelog.mdx \
             --api-name "Semgrep API v2" --api-href /api-reference/v2/Introduction \
             --link-base /api-reference/v2 \
-            --rss-url https://docs.semgrep.dev/api-reference/v2/Changelog/rss.xml \
-            --note "The v2 API is experimental; breaking changes are expected while it is in alpha."
+            --rss-url https://docs.semgrep.dev/api-reference/v2/Changelog/rss.xml
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
