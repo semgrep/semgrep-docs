@@ -1,19 +1,19 @@
 ---
 title: "Supply Chain incident notifications and response"
 sidebarTitle: "Get Supply Chain incident notifications"
-description: "Get notifications in Slack when Semgrep declares a new Supply Chain incident, learn whether it affects your projects, and respond."
+description: "Get notifications when Semgrep declares a new Supply Chain incident, learn whether it affects your projects, and respond."
 ---
 
 Semgrep's Security Research team monitors the open source ecosystem and responds in real time when a package is compromised, publishing an [Advisory](/semgrep-supply-chain/advisories) as soon as an incident is confirmed.
 
-If you've configured the **Early notification for Supply Chain incidents** policy, Semgrep automatically posts to a Slack channel of your choosing within minutes of declaring the incident. You don't have to look for the news yourself: Semgrep checks the compromised package versions against your projects' most recent dependency data and tells you whether any of them are affected in the same notification.
+If you've configured the **Early notification for Supply Chain incidents** policy, Semgrep automatically posts to a Slack channel or webhook of your choosing within minutes of declaring the incident. Semgrep checks the compromised package versions against your projects' most recent dependency data and tells you whether any of them are affected in the same notification. 
 
 You are notified every time Semgrep declares a new supply chain incident, whether or not any of your projects use the affected packages.
 
 ## Prerequisites
 
 Ensure that: 
-* You have enabled [Slack notifications from Semgrep](/semgrep-appsec-platform/slack-notifications).
+* You have either enabled [Slack notifications](/semgrep-appsec-platform/slack-notifications) or set up [webhooks](/semgrep-appsec-platform/webhooks).
 * Your organization uses [Unified Policies](/semgrep-appsec-platform/unified-policies/overview).
 
 ## Set up incident notifications
@@ -23,9 +23,7 @@ Ensure that:
 </Frame>
 
 <Steps>
-<Step>
-In your Slack workspace, find or create a channel for Semgrep notifications. Then, run `/semgrep_add_channel` in the channel to make it available to your policies. See [Receive Slack notifications](/semgrep-appsec-platform/slack-notifications#set-up-notifications-for-findings-in-slack) for more information.
-</Step>
+
 <Step>
 In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
 </Step>
@@ -33,7 +31,21 @@ In Semgrep AppSec Platform, go to **Rules & Policies > Policies**.
 Find the policy named **Early notification for Supply Chain incidents**. Click its **<Icon icon="ellipsis" /> icon**, then select **Edit policy**.
 </Step>
 <Step>
-Go to **Actions**. Click **Add action > Send a Slack message**, and select the Slack channel you configured at the beginning of the setup process.
+Set up which **Actions** occur when a Supply Chain incident is declared by clicking on the **Add action** button. You can choose multiple **Actions**, including: 
+<CardGroup>  
+  <Card
+  title="Send a Slack message"
+  icon="paper-plane"
+  href="/semgrep-appsec-platform/slack-notifications"
+  horizontal
+  />
+  <Card
+  title="Call a webhook"
+  icon="globe"
+  href="/semgrep-appsec-platform/webhooks"
+  horizontal
+  />
+</CardGroup>
 </Step>
 <Step>
 Click **Update**.

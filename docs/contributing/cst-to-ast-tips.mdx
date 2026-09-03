@@ -5,7 +5,7 @@ title: "Tips for converting CST to AST"
 
 Once you have copied the generated `Boilerplate.ml` for your language
 `foo` into `Parse_foo_tree_sitter.ml`, you can start editing it. The
-goal is replace all the calls like `todo env x` by the construction
+goal is to replace all the calls like `todo env x` by the construction
 of a node of the AST. The destination AST can be a language-specific
 AST or directly the generic AST. If we're mapping to a
 language-specific AST, this language-specific AST needs to be created

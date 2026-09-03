@@ -44,7 +44,7 @@ description: "May 30, 2024 · 5 min read"
   - Rule files containing `fix:` without the corresponding `.fixed` test file.
   - Rule files using `fix-regex:` without the corresponding `.fixed` test file.
 - Fixed an issue where Dockerfiles lacking a trailing newline character at the end of the file caused a segmentation fault.
-- Fixed an issue with the improper handling of Unicode characters caused Semgrep to crash.
+- Fixed an issue with the improper handling of Unicode characters that caused Semgrep to crash.
 - Fixed an issue where interfile tainting missed a constant propagation phase, leading to the omission of true positives in some cases during interfile analysis.
 - Fixed an issue where Semgrep ignored YAML tags instead of matching them correctly.
 - Fixed an issue where findings identified in an earlier scan aren't marked as fixed when they no longer appear in later scans.
