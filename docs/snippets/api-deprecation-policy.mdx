@@ -1,0 +1,33 @@
+## What this policy promises
+
+APIs change. This policy tells you how much warning you get before a change breaks your integration.
+
+In short: **stable endpoints get 6 months' notice before a breaking change, and 3 months before an already-deprecated optional field is removed.** After the deadline passes, the endpoint returns `410 Gone` with a machine-readable pointer to its replacement — it does not start returning wrong or partial data.
+
+## What this policy covers
+
+This policy applies to every endpoint documented on [docs.semgrep.dev](https://docs.semgrep.dev/), according to its maturity level.
+
+| Maturity | What we promise | Notice before removal or a breaking change |
+| --- | --- | --- |
+| **Stable** | Fully covered by this policy. | 6 months (breaking), 3 months (non-breaking removal) |
+| **Beta** | Documented and supported. We keep it backwards compatible while it is in beta, but it may still be renamed or removed. | 30 days |
+| **Experimental** | Use at your own risk. Published so you can see what is coming, but it may change or disappear at any time, without notice. | None |
+
+Each endpoint's maturity is shown as a badge in the API reference and as a badge extension in the OpenAPI spec.
+
+**Not covered:** undocumented endpoints. If an endpoint does not appear in the published API reference, it is not part of the supported API, no matter what your browser's network tab shows. That includes internal endpoints used by the Semgrep web app and by the Semgrep CLI. Those change without notice, and building against them is not supported.
+
+### The one exception: urgent security and legal changes
+
+If continuing to serve an endpoint or a field would expose customer data, create a security risk, or violate a legal obligation, we may change it with less notice than the table above — occasionally with none. This is the only exception, we do not use it for convenience, and when we invoke it we will tell you what changed and why as soon as we are able to.
+
+## Finding out what is deprecated today
+
+- The API changelog records every deprecation on the day it ships, tagged
+  **Deprecated**. Each version's changelog is an RSS feed — subscribe to the
+  [v1](/api-reference/v1/Changelog) or [v2](/api-reference/v2/Changelog) feed
+  and you will hear about a deprecation without having to come back and check.
+- The API reference lists deprecated endpoints with their sunset dates.
+- Any deprecated endpoint you call returns `Deprecation` and `Sunset` headers, so grepping your own logs for those headers tells you exactly what your integration depends on.
+- If you are unsure whether something you rely on is covered by this policy, contact [support@semgrep.com](mailto:support@semgrep.com) and we will confirm in writing.
