@@ -1,4 +1,5 @@
 import json
+import re
 import shutil
 import subprocess
 import textwrap
@@ -441,16 +442,16 @@ comparing successive versions of its OpenAPI specification. Breaking changes
 are labeled; documentation-only edits are not listed.
 
 <Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — August 7, 2026", description: "2 breaking, 1 potentially breaking, and 3 other changes across 3 endpoints." }}>
-## Breaking changes
+**Breaking changes**
 
 - <Badge color="green" size="sm">GET</Badge> `/api/v1/agents`: api path removed without deprecation
 - <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects): removed the required property `tags` from the response with the `200` status
 
-## Potentially breaking changes
+**Potentially breaking changes**
 
 - <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects): deleted the `query` request parameter `page_token`
 
-## Changes
+**Changes**
 
 - <Badge color="green" size="sm">GET</Badge> [`/api/v1/deployments/{deployment_id}/projects`](/api-reference/v1/projectsservice/list-projects): added the new optional `query` request parameter `page_size`
 - <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy): endpoint added
@@ -458,7 +459,7 @@ are labeled; documentation-only edits are not listed.
 </Update>
 
 <Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
-## Changes
+**Changes**
 
 - <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy): endpoint added
 </Update>
@@ -494,7 +495,7 @@ def test_render_page_golden_list_style():
 
 GOLDEN_TABLE_BODY = """\
 <Update label="August 7, 2026" description="2 breaking · 1 potentially breaking · 3 other changes" tags={["Breaking"]} rss={{ title: "Semgrep API v1 — August 7, 2026", description: "2 breaking, 1 potentially breaking, and 3 other changes across 3 endpoints." }}>
-## Breaking changes
+**Breaking changes**
 
 <div className="api-changelog-table">
 
@@ -505,7 +506,7 @@ GOLDEN_TABLE_BODY = """\
 
 </div>
 
-## Potentially breaking changes
+**Potentially breaking changes**
 
 <div className="api-changelog-table">
 
@@ -515,7 +516,7 @@ GOLDEN_TABLE_BODY = """\
 
 </div>
 
-## Changes
+**Changes**
 
 <div className="api-changelog-table">
 
@@ -529,7 +530,7 @@ GOLDEN_TABLE_BODY = """\
 </Update>
 
 <Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
-## Changes
+**Changes**
 
 <div className="api-changelog-table">
 
@@ -691,6 +692,25 @@ def test_rss_description_omits_endpoint_scope_when_no_endpoint():
                 "text": "removed the schema `X`"}]
 
     assert gac._rss_description(changes) == "1 change."
+
+
+def test_update_blocks_contain_no_markdown_headings():
+    """Mintlify republishes an entry when a heading inside it is modified.
+
+    Which severity sections a day has depends on the level mapping, so a
+    heading here would re-notify subscribers about old entries every time
+    LEVEL_OVERRIDES or oasdiff changes. Section labels must stay non-headings.
+    """
+    page = gac.render_page(
+        api_name="Semgrep API v1",
+        api_href="/api-reference/v1/Introduction",
+        note=None,
+        entries=golden_entries(),
+    )
+
+    for block in re.findall(r"<Update [^>]*>(.*?)</Update>", page, re.S):
+        assert not re.search(r"^#{1,6} ", block, re.M), block
+    assert "**Breaking changes**" in page  # still labelled, just not a heading
 
 
 def test_render_update_nests_multiple_changes_per_endpoint():
