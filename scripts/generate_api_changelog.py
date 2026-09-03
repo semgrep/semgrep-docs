@@ -668,7 +668,15 @@ def _render_update(
         if not first:
             lines.append("")
         first = False
-        lines.append(f"## {SECTION_TITLES[level]}")
+        # Bold rather than a Markdown heading, deliberately. Mintlify
+        # republishes a feed entry when a heading inside an existing <Update>
+        # is modified, and which severity sections a day has depends on the
+        # level mapping -- so a re-level (see LEVEL_OVERRIDES) or an oasdiff
+        # bump would re-notify every subscriber about months-old entries.
+        # With no headings in the block, the only publish trigger left is
+        # adding a new <Update>. The rss= prop supplies the feed title, so
+        # nothing depends on these being headings.
+        lines.append(f"**{SECTION_TITLES[level]}**")
         lines.append("")
         lines.extend(render_section(section, links))
     lines.append("</Update>")
