@@ -463,20 +463,70 @@ def _endpoint_key(change: dict) -> tuple:
     return (0, path, change.get("operation") or "")
 
 
-def _summary(changes: list) -> str:
-    """Raw change counts, e.g. "2 breaking · 1 potentially breaking · 3 other changes"."""
+def _count_parts(changes: list) -> list[str]:
+    """Non-zero severity counts, least-qualified last: ["2 breaking", "3 other"].
+
+    Shared by the on-page summary and the RSS description so the two cannot
+    disagree. The trailing noun is left to the caller, which appends it to the
+    final part -- "2 breaking · 3 other changes" reads as one phrase, so a
+    breaking-only day must still come out as "1 breaking change" rather than
+    the bare "1 breaking". "other" is dropped when it stands alone, since
+    there is then nothing for it to be other than.
+    """
     breaking = sum(1 for c in changes if c["level"] == BREAKING)
     potential = sum(1 for c in changes if c["level"] == POTENTIALLY_BREAKING)
     other = len(changes) - breaking - potential
-    parts = []
-    if breaking:
-        parts.append(f"{breaking} breaking")
-    if potential:
-        parts.append(f"{potential} potentially breaking")
-    if other:
-        label = "other change" if parts else "change"
-        parts.append(f"{other} {label}{'s' if other != 1 else ''}")
-    return " · ".join(parts)
+    counts = ((breaking, "breaking"), (potential, "potentially breaking"), (other, "other"))
+    present = [(n, word) for n, word in counts if n]
+    if len(present) == 1 and present[0][1] == "other":
+        return [str(present[0][0])]
+    return [f"{n} {word}" for n, word in present]
+
+
+def _with_noun(parts: list[str], count: int) -> list[str]:
+    """Append "change"/"changes" to the final part, agreeing with its count."""
+    return parts[:-1] + [f"{parts[-1]} change{'s' if count != 1 else ''}"]
+
+
+def _summary(changes: list) -> str:
+    """Raw change counts, e.g. "2 breaking · 1 potentially breaking · 3 other changes"."""
+    parts = _count_parts(changes)
+    if not parts:
+        return "no changes"
+    last = int(parts[-1].split()[0])
+    return " · ".join(_with_noun(parts, last))
+
+
+def _jsx_string(text: str) -> str:
+    """Escape text for a double-quoted JSX string literal."""
+    return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def _rss_description(changes: list) -> str:
+    """Plain-prose summary for RSS subscribers.
+
+    Mintlify strips components, code and HTML from feed entries, and our
+    entries are almost entirely a JSX table of Badges and links -- so without
+    an explicit `rss` description a subscriber would receive an empty item.
+    Prose rather than the interpunct-separated on-page summary, since this is
+    read in a feed reader with no surrounding context.
+    """
+    parts = _count_parts(changes)
+    if not parts:
+        return "No changes."
+    last = int(parts[-1].split()[0])
+    parts = _with_noun(parts, last)
+    if len(parts) == 1:
+        listed = parts[0]
+    elif len(parts) == 2:
+        listed = f"{parts[0]} and {parts[1]}"  # no serial comma for a pair
+    else:
+        listed = ", ".join(parts[:-1]) + f", and {parts[-1]}"
+    endpoints = {(c.get("operation"), c.get("path")) for c in changes if c.get("path")}
+    if not endpoints:
+        return f"{listed}."
+    scope = "endpoint" if len(endpoints) == 1 else "endpoints"
+    return f"{listed} across {len(endpoints)} {scope}."
 
 
 def _render_section(changes: list, links: dict) -> list:
@@ -587,11 +637,25 @@ def _render_section_table(changes: list, links: dict) -> list:
     return lines
 
 
-def _render_update(entry: Entry, links: dict, style: str = "table") -> str:
+def _render_update(
+    entry: Entry, links: dict, style: str = "table", api_name: Optional[str] = None
+) -> str:
     label = format_date(entry.date)
     attrs = [f'label="{label}"', f'description="{_summary(entry.changes)}"']
     if any(c["level"] == BREAKING for c in entry.changes):
         attrs.append('tags={["Breaking"]}')
+    # Pins the feed to one item per <Update>. Without it Mintlify emits one
+    # entry per Markdown heading inside the block, so a day with three
+    # severity sections becomes three items titled "Breaking changes",
+    # "Potentially breaking changes" and "Changes" -- undated, and repeated
+    # across every day. It also decouples the feed from the heading structure:
+    # a re-level that adds or drops a section heading would otherwise count as
+    # "modifying headings inside an existing Update" and republish the entry.
+    rss_title = f"{api_name} — {label}" if api_name else label
+    attrs.append(
+        'rss={{ title: "%s", description: "%s" }}'
+        % (_jsx_string(rss_title), _jsx_string(_rss_description(entry.changes)))
+    )
 
     render_section = _render_section_table if style == "table" else _render_section
     changes = coalesce_changes(entry.changes)
@@ -611,6 +675,23 @@ def _render_update(entry: Entry, links: dict, style: str = "table") -> str:
     return "\n".join(lines)
 
 
+def _rss_callout(rss_url: str) -> str:
+    """Subscribe instructions.
+
+    Mintlify emits a `<link rel="alternate" type="application/rss+xml">` tag
+    for `rss: true` pages, which is autodiscovery only -- it renders no
+    visible affordance -- so the page has to say this itself.
+    """
+    return (
+        "<Note>\n"
+        f"  **Subscribe to this changelog:** add [`{rss_url}`]({rss_url}) to any\n"
+        f"  feed reader, or run `/feed subscribe {rss_url}` in Slack to post new\n"
+        "  entries to a channel. Most readers also accept this page's own URL and\n"
+        "  find the feed automatically.\n"
+        "</Note>"
+    )
+
+
 def render_page(
     api_name: str,
     api_href: Optional[str],
@@ -618,6 +699,7 @@ def render_page(
     entries: list[Entry],
     links: Optional[dict] = None,
     style: str = "table",
+    rss_url: Optional[str] = None,
 ) -> str:
     name = f"[{api_name}]({api_href})" if api_href else api_name
     intro = (
@@ -640,9 +722,13 @@ def render_page(
         intro,
         "",
     ]
+    if rss_url:
+        blocks.extend([_rss_callout(rss_url), ""])
     if entries:
         blocks.append(
-            "\n\n".join(_render_update(entry, links or {}, style) for entry in entries)
+            "\n\n".join(
+                _render_update(entry, links or {}, style, api_name) for entry in entries
+            )
         )
     else:
         blocks.append("No API changes recorded yet.")
@@ -658,6 +744,11 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser.add_argument("--api-name", required=True, help='e.g. "Semgrep API v1"')
     parser.add_argument("--api-href", help="docs link for the API name in the intro")
     parser.add_argument("--note", help="extra sentence appended to the intro")
+    parser.add_argument(
+        "--rss-url",
+        help="absolute URL of the page's Mintlify RSS feed (the page path with"
+        " /rss.xml appended); when set, the page carries subscribe instructions",
+    )
     parser.add_argument(
         "--link-base",
         help="URL prefix of the generated endpoint pages (e.g. /api-reference/v1);"
@@ -710,7 +801,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     if args.link_base:
         links = endpoint_urls(yaml.safe_load(Path(args.spec).read_text()), args.link_base)
 
-    content = render_page(args.api_name, args.api_href, args.note, entries, links, args.style)
+    content = render_page(
+        args.api_name, args.api_href, args.note, entries, links, args.style, args.rss_url
+    )
     output = Path(args.output)
     if output.exists() and output.read_text() == content:
         print(f"{output}: unchanged")
