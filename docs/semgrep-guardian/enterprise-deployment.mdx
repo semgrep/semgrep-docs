@@ -4,87 +4,214 @@ description: How to deploy Semgrep Guardian in your enterprise environment.
 sidebarTitle: Enterprise deployment
 ---
 
-To roll out Semgrep Guardian organization-wide, standardize the installation process so that the plugin is automatically installed by the developer's agent, rather than relying on each developer to install it manually.
+To deploy Semgrep Guardian organization-wide, configure each developer's coding agent to install the plugin automatically. This eliminates the need for developers to install the plugin manually.
 
 For individual developer setup, see the [Quickstart](/semgrep-guardian/quickstart).
 
 ## Before you roll out
 
-Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first — it covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet rollouts.
+Each developer still signs in to Semgrep individually once Guardian is installed. Read [Authentication](/semgrep-guardian/authentication) first. It covers the OAuth and CLI sign-in models, where credentials are stored, and why shared tokens and service accounts are discouraged for fleet rollouts.
 
-## Use your agent's built-in enterprise controls
+## Prerequisites
 
-Many coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to make Guardian available, or required, everywhere:
+- You have a Semgrep account and organization.
+- You are an admin for your coding agent's enterprise controls and your MDM platform, if applicable.
+- Claude Code is the recommended setup for organization-wide rollout.
 
-- Claude Code: [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team)
-- Cursor: [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces)
+## Option 1: Use your agent's built-in enterprise controls
 
-## Deploy through a mobile device management (MDM) platform for more granularity
+Many coding agents let you pin an approved marketplace or plugin for your whole team. This is the simplest way to enable Guardian across your organization or make it required.
 
-Deploy through your MDM platform to scope rollout by device group, or to combine Guardian with other managed configurations deployed through your MDM.
+<Tabs>
+  <Tab title="Claude Code">
 
-Anthropic maintains a set of [MDM deployment examples and best practices](https://github.com/anthropics/claude-code/tree/main/examples/mdm) that cover managed settings for macOS, including `.plist` and `.mobileconfig` profiles through Jamf, Kandji, and similar, and Windows, including PowerShell file deployment or ADMX/registry policy via Intune and Group Policy, along with how to verify that managed settings are applied.
+    <Steps>
+        <Step title="Enable the plugin in your managed settings">
+            Modify your Claude marketplace settings to include Semgrep in your enabled plugins list:
 
-For Claude Code, the managed settings enable the Guardian plugin from the Claude official marketplace for every user, so they don't have to run `/plugin` themselves. The same payload is reused across the MDM paths below, just delivered differently (as an MDM `.mobileconfig` or `.plist`). Settings deployed through MDM cannot be overridden by users, so the plugin stays enabled.
+            ```json
+            {
+              "enabledPlugins": {
+                "semgrep@claude-plugins-official" : true
+              }
+            }
+            ```
+        </Step>
+        <Step title="Confirm the plugin is connected">
+            Run `claude mcp get plugin:semgrep:guardian` and confirm it reports as connected.
+        </Step>
+    </Steps>
 
-Guardian is published to the Claude official marketplace (`claude-plugins-official`), so the payload only needs to enable the plugin. There's no separate marketplace to declare. The minimal managed-settings payload looks like the following:
+    Guardian is published to the Claude official marketplace (`claude-plugins-official`), so the payload only needs to enable the plugin. There's no separate marketplace to declare. See [Require marketplaces for your team](https://code.claude.com/docs/en/plugin-marketplaces#require-marketplaces-for-your-team) for more information.
 
-```json
-{
-  "enabledPlugins": {
-    "semgrep@claude-plugins-official" : true
-  }
-}
-```
+  </Tab>
+  <Tab title="Cursor">
 
-Ready-to-upload templates with this same payload:
+    <Steps>
+      <Step title="Add a team marketplace">
+        Go to **Dashboard > Plugins**. Under **Team Marketplaces**, click **Add Marketplace**, then create a marketplace from scratch or use **Import from Repo** to import from GitHub. For Guardian, import [`semgrep/cursor-plugin`](https://github.com/semgrep/cursor-plugin), then add the Semgrep plugin with **Add to Marketplace**.
+      </Step>
+      <Step title="Scope who gets it">
+        Under **Marketplace Settings > Marketplace Access**, restrict the marketplace to the [Organization Groups](https://cursor.com/docs/enterprise/organization-groups) that should receive Guardian, then save. Only members of the marketplace's team who belong to a selected group get access.
+      </Step>
+      <Step title="Set the installation mode">
+        Set the Semgrep plugin's installation mode:
 
-* [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist) for Jamf and similar preference-domain deployments
-* [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) for Iru and other configuration-profile deployments
+        * **Default Off**: developers can find the plugin and choose whether to install it.
+        * **Default On**: the plugin is installed by default, but developers can opt out.
+        * **Required**: the plugin is always installed and cannot be uninstalled.
+
+        For an enforced rollout, choose **Required**.
+      </Step>
+      <Step title="Confirm the plugin is connected">
+        Open **Customize** in the Cursor sidebar and confirm that the Semgrep plugin appears under the team scope and that its MCP server is toggled on.
+      </Step>
+    </Steps>
+
+    Installation modes apply only to plugins available in a team marketplace, not to plugins that developers install themselves from the public Cursor Marketplace. Team marketplaces are available on Teams and Enterprise plans. Only admins can add plugins to a team marketplace. For more information, see [Team marketplaces](https://cursor.com/docs/plugins#team-marketplaces).
+
+  </Tab>
+</Tabs>
+
+## Option 2: Deploy through a mobile device management (MDM) platform
+
+Deploy through your MDM platform to scope rollout by device group. These templates configure Claude Code only. To roll out Guardian to Cursor, use [Option 1](#option-1-use-your-agents-built-in-enterprise-controls).
 
 <Warning>
 These are community-maintained templates and may be unsupported or incorrect. You are responsible for verifying the configuration before deploying it to a fleet.
 </Warning>
 
 <Tabs>
-    <Tab title="Iru">
+  <Tab title="Jamf">
 
-    Deploy a Custom Profile by uploading the [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) configuration profile.
+    Deploy a Custom Settings payload with preference domain `com.anthropic.claudecode` through a Configuration Profile.
 
-        <Steps>
-            <Step>
-                Download [`semgrep-marketplace.mobileconfig`](/assets/guardian/semgrep-marketplace.mobileconfig) and update `PayloadIdentifier` and `PayloadOrganization` to match your organization.
-            </Step>
-            <Step>
-                Go to **Library > Add Library Item > Custom Profile** and upload the updated file.
-            </Step>
-            <Step>
-                Name the profile `Semgrep Guardian - Managed Settings`.
-            </Step>
-            <Step>
-                Assign the profile to your blueprint as needed.
-            </Step>
-            <Step>
-                Save.
-            </Step>
-        </Steps>
+    <Steps>
+      <Step title="Create the property list">
+        Save the following as `com.anthropic.claudecode.plist`.
 
-    </Tab>
-    <Tab title="Jamf">
+        <Accordion title="com.anthropic.claudecode.plist">
+          ```xml com.anthropic.claudecode.plist
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+          	<key>enabledPlugins</key>
+          	<dict>
+          		<key>semgrep@claude-plugins-official</key>
+          		<true/>
+          	</dict>
+          </dict>
+          </plist>
+          ```
+        </Accordion>
+      </Step>
+      <Step title="Upload it as a Custom Settings payload">
+        Follow Jamf's guide, [Deploying Custom Computer Configuration Profiles Using the Application and Custom Settings Payload](https://learn.jamf.com/r/en-US/technical-articles/Deploying_Custom_Computer_Configuration_Profiles_Using_the_Application_and_Custom_Settings_Payload), using the preference domain `com.anthropic.claudecode` and the property list above as the uploaded file.
+      </Step>
+      <Step title="Scope the profile">
+        Scope the Configuration Profile to your target device group.
+      </Step>
+    </Steps>
 
-        Deploy a Custom Settings payload with preference domain `com.anthropic.claudecode` through a Configuration Profile.
+  </Tab>
+  <Tab title="Iru (Kandji)">
 
-        To do so, refer to Jamf's guide, [Deploying Custom Computer Configuration Profiles Using the Application and Custom Settings Payload](https://learn.jamf.com/r/en-US/technical-articles/Deploying_Custom_Computer_Configuration_Profiles_Using_the_Application_and_Custom_Settings_Payload). Ensure that you use the preference domain `com.anthropic.claudecode` and the provided [`com.anthropic.claudecode.plist`](/assets/guardian/com.anthropic.claudecode.plist) file as the uploaded property list.
+    Deploy a Custom Profile by uploading a configuration profile.
 
-    </Tab>
+    <Steps>
+      <Step title="Create the configuration profile">
+        Save the following as `semgrep-guardian.mobileconfig`, then replace the placeholder values: set `PayloadIdentifier` and `PayloadOrganization` to match your organization, and generate a fresh `PayloadUUID` for both the profile and the payload it contains.
+
+        <Accordion title="semgrep-guardian.mobileconfig">
+          ```xml semgrep-guardian.mobileconfig
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+          	<key>PayloadDisplayName</key>
+          	<string>Claude Code – Semgrep Guardian Plugin Settings</string>
+          	<key>PayloadDescription</key>
+          	<string>Enforces the Semgrep Guardian plugin enable/disable policy.</string>
+          	<key>PayloadIdentifier</key>
+          	<string>com.yourorg.com</string>
+          	<key>PayloadOrganization</key>
+          	<string>yourorg</string>
+          	<key>PayloadScope</key>
+          	<string>System</string>
+          	<key>PayloadType</key>
+          	<string>Configuration</string>
+          	<key>PayloadUUID</key>
+          	<string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
+          	<key>PayloadVersion</key>
+          	<integer>1</integer>
+          	<key>PayloadContent</key>
+          	<array>
+          		<dict>
+          			<key>PayloadDisplayName</key>
+          			<string>Claude Code Marketplace Settings</string>
+          			<key>PayloadIdentifier</key>
+          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<key>PayloadType</key>
+          			<string>com.apple.ManagedClient.preferences</string>
+          			<key>PayloadUUID</key>
+          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<key>PayloadVersion</key>
+          			<integer>1</integer>
+          			<key>PayloadContent</key>
+          			<dict>
+          				<key>com.anthropic.claudecode</key>
+          				<dict>
+          					<key>Forced</key>
+          					<array>
+          						<dict>
+          							<key>mcx_preference_settings</key>
+          							<dict>
+          								<!-- Plugin enable/disable policy -->
+          								<key>enabledPlugins</key>
+          								<dict>
+          									<key>semgrep@claude-plugins-official</key>
+          									<true/>
+          								</dict>
+          							</dict>
+          						</dict>
+          					</array>
+          				</dict>
+          			</dict>
+          		</dict>
+          	</array>
+          </dict>
+          </plist>
+          ```
+        </Accordion>
+      </Step>
+      <Step title="Upload it as a Custom Profile">
+        Go to **Library > Add Library Item > Custom Profile** and upload the file.
+      </Step>
+      <Step title="Name the profile">
+        Name the profile `Semgrep Guardian - Managed Settings`.
+      </Step>
+      <Step title="Assign and save">
+        Assign the profile to your blueprint as needed, then save.
+      </Step>
+    </Steps>
+
+  </Tab>
 </Tabs>
 
-**Tips**
+## Deployment recommendations
 
 * Test the rollout on a single machine before pushing to the whole fleet.
-* After deploying, confirm that Guardian loaded by running `/plugin` (it should show as installed and enabled) and that the Guardian MCP appears.
+* After deploying, confirm that Guardian loaded by running `claude mcp get plugin:semgrep:guardian` and confirming it reports as connected.
 * Users still need to log in to Semgrep once Guardian is installed. See [Authentication](/semgrep-guardian/authentication) for how sign-in works, and the [Quickstart](/semgrep-guardian/quickstart) for setup steps.
 
+## Shared read-only tokens (Enterprise only)
+
+Admins can create read-only tokens from within the Semgrep app. Sign in and go to [**Settings > Tokens**](https://semgrep.dev/orgs/-/settings/tokens/api), then set the token scope to read-only. See [Access tokens](/deployment/tokens#create-an-api-token) for more information.
+
+Note that with a shared token, Semgrep cannot attribute activity to an individual developer, so per-user metrics are limited.
+
+[Contact Semgrep](/support) if you have questions about which approach fits your organization.
 
 ## Get help with a custom rollout
 
