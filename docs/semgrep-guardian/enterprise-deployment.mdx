@@ -193,6 +193,99 @@ These are community-maintained templates and may be unsupported or incorrect. Yo
     </Steps>
 
   </Tab>
+  <Tab title="Fleet">
+
+    Deploy a custom OS setting by uploading a configuration profile.
+
+    <Steps>
+      <Step title="Create the configuration profile">
+        Save the following as `semgrep-guardian.mobileconfig`, then replace the placeholder values: set `PayloadIdentifier` and `PayloadOrganization` to match your organization, and generate a fresh `PayloadUUID` for both the profile and the payload it contains.
+
+        <Accordion title="semgrep-guardian.mobileconfig">
+          ```xml semgrep-guardian.mobileconfig
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+          	<key>PayloadDisplayName</key>
+          	<string>Claude Code – Semgrep Guardian Plugin Settings</string>
+          	<key>PayloadDescription</key>
+          	<string>Enforces the Semgrep Guardian plugin enable/disable policy.</string>
+          	<key>PayloadIdentifier</key>
+          	<string>com.yourorg.com</string>
+          	<key>PayloadOrganization</key>
+          	<string>yourorg</string>
+          	<key>PayloadScope</key>
+          	<string>System</string>
+          	<key>PayloadType</key>
+          	<string>Configuration</string>
+          	<key>PayloadUUID</key>
+          	<string>DA9306A3-D913-47D0-95D9-0594D39CFE76</string>
+          	<key>PayloadVersion</key>
+          	<integer>1</integer>
+          	<key>PayloadContent</key>
+          	<array>
+          		<dict>
+          			<key>PayloadDisplayName</key>
+          			<string>Claude Code Marketplace Settings</string>
+          			<key>PayloadIdentifier</key>
+          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<key>PayloadType</key>
+          			<string>com.apple.ManagedClient.preferences</string>
+          			<key>PayloadUUID</key>
+          			<string>B85904F9-D6ED-4D4C-BD27-A49B9CCF0E6F</string>
+          			<key>PayloadVersion</key>
+          			<integer>1</integer>
+          			<key>PayloadContent</key>
+          			<dict>
+          				<key>com.anthropic.claudecode</key>
+          				<dict>
+          					<key>Forced</key>
+          					<array>
+          						<dict>
+          							<key>mcx_preference_settings</key>
+          							<dict>
+          								<!-- Plugin enable/disable policy -->
+          								<key>enabledPlugins</key>
+          								<dict>
+          									<key>semgrep@claude-plugins-official</key>
+          									<true/>
+          								</dict>
+          							</dict>
+          						</dict>
+          					</array>
+          				</dict>
+          			</dict>
+          		</dict>
+          	</array>
+          </dict>
+          </plist>
+          ```
+        </Accordion>
+      </Step>
+      <Step title="Upload the profile">
+        In the Fleet UI, go to **Controls > OS settings > Configuration profiles**, select the team you want to target in the team dropdown, then click **Add profile** and upload `semgrep-guardian.mobileconfig`. Fleet signs the profile for you.
+      </Step>
+      <Step title="Target the right hosts">
+        Set the profile's targets to the hosts or labels that should receive Guardian. Fleet applies the profile to all macOS hosts in the selected team unless you scope it by label.
+      </Step>
+      <Step title="Check the deployment status">
+        Fleet reports each host as **Verified**, **Verifying**, **Pending**, or **Failed**. Confirm your target hosts reach **Verified** before rolling out more widely.
+      </Step>
+    </Steps>
+
+    If you manage Fleet with GitOps instead of the UI, add the profile under the `controls` key in your team YAML:
+
+    ```yaml
+    controls:
+      apple_settings:
+        configuration_profiles:
+          - path: ../lib/macos/profiles/semgrep-guardian.mobileconfig
+    ```
+
+    Use `labels_include_any`, `labels_include_all`, or `labels_exclude_any` alongside `path` to scope the profile by label. If you later replace the uploaded file, the replacement must keep the same `PayloadIdentifier` and `PayloadDisplayName`. For more information, see Fleet's [Configuration profiles](https://fleetdm.com/guides/custom-os-settings) guide.
+
+  </Tab>
 </Tabs>
 
 Deployment recommendations:
