@@ -74,7 +74,7 @@ export HTTP_PROXY="http://10.10.1.10:3128"
 export HTTPS_PROXY="http://10.10.1.10:1080"
 ```
 
-If the proxy variables are set but empty, Semgrep will treat them as if they were not set, and will make direct HTTP requests. Semgrep will attempt to add the protocol to an otherwise-valid proxy without a protocol.
+If the proxy environment variables are set but empty, Semgrep treats them as unset and makes direct HTTP requests. If a valid proxy is missing a protocol, Semgrep attempts to add one.
 
 ## Exit codes
 
