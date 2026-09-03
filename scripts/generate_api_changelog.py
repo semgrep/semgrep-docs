@@ -54,6 +54,76 @@ import yaml
 # reader-facing changelog.
 EXCLUDED_SECTIONS = frozenset(("info",))
 
+# oasdiff levels we deliberately disagree with, keyed by check id.
+#
+# oasdiff rates a new *response* enum value WARN (potentially breaking) on the
+# theory that a consumer exhaustively switching on the enum, or validating
+# responses against a closed set, breaks when an unseen value arrives. That is
+# reasonable for a hand-written spec, but ours are generated from protobuf,
+# where enums are open by construction and gaining values is routine
+# evolution -- so every sync filed a pile of `SCAN_STATUS_*`-style additions
+# under a "Potentially breaking changes" heading and buried the actual
+# removals. Request-side enum additions are already INFO upstream (the server
+# accepting strictly more input cannot break a caller), so only the response
+# side needs correcting.
+LEVEL_OVERRIDES = {
+    "response-property-enum-value-added": 1,
+}
+
+# oasdiff names properties with JSON Schema's internal vocabulary, which leaks
+# spec plumbing into reader-facing text. Three rewrites turn a path into the
+# field reference a consumer would actually write:
+#
+#   1. `allOf[#/components/schemas/protos.projects.v1.RepoFilters]` segments are
+#      dropped. These specs are protobuf-generated and wrap every described
+#      $ref in a single-element allOf (the OpenAPI 3.0 workaround for $ref
+#      siblings being ignored), so the segment is pure composition bookkeeping
+#      -- the wire payload has no such level, and dropping it makes the path
+#      *more* accurate as well as shorter. It also happens to be the only place
+#      an internal proto package name appears.
+#   2. An `items` segment means "element of the preceding array", so it folds
+#      into the parent as `[]`. A trailing one (an array of scalars, e.g.
+#      `repositoryId/items/`) would otherwise dangle.
+#   3. `/` becomes `.`, matching how the field is addressed in JSON.
+#
+# Field-name *case* is deliberately never touched: the specs inconsistently
+# emit both `deployment_id` and `deploymentId` depending on the service, and
+# the changelog has to name the key the endpoint actually accepts.
+# Stripped whole, before splitting on "/": the JSON pointer inside the brackets
+# contains slashes of its own, so a naive split would shred it.
+ALLOF_SEGMENT = re.compile(r"/allOf\[[^\]]*\]")
+
+
+def humanize_property_path(path: str) -> str:
+    """`a/items/b/allOf[#/...]/c` -> `a[].b.c`. Non-paths pass through."""
+    out: list[str] = []
+    for segment in ALLOF_SEGMENT.sub("", path).split("/"):
+        if not segment:
+            continue
+        if segment == "items" and out:
+            out[-1] += "[]"
+            continue
+        out.append(segment)
+    return ".".join(out)
+
+
+def humanize_change_text(change: dict) -> dict:
+    """Rewrite property paths inside the change's code spans."""
+    text = change.get("text") or ""
+    if "`" not in text:
+        return change
+    parts = text.split("`")
+    if len(parts) % 2 == 0:  # unbalanced backticks: leave well alone
+        return change
+    for i in range(1, len(parts), 2):  # odd indices are code spans
+        span = parts[i]
+        # a leading "/" marks a URL path, not a property path
+        if "/" in span and not span.startswith("/"):
+            parts[i] = humanize_property_path(span)
+    rewritten = "`".join(parts)
+    return change if rewritten == text else {**change, "text": rewritten}
+
+
 MONTHS = (
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December",
@@ -221,10 +291,19 @@ def build_entries(
                 last_good = snapshot
             continue
         changes = [c for c in changes if c.get("section") not in EXCLUDED_SECTIONS]
+        changes = [humanize_change_text(apply_level_override(c)) for c in changes]
         if changes:
             entries.append(Entry(snapshot.date, changes))
         last_good = snapshot
     return list(reversed(entries))
+
+
+def apply_level_override(change: dict) -> dict:
+    """Re-level a change per LEVEL_OVERRIDES, leaving others untouched."""
+    override = LEVEL_OVERRIDES.get(change.get("id"))
+    if override is None or change.get("level") == override:
+        return change
+    return {**change, "level": override}
 
 
 def format_date(iso: str) -> str:

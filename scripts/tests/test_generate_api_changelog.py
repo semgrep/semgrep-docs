@@ -268,6 +268,119 @@ def test_build_entries_filters_excluded_sections():
     assert entries == []  # a day with only excluded changes gets no entry
 
 
+def test_apply_level_override_demotes_response_enum_additions():
+    change = {"id": "response-property-enum-value-added", "level": 2, "text": "added"}
+
+    assert gac.apply_level_override(change)["level"] == 1
+    assert change["level"] == 2  # override does not mutate its input
+
+
+def test_apply_level_override_leaves_other_checks_alone():
+    for check_id, level in (
+        ("api-path-removed-without-deprecation", 3),
+        ("request-parameter-removed", 2),
+        ("endpoint-added", 1),
+    ):
+        change = {"id": check_id, "level": level}
+        assert gac.apply_level_override(change) is change
+
+
+def test_build_entries_demotes_response_enum_additions_out_of_breaking_sections():
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    enum_addition = [
+        {
+            "id": "response-property-enum-value-added",
+            "level": 2,
+            "section": "paths",
+            "operation": "GET",
+            "path": "/api/v1/deployments",
+            "text": "added the new `X` enum value to the `status` response property",
+        }
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: enum_addition)
+
+    assert [c["level"] for c in entries[0].changes] == [1]
+
+
+@pytest.mark.parametrize(
+    "raw,expected",
+    [
+        # the reported case: a described $ref wrapped in a single-element allOf
+        (
+            "filters/allOf[#/components/schemas/protos.projects.v1.RepoFilters]/latestScanStatus",
+            "filters.latestScanStatus",
+        ),
+        # array elements fold into the parent, allOf drops out mid-path
+        (
+            "automations/items/filters/allOf[#/components/schemas/protos.automations.v1.Filters]"
+            "/conditions/items/type",
+            "automations[].filters.conditions[].type",
+        ),
+        # an array of scalars leaves a trailing `items` that would dangle
+        ("dependencyFilter/repositoryId/items/", "dependencyFilter.repositoryId[]"),
+        ("errors/items/errorType", "errors[].errorType"),
+        # snake_case fields keep their spelling -- the endpoint accepts that key
+        ("scans/items/is_partial_scan", "scans[].is_partial_scan"),
+        # already clean, and non-paths
+        ("filters/latestScanStatus", "filters.latestScanStatus"),
+        ("latestScanStatus", "latestScanStatus"),
+    ],
+)
+def test_humanize_property_path(raw, expected):
+    assert gac.humanize_property_path(raw) == expected
+
+
+def test_humanize_change_text_rewrites_only_code_spans():
+    change = {
+        "text": "added the new optional request property "
+        "`filters/allOf[#/components/schemas/protos.projects.v1.RepoFilters]/latestScanStatus`",
+    }
+
+    assert gac.humanize_change_text(change)["text"] == (
+        "added the new optional request property `filters.latestScanStatus`"
+    )
+    assert "allOf" in change["text"]  # input not mutated
+
+
+def test_humanize_change_text_leaves_url_paths_and_plain_spans_alone():
+    for text in (
+        "removed the endpoint `/api/v1/deployments`",   # leading slash: a URL
+        "the response status `200` was added",
+        "added the new `SCAN_STATUS_CANCELLED` enum value",
+        "unbalanced ` backtick with a/b path",
+    ):
+        assert gac.humanize_change_text({"text": text})["text"] == text
+
+
+def test_humanize_runs_before_coalescing_so_paths_merge():
+    changes = [
+        {
+            "id": "response-property-enum-value-added",
+            "level": 1,
+            "operation": "GET",
+            "path": "/x",
+            "text": "added the new `A` enum value to the "
+            "`f/allOf[#/components/schemas/protos.a.v1.T]/g` response property"
+            " for the response status `200`",
+        },
+        {
+            "id": "response-property-enum-value-added",
+            "level": 1,
+            "operation": "GET",
+            "path": "/x",
+            "text": "added the new `B` enum value to the `f/g` response property"
+            " for the response status `200`",
+        },
+    ]
+
+    merged = gac.coalesce_changes([gac.humanize_change_text(c) for c in changes])
+
+    assert len(merged) == 1  # identical paths after humanizing, so they fold
+    assert "`A`, `B`" in merged[0]["text"]
+    assert "allOf" not in merged[0]["text"]
+
+
 def test_build_entries_drops_unparseable_base_and_promotes_revision():
     snaps = snapshots_for(
         ("ccc", "2026-08-07"), ("bbb", "2026-07-23"), ("aaa", "2026-07-14")
