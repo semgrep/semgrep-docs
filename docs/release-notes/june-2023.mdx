@@ -86,7 +86,7 @@ Not all Semgrep features have been ported to the OCaml implementation.
   bar();
   ```
   now allows matching to sequences of statements within objects, classes, and related language constructs, in all languages ([#8052](https://github.com/semgrep/semgrep/pull/8052)).
-* Added support for post-PEP 614 decorators.([#8100](https://github.com/semgrep/semgrep/pull/8100)). Now Semgrep accepts decorators of the form `@ named_expr_test NEWLINE`, for example with the pattern:
+* Added support for post-PEP 614 decorators. ([#8100](https://github.com/semgrep/semgrep/pull/8100)). Now Semgrep accepts decorators of the form `@ named_expr_test NEWLINE`, for example with the pattern:
   ```
   lambda $X:$X($X):
   #match 1

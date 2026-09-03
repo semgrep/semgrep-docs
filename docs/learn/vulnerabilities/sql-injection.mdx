@@ -10,7 +10,7 @@ In this article, we’ll explain what SQL injection is and why it still matters.
 
 ## What is SQL Injection (SQLi)
 
-SQL is used to query relational databases. When building SQL queries, often developers include parts of queries that come from user input. If the input is not safely handled, an attacker can “inject” SQL fragments that alter the structure of the query. Instead of just passing as data, the user input influences the logic (ie. conditions, clauses, or even entirely new statements).
+SQL is used to query relational databases. When building SQL queries, often developers include parts of queries that come from user input. If the input is not safely handled, an attacker can “inject” SQL fragments that alter the structure of the query. Instead of just passing as data, the user input influences the logic (i.e. conditions, clauses, or even entirely new statements).
 
 There are many reasons this vulnerability still happens.
 
@@ -18,7 +18,7 @@ There are many reasons this vulnerability still happens.
 - concatenating strings or using template interpolation is convenient
 - when optimizing long query performance, safeguards from ORM or other abstractions may be short-circuited
 
-Somtimes in large codebases, legacy code, or unsafe patterns persist in documentation that may have been used as a reference.
+Sometimes in large codebases, legacy code, or unsafe patterns persist in documentation that may have been used as a reference.
 
 ## Common SQL Injection Attacks
 
@@ -34,7 +34,7 @@ def search(request):
     cursor.execute(sql)
 ```
 
-There are DB compliant libraries that can be used with a variety of databases incuding sqlite, postgres, mysql, and more.
+There are DB compliant libraries that can be used with a variety of databases including sqlite, postgres, mysql, and more.
 
 This may seem like a standard select, but you might notice that if the user submits something that disrupts parsing the query they can execute arbitrary SQL commands.
 
@@ -68,7 +68,7 @@ By manipulating the value of `userInput` the attacker can inject their command i
 
 The previous examples still require knowledge of how the database tables are structured and which database is being used. The attacker might be able to infer details by using boolean conditions, timing (delays), or injecting error codes.
 
-A successful or failure in a query can leak information.
+A success or failure in a query can leak information.
 
 For example:
 
@@ -132,9 +132,9 @@ Here are some robust and concrete tips for writing secure database queries.
 
 ### Always use parameterized queries
 
-This is the most reliable way to prevent SQLi. Instead of building the SQL string manually, placeholders are used and the values are passed separately. This separates code from data and let's the library properly check for and escape any malicious strings. 
+This is the most reliable way to prevent SQLi. Instead of building the SQL string manually, placeholders are used and the values are passed separately. This separates code from data and lets the library properly check for and escape any malicious strings. 
 
-This is a Python example that lets the `execute` function santize the query string that was passed with an http request:
+This is a Python example that lets the `execute` function sanitize the query string that was passed with an HTTP request:
 
 ```python
 cursor.execute(
