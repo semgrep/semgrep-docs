@@ -651,14 +651,20 @@
                 "pages": [
                   {
                     "group": "AI Fix Jobs",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/issues/{issueId}/fix_jobs"
                     ]
                   },
                   {
                     "group": "AI tasks",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/ai/{deploymentId}/combined_task",
                       "POST /api/ai/pattern_fix",
@@ -667,14 +673,20 @@
                   },
                   {
                     "group": "Autofix",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/v1/deployments/{deploymentId}/issues/{issueId}/autofix"
                     ]
                   },
                   {
                     "group": "Automations",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/notifications/deployments/{deploymentId}/automations",
                       "GET /api/notifications/deployments/{deploymentId}/automations",
@@ -685,14 +697,20 @@
                   },
                   {
                     "group": "Autotriage Feedback",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/ai/deployments/{deploymentId}/autotriage_feedback"
                     ]
                   },
                   {
                     "group": "Deployment",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/users",
                       "GET /api/agent/deployments/{deploymentId}/users",
@@ -714,7 +732,10 @@
                   },
                   {
                     "group": "Deployment Products",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "PUT /api/agent/deployments/{deploymentId}/products",
                       "GET /api/agent/deployments/{deploymentId}/products",
@@ -723,14 +744,20 @@
                   },
                   {
                     "group": "Deployment SSO Providers",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/auth/sso/deployments/{deploymentId}/providers"
                     ]
                   },
                   {
                     "group": "Deployment Tags",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "PUT /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
                       "DELETE /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
@@ -741,7 +768,10 @@
                   },
                   {
                     "group": "Deployments",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/deployments",
                     "pages": [
                       "GET /api/v2/deployments"
@@ -749,14 +779,20 @@
                   },
                   {
                     "group": "Editor",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/run"
                     ]
                   },
                   {
                     "group": "External Ticketing",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/create_tickets",
                       "DELETE /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/{nangoExternalTicketId}",
@@ -767,14 +803,20 @@
                   },
                   {
                     "group": "Feature Rollouts",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/agent/features"
                     ]
                   },
                   {
                     "group": "Global Ignores",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/ignores",
                       "DELETE /api/agent/deployments/{deploymentId}/ignores",
@@ -784,14 +826,20 @@
                   },
                   {
                     "group": "Infrastructure Configurations",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/infra-config/bootstrap-sms-vpc"
                     ]
                   },
                   {
                     "group": "Issues",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/issues",
                     "pages": [
                       "PATCH /api/agent/deployments/{deploymentId}/findings/v2",
@@ -806,7 +854,10 @@
                   },
                   {
                     "group": "Issues (Semgrep Agentic Workflows)",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/issues/{deploymentId}/counts",
                       "GET /api/issues/{deploymentId}/issue/{issueId}/activity",
@@ -817,7 +868,10 @@
                   },
                   {
                     "group": "Managed Scan Settings",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/managed_scan_settings",
                       "GET /api/agent/deployments/{deploymentId}/managed_scan_settings",
@@ -827,7 +881,10 @@
                   },
                   {
                     "group": "Memories",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/ai/deployments/{deploymentId}/memories",
                       "POST /api/ai/deployments/{deploymentId}/memories/triage",
@@ -842,7 +899,10 @@
                   },
                   {
                     "group": "Notification Rules",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/actions",
                       "DELETE /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}",
@@ -853,7 +913,10 @@
                   },
                   {
                     "group": "Notification Webhooks",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/notification_webhooks/deployments/{deploymentId}/webhooks",
                       "GET /api/notification_webhooks/deployments/{deploymentId}/webhooks",
@@ -865,7 +928,10 @@
                   },
                   {
                     "group": "Notifications",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/notifications/in-app/deployments/{deploymentId}",
                       "PUT /api/notifications/in-app/deployments/{deploymentId}/mark_as_seen"
@@ -873,7 +939,10 @@
                   },
                   {
                     "group": "Onboarding Checklist",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/onboarding/deployments/{deploymentId}/checklist",
                       "PATCH /api/onboarding/deployments/{deploymentId}/checklist",
@@ -882,7 +951,10 @@
                   },
                   {
                     "group": "Policies",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/policies",
                     "pages": [
                       "GET /api/policies/v1/deployments/{deploymentId}",
@@ -892,7 +964,10 @@
                   },
                   {
                     "group": "Policies V2",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "PUT /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
                       "GET /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
@@ -906,7 +981,10 @@
                   },
                   {
                     "group": "Projects",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/projects",
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/repos/_secret",
@@ -926,7 +1004,10 @@
                   },
                   {
                     "group": "Projects - Managed Scan Settings",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/sms/v2/deployments/{deploymentId}/project_settings",
                       "GET /api/sms/v2/deployments/{deploymentId}/projects/{projectId}/settings"
@@ -934,7 +1015,10 @@
                   },
                   {
                     "group": "Reporting",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/reporting/{deploymentId}/reports/backlog/by-product",
                       "POST /api/reporting/{deploymentId}/reports/backlog/by-rule",
@@ -957,7 +1041,10 @@
                   },
                   {
                     "group": "Review Comment Product Content",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/deployments/{deploymentId}/scm_comment_product_content",
                       "GET /api/deployments/{deploymentId}/scm_comment_product_content",
@@ -967,7 +1054,10 @@
                   },
                   {
                     "group": "Ruleboards",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/ruleboards",
                       "GET /api/agent/deployments/{deploymentId}/ruleboards",
@@ -981,7 +1071,10 @@
                   },
                   {
                     "group": "Scans",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/scans",
                     "pages": [
                       "GET /api/v2/deployments/{deploymentId}/scans/{scanId}",
@@ -991,7 +1084,10 @@
                   },
                   {
                     "group": "Semgrep Agentic Workflows",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/findings",
                       "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/overview",
@@ -1002,7 +1098,10 @@
                   },
                   {
                     "group": "Slack",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "DELETE /api/agent/deployments/{deploymentId}/slack/installations",
                       "GET /api/agent/deployments/{deploymentId}/slack/installations",
@@ -1014,7 +1113,10 @@
                   },
                   {
                     "group": "Source Code Management (SCM) apps",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/add_ado_project",
                       "PUT /api/scm/ado_app_install",
@@ -1030,7 +1132,10 @@
                   },
                   {
                     "group": "Source Code Management (SCM) configurations",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/scm/deployments/{deploymentId}/configs/{configId}/check",
                       "POST /api/scm/deployments/{deploymentId}/configs",
@@ -1043,7 +1148,10 @@
                   },
                   {
                     "group": "Source Code Management (SCM) webhooks",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
                       "PUT /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
@@ -1053,7 +1161,10 @@
                   },
                   {
                     "group": "Supply Chain",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/supply-chain",
                     "pages": [
                       "POST /api/sca/deployments/{deploymentId}/sbom_async",
@@ -1066,14 +1177,20 @@
                   },
                   {
                     "group": "Supply Chain - Managed Scans dependency resolution configurations",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/agent/deployments/{deploymentId}/projects/{projectId}/resolution_configs"
                     ]
                   },
                   {
                     "group": "Supply Chain - Managed Scans package manager configurations",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
                       "GET /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
@@ -1083,7 +1200,10 @@
                   },
                   {
                     "group": "Support",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/support/cases",
                       "GET /api/support/cases/{orgid}"
@@ -1091,7 +1211,10 @@
                   },
                   {
                     "group": "Surveys",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/survey/name/{surveyName}",
                       "POST /api/survey/submit"
@@ -1099,7 +1222,10 @@
                   },
                   {
                     "group": "Tasks",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "root": "api-reference/v2/services/tasks",
                     "pages": [
                       "GET /api/tasks/v2/{taskTokenJwt}"
@@ -1107,7 +1233,10 @@
                   },
                   {
                     "group": "Teams",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/permissions/v2/deployments/{deploymentId}/status",
                       "POST /api/permissions/v2/deployments/{deploymentId}/teams",
@@ -1122,14 +1251,20 @@
                   },
                   {
                     "group": "Tokens",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "DELETE /api/tokens/v1/deployments/{deploymentId}/tokens"
                     ]
                   },
                   {
                     "group": "Users",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/auth/users/current",
                       "GET /api/auth/users/current/settings",
@@ -1141,14 +1276,20 @@
                   },
                   {
                     "group": "Versions",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/agent/versions/{deploymentId}/project-info/{product}"
                     ]
                   },
                   {
                     "group": "Wiz Credentials",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "POST /api/notifications/deployments/{deploymentId}/wiz",
                       "GET /api/notifications/deployments/{deploymentId}/wiz",
@@ -1160,7 +1301,10 @@
                   },
                   {
                     "group": "Other",
-                    "openapi": "public_v2.openapi.yaml",
+                    "openapi": {
+                      "source": "public_v2.openapi.yaml",
+                      "directory": "api-reference/v2"
+                    },
                     "pages": [
                       "GET /api/health-check",
                       "GET /api/readiness-check",
