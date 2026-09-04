@@ -21,14 +21,14 @@ Because the scan happens before the code is committed, Guardian complements rath
 
 ## Two setup paths
 
-Guardian has two integration paths, and which one you use changes how you authenticate and whether you need a local Semgrep CLI:
+Guardian has two materially different integration paths. Which one you use changes how you authenticate, whether you need a local Semgrep CLI, and which rules Guardian scans with:
 
 * **Claude Code with the remote plugin (recommended).** Uses Semgrep's hosted remote server and authenticates through OAuth. No local Semgrep CLI required.
 * **All other agents, and the local Claude Code plugin.** Runs Semgrep through a locally installed CLI.
 
 See [Choose your setup](/semgrep-guardian/choose-your-setup) for a full comparison, or go straight to the [Quickstart](/semgrep-guardian/quickstart) if you use Claude Code.
 
-Both paths scan with the same fixed ruleset. Rules enabled in your organization's Policies do not apply to Guardian scans — see [Rules and configuration](/semgrep-guardian/rules-and-configuration).
+These paths do not scan with the same rules. The recommended remote plugin runs a fixed ruleset and does **not** apply your organization's Policies; the local CLI integrations do. See [Rules and configuration](/semgrep-guardian/rules-and-configuration).
 
 ## Prerequisites
 

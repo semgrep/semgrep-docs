@@ -65,7 +65,10 @@ The remote server is the recommended default. If you need to run Semgrep locally
 
 ## What rules does this setup use?
 
-Guardian scans with a fixed default ruleset. Rules enabled in your organization's Policies do not apply to Guardian scans. See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for details and how to request custom rules.
+* **Remote plugin (default):** scans with the fixed [`guardian-default`](https://semgrep.dev/p/guardian-default) ruleset. Rules enabled in your organization's Policies do **not** apply.
+* **Local plugin:** scans with the rules enabled for your Semgrep organization through your Policies.
+
+See [Rules and configuration](/semgrep-guardian/rules-and-configuration) for details.
 
 ## Next steps
 
