@@ -47,7 +47,7 @@ HTTP_METHODS = ("get", "post", "put", "patch", "delete", "options", "head", "tra
 
 
 def service_groups(spec: dict, docs_root: pathlib.Path, spec_name: str,
-                   landing_dir: str) -> list[dict]:
+                   landing_dir: str, directory: Optional[str] = None) -> list[dict]:
     """One nav group per tag, each with its endpoints and its landing page."""
     display = {}
     for tag in spec.get("tags") or []:
@@ -69,7 +69,14 @@ def service_groups(spec: dict, docs_root: pathlib.Path, spec_name: str,
     groups = []
     for tag, pages in endpoints.items():
         label = display.get(tag, tag)
-        group: dict = {"group": label, "openapi": spec_name}
+        # The object form carries `directory`, which is what keeps the
+        # generated endpoint pages under /api-reference/<version>/. Without it
+        # Mintlify serves them from /api-reference/<tag>/ instead, silently
+        # moving every endpoint URL and colliding v1 with v2.
+        source: object = (
+            {"source": spec_name, "directory": directory} if directory else spec_name
+        )
+        group: dict = {"group": label, "openapi": source}
         # slug the display name the way the landing pages are named
         slug = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
         landing = f"{landing_dir}/{slug}"
@@ -110,6 +117,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         help="docs-relative dir holding the service pages, e.g. api-reference/v2/services",
     )
     parser.add_argument(
+        "--directory",
+        help="dir the generated endpoint pages live under, e.g. api-reference/v2; "
+        "omit and Mintlify serves them from /api-reference/<tag>/ instead",
+    )
+    parser.add_argument(
         "--parent", default="Services",
         help="name of the collapsible group the service groups nest inside",
     )
@@ -124,7 +136,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     spec = yaml.safe_load(pathlib.Path(args.spec).read_text())
 
     groups = service_groups(
-        spec, docs_root, pathlib.Path(args.spec).name, args.landing_dir
+        spec, docs_root, pathlib.Path(args.spec).name, args.landing_dir,
+        args.directory,
     )
     if not groups:
         print(f"{args.spec}: no tagged operations, nav left alone")
