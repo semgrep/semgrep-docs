@@ -2,7 +2,7 @@
 
 APIs change. This policy tells you how much warning you get before a change breaks your integration.
 
-In short: **stable endpoints get 6 months' notice before a breaking change, and 3 months before an already-deprecated optional field is removed.** After the deadline passes, the endpoint returns `410 Gone` with a machine-readable pointer to its replacement — it does not start returning wrong or partial data.
+In short: **stable endpoints get 6 months' notice before a breaking change or a removal.** After the deadline passes, the endpoint returns `410 Gone` with a machine-readable pointer to its replacement — it does not start returning wrong or partial data.
 
 ## What this policy covers
 
@@ -10,7 +10,7 @@ This policy applies to every endpoint documented on [docs.semgrep.dev](https://d
 
 | Maturity | What we promise | Notice before removal or a breaking change |
 | --- | --- | --- |
-| **Stable** | Fully covered by this policy. | 6 months (breaking), 3 months (non-breaking removal) |
+| **Stable** | Fully covered by this policy. | 6 months |
 | **Beta** | Documented and supported. We keep it backwards compatible while it is in beta, but it may still be renamed or removed. | 30 days |
 | **Experimental** | Use at your own risk. Published so you can see what is coming, but it may change or disappear at any time, without notice. | None |
 
