@@ -105,6 +105,17 @@ jobs:
             --link-base /api-reference/v2 \
             --rss-url https://docs.semgrep.dev/api-reference/v2/Changelog/rss.xml
 
+      # Mintlify builds an endpoint's page URL from its first tag, so an
+      # endpoint regrouped into a new service moves and its old URL 404s.
+      # Must run before the changelog step commits, and while the previous
+      # spec is still what HEAD has -- this diffs the two.
+      - name: Redirect endpoints whose page URL moved
+        run: |
+          uv run scripts/generate_openapi_redirects.py docs/public_v1.openapi.yaml \
+            docs/docs.json --link-base /api-reference/v1
+          uv run scripts/generate_openapi_redirects.py docs/public_v2.openapi.yaml \
+            docs/docs.json --link-base /api-reference/v2
+
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
@@ -123,6 +134,7 @@ jobs:
           add-paths: |
             docs/public_v1.openapi.yaml
             docs/public_v2.openapi.yaml
+            docs/docs.json
             docs/api-reference/v1/Changelog.mdx
             docs/api-reference/v2/Changelog.mdx
           branch: chore/update-openapi-specs
