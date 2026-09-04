@@ -632,7 +632,7 @@
             ]
           },
           {
-            "dropdown": "v2 (Experimental)",
+            "dropdown": "v2",
             "icon": "flask",
             "groups": [
               {
@@ -643,6 +643,23 @@
                   "api-reference/v2/Terms-of-Use",
                   "api-reference/v2/Changelog",
                   "api-reference/v2/Deprecation-Policy"
+                ]
+              },
+              {
+                "group": "Services",
+                "pages": [
+                    "api-reference/v2/services/deployments",
+                    "api-reference/v2/services/issues",
+                    "api-reference/v2/services/workflow-issues",
+                    "api-reference/v2/services/agentic-workflows",
+                    "api-reference/v2/services/projects",
+                    "api-reference/v2/services/scans",
+                    "api-reference/v2/services/policies",
+                    "api-reference/v2/services/integrations",
+                    "api-reference/v2/services/supply-chain",
+                    "api-reference/v2/services/analytics",
+                    "api-reference/v2/services/multimodal",
+                    "api-reference/v2/services/tasks"
                 ]
               },
               {
