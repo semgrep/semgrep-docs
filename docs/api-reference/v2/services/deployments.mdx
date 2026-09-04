@@ -3,12 +3,14 @@ title: "Deployments"
 description: "The deployment, its users, product configuration, RBAC teams, and token identity."
 ---
 
+import DeploymentsEndpoints from "/snippets/api/v2/deployments-endpoints.mdx"
+
 A deployment is your organization in Semgrep, and the root of almost every other resource: projects belong to a deployment, as do policies, scans, and integrations. These endpoints manage the deployment itself, the people in it, and what each of them may do.
 
 ## Endpoints
 
-This service has no published endpoints yet. Endpoints move here one at a time,
-and each one appears in the navigation as soon as it is published. Every move is
-recorded in the [changelog](/api-reference/v2/Changelog), and anything it
-supersedes is deprecated under the
-[deprecation policy](/api-reference/v2/Deprecation-Policy).
+<DeploymentsEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).
