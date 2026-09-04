@@ -646,524 +646,529 @@
                 ]
               },
               {
-                "group": "AI Fix Jobs",
-                "openapi": "public_v2.openapi.yaml",
+                "group": "Services",
                 "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/issues/{issueId}/fix_jobs"
-                ]
-              },
-              {
-                "group": "AI tasks",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/ai/{deploymentId}/combined_task",
-                  "POST /api/ai/pattern_fix",
-                  "GET /api/ai/{deploymentId}/info"
-                ]
-              },
-              {
-                "group": "Autofix",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/v1/deployments/{deploymentId}/issues/{issueId}/autofix"
-                ]
-              },
-              {
-                "group": "Automations",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/notifications/deployments/{deploymentId}/automations",
-                  "GET /api/notifications/deployments/{deploymentId}/automations",
-                  "DELETE /api/notifications/deployments/{deploymentId}/automations/{automationId}",
-                  "PUT /api/notifications/deployments/{deploymentId}/automations/{automationId}",
-                  "GET /api/v2/deployments/{deploymentId}/automations"
-                ]
-              },
-              {
-                "group": "Autotriage Feedback",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/ai/deployments/{deploymentId}/autotriage_feedback"
-                ]
-              },
-              {
-                "group": "Deployment",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/users",
-                  "GET /api/agent/deployments/{deploymentId}/users",
-                  "POST /api/agent/deployments",
-                  "GET /api/agent/deployments/{deploymentId}",
-                  "PATCH /api/agent/deployments/{deploymentId}",
-                  "GET /api/agent/deployments/{deploymentId}/authorized_actions",
-                  "GET /api/agent/deployments/{deploymentId}/default_user_role",
-                  "GET /api/agent/deployment",
-                  "GET /api/agent/deployments/{deploymentId}/github_app_status",
-                  "POST /api/agent/deployments/{deploymentId}/users/list",
-                  "DELETE /api/agent/deployments/{deploymentId}/users/{userId}",
-                  "POST /api/agent/deployments/{deploymentId}/products/feedback",
-                  "POST /api/agent/deployments/{deploymentId}/has_deepsemgrep",
-                  "POST /api/agent/deployments/{deploymentId}/has_dependency_query",
-                  "POST /api/agent/deployments/{deploymentId}/has_triage_via_comment",
-                  "PATCH /api/agent/deployments/{deploymentId}/users/{userId}/roles"
-                ]
-              },
-              {
-                "group": "Deployment Products",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "PUT /api/agent/deployments/{deploymentId}/products",
-                  "GET /api/agent/deployments/{deploymentId}/products",
-                  "GET /api/agent/deployments/{deploymentId}/products/admin"
-                ]
-              },
-              {
-                "group": "Deployment SSO Providers",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/auth/sso/deployments/{deploymentId}/providers"
-                ]
-              },
-              {
-                "group": "Deployment Tags",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "PUT /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
-                  "DELETE /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
-                  "GET /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
-                  "POST /api/agent/deployments/{deploymentId}/tags/find",
-                  "GET /api/agent/deployments/{deploymentId}/tags"
-                ]
-              },
-              {
-                "group": "Deployments",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/deployments",
-                "pages": [
-                  "GET /api/v2/deployments"
-                ]
-              },
-              {
-                "group": "Editor",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/run"
-                ]
-              },
-              {
-                "group": "External Ticketing",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/create_tickets",
-                  "DELETE /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/{nangoExternalTicketId}",
-                  "GET /api/notifications/deployments/{deploymentId}/ticketing/v2",
-                  "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/link",
-                  "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/unlink"
-                ]
-              },
-              {
-                "group": "Feature Rollouts",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/agent/features"
-                ]
-              },
-              {
-                "group": "Global Ignores",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/ignores",
-                  "DELETE /api/agent/deployments/{deploymentId}/ignores",
-                  "GET /api/agent/deployments/{deploymentId}/ignores",
-                  "PATCH /api/agent/deployments/{deploymentId}/ignores"
-                ]
-              },
-              {
-                "group": "Infrastructure Configurations",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/infra-config/bootstrap-sms-vpc"
-                ]
-              },
-              {
-                "group": "Issues",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/issues",
-                "pages": [
-                  "PATCH /api/agent/deployments/{deploymentId}/findings/v2",
-                  "POST /api/agent/deployments/{deploymentId}/issues/export",
-                  "GET /api/agent/deployments/{deploymentId}/issues/v2/{issueId}",
-                  "GET /api/agent/deployments/{deploymentId}/issues/v2/{issueId}/code-snippets",
-                  "POST /api/agent/deployments/{deploymentId}/issue_counts",
-                  "POST /api/agent/deployments/{deploymentId}/issue_filters",
-                  "POST /api/agent/deployments/{deploymentId}/issues/search",
-                  "POST /api/agent/deployments/{deploymentId}/issues"
-                ]
-              },
-              {
-                "group": "Issues (Semgrep Agentic Workflows)",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/issues/{deploymentId}/counts",
-                  "GET /api/issues/{deploymentId}/issue/{issueId}/activity",
-                  "GET /api/issues/{deploymentId}/issue/{issueId}",
-                  "POST /api/issues/{deploymentId}/issue/{issueId}",
-                  "POST /api/issues/{deploymentId}/search"
-                ]
-              },
-              {
-                "group": "Managed Scan Settings",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/managed_scan_settings",
-                  "GET /api/agent/deployments/{deploymentId}/managed_scan_settings",
-                  "DELETE /api/agent/deployments/{deploymentId}/managed_scan_settings/{managedScanSettingsId}",
-                  "PUT /api/agent/deployments/{deploymentId}/managed_scan_settings/{managedScanSettingsId}"
-                ]
-              },
-              {
-                "group": "Memories",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/ai/deployments/{deploymentId}/memories",
-                  "POST /api/ai/deployments/{deploymentId}/memories/triage",
-                  "DELETE /api/ai/deployments/{deploymentId}/memories/{memoryId}",
-                  "PUT /api/ai/deployments/{deploymentId}/memories/{memoryId}",
-                  "POST /api/ai/deployments/{deploymentId}/relevant_issues",
-                  "POST /api/ai/deployments/{deploymentId}/memories/ids",
-                  "GET /api/ai/deployments/{deploymentId}/memories/stats",
-                  "POST /api/ai/deployments/{deploymentId}/memories/list",
-                  "GET /api/ai/deployments/{deploymentId}/memories/suggested"
-                ]
-              },
-              {
-                "group": "Notification Rules",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/actions",
-                  "DELETE /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}",
-                  "PUT /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}",
-                  "POST /api/agent/deployments/{deploymentId}/actions/list",
-                  "POST /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}/test"
-                ]
-              },
-              {
-                "group": "Notification Webhooks",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/notification_webhooks/deployments/{deploymentId}/webhooks",
-                  "GET /api/notification_webhooks/deployments/{deploymentId}/webhooks",
-                  "DELETE /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
-                  "GET /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
-                  "PUT /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
-                  "POST /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}/test"
-                ]
-              },
-              {
-                "group": "Notifications",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/notifications/in-app/deployments/{deploymentId}",
-                  "PUT /api/notifications/in-app/deployments/{deploymentId}/mark_as_seen"
-                ]
-              },
-              {
-                "group": "Onboarding Checklist",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/onboarding/deployments/{deploymentId}/checklist",
-                  "PATCH /api/onboarding/deployments/{deploymentId}/checklist",
-                  "POST /api/onboarding/deployments/{deploymentId}/invite_members"
-                ]
-              },
-              {
-                "group": "Policies",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/policies",
-                "pages": [
-                  "GET /api/policies/v1/deployments/{deploymentId}",
-                  "GET /api/policies/v1/deployments/{deploymentId}/{policyId}/rules",
-                  "PUT /api/policies/v1/deployments/{deploymentId}/{policyId}/rules/{rulePath}"
-                ]
-              },
-              {
-                "group": "Policies V2",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "PUT /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
-                  "GET /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
-                  "PUT /api/policies/v2/deployments/{deploymentId}/remediation-policies",
-                  "GET /api/policies/v2/deployments/{deploymentId}/remediation-policies",
-                  "GET /api/policies/v2/deployments/{deploymentId}/detection-policy",
-                  "GET /api/policies/v2/deployments/{deploymentId}/vocab",
-                  "POST /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}:dryRun",
-                  "POST /api/policies/v2/deployments/{deploymentId}/remediation-policies:dryRun"
-                ]
-              },
-              {
-                "group": "Projects",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/projects",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/repos/_secret",
-                  "PATCH /api/agent/deployments/{deploymentId}/repos/filtered",
-                  "PATCH /api/agent/deployments/{deploymentId}/repos",
-                  "DELETE /api/v2/deployments/{deploymentId}/projects/{projectId}",
-                  "GET /api/v2/deployments/{deploymentId}/projects/{projectId}",
-                  "GET /api/v2/deployments/{deploymentId}/projects/{projectId}/branches/{branchId}",
-                  "POST /api/agent/deployments/{deploymentId}/repos/count",
-                  "GET /api/agent/deployments/{deploymentId}/repos/by-tag",
-                  "POST /api/v2/deployments/{deploymentId}/projects/list",
-                  "POST /api/agent/deployments/{deploymentId}/repos/_provision",
-                  "POST /api/agent/deployments/{deploymentId}/repos/_refresh_async",
-                  "POST /api/agent/deployments/{deploymentId}/repos/{repoId}/_sync",
-                  "PATCH /api/agent/deployments/{deploymentId}/repos/{idOrName}"
-                ]
-              },
-              {
-                "group": "Projects - Managed Scan Settings",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/sms/v2/deployments/{deploymentId}/project_settings",
-                  "GET /api/sms/v2/deployments/{deploymentId}/projects/{projectId}/settings"
-                ]
-              },
-              {
-                "group": "Reporting",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/reporting/{deploymentId}/reports/backlog/by-product",
-                  "POST /api/reporting/{deploymentId}/reports/backlog/by-rule",
-                  "POST /api/reporting/{deploymentId}/reports/backlog/by-severity",
-                  "POST /api/reporting/{deploymentId}/reports/activity",
-                  "POST /api/reporting/{deploymentId}/reports/by-project/by-product",
-                  "POST /api/reporting/{deploymentId}/reports/by-project/by-severity",
-                  "POST /api/reporting/{deploymentId}/reports/funnel",
-                  "POST /api/reporting/{deploymentId}/reports/guardrails-activity",
-                  "POST /api/reporting/{deploymentId}/reports/guardrails-adoption",
-                  "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-advisory",
-                  "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-dep-version-and-ecosystem",
-                  "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-ecosystem",
-                  "POST /api/reporting/{deploymentId}/reports/malware-firewall/scan-activity",
-                  "POST /api/reporting/{deploymentId}/reports/malware-firewall/summary",
-                  "POST /api/reporting/{deploymentId}/reports/median-open-age/by-product",
-                  "POST /api/reporting/{deploymentId}/reports/median-open-age/by-severity",
-                  "POST /api/reporting/{deploymentId}/findings"
-                ]
-              },
-              {
-                "group": "Review Comment Product Content",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/deployments/{deploymentId}/scm_comment_product_content",
-                  "GET /api/deployments/{deploymentId}/scm_comment_product_content",
-                  "DELETE /api/deployments/{deploymentId}/scm_comment_product_content/{reviewCommentProductContentId}",
-                  "PUT /api/deployments/{deploymentId}/scm_comment_product_content/{reviewCommentProductContentId}"
-                ]
-              },
-              {
-                "group": "Ruleboards",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/ruleboards",
-                  "GET /api/agent/deployments/{deploymentId}/ruleboards",
-                  "DELETE /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
-                  "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
-                  "PUT /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
-                  "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/finding_counts",
-                  "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/overview",
-                  "PUT /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/overview"
-                ]
-              },
-              {
-                "group": "Scans",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/scans",
-                "pages": [
-                  "GET /api/v2/deployments/{deploymentId}/scans/{scanId}",
-                  "POST /api/v2/deployments/{deploymentId}/projects/{projectId}/scans/list",
-                  "POST /api/v2/deployments/{deploymentId}/scans/retry"
-                ]
-              },
-              {
-                "group": "Semgrep Agentic Workflows",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/findings",
-                  "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/overview",
-                  "GET /api/workflows/v1/deployments/{deploymentId}/registry",
-                  "POST /api/workflows/v1/deployments/{deploymentId}/jobs/list",
-                  "POST /api/workflows/v1/deployments/{deploymentId}/trigger"
-                ]
-              },
-              {
-                "group": "Slack",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "DELETE /api/agent/deployments/{deploymentId}/slack/installations",
-                  "GET /api/agent/deployments/{deploymentId}/slack/installations",
-                  "GET /api/agent/deployments/{deploymentId}/slack/install",
-                  "GET /api/agent/deployments/{deploymentId}/slack/channel_mappings",
-                  "GET /api/agent/deployments/{deploymentId}/slack/channels",
-                  "POST /api/agent/deployments/{deploymentId}/slack/oauth/callback"
-                ]
-              },
-              {
-                "group": "Source Code Management (SCM) apps",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/add_ado_project",
-                  "PUT /api/scm/ado_app_install",
-                  "PUT /api/scm/app_request_complete",
-                  "POST /api/scm/ado_app",
-                  "POST /api/scm/app_request",
-                  "DELETE /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}",
-                  "GET /api/scm/deployments/{deploymentId}/scm_apps/public_gha",
-                  "GET /api/scm/deployments/{deploymentId}/scm_apps/{requestId}",
-                  "GET /api/scm/deployments/{deploymentId}/scm_apps",
-                  "POST /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/rotate_webhook_secret"
-                ]
-              },
-              {
-                "group": "Source Code Management (SCM) configurations",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/scm/deployments/{deploymentId}/configs/{configId}/check",
-                  "POST /api/scm/deployments/{deploymentId}/configs",
-                  "GET /api/scm/deployments/{deploymentId}/configs",
-                  "DELETE /api/scm/deployments/{deploymentId}/configs/{configId}",
-                  "PATCH /api/scm/deployments/{deploymentId}/configs/{configId}",
-                  "POST /api/scm/deployments/{deploymentId}/configs/search",
-                  "POST /api/scm/deployments/{deploymentId}/configs/{configId}/_sync"
-                ]
-              },
-              {
-                "group": "Source Code Management (SCM) webhooks",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
-                  "PUT /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
-                  "DELETE /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
-                  "POST /api/scm/deployments/{deploymentId}/subscriptions/{configId}/rotate_secret"
-                ]
-              },
-              {
-                "group": "Supply Chain",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/supply-chain",
-                "pages": [
-                  "POST /api/sca/deployments/{deploymentId}/sbom_async",
-                  "GET /api/sca/deployments/{deploymentId}/dependencies",
-                  "POST /api/sca/deployments/{deploymentId}/dependencies",
-                  "POST /api/sca/deployments/{deploymentId}/advisories/{advisoryId}/findings",
-                  "POST /api/sca/deployments/{deploymentId}/{repositoryId}/lockfiles",
-                  "POST /api/sca/deployments/{deploymentId}/repositories"
-                ]
-              },
-              {
-                "group": "Supply Chain - Managed Scans dependency resolution configurations",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/agent/deployments/{deploymentId}/projects/{projectId}/resolution_configs"
-                ]
-              },
-              {
-                "group": "Supply Chain - Managed Scans package manager configurations",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
-                  "GET /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
-                  "DELETE /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs/{packageManagerConfigId}",
-                  "PATCH /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs/{packageManagerConfigId}"
-                ]
-              },
-              {
-                "group": "Support",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/support/cases",
-                  "GET /api/support/cases/{orgid}"
-                ]
-              },
-              {
-                "group": "Surveys",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/survey/name/{surveyName}",
-                  "POST /api/survey/submit"
-                ]
-              },
-              {
-                "group": "Tasks",
-                "openapi": "public_v2.openapi.yaml",
-                "root": "api-reference/v2/services/tasks",
-                "pages": [
-                  "GET /api/tasks/v2/{taskTokenJwt}"
-                ]
-              },
-              {
-                "group": "Teams",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/permissions/v2/deployments/{deploymentId}/status",
-                  "POST /api/permissions/v2/deployments/{deploymentId}/teams",
-                  "DELETE /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
-                  "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
-                  "PATCH /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
-                  "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/teams",
-                  "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/repos",
-                  "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/members",
-                  "POST /api/permissions/v2/deployments/{deploymentId}/teams/list"
-                ]
-              },
-              {
-                "group": "Tokens",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "DELETE /api/tokens/v1/deployments/{deploymentId}/tokens"
-                ]
-              },
-              {
-                "group": "Users",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/auth/users/current",
-                  "GET /api/auth/users/current/settings",
-                  "PATCH /api/auth/users/current/settings",
-                  "GET /api/auth/authorized_resources",
-                  "GET /api/auth/users/current/deployments/joinable",
-                  "GET /api/auth/users/current/deployments"
-                ]
-              },
-              {
-                "group": "Versions",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/agent/versions/{deploymentId}/project-info/{product}"
-                ]
-              },
-              {
-                "group": "Wiz Credentials",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "POST /api/notifications/deployments/{deploymentId}/wiz",
-                  "GET /api/notifications/deployments/{deploymentId}/wiz",
-                  "DELETE /api/notifications/deployments/{deploymentId}/wiz/{id}",
-                  "GET /api/notifications/deployments/{deploymentId}/wiz/{id}",
-                  "PUT /api/notifications/deployments/{deploymentId}/wiz/{id}",
-                  "POST /api/notifications/deployments/{deploymentId}/wiz/validate"
-                ]
-              },
-              {
-                "group": "Other",
-                "openapi": "public_v2.openapi.yaml",
-                "pages": [
-                  "GET /api/health-check",
-                  "GET /api/readiness-check",
-                  "GET /api/agent/identity",
-                  "GET /api/agent/ip",
-                  "GET /api/agent/tenant",
-                  "GET /api/agent/ping"
+                  {
+                    "group": "AI Fix Jobs",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/issues/{issueId}/fix_jobs"
+                    ]
+                  },
+                  {
+                    "group": "AI tasks",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/ai/{deploymentId}/combined_task",
+                      "POST /api/ai/pattern_fix",
+                      "GET /api/ai/{deploymentId}/info"
+                    ]
+                  },
+                  {
+                    "group": "Autofix",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/v1/deployments/{deploymentId}/issues/{issueId}/autofix"
+                    ]
+                  },
+                  {
+                    "group": "Automations",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/notifications/deployments/{deploymentId}/automations",
+                      "GET /api/notifications/deployments/{deploymentId}/automations",
+                      "DELETE /api/notifications/deployments/{deploymentId}/automations/{automationId}",
+                      "PUT /api/notifications/deployments/{deploymentId}/automations/{automationId}",
+                      "GET /api/v2/deployments/{deploymentId}/automations"
+                    ]
+                  },
+                  {
+                    "group": "Autotriage Feedback",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/ai/deployments/{deploymentId}/autotriage_feedback"
+                    ]
+                  },
+                  {
+                    "group": "Deployment",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/users",
+                      "GET /api/agent/deployments/{deploymentId}/users",
+                      "POST /api/agent/deployments",
+                      "GET /api/agent/deployments/{deploymentId}",
+                      "PATCH /api/agent/deployments/{deploymentId}",
+                      "GET /api/agent/deployments/{deploymentId}/authorized_actions",
+                      "GET /api/agent/deployments/{deploymentId}/default_user_role",
+                      "GET /api/agent/deployment",
+                      "GET /api/agent/deployments/{deploymentId}/github_app_status",
+                      "POST /api/agent/deployments/{deploymentId}/users/list",
+                      "DELETE /api/agent/deployments/{deploymentId}/users/{userId}",
+                      "POST /api/agent/deployments/{deploymentId}/products/feedback",
+                      "POST /api/agent/deployments/{deploymentId}/has_deepsemgrep",
+                      "POST /api/agent/deployments/{deploymentId}/has_dependency_query",
+                      "POST /api/agent/deployments/{deploymentId}/has_triage_via_comment",
+                      "PATCH /api/agent/deployments/{deploymentId}/users/{userId}/roles"
+                    ]
+                  },
+                  {
+                    "group": "Deployment Products",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "PUT /api/agent/deployments/{deploymentId}/products",
+                      "GET /api/agent/deployments/{deploymentId}/products",
+                      "GET /api/agent/deployments/{deploymentId}/products/admin"
+                    ]
+                  },
+                  {
+                    "group": "Deployment SSO Providers",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/auth/sso/deployments/{deploymentId}/providers"
+                    ]
+                  },
+                  {
+                    "group": "Deployment Tags",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "PUT /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
+                      "DELETE /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
+                      "GET /api/agent/deployments/{deploymentId}/tags/{repositoryTag}",
+                      "POST /api/agent/deployments/{deploymentId}/tags/find",
+                      "GET /api/agent/deployments/{deploymentId}/tags"
+                    ]
+                  },
+                  {
+                    "group": "Deployments",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/deployments",
+                    "pages": [
+                      "GET /api/v2/deployments"
+                    ]
+                  },
+                  {
+                    "group": "Editor",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/run"
+                    ]
+                  },
+                  {
+                    "group": "External Ticketing",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/create_tickets",
+                      "DELETE /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/{nangoExternalTicketId}",
+                      "GET /api/notifications/deployments/{deploymentId}/ticketing/v2",
+                      "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/link",
+                      "POST /api/notifications/deployments/{deploymentId}/ticketing/v2/{ticketingInstanceId}/tickets/unlink"
+                    ]
+                  },
+                  {
+                    "group": "Feature Rollouts",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/agent/features"
+                    ]
+                  },
+                  {
+                    "group": "Global Ignores",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/ignores",
+                      "DELETE /api/agent/deployments/{deploymentId}/ignores",
+                      "GET /api/agent/deployments/{deploymentId}/ignores",
+                      "PATCH /api/agent/deployments/{deploymentId}/ignores"
+                    ]
+                  },
+                  {
+                    "group": "Infrastructure Configurations",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/infra-config/bootstrap-sms-vpc"
+                    ]
+                  },
+                  {
+                    "group": "Issues",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/issues",
+                    "pages": [
+                      "PATCH /api/agent/deployments/{deploymentId}/findings/v2",
+                      "POST /api/agent/deployments/{deploymentId}/issues/export",
+                      "GET /api/agent/deployments/{deploymentId}/issues/v2/{issueId}",
+                      "GET /api/agent/deployments/{deploymentId}/issues/v2/{issueId}/code-snippets",
+                      "POST /api/agent/deployments/{deploymentId}/issue_counts",
+                      "POST /api/agent/deployments/{deploymentId}/issue_filters",
+                      "POST /api/agent/deployments/{deploymentId}/issues/search",
+                      "POST /api/agent/deployments/{deploymentId}/issues"
+                    ]
+                  },
+                  {
+                    "group": "Issues (Semgrep Agentic Workflows)",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/issues/{deploymentId}/counts",
+                      "GET /api/issues/{deploymentId}/issue/{issueId}/activity",
+                      "GET /api/issues/{deploymentId}/issue/{issueId}",
+                      "POST /api/issues/{deploymentId}/issue/{issueId}",
+                      "POST /api/issues/{deploymentId}/search"
+                    ]
+                  },
+                  {
+                    "group": "Managed Scan Settings",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/managed_scan_settings",
+                      "GET /api/agent/deployments/{deploymentId}/managed_scan_settings",
+                      "DELETE /api/agent/deployments/{deploymentId}/managed_scan_settings/{managedScanSettingsId}",
+                      "PUT /api/agent/deployments/{deploymentId}/managed_scan_settings/{managedScanSettingsId}"
+                    ]
+                  },
+                  {
+                    "group": "Memories",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/ai/deployments/{deploymentId}/memories",
+                      "POST /api/ai/deployments/{deploymentId}/memories/triage",
+                      "DELETE /api/ai/deployments/{deploymentId}/memories/{memoryId}",
+                      "PUT /api/ai/deployments/{deploymentId}/memories/{memoryId}",
+                      "POST /api/ai/deployments/{deploymentId}/relevant_issues",
+                      "POST /api/ai/deployments/{deploymentId}/memories/ids",
+                      "GET /api/ai/deployments/{deploymentId}/memories/stats",
+                      "POST /api/ai/deployments/{deploymentId}/memories/list",
+                      "GET /api/ai/deployments/{deploymentId}/memories/suggested"
+                    ]
+                  },
+                  {
+                    "group": "Notification Rules",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/actions",
+                      "DELETE /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}",
+                      "PUT /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}",
+                      "POST /api/agent/deployments/{deploymentId}/actions/list",
+                      "POST /api/agent/deployments/{deploymentId}/actions/{notificationRuleId}/test"
+                    ]
+                  },
+                  {
+                    "group": "Notification Webhooks",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/notification_webhooks/deployments/{deploymentId}/webhooks",
+                      "GET /api/notification_webhooks/deployments/{deploymentId}/webhooks",
+                      "DELETE /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
+                      "GET /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
+                      "PUT /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}",
+                      "POST /api/notification_webhooks/deployments/{deploymentId}/webhooks/{webhookId}/test"
+                    ]
+                  },
+                  {
+                    "group": "Notifications",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/notifications/in-app/deployments/{deploymentId}",
+                      "PUT /api/notifications/in-app/deployments/{deploymentId}/mark_as_seen"
+                    ]
+                  },
+                  {
+                    "group": "Onboarding Checklist",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/onboarding/deployments/{deploymentId}/checklist",
+                      "PATCH /api/onboarding/deployments/{deploymentId}/checklist",
+                      "POST /api/onboarding/deployments/{deploymentId}/invite_members"
+                    ]
+                  },
+                  {
+                    "group": "Policies",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/policies",
+                    "pages": [
+                      "GET /api/policies/v1/deployments/{deploymentId}",
+                      "GET /api/policies/v1/deployments/{deploymentId}/{policyId}/rules",
+                      "PUT /api/policies/v1/deployments/{deploymentId}/{policyId}/rules/{rulePath}"
+                    ]
+                  },
+                  {
+                    "group": "Policies V2",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "PUT /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
+                      "GET /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}",
+                      "PUT /api/policies/v2/deployments/{deploymentId}/remediation-policies",
+                      "GET /api/policies/v2/deployments/{deploymentId}/remediation-policies",
+                      "GET /api/policies/v2/deployments/{deploymentId}/detection-policy",
+                      "GET /api/policies/v2/deployments/{deploymentId}/vocab",
+                      "POST /api/policies/v2/deployments/{deploymentId}/detection-policy/{product}:dryRun",
+                      "POST /api/policies/v2/deployments/{deploymentId}/remediation-policies:dryRun"
+                    ]
+                  },
+                  {
+                    "group": "Projects",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/projects",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/repos/_secret",
+                      "PATCH /api/agent/deployments/{deploymentId}/repos/filtered",
+                      "PATCH /api/agent/deployments/{deploymentId}/repos",
+                      "DELETE /api/v2/deployments/{deploymentId}/projects/{projectId}",
+                      "GET /api/v2/deployments/{deploymentId}/projects/{projectId}",
+                      "GET /api/v2/deployments/{deploymentId}/projects/{projectId}/branches/{branchId}",
+                      "POST /api/agent/deployments/{deploymentId}/repos/count",
+                      "GET /api/agent/deployments/{deploymentId}/repos/by-tag",
+                      "POST /api/v2/deployments/{deploymentId}/projects/list",
+                      "POST /api/agent/deployments/{deploymentId}/repos/_provision",
+                      "POST /api/agent/deployments/{deploymentId}/repos/_refresh_async",
+                      "POST /api/agent/deployments/{deploymentId}/repos/{repoId}/_sync",
+                      "PATCH /api/agent/deployments/{deploymentId}/repos/{idOrName}"
+                    ]
+                  },
+                  {
+                    "group": "Projects - Managed Scan Settings",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/sms/v2/deployments/{deploymentId}/project_settings",
+                      "GET /api/sms/v2/deployments/{deploymentId}/projects/{projectId}/settings"
+                    ]
+                  },
+                  {
+                    "group": "Reporting",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/reporting/{deploymentId}/reports/backlog/by-product",
+                      "POST /api/reporting/{deploymentId}/reports/backlog/by-rule",
+                      "POST /api/reporting/{deploymentId}/reports/backlog/by-severity",
+                      "POST /api/reporting/{deploymentId}/reports/activity",
+                      "POST /api/reporting/{deploymentId}/reports/by-project/by-product",
+                      "POST /api/reporting/{deploymentId}/reports/by-project/by-severity",
+                      "POST /api/reporting/{deploymentId}/reports/funnel",
+                      "POST /api/reporting/{deploymentId}/reports/guardrails-activity",
+                      "POST /api/reporting/{deploymentId}/reports/guardrails-adoption",
+                      "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-advisory",
+                      "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-dep-version-and-ecosystem",
+                      "POST /api/reporting/{deploymentId}/reports/malware-firewall/blocked-mal-deps/by-ecosystem",
+                      "POST /api/reporting/{deploymentId}/reports/malware-firewall/scan-activity",
+                      "POST /api/reporting/{deploymentId}/reports/malware-firewall/summary",
+                      "POST /api/reporting/{deploymentId}/reports/median-open-age/by-product",
+                      "POST /api/reporting/{deploymentId}/reports/median-open-age/by-severity",
+                      "POST /api/reporting/{deploymentId}/findings"
+                    ]
+                  },
+                  {
+                    "group": "Review Comment Product Content",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/deployments/{deploymentId}/scm_comment_product_content",
+                      "GET /api/deployments/{deploymentId}/scm_comment_product_content",
+                      "DELETE /api/deployments/{deploymentId}/scm_comment_product_content/{reviewCommentProductContentId}",
+                      "PUT /api/deployments/{deploymentId}/scm_comment_product_content/{reviewCommentProductContentId}"
+                    ]
+                  },
+                  {
+                    "group": "Ruleboards",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/ruleboards",
+                      "GET /api/agent/deployments/{deploymentId}/ruleboards",
+                      "DELETE /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
+                      "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
+                      "PUT /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}",
+                      "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/finding_counts",
+                      "GET /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/overview",
+                      "PUT /api/agent/deployments/{deploymentId}/ruleboards/{ruleboardSlug}/overview"
+                    ]
+                  },
+                  {
+                    "group": "Scans",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/scans",
+                    "pages": [
+                      "GET /api/v2/deployments/{deploymentId}/scans/{scanId}",
+                      "POST /api/v2/deployments/{deploymentId}/projects/{projectId}/scans/list",
+                      "POST /api/v2/deployments/{deploymentId}/scans/retry"
+                    ]
+                  },
+                  {
+                    "group": "Semgrep Agentic Workflows",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/findings",
+                      "GET /api/workflows/v1/deployments/{deploymentId}/jobs/id/{jobId}/overview",
+                      "GET /api/workflows/v1/deployments/{deploymentId}/registry",
+                      "POST /api/workflows/v1/deployments/{deploymentId}/jobs/list",
+                      "POST /api/workflows/v1/deployments/{deploymentId}/trigger"
+                    ]
+                  },
+                  {
+                    "group": "Slack",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "DELETE /api/agent/deployments/{deploymentId}/slack/installations",
+                      "GET /api/agent/deployments/{deploymentId}/slack/installations",
+                      "GET /api/agent/deployments/{deploymentId}/slack/install",
+                      "GET /api/agent/deployments/{deploymentId}/slack/channel_mappings",
+                      "GET /api/agent/deployments/{deploymentId}/slack/channels",
+                      "POST /api/agent/deployments/{deploymentId}/slack/oauth/callback"
+                    ]
+                  },
+                  {
+                    "group": "Source Code Management (SCM) apps",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/add_ado_project",
+                      "PUT /api/scm/ado_app_install",
+                      "PUT /api/scm/app_request_complete",
+                      "POST /api/scm/ado_app",
+                      "POST /api/scm/app_request",
+                      "DELETE /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}",
+                      "GET /api/scm/deployments/{deploymentId}/scm_apps/public_gha",
+                      "GET /api/scm/deployments/{deploymentId}/scm_apps/{requestId}",
+                      "GET /api/scm/deployments/{deploymentId}/scm_apps",
+                      "POST /api/scm/deployments/{deploymentId}/scm_apps/{scmAppId}/rotate_webhook_secret"
+                    ]
+                  },
+                  {
+                    "group": "Source Code Management (SCM) configurations",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/scm/deployments/{deploymentId}/configs/{configId}/check",
+                      "POST /api/scm/deployments/{deploymentId}/configs",
+                      "GET /api/scm/deployments/{deploymentId}/configs",
+                      "DELETE /api/scm/deployments/{deploymentId}/configs/{configId}",
+                      "PATCH /api/scm/deployments/{deploymentId}/configs/{configId}",
+                      "POST /api/scm/deployments/{deploymentId}/configs/search",
+                      "POST /api/scm/deployments/{deploymentId}/configs/{configId}/_sync"
+                    ]
+                  },
+                  {
+                    "group": "Source Code Management (SCM) webhooks",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
+                      "PUT /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
+                      "DELETE /api/scm/deployments/{deploymentId}/subscriptions/{configId}",
+                      "POST /api/scm/deployments/{deploymentId}/subscriptions/{configId}/rotate_secret"
+                    ]
+                  },
+                  {
+                    "group": "Supply Chain",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/supply-chain",
+                    "pages": [
+                      "POST /api/sca/deployments/{deploymentId}/sbom_async",
+                      "GET /api/sca/deployments/{deploymentId}/dependencies",
+                      "POST /api/sca/deployments/{deploymentId}/dependencies",
+                      "POST /api/sca/deployments/{deploymentId}/advisories/{advisoryId}/findings",
+                      "POST /api/sca/deployments/{deploymentId}/{repositoryId}/lockfiles",
+                      "POST /api/sca/deployments/{deploymentId}/repositories"
+                    ]
+                  },
+                  {
+                    "group": "Supply Chain - Managed Scans dependency resolution configurations",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/agent/deployments/{deploymentId}/projects/{projectId}/resolution_configs"
+                    ]
+                  },
+                  {
+                    "group": "Supply Chain - Managed Scans package manager configurations",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
+                      "GET /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs",
+                      "DELETE /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs/{packageManagerConfigId}",
+                      "PATCH /api/agent/deployments/{deploymentId}/packagemanagerauthconfigs/{packageManagerConfigId}"
+                    ]
+                  },
+                  {
+                    "group": "Support",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/support/cases",
+                      "GET /api/support/cases/{orgid}"
+                    ]
+                  },
+                  {
+                    "group": "Surveys",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/survey/name/{surveyName}",
+                      "POST /api/survey/submit"
+                    ]
+                  },
+                  {
+                    "group": "Tasks",
+                    "openapi": "public_v2.openapi.yaml",
+                    "root": "api-reference/v2/services/tasks",
+                    "pages": [
+                      "GET /api/tasks/v2/{taskTokenJwt}"
+                    ]
+                  },
+                  {
+                    "group": "Teams",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/permissions/v2/deployments/{deploymentId}/status",
+                      "POST /api/permissions/v2/deployments/{deploymentId}/teams",
+                      "DELETE /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
+                      "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
+                      "PATCH /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}",
+                      "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/teams",
+                      "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/repos",
+                      "GET /api/permissions/v2/deployments/{deploymentId}/teams/{teamId}/members",
+                      "POST /api/permissions/v2/deployments/{deploymentId}/teams/list"
+                    ]
+                  },
+                  {
+                    "group": "Tokens",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "DELETE /api/tokens/v1/deployments/{deploymentId}/tokens"
+                    ]
+                  },
+                  {
+                    "group": "Users",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/auth/users/current",
+                      "GET /api/auth/users/current/settings",
+                      "PATCH /api/auth/users/current/settings",
+                      "GET /api/auth/authorized_resources",
+                      "GET /api/auth/users/current/deployments/joinable",
+                      "GET /api/auth/users/current/deployments"
+                    ]
+                  },
+                  {
+                    "group": "Versions",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/agent/versions/{deploymentId}/project-info/{product}"
+                    ]
+                  },
+                  {
+                    "group": "Wiz Credentials",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "POST /api/notifications/deployments/{deploymentId}/wiz",
+                      "GET /api/notifications/deployments/{deploymentId}/wiz",
+                      "DELETE /api/notifications/deployments/{deploymentId}/wiz/{id}",
+                      "GET /api/notifications/deployments/{deploymentId}/wiz/{id}",
+                      "PUT /api/notifications/deployments/{deploymentId}/wiz/{id}",
+                      "POST /api/notifications/deployments/{deploymentId}/wiz/validate"
+                    ]
+                  },
+                  {
+                    "group": "Other",
+                    "openapi": "public_v2.openapi.yaml",
+                    "pages": [
+                      "GET /api/health-check",
+                      "GET /api/readiness-check",
+                      "GET /api/agent/identity",
+                      "GET /api/agent/ip",
+                      "GET /api/agent/tenant",
+                      "GET /api/agent/ping"
+                    ]
+                  }
                 ]
               }
             ]
