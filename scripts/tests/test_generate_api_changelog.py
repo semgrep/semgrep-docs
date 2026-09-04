@@ -382,6 +382,44 @@ def test_humanize_runs_before_coalescing_so_paths_merge():
     assert "allOf" not in merged[0]["text"]
 
 
+def test_build_entries_drops_tag_only_changes():
+    """Regrouping endpoints into new services must not reach subscribers.
+
+    oasdiff emits api-tag-added + api-tag-removed per re-tagged operation, so
+    the reorganisation would otherwise land as hundreds of rows on one date --
+    a new <Update>, which publishes to RSS.
+    """
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    retag = [
+        {"id": "api-tag-removed", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `MiscService` removed"},
+        {"id": "api-tag-added", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `Deployments` added"},
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: retag)
+
+    assert entries == []  # a day of nothing but re-tagging gets no entry at all
+
+
+def test_build_entries_keeps_real_changes_shipped_alongside_a_retag():
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    mixed = [
+        {"id": "api-tag-added", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `Deployments` added"},
+        {"id": "endpoint-added", "level": 1, "section": "paths",
+         "operation": "POST", "path": "/api/v2/things",
+         "text": "endpoint added"},
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: mixed)
+
+    assert [c["id"] for c in entries[0].changes] == ["endpoint-added"]
+
+
 def test_build_entries_drops_unparseable_base_and_promotes_revision():
     snaps = snapshots_for(
         ("ccc", "2026-08-07"), ("bbb", "2026-07-23"), ("aaa", "2026-07-14")

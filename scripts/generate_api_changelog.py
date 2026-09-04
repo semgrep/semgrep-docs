@@ -54,6 +54,23 @@ import yaml
 # reader-facing changelog.
 EXCLUDED_SECTIONS = frozenset(("info",))
 
+# Checks dropped outright, by id.
+#
+# A tag is documentation grouping: it decides which nav group an endpoint
+# renders under, not what the endpoint accepts or returns. Regrouping the
+# public API into its new services re-tags roughly 200 endpoints, and oasdiff
+# emits an `added` and a `removed` for each, so the whole reorganisation would
+# land as ~400 rows on one date -- a new <Update>, which is the one thing that
+# still publishes to RSS subscribers. That would announce an internal filing
+# change as the largest entry in the feed's history while burying the real
+# changes shipped that day.
+#
+# Not entirely free: some SDK generators namespace by tag, so a consumer
+# generating a client from the published spec could see a method move class.
+# It is still not a change to the HTTP contract -- same path, same request,
+# same response -- and oasdiff itself rates both checks INFO.
+EXCLUDED_CHECKS = frozenset(("api-tag-added", "api-tag-removed"))
+
 # oasdiff levels we deliberately disagree with, keyed by check id.
 #
 # oasdiff rates a new *response* enum value WARN (potentially breaking) on the
@@ -290,7 +307,12 @@ def build_entries(
             if diff(rev_arg, rev_arg) is not None:
                 last_good = snapshot
             continue
-        changes = [c for c in changes if c.get("section") not in EXCLUDED_SECTIONS]
+        changes = [
+            c
+            for c in changes
+            if c.get("section") not in EXCLUDED_SECTIONS
+            and c.get("id") not in EXCLUDED_CHECKS
+        ]
         changes = [humanize_change_text(apply_level_override(c)) for c in changes]
         if changes:
             entries.append(Entry(snapshot.date, changes))
