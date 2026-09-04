@@ -121,10 +121,13 @@ def test_replace_groups_keeps_named_groups_and_drops_the_rest():
     }
 
     out = nav.replace_groups(docs, "v2", [{"group": "Issues", "pages": ["GET /x"]}],
-                             keep=("Overview",))
+                             keep=("Overview",), parent="Services")
 
     groups = out["navigation"]["tabs"][0]["dropdowns"][0]["groups"]
-    assert [g["group"] for g in groups] == ["Overview", "Issues"]
+    assert [g["group"] for g in groups] == ["Overview", "Services"]
+    # nested one level, not top-level: a top-level group renders as a flat
+    # heading, only a nested one collapses
+    assert [g["group"] for g in groups[1]["pages"]] == ["Issues"]
 
 
 def test_replace_groups_leaves_other_dropdowns_untouched():
@@ -142,7 +145,8 @@ def test_replace_groups_leaves_other_dropdowns_untouched():
         }
     }
 
-    out = nav.replace_groups(docs, "v2", [{"group": "Issues", "pages": []}], keep=())
+    out = nav.replace_groups(docs, "v2", [{"group": "Issues", "pages": []}],
+                             keep=(), parent="Services")
 
     v1 = out["navigation"]["tabs"][0]["dropdowns"][0]
     assert v1["groups"] == [{"group": "Endpoints"}]
@@ -156,3 +160,19 @@ def test_output_is_valid_json_and_stable(tmp_path):
     twice = json.dumps(nav.service_groups(s, tmp_path, "s.yaml", "svc"), indent=2)
 
     assert once == twice
+
+
+def test_service_groups_nest_so_they_stay_collapsible():
+    """Regression: the first version put these at the dropdown's top level,
+    which Mintlify renders as flat headings that cannot be collapsed."""
+    docs = {"navigation": {"tabs": [{"tab": "API", "dropdowns": [
+        {"dropdown": "v2", "groups": [{"group": "Overview", "pages": ["intro"]}]}]}]}}
+    svc = [{"group": "Issues", "root": "svc/issues", "pages": ["GET /x"]},
+           {"group": "Scans", "pages": ["GET /y"]}]
+
+    out = nav.replace_groups(docs, "v2", svc, keep=("Overview",), parent="Services")
+
+    top = out["navigation"]["tabs"][0]["dropdowns"][0]["groups"]
+    assert len(top) == 2 and top[1]["group"] == "Services"
+    assert all("group" in p for p in top[1]["pages"])
+    assert top[1]["pages"][0]["root"] == "svc/issues"
