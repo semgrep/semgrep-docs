@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 1746" width="1190" height="1746" role="img" aria-labelledby="ugp-title ugp-desc">
   <title id="ugp-title">Semgrep Upgrade Guidance</title>
-  <desc id="ugp-desc">Single top-down flow. Semgrep detects a finding in a third-party dependency. If no fix is available there is no Upgrade Guidance. Otherwise Semgrep compares versions and labels the finding safe to upgrade or breaking changes. An AppSec engineer reviews it and decides whether to fix it by opening a Semgrep pull request; declining leads to triage by another route. A pull request can be opened either way, and any breaking changes are noted in its description. The flow then branches on breaking changes: without them the pull request merges as is, and with them a developer updates the affected code before it merges. Both routes end with the finding fixed. At every decision, yes continues down the main path and no exits to the right.</desc>
+  <desc id="ugp-desc">Single top-down flow. Semgrep detects a finding in a third-party dependency. If no fixed version is available, no patch is available. Otherwise Semgrep compares versions and labels the finding safe to upgrade or breaking changes. An AppSec engineer reviews it and decides whether to fix it by opening a Semgrep pull request; declining leads to triage by another route. A pull request can be opened either way, and any breaking changes are noted in its description. The flow then branches on breaking changes: without them the pull request merges as is, and with them a developer updates the affected code before it merges. Both routes end with the finding fixed. At every decision, yes continues down the main path and no exits to the right.</desc>
 
   <!-- Semgrep brand palette. Borderless fills, three hues:
        mint ramp for the main flow, purple for every decision, orange for unresolved ends.
@@ -67,16 +67,16 @@
   <text x="400" y="147">third-party dependency.</text>
 
   <rect class="ug-pill" x="210" y="240" width="380" height="92" rx="46"/>
-  <text x="400" y="293">Is a fix available?</text>
+  <text x="400" y="293">Is a fixed version available?</text>
 
   <ellipse class="ug-open" cx="950" cy="286" rx="195" ry="95"/>
-  <text x="950" y="266" class="b">No Upgrade Guidance</text>
-  <text x="950" y="292">No patched version exists</text>
-  <text x="950" y="318">for this vulnerability yet.</text>
+  <text x="950" y="266" class="b">No patch available</text>
+  <text x="950" y="292">The dependency does not</text>
+  <text x="950" y="318">have a fixed version.</text>
 
   <rect class="ug-box" x="200" y="390" width="400" height="180" rx="8"/>
   <text x="400" y="428" class="ug-act">Semgrep</text>
-  <text x="400" y="462">Compares the unsafe and safe</text>
+  <text x="400" y="462">Compares the current and fixed</text>
   <text x="400" y="488">versions, and how your code uses</text>
   <text x="400" y="514">what changed. Labels the finding</text>
   <text x="400" y="540">safe to upgrade or breaking changes.</text>
