@@ -1,0 +1,16 @@
+---
+title: "Projects"
+description: "Projects, branches, project tags, syncs, and per-project scan settings."
+---
+
+import ProjectsEndpoints from "/snippets/api/v2/projects-endpoints.mdx"
+
+A project is what a scan sees: one codebase Semgrep is configured to analyze. These endpoints manage projects and their branches, the tags used to organize them, the syncs that keep them aligned with your source code manager, and the per-project scan and resolution settings.
+
+## Endpoints
+
+<ProjectsEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).

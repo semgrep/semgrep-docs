@@ -382,6 +382,44 @@ def test_humanize_runs_before_coalescing_so_paths_merge():
     assert "allOf" not in merged[0]["text"]
 
 
+def test_build_entries_drops_tag_only_changes():
+    """Regrouping endpoints into new services must not reach subscribers.
+
+    oasdiff emits api-tag-added + api-tag-removed per re-tagged operation, so
+    the reorganisation would otherwise land as hundreds of rows on one date --
+    a new <Update>, which publishes to RSS.
+    """
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    retag = [
+        {"id": "api-tag-removed", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `MiscService` removed"},
+        {"id": "api-tag-added", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `Deployments` added"},
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: retag)
+
+    assert entries == []  # a day of nothing but re-tagging gets no entry at all
+
+
+def test_build_entries_keeps_real_changes_shipped_alongside_a_retag():
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    mixed = [
+        {"id": "api-tag-added", "level": 1, "section": "paths",
+         "operation": "GET", "path": "/api/agent/identity",
+         "text": "api tag `Deployments` added"},
+        {"id": "endpoint-added", "level": 1, "section": "paths",
+         "operation": "POST", "path": "/api/v2/things",
+         "text": "endpoint added"},
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: mixed)
+
+    assert [c["id"] for c in entries[0].changes] == ["endpoint-added"]
+
+
 def test_build_entries_drops_unparseable_base_and_promotes_revision():
     snaps = snapshots_for(
         ("ccc", "2026-08-07"), ("bbb", "2026-07-23"), ("aaa", "2026-07-14")
@@ -458,7 +496,7 @@ are labeled; documentation-only edits are not listed.
 - removed the schema `ProjectFilter`
 </Update>
 
-<Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
+<Update label="July 23, 2026" description="1 change" tags={["Non-breaking"]} rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
 **Changes**
 
 - <Badge color="blue" size="sm">POST</Badge> [`/api/v1/policies`](/api-reference/v1/policiesservice/create-policy): endpoint added
@@ -529,7 +567,7 @@ GOLDEN_TABLE_BODY = """\
 </div>
 </Update>
 
-<Update label="July 23, 2026" description="1 change" rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
+<Update label="July 23, 2026" description="1 change" tags={["Non-breaking"]} rss={{ title: "Semgrep API v1 — July 23, 2026", description: "1 change across 1 endpoint." }}>
 **Changes**
 
 <div className="api-changelog-table">
@@ -590,7 +628,46 @@ def test_render_page_breaking_tag_and_summary():
         'description="2 breaking · 1 potentially breaking · 3 other changes" '
         'tags={["Breaking"]} rss='
     ) in page
-    assert '<Update label="July 23, 2026" description="1 change" rss=' in page
+    assert (
+        '<Update label="July 23, 2026" description="1 change" '
+        'tags={["Non-breaking"]} rss='
+    ) in page
+
+
+@pytest.mark.parametrize(
+    "levels, tag",
+    [
+        ([3], "Breaking"),
+        ([1, 2, 3], "Breaking"),  # highest severity wins
+        ([2], "Potentially breaking"),
+        ([1, 2], "Potentially breaking"),
+        ([1], "Non-breaking"),
+        ([0], "Non-breaking"),  # levels outside the map read as non-breaking
+    ],
+)
+def test_update_tag_names_the_days_highest_severity(levels, tag):
+    changes = [{"level": level, "section": "paths"} for level in levels]
+    assert gac._update_tag(changes) == tag
+
+
+def test_every_update_carries_exactly_one_filter_tag():
+    """Mintlify never hides an <Update> that has no tags= at all.
+
+    Its filter drops an update only when the update *has* tags and none of
+    them is selected, so a page that tags only its breaking days renders a
+    "Breaking" chip that hides nothing when clicked -- the other days have no
+    tags to fail to match. Tagging every day is what makes the chip work.
+    """
+    page = gac.render_page(
+        api_name="Semgrep API v1",
+        api_href="/api-reference/v1/Introduction",
+        note=None,
+        entries=golden_entries(),
+    )
+    opens = re.findall(r"^<Update .*$", page, flags=re.MULTILINE)
+    assert len(opens) == 2
+    for open_tag in opens:
+        assert len(re.findall(r'tags=\{\["[^"]+"\]\}', open_tag)) == 1, open_tag
 
 
 def test_render_update_emits_one_rss_prop_per_day():

@@ -1,0 +1,16 @@
+---
+title: "Integrations"
+description: "Source code manager connections, package manager credentials, and ticketing."
+---
+
+import IntegrationsEndpoints from "/snippets/api/v2/integrations-endpoints.mdx"
+
+Integrations are the connections between Semgrep and the systems around it. These endpoints manage source code manager connections and apps, the credentials Semgrep uses to reach private package registries, and the ticketing systems it files issues into.
+
+## Endpoints
+
+<IntegrationsEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).

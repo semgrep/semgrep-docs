@@ -54,6 +54,23 @@ import yaml
 # reader-facing changelog.
 EXCLUDED_SECTIONS = frozenset(("info",))
 
+# Checks dropped outright, by id.
+#
+# A tag is documentation grouping: it decides which nav group an endpoint
+# renders under, not what the endpoint accepts or returns. Regrouping the
+# public API into its new services re-tags roughly 200 endpoints, and oasdiff
+# emits an `added` and a `removed` for each, so the whole reorganisation would
+# land as ~400 rows on one date -- a new <Update>, which is the one thing that
+# still publishes to RSS subscribers. That would announce an internal filing
+# change as the largest entry in the feed's history while burying the real
+# changes shipped that day.
+#
+# Not entirely free: some SDK generators namespace by tag, so a consumer
+# generating a client from the published spec could see a method move class.
+# It is still not a change to the HTTP contract -- same path, same request,
+# same response -- and oasdiff itself rates both checks INFO.
+EXCLUDED_CHECKS = frozenset(("api-tag-added", "api-tag-removed"))
+
 # oasdiff levels we deliberately disagree with, keyed by check id.
 #
 # oasdiff rates a new *response* enum value WARN (potentially breaking) on the
@@ -136,6 +153,19 @@ SECTION_TITLES = {
     BREAKING: "Breaking changes",
     POTENTIALLY_BREAKING: "Potentially breaking changes",
     1: "Changes",
+}
+
+# The side-panel filter tag, naming the day's highest severity. Every <Update>
+# needs one: Mintlify hides an update only when it carries tags and none of
+# them is selected, so an <Update> with no tags= at all stays visible whatever
+# is selected. Tagging just the breaking days therefore rendered a "Breaking"
+# filter that, when clicked, hid nothing -- the other days had no tags to fail
+# to match. Levels outside this map fall in with the level-1 changes, matching
+# how the severity sections are grouped.
+UPDATE_TAGS = {
+    BREAKING: "Breaking",
+    POTENTIALLY_BREAKING: "Potentially breaking",
+    1: "Non-breaking",
 }
 
 # One upstream sync often lands the same kind of change many times over — six
@@ -290,7 +320,12 @@ def build_entries(
             if diff(rev_arg, rev_arg) is not None:
                 last_good = snapshot
             continue
-        changes = [c for c in changes if c.get("section") not in EXCLUDED_SECTIONS]
+        changes = [
+            c
+            for c in changes
+            if c.get("section") not in EXCLUDED_SECTIONS
+            and c.get("id") not in EXCLUDED_CHECKS
+        ]
         changes = [humanize_change_text(apply_level_override(c)) for c in changes]
         if changes:
             entries.append(Entry(snapshot.date, changes))
@@ -497,6 +532,14 @@ def _summary(changes: list) -> str:
     return " · ".join(_with_noun(parts, last))
 
 
+def _update_tag(changes: list) -> str:
+    """The day's highest severity, as its side-panel filter tag."""
+    for level in (BREAKING, POTENTIALLY_BREAKING):
+        if any(c["level"] == level for c in changes):
+            return UPDATE_TAGS[level]
+    return UPDATE_TAGS[1]
+
+
 def _jsx_string(text: str) -> str:
     """Escape text for a double-quoted JSX string literal."""
     return text.replace("\\", "\\\\").replace('"', '\\"')
@@ -641,9 +684,11 @@ def _render_update(
     entry: Entry, links: dict, style: str = "table", api_name: Optional[str] = None
 ) -> str:
     label = format_date(entry.date)
-    attrs = [f'label="{label}"', f'description="{_summary(entry.changes)}"']
-    if any(c["level"] == BREAKING for c in entry.changes):
-        attrs.append('tags={["Breaking"]}')
+    attrs = [
+        f'label="{label}"',
+        f'description="{_summary(entry.changes)}"',
+        'tags={["%s"]}' % _update_tag(entry.changes),
+    ]
     # Pins the feed to one item per <Update>. Without it Mintlify emits one
     # entry per Markdown heading inside the block, so a day with three
     # severity sections becomes three items titled "Breaking changes",
