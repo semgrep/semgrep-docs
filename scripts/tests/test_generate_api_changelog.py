@@ -475,17 +475,58 @@ def test_truncated_endpoint_cell_names_the_hidden_ones_in_a_tooltip():
         assert f"GET /e{i}" in cell
 
 
-def test_truncation_escapes_braces_in_the_tooltip():
+def _tip_of(cell: str) -> str:
+    """The tooltip's text, decoded from the JSX expression carrying it."""
+    literal = cell[cell.index("tip={") + 5 : cell.index("}>and")]
+    return json.loads(literal)
+
+
+def test_truncation_lists_one_endpoint_per_line():
+    """A comma-separated run of paths gives the reader no way to tell where
+    one path ends and the next begins -- they are long enough to wrap."""
+    change = {
+        **_shared_type_change("GET", "/a"),
+        "endpoints": [("GET", f"/e{i}") for i in range(6)],
+    }
+
+    tip = _tip_of(gac._endpoints_cell(change, links={}))
+
+    assert tip.splitlines() == [
+        "\u2022 GET /e3",
+        "\u2022 GET /e4",
+        "\u2022 GET /e5",
+    ]
+    assert ", " not in tip
+
+
+def test_the_tooltip_survives_braces_in_a_path():
+    """Braces open a JSX expression as bare text, but are ordinary characters
+    inside the string literal the tip is passed as -- so they must NOT be
+    entity-encoded, or the reader sees `&#123;` instead of `{`."""
     change = {
         **_shared_type_change("GET", "/a"),
         "endpoints": [("GET", f"/x/{{id{i}}}") for i in range(5)],
     }
 
     cell = gac._endpoints_cell(change, links={})
-    tip = cell[cell.index('tip="') + 5 : cell.index('">and')]
+    tip = _tip_of(cell)  # raises if the literal is not valid JSON/JS
 
-    assert "{" not in tip and "}" not in tip  # would open a JSX expression
-    assert "&#123;" in tip
+    assert "&#123;" not in tip
+    assert tip.endswith("\u2022 GET /x/{id4}")
+
+
+def test_the_tooltip_literal_has_no_raw_newlines():
+    """A raw newline is not legal inside a JS string literal, and the row is
+    emitted as a single Markdown table line regardless."""
+    change = {
+        **_shared_type_change("GET", "/a"),
+        "endpoints": [("GET", f"/e{i}") for i in range(6)],
+    }
+
+    cell = gac._endpoints_cell(change, links={})
+
+    assert "\n" not in cell
+    assert "\\n" in cell  # the escape sequence, not the character
 
 
 def test_build_entries_drops_unparseable_base_and_promotes_revision():

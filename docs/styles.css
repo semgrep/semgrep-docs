@@ -48,4 +48,8 @@ h1 {
 [data-component-part="tooltip-content"] {
     max-width: min(28rem, calc(100vw - 2rem));
     overflow-wrap: anywhere;
+    /* The hovercard lists one endpoint per line. `pre-line` honours those
+       newlines while still collapsing runs of spaces and wrapping long
+       paths, which `pre` would not. */
+    white-space: pre-line;
 }
