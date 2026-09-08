@@ -24,3 +24,28 @@ h1 {
     width: 1%;
     white-space: nowrap;
 }
+
+/* Changelog endpoint column: a change to a shared type lists several endpoint
+   pills in one cell, stacked with <br/>. Without a little leading they read as
+   one solid block. Scoped to the generated table's wrapper class so it cannot
+   affect badges anywhere else. */
+.api-changelog-table td:last-child a,
+.api-changelog-table td:last-child > span {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+}
+
+.api-changelog-table td:last-child a:last-child {
+    margin-bottom: 0;
+}
+
+/* The changelog's "and N more" hovercard lists full endpoint paths, and a path
+   is one unbreakable token -- `/api/notifications/deployments/{deploymentId}/
+   automations/{automationId}` has nowhere to wrap. Mintlify caps the popup at
+   16rem, so the text ran ~190px out past the rounded background rather than
+   wrapping inside it. Allow a break mid-path, and widen the cap a little so a
+   path takes two lines instead of five. Still bounded by the viewport. */
+[data-component-part="tooltip-content"] {
+    max-width: min(28rem, calc(100vw - 2rem));
+    overflow-wrap: anywhere;
+}
