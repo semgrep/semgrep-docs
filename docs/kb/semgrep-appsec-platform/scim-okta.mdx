@@ -60,6 +60,8 @@ Okta separates application **Assignments** and **Push Groups**. Don't use the sa
 
 ## Manage users
 
+Assign users to the SSO connection as well as the SCIM application. SCIM can provision a user who isn't assigned to SSO, but that user can't sign in.
+
 ### Assign an individual user
 
 <Steps>
@@ -150,7 +152,9 @@ Team push groups that use the `[team:<role>]` naming convention also appear in t
 
 ## Manage teams
 
-To create Semgrep teams from Okta push groups, use the `[team]` naming convention described in [Manage teams with SCIM](/deployment/scim#manage-teams-with-scim).
+To create Semgrep teams from Okta push groups, use the `[team]` naming convention described in [Manage teams with SCIM](/deployment/scim#manage-teams-with-scim). IdP directory groups map to two distinct Semgrep concepts: deployment role groups and Semgrep teams. Each concept has its own role groups. The naming convention tells Semgrep which is which.
+
+Name the push group with `[team]` or `[team:<role>]` before you push it. A group without that suffix is treated as a deployment role group. Renaming a group that's already pushed doesn't trigger team creation. Create a new group with the naming convention, then push it.
 
 <Warning>
 You can't manage default teams or sub-teams in Semgrep through SCIM. Attempts to modify these teams through push groups in Okta have no effect in Semgrep.
@@ -246,6 +250,7 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). Ok
 - SCIM events aren't always instantaneous. Changes can take up to a minute or longer to propagate to Semgrep.
 - Adding an unprovisioned user to a push group does nothing and doesn't trigger JIT provisioning.
 - Okta push groups don't map to Semgrep sub-teams. Don't create an Okta group whose name matches an existing sub-team in Semgrep.
+- A push group without a `[team]` or `[team:<role>]` suffix is treated as a deployment role group. Renaming a group that's already pushed doesn't trigger team creation.
 - Do not add deployment **Admins** to team push groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team push groups. They appear in the Okta group but not on the corresponding Semgrep team.
 - Demoting an admin who was added to an Okta group to **Member** or **Read-only** can cause drift. Remove them from the group in Okta and re-add them after their role has changed.
 - Mapping an Okta group to the default team and operating on that group has no effect in Semgrep.

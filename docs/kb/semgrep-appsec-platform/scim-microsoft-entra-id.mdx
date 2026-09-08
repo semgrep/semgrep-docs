@@ -85,6 +85,8 @@ Assigning a group to the Semgrep application provisions that group's members int
 
 ## Manage users
 
+Assign users to the SSO connection as well as the SCIM application. SCIM can provision a user who isn't assigned to SSO, but that user can't sign in.
+
 ### Assign an individual user
 
 <Steps>
@@ -201,11 +203,11 @@ Team groups that use the `[team:<role>]` naming convention also appear in the ro
 
 ## Manage teams
 
-To create Semgrep teams from Entra ID groups, use the `[team]` naming convention described in [Manage teams with SCIM](/deployment/scim#manage-teams-with-scim).
+To create Semgrep teams from Entra ID groups, use the `[team]` naming convention described in [Manage teams with SCIM](/deployment/scim#manage-teams-with-scim). IdP directory groups map to two distinct Semgrep concepts: deployment role groups and Semgrep teams. Each concept has its own role groups. The naming convention tells Semgrep which is which.
 
-<Warning>
+Name the group with `[team]` or `[team:<role>]` before you assign it. A group without that suffix is treated as a deployment role group. Renaming a group that's already assigned doesn't trigger team creation. Create a new group with the naming convention, then assign it.
+
 Assigning a group to the application provisions its members. Don't use a team group as a user's only assignment path into the application.
-</Warning>
 
 <Warning>
 You can't manage default teams or sub-teams in Semgrep through SCIM. Attempts to map a group to a default or sub-team and modify it have no effect in Semgrep.
@@ -312,6 +314,7 @@ For shared SCIM limitations, see [Limitations](/deployment/scim#limitations). En
 - Assigning a group to the application provisions that group's users. Review membership before assignment.
 - Users and groups are provisioned on a 40-minute cycle by default unless you use **Provision on demand**.
 - Creating sub-teams through SCIM isn't supported. Don't create an Entra ID group whose name matches an existing sub-team in Semgrep.
+- A group without a `[team]` or `[team:<role>]` suffix is treated as a deployment role group. Renaming a group that's already assigned doesn't trigger team creation.
 - Do not add deployment **Admins** to team groups. Because deployment **Admins** already have access to all teams, Semgrep does not add them to team groups. They appear in the Entra ID group but not on the corresponding Semgrep team.
 - Demoting an admin who was added to an Entra ID group to **Member** or **Read-only** can cause drift. Remove them from the group and re-add them after their role has changed.
 - Mapping an Entra ID group to the default team and operating on that group has no effect in Semgrep.
