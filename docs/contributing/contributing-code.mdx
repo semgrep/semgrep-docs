@@ -127,6 +127,28 @@ There are some features that cross through both OCaml and Python code. You will 
 
 Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate. 
 
+### Update or add a language grammar
+
+Tree-sitter grammar pins and their `ocaml-tree-sitter-semgrep` wrappers are vendored in the Semgrep repository.
+
+To update a grammar:
+
+1. In `OSS/libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`, update the grammar's `commit` and, if needed, `tree_sitter`.
+2. Run `make -C OSS test-grammar-<key>`. Update `lang/semgrep-grammars/src/semgrep-<key>/` if the wrapper must change.
+3. Run `make -C OSS regen-grammar-<dest>` for every value in the entry's `regen` list.
+4. Build Semgrep and run the language's parsing and pattern tests. Commit the registry, wrapper, and generated `lib/`, `bin/`, `config/`, and `fyi/` files. Never commit the fetched `tree-sitter-*` clones.
+
+To add a language:
+
+1. Add a registry entry with `url`, `commit`, `tree_sitter`, and `regen`; use `clone` or `depends_on` only when needed.
+2. Add the OTS language directory, `semgrep-<key>` wrapper, `fyi.list`, and tests.
+3. Add the generated package under `OSS/languages/<parent>/tree-sitter/semgrep-<dest>/`, or under `languages/` for a Pro-only parser. Run the test and regeneration commands above.
+4. Integrate the parser into Semgrep (`Parse_*_tree_sitter.ml`, dune files, and `semgrep-interfaces` generation), then add parsing, pattern, and hello-world tests. Include the language in the OTS language and statistics lists.
+
+Commands accept either a registry key or a regeneration destination. They can differ: for example, key `sfapex` regenerates destination `apex`, while key `typescript` regenerates `typescript` and `tsx`.
+
+See the [vendored grammar integration reference](https://github.com/semgrep/semgrep/blob/develop/languages/GRAMMAR_INTEGRATION.md) for file-layout details and special cases.
+
 ## Development workflow
 
 Before each commit Semgrep will run [`pre-commit`](https://pre-commit.com/) to
