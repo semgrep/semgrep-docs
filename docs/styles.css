@@ -25,6 +25,29 @@ h1 {
     white-space: nowrap;
 }
 
+/* API reference sidebar density.
+   38 of 43 entries under a service carry a maturity pill, and in the narrow
+   nav rail it wraps onto its own line -- roughly doubling each entry's height
+   and making a service look far larger than it is. Maturity is stated on the
+   endpoint page itself and defined in the deprecation policy, so the rail does
+   not need to repeat it. The `deprecated` badge is deliberately NOT hidden:
+   there are only a few, and that one is worth interrupting for.
+
+   Hide the pill's WRAPPER, not just the pill: the wrapper carries h-[1lh] and
+   sits in a flex-wrap row, so hiding only the pill leaves a one-line-tall
+   empty box that wraps below any title long enough to take two lines --
+   showing up as a stray gap under exactly those entries. */
+#sidebar div:has(> .nav-tag-pill) {
+    display: none !important;
+}
+
+/* Mintlify sets `hyphens: auto` on nav titles, which breaks words mid-syllable
+   in the narrow rail -- "Preview a detection poli-cy apply". */
+#sidebar .hyphens-auto,
+#sidebar .sidebar-title {
+    hyphens: none !important;
+}
+
 /* Changelog endpoint column: a change to a shared type lists several endpoint
    pills in one cell, stacked with <br/>. Without a little leading they read as
    one solid block. Scoped to the generated table's wrapper class so it cannot
