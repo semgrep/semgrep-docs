@@ -410,6 +410,133 @@ def coalesce_changes(changes: list) -> list:
     return merged
 
 
+# Enum-addition checks, which get a second merge pass beyond the identical-text
+# one. An enum is a shared type: `automation.triggerSource` and
+# `automations[].triggerSource` are the same enum field reached through a
+# different wrapper, and a value added to it applies to requests and responses
+# alike. So for these -- and only these -- the wrapper path and the direction
+# are normalised away, taking one enum value from three rows to one.
+#
+# Not done for the other checks. Collapsing `a.id` and `b.id` to `id` would
+# conflate genuinely different fields, and a type change on one of them is not
+# a type change on the other. Enum values are safe because the value itself is
+# part of the key: two fields do not gain the same new constant by coincidence.
+ENUM_ADDITION_SUFFIX = "-enum-value-added"
+ENUM_VALUE_RE = re.compile(r"`([A-Z][A-Z0-9_]{2,})`")
+ENUM_FIELD_RE = re.compile(r"`([A-Za-z][A-Za-z0-9_.\[\]]*)`")
+
+
+def merge_enum_additions(changes: list) -> list:
+    """Fold an enum addition into one row regardless of wrapper or direction.
+
+    Runs after merge_across_endpoints, so the endpoint lists it finds are
+    already deduplicated and it only has to union them.
+    """
+    buckets: dict = {}
+    order: list = []
+    for change in changes:
+        if not str(change.get("id", "")).endswith(ENUM_ADDITION_SUFFIX):
+            key = ("verbatim", len(order))
+            buckets[key] = [change]
+        else:
+            text = change["text"]
+            values = tuple(sorted(set(ENUM_VALUE_RE.findall(text))))
+            fields = [f for f in ENUM_FIELD_RE.findall(text) if not f.isupper()]
+            leaf = fields[0].split(".")[-1].removesuffix("[]") if fields else ""
+            key = ("enum", values, leaf)
+            buckets.setdefault(key, []).append(change)
+        if key not in order:
+            order.append(key)
+
+    merged = []
+    for key in order:
+        group = buckets[key]
+        if key[0] != "enum" or len(group) == 1:
+            merged.append(group[0])
+            continue
+        values, leaf = key[1], key[2]
+        listed = ", ".join(f"`{v}`" for v in values)
+        plural = "values" if len(values) != 1 else "value"
+        directions = sorted(
+            {"request" if "request" in c["text"] else "response" for c in group}
+        )
+        endpoints: set = set()
+        for c in group:
+            endpoints.update(
+                c.get("endpoints") or [(c.get("operation"), c.get("path"))]
+            )
+        merged.append(
+            {
+                **group[0],
+                "text": (
+                    f"added the new {listed} enum {plural} to the `{leaf}` "
+                    f"{' and '.join(directions)} property"
+                ),
+                "endpoints": sorted(e for e in endpoints if e[1]),
+            }
+        )
+    return merged
+
+
+# How many endpoint pills a merged row shows before it truncates.
+MAX_ENDPOINT_PILLS = 3
+
+
+# Checks whose subject *is* the endpoint, rather than something shared that
+# happens to surface on one. These must never merge across endpoints: two
+# endpoints being added on the same day both read "endpoint added", and folding
+# them into one row would hide the endpoints behind "and N more" -- which is
+# the only information those rows carry.
+ENDPOINT_SCOPED_PREFIXES = ("endpoint-", "api-")
+
+
+def _is_endpoint_scoped(change: dict) -> bool:
+    return str(change.get("id", "")).startswith(ENDPOINT_SCOPED_PREFIXES)
+
+
+def merge_across_endpoints(changes: list) -> list:
+    """Fold one change surfaced on several endpoints into a single row.
+
+    A change to a *shared type* is not an endpoint-level change. One protobuf
+    enum gaining one value, or one field going from `uint32` to `int64`,
+    surfaces once per endpoint that touches it -- `TRIGGER_SOURCE_PATCH_READY`
+    produced six rows on one day, and the `uint32` sweep produced dozens. The
+    reader wants "this changed, here is where it shows up", not the same
+    sentence restated per endpoint.
+
+    Merges only rows whose wording is *identical*, so nothing is lost: the
+    property path, direction and status code all still have to match. That is
+    the inverse of what COALESCIBLE does, where the identifier varies and the
+    endpoint is fixed.
+
+    A merged change carries an `endpoints` list, which the table renderer turns
+    into several pills in one cell. Order follows first appearance.
+    """
+    buckets: dict = {}
+    order: list = []
+    for change in changes:
+        if _is_endpoint_scoped(change):
+            key = ("verbatim", len(order))
+            buckets[key] = [change]
+        else:
+            key = (change.get("id"), change["text"])
+            buckets.setdefault(key, []).append(change)
+        if key not in order:
+            order.append(key)
+
+    merged = []
+    for key in order:
+        group = buckets[key]
+        if len(group) == 1:
+            merged.append(group[0])
+            continue
+        endpoints = sorted(
+            {(c.get("operation"), c.get("path")) for c in group if c.get("path")}
+        )
+        merged.append({**group[0], "endpoints": endpoints})
+    return merged
+
+
 HTTP_METHODS = frozenset(
     ("get", "post", "put", "patch", "delete", "options", "head", "trace")
 )
@@ -653,11 +780,39 @@ def _endpoint_pill(key: tuple, links: dict) -> str:
     )
 
 
+def _endpoints_cell(change: dict, links: dict) -> str:
+    """The Endpoint cell: one pill, or several for a change that spans them.
+
+    Truncated at MAX_ENDPOINT_PILLS. A shared-type change can touch a dozen
+    endpoints, and a cell that tall pushes everything else off the screen --
+    the reader needs to know it is broad, not to read every path.
+    """
+    endpoints = change.get("endpoints")
+    if not endpoints:
+        return _endpoint_pill(_endpoint_key(change), links)
+
+    shown = endpoints[:MAX_ENDPOINT_PILLS]
+    pills = [_endpoint_pill((0, path, operation), links) for operation, path in shown]
+    hidden = endpoints[len(shown):]
+    if hidden:
+        # Name the hidden ones on hover rather than making them unreachable.
+        # The cell is truncated to keep the row a readable height, not to
+        # withhold the list.
+        listed = _escape_jsx_text(
+            ", ".join(f"{operation} {path}" for operation, path in hidden)
+        )
+        pills.append(f'<Tooltip tip="{listed}">and {len(hidden)} more</Tooltip>')
+    return "<br/>".join(pills)
+
+
 def _render_section_table(changes: list, links: dict) -> list:
     """One table for a severity section: Change | Description | Endpoint."""
-    groups: dict[tuple, list] = {}
-    for change in changes:
-        groups.setdefault(_endpoint_key(change), []).append(change)
+    # Sort by the first endpoint so rows still cluster by area, then by the
+    # change itself. A merged row sorts by the first endpoint it lists.
+    def sort_key(change: dict) -> tuple:
+        endpoints = change.get("endpoints")
+        key = (0,) + endpoints[0][::-1] if endpoints else _endpoint_key(change)
+        return (key, change["id"], change["text"])
 
     # The div carries a hook for docs/styles.css, which hugs the Change
     # column to its chip; plain markdown tables offer no width control.
@@ -667,15 +822,13 @@ def _render_section_table(changes: list, links: dict) -> list:
         "| Change | Description | Endpoint |",
         "|---|---|---|",
     ]
-    for key in sorted(groups):
-        cell = _endpoint_pill(key, links)
-        for change in sorted(groups[key], key=lambda c: (c["id"], c["text"])):
-            verb, color = _change_verb(change)
-            description = escape_mdx(change["text"]).replace("|", "\\|")
-            lines.append(
-                f'| <Badge color="{color}" size="sm">{verb}</Badge>'
-                f" | {description} | {cell} |"
-            )
+    for change in sorted(changes, key=sort_key):
+        verb, color = _change_verb(change)
+        description = escape_mdx(change["text"]).replace("|", "\\|")
+        lines.append(
+            f'| <Badge color="{color}" size="sm">{verb}</Badge>'
+            f" | {description} | {_endpoints_cell(change, links)} |"
+        )
     lines.extend(["", "</div>"])
     return lines
 
@@ -703,7 +856,7 @@ def _render_update(
     )
 
     render_section = _render_section_table if style == "table" else _render_section
-    changes = coalesce_changes(entry.changes)
+    changes = merge_enum_additions(merge_across_endpoints(coalesce_changes(entry.changes)))
     lines = [f"<Update {' '.join(attrs)}>"]
     first = True
     for level in (BREAKING, POTENTIALLY_BREAKING, 1):
