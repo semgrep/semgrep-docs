@@ -798,10 +798,17 @@ def _endpoints_cell(change: dict, links: dict) -> str:
         # Name the hidden ones on hover rather than making them unreachable.
         # The cell is truncated to keep the row a readable height, not to
         # withhold the list.
-        listed = _escape_jsx_text(
-            ", ".join(f"{operation} {path}" for operation, path in hidden)
+        #
+        # One bullet per line, not a comma-separated run: paths are long
+        # enough to wrap, so a run gives no way to tell where one ends and
+        # the next begins. Passed as a JSX expression rather than an
+        # attribute string so the newlines survive -- json.dumps handles the
+        # escaping, and braces inside a JS string literal need no entity
+        # encoding. `white-space: pre-line` in styles.css renders the breaks.
+        listed = "\n".join(f"\u2022 {operation} {path}" for operation, path in hidden)
+        pills.append(
+            f"<Tooltip tip={{{json.dumps(listed)}}}>and {len(hidden)} more</Tooltip>"
         )
-        pills.append(f'<Tooltip tip="{listed}">and {len(hidden)} more</Tooltip>')
     return "<br/>".join(pills)
 
 
