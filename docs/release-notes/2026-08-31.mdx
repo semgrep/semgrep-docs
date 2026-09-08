@@ -1,0 +1,82 @@
+---
+title: "Week of August 31, 2026"
+description: "Updates made to Semgrep during the week of August 31-September 6, 2026."
+sidebarTitle: "Week of August 31, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Added
+
+- You can now reauthorize or reconnect supported OAuth [ticketing integrations](/semgrep-appsec-platform/ticketing) instead of creating a new connection.
+
+### Changed
+
+- Improved scan configuration generation. Scans now start up to 6 seconds sooner.
+- The [Issues API](/api-reference/v2/Introduction) now includes descriptions for the `status`, `triageState`, and `aggregateState` values, and points to `aggregateState` as the recommended field.
+- When you register a [GitHub App](/deployment/connect-scm), Semgrep now verifies the app credentials against your configured source code manager host before saving them, and generates the webhook secret.
+- Improved [repository sync](/deployment/connect-scm) performance.
+
+### Fixed
+
+- Fixed an issue where Azure DevOps service principal authentication failed with a missing package error. The failure affected repository sync, webhook autoscans, Autofix, and Autotriage for organizations using service principal credentials.
+- Fixed an issue where receivers could not verify webhook signatures. 
+- Fixed an issue where slow but valid responses from a customer's source code manager were cancelled and reported as HTTP 502 errors during [Semgrep Managed Scans](/deployment/managed-scanning/overview).
+- Fixed an issue where a read-only API token could still update project tags.
+- Fixed an issue where reinstalling the [Slack](/semgrep-appsec-platform/slack-notifications) app caused authorization to fail if the Slack workspace had changed.
+- Fixed an issue where AI provider credentials could be saved for a provider outside the organization's allowed provider catalog.
+- Fixed an issue where a [remediation policy](/semgrep-appsec-platform/unified-policies/overview) showed a failure badge on the **Policies** page if Semgrep no longer had its action logs. 
+
+
+## 💻 Semgrep Code
+
+### Changed
+
+- [Autofix](/semgrep-code/triage-remediation/autofix) is now enabled for all customers. Autofix remains opt-in for each finding: it runs only when you request a fix from the finding **Details** page or through the API.
+- Homebrew installs of Semgrep are no longer supported on Intel Macs.
+
+### Fixed
+
+- Fixed an issue where a finding opened by a new version of a rule inherited the triage state of the finding it replaced.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- You can now add a [webhook](/semgrep-appsec-platform/webhooks) as an action on the **Early notification for Supply Chain incidents** policy, in addition to Slack.
+
+### Changed
+
+- [Supply Chain Autofix](/semgrep-supply-chain/autofix) is now independent of [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance). You can open a Supply Chain Autofix pull request even when Upgrade Guidance is disabled or has not run. The setting has been renamed to **Upgrade Guidance**.
+
+### Fixed
+
+- Fixed an issue where [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) did not appear for repositories with hundreds of direct dependency findings.
+- Fixed an issue where an AWS CodeArtifact credential on one private registry prevented Semgrep from configuring other private registries during [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta).
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- Added the ability to record an ignore reason and a comment when triaging an Agentic Workflows issue.
+
+### Fixed
+
+- Fixed an issue where the **Activity** timeline on an Agentic Workflows issue did not load if the history included a field the timeline does not show.
+- Fixed an issue where block actions did not appear in the action results view even though the block had executed.
+- Fixed an issue where the **Remediation** policies page listed an Agentic Workflows policy under **Multiple finding types** instead of **Workflows** when the workflow produced fix patches.
+- **Workflow jobs** filters now persist across page refreshes and navigation.
+
+## 🔐 Semgrep Secrets
+
+### Fixed
+
+- Fixed an issue where the Secrets **Rules** page loaded indefinitely if the organization did not have a Secrets policy. Semgrep now shows an unavailable state in that case, and a separate error if the policy configuration fails to load.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of August 31-September 6, 2026:
+
+<CardGroup>
+  <Card title="1.176.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.176.0" horizontal />
+</CardGroup>
