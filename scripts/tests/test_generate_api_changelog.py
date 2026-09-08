@@ -420,6 +420,74 @@ def test_build_entries_keeps_real_changes_shipped_alongside_a_retag():
     assert [c["id"] for c in entries[0].changes] == ["endpoint-added"]
 
 
+def _shared_type_change(op, path):
+    """The same change surfaced on a different endpoint: identical wording."""
+    return {
+        "id": "response-property-enum-value-added", "level": 1, "section": "paths",
+        "operation": op, "path": path,
+        "text": "added the new `X` enum value to the `s` response property",
+    }
+
+
+def test_merge_across_endpoints_folds_one_change_surfaced_on_many():
+    merged = gac.merge_across_endpoints(
+        [_shared_type_change("GET", "/a"), _shared_type_change("POST", "/b")]
+    )
+
+    assert len(merged) == 1
+    assert merged[0]["endpoints"] == [("GET", "/a"), ("POST", "/b")]
+
+
+def test_merge_across_endpoints_keeps_differently_worded_changes_apart():
+    a = _shared_type_change("GET", "/a")
+    b = {**_shared_type_change("GET", "/b"), "text": "a different sentence"}
+
+    assert len(gac.merge_across_endpoints([a, b])) == 2
+
+
+def test_merge_across_endpoints_never_folds_endpoint_scoped_changes():
+    """Two endpoints added on one day both read "endpoint added"; folding them
+    would hide the endpoints behind "and N more", which is all those rows say."""
+    added = [
+        {"id": "endpoint-added", "level": 1, "section": "paths",
+         "operation": m, "path": p, "text": "endpoint added"}
+        for m, p in (("GET", "/a"), ("POST", "/b"))
+    ]
+
+    merged = gac.merge_across_endpoints(added)
+
+    assert len(merged) == 2
+    assert all("endpoints" not in c for c in merged)
+
+
+def test_truncated_endpoint_cell_names_the_hidden_ones_in_a_tooltip():
+    change = {
+        **_shared_type_change("GET", "/a"),
+        "endpoints": [("GET", f"/e{i}") for i in range(6)],
+    }
+
+    cell = gac._endpoints_cell(change, links={})
+
+    assert cell.count("<Badge") == gac.MAX_ENDPOINT_PILLS
+    assert "and 3 more" in cell
+    # the hidden ones are reachable on hover, not discarded
+    for i in range(gac.MAX_ENDPOINT_PILLS, 6):
+        assert f"GET /e{i}" in cell
+
+
+def test_truncation_escapes_braces_in_the_tooltip():
+    change = {
+        **_shared_type_change("GET", "/a"),
+        "endpoints": [("GET", f"/x/{{id{i}}}") for i in range(5)],
+    }
+
+    cell = gac._endpoints_cell(change, links={})
+    tip = cell[cell.index('tip="') + 5 : cell.index('">and')]
+
+    assert "{" not in tip and "}" not in tip  # would open a JSX expression
+    assert "&#123;" in tip
+
+
 def test_build_entries_drops_unparseable_base_and_promotes_revision():
     snaps = snapshots_for(
         ("ccc", "2026-08-07"), ("bbb", "2026-07-23"), ("aaa", "2026-07-14")
