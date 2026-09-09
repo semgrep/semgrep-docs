@@ -165,7 +165,9 @@ Furthermore, running a full scan with Semgrep rules provides clear visibility in
 
 ### Initiate scans with Semgrep Managed Scanning
 
-Even if you're using Semgrep Managed Scans, you can choose to run full scans on potentially affected repositories manually:
+When Semgrep declares an incident, projects that use Semgrep Managed Scans for Supply Chain scanning and have dependencies in an affected ecosystem are rescanned automatically with the incident's rules. See [Supply Chain incident notifications](/semgrep-supply-chain/incident-notifications) for details.
+
+You can also run full scans on potentially affected repositories manually:
 
 <Steps>
   <Step>
