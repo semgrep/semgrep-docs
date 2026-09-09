@@ -10,7 +10,7 @@ If you've configured the **Early notification for Supply Chain incidents** polic
 
 You are notified every time Semgrep declares a new supply chain incident, whether or not any of your projects use the affected packages.
 
-For eligible projects, Semgrep also starts a fresh Supply Chain scan when it declares the incident, so the results in Semgrep AppSec Platform reflect the current state of your code rather than your last scheduled scan. This scan runs only the rules written for the incident, so it finishes quickly and leaves your other Supply Chain findings unchanged.
+For eligible projects, Semgrep starts a new Supply Chain scan when it declares the incident. This ensures that the results in Semgrep AppSec Platform reflect the current state of your code. To reduce scan time, Semgrep runs only the rules associated with the incident, leaving your other Supply Chain findings unchanged.
 
 <Note>
 A project is scanned automatically when it meets all of the following conditions:
@@ -18,7 +18,7 @@ A project is scanned automatically when it meets all of the following conditions
 * The project is onboarded to [Semgrep Managed Scans](/deployment/managed-scanning/overview) and set up to run Supply Chain scans.
 * At least one of the project's dependencies belongs to an ecosystem affected by the incident. For example, during an `npm` compromise, projects with `npm` dependencies are rescanned.
 
-Projects that do not meet these conditions are still checked against your most recent dependency data for the notification itself. To scan them, see [Initiate scans on potentially affected projects](/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules).
+Projects that don't meet these conditions are still checked against your most recent dependency data for the notification itself. To scan them, see [Initiate scans on potentially affected projects](/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules).
 </Note>
 
 ## Prerequisites
