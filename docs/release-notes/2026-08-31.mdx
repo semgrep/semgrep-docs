@@ -20,7 +20,6 @@ sidebarTitle: "Week of August 31, 2026"
 
 - Fixed an issue where Azure DevOps service principal authentication failed with a missing package error. The failure affected repository sync, webhook autoscans, Autofix, and Autotriage for organizations using service principal credentials.
 - Fixed an issue where receivers could not verify webhook signatures. 
-- Fixed an issue where slow but valid responses from a customer's source code manager were cancelled and reported as HTTP 502 errors during [Semgrep Managed Scans](/deployment/managed-scanning/overview).
 - Fixed an issue where a read-only API token could still update project tags.
 - Fixed an issue where reinstalling the [Slack](/semgrep-appsec-platform/slack-notifications) app caused authorization to fail if the Slack workspace had changed.
 - Fixed an issue where AI provider credentials could be saved for a provider outside the organization's allowed provider catalog.
