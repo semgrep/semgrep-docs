@@ -8,9 +8,11 @@ Autofix creates a branch, applies the changes, and opens a draft pull request (P
 
 You choose when to use Autofix by selecting **Open Autofix PR** on the finding’s **Details** page or by calling the API.
 
+<!-- vale Vale.Terms = NO -->
 <Note>
 Autofix is different from [Rule-defined fix](/writing-rules/rule-defined-fix) and [Semgrep Multimodal's Suggested fix](/semgrep-multimodal/overview#suggested-fix). These are separate features with different behaviors and use cases.
 </Note>
+<!-- vale Vale.Terms = YES -->
 
 ## Prerequisites
 
@@ -21,6 +23,7 @@ To use Autofix for Semgrep Code findings, you must meet the following requiremen
   * Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
 * Semgrep needs **read and write** access to the repository so it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
+* If Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker), use Network Broker `v0.45.2` or later and set `allowCodeAccess` to `true`. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
 
 ## Use Autofix
 
