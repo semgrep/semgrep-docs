@@ -1165,3 +1165,148 @@ def test_run_oasdiff_error_returns_none(tmp_path):
     good = tmp_path / "good.yaml"
     good.write_text(BASE_SPEC)
     assert gac.run_oasdiff(str(bad), str(good), oasdiff_bin="oasdiff", cwd=tmp_path) is None
+
+
+# --- post-sunset removals ---------------------------------------------------
+#
+# oasdiff reports a removal only when it went wrong. A removal that served its
+# full notice window produces no change at all, so the generator has to notice
+# the endpoint is gone by itself.
+
+
+def spec_with(*operations):
+    """A minimal spec. Each operation is (method, path, sunset-or-None)."""
+    paths = {}
+    for method, path, sunset in operations:
+        op = {"responses": {"200": {"description": "ok"}}}
+        if sunset:
+            op["deprecated"] = True
+            op["x-sunset"] = sunset
+        paths.setdefault(path, {})[method] = op
+    return {"openapi": "3.0.0", "paths": paths}
+
+
+def test_spec_operations_reads_the_sunset_date():
+    spec = spec_with(("get", "/a", "2027-03-01"), ("post", "/b", None))
+
+    assert gac.spec_operations(spec) == {("GET", "/a"): "2027-03-01", ("POST", "/b"): ""}
+
+
+def test_spec_operations_ignores_non_method_keys():
+    spec = {"paths": {"/a": {"parameters": [], "get": {}}, "/b": "nonsense"}}
+
+    assert gac.spec_operations(spec) == {("GET", "/a"): ""}
+
+
+def sunset_removals_between(before, after, reported=()):
+    base, rev = gac.Snapshot("aaa", "2026-07-14"), gac.Snapshot("bbb", "2026-08-07")
+    specs = {base: before, rev: after}
+    return gac.sunset_removals(base, rev, "spec.yaml", specs.get, list(reported))
+
+
+def test_synthesizes_a_removal_oasdiff_stays_silent_about():
+    removals = sunset_removals_between(
+        spec_with(("get", "/gone", "2026-08-01"), ("get", "/kept", None)),
+        spec_with(("get", "/kept", None)),
+    )
+
+    assert removals == [
+        {
+            "id": "endpoint-removed-after-sunset",
+            "text": "endpoint removed after its sunset date `2026-08-01`",
+            "level": gac.BREAKING,
+            "operation": "GET",
+            "path": "/gone",
+            "section": "paths",
+        }
+    ]
+
+
+def test_stays_quiet_when_oasdiff_already_reported_the_removal():
+    """An early removal is oasdiff's to report; two rows for it would be wrong."""
+    reported = [
+        {
+            "id": "api-path-removed-before-sunset",
+            "operation": "GET",
+            "path": "/gone",
+            "level": 3,
+        }
+    ]
+    removals = sunset_removals_between(
+        spec_with(("get", "/gone", "2027-03-01")), spec_with(), reported
+    )
+
+    assert removals == []
+
+
+def test_stays_quiet_for_a_removal_that_was_never_deprecated():
+    """oasdiff rates that api-path-removed-without-deprecation; not ours."""
+    removals = sunset_removals_between(
+        spec_with(("get", "/gone", None)), spec_with()
+    )
+
+    assert removals == []
+
+
+def test_stays_quiet_when_the_endpoint_survives():
+    removals = sunset_removals_between(
+        spec_with(("get", "/kept", "2027-03-01")),
+        spec_with(("get", "/kept", "2027-03-01")),
+    )
+
+    assert removals == []
+
+
+def test_an_unreadable_spec_synthesizes_nothing_rather_than_guessing():
+    base, rev = gac.Snapshot("aaa", "2026-07-14"), gac.Snapshot("bbb", "2026-08-07")
+
+    assert gac.sunset_removals(base, rev, "spec.yaml", lambda s: None, []) == []
+    assert gac.sunset_removals(base, rev, "spec.yaml", None, []) == []
+
+
+def test_build_entries_reports_the_day_a_sunset_endpoint_stopped_answering():
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    specs = {
+        snaps[1]: spec_with(("get", "/gone", "2026-08-01")),
+        snaps[0]: spec_with(),
+    }
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: [], specs.get)
+
+    assert len(entries) == 1
+    assert entries[0].date == "2026-08-07"
+    (change,) = entries[0].changes
+    assert change["id"] == "endpoint-removed-after-sunset"
+    assert gac._change_verb(change) == ("Removed", "red")
+    assert gac._update_tag(entries[0].changes) == "Breaking"
+
+
+# --- deprecation announcements are not "Non-breaking" -----------------------
+
+
+def test_deprecation_announcements_are_re_levelled_to_potentially_breaking():
+    for check_id in ("endpoint-deprecated", "endpoint-deprecated-with-sunset"):
+        change = {"id": check_id, "level": 1, "text": "endpoint deprecated"}
+
+        assert gac.apply_level_override(change)["level"] == gac.POTENTIALLY_BREAKING
+
+
+def test_a_deprecation_day_is_filterable_as_potentially_breaking():
+    """The advance notice is the whole point of the feed; a reader filtering
+    for what will break them must not have it hidden behind "Non-breaking"."""
+    snaps = snapshots_for(("bbb", "2026-08-07"), ("aaa", "2026-07-14"))
+    announcement = [
+        {
+            "id": "endpoint-deprecated-with-sunset",
+            "text": "endpoint deprecated with sunset date `2027-03-01`",
+            "level": 1,
+            "operation": "GET",
+            "path": "/going",
+            "section": "paths",
+        }
+    ]
+
+    entries = gac.build_entries(snaps, "spec.yaml", lambda b, r: announcement)
+
+    assert gac._update_tag(entries[0].changes) == "Potentially breaking"
+    assert gac._change_verb(entries[0].changes[0]) == ("Deprecated", "yellow")
