@@ -85,6 +85,16 @@ EXCLUDED_CHECKS = frozenset(("api-tag-added", "api-tag-removed"))
 # side needs correcting.
 LEVEL_OVERRIDES = {
     "response-property-enum-value-added": 1,
+    # oasdiff files a deprecation announcement as INFO, which lands it under
+    # "Changes" with the filter tag "Non-breaking". That is the wrong shelf:
+    # the announcement is the only advance warning a caller gets, and the one
+    # reader who most needs it -- someone filtering the changelog for what will
+    # break them -- is exactly the reader a "Non-breaking" tag hides it from.
+    # It is not breaking on the day it ships, so BREAKING would cry wolf;
+    # POTENTIALLY_BREAKING says what is true, that this breaks you unless you
+    # act before the sunset date.
+    "endpoint-deprecated": 2,
+    "endpoint-deprecated-with-sunset": 2,
 }
 
 # oasdiff names properties with JSON Schema's internal vocabulary, which leaks
@@ -294,10 +304,98 @@ def _revision_arg(snapshot: Snapshot, spec_rel: str) -> str:
     return f"{snapshot.ref}:{spec_rel}" if snapshot.ref else spec_rel
 
 
+# Our own check id for a removal oasdiff stays silent about. Prefixed
+# "endpoint-" so it reads as endpoint-scoped and chips as "Removed", like the
+# oasdiff removals it sits beside.
+SUNSET_REMOVAL_ID = "endpoint-removed-after-sunset"
+
+
+def load_spec(snapshot: Snapshot, spec_rel: str, cwd: Path) -> Optional[dict]:
+    """A snapshot's parsed spec, or None if it cannot be read."""
+    try:
+        if snapshot.ref is None:
+            text = (cwd / spec_rel).read_text()
+        else:
+            text = subprocess.run(
+                ["git", "show", f"{snapshot.ref}:{spec_rel}"],
+                capture_output=True, text=True, check=True, cwd=cwd,
+            ).stdout
+        return yaml.safe_load(text)
+    except (subprocess.CalledProcessError, OSError, yaml.YAMLError) as exc:
+        print(f"warning: could not read {spec_rel} at {snapshot.ref}: {exc}", file=sys.stderr)
+        return None
+
+
+def spec_operations(spec: dict) -> dict:
+    """(METHOD, path) -> the operation's `x-sunset` date, "" when it has none."""
+    ops = {}
+    for path, item in ((spec or {}).get("paths") or {}).items():
+        if not isinstance(item, dict):
+            continue
+        for method, op in item.items():
+            if method not in HTTP_METHODS or not isinstance(op, dict):
+                continue
+            ops[(method.upper(), path)] = str(op.get("x-sunset") or "")
+    return ops
+
+
+def sunset_removals(
+    base: Snapshot,
+    rev: Snapshot,
+    spec_rel: str,
+    load: Optional[Callable[[Snapshot], Optional[dict]]],
+    reported: list,
+) -> list:
+    """Removals that honoured their sunset date, which oasdiff omits entirely.
+
+    oasdiff reports a removal only when something went wrong with it -- gone
+    with no deprecation, or gone before the sunset date it published. Retire an
+    endpoint exactly as the policy prescribes and `oasdiff changelog` says "No
+    changes to report", so the day the endpoint actually stopped answering is
+    the one day missing from the changelog. That inverts the incentive: the
+    changelog would record only the removals we botched.
+
+    Detected by diffing the two snapshots' operation sets rather than by asking
+    oasdiff differently, because there is no flag for this -- the check simply
+    does not exist upstream.
+    """
+    if load is None:
+        return []
+    base_spec, rev_spec = load(base), load(rev)
+    if base_spec is None or rev_spec is None:
+        return []
+
+    surviving = spec_operations(rev_spec)
+    already = {
+        (c.get("operation"), c.get("path"))
+        for c in reported
+        if "removed" in str(c.get("id", "")).split("-")
+    }
+
+    removals = []
+    for (method, path), sunset in sorted(spec_operations(base_spec).items()):
+        # No sunset date, or oasdiff already had something to say: either way
+        # not ours to report.
+        if not sunset or (method, path) in surviving or (method, path) in already:
+            continue
+        removals.append(
+            {
+                "id": SUNSET_REMOVAL_ID,
+                "text": f"endpoint removed after its sunset date `{sunset}`",
+                "level": BREAKING,
+                "operation": method,
+                "path": path,
+                "section": "paths",
+            }
+        )
+    return removals
+
+
 def build_entries(
     snapshots: list[Snapshot],
     spec_rel: str,
     diff: Callable[[str, str], Optional[list]],
+    load: Optional[Callable[[Snapshot], Optional[dict]]] = None,
 ) -> list[Entry]:
     """Diff consecutive snapshots into per-date entries, newest first.
 
@@ -326,6 +424,7 @@ def build_entries(
             if c.get("section") not in EXCLUDED_SECTIONS
             and c.get("id") not in EXCLUDED_CHECKS
         ]
+        changes += sunset_removals(last_good, snapshot, spec_rel, load, changes)
         changes = [humanize_change_text(apply_level_override(c)) for c in changes]
         if changes:
             entries.append(Entry(snapshot.date, changes))
@@ -1006,6 +1105,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         snapshots,
         spec_rel,
         lambda base, rev: run_oasdiff(base, rev, oasdiff_bin=args.oasdiff_bin, cwd=cwd),
+        lambda snapshot: load_spec(snapshot, spec_rel, cwd),
     )
     if args.max_entries:
         entries = entries[: args.max_entries]

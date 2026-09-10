@@ -41,7 +41,19 @@ are labeled; documentation-only edits are not listed.
 </div>
 </Update>
 
-<Update label="July 23, 2026" description="6 changes" tags={["Non-breaking"]} rss={{ title: "Semgrep API v1 — July 23, 2026", description: "6 changes across 6 endpoints." }}>
+<Update label="July 23, 2026" description="3 potentially breaking · 3 other changes" tags={["Potentially breaking"]} rss={{ title: "Semgrep API v1 — July 23, 2026", description: "3 potentially breaking and 3 other changes across 6 endpoints." }}>
+**Potentially breaking changes**
+
+<div className="api-changelog-table">
+
+| Change | Description | Endpoint |
+|---|---|---|
+| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/list-policies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies</Badge></a> |
+| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/list-policy-rules" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies<wbr/>/&#123;policyId&#125;</Badge></a> |
+| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/update-policy" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="orange" size="sm">PUT /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies<wbr/>/&#123;policyId&#125;</Badge></a> |
+
+</div>
+
 **Changes**
 
 <div className="api-changelog-table">
@@ -49,9 +61,6 @@ are labeled; documentation-only edits are not listed.
 | Change | Description | Endpoint |
 |---|---|---|
 | <Badge color="green" size="sm">Added</Badge> | added the new optional request property `dependencyFilter.includeArchived` | <a href="/api-reference/v1/supplychainservice/list-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/dependencies</Badge></a><br/><a href="/api-reference/v1/supplychainservice/list-repositories-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/dependencies<wbr/>/repositories</Badge></a><br/><a href="/api-reference/v1/supplychainservice/list-lockfiles-in-a-given-repository-with-dependencies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="blue" size="sm">POST /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/dependencies<wbr/>/repositories<wbr/>/&#123;repositoryId&#125;<wbr/>/lockfiles</Badge></a> |
-| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/list-policies" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies</Badge></a> |
-| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/list-policy-rules" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="green" size="sm">GET /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies<wbr/>/&#123;policyId&#125;</Badge></a> |
-| <Badge color="yellow" size="sm">Deprecated</Badge> | endpoint deprecated | <a href="/api-reference/v1/policiesservice/update-policy" style={{ textDecoration: "none", borderBottom: "none" }}><Badge color="orange" size="sm">PUT /api<wbr/>/v1<wbr/>/deployments<wbr/>/&#123;deploymentId&#125;<wbr/>/policies<wbr/>/&#123;policyId&#125;</Badge></a> |
 
 </div>
 </Update>
