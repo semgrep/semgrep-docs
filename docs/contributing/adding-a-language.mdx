@@ -50,23 +50,13 @@ integration; no separate parser repository or publishing step is needed.
 ## Summary
 
 <Steps>
+  <Step>Register the upstream grammar.</Step>
   <Step>
-    Register the upstream grammar, for example, a `mylang` entry with its commit
-    and `regen` list.
+    Create the wrapper, generator setup, and tests under `$ots/lang/`.
   </Step>
-  <Step>
-    Create the wrapper, generator setup, and tests under `$ots/lang/`, following
-    an existing language such as Ruby.
-  </Step>
-  <Step>
-    Extend `semgrep-mylang/grammar.js` with pattern syntax such as `$X` and
-    `...`.
-  </Step>
-  <Step>Run `make test-grammar-mylang` and `make regen-grammar-mylang`.</Step>
-  <Step>
-    Integrate the parser in Semgrep, using `languages/fga/` as an integration
-    example.
-  </Step>
+  <Step>Extend `semgrep-mylang/grammar.js` with pattern syntax.</Step>
+  <Step>Test and generate the OCaml parser.</Step>
+  <Step>Integrate the parser in Semgrep.</Step>
   <Step>Add parsing and rule matching tests.</Step>
   <Step>
     Run `make core`, `make test`, and pre-commit, then open a pull request
@@ -246,7 +236,7 @@ script for additional headers or a different upstream layout.
 
 ```bash
 make test-grammar-mylang
-mkdir -p languages/mylang/tree-sitter/semgrep-mylang
+mkdir -p languages/mylang/tree-sitter/semgrep-mylang/
 make regen-grammar-mylang
 ```
 
@@ -260,14 +250,6 @@ languages/mylang/tree-sitter/semgrep-mylang/
 └── fyi/                              # Source provenance and licenses
 ```
 
-For multiple destinations, test the key and regenerate each destination:
-
-```bash
-make test-grammar-typescript
-make regen-grammar-typescript
-make regen-grammar-tsx
-```
-
 Register the C parser with Git LFS before staging it:
 
 ```bash
@@ -275,27 +257,107 @@ git lfs track 'languages/mylang/tree-sitter/semgrep-mylang/lib/parser.c'
 ```
 
 Change the wrapper and regenerate instead of editing generated files by hand.
+
 See [updating a grammar](/contributing/updating-a-grammar) for CST checks and
 updates to dependent grammars.
 
-## 5. Connect the parser to Semgrep
+## 5. Integrate the parser in Semgrep
 
-Use `languages/fga/` as an integration example:
+Now that you have generated the parser for `mylang`, connect it to Semgrep.
+Use `languages/fga/` as an integration example.
 
-- Implement `Parse_mylang_tree_sitter.ml` and `.mli` under `languages/mylang/generic/`, starting from `languages/mylang/tree-sitter/semgrep-mylang/lib/Boilerplate.ml`.
-- Add a library like `languages/fga/generic/dune` and link it from `src/parsing/dune`.
-- Register the language name and file extensions in `cli/src/semgrep/semgrep_interfaces/generate.py`.
-- Route target and pattern parsing in `src/parsing/Parse_target.ml` and `src/parsing/Parse_pattern.ml`; handle other language dispatch cases identified by the build.
+<Steps>
+  <Step>
+    Add the language name and file extensions to
+    `cli/src/semgrep/semgrep_interfaces/generate.py`, then regenerate the interfaces:
 
-Regenerate the language interfaces after editing `generate.py`:
+    ```bash
+    make -C cli/src/semgrep/semgrep_interfaces
+    ```
 
-```bash
-make -C cli/src/semgrep/semgrep_interfaces
-```
+  </Step>
+  <Step>
+    In `src/parsing/Check_pattern.ml`, add the language to
+    `lang_has_no_dollar_ids`. Return `true` if dollar identifiers are invalid
+    in the language, or `false` otherwise.
+  </Step>
+  <Step>
+    In `src/printing/Pretty_print_AST.ml`, add the language to the appropriate functions:
 
-Implement conversion from the CST to Generic AST for both target code and
-patterns, including metavariables and ellipses. Generated boilerplate alone
-does not provide this conversion.
+- print_bool
+- if_stmt
+- while_stmt
+- do_while
+- for_stmt
+- def_stmt
+- return
+- break
+- continue
+- literal
+
+          </Step>
+        <Step>
+
+  Create `languages/mylang/generic/Parse_mylang_tree_sitter.ml` using the
+  generated `languages/mylang/tree-sitter/semgrep-mylang/lib/Boilerplate.ml`
+  as a starting point. Add a corresponding `.mli`.
+
+            `Boilerplate.ml` provides `map_*` functions that traverse the CST and
+            construct `Tree_sitter_run.Raw_tree` values. Adapt them to construct
+            `AST_generic` nodes instead.
+
+            Follow `languages/fga/generic/Parse_fga_tree_sitter.ml` to define `parse`
+            and `parse_pattern`, using `Parse_tree_sitter_helpers` for parser wrapping
+            and token locations. Keep this hand-written converter separate from
+            `Boilerplate.ml`, which regeneration overwrites.
+
+            This file should contain something similar to:
+            ```ocaml
+            module H = Parse_tree_sitter_helpers
+
+            let parse file =
+            H.wrap_parser
+            (fun () ->
+            Parallel.backtrace_when_exn := false
+            Parallel.invoke Tree_sitter_X.Parse.file file ()
+            )
+            ```
+
+          </Step>
+
+        <Step>
+
+  Add the OCaml library definitions, using
+  `languages/fga/generic/dune` as an example, and link the converter from
+  `src/parsing/dune`. The generated parser already lives under
+  `languages/mylang/tree-sitter/semgrep-mylang/`; no submodule is needed.
+
+      </Step>
+
+  <Step>
+  Route target and pattern parsing to the converter in
+  `src/parsing/Parse_target.ml` and `src/parsing/Parse_pattern.ml`.
+</Step>
+<Step>
+  Add a case to `dump_tree_sitter_cst` in
+  `src/parsing/tests/Test_parsing.ml`, following Ruby's use of
+  `Tree_sitter_ruby.Parse.file` and `Tree_sitter_ruby.Boilerplate.dump_tree`.
+  Add `tests/parsing/mylang/hello-world.ext`, then build and inspect its CST:
+
+            ```bash
+            make core
+            bin/semgrep-core -lang mylang -dump_tree_sitter_cst tests/parsing/mylang/hello-world.ext
+            ```
+
+          </Step>
+
+      </Steps>
+
+Implement the translator from the tree-sitter CST into Semgrep's Generic AST
+for both target code and patterns, including metavariables and ellipses.
+You can translate directly, as FGA does, or first translate into a
+language-specific AST and then into Generic AST. The generated boilerplate
+supplies the traversal structure; you must implement the language semantics.
 
 ## 6. Add parsing and rule matching tests
 
@@ -338,8 +400,19 @@ success for file extensions listed in `extensions.txt`.
 - Syntax errors: inspect the corpus output for `ERROR` nodes and reduce the failing input.
 - OCaml generation or reparsing errors: preserve a minimal reproducer and investigate the generator.
 
-Report upstream grammar bugs with minimal examples. Preserve upstream license
-notices through `fyi.list`, and use original or suitably licensed test inputs.
+Report upstream grammar bugs with minimal examples.
+
+## Legal concerns
+
+Be thankful for the authors of the original code, keep clearly visible
+license notices, and make it easy to get back to the original projects:
+
+- Make sure to preserve the `LICENSE` files. List them in
+  `$ots/lang/mylang/fyi.list`.
+- For sample input in `test/`, consider Public Domain ("The
+  Unlicense") files or write your own, for simplicity.
+  [GitHub Search](https://github.com/search/advanced)
+  allows you to filter projects by license and by programming language.
 
 ## See also
 
