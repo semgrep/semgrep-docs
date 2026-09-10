@@ -374,14 +374,14 @@ Semgrep creates and updates PR and MR status checks and verifies the existence o
 
 ## Use Semgrep Network Broker with Autofix
 
-[Autofix](/semgrep-code/triage-remediation/autofix) is available when Semgrep connects to your SCM through the Network Broker, subject to two requirements:
+To use [Autofix](/semgrep-code/triage-remediation/autofix) through the Network Broker:
 
-1. Upgrade to Network Broker 0.45.2 or later. Older brokers reject Autofix requests with a 403 allowlist error.
-2. Set `allowCodeAccess` to `true` for that SCM in your broker configuration. This setting defaults to `false`. See [Use Semgrep Network Broker with Managed Scans](#use-semgrep-network-broker-with-managed-scans) for examples.
+1. Upgrade to Network Broker 0.45.2 or later. Older versions return a 403 allowlist error.
+2. Set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. See [Use Semgrep Network Broker with Managed Scans](#use-semgrep-network-broker-with-managed-scans) for examples.
 
-Also grant Semgrep [read and write access](/semgrep-appsec-platform/scm-code-access) on the SCM connection.
+Grant Semgrep [read and write access](/semgrep-appsec-platform/scm-code-access) on the SCM connection.
 
-Leave `allowCodeAccess` unset or set it to `false` if you do not want Semgrep to write to your repositories.
+If you don't want Semgrep to write to your repositories, leave `allowCodeAccess` unset or set it to `false`.
 
 ## Use Semgrep Network Broker for private registry access
 

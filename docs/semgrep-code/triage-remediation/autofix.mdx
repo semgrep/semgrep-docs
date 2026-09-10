@@ -23,7 +23,7 @@ To use Autofix for Semgrep Code findings, you must meet the following requiremen
   * Semgrep Code does not respect AI model selection.
 * Have at least one connected repository with new or existing Semgrep Code findings.
 * Semgrep needs **read and write** access to the repository so it can push a branch and open a PR or MR. See [Grant read and write access](/semgrep-appsec-platform/scm-code-access).
-* If Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker), use Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM (it defaults to `false`). Older brokers reject Autofix requests with a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
+* If Semgrep connects to your SCM through the [Semgrep Network Broker](/semgrep-ci/network-broker), upgrade to Network Broker 0.45.2 or later and set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. Older broker versions return a 403 allowlist error. See [Use Semgrep Network Broker with Autofix](/semgrep-ci/network-broker#use-semgrep-network-broker-with-autofix).
 
 ## Use Autofix
 
