@@ -9,7 +9,7 @@ that we can ensure you're on the right track without any wasted effort. This
 is also a great way to contribute to Semgrep even if you're not making changes
 yourself.
 
-This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core contributing](/contributing/semgrep-core-contributing) and/or [semgrep-cli contributing](/contributing/semgrep-contributing) in [Making a Change](#making-a-change). 
+This README gives an overview of the repository. For further information on building, you will be directed to [semgrep-core contributing](/contributing/semgrep-core-contributing) and/or [semgrep-cli contributing](/contributing/semgrep-contributing) in [Making a Change](#making-a-change).
 
 ## File structure
 
@@ -24,7 +24,7 @@ There are many other files, but the below diagram broadly displays the file stru
 ├── cli/  (Python wrapper)
 │   └── src/
 │       └── semgrep/
-│ 
+│
 ├── src/  (semgrep-core)
 │   │── analyzing/  (Dataflow analysis)
 │   │── core_cli/  (Entrypoint for semgrep-core)
@@ -43,17 +43,17 @@ Most of Semgrep's logic is in `cli/src` and `src`.
 
 ## Code relationship
 
-The `semgrep-core` binary stands alone. Once built, it is possible to run `semgrep-core` on a semgrep rule for a given language with a file/directory and receive matches. 
+The `semgrep-core` binary stands alone. Once built, it is possible to run `semgrep-core` on a semgrep rule for a given language with a file/directory and receive matches.
 
 For example, say you create the config file `unsafe-exec.yaml` and the program `unsafe-exec.py`:
 
 ```yaml
 rules:
-- id: unsafe-exec
-  pattern: exec(...);
-  message: Avoid use of exec; it can lead to a remote code execution.
-  severity: MEDIUM
-  languages: [python]
+  - id: unsafe-exec
+    pattern: exec(...);
+    message: Avoid use of exec; it can lead to a remote code execution.
+    severity: MEDIUM
+    languages: [python]
 ```
 
 ```python
@@ -77,7 +77,7 @@ severity:warning rule:unsafe-exec: Avoid use of exec; it can lead to a remote co
 ran 1 rules on 1 files: 1 findings
 ```
 
-The matched code is the same, but with `semgrep-cli` the output is more polished and includes the message. 
+The matched code is the same, but with `semgrep-cli` the output is more polished and includes the message.
 
 `semgrep-cli` invokes the `semgrep-core` binary as a subprocess, with a flag to request JSON output. It reads the `semgrep-core` output and transforms it appropriately.
 
@@ -101,9 +101,9 @@ Below is a guide for what functionality each of `semgrep-cli` and `semgrep-core`
 
 The python code for Semgrep performs pre and post-processing work. You likely need to touch only `semgrep-cli` if you want to affect
 
-* How output is formatted
-* What files are scanned for each language
-* The message that is displayed
+- How output is formatted
+- What files are scanned for each language
+- The message that is displayed
 
 Go to [semgrep-cli contributing](/contributing/semgrep-contributing)
 
@@ -111,9 +111,10 @@ Go to [semgrep-cli contributing](/contributing/semgrep-contributing)
 
 The OCaml code for Semgrep performs all the parsing and matching work. You likely need to touch only `semgrep-core` if you want to
 
-* Fix a parse error
-* Fix a matching error
-* Improve Semgrep's performance
+- Fix a parse error
+- Fix a matching error
+- Improve Semgrep's performance
+- Improve the parsing of a programming language
 
 Go to [semgrep-core contributing](/contributing/semgrep-core-contributing)
 
@@ -121,33 +122,11 @@ Go to [semgrep-core contributing](/contributing/semgrep-core-contributing)
 
 There are some features that cross through both OCaml and Python code. You will likely need to touch both `semgrep-cli` and `semgrep-core` if you want to
 
-* Fix a Rule-defined fix error
-* Add a new language
-* Change error reporting
+- Fix a Rule-defined fix error
+- Add a new language
+- Change error reporting
 
-Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate. 
-
-### Update or add a language grammar
-
-Tree-sitter grammar pins and their `ocaml-tree-sitter-semgrep` wrappers are vendored in the Semgrep repository.
-
-To update a grammar:
-
-1. In `OSS/libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`, update the grammar's `commit` and, if needed, `tree_sitter`.
-2. Run `make -C OSS test-grammar-<key>`. Update `lang/semgrep-grammars/src/semgrep-<key>/` if the wrapper must change.
-3. Run `make -C OSS regen-grammar-<dest>` for every value in the entry's `regen` list.
-4. Build Semgrep and run the language's parsing and pattern tests. Commit the registry, wrapper, and generated `lib/`, `bin/`, `config/`, and `fyi/` files. Never commit the fetched `tree-sitter-*` clones.
-
-To add a language:
-
-1. Add a registry entry with `url`, `commit`, `tree_sitter`, and `regen`; use `clone` or `depends_on` only when needed.
-2. Add the OTS language directory, `semgrep-<key>` wrapper, `fyi.list`, and tests.
-3. Add the generated package under `OSS/languages/<parent>/tree-sitter/semgrep-<dest>/`, or under `languages/` for a Pro-only parser. Run the test and regeneration commands above.
-4. Integrate the parser into Semgrep (`Parse_*_tree_sitter.ml`, dune files, and `semgrep-interfaces` generation), then add parsing, pattern, and hello-world tests. Include the language in the OTS language and statistics lists.
-
-Commands accept either a registry key or a regeneration destination. They can differ: for example, key `sfapex` regenerates destination `apex`, while key `typescript` regenerates `typescript` and `tsx`.
-
-See the [vendored grammar integration reference](https://github.com/semgrep/semgrep/blob/develop/languages/GRAMMAR_INTEGRATION.md) for file-layout details and special cases.
+Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
 
 ## Development workflow
 
@@ -184,17 +163,18 @@ spend more time on new features rather than spending it on studying
 legacy code. As a general rule of thumb, assume that all context that
 is not written down will be lost and forgotten. Useful context includes:
 
-* Why does this code exist?
-* What or who uses this code?
-* What does this code achieve?
-* Could this code be replaced by an off-the-shelf component? Why not?
-* Does it implement a formal specification or a well-known pattern? Where can
+- Why does this code exist?
+- What or who uses this code?
+- What does this code achieve?
+- Could this code be replaced by an off-the-shelf component? Why not?
+- Does it implement a formal specification or a well-known pattern? Where can
   we learn more about it?
 
 We ask that **each source file start with one comment** that
 concisely answers these questions.
 
 Here's a short example:
+
 ```ocaml
 (*
    Generate unique names with a given prefix.
@@ -202,6 +182,7 @@ Here's a short example:
 ```
 
 It can be improved by explaining the code's uses:
+
 ```ocaml
 (*
    Generate unique names with a given prefix. This is used to
@@ -215,11 +196,13 @@ It can be improved by explaining the code's uses:
 
 Add a new file named like `changelog.d/gh-1234.fixed` that contains
 a single paragraph of Markdown text such as:
+
 ```text
 Fix emojis absorbed by the fleeb generator
 ```
 
 File name format:
+
 ```text
 gh-1234.fixed
    ^^^^ ^^^^^
@@ -229,6 +212,7 @@ gh-1234.fixed
 ```
 
 Valid changelog file suffixes are:
+
 - `added` - New features or other previously non-existing functionality
 - `changed` - Items that have changed the way Semgrep functions
 - `fixed` - Bug fixes or other improvements
@@ -243,6 +227,7 @@ each Semgrep release, these files are automatically gathered and formatted to
 produce [release notes](https://github.com/semgrep/semgrep/blob/develop/CHANGELOG.md).
 
 A changelog entry is required if you are:
+
 - Adding new features or other previously non-existing functionality.
 - Including important changes in the way Semgrep functions.
 - Submitting bug fixes or other improvements.
@@ -267,7 +252,7 @@ repository at that particular commit. Submodules have a reputation of
 being tricky to use. To minimize problems, make sure to follow these
 guidelines:
 
-* When checking out a new branch or commit, update the submodules
+- When checking out a new branch or commit, update the submodules
   using the command `git submodule update --init --recursive`.
   Adding a shortcut to your shell can be useful. The following is a
   Bash function that lets you call `gitup`. It goes into your `~/.bashrc`:
@@ -279,17 +264,17 @@ gitup() {
 }
 ```
 
-* When modifying both a parent repo A and one of its submodules B,
+- When modifying both a parent repo A and one of its submodules B,
   make one pull request for each (PR A, PR B).<br/><br/>
   i. Before merging PR B, make sure the branch on repo B is **not
-     lagging behind** the main branch. This ensures that the submodule
-     includes all the latest changes made by others.<br/><br/>
+  lagging behind** the main branch. This ensures that the submodule
+  includes all the latest changes made by others.<br/><br/>
   ii. Make sure PR B is merged **before** PR A.
-     This ensures that other developers will pick up the changes on B
-     when making their own changes.<br/><br/>
+  This ensures that other developers will pick up the changes on B
+  when making their own changes.<br/><br/>
   iii. After merging PR A, check that submodule B is still up-to-date
-     with respect to its main branch, especially if PR B was merged
-     more than an hour ago.
+  with respect to its main branch, especially if PR B was merged
+  more than an hour ago.
   Good to know:
   - Merging in B can be done with a merge commit or by squashing the
     commits.
