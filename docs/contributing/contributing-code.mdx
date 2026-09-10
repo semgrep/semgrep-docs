@@ -125,7 +125,75 @@ There are some features that cross through both OCaml and Python code. You will 
 * Add a new language
 * Change error reporting
 
-Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate. 
+Go to [semgrep-core contributing](/contributing/semgrep-core-contributing). It will direct you to [semgrep-cli contributing](/contributing/semgrep-contributing) when appropriate.
+
+### Update a language grammar
+
+Tree-sitter grammar pins and wrappers live in the Semgrep repository under
+`libs/ocaml-tree-sitter-semgrep/`. See
+[How to upgrade the grammar for a language](/contributing/updating-a-grammar)
+for the full process.
+
+To update Python:
+
+<Steps>
+<Step>
+Edit the `python` entry in
+`libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`. Change `commit`
+to the upstream SHA; change `tree_sitter` only if a different CLI is required:
+
+```json
+"python": {
+  "commit": "NEW_UPSTREAM_COMMIT_SHA",
+  "regen": ["python"],
+  "tree_sitter": "0.26.3",
+  "url": "https://github.com/tree-sitter/tree-sitter-python.git"
+}
+```
+</Step>
+<Step>
+Adjust
+`libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-python/`
+if the wrapper must change, and add corpus cases under its `test/corpus/`.
+</Step>
+<Step>
+From the repository root:
+
+```bash
+make test-grammar-python
+make regen-grammar-python
+```
+</Step>
+<Step>
+Run `make core` and `make test`. If the CST changed, update
+`languages/python/tree-sitter/Parse_python_tree_sitter.ml`. Commit the
+registry, wrapper, tests, and generated
+`languages/python/tree-sitter/semgrep-python/` files. Never commit fetched
+`tree-sitter-*` clones.
+</Step>
+</Steps>
+
+Commands accept either a registry key or a regeneration destination. They can
+differ. TypeScript's registry entry regenerates two destinations:
+
+```json
+"typescript": {
+  "commit": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
+  "depends_on": ["javascript"],
+  "regen": ["typescript", "tsx"],
+  "tree_sitter": "0.22.6",
+  "url": "https://github.com/tree-sitter/tree-sitter-typescript.git"
+}
+```
+
+```bash
+make test-grammar-typescript
+make regen-grammar-typescript
+make regen-grammar-tsx
+```
+
+To add a language, see
+[How to add support for a new language](/contributing/adding-a-language).
 
 ## Development workflow
 
