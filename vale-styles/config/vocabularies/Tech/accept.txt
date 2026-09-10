@@ -1,6 +1,7 @@
 
 [Aa]liengrep
-allowlist
+[Aa]llowlist
+[Aa]llowlists
 [Aa]ntipattern
 [Aa]ntipatterns
 APIs
@@ -77,6 +78,7 @@ IntelliJ IDEA Ultimate
 Jenkinsfile
 Jira
 JSON
+[Kk]eypair
 
 Laravel
 LLM
@@ -116,6 +118,7 @@ pfff
 PhpStorm
 Postgres
 [Pp]ipenv
+[Pp]roxied
 PR
 PRs
 [Pp]seudoanonymization
