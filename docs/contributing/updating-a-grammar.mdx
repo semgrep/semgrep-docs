@@ -1,182 +1,121 @@
 ---
 title: "How to upgrade the grammar for a language"
+sidebarTitle: "Upgrade the grammar for a language"
 ---
 
-### Update or add a language grammar
-
-Tree-sitter grammar pins and their `ocaml-tree-sitter-semgrep` wrappers are vendored in the Semgrep repository.
-
-To update a grammar:
-
-1. In `OSS/libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`, update the grammar's `commit` and, if needed, `tree_sitter`.
-2. Run `make -C OSS test-grammar-<key>`. Update `lang/semgrep-grammars/src/semgrep-<key>/` if the wrapper must change.
-3. Run `make -C OSS regen-grammar-<dest>` for every value in the entry's `regen` list.
-4. Build Semgrep and run the language's parsing and pattern tests. Commit the registry, wrapper, and generated `lib/`, `bin/`, `config/`, and `fyi/` files. Never commit the fetched `tree-sitter-*` clones.
-
-To add a language:
-
-1. Add a registry entry with `url`, `commit`, `tree_sitter`, and `regen`; use `clone` or `depends_on` only when needed.
-2. Add the OTS language directory, `semgrep-<key>` wrapper, `fyi.list`, and tests.
-3. Add the generated package under `OSS/languages/<parent>/tree-sitter/semgrep-<dest>/`, or under `languages/` for a Pro-only parser. Run the test and regeneration commands above.
-4. Integrate the parser into Semgrep (`Parse_*_tree_sitter.ml`, dune files, and `semgrep-interfaces` generation), then add parsing, pattern, and hello-world tests. Include the language in the OTS language and statistics lists.
-
-Commands accept either a registry key or a regeneration destination. They can differ: for example, key `sfapex` regenerates destination `apex`, while key `typescript` regenerates `typescript` and `tsx`.
-
-See the [vendored grammar integration reference](https://github.com/semgrep/semgrep/blob/develop/languages/GRAMMAR_INTEGRATION.md) for file-layout details and special cases.
-
-Like for adding a language, most of these instructions happen in
-[ocaml-tree-sitter-semgrep](https://github.com/semgrep/ocaml-tree-sitter-semgrep).
-
-Let's assume we are upgrading the grammar for the programming language `$PL`.
-(Consider adding an environment variable to your shell to make copying some of the commands below easier).
+Tree-sitter grammar pins, Semgrep wrappers, and generated parsers are in
+the Semgrep repository. Run all commands from its root, which contains
+`libs/`, `languages/`, and `src/`.
 
 ## Summary
 
-Tree-sitter grammar pins and their Semgrep wrappers are in the Semgrep repository in `libs/ocaml-tree-sitter-semgrep/lang`.
-
 <Steps>
-  <Step>
-    Update the upstream grammar's pin and, if needed, tree-sitter version. To do
-    so, edit `libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json` and
-    update the grammar's `commit` and `tree_sitter` fields.
-    Take note of the grammar's `regen` list.
-  </Step>
-  <Step>If needed, update the Semgrep wrapper grammar in libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-<key>/</Step>
-  <Step>Run the grammar's tree-sitter tests with `make test-grammar-<lang>`.</Step>
-  <Step>
-    Regenerate the OCaml parser with `make regen-grammar-<lang>` for every value in the entry's `regen` list.
-  </Step>
-  <Step>Rebuild Semgrep and run the appropriate parser and rule matching tests</Step>
-  <Step>Create a PR with your changes.</Step>
+  <Step>Update the grammar's commit and, if needed, tree-sitter version in the registry.</Step>
+  <Step>Adjust the Semgrep wrapper and add regression tests.</Step>
+  <Step>Test the grammar with `make test-grammar-<LANG>`.</Step>
+  <Step>Regenerate each parser in the entry's `regen` list with, for example, `make regen-grammar-<LANG>`.</Step>
+  <Step>Update the CST-to-AST conversion if needed, then run `make core` and `make test`.</Step>
+  <Step>Open a pull request against `develop`.</Step>
 </Steps>
-
-Note that commands accept either a registry key or a regeneration destination. They can differ: for example, key `sfapex` regenerates destination `apex`, while key `typescript` regenerates `typescript` and `tsx`.
-
-## Components
-
-Here are the main components:
-
-- the OCaml code generator (`libs/ocaml-tree-sitter/core`):
-  generates OCaml parsing code from tree-sitter grammars extended
-  with `...` and such.
-- the original tree-sitter grammar `tree-sitter-$PL` e.g.,
-  [tree-sitter-ruby](https://github.com/tree-sitter/tree-sitter-ruby):
-  the original tree-sitter grammar for the language.
-- syntax extensions to support semgrep patterns, such as ellipses
-  (`...`) and metavariables (`$FOO`).
-  This is `libs/ocaml-tree-sitter/lang/semgrep-grammars/src/semgrep-$PL`. It can be tested from
-  that folder with `make && make test`.
-- an automatically-modified grammar for language `$PL` in `libs/ocaml-tree-sitter/lang/$PL`.
-  It is modified so as to accommodate various requirements of the
-  ocaml-tree-sitter code generator. `libs/ocaml-tree-sitter/lang/$PL/src` and
-  `libs/ocaml-tree-sitter/lang/$PL/ocaml-src` contain the C/C++/OCaml code that will be published
-  into `languages/` and used by semgrep.
-- `languages`: uses the parsers, which produce a CST. The
-  program's CST or pattern's CST is further transformed into an AST
-  suitable for pattern matching.
-
-Make sure the above is clear in your mind before proceeding further.
-If you have questions, the best way is to reach out on the [Semgrep
-Community Slack channel](https://go.semgrep.dev/slack).
 
 ## Before upgrading
 
-Make sure the `grammar.js` file or equivalent source files
-defining the grammar are included in the `fyi.list` file in
-`ocaml-tree-sitter/lang/$PL`.
+Grammar development requires Node.js, Cargo, clang/clang++, and Git LFS on
+`PATH`.
 
-Why: It is important for tracking and _understanding_ the changes made at the
-source.
+The examples below update Python. For wrapper-only changes, skip the first step.
 
-How: See [How to add support for a new language](/contributing/adding-a-language).
+## 1. Update the registry
 
-## Testing
+Edit `libs/ocaml-tree-sitter-semgrep/lang/upstream-grammars.json`. Replace
+`commit` with the upstream commit SHA; change `tree_sitter` if needed.
+For example, Python's entry has this shape:
 
-First, build and install ocaml-tree-sitter normally, based on the
-instructions found in the [main README](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/README.md).
-
-```bash
-./configure
-make setup
-make
-make install
+```json
+"python": {
+  "commit": "NEW_UPSTREAM_COMMIT_SHA",
+  "regen": ["python"],
+  "tree_sitter": "0.26.3",
+  "url": "https://github.com/tree-sitter/tree-sitter-python.git"
+}
 ```
 
-Then, build support for your language in `lang/`. The following
-commands will build and test the language:
+`tree_sitter` selects the grammar's CLI version, independently of the shared
+runtime version in `libs/ocaml-tree-sitter-semgrep/core/tree-sitter-version`.
+
+## 2. Update the wrapper and regression tests
+
+Adjust the Semgrep syntax extensions if needed. For Python, edit
+`libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-python/grammar.js`
+and add regression cases to
+`libs/ocaml-tree-sitter-semgrep/lang/semgrep-grammars/src/semgrep-python/test/corpus/semgrep.txt`.
+
+Ensure `libs/ocaml-tree-sitter-semgrep/lang/python/fyi.list` includes the
+grammar sources. Its paths are relative to `libs/ocaml-tree-sitter-semgrep/lang/`:
+
+```text
+semgrep-grammars/src/tree-sitter-python/LICENSE
+semgrep-grammars/src/tree-sitter-python/grammar.js
+semgrep-grammars/src/semgrep-python/grammar.js
+```
+
+## 3. Test the grammar
+
+Test the wrapper's tree-sitter corpus and generated OCaml parser:
 
 ```bash
-cd lang
-  ./test-lang $PL
+make test-grammar-python
 ```
+
+This fetches the pinned upstream sources and rebuilds the wrapper.
+
+## 4. Regenerate the parser
+
+Run `make regen-grammar-<dest>` for every destination in the entry's `regen` list:
+
+```bash
+make regen-grammar-python
+```
+
+This updates `languages/python/tree-sitter/semgrep-python/`, including
+generated `lib/`, `bin/`, `config/`, and `fyi/` files. Change the wrapper and
+regenerate instead of editing generated files by hand.
+
+A registry key can have multiple destinations: `typescript` produces both
+`typescript` and `tsx`. Test the key, then regenerate each destination:
+
+```bash
+make test-grammar-typescript
+make regen-grammar-typescript
+make regen-grammar-tsx
+```
+
+If another entry lists the changed grammar in `depends_on`, also test and
+regenerate that consumer (for example, `cpp` after changing `c`). Entries with
+`regen: []` do not produce a Semgrep parser.
 
 <Warning>
-**CAUTION**
+Check generated CST code for `Blank` nodes, which lack token locations:
 
-Check the generated code for the presence of `Blank` nodes. Those
-correspond to [missing tokens](https://github.com/tree-sitter/tree-sitter/issues/1151).
+```bash
+rg '\bBlank\b' languages/python/tree-sitter/semgrep-python/lib/CST.ml
+```
+
+If any appear, give the corresponding grammar node a named rule and regenerate.
 
 </Warning>
 
-Check with:
+## 5. Build and test Semgrep
+
+If the CST changed, update
+`languages/python/tree-sitter/Parse_python_tree_sitter.ml`, using
+`languages/python/tree-sitter/semgrep-python/lib/Boilerplate.ml` as a reference.
+Add regression tests under `tests/parsing/python/` and `tests/patterns/python/`.
 
 ```bash
-grep Blank lang/$PL/ocaml-src/lib/CST.ml
+make core
+make test
 ```
-
-If anything comes up, you must modify the grammar so as to create
-a named rule for the node of the `Blank` kind. Eventually, the generated
-`CST.ml` should not have `Blank` nodes anymore but a token type instead.
-Where a `Blank` node exists, we won't be able to get a token or its location
-at parsing time.
-
-If this works, we're all set. Commit the new commit for the
-`tree-sitter-$PL` submodule:
-
-```bash
-git status
-git commit semgrep-languages/semgrep-$PL
-git push origin upgrade-$PL
-```
-
-Then make a pull request to merge this into ocaml-tree-sitter's
-main branch. It's ok to merge at this point, even if the generated code
-hasn't been exported (**Publishing** section below) or if you haven't
-done the necessary changes in semgrep (**Semgrep integration** below).
-
-We can now consider publishing the code to `semgrep-$PL`.
-
-## Publishing
-
-_Please [ask someone at Semgrep, Inc. to run this step](https://github.com/semgrep/ocaml-tree-sitter-semgrep/blob/main/doc/release.md)._
-
-From the `lang` folder of ocaml-tree-sitter, we'll perform the
-release. This step redoes some of the work that was done earlier and
-checks that everything is clean before committing and pushing the
-changes to semgrep-$PL.
-
-```bash
-cd lang
-  ./release --dry-run $PL  # dry-run release
-  ...                    # 'git status' will show changes for language $PL
-  ./release $PL  # commits and pushes to semgrep-$PL
-```
-
-This step is safe. Semgrep at this point is unaffected by those
-changes. There is now a new commit at
-`https://github.com/semgrep/semgrep-$PL` e.g.
-https://github.com/semgrep/semgrep-javascript.
-The [`fyi/` folder](https://github.com/semgrep/semgrep-javascript/tree/main/fyi)
-contains original files from which the code was generated.
-[`fyi/versions`](https://github.com/semgrep/semgrep-javascript/blob/main/fyi/versions)
-shows the last change for each file, allowing you to check that you
-got the correct version of `grammar.js` or some other source file.
-
-## Conclusion
-
-The main difficulty is to understand how the different git projects
-interact and to not make mistakes when dealing with git submodules,
-which takes a bit of practice.
 
 ## See also
 
