@@ -1,0 +1,16 @@
+---
+title: "Policies"
+description: "Detection and remediation policies, rules, dry runs, automations, and notification rules."
+---
+
+import PoliciesEndpoints from "/snippets/api/v2/policies-endpoints.mdx"
+
+A policy decides which rules run and what happens when they match — whether a finding blocks a pull request, gets ignored, or raises a ticket. These endpoints manage detection and remediation policies and the rules inside them, let you dry-run a change before committing to it, and configure the automations and notifications that fire off the result.
+
+## Endpoints
+
+<PoliciesEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).

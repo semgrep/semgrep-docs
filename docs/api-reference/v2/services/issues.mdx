@@ -1,0 +1,16 @@
+---
+title: "Issues"
+description: "Issues, counts, triage, exports, and AI fix jobs."
+---
+
+import IssuesEndpoints from "/snippets/api/v2/issues-endpoints.mdx"
+
+An issue is the persistent, triageable record of something Semgrep found — as distinct from a finding, which is one immutable detection from one scan. These endpoints list and filter issues, move them through triage, export them, and manage the AI fix jobs raised against them, across SAST, AI-powered detection, Supply Chain, and Secrets.
+
+## Endpoints
+
+<IssuesEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).

@@ -1,0 +1,16 @@
+---
+title: "Supply Chain"
+description: "Dependencies, advisories, and SBOMs."
+---
+
+import SupplyChainEndpoints from "/snippets/api/v2/supply-chain-endpoints.mdx"
+
+Supply Chain covers what your code depends on. These endpoints list the dependencies Semgrep found across your projects, the advisories that affect them, and generate SBOM exports.
+
+## Endpoints
+
+<SupplyChainEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).

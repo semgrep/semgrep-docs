@@ -1,0 +1,16 @@
+---
+title: "Tasks"
+description: "Async result polling."
+---
+
+import TasksEndpoints from "/snippets/api/v2/tasks-endpoints.mdx"
+
+Some operations are too slow to answer inline — exports, SBOM generation, and syncs all return a task handle instead of a result. These endpoints redeem that handle once the work finishes. Tasks is deliberately its own service rather than living under any one of the services that produce them, so the same polling call works whatever started the work.
+
+## Endpoints
+
+<TasksEndpoints/>
+
+Each change to this service is recorded in the
+[changelog](/api-reference/v2/Changelog); anything superseded is deprecated
+under the [deprecation policy](/api-reference/v2/Deprecation-Policy).
