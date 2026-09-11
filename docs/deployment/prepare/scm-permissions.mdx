@@ -197,21 +197,21 @@ Autofix uses your **private Semgrep GitHub App** with the permissions below. Use
 
 | GitHub App permission | Why Autofix needs it |
 | :--- | :--- |
-| **Contents: Read** | Clone the repository using git+https (shallow, single-branch) so Semgrep can analyze the code and generate a fix. |
-| **Contents: Write** | Push the Autofix branch back to the repository using git+https. |
+| **Contents: Read** | Clone the repository over HTTPS using Git (shallow, single-branch) so Semgrep can analyze the code and generate a fix. |
+| **Contents: Write** | Push the Autofix branch back to the repository over HTTPS using Git. |
 | **Metadata: Read** | Read repository metadata, including the default branch, using `GET /repos/{owner}/{repo}`. |
 | **Pull requests: Write** | Open a **draft** PR using `POST /repos/{owner}/{repo}/pulls`. |
 
 ##### How repository contents are accessed
 
-Semgrep Autofix reads and writes code only through the **Git transport layer** (clone and push), not through the API's `contents` endpoints (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Git operations still require the GitHub **Contents** permissions above.
+Semgrep Autofix reads and writes code only through the **Git transport layer** (clone and push), not through the API `contents` endpoints (`GET` or `PUT` `/repos/{owner}/{repo}/contents/{path}`). Git operations still require the GitHub **Contents** permissions above.
 
 </Tab>
 <Tab title="Personal access tokens">
 
 <div id="github-personal-access-tokens" />
 
-Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when org policy requires them.
+Use a personal access token (PAT) when your organization connects GitHub to Semgrep with a token instead of a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported as well.
 
 A PAT can only grant access that the creating GitHub user already has. Use a [machine user](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#machine-users) when possible. That user must be a member of the target organization, or a collaborator on the selected repositories. For [Autofix](/semgrep-code/triage-remediation/autofix), the user must be able to push branches and open pull requests on those repositories.
 

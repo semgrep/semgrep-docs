@@ -3,7 +3,7 @@ title: "Enable source code manager code access"
 sidebarTitle: "Grant code access"
 ---
 
-Use this page for **how** to grant Semgrep code read or write access on an existing SCM connection: update a private GitHub App, or create and enter an access token.
+Use this page for **how** to grant Semgrep read or write access to source code on an existing SCM connection: update a private GitHub App, or create and enter an access token.
 
 Some Semgrep features, including [Semgrep Managed Scans](/deployment/managed-scanning/overview), [Semgrep Multimodal](/semgrep-multimodal/overview), and [Autofix](/semgrep-code/triage-remediation/autofix), require Semgrep to read repository contents. Autofix also requires write access.
 
@@ -70,7 +70,7 @@ Once approved, Semgrep has code access to your GitHub repositories.
 
 ## Grant code access to Semgrep for token-based SCM connections
 
-If you onboarded your repositories using an access token, follow these steps to grant code access to Semgrep.
+If you connected your repositories using an access token, follow these steps to grant code access to Semgrep.
 
 <Tabs>
   <Tab title="Azure DevOps Cloud">
@@ -221,7 +221,9 @@ Navigate to the Bitbucket Cloud access token settings page: <code>https://bitbuc
 Create a new access token.
 </Step>
 <Step>
+{/* vale off */}
 Assign the `repository:read`, `pullrequest:read`, `repository:write`, and `pullrequest:write` scopes to the token, along with [any other scopes your deployment needs](/deployment/managed-scanning/bitbucket#bitbucket-cloud).
+{/* vale on */}
 </Step>
 <Step>
 Copy the token's value.
@@ -252,7 +254,9 @@ Branch permissions can restrict who can push or merge code. If you grant write a
 
 <Steps>
 <Step>
+{/* vale off */}
 See [Bitbucket Data Center HTTP access token requirements](/deployment/managed-scanning/bitbucket#bitbucket-data-center) to create a token with the permissions your deployment needs, including repository read and write access. Copy the token's value.
+{/* vale on */}
 </Step>
 <Step>
 Return to Semgrep AppSec Platform, and go to [**Settings > Source code managers**](https://semgrep.dev/orgs/-/settings/source-code).
@@ -274,7 +278,7 @@ Once saved, Semgrep has code access to your Bitbucket Data Center repositories.
 
   <Tab title="GitHub">
 
-Create a GitHub personal access token (PAT), then add it to Semgrep. Use a PAT when the connection uses a token instead of a GitHub App. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported when your organization requires them.
+Create a GitHub personal access token (PAT), then add it to Semgrep. Semgrep recommends a **fine-grained** PAT. **Classic** PATs remain supported as well.
 
 For account roles, fine-grained and classic scopes, and what Semgrep checks when you save or **Test** a connection, see [GitHub personal access tokens](/deployment/prepare/scm-permissions#github-personal-access-tokens).
 
@@ -336,7 +340,7 @@ Once saved, Semgrep has code access to your GitHub repositories.
 
   <Tab title="Classic PAT">
 
-Use a classic PAT only when fine-grained tokens are blocked by organization policy. Choose scopes from the [classic scopes column](/deployment/prepare/scm-permissions#github-personal-access-tokens) for your use case. For most private-repository deployments, select `repo`.
+Use a classic PAT only when fine-grained tokens are unavailable or not permitted by policy. Choose scopes from the [classic scopes column](/deployment/prepare/scm-permissions#github-personal-access-tokens) for your use case. For most private-repository deployments, select `repo`.
 
 <Steps>
 <Step>
