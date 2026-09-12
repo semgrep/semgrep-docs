@@ -76,6 +76,14 @@
                   "deployment/checklist",
                   "deployment/create-account-and-orgs",
                   "deployment/sso",
+                  {
+                    "group": "SCIM provisioning",
+                    "root": "deployment/scim",
+                    "pages": [
+                      "kb/semgrep-appsec-platform/scim-okta",
+                      "kb/semgrep-appsec-platform/scim-microsoft-entra-id"
+                    ]
+                  },
                   "deployment/connect-scm",
                   "semgrep-appsec-platform/scm-code-access",
                   "deployment/prepare/scm-permissions",
