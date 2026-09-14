@@ -2,7 +2,6 @@
 title: "Tips for converting CST to AST"
 ---
 
-
 Once you have copied the generated `Boilerplate.ml` for your language
 `foo` into `Parse_foo_tree_sitter.ml`, you can start editing it. The
 goal is to replace all the calls like `todo env x` by the construction
@@ -31,7 +30,7 @@ OCaml extension or plugin which relies on merlin.
 ### Study examples
 
 `Parse_foo_tree_sitter.ml` is copied from the generated file
-[`Boilerplate.ml`](https://github.com/semgrep/semgrep-go/blob/main/lib/Boilerplate.ml). The `todo env x` calls are typically replaced by the
+`Boilerplate.ml` (e.g. `languages/go/tree-sitter/semgrep-go/lib/Boilerplate.ml`). The `todo env x` calls are typically replaced by the
 construction of a node of the AST.
 See how it's done for example in [`Parse_go_tree_sitter.ml`](https://github.com/semgrep/semgrep/blob/develop/languages/go/tree-sitter/Parse_go_tree_sitter.ml).
 
@@ -64,6 +63,7 @@ The name `anon_choice_type_id_42c0412` was generated from an anonymous
 node in the grammar and it's not meaningful. However, it's used in multiple
 spots, which is why it has its own function definition. It occurs for example
 here:
+
 ```ocaml
     | `Choice_id_opt_type_args (v1, v2) ->
         let v1 = anon_choice_type_id_42c0412 env v1 in
@@ -106,20 +106,23 @@ not very useful to find names for them.
 
 Finally, it is very useful to specify the return type of the function
 so as to figure out type errors a lot more easily.
+
 ```ocaml
 let rec id_or_nested_id (env : env) (x : CST.anon_choice_type_id_42c0412) =
 ```
+
 becomes
+
 ```ocaml
 let rec id_or_nested_id (env : env) (x : CST.anon_choice_type_id_42c0412) : ident =
 ```
 
 Summary:
 
-* Replace generated function names by something meaningful.
-* Replace `let v1 =` by a meaningful name.
-* Specify the return type of functions that map CST to AST.
-* Preserve the general structure of the generated functions.
+- Replace generated function names by something meaningful.
+- Replace `let v1 =` by a meaningful name.
+- Specify the return type of functions that map CST to AST.
+- Preserve the general structure of the generated functions.
 
 This all helps with updating the code when the grammar changes.
 
@@ -141,8 +144,7 @@ Leave the original structure in place as much as possible. This is
 important for later when we want to update the grammar and need to
 compare the new boilerplate with the old/edited one.
 
-Add type annotations
----
+## Add type annotations
 
 The generated boilerplate looks like this, i.e. the return type is left
 unspecified.
@@ -176,9 +178,10 @@ The generated boilerplate `Boilerplate.ml` is similar to the type definitions
 `grammar.js`. So, it is useful to consult `CST.ml` as well.
 
 What tends to work well is to keep 4 windows open:
-* `Parse_foo_tree_sitter.ml` (2 windows)
-* `grammar.js`
-* `AST_generic.ml`
+
+- `Parse_foo_tree_sitter.ml` (2 windows)
+- `grammar.js`
+- `AST_generic.ml`
 
 The last file `AST_generic.ml` contains the type definitions of the
 AST we're mapping to.

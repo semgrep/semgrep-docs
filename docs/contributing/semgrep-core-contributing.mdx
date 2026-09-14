@@ -10,7 +10,7 @@ This document assumes you are building on MacOS and have already installed the H
 
 ### Check out the code
 
-Begin by cloning the Semgrep repo from Git. Each parser's tree-sitter code is managed as a separate submodule, so pass `--recurse-submodules` to ensure they are cloned as well.
+Begin by cloning the Semgrep repo from Git.
 
 ```bash
 git clone --recurse-submodules https://github.com/semgrep/semgrep
@@ -24,7 +24,6 @@ git submodule update --init --recursive
 ```
 
 ### Prerequisites
-
 
 `semgrep-core` is written primarily in OCaml. You must [install OCaml](https://opam.ocaml.org/doc/Install.html) and its package manager OPAM, and pin the current compiler version. On MacOS, it is done through the following steps:
 
@@ -70,7 +69,7 @@ Next, to install `semgrep-core`, run
 make core
 ```
 
-Finally, test the installation with 
+Finally, test the installation with
 
 ```bash
 bin/semgrep-core -help
@@ -81,7 +80,7 @@ If you would like to finish the Semgrep installation, return to the
 
 ### Rebuild after a change
 
-Unless there is a significant dependency change, you won't need to run `make dev-setup` again. 
+Unless there is a significant dependency change, you won't need to run `make dev-setup` again.
 
 The Semgrep team has provided useful targets to help you build and link the entire semgrep project, including both `semgrep-core` and `semgrep`. You may find these helpful.
 
@@ -103,11 +102,11 @@ After making either of these targets, `semgrep` runs with all your local changes
 Because this updates the `semgrep` binary, if you do not have your Python environment configured properly, you will encounter errors when running these commands. Follow the procedure under [Development](#development)
 ```
 
-## Development 
+## Development
 
 In practice, it is not always convenient to use `make build` or `make rebuild`. `make rebuild` will update everything within the project; `make build` will compile and install all the binaries. You can do this yourself in a more targeted fashion.
 
-Below is a flow appropriate for frequent developers of `semgrep-core` 
+Below is a flow appropriate for frequent developers of `semgrep-core`
 
 After you pull, run
 
@@ -141,7 +140,7 @@ This will build an executable for `semgrep-core` in `_build/default/src/main/Mai
 _build/default/src/main/Main.exe -help
 ```
 
-When you are done, test your changes with 
+When you are done, test your changes with
 
 ```bash
 make core-test
@@ -188,7 +187,7 @@ code .
 
 #### Interpret the result object
 
-For full timing information, run Semgrep with `--time` and `--json` flags. In addition, you can add `time` at the beginning of the command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended. 
+For full timing information, run Semgrep with `--time` and `--json` flags. In addition, you can add `time` at the beginning of the command to get the true wall time. The `--json` argument produces a large amount of output, so redirecting the output to a file with `-o` is recommended.
 
 See the following example for the full command:
 
@@ -201,9 +200,10 @@ Substitute the optional placeholder `PATH/TO/SRC` with the path to your source c
 Here is an example result object.
 
 ```json expandable
-      { "results": [], 
-        "paths": {},
-        "errors": [],
+{
+  "results": [],
+  "paths": {},
+  "errors": [],
   "time": {
     "max_memory_bytes": 48693248,
     "profiling_times": {
@@ -220,13 +220,9 @@ Here is an example result object.
     "rules_parse_time": 0.0013418197631835938,
     "targets": [
       {
-        "match_times": [
-          5.9604644775390625e-06
-        ],
+        "match_times": [5.9604644775390625e-6],
         "num_bytes": 340,
-        "parse_times": [
-          0.0071868896484375
-        ],
+        "parse_times": [0.0071868896484375],
         "path": "test_functions.java",
         "run_time": 0.011521100997924805
       }
@@ -239,9 +235,10 @@ Here is an example result object.
 All the information about timing is contained under `time`.
 
 The first section is `profiling_times`. This contains wall time durations of various relevant steps:
-* Getting the rule config files (`config_time`)
-* Running the main engine (`core_time`)
-* Processing the ignores (`ignores_time`) 
+
+- Getting the rule config files (`config_time`)
+- Running the main engine (`core_time`)
+- Processing the ignores (`ignores_time`)
 
 The `total_time` field represents the sum of these steps.
 
@@ -278,6 +275,7 @@ a short profile of the code. For example, running:
 cd semgrep-core
 ./bin/semgrep-core -profile -e foo tests/python
 ```
+
 will output:
 
 ```bash
@@ -296,7 +294,9 @@ cd semgrep-core
 export SEMGREP_CORE_PROFILE=1
 ./bin/semgrep-core -e foo tests/python
 ```
+
 will output:
+
 ```bash
 ---------------------
 profiling result
@@ -314,14 +314,15 @@ Note that since semgrep 0.82, you can pass the `--dump-command-for-core` (or the
 ```bash
 semgrep --dump-command-for-core --config bench/zulip/input/rules/zulip/rules.zulip.semgrep.yml.yaml bench/zulip/input/zulip/
 ```
+
 will output:
+
 ```bash
 Running 10 rules...
 /home/pad/github/semgrep/cli/src/semgrep/bin/semgrep-core -json -rules semgrep_rules.yaml -j 20 -targets semgrep_targets.txt -timeout 30 -timeout_threshold 0 -max_memory 0 -json_time -fast
 ```
 
 where `semgrep_rules.yaml` and `semgrep_targets.txt` are files created by `semgrep` that respectively contain the list of rules and targets. It is easy then to copy-paste this command and possibly add a `-profile` or `-debug` to get more information.
-
 
 You can also use the SEMGREP_CORE_DEBUG environment variable to add debugging
 information, for example:
@@ -331,7 +332,9 @@ export SEMGREP_CORE_DEBUG=1
 export SEMGREP_CORE_PROFILE=1
 pipenv run semgrep -f ../semgrep-core/tests/PERF/ajin.yaml ../semgrep-core/tests/PERF/three.js
 ```
+
 will output:
+
 ```bash
 Debug mode On
 Executed as: semgrep-core -lang javascript -rules_file /tmp/tmpy5pzp3p_ -j 8 ../semgrep-core/tests/PERF/three.js
@@ -363,7 +366,6 @@ If you are concerned about performance, the recommended way to test is to hide y
 
 You can also test the impact of your change by running `./run_benchmarks --std_only` in `perf`, which will only run the default version of semgrep.
 
-
 In these next sections we will give an overview of `semgrep-core` and then some tips for making common changes to `semgrep-core`. These are only tips; without seeing an error, we cannot know its cause and proper resolution, but hopefully it gives useful direction.
 
 ## Cheatsheet
@@ -372,22 +374,23 @@ The following assume you are in the root of the repository.
 
 Compilation:
 
-* To compile: `make`
-* To run the test suite: `make test`
-* To install the `semgrep-core` binary: `make install`
-* The `semgrep-core` executable produced by `make`: `_build/default/src/main/Main.exe` (alias `sc`)
+- To compile: `make`
+- To run the test suite: `make test`
+- To install the `semgrep-core` binary: `make install`
+- The `semgrep-core` executable produced by `make`: `_build/default/src/main/Main.exe` (alias `sc`)
 
 Running (examples in Python):
 
-* To match a rule file against a target: `sc -rules [your-rule].yaml [your-target].py -lang python`
-* To match a pattern against a target: `sc -f [your-pattern].sgrep [your-target].py -lang python`
-* To dump a pattern AST: `sc -dump_pattern [your-pattern].sgrep -lang python`
-* To dump a target AST: `sc -dump_ast [your-target].py -lang python` 
-* To dump a pattern Python AST: `pf -dump_python [your_pattern].sgrep -sgrep_mode -lang python`
-* To dump a target Python AST: `pf -dump_python [your_pattern].sgrep -lang python`
+- To match a rule file against a target: `sc -rules [your-rule].yaml [your-target].py -lang python`
+- To match a pattern against a target: `sc -f [your-pattern].sgrep [your-target].py -lang python`
+- To dump a pattern AST: `sc -dump_pattern [your-pattern].sgrep -lang python`
+- To dump a target AST: `sc -dump_ast [your-target].py -lang python`
+- To dump a pattern Python AST: `pf -dump_python [your_pattern].sgrep -sgrep_mode -lang python`
+- To dump a target Python AST: `pf -dump_python [your_pattern].sgrep -lang python`
 
 Debugging:
-* To get the semgrep-core command the python wrapper will use: `semgrep --dump-command-for-core --config [your-config] [your-target-directory]`
+
+- To get the semgrep-core command the python wrapper will use: `semgrep --dump-command-for-core --config [your-config] [your-target-directory]`
 
 Try it out: `sc -f tests/python/dots_stmts.sgrep tests/python/dots_stmts.py -lang python`
 
@@ -405,8 +408,8 @@ When invoked by `semgrep`, `semgrep-core` is called by default with `-config`. T
 
 When `semgrep-core` receives a rule or a target, it will first need to parse it. The functions that do this are located in `src/parsing/`.
 
-* If it reads a rule, it will go through `Parse_rule.ml`, which uses `Parse_pattern.ml` to parse the code-like portions of the rule
-* If it reads a target, it will go through `Parse_target.ml`
+- If it reads a rule, it will go through `Parse_rule.ml`, which uses `Parse_pattern.ml` to parse the code-like portions of the rule
+- If it reads a target, it will go through `Parse_target.ml`
 
 Depending on the language, `Parse_pattern.ml` and `Parse_target.ml` will invoke parsers to parse the code. For example, if we have Java code, it will first be parsed into a Java-specific AST.
 
@@ -420,14 +423,14 @@ The functions for this conversion are in `languages/[LANG]/generic/`. They are n
 
 The matching functions are contained in `src/engine/` (e.g. `Match_rules.ml`, `Match_patterns.ml`) and `src/matching/` (e.g. `Generic_vs_generic.ml`). There are several possible matchers to invoke
 
-* spacegrep (for generic mode)
-* regexp (to match by regexp instead of semgrep patterns)
-* comby (an experimental mode for languages we don't yet support)
-* pattern (the main mode)
+- spacegrep (for generic mode)
+- regexp (to match by regexp instead of semgrep patterns)
+- comby (an experimental mode for languages we don't yet support)
+- pattern (the main mode)
 
 We will only talk about the last for now. In most cases, `Match_rules.ml` will invoke the `check` function in `Match_patterns.ml`. This will visit the target AST and try to match the pattern to it at each point. If the pattern and the target node correspond, it will call the relevant function in `Generic_vs_generic.ml`.
 
-The core of the matching is done by `Generic_vs_generic.ml`. The logic for whether two expressions, statements, etc. match is contained within this file. 
+The core of the matching is done by `Generic_vs_generic.ml`. The logic for whether two expressions, statements, etc. match is contained within this file.
 
 ### Report results
 
@@ -435,17 +438,18 @@ The results of the match will be returned to the calling function in `Main.ml` (
 
 There are two modes for outputting: JSON and text. JSON output is processed by functions in `JSON_report.ml` in `semgrep-core/src/reporting/`
 
-## Fix a parse error 
+## Fix a parse error
 
 Before you start fixing a parse error, you need to know what parser was used. This bears some explanation.
 
 ### Guide to parsers
 
 The parsers used by semgrep fall into these categories:
-* legacy parsers (pfff): implemented directly in OCaml via a parser generator
-* tree-sitter parsers: third-party parsers implemented as
+
+- legacy parsers (pfff): implemented directly in OCaml via a parser generator
+- tree-sitter parsers: third-party parsers implemented as
   [tree-sitter](https://tree-sitter.github.io/) grammars
-* generic parser (spacegrep): fallback for unsupported languages,
+- generic parser (spacegrep): fallback for unsupported languages,
   comes with its own matching engine
 
 For each language, we need a parser for target files and a parser for
@@ -454,18 +458,18 @@ parser. For historical reasons, some languages use a legacy
 parser for patterns and a tree-sitter parser for target code.
 Here's the breakdown by language as of February 2021:
 
-* legacy parser for both pattern and target:
+- legacy parser for both pattern and target:
   - OCaml
   - PHP
   - Python
-* legacy parser for pattern, tree-sitter parser for target:
+- legacy parser for pattern, tree-sitter parser for target:
   - C
   - Go
   - Java
   - JavaScript, JSX, JSON
   - Ruby
   - TypeScript, TSX
-* tree-sitter parser for both pattern and target:
+- tree-sitter parser for both pattern and target:
   - C#
   - Kotlin
   - Lua
@@ -484,11 +488,11 @@ Text -- (via `Lexer_python.mll`) --> Tokens -- (via `Parser_python.mly`) --> `As
 
 These files live in different places. Specifically,
 
-* `Lexer_python.mll` is in `semgrep-core/src/pfff/lang_python/parsing`
-* `Parser_python.mly` is in `semgrep-core/src/pfff/lang_python/parsing`
-* `AST_python.ml` is in `semgrep-core/src/pfff/lang_python/parsing`
-* `Python_to_generic.ml` is in `semgrep-core/src/parsing/pfff`
-* `AST_generic.ml` is in `semgrep-core/src/core/ast`
+- `Lexer_python.mll` is in `semgrep-core/src/pfff/lang_python/parsing`
+- `Parser_python.mly` is in `semgrep-core/src/pfff/lang_python/parsing`
+- `AST_python.ml` is in `semgrep-core/src/pfff/lang_python/parsing`
+- `Python_to_generic.ml` is in `semgrep-core/src/parsing/pfff`
+- `AST_generic.ml` is in `semgrep-core/src/core/ast`
 
 You will notice that the first three, `Lexer_python.mll`, `Parser_python.mly`, and `AST_python.ml` are in `semgrep-core/src/pfff/`, which is a submodule. This means that when you modify them, you modify the submodule rather than `semgrep-core`. You can develop as usual---`pfff` is compiled when you run `make` in `semgrep-core/`---but will need to go through an extra step to make a pull request (explained later).
 
@@ -500,26 +504,26 @@ The lexers and parsers apply for both patterns and targets of a given language. 
 
 #### Identify the error
 
-The source of the error can be anywhere along the Text --> `AST_generic` path, so you will want to identify which file is causing it. 
+The source of the error can be anywhere along the Text --> `AST_generic` path, so you will want to identify which file is causing it.
 
-First, create a minimum failing case. If you are debugging a rule, isolate this to an individual pattern if possible, saved in a `.sgrep` file. 
+First, create a minimum failing case. If you are debugging a rule, isolate this to an individual pattern if possible, saved in a `.sgrep` file.
 
-For simplicity, we will use Python in the examples, but you can substitute Python for any language parsed with `pfff`. 
+For simplicity, we will use Python in the examples, but you can substitute Python for any language parsed with `pfff`.
 
-If the problem is in `Lexer_python.mll`, you will probably get a helpful error message which should tell you what you need to change. 
+If the problem is in `Lexer_python.mll`, you will probably get a helpful error message which should tell you what you need to change.
 
 If the problem is in `Parser_python.mly`, you will probably not get a helpful error message, because the error will be reported in the generated parser, not the grammar. To identify which production within the grammar is problematic, you will want to see what AST the parser is trying to produce. Modify the failing case minimally until it parses successfully.
 
 Now, you need to see what generic AST is produced by this similar code. You can actually do this in the playground, by going to Tools -> Dump AST. On the command line, you can run
 
-* For a pattern: 
-   ```bash
-   sc -dump_pattern -f [your_pattern].sgrep -lang python
-   ```
-* For a target: 
-   ```bash
-   sc -dump_ast [your_target].py -lang python
-   ```
+- For a pattern:
+  ```bash
+  sc -dump_pattern -f [your_pattern].sgrep -lang python
+  ```
+- For a target:
+  ```bash
+  sc -dump_ast [your_target].py -lang python
+  ```
 
 where `sc` is an alias for `semgrep-core/_build/default/src/cli/Main.exe`, the executable produced by running `make` in `semgrep-core/`. If you have installed `semgrep-core`, you can instead use `semgrep-core` here, but each time you make a change you will need to compile (`make`) and then install (`make install`).
 
@@ -529,11 +533,11 @@ You may also find it useful to see the Python AST representation of the pattern.
 
 To dump the Python AST, run
 
-* For a pattern: 
+- For a pattern:
   ```bash
   pf -dump_python [your_pattern].sgrep -sgrep_mode -lang python
   ```
-* For a target: 
+- For a target:
   ```bash
   pf -dump_python [your_target].py -lang python
   ```
@@ -576,7 +580,7 @@ Remember to add test cases so that future changes don't break your example! See 
 
 ### Fix a Tree-sitter parse error
 
-There is more information in [Add Support for a Language](#add-support-for-a-language) on tree-sitter which will be helpful. Also, see `semgrep-core/src/parsing/tree-sitter/`.  
+There is more information in [Add Support for a Language](#add-support-for-a-language) on tree-sitter which will be helpful.
 
 ## Fix a match error
 
@@ -596,7 +600,7 @@ and then
 sc -dump_pattern [your_pattern].sgrep -lang py
 ```
 
-It can be hard to figure out where in the AST you are looking. You can make it easier by using a distinctive variable name in the section you're interested in. 
+It can be hard to figure out where in the AST you are looking. You can make it easier by using a distinctive variable name in the section you're interested in.
 
 Once you've isolated the parts that aren't matching, try to figure out where they're different, taking into account special features like metavariables and ellipses. It is unlikely (though not impossible) that the problem would ever be that two identical code segments aren't matching or that there is some AST element that ellipses refuse to match. You might find it helpful to write out the AST parts you want to match on a whiteboard, indicating which part is matched by a special feature. Pare down the code as much as possible and try changing the bit you're interested in.
 
@@ -618,7 +622,7 @@ Rule-defined fix runs through both `semgrep-core` and `semgrep`, but the most co
 sc -full_token_info -dump_ast [your_target].py -lang py
 ```
 
-See [Fix a Parse Error](#fix-a-parse-error) for more on parsing 
+See [Fix a Parse Error](#fix-a-parse-error) for more on parsing
 
 ## Debugging resources
 
@@ -640,16 +644,11 @@ There are some cases where we have chosen to implement a new parser in `pfff`, b
 
 ### Tree-Sitter parsers
 
-Tree-sitter parsers exist as individual public projects. They are
-shared with other users of tree-sitter outside of semgrep. Our
-[ocaml-tree-sitter](https://github.com/semgrep/ocaml-tree-sitter-semgrep)
-project adds the necessary extensions for supporting semgrep patterns
-(ellipsis `...` and such). It also contains the machinery for turning
-a tree-sitter grammar into a usable, typed concrete syntax tree (CST).
-
-For example, for the Kotlin language we have:
-* input: [tree-sitter-kotlin](https://github.com/fwcd/tree-sitter-kotlin)
-* output: [semgrep-kotlin](https://github.com/semgrep/semgrep-kotlin)
+Upstream tree-sitter grammars are public projects shared outside Semgrep.
+Pins, Semgrep pattern extensions (ellipsis `...` and such), and the
+machinery that turns a grammar into a typed concrete syntax tree (CST)
+live in `libs/ocaml-tree-sitter-semgrep/`. Generated parser packages live
+under `languages/<LANG>/tree-sitter/semgrep-<dest>/`.
 
 Assuming the tree-sitter grammar works well enough, most of the work
 consists in mapping the CST to the generic abstract syntax tree (AST)
@@ -658,7 +657,22 @@ shared by all languages in semgrep.
 These guides go over the integration work in more details:
 
 <CardGroup>
-  <Card title="How to add support for a new language" icon="language" href="/contributing/adding-a-language" horizontal />
-  <Card title="How to upgrade the grammar for a language" icon="arrows-retweet" href="/contributing/updating-a-grammar" horizontal />
-  <Card title="Tips for converting CST to generic AST" icon="code-branch" href="contributing/cst-to-ast-tips" horizontal />
+  <Card
+    title="How to add support for a new language"
+    icon="language"
+    href="/contributing/adding-a-language"
+    horizontal
+  />
+  <Card
+    title="How to upgrade the grammar for a language"
+    icon="arrows-retweet"
+    href="/contributing/updating-a-grammar"
+    horizontal
+  />
+  <Card
+    title="Tips for converting CST to generic AST"
+    icon="code-branch"
+    href="/contributing/cst-to-ast-tips"
+    horizontal
+  />
 </CardGroup>
