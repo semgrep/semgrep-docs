@@ -33,8 +33,8 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Go modules (<code>go mod</code>)</td>
    <td><code>go.mod</code></td>
 </tr>
-<tr rowspan="2">
-   <td rowspan="2">Java</td>
+<tr rowspan="3">
+   <td rowspan="3">Java</td>
    <td>Gradle</td>
    <td><code>gradle.lockfile</code> <b>or</b> <br /><code>build.gradle</code> or
    <code>build.gradle.kts</code> through <a
@@ -46,6 +46,10 @@ The following table lists all Semgrep-supported package managers for each langua
    <td>Maven-generated dependency tree (see <a href="/docs/semgrep-supply-chain/setup-maven/">Setting up SSC scans for Apache Maven</a> for instructions) <b>or</b> <br /><code>pom.xml</code> through <a
    href="/docs/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta">Dynamic
    Dependency Resolution</a>.</td>
+  </tr>
+  <tr>
+   <td>Bazel (<code>rules_jvm_external</code>)</td>
+   <td><code>maven_install.json</code> with a <code>MODULE.bazel</code>, <code>WORKSPACE</code>, or <code>WORKSPACE.bazel</code> file. Findings are attributed to the workspace root. Transitivity is <strong>Unknown</strong> when it is not available.</td>
   </tr>
   <tr>
    <td rowspan="3">JavaScript or TypeScript</td>

@@ -1,0 +1,76 @@
+---
+title: "Week of September 7, 2026"
+description: "Updates made to Semgrep during the week of September 7-13, 2026."
+sidebarTitle: "Week of September 7, 2026"
+---
+
+## 🌐 Semgrep AppSec Platform
+
+### Changed
+
+- The **Reporting** page and analytics no longer include findings from archived projects.
+- When Semgrep cannot open an [Autofix](/semgrep-code/triage-remediation/autofix) pull request, the Autofix actions stay visible in the findings menu and explain why, such as missing [source code manager permissions](/semgrep-appsec-platform/scm-code-access) or an ineligible finding.
+- Improved scan configuration generation. Scans now start sooner.
+
+### Fixed
+
+- Fixed an issue where **Select all** in [bulk triage](/semgrep-code/triage-remediation) ignored the active team or project filter, so [Jira](/semgrep-appsec-platform/jira) tickets were created for every finding rather than the filtered set.
+- Fixed an issue where [Suggested fix](/semgrep-multimodal/overview#suggested-fix) showed **Want code? Generate draft Autofix PR** when [Autofix](/semgrep-code/triage-remediation/autofix) was unavailable, so the action did nothing.
+- Fixed an issue where a [source code manager connection](/deployment/connect-scm) could be deleted without a user or API request when a deployment had two connections to different hosts that shared an identifier.
+- Fixed an issue where an organization that had already migrated to [Unified Policies](/semgrep-appsec-platform/unified-policies/overview) could be migrated again, reverting policy changes made since the migration.
+- Fixed an issue where Semgrep did not retry a pull request comment after a failed post.
+- Fixed an issue where clicking **New team** on **Settings > Teams** crashed the page.
+- Fixed an issue where creating a [token](/deployment/tokens) selected an inconsistent default role, and where filtering tokens by the **Web API** scope also returned read-only tokens.
+
+## 💻 Semgrep Code
+
+### Changed
+
+- Improved performance for rules that use only regular expressions. Semgrep now skips files that do not contain a required literal, so a rule that requires `FOOBAR` does not run on files that lack `FOOBAR`.
+- Semgrep now runs string checks before regular expressions when deciding whether a file can match a rule. Files that a string check already includes or excludes skip the regular expression, which was slow on files with very long lines.
+
+### Fixed
+
+- Fixed an issue where Semgrep crashed if `HTTP_PROXY`, `HTTPS_PROXY`, or `ALL_PROXY` was set to an unusable value. An empty value is ignored with a warning and the scan continues without a proxy. An invalid value now exits with an error that redacts credentials in the URL, and a proxy URL without a scheme now gets one.
+- Fixed an issue where `semgrep ci` filtering was slow for deployments with many triage-ignored findings.
+
+## ⛓️ Semgrep Supply Chain
+
+### Added
+
+- Semgrep Supply Chain now scans Bazel workspaces that manage their Java dependencies with `rules_jvm_external`, without a separate step to generate a Maven dependency tree. Semgrep detects these workspaces during a normal scan when a pinned `maven_install.json` lockfile is present with a `MODULE.bazel` file, or a legacy `WORKSPACE` or `WORKSPACE.bazel` file. This is the first step toward native Bazel support. Workspaces that use `rules_python`, `rules_go`, or `rules_js` are not yet covered, and reachability analysis is not yet Bazel-aware.
+- Added Supply Chain incident triggers to the **Logs** tab for [remediation policies](/semgrep-appsec-platform/unified-policies/get-started#create-a-remediation-policy). Entries triggered by an incident show **From Supply Chain incident**. Demo and dry runs are not recorded.
+
+### Fixed
+
+- Fixed an issue where a Gradle [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) scan could succeed with an incomplete dependency list if a private registry rejected a request.
+- Fixed an issue where Gradle scans that use AWS CodeArtifact failed because requests went through the [Semgrep Network Broker](/semgrep-ci/network-broker) and were rejected.
+- Fixed an issue where [Dynamic Dependency Resolution](/semgrep-supply-chain/set-up-and-configure#dynamic-dependency-resolution-beta) scans failed with an unclear error, or finished without private registry configuration, when Semgrep took too long to fetch private registry authentication. Semgrep now waits up to 10 seconds for that request.
+- Fixed an issue where [Supply Chain Autofix](/semgrep-supply-chain/autofix) failed on repositories that use the [Semgrep Network Broker](/semgrep-ci/network-broker) because clone requests did not go through the broker.
+- Fixed an issue where saving [Upgrade Guidance](/semgrep-supply-chain/upgrade-guidance) for a large monorepo failed, and no Upgrade Guidance was saved.
+
+## 🤖 Semgrep Multimodal
+
+### Added
+
+- Organizations on the [minimal data retention policy](/semgrep-multimodal/privacy#minimal-data-retention-policy-optional) can now run all nine pre-built [Agentic Workflows](/workflows/overview). Semgrep does not log code or prompts for observability on these deployments. Workflows outside the pre-built set must declare support for minimal data retention before they can run on these deployments.
+- Added a newer run banner to superseded pull request jobs on **Workflow jobs**. The banner shows the status and start time of the latest run for the same pull request and links to it, and it appears while the newer run is still in progress.
+
+### Changed
+
+- **Workflow jobs** lists and job details now show only jobs for projects a user can access.
+- **Workflow issues** lists, groups, and counts now show only issues for repositories a user can access. On deployments that use [Teams](/deployment/teams/overview), ticket creation follows the same scope as triage.
+
+### Fixed
+
+- Fixed an issue where the ignore reason and comment selected during triage were discarded for **Admins** and for deployments without [Teams](/deployment/teams/overview).
+- Fixed an issue where a finding from a scan, rather than a workflow run, linked to a job page that did not exist. Findings now link to their scan or their job, and findings with no recorded source have no link.
+- Fixed an issue where an Agentic Workflows issue could show a file from the current default branch instead of the scanned commit, and prompted users to reconnect a source code manager that was already working. The **Settings** link now appears only when the repository is disconnected or inaccessible.
+
+## 🔧 Semgrep Community Edition
+
+The following versions of Semgrep Community Edition were released during the week of September 7-13, 2026:
+
+<CardGroup>
+  <Card title="1.177.0" icon="code-branch" href="https://github.com/semgrep/semgrep/releases/tag/v1.177.0" horizontal />
+</CardGroup>
