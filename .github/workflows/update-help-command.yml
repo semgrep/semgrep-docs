@@ -38,6 +38,9 @@ jobs:
           SNIPPET_DIR=docs/snippets/cli-reference
           mkdir -p "$SNIPPET_DIR"
 
+          # The opening fence is required. Without it, Mintlify renders the
+          # help dump as prose (line breaks collapse). Angle brackets inside
+          # the fence do not need escaping.
           write_help() {
             local out="$1"
             shift

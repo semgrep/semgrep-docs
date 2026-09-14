@@ -13,6 +13,7 @@ Examples of inbound traffic include:
 
 - [Pull request comments](/category/pr-or-mr-comments)
 - Code access for [Semgrep Managed Scans](/deployment/managed-scanning/overview) if enabled
+- [Autofix](/semgrep-code/triage-remediation/autofix) pull requests and merge requests
 - [Webhooks](/semgrep-appsec-platform/webhooks)
 
 ## Feature availability
@@ -225,7 +226,7 @@ inbound:
 Convert your organization ID to hexadecimal. The organization ID is found in Semgrep AppSec Platform under [**Settings > General > Identifiers**](https://semgrep.dev/orgs/-/settings/general/identifiers) in Semgrep AppSec Platform. This is sometimes also called a deployment ID. You can use a tool such as [Decimal to Hexadecimal converter](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to perform the conversion if needed.
 </Step>
 <Step>
-Embed the resulting hexadecimal value in the string `fdf0:59dc:33cf:9be8:0:ORGANIZATION_ID:0:1`, replacing `ORGANIZATION_ID` with the value.
+Embed the resulting hexadecimal value in the string `fdf0:59DC:33cf:9be8:0:ORGANIZATION_ID:0:1`, replacing `ORGANIZATION_ID` with the value.
 </Step>
 <Step>
 Update the `localAddress` field of `config.yaml`, replacing `SEMGREP_LOCAL_ADDRESS` with the string you generated in Step 2.
@@ -370,6 +371,17 @@ inbound:
 ```
 
 Semgrep creates and updates PR and MR status checks and verifies the existence of branches to be scanned when performing Managed Scans. To ensure access to these endpoints for all source code managers, upgrade to Semgrep Network Broker 0.41.0 or later.
+
+## Use Semgrep Network Broker with Autofix
+
+To use [Autofix](/semgrep-code/triage-remediation/autofix) through the Network Broker:
+
+1. Upgrade to Network Broker 0.45.2 or later. Older versions return a 403 allowlist error.
+2. Set `allowCodeAccess` to `true` for that SCM. This setting defaults to `false`. See [Use Semgrep Network Broker with Managed Scans](#use-semgrep-network-broker-with-managed-scans) for examples.
+
+Grant Semgrep [read and write access](/semgrep-appsec-platform/scm-code-access) on the SCM connection.
+
+If you don't want Semgrep to write to your repositories, leave `allowCodeAccess` unset or set it to `false`.
 
 ## Use Semgrep Network Broker for private registry access
 
