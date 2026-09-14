@@ -77,8 +77,8 @@
                   "deployment/create-account-and-orgs",
                   "deployment/sso",
                   "deployment/connect-scm",
-                  "semgrep-appsec-platform/scm-code-access",
                   "deployment/prepare/scm-permissions",
+                  "semgrep-appsec-platform/scm-code-access",
                   "deployment/prepare/network-access",
                   {
                     "group": "Scan repositories with the AppSec Platform",
