@@ -10,6 +10,17 @@ If you've configured the **Early notification for Supply Chain incidents** polic
 
 You are notified every time Semgrep declares a new supply chain incident, whether or not any of your projects use the affected packages.
 
+For eligible projects, Semgrep starts a new Supply Chain scan when it declares the incident. This ensures that the results in Semgrep AppSec Platform reflect the current state of your code. To reduce scan time, Semgrep runs only the rules associated with the incident, leaving your other Supply Chain findings unchanged.
+
+<Note>
+A project is scanned automatically when it meets all of the following conditions:
+
+* The project is onboarded to [Semgrep Managed Scans](/deployment/managed-scanning/overview) and set up to run Supply Chain scans.
+* At least one of the project's dependencies belongs to an ecosystem affected by the incident. For example, during an `npm` compromise, projects with `npm` dependencies are rescanned.
+
+Projects that don't meet these conditions are still checked against your most recent dependency data for the notification itself. To scan them, see [Initiate scans on potentially affected projects](/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules).
+</Note>
+
 ## Prerequisites
 
 Ensure that: 
@@ -64,7 +75,7 @@ Every notification includes a **View incident advisories** button that takes you
 Click **View incident advisories** to see the list of related advisories, including compromised packages and versions.
 </Step>
 <Step>
-If your notification lists affected projects, [initiate a scan](/kb/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules) on them to confirm and get up-to-date findings.
+If your notification lists affected projects, [initiate a scan](/semgrep-supply-chain/incident-response#3-initiate-scans-on-potentially-affected-projects-with-semgrep-rules) on them to confirm and get up-to-date findings. Projects that are eligible for automatic rescanning are already being scanned, so you don't need to start those scans yourself.
 </Step>
 <Step>
 Remove or upgrade any compromised dependencies you find, then re-scan to confirm the findings clear. See [Detect and remove malicious dependencies](/semgrep-supply-chain/malicious-dependencies#triage-and-remediation-for-malicious-dependencies) for remediation guidance.
@@ -77,7 +88,7 @@ Remove or upgrade any compromised dependencies you find, then re-scan to confirm
   <Card
     title="Malware incident response with Semgrep Supply Chain"
     icon="life-ring"
-    href="/kb/semgrep-supply-chain/incident-response"
+    href="/semgrep-supply-chain/incident-response"
     horizontal
   />
   <Card
